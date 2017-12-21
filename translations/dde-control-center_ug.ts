@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>قۇرۇق</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>تولۇق ئىسمىنى ئۆزگەرتىش</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
@@ -256,7 +256,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>پارولسىز كىرىش</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -266,12 +266,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>نۆۋەتتىكى تىزىملىنىپ كىرىپ بولغان ئەزانى ئۆچۈرۈشكە بولمىدى</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>بارماق ئىزى پارولى</translation>
     </message>
 </context>
 <context>
@@ -306,22 +306,22 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>بارماق ئىزى قوشۇش</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>قايتا كىرگۈزۈش</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>تامام</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>بارماق ئىزىنى دەلىللەۋاتىدۇ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
@@ -336,7 +336,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>قوشۇش مۇۋەپپەقىيەتلىك بولدى</translation>
     </message>
 </context>
 <context>
@@ -394,32 +394,32 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>بارماق ئىزى تىزىملىكى</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>بارماق ئىزى پارولى</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>بارماق ئىزى قوشۇش</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>بارماق ئىزىنى چىقىرۋىتىش</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation type="unfinished"/>
+        <translation>بارماق ئىزى ئارقىلىق دەلىللەش سىستېمىغا كىرىش، پىروگراممىلارغا ھوقۇق بېرىش ۋە باشقا بىخەتەرلىك دەلىللەش ئۇسۇللىرىغا ئىشلىتىلىدۇ، بارماق ئىزىنى سىكاننېرلىغاندا پارول تەلەپ قىلىدۇ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>بارماق ئىزى</translation>
     </message>
 </context>
 <context>
@@ -427,17 +427,17 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>تولۇق ئىسمى:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
         <source>OK</source>
-        <translation>جەزملەش</translation>
+        <translation>جەزىملەشتۈرۈش</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>تولۇق ئىسىم تەڭشەكلىرى</translation>
     </message>
 </context>
 <context>
@@ -1277,28 +1277,76 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>مائۇس</translation>
     </message>
     <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <source>TrackPoint</source>
+        <translation>ئىز قوغلىغۇچ تېزلىكى</translation>
+    </message>
+    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
+        <source>Left Hand</source>
+        <translation>سول ئىسترېلكا</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
+        <source>Disable the touchpad while typing</source>
+        <translation>خەت يېزىۋاتقاندا سېزىمچان تاختا ئىشلىمىسۇن</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
+        <source>Double-click Speed</source>
+        <translation>قوش چېكىش تېزلىكى</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="63"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="69"/>
+        <source>Pointer Speed</source>
+        <translation>ئىسترېلكا تېزلىكى</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Scroll speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>مائۇس ئۇلىسىڭىز سېزىمچان تاختا توختىتىلىدۇ</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Slow</source>
+        <translation>كۆرسىتىش</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Fast</source>
+        <translation>تېز</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
         <translation>سېزىمچان تاختا</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
+        <source>Natural Scrolling</source>
+        <translation>مائۇس غالتىكىنى سىيرىلىش</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
         <source>Tap to Click</source>
         <translation>چېكىپ بىلىۋېلىڭ</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
         <source>Mouse and Touchpad</source>
         <translation>مائۇس ۋە سېزىمچان تاختا</translation>
     </message>
@@ -1359,7 +1407,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="43"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>يۇمشاق دېتال ۋاكالەتچىلىكى</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
@@ -1369,7 +1417,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP ئادېرىس</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
@@ -1391,7 +1439,7 @@
         <location filename="../modules/network/chainsproxypage.cpp" line="58"/>
         <location filename="../modules/network/chainsproxypage.cpp" line="62"/>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>ئىختىيارىي</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
@@ -1437,7 +1485,7 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="137"/>
         <source>Export</source>
-        <translation type="unfinished"/>
+        <translation>چىقىرۋىلىش</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
@@ -1461,12 +1509,12 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation type="unfinished"/>
+        <translation>ھەمبەھىر نۇقتىسى تەڭشەكلىرى</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>ھەمبەھىر نۇقتىسى</translation>
     </message>
 </context>
 <context>
@@ -1479,7 +1527,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>ھەمبەھىر نۇقتىسى</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
@@ -1531,7 +1579,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
         <source>IPv6 Address</source>
-        <translation type="unfinished"/>
+        <translation>IPv6 ئادرېسى</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
@@ -1592,7 +1640,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>يۇمشاق دېتال ۋاكالەتچىلىكى</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
@@ -1633,7 +1681,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="225"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>ھەمبەھىر نۇقتىسى</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
@@ -1760,7 +1808,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPN ئەكىرىش</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="100"/>
@@ -1770,7 +1818,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="261"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>ئەكىرىش مەغلۇپ بولدى</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="263"/>
@@ -1846,12 +1894,12 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
-        <translation type="unfinished"/>
+        <translation>ھەمبەھر نۇقتىسىنى تاقاش</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation type="unfinished"/>
+        <translation>ئەگەر سىمسىز تور شەكلىدە تورغا ئۇلىنىۋاتقان بولسىڭىز تور نۇقتىسى ھەمبەھرىلەش ئىقتىدارىنى تاقىۋىتىڭ</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>
@@ -2291,7 +2339,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
+        <translation>تور ئۇلىنىشى ئۈزۈلدى، ئۇلىغاندىن كىيىن قايتا سىناپ بېقىڭ</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
@@ -2326,12 +2374,12 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
         <source>Downloaded</source>
-        <translation type="unfinished"/>
+        <translation>چۈشۈرۈلدى</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="258"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>چۈشۈرۈش چوڭلۇقى: %1</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="268"/>
@@ -2372,7 +2420,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="55"/>
         <source>Auto clear package cache</source>
-        <translation type="unfinished"/>
+        <translation>يۇمشاق دېتال بولىقى قالدۇقلىرىنى ئاپتوماتىك تازىلاش</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="58"/>
@@ -2422,7 +2470,7 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>قەلەم</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
@@ -2469,7 +2517,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>قەلەم</translation>
     </message>
 </context>
 <context>

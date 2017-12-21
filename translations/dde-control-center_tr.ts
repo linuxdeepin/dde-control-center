@@ -1277,28 +1277,76 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>Fare</translation>
     </message>
     <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <source>TrackPoint</source>
+        <translation>İz İşareti</translation>
+    </message>
+    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
+        <source>Left Hand</source>
+        <translation>Sol El</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
+        <source>Disable the touchpad while typing</source>
+        <translation>Yazarken dokunmatik yüzey devre dışı</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
+        <source>Double-click Speed</source>
+        <translation>Çift Tıklama Hızı</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="63"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="69"/>
+        <source>Pointer Speed</source>
+        <translation>İşaretçi Hızı</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Scroll speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Fare takıldığında dokunmatik yüzey devre dışı</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Slow</source>
+        <translation>Yavaş</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Fast</source>
+        <translation>Hızlı</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
         <translation>Dokunmatik Yüzey</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
+        <source>Natural Scrolling</source>
+        <translation>Doğal Kaydırma</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
         <source>Tap to Click</source>
         <translation>Tıklamak için dokunun</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
         <source>Mouse and Touchpad</source>
         <translation>Fare ve Dokunmatik Yüzey</translation>
     </message>

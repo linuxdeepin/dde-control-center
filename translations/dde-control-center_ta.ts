@@ -1277,28 +1277,76 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <source>TrackPoint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
+        <source>Left Hand</source>
+        <translation>இடது கை</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
+        <source>Disable the touchpad while typing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
+        <source>Double-click Speed</source>
+        <translation>இரு கிளிக் வேகம்</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="63"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="69"/>
+        <source>Pointer Speed</source>
+        <translation>சுட்டிக்காட்டி வேகம்</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Scroll speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>சுட்டி சேர்க்கும் போது டச்பேட் முடக்கவும்</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Fast</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
+        <source>Natural Scrolling</source>
+        <translation>இயற்கை உருட்டுதல்</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
         <source>Tap to Click</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
         <source>Mouse and Touchpad</source>
         <translation>சுட்டி மற்றும் டச்பேட்</translation>
     </message>

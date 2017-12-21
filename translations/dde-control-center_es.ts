@@ -1277,28 +1277,76 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>Ratón</translation>
     </message>
     <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <source>TrackPoint</source>
+        <translation>Punto de búsqueda</translation>
+    </message>
+    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
+        <source>Left Hand</source>
+        <translation>Mano izquierda</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
+        <source>Disable the touchpad while typing</source>
+        <translation>Desactivar el panel táctil mientras escribe</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
+        <source>Double-click Speed</source>
+        <translation>Velocidad de doble clic</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="63"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="69"/>
+        <source>Pointer Speed</source>
+        <translation>Velocidad del puntero</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Scroll speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Desactivar el panel táctil al conectar el ratón</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Slow</source>
+        <translation>Lento</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Fast</source>
+        <translation>Rápido</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
         <translation>Panel táctil</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
+        <source>Natural Scrolling</source>
+        <translation>Desplazamiento natural</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
         <source>Tap to Click</source>
         <translation>Toque para hacer clic</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
         <source>Mouse and Touchpad</source>
         <translation>Ratón y panel táctil</translation>
     </message>
@@ -1308,22 +1356,22 @@
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detect</source>
-        <translation type="unfinished"/>
+        <translation>Detección de Palma</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <source>Minimum contact surface</source>
-        <translation type="unfinished"/>
+        <translation>Superficie de contacto mínima</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <source>Minimum pressure value</source>
-        <translation type="unfinished"/>
+        <translation>Valor de presión mínima</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>Desactive la opción si el panel táctil no funciona después de habilitar</translation>
     </message>
 </context>
 <context>
@@ -2291,7 +2339,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
+        <translation>Red desconectada, por favor vuelva a intentarlo después de conectado</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>

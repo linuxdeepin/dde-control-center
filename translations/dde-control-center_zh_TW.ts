@@ -1277,28 +1277,76 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>滑鼠</translation>
     </message>
     <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <source>TrackPoint</source>
+        <translation>小紅點</translation>
+    </message>
+    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
+        <source>Left Hand</source>
+        <translation>按鍵左右對調</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
+        <source>Disable the touchpad while typing</source>
+        <translation>打字時關閉觸控板</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
+        <source>Double-click Speed</source>
+        <translation>滑鼠連擊速度</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="63"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="69"/>
+        <source>Pointer Speed</source>
+        <translation>游標移動速度</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Scroll speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>接入滑鼠時關閉觸控板</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Slow</source>
+        <translation>慢</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Fast</source>
+        <translation>快</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
         <translation>觸控板</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
+        <source>Natural Scrolling</source>
+        <translation>反向捲動</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
         <source>Tap to Click</source>
         <translation>觸碰點擊</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
         <source>Mouse and Touchpad</source>
         <translation>滑鼠與觸控板</translation>
     </message>

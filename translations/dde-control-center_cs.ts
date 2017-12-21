@@ -414,7 +414,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation type="unfinished"/>
+        <translation>Heslo otiskem prstu se používá při přihlášení se do systému, pověření programu a při jiných činnostech. Nechte sejmout otisk prstu, když je potřeba zadat heslo.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
@@ -765,12 +765,12 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="74"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Noční posun</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation type="unfinished"/>
+        <translation>Odstín obrazovky bude automaticky upraven s pomocí přijití na vaši polohu, aby byly chráněny vaše oči</translation>
     </message>
 </context>
 <context>
@@ -1277,28 +1277,76 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>Myš</translation>
     </message>
     <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <source>TrackPoint</source>
+        <translation>Polohovací zařízení počítače</translation>
+    </message>
+    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
+        <source>Left Hand</source>
+        <translation>Levá ruka</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
+        <source>Disable the touchpad while typing</source>
+        <translation>Zakázat dotykovou plochu při psaní</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
+        <source>Double-click Speed</source>
+        <translation>Rychlost dvojitého klepnutí levým tlačítkem myši</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="63"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="69"/>
+        <source>Pointer Speed</source>
+        <translation>Rychlost ukazovátka</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Scroll speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Zakázat dotykovou plochu při připojení myši</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Slow</source>
+        <translation>Pomalé</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Fast</source>
+        <translation>Rychlé</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
         <translation>Dotyková plocha</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
+        <source>Natural Scrolling</source>
+        <translation>Přirozené posunování</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
         <source>Tap to Click</source>
         <translation>Ťuknutí pro klepnutí</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
         <source>Mouse and Touchpad</source>
         <translation>Myš a dotyková plocha</translation>
     </message>
@@ -1308,22 +1356,22 @@
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detect</source>
-        <translation type="unfinished"/>
+        <translation>Zjištění dlaně</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <source>Minimum contact surface</source>
-        <translation type="unfinished"/>
+        <translation>Nejmenší plocha doteku</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <source>Minimum pressure value</source>
-        <translation type="unfinished"/>
+        <translation>Nejmenší hodnota tlaku</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>Zakažte, prosím, volbu, pokud dotyková plocha po povolení nepracuje</translation>
     </message>
 </context>
 <context>
@@ -1401,7 +1449,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation type="unfinished"/>
+        <translation>Zaškrtnout Otevřít v zastoupení související nabídky programu ve spouštěči, k použití po nastavení</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
@@ -1846,12 +1894,12 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
-        <translation>Zavřít aktivní bod</translation>
+        <translation>Zavřít činný bod</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation type="unfinished"/>
+        <translation>Nejprve, prosím, zakažte sdílení činného bodu, pokud chcete provést přípojení a použít funkci bezdrátové sítě</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>
@@ -2291,7 +2339,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
+        <translation>Síť je odpojena, činnost opakujte po připojení.</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>

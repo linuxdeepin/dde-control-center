@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>না</translation>
     </message>
 </context>
 <context>
@@ -529,7 +529,7 @@
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="42"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
+        <translation>উপেক্ষা করা</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="43"/>
@@ -542,7 +542,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>সংযুক্ত</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
@@ -676,7 +676,7 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="114"/>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>আজকে</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="119"/>
@@ -730,7 +730,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="61"/>
         <source>Terminal</source>
-        <translation type="unfinished"/>
+        <translation>প্রান্তিক</translation>
     </message>
 </context>
 <context>
@@ -809,7 +809,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>প্রদর্শন স্কেলিং</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
@@ -1277,28 +1277,76 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
-        <source>Disable the touchpad when inserting the mouse</source>
+        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <source>TrackPoint</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
-        <source>TouchPad</source>
+        <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
+        <source>Left Hand</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
+        <source>Disable the touchpad while typing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
+        <source>Double-click Speed</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="63"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="69"/>
+        <source>Pointer Speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Scroll speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
+        <source>Disable the touchpad when inserting the mouse</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Fast</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
+        <source>TouchPad</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
         <source>Tap to Click</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
         <source>Mouse and Touchpad</source>
         <translation type="unfinished"/>
     </message>
@@ -1364,7 +1412,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
         <source>Proxy Type</source>
-        <translation type="unfinished"/>
+        <translation>প্রক্সি প্রকার</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
@@ -1380,7 +1428,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Port</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
@@ -1419,7 +1467,7 @@
     <message>
         <location filename="../modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
-        <translation type="unfinished"/>
+        <translation>প্রক্সি প্রকার</translation>
     </message>
 </context>
 <context>
@@ -1484,12 +1532,12 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
         <source>SSID</source>
-        <translation type="unfinished"/>
+        <translation>SSID</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="149"/>
         <source>Security</source>
-        <translation type="unfinished"/>
+        <translation>নিরাপত্তা</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
@@ -1499,7 +1547,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
         <source>Band</source>
-        <translation type="unfinished"/>
+        <translation>দল</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
@@ -1510,18 +1558,18 @@
         <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
         <location filename="../modules/network/networkdetailpage.cpp" line="205"/>
         <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>প্রবেশপথ</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="185"/>
         <location filename="../modules/network/networkdetailpage.cpp" line="210"/>
         <source>Primary DNS</source>
-        <translation type="unfinished"/>
+        <translation>প্রাথমিক DNS</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="190"/>
         <source>Netmask</source>
-        <translation type="unfinished"/>
+        <translation>নেটমাস্ক</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="155"/>
@@ -1536,7 +1584,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
         <source>Prefix</source>
-        <translation type="unfinished"/>
+        <translation>উপসর্গ</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
@@ -1549,7 +1597,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="81"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>অপসংযুক্ত</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="83"/>
@@ -1569,7 +1617,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="87"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>সংযুক্ত</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="89"/>
@@ -1587,7 +1635,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="53"/>
         <source>VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
@@ -1638,7 +1686,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
         <source>Shared</source>
-        <translation type="unfinished"/>
+        <translation>ভাগ করা</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
@@ -1671,7 +1719,7 @@
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="67"/>
         <source>PPP</source>
-        <translation type="unfinished"/>
+        <translation>পিপিপি</translation>
     </message>
 </context>
 <context>
@@ -1689,17 +1737,17 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="59"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>না</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="60"/>
         <source>Manual</source>
-        <translation type="unfinished"/>
+        <translation>ম্যানুয়াল</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="61"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>অটো</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="91"/>
@@ -1712,7 +1760,7 @@
         <location filename="../modules/network/proxypage.cpp" line="103"/>
         <location filename="../modules/network/proxypage.cpp" line="108"/>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Port</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="96"/>
@@ -1765,7 +1813,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="100"/>
         <source>VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="261"/>
@@ -1780,22 +1828,22 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="288"/>
         <source>L2TP</source>
-        <translation type="unfinished"/>
+        <translation>L2TP</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="291"/>
         <source>PPTP</source>
-        <translation type="unfinished"/>
+        <translation>পিপিটিপি</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="294"/>
         <source>VPNC</source>
-        <translation type="unfinished"/>
+        <translation>VPNC</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="297"/>
         <source>OpenVPN</source>
-        <translation type="unfinished"/>
+        <translation>OpenVPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="300"/>
@@ -1805,7 +1853,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="303"/>
         <source>OpenConnect</source>
-        <translation type="unfinished"/>
+        <translation>OpenConnect</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="328"/>
@@ -1944,7 +1992,7 @@
     <message>
         <location filename="../modules/personalization/widget/themeitem.cpp" line="72"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Default</translation>
     </message>
 </context>
 <context>
@@ -2459,7 +2507,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="50"/>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>মোড</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
@@ -2477,7 +2525,7 @@
     <message>
         <location filename="../modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>সংযুক্ত</translation>
     </message>
 </context>
 <context>

@@ -55,7 +55,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation>Вміст екрану зображується лише на %1</translation>
+        <translation>Вміст екрану відображається лише на %1</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
@@ -99,7 +99,7 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="144"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n дні(в) тому</numerusform><numerusform>%n дні(в) тому</numerusform><numerusform>%n дні(в) тому</numerusform></translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="138"/>
@@ -127,7 +127,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
@@ -321,7 +321,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
         <source>Identifying fingerprint</source>
-        <translation>Identifying fingerprint</translation>
+        <translation>Визначення відбитку пальця</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
@@ -489,7 +489,7 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
@@ -560,7 +560,7 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="49"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="51"/>
@@ -573,7 +573,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="68"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="69"/>
@@ -648,7 +648,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="64"/>
@@ -770,7 +770,7 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation>Тон екрану буде автоматично налаштовуватися, допомагаючи з&apos;ясувати ваше місце розташування, щоб захистити очі</translation>
+        <translation>Тон екрану буде автоматично відрегульований за допомогою визначення місця розташування для захисту очей</translation>
     </message>
 </context>
 <context>
@@ -972,7 +972,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="82"/>
@@ -1006,7 +1006,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="66"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="67"/>
@@ -1058,7 +1058,7 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation>Switch Layouts (Multiple)</translation>
+        <translation>Переключити компонування (Декілька)</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="88"/>
@@ -1080,7 +1080,7 @@
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="180"/>
         <source>Keyboard and Language</source>
-        <translation>Клавіатура і мова</translation>
+        <translation>Клавіатура і Мова</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="52"/>
@@ -1130,7 +1130,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="103"/>
         <source>Keyboard Layout</source>
-        <translation>Розкладка клавіатури</translation>
+        <translation>Розкладка Клавіатури</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="111"/>
@@ -1161,7 +1161,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="57"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="58"/>
@@ -1277,28 +1277,76 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="52"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>Мишка</translation>
     </message>
     <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
+        <source>TrackPoint</source>
+        <translation>Контрольна точка</translation>
+    </message>
+    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
+        <source>Left Hand</source>
+        <translation>Ліворуч</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
+        <source>Disable the touchpad while typing</source>
+        <translation>Вимикати сенсорну панель при наборі</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
+        <source>Double-click Speed</source>
+        <translation>Швидкість подвійного кліку</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="63"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="69"/>
+        <source>Pointer Speed</source>
+        <translation>Покажчик швидкості</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Scroll speed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Відключати сенсорну панель при вставці миші</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Slow</source>
+        <translation>Повільно</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <source>Fast</source>
+        <translation>Швидко</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
         <translation>Сенсорна панель</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
+        <source>Natural Scrolling</source>
+        <translation>Природне прокручування</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
         <source>Tap to Click</source>
         <translation>Торкніться для Кліку</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="84"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
         <source>Mouse and Touchpad</source>
         <translation>Миша та сенсорна панель</translation>
     </message>
@@ -1308,22 +1356,22 @@
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detect</source>
-        <translation type="unfinished"/>
+        <translation>Виявлення рук</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <source>Minimum contact surface</source>
-        <translation type="unfinished"/>
+        <translation>Мінімальна контактна поверхня</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <source>Minimum pressure value</source>
-        <translation type="unfinished"/>
+        <translation>Мінімальне значення натиску</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>Вимкніть цю опцію, якщо тачпад не працює після ввімкнення</translation>
     </message>
 </context>
 <context>
@@ -1336,7 +1384,7 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="46"/>
         <source>Thinkpad Track Point</source>
-        <translation>Thinkpad Track Point</translation>
+        <translation>Точка відстеження Thinkpad</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="49"/>
@@ -1406,7 +1454,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
@@ -1442,7 +1490,7 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="146"/>
@@ -1516,7 +1564,7 @@
         <location filename="../modules/network/networkdetailpage.cpp" line="185"/>
         <location filename="../modules/network/networkdetailpage.cpp" line="210"/>
         <source>Primary DNS</source>
-        <translation>ОсновнийDNS</translation>
+        <translation>Первинний DNS</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="190"/>
@@ -1608,7 +1656,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="210"/>
         <source>Wired Network Card%1</source>
-        <translation>Бездротова Мережева карта %1</translation>
+        <translation>Бездротова Мережева Карта%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
@@ -1643,7 +1691,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
         <source>Wireless Network Card%1</source>
-        <translation>Бездротова Мережева карта %1</translation>
+        <translation>Бездротова Мережева Карта%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
@@ -1828,7 +1876,7 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="68"/>
         <source>Add Settings</source>
-        <translation>Додати налаштування</translation>
+        <translation>Додати Налаштування</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="83"/>
@@ -1962,7 +2010,7 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="42"/>
         <source>Cursor Theme</source>
-        <translation>Тема Курсора</translation>
+        <translation>Тема Курсору</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="54"/>
@@ -2001,7 +2049,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="80"/>
         <source>Suspend on lid close</source>
-        <translation>Suspend on lid close</translation>
+        <translation>Призупинити при закритті кришки</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="87"/>
@@ -2021,7 +2069,7 @@
         <location filename="../modules/power/powerwidget.cpp" line="134"/>
         <location filename="../modules/power/powerwidget.cpp" line="140"/>
         <source>%1 Minutes</source>
-        <translation>%1 хвилин</translation>
+        <translation>%1 Хвилин</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="136"/>
@@ -2291,7 +2339,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
+        <translation>Мережа від&apos;єднана, повторіть спробу після підключення</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
@@ -2321,7 +2369,7 @@
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="249"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Нова версія системи і %1 додатків оновлень знайдено</numerusform><numerusform>Нова версія системи і %n оновлення програм(и) виявлено</numerusform><numerusform>Нова версія системи і %n оновлення програм(и) виявлено</numerusform></translation>
+        <translation><numerusform>Нова версія системи і %n оновлення програм(и) виявлено</numerusform><numerusform>Нова версія системи і %n оновлення програм(и) виявлено</numerusform><numerusform>Нова версія системи і %n оновлення програм(и) виявлено</numerusform></translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
@@ -2372,7 +2420,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="55"/>
         <source>Auto clear package cache</source>
-        <translation>Авто-очистити кеш-пам&apos;ять пакету</translation>
+        <translation>Авто-очищення кешу пакету</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="58"/>
@@ -2435,7 +2483,7 @@
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitive</source>
-        <translation>Чутливий до натиску</translation>
+        <translation>Чутливість до натиску</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="52"/>
@@ -2498,7 +2546,7 @@
     <message>
         <location filename="../widgets/settingshead.cpp" line="52"/>
         <source>Cancel</source>
-        <translation>Відмінити</translation>
+        <translation>Скасувати</translation>
     </message>
 </context>
 </TS>
