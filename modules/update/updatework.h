@@ -34,6 +34,7 @@
 #include <com_deepin_lastore_jobmanager.h>
 #include <com_deepin_daemon_power.h>
 #include <com_deepin_daemon_network.h>
+#include <com_deepin_lastoresessionhelper.h>
 
 #include "common.h"
 
@@ -42,6 +43,7 @@ using JobInter=com::deepin::lastore::Job;
 using ManagerInter=com::deepin::lastore::Manager;
 using PowerInter=com::deepin::daemon::Power;
 using Network=com::deepin::daemon::Network;
+using LastoressionHelper=com::deepin::LastoreSessionHelper;
 
 namespace dcc{
 namespace update{
@@ -68,7 +70,7 @@ public slots:
     void setAutoCleanCache(const bool autoCleanCache);
     void setAutoDownloadUpdates(const bool &autoDownload);
     void setMirrorSource(const MirrorInfo &mirror);
-
+    void setSourceCheck(bool enable);
     void testMirrorSpeed();
 
 private slots:
@@ -97,6 +99,7 @@ private:
     JobInter* m_checkUpdateJob;
     JobInter* m_distUpgradeJob;
     JobInter* m_otherUpdateJob;
+    LastoressionHelper *m_lastoresessionHelper;
     UpdateInter* m_updateInter;
     ManagerInter* m_managerInter;
     PowerInter *m_powerInter;

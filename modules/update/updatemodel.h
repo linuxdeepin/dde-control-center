@@ -92,12 +92,17 @@ public:
     double updateProgress() const;
     void setUpdateProgress(double updateProgress);
 
+    bool sourceCheck() const;
+    void setSourceCheck(bool sourceCheck);
+
 signals:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
 
     void lowBatteryChanged(const bool &lowBattery);
     void statusChanged(const UpdatesStatus &status);
+
+    void sourceCheckChanged(bool sourceCheck);
 
     void mirrorSpeedInfoAvaiable(const QMap<QString, int> &mirrorSpeedInfo);
 
@@ -112,6 +117,8 @@ private:
 
     double m_updateProgress;
     double m_upgradeProgress;
+
+    bool m_sourceCheck;
 
     bool m_lowBattery;
 

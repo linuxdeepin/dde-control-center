@@ -50,9 +50,11 @@ signals:
     void requestShowMirrorsView();
     void requestSetAutoUpdate(const bool &autoUpdate);
     void requestSetAutoCleanCache(const bool autoClean);
+    void requestSetSourceCheck(const bool check);
 
 private:
     UpdateModel* m_model;
+    SwitchWidget *m_sourceCheck;
     SwitchWidget *m_autoCleanCache;
     SwitchWidget* m_autoDownloadSwitch;
 #ifndef DISABLE_SYS_UPDATE_MIRRORS

@@ -68,6 +68,7 @@ UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
       m_managerInter(new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
       m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this)),
       m_networkInter(new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this)),
+      m_lastoresessionHelper(new LastoressionHelper("com.deepin.LastoreSessionHelper", "/com/deepin/LastoreSessionHelper", QDBusConnection::sessionBus(), this)),
       m_onBattery(true),
       m_batteryPercentage(0),
       m_baseProgress(0)
@@ -75,6 +76,7 @@ UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
     m_powerInter->setSync(false);
+    m_lastoresessionHelper->setSync(false);
 
     connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWork::onJobListChanged);
     connect(m_managerInter, &ManagerInter::AutoCleanChanged, m_model, &UpdateModel::setAutoCleanCache);
@@ -84,6 +86,8 @@ UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
 
     connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWork::setOnBattery);
     connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWork::setBatteryPercentage);
+
+    connect(m_lastoresessionHelper, &LastoressionHelper::SourceCheckEnabledChanged, m_model, &UpdateModel::setSourceCheck);
 
     onJobListChanged(m_managerInter->jobList());
 }
@@ -110,6 +114,7 @@ void UpdateWork::activate()
     m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
     setOnBattery(m_powerInter->onBattery());
     setBatteryPercentage(m_powerInter->batteryPercentage());
+    m_model->setSourceCheck(m_lastoresessionHelper->sourceCheckEnabled());
 }
 
 void UpdateWork::deactivate()
@@ -274,6 +279,11 @@ void UpdateWork::setAutoDownloadUpdates(const bool &autoDownload)
 void UpdateWork::setMirrorSource(const MirrorInfo &mirror)
 {
     m_updateInter->SetMirrorSource(mirror.m_id);
+}
+
+void UpdateWork::setSourceCheck(bool enable)
+{
+    m_lastoresessionHelper->SetSourceCheckEnabled(enable);
 }
 
 void UpdateWork::testMirrorSpeed()

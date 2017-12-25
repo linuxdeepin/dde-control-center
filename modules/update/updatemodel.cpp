@@ -200,5 +200,20 @@ void UpdateModel::setUpdateProgress(double updateProgress)
     }
 }
 
+bool UpdateModel::sourceCheck() const
+{
+    return m_sourceCheck;
+}
+
+void UpdateModel::setSourceCheck(bool sourceCheck)
+{
+    if (m_sourceCheck == sourceCheck)
+        return;
+
+    m_sourceCheck = sourceCheck;
+
+    emit sourceCheckChanged(sourceCheck);
+}
+
 }
 }
