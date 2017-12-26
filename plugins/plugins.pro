@@ -1,8 +1,11 @@
 TEMPLATE = subdirs
 
-SUBDIRS = \
-        #example \
-        #calculator \
-        notify \
-        navgation \
-        weather
+SUBDIRS = navgation
+
+isEqual(DCC_PLUGIN_WEATHER, YES) {
+    SUBDIRS += weather
+}
+
+isEqual(DCC_PLUGIN_NOTIFY, YES) {
+    SUBDIRS += notify
+}
