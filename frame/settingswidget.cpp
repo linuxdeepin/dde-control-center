@@ -59,15 +59,15 @@ using namespace dcc::update;
 SettingsWidget::SettingsWidget(Frame *frame)
     : ContentWidget(frame),
 
+      m_moduleLoadDelay(0),
       m_frame(frame),
 
       m_resetBtn(new QPushButton),
       m_settingsLayout(new QVBoxLayout),
       m_settingsWidget(new TranslucentFrame),
 
-      m_refershModuleActivableTimer(new QTimer(this)),
+      m_refershModuleActivableTimer(new QTimer(this))
 
-      m_moduleLoadDelay(0)
 {
     qDebug() << Q_FUNC_INFO << "I'm born!!!!";
 

@@ -215,8 +215,9 @@ void MainWidget::pluginAdded(QWidget * const w)
 {
     w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     const int idx = m_pluginsLayout->addWidget(w);
+    const int count = m_pluginsLayout->count();
     m_pluginsLayout->setCurrentIndex(idx);
-    m_indicatorWidget->setVisible(true);
+    m_indicatorWidget->setVisible(count > 1);
     m_indicatorWidget->setPageCount(m_pluginsLayout->count());
 }
 
