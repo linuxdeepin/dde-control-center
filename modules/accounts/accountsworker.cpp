@@ -30,6 +30,8 @@
 #include <QtConcurrent>
 #include <QFutureWatcher>
 #include <QStandardPaths>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
 
 #include <libintl.h>
 
@@ -66,6 +68,18 @@ void AccountsWorker::active()
         it.key()->setAvatars(it.value()->iconList());
         it.key()->setCurrentAvatar(it.value()->iconFile());
     }
+#ifdef DCC_ENABLE_ADDOMAIN
+    QProcess *process = new QProcess(this);
+    process->start("/opt/pbis/bin/enum-users");
+
+    connect(process, &QProcess::readyReadStandardOutput, this, [=] {
+        QRegularExpression re("Name:\\s+(\\w+)");
+        QRegularExpressionMatch match = re.match(process->readAll());
+        m_userModel->setIsJoinADDomain(match.hasMatch());
+    });
+
+    connect(process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), process, &QProcess::deleteLater);
+#endif
 }
 
 void AccountsWorker::randomUserIcon(User *user)

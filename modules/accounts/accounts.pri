@@ -19,7 +19,8 @@ HEADERS += \
     $$PWD/fingerpage.h \
     $$PWD/addfingerpage.h \
     $$PWD/fingerworker.h \
-    $$PWD/fingermodel.h
+    $$PWD/fingermodel.h \
+    $$PWD/widgets/addialog.h
 
 SOURCES += \
     $$PWD/accountsmodule.cpp \
@@ -42,7 +43,8 @@ SOURCES += \
     $$PWD/fingerpage.cpp \
     $$PWD/addfingerpage.cpp \
     $$PWD/fingerworker.cpp \
-    $$PWD/fingermodel.cpp
+    $$PWD/fingermodel.cpp \
+    $$PWD/widgets/addialog.cpp
 
 #INCLUDEPATH += $$PWD/..
 

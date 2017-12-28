@@ -48,15 +48,23 @@ public:
 signals:
     void showAccountsDetail(User *account) const;
     void requestCreateAccount() const;
+#ifdef DCC_ENABLE_ADDOMAIN
+    void requestShowADDialog() const;
+#endif
 
 public slots:
     void addUser(User *user);
     void removeUser(User *user);
+#ifdef DCC_ENABLE_ADDOMAIN
+    void setADState(bool isJoin);
+#endif
 
 private:
     dcc::widgets::SettingsGroup *m_userGroup;
-
     QPushButton *m_createBtn;
+#ifdef DCC_ENABLE_ADDOMAIN
+    QPushButton *m_adBtn;
+#endif
 };
 
 }   // namespace accounts

@@ -38,19 +38,28 @@ using namespace dcc::widgets;
 using namespace dcc::accounts;
 
 AccountsWidget::AccountsWidget()
-    : ModuleWidget(),
-
-    m_userGroup(new dcc::widgets::SettingsGroup),
-    m_createBtn(new QPushButton(tr("Create Account")))
+    : ModuleWidget()
+    , m_userGroup(new dcc::widgets::SettingsGroup)
+    , m_createBtn(new QPushButton(tr("Create Account")))
+#ifdef DCC_ENABLE_ADDOMAIN
+    , m_adBtn(new QPushButton)
+#endif
 {
     setObjectName("Accounts");
 
     m_centralLayout->addWidget(m_userGroup);
     m_centralLayout->addWidget(m_createBtn);
 
+#ifdef DCC_ENABLE_ADDOMAIN
+    m_centralLayout->addWidget(m_adBtn);
+#endif
+
     setTitle(tr("Accounts"));
 
     connect(m_createBtn, &QPushButton::clicked, this, &AccountsWidget::requestCreateAccount);
+#ifdef DCC_ENABLE_ADDOMAIN
+    connect(m_adBtn, &QPushButton::clicked, this, &AccountsWidget::requestShowADDialog);
+#endif
 }
 
 void AccountsWidget::addUser(User *user)
@@ -83,3 +92,10 @@ void AccountsWidget::removeUser(User *user)
         }
     }
 }
+
+#ifdef DCC_ENABLE_ADDOMAIN
+void AccountsWidget::setADState(bool isJoin)
+{
+    m_adBtn->setText(isJoin ? tr("Exit domain") : tr("Join domain"));
+}
+#endif

@@ -72,3 +72,14 @@ bool UserModel::contains(const QString &id)
 {
     return m_userList.contains(id);
 }
+#ifdef DCC_ENABLE_ADDOMAIN
+void UserModel::setIsJoinADDomain(bool isJoinADDomain)
+{
+    if (m_isJoinADDomain == isJoinADDomain)
+        return;
+
+    m_isJoinADDomain = isJoinADDomain;
+
+    emit isJoinADDomainChanged(isJoinADDomain);
+}
+#endif

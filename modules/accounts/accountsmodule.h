@@ -68,6 +68,10 @@ private:
     void showAddThumb(const QString &name, const QString &thumb);
     void contentPopped(ContentWidget * const w);
 
+#ifdef DCC_ENABLE_ADDOMAIN
+    void showADDialog();
+#endif
+
 private slots:
     void setFrameAutoHide(const bool autoHide);
 

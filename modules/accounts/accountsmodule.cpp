@@ -33,6 +33,10 @@
 #include "addfingerpage.h"
 #include "fingermodel.h"
 
+#ifdef DCC_ENABLE_ADDOMAIN
+#include "widgets/addialog.h"
+#endif
+
 using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::accounts;
@@ -100,9 +104,17 @@ ModuleWidget *AccountsModule::moduleWidget()
         connect(m_userList, &UserModel::userAdded, m_accountsWidget, &AccountsWidget::addUser);
         connect(m_userList, &UserModel::userRemoved, m_accountsWidget, &AccountsWidget::removeUser);
         connect(m_accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::showCreateAccountPage);
+#ifdef DCC_ENABLE_ADDOMAIN
+        connect(m_userList, &UserModel::isJoinADDomainChanged, m_accountsWidget, &AccountsWidget::setADState);
+        connect(m_accountsWidget, &AccountsWidget::requestShowADDialog, this, &AccountsModule::showADDialog);
+#endif
 
         for (auto user : m_userList->userList())
             m_accountsWidget->addUser(user);
+
+#ifdef DCC_ENABLE_ADDOMAIN
+        m_accountsWidget->setADState(m_userList->isJoinADDomain());
+#endif
     }
 
     return m_accountsWidget;
@@ -213,6 +225,16 @@ void AccountsModule::contentPopped(ContentWidget * const w)
 {
     w->deleteLater();
 }
+
+#ifdef DCC_ENABLE_ADDOMAIN
+void AccountsModule::showADDialog()
+{
+    ADDialog *addialog = new ADDialog;
+    addialog->setUserModel(m_userList);
+
+    addialog->show();
+}
+#endif
 
 void AccountsModule::setFrameAutoHide(const bool autoHide)
 {

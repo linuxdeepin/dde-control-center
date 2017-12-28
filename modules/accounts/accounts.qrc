@@ -190,5 +190,6 @@
         <file>themes/dark/icons/finger/finished/success_28.png</file>
         <file>themes/dark/icons/finger/finished/success_29.png</file>
         <file>themes/dark/icons/finger/finished/success_30.png</file>
+        <file>themes/dark/icons/default_avatar.png</file>
     </qresource>
 </RCC>

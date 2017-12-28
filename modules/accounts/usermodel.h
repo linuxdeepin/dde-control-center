@@ -47,12 +47,23 @@ public:
     void removeUser(const QString &id);
     bool contains(const QString &id);
 
+#ifdef DCC_ENABLE_ADDOMAIN
+    bool isJoinADDomain() const { return m_isJoinADDomain; }
+    void setIsJoinADDomain(bool isJoinADDomain);
+#endif
+
 signals:
     void userAdded(User *user);
     void userRemoved(User *user);
+#ifdef DCC_ENABLE_ADDOMAIN
+    void isJoinADDomainChanged(bool isjoin);
+#endif
 
 private:
     QMap<QString, User *> m_userList;
+#ifdef DCC_ENABLE_ADDOMAIN
+    bool m_isJoinADDomain;
+#endif
 };
 
 } // namespace accounts
