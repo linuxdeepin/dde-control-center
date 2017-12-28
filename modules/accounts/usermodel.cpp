@@ -37,7 +37,7 @@ UserModel::UserModel(QObject *parent) :
 
 UserModel::~UserModel()
 {
-
+    qDeleteAll(m_userList.values());
 }
 
 User * UserModel::getUser(const QString &id)

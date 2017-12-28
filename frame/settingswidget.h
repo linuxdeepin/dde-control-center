@@ -46,6 +46,7 @@ class SettingsWidget : public ContentWidget, public FrameProxyInterface
 
 public:
     explicit SettingsWidget(Frame *frame);
+    ~SettingsWidget();
 
 public slots:
     void contentPopuped(ContentWidget * const w);
@@ -69,9 +70,6 @@ private slots:
     void hideNavgation();
     void onNavItemClicked(const QModelIndex &index);
     void onNavItemEntered(const QModelIndex &index);
-
-private:
-    ~SettingsWidget();
 
 private:
     int m_moduleLoadDelay;

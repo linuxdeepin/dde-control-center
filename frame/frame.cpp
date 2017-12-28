@@ -116,7 +116,7 @@ void Frame::popWidget()
     Q_ASSERT(!w || w == m_frameWidgetStack.last()->content());
 
     // destroy the container
-    m_frameWidgetStack.pop()->destroy();
+    m_frameWidgetStack.pop()->destroy1();
     m_frameWidgetStack.last()->showBack();
 }
 

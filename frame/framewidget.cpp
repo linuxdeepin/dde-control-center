@@ -126,7 +126,7 @@ void FrameWidget::hideBack()
     QTimer::singleShot(m_slidePosAni->duration(), this, &QWidget::hide);
 }
 
-void FrameWidget::destroy()
+void FrameWidget::destroy1()
 {
     m_slidePosAni->setStartValue(QPoint());
     m_slidePosAni->setEndValue(QPoint(width(), 0));

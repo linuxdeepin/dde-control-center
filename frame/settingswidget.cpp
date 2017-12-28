@@ -464,7 +464,16 @@ void SettingsWidget::onNavItemEntered(const QModelIndex &index)
 SettingsWidget::~SettingsWidget()
 {
     for (auto v : m_moduleWidgets)
-        qDeleteAll(v);
+    {
+        for (auto w : v)
+        {
+            if (!w)
+                continue;
+            w->setVisible(false);
+            w->setParent(nullptr);
+            w->deleteLater();
+        }
+    }
     qDeleteAll(m_moduleInterfaces);
 
     qDebug() << Q_FUNC_INFO << "I'm gone!!!";
