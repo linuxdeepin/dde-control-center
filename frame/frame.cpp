@@ -79,8 +79,7 @@ Frame::Frame(QWidget *parent)
     connect(m_displayInter, &DBusDisplay::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
     connect(m_launcherInter, &LauncherInter::Shown, this, &Frame::hideImmediately);
     connect(m_wmHelper, &DWindowManagerHelper::hasCompositeChanged, this, &Frame::adjustShadowMask);
-    connect(&m_appearAnimation, &QPropertyAnimation::start, this, &Frame::adjustShadowMask);
-    connect(&m_appearAnimation, &QPropertyAnimation::finished, this, &Frame::adjustShadowMask, Qt::QueuedConnection);
+    connect(&m_appearAnimation, &QPropertyAnimation::stateChanged, this, &Frame::adjustShadowMask, Qt::QueuedConnection);
 
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
 }
