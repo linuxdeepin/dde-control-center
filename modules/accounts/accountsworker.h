@@ -33,16 +33,24 @@
 #include <org_freedesktop_displaymanager.h>
 #include <org_freedesktop_displaymanager_session.h>
 
+#ifdef DCC_ENABLE_ADDOMAIN
+#include <org_freedesktop_notifications.h>
+#endif
+
 #include "user.h"
 #include "usermodel.h"
 #include "creationresult.h"
 
-using com::deepin::daemon::Accounts;
+using Accounts = com::deepin::daemon::Accounts;
 using AccountsUser = com::deepin::daemon::accounts::User;
 using CreationResult = dcc::accounts::CreationResult;
 
-using org::freedesktop::DisplayManager;
-using org::freedesktop::displaymanager::Session;
+using DisplayManager = org::freedesktop::DisplayManager;
+using Session = org::freedesktop::displaymanager::Session;
+
+#ifdef DCC_ENABLE_ADDOMAIN
+using Notifications = org::freedesktop::Notifications;
+#endif
 
 namespace dcc {
 namespace accounts {
@@ -74,6 +82,10 @@ public slots:
     void deleteUserIcon(User *user, const QString &iconPath);
     void setNopasswdLogin(User *user, const bool nopasswdLogin);
 
+#ifdef DCC_ENABLE_ADDOMAIN
+    void refreshADDomain();
+    void ADDomainHandle(const QString &server, const QString &admin, const QString &password);
+#endif
     void addUser(const QString &userPath);
     void removeUser(const QString &userPath);
 
@@ -86,12 +98,14 @@ private:
 
 private:
     Accounts *m_accountsInter;
+#ifdef DCC_ENABLE_ADDOMAIN
+    Notifications *m_notifyInter;
+#endif
     QSet<QString> m_userSet;
     QMap<User *, AccountsUser *> m_userInters;
 
     DisplayManager *m_dmInter;
     QStringList m_onlineUsers;
-
     UserModel *m_userModel;
 };
 

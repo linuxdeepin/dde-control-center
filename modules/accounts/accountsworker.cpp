@@ -41,10 +41,13 @@ const QString AccountsService("com.deepin.daemon.Accounts");
 const QString DisplayManagerService("org.freedesktop.DisplayManager");
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
-    : QObject(parent),
-      m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this)),
-      m_dmInter(new DisplayManager(DisplayManagerService, "/org/freedesktop/DisplayManager", QDBusConnection::systemBus(), this)),
-      m_userModel(userList)
+    : QObject(parent)
+    , m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this))
+#ifdef DCC_ENABLE_ADDOMAIN
+    , m_notifyInter(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus(), this))
+#endif
+    , m_dmInter(new DisplayManager(DisplayManagerService, "/org/freedesktop/DisplayManager", QDBusConnection::systemBus(), this))
+    , m_userModel(userList)
 {
     connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged);
     connect(m_accountsInter, &Accounts::UserAdded, this, &AccountsWorker::addUser);
@@ -54,7 +57,9 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 
     m_accountsInter->setSync(false);
     m_dmInter->setSync(false);
-
+#ifdef DCC_ENABLE_ADDOMAIN
+    m_notifyInter->setSync(false);
+#endif
     onUserListChanged(m_accountsInter->userList());
     updateUserOnlineStatus(m_dmInter->sessions());
 }
@@ -69,16 +74,7 @@ void AccountsWorker::active()
         it.key()->setCurrentAvatar(it.value()->iconFile());
     }
 #ifdef DCC_ENABLE_ADDOMAIN
-    QProcess *process = new QProcess(this);
-    process->start("/opt/pbis/bin/enum-users");
-
-    connect(process, &QProcess::readyReadStandardOutput, this, [=] {
-        QRegularExpression re("Name:\\s+(\\w+)");
-        QRegularExpressionMatch match = re.match(process->readAll());
-        m_userModel->setIsJoinADDomain(match.hasMatch());
-    });
-
-    connect(process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), process, &QProcess::deleteLater);
+    refreshADDomain();
 #endif
 }
 
@@ -258,6 +254,56 @@ void AccountsWorker::setNopasswdLogin(User *user, const bool nopasswdLogin)
         watcher->deleteLater();
     });
 }
+
+#ifdef DCC_ENABLE_ADDOMAIN
+void AccountsWorker::refreshADDomain()
+{
+    QProcess *process = new QProcess(this);
+    process->start("/opt/pbis/bin/enum-users");
+
+    connect(process, &QProcess::readyReadStandardOutput, this, [=] {
+        QRegularExpression re("Name:\\s+(\\w+)");
+        QRegularExpressionMatch match = re.match(process->readAll());
+        m_userModel->setIsJoinADDomain(match.hasMatch());
+    });
+
+    connect(process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), process, &QProcess::deleteLater);
+}
+#endif
+
+#ifdef DCC_ENABLE_ADDOMAIN
+void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin, const QString &password)
+{
+    QProcess *process = new QProcess(this);
+
+    connect(process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
+            this, [=] (int exitCode, QProcess::ExitStatus exitStatus){
+
+        const bool isJoin = m_userModel->isJoinADDomain();
+        QString message;
+
+        if (exitStatus == QProcess::NormalExit && !exitCode) {
+            message = isJoin ? tr("Your host leave the domain server successfully.")
+                             : tr("Your host joins the domain server successfully.");
+        } else {
+            message = isJoin ? tr("Your host is failed to leave the domain server.")
+                             : tr("Your host is failed to join the domain server.");
+        }
+
+        m_notifyInter->Notify("", QDateTime::currentMSecsSinceEpoch(), "dde", tr("AD domain settings"), message, QStringList(), QVariantMap(), 0);
+
+        refreshADDomain();
+
+        process->deleteLater();
+    });
+
+    if (m_userModel->isJoinADDomain()) {
+        process->start("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "leave" << admin << password);
+    } else {
+        process->start("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "join" << server << admin << password);
+    }
+}
+#endif
 
 void AccountsWorker::updateUserOnlineStatus(const QList<QDBusObjectPath> paths)
 {

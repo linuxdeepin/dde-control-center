@@ -54,6 +54,9 @@ docs.files = docs/*
 databases.path = $${PREFIX}/share/dde-control-center/
 databases.files = data/timezone.db
 
+addomain.path = /usr/share/polkit-1/actions
+addomain.files = com.deepin.controlcenter.addomain.policy
+
 TRANSLATIONS = translations/dde-control-center.ts
 
-INSTALLS += binary desktop service qm_files docs databases
+INSTALLS += binary desktop service qm_files docs databases addomain
