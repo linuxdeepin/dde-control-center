@@ -51,8 +51,6 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                                         "/com/deepin/daemon/Grub2/Theme",
                                         QDBusConnection::systemBus(), this);
 
-    m_dbusGrubTheme->setSync(false);
-
     connect(m_dbusGrub, &GrubDbus::DefaultEntryChanged, m_model, &SystemInfoModel::setDefaultEntry);
     connect(m_dbusGrub, &GrubDbus::EnableThemeChanged, m_model, &SystemInfoModel::setThemeEnabled);
     connect(m_dbusGrub, &GrubDbus::TimeoutChanged, this, [this] (const int &value) {
