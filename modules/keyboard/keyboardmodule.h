@@ -94,7 +94,7 @@ private:
 
 private:
     bool m_loaded;
-    KeyboardWork* m_work;
+    KeyboardWorker* m_work;
     ShortcutModel* m_shortcutModel;
     KeyboardModel* m_model;
     KeyboardWidget* m_keyboardWidget;

@@ -64,7 +64,7 @@ private slots:
     void onPushSettings();
 
 private:
-    UpdateWork* m_work;
+    UpdateWorker* m_work;
     UpdateModel* m_model;
     UpdateView* m_updateView;
     UpdateCtrlWidget* m_updatePage;

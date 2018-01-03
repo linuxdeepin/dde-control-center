@@ -41,12 +41,12 @@ using KeyboardInter = com::deepin::daemon::inputdevice::Keyboard;
 using LangSelector = com::deepin::daemon::LangSelector;
 using KeybingdingInter = com::deepin::daemon::Keybinding;
 
-class KeyboardWork : public QObject
+class KeyboardWorker : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit KeyboardWork(KeyboardModel* model, QObject *parent = 0);
+    explicit KeyboardWorker(KeyboardModel* model, QObject *parent = 0);
     enum Modifier {
         control = 1,
         super = 2,

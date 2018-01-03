@@ -57,18 +57,18 @@ static int TestMirrorSpeedInternal(const QString &url)
     return 10000;
 }
 
-UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
+UpdateWorker::UpdateWorker(UpdateModel* model, QObject *parent)
     : QObject(parent),
       m_model(model),
       m_downloadJob(nullptr),
       m_checkUpdateJob(nullptr),
       m_distUpgradeJob(nullptr),
       m_otherUpdateJob(nullptr),
+      m_lastoresessionHelper(new LastoressionHelper("com.deepin.LastoreSessionHelper", "/com/deepin/LastoreSessionHelper", QDBusConnection::sessionBus(), this)),
       m_updateInter(new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
       m_managerInter(new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
       m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this)),
       m_networkInter(new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this)),
-      m_lastoresessionHelper(new LastoressionHelper("com.deepin.LastoreSessionHelper", "/com/deepin/LastoreSessionHelper", QDBusConnection::sessionBus(), this)),
       m_onBattery(true),
       m_batteryPercentage(0),
       m_baseProgress(0)
@@ -78,21 +78,21 @@ UpdateWork::UpdateWork(UpdateModel* model, QObject *parent)
     m_powerInter->setSync(false);
     m_lastoresessionHelper->setSync(false);
 
-    connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWork::onJobListChanged);
+    connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWorker::onJobListChanged);
     connect(m_managerInter, &ManagerInter::AutoCleanChanged, m_model, &UpdateModel::setAutoCleanCache);
 
     connect(m_updateInter, &__Updater::AutoDownloadUpdatesChanged, m_model, &UpdateModel::setAutoDownloadUpdates);
     connect(m_updateInter, &__Updater::MirrorSourceChanged, m_model, &UpdateModel::setDefaultMirror);
 
-    connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWork::setOnBattery);
-    connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWork::setBatteryPercentage);
+    connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWorker::setOnBattery);
+    connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWorker::setBatteryPercentage);
 
     connect(m_lastoresessionHelper, &LastoressionHelper::SourceCheckEnabledChanged, m_model, &UpdateModel::setSourceCheck);
 
     onJobListChanged(m_managerInter->jobList());
 }
 
-void UpdateWork::activate()
+void UpdateWorker::activate()
 {
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     QDBusPendingCall call = m_updateInter->ListMirrorSources(QLocale::system().name());
@@ -117,12 +117,12 @@ void UpdateWork::activate()
     m_model->setSourceCheck(m_lastoresessionHelper->sourceCheckEnabled());
 }
 
-void UpdateWork::deactivate()
+void UpdateWorker::deactivate()
 {
 
 }
 
-void UpdateWork::checkForUpdates()
+void UpdateWorker::checkForUpdates()
 {
     if (m_checkUpdateJob || m_downloadJob || m_distUpgradeJob)
         return;
@@ -148,7 +148,7 @@ void UpdateWork::checkForUpdates()
     });
 }
 
-void UpdateWork::distUpgradeDownloadUpdates()
+void UpdateWorker::distUpgradeDownloadUpdates()
 {
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_managerInter->PrepareDistUpgrade(), this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
@@ -163,7 +163,7 @@ void UpdateWork::distUpgradeDownloadUpdates()
     });
 }
 
-void UpdateWork::distUpgradeInstallUpdates()
+void UpdateWorker::distUpgradeInstallUpdates()
 {
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_managerInter->DistUpgrade(), this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
@@ -178,7 +178,7 @@ void UpdateWork::distUpgradeInstallUpdates()
     });
 }
 
-void UpdateWork::setAppUpdateInfo(const AppUpdateInfoList &list)
+void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
 {
     m_updateInter->setSync(true);
     m_managerInter->setSync(true);
@@ -243,7 +243,7 @@ void UpdateWork::setAppUpdateInfo(const AppUpdateInfoList &list)
     }
 }
 
-void UpdateWork::pauseDownload()
+void UpdateWorker::pauseDownload()
 {
     if (m_downloadJob) {
         m_managerInter->PauseJob(m_downloadJob->id());
@@ -251,7 +251,7 @@ void UpdateWork::pauseDownload()
     }
 }
 
-void UpdateWork::resumeDownload()
+void UpdateWorker::resumeDownload()
 {
     if (m_downloadJob) {
         m_managerInter->StartJob(m_downloadJob->id());
@@ -259,34 +259,34 @@ void UpdateWork::resumeDownload()
     }
 }
 
-void UpdateWork::distUpgrade()
+void UpdateWorker::distUpgrade()
 {
     m_baseProgress = 0;
     distUpgradeInstallUpdates();
 }
 
-void UpdateWork::downloadAndDistUpgrade()
+void UpdateWorker::downloadAndDistUpgrade()
 {
     m_baseProgress = 0.5;
     distUpgradeDownloadUpdates();
 }
 
-void UpdateWork::setAutoDownloadUpdates(const bool &autoDownload)
+void UpdateWorker::setAutoDownloadUpdates(const bool &autoDownload)
 {
     m_updateInter->SetAutoDownloadUpdates(autoDownload);
 }
 
-void UpdateWork::setMirrorSource(const MirrorInfo &mirror)
+void UpdateWorker::setMirrorSource(const MirrorInfo &mirror)
 {
     m_updateInter->SetMirrorSource(mirror.m_id);
 }
 
-void UpdateWork::setSourceCheck(bool enable)
+void UpdateWorker::setSourceCheck(bool enable)
 {
     m_lastoresessionHelper->SetSourceCheckEnabled(enable);
 }
 
-void UpdateWork::testMirrorSpeed()
+void UpdateWorker::testMirrorSpeed()
 {
     QList<MirrorInfo> mirrors = m_model->mirrorInfos();
 
@@ -313,7 +313,7 @@ void UpdateWork::testMirrorSpeed()
     watcher->setFuture(future);
 }
 
-void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
+void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
 {
     if (m_checkUpdateJob)
         return;
@@ -333,7 +333,7 @@ void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
             m_checkUpdateJob = nullptr;
 
             QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()), this);
-            connect(w, &QDBusPendingCallWatcher::finished, this, &UpdateWork::onAppUpdateInfoFinished);
+            connect(w, &QDBusPendingCallWatcher::finished, this, &UpdateWorker::onAppUpdateInfoFinished);
         }
     });
 
@@ -343,7 +343,7 @@ void UpdateWork::setCheckUpdatesJob(const QString &jobPath)
     m_checkUpdateJob->StatusChanged(m_checkUpdateJob->status());
 }
 
-void UpdateWork::setDownloadJob(const QString &jobPath)
+void UpdateWorker::setDownloadJob(const QString &jobPath)
 {
     if (m_downloadJob)
         return;
@@ -360,13 +360,13 @@ void UpdateWork::setDownloadJob(const QString &jobPath)
         m_model->setUpgradeProgress(value);
     });
 
-    connect(m_downloadJob, &__Job::StatusChanged, this, &UpdateWork::onDownloadStatusChanged);
+    connect(m_downloadJob, &__Job::StatusChanged, this, &UpdateWorker::onDownloadStatusChanged);
 
     m_downloadJob->StatusChanged(m_downloadJob->status());
     m_downloadJob->ProgressChanged(m_downloadJob->progress());
 }
 
-void UpdateWork::setDistUpgradeJob(const QString &jobPath)
+void UpdateWorker::setDistUpgradeJob(const QString &jobPath)
 {
     if (m_distUpgradeJob)
         return;
@@ -381,7 +381,7 @@ void UpdateWork::setDistUpgradeJob(const QString &jobPath)
         m_model->setUpgradeProgress(m_baseProgress + (1 - m_baseProgress) * value);
     });
 
-    connect(m_distUpgradeJob, &__Job::StatusChanged, this, &UpdateWork::onUpgradeStatusChanged);
+    connect(m_distUpgradeJob, &__Job::StatusChanged, this, &UpdateWorker::onUpgradeStatusChanged);
 
     m_model->setStatus(UpdatesStatus::Installing);
 
@@ -389,7 +389,7 @@ void UpdateWork::setDistUpgradeJob(const QString &jobPath)
     m_distUpgradeJob->StatusChanged(m_distUpgradeJob->status());
 }
 
-void UpdateWork::setOtherUpdate(const QString &jobPath)
+void UpdateWorker::setOtherUpdate(const QString &jobPath)
 {
     if (m_otherUpdateJob)
         return;
@@ -409,12 +409,12 @@ void UpdateWork::setOtherUpdate(const QString &jobPath)
     m_otherUpdateJob->StatusChanged(m_otherUpdateJob->status());
 }
 
-void UpdateWork::setAutoCleanCache(const bool autoCleanCache)
+void UpdateWorker::setAutoCleanCache(const bool autoCleanCache)
 {
     m_managerInter->SetAutoClean(autoCleanCache);
 }
 
-void UpdateWork::onJobListChanged(const QList<QDBusObjectPath> & jobs)
+void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> & jobs)
 {
     for (const auto &job : jobs)
     {
@@ -441,7 +441,7 @@ void UpdateWork::onJobListChanged(const QList<QDBusObjectPath> & jobs)
     }
 }
 
-void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
+void UpdateWorker::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<AppUpdateInfoList> reply = *w;
 
@@ -457,7 +457,7 @@ void UpdateWork::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
     w->deleteLater();
 }
 
-void UpdateWork::onDownloadStatusChanged(const QString &status)
+void UpdateWorker::onDownloadStatusChanged(const QString &status)
 {
     qDebug() << "download: <<<" << status;
     if (status == "failed")  {
@@ -482,7 +482,7 @@ void UpdateWork::onDownloadStatusChanged(const QString &status)
     }
 }
 
-void UpdateWork::onUpgradeStatusChanged(const QString &status)
+void UpdateWorker::onUpgradeStatusChanged(const QString &status)
 {
     qDebug() << "upgrade: <<<" << status;
     if (status == "failed")  {
@@ -508,7 +508,7 @@ void UpdateWork::onUpgradeStatusChanged(const QString &status)
     }
 }
 
-DownloadInfo *UpdateWork::calculateDownloadInfo(const AppUpdateInfoList &list)
+DownloadInfo *UpdateWorker::calculateDownloadInfo(const AppUpdateInfoList &list)
 {
     const qlonglong size = m_managerInter->PackagesDownloadSize(m_updatablePackages);
 
@@ -516,7 +516,7 @@ DownloadInfo *UpdateWork::calculateDownloadInfo(const AppUpdateInfoList &list)
     return ret;
 }
 
-AppUpdateInfo UpdateWork::getInfo(const AppUpdateInfo &packageInfo, const QString &currentVersion, const QString &lastVersion) const
+AppUpdateInfo UpdateWorker::getInfo(const AppUpdateInfo &packageInfo, const QString &currentVersion, const QString &lastVersion) const
 {
     auto fetchVersionedChangelog = [](QJsonObject changelog, QString & destVersion) {
 
@@ -560,7 +560,7 @@ AppUpdateInfo UpdateWork::getInfo(const AppUpdateInfo &packageInfo, const QStrin
     return info;
 }
 
-AppUpdateInfo UpdateWork::getDDEInfo()
+AppUpdateInfo UpdateWorker::getDDEInfo()
 {
     AppUpdateInfo dde;
     dde.m_name = "Deepin";
@@ -584,14 +584,14 @@ AppUpdateInfo UpdateWork::getDDEInfo()
     return dde;
 }
 
-void UpdateWork::setBatteryPercentage(const BatteryPercentageInfo &info)
+void UpdateWorker::setBatteryPercentage(const BatteryPercentageInfo &info)
 {
     m_batteryPercentage = info.value("Display", 0);
     const bool low = m_onBattery ? m_batteryPercentage < 50 : false;
     m_model->setLowBattery(low);
 }
 
-void UpdateWork::setOnBattery(bool onBattery)
+void UpdateWorker::setOnBattery(bool onBattery)
 {
     m_onBattery = onBattery;
     const bool low = m_onBattery ? m_batteryPercentage < 50 : false;

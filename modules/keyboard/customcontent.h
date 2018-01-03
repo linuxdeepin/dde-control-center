@@ -40,7 +40,7 @@ using namespace dcc;
 namespace dcc {
 namespace keyboard{
 
-class KeyboardWork;
+class KeyboardWorker;
 struct ShortcutInfo;
 
 class CustomContent  : public ContentWidget
@@ -67,7 +67,7 @@ private slots:
     void onOpenFile();
 
 private:
-    KeyboardWork* m_work;
+    KeyboardWorker* m_work;
     SettingsGroup *m_commandGroup;
     LineEditWidget* m_name;
     LineEditWidget* m_command;

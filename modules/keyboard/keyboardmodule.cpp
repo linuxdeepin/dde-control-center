@@ -54,14 +54,14 @@ void KeyboardModule::initialize()
 {
     m_model = new KeyboardModel();
     m_shortcutModel = new ShortcutModel();
-    m_work = new KeyboardWork(m_model);
+    m_work = new KeyboardWorker(m_model);
     m_work->setShortcutModel(m_shortcutModel);
 
     m_model->moveToThread(qApp->thread());
     m_shortcutModel->moveToThread(qApp->thread());
     m_work->moveToThread(qApp->thread());
 
-    connect(m_work, &KeyboardWork::requestSetAutoHide, this, &KeyboardModule::onSetFrameAutoHide);
+    connect(m_work, &KeyboardWorker::requestSetAutoHide, this, &KeyboardModule::onSetFrameAutoHide);
 }
 
 void KeyboardModule::moduleActive()
@@ -92,10 +92,10 @@ ModuleWidget *KeyboardModule::moduleWidget()
         connect(m_keyboardWidget, SIGNAL(language()), this, SLOT(onPushLanguage()));
 #endif
         connect(m_keyboardWidget, SIGNAL(shortcut()), this, SLOT(onPushShortcut()));
-        connect(m_keyboardWidget, &KeyboardWidget::delayChanged, m_work, &KeyboardWork::setRepeatDelay);
-        connect(m_keyboardWidget, &KeyboardWidget::speedChanged, m_work, &KeyboardWork::setRepeatInterval);
-        connect(m_keyboardWidget, &KeyboardWidget::numLockChanged, m_work, &KeyboardWork::setNumLock);
-        connect(m_keyboardWidget, &KeyboardWidget::capsLockChanged, m_work, &KeyboardWork::setCapsLock);
+        connect(m_keyboardWidget, &KeyboardWidget::delayChanged, m_work, &KeyboardWorker::setRepeatDelay);
+        connect(m_keyboardWidget, &KeyboardWidget::speedChanged, m_work, &KeyboardWorker::setRepeatInterval);
+        connect(m_keyboardWidget, &KeyboardWidget::numLockChanged, m_work, &KeyboardWorker::setNumLock);
+        connect(m_keyboardWidget, &KeyboardWidget::capsLockChanged, m_work, &KeyboardWorker::setCapsLock);
     }
 
     return m_keyboardWidget;
@@ -155,7 +155,7 @@ void KeyboardModule::onPushKeyboard(const QStringList &kblist)
         m_kbLayoutWidget->setMetaData(datas);
         m_kbLayoutWidget->setLetters(m_work->getLetters());
 
-        connect(m_kbLayoutWidget, &KeyboardLayoutWidget::layoutSelected, m_work, &KeyboardWork::addUserLayout);
+        connect(m_kbLayoutWidget, &KeyboardLayoutWidget::layoutSelected, m_work, &KeyboardWorker::addUserLayout);
     }
     m_frameProxy->pushWidget(this, m_kbLayoutWidget);
 }
@@ -171,7 +171,7 @@ void KeyboardModule::onPushKBDetails()
         connect(m_kbDetails, &KeyboardDetails::layoutAdded, this, &KeyboardModule::onPushKeyboard);
         connect(m_kbDetails, SIGNAL(requestCurLayoutAdded(QString)), this, SLOT(setCurrentLayout(QString)));
         connect(m_kbDetails, SIGNAL(delUserLayout(QString)), m_work, SLOT(delUserLayout(QString)));
-        connect(m_kbDetails, &KeyboardDetails::requestSwitchKBLayout, m_work, &KeyboardWork::onSetSwitchKBLayout);
+        connect(m_kbDetails, &KeyboardDetails::requestSwitchKBLayout, m_work, &KeyboardWorker::onSetSwitchKBLayout);
     }
 
     m_frameProxy->pushWidget(this, m_kbDetails);
@@ -205,13 +205,13 @@ void KeyboardModule::onPushShortcut()
     {
         m_shortcutWidget = new ShortcutWidget(m_shortcutModel);
         connect(m_shortcutWidget, &ShortcutWidget::customShortcut, this, &KeyboardModule::onPushCustomShortcut);
-        connect(m_shortcutWidget, &ShortcutWidget::delShortcutInfo, m_work, &KeyboardWork::delShortcut);
-        connect(m_shortcutWidget, &ShortcutWidget::requestUpdateKey, m_work, &KeyboardWork::updateKey);
+        connect(m_shortcutWidget, &ShortcutWidget::delShortcutInfo, m_work, &KeyboardWorker::delShortcut);
+        connect(m_shortcutWidget, &ShortcutWidget::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
         connect(m_shortcutWidget, &ShortcutWidget::requestShowConflict, this, &KeyboardModule::onPushConflict);
-        connect(m_shortcutWidget, &ShortcutWidget::requestSaveShortcut, m_work, &KeyboardWork::modifyShortcutEdit);
-        connect(m_shortcutWidget, &ShortcutWidget::requestDisableShortcut, m_work, &KeyboardWork::onDisableShortcut);
+        connect(m_shortcutWidget, &ShortcutWidget::requestSaveShortcut, m_work, &KeyboardWorker::modifyShortcutEdit);
+        connect(m_shortcutWidget, &ShortcutWidget::requestDisableShortcut, m_work, &KeyboardWorker::onDisableShortcut);
         connect(m_shortcutWidget, &ShortcutWidget::shortcutEditChanged, this, &KeyboardModule::onShortcutEdit);
-        connect(m_work, &KeyboardWork::removed, m_shortcutWidget, &ShortcutWidget::onRemoveItem);
+        connect(m_work, &KeyboardWorker::removed, m_shortcutWidget, &ShortcutWidget::onRemoveItem);
         connect(m_work, SIGNAL(searchChangd(ShortcutInfo*,QString)), m_shortcutWidget, SLOT(onSearchInfo(ShortcutInfo*,QString)));
     }
     m_frameProxy->pushWidget(this, m_shortcutWidget);
@@ -223,9 +223,9 @@ void KeyboardModule::onPushCustomShortcut()
     {
         m_customContent = new CustomContent(m_shortcutModel);
         connect(m_customContent, &CustomContent::requestFrameAutoHide, this, &KeyboardModule::onSetFrameAutoHide);
-        connect(m_customContent, &CustomContent::requestUpdateKey, m_work, &KeyboardWork::updateKey);
-        connect(m_customContent, &CustomContent::requestAddKey, m_work, &KeyboardWork::addCustomShortcut);
-        connect(m_customContent, &CustomContent::requestForceSubs, m_work, &KeyboardWork::onDisableShortcut);
+        connect(m_customContent, &CustomContent::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
+        connect(m_customContent, &CustomContent::requestAddKey, m_work, &KeyboardWorker::addCustomShortcut);
+        connect(m_customContent, &CustomContent::requestForceSubs, m_work, &KeyboardWorker::onDisableShortcut);
     }
 
     m_frameProxy->pushWidget(this, m_customContent);
@@ -239,9 +239,9 @@ void KeyboardModule::onPushConflict(ShortcutInfo *info, const QString &shortcut)
         m_scContent->setInfo(info);
         m_scContent->setShortcut(shortcut);
 
-        connect(m_scContent, &ShortcutContent::requestSaveShortcut, m_work, &KeyboardWork::modifyShortcutEdit);
-        connect(m_scContent, &ShortcutContent::requestUpdateKey, m_work, &KeyboardWork::updateKey);
-        connect(m_scContent, &ShortcutContent::requestDisableShortcut, m_work, &KeyboardWork::onDisableShortcut);
+        connect(m_scContent, &ShortcutContent::requestSaveShortcut, m_work, &KeyboardWorker::modifyShortcutEdit);
+        connect(m_scContent, &ShortcutContent::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
+        connect(m_scContent, &ShortcutContent::requestDisableShortcut, m_work, &KeyboardWorker::onDisableShortcut);
 
         m_frameProxy->pushWidget(this, m_scContent);
     }
@@ -271,10 +271,10 @@ void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
     SettingsHead *head = shortcutWidget->getHead();
 
     connect(m_customEdit, &CustomEdit::requestFrameAutoHide, this, &KeyboardModule::onSetFrameAutoHide);
-    connect(m_customEdit, &CustomEdit::requestUpdateKey, m_work, &KeyboardWork::updateKey);
+    connect(m_customEdit, &CustomEdit::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
     connect(m_customEdit, &CustomEdit::requestSaveShortcut, head, &SettingsHead::toCancel);
-    connect(m_customEdit, &CustomEdit::requestSaveShortcut, m_work, &KeyboardWork::modifyCustomShortcut);
-    connect(m_customEdit, &CustomEdit::requestDisableShortcut, m_work, &KeyboardWork::onDisableShortcut);
+    connect(m_customEdit, &CustomEdit::requestSaveShortcut, m_work, &KeyboardWorker::modifyCustomShortcut);
+    connect(m_customEdit, &CustomEdit::requestDisableShortcut, m_work, &KeyboardWorker::onDisableShortcut);
     connect(m_customEdit, &CustomEdit::requestDisableShortcut, head, &SettingsHead::toCancel);
 
     m_frameProxy->pushWidget(this, m_customEdit);

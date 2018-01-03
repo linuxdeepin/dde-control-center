@@ -51,7 +51,7 @@ UpdateModule::~UpdateModule()
 void UpdateModule::initialize()
 {
     m_model = new UpdateModel();
-    m_work = new UpdateWork(m_model);
+    m_work = new UpdateWorker(m_model);
 
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
@@ -118,10 +118,10 @@ void UpdateModule::onPushUpdate()
         m_work->checkForUpdates();
         m_work->activate();
 
-        connect(m_updatePage, &UpdateCtrlWidget::requestDownloadUpdates, m_work, &UpdateWork::downloadAndDistUpgrade);
-        connect(m_updatePage, &UpdateCtrlWidget::requestPauseDownload, m_work, &UpdateWork::pauseDownload);
-        connect(m_updatePage, &UpdateCtrlWidget::requestResumeDownload, m_work, &UpdateWork::resumeDownload);
-        connect(m_updatePage, &UpdateCtrlWidget::requestInstallUpdates, m_work, &UpdateWork::distUpgrade);
+        connect(m_updatePage, &UpdateCtrlWidget::requestDownloadUpdates, m_work, &UpdateWorker::downloadAndDistUpgrade);
+        connect(m_updatePage, &UpdateCtrlWidget::requestPauseDownload, m_work, &UpdateWorker::pauseDownload);
+        connect(m_updatePage, &UpdateCtrlWidget::requestResumeDownload, m_work, &UpdateWorker::resumeDownload);
+        connect(m_updatePage, &UpdateCtrlWidget::requestInstallUpdates, m_work, &UpdateWorker::distUpgrade);
     }
 
     m_frameProxy->pushWidget(this, m_updatePage);
@@ -135,8 +135,8 @@ void UpdateModule::onPushMirrorsView()
     if(!m_mirrorsWidget) {
         m_mirrorsWidget = new MirrorsWidget(m_model);
 
-        connect(m_mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWork::setMirrorSource);
-        connect(m_mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWork::testMirrorSpeed);
+        connect(m_mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWorker::setMirrorSource);
+        connect(m_mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWorker::testMirrorSpeed);
     }
 
     m_frameProxy->pushWidget(this, m_mirrorsWidget);
@@ -147,10 +147,10 @@ void UpdateModule::onPushSettings()
     if (!m_settingsPage) {
         m_settingsPage = new UpdateSettings(m_model);
 
-        connect(m_settingsPage, &UpdateSettings::requestSetAutoUpdate, m_work, &UpdateWork::setAutoDownloadUpdates);
+        connect(m_settingsPage, &UpdateSettings::requestSetAutoUpdate, m_work, &UpdateWorker::setAutoDownloadUpdates);
         connect(m_settingsPage, &UpdateSettings::requestShowMirrorsView, this, &UpdateModule::onPushMirrorsView);
-        connect(m_settingsPage, &UpdateSettings::requestSetAutoCleanCache, m_work, &UpdateWork::setAutoCleanCache);
-        connect(m_settingsPage, &UpdateSettings::requestSetSourceCheck, m_work, &UpdateWork::setSourceCheck);
+        connect(m_settingsPage, &UpdateSettings::requestSetAutoCleanCache, m_work, &UpdateWorker::setAutoCleanCache);
+        connect(m_settingsPage, &UpdateSettings::requestSetSourceCheck, m_work, &UpdateWorker::setSourceCheck);
     }
 
     m_frameProxy->pushWidget(this, m_settingsPage);

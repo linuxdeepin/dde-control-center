@@ -47,12 +47,12 @@ using LastoressionHelper=com::deepin::LastoreSessionHelper;
 
 namespace dcc{
 namespace update{
-class UpdateWork : public QObject
+class UpdateWorker : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit UpdateWork(UpdateModel *model, QObject *parent = 0);
+    explicit UpdateWorker(UpdateModel *model, QObject *parent = 0);
 
     void activate();
     void deactivate();
