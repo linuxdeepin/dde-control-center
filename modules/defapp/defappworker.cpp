@@ -132,15 +132,17 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
         QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
         QJsonObject object;
         QFileInfo fileInfo(info.filePath());
-        m_dbusManager->AddUserApp(mimelist, fileInfo.baseName() + ".desktop");
-        object.insert("Id", "deepin-custom-" + fileInfo.baseName() + ".desktop");
+
+        const QString &filename = "deepin-custom-" + fileInfo.baseName() + ".desktop";
+
+        m_dbusManager->AddUserApp(mimelist, filename);
+        object.insert("Id", filename);
         object.insert("Name", fileInfo.baseName());
         object.insert("DisplayName", fileInfo.baseName());
         object.insert("Icon", "application-default-icon");
         object.insert("Exec", info.filePath());
         Category *category = getCategory(mime);
         category->addUserItem(object);
-
     } else {
         QFile file(m_userLocalPath +"deepin-custom-" + info.baseName() + ".desktop");
 
