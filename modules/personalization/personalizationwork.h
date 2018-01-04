@@ -34,10 +34,10 @@
 #include <QString>
 #include <QJsonObject>
 #include <com_deepin_daemon_appearance.h>
-#include <com_deepin_wm_switcher.h>
+#include <com_deepin_wmswitcher.h>
 
-using com::deepin::daemon::Appearance;
-using com::deepin::wm_switcher;
+using Appearance = com::deepin::daemon::Appearance;
+using WMSwitcher = com::deepin::WMSwitcher;
 
 namespace dcc
 {
@@ -65,7 +65,7 @@ private slots:
     void onGetThemeFinished(QDBusPendingCallWatcher *w);
     void onGetPicFinished(QDBusPendingCallWatcher *w);
     void onRefreshedChanged(const QString &type);
-    void onToggleWM();
+    void onToggleWM(const QString &wm);
     void onGetCurrentWMFinished(QDBusPendingCallWatcher *w);
     void setFontList(FontModel* model, const QString &type, const QString &list);
 
@@ -78,7 +78,7 @@ private:
 private:
     PersonalizationModel *m_model;
     Appearance           *m_dbus;
-    wm_switcher *m_wmSwitcher;
+    WMSwitcher *m_wmSwitcher;
 };
 }
 }

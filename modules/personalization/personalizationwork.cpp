@@ -38,7 +38,7 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     : QObject(parent),
       m_model(model),
       m_dbus(new Appearance(Service, Path, QDBusConnection::sessionBus(), this)),
-      m_wmSwitcher(new wm_switcher("com.deepin.wm_switcher", "/com/deepin/wm_switcher", QDBusConnection::sessionBus(), this))
+      m_wmSwitcher(new WMSwitcher("com.deepin.WMSwitcher", "/com/deepin/WMSwitcher", QDBusConnection::sessionBus(), this))
 {
     ThemeModel *cursorTheme      = m_model->getMouseModel();
     ThemeModel *windowTheme      = m_model->getWindowModel();
@@ -54,7 +54,7 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     connect(m_dbus, &Appearance::FontSizeChanged, this, &PersonalizationWork::FontSizeChanged);
     connect(m_dbus, &Appearance::Refreshed, this, &PersonalizationWork::onRefreshedChanged);
 
-    connect(m_wmSwitcher, &wm_switcher::toggleWM, this, &PersonalizationWork::onToggleWM);
+    connect(m_wmSwitcher, &WMSwitcher::WMChanged, this, &PersonalizationWork::onToggleWM);
 
     m_dbus->setSync(false);
     m_wmSwitcher->setSync(false);
@@ -66,7 +66,9 @@ void PersonalizationWork::active()
     m_wmSwitcher->blockSignals(false);
 
     onGetList();
-    onToggleWM();
+
+    QDBusPendingCallWatcher *wmWatcher = new QDBusPendingCallWatcher(m_wmSwitcher->CurrentWM(), this);
+    connect(wmWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetCurrentWMFinished);
 }
 
 void PersonalizationWork::deactive()
@@ -204,17 +206,16 @@ void PersonalizationWork::onRefreshedChanged(const QString &type)
     }
 }
 
-void PersonalizationWork::onToggleWM()
+void PersonalizationWork::onToggleWM(const QString &wm)
 {
-  QDBusPendingCallWatcher *wmWatcher = new QDBusPendingCallWatcher(m_wmSwitcher->currentWM(), this);
-  connect(wmWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetCurrentWMFinished);
+    m_model->setIs3DWm(wm == "deepin wm");
 }
 
 void PersonalizationWork::onGetCurrentWMFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QString> reply = w->reply();
 
-    m_model->setIs3DWm(reply.value() == "deepin wm");
+    onToggleWM(reply.value());
 
     w->deleteLater();
 }
@@ -333,5 +334,5 @@ void PersonalizationWork::setFontSize(const int value)
 
 void PersonalizationWork::switchWM()
 {
-    m_wmSwitcher->requestSwitchWM();
+    m_wmSwitcher->RequestSwitchWM();
 }
