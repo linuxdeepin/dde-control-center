@@ -232,6 +232,39 @@
     </message>
 </context>
 <context>
+    <name>dcc::accounts::ADDialog</name>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <source>Exit domain</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <source>Join domain</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="41"/>
+        <source>Domain Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
+        <source>Admin account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
+        <source>Password</source>
+        <translation>Mật mã</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="49"/>
+        <source>Cancel</source>
+        <translation>Hủy</translation>
+    </message>
+</context>
+<context>
     <name>dcc::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
@@ -277,26 +310,61 @@
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="44"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
         <translation>Tạo Tài khoản</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="51"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="170"/>
         <source>Accounts</source>
         <translation>Tài khoản</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <source>Exit domain</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <source>Join domain</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="106"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="116"/>
         <source>Images</source>
         <translation>Những hình ảnh</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
+        <source>Your host leave the domain server successfully.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
+        <source>Your host joins the domain server successfully.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
+        <source>Your host is failed to leave the domain server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="290"/>
+        <source>Your host is failed to join the domain server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
+        <source>AD domain settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
         <source>Password not match.</source>
         <translation>Mậu mã không khớp.</translation>
     </message>
@@ -2317,17 +2385,17 @@
         <translation>Đang kiểm tra cập nhật, xin hãy đợi...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>đã tải xuống %1 (Nhấn dể dừng)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="183"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>đã tải xuống %1 (Nhấn để tiếp tục)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
         <source>Your system is up to date</source>
         <translation>Hệ thống của bạn thì đã cập nhật</translation>
     </message>
@@ -2347,57 +2415,57 @@
         <translation>Tải xuống và cài đặt những cập nhật</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="189"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
         <source>Install updates</source>
         <translation>Cài đặt những cập nhật</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="202"/>
         <source>Updating, please wait...</source>
         <translation>Đang cập nhật, xin hãy đợi...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="215"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="216"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Hệ thống mới nhất đã được cập nhật, khởi động lại để có hiệu lực</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="243"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>%n cập nhật() ứng dụng được phát hiện</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="249"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="250"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>Phiên bản hệ thống mới và %n cập nhật() ứng dụng được phát hiện</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
         <source>Downloaded</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="258"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
         <source>Download size: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="268"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% đã được tải xuống (Nhấn chuột để tạm dừng)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
         <source>New system edition detected</source>
         <translation>Phiên bản hệ thống mới được phát hiện</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="276"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="277"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Pin của bạn thấp hơn 50%, xin hãy cắm điện vào để tiếp tục</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="278"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Xin hãy bảo đảm đủ năng lượng để khởi động lại, và không tắt điện hay rút dây máy của bạn</translation>
     </message>
@@ -2418,22 +2486,32 @@
         <translation>Những Thiết lập Cập nhật</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="55"/>
+        <location filename="../modules/update/updatesettings.cpp" line="57"/>
+        <source>System source detection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="60"/>
         <source>Auto clear package cache</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="58"/>
+        <location filename="../modules/update/updatesettings.cpp" line="63"/>
         <source>Auto-download Updates</source>
         <translation>Những cập nhật tải xuống-tự động</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="60"/>
+        <location filename="../modules/update/updatesettings.cpp" line="65"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>Những cập nhật sẽ được tải xuống-tự động trong mạng không dây hay có dây</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="66"/>
+        <location filename="../modules/update/updatesettings.cpp" line="69"/>
+        <source>Prompt the notification if system source has been modified</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="75"/>
         <source>Switch Mirror</source>
         <translation>Công tắc Phản chiếu</translation>
     </message>
@@ -2453,14 +2531,14 @@
     </message>
 </context>
 <context>
-    <name>dcc::update::UpdateWork</name>
+    <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="218"/>
+        <location filename="../modules/update/updatework.cpp" line="223"/>
         <source>Patches</source>
         <translation>Các bản vá</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="219"/>
+        <location filename="../modules/update/updatework.cpp" line="224"/>
         <source>System patches.</source>
         <translation>Các bản vá Hệ thống.</translation>
     </message>

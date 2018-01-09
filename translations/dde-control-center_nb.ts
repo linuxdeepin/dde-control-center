@@ -12,12 +12,12 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
         <source>Connect to other devices</source>
-        <translation type="unfinished"/>
+        <translation>Koble til andre enheter</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Klikk på ikonet for å slå på bluetooth</translation>
     </message>
 </context>
 <context>
@@ -40,22 +40,22 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nye egendefinerbare innstillinger</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>Kopier innholdet på skjermen til en eller flere skjermer</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>Utvid skrivebordsinnholdet til å vise forskjellig innhold over flere skjermer</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Skjerminnhold vises kun på 1%</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
-        <translation type="unfinished"/>
+        <translation>Klikk for å åpne Skjerm modulen</translation>
     </message>
 </context>
 <context>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Ingen</translation>
     </message>
 </context>
 <context>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="206"/>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Navigasjon</translation>
     </message>
 </context>
 <context>
@@ -89,12 +89,12 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="65"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>Tøm alle</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="135"/>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>I går</translation>
     </message>
     <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="144"/>
@@ -104,12 +104,12 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="138"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>I forgårs</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="200"/>
         <source>No system notifications</source>
-        <translation type="unfinished"/>
+        <translation>Ingen systemmeldinger</translation>
     </message>
 </context>
 <context>
@@ -117,12 +117,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="34"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Omstart behøves som følge av nylig installerte oppdateringer. Ønsker du å starte maskinen på nytt nå?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst sørg for å lagre alle data først</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Omstart</translation>
     </message>
 </context>
 <context>
@@ -145,7 +145,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation type="unfinished"/>
+        <translation>Venstreklikk for å rotere og høyreklikk for å avslutte</translation>
     </message>
 </context>
 <context>
@@ -158,7 +158,7 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="142"/>
         <source>Current City: %1</source>
-        <translation type="unfinished"/>
+        <translation>Nåværende sted: %1</translation>
     </message>
 </context>
 <context>
@@ -166,12 +166,12 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="78"/>
         <source>Reset all settings</source>
-        <translation type="unfinished"/>
+        <translation>Nullstill alle innstillinger</translation>
     </message>
     <message>
         <location filename="../frame/settingswidget.cpp" line="123"/>
         <source>All Settings</source>
-        <translation type="unfinished"/>
+        <translation>Alle innstillinger</translation>
     </message>
 </context>
 <context>
@@ -179,12 +179,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Oppdateringer</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="38"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Oppdateringer funnet, klikk her for å vise</translation>
     </message>
 </context>
 <context>
@@ -192,7 +192,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
+        <translation>Klikk her for å aktivere VPN</translation>
     </message>
 </context>
 <context>
@@ -200,17 +200,17 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
         <source>Sorry, unable to get weather!</source>
-        <translation type="unfinished"/>
+        <translation>Beklager, finner ikke værinformasjon!</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
         <source>Loading weather...</source>
-        <translation type="unfinished"/>
+        <translation>Laster værinformasjon...</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
         <source>Just updated</source>
-        <translation type="unfinished"/>
+        <translation>Nylig oppdatert</translation>
     </message>
 </context>
 <context>
@@ -218,17 +218,50 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>Koble til skjult nettverk</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="81"/>
         <source>Click icon to enable WIFI</source>
-        <translation type="unfinished"/>
+        <translation>Klikk her for å aktivere WiFi</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="210"/>
         <source>Wireless Card %1</source>
-        <translation type="unfinished"/>
+        <translation>Trådløskort: %1</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::accounts::ADDialog</name>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <source>Exit domain</source>
+        <translation>Forlat domene</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <source>Join domain</source>
+        <translation>Bli med i domene</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="41"/>
+        <source>Domain Server</source>
+        <translation>Domenekontroller</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
+        <source>Admin account</source>
+        <translation>Adminkonto</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
+        <source>Password</source>
+        <translation>Passord</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="49"/>
+        <source>Cancel</source>
+        <translation>Avbryt</translation>
     </message>
 </context>
 <context>
@@ -236,69 +269,104 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
-        <translation type="unfinished"/>
+        <translation>Endre avatar</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>Endre fullt navn</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
-        <translation type="unfinished"/>
+        <translation>Endre passord</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>Automatisk innlogging</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Innlogging uten passord</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
         <source>Delete Account</source>
-        <translation>Slett konto</translation>
+        <translation>Slett bruker</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>Sletting feilet, bruker er pålogget</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Fingeravtrykk</translation>
     </message>
 </context>
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="44"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
-        <translation type="unfinished"/>
+        <translation>Opprett bruker</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="51"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="170"/>
         <source>Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Brukere</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <source>Exit domain</source>
+        <translation>Forlat domene</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <source>Join domain</source>
+        <translation>Bli med i domene</translation>
     </message>
 </context>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="106"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="116"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Bilder</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
+        <source>Your host leave the domain server successfully.</source>
+        <translation>Utmelding av domene vellykket.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
+        <source>Your host joins the domain server successfully.</source>
+        <translation>Innmelding i domene vellykket.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
+        <source>Your host is failed to leave the domain server.</source>
+        <translation>Utmelding av domene feilet.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="290"/>
+        <source>Your host is failed to join the domain server.</source>
+        <translation>Innmelding i domene feilet.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
+        <source>AD domain settings</source>
+        <translation>Active Directory innstillinger</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
         <source>Password not match.</source>
-        <translation type="unfinished"/>
+        <translation>Passordoppføringer er ikke like.</translation>
     </message>
 </context>
 <context>
@@ -306,12 +374,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Legg til fingeravtrykk</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>Skriv inn på nytt</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
@@ -321,22 +389,22 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Identifiserer fingeravtrykk</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
+        <translation>Identifisering av fingeravtrykk feilet. Plasser finger på avleseren og beveg fingeren opp fra bunnen og slipp</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation type="unfinished"/>
+        <translation>Plasser finger på avleseren, beveg fingeren opp fra bunnen, slipp og repeter stegene</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>Godkjent</translation>
     </message>
 </context>
 <context>
@@ -344,7 +412,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="66"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Opprett</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="65"/>
@@ -371,22 +439,22 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="56"/>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation>Gjenta passord</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="85"/>
         <source>New Account</source>
-        <translation type="unfinished"/>
+        <translation>Ny bruker</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="140"/>
         <source>Username can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>Brukernavn kan ikke være blankt.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="143"/>
         <source>Password can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>Passord kan ikke være blankt.</translation>
     </message>
 </context>
 <context>
@@ -394,32 +462,32 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>Liste over fingeravtrykk</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Fingeravtrykk</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Legg til fingeravtrykk</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Fjern fingeravtrykk</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation type="unfinished"/>
+        <translation>Fingeravtrykk benyttes for å logge inn på systemet, autentisere applikasjoner og andre scenarier. Les av fingeravtrykk når passord påkreves.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Fingeravtrykk</translation>
     </message>
 </context>
 <context>
@@ -427,7 +495,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>Fullt navn:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -437,7 +505,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>Innstillinger for fullt navn</translation>
     </message>
 </context>
 <context>
@@ -466,7 +534,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="59"/>
         <source>Accept</source>
-        <translation type="unfinished"/>
+        <translation>Godta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="77"/>
@@ -479,12 +547,12 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>Administrative privilegier påkrevd for å slette brukerkonto</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>Slett kontoens mappe</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
@@ -512,7 +580,7 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="61"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>Aktiver bluetooth for å finne enheter i nærheten (høyttaler, headset, tastatur, mus)</translation>
     </message>
 </context>
 <context>
@@ -547,7 +615,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Frakoblet</translation>
     </message>
 </context>
 <context>
@@ -555,7 +623,7 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation type="unfinished"/>
+        <translation>PIN for å koble til Bluetooth enhet:</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="49"/>
@@ -583,7 +651,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="63"/>
         <source>Change Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Endre innstillinger for tid</translation>
     </message>
 </context>
 <context>
@@ -591,17 +659,17 @@
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="56"/>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>År</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="59"/>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Måned</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Dag</translation>
     </message>
 </context>
 <context>
@@ -609,33 +677,33 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
-        <translation type="unfinished"/>
+        <translation>Automatisk synkronisering</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="51"/>
         <source>Add Timezone</source>
-        <translation>Alle tidssoner</translation>
+        <translation>Legg til tidssone</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="58"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="177"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Dato og tid</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="62"/>
         <source>Change System Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Endre systemets tidssone</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="70"/>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tidsinnstillinger</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="75"/>
         <source>Timezone List</source>
-        <translation type="unfinished"/>
+        <translation>Liste over tiddsoner</translation>
     </message>
 </context>
 <context>
@@ -643,7 +711,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="174"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Endre tidssone</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
@@ -666,12 +734,12 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="110"/>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>I morgen</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="112"/>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>I går</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="114"/>
@@ -681,12 +749,12 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="119"/>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 timer forran lokal tid</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="121"/>
         <source>%1 hours late than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 timer etter lokal tid</translation>
     </message>
 </context>
 <context>
@@ -743,7 +811,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>Åpne fil på skrivebord</translation>
     </message>
 </context>
 <context>
@@ -765,12 +833,12 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="74"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Nattskift</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation type="unfinished"/>
+        <translation>Skjermens fargetone vil automatisk endres for å skåne øyner og døgnrytme ved å automatisk detektere lokasjon og simulere soloppgang og solnedgang</translation>
     </message>
 </context>
 <context>
@@ -778,7 +846,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="43"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Endre</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="45"/>
@@ -788,12 +856,12 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="48"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst endre til ønsket modus før du endrer innstillinger</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="50"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst bytt til en annen modus før du forsøker å slette innstillingene</translation>
     </message>
 </context>
 <context>
@@ -801,7 +869,7 @@
     <message>
         <location filename="../modules/display/displaymodule.cpp" line="254"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Trådløs skjermprojisering</translation>
     </message>
 </context>
 <context>
@@ -809,17 +877,17 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Skalering av skjerminnhold</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
         <source>Rotate</source>
-        <translation type="unfinished"/>
+        <translation>Roter</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="58"/>
         <source>New custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Ny egendefinerte innstillinger</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="60"/>
@@ -834,7 +902,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="227"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Trådløs skjermprojisering</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
@@ -848,7 +916,7 @@
     <message>
         <location filename="../modules/display/displayworker.cpp" line="178"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>Mine innstillinger %1</translation>
     </message>
 </context>
 <context>
@@ -856,12 +924,12 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="43"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Søker etter enheter, vennligst vent...</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="44"/>
         <source>No available device found</source>
-        <translation type="unfinished"/>
+        <translation>Ingen tilgjengelig enhet funnet</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="47"/>
@@ -874,7 +942,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="51"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation type="unfinished"/>
+        <translation>WiFi vil bli frakoblet når skjermprojisering er aktivert</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="55"/>
@@ -884,7 +952,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="69"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>Enhetsliste</translation>
     </message>
 </context>
 <context>
@@ -930,7 +998,7 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="391"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>(Anbefalt)</translation>
     </message>
 </context>
 <context>
@@ -943,7 +1011,7 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="80"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>(Anbefalt)</translation>
     </message>
 </context>
 <context>
@@ -982,12 +1050,12 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="106"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Denne snarveien er i konflikt med %1, klikk på &quot;Legg til&quot; for å aktivere denne snarveien</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="160"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>Velg fil</translation>
     </message>
 </context>
 <context>
@@ -1026,12 +1094,12 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="108"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Denne snarveien er i konflikt med %1, klikk på &quot;Legg til&quot; for å aktivere denne snarveien allikevel</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="148"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>Velg fil</translation>
     </message>
 </context>
 <context>
@@ -1039,12 +1107,12 @@
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Snarvei</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="102"/>
         <source>Please enter a shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst tast inn en snarvei</translation>
     </message>
 </context>
 <context>
@@ -1058,7 +1126,7 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>Veksle mellom oppsett</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="88"/>
@@ -1090,12 +1158,12 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>Kort</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Lang</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="65"/>
@@ -1115,17 +1183,17 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="79"/>
         <source>Please Test Here</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst prøv her</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="93"/>
         <source>Enable Numeric Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Aktiver numerisk tastatur</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="97"/>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished"/>
+        <translation>Caps Lock prompt</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="103"/>
@@ -1135,12 +1203,12 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="111"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Systemspråk</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Snarvei</translation>
     </message>
 </context>
 <context>
@@ -1148,7 +1216,7 @@
     <message>
         <location filename="../modules/keyboard/langwidget.cpp" line="48"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Systemspråk</translation>
     </message>
 </context>
 <context>
@@ -1156,7 +1224,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="50"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst nullstill snarvei</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="57"/>
@@ -1171,7 +1239,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="82"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Denne snarveien er i konflikt med %1, klikk på &quot;Legg til&quot; for å aktivere denne snarveien allikevel</translation>
     </message>
 </context>
 <context>
@@ -1197,12 +1265,12 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="56"/>
         <source>WorkSpace</source>
-        <translation type="unfinished"/>
+        <translation>Arbeidsområde</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="77"/>
         <source>Add Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Legg til egendefinert snarvei</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="87"/>
@@ -1212,7 +1280,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="64"/>
         <source>Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Egendefinert snarvei</translation>
     </message>
 </context>
 <context>
@@ -1225,7 +1293,7 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="53"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Deaktiver styreflate når man skriver</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="63"/>
@@ -1248,7 +1316,7 @@
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="44"/>
         <source>Double-click Test</source>
-        <translation type="unfinished"/>
+        <translation>Dobbeltklikk test</translation>
     </message>
 </context>
 <context>
@@ -1280,12 +1348,12 @@
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Mus</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>Styrekule</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
@@ -1295,7 +1363,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Deaktiver styreflate når man skriver</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
@@ -1312,7 +1380,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Scroll speed</source>
-        <translation type="unfinished"/>
+        <translation>Rullehastighet</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
@@ -1332,7 +1400,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>Styreflate</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
@@ -1343,7 +1411,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Berør for å klikke</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
@@ -1356,22 +1424,22 @@
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detect</source>
-        <translation type="unfinished"/>
+        <translation>Oppdag håndflate</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <source>Minimum contact surface</source>
-        <translation type="unfinished"/>
+        <translation>Minimum overflatekontakt</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <source>Minimum pressure value</source>
-        <translation type="unfinished"/>
+        <translation>Minimum trykkverdi</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst deaktiver dette valget om styreflaten ikke virker når det er aktivert</translation>
     </message>
 </context>
 <context>
@@ -1379,12 +1447,12 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="43"/>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>Styrekule</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="46"/>
         <source>Thinkpad Track Point</source>
-        <translation type="unfinished"/>
+        <translation>Thinkpad styrekule</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="49"/>
@@ -1407,17 +1475,17 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="43"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy for programmer</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
         <source>Proxy Type</source>
-        <translation>Proxy Type</translation>
+        <translation>Proxytype</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP adresse</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
@@ -1467,7 +1535,7 @@
     <message>
         <location filename="../modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
-        <translation>Proxy Type</translation>
+        <translation>Proxytype</translation>
     </message>
 </context>
 <context>
@@ -1509,12 +1577,12 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot-innstillinger</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
 </context>
 <context>
@@ -1522,12 +1590,12 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
         <source>Network Details</source>
-        <translation type="unfinished"/>
+        <translation>Nettverksdetaljer</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
@@ -1542,7 +1610,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
         <source>MAC</source>
-        <translation type="unfinished"/>
+        <translation>MAC</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
@@ -1552,7 +1620,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
         <source>IPv4 Address</source>
-        <translation type="unfinished"/>
+        <translation>IPv4 adresse</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
@@ -1579,7 +1647,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
         <source>IPv6 Address</source>
-        <translation type="unfinished"/>
+        <translation>IPv6 adresse</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
@@ -1589,7 +1657,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>Hastighet</translation>
     </message>
 </context>
 <context>
@@ -1607,12 +1675,12 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="84"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Autentiserer</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="86"/>
         <source>Obtaining Address</source>
-        <translation type="unfinished"/>
+        <translation>Henter adresse</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="87"/>
@@ -1630,7 +1698,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="52"/>
         <source>DSL</source>
-        <translation type="unfinished"/>
+        <translation>DSL</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="53"/>
@@ -1640,12 +1708,12 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy for programmer</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
         <source>Network Details</source>
-        <translation type="unfinished"/>
+        <translation>Nettverksdetaljer</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="84"/>
@@ -1656,12 +1724,12 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="210"/>
         <source>Wired Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Kablet nettverkskort%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
         <source>Wired Network Card</source>
-        <translation type="unfinished"/>
+        <translation>Kablet nettverkskort</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="216"/>
@@ -1671,7 +1739,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="211"/>
         <source>Wired Network%1</source>
-        <translation type="unfinished"/>
+        <translation>Kablet nettverk%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="54"/>
@@ -1681,7 +1749,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="225"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
@@ -1691,22 +1759,22 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
         <source>Wireless Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Trådløst nettverkskort%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wireless Network Card</source>
-        <translation type="unfinished"/>
+        <translation>Trådløst nettverkskort</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="244"/>
         <source>Wireless Network</source>
-        <translation>Trådløs Nettverk</translation>
+        <translation>Trådløst nettverk</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="239"/>
         <source>Wireless Network%1</source>
-        <translation type="unfinished"/>
+        <translation>Trådløst nettverk%1</translation>
     </message>
 </context>
 <context>
@@ -1714,7 +1782,7 @@
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="53"/>
         <source>Create PPPoE Connection</source>
-        <translation type="unfinished"/>
+        <translation>Opprett PPPoE-forbindelse</translation>
     </message>
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="67"/>
@@ -1752,7 +1820,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="91"/>
         <source>Http Proxy</source>
-        <translation type="unfinished"/>
+        <translation>HTTP proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="93"/>
@@ -1765,17 +1833,17 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="96"/>
         <source>Https Proxy</source>
-        <translation type="unfinished"/>
+        <translation>HTTPS proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="101"/>
         <source>Ftp Proxy</source>
-        <translation type="unfinished"/>
+        <translation>FTP proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="106"/>
         <source>Socks Proxy</source>
-        <translation>Socks Proxy</translation>
+        <translation>Socks proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="115"/>
@@ -1798,17 +1866,17 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="75"/>
         <source>VPN Status</source>
-        <translation type="unfinished"/>
+        <translation>VPN status</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="78"/>
         <source>Create VPN</source>
-        <translation type="unfinished"/>
+        <translation>Opprett VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>Importer VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="100"/>
@@ -1818,7 +1886,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="261"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>Import feilet</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="263"/>
@@ -1843,12 +1911,13 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="297"/>
         <source>OpenVPN</source>
-        <translation>ÅpenVPN</translation>
+        <translation>OpenVPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="300"/>
         <source>StrongSwan</source>
-        <translation type="unfinished"/>
+        <translation>StrongSWAN
+</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="303"/>
@@ -1858,7 +1927,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="328"/>
         <source>New VPN</source>
-        <translation type="unfinished"/>
+        <translation>Ny VPN forbindelse</translation>
     </message>
 </context>
 <context>
@@ -1866,22 +1935,22 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="58"/>
         <source>Setting List</source>
-        <translation type="unfinished"/>
+        <translation>Liste over innstillinger</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="62"/>
         <source>Please firstly plug in the network cable</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst koble til nettverkskabel</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="68"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>Legg til innstillinger</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="83"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>Velg innstillinger</translation>
     </message>
 </context>
 <context>
@@ -1889,22 +1958,22 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="60"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>Koble til skjult nettverk</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Slå av hotspot</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst deaktiver hotspot om du ønsker å benytte trådløse nettverk</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>
         <source>WLAN</source>
-        <translation type="unfinished"/>
+        <translation>WLAN</translation>
     </message>
 </context>
 <context>
@@ -1912,7 +1981,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="83"/>
         <source> (Unsupported font)</source>
-        <translation type="unfinished"/>
+        <translation>(Ikke støttet)</translation>
     </message>
 </context>
 <context>
@@ -1920,18 +1989,18 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="45"/>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>Standard-font</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Monospaced-font</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="88"/>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="102"/>
         <source> (Unsupported font)</source>
-        <translation type="unfinished"/>
+        <translation>(Ikke støttet)</translation>
     </message>
 </context>
 <context>
@@ -1955,12 +2024,12 @@
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="113"/>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>Standardfont</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="122"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Monospaced-font</translation>
     </message>
 </context>
 <context>
@@ -1968,7 +2037,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="53"/>
         <source>Enable window effect</source>
-        <translation type="unfinished"/>
+        <translation>Slå på effekter for vinduer</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="55"/>
@@ -2000,17 +2069,17 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="40"/>
         <source>Window Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema for vinduer</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="41"/>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema for ikoner</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="42"/>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema for musepeker</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="54"/>
@@ -2023,7 +2092,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="44"/>
         <source>Monitor will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Skjerm slukkes etter</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="45"/>
@@ -2039,17 +2108,17 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="74"/>
         <source>Password required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Passord påkrevd for å vekke skjermen</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="77"/>
         <source>Password required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Passord påkreves for å vekke datamaskinen</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="80"/>
         <source>Suspend on lid close</source>
-        <translation type="unfinished"/>
+        <translation>Dvale når skjerm lukkes</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="87"/>
@@ -2069,7 +2138,7 @@
         <location filename="../modules/power/powerwidget.cpp" line="134"/>
         <location filename="../modules/power/powerwidget.cpp" line="140"/>
         <source>%1 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>%1 minutter</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="136"/>
@@ -2087,7 +2156,7 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="38"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Inngang</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="40"/>
@@ -2154,7 +2223,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="71"/>
         <source>Startup Delay</source>
-        <translation type="unfinished"/>
+        <translation>Oppstartsforsinkelse</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="74"/>
@@ -2172,7 +2241,7 @@
     <message>
         <location filename="../modules/systeminfo/copyrightwidget.cpp" line="86"/>
         <source>License</source>
-        <translation type="unfinished"/>
+        <translation>Lisens</translation>
     </message>
 </context>
 <context>
@@ -2191,7 +2260,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="86"/>
         <source>Distribution Release:</source>
-        <translation type="unfinished"/>
+        <translation>Distribusjonsutgivelse:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="95"/>
@@ -2201,7 +2270,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="119"/>
         <source>Edition License</source>
-        <translation type="unfinished"/>
+        <translation>Versjonslisens:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
@@ -2211,7 +2280,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="175"/>
         <source>%1Bit</source>
-        <translation type="unfinished"/>
+        <translation>%1Bit</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
@@ -2221,12 +2290,12 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Opphavsrett © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
         <source>Edition:</source>
-        <translation type="unfinished"/>
+        <translation>Utgave:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="102"/>
@@ -2245,7 +2314,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="37"/>
         <location filename="../modules/update/mirroritem.cpp" line="132"/>
         <source>Untested</source>
-        <translation type="unfinished"/>
+        <translation>Ikke testet</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="80"/>
@@ -2277,17 +2346,17 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="42"/>
         <source>Test Speed</source>
-        <translation type="unfinished"/>
+        <translation>Test hastighet</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="46"/>
         <source>Switch Mirror</source>
-        <translation type="unfinished"/>
+        <translation>Endre kilde</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="135"/>
         <source>Retest</source>
-        <translation type="unfinished"/>
+        <translation>Test på nytt</translation>
     </message>
 </context>
 <context>
@@ -2295,12 +2364,12 @@
     <message>
         <location filename="../modules/update/resultitem.cpp" line="62"/>
         <source>Update successfully</source>
-        <translation type="unfinished"/>
+        <translation>Oppdatering vellykket</translation>
     </message>
     <message>
         <location filename="../modules/update/resultitem.cpp" line="63"/>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>Oppdatering feilet</translation>
     </message>
 </context>
 <context>
@@ -2314,92 +2383,92 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="165"/>
         <source>Checking for updates, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Søker etter oppdateringer, vennligst vent...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
         <source>%1 downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1 nedlastet (Trykk for å pause)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="183"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
         <source>%1 downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
+        <translation>%1 nedlastet (Trykk for å fortsette)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
         <source>Your system is up to date</source>
         <translation>Systemet er oppdatert</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="51"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst start på nytt for å ta i bruk oppdateringer</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
+        <translation>Nettverk frakoblet, vennligst prøv på nytt etter å ha gjenopprettet forbindelse</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
-        <translation type="unfinished"/>
+        <translation>Last ned og installer oppdateringer</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="189"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
         <source>Install updates</source>
-        <translation type="unfinished"/>
+        <translation>Installer oppdateringer</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="202"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Oppdaterer, vennligst vent...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="215"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="216"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Nyeste systemoppdateringer installert, start maskinen på nytt for å ta dem i bruk</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="243"/>
         <source>%n application update(s) detected</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="249"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="250"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
         <source>Downloaded</source>
         <translation>Lastet ned</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="258"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>Størrelse på nedlasting: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="268"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1% nedlastet (Trykk for å pause)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
         <source>New system edition detected</source>
-        <translation type="unfinished"/>
+        <translation>Ny systemutgave oppdaget</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="276"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="277"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation type="unfinished"/>
+        <translation>Batteriet har mindre enn 50% gjenværende strøm, vennligst koble til strømforsyning for å fortsette</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="278"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="unfinished"/>
+        <translation>Vennligst sørg for at der er nok strøm på batteriet for å utføre omstart, og ikke slå av eller koble fra strømforsyningen</translation>
     </message>
 </context>
 <context>
@@ -2407,7 +2476,7 @@
     <message>
         <location filename="../modules/update/updateitem.cpp" line="118"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>Detaljer</translation>
     </message>
 </context>
 <context>
@@ -2415,27 +2484,37 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="42"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Oppdateringsinnstillinger</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="55"/>
-        <source>Auto clear package cache</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/update/updatesettings.cpp" line="58"/>
-        <source>Auto-download Updates</source>
+        <location filename="../modules/update/updatesettings.cpp" line="57"/>
+        <source>System source detection</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="60"/>
+        <source>Auto clear package cache</source>
+        <translation>Automatisk tømming av mellomlager for pakker</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="63"/>
+        <source>Auto-download Updates</source>
+        <translation>Last ned oppdateringer automatisk</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="65"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
+        <translation>Oppdateringer lastes ned automatisk på trådløst eller kablet nettverk</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="69"/>
+        <source>Prompt the notification if system source has been modified</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="66"/>
+        <location filename="../modules/update/updatesettings.cpp" line="75"/>
         <source>Switch Mirror</source>
-        <translation type="unfinished"/>
+        <translation>Endre kilde</translation>
     </message>
 </context>
 <context>
@@ -2449,20 +2528,20 @@
     <message>
         <location filename="../modules/update/updateview.cpp" line="45"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Oppdateringsinnstillinger</translation>
     </message>
 </context>
 <context>
-    <name>dcc::update::UpdateWork</name>
+    <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="218"/>
+        <location filename="../modules/update/updatework.cpp" line="223"/>
         <source>Patches</source>
         <translation>Patcher</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="219"/>
+        <location filename="../modules/update/updatework.cpp" line="224"/>
         <source>System patches.</source>
-        <translation type="unfinished"/>
+        <translation>Systemoppdateringer</translation>
     </message>
 </context>
 <context>
@@ -2470,12 +2549,12 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Penn</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Mus</translation>
     </message>
 </context>
 <context>
@@ -2483,17 +2562,17 @@
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitive</source>
-        <translation type="unfinished"/>
+        <translation>Trykkfølsomhet</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>light</source>
-        <translation type="unfinished"/>
+        <translation>lett</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>heavy</source>
-        <translation type="unfinished"/>
+        <translation>tung</translation>
     </message>
 </context>
 <context>
@@ -2512,12 +2591,12 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Mus</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Penn</translation>
     </message>
 </context>
 <context>

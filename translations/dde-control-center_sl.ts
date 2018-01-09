@@ -232,6 +232,39 @@
     </message>
 </context>
 <context>
+    <name>dcc::accounts::ADDialog</name>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <source>Exit domain</source>
+        <translation>Izhod iz domene</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <source>Join domain</source>
+        <translation>Vstop v domeno</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="41"/>
+        <source>Domain Server</source>
+        <translation>Strežnik domene</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
+        <source>Admin account</source>
+        <translation>Administratorski račun</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
+        <source>Password</source>
+        <translation>Geslo</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="49"/>
+        <source>Cancel</source>
+        <translation>Prekliči</translation>
+    </message>
+</context>
+<context>
     <name>dcc::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
@@ -277,26 +310,61 @@
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="44"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
         <translation>Ustvari račun</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="51"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="170"/>
         <source>Accounts</source>
         <translation>Računi</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <source>Exit domain</source>
+        <translation>Izhod iz domene</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <source>Join domain</source>
+        <translation>Vstop v domeno</translation>
     </message>
 </context>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="106"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="116"/>
         <source>Images</source>
         <translation>Slike</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
+        <source>Your host leave the domain server successfully.</source>
+        <translation>Vaš gostitelj je uspešno zapustil strežnik domene.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
+        <source>Your host joins the domain server successfully.</source>
+        <translation>Vaš gostitelj se je uspešno pridružil strežniku domene.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
+        <source>Your host is failed to leave the domain server.</source>
+        <translation>Vaš gostitelj ni uspel zapustiti strežnika domene.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="290"/>
+        <source>Your host is failed to join the domain server.</source>
+        <translation>Vaš gostitelj se ni uspel povezati na strežnik domene.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
+        <source>AD domain settings</source>
+        <translation>AD nastavitve domene</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
         <source>Password not match.</source>
         <translation>Geslo se ne ujema.</translation>
     </message>
@@ -1312,7 +1380,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Scroll speed</source>
-        <translation type="unfinished"/>
+        <translation>Hitrost koleščka</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
@@ -2317,17 +2385,17 @@
         <translation>Preverjam za posodobitvami, prosimo počakajte...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 prenesenega (Kliknite za premor)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="183"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>%1 prenesenega (Kliknite za nadaljevanje)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
         <source>Your system is up to date</source>
         <translation>Tvoj sistem je posodobljen</translation>
     </message>
@@ -2347,57 +2415,57 @@
         <translation>Prenesite in namestite posodobitve</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="189"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
         <source>Install updates</source>
         <translation>Namesti posodobitve</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="202"/>
         <source>Updating, please wait...</source>
         <translation>Posodabljam, prosim počakajte...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="215"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="216"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Najnovejši sistem nameščen, ponovno zaženite računalnik</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="243"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>Zaznana %n programska posodobitev()</numerusform><numerusform>Zaznani %n programski posodobitvi()</numerusform><numerusform>Zaznane %n programske posodobitve()</numerusform><numerusform>Zaznanih %n programskih posodobitev()</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="249"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="250"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>Zaznane nova različica sistema in %n programska posodobitev()</numerusform><numerusform>Zaznane nova različica sistema in %n programski posodobitvi()</numerusform><numerusform>Zaznane nova različica sistema in %n programske posodobitve()</numerusform><numerusform>Zaznane nova različica sistema in %n programskih posodobitev()</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
         <source>Downloaded</source>
         <translation>Prenešeno</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="258"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
         <source>Download size: %1</source>
         <translation>Velikost prenosa: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="268"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% prenesenega (za prekinitev kliknite)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
         <source>New system edition detected</source>
         <translation>Zaznana nova različica sistema</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="276"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="277"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Baterija je na manj kot 50%, za nadaljevanje priključite v napajanje</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="278"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Prosim, prepričajte se, da je za ponoven zagon dovolj energije, in ne ugasnite ali odklopite naprave iz napajanja</translation>
     </message>
@@ -2418,22 +2486,32 @@
         <translation>Nastavitve posodobitev</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="55"/>
+        <location filename="../modules/update/updatesettings.cpp" line="57"/>
+        <source>System source detection</source>
+        <translation>Zaznava sistemskega vira</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="60"/>
         <source>Auto clear package cache</source>
         <translation>Samodejno čiščenje paketnega predpomnilnika</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="58"/>
+        <location filename="../modules/update/updatesettings.cpp" line="63"/>
         <source>Auto-download Updates</source>
         <translation>Samodejno prenesi posodobitve</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="60"/>
+        <location filename="../modules/update/updatesettings.cpp" line="65"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>Posodobitve bodo samodejno prenesene prek brezžičnega ali žičnega omrežja</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="66"/>
+        <location filename="../modules/update/updatesettings.cpp" line="69"/>
+        <source>Prompt the notification if system source has been modified</source>
+        <translation>Prikaži obvestilo, če se je sistemski vir spremenil</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="75"/>
         <source>Switch Mirror</source>
         <translation>Preklopi zrcalni strežnik</translation>
     </message>
@@ -2453,14 +2531,14 @@
     </message>
 </context>
 <context>
-    <name>dcc::update::UpdateWork</name>
+    <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="218"/>
+        <location filename="../modules/update/updatework.cpp" line="223"/>
         <source>Patches</source>
         <translation>Paketi popravkov</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="219"/>
+        <location filename="../modules/update/updatework.cpp" line="224"/>
         <source>System patches.</source>
         <translation>Sistemski patchi.</translation>
     </message>

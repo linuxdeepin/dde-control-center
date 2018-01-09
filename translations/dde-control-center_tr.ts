@@ -232,6 +232,39 @@
     </message>
 </context>
 <context>
+    <name>dcc::accounts::ADDialog</name>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <source>Exit domain</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <source>Join domain</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="41"/>
+        <source>Domain Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
+        <source>Admin account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
+        <source>Password</source>
+        <translation>Şifre</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="49"/>
+        <source>Cancel</source>
+        <translation>İptal et</translation>
+    </message>
+</context>
+<context>
     <name>dcc::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
@@ -277,26 +310,61 @@
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="44"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
         <translation>Hesap Oluştur</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="51"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="170"/>
         <source>Accounts</source>
         <translation>Hesaplar</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <source>Exit domain</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <source>Join domain</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="106"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="116"/>
         <source>Images</source>
         <translation>Resimler</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
+        <source>Your host leave the domain server successfully.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
+        <source>Your host joins the domain server successfully.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
+        <source>Your host is failed to leave the domain server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="290"/>
+        <source>Your host is failed to join the domain server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
+        <source>AD domain settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
         <source>Password not match.</source>
         <translation>Şifre uyuşmuyor.</translation>
     </message>
@@ -609,7 +677,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
-        <translation>Otomatik Senkronizasyon</translation>
+        <translation>Otomatik Eşitle</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="51"/>
@@ -1312,7 +1380,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Scroll speed</source>
-        <translation type="unfinished"/>
+        <translation>Kaydırma hızı</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
@@ -2317,17 +2385,17 @@
         <translation>Güncelleştirmeler kontrol ediliyor, lütfen bekleyiniz...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 İndirildi (Duraklatmak için tıklayınız)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="183"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>%1 İndirildi (Devam etmek için tıklayınız)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
         <source>Your system is up to date</source>
         <translation>Sisteminiz güncel</translation>
     </message>
@@ -2347,57 +2415,57 @@
         <translation>Güncelleştirmeleri indir ve yükle</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="189"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
         <source>Install updates</source>
         <translation>Güncelleştirmeleri yükle</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="202"/>
         <source>Updating, please wait...</source>
         <translation>Güncelleme yükleniyor, lütfen bekleyiniz...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="215"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="216"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>En yeni sistem yüklendi, aktif etmek için yeniden başlatınız</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="243"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>%n uygulama güncelleştirme(leri) tespit edildi</numerusform><numerusform>%n uygulama güncelleştirme(leri) tespit edildi</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="249"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="250"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>Yeni sistem baskısı ve %n uygulama güncelleştirme(leri) tespit edildi</numerusform><numerusform>Yeni sistem baskısı ve %n uygulama güncelleştirme(leri) tespit edildi</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
         <source>Downloaded</source>
         <translation>İndirildi</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="258"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
         <source>Download size: %1</source>
         <translation>İndirme büyüklüğü: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="268"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% indirildi (Duraklatmak için tıklayınız)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
         <source>New system edition detected</source>
         <translation>Yeni sistem yazılımı algılandı</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="276"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="277"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Piliniz %50&apos;den az, lütfen devam etmek için şarja takınız</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="278"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Lütfen yeniden başlatmak için yeterli güce sahip olduğunuzdan emin olun ve makinenizi kapatmayın veya fişten çekmeyin</translation>
     </message>
@@ -2418,22 +2486,32 @@
         <translation>Güncelleştirme Ayarları</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="55"/>
+        <location filename="../modules/update/updatesettings.cpp" line="57"/>
+        <source>System source detection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="60"/>
         <source>Auto clear package cache</source>
         <translation> Paket önbelleğini otomatik temizle</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="58"/>
+        <location filename="../modules/update/updatesettings.cpp" line="63"/>
         <source>Auto-download Updates</source>
         <translation>Güncelleştirmeleri otomatik indir</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="60"/>
+        <location filename="../modules/update/updatesettings.cpp" line="65"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>Güncelleştirmeler kablosuz veya kablolu ağdan otomatik olarak indirilecek</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="66"/>
+        <location filename="../modules/update/updatesettings.cpp" line="69"/>
+        <source>Prompt the notification if system source has been modified</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="75"/>
         <source>Switch Mirror</source>
         <translation>Yansı Değiştir</translation>
     </message>
@@ -2453,14 +2531,14 @@
     </message>
 </context>
 <context>
-    <name>dcc::update::UpdateWork</name>
+    <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="218"/>
+        <location filename="../modules/update/updatework.cpp" line="223"/>
         <source>Patches</source>
         <translation>Yamalar</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="219"/>
+        <location filename="../modules/update/updatework.cpp" line="224"/>
         <source>System patches.</source>
         <translation>Sistem yamaları.</translation>
     </message>

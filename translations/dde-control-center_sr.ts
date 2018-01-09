@@ -232,6 +232,39 @@
     </message>
 </context>
 <context>
+    <name>dcc::accounts::ADDialog</name>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <source>Exit domain</source>
+        <translation>Напусти домен</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <source>Join domain</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="41"/>
+        <source>Domain Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
+        <source>Admin account</source>
+        <translation>Админ налог</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
+        <source>Password</source>
+        <translation>Лозинка</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="49"/>
+        <source>Cancel</source>
+        <translation>Откажи</translation>
+    </message>
+</context>
+<context>
     <name>dcc::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
@@ -241,7 +274,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>Уреди Пуно Име</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
@@ -256,7 +289,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Пријави се без лозинке</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -266,7 +299,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>Немогуће уклонити, тренутни корисник је пријављен</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
@@ -277,26 +310,61 @@
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="44"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
         <translation>Направите Налог</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="51"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="170"/>
         <source>Accounts</source>
         <translation>Налози</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <source>Exit domain</source>
+        <translation>Напусти домен</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <source>Join domain</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="106"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="116"/>
         <source>Images</source>
         <translation>Слике</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
+        <source>Your host leave the domain server successfully.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
+        <source>Your host joins the domain server successfully.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
+        <source>Your host is failed to leave the domain server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="290"/>
+        <source>Your host is failed to join the domain server.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
+        <source>AD domain settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
         <source>Password not match.</source>
         <translation>Лозинке се не поклапају.</translation>
     </message>
@@ -306,12 +374,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Додај Отисак Прста</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>Поново унесите</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
@@ -321,7 +389,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Препознавање отиска прста</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
@@ -404,12 +472,12 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Додај Отисак Прста</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Обриши Отисак Прста</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
@@ -419,7 +487,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Отисак Прста</translation>
     </message>
 </context>
 <context>
@@ -427,7 +495,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>Пуно Име:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -437,7 +505,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>Поставке Пуног Имена</translation>
     </message>
 </context>
 <context>
@@ -765,12 +833,12 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="74"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Ноћно Светло</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation type="unfinished"/>
+        <translation>На основу ваше локације тон екрана ће се самостално прилагођавати штитећи вам очи  </translation>
     </message>
 </context>
 <context>
@@ -809,7 +877,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Скалирање приказа</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
@@ -1125,7 +1193,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="97"/>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished"/>
+        <translation>Одзив за Велика Слова</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="103"/>
@@ -1225,7 +1293,7 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="53"/>
         <source>Disable the touchpad while typing</source>
-        <translation>Искључи Touchpad док куцам</translation>
+        <translation>Онемогући додирну таблу док куцам</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="63"/>
@@ -1256,7 +1324,7 @@
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="50"/>
         <source>Natural Scrolling</source>
-        <translation>Природно Померање</translation>
+        <translation>Природно Клизање</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="54"/>
@@ -1312,12 +1380,12 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Scroll speed</source>
-        <translation type="unfinished"/>
+        <translation>Брзина клизања</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Онемогуђи додирну таблу када укљућиш миш</translation>
+        <translation>Онемогући додирну таблу када прикључим миш</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
@@ -1332,13 +1400,13 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
-        <translation>TouchPad</translation>
+        <translation>Додирна Табла</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
         <source>Natural Scrolling</source>
-        <translation>Природно Померање</translation>
+        <translation>Природно Клизање</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
@@ -1407,17 +1475,17 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="43"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Програмски посредник</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
         <source>Proxy Type</source>
-        <translation type="unfinished"/>
+        <translation> Посредника</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>ИП адреса</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
@@ -1439,7 +1507,7 @@
         <location filename="../modules/network/chainsproxypage.cpp" line="58"/>
         <location filename="../modules/network/chainsproxypage.cpp" line="62"/>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Опционо</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
@@ -1467,7 +1535,7 @@
     <message>
         <location filename="../modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
-        <translation type="unfinished"/>
+        <translation>Тип Посредника</translation>
     </message>
 </context>
 <context>
@@ -1509,12 +1577,12 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation type="unfinished"/>
+        <translation>Поставке Приступне Тачке</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Приступна тачка</translation>
     </message>
 </context>
 <context>
@@ -1527,7 +1595,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Приступна тачка</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
@@ -1542,7 +1610,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
         <source>MAC</source>
-        <translation>„MAC“</translation>
+        <translation>МАЦ</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
@@ -1552,7 +1620,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
         <source>IPv4 Address</source>
-        <translation>„IPv4“ Адреса</translation>
+        <translation>ИПв4 Адреса</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
@@ -1579,12 +1647,12 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
         <source>IPv6 Address</source>
-        <translation type="unfinished"/>
+        <translation>ИПв6 Адреса</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
         <source>Prefix</source>
-        <translation type="unfinished"/>
+        <translation>Префикс</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
@@ -1640,7 +1708,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Програмски посредник</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
@@ -1676,17 +1744,17 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="54"/>
         <source>System Proxy</source>
-        <translation>Пореџађки Представитељ</translation>
+        <translation>Системски Посредник</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="225"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Приступна тачка</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
         <source>Shared</source>
-        <translation type="unfinished"/>
+        <translation>Дељено</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
@@ -1752,7 +1820,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="91"/>
         <source>Http Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Хттп Посредник</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="93"/>
@@ -1765,17 +1833,17 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="96"/>
         <source>Https Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Хттпс Посредник</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="101"/>
         <source>Ftp Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Фтп Посредник</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="106"/>
         <source>Socks Proxy</source>
-        <translation>Socks Представитељ</translation>
+        <translation>СОКС Посредник</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="115"/>
@@ -1790,7 +1858,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="175"/>
         <source>System Proxy</source>
-        <translation>Пореџађки Представитељ</translation>
+        <translation>Системски Посредник</translation>
     </message>
 </context>
 <context>
@@ -1798,17 +1866,17 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="75"/>
         <source>VPN Status</source>
-        <translation type="unfinished"/>
+        <translation>ВПН Стање</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="78"/>
         <source>Create VPN</source>
-        <translation type="unfinished"/>
+        <translation>Направи ВПН</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>Увези ВПН</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="100"/>
@@ -1818,7 +1886,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="261"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>Грешка Увоза</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="263"/>
@@ -1858,7 +1926,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="328"/>
         <source>New VPN</source>
-        <translation type="unfinished"/>
+        <translation>Нови ВПН</translation>
     </message>
 </context>
 <context>
@@ -1894,17 +1962,17 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Затвори приступну тачку</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation type="unfinished"/>
+        <translation>Прво онемогућите дељење приступне тачке ако желите да се повежете и користите функцију бежичне мреже</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>
         <source>WLAN</source>
-        <translation type="unfinished"/>
+        <translation>ВЛАН</translation>
     </message>
 </context>
 <context>
@@ -1973,7 +2041,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="55"/>
         <source>Theme</source>
-        <translation>Предмети</translation>
+        <translation>Теме</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="56"/>
@@ -2000,17 +2068,17 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="40"/>
         <source>Window Theme</source>
-        <translation type="unfinished"/>
+        <translation>Тема Прозора</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="41"/>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>Тема Иконица</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="42"/>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>Тема Показивача</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="54"/>
@@ -2049,7 +2117,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="80"/>
         <source>Suspend on lid close</source>
-        <translation type="unfinished"/>
+        <translation>Обустави при затварању рачунара</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="87"/>
@@ -2181,7 +2249,7 @@
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="183"/>
         <source>System Information</source>
-        <translation>Подаци о Поредком</translation>
+        <translation>Подаци Система</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -2317,17 +2385,17 @@
         <translation>Потрага за ажурирањима, молимо сачекајте...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
         <source>%1 downloaded (Click to pause)</source>
         <translation>%1 преузето (Клик за паузу)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="183"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
         <source>%1 downloaded (Click to continue)</source>
         <translation>%1 преузето (Клик за наставак)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="196"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
         <source>Your system is up to date</source>
         <translation>Ваш систем је ажуран</translation>
     </message>
@@ -2339,7 +2407,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
+        <translation>Веза је прекинута, покушајте поново након успостављања везе</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
@@ -2347,57 +2415,57 @@
         <translation>Преузми и инсталирај ажурирања</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="189"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
         <source>Install updates</source>
         <translation>Инсталирати ажурирања</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="202"/>
         <source>Updating, please wait...</source>
         <translation>Ажурирање, молимо сачекајте...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="215"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="216"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Најновији систем је инсталирам, поново покренути рачунар за примену исправки</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="243"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>ажурирање(а) за %n апликацију је пронађено</numerusform><numerusform>ажурирање(а) за %n апликацију је пронађено</numerusform><numerusform>ажурирање(а) за %n апликацију је пронађено</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="249"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="250"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>Пронађено је ново издање система и ажурирање за %n апликацију(е)</numerusform><numerusform>Пронађено је ново издање система и ажурирање за %n апликацију(е)</numerusform><numerusform>Пронађено је ново издање система и ажурирање за %n апликацију(е)</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
         <source>Downloaded</source>
-        <translation type="unfinished"/>
+        <translation>Преузето</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="258"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
         <source>Download size: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="268"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% преузето (Клик за паузу)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="247"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
         <source>New system edition detected</source>
         <translation>Нова издања система су пронађена</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="276"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="277"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Пуњење ваше батерије је мање од 50%, молимо вас прикључите пуњач за наставак</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="278"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Молимо вас, обезбедите довољно електричне енергије за рестарт, и не прекидајте довод електричне енергије у вашу машину</translation>
     </message>
@@ -2418,22 +2486,32 @@
         <translation>Подешавања Ажурирања</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="55"/>
-        <source>Auto clear package cache</source>
+        <location filename="../modules/update/updatesettings.cpp" line="57"/>
+        <source>System source detection</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="58"/>
+        <location filename="../modules/update/updatesettings.cpp" line="60"/>
+        <source>Auto clear package cache</source>
+        <translation>Самостално чисти кеш пакета</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="63"/>
         <source>Auto-download Updates</source>
         <translation>Самостално преузмање Ажурирања</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="60"/>
+        <location filename="../modules/update/updatesettings.cpp" line="65"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>Ажурирања ће бити самостално преузета на жичаној или бежичној мрежи</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="66"/>
+        <location filename="../modules/update/updatesettings.cpp" line="69"/>
+        <source>Prompt the notification if system source has been modified</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="75"/>
         <source>Switch Mirror</source>
         <translation>Промени сервер ажурирања</translation>
     </message>
@@ -2453,14 +2531,14 @@
     </message>
 </context>
 <context>
-    <name>dcc::update::UpdateWork</name>
+    <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="218"/>
+        <location filename="../modules/update/updatework.cpp" line="223"/>
         <source>Patches</source>
         <translation>Закрпе</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="219"/>
+        <location filename="../modules/update/updatework.cpp" line="224"/>
         <source>System patches.</source>
         <translation>Системске закрпе.</translation>
     </message>
@@ -2470,7 +2548,7 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Оловка</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
@@ -2517,7 +2595,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Оловка</translation>
     </message>
 </context>
 <context>
