@@ -4,12 +4,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>আপডেট ইন্সটল হয়েছে, কম্পিউটার পুনরায় চালু করতে হবে করতে হবে, এখনই পুনরায় চালু করবেন?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>সমস্ত তথ্য প্রথমত সংরক্ষিত হয়েছে তা নিশ্চিত করুন</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
@@ -19,12 +19,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Shut down</source>
-        <translation type="unfinished"/>
+        <translation>বন্ধ করুন</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>পুনঃরায় চালু করুন</translation>
     </message>
 </context>
 </TS>

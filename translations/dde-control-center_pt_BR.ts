@@ -236,22 +236,22 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
         <source>Exit domain</source>
-        <translation type="unfinished"/>
+        <translation>Sair do domínio</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Ingressar no domínio</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="41"/>
         <source>Domain Server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor de domínio</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>Conta de administrador</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
@@ -323,12 +323,12 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Exit domain</source>
-        <translation type="unfinished"/>
+        <translation>Sair do domínio</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Ingressar no domínio</translation>
     </message>
 </context>
 <context>
@@ -341,27 +341,27 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
         <source>Your host leave the domain server successfully.</source>
-        <translation type="unfinished"/>
+        <translation>Seu host saiu do domínio com sucesso</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
         <source>Your host joins the domain server successfully.</source>
-        <translation type="unfinished"/>
+        <translation>Seu host ingressou no domínio com sucesso</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
         <source>Your host is failed to leave the domain server.</source>
-        <translation type="unfinished"/>
+        <translation>Seu host falhou ao sair do domínio</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="290"/>
         <source>Your host is failed to join the domain server.</source>
-        <translation type="unfinished"/>
+        <translation>Seu host falhou ao ingressar no domínio</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de AD do domínio</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
@@ -2535,7 +2535,7 @@
     <message>
         <location filename="../modules/update/updatework.cpp" line="223"/>
         <source>Patches</source>
-        <translation>Patches</translation>
+        <translation>Correções</translation>
     </message>
     <message>
         <location filename="../modules/update/updatework.cpp" line="224"/>

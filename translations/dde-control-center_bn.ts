@@ -4,7 +4,7 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>সতেজ করুন</translation>
     </message>
 </context>
 <context>
@@ -12,12 +12,12 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
         <source>Connect to other devices</source>
-        <translation type="unfinished"/>
+        <translation>অন্যান্য ডিভাইসের সাথে সংযোগ স্থাপন করুন</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>ব্লুটুথ সক্রিয় করতে আইকনে ক্লিক করুন</translation>
     </message>
 </context>
 <context>
@@ -30,7 +30,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>প্রসারিত করুন</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
@@ -40,17 +40,17 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation type="unfinished"/>
+        <translation>নতুন কাস্টম সেটিংস</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>পর্দার বিষয়বস্তু এক বা একাধিক স্ক্রিনে অনুলিপি করুন</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>বিভিন্ন স্ক্রিনে বিভিন্ন সামগ্রী প্রদর্শন করতে স্ক্রীন সামগ্রী প্রসারিত করুন</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
@@ -65,7 +65,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
-        <translation type="unfinished"/>
+        <translation>প্রদর্শন মডিউল প্রবেশ করতে ক্লিক করুন</translation>
     </message>
 </context>
 <context>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../plugins/navgation/navwidget.cpp" line="206"/>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>ন্যাভিগেশন</translation>
     </message>
 </context>
 <context>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="65"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>সব পরিষ্কার করে দাও</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="135"/>
@@ -104,12 +104,12 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="138"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>গত পরশু</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="200"/>
         <source>No system notifications</source>
-        <translation type="unfinished"/>
+        <translation>কোনও সিস্টেম বিজ্ঞপ্তি নেই</translation>
     </message>
 </context>
 <context>
@@ -117,12 +117,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="34"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>আপডেট ইন্সটল হয়েছে, কম্পিউটার পুনরায় চালু করতে হবে করতে হবে, এখনই পুনরায় চালু করবেন?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>সমস্ত তথ্য প্রথমত সংরক্ষিত হয়েছে তা নিশ্চিত করুন</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
@@ -132,12 +132,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
         <source>Shut down</source>
-        <translation type="unfinished"/>
+        <translation>বন্ধ করুন</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>পুনঃরায় চালু করুন</translation>
     </message>
 </context>
 <context>
@@ -934,7 +934,7 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="47"/>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>সতেজ করুন</translation>
     </message>
 </context>
 <context>
@@ -947,7 +947,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="55"/>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>সতেজ করুন</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="69"/>

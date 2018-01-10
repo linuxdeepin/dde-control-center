@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Ништа</translation>
     </message>
 </context>
 <context>
@@ -241,7 +241,7 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Приступи домену</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="41"/>
@@ -328,7 +328,7 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Приступи домену</translation>
     </message>
 </context>
 <context>
@@ -1363,7 +1363,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
         <source>Disable the touchpad while typing</source>
-        <translation>Искључи Touchpad док куцам</translation>
+        <translation>Онемогући додирну таблу док куцам</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="55"/>

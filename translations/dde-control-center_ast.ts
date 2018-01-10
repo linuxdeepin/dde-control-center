@@ -289,7 +289,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Aniciar sesión ensin contraseña</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -299,12 +299,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>Nun pue desaniciase, l&apos;usuariu actual anició sesión</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Contraseña per buelga</translation>
     </message>
 </context>
 <context>
@@ -467,7 +467,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Contraseña per buelga</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
@@ -833,7 +833,7 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="74"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Cambéu nocherniegu</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
@@ -1647,7 +1647,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
         <source>IPv6 Address</source>
-        <translation type="unfinished"/>
+        <translation>Direición IPv6</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
@@ -1782,7 +1782,7 @@
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="53"/>
         <source>Create PPPoE Connection</source>
-        <translation type="unfinished"/>
+        <translation>Crear conexón PPPoE</translation>
     </message>
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="67"/>
@@ -1876,7 +1876,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>Importar VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="100"/>
@@ -1886,7 +1886,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="261"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>Fallu d&apos;importación</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="263"/>
@@ -2488,7 +2488,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="57"/>
         <source>System source detection</source>
-        <translation type="unfinished"/>
+        <translation>Deteición de fontes del sistema</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="60"/>
@@ -2548,7 +2548,7 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Llápiz</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
@@ -2595,7 +2595,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Llápiz</translation>
     </message>
 </context>
 <context>
