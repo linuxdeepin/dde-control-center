@@ -33,18 +33,18 @@
 namespace dcc {
 namespace sound {
 
-SoundWorker::SoundWorker(SoundModel *model, QObject * parent) :
-    QObject(parent),
-    m_model(model),
-    m_activeOutputCard(UINT_MAX),
-    m_activeInputCard(UINT_MAX),
-    m_audioInter(new Audio("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", QDBusConnection::sessionBus(), this)),
-    m_soundEffectInter(new SoundEffect("com.deepin.daemon.SoundEffect", "/com/deepin/daemon/SoundEffect", QDBusConnection::sessionBus(), this)),
-    m_defaultSink(nullptr),
-    m_defaultSource(nullptr),
-    m_sourceMeter(nullptr),
-    m_pingTimer(new QTimer(this)),
-    m_activeTimer(new QTimer(this))
+SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
+    : QObject(parent)
+    , m_model(model)
+    , m_activeOutputCard(UINT_MAX)
+    , m_activeInputCard(UINT_MAX)
+    , m_audioInter(new Audio("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", QDBusConnection::sessionBus(), this))
+    , m_soundEffectInter(new SoundEffect("com.deepin.daemon.SoundEffect", "/com/deepin/daemon/SoundEffect", QDBusConnection::sessionBus(), this))
+    , m_defaultSink(nullptr)
+    , m_defaultSource(nullptr)
+    , m_sourceMeter(nullptr)
+    , m_pingTimer(new QTimer(this))
+    , m_activeTimer(new QTimer(this))
 {
     m_audioInter->setSync(false);
     //    m_soundEffectInter->setSync(false);
@@ -310,8 +310,8 @@ void SoundWorker::updatePortActivity()
         return;
 
     for (Port *port : m_model->ports()) {
-        const bool isActiveOuputPort = port->id() == m_activeSinkPort && port->cardId() == m_activeOutputCard;
-        const bool isActiveInputPort = port->id() == m_activeSourcePort && port->cardId() == m_activeInputCard;
+        const bool isActiveOuputPort = (port->id() == m_activeSinkPort) && (port->cardId() == m_activeOutputCard);
+        const bool isActiveInputPort = (port->id() == m_activeSourcePort) && (port->cardId() == m_activeInputCard);
 
         port->setIsActive(isActiveInputPort || isActiveOuputPort);
     }

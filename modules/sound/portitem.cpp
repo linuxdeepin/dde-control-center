@@ -63,9 +63,9 @@ void PortItem::setPort(const Port *port)
     connect(m_port, &Port::cardNameChanged, m_portLabel, &NormalLabel::setText);
     connect(m_port, &Port::isActiveChanged, this, &PortItem::setPortItemSelected);
 
-   m_portLabel->setText(m_port->name());
-   m_cardLabel->setText(m_port->cardName());
-   setPortItemSelected(m_port->isActive());
+    m_portLabel->setText(m_port->name());
+    m_cardLabel->setText(m_port->cardName());
+    setPortItemSelected(m_port->isActive());
 }
 
 void PortItem::setPortItemSelected(bool state)

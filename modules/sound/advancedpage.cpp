@@ -66,7 +66,7 @@ void AdvancedPage::setModel(SoundModel *model)
     connect(m_model, &SoundModel::portAdded, this, &AdvancedPage::addPort);
     connect(m_model, &SoundModel::portRemoved, this, &AdvancedPage::removePort);
 
-    for (Port *port : m_model->ports()) {
+    for (Port* const port : m_model->ports()) {
         addPort(port);
     }
 }
@@ -75,10 +75,8 @@ void AdvancedPage::addPort(const Port *port)
 {
     PortItem *item = new PortItem(port);
     item->setContentsMargins(20, 0, 10, 0);
-    connect(item, &PortItem::selectedChanged, [this, port] (bool selected) {
-        if (selected) {
-            emit requestSetPort(port);
-        }
+    connect(item, &PortItem::selectedChanged, [this, port] {
+        emit requestSetPort(port);
     });
 
     if (port->direction() == Port::Out) {

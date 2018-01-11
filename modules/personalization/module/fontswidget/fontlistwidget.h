@@ -61,7 +61,7 @@ public slots:
     void setModel(FontModel *const model);
     void setList(const QList<QJsonObject> &list);
     void setDefault(const QString &name);
-    void onItemClicked(const bool selected);
+    void onItemClicked();
 
 private:
     FontModel                               *m_model;

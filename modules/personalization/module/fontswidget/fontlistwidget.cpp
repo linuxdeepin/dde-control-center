@@ -89,9 +89,8 @@ void FontListWidget::setList(const QList<QJsonObject> &list)
         m_valueMap.insert(w, json);
 
         w->setSelected(true);
-        connect(w, &OptionItem::selectedChanged,[=](const bool state){
-            if (state)
-                w->setSelected(false);
+        connect(w, &OptionItem::selectedChanged, this, [=] {
+            w->setSelected(false);
         });
     }
 
@@ -104,13 +103,11 @@ void FontListWidget::setDefault(const QString &name)
         i.key()->setSelected(i.value()["Id"].toString() == name);
 }
 
-void FontListWidget::onItemClicked(const bool selected)
+void FontListWidget::onItemClicked()
 {
-    if(selected) {
-        OptionItem *item = qobject_cast<OptionItem *>(sender());
-        Q_ASSERT(m_valueMap.contains(item));
+    OptionItem *item = qobject_cast<OptionItem *>(sender());
+    Q_ASSERT(m_valueMap.contains(item));
 
-        emit requestSetDefault(m_valueMap[item]);
-    }
+    emit requestSetDefault(m_valueMap[item]);
 }
 

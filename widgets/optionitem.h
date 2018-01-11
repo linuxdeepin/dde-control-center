@@ -54,7 +54,7 @@ public:
     void setSelected(bool selected);
 
 signals:
-    void selectedChanged(const bool selected) const;
+    void selectedChanged() const;
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e);

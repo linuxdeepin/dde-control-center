@@ -117,7 +117,7 @@ void OptionItem::mouseReleaseEvent(QMouseEvent *e)
 {
     SettingsItem::mouseReleaseEvent(e);
 
-    setSelected(true);
+    emit selectedChanged();
 }
 
 void OptionItem::setSelected(bool selected)
@@ -125,8 +125,6 @@ void OptionItem::setSelected(bool selected)
     if (m_selected != selected) {
         m_selected = selected;
         m_selectedIcon->setVisible(selected);
-
-        emit selectedChanged(selected);
     }
 }
 
