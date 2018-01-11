@@ -70,6 +70,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     m_deleteAccount->setObjectName("DeleteAccountButton");
 
     QLabel *tip = new QLabel(tr("Unable to delete, current user logged in"));
+    tip->setContentsMargins(16, 0, 10, 0);
 
     m_finger->setTitle(tr("Fingerprint Password"));
 

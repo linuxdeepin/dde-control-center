@@ -78,6 +78,7 @@ void BrightnessPage::initUI()
 
     m_nightTips = new TipsLabel(tr("The screen tone will be auto adjusted by help of figuring out your location to protect eyes"));
     m_nightTips->setWordWrap(true);
+    m_nightTips->setContentsMargins(16, 0, 10, 0);
 
     m_centralLayout->addWidget(nightGrp);
     m_centralLayout->addWidget(m_nightTips);

@@ -72,6 +72,7 @@ PalmDetectSetting::PalmDetectSetting(QWidget *parent)
 
     TipsLabel *tip = new TipsLabel(tr("Please disable the option if touchpad doesn't work after enabled"), this);
     tip->setWordWrap(true);
+    tip->setContentsMargins(16, 5, 10, 5);
 
     SettingsGroup *sliderGrp = new SettingsGroup;
 

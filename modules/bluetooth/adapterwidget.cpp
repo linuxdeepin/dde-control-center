@@ -61,6 +61,7 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     m_tip = new QLabel(tr("Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)"));
     m_tip->setVisible(!m_switch->checked());
     m_tip->setWordWrap(true);
+    m_tip->setContentsMargins(16, 0, 10, 0);
 
     layout->addSpacing(10);
     layout->addWidget(m_titleGroup);
