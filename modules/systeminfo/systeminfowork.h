@@ -69,6 +69,7 @@ public slots:
 
 private:
     void getEntryTitles();
+    void getBackgroundFinished(QDBusPendingCallWatcher *w);
 
 #endif
 

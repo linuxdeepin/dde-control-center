@@ -51,13 +51,20 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                                         "/com/deepin/daemon/Grub2/Theme",
                                         QDBusConnection::systemBus(), this);
 
+    m_dbusGrub->setSync(false, false);
+    m_dbusGrubTheme->setSync(false, false);
+
     connect(m_dbusGrub, &GrubDbus::DefaultEntryChanged, m_model, &SystemInfoModel::setDefaultEntry);
     connect(m_dbusGrub, &GrubDbus::EnableThemeChanged, m_model, &SystemInfoModel::setThemeEnabled);
     connect(m_dbusGrub, &GrubDbus::TimeoutChanged, this, [this] (const int &value) {
         m_model->setBootDelay(value > 1);
     });
     connect(m_dbusGrub, &__Grub2::UpdatingChanged, m_model, &SystemInfoModel::setUpdating);
-    connect(m_dbusGrub, &GrubDbus::serviceStartFinished, this, &SystemInfoWork::grubServerFinished);
+
+    connect(m_dbusGrub, &GrubDbus::serviceStartFinished, this, [=] {
+        QTimer::singleShot(100, this, &SystemInfoWork::grubServerFinished);
+    }, Qt::QueuedConnection);
+
     connect(m_dbusGrubTheme, &GrubThemeDbus::BackgroundChanged, this, &SystemInfoWork::onBackgroundChanged);
 #endif
 
@@ -72,10 +79,6 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 
 void SystemInfoWork::activate()
 {
-#ifndef DCC_DISABLE_GRUB
-    onBackgroundChanged();
-#endif
-
     m_model->setDistroID(m_systemInfoInter->distroID());
     m_model->setDistroVer(m_systemInfoInter->distroVer());
     m_model->setVersion(m_systemInfoInter->version());
@@ -93,13 +96,11 @@ void SystemInfoWork::deactivate()
 #ifndef DCC_DISABLE_GRUB
 void SystemInfoWork::loadGrubSettings()
 {
-    // NOTE(hualet): DO NOT move below lines to the constructor, it will start
-    // the service process which will check authentication on very single request,
-    // the popups are really annoying sometime.
-    m_dbusGrub->setSync(false);
-
-    if (m_dbusGrub->isValid())
+    if (m_dbusGrub->isValid()) {
         grubServerFinished();
+    } else {
+        m_dbusGrub->startServiceProcess();
+    }
 }
 
 void SystemInfoWork::setBootDelay(bool value)
@@ -108,13 +109,13 @@ void SystemInfoWork::setBootDelay(bool value)
 
     QDBusPendingCall call = m_dbusGrub->SetTimeout(value ? 5 : 1);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-        if (call.isError()) {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
+        if (w->isError()) {
             emit m_model->bootDelayChanged(m_model->bootDelay());
         }
 
         emit requestSetAutoHideDCC(true);
-        watcher->deleteLater();
+        w->deleteLater();
     });
 }
 
@@ -124,13 +125,13 @@ void SystemInfoWork::setEnableTheme(bool value)
 
     QDBusPendingCall call = m_dbusGrub->SetEnableTheme(value);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-        if (call.isError()) {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
+        if (w->isError()) {
             emit m_model->themeEnabledChanged(m_model->themeEnabled());
         }
 
         emit requestSetAutoHideDCC(true);
-        watcher->deleteLater();
+        w->deleteLater();
     });
 }
 
@@ -140,13 +141,13 @@ void SystemInfoWork::setDefaultEntry(const QString &entry)
 
     QDBusPendingCall call = m_dbusGrub->SetDefaultEntry(entry);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-        if (call.isError()) {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
+        if (w->isError()) {
             emit m_model->defaultEntryChanged(m_model->defaultEntry());
         }
 
         emit requestSetAutoHideDCC(true);
-        watcher->deleteLater();
+        w->deleteLater();
     });
 }
 
@@ -154,35 +155,18 @@ void SystemInfoWork::grubServerFinished()
 {
     m_model->setBootDelay(m_dbusGrub->timeout() > 1);
     m_model->setThemeEnabled(m_dbusGrub->enableTheme());
-    m_model->setUpdating(m_dbusGrub->updating());;
+    m_model->setUpdating(m_dbusGrub->updating());
+
     getEntryTitles();
+    onBackgroundChanged();
 }
 
 void SystemInfoWork::onBackgroundChanged()
 {
     QDBusPendingCall call = m_dbusGrubTheme->GetBackground();
-    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(call, this);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
 
-    connect(w, &QDBusPendingCallWatcher::finished, this, [=] {
-        if (!w->isError()) {
-            QDBusPendingReply<QString> reply = w->reply();
-            const qreal ratio = qApp->devicePixelRatio();
-
-            QPixmap pix = QPixmap(reply.value()).scaled(QSize(ItemWidth * ratio, ItemHeight * ratio),
-                                                                                    Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
-
-            const QRect r(0, 0, ItemWidth * ratio, ItemHeight * ratio);
-            const QSize size(ItemWidth * ratio, ItemHeight * ratio);
-
-            if (pix.width() > ItemWidth * ratio || pix.height() > ItemHeight * ratio)
-                pix = pix.copy(QRect(pix.rect().center() - r.center(), size));
-
-            pix.setDevicePixelRatio(ratio);
-
-            m_model->setBackground(pix);
-        }
-        w->deleteLater();
-    });
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &SystemInfoWork::getBackgroundFinished);
 }
 
 void SystemInfoWork::setBackground(const QString &path)
@@ -191,15 +175,15 @@ void SystemInfoWork::setBackground(const QString &path)
 
     QDBusPendingCall call = m_dbusGrubTheme->SetBackgroundSourceFile(path);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-        if (call.isError()) {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
+        if (w->isError()) {
             onBackgroundChanged();
 
             setEnableTheme(true);
         }
 
         emit requestSetAutoHideDCC(true);
-        watcher->deleteLater();
+        w->deleteLater();
     });
 }
 
@@ -207,18 +191,43 @@ void SystemInfoWork::getEntryTitles()
 {
     QDBusPendingCall call = m_dbusGrub->GetSimpleEntryTitles();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-        if (!call.isError()) {
-            QDBusReply<QStringList> reply = call.reply();
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
+        if (!w->isError()) {
+            QDBusReply<QStringList> reply = w->reply();
             QStringList entries = reply.value();
             m_model->setEntryLists(entries);
             m_model->setDefaultEntry(m_dbusGrub->defaultEntry());
         } else {
-            qWarning() << "get grub entry list failed : " << call.error().message();
+            qWarning() << "get grub entry list failed : " << w->error().message();
         }
 
-        watcher->deleteLater();
+        w->deleteLater();
     });
+}
+
+void SystemInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
+{
+    if (!w->isError()) {
+        QDBusPendingReply<QString> reply = w->reply();
+        const qreal ratio = qApp->devicePixelRatio();
+
+        QPixmap pix = QPixmap(reply.value()).scaled(QSize(ItemWidth * ratio, ItemHeight * ratio),
+                                                    Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+
+        const QRect r(0, 0, ItemWidth * ratio, ItemHeight * ratio);
+        const QSize size(ItemWidth * ratio, ItemHeight * ratio);
+
+        if (pix.width() > ItemWidth * ratio || pix.height() > ItemHeight * ratio)
+            pix = pix.copy(QRect(pix.rect().center() - r.center(), size));
+
+        pix.setDevicePixelRatio(ratio);
+
+        m_model->setBackground(pix);
+    } else {
+        qWarning() << w->error().message();
+    }
+
+    w->deleteLater();
 }
 #endif
 
