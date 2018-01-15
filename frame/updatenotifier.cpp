@@ -47,6 +47,8 @@ UpdateNotifier::UpdateNotifier(QWidget *parent)
     setFixedSize(360, 80);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
+    m_content->setWordWrap(true);
+
     const qreal ratio = devicePixelRatioF();
     QIcon icon = QIcon::fromTheme("system-updated", QIcon::fromTheme("application-default-icon"));
     m_icon->setFixedSize(48, 48);
