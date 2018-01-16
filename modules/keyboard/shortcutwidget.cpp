@@ -47,6 +47,7 @@ ShortcutWidget::ShortcutWidget(ShortcutModel *model, QWidget *parent)
                                     QDBusConnection::sessionBus(), this);
     m_timer = new QTimer(this);
     m_timer->setInterval(300);
+    m_timer->setSingleShot(true);
 
     m_widget = new TranslucentFrame();
     m_searchText = QString();
