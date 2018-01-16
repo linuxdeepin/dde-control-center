@@ -65,7 +65,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
-        <translation type="unfinished"/>
+        <translation>Клик за улаз у Модул Екран</translation>
     </message>
 </context>
 <context>
@@ -304,7 +304,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Отисак Лозинка</translation>
     </message>
 </context>
 <context>
@@ -462,12 +462,12 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>Листа Отисака Прстију</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Отисак Лозинка</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
@@ -482,7 +482,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation type="unfinished"/>
+        <translation>Отисак лозинка се користи при пријави у систем, овлашћењу програма и другде. Очитај отисак прста када је потребна лозинка.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
@@ -1517,7 +1517,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation type="unfinished"/>
+        <translation>У падајућем изборнику програма у Покретачу обележи опцију &quot;Отвори уз посредника&quot; за коришћење након поставке</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
@@ -1543,7 +1543,7 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="133"/>
         <source>Disconnect</source>
-        <translation>Прекид конекције</translation>
+        <translation>Прекини везу</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="135"/>
@@ -1553,7 +1553,7 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="137"/>
         <source>Export</source>
-        <translation type="unfinished"/>
+        <translation>Извоз</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
@@ -2279,7 +2279,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="175"/>
         <source>%1Bit</source>
-        <translation type="unfinished"/>
+        <translation>%1Bit</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>

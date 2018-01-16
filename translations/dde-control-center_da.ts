@@ -361,7 +361,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>AD-domæneindstillinger</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
@@ -2508,7 +2508,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="69"/>
         <source>Prompt the notification if system source has been modified</source>
-        <translation type="unfinished"/>
+        <translation>Spørg notifikationen om systemkilden er blevet ændret</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="75"/>

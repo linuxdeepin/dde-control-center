@@ -2447,7 +2447,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>Tamañu de descarga: %1</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
