@@ -493,7 +493,9 @@ void KeyboardWorker::append(const MetaData &md)
 
     m_metaDatas.append(md);
 }
+#endif
 
+#ifndef DCC_DISABLE_LANGUAGE
 void KeyboardWorker::onLangSelectorServiceFinished()
 {
     QDBusPendingCallWatcher *localResult = new QDBusPendingCallWatcher(m_langSelector->GetLocaleList(), this);
