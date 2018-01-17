@@ -65,8 +65,6 @@ void PersonalizationWork::active()
     m_dbus->blockSignals(false);
     m_wmSwitcher->blockSignals(false);
 
-    onGetList();
-
     QDBusPendingCallWatcher *wmWatcher = new QDBusPendingCallWatcher(m_wmSwitcher->CurrentWM(), this);
     connect(wmWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetCurrentWMFinished);
 }
@@ -242,16 +240,8 @@ void PersonalizationWork::setFontList(FontModel *model, const QString &type, con
     });
 }
 
-void PersonalizationWork::onGetList()
+void PersonalizationWork::refreshTheme()
 {
-    QDBusPendingReply<QString> standardFont = m_dbus->List("standardfont");
-    QDBusPendingCallWatcher *standardFontWatcher = new QDBusPendingCallWatcher(standardFont, this);
-    connect(standardFontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onStandardFontFinished);
-
-    QDBusPendingReply<QString> monoFont = m_dbus->List("monospacefont");
-    QDBusPendingCallWatcher *monoFontWatcher = new QDBusPendingCallWatcher(monoFont, this);
-    connect(monoFontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onMonoFontFinished);
-
     QDBusPendingReply<QString> gtk = m_dbus->List("gtk");
     QDBusPendingCallWatcher *gtkWatcher = new QDBusPendingCallWatcher(gtk, this);
     gtkWatcher->setProperty("category", "gtk");
@@ -274,6 +264,18 @@ void PersonalizationWork::onGetList()
     windowTheme->setDefault(m_dbus->gtkTheme());
     iconTheme->setDefault(m_dbus->iconTheme());
     cursorTheme->setDefault(m_dbus->cursorTheme());
+}
+
+void PersonalizationWork::refreshFont()
+{
+    QDBusPendingReply<QString> standardFont = m_dbus->List("standardfont");
+    QDBusPendingCallWatcher *standardFontWatcher = new QDBusPendingCallWatcher(standardFont, this);
+    connect(standardFontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onStandardFontFinished);
+
+    QDBusPendingReply<QString> monoFont = m_dbus->List("monospacefont");
+    QDBusPendingCallWatcher *monoFontWatcher = new QDBusPendingCallWatcher(monoFont, this);
+    connect(monoFontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onMonoFontFinished);
+
     FontSizeChanged(m_dbus->fontSize());
 }
 

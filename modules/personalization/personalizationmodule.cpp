@@ -89,6 +89,8 @@ const QString PersonalizationModule::name() const
 
 void PersonalizationModule::showThemeWidget()
 {
+    m_work->refreshTheme();
+
     ThemeWidget *themeWidget = new ThemeWidget;
 
     themeWidget->setModel(m_model);
@@ -99,6 +101,8 @@ void PersonalizationModule::showThemeWidget()
 
 void PersonalizationModule::showFontsWidget()
 {
+    m_work->refreshFont();
+
     FontsWidget *fontsWidget = new FontsWidget;
     fontsWidget->setModel(m_model);
     connect(fontsWidget, &FontsWidget::showStandardFont, this, &PersonalizationModule::showStanardFontsListWidget);

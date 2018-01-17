@@ -69,6 +69,12 @@ void FontSettingsWidget::setModel(PersonalizationModel * const model)
     FontModel *monomodel  = model->getMonoFontModel();
     connect(standmodel, &FontModel::defaultFontChanged, this, &FontSettingsWidget::onStandFontChanged);
     connect(monomodel, &FontModel::defaultFontChanged, this, &FontSettingsWidget::onMonoFontChanged);
+    connect(standmodel, &FontModel::listChanged, this, [=] {
+        onStandFontChanged(standmodel->getFontName());
+    });
+    connect(monomodel, &FontModel::listChanged, this, [=] {
+        onMonoFontChanged(monomodel->getFontName());
+    });
 
     onStandFontChanged(standmodel->getFontName());
     onMonoFontChanged(monomodel->getFontName());

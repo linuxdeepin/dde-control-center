@@ -52,6 +52,8 @@ public:
     void active();
     void deactive();
     void onGetList();
+    void refreshTheme();
+    void refreshFont();
 
 public slots:
     void setDefault(const QJsonObject &value);
