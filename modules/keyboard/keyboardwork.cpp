@@ -63,6 +63,9 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
     connect(m_keybindInter, &KeybingdingInter::NumLockStateChanged, m_model, &KeyboardModel::setNumLock);
 #ifndef DCC_DISABLE_LANGUAGE
     connect(m_langSelector, &LangSelector::CurrentLocaleChanged, m_model, &KeyboardModel::setLang);
+    connect(m_langSelector, &LangSelector::serviceStartFinished, this, [=] {
+        QTimer::singleShot(100, this, &KeyboardWorker::onLangSelectorServiceFinished);
+    });
 #endif
     connect(m_keyboardInter, &KeyboardInter::RepeatDelayChanged, this, &KeyboardWorker::setModelRepeatDelay);
     connect(m_keyboardInter, &KeyboardInter::RepeatIntervalChanged, this, &KeyboardWorker::setModelRepeatInterval);
@@ -91,6 +94,8 @@ void KeyboardWorker::active()
     m_langSelector->blockSignals(false);
     if (!m_langSelector->isValid())
         m_langSelector->startServiceProcess();
+    else
+        onLangSelectorServiceFinished();
 #endif
     m_keybindInter->blockSignals(false);
 
@@ -104,17 +109,10 @@ void KeyboardWorker::active()
     connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
             SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
 
-#ifndef DCC_DISABLE_LANGUAGE
-    QDBusPendingCallWatcher *localResult = new QDBusPendingCallWatcher(m_langSelector->GetLocaleList(), this);
-    connect(localResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onLocalListsFinished);
-#endif
-
     m_model->setCapsLock(m_keyboardInter->capslockToggle());
     m_model->setNumLock(m_keybindInter->numLockState());
     m_keyboardInter->currentLayout();
-#ifndef DCC_DISABLE_LANGUAGE
-    m_langSelector->currentLocale();
-#endif
+
     m_keyboardInter->userLayoutList();
 }
 
@@ -494,6 +492,13 @@ void KeyboardWorker::append(const MetaData &md)
     }
 
     m_metaDatas.append(md);
+}
+
+void KeyboardWorker::onLangSelectorServiceFinished()
+{
+    QDBusPendingCallWatcher *localResult = new QDBusPendingCallWatcher(m_langSelector->GetLocaleList(), this);
+    connect(localResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onLocalListsFinished);
+    m_langSelector->currentLocale();
 }
 #endif
 

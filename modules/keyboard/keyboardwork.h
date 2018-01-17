@@ -109,6 +109,7 @@ public slots:
     void onCurrentLayoutFinished(QDBusPendingCallWatcher *watch);
     void onPinyin();
     void append(const MetaData& md);
+    void onLangSelectorServiceFinished();
 #endif
     void onShortcutChanged(const QString &id, int type);
     void onGetShortcutFinished(QDBusPendingCallWatcher *watch);
