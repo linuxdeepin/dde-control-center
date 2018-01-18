@@ -104,9 +104,10 @@ Viewer *NotifyManager::onNotifyAdd(const QJsonObject &value) {
     viewer->setAppIcon(value["icon"].toString());
     viewer->setAppId(value["id"].toString());
 
-    const QDateTime date = QDateTime::fromMSecsSinceEpoch(value["id"].toString().toLongLong());
+    const qlonglong time = value["time"].toString().toLongLong();
+    const QDateTime date = QDateTime::fromMSecsSinceEpoch(time);
 
-    if (QDateTime::currentMSecsSinceEpoch() > value["id"].toString().toLongLong()) {
+    if (QDateTime::currentMSecsSinceEpoch() > time) {
 
         const QString hour = date.toString("hh:mm");
 
