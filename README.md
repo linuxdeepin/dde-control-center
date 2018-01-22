@@ -5,33 +5,35 @@ DDE Control Center is the control panel of Deepin Desktop Environment.
 ## Dependencies
 
 ### Build dependencies
-
-* qmake (>= 5.3)
-* [deepin-tool-kit](https://github.com/linuxdeepin/deepin-tool-kit) (developer package)
-* [dde-dock](https://github.com/linuxdeepin/dde-dock) (developer package)
+* pkg-config
+* Qt5(>= 5.6) with modules:
+  - qt5-default
+  - qt5-qmake
+  - qt5declarative5-dev
+  - qt5svg5-dev
+  - qttools5-dev-tools
+* Deepin-tool-kit(>=2.0) with modules:
+  - dtkcore-dev
+  - dtkwidget-dev
 * libgeoip-dev
 * libdframeworkdbus-dev
 * libgsettings-qt-dev
-* qttools5-dev-tools
+* libx11-dev
 
 ### Runtime dependencies
 
 * [deepin-tool-kit](https://github.com/linuxdeepin/deepin-tool-kit)
-* [dde-dock](https://github.com/linuxdeepin/dde-dock)
-* [dde-account-faces](https://github.com/linuxdeepin/dde-account-faces)
 * [dde-api](https://github.com/linuxdeepin/dde-api)
 * [dde-daemon](https://github.com/linuxdeepin/dde-daemon)
 * [startdde](https://github.com/linuxdeepin/startdde)
 * [dde-qt-dbus-factory](https://github.com/linuxdeepin/dde-qt-dbus-factory)
 * [deepin-qt5integration](https://github.com/linuxdeepin/deepin-qt5integration)
-* [deepin-artwork-themes](https://github.com/linuxdeepin/deepin-artwork-themes)
 * geoip-database
-* Qt5 (>= 5.3)
+* Qt5(>= 5.6)
   * Qt5-DBus
   * Qt5-Multimedia
   * Qt5-MultimediaWidgets
   * Qt5-Svg
-  * Qt5-X11extras
 
 ## Installation
 

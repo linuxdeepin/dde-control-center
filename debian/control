@@ -9,15 +9,14 @@ Build-Depends: debhelper (>= 9),
  qt5-qmake,
  qt5-default,
  qtdeclarative5-dev,
- deepin-gettext-tools,
  dde-dock-dev,
  qtmultimedia5-dev,
  libqt5svg5-dev,
- qttools5-dev-tools,
  libdtkwidget-dev,
  libgeoip-dev,
  libdframeworkdbus-dev,
  libgsettings-qt-dev,
+ qttools5-dev-tools,
  clang [mips64el]
 Standards-Version: 3.9.5
 Homepage: https://github.com/linuxdeepin/dde-control-center
@@ -29,7 +28,6 @@ Depends: ${shlibs:Depends},
  dde-account-faces,
  dde-daemon,
  dde-api (>=2.92.1),
- deepin-artwork-themes,
  libqt5multimedia5-plugins,
  gstreamer1.0-plugins-bad,
  xkb-data,
@@ -53,4 +51,4 @@ Package: dde-control-center-plugin-notify
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Deepin DDE Control-Center notify plugin.
- notify Plugin.
+ Notify Plugin.
