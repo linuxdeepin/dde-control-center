@@ -80,6 +80,7 @@ public slots:
 
 signals:
     void rectChanged(const QRect &rect);
+    void fontSizeChanged();
 
 private slots:
     void init();
@@ -94,9 +95,10 @@ private slots:
     void onMouseButtonReleased(const QPoint &p, const int flag);
 
 private:
-    void keyPressEvent(QKeyEvent *e);
-    void resizeEvent(QResizeEvent *e);
-    void moveEvent(QMoveEvent *e);
+    void keyPressEvent(QKeyEvent *e) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
+    void moveEvent(QMoveEvent *e) Q_DECL_OVERRIDE;
+    bool event(QEvent *event) Q_DECL_OVERRIDE;
     void show();
     void hide();
     void toggle();

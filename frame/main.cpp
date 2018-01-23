@@ -219,5 +219,9 @@ int main(int argc, char *argv[])
     if (!reqModule.isEmpty())
         QTimer::singleShot(10, &f, [&] { f.showSettingsPage(reqModule, reqPage); });
 
+    QObject::connect(&f, &Frame::fontSizeChanged, &f, [=] {
+        onFontSizeChanged(qApp->font().pointSizeF());
+    });
+
     return app.exec();
 }

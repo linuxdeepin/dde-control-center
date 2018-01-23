@@ -469,3 +469,12 @@ const QScreen *Frame::screenForGeometry(const QRect &rect) const
 
     return nullptr;
 }
+
+bool Frame::event(QEvent *event)
+{
+    if (event->type() == QEvent::ApplicationFontChange) {
+        emit fontSizeChanged();
+    }
+
+    return DBlurEffectWidget::event(event);
+}
