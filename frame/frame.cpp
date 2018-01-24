@@ -87,6 +87,7 @@ Frame::Frame(QWidget *parent)
 
     resize(0, height());
 
+    connect(m_navgationBar, &NavgationBar::requestModule, this, [=](const QString &module) { showSettingsPage(module, QString()); });
     connect(m_delayKillerTimer, &QTimer::timeout, this, &Frame::onDelayKillerTimeout);
     connect(m_displayInter, &DBusDisplay::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
     connect(m_launcherInter, &LauncherInter::Shown, this, &Frame::hideImmediately);
@@ -113,6 +114,7 @@ void Frame::pushWidget(ContentWidget *const w)
     m_frameWidgetStack.last()->hide();
     m_frameWidgetStack.push(fw);
     m_navgationBar->setVisible(m_frameWidgetStack.size() > 1);
+    m_navgationBar->raise();
 
     connect(w, &ContentWidget::back, this, &Frame::popWidget, Qt::UniqueConnection);
     connect(fw, &FrameWidget::contentDetached, this, &Frame::contentDetached, Qt::UniqueConnection);

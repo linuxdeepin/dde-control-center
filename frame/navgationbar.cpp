@@ -1,37 +1,69 @@
 #include "navgationbar.h"
 
 #include <QVBoxLayout>
+#include <QDebug>
+#include <QSignalMapper>
 
 NavgationBar::NavgationBar(QWidget *parent)
     : QWidget(parent)
 
-    , m_accountBtn(new DImageButton)
-    , m_displayBtn(new DImageButton)
-    , m_defaultAppsBtn(new DImageButton)
-    , m_personalizationBtn(new DImageButton)
-    , m_networkBtn(new DImageButton)
-    , m_bluetoothBtn(new DImageButton)
-    , m_soundBtn(new DImageButton)
-    , m_timeBtn(new DImageButton)
-    , m_powerBtn(new DImageButton)
-    , m_mouseBtn(new DImageButton)
-    , m_keyboardBtn(new DImageButton)
-    , m_updateBtn(new DImageButton)
-    , m_sysInfoBtn(new DImageButton)
+    , m_navgationsGroup(new QButtonGroup)
+
+    , m_accountBtn(new QPushButton)
+    , m_displayBtn(new QPushButton)
+    , m_defaultAppsBtn(new QPushButton)
+    , m_personalizationBtn(new QPushButton)
+    , m_networkBtn(new QPushButton)
+    , m_bluetoothBtn(new QPushButton)
+    , m_soundBtn(new QPushButton)
+    , m_timeBtn(new QPushButton)
+    , m_powerBtn(new QPushButton)
+    , m_mouseBtn(new QPushButton)
+    , m_keyboardBtn(new QPushButton)
+    , m_updateBtn(new QPushButton)
+    , m_sysInfoBtn(new QPushButton)
 {
-    m_accountBtn->setNormalPic(":/accounts/themes/dark/icons/nav_accounts.png");
-    m_displayBtn->setNormalPic(":/display/themes/dark/icons/nav_display.png");
-    m_defaultAppsBtn->setNormalPic(":/defapp/themes/dark/icons/nav_defapp.png");
-    m_personalizationBtn->setNormalPic(":/personalization/themes/dark/icons/nav_personalization.png");
-    m_networkBtn->setNormalPic(":/network/themes/dark/icons/nav_network.png");
-    m_bluetoothBtn->setNormalPic(":/bluetooth/themes/dark/icons/nav_bluetooth.png");
-    m_soundBtn->setNormalPic(":/sound/themes/dark/icons/nav_sound.png");
-    m_timeBtn->setNormalPic(":/datetime/themes/dark/icons/nav_datetime.png");
-    m_powerBtn->setNormalPic(":/power/themes/dark/icons/nav_power.png");
-    m_mouseBtn->setNormalPic(":/mouse/themes/dark/icons/nav_mouse.png");
-    m_keyboardBtn->setNormalPic(":/keyboard/themes/dark/icons/nav_keyboard.png");
-    m_updateBtn->setNormalPic(":/update/themes/dark/icons/nav_update.png");
-    m_sysInfoBtn->setNormalPic(":/systeminfo/themes/dark/icons/nav_systeminfo.png");
+    m_accountBtn->setIcon(QIcon(":/accounts/themes/dark/icons/nav_accounts.png"));
+    m_accountBtn->setCheckable(true);
+    m_displayBtn->setIcon(QIcon(":/display/themes/dark/icons/nav_display.png"));
+    m_displayBtn->setCheckable(true);
+    m_defaultAppsBtn->setIcon(QIcon(":/defapp/themes/dark/icons/nav_defapp.png"));
+    m_defaultAppsBtn->setCheckable(true);
+    m_personalizationBtn->setIcon(QIcon(":/personalization/themes/dark/icons/nav_personalization.png"));
+    m_personalizationBtn->setCheckable(true);
+    m_networkBtn->setIcon(QIcon(":/network/themes/dark/icons/nav_network.png"));
+    m_networkBtn->setCheckable(true);
+    m_bluetoothBtn->setIcon(QIcon(":/bluetooth/themes/dark/icons/nav_bluetooth.png"));
+    m_bluetoothBtn->setCheckable(true);
+    m_soundBtn->setIcon(QIcon(":/sound/themes/dark/icons/nav_sound.png"));
+    m_soundBtn->setCheckable(true);
+    m_timeBtn->setIcon(QIcon(":/datetime/themes/dark/icons/nav_datetime.png"));
+    m_timeBtn->setCheckable(true);
+    m_powerBtn->setIcon(QIcon(":/power/themes/dark/icons/nav_power.png"));
+    m_powerBtn->setCheckable(true);
+    m_mouseBtn->setIcon(QIcon(":/mouse/themes/dark/icons/nav_mouse.png"));
+    m_mouseBtn->setCheckable(true);
+    m_keyboardBtn->setIcon(QIcon(":/keyboard/themes/dark/icons/nav_keyboard.png"));
+    m_keyboardBtn->setCheckable(true);
+    m_updateBtn->setIcon(QIcon(":/update/themes/dark/icons/nav_update.png"));
+    m_updateBtn->setCheckable(true);
+    m_sysInfoBtn->setIcon(QIcon(":/systeminfo/themes/dark/icons/nav_systeminfo.png"));
+    m_sysInfoBtn->setCheckable(true);
+
+    m_navgationsGroup->addButton(m_accountBtn);
+    m_navgationsGroup->addButton(m_displayBtn);
+    m_navgationsGroup->addButton(m_defaultAppsBtn);
+    m_navgationsGroup->addButton(m_personalizationBtn);
+    m_navgationsGroup->addButton(m_networkBtn);
+    m_navgationsGroup->addButton(m_bluetoothBtn);
+    m_navgationsGroup->addButton(m_soundBtn);
+    m_navgationsGroup->addButton(m_timeBtn);
+    m_navgationsGroup->addButton(m_powerBtn);
+    m_navgationsGroup->addButton(m_mouseBtn);
+    m_navgationsGroup->addButton(m_keyboardBtn);
+    m_navgationsGroup->addButton(m_updateBtn);
+    m_navgationsGroup->addButton(m_sysInfoBtn);
+    m_navgationsGroup->setExclusive(true);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addStretch();
@@ -53,4 +85,34 @@ NavgationBar::NavgationBar(QWidget *parent)
     centralLayout->setSpacing(20);
 
     setLayout(centralLayout);
+
+    QSignalMapper *moduleMapper = new QSignalMapper(this);
+    moduleMapper->setMapping(m_accountBtn, "accounts");
+    moduleMapper->setMapping(m_displayBtn, "display");
+    moduleMapper->setMapping(m_defaultAppsBtn, "defapp");
+    moduleMapper->setMapping(m_personalizationBtn, "personalization");
+    moduleMapper->setMapping(m_networkBtn, "network");
+    moduleMapper->setMapping(m_bluetoothBtn, "bluetooth");
+    moduleMapper->setMapping(m_soundBtn, "sound");
+    moduleMapper->setMapping(m_timeBtn, "datetime");
+    moduleMapper->setMapping(m_powerBtn, "power");
+    moduleMapper->setMapping(m_mouseBtn, "mouse");
+    moduleMapper->setMapping(m_keyboardBtn, "keyboard");
+    moduleMapper->setMapping(m_updateBtn, "update");
+    moduleMapper->setMapping(m_sysInfoBtn, "systeminfo");
+
+    connect(moduleMapper, static_cast<void (QSignalMapper::*)(const QString &)>(&QSignalMapper::mapped), this, &NavgationBar::requestModule);
+    connect(m_accountBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+    connect(m_displayBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+    connect(m_defaultAppsBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+    connect(m_personalizationBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+    connect(m_networkBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+    connect(m_bluetoothBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+    connect(m_soundBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+    connect(m_timeBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+    connect(m_powerBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+    connect(m_mouseBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+    connect(m_keyboardBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+    connect(m_updateBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+    connect(m_sysInfoBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
 }

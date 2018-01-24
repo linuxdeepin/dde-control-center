@@ -2,10 +2,8 @@
 #define NAVGATIONBAR_H
 
 #include <QWidget>
-
-#include <dimagebutton.h>
-
-DWIDGET_USE_NAMESPACE
+#include <QPushButton>
+#include <QButtonGroup>
 
 class NavgationBar : public QWidget
 {
@@ -14,20 +12,24 @@ class NavgationBar : public QWidget
 public:
     explicit NavgationBar(QWidget *parent = nullptr);
 
+signals:
+    void requestModule(const QString &name) const;
+
 private:
-    DImageButton *m_accountBtn;
-    DImageButton *m_displayBtn;
-    DImageButton *m_defaultAppsBtn;
-    DImageButton *m_personalizationBtn;
-    DImageButton *m_networkBtn;
-    DImageButton *m_bluetoothBtn;
-    DImageButton *m_soundBtn;
-    DImageButton *m_timeBtn;
-    DImageButton *m_powerBtn;
-    DImageButton *m_mouseBtn;
-    DImageButton *m_keyboardBtn;
-    DImageButton *m_updateBtn;
-    DImageButton *m_sysInfoBtn;
+    QButtonGroup *m_navgationsGroup;
+    QPushButton *m_accountBtn;
+    QPushButton *m_displayBtn;
+    QPushButton *m_defaultAppsBtn;
+    QPushButton *m_personalizationBtn;
+    QPushButton *m_networkBtn;
+    QPushButton *m_bluetoothBtn;
+    QPushButton *m_soundBtn;
+    QPushButton *m_timeBtn;
+    QPushButton *m_powerBtn;
+    QPushButton *m_mouseBtn;
+    QPushButton *m_keyboardBtn;
+    QPushButton *m_updateBtn;
+    QPushButton *m_sysInfoBtn;
 };
 
 #endif // NAVGATIONBAR_H
