@@ -106,6 +106,7 @@ private:
     const QScreen *screenForGeometry(const QRect &rect) const;
 
 private:
+    QPointer<QWidget> m_navgationBar;
     QPointer<SettingsWidget> m_allSettingsPage;
     QTimer *m_delayKillerTimer;
 

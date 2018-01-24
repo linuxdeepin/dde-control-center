@@ -27,6 +27,7 @@
 #include "settingswidget.h"
 #include "framewidget.h"
 #include "mainwidget.h"
+#include "navgationbar.h"
 
 #include <QApplication>
 #include <QKeyEvent>
@@ -68,6 +69,17 @@ Frame::Frame(QWidget *parent)
     m_delayKillerTimer->setSingleShot(true);
     m_delayKillerTimer->setInterval(60 * 1000);
 
+    m_navgationBar = new NavgationBar;
+    m_navgationBar->setFixedWidth(40);
+    m_navgationBar->setVisible(false);
+
+    QHBoxLayout *centralLayout = new QHBoxLayout;
+    centralLayout->addWidget(m_navgationBar.data());
+    centralLayout->addStretch();
+    centralLayout->setSpacing(0);
+    centralLayout->setContentsMargins(0, 0, 0, 0);
+
+    setLayout(centralLayout);
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_TranslucentBackground, true);
     setMaximumWidth(FRAME_WIDTH);
@@ -100,6 +112,7 @@ void Frame::pushWidget(ContentWidget *const w)
 
     m_frameWidgetStack.last()->hide();
     m_frameWidgetStack.push(fw);
+    m_navgationBar->setVisible(m_frameWidgetStack.size() > 1);
 
     connect(w, &ContentWidget::back, this, &Frame::popWidget, Qt::UniqueConnection);
     connect(fw, &FrameWidget::contentDetached, this, &Frame::contentDetached, Qt::UniqueConnection);
@@ -117,6 +130,7 @@ void Frame::popWidget()
     // destroy the container
     m_frameWidgetStack.pop()->destroy1();
     m_frameWidgetStack.last()->showBack();
+    m_navgationBar->setVisible(m_frameWidgetStack.size() > 1);
 }
 
 void Frame::init()

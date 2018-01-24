@@ -46,7 +46,8 @@ HEADERS    += \
     navgationmodel.h \
     navgationdelegate.h \
     indicatorwidget.h \
-    updatenotifier.h
+    updatenotifier.h \
+    navgationbar.h
 
 SOURCES    += \
             main.cpp \
@@ -76,7 +77,8 @@ SOURCES    += \
     navgationmodel.cpp \
     navgationdelegate.cpp \
     indicatorwidget.cpp \
-    updatenotifier.cpp
+    updatenotifier.cpp \
+    navgationbar.cpp
 
 #RESOURCES += \
 #    qss.qrc \
