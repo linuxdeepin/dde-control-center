@@ -37,7 +37,7 @@
 const QString systemCopyright()
 {
     const QSettings settings("/etc/deepin-installer.conf", QSettings::IniFormat);
-    const QString oem_copyright = settings.value("system_info_vendor_name").toString();
+    const QString oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
 
     if (oem_copyright.isEmpty())
         return QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.");
