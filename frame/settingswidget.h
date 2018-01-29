@@ -64,10 +64,8 @@ private slots:
     void loadModule(ModuleInterface * const module);
     void onModuleInitFinished(ModuleInterface * const inter);
     void ensureModuleVisible(const QString &moduleName);
-    void toggleView();
     void refershModuleActivable();
     void resetAllSettings();
-    void hideNavgation();
     void onNavItemClicked(const QModelIndex &index);
     void onNavItemEntered(const QModelIndex &index);
 
@@ -79,10 +77,7 @@ private:
     QPushButton *m_resetBtn;
     QVBoxLayout *m_settingsLayout;
     TranslucentFrame *m_settingsWidget;
-    NavgationView *m_navView;
     NavgationModel *m_navModel;
-    QLabel *m_navTips;
-    QWidget *m_navWidget;
 
     QList<ModuleInterface *> m_moduleInterfaces;
     QMap<ModuleInterface *, bool> m_moduleActivable;

@@ -63,12 +63,6 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_backBtn = new dcc::widgets::BackButton;
     m_backBtn->setAccessibleName("Back");
 
-    m_navgationBtn = new DImageButton;
-    m_navgationBtn->setNormalPic(":/frame/themes/dark/icons/nav_icon_normal.svg");
-    m_navgationBtn->setHoverPic(":/frame/themes/dark/icons/nav_icon_hover.svg");
-    m_navgationBtn->setPressPic(":/frame/themes/dark/icons/nav_icon_pressed.svg");
-    m_navgationBtn->setVisible(false);
-
     m_title = new QLabel;
     m_title->setObjectName("ContentTitle");
     m_title->setAlignment(Qt::AlignCenter);
@@ -88,18 +82,10 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_contentArea->viewport()->installEventFilter(this);
     QScroller::grabGesture(m_contentArea, QScroller::LeftMouseButtonGesture);
 
-    QHBoxLayout *navLayout = new QHBoxLayout;
-    navLayout->addWidget(m_navgationBtn);
-    navLayout->setMargin(0);
-
-    QWidget *navWidget = new QWidget;
-    navWidget->setLayout(navLayout);
-    navWidget->setFixedWidth(m_backBtn->width());
-
     QHBoxLayout *titleLayout = new QHBoxLayout;
     titleLayout->addWidget(m_backBtn);
     titleLayout->addWidget(m_title);
-    titleLayout->addWidget(navWidget);
+    titleLayout->setContentsMargins(0, 0, m_backBtn->width(), 0);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addLayout(titleLayout);

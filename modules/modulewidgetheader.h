@@ -38,12 +38,6 @@ class ModuleWidgetHeader : public QFrame
 
 public:
     explicit ModuleWidgetHeader(QWidget *parent = 0);
-
-signals:
-    void clicked() const;
-
-private:
-    void mouseReleaseEvent(QMouseEvent *e);
 };
 
 }

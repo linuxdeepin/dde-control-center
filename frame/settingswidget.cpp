@@ -65,6 +65,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
       m_resetBtn(new QPushButton),
       m_settingsLayout(new QVBoxLayout),
       m_settingsWidget(new TranslucentFrame),
+      m_navModel(new NavgationModel),
 
       m_refershModuleActivableTimer(new QTimer(this))
 
@@ -76,48 +77,13 @@ SettingsWidget::SettingsWidget(Frame *frame)
 #endif
 
     m_resetBtn->setText(tr("Reset all settings"));
-    m_navgationBtn->setVisible(true);
 
     m_settingsLayout->setSpacing(30);
     m_settingsLayout->setMargin(0);
     m_settingsLayout->addSpacing(10);
-//    m_settingsLayout->addWidget(m_resetBtn);
     m_settingsLayout->addSpacing(20);
 
-    m_navModel = new NavgationModel;
-
     m_settingsWidget->setLayout(m_settingsLayout);
-
-    m_navTips = new NormalLabel;
-    m_navTips->setAlignment(Qt::AlignCenter);
-    // view item width
-    m_navTips->setFixedWidth(110 * 3 + 2);
-#ifdef QT_DEBUG
-    m_navTips->setText("Nav Title");
-    m_navTips->setStyleSheet("background-color: red;");
-#endif
-
-    m_navView = new NavgationView;
-    m_navView->setItemDelegate(new NavgationDelegate);
-    m_navView->setModel(m_navModel);
-    m_navView->setFixedWidth(110 * 3 + 5);
-//    m_navView->setParent(this);
-//    m_navView->move(14, 0);
-//    m_navView->setFixedSize(FRAME_WIDTH, 600);
-//    m_navView->setVisible(false);
-
-    QVBoxLayout *navLayout = new QVBoxLayout;
-    navLayout->addWidget(m_navTips);
-    navLayout->addSpacing(10);
-    navLayout->addWidget(m_navView);
-    navLayout->setSpacing(0);
-    navLayout->setMargin(0);
-
-    m_navWidget = new TranslucentFrame(this);
-    m_navWidget->setLayout(navLayout);
-    m_navWidget->setFixedSize(110 * 3 + 5, 500);
-    m_navWidget->move(14, 0);
-    m_navWidget->setVisible(false);
 
     setContent(m_settingsWidget);
     setTitle(tr("All Settings"));
@@ -125,14 +91,6 @@ SettingsWidget::SettingsWidget(Frame *frame)
     m_refershModuleActivableTimer->setSingleShot(true);
     m_refershModuleActivableTimer->setInterval(500);
 
-#ifdef  DCC_KEEP_SETTINGS_LIVE
-    connect(this, &SettingsWidget::back, this, &SettingsWidget::hideNavgation);
-#endif
-    connect(m_navView, &NavgationView::clicked, this, &SettingsWidget::toggleView);
-    connect(m_navView, &NavgationView::entered, this, &SettingsWidget::onNavItemEntered);
-    connect(m_navView, &NavgationView::entered, m_navModel, &NavgationModel::setCurrentItem);
-    connect(m_navView, &NavgationView::clicked, this, &SettingsWidget::onNavItemClicked, Qt::QueuedConnection);
-    connect(m_navgationBtn, &DImageButton::clicked, this, &SettingsWidget::toggleView);
     connect(m_resetBtn, &QPushButton::clicked, this, &SettingsWidget::resetAllSettings);
     connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, m_refershModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_refershModuleActivableTimer, &QTimer::timeout, this, &SettingsWidget::refershModuleActivable);
@@ -183,9 +141,7 @@ void SettingsWidget::mouseReleaseEvent(QMouseEvent *e)
 
     e->accept();
 
-    if (m_navView->isVisible())
-        toggleView();
-    else if (e->button() == Qt::BackButton)
+    if (e->button() == Qt::BackButton)
         emit back();
 }
 
@@ -291,8 +247,6 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
     m_moduleActivable[module] = false;
     m_settingsLayout->insertWidget(index + 1, moduleWidget);
 
-    connect(moduleWidget, &ModuleWidget::headerClicked, this, &SettingsWidget::toggleView);
-
     // load all modules finished
     if (m_moduleActivable.size() == m_moduleInterfaces.size())
     {
@@ -324,32 +278,8 @@ void SettingsWidget::ensureModuleVisible(const QString &moduleName)
         scrollToWidget(inter->moduleWidget());
 }
 
-void SettingsWidget::toggleView()
-{
-    if (sender() == m_navgationBtn)
-        m_navWidget->move(m_navWidget->x(), 60);
-    else
-    {
-        const int y = mapFromGlobal(QCursor::pos()).y() - 256;
-        m_navWidget->move(m_navWidget->x(), std::min(std::max(60, y), height() - 500));
-    }
-
-    if (m_settingsWidget->isVisible())
-    {
-        m_navWidget->setVisible(true);
-        m_settingsWidget->setVisible(false);
-    } else {
-        m_navWidget->setVisible(false);
-        m_settingsWidget->setVisible(true);
-    }
-}
-
 void SettingsWidget::showModulePage(const QString &moduleName, const QString &pageName)
 {
-    // hide navigation
-    if (!m_settingsWidget->isVisible())
-        toggleView();
-
     // test module is loaded
     bool founded = false;
     for (auto *module : m_moduleActivable.keys())
@@ -456,9 +386,6 @@ void SettingsWidget::onNavItemEntered(const QModelIndex &index)
             break;
         }
     }
-
-    if (inter)
-        m_navTips->setText(inter->moduleWidget()->title());
 }
 
 SettingsWidget::~SettingsWidget()
@@ -477,10 +404,4 @@ SettingsWidget::~SettingsWidget()
     qDeleteAll(m_moduleInterfaces);
 
     qDebug() << Q_FUNC_INFO << "I'm gone!!!";
-}
-
-void SettingsWidget::hideNavgation()
-{
-    if (!m_settingsWidget->isVisible())
-        toggleView();
 }

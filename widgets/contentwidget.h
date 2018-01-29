@@ -74,7 +74,6 @@ protected:
 
 protected:
     dcc::widgets::BackButton *m_backBtn;
-    DImageButton *m_navgationBtn;
     QLabel *m_title;
     QVBoxLayout *m_contentTopLayout;
     QScrollArea *m_contentArea;
