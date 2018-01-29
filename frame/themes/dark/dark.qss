@@ -107,6 +107,6 @@ NavigationBar Dtk--Widget--DImageButton:hover {
     background-color: rgba(255, 255, 255, .2);
 }
 
-NavigationBar Dtk--Widget--DImageButton:checked {
-    background-color: rgba(255, 255, 255, .2);
+NavigationBar Dtk--Widget--DImageButton[checked=true] {
+    background-color: rgba(255, 255, 255, .3);
 }

@@ -50,6 +50,9 @@ NavigationBar::NavigationBar(QWidget *parent)
 
         connect(b, &DImageButton::clicked, this, &NavigationBar::onNavigationButtonClicked);
     }
+
+    // init first button to checked
+    m_navigationButtons[ModuleList.first()]->clicked();
 }
 
 void NavigationBar::setModuleVisible(const QString &module, bool visible)
@@ -62,6 +65,12 @@ void NavigationBar::onNavigationButtonClicked()
 {
     DImageButton *b = static_cast<DImageButton *>(sender());
     Q_ASSERT(b);
+
+    if (!m_checkedButton.isNull())
+        m_checkedButton->setChecked(false);
+
+    m_checkedButton = b;
+    m_checkedButton->setChecked(true);
 
     emit requestModule(m_navigationButtons.key(b));
 }

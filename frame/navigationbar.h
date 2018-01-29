@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QButtonGroup>
+#include <QPointer>
 
 #include <dimagebutton.h>
 
@@ -27,6 +28,7 @@ private slots:
 
 private:
     QMap<QString, DImageButton *> m_navigationButtons;
+    QPointer<DImageButton> m_checkedButton;
 };
 
 #endif // NAVIGATIONBAR_H
