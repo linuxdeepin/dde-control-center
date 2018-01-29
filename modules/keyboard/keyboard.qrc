@@ -18,5 +18,6 @@
         <file>themes/common/icons/edit_hover.svg</file>
         <file>themes/common/icons/edit_normal.svg</file>
         <file>themes/common/icons/edit_press.svg</file>
+        <file>themes/dark/icons/nav_keyboard_normal.svg</file>
     </qresource>
 </RCC>

@@ -33,5 +33,6 @@
         <file>themes/dark/icons/reduce_hover.svg</file>
         <file>themes/dark/icons/reduce_normal.svg</file>
         <file>themes/dark/icons/reduce_press.svg</file>
+        <file>themes/dark/icons/nav_datetime_normal.svg</file>
     </qresource>
 </RCC>

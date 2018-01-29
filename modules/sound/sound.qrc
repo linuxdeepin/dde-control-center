@@ -16,5 +16,6 @@
         <file>themes/dark/volume-high@2x.png</file>
         <file>themes/dark/volume-low@2x.png</file>
         <file>themes/dark/balance-left@2x.png</file>
+        <file>themes/dark/icons/nav_sound_normal.svg</file>
     </qresource>
 </RCC>

@@ -3,5 +3,6 @@
         <file>themes/dark/dark.qss</file>
         <file>themes/dark/icons/nav_power.png</file>
         <file>themes/dark/icons/nav_power@2x.png</file>
+        <file>themes/dark/icons/nav_power_normal.svg</file>
     </qresource>
 </RCC>

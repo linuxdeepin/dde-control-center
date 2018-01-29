@@ -12,5 +12,6 @@
         <file>themes/dark/icons/edit_hover@2x.png</file>
         <file>themes/dark/icons/edit_normal@2x.png</file>
         <file>themes/dark/icons/edit_press@2x.png</file>
+        <file>themes/dark/icons/nav_bluetooth_normal.svg</file>
     </qresource>
 </RCC>

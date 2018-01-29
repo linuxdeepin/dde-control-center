@@ -15,5 +15,6 @@
         <file>themes/dark/icons/logo@2x.png</file>
         <file>themes/dark/icons/rearrange.png</file>
         <file>themes/common/icons/select.svg</file>
+        <file>themes/dark/icons/nav_systeminfo_normal.svg</file>
     </qresource>
 </RCC>

@@ -11,5 +11,6 @@
         <file>themes/light/icons/fontsize_decrease.png</file>
         <file>themes/light/icons/fontsize_increase.png</file>
         <file>themes/light/icons/nav_personalization.png</file>
+        <file>themes/dark/icons/nav_personalization_normal.svg</file>
     </qresource>
 </RCC>

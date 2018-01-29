@@ -152,5 +152,6 @@
         <file>themes/common/double_test/raise_head_ears/raise_head_ears_00007@2x.png</file>
         <file>themes/common/double_test/raise_head_ears/raise_head_ears_00008@2x.png</file>
         <file>themes/common/double_test/raise_head_ears/raise_head_ears_00009@2x.png</file>
+        <file>themes/dark/icons/nav_mouse_normal.svg</file>
     </qresource>
 </RCC>

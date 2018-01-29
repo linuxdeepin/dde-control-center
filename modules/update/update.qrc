@@ -9,5 +9,6 @@
         <file>themes/common/icons/update_success.png</file>
         <file>themes/common/icons/update_failed.png</file>
         <file>themes/dark/icons/select.svg</file>
+        <file>themes/dark/icons/nav_update_normal.svg</file>
     </qresource>
 </RCC>
