@@ -5,6 +5,10 @@
 #include <QPushButton>
 #include <QButtonGroup>
 
+#include <dimagebutton.h>
+
+DWIDGET_USE_NAMESPACE
+
 class NavigationBar : public QWidget
 {
     Q_OBJECT
@@ -12,24 +16,14 @@ class NavigationBar : public QWidget
 public:
     explicit NavigationBar(QWidget *parent = nullptr);
 
+public slots:
+    void setModuleVisible(const QString &module, bool visible);
+
 signals:
     void requestModule(const QString &name) const;
 
 private:
-    QButtonGroup *m_navigationsGroup;
-    QPushButton *m_accountBtn;
-    QPushButton *m_displayBtn;
-    QPushButton *m_defaultAppsBtn;
-    QPushButton *m_personalizationBtn;
-    QPushButton *m_networkBtn;
-    QPushButton *m_bluetoothBtn;
-    QPushButton *m_soundBtn;
-    QPushButton *m_timeBtn;
-    QPushButton *m_powerBtn;
-    QPushButton *m_mouseBtn;
-    QPushButton *m_keyboardBtn;
-    QPushButton *m_updateBtn;
-    QPushButton *m_sysInfoBtn;
+    QMap<QString, DImageButton *> m_navigationButtons;
 };
 
 #endif // NAVIGATIONBAR_H

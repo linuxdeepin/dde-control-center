@@ -38,11 +38,6 @@ NavigationModel::NavigationModel(QObject *parent)
 
 void NavigationModel::insertItem(const QString &item)
 {
-//    if (idx < m_items.size() && m_items[idx] == item)
-//        return;
-
-//    Q_ASSERT(!m_items.contains(item));
-
     if (m_items.contains(item))
         return;
 
@@ -55,11 +50,8 @@ void NavigationModel::insertItem(const QString &item)
             ++idx;
     }
 
-//    beginInsertRows(QModelIndex(), idx, idx);
     m_items.insert(idx, item);
-//    endInsertRows();
 
-    // TODO: optimize
     emit layoutChanged();
 }
 
@@ -70,11 +62,8 @@ void NavigationModel::removeItem(const QString &item)
     if (idx == -1)
         return;
 
-//    beginRemoveRows(QModelIndex(), idx, idx);
     m_items.removeAt(idx);
-//    endRemoveRows();
 
-    // TODO: optimize
     emit layoutChanged();
 }
 

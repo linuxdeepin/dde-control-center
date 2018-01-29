@@ -97,14 +97,12 @@ Dtk--Widget--DImageButton#NotifyCloseButton{
     qproperty-pressPic: url(:/frame/themes/dark/icons/notify_close_press.png);
 }
 
-NavigationBar QPushButton {
-    width: 32px;
-    height: 32px;
-    margin: 0 3px;
-    padding: 1px;
+NavigationBar Dtk--Widget--DImageButton {
+    padding: 5px 0;
+    margin: 0 2px;
     border-radius: 4px;
 }
 
-NavigationBar QPushButton:hover {
+NavigationBar Dtk--Widget--DImageButton:hover {
     background-color: rgba(255, 255, 255, .2);
 }

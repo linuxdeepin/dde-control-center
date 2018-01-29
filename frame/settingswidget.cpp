@@ -65,7 +65,6 @@ SettingsWidget::SettingsWidget(Frame *frame)
       m_resetBtn(new QPushButton),
       m_settingsLayout(new QVBoxLayout),
       m_settingsWidget(new TranslucentFrame),
-      m_navModel(new NavigationModel),
 
       m_refershModuleActivableTimer(new QTimer(this))
 
@@ -212,8 +211,6 @@ void SettingsWidget::loadModule(ModuleInterface *const module)
     m_moduleInterfaces.append(module);
 
     m_moduleWidgets.insert(module, QList<ContentWidget *>());
-    m_navModel->appendAvailableItem(module->name());
-    m_navModel->insertItem(module->name());
 
     ModuleInitThread *thrd = new ModuleInitThread(module, this);
     connect(thrd, &ModuleInitThread::moduleInitFinished, this, &SettingsWidget::onModuleInitFinished, Qt::QueuedConnection);
@@ -316,10 +313,8 @@ void SettingsWidget::setModuleVisible(ModuleInterface * const inter, const bool 
     Q_ASSERT(moduleWidget);
     moduleWidget->setVisible(visible);
 
-    if (visible)
-        m_navModel->insertItem(name);
-    else
-        m_navModel->removeItem(name);
+    // notify navigation items dynamic change
+    emit moduleVisibleChanged(name, visible);
 }
 
 void SettingsWidget::refershModuleActivable()

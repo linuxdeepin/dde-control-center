@@ -189,6 +189,8 @@ void Frame::prepareAllSettingsPage()
 
     m_allSettingsPage = new SettingsWidget(this);
     m_allSettingsPage->setVisible(false);
+
+    connect(m_allSettingsPage, &SettingsWidget::moduleVisibleChanged, m_navigationBar, &NavigationBar::setModuleVisible);
 }
 
 void Frame::onDelayKillerTimeout()

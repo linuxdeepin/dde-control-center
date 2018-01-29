@@ -56,6 +56,9 @@ public slots:
     void setFrameAutoHide(ModuleInterface * const inter, const bool autoHide);
     void pushWidget(ModuleInterface * const inter, ContentWidget * const w);
 
+signals:
+    void moduleVisibleChanged(const QString &module, bool visible);
+
 protected:
     void mouseReleaseEvent(QMouseEvent *e);
 
@@ -77,7 +80,6 @@ private:
     QPushButton *m_resetBtn;
     QVBoxLayout *m_settingsLayout;
     TranslucentFrame *m_settingsWidget;
-    NavigationModel *m_navModel;
 
     QList<ModuleInterface *> m_moduleInterfaces;
     QMap<ModuleInterface *, bool> m_moduleActivable;
