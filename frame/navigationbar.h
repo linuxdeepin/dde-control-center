@@ -1,22 +1,22 @@
-#ifndef NAVGATIONBAR_H
-#define NAVGATIONBAR_H
+#ifndef NAVIGATIONBAR_H
+#define NAVIGATIONBAR_H
 
 #include <QWidget>
 #include <QPushButton>
 #include <QButtonGroup>
 
-class NavgationBar : public QWidget
+class NavigationBar : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit NavgationBar(QWidget *parent = nullptr);
+    explicit NavigationBar(QWidget *parent = nullptr);
 
 signals:
     void requestModule(const QString &name) const;
 
 private:
-    QButtonGroup *m_navgationsGroup;
+    QButtonGroup *m_navigationsGroup;
     QPushButton *m_accountBtn;
     QPushButton *m_displayBtn;
     QPushButton *m_defaultAppsBtn;
@@ -32,4 +32,4 @@ private:
     QPushButton *m_sysInfoBtn;
 };
 
-#endif // NAVGATIONBAR_H
+#endif // NAVIGATIONBAR_H

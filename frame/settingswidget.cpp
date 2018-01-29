@@ -27,7 +27,7 @@
 #include "frame.h"
 #include "moduleinitthread.h"
 #include "modulewidget.h"
-#include "navgationdelegate.h"
+#include "navigationdelegate.h"
 #include "backbutton.h"
 
 #include "accounts/accountsmodule.h"
@@ -65,7 +65,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
       m_resetBtn(new QPushButton),
       m_settingsLayout(new QVBoxLayout),
       m_settingsWidget(new TranslucentFrame),
-      m_navModel(new NavgationModel),
+      m_navModel(new NavigationModel),
 
       m_refershModuleActivableTimer(new QTimer(this))
 

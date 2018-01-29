@@ -48,7 +48,7 @@ DWIDGET_USE_NAMESPACE
 
 class FrameWidget;
 class SettingsWidget;
-class NavgationBar;
+class NavigationBar;
 
 namespace dcc
 {
@@ -107,7 +107,7 @@ private:
     const QScreen *screenForGeometry(const QRect &rect) const;
 
 private:
-    QPointer<NavgationBar> m_navgationBar;
+    QPointer<NavigationBar> m_navigationBar;
     QPointer<SettingsWidget> m_allSettingsPage;
     QTimer *m_delayKillerTimer;
 

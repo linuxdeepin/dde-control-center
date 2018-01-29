@@ -23,22 +23,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NAVGATIONPLUGIN_H
-#define NAVGATIONPLUGIN_H
+#ifndef NAVIGATIONPLUGIN_H
+#define NAVIGATIONPLUGIN_H
 
 #include "plugininterface.h"
 #include "navwidget.h"
 
 #include <QLabel>
 
-class NavgationPlugin : public QObject, public PluginInterface
+class NavigationPlugin : public QObject, public PluginInterface
 {
     Q_OBJECT
     Q_INTERFACES(PluginInterface)
-    Q_PLUGIN_METADATA(IID "com.deepin.dock.PluginsItemInterface" FILE "navgation.json")
+    Q_PLUGIN_METADATA(IID "com.deepin.dock.PluginsItemInterface" FILE "navigation.json")
 
 public:
-    explicit NavgationPlugin(QObject *parent = 0);
+    explicit NavigationPlugin(QObject *parent = 0);
 
     void initialize(FrameProxyInterface *proxy);
     QWidget *centralWidget();
@@ -50,4 +50,4 @@ private:
     NavWidget *m_navWidget;
 };
 
-#endif // NAVGATIONPLUGIN_H
+#endif // NAVIGATIONPLUGIN_H

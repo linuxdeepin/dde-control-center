@@ -81,7 +81,7 @@
 <context>
     <name>NavWidget</name>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="206"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="206"/>
         <source>Navigation</source>
         <translation type="unfinished"></translation>
     </message>
@@ -94,12 +94,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="135"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="136"/>
         <source>Yesterday</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifymanager.cpp" line="144"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="145"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -107,12 +107,12 @@
         </translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="138"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="139"/>
         <source>The day before yesterday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="200"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="201"/>
         <source>No system notifications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -169,12 +169,12 @@
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="78"/>
+        <location filename="../frame/settingswidget.cpp" line="79"/>
         <source>Reset all settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="123"/>
+        <location filename="../frame/settingswidget.cpp" line="89"/>
         <source>All Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -307,7 +307,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -321,7 +321,7 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="170"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="170"/>
         <source>Accounts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -592,7 +592,7 @@
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="123"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="175"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="175"/>
         <source>Bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
@@ -691,7 +691,7 @@
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="58"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="177"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="177"/>
         <source>Time and Date</source>
         <translation type="unfinished"></translation>
     </message>
@@ -766,7 +766,7 @@
     <name>dcc::defapp::DefAppViewer</name>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="172"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="172"/>
         <source>Default Applications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -911,7 +911,7 @@
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="171"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="171"/>
         <source>Display</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1151,7 +1151,7 @@
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="180"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="180"/>
         <source>Keyboard and Language</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1258,32 +1258,32 @@
 <context>
     <name>dcc::keyboard::ShortcutWidget</name>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="54"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="55"/>
         <source>System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="55"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="56"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="56"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="57"/>
         <source>WorkSpace</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="77"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="87"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="88"/>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="64"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
         <source>Custom Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1351,7 +1351,7 @@
     <name>dcc::mouse::MouseWidget</name>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1722,7 +1722,7 @@
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="84"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="174"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="174"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2001,8 +2001,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="88"/>
-        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="102"/>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="108"/>
         <source> (Unsupported font)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2026,12 +2026,12 @@
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="113"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="117"/>
         <source>Standard Font</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="122"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="126"/>
         <source>Monospaced Font</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2055,7 +2055,7 @@
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="173"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="173"/>
         <source>Personalization</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2126,7 +2126,7 @@
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="87"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="178"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="178"/>
         <source>Power Management</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2192,7 +2192,7 @@
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="176"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="176"/>
         <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2252,7 +2252,7 @@
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="183"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="183"/>
         <source>System Information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2380,7 +2380,7 @@
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="182"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="182"/>
         <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2589,7 +2589,7 @@
     <name>dcc::wacom::WacomWidget</name>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="181"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="181"/>
         <source>Wacom</source>
         <translation type="unfinished"></translation>
     </message>

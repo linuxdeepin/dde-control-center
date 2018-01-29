@@ -42,12 +42,12 @@ HEADERS    += \
     quick_control/wifi/wifilistdelegate.h \
     quick_control/display/displayitemdelegate.h \
     quick_control/bluetooth/bluetoothdelegate.h \
-    navgationview.h \
-    navgationmodel.h \
-    navgationdelegate.h \
     indicatorwidget.h \
     updatenotifier.h \
-    navgationbar.h
+    navigationview.h \
+    navigationmodel.h \
+    navigationdelegate.h \
+    navigationbar.h
 
 SOURCES    += \
             main.cpp \
@@ -73,12 +73,12 @@ SOURCES    += \
     quick_control/wifi/wifilistdelegate.cpp \
     quick_control/display/displayitemdelegate.cpp \
     quick_control/bluetooth/bluetoothdelegate.cpp \
-    navgationview.cpp \
-    navgationmodel.cpp \
-    navgationdelegate.cpp \
     indicatorwidget.cpp \
     updatenotifier.cpp \
-    navgationbar.cpp
+    navigationview.cpp \
+    navigationmodel.cpp \
+    navigationdelegate.cpp \
+    navigationbar.cpp
 
 #RESOURCES += \
 #    qss.qrc \

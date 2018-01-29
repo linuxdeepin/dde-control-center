@@ -23,8 +23,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "navgationdelegate.h"
-#include "navgationmodel.h"
+#include "navigationdelegate.h"
+#include "navigationmodel.h"
 #include "basiclistdelegate.h"
 
 #include <QPainter>
@@ -32,15 +32,15 @@
 
 namespace dcc {
 
-NavgationDelegate::NavgationDelegate(QObject *parent)
+NavigationDelegate::NavigationDelegate(QObject *parent)
     : QItemDelegate(parent)
 {
 
 }
 
-void NavgationDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void NavigationDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    const NavgationModel::EdgeFlags edgeFlags = index.data(NavgationModel::ItemEdgeRole).value<NavgationModel::EdgeFlags>();
+    const NavigationModel::EdgeFlags edgeFlags = index.data(NavigationModel::ItemEdgeRole).value<NavigationModel::EdgeFlags>();
     const int r = 5;
     const int ox = option.rect.topLeft().x();
     const int oy = option.rect.topLeft().y();
@@ -50,9 +50,9 @@ void NavgationDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     QPainterPath path(option.rect.topLeft());
     path.addRect(option.rect);
 
-    if (edgeFlags.testFlag(NavgationModel::Top))
+    if (edgeFlags.testFlag(NavigationModel::Top))
     {
-        if (edgeFlags.testFlag(NavgationModel::Left))
+        if (edgeFlags.testFlag(NavigationModel::Left))
         {
             // top-left
             QPainterPath sub(option.rect.topLeft());
@@ -62,7 +62,7 @@ void NavgationDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
             path = path.subtracted(sub);
         }
-        else if (edgeFlags.testFlag(NavgationModel::Right))
+        else if (edgeFlags.testFlag(NavigationModel::Right))
         {
             // top-right
             QPainterPath sub(QPoint(ox + w, oy));
@@ -73,9 +73,9 @@ void NavgationDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
             path = path.subtracted(sub);
         }
     }
-    else if (edgeFlags.testFlag(NavgationModel::Bottom))
+    else if (edgeFlags.testFlag(NavigationModel::Bottom))
     {
-        if (edgeFlags.testFlag(NavgationModel::Left))
+        if (edgeFlags.testFlag(NavigationModel::Left))
         {
             // bottom-left
             QPainterPath sub(QPoint(ox, oy + h));
@@ -85,7 +85,7 @@ void NavgationDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
             path = path.subtracted(sub);
         }
-        else if (edgeFlags.testFlag(NavgationModel::Right))
+        else if (edgeFlags.testFlag(NavigationModel::Right))
         {
             // bottom-right
             QPainterPath sub(QPoint(ox + w, oy + h));
@@ -99,7 +99,7 @@ void NavgationDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
 
     painter->setPen(Qt::NoPen);
     painter->setRenderHint(QPainter::Antialiasing);
-    if (index.data(NavgationModel::ItemHoveredRole).toBool())
+    if (index.data(NavigationModel::ItemHoveredRole).toBool())
         painter->fillPath(path, QColor::fromRgbF(1, 1, 1, 0.3));
     else
         painter->fillPath(path, QColor::fromRgbF(1, 1, 1, 0.2));
@@ -125,7 +125,7 @@ void NavgationDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opt
     painter->drawPixmap(pixRect, pixmap);
 }
 
-QSize NavgationDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+QSize NavigationDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     Q_UNUSED(option);
 

@@ -13,14 +13,14 @@ DESTDIR          = $$_PRO_FILE_PWD_/../
 DISTFILES       += $$PLUGIN_NAME.json
 
 HEADERS += \
-    navgationplugin.h \
     navwidget.h \
-    navitemwidget.h
+    navitemwidget.h \
+    navigationplugin.h
 
 SOURCES += \
-    navgationplugin.cpp \
     navwidget.cpp \
-    navitemwidget.cpp
+    navitemwidget.cpp \
+    navigationplugin.cpp
 
 target.path = $${PREFIX}/lib/dde-control-center/plugins/
 INSTALLS += target

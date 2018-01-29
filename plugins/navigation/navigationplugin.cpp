@@ -23,9 +23,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "navgationplugin.h"
+#include "navigationplugin.h"
 
-NavgationPlugin::NavgationPlugin(QObject *parent)
+NavigationPlugin::NavigationPlugin(QObject *parent)
     : QObject(parent),
 
       m_navWidget(nullptr)
@@ -33,20 +33,20 @@ NavgationPlugin::NavgationPlugin(QObject *parent)
 
 }
 
-void NavgationPlugin::initialize(FrameProxyInterface *proxy)
+void NavigationPlugin::initialize(FrameProxyInterface *proxy)
 {
     m_proxyInter = proxy;
 
     m_navWidget = new NavWidget;
-    connect(m_navWidget, &NavWidget::requestModule, this, &NavgationPlugin::showModule);
+    connect(m_navWidget, &NavWidget::requestModule, this, &NavigationPlugin::showModule);
 }
 
-QWidget *NavgationPlugin::centralWidget()
+QWidget *NavigationPlugin::centralWidget()
 {
     return m_navWidget;
 }
 
-void NavgationPlugin::showModule(const QString &module)
+void NavigationPlugin::showModule(const QString &module)
 {
     m_proxyInter->showModulePage(module, QString());
 }

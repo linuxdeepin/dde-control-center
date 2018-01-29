@@ -23,19 +23,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NAVGATIONDELEGATE_H
-#define NAVGATIONDELEGATE_H
+#ifndef NAVIGATIONDELEGATE_H
+#define NAVIGATIONDELEGATE_H
 
 #include <QItemDelegate>
 
 namespace dcc {
 
-class NavgationDelegate : public QItemDelegate
+class NavigationDelegate : public QItemDelegate
 {
     Q_OBJECT
 
 public:
-    explicit NavgationDelegate(QObject *parent = 0);
+    explicit NavigationDelegate(QObject *parent = 0);
 
 private:
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
@@ -44,4 +44,4 @@ private:
 
 }
 
-#endif // NAVGATIONDELEGATE_H
+#endif // NAVIGATIONDELEGATE_H

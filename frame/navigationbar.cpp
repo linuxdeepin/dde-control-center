@@ -1,13 +1,13 @@
-#include "navgationbar.h"
+#include "navigationbar.h"
 
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QSignalMapper>
 
-NavgationBar::NavgationBar(QWidget *parent)
+NavigationBar::NavigationBar(QWidget *parent)
     : QWidget(parent)
 
-    , m_navgationsGroup(new QButtonGroup)
+    , m_navigationsGroup(new QButtonGroup)
 
     , m_accountBtn(new QPushButton)
     , m_displayBtn(new QPushButton)
@@ -50,20 +50,20 @@ NavgationBar::NavgationBar(QWidget *parent)
     m_sysInfoBtn->setIcon(QIcon(":/systeminfo/themes/dark/icons/nav_systeminfo.png"));
     m_sysInfoBtn->setCheckable(true);
 
-    m_navgationsGroup->addButton(m_accountBtn);
-    m_navgationsGroup->addButton(m_displayBtn);
-    m_navgationsGroup->addButton(m_defaultAppsBtn);
-    m_navgationsGroup->addButton(m_personalizationBtn);
-    m_navgationsGroup->addButton(m_networkBtn);
-    m_navgationsGroup->addButton(m_bluetoothBtn);
-    m_navgationsGroup->addButton(m_soundBtn);
-    m_navgationsGroup->addButton(m_timeBtn);
-    m_navgationsGroup->addButton(m_powerBtn);
-    m_navgationsGroup->addButton(m_mouseBtn);
-    m_navgationsGroup->addButton(m_keyboardBtn);
-    m_navgationsGroup->addButton(m_updateBtn);
-    m_navgationsGroup->addButton(m_sysInfoBtn);
-    m_navgationsGroup->setExclusive(true);
+    m_navigationsGroup->addButton(m_accountBtn);
+    m_navigationsGroup->addButton(m_displayBtn);
+    m_navigationsGroup->addButton(m_defaultAppsBtn);
+    m_navigationsGroup->addButton(m_personalizationBtn);
+    m_navigationsGroup->addButton(m_networkBtn);
+    m_navigationsGroup->addButton(m_bluetoothBtn);
+    m_navigationsGroup->addButton(m_soundBtn);
+    m_navigationsGroup->addButton(m_timeBtn);
+    m_navigationsGroup->addButton(m_powerBtn);
+    m_navigationsGroup->addButton(m_mouseBtn);
+    m_navigationsGroup->addButton(m_keyboardBtn);
+    m_navigationsGroup->addButton(m_updateBtn);
+    m_navigationsGroup->addButton(m_sysInfoBtn);
+    m_navigationsGroup->setExclusive(true);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addStretch();
@@ -101,7 +101,7 @@ NavgationBar::NavgationBar(QWidget *parent)
     moduleMapper->setMapping(m_updateBtn, "update");
     moduleMapper->setMapping(m_sysInfoBtn, "systeminfo");
 
-    connect(moduleMapper, static_cast<void (QSignalMapper::*)(const QString &)>(&QSignalMapper::mapped), this, &NavgationBar::requestModule);
+    connect(moduleMapper, static_cast<void (QSignalMapper::*)(const QString &)>(&QSignalMapper::mapped), this, &NavigationBar::requestModule);
     connect(m_accountBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
     connect(m_displayBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
     connect(m_defaultAppsBtn, &QPushButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));

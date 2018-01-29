@@ -29,8 +29,8 @@
 #include "contentwidget.h"
 #include "moduleinterface.h"
 #include "translucentframe.h"
-#include "navgationview.h"
-#include "navgationmodel.h"
+#include "navigationview.h"
+#include "navigationmodel.h"
 
 #include <QMap>
 #include <QVBoxLayout>
@@ -77,7 +77,7 @@ private:
     QPushButton *m_resetBtn;
     QVBoxLayout *m_settingsLayout;
     TranslucentFrame *m_settingsWidget;
-    NavgationModel *m_navModel;
+    NavigationModel *m_navModel;
 
     QList<ModuleInterface *> m_moduleInterfaces;
     QMap<ModuleInterface *, bool> m_moduleActivable;

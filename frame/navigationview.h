@@ -23,19 +23,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NAVGATIONVIEW_H
-#define NAVGATIONVIEW_H
+#ifndef NAVIGATIONVIEW_H
+#define NAVIGATIONVIEW_H
 
 #include <QListView>
 
 namespace dcc {
 
-class NavgationView : public QListView
+class NavigationView : public QListView
 {
     Q_OBJECT
 
 public:
-    explicit NavgationView(QWidget *parent = nullptr);
+    explicit NavigationView(QWidget *parent = nullptr);
 
 protected:
     void leaveEvent(QEvent *e);
@@ -43,4 +43,4 @@ protected:
 
 }
 
-#endif // NAVGATIONVIEW_H
+#endif // NAVIGATIONVIEW_H

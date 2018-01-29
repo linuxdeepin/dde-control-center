@@ -23,22 +23,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NAVGATIONMODEL_H
-#define NAVGATIONMODEL_H
+#ifndef NAVIGATIONMODEL_H
+#define NAVIGATIONMODEL_H
 
 #include <QAbstractListModel>
 #include <QFlags>
 
 namespace dcc {
 
-class NavgationModel : public QAbstractListModel
+class NavigationModel : public QAbstractListModel
 {
     Q_OBJECT
 
 public:
-    explicit NavgationModel(QObject *parent = 0);
+    explicit NavigationModel(QObject *parent = 0);
 
-    enum NavgationItemRole
+    enum NavigationItemRole
     {
         ItemReservedRole = Qt::UserRole,
         ItemHoveredRole,
@@ -65,7 +65,7 @@ public slots:
     QVariant data(const QModelIndex &index, int role) const;
 
 private:
-    NavgationModel::EdgeFlags indexEdgeFlag(const QModelIndex &index) const;
+    NavigationModel::EdgeFlags indexEdgeFlag(const QModelIndex &index) const;
 
 private:
     QStringList m_items;
@@ -76,7 +76,7 @@ private:
 
 }
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(dcc::NavgationModel::EdgeFlags)
-Q_DECLARE_METATYPE(dcc::NavgationModel::EdgeFlags)
+Q_DECLARE_OPERATORS_FOR_FLAGS(dcc::NavigationModel::EdgeFlags)
+Q_DECLARE_METATYPE(dcc::NavigationModel::EdgeFlags)
 
-#endif // NAVGATIONMODEL_H
+#endif // NAVIGATIONMODEL_H

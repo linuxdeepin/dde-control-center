@@ -23,13 +23,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "navgationview.h"
+#include "navigationview.h"
 
 #include <QPainter>
 
 namespace dcc {
 
-NavgationView::NavgationView(QWidget *parent)
+NavigationView::NavigationView(QWidget *parent)
     : QListView(parent)
 {
     setViewMode(QListView::IconMode);
@@ -43,7 +43,7 @@ NavgationView::NavgationView(QWidget *parent)
 #endif
 }
 
-void NavgationView::leaveEvent(QEvent *e)
+void NavigationView::leaveEvent(QEvent *e)
 {
     QListView::leaveEvent(e);
 

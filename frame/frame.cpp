@@ -27,7 +27,7 @@
 #include "settingswidget.h"
 #include "framewidget.h"
 #include "mainwidget.h"
-#include "navgationbar.h"
+#include "navigationbar.h"
 
 #include <QApplication>
 #include <QKeyEvent>
@@ -69,12 +69,12 @@ Frame::Frame(QWidget *parent)
     m_delayKillerTimer->setSingleShot(true);
     m_delayKillerTimer->setInterval(60 * 1000);
 
-    m_navgationBar = new NavgationBar;
-    m_navgationBar->setFixedWidth(40);
-    m_navgationBar->setVisible(false);
+    m_navigationBar = new NavigationBar;
+    m_navigationBar->setFixedWidth(40);
+    m_navigationBar->setVisible(false);
 
     QHBoxLayout *centralLayout = new QHBoxLayout;
-    centralLayout->addWidget(m_navgationBar.data());
+    centralLayout->addWidget(m_navigationBar.data());
     centralLayout->addStretch();
     centralLayout->setSpacing(0);
     centralLayout->setContentsMargins(0, 0, 0, 0);
@@ -87,7 +87,7 @@ Frame::Frame(QWidget *parent)
 
     resize(0, height());
 
-    connect(m_navgationBar, &NavgationBar::requestModule, this, [=](const QString &module) { showSettingsPage(module, QString()); });
+    connect(m_navigationBar, &NavigationBar::requestModule, this, [=](const QString &module) { showSettingsPage(module, QString()); });
     connect(m_delayKillerTimer, &QTimer::timeout, this, &Frame::onDelayKillerTimeout);
     connect(m_displayInter, &DBusDisplay::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
     connect(m_launcherInter, &LauncherInter::Shown, this, &Frame::hideImmediately);
@@ -113,8 +113,8 @@ void Frame::pushWidget(ContentWidget *const w)
 
     m_frameWidgetStack.last()->hide();
     m_frameWidgetStack.push(fw);
-    m_navgationBar->setVisible(m_frameWidgetStack.size() > 1);
-    m_navgationBar->raise();
+    m_navigationBar->setVisible(m_frameWidgetStack.size() > 1);
+    m_navigationBar->raise();
 
     connect(w, &ContentWidget::back, this, &Frame::popWidget, Qt::UniqueConnection);
     connect(fw, &FrameWidget::contentDetached, this, &Frame::contentDetached, Qt::UniqueConnection);
@@ -132,7 +132,7 @@ void Frame::popWidget()
     // destroy the container
     m_frameWidgetStack.pop()->destroy1();
     m_frameWidgetStack.last()->showBack();
-    m_navgationBar->setVisible(m_frameWidgetStack.size() > 1);
+    m_navigationBar->setVisible(m_frameWidgetStack.size() > 1);
 }
 
 void Frame::init()

@@ -23,20 +23,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "navgationmodel.h"
+#include "navigationmodel.h"
 
 #include <QSize>
 #include <QDebug>
 
 namespace dcc {
 
-NavgationModel::NavgationModel(QObject *parent)
+NavigationModel::NavigationModel(QObject *parent)
     : QAbstractListModel(parent)
 {
 
 }
 
-void NavgationModel::insertItem(const QString &item)
+void NavigationModel::insertItem(const QString &item)
 {
 //    if (idx < m_items.size() && m_items[idx] == item)
 //        return;
@@ -63,7 +63,7 @@ void NavgationModel::insertItem(const QString &item)
     emit layoutChanged();
 }
 
-void NavgationModel::removeItem(const QString &item)
+void NavigationModel::removeItem(const QString &item)
 {
     const int idx = m_items.indexOf(item);
 
@@ -78,12 +78,12 @@ void NavgationModel::removeItem(const QString &item)
     emit layoutChanged();
 }
 
-void NavgationModel::appendAvailableItem(const QString &item)
+void NavigationModel::appendAvailableItem(const QString &item)
 {
     m_allItems.append(item);
 }
 
-void NavgationModel::setCurrentItem(const QModelIndex &index)
+void NavigationModel::setCurrentItem(const QModelIndex &index)
 {
     const QModelIndex oldIndex = m_currentIndex;
 
@@ -93,7 +93,7 @@ void NavgationModel::setCurrentItem(const QModelIndex &index)
     emit dataChanged(m_currentIndex, m_currentIndex);
 }
 
-int NavgationModel::rowCount(const QModelIndex &parent) const
+int NavigationModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
 
@@ -103,7 +103,7 @@ int NavgationModel::rowCount(const QModelIndex &parent) const
     return s + (r ? 3 - r : r);
 }
 
-QVariant NavgationModel::data(const QModelIndex &index, int role) const
+QVariant NavigationModel::data(const QModelIndex &index, int role) const
 {
     switch (role)
     {
@@ -124,7 +124,7 @@ QVariant NavgationModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-NavgationModel::EdgeFlags NavgationModel::indexEdgeFlag(const QModelIndex &index) const
+NavigationModel::EdgeFlags NavigationModel::indexEdgeFlag(const QModelIndex &index) const
 {
     const int idx = index.row();
     const int r = idx % 3;
