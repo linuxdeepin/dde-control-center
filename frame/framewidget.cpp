@@ -51,7 +51,7 @@ FrameWidget::FrameWidget(Frame *parent)
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->setSpacing(0);
-    centralLayout->setContentsMargins(34, 0, 0, 0);
+    centralLayout->setContentsMargins(56 - 8, 0, 0, 0);
     setLayout(centralLayout);
 
     parent->installEventFilter(this);

@@ -22,6 +22,9 @@ public slots:
 signals:
     void requestModule(const QString &name) const;
 
+private slots:
+    void onNavigationButtonClicked();
+
 private:
     QMap<QString, DImageButton *> m_navigationButtons;
 };

@@ -70,7 +70,7 @@ Frame::Frame(QWidget *parent)
     m_delayKillerTimer->setInterval(60 * 1000);
 
     m_navigationBar = new NavigationBar;
-    m_navigationBar->setFixedWidth(40);
+    m_navigationBar->setFixedWidth(56);
     m_navigationBar->setVisible(false);
 
     QHBoxLayout *centralLayout = new QHBoxLayout;

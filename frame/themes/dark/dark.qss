@@ -98,11 +98,15 @@ Dtk--Widget--DImageButton#NotifyCloseButton{
 }
 
 NavigationBar Dtk--Widget--DImageButton {
+    margin: 0 10px 0 10px;
     padding: 5px 0;
-    margin: 0 2px;
     border-radius: 4px;
 }
 
 NavigationBar Dtk--Widget--DImageButton:hover {
+    background-color: rgba(255, 255, 255, .2);
+}
+
+NavigationBar Dtk--Widget--DImageButton:checked {
     background-color: rgba(255, 255, 255, .2);
 }

@@ -38,26 +38,30 @@ NavigationBar::NavigationBar(QWidget *parent)
     setLayout(centralLayout);
 
     // init buttons
-    QSignalMapper *moduleMapper = new QSignalMapper(this);
-
     for (const auto &module : ModuleList)
     {
         DImageButton *b = new DImageButton;
         b->setNormalPic(QString(":/%1/themes/dark/icons/nav_%1.png").arg(module));
+        b->setCheckedPic(QString(":/%1/themes/dark/icons/nav_%1.png").arg(module));
         b->setCheckable(true);
 
-        moduleMapper->setMapping(b, module);
         buttonsLayout->addWidget(b);
         m_navigationButtons.insert(module, b);
 
-        connect(b, &DImageButton::clicked, moduleMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
+        connect(b, &DImageButton::clicked, this, &NavigationBar::onNavigationButtonClicked);
     }
-
-    connect(moduleMapper, static_cast<void (QSignalMapper::*)(const QString &)>(&QSignalMapper::mapped), this, &NavigationBar::requestModule);
 }
 
 void NavigationBar::setModuleVisible(const QString &module, bool visible)
 {
     if (m_navigationButtons.contains(module))
         m_navigationButtons[module]->setVisible(visible);
+}
+
+void NavigationBar::onNavigationButtonClicked()
+{
+    DImageButton *b = static_cast<DImageButton *>(sender());
+    Q_ASSERT(b);
+
+    emit requestModule(m_navigationButtons.key(b));
 }
