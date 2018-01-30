@@ -35,7 +35,8 @@ Depends: ${shlibs:Depends},
  netselect,
  geoip-database-extra,
  deepin-installer-timezones,
- redshift
+ redshift,
+ passwd
 Recommends: dde-control-center-plugin-notify,
  dde-control-center-plugin-weather
 Description: New control center for Deepin Desktop Environment

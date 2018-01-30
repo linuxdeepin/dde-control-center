@@ -78,7 +78,7 @@ public slots:
     void deleteAccount(User *user, const bool deleteHome);
     void setAutoLogin(User *user, const bool autoLogin);
     void onUserListChanged(const QStringList &userList);
-    void setPassword(User *user, const QString &passwd);
+    void setPassword(User *user, const QString &oldpwd, const QString &passwd);
     void deleteUserIcon(User *user, const QString &iconPath);
     void setNopasswdLogin(User *user, const bool nopasswdLogin);
 

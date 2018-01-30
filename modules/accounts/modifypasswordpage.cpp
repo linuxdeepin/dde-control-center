@@ -39,16 +39,20 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
 
       m_userInter(user),
 
+      m_oldpwdEdit(new LineEditWidget),
       m_pwdEdit(new LineEditWidget),
       m_pwdEditRepeat(new LineEditWidget),
 
       m_buttonTuple(new ButtonTuple)
 {
+    m_oldpwdEdit->textEdit()->setEchoMode(QLineEdit::Password);
+    m_oldpwdEdit->setTitle(tr("Current Password"));
     m_pwdEdit->textEdit()->setEchoMode(QLineEdit::Password);
     m_pwdEdit->setTitle(tr("New Password"));
     m_pwdEditRepeat->textEdit()->setEchoMode(QLineEdit::Password);
     m_pwdEditRepeat->setTitle(tr("Repeat Password"));
 
+    m_oldpwdEdit->setPlaceholderText(tr("Required"));
     m_pwdEdit->setPlaceholderText(tr("Required"));
     m_pwdEditRepeat->setPlaceholderText(tr("Required"));
 
@@ -60,6 +64,7 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
     accept->setAccessibleName("Modify_Accept");
 
     SettingsGroup *pwdGroup = new SettingsGroup;
+    pwdGroup->appendItem(m_oldpwdEdit);
     pwdGroup->appendItem(m_pwdEdit);
     pwdGroup->appendItem(m_pwdEditRepeat);
 
@@ -78,29 +83,30 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
 
     connect(accept, &QPushButton::clicked, this, &ModifyPasswordPage::passwordSubmit);
     connect(cancel, &QPushButton::clicked, this, &ModifyPasswordPage::back);
-    connect(m_pwdEdit->textEdit(), &QLineEdit::editingFinished, this, &ModifyPasswordPage::checkPwd);
     connect(m_pwdEditRepeat->textEdit(), &QLineEdit::editingFinished, this, &ModifyPasswordPage::checkPwd);
 }
 
 void ModifyPasswordPage::passwordSubmit()
 {
+    const QString pwdOld = m_oldpwdEdit->textEdit()->text();
     const QString pwd0 = m_pwdEdit->textEdit()->text();
     const QString pwd1 = m_pwdEditRepeat->textEdit()->text();
 
     checkPwd();
 
-    if (m_pwdEdit->text().isEmpty() || m_pwdEditRepeat->text().isEmpty())
+    if (m_pwdEdit->text().isEmpty() || m_pwdEditRepeat->text().isEmpty() || m_oldpwdEdit->text().isEmpty())
         return;
 
     if (pwd0 != pwd1)
         return;
 
-    emit requestChangePassword(m_userInter, pwd0);
+    emit requestChangePassword(m_userInter, pwdOld, pwd0);
     emit back();
 }
 
 void ModifyPasswordPage::checkPwd()
 {
+    m_oldpwdEdit->setIsErr(m_oldpwdEdit->text().isEmpty());
     m_pwdEdit->setIsErr(m_pwdEdit->text().isEmpty());
     m_pwdEditRepeat->setIsErr(m_pwdEditRepeat->text() != m_pwdEdit->text());
 }

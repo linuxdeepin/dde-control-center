@@ -169,12 +169,12 @@
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="79"/>
+        <location filename="../frame/settingswidget.cpp" line="78"/>
         <source>Reset all settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="89"/>
+        <location filename="../frame/settingswidget.cpp" line="88"/>
         <source>All Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -344,32 +344,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="308"/>
         <source>Your host leave the domain server successfully.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="309"/>
         <source>Your host joins the domain server successfully.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="311"/>
         <source>Your host is failed to leave the domain server.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="290"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="312"/>
         <source>Your host is failed to join the domain server.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="315"/>
         <source>AD domain settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="368"/>
         <source>Password not match.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -516,33 +516,39 @@
 <context>
     <name>dcc::accounts::ModifyPasswordPage</name>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="48"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
+        <source>Current Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
         <source>New Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="50"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
         <source>Repeat Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="55"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="56"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
         <source>Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="59"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
         <source>Accept</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="77"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="82"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>

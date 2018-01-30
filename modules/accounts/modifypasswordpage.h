@@ -43,7 +43,7 @@ public:
     explicit ModifyPasswordPage(User *user, QWidget *parent = 0);
 
 signals:
-    void requestChangePassword(User *userInter, const QString &password) const;
+    void requestChangePassword(User *userInter, const QString &oldPassword, const QString &password) const;
 
 private slots:
     void passwordSubmit();
@@ -52,6 +52,7 @@ private slots:
 private:
     User *m_userInter;
 
+    dcc::widgets::LineEditWidget *m_oldpwdEdit;
     dcc::widgets::LineEditWidget *m_pwdEdit;
     dcc::widgets::LineEditWidget *m_pwdEditRepeat;
     dcc::widgets::ButtonTuple *m_buttonTuple;
