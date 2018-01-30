@@ -61,19 +61,33 @@ void NavigationBar::setModuleVisible(const QString &module, bool visible)
         m_navigationButtons[module]->setVisible(visible);
 }
 
+void NavigationBar::setModuleChecked(const QString &module)
+{
+    DImageButton* b = m_navigationButtons[module];
+
+    Q_ASSERT(b);
+
+    setModuleChecked(b);
+}
+
 void NavigationBar::onNavigationButtonClicked()
 {
     DImageButton *b = static_cast<DImageButton *>(sender());
     Q_ASSERT(b);
 
-    if (m_checkedButton == b)
-        return b->setChecked(true);
+    setModuleChecked(b);
+
+    emit requestModule(m_navigationButtons.key(b));
+}
+
+void NavigationBar::setModuleChecked(DImageButton *button)
+{
+    if (m_checkedButton == button)
+        return button->setChecked(true);
 
     if (!m_checkedButton.isNull())
         m_checkedButton->setChecked(false);
 
-    m_checkedButton = b;
+    m_checkedButton = button;
     m_checkedButton->setChecked(true);
-
-    emit requestModule(m_navigationButtons.key(b));
 }

@@ -58,6 +58,7 @@ public slots:
 
 signals:
     void moduleVisibleChanged(const QString &module, bool visible);
+    void currentModuleChanged(const QString &module);
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e);

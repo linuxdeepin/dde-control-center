@@ -271,8 +271,10 @@ void SettingsWidget::ensureModuleVisible(const QString &moduleName)
         }
     }
 
-    if (inter)
+    if (inter) {
+        emit currentModuleChanged(moduleName);
         scrollToWidget(inter->moduleWidget());
+    }
 }
 
 void SettingsWidget::showModulePage(const QString &moduleName, const QString &pageName)

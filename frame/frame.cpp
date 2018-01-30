@@ -191,6 +191,8 @@ void Frame::prepareAllSettingsPage()
     m_allSettingsPage->setVisible(false);
 
     connect(m_allSettingsPage, &SettingsWidget::moduleVisibleChanged, m_navigationBar, &NavigationBar::setModuleVisible);
+    connect(m_allSettingsPage, &SettingsWidget::currentModuleChanged, m_navigationBar,
+            static_cast<void (NavigationBar::*)(const QString &)>(&NavigationBar::setModuleChecked));
 }
 
 void Frame::onDelayKillerTimeout()

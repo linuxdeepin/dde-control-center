@@ -19,12 +19,14 @@ public:
 
 public slots:
     void setModuleVisible(const QString &module, bool visible);
+    void setModuleChecked(const QString &module);
 
 signals:
     void requestModule(const QString &name) const;
 
 private slots:
     void onNavigationButtonClicked();
+    void setModuleChecked(DImageButton *button);
 
 private:
     QMap<QString, DImageButton *> m_navigationButtons;
