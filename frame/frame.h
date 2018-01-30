@@ -39,7 +39,7 @@
 
 #define BUTTON_LEFT     1
 #define BUTTON_RIGHT    3
-#define FRAME_WIDTH     360
+#define FRAME_WIDTH     408
 
 using DBusDisplay = com::deepin::daemon::Display;
 using LauncherInter = com::deepin::dde::Launcher;
