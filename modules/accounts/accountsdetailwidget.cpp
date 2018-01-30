@@ -98,6 +98,10 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     connect(user, &User::fullnameChanged, this, [=] {
         setTitle(user->displayName());
     });
+    connect(user, &User::isCurrentUserChanged, m_modifyPassword, &NextPageWidget::setEnabled);
+    connect(user, &User::isCurrentUserChanged, m_autoLogin, &SwitchWidget::setEnabled);
+    connect(user, &User::isCurrentUserChanged, m_nopasswdLogin, &SwitchWidget::setEnabled);
+
     connect(m_deleteAccount, &QPushButton::clicked, this, &AccountsDetailWidget::deleteUserClicked);
     connect(m_autoLogin, &SwitchWidget::checkedChanged, [=] (const bool autoLogin) { emit requestSetAutoLogin(user, autoLogin); });
     connect(m_modifyPassword, &NextPageWidget::clicked, [=] { emit showPwdSettings(user); });
@@ -113,6 +117,11 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 
     m_deleteAccount->setDisabled(isOnline);
     tip->setVisible(isOnline);
+
+    const bool isCurrent = user->isCurrentUser();
+    m_modifyPassword->setEnabled(isCurrent);
+    m_autoLogin->setEnabled(isCurrent);
+    m_nopasswdLogin->setEnabled(isCurrent);
 }
 
 void AccountsDetailWidget::setFingerModel(FingerModel *model)

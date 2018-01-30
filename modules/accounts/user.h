@@ -72,6 +72,9 @@ public:
 
     const QString displayName() const;
 
+    inline bool isCurrentUser() const { return m_isCurrentUser; }
+    void setIsCurrentUser(bool isCurrentUser);
+
 signals:
     void nameChanged(const QString &name) const;
     void fullnameChanged(const QString &name) const;
@@ -80,8 +83,10 @@ signals:
     void avatarListChanged(const QList<QString> &avatars) const;
     void onlineChanged(const bool &online) const;
     void nopasswdLoginChanged(const bool nopasswdLogin) const;
+    void isCurrentUserChanged(bool isCurrentUser);
 
 private:
+    bool m_isCurrentUser;
     bool m_autoLogin;
     bool m_online;
     bool m_nopasswdLogin;

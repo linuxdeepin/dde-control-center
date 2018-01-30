@@ -32,7 +32,8 @@
 #include <QStandardPaths>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
-
+#include <pwd.h>
+#include <unistd.h>
 #include <libintl.h>
 
 using namespace dcc::accounts;
@@ -49,6 +50,10 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     , m_dmInter(new DisplayManager(DisplayManagerService, "/org/freedesktop/DisplayManager", QDBusConnection::systemBus(), this))
     , m_userModel(userList)
 {
+    struct passwd *pws;
+    pws = getpwuid(getuid());
+    m_currentUserName = QString(pws->pw_name);
+
     connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged);
     connect(m_accountsInter, &Accounts::UserAdded, this, &AccountsWorker::addUser);
     connect(m_accountsInter, &Accounts::UserDeleted, this, &AccountsWorker::removeUser);
@@ -201,6 +206,7 @@ void AccountsWorker::addUser(const QString &userPath)
     connect(userInter, &AccountsUser::UserNameChanged, [=](const QString &name) {
         user->setName(name);
         user->setOnline(m_onlineUsers.contains(name));
+        user->setIsCurrentUser(name == m_currentUserName);
     });
 
     connect(userInter, &AccountsUser::AutomaticLoginChanged, user, &User::setAutoLogin);

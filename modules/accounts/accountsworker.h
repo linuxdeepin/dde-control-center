@@ -103,7 +103,7 @@ private:
 #endif
     QSet<QString> m_userSet;
     QMap<User *, AccountsUser *> m_userInters;
-
+    QString m_currentUserName;
     DisplayManager *m_dmInter;
     QStringList m_onlineUsers;
     UserModel *m_userModel;

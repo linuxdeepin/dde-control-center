@@ -117,3 +117,13 @@ const QString User::displayName() const
 {
     return m_fullname.isEmpty() ? m_name : m_fullname;
 }
+
+void User::setIsCurrentUser(bool isCurrentUser)
+{
+    if (isCurrentUser == m_isCurrentUser)
+        return;
+
+    m_isCurrentUser = isCurrentUser;
+
+    emit isCurrentUserChanged(isCurrentUser);
+}
