@@ -39,7 +39,7 @@ namespace systeminfo{
 GrubBackgroundItem::GrubBackgroundItem(QFrame *parent)
     :SettingsItem(parent)
 {
-    setFixedSize(344, 187);
+    setFixedHeight(187);
 
     setAcceptDrops(true);
 }
