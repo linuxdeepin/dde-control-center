@@ -137,7 +137,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Starta om</translation>
     </message>
 </context>
 <context>
@@ -166,7 +166,7 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="78"/>
         <source>Reset all settings</source>
-        <translation>Återställa alla inställningar</translation>
+        <translation>Återställ alla inställningar</translation>
     </message>
     <message>
         <location filename="../frame/settingswidget.cpp" line="123"/>
@@ -192,7 +192,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
+        <translation>Klicka på ikonen för att aktivera VPN</translation>
     </message>
 </context>
 <context>
@@ -200,7 +200,7 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>Tyvärr, oförmögen att få väder!</translation>
+        <translation>Tyvärr, kunde inte hämta väder!</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
@@ -218,12 +218,12 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
         <source>Connect to hidden network</source>
-        <translation>Ansluta till gömt nätverk</translation>
+        <translation>Anslut till dolt nätverk</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="81"/>
         <source>Click icon to enable WIFI</source>
-        <translation type="unfinished"/>
+        <translation>Klicka på ikonen för att aktivera WIFI</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="210"/>
@@ -269,7 +269,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
-        <translation>Modifiera avatar</translation>
+        <translation>Ändra avatar</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
@@ -279,7 +279,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
-        <translation>Modifiera lösenord</translation>
+        <translation>Ändra lösenord</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="61"/>
@@ -294,7 +294,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
         <source>Delete Account</source>
-        <translation>Ta bort Konto</translation>
+        <translation>Ta bort konto</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
@@ -336,7 +336,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="116"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Bilder</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
@@ -374,7 +374,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till fingeravtryck</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
@@ -472,7 +472,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till fingeravtryck</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
@@ -513,12 +513,12 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="48"/>
         <source>New Password</source>
-        <translation>Nytt Lösenord</translation>
+        <translation>Nytt lösenord</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="50"/>
         <source>Repeat Password</source>
-        <translation>Upprepa Lösenord</translation>
+        <translation>Upprepa lösenord</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
@@ -615,7 +615,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Inte ansluten</translation>
     </message>
 </context>
 <context>
@@ -623,7 +623,7 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation type="unfinished"/>
+        <translation>PIN-koden för att ansluta till Bluetooth enheten är:</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="49"/>
@@ -651,7 +651,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="63"/>
         <source>Change Time Settings</source>
-        <translation>Ändra tidinställningar</translation>
+        <translation>Ändra tidsinställningar</translation>
     </message>
 </context>
 <context>
@@ -693,7 +693,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="62"/>
         <source>Change System Timezone</source>
-        <translation>Ändra system tidzon</translation>
+        <translation>Ändra systemets tidszon</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="70"/>
@@ -711,7 +711,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="174"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Ändra tidszon</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
@@ -793,7 +793,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="60"/>
         <source>Picture</source>
-        <translation>Bild</translation>
+        <translation>Bilder</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="61"/>
@@ -811,7 +811,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>Öppnar skrivbordsfil</translation>
     </message>
 </context>
 <context>
@@ -833,12 +833,12 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="74"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Nattläge</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation type="unfinished"/>
+        <translation>Skärmens färgton kommer automatiskt att justeras med hjälp av din position för att skydda dina ögon</translation>
     </message>
 </context>
 <context>
@@ -846,7 +846,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="43"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Ändra</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="45"/>
@@ -960,7 +960,7 @@
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="48"/>
         <source>Recognize</source>
-        <translation>Kom ihåg</translation>
+        <translation>Identifiera</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="55"/>
@@ -1107,7 +1107,7 @@
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcut</source>
-        <translation>Genväg</translation>
+        <translation>Kortkommandon</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="102"/>
@@ -1153,7 +1153,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="52"/>
         <source>Repeat Delay</source>
-        <translation>Upprepa Fördröjning</translation>
+        <translation>Upprepa fördröjning</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
@@ -1203,12 +1203,12 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="111"/>
         <source>System Language</source>
-        <translation>System språk</translation>
+        <translation>Systemspråk</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcut</source>
-        <translation>Genväg</translation>
+        <translation>Kortkommandon</translation>
     </message>
 </context>
 <context>
@@ -1216,7 +1216,7 @@
     <message>
         <location filename="../modules/keyboard/langwidget.cpp" line="48"/>
         <source>System Language</source>
-        <translation>System språk</translation>
+        <translation>Systemspråk</translation>
     </message>
 </context>
 <context>
@@ -1255,7 +1255,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="54"/>
         <source>System</source>
-        <translation>Systemverktyg</translation>
+        <translation>System</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="55"/>
@@ -1270,12 +1270,12 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="77"/>
         <source>Add Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Lägg till anpassat kortkommando</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="87"/>
         <source>Shortcuts</source>
-        <translation>Genvägar</translation>
+        <translation>Kortkommandon</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="64"/>
@@ -1288,12 +1288,12 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="52"/>
         <source>Left Hand</source>
-        <translation>Vänsterhand</translation>
+        <translation>Vänsterhänt</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="53"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Avaktivera touchpad när du skriver</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="63"/>
@@ -1324,7 +1324,7 @@
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="50"/>
         <source>Natural Scrolling</source>
-        <translation>Naturlig Scrollning</translation>
+        <translation>Naturlig rullningsriktning</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="54"/>
@@ -1363,7 +1363,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Avaktivera touchpad när du skriver</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
@@ -1400,18 +1400,18 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>Touchpad</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
         <source>Natural Scrolling</source>
-        <translation>Naturlig Scrollning</translation>
+        <translation>Naturlig rullningsriktning</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Knacka för att klicka</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
@@ -1480,7 +1480,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
         <source>Proxy Type</source>
-        <translation>Proxy Type</translation>
+        <translation>Proxytyp</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
@@ -1590,7 +1590,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
         <source>Network Details</source>
-        <translation>Nätverk detaljer</translation>
+        <translation>Nätverksdetaljer</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
@@ -1713,7 +1713,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
         <source>Network Details</source>
-        <translation>Nätverk detaljer</translation>
+        <translation>Nätverksdetaljer</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="84"/>
@@ -1734,7 +1734,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="216"/>
         <source>Wired Network</source>
-        <translation>Trådbundet Nätverk</translation>
+        <translation>Trådbundet nätverk</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="211"/>
@@ -1769,7 +1769,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="244"/>
         <source>Wireless Network</source>
-        <translation>Trådlöst Nätverk</translation>
+        <translation>Trådlöst nätverk</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="239"/>
@@ -1957,7 +1957,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="60"/>
         <source>Connect to hidden network</source>
-        <translation>Ansluta till gömt nätverk</translation>
+        <translation>Anslut till dolt nätverk</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>

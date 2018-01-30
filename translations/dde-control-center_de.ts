@@ -236,22 +236,22 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
         <source>Exit domain</source>
-        <translation type="unfinished"/>
+        <translation>Domäne verlassen</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Domäne beitreten</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="41"/>
         <source>Domain Server</source>
-        <translation type="unfinished"/>
+        <translation>Domänen-Server</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>Administrator-Konto</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
@@ -323,12 +323,12 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Exit domain</source>
-        <translation type="unfinished"/>
+        <translation>Domäne verlassen</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Domäne beitreten</translation>
     </message>
 </context>
 <context>
@@ -341,27 +341,27 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
         <source>Your host leave the domain server successfully.</source>
-        <translation type="unfinished"/>
+        <translation>Ihr Host-System hat den Domänen-Server erfolgreich verlassen.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
         <source>Your host joins the domain server successfully.</source>
-        <translation type="unfinished"/>
+        <translation>Ihr Host-System ist dem Domänen-Server erfolgreich beigetreten.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
         <source>Your host is failed to leave the domain server.</source>
-        <translation type="unfinished"/>
+        <translation>Ihr Host-System konnte den Domänen-Server nicht verlassen.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="290"/>
         <source>Your host is failed to join the domain server.</source>
-        <translation type="unfinished"/>
+        <translation>Ihr Host-System konnte dem Domänen-Server nicht beitreten.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>AD-Domänen-Einstellungen</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
@@ -2488,7 +2488,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="57"/>
         <source>System source detection</source>
-        <translation type="unfinished"/>
+        <translation>Systemquellen-Erkennung</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="60"/>
@@ -2508,7 +2508,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="69"/>
         <source>Prompt the notification if system source has been modified</source>
-        <translation type="unfinished"/>
+        <translation>Folgen Sie dem Hinweis, falls die Systemquelle verändert wurde.</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="75"/>

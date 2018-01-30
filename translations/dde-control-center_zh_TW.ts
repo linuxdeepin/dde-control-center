@@ -236,22 +236,22 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
         <source>Exit domain</source>
-        <translation type="unfinished"/>
+        <translation>離開網域</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>加入網域</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="41"/>
         <source>Domain Server</source>
-        <translation type="unfinished"/>
+        <translation>網域伺服器</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>管理者帳號</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
@@ -323,12 +323,12 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Exit domain</source>
-        <translation type="unfinished"/>
+        <translation>離開網域</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>加入網域</translation>
     </message>
 </context>
 <context>
@@ -341,27 +341,27 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
         <source>Your host leave the domain server successfully.</source>
-        <translation type="unfinished"/>
+        <translation>您的主機成功離開網域。</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
         <source>Your host joins the domain server successfully.</source>
-        <translation type="unfinished"/>
+        <translation>您的主機成功加入網域。</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
         <source>Your host is failed to leave the domain server.</source>
-        <translation type="unfinished"/>
+        <translation>您的主機離開網域失敗。</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="290"/>
         <source>Your host is failed to join the domain server.</source>
-        <translation type="unfinished"/>
+        <translation>您的主機加入網域失敗。</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>AD 網域設定</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
@@ -1380,7 +1380,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Scroll speed</source>
-        <translation type="unfinished"/>
+        <translation>捲動速度</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
@@ -1439,7 +1439,7 @@
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>如果啟動選項之後觸控板失靈請停用選項</translation>
     </message>
 </context>
 <context>

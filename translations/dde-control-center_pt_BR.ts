@@ -341,17 +341,17 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
         <source>Your host leave the domain server successfully.</source>
-        <translation>Seu host saiu do domínio com sucesso</translation>
+        <translation>Seu host saiu do domínio com sucesso.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
         <source>Your host joins the domain server successfully.</source>
-        <translation>Seu host ingressou no domínio com sucesso</translation>
+        <translation>Seu host ingressou no domínio com sucesso.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
         <source>Your host is failed to leave the domain server.</source>
-        <translation>Seu host falhou ao sair do domínio</translation>
+        <translation>Seu host falhou ao sair do domínio.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="290"/>

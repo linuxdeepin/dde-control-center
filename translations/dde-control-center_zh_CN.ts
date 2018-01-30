@@ -236,22 +236,22 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
         <source>Exit domain</source>
-        <translation type="unfinished"/>
+        <translation>退出域</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>加入域</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="41"/>
         <source>Domain Server</source>
-        <translation type="unfinished"/>
+        <translation>域服务器</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>管理员账户</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
@@ -323,12 +323,12 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Exit domain</source>
-        <translation type="unfinished"/>
+        <translation>退出域</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>加入域</translation>
     </message>
 </context>
 <context>
@@ -341,27 +341,27 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
         <source>Your host leave the domain server successfully.</source>
-        <translation type="unfinished"/>
+        <translation>你的主机成功退出了域服务器。</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
         <source>Your host joins the domain server successfully.</source>
-        <translation type="unfinished"/>
+        <translation>你的主机成功加入了域服务器。</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
         <source>Your host is failed to leave the domain server.</source>
-        <translation type="unfinished"/>
+        <translation>你的主机退出域服务器失败。</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="290"/>
         <source>Your host is failed to join the domain server.</source>
-        <translation type="unfinished"/>
+        <translation>你的主机加入域服务器失败。</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>AD域设置</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
@@ -2488,7 +2488,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="57"/>
         <source>System source detection</source>
-        <translation type="unfinished"/>
+        <translation>系统源检测</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="60"/>
@@ -2508,7 +2508,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="69"/>
         <source>Prompt the notification if system source has been modified</source>
-        <translation type="unfinished"/>
+        <translation>如果系统源被修改弹出提醒</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="75"/>
@@ -2535,7 +2535,7 @@
     <message>
         <location filename="../modules/update/updatework.cpp" line="223"/>
         <source>Patches</source>
-        <translation>系统更新</translation>
+        <translation>补丁</translation>
     </message>
     <message>
         <location filename="../modules/update/updatework.cpp" line="224"/>

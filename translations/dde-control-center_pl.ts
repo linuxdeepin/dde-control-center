@@ -251,7 +251,7 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
         <source>Admin account</source>
-        <translation>Konto administartora</translation>
+        <translation>Konto administratora</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
@@ -341,22 +341,22 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
         <source>Your host leave the domain server successfully.</source>
-        <translation>Twój host pomyślnie opuścił serwer domeny.</translation>
+        <translation>Twój komputer pomyślnie opuścił serwer domeny.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
         <source>Your host joins the domain server successfully.</source>
-        <translation>Twój host pomyślnie dołączył do serwera domeny</translation>
+        <translation>Twój komputer pomyślnie dołączył do serwera domeny.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
         <source>Your host is failed to leave the domain server.</source>
-        <translation>Twój host nie może opuścić serwera domeny.</translation>
+        <translation>Twój komputer nie może opuścić serwera domeny.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="290"/>
         <source>Your host is failed to join the domain server.</source>
-        <translation>Twój host nie może dołączyć do serwera domeny</translation>
+        <translation>Twój komputer nie może dołączyć do serwera domeny.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
@@ -394,12 +394,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation>Nie udało się odczytać linii papilarnych, połóż palec na czytniku, odciśnij z góry na dół i zwolnij</translation>
+        <translation>Nie udało się odczytać odcisku palca, połóż palec na czytniku linii papilarnych, przeciągnij go z dołu do góry i zwolnij</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation>Połóż palec na czytniku, przesuń z góry na dół i zwolnij, potem powtórz kroki</translation>
+        <translation>Połóż swój palec na czytniku, przesuń go od dołu do góry i zwolnij, potem powtórz kroki</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
@@ -482,7 +482,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation>Odcisk palca jest używany podczas logowania się do sytemu, autoryzacji aplikacji oraz innych przypadkach. Skanuj palec gdy wymagane jest hasło.</translation>
+        <translation>Odcisk palca jest używany podczas logowania się do sytemu, autoryzacji programów oraz w innych przypadkach. Zeskanuj swój palec, gdy wymagane jest hasło.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
@@ -838,7 +838,7 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation>Aby chronić Twoje oczy odcień ekranu zostanie automatycznie dopasowany </translation>
+        <translation>Aby pomóc chronić Twoje oczy odcień ekranu zostanie automatycznie dopasowany </translation>
     </message>
 </context>
 <context>
@@ -1353,7 +1353,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
         <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
+        <translation>Manipulator punktowy</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
@@ -1424,7 +1424,7 @@
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detect</source>
-        <translation>Wykrywa dłoń</translation>
+        <translation>Wykrywanie dłoni</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
@@ -1434,12 +1434,12 @@
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <source>Minimum pressure value</source>
-        <translation>Wartość minimalna ciśnienia</translation>
+        <translation>Wartość minimalna nacisku</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation>Wyłącz tę opcję, jeżeli touchpad nie działa po włączeniu</translation>
+        <translation>Wyłącz tę opcję, jeżeli panel dotykowy nie działa po włączeniu</translation>
     </message>
 </context>
 <context>
@@ -1447,12 +1447,12 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="43"/>
         <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
+        <translation>Manipulator punktowy</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="46"/>
         <source>Thinkpad Track Point</source>
-        <translation>Thinkpad Track Point</translation>
+        <translation>Manipulator punktowy Thinkpad</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="49"/>
@@ -1517,7 +1517,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation> W menu kontekstowym programu uruchamiającego zaznacz &quot;Otwórz przez proxy&quot;, które będzie używane po skonfigurowaniu </translation>
+        <translation> W menu kontekstowym programu uruchamiającego zaznacz &quot;Otwórz przez pośrednik&quot;, które będzie używane po skonfigurowaniu </translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
@@ -2407,7 +2407,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation>Sieć odłączona, spróbuj ponownie po podłączeniu</translation>
+        <translation>Sieć jest rozłączona, spróbuj ponownie po podłączeniu</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
@@ -2508,7 +2508,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="69"/>
         <source>Prompt the notification if system source has been modified</source>
-        <translation>Zapytaj o powiadomienie, jeśli źródło systemu zostało zmodyfikowane</translation>
+        <translation>Wyświetl powiadomienie, jeśli źródło systemu zostało zmodyfikowane</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="75"/>

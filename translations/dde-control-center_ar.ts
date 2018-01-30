@@ -404,7 +404,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>تمت الإضافة بنجاح</translation>
     </message>
 </context>
 <context>
@@ -1380,7 +1380,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Scroll speed</source>
-        <translation type="unfinished"/>
+        <translation>سرعة التمرير</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
@@ -1647,7 +1647,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
         <source>IPv6 Address</source>
-        <translation>عنوان الشبكة الإصدار السادس</translation>
+        <translation>عنوان IPv6 </translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
@@ -2484,7 +2484,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="42"/>
         <source>Update Settings</source>
-        <translation>تحديث الإعدادات</translation>
+        <translation>إعدادات التحديث</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="57"/>
@@ -2494,17 +2494,17 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="60"/>
         <source>Auto clear package cache</source>
-        <translation>المسح التلقائي للذاكرة المؤقتة للحزم</translation>
+        <translation>مسح تلقائي لذاكرة الحزم المؤقتة</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="63"/>
         <source>Auto-download Updates</source>
-        <translation>تحميل التحديثات تلقائيا</translation>
+        <translation>تنزيل التحديثات تلقائياً</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="65"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
-        <translation>سيتم تحميل التحديثات تلقائيا في الشبكات السلكية و الاسلكية</translation>
+        <translation>سيتم تنزيل التحديثات تلقائياً في الشبكات السلكية و الاسلكية</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="69"/>
@@ -2536,7 +2536,7 @@
     <message>
         <location filename="../modules/update/updatework.cpp" line="223"/>
         <source>Patches</source>
-        <translation>ترقيعات</translation>
+        <translation>تصحيحات</translation>
     </message>
     <message>
         <location filename="../modules/update/updatework.cpp" line="224"/>
@@ -2549,7 +2549,7 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation>قلم</translation>
+        <translation>القلم</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>

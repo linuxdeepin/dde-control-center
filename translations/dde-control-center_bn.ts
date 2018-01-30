@@ -384,7 +384,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>শেষ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
@@ -518,7 +518,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="50"/>
         <source>Repeat Password</source>
-        <translation type="unfinished"/>
+        <translation>পুনরায় পাসওয়ার্ড দিন</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
@@ -646,7 +646,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="69"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>নিশ্চিত করুন</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="63"/>
@@ -721,7 +721,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="64"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>নিশ্চিত করুন</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="172"/>
@@ -1019,7 +1019,8 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="51"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>
+শর্টকাট</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="60"/>
@@ -1064,7 +1065,8 @@
         <location filename="../modules/keyboard/customedit.cpp" line="47"/>
         <location filename="../modules/keyboard/customedit.cpp" line="94"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>
+শর্টকাট</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="57"/>
@@ -1275,7 +1277,8 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="87"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>
+শর্টকাট</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="64"/>
@@ -1800,7 +1803,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="57"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>নিশ্চিত করুন</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="59"/>
@@ -2015,7 +2018,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="52"/>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>ফন্ট</translation>
     </message>
 </context>
 <context>
@@ -2046,7 +2049,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="56"/>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>ফন্ট</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
@@ -2189,7 +2192,7 @@
         <location filename="../modules/sound/soundwidget.cpp" line="58"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="176"/>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>শব্দ</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="60"/>

@@ -12,12 +12,12 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
         <source>Connect to other devices</source>
-        <translation type="unfinished"/>
+        <translation>他のデバイスに接続する</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetoothを有効するにはアイコンをクリックしてください</translation>
     </message>
 </context>
 <context>
@@ -40,7 +40,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation type="unfinished"/>
+        <translation>新しいカスタム設定</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="65"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>すべてをクリア</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="135"/>
@@ -137,7 +137,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>再起動</translation>
     </message>
 </context>
 <context>
@@ -171,7 +171,7 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="123"/>
         <source>All Settings</source>
-        <translation type="unfinished"/>
+        <translation>全体の設定</translation>
     </message>
 </context>
 <context>
@@ -179,12 +179,13 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>アプデート</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="38"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>アプデートが検出されました
+表現するにはここにクリックしてください</translation>
     </message>
 </context>
 <context>
@@ -192,7 +193,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPNを有効するにはアイコンをクリックしてください</translation>
     </message>
 </context>
 <context>
@@ -200,12 +201,12 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
         <source>Sorry, unable to get weather!</source>
-        <translation type="unfinished"/>
+        <translation>天気情報ロードが失敗した</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
         <source>Loading weather...</source>
-        <translation type="unfinished"/>
+        <translation>天気情報をロード中</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
@@ -218,12 +219,12 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>隠されたネットワークへ接続</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="81"/>
         <source>Click icon to enable WIFI</source>
-        <translation type="unfinished"/>
+        <translation>Wifiを有効するにはアイコンをクリックしてください</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="210"/>
@@ -251,7 +252,7 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>管理者のアカウント</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
@@ -279,12 +280,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
-        <translation type="unfinished"/>
+        <translation>パスワードを変更する</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>自動ログイン</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
@@ -312,13 +313,13 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
-        <translation type="unfinished"/>
+        <translation>アカウントを作成</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../plugins/navgation/navwidget.cpp" line="170"/>
         <source>Accounts</source>
-        <translation type="unfinished"/>
+        <translation>アカウント</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
@@ -336,7 +337,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="116"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>画像</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
@@ -412,7 +413,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="66"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>作成</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="65"/>
@@ -429,7 +430,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="54"/>
         <location filename="../modules/accounts/createpage.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>必須</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="53"/>
@@ -439,12 +440,12 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="56"/>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation>パスワード繰り返し</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="85"/>
         <source>New Account</source>
-        <translation type="unfinished"/>
+        <translation>新規アカウント</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="140"/>
@@ -524,7 +525,7 @@
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>必須</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
@@ -615,7 +616,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>接続されません</translation>
     </message>
 </context>
 <context>
@@ -651,7 +652,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="63"/>
         <source>Change Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>時間設定</translation>
     </message>
 </context>
 <context>
@@ -659,17 +660,17 @@
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="56"/>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>年</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="59"/>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>月</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>日</translation>
     </message>
 </context>
 <context>
@@ -734,7 +735,7 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="110"/>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>明日</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="112"/>
@@ -811,7 +812,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>デスクトプファイルを開く</translation>
     </message>
 </context>
 <context>
@@ -846,7 +847,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="43"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>変更する</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="45"/>
@@ -1019,7 +1020,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="51"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>ショートカット</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="60"/>
@@ -1035,7 +1036,7 @@
         <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>必須</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
@@ -1055,7 +1056,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="160"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>ファイルを選択</translation>
     </message>
 </context>
 <context>
@@ -1064,12 +1065,12 @@
         <location filename="../modules/keyboard/customedit.cpp" line="47"/>
         <location filename="../modules/keyboard/customedit.cpp" line="94"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>ショートカット</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>必須</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="66"/>
@@ -1099,7 +1100,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="148"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>ファイルを選択</translation>
     </message>
 </context>
 <context>
@@ -1275,7 +1276,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="87"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>ショートカット</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="64"/>
@@ -1491,7 +1492,7 @@
         <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
         <location filename="../modules/network/chainsproxypage.cpp" line="54"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>必須</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
@@ -1569,7 +1570,7 @@
         <location filename="../modules/network/connectioneditpage.cpp" line="451"/>
         <location filename="../modules/network/connectioneditpage.cpp" line="533"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>必須</translation>
     </message>
 </context>
 <context>
@@ -1957,7 +1958,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="60"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>隠されたネットワークへ接続</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
