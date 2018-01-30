@@ -42,9 +42,8 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     :SettingsItem(parent),
       m_info(NULL)
 {
-    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     setMinimumHeight(36);
-    setFixedWidth(344);
 
     setMouseTracking(true);
     QHBoxLayout* layout = new QHBoxLayout();

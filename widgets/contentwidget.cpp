@@ -77,6 +77,8 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_contentArea->setFrameStyle(QFrame::NoFrame);
     m_contentArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_contentArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_contentArea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
+    m_contentArea->setContentsMargins(0, 0, 0, 0);
 
     // Supporting flick gestures and make wheel scrolling more smooth.
     m_contentArea->viewport()->installEventFilter(this);
@@ -132,7 +134,6 @@ QWidget *ContentWidget::setContent(QWidget * const w)
 
     m_content = w;
     m_content->installEventFilter(this);
-    m_content->setFixedWidth(m_contentArea->width());
     m_contentArea->setWidget(m_content);
 
     return lastWidget;

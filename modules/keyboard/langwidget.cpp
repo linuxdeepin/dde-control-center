@@ -73,7 +73,6 @@ LangWidget::LangWidget(KeyboardModel *model, QWidget *parent)
 
     setContent(m_contentWidget);
     m_contentWidget->setAttribute(Qt::WA_TranslucentBackground);
-    m_contentWidget->setFixedWidth(344);
 
     connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
     connect(m_view, SIGNAL(clicked(QModelIndex)), this, SIGNAL(click(QModelIndex)));

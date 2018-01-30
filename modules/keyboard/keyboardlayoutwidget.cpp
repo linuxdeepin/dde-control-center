@@ -82,7 +82,6 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
 
     m_mainWidget->setLayout(hlayout);
 
-
     m_clipEffectWidget = new DGraphicsClipEffect(m_mainWidget);
     m_mainWidget->installEventFilter(this);
     m_mainWidget->setGraphicsEffect(m_clipEffectWidget);
@@ -90,7 +89,6 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     setContent(m_mainWidget);
 
     m_mainWidget->setAttribute(Qt::WA_TranslucentBackground);
-    m_mainWidget->setFixedWidth(344);
 
     connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
 
