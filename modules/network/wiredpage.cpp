@@ -131,6 +131,10 @@ void WiredPage::refreshConnectionList()
     QSet<QString> availableWiredConns;
     availableWiredConns.reserve(wiredConns.size());
 
+    m_settingsGrp->clear();
+    qDeleteAll(m_connectionPath.keys());
+    m_connectionPath.clear();
+
     for (const auto &wiredConn : wiredConns)
     {
         const QString path = wiredConn.value("Path").toString();
