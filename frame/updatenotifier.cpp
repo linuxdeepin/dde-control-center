@@ -43,9 +43,8 @@ UpdateNotifier::UpdateNotifier(QWidget *parent)
                                                        QDBusConnection::systemBus(), this))
 {
     setVisible(false);
-    setMouseTracking(true);
-    setFixedSize(360, 80);
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    setFixedHeight(80);
+    setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
 
     m_content->setWordWrap(true);
 
@@ -64,7 +63,6 @@ UpdateNotifier::UpdateNotifier(QWidget *parent)
     m_closeButton->setFixedSize(14, 14);
 
     m_closeButton->setObjectName("NotifyCloseButton");
-    m_closeButton->move(x() + width() - 14 - 10, y() + 10);
     m_closeButton->setVisible(false);
 
     QVBoxLayout *contentLayout = new QVBoxLayout;
@@ -111,6 +109,7 @@ void UpdateNotifier::enterEvent(QEvent *event)
 {
     QFrame::enterEvent(event);
 
+    m_closeButton->move(x() + width() - 14 - 10, 10);
     m_closeButton->setVisible(true);
 }
 
