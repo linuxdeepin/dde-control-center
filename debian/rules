@@ -44,3 +44,8 @@ override_dh_auto_configure:
 		DCC_DISABLE_FEEDBACK=YES \
 		DCC_DISABLE_ROTATE=YES
 endif
+
+ifeq ($(DEB_BUILD_ARCH), arm64)
+override_dh_auto_configure:
+	dh_auto_configure -- DISABLE_SYS_UPDATE_MIRRORS=YES
+endif
