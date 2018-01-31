@@ -175,7 +175,7 @@ void Datetime::addTimezone(const ZoneInfo &zone)
 
     emit requestUnhold();
 
-    m_headItem->setVisible(true);
+    m_headItem->setVisible(m_zoneList.size() >= 2);
     m_headItem->setEditEnable(true);
 }
 
