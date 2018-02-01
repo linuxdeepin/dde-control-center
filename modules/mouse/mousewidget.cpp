@@ -188,16 +188,17 @@ void MouseWidget::onTouchpadHideChanged(const bool visible)
 {
     Q_UNUSED(visible);
 
-    m_disTchStn->setVisible(m_mouseModel->tpadExist());
+    const bool tpadExist = m_mouseModel->tpadExist();
 
-    if (m_mouseModel->tpadExist() && m_mouseModel->mouseExist()) {
-        m_touchSettingsGrp->setVisible(!m_mouseModel->disTpad());
-        m_palmDetectSetting->setVisible(!m_mouseModel->disTpad());
-        return;
+    m_disTchStn->setVisible(tpadExist);
+    m_touchSettingsGrp->setVisible(tpadExist);
+    m_palmDetectSetting->setVisible(tpadExist);
+
+    if (tpadExist && m_mouseModel->mouseExist()) {
+        const bool disTpad = m_mouseModel->disTpad();
+        m_touchSettingsGrp->setVisible(!disTpad);
+        m_palmDetectSetting->setVisible(!disTpad);
     }
-
-    m_touchSettingsGrp->setVisible(m_mouseModel->tpadExist());
-    m_palmDetectSetting->setVisible(m_mouseModel->disTpad());
 }
 
 void MouseWidget::onMouseMoveSpeedChanged(int speed)
