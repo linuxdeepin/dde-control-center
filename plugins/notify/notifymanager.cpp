@@ -45,7 +45,7 @@ NotifyManager::NotifyManager(QWidget *parent) :
     scrollarea->setWidgetResizable(true);
     scrollarea->setFocusPolicy(Qt::NoFocus);
     scrollarea->setFrameStyle(QFrame::NoFrame);
-    scrollarea->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    scrollarea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     scrollarea->setContentsMargins(0, 0, 0, 0);
     scrollarea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollarea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -155,7 +155,6 @@ Viewer *NotifyManager::onNotifyAdd(const QJsonObject &value) {
     }
 
     viewer->setFixedHeight(80);
-    viewer->setFixedWidth(360);
     viewer->setContentsMargins(0, 0, 0, 0);
 
     m_viewerList.insert(viewer, value);
