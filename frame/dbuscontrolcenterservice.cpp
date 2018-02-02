@@ -175,8 +175,7 @@ void DBusControlCenterService::Toggle()
 void DBusControlCenterService::ToggleInLeft()
 {
     // handle method call com.deepin.dde.ControlCenter.ToggleInLeft
-//    parent()->toggle(true);
-    parent()->show();
+    Toggle();
 }
 
 bool DBusControlCenterService::isNetworkCanShowPassword()
