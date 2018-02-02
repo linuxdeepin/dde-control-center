@@ -47,5 +47,5 @@ endif
 
 ifeq ($(DEB_BUILD_ARCH), arm64)
 override_dh_auto_configure:
-	dh_auto_configure -- DISABLE_SYS_UPDATE_MIRRORS=YES
+	dh_auto_configure -- DISABLE_SYS_UPDATE=YES
 endif
