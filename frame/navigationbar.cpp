@@ -4,21 +4,50 @@
 #include <QDebug>
 #include <QSignalMapper>
 
-static const QStringList ModuleList = { "accounts",
-                                        "display",
-                                        "defapp",
-                                        "personalization",
-                                        "network",
-                                        "bluetooth",
-                                        "sound",
-                                        "datetime",
-                                        "power",
-                                        "mouse",
-                                        "keyboard",
-                                        "wacom",
-                                        "update",
-                                        "systeminfo",
-                                      };
+static const QStringList ModuleList = {
+#ifndef DISABLE_ACCOUNT
+    "accounts",
+#endif
+#ifndef DISABLE_DISPALY
+    "display",
+#endif
+#ifndef DISABLE_DEFAULT_APPLICATIONS
+    "defapp",
+#endif
+#ifndef DISABLE_PERSONALIZATION
+    "personalization",
+#endif
+#ifndef DISABLE_NETWORK
+    "network",
+#endif
+#ifndef DISABLE_BLUETOOTH
+    "bluetooth",
+#endif
+#ifndef DISABLE_SOUND
+    "sound",
+#endif
+#ifndef DISABLE_DATETIME
+    "datetime",
+#endif
+#ifndef DISABLE_POWER
+    "power",
+#endif
+#ifndef DISABLE_MOUSE
+    "mouse",
+#endif
+#ifndef DISABLE_KAYBOARD
+    "keyboard",
+#endif
+#ifndef DISABLE_WACOM
+    "wacom",
+#endif
+#ifndef DISABLE_SYS_UPDATE
+    "update",
+#endif
+#ifndef DISABLE_SYSINFO
+    "systeminfo",
+#endif
+};
 
 NavigationBar::NavigationBar(QWidget *parent)
     : QWidget(parent)
@@ -44,6 +73,7 @@ NavigationBar::NavigationBar(QWidget *parent)
         b->setCheckedPic(QString(":/%1/themes/dark/icons/nav_%1.png").arg(module));
         b->setNormalPic(QString(":/%1/themes/dark/icons/nav_%1_normal.svg").arg(module));
         b->setCheckable(true);
+        b->setVisible(false);
 
         buttonsLayout->addWidget(b);
         m_navigationButtons.insert(module, b);
