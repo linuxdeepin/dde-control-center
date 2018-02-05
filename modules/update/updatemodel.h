@@ -92,8 +92,10 @@ public:
     double updateProgress() const;
     void setUpdateProgress(double updateProgress);
 
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     bool sourceCheck() const;
     void setSourceCheck(bool sourceCheck);
+#endif
 
 signals:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
@@ -102,8 +104,9 @@ signals:
     void lowBatteryChanged(const bool &lowBattery);
     void statusChanged(const UpdatesStatus &status);
 
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     void sourceCheckChanged(bool sourceCheck);
-
+#endif
     void mirrorSpeedInfoAvaiable(const QMap<QString, int> &mirrorSpeedInfo);
 
     void downloadInfoChanged(DownloadInfo *downloadInfo);
@@ -118,7 +121,9 @@ private:
     double m_updateProgress;
     double m_upgradeProgress;
 
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     bool m_sourceCheck;
+#endif
 
     bool m_lowBattery;
 

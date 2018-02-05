@@ -200,6 +200,7 @@ void UpdateModel::setUpdateProgress(double updateProgress)
     }
 }
 
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
 bool UpdateModel::sourceCheck() const
 {
     return m_sourceCheck;
@@ -214,6 +215,7 @@ void UpdateModel::setSourceCheck(bool sourceCheck)
 
     emit sourceCheckChanged(sourceCheck);
 }
+#endif
 
 }
 }

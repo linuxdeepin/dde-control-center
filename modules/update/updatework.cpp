@@ -87,7 +87,9 @@ UpdateWorker::UpdateWorker(UpdateModel* model, QObject *parent)
     connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWorker::setOnBattery);
     connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWorker::setBatteryPercentage);
 
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     connect(m_lastoresessionHelper, &LastoressionHelper::SourceCheckEnabledChanged, m_model, &UpdateModel::setSourceCheck);
+#endif
 
     onJobListChanged(m_managerInter->jobList());
 }
@@ -114,7 +116,9 @@ void UpdateWorker::activate()
     m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
     setOnBattery(m_powerInter->onBattery());
     setBatteryPercentage(m_powerInter->batteryPercentage());
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     m_model->setSourceCheck(m_lastoresessionHelper->sourceCheckEnabled());
+#endif
 }
 
 void UpdateWorker::deactivate()
@@ -281,10 +285,12 @@ void UpdateWorker::setMirrorSource(const MirrorInfo &mirror)
     m_updateInter->SetMirrorSource(mirror.m_id);
 }
 
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
 void UpdateWorker::setSourceCheck(bool enable)
 {
     m_lastoresessionHelper->SetSourceCheckEnabled(enable);
 }
+#endif
 
 void UpdateWorker::testMirrorSpeed()
 {

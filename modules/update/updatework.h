@@ -70,7 +70,9 @@ public slots:
     void setAutoCleanCache(const bool autoCleanCache);
     void setAutoDownloadUpdates(const bool &autoDownload);
     void setMirrorSource(const MirrorInfo &mirror);
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     void setSourceCheck(bool enable);
+#endif
     void testMirrorSpeed();
 
 private slots:
