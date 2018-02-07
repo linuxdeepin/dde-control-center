@@ -66,13 +66,13 @@ signals:
     void requestSaveShortcut(ShortcutInfo *info);
 
 public slots:
-    void onSearch(const QString &text);
+    void onSearchTextChanged(const QString &text);
     void onCustomAdded(ShortcutInfo* info);
     void onDestroyItem(ShortcutInfo *info);
     void onSearchInfo(ShortcutInfo* info, const QString& key);
-    void getKeyFinish(QDBusPendingCallWatcher* watch);
-    void onSearchFinish(QDBusPendingCallWatcher* watch);
-    void onTimeout();
+    void onSearchKeysFinished(QDBusPendingCallWatcher* watch);
+    void onSearchStringFinish(QDBusPendingCallWatcher* watch);
+    void prepareSearchKeys();
     void onRemoveItem(const QString &id, int type);
     void onShortcutChanged(ShortcutInfo *info);
     void onKeyEvent(bool press, const QString &shortcut);
@@ -80,7 +80,7 @@ public slots:
 private:
     QWidget* m_searchWidget;
     QWidget* m_widget;
-    QLineEdit* m_search;
+    QLineEdit* m_searchInput;
     QString m_searchText;
     QVBoxLayout* m_layout;
     QVBoxLayout* m_searchLayout;
@@ -94,7 +94,7 @@ private:
     QMap<QString, ShortcutInfo*> m_searchInfos;
     SearchInter* m_searchInter;
     // 预留，如果用户太快，可以等带用户输入完成后才搜索
-    QTimer* m_timer;
+    QTimer* m_searchDelayTimer;
     ShortcutModel *m_model;
     QList<ShortcutItem *> m_allList;
     QList<ShortcutItem *> m_systemList;
