@@ -49,13 +49,6 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     layout->addSpacing(10);
 
     SettingsGroup* ug = new SettingsGroup;
-    SettingsGroup* mg = new SettingsGroup;
-
-#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    SettingsGroup* sourceCheckGrp = new SettingsGroup;
-    m_sourceCheck = new SwitchWidget;
-    m_sourceCheck->setTitle(tr("System source detection"));
-#endif
 
     m_autoCleanCache = new SwitchWidget;
     m_autoCleanCache->setTitle(tr("Auto clear package cache"));
@@ -67,38 +60,36 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     label->setWordWrap(true);
     label->setContentsMargins(20, 0, 20, 0);
 
-#ifndef DISABLE_SYS_UPDATE_MIRRORS
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
+    SettingsGroup* sourceCheckGrp = new SettingsGroup;
+    m_sourceCheck = new SwitchWidget;
+    m_sourceCheck->setTitle(tr("System source detection"));
+    sourceCheckGrp->appendItem(m_sourceCheck);
+    layout->addWidget(sourceCheckGrp);
+    layout->addSpacing(8);
     TipsLabel *sourceCheckLbl = new TipsLabel(tr("Prompt the notification if system source has been modified"));
     sourceCheckLbl->setWordWrap(true);
     sourceCheckLbl->setContentsMargins(20, 0, 20, 0);
-
-    m_updateMirrors = new NextPageWidget;
-    m_updateMirrors->setTitle(tr("Switch Mirror"));
+    layout->addWidget(sourceCheckLbl);
+    layout->addSpacing(8);
 #endif
 
     ug->appendItem(m_autoCleanCache);
     ug->appendItem(m_autoDownloadSwitch);
 
-#ifndef DISABLE_SYS_UPDATE_MIRRORS
-    mg->appendItem(m_updateMirrors);
-#endif
-
-
-#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    sourceCheckGrp->appendItem(m_sourceCheck);
-#endif
-
-#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    layout->addWidget(sourceCheckGrp);
-    layout->addSpacing(8);
-    layout->addWidget(sourceCheckLbl);
-    layout->addSpacing(8);
-#endif
     layout->addWidget(ug);
     layout->addSpacing(8);
     layout->addWidget(label);
     layout->addSpacing(15);
+
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
+    m_updateMirrors = new NextPageWidget;
+    m_updateMirrors->setTitle(tr("Switch Mirror"));
+    SettingsGroup* mg = new SettingsGroup;
+    mg->appendItem(m_updateMirrors);
     layout->addWidget(mg);
+#endif
+
     layout->addStretch();
 
     widget->setLayout(layout);
