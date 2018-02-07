@@ -30,11 +30,11 @@
 #include <QWidget>
 #include "notifyviewer.h"
 #include <QVBoxLayout>
-#include <org_freedesktop_notifications.h>
+#include <com_deepin_dde_notification.h>
 #include <dimagebutton.h>
 #include <QList>
 
-using org::freedesktop::Notifications;
+using Notification = com::deepin::dde::Notification;
 
 static const QStringList Directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
 static const QString CacheFolder = Directory.first() + "/.cache/deepin/deepin-notifications/";
@@ -64,7 +64,7 @@ private:
 private:
     DImageButton *m_clearButton;
     QMap<Viewer*, QJsonObject> m_viewerList;
-    Notifications *m_dbus;
+    Notification *m_dbus;
     QVBoxLayout *m_connectLayout;
     QJsonArray m_dataJsonArray;
     int m_checkIndex;

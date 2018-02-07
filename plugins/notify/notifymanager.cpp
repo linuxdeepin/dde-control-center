@@ -30,7 +30,7 @@
 
 NotifyManager::NotifyManager(QWidget *parent) :
     QWidget(parent),
-    m_dbus(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus(), this))
+    m_dbus(new Notification("com.deepin.dde.Notification", "/com/deepin/dde/Notification", QDBusConnection::sessionBus(), this))
 {
     QWidget *widget = new QWidget;
 
@@ -73,7 +73,7 @@ NotifyManager::NotifyManager(QWidget *parent) :
     m_clearButton->setVisible(false);
 
     connect(m_clearButton, &DImageButton::clicked, this, &NotifyManager::onCloseAllItem);
-    connect(m_dbus, &Notifications::RecordAdded, this, &NotifyManager::onNotifyAdded);
+    connect(m_dbus, &Notification::RecordAdded, this, &NotifyManager::onNotifyAdded);
 
     m_dbus->setSync(false);
 
