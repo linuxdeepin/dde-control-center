@@ -165,10 +165,17 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
 
     // because this operate need root permission, we must wait for finished and refersh result
     emit requestFrameAutoHide(false);
-    ui->SetAutomaticLogin(autoLogin).waitForFinished();
-    user->setAutoLogin(ui->automaticLogin());
-    // delay 100ms because click event is coming after we reset auto hide to `true`
-    emit requestFrameAutoHide(true);
+
+    QDBusPendingCall call = ui->SetAutomaticLogin(autoLogin);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (call.isError()) {
+            emit user->autoLoginChanged(user->autoLogin());
+        }
+
+        emit requestFrameAutoHide(true);
+        watcher->deleteLater();
+    });
 }
 
 void AccountsWorker::onUserListChanged(const QStringList &userList)
@@ -275,7 +282,7 @@ void AccountsWorker::setNopasswdLogin(User *user, const bool nopasswdLogin)
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError()) {
-            user->setNopasswdLogin(userInter->noPasswdLogin());
+            emit user->nopasswdLoginChanged(user->nopasswdLogin());
         }
 
         emit requestFrameAutoHide(true);
