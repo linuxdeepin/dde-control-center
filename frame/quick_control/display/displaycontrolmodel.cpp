@@ -112,7 +112,7 @@ const QString DisplayControlModel::optionDescription(const int index) const
     const int configIndex = index - 2 - m_displayModel->monitorList().size();
 
     if (m_displayModel->configList().size() > configIndex)
-        return tr("Please enter display mode to set if you want to change the custom settings");
+        return tr("Please enter Display module to set if you want to change the custom settings");
     else
         return tr("Click to enter Display Module");
 }

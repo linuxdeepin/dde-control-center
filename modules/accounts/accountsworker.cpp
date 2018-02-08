@@ -311,11 +311,11 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
         QString message;
 
         if (exitStatus == QProcess::NormalExit && !exitCode) {
-            message = isJoin ? tr("Your host leave the domain server successfully.")
+            message = isJoin ? tr("Your host was removed from the domain server successfully.")
                              : tr("Your host joins the domain server successfully.");
         } else {
-            message = isJoin ? tr("Your host is failed to leave the domain server.")
-                             : tr("Your host is failed to join the domain server.");
+            message = isJoin ? tr("Your host failed to leave the domain server.")
+                             : tr("Your host failed to join the domain server.");
         }
 
         m_notifyInter->Notify("", QDateTime::currentMSecsSinceEpoch(), "dde", tr("AD domain settings"), message, QStringList(), QVariantMap(), 0);

@@ -61,7 +61,7 @@
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
-        <source>Please enter display mode to set if you want to change the custom settings</source>
+        <source>Please enter Display module to set if you want to change the custom settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -112,7 +112,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="201"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="200"/>
         <source>No system notifications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -239,32 +239,32 @@
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
         <source>Exit domain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
         <source>Join domain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="41"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="66"/>
         <source>Domain Server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
         <source>Admin account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="49"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="74"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -339,37 +339,37 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="116"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="121"/>
         <source>Images</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="308"/>
-        <source>Your host leave the domain server successfully.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="309"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="315"/>
         <source>Your host joins the domain server successfully.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="311"/>
-        <source>Your host is failed to leave the domain server.</source>
+        <location filename="../modules/accounts/accountsworker.cpp" line="314"/>
+        <source>Your host was removed from the domain server successfully.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="312"/>
-        <source>Your host is failed to join the domain server.</source>
+        <location filename="../modules/accounts/accountsworker.cpp" line="317"/>
+        <source>Your host failed to leave the domain server.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="315"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="318"/>
+        <source>Your host failed to join the domain server.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
         <source>AD domain settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="368"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="374"/>
         <source>Password not match.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -377,37 +377,37 @@
 <context>
     <name>dcc::accounts::AddFingerPage</name>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="56"/>
         <source>Done</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
         <translation type="unfinished"></translation>
     </message>
@@ -465,32 +465,32 @@
 <context>
     <name>dcc::accounts::FingerPage</name>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="56"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1256,7 +1256,7 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="86"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="85"/>
         <source>Please enter a new shortcut</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2257,6 +2257,11 @@
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
+        <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <location filename="../plugins/navigation/navwidget.cpp" line="183"/>
         <source>System Information</source>
@@ -2295,11 +2300,6 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Processor:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2503,32 +2503,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="57"/>
+        <location filename="../modules/update/updatesettings.cpp" line="66"/>
         <source>System source detection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="60"/>
+        <location filename="../modules/update/updatesettings.cpp" line="54"/>
         <source>Auto clear package cache</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="63"/>
+        <location filename="../modules/update/updatesettings.cpp" line="57"/>
         <source>Auto-download Updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="65"/>
+        <location filename="../modules/update/updatesettings.cpp" line="59"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="69"/>
+        <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Prompt the notification if system source has been modified</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="75"/>
+        <location filename="../modules/update/updatesettings.cpp" line="87"/>
         <source>Switch Mirror</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2550,12 +2550,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="223"/>
+        <location filename="../modules/update/updatework.cpp" line="227"/>
         <source>Patches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="224"/>
+        <location filename="../modules/update/updatework.cpp" line="228"/>
         <source>System patches.</source>
         <translation type="unfinished"></translation>
     </message>
