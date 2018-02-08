@@ -101,10 +101,59 @@ Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QFrame(parent),
 
     if (value["icon"].toString().isEmpty()) {
         setAppIcon(CacheFolder + value["id"].toString() + ".png");
-    } else
+    } else {
         setAppIcon(value["icon"].toString());
+    }
 
-    m_time->setText(QTime::currentTime().toString("AP hh:mm"));
+    const qlonglong time = value["time"].toString().toLongLong();
+    const QDateTime date = QDateTime::fromMSecsSinceEpoch(time);
+
+    if (QDateTime::currentMSecsSinceEpoch() > time) {
+
+        const QString hour = date.toString("hh:mm");
+
+        const uint year = date.date().year();
+        uint now = QDateTime::currentDateTime().date().year();
+
+        if (now > year)
+            setAppTime(date.toString("yyyy/MM/dd hh:mm"));
+        else {
+            const uint notify_day = date.date().day();
+            now = QDateTime::currentDateTime().date().day();
+
+            const uint month = date.date().month();
+            const uint now_month = QDateTime::currentDateTime().date().month();
+
+            if (now_month == month) {
+
+                //contrast day
+                const uint time = now - notify_day;
+
+                switch (time) {
+                case 0:
+                    setAppTime(hour);
+                    break;
+                case 1:
+                    setAppTime(tr("Yesterday") + " " + hour);
+                    break;
+                case 2:
+                    setAppTime(tr("The day before yesterday") + " " + hour);
+                    break;
+                default:
+                    if (time > 7) {
+                        setAppTime(date.toString("MM/dd hh:mm"));
+                    } else {
+                        setAppTime(tr("%n day(s) ago", "", time) + " " + hour);
+                    }
+                    break;
+                }
+            } else {
+                setAppTime(date.toString("MM/dd hh:mm"));
+            }
+        }
+    } else {
+        setAppTime(date.toString("yyyy/MM/dd hh:mm"));
+    }
 }
 
 void Viewer::setAppName(const QString &s) {

@@ -99,61 +99,6 @@ Viewer *NotifyManager::onNotifyAdd(const QJsonObject &value) {
 
     Viewer* viewer = new Viewer(value, this);
 
-    viewer->setAppName(value["summary"].toString());
-    viewer->setAppBody(value["body"].toString());
-    viewer->setAppIcon(value["icon"].toString());
-    viewer->setAppId(value["id"].toString());
-
-    const qlonglong time = value["time"].toString().toLongLong();
-    const QDateTime date = QDateTime::fromMSecsSinceEpoch(time);
-
-    if (QDateTime::currentMSecsSinceEpoch() > time) {
-
-        const QString hour = date.toString("hh:mm");
-
-        const uint year = date.date().year();
-        uint now = QDateTime::currentDateTime().date().year();
-
-        if (now > year)
-            viewer->setAppTime(date.toString("yyyy/MM/dd hh:mm"));
-        else {
-            const uint notify_day = date.date().day();
-            now = QDateTime::currentDateTime().date().day();
-
-            const uint month = date.date().month();
-            const uint now_month = QDateTime::currentDateTime().date().month();
-
-            if (now_month == month) {
-
-                //contrast day
-                const uint time = now - notify_day;
-
-                switch (time) {
-                case 0:
-                    viewer->setAppTime(hour);
-                    break;
-                case 1:
-                    viewer->setAppTime(tr("Yesterday") + " " + hour);
-                    break;
-                case 2:
-                    viewer->setAppTime(tr("The day before yesterday") + " " + hour);
-                    break;
-                default:
-                    if (time > 7) {
-                        viewer->setAppTime(date.toString("MM/dd hh:mm"));
-                    } else {
-                        viewer->setAppTime(tr("%n day(s) ago", "", time) + " " + hour);
-                    }
-                    break;
-                }
-            } else {
-                viewer->setAppTime(date.toString("MM/dd hh:mm"));
-            }
-        }
-    } else {
-        viewer->setAppTime(date.toString("yyyy/MM/dd hh:mm"));
-    }
-
     viewer->setFixedHeight(80);
     viewer->setContentsMargins(0, 0, 0, 0);
 
