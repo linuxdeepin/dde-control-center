@@ -97,6 +97,9 @@ public:
     void setSourceCheck(bool sourceCheck);
 #endif
 
+    bool netselectExist() const;
+    void setNetselectExist(bool netselectExist);
+
 signals:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
@@ -113,6 +116,7 @@ signals:
     void updateProgressChanged(const double &updateProgress);
     void upgradeProgressChanged(const double &upgradeProgress);
     void autoCleanCacheChanged(const bool autoCleanCache);
+    void netselectExistChanged(const bool netselectExist);
 
 private:
     UpdatesStatus m_status;
@@ -126,7 +130,7 @@ private:
 #endif
 
     bool m_lowBattery;
-
+    bool m_netselectExist;
     bool m_autoCleanCache;
     bool m_autoDownloadUpdates;
     QString m_mirrorId;

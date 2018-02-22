@@ -74,6 +74,7 @@ public slots:
     void setSourceCheck(bool enable);
 #endif
     void testMirrorSpeed();
+    void checkNetselect();
 
 private slots:
     void setCheckUpdatesJob(const QString &jobPath);

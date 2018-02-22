@@ -135,6 +135,8 @@ void UpdateModule::onPushMirrorsView()
     if(!m_mirrorsWidget) {
         m_mirrorsWidget = new MirrorsWidget(m_model);
 
+        m_work->checkNetselect();
+
         connect(m_mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWorker::setMirrorSource);
         connect(m_mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWorker::testMirrorSpeed);
     }

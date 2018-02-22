@@ -319,6 +319,17 @@ void UpdateWorker::testMirrorSpeed()
     watcher->setFuture(future);
 }
 
+void UpdateWorker::checkNetselect()
+{
+    QProcess *process = new QProcess;
+
+    const bool isNetselectExist = process->execute("netselect", QStringList() << "127.0.0.1") == 0;
+
+    m_model->setNetselectExist(isNetselectExist);
+
+    process->deleteLater();
+}
+
 void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
 {
     if (m_checkUpdateJob)

@@ -200,6 +200,22 @@ void UpdateModel::setUpdateProgress(double updateProgress)
     }
 }
 
+bool UpdateModel::netselectExist() const
+{
+    return m_netselectExist;
+}
+
+void UpdateModel::setNetselectExist(bool netselectExist)
+{
+    if (m_netselectExist == netselectExist) {
+        return;
+    }
+
+    m_netselectExist = netselectExist;
+
+    emit netselectExistChanged(netselectExist);
+}
+
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
 bool UpdateModel::sourceCheck() const
 {
