@@ -337,6 +337,7 @@ void SettingsWidget::refershModuleActivable()
 
     const QRect containerRect = QRect(QPoint(), m_contentArea->size());
 
+    ModuleInterface *firstActiveModule = nullptr;
     for (ModuleInterface *module : m_moduleInterfaces)
     {
         if (!m_moduleActivable.contains(module))
@@ -347,6 +348,9 @@ void SettingsWidget::refershModuleActivable()
         const QRect wRect(w->mapTo(m_contentArea, QPoint()), w->size());
         const bool activable = containerRect.intersects(wRect);
 
+        if (!firstActiveModule && wRect.top() >= containerRect.top())
+            firstActiveModule = module;
+
         if (m_moduleActivable[module] == activable)
             continue;
 
@@ -356,6 +360,19 @@ void SettingsWidget::refershModuleActivable()
         else
             module->moduleDeactive();
     }
+
+    if (!firstActiveModule)
+    {
+        auto it = std::find_if(m_moduleActivable.begin(), m_moduleActivable.end(), [](bool b) -> bool {
+            return b;
+        });
+
+        if (it != m_moduleActivable.end())
+            firstActiveModule = it.key();
+    }
+
+    if (firstActiveModule)
+        emit currentModuleChanged(firstActiveModule->name());
 }
 
 void SettingsWidget::resetAllSettings()
