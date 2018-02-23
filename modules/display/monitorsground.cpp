@@ -224,16 +224,16 @@ const QPoint MonitorsGround::bestMoveOffset(MonitorProxyWidget *pw0, MonitorProx
     QList<QPoint> selfPoints;
     selfPoints.append(selfTopLeft);
     selfPoints.append(QPoint(pw0->x() + pw0->w(), pw0->y()));
-    selfPoints.append(QPoint(pw0->x(), pw0->y() + pw0->h() + 1));
-    selfPoints.append(QPoint(pw0->x() + pw0->w(), pw0->y() + pw0->h() + 1));
+    selfPoints.append(QPoint(pw0->x(), pw0->y() + pw0->h()));
+    selfPoints.append(QPoint(pw0->x() + pw0->w(), pw0->y() + pw0->h()));
 
     const QPoint otherTopLeft = QPoint(pw1->x(), pw1->y());
     const QRect r1(pw1->x(), pw1->y(), pw1->w(), pw1->h());
     QList<QPoint> otherPoints;
     otherPoints.append(otherTopLeft);
     otherPoints.append(QPoint(pw1->x() + pw1->w(), pw1->y()));
-    otherPoints.append(QPoint(pw1->x(), pw1->y() + pw1->h() + 1));
-    otherPoints.append(QPoint(pw1->x() + pw1->w(), pw1->y() + pw1->h() + 1));
+    otherPoints.append(QPoint(pw1->x(), pw1->y() + pw1->h()));
+    otherPoints.append(QPoint(pw1->x() + pw1->w(), pw1->y() + pw1->h()));
 
     // TODO: check screen rect contains another screen and size not equal
     QPoint bestOffset;
