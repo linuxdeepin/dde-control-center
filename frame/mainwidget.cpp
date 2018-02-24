@@ -125,12 +125,12 @@ MainWidget::MainWidget(Frame *parent)
     avatarLayout->addStretch();
 
     QHBoxLayout *headerLayout = new QHBoxLayout;
+    headerLayout->addStretch();
     headerLayout->addLayout(avatarLayout);
-    headerLayout->addSpacing(30);
     headerLayout->addLayout(timedateLayout);
-    headerLayout->setSpacing(0);
+    headerLayout->addStretch();
+    headerLayout->setSpacing(30);
     headerLayout->setMargin(0);
-    headerLayout->setContentsMargins(30, 0, 30, 20);
 
     headerFrame->setLayout(headerLayout);
 
