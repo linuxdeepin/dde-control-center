@@ -219,7 +219,7 @@ void WeatherWidget::mouseMoveEvent(QMouseEvent *event)
     QWidget::mouseMoveEvent(event);
 
     const bool showButton = event->y() < CurrentItemHeight && event->y() > 10 && m_request->count() != 0;
-    if (showButton) { m_locationBtn->move(304, 30); }
+    if (showButton) { m_locationBtn->move(width() - 60, 30); }
     m_locationBtn->setVisible(showButton);
 
     update();
