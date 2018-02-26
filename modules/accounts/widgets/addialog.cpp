@@ -35,8 +35,8 @@ using namespace dcc::accounts;
 
 ADDialog::ADDialog(QWidget *parent)
     : DDialog(parent)
-    , m_server(new DLineEdit)
-    , m_username(new DLineEdit)
+    , m_server(new QLineEdit)
+    , m_username(new QLineEdit)
     , m_password(new DPasswordEdit)
 {
     initUI();
@@ -66,6 +66,9 @@ void ADDialog::initUI()
     m_server->setPlaceholderText(tr("Domain Server"));
     m_username->setPlaceholderText(tr("Admin account"));
     m_password->setPlaceholderText(tr("Password"));
+
+    m_server->setClearButtonEnabled(true);
+    m_username->setClearButtonEnabled(true);
 
     addContent(m_server);
     addContent(m_username);

@@ -234,7 +234,7 @@ void AccountsModule::showADDialog()
 
     connect(&addialog, &ADDialog::requestInfos, m_accountsWorker, &AccountsWorker::ADDomainHandle);
 
-    addialog.show();
+    addialog.exec();
 }
 #endif
 

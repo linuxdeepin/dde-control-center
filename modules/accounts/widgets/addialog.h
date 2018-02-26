@@ -30,7 +30,7 @@
 
 #include <ddialog.h>
 #include <QWidget>
-#include <dlineedit.h>
+#include <QLineEdit>
 #include <dpasswordedit.h>
 
 DWIDGET_USE_NAMESPACE
@@ -58,8 +58,8 @@ private:
     };
 
 private:
-    DLineEdit *m_server;
-    DLineEdit *m_username;
+    QLineEdit *m_server;
+    QLineEdit *m_username;
     DPasswordEdit *m_password;
     UserModel *m_model;
 };
