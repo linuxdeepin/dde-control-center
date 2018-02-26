@@ -153,10 +153,10 @@ void ContentWidget::scrollToWidget(QWidget * const w, bool animation)
 
     if (animation)
     {
+        m_scrollAni->setStartValue(m_contentArea->verticalScrollBar()->value());
         m_scrollAni->setEndValue(value);
 
-        if (m_scrollAni->state() != QPropertyAnimation::Running)
-            m_scrollAni->start();
+        m_scrollAni->start();
     } else {
         m_contentArea->verticalScrollBar()->setValue(value);
     }
