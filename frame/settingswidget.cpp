@@ -254,15 +254,15 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
 
         // scroll to dest widget
         if (m_ensureVisiblePage.isEmpty())
-            QTimer::singleShot(10, this, [=] { showModulePage(m_ensureVisibleModule, m_ensureVisiblePage); });
+            QTimer::singleShot(10, this, [=] { showModulePage(m_ensureVisibleModule, m_ensureVisiblePage, false); });
     }
 
     // show page
     if (m_ensureVisibleModule == module->name())
-        QTimer::singleShot(10, this, [=] { showModulePage(m_ensureVisibleModule, m_ensureVisiblePage); });
+        QTimer::singleShot(10, this, [=] { showModulePage(m_ensureVisibleModule, m_ensureVisiblePage, false); });
 }
 
-void SettingsWidget::ensureModuleVisible(const QString &moduleName)
+void SettingsWidget::ensureModuleVisible(const QString &moduleName, bool animation)
 {
     ModuleInterface *inter = nullptr;
     for (auto it : m_moduleInterfaces)
@@ -276,11 +276,11 @@ void SettingsWidget::ensureModuleVisible(const QString &moduleName)
 
     if (inter) {
         emit currentModuleChanged(moduleName);
-        scrollToWidget(inter->moduleWidget());
+        scrollToWidget(inter->moduleWidget(), animation);
     }
 }
 
-void SettingsWidget::showModulePage(const QString &moduleName, const QString &pageName)
+void SettingsWidget::showModulePage(const QString &moduleName, const QString &pageName, bool animation)
 {
     // test module is loaded
     bool founded = false;
@@ -300,7 +300,7 @@ void SettingsWidget::showModulePage(const QString &moduleName, const QString &pa
     }
 
     if (pageName.isEmpty())
-        return ensureModuleVisible(moduleName);
+        return ensureModuleVisible(moduleName, animation);
 
     for (auto *inter : m_moduleInterfaces)
         if (inter->name() == moduleName)
@@ -383,7 +383,7 @@ void SettingsWidget::resetAllSettings()
 
 void SettingsWidget::onNavItemClicked(const QModelIndex &index)
 {
-    showModulePage(index.data().toString(), QString());
+    showModulePage(index.data().toString(), QString(), false);
 }
 
 // TODO:

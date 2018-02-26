@@ -103,12 +103,12 @@ ContentWidget::ContentWidget(QWidget *parent)
     setLayout(centralLayout);
     setObjectName("ContentWidget");
 
-    m_animation = new QPropertyAnimation(m_contentArea->verticalScrollBar(), "value");
-    m_animation->setEasingCurve(QEasingCurve::OutQuint);
-    m_animation->setDuration(ANIMATION_DUARTION);
-    connect(m_animation, &QPropertyAnimation::finished, this, [=] {
-        m_animation->setEasingCurve(QEasingCurve::OutQuint);
-        m_animation->setDuration(ANIMATION_DUARTION);
+    m_scrollAni = new QPropertyAnimation(m_contentArea->verticalScrollBar(), "value");
+    m_scrollAni->setEasingCurve(QEasingCurve::OutQuint);
+    m_scrollAni->setDuration(ANIMATION_DUARTION);
+    connect(m_scrollAni, &QPropertyAnimation::finished, this, [=] {
+        m_scrollAni->setEasingCurve(QEasingCurve::OutQuint);
+        m_scrollAni->setDuration(ANIMATION_DUARTION);
     });
 
 }
@@ -139,7 +139,7 @@ QWidget *ContentWidget::setContent(QWidget * const w)
     return lastWidget;
 }
 
-void ContentWidget::scrollToWidget(QWidget * const w)
+void ContentWidget::scrollToWidget(QWidget * const w, bool animation)
 {
     int y(0);
     QWidget *widget = w;
@@ -149,11 +149,17 @@ void ContentWidget::scrollToWidget(QWidget * const w)
         widget = qobject_cast<QWidget *>(widget->parent());
     }
 
-    m_contentArea->verticalScrollBar()->setValue(std::min(m_contentArea->verticalScrollBar()->maximum(), y));
+    const int value = std::min(m_contentArea->verticalScrollBar()->maximum(), y);
 
-//    m_contentArea->verticalScrollBar()->setValue(1900);
-//    m_contentArea->ensureWidgetVisible(w, 0, 0);
-    //    m_contentArea->verticalScrollBar()->setValue();
+    if (animation)
+    {
+        m_scrollAni->setEndValue(value);
+
+        if (m_scrollAni->state() != QPropertyAnimation::Running)
+            m_scrollAni->start();
+    } else {
+        m_contentArea->verticalScrollBar()->setValue(value);
+    }
 }
 
 void ContentWidget::mouseReleaseEvent(QMouseEvent *e)
@@ -195,7 +201,7 @@ bool ContentWidget::eventFilter(QObject *watched, QEvent *event)
 void ContentWidget::stopScroll()
 {
     m_speedTime = DEFAULT_SPEED_TIME;
-    m_animation->stop();
+    m_scrollAni->stop();
 }
 
 void ContentWidget::wheelEvent(QWheelEvent *e)
@@ -210,7 +216,7 @@ void ContentWidget::wheelEvent(QWheelEvent *e)
     // Active by mouse
     else {
         int offset = - e->delta();
-        if (m_animation->state() == QPropertyAnimation::Running) {
+        if (m_scrollAni->state() == QPropertyAnimation::Running) {
             m_speedTime += 0.2;
             // if the roll is kept constant, it will be faster and faster
             if (m_speed != offset) {
@@ -221,11 +227,11 @@ void ContentWidget::wheelEvent(QWheelEvent *e)
         else {
             m_speedTime = DEFAULT_SPEED_TIME;
         }
-        m_animation->stop();
-        m_animation->setStartValue(m_contentArea->verticalScrollBar()->value());
-        m_animation->setEndValue(m_contentArea->verticalScrollBar()->value() + offset * qMin(m_speedTime, MAX_SPEED_TIME));
+        m_scrollAni->stop();
+        m_scrollAni->setStartValue(m_contentArea->verticalScrollBar()->value());
+        m_scrollAni->setEndValue(m_contentArea->verticalScrollBar()->value() + offset * qMin(m_speedTime, MAX_SPEED_TIME));
 
-        m_animation->start();
+        m_scrollAni->start();
     }
 }
 

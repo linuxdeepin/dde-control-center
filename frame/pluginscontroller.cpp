@@ -79,7 +79,7 @@ void PluginsController::loadPlugins()
     }
 }
 
-void PluginsController::showModulePage(const QString &module, const QString &page)
+void PluginsController::showModulePage(const QString &module, const QString &page, bool animation)
 {
-    emit requestModulePage(module, page);
+    emit requestModulePage(module, page, animation);
 }

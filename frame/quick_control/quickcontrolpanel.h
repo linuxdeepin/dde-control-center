@@ -70,7 +70,7 @@ public:
 
 signals:
     void requestDetailConfig() const;
-    void requestPage(const QString &module, const QString &page) const;
+    void requestPage(const QString &module, const QString &page, bool animation);
 
 protected:
     void leaveEvent(QEvent *e);

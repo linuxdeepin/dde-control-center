@@ -50,7 +50,7 @@ public:
 
 public slots:
     void contentPopuped(ContentWidget * const w);
-    void showModulePage(const QString &moduleName, const QString &pageName);
+    void showModulePage(const QString &moduleName, const QString &pageName, bool animation);
 
     void setModuleVisible(ModuleInterface * const inter, const bool visible);
     void setFrameAutoHide(ModuleInterface * const inter, const bool autoHide);
@@ -67,7 +67,7 @@ private slots:
     void loadModules();
     void loadModule(ModuleInterface * const module);
     void onModuleInitFinished(ModuleInterface * const inter);
-    void ensureModuleVisible(const QString &moduleName);
+    void ensureModuleVisible(const QString &moduleName, bool animation);
     void refershModuleActivable();
     void resetAllSettings();
     void onNavItemClicked(const QModelIndex &index);

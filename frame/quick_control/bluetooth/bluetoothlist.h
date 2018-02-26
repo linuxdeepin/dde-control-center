@@ -44,7 +44,7 @@ signals:
     void mouseLeaveView() const;
     void requestConnect(const Device *device) const;
     void requestDisConnect(const Device *device) const;
-    void requestConnectOther(const QString &module, const QString &page) const;
+    void requestDetailPage(const QString &module, const QString &page, bool animation) const;
     void requestAdapterDiscoverable(const QString &id) const;
 
 private:

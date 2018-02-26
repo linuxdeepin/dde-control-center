@@ -62,7 +62,7 @@ signals:
     void disappear() const;
 
 public slots:
-    void scrollToWidget(QWidget * const w);
+    void scrollToWidget(QWidget * const w, bool animation);
 
 private:
     bool eventFilter(QObject *watched, QEvent *event);
@@ -80,7 +80,7 @@ protected:
 
     QWidget *m_content;
 
-    QPropertyAnimation *m_animation;
+    QPropertyAnimation *m_scrollAni;
     double m_speedTime;
     int m_speed;
 };

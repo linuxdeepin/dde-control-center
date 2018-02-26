@@ -41,7 +41,7 @@ public:
 
 signals:
     void pluginAdded(QWidget * const w);
-    void requestModulePage(const QString &module, const QString &page);
+    void requestModulePage(const QString &module, const QString &page, bool animation);
 
 public slots:
     void loadPlugins();
@@ -50,7 +50,7 @@ private:
     void pushWidget(ModuleInterface * const, ContentWidget * const) {}
     void setFrameAutoHide(ModuleInterface * const, const bool) {}
     void setModuleVisible(ModuleInterface * const, const bool) {}
-    void showModulePage(const QString &module, const QString &page);
+    void showModulePage(const QString &module, const QString &page, bool animation);
 };
 
 #endif // PLUGINSCONTROLLER_H

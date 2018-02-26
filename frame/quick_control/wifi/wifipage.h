@@ -40,7 +40,7 @@ public:
 
 signals:
     void mouseLeaveView() const;
-    void requestConnectHidden(const QString &module, const QString &page) const;
+    void requestPage(const QString &module, const QString &page, bool animation) const;
     void requestDeviceApList(const QString &devPath) const;
     void requestDeactivateConnection(const QString &uuid) const;
     void requestActivateAccessPoint(const QString &devPath, const QString &apPath, const QString &uuid) const;

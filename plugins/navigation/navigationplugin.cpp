@@ -48,5 +48,5 @@ QWidget *NavigationPlugin::centralWidget()
 
 void NavigationPlugin::showModule(const QString &module)
 {
-    m_proxyInter->showModulePage(module, QString());
+    m_proxyInter->showModulePage(module, QString(), false);
 }

@@ -157,7 +157,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(wifiPage, &WifiPage::requestDeviceApList, m_networkWorker, &NetworkWorker::queryAccessPoints);
     connect(wifiPage, &WifiPage::requestActivateAccessPoint, m_networkWorker, &NetworkWorker::activateAccessPoint);
     connect(wifiPage, &WifiPage::requestDeactivateConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
-    connect(wifiPage, &WifiPage::requestConnectHidden, this, &QuickControlPanel::requestPage);
+    connect(wifiPage, &WifiPage::requestPage, this, &QuickControlPanel::requestPage);
 
     connect(m_displayModel, &DisplayModel::monitorListChanged, [=] { displaySwitch->setVisible(m_displayModel->monitorList().size() > 1); });
     connect(displayPage, &DisplayControlPage::mouseLeaveView, this, [=] { m_itemStack->setCurrentIndex(0); });
@@ -165,12 +165,12 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(displayPage, &DisplayControlPage::requestDuplicateMode, [=] { m_displayWorker->switchMode(MERGE_MODE); m_displayWorker->saveChanges(); });
     connect(displayPage, &DisplayControlPage::requestExtendMode, [=] { m_displayWorker->switchMode(EXTEND_MODE); m_displayWorker->saveChanges(); });
     connect(displayPage, &DisplayControlPage::requestConfig, m_displayWorker, &DisplayWorker::switchConfig);
-    connect(displayPage, &DisplayControlPage::requestCustom, [=] { emit requestPage("display", QString()); });
+    connect(displayPage, &DisplayControlPage::requestCustom, [=] { emit requestPage("display", QString(), false); });
 
     connect(bluetoothList, &BluetoothList::mouseLeaveView, this, [=] { m_itemStack->setCurrentIndex(0); });
     connect(bluetoothList, &BluetoothList::requestConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::connectDevice);
     connect(bluetoothList, &BluetoothList::requestDisConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::disconnectDevice);
-    connect(bluetoothList, &BluetoothList::requestConnectOther, this, &QuickControlPanel::requestPage);
+    connect(bluetoothList, &BluetoothList::requestDetailPage, this, &QuickControlPanel::requestPage);
     connect(bluetoothList, &BluetoothList::requestAdapterDiscoverable, m_bluetoothWorker, &bluetooth::BluetoothWorker::setAdapterDiscoverable);
 
     connect(m_itemStack, &QStackedLayout::currentChanged, this, &QuickControlPanel::onIndexChanged);

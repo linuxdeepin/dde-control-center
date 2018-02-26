@@ -87,7 +87,7 @@ Frame::Frame(QWidget *parent)
 
     resize(0, height());
 
-    connect(m_navigationBar, &NavigationBar::requestModule, this, [=](const QString &module) { showSettingsPage(module, QString()); });
+    connect(m_navigationBar, &NavigationBar::requestModule, this, [=](const QString &module) { showSettingsPage(module, QString(), true); });
     connect(m_delayKillerTimer, &QTimer::timeout, this, &Frame::onDelayKillerTimeout);
     connect(m_displayInter, &DBusDisplay::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
     connect(m_launcherInter, &LauncherInter::Shown, this, &Frame::hideImmediately);
@@ -226,7 +226,7 @@ void Frame::showAllSettings()
     pushWidget(m_allSettingsPage);
 }
 
-void Frame::showSettingsPage(const QString &moduleName, const QString &pageName)
+void Frame::showSettingsPage(const QString &moduleName, const QString &pageName, bool animation)
 {
     // ensure current is main page or all settings page
     while (m_frameWidgetStack.size() > 1 && m_frameWidgetStack.last()->content() != m_allSettingsPage)
@@ -241,7 +241,7 @@ void Frame::showSettingsPage(const QString &moduleName, const QString &pageName)
 
     // show specificed page
 //    m_allSettingsPage->showModulePage(moduleName, pageName);
-    QMetaObject::invokeMethod(m_allSettingsPage, "showModulePage", Qt::QueuedConnection, Q_ARG(QString, moduleName), Q_ARG(QString, pageName));
+    QMetaObject::invokeMethod(m_allSettingsPage, "showModulePage", Qt::QueuedConnection, Q_ARG(QString, moduleName), Q_ARG(QString, pageName), Q_ARG(bool, animation));
 
     if (!m_shown)
         show();

@@ -83,7 +83,7 @@ MainWidget::MainWidget(Frame *parent)
             m_userAvatarBtn->setAccessibleDescription("iconMainWidget");
 
             connect(inter, &UserInter::IconFileChanged, m_userAvatarBtn, &AvatarWidget::setAvatarPath);
-            connect(m_userAvatarBtn, &AvatarWidget::clicked, this, [=] { emit showSettingPage("accounts", inter->userName()); });
+            connect(m_userAvatarBtn, &AvatarWidget::clicked, this, [=] { emit showSettingPage("accounts", inter->userName(), false); });
 
             // keep pointer
             break;
@@ -179,7 +179,7 @@ MainWidget::MainWidget(Frame *parent)
 
 #ifndef DISABLE_SYS_UPDATE
     connect(m_updateNotifier, &UpdateNotifier::clicked, this, [this] {
-        showSettingPage("update", "available-updates");
+        showSettingPage("update", "available-updates", false);
     });
 #endif
 

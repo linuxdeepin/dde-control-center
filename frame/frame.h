@@ -76,7 +76,7 @@ public slots:
 
     void pushWidget(ContentWidget * const w);
     void popWidget();
-    void showSettingsPage(const QString &moduleName, const QString &pageName);
+    void showSettingsPage(const QString &moduleName, const QString &pageName, bool animation = false);
     void setAutoHide(const bool autoHide);
 
 signals:

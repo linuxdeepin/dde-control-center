@@ -45,7 +45,7 @@ public:
 
     virtual void setModuleVisible(ModuleInterface * const inter, const bool visible) = 0;
 
-    virtual void showModulePage(const QString &module, const QString &page) = 0;
+    virtual void showModulePage(const QString &module, const QString &page, bool animation) = 0;
 };
 
 }
