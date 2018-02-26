@@ -71,7 +71,7 @@ private:
 
     QPoint m_lastPos;
 
-    bool m_mouseState;
+    bool m_underMouseMove;
     std::unique_ptr<MonitorIndicator> m_fullIndication;
 };
 
