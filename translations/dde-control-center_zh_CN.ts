@@ -59,8 +59,8 @@
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
-        <source>Please enter display mode to set if you want to change the custom settings</source>
-        <translation>要更改自定义设置，请输入设置的显示模式</translation>
+        <source>Please enter Display module to set if you want to change the custom settings</source>
+        <translation>若要修改自定义显示设置，请进显示模块详细设置</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
@@ -79,7 +79,7 @@
 <context>
     <name>NavWidget</name>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="206"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="206"/>
         <source>Navigation</source>
         <translation>导航</translation>
     </message>
@@ -92,17 +92,17 @@
         <translation>全部清除</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="135"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="136"/>
         <source>Yesterday</source>
         <translation>昨天</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifymanager.cpp" line="144"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="145"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>%n天前</numerusform></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="138"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="139"/>
         <source>The day before yesterday</source>
         <translation>前天</translation>
     </message>
@@ -169,7 +169,7 @@
         <translation>重置所有设置</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="123"/>
+        <location filename="../frame/settingswidget.cpp" line="88"/>
         <source>All Settings</source>
         <translation>所有设置</translation>
     </message>
@@ -234,32 +234,32 @@
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
         <source>Exit domain</source>
         <translation>退出域</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
         <source>Join domain</source>
         <translation>加入域</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="41"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="66"/>
         <source>Domain Server</source>
         <translation>域服务器</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
         <source>Admin account</source>
         <translation>管理员账户</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="49"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="74"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -302,7 +302,7 @@
         <translation>当前用户已登录，无法删除</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
         <translation>指纹密码</translation>
     </message>
@@ -316,7 +316,7 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="170"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="170"/>
         <source>Accounts</source>
         <translation>账户</translation>
     </message>
@@ -334,37 +334,37 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="116"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="121"/>
         <source>Images</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
-        <source>Your host leave the domain server successfully.</source>
-        <translation>你的主机成功退出了域服务器。</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="315"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>你的主机成功加入了域服务器。</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
-        <source>Your host is failed to leave the domain server.</source>
-        <translation>你的主机退出域服务器失败。</translation>
+        <location filename="../modules/accounts/accountsworker.cpp" line="314"/>
+        <source>Your host was removed from the domain server successfully.</source>
+        <translation>你的主机成功退出了域服务器</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="290"/>
-        <source>Your host is failed to join the domain server.</source>
+        <location filename="../modules/accounts/accountsworker.cpp" line="317"/>
+        <source>Your host failed to leave the domain server.</source>
+        <translation>你的主机退出域服务器失败</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="318"/>
+        <source>Your host failed to join the domain server.</source>
         <translation>你的主机加入域服务器失败。</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
         <source>AD domain settings</source>
         <translation>AD域设置</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="374"/>
         <source>Password not match.</source>
         <translation>密码不一致。</translation>
     </message>
@@ -372,37 +372,37 @@
 <context>
     <name>dcc::accounts::AddFingerPage</name>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
         <translation>添加指纹</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
         <translation>重新录入</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="56"/>
         <source>Done</source>
         <translation>完成</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
         <translation> 正在识别指纹</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
         <translation>识别指纹失败，将手指放入指纹录入器上并从下往上移动手指再松开。</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
         <translation>将手指放入指纹录入器上并从下往上移动手指再松开，重复此步骤</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
         <translation>成功添加指纹</translation>
     </message>
@@ -460,32 +460,32 @@
 <context>
     <name>dcc::accounts::FingerPage</name>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
         <translation>指纹列表</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
         <translation>指纹密码</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
         <translation>添加指纹</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
         <translation>清除指纹</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="56"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
         <translation>指纹密码可用于系统登录、应用授权等地方，在需要输入密码的时候扫描指纹即可</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
         <translation>指纹</translation>
     </message>
@@ -511,33 +511,39 @@
 <context>
     <name>dcc::accounts::ModifyPasswordPage</name>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="48"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
+        <source>Current Password</source>
+        <translation>当前密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
         <source>New Password</source>
         <translation>新密码</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="50"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
         <source>Repeat Password</source>
         <translation>重复密码</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="55"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="56"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="59"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
         <source>Accept</source>
         <translation>接受</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="77"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="82"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -587,7 +593,7 @@
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="123"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="175"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="175"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
@@ -686,7 +692,7 @@
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="58"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="177"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="177"/>
         <source>Time and Date</source>
         <translation>时间日期</translation>
     </message>
@@ -761,7 +767,7 @@
     <name>dcc::defapp::DefAppViewer</name>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="172"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="172"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
     </message>
@@ -906,7 +912,7 @@
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="171"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="171"/>
         <source>Display</source>
         <translation>显示</translation>
     </message>
@@ -1146,7 +1152,7 @@
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="180"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="180"/>
         <source>Keyboard and Language</source>
         <translation>键盘和语言</translation>
     </message>
@@ -1245,7 +1251,7 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="86"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="85"/>
         <source>Please enter a new shortcut</source>
         <translation>请输入新的快捷键</translation>
     </message>
@@ -1253,32 +1259,32 @@
 <context>
     <name>dcc::keyboard::ShortcutWidget</name>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="54"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="55"/>
         <source>System</source>
         <translation>系统</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="55"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="56"/>
         <source>Window</source>
         <translation>窗口</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="56"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="57"/>
         <source>WorkSpace</source>
         <translation>工作区</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="77"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
         <translation>添加自定义快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="87"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="88"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="64"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
         <source>Custom Shortcut</source>
         <translation>自定义快捷键</translation>
     </message>
@@ -1346,7 +1352,7 @@
     <name>dcc::mouse::MouseWidget</name>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
@@ -1717,7 +1723,7 @@
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="84"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="174"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="174"/>
         <source>Network</source>
         <translation>网络</translation>
     </message>
@@ -1996,8 +2002,8 @@
         <translation>等宽字体</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="88"/>
-        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="102"/>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="108"/>
         <source> (Unsupported font)</source>
         <translation>(不支持的字体)</translation>
     </message>
@@ -2021,12 +2027,12 @@
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="113"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="117"/>
         <source>Standard Font</source>
         <translation>标准字体</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="122"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="126"/>
         <source>Monospaced Font</source>
         <translation>等宽字体</translation>
     </message>
@@ -2050,7 +2056,7 @@
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="173"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="173"/>
         <source>Personalization</source>
         <translation>个性化</translation>
     </message>
@@ -2121,7 +2127,7 @@
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="87"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="178"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="178"/>
         <source>Power Management</source>
         <translation>电源管理</translation>
     </message>
@@ -2187,7 +2193,7 @@
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="176"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="176"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
@@ -2246,8 +2252,13 @@
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
+        <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation>Copyright © 2011-2018 武汉深之度科技有限公司</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="183"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="183"/>
         <source>System Information</source>
         <translation>系统信息</translation>
     </message>
@@ -2285,11 +2296,6 @@
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Processor:</source>
         <translation>处理器：</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Copyright © 2011-2017 武汉深之度科技有限公司</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
@@ -2375,7 +2381,7 @@
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="182"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="182"/>
         <source>Update</source>
         <translation>更新</translation>
     </message>
@@ -2486,32 +2492,32 @@
         <translation>更新设置</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="57"/>
+        <location filename="../modules/update/updatesettings.cpp" line="66"/>
         <source>System source detection</source>
         <translation>系统源检测</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="60"/>
+        <location filename="../modules/update/updatesettings.cpp" line="54"/>
         <source>Auto clear package cache</source>
         <translation>自动清除软件包缓存</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="63"/>
+        <location filename="../modules/update/updatesettings.cpp" line="57"/>
         <source>Auto-download Updates</source>
         <translation>自动下载更新</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="65"/>
+        <location filename="../modules/update/updatesettings.cpp" line="59"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>更新会在有无线网络或者有线网络的情况下自动下载</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="69"/>
+        <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Prompt the notification if system source has been modified</source>
         <translation>如果系统源被修改弹出提醒</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="75"/>
+        <location filename="../modules/update/updatesettings.cpp" line="87"/>
         <source>Switch Mirror</source>
         <translation>切换镜像源</translation>
     </message>
@@ -2533,12 +2539,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="223"/>
+        <location filename="../modules/update/updatework.cpp" line="227"/>
         <source>Patches</source>
         <translation>补丁</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="224"/>
+        <location filename="../modules/update/updatework.cpp" line="228"/>
         <source>System patches.</source>
         <translation>系统补丁。</translation>
     </message>
@@ -2578,7 +2584,7 @@
     <name>dcc::wacom::WacomWidget</name>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="181"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="181"/>
         <source>Wacom</source>
         <translation>Wacom 数位板</translation>
     </message>

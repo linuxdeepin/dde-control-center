@@ -59,7 +59,7 @@
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
-        <source>Please enter display mode to set if you want to change the custom settings</source>
+        <source>Please enter Display module to set if you want to change the custom settings</source>
         <translation>Gebruik de weergave-instellingen om de standaard instellingen te wijzigen</translation>
     </message>
     <message>
@@ -73,13 +73,13 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Geen</translation>
     </message>
 </context>
 <context>
     <name>NavWidget</name>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="206"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="206"/>
         <source>Navigation</source>
         <translation>Navigatie</translation>
     </message>
@@ -92,17 +92,17 @@
         <translation>Wis alles</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="135"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="136"/>
         <source>Yesterday</source>
         <translation>Gisteren</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifymanager.cpp" line="144"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="145"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>%n dag(en) geleden</numerusform><numerusform>%n dag(en) geleden</numerusform></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="138"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="139"/>
         <source>The day before yesterday</source>
         <translation>Eergisteren</translation>
     </message>
@@ -169,7 +169,7 @@
         <translation>Alle instellingen herstellen</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="123"/>
+        <location filename="../frame/settingswidget.cpp" line="88"/>
         <source>All Settings</source>
         <translation>Alle Instellingen</translation>
     </message>
@@ -234,32 +234,32 @@
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
         <source>Exit domain</source>
-        <translation type="unfinished"/>
+        <translation>Domein afsluiten</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Word lid van domein</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="41"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="66"/>
         <source>Domain Server</source>
-        <translation type="unfinished"/>
+        <translation>Domein Server</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>Beheerdersaccount</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
         <source>Password</source>
         <translation>Wachtwoord</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="49"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="74"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
@@ -274,7 +274,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>Wijzig Volledige naam</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
@@ -289,7 +289,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Login zonder wachtwoord</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -299,12 +299,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>Niet in staat om te verwijderen, huidige gebruiker is ingelogd</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Wachtwoord voor vingerafdrukken</translation>
     </message>
 </context>
 <context>
@@ -316,55 +316,55 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="170"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="170"/>
         <source>Accounts</source>
         <translation>Accounts</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Exit domain</source>
-        <translation type="unfinished"/>
+        <translation>Domein afsluiten</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Word lid van domein</translation>
     </message>
 </context>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="116"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="121"/>
         <source>Images</source>
         <translation>Afbeeldingen</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
-        <source>Your host leave the domain server successfully.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="315"/>
         <source>Your host joins the domain server successfully.</source>
-        <translation type="unfinished"/>
+        <translation>Uw host heeft zich met succes bij de domeinserver gevoegd.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
-        <source>Your host is failed to leave the domain server.</source>
-        <translation type="unfinished"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="314"/>
+        <source>Your host was removed from the domain server successfully.</source>
+        <translation>Uw host is met succes van de domeinserver verwijderd.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="290"/>
-        <source>Your host is failed to join the domain server.</source>
-        <translation type="unfinished"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="317"/>
+        <source>Your host failed to leave the domain server.</source>
+        <translation>Uw host kan de domeinserver niet verlaten.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="318"/>
+        <source>Your host failed to join the domain server.</source>
+        <translation>Uw host kan niet deelnemen aan de domeinserver.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>AD domein instellingen</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="374"/>
         <source>Password not match.</source>
         <translation>Wachtwoord komt niet overeen.</translation>
     </message>
@@ -372,39 +372,39 @@
 <context>
     <name>dcc::accounts::AddFingerPage</name>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdruk toevoegen</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>Opnieuw invoeren</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="56"/>
         <source>Done</source>
         <translation>Gereed</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Identificatie van vingerafdruk</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
+        <translation>Kan vingerafdruk niet identificeren, plaats uw vinger op de vingerafdrukrecorder, beweeg uw vinger van beneden omhoog en ontspan</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation type="unfinished"/>
+        <translation>Plaats uw vinger op de vingerafdrukrecorder, beweeg uw vinger van beneden omhoog en ontspan, herhaal vervolgens deze stappen</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>Succesvol toegevoegd</translation>
     </message>
 </context>
 <context>
@@ -460,34 +460,34 @@
 <context>
     <name>dcc::accounts::FingerPage</name>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdruklijst</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Wachtwoord voor vingerafdrukken</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdruk toevoegen</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Wis vingerafdruk</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="56"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdrukwachtwoord wordt gebruikt bij systeemaanmelding, autorisatie van applicaties en andere scènes. Scan de vingerafdruk wanneer een wachtwoord nodig is.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Vingerafdruk</translation>
     </message>
 </context>
 <context>
@@ -495,7 +495,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>Volledige naam:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -505,39 +505,45 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>Instellingen volledige naam</translation>
     </message>
 </context>
 <context>
     <name>dcc::accounts::ModifyPasswordPage</name>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="48"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
+        <source>Current Password</source>
+        <translation>Huidig wachtwoord</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
         <source>New Password</source>
         <translation>Nieuw wachtwoord</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="50"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
         <source>Repeat Password</source>
         <translation>Wachtwoord herhalen</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="55"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="56"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
         <source>Required</source>
         <translation>Vereist</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="59"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
         <source>Accept</source>
         <translation>Aanvaarden</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="77"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="82"/>
         <source>Password</source>
         <translation>Wachtwoord</translation>
     </message>
@@ -587,7 +593,7 @@
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="123"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="175"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="175"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -686,7 +692,7 @@
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="58"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="177"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="177"/>
         <source>Time and Date</source>
         <translation>Tijd en Datum</translation>
     </message>
@@ -761,7 +767,7 @@
     <name>dcc::defapp::DefAppViewer</name>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="172"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="172"/>
         <source>Default Applications</source>
         <translation>Standaardtoepassingen</translation>
     </message>
@@ -833,12 +839,12 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="74"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Nachtdienst</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation type="unfinished"/>
+        <translation>De schermtoon wordt automatisch aangepast door uw locatie te bepalen, met als doel uw ogen te beschermen</translation>
     </message>
 </context>
 <context>
@@ -877,7 +883,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Schaal weergeven</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
@@ -906,7 +912,7 @@
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="171"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="171"/>
         <source>Display</source>
         <translation>Beeldscherm</translation>
     </message>
@@ -1146,7 +1152,7 @@
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="180"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="180"/>
         <source>Keyboard and Language</source>
         <translation>Toetsenbord en taal</translation>
     </message>
@@ -1245,7 +1251,7 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="86"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="85"/>
         <source>Please enter a new shortcut</source>
         <translation>Voer een nieuwe sneltoets in</translation>
     </message>
@@ -1253,32 +1259,32 @@
 <context>
     <name>dcc::keyboard::ShortcutWidget</name>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="54"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="55"/>
         <source>System</source>
         <translation>Systeem</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="55"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="56"/>
         <source>Window</source>
         <translation>Venster</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="56"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="57"/>
         <source>WorkSpace</source>
         <translation>Werkblad</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="77"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
         <translation>Aangepaste sneltoets toevoegen</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="87"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="88"/>
         <source>Shortcuts</source>
         <translation>Sneltoetsen</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="64"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
         <source>Custom Shortcut</source>
         <translation>Aangepaste sneltoets</translation>
     </message>
@@ -1346,7 +1352,7 @@
     <name>dcc::mouse::MouseWidget</name>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>Muis</translation>
     </message>
@@ -1380,7 +1386,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Scroll speed</source>
-        <translation type="unfinished"/>
+        <translation>Scrol snelheid</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
@@ -1424,22 +1430,22 @@
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detect</source>
-        <translation type="unfinished"/>
+        <translation>Handpalm detecteren</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <source>Minimum contact surface</source>
-        <translation type="unfinished"/>
+        <translation>Minimaal contactoppervlak</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <source>Minimum pressure value</source>
-        <translation type="unfinished"/>
+        <translation>Minimale drukwaarde</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>Schakel alstublieft de optie uit als de touchpad niet werkt nadat het is ingeschakeld</translation>
     </message>
 </context>
 <context>
@@ -1475,7 +1481,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="43"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Toepassingsproxy</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
@@ -1485,7 +1491,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP adres</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
@@ -1517,7 +1523,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation type="unfinished"/>
+        <translation>Vink &quot;Openen via proxy&quot; aan in het toepassingscontextmenu in de Launcher om er gebruik van te maken nadat u het heeft geconfigureerd</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
@@ -1577,12 +1583,12 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot instellingen</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
 </context>
 <context>
@@ -1595,7 +1601,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
@@ -1647,7 +1653,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
         <source>IPv6 Address</source>
-        <translation type="unfinished"/>
+        <translation>Ipv6-adres</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
@@ -1708,7 +1714,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Toepassingsproxy</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
@@ -1717,7 +1723,7 @@
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="84"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="174"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="174"/>
         <source>Network</source>
         <translation>Netwerk</translation>
     </message>
@@ -1749,7 +1755,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="225"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
@@ -1876,7 +1882,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPN importeren</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="100"/>
@@ -1886,7 +1892,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="261"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>Fout importeren</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="263"/>
@@ -1962,12 +1968,12 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot sluiten</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation type="unfinished"/>
+        <translation>Schakel eerst het delen van hotspots uit, als u verbinding wilt maken en de draadloze netwerkfunctie wilt gebruiken</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>
@@ -1996,8 +2002,8 @@
         <translation>Monospaced Lettertype</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="88"/>
-        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="102"/>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="108"/>
         <source> (Unsupported font)</source>
         <translation>(Niet-ondersteund lettertype)</translation>
     </message>
@@ -2021,12 +2027,12 @@
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="113"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="117"/>
         <source>Standard Font</source>
         <translation>Standaard Lettertype</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="122"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="126"/>
         <source>Monospaced Font</source>
         <translation>Monospaced Lettertype</translation>
     </message>
@@ -2050,7 +2056,7 @@
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="173"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="173"/>
         <source>Personalization</source>
         <translation>Personalisatie</translation>
     </message>
@@ -2121,7 +2127,7 @@
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="87"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="178"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="178"/>
         <source>Power Management</source>
         <translation>Energiebeheer</translation>
     </message>
@@ -2187,7 +2193,7 @@
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="176"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="176"/>
         <source>Sound</source>
         <translation>Geluid</translation>
     </message>
@@ -2246,8 +2252,13 @@
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
+        <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="183"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="183"/>
         <source>System Information</source>
         <translation>Systeeminformatie</translation>
     </message>
@@ -2285,11 +2296,6 @@
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Processor:</source>
         <translation>Processor:</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
@@ -2375,7 +2381,7 @@
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="182"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="182"/>
         <source>Update</source>
         <translation>Bijwerken</translation>
     </message>
@@ -2407,7 +2413,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
+        <translation>Netwerk losgekoppeld, probeer opnieuw nadat u weer bent verbonden</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
@@ -2447,7 +2453,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>Downloadgrootte: %1</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
@@ -2486,32 +2492,32 @@
         <translation>Update-instellingen</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="57"/>
+        <location filename="../modules/update/updatesettings.cpp" line="66"/>
         <source>System source detection</source>
-        <translation type="unfinished"/>
+        <translation>Systeembron detectie</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="60"/>
+        <location filename="../modules/update/updatesettings.cpp" line="54"/>
         <source>Auto clear package cache</source>
-        <translation type="unfinished"/>
+        <translation>Cachegeheugen van een pakket automatisch wissen</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="63"/>
+        <location filename="../modules/update/updatesettings.cpp" line="57"/>
         <source>Auto-download Updates</source>
         <translation>Updates automatisch downloaden</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="65"/>
+        <location filename="../modules/update/updatesettings.cpp" line="59"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>In een draadloos of bekabeld netwerk worden updates automatisch gedownload</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="69"/>
+        <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Prompt the notification if system source has been modified</source>
-        <translation type="unfinished"/>
+        <translation>Vraag een melding als de systeembron is gewijzigd</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="75"/>
+        <location filename="../modules/update/updatesettings.cpp" line="87"/>
         <source>Switch Mirror</source>
         <translation>Van spiegelserver wisselen</translation>
     </message>
@@ -2533,12 +2539,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="223"/>
+        <location filename="../modules/update/updatework.cpp" line="227"/>
         <source>Patches</source>
         <translation>Patches</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="224"/>
+        <location filename="../modules/update/updatework.cpp" line="228"/>
         <source>System patches.</source>
         <translation>Systeem patches.</translation>
     </message>
@@ -2548,7 +2554,7 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Pen</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
@@ -2578,7 +2584,7 @@
     <name>dcc::wacom::WacomWidget</name>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="181"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="181"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>
@@ -2595,7 +2601,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Pen</translation>
     </message>
 </context>
 <context>

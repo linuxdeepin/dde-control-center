@@ -59,7 +59,7 @@
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
-        <source>Please enter display mode to set if you want to change the custom settings</source>
+        <source>Please enter Display module to set if you want to change the custom settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -79,7 +79,7 @@
 <context>
     <name>NavWidget</name>
     <message>
-        <location filename="../plugins/navgation/navwidget.cpp" line="206"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="206"/>
         <source>Navigation</source>
         <translation>Navigasjon</translation>
     </message>
@@ -92,17 +92,17 @@
         <translation>Tøm alle</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="135"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="136"/>
         <source>Yesterday</source>
         <translation>I går</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifymanager.cpp" line="144"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="145"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="138"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="139"/>
         <source>The day before yesterday</source>
         <translation>I forgårs</translation>
     </message>
@@ -169,7 +169,7 @@
         <translation>Nullstill alle innstillinger</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="123"/>
+        <location filename="../frame/settingswidget.cpp" line="88"/>
         <source>All Settings</source>
         <translation>Alle innstillinger</translation>
     </message>
@@ -234,32 +234,32 @@
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
         <source>Exit domain</source>
         <translation>Forlat domene</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="25"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
         <source>Join domain</source>
         <translation>Bli med i domene</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="41"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="66"/>
         <source>Domain Server</source>
         <translation>Domenekontroller</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="42"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
         <source>Admin account</source>
         <translation>Adminkonto</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="43"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
         <source>Password</source>
         <translation>Passord</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="49"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="74"/>
         <source>Cancel</source>
         <translation>Avbryt</translation>
     </message>
@@ -302,7 +302,7 @@
         <translation>Sletting feilet, bruker er pålogget</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="74"/>
+        <location filename="../modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
         <translation>Fingeravtrykk</translation>
     </message>
@@ -316,7 +316,7 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="170"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="170"/>
         <source>Accounts</source>
         <translation>Brukere</translation>
     </message>
@@ -334,37 +334,37 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="116"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="121"/>
         <source>Images</source>
         <translation>Bilder</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="286"/>
-        <source>Your host leave the domain server successfully.</source>
-        <translation>Utmelding av domene vellykket.</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="287"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="315"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>Innmelding i domene vellykket.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="289"/>
-        <source>Your host is failed to leave the domain server.</source>
+        <location filename="../modules/accounts/accountsworker.cpp" line="314"/>
+        <source>Your host was removed from the domain server successfully.</source>
+        <translation>Utmelding av domene vellykket.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="317"/>
+        <source>Your host failed to leave the domain server.</source>
         <translation>Utmelding av domene feilet.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="290"/>
-        <source>Your host is failed to join the domain server.</source>
+        <location filename="../modules/accounts/accountsworker.cpp" line="318"/>
+        <source>Your host failed to join the domain server.</source>
         <translation>Innmelding i domene feilet.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="293"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
         <source>AD domain settings</source>
         <translation>Active Directory innstillinger</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="374"/>
         <source>Password not match.</source>
         <translation>Passordoppføringer er ikke like.</translation>
     </message>
@@ -372,37 +372,37 @@
 <context>
     <name>dcc::accounts::AddFingerPage</name>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="17"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
         <translation>Legg til fingeravtrykk</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="30"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
         <translation>Skriv inn på nytt</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="31"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="56"/>
         <source>Done</source>
         <translation>Ferdig</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="83"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
         <translation>Identifiserer fingeravtrykk</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="89"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
         <translation>Identifisering av fingeravtrykk feilet. Plasser finger på avleseren og beveg fingeren opp fra bunnen og slipp</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="105"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
         <translation>Plasser finger på avleseren, beveg fingeren opp fra bunnen, slipp og repeter stegene</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="95"/>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
         <translation>Godkjent</translation>
     </message>
@@ -460,32 +460,32 @@
 <context>
     <name>dcc::accounts::FingerPage</name>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="18"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
         <translation>Liste over fingeravtrykk</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="21"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
         <translation>Fingeravtrykk</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="24"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
         <translation>Legg til fingeravtrykk</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="27"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
         <translation>Fjern fingeravtrykk</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="31"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="56"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
         <translation>Fingeravtrykk benyttes for å logge inn på systemet, autentisere applikasjoner og andre scenarier. Les av fingeravtrykk når passord påkreves.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/fingerpage.cpp" line="73"/>
+        <location filename="../modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
         <translation>Fingeravtrykk</translation>
     </message>
@@ -511,33 +511,39 @@
 <context>
     <name>dcc::accounts::ModifyPasswordPage</name>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="48"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
+        <source>Current Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
         <source>New Password</source>
         <translation>Nytt Passord</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="50"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
         <source>Repeat Password</source>
         <translation>Gjenta passord</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="55"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="56"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
         <source>Required</source>
         <translation>Pårekvd</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
         <source>Cancel</source>
         <translation>Avbryt</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="59"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
         <source>Accept</source>
         <translation>Godta</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="77"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="82"/>
         <source>Password</source>
         <translation>Passord</translation>
     </message>
@@ -587,7 +593,7 @@
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="123"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="175"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="175"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -686,7 +692,7 @@
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="58"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="177"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="177"/>
         <source>Time and Date</source>
         <translation>Dato og tid</translation>
     </message>
@@ -761,7 +767,7 @@
     <name>dcc::defapp::DefAppViewer</name>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="172"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="172"/>
         <source>Default Applications</source>
         <translation>Standardprogrammer</translation>
     </message>
@@ -906,7 +912,7 @@
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="171"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="171"/>
         <source>Display</source>
         <translation>Skjerm</translation>
     </message>
@@ -1146,7 +1152,7 @@
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="180"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="180"/>
         <source>Keyboard and Language</source>
         <translation>Tastatur og Språk</translation>
     </message>
@@ -1245,7 +1251,7 @@
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../modules/keyboard/shortcutitem.cpp" line="86"/>
+        <location filename="../modules/keyboard/shortcutitem.cpp" line="85"/>
         <source>Please enter a new shortcut</source>
         <translation>Vennligst oppgi en ny hurtightast</translation>
     </message>
@@ -1253,32 +1259,32 @@
 <context>
     <name>dcc::keyboard::ShortcutWidget</name>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="54"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="55"/>
         <source>System</source>
         <translation>System</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="55"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="56"/>
         <source>Window</source>
         <translation>Vindu</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="56"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="57"/>
         <source>WorkSpace</source>
         <translation>Arbeidsområde</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="77"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
         <translation>Legg til egendefinert snarvei</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="87"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="88"/>
         <source>Shortcuts</source>
         <translation>Hurtigtaster</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="64"/>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
         <source>Custom Shortcut</source>
         <translation>Egendefinert snarvei</translation>
     </message>
@@ -1346,7 +1352,7 @@
     <name>dcc::mouse::MouseWidget</name>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="179"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="179"/>
         <source>Mouse</source>
         <translation>Mus</translation>
     </message>
@@ -1717,7 +1723,7 @@
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="84"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="174"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="174"/>
         <source>Network</source>
         <translation>Nettverk</translation>
     </message>
@@ -1997,8 +2003,8 @@
         <translation>Monospaced-font</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="88"/>
-        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="102"/>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
+        <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="108"/>
         <source> (Unsupported font)</source>
         <translation>(Ikke støttet)</translation>
     </message>
@@ -2022,12 +2028,12 @@
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="113"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="117"/>
         <source>Standard Font</source>
         <translation>Standardfont</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="122"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="126"/>
         <source>Monospaced Font</source>
         <translation>Monospaced-font</translation>
     </message>
@@ -2051,7 +2057,7 @@
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="173"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="173"/>
         <source>Personalization</source>
         <translation>Personalisering</translation>
     </message>
@@ -2122,7 +2128,7 @@
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="87"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="178"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="178"/>
         <source>Power Management</source>
         <translation>Strømstyring</translation>
     </message>
@@ -2188,7 +2194,7 @@
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="176"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="176"/>
         <source>Sound</source>
         <translation>Lyd</translation>
     </message>
@@ -2247,8 +2253,13 @@
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
+        <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation>Opphavsrett © 2011-2018 Wuhan Deepin Technology Co., Ltd.</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="183"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="183"/>
         <source>System Information</source>
         <translation>Systeminformasjon</translation>
     </message>
@@ -2286,11 +2297,6 @@
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Processor:</source>
         <translation>Prosessor</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <source>Copyright © 2011-2017 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Opphavsrett © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
@@ -2376,7 +2382,7 @@
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="182"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="182"/>
         <source>Update</source>
         <translation>Oppdater</translation>
     </message>
@@ -2487,32 +2493,32 @@
         <translation>Oppdateringsinnstillinger</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="57"/>
+        <location filename="../modules/update/updatesettings.cpp" line="66"/>
         <source>System source detection</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="60"/>
+        <location filename="../modules/update/updatesettings.cpp" line="54"/>
         <source>Auto clear package cache</source>
         <translation>Automatisk tømming av mellomlager for pakker</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="63"/>
+        <location filename="../modules/update/updatesettings.cpp" line="57"/>
         <source>Auto-download Updates</source>
         <translation>Last ned oppdateringer automatisk</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="65"/>
+        <location filename="../modules/update/updatesettings.cpp" line="59"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>Oppdateringer lastes ned automatisk på trådløst eller kablet nettverk</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="69"/>
+        <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Prompt the notification if system source has been modified</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="75"/>
+        <location filename="../modules/update/updatesettings.cpp" line="87"/>
         <source>Switch Mirror</source>
         <translation>Endre kilde</translation>
     </message>
@@ -2534,12 +2540,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="223"/>
+        <location filename="../modules/update/updatework.cpp" line="227"/>
         <source>Patches</source>
         <translation>Patcher</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="224"/>
+        <location filename="../modules/update/updatework.cpp" line="228"/>
         <source>System patches.</source>
         <translation>Systemoppdateringer</translation>
     </message>
@@ -2579,7 +2585,7 @@
     <name>dcc::wacom::WacomWidget</name>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
-        <location filename="../plugins/navgation/navwidget.cpp" line="181"/>
+        <location filename="../plugins/navigation/navwidget.cpp" line="181"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>
