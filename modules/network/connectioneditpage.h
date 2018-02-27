@@ -61,8 +61,8 @@ public:
     void setModel(NetworkModel *networkModel, ConnectionSessionModel *sessionModel);
 
 signals:
-    void accept() const;
     void requestCancelSession() const;
+    void requestSave(const bool active) const;
     void requestRemove(const QString &uuid) const;
     void requestDisconnect(const QString &uuid) const;
     void requestChangeSettings(const QString &section, const QString &vKey, const QString &data) const;

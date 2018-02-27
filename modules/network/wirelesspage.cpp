@@ -272,7 +272,7 @@ void WirelessPage::showAPEditPage(const QString &session)
     m_apEditPage->setModel(m_model, sessionModel);
     connect(m_apEditPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
     connect(m_apEditPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
-    connect(m_apEditPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
+    connect(m_apEditPage, &ConnectionEditPage::requestSave, sessionWorker, &ConnectionSessionWorker::saveSettings);
     connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
     connect(m_apEditPage, &ConnectionEditPage::requestRemove, [this] { emit requestDeleteConnection(m_editingUuid); });
     connect(m_apEditPage, &ConnectionEditPage::requestDisconnect, [this] { emit requestDisconnectConnection(m_editingUuid); });

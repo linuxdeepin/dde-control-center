@@ -138,7 +138,7 @@ void PppoePage::onConnectionSessionCreated(const QString &devicePath, const QStr
     m_editPage->setModel(m_model, sessionModel);
     connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
     connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
-    connect(m_editPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
+    connect(m_editPage, &ConnectionEditPage::requestSave, sessionWorker, &ConnectionSessionWorker::saveSettings);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestRemove, [this] { emit requestDeleteConnection(m_editingUuid); });
     connect(m_editPage, &ConnectionEditPage::requestDisconnect, [this] { emit requestDisconnectConnection(m_editingUuid); });

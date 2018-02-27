@@ -64,9 +64,9 @@ void ConnectionSessionWorker::queryAllKeys()
     connect(w, &QDBusPendingCallWatcher::finished, this, &ConnectionSessionWorker::queryAllKeysCB);
 }
 
-void ConnectionSessionWorker::saveSettings()
+void ConnectionSessionWorker::saveSettings(const bool active)
 {
-    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_sessionInter.Save(true), this);
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_sessionInter.Save(active), this);
 
     connect(w, &QDBusPendingCallWatcher::finished, this, &ConnectionSessionWorker::saveSettingsCB);
 }

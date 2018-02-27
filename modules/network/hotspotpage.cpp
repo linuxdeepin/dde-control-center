@@ -148,9 +148,9 @@ void HotspotPage::onConnectionSessionCreated(const QString &sessionPath)
     ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);
 
     m_editPage->setModel(m_model, sessionModel);
+    connect(m_editPage, &ConnectionEditPage::requestSave, sessionWorker, &ConnectionSessionWorker::saveSettings);
     connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
     connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
-    connect(m_editPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &HotspotPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &HotspotPage::requestFrameKeepAutoHide);
     connect(m_editPage, &ConnectionEditPage::requestDisconnect, this, &HotspotPage::closeHotspot);

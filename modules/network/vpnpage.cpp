@@ -191,7 +191,7 @@ void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionP
     m_editPage->setModel(m_model, sessionModel);
     connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
     connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
-    connect(m_editPage, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
+    connect(m_editPage, &ConnectionEditPage::requestSave, sessionWorker, &ConnectionSessionWorker::saveSettings);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &VpnPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::back, this, &VpnPage::onSessionPageFinished, Qt::QueuedConnection);
     connect(m_editPage, &ConnectionEditPage::requestRemove, [=] { emit requestDeleteConnection(m_editingConnUuid); });

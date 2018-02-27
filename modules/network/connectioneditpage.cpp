@@ -160,13 +160,13 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
 
     setContent(mainWidget);
 
-    connect(m_recreateUITimer, &QTimer::timeout, this, &ConnectionEditPage::recreateUI);
     connect(cancelBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
-    connect(acceptBtn, &QPushButton::clicked, this, &ConnectionEditPage::accept);
-    connect(m_exportBtn, &QPushButton::clicked, this, &ConnectionEditPage::exportConnConfig);
+    connect(acceptBtn, &QPushButton::clicked, this, [this] { emit requestSave(true); });
     connect(m_disconnectBtn, &QPushButton::clicked, this, [this] { emit requestDisconnect(m_sessionModel->uuid()); });
     connect(m_removeBtn, &QPushButton::clicked, this, [this] { emit requestRemove(m_sessionModel->uuid()); });
     connect(m_removeBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
+    connect(m_exportBtn, &QPushButton::clicked, this, &ConnectionEditPage::exportConnConfig);
+    connect(m_recreateUITimer, &QTimer::timeout, this, &ConnectionEditPage::recreateUI);
     connect(this, &ConnectionEditPage::requestNextPage, [=](ContentWidget *w) { m_nextPage = w; });
 }
 

@@ -282,7 +282,7 @@ void NetworkModule::showWiredConnectionEditPage(const QString &session)
     p->setModel(m_networkModel, sessionModel);
     connect(p, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
     connect(p, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
-    connect(p, &ConnectionEditPage::accept, sessionWorker, &ConnectionSessionWorker::saveSettings);
+    connect(p, &ConnectionEditPage::requestSave, sessionWorker, &ConnectionSessionWorker::saveSettings);
     connect(p, &ConnectionEditPage::requestDisconnect, [=] { m_networkWorker->deactiveConnection(m_editingWiredUuid); });
     connect(p, &ConnectionEditPage::requestRemove, [=] { m_networkWorker->deleteConnection(m_editingWiredUuid); });
     connect(p, &ConnectionEditPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
