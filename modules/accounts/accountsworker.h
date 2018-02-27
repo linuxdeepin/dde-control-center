@@ -67,6 +67,7 @@ public:
 signals:
     void requestFrameAutoHide(const bool autoHide) const;
     void accountCreationFinished(CreationResult *result) const;
+    void accountFullNameChangeFinished() const;
 
 public slots:
     void randomUserIcon(User *user);

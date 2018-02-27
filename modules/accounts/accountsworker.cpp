@@ -148,7 +148,18 @@ void AccountsWorker::setFullname(User *user, const QString &fullname)
     AccountsUser *ui = m_userInters[user];
     Q_ASSERT(ui);
 
-    ui->SetFullName(fullname);
+    emit requestFrameAutoHide(false);
+
+    QDBusPendingCall call = ui->SetFullName(fullname);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (!call.isError()) {
+            emit accountFullNameChangeFinished();
+        }
+
+        emit requestFrameAutoHide(true);
+        watcher->deleteLater();
+    });
 }
 
 void AccountsWorker::deleteAccount(User *user, const bool deleteHome)

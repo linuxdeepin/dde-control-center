@@ -147,6 +147,7 @@ void AccountsModule::showFullnamePage(User *account)
     ModifyFullNamePage *p = new ModifyFullNamePage(account);
 
     connect(p, &ModifyFullNamePage::requestSetFullname, m_accountsWorker, &AccountsWorker::setFullname);
+    connect(m_accountsWorker, &AccountsWorker::accountFullNameChangeFinished, p, &ModifyFullNamePage::back);
 
     m_frameProxy->pushWidget(this, p);
 }
