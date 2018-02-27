@@ -40,7 +40,7 @@ DWIDGET_USE_NAMESPACE
 ModifyAvatarPage::ModifyAvatarPage(User *user, QWidget *parent)
     : ContentWidget(parent),
 
-      m_userInter(user),
+      m_userModel(user),
       m_avatarsLayout(new QGridLayout)
 {
     m_avatarsLayout->setSpacing(0);
@@ -65,17 +65,16 @@ void ModifyAvatarPage::appendAvatar(const QString &avatar, const int index, cons
     w->setSelected(selected);
     w->setDeletable(deletable);
 
-    connect(w, &AvatarWidget::clicked, [=] (const QString &iconPath) { emit requestSetAvatar(m_userInter, iconPath); });
+    connect(w, &AvatarWidget::clicked, [=] (const QString &iconPath) { emit requestSetAvatar(m_userModel, iconPath); });
     if (deletable)
-        connect(w, &AvatarWidget::requestDelete, [=](const QString &iconPath) { emit requestDeleteAvatar(m_userInter, iconPath); });
+        connect(w, &AvatarWidget::requestDelete, [=](const QString &iconPath) { emit requestDeleteAvatar(m_userModel, iconPath); });
 
     m_avatarsLayout->addWidget(w, index / 4, index % 4, Qt::AlignCenter);
 }
 
 void ModifyAvatarPage::updateAvatarList()
 {
-    const auto avatars = m_userInter->avatars();
-    Q_ASSERT(avatars.size() >= 14);
+    const auto &avatars = m_userModel->avatars();
 
     // clear old data
     while (QLayoutItem *item = m_avatarsLayout->takeAt(0))
@@ -84,20 +83,26 @@ void ModifyAvatarPage::updateAvatarList()
         delete item;
     }
 
-    const QString currentAvatar = m_userInter->currentAvatar();
+    const QString &currentAvatar = m_userModel->currentAvatar();
 
     // append system avatars
     int count = 0;
-    for (int i(0); i != 14; ++i)
+    for (int i(0); i < avatars.size() - 1; ++i)
     {
         appendAvatar(avatars[i], count, currentAvatar == avatars[i]);
         ++count;
     }
 
-    // append custom avatar
-    if (avatars.size() > 14)
+    // append last avatar, the custom avatar is start with special specificed path
+    if (!avatars.isEmpty())
     {
-        appendAvatar(avatars.last(), count, currentAvatar == avatars.last(), currentAvatar != avatars.last());
+        const auto &avatar = avatars.last();
+
+        if (avatar.startsWith("file:///var/lib/AccountsService/icons/local"))
+            appendAvatar(avatars.last(), count, currentAvatar == avatars.last(), currentAvatar != avatars.last());
+        else
+            appendAvatar(avatar, count, currentAvatar == avatar);
+
         ++count;
     }
 
@@ -106,6 +111,8 @@ void ModifyAvatarPage::updateAvatarList()
     btn->setNormalPic(":/accounts/themes/common/icons/add_avatar_normal.svg");
     btn->setHoverPic(":/accounts/themes/common/icons/add_avatar_hover.svg");
     btn->setPressPic(":/accounts/themes/common/icons/add_avatar_press.svg");
-    connect(btn, &DImageButton::clicked, [=] { emit requestAddNewAvatar(m_userInter); });
+
+    connect(btn, &DImageButton::clicked, [=] { emit requestAddNewAvatar(m_userModel); });
+
     m_avatarsLayout->addWidget(btn, count / 4, count % 4, Qt::AlignCenter);
 }

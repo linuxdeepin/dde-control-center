@@ -53,7 +53,7 @@ private slots:
     void updateAvatarList();
 
 private:
-    User *m_userInter;
+    User *m_userModel;
     QGridLayout *m_avatarsLayout;
 };
 
