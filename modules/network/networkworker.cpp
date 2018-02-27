@@ -33,7 +33,7 @@ NetworkWorker::NetworkWorker(NetworkModel *model, QObject *parent)
       m_chainsInter(new ProxyChains("com.deepin.daemon.Network", "/com/deepin/daemon/Network/ProxyChains", QDBusConnection::sessionBus(), this)),
       m_networkModel(model)
 {
-    connect(&m_networkInter, &NetworkInter::ActiveConnectionsChanged, this, &NetworkWorker::queryActiveConnInfo);
+    connect(&m_networkInter, &NetworkInter::ActiveConnectionsChanged, this, &NetworkWorker::queryActiveConnInfo, Qt::QueuedConnection);
     connect(&m_networkInter, &NetworkInter::DevicesChanged, m_networkModel, &NetworkModel::onDeviceListChanged);
     connect(&m_networkInter, &NetworkInter::ActiveConnectionsChanged, m_networkModel, &NetworkModel::onActiveConnectionsChanged);
     connect(&m_networkInter, &NetworkInter::ConnectionsChanged, m_networkModel, &NetworkModel::onConnectionListChanged);
