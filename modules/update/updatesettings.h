@@ -61,9 +61,8 @@ private:
 #endif
     SwitchWidget *m_autoCleanCache;
     SwitchWidget* m_autoDownloadSwitch;
-#ifndef DISABLE_SYS_UPDATE_MIRRORS
     NextPageWidget* m_updateMirrors;
-#endif
+    bool m_isProfessional;
 };
 
 }

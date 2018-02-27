@@ -39,6 +39,14 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     :ContentWidget(parent),
       m_model(nullptr)
 {
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
+    QSettings setting("/etc/deepin-version", QSettings::IniFormat);
+    setting.beginGroup("Release");
+    m_isProfessional = setting.value("Type").toString() == "Professional";
+#else
+    m_isProfessional = true;
+#endif
+
     setTitle(tr("Update Settings"));
 
     TranslucentFrame* widget = new TranslucentFrame;
@@ -82,13 +90,13 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     layout->addWidget(label);
     layout->addSpacing(15);
 
-#ifndef DISABLE_SYS_UPDATE_MIRRORS
-    m_updateMirrors = new NextPageWidget;
-    m_updateMirrors->setTitle(tr("Switch Mirror"));
-    SettingsGroup* mg = new SettingsGroup;
-    mg->appendItem(m_updateMirrors);
-    layout->addWidget(mg);
-#endif
+    if (!m_isProfessional) {
+        m_updateMirrors = new NextPageWidget;
+        m_updateMirrors->setTitle(tr("Switch Mirror"));
+        SettingsGroup* mg = new SettingsGroup;
+        mg->appendItem(m_updateMirrors);
+        layout->addWidget(mg);
+    }
 
     layout->addStretch();
 
@@ -96,9 +104,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 
     setContent(widget);
 
-#ifndef DISABLE_SYS_UPDATE_MIRRORS
-    connect(m_updateMirrors, &NextPageWidget::clicked, this, &UpdateSettings::requestShowMirrorsView);
-#endif
+    if (!m_isProfessional) {
+        connect(m_updateMirrors, &NextPageWidget::clicked, this, &UpdateSettings::requestShowMirrorsView);
+    }
 
     connect(m_autoCleanCache, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCleanCache);
     connect(m_autoDownloadSwitch, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoUpdate);
@@ -119,26 +127,20 @@ void UpdateSettings::setModel(UpdateModel *model)
             m_autoDownloadSwitch->setChecked(autoDownload);
         };
 
-#ifndef DISABLE_SYS_UPDATE_MIRRORS
-        auto setDefaultMirror = [this] (const MirrorInfo &mirror) {
-            m_updateMirrors->setValue(mirror.m_name);
-        };
-#endif
+        if (!m_isProfessional) {
+            auto setDefaultMirror = [this] (const MirrorInfo &mirror) {
+                m_updateMirrors->setValue(mirror.m_name);
+            };
+            setDefaultMirror(model->defaultMirror());
+            connect(model, &UpdateModel::defaultMirrorChanged, this, setDefaultMirror);
+        }
 
         setAutoDownload(model->autoDownloadUpdates());
-
-#ifndef DISABLE_SYS_UPDATE_MIRRORS
-        setDefaultMirror(model->defaultMirror());
-#endif
 
         connect(model, &UpdateModel::autoDownloadUpdatesChanged, this, setAutoDownload);
         connect(model, &UpdateModel::autoCleanCacheChanged, m_autoCleanCache, &SwitchWidget::setChecked);
 
         m_autoCleanCache->setChecked(m_model->autoCleanCache());
-
-#ifndef DISABLE_SYS_UPDATE_MIRRORS
-        connect(model, &UpdateModel::defaultMirrorChanged, this, setDefaultMirror);
-#endif
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
         connect(model, &UpdateModel::sourceCheckChanged, m_sourceCheck, &SwitchWidget::setChecked);
