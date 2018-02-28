@@ -69,8 +69,8 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addSpacing(10);
-    centralLayout->addWidget(m_settingsGrp);
     centralLayout->addWidget(m_tipsGrp);
+    centralLayout->addWidget(m_settingsGrp);
     centralLayout->addWidget(m_createBtn);
     centralLayout->addStretch();
     centralLayout->setSpacing(10);
@@ -219,15 +219,9 @@ void WiredPage::checkActivatedConnection()
 
 void WiredPage::onDeviceStatusChanged(const NetworkDevice::DeviceStatus stat)
 {
-    // FIXME: when device not ready, ListDeviceConncections of deepin-daemon will return a empty list,
-    // we need to refetch data when device is ready.
-    emit requestConnectionsList(m_device->path());
-
     const bool unavailable = stat <= NetworkDevice::Unavailable;
 
     m_tipsGrp->setVisible(unavailable);
-    m_settingsGrp->setVisible(!unavailable);
-    m_createBtn->setVisible(!unavailable);
 }
 
 void WiredPage::onSessionCreated(const QString &sessionPath)
