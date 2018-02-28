@@ -105,11 +105,12 @@ void ResolutionDetailPage::onItemClicked()
     if (item == m_currentItem)
         return;
 
+    // NOTE: 800*600 is not support resolution;
     if (m_currentItem) {
-        m_currentItem->blockSignals(true);
         m_currentItem->setSelected(false);
-        m_currentItem->blockSignals(false);
     }
+
+    item->setSelected(true);
 
     m_currentItem = item;
 
