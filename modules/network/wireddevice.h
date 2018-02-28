@@ -42,12 +42,12 @@ class WiredDevice : public NetworkDevice
 public:
     explicit WiredDevice(const QJsonObject &info, QObject *parent = 0);
 
-    void setConnections(const QList<QDBusObjectPath> &connections);
-    const QList<QDBusObjectPath> connections() const { return m_connections; }
+    void setConnections(const QList<QString> &connections);
+    const QList<QString> connections() const { return m_connections; }
     const QJsonObject activeConnection() const { return m_activeConnection; }
 
 signals:
-    void connectionsChanged(const QList<QDBusObjectPath> &connPaths) const;
+    void connectionsChanged(const QList<QString> &connPaths) const;
     void activeConnectionChanged(const QJsonObject &connInfo) const;
 
 public slots:
@@ -55,7 +55,7 @@ public slots:
 
 private:
     QJsonObject m_activeConnection;
-    QList<QDBusObjectPath> m_connections;
+    QList<QString> m_connections;
 };
 
 }

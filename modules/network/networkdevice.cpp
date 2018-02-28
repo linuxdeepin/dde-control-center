@@ -111,6 +111,11 @@ const QString NetworkDevice::path() const
     return m_deviceInfo.value("Path").toString();
 }
 
+const QString NetworkDevice::realHwAdr() const
+{
+    return m_deviceInfo.value("HwAddress").toString();
+}
+
 const QString NetworkDevice::usingHwAdr() const
 {
     const auto &hwAdr = m_deviceInfo.value("HwAddress").toString();

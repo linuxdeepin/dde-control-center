@@ -161,7 +161,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
     else if (dev->type() == NetworkDevice::Wired)
     {
         WiredPage *p = new WiredPage(static_cast<WiredDevice *>(dev));
-        connect(p, &WiredPage::requestConnectionsList, m_networkWorker, &NetworkWorker::queryDeviceConnections);
+//        connect(p, &WiredPage::requestConnectionsList, m_networkWorker, &NetworkWorker::queryDeviceConnections);
         connect(p, &WiredPage::requestActiveConnection, m_networkWorker, &NetworkWorker::activateConnection);
         connect(p, &WiredPage::requestCreateConnection, m_networkWorker, &NetworkWorker::createConnection);
         connect(p, &WiredPage::requestEditConnection, m_networkWorker, &NetworkWorker::queryConnectionSession);

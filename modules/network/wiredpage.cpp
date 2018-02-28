@@ -90,30 +90,12 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     connect(m_device, static_cast<void (WiredDevice::*)(WiredDevice::DeviceStatus) const>(&WiredDevice::statusChanged), this, &WiredPage::onDeviceStatusChanged);
 
     onDeviceStatusChanged(m_device->status());
+    QTimer::singleShot(1, this, &WiredPage::refreshConnectionList);
 }
 
 void WiredPage::setModel(NetworkModel *model)
 {
     m_model = model;
-
-//    int index = 0;
-//    int count = 0;
-
-//    const auto devices = m_model->devices();
-//    for (int i(0); i != devices.size(); ++i)
-//    {
-//        if (devices[i]->type() != NetworkDevice::Wired)
-//            continue;
-
-//        ++count;
-//        if (devices[i] == m_device)
-//            index = i;
-//    }
-
-//    if (count == 1)
-//        setTitle(tr("Wired Network Card"));
-//    else
-//        setTitle(tr("Wired Network Card%1").arg(index + 1));
 
     QTimer::singleShot(1, this, &WiredPage::initUI);
 }
@@ -144,9 +126,8 @@ void WiredPage::refreshConnectionList()
 
     const auto conns = m_device->connections();
     QSet<QString> connPaths;
-    for (const auto c : conns)
+    for (const auto &path : conns)
     {
-        const QString path = c.path();
         // pass unavailable wired conns, like 'PPPoE'
         if (!availableWiredConns.contains(path))
             continue;

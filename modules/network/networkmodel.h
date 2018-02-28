@@ -114,7 +114,7 @@ private slots:
     void onDeviceAPInfoChanged(const QString &device, const QString &apInfo);
     void onDeviceAPRemoved(const QString &device, const QString &apInfo);
     void onDeviceEnableChanged(const QString &device, const bool enabled);
-    void onDeviceConnectionsChanged(const QString &devPath, const QList<QDBusObjectPath> &connections);
+    void onDeviceConnectionsChanged(const QString &devPath, const QList<QString> &connections);
     void onChainsTypeChanged(const QString &type);
     void onChainsAddrChanged(const QString &addr);
     void onChainsPortChanged(const QString &port);
@@ -131,13 +131,13 @@ private:
     QString m_proxyMethod;
     QString m_proxyIgnoreHosts;
     QString m_autoProxy;
-    QMap<QString, ProxyConfig> m_proxies;
+    ProxyConfig m_chainsProxy;
     QList<NetworkDevice *> m_devices;
-    QMap<QString, QList<QJsonObject>> m_connections;
     QList<QJsonObject> m_activeConnInfos;
     QList<QJsonObject> m_activeConnObjects;
     QSet<QString> m_activeConnections;
-    ProxyConfig m_chainsProxy;
+    QMap<QString, ProxyConfig> m_proxies;
+    QMap<QString, QList<QJsonObject>> m_connections;
 };
 
 }   // namespace network

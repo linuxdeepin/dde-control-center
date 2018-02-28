@@ -35,7 +35,7 @@ WiredDevice::WiredDevice(const QJsonObject &info, QObject *parent)
 
 }
 
-void WiredDevice::setConnections(const QList<QDBusObjectPath> &connections)
+void WiredDevice::setConnections(const QList<QString> &connections)
 {
     m_connections = connections;
 

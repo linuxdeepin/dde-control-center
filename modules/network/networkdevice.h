@@ -72,6 +72,7 @@ public:
     const QString statusString() const;
     const QJsonObject info() const { return m_deviceInfo; }
     const QString path() const;
+    const QString realHwAdr() const;
     const QString usingHwAdr() const;
 
 signals:

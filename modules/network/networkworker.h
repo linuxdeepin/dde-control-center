@@ -61,12 +61,12 @@ public slots:
     void queryProxyMethod();
     void queryProxyIgnoreHosts();
     void queryActiveConnInfo();
-    void queryDevicesConnections();
+//    void queryDevicesConnections();
     void queryProxy(const QString &type);
     void queryAccessPoints(const QString &devPath);
     void queryConnectionSession(const QString &devPath, const QString &uuid);
     void queryDeviceStatus(const QString &devPath);
-    void queryDeviceConnections(const QString &devPath);
+//    void queryDeviceConnections(const QString &devPath);
     void remanageDevice(const QString &devPath);
     void setVpnEnable(const bool enable);
     void setDeviceEnable(const QString &devPath, const bool enable);
@@ -84,7 +84,7 @@ private slots:
     void queryAccessPointsCB(QDBusPendingCallWatcher *w);
     void queryConnectionSessionCB(QDBusPendingCallWatcher *w);
     void queryDeviceStatusCB(QDBusPendingCallWatcher *w);
-    void queryDeviceConnectionsCB(QDBusPendingCallWatcher *w);
+//    void queryDeviceConnectionsCB(QDBusPendingCallWatcher *w);
     void queryActiveConnInfoCB(QDBusPendingCallWatcher *w);
 
 private:
