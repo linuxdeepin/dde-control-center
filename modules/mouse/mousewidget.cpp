@@ -148,6 +148,7 @@ void MouseWidget::setModel(MouseModel *const model)
     m_palmDetectSetting->setModel(model);
 
     connect(model, &MouseModel::mouseExistChanged, m_mouseSettingsGrp, &SettingsGroup::setVisible);
+    connect(model, &MouseModel::mouseExistChanged, this, &MouseWidget::onTouchpadHideChanged);
     connect(model, &MouseModel::tpadExistChanged, this, &MouseWidget::onTouchpadHideChanged);
     connect(model, &MouseModel::redPointExistChanged, m_thinkapdSettingsGrp, &SettingsGroup::setVisible);
 
@@ -167,6 +168,8 @@ void MouseWidget::setModel(MouseModel *const model)
     connect(model, &MouseModel::disIfTypingStateChanged, m_disInTyping, &SwitchWidget::setChecked);
     connect(model, &MouseModel::tapClickChanged, m_touchClickStn, &SwitchWidget::setChecked);
 
+    connect(model, &MouseModel::leftHandStateChanged, m_leftHand, &SwitchWidget::setChecked);
+
     m_mouseSettingsGrp->setVisible(model->mouseExist());
     m_thinkapdSettingsGrp->setVisible(model->redPointExist());
 
@@ -182,6 +185,7 @@ void MouseWidget::setModel(MouseModel *const model)
     m_touchNaturalScroll->setChecked(model->tpadNaturalScroll());
     m_disTchStn->setChecked(model->disTpad());
     m_touchClickStn->setChecked(model->tapclick());
+    m_leftHand->setChecked(model->leftHandState());
 }
 
 void MouseWidget::onTouchpadHideChanged(const bool visible)
@@ -190,6 +194,7 @@ void MouseWidget::onTouchpadHideChanged(const bool visible)
 
     const bool tpadExist = m_mouseModel->tpadExist();
 
+    m_disInTyping->setVisible(tpadExist);
     m_disTchStn->setVisible(tpadExist);
     m_touchSettingsGrp->setVisible(tpadExist);
     m_palmDetectSetting->setVisible(tpadExist);
