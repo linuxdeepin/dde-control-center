@@ -114,10 +114,11 @@ void WirelessDevice::setHotspotInfo(const QJsonObject &hotspotInfo)
 {
     Q_ASSERT(supportHotspot());
 
-    if (m_hotspotInfo != hotspotInfo)
-    {
-        m_hotspotInfo = hotspotInfo;
+    const bool changed = m_hotspotInfo.isEmpty() != hotspotInfo.isEmpty();
 
-        emit hotspotEnabledChanged(!hotspotInfo.isEmpty());
+    m_hotspotInfo = hotspotInfo;
+
+    if (changed) {
+        emit hotspotEnabledChanged(!m_hotspotInfo.isEmpty());
     }
 }

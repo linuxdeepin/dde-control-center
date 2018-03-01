@@ -226,7 +226,7 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
             g->appendItem(hotspot);
 
             connect(dev, &NetworkDevice::enableChanged, hotspot, &NextPageWidget::setVisible);
-            connect(wdev, &WirelessDevice::hotspotEnabledChanged, this, [=] (const bool enabled) { hotspot->setValue(enabled ? tr("Shared") : QString()); });
+            connect(wdev, &WirelessDevice::hotspotEnabledChanged, hotspot, [=] (const bool enabled) { hotspot->setValue(enabled ? tr("Shared") : QString()); });
             connect(hotspot, &NextPageWidget::clicked, this, [=] { emit requestHotspotPage(wdev); });
 
             hotspot->setVisible(devEnabled);
