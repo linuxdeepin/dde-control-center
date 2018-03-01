@@ -69,11 +69,9 @@ signals:
     void requestMonitorRotate(Monitor *mon) const;
 #endif
     void requestSetMonitorMode(Monitor *mon, const int mode) const;
-//    void requestSetMonitorBrightness(Monitor *mon, const double brightness) const;
     void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
 
 private:
-//    void resizeEvent(QResizeEvent *e);
     void mouseMoveEvent(QMouseEvent *e);
 
     void init();
@@ -89,12 +87,10 @@ private slots:
     void onPrimaryChanged();
     void onMonitorRectChanged();
     void onMonitorModeChanged();
-//    void onMonitorBrightnessChanegd(const double brightness);
     void onMonitorModeSelected(const int index);
 #ifndef DCC_DISABLE_ROTATE
     void onRotateBtnClicked();
 #endif
-//    void onBrightnessSliderChanged(const int value);
 
 private:
     bool m_primary;
@@ -104,12 +100,9 @@ private:
 
     widgets::BasicListModel *m_resolutionsModel;
 
-    QLabel *m_monitorName;
 #ifndef DCC_DISABLE_ROTATE
     Dtk::Widget::DImageButton *m_rotateBtn;
 #endif
-//    dcc::widgets::DCCSlider *m_lightSlider;
-//    SettingsListWidget *m_resolutionsWidget;
     SettingsListWidget *m_primarySettingsWidget;
     MonitorControlWidget *m_ctrlWidget;
     QHBoxLayout *m_btnsLayout;

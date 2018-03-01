@@ -75,13 +75,6 @@ MonitorSettingDialog::~MonitorSettingDialog()
     qDeleteAll(m_otherDialogs);
 }
 
-//void MonitorSettingDialog::resizeEvent(QResizeEvent *e)
-//{
-//    DAbstractDialog::resizeEvent(e);
-
-//    QTimer::singleShot(1, this, &MonitorSettingDialog::onMonitorRectChanged);
-//}
-
 void MonitorSettingDialog::mouseMoveEvent(QMouseEvent *e)
 {
     e->ignore();
@@ -133,31 +126,6 @@ void MonitorSettingDialog::init()
     m_rotateBtn->setPressPic(":/display/themes/dark/icons/rotate_press.png");
 #endif
 
-    m_monitorName = new QLabel;
-    m_monitorName->setAlignment(Qt::AlignCenter);
-    m_monitorName->setObjectName("MonitorName");
-
-//    m_lightSlider = new DCCSlider;
-//    m_lightSlider->setOrientation(Qt::Horizontal);
-//    m_lightSlider->setMinimum(0);
-//    m_lightSlider->setMaximum(1000);
-//    m_lightSlider->setMinimumWidth(430);
-//    m_lightSlider->setTracking(true);
-
-//    QLabel *minLight = new QLabel;
-//    minLight->setPixmap(QPixmap(":/display/themes/dark/icons/brightness_low.png"));
-//    QLabel *maxLight = new QLabel;
-//    maxLight->setPixmap(QPixmap(":/display/themes/dark/icons/brightness_high.png"));
-
-//    QHBoxLayout *lightLayout = new QHBoxLayout;
-//    lightLayout->addStretch();
-//    lightLayout->addWidget(minLight);
-//    lightLayout->addWidget(m_lightSlider);
-//    lightLayout->addWidget(maxLight);
-//    lightLayout->addStretch();
-//    lightLayout->setSpacing(10);
-//    lightLayout->setContentsMargins(10, 0, 10, 0);
-
     m_btnsLayout = new QHBoxLayout;
     m_btnsLayout->addSpacing(15);
 #ifndef DCC_DISABLE_ROTATE
@@ -171,7 +139,7 @@ void MonitorSettingDialog::init()
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(10);
 
-    m_mainLayout->addWidget(m_monitorName);
+    m_mainLayout->addSpacing(40);
     m_mainLayout->addLayout(resoLayout);
     m_mainLayout->addSpacing(10);
     m_mainLayout->addLayout(m_btnsLayout);
@@ -189,7 +157,6 @@ void MonitorSettingDialog::init()
     m_positionWatcher->start();
 
     connect(resolutionView, &BasicListView::clicked, [=](const QModelIndex &index) { onMonitorModeSelected(index.row()); });
-//    connect(m_lightSlider, &DCCSlider::valueChanged, this, &MonitorSettingDialog::onBrightnessSliderChanged);
 #ifndef DCC_DISABLE_ROTATE
     connect(m_rotateBtn, &DImageButton::clicked, this, &MonitorSettingDialog::onRotateBtnClicked);
 #endif
@@ -251,20 +218,17 @@ void MonitorSettingDialog::reloadMonitorObject(Monitor *monitor)
     if (m_monitor)
     {
         disconnect(m_monitor, &Monitor::currentModeChanged, this, &MonitorSettingDialog::onMonitorModeChanged);
-//        disconnect(m_monitor, &Monitor::brightnessChanged, this, &MonitorSettingDialog::onMonitorBrightnessChanegd);
         disconnect(m_monitor, &Monitor::geometryChanged, m_positionWatcher, static_cast<void (QTimer::*)()>(&QTimer::start));
     }
 
     m_monitor = monitor;
 
     connect(m_monitor, &Monitor::currentModeChanged, this, &MonitorSettingDialog::onMonitorModeChanged, Qt::QueuedConnection);
-//    connect(m_monitor, &Monitor::brightnessChanged, this, &MonitorSettingDialog::onMonitorBrightnessChanegd);
     connect(m_monitor, &Monitor::geometryChanged, m_positionWatcher, static_cast<void (QTimer::*)()>(&QTimer::start));
 
-    m_monitorName->setText(m_monitor->name());
     setWindowTitle(m_monitor->name());
     onMonitorModeChanged();
-//    onMonitorBrightnessChanegd(m_monitor->brightness());
+
     QTimer::singleShot(10, this, &MonitorSettingDialog::onMonitorRectChanged);
 }
 
@@ -283,7 +247,6 @@ void MonitorSettingDialog::reloadOtherScreensDialog()
 
         connect(dialog, &MonitorSettingDialog::requestSetPrimary, this, &MonitorSettingDialog::requestSetPrimary);
         connect(dialog, &MonitorSettingDialog::requestSetMonitorMode, this, &MonitorSettingDialog::requestSetMonitorMode);
-//        connect(dialog, &MonitorSettingDialog::requestSetMonitorBrightness, this, &MonitorSettingDialog::requestSetMonitorBrightness);
 #ifndef DCC_DISABLE_ROTATE
         connect(dialog, &MonitorSettingDialog::requestMonitorRotate, this, &MonitorSettingDialog::requestMonitorRotate);
 #endif
@@ -369,13 +332,6 @@ void MonitorSettingDialog::onMonitorModeChanged()
     }
 }
 
-//void MonitorSettingDialog::onMonitorBrightnessChanegd(const double brightness)
-//{
-//    m_lightSlider->blockSignals(true);
-//    m_lightSlider->setValue(brightness * BRIGHTNESS_MUL);
-//    m_lightSlider->blockSignals(false);
-//}
-
 void MonitorSettingDialog::updateModeList(const QList<Resolution> &modeList)
 {
     m_resolutionsModel->clear();
@@ -435,20 +391,6 @@ void MonitorSettingDialog::onRotateBtnClicked()
         emit requestMonitorRotate(m_monitor);
 }
 #endif
-
-//void MonitorSettingDialog::onBrightnessSliderChanged(const int value)
-//{
-//    const double v = value / BRIGHTNESS_MUL;
-//    const bool intersect = m_primary && m_model->monitorsIsIntersect();
-
-//    if (intersect)
-//    {
-//        for (auto mon : m_model->monitorList())
-//            emit requestSetMonitorBrightness(mon, v);
-//    } else {
-//        emit requestSetMonitorBrightness(m_monitor, v);
-//    }
-//}
 
 } // namespace display
 

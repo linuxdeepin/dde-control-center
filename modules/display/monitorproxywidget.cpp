@@ -81,7 +81,7 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
     painter.drawText(r.width() - width - 20, 30, m_monitor->name());
 
     // draw dock pattern if it's primary screen
-    if (!m_monitor->isPrimary())
+    if (m_monitor->isPrimary())
     {
         const int radius = 5;
         QRectF dockRect = r;
