@@ -404,11 +404,7 @@ void Frame::hide()
     m_appearAnimation.setEndValue(r);
     m_appearAnimation.start();
 
-//    QTimer::singleShot(m_appearAnimation.duration(), this, &QFrame::hide);
-    QTimer::singleShot(m_appearAnimation.duration(), [=] {
-        if (m_appearAnimation.state() != QPropertyAnimation::Running)
-            DBlurEffectWidget::hide();
-    });
+    QTimer::singleShot(m_appearAnimation.duration(), this, &QFrame::hide);
 
     // notify top widget disappear
     if (m_frameWidgetStack.last() && m_frameWidgetStack.last()->content())
