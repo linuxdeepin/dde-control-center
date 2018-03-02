@@ -96,6 +96,7 @@ private slots:
 private:
     AccountsUser *userInter(const QString &userName) const;
     CreationResult *createAccountInternal(const User *user);
+    QString cryptUserPassword(const QString &password);
 
 private:
     Accounts *m_accountsInter;

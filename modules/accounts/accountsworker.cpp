@@ -35,6 +35,8 @@
 #include <pwd.h>
 #include <unistd.h>
 #include <libintl.h>
+#include <random>
+#include <crypt.h>
 
 using namespace dcc::accounts;
 
@@ -411,7 +413,7 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
 
     //TODO(hualet): better to check all the call results.
     bool sifResult = !userDBus->SetIconFile(user->currentAvatar()).isError();
-    bool spResult = !userDBus->SetPassword(user->password()).isError();
+    bool spResult = !userDBus->SetPassword(cryptUserPassword(user->password())).isError();
 
     if (!sifResult || !spResult) {
         result->setType(CreationResult::UnknownError);
@@ -422,4 +424,31 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     }
 
     return result;
+}
+
+QString AccountsWorker::cryptUserPassword(const QString &password)
+{
+    /*
+        NOTE(kirigaya): Password is a combination of salt and crypt function.
+        slat is begin with $6$, 16 byte of random values, at the end of $.
+        crypt function will return encrypted values.
+     */
+
+    const QString seedchars("./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+    char salt[] = "$6$................$";
+
+    std::random_device r;
+    std::default_random_engine e1(r());
+    std::uniform_int_distribution<int> uniform_dist(0, seedchars.size());
+
+    // Random access to a character in a restricted list
+    for (int i = 0; i != 16; i++) {
+        salt[3 + i] = seedchars.at(uniform_dist(e1)).toLatin1();
+    }
+
+#ifdef QT_DEBUG
+    qDebug() << crypt(password.toUtf8().data(), salt);
+#endif
+
+    return crypt(password.toUtf8().data(), salt);
 }

@@ -14,6 +14,7 @@ TEMPLATE   = app
 CONFIG += c++14 link_pkgconfig
 LIBS += -L../widgets
 PKGCONFIG      += dtkwidget dframeworkdbus xcb xext gsettings-qt
+LIBS += -lcrypt
 
 # for gperftools
 #LIBS += -lprofiler
