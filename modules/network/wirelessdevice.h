@@ -43,7 +43,7 @@ public:
 
     bool supportHotspot() const;
     const QString hotspotUuid() const;
-    inline bool hotspotEnabled() const { return supportHotspot() && !m_hotspotInfo.isEmpty(); }
+    inline bool hotspotEnabled() const { return !m_hotspotInfo.isEmpty(); }
     inline const QString activeApName() const { return m_activeAp; }
 
 signals:
