@@ -31,8 +31,8 @@
 #include <QDebug>
 
 ReminderDialog::ReminderDialog(QRect screenGeometry)
-    : DDialog(tr("Updates installed, need to restart, restart now?"),
-              tr("Please make sure all data have been saved firstly")),
+    : DDialog(tr("Updates have been installed, to apply these updates you must restart, restart now?"),
+              tr("Please make sure all data has been saved")),
       m_screenGeometry(screenGeometry)
 {
     QIcon icon( QIcon::fromTheme("system-updated") );
