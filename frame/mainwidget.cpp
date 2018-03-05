@@ -148,7 +148,6 @@ MainWidget::MainWidget(Frame *parent)
 
 #ifndef DISABLE_SYS_UPDATE
     m_updateNotifier->setObjectName("UpdateNotifier");
-    m_updateNotifier->setVisible(false);
 
     connect(m_updateNotifier, &UpdateNotifier::notifierVisibleChanged, this, &MainWidget::updateMPRISEnable);
 #endif

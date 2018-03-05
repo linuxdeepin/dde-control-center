@@ -151,6 +151,7 @@ int main(int argc, char *argv[])
     app.setApplicationVersion("4.0");
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
     app.loadTranslator();
+//    app.loadTranslator(QList<QLocale>() << QLocale::Chinese);
     app.setQuitOnLastWindowClosed(false);
     app.setTheme("light");
 

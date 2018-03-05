@@ -42,11 +42,11 @@ UpdateNotifier::UpdateNotifier(QWidget *parent)
                                                        "/com/deepin/lastore",
                                                        QDBusConnection::systemBus(), this))
 {
-    setVisible(false);
     setFixedHeight(80);
     setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
 
     m_content->setWordWrap(true);
+    m_content->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
     const qreal ratio = devicePixelRatioF();
     QIcon icon = QIcon::fromTheme("system-updated", QIcon::fromTheme("application-default-icon"));
@@ -76,15 +76,10 @@ UpdateNotifier::UpdateNotifier(QWidget *parent)
     contentLayout->addStretch();
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->setSpacing(0);
-    mainLayout->setMargin(0);
-
-    mainLayout->addSpacing(40);
+    mainLayout->setSpacing(10);
+    mainLayout->setContentsMargins(40, 0, 40, 0);
     mainLayout->addWidget(m_icon);
-    mainLayout->addSpacing(10);
     mainLayout->addLayout(contentLayout);
-    mainLayout->addSpacing(40);
-    mainLayout->addStretch();
 
     setLayout(mainLayout);
 
