@@ -27,7 +27,7 @@ MouseWidget::MouseWidget()
     m_centeralLayout->addWidget(m_baseSettings);
 
     m_mouseSettings = new MouseSettings(tr("Mouse"));
-    m_mouseSettings->setSwitchTitle(QString(tr("Disable the touchpad when inserting the mouse")));
+    m_mouseSettings->setSwitchTitle(QString(tr("Disable the touchpad while mouse is being used")));
     m_centeralLayout->addWidget(m_mouseSettings);
 
 
