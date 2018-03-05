@@ -103,12 +103,12 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="34"/>
-        <source>Updates installed, need to restart, restart now?</source>
+        <source>Updates installed, to apply these settings you must restart. Would you like to restart now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
-        <source>Please make sure all data have been saved firstly</source>
+        <source>Please make sure all data has been saved.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2415,7 +2415,7 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="51"/>
-        <source>Please restart to use the system and applications properly after updated</source>
+        <source>Please restart to apply the updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
