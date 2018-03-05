@@ -3,16 +3,12 @@ QLabel#ModuleHeaderTitle {
     margin: 0 0 0 5px;
 }
 
-QFrame#HomePluginsFrame {
-    /*background: rgba(255, 255, 255, 0.03);*/
-}
-
 QLabel#CurrentDateLabel {
-    color: white
+    color: white;
 }
 
 QLabel#CurrentTimeLabel {
-    color: white
+    color: white;
 }
 
 QLabel#HomeVolumeLowLabel {

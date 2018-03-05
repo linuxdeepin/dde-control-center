@@ -80,7 +80,7 @@ MainWidget::MainWidget(Frame *parent)
         {
             m_userAvatarBtn = new AvatarWidget(inter->iconFile());
             m_userAvatarBtn->setAccessibleName(inter->iconFile());
-            m_userAvatarBtn->setAccessibleDescription("iconMainWidget");
+            m_userAvatarBtn->setAccessibleDescription("UserAvatarButton");
 
             connect(inter, &UserInter::IconFileChanged, m_userAvatarBtn, &AvatarWidget::setAvatarPath);
             connect(m_userAvatarBtn, &AvatarWidget::clicked, this, [=] { emit showSettingPage("accounts", inter->userName(), false); });
@@ -118,19 +118,15 @@ MainWidget::MainWidget(Frame *parent)
 
     QVBoxLayout *avatarLayout = new QVBoxLayout;
     avatarLayout->setSpacing(0);
-    avatarLayout->setMargin(0);
-    avatarLayout->addStretch();
-    avatarLayout->addSpacing(20);
+    avatarLayout->setContentsMargins(0, 10, 0, 0);
     avatarLayout->addWidget(m_userAvatarBtn);
-    avatarLayout->addStretch();
 
     QHBoxLayout *headerLayout = new QHBoxLayout;
-    headerLayout->addStretch();
+    headerLayout->setSpacing(30);
+    headerLayout->setContentsMargins(40, 0, 0, 10);
     headerLayout->addLayout(avatarLayout);
     headerLayout->addLayout(timedateLayout);
     headerLayout->addStretch();
-    headerLayout->setSpacing(30);
-    headerLayout->setMargin(0);
 
     headerFrame->setLayout(headerLayout);
 
