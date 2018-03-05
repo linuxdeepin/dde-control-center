@@ -80,6 +80,9 @@ public:
     const QJsonObject connectionByPath(const QString &connPath) const;
     const QJsonObject activeConnObjectByUuid(const QString &uuid) const;
 
+    bool appProxyExist() const { return m_appProxyExist; }
+    void setAppProxyExist(bool appProxyExist);
+
 signals:
     void connectionListChanged() const;
     void deviceEnableChanged(const QString &device, const bool enabled) const;
@@ -98,6 +101,7 @@ signals:
     void chainsPortChanged(const QString& port) const;
     void chainsUsernameChanged(const QString &username) const;
     void chainsPasswdChanged(const QString &passwd) const;
+    void appProxyExistChanged(const bool appProxyExist) const;
 
 private slots:
     void onVPNEnabledChanged(const bool enabled);
@@ -128,6 +132,7 @@ private:
 
 private:
     bool m_vpnEnabled;
+    bool m_appProxyExist;
     QString m_proxyMethod;
     QString m_proxyIgnoreHosts;
     QString m_autoProxy;

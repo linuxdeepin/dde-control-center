@@ -72,6 +72,7 @@ private:
     dcc::widgets::NextPageWidget *m_vpnBtn;
     dcc::widgets::NextPageWidget *m_proxyBtn;
     dcc::widgets::NextPageWidget *m_detailBtn;
+    dcc::widgets::NextPageWidget *m_appProxy;
 
     QMap<dcc::widgets::NextPageWidget *, NetworkDevice *> m_devicesWidgets;
 };

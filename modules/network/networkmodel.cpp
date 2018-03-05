@@ -462,3 +462,14 @@ NetworkDevice *NetworkModel::device(const QString &devPath) const
 
     return nullptr;
 }
+
+void NetworkModel::setAppProxyExist(bool appProxyExist)
+{
+    if (m_appProxyExist == appProxyExist) {
+        return;
+    }
+
+    m_appProxyExist = appProxyExist;
+
+    emit appProxyExistChanged(appProxyExist);
+}

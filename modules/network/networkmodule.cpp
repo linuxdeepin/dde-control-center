@@ -101,7 +101,7 @@ void NetworkModule::reset()
 
 void NetworkModule::moduleActive()
 {
-
+    m_networkWorker->active();
 }
 
 void NetworkModule::moduleDeactive()

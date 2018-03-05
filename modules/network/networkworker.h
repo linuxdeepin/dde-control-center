@@ -47,6 +47,8 @@ class NetworkWorker : public QObject
 public:
     explicit NetworkWorker(NetworkModel *model, QObject *parent = 0);
 
+    void active();
+
 public slots:
     void activateConnection(const QString &devPath, const QString &uuid);
     void activateAccessPoint(const QString &devPath, const QString &apPath, const QString &uuid);

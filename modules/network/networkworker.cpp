@@ -64,6 +64,13 @@ NetworkWorker::NetworkWorker(NetworkModel *model, QObject *parent)
     queryActiveConnInfo();
 }
 
+void NetworkWorker::active()
+{
+    const bool isAppProxyVaild = QProcess::execute("which", QStringList() << "/usr/bin/proxychains4") == 0;
+
+    m_networkModel->setAppProxyExist(isAppProxyVaild);
+}
+
 void NetworkWorker::setVpnEnable(const bool enable)
 {
     m_networkInter.setVpnEnabled(enable);
