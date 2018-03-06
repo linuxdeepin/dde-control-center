@@ -5,7 +5,6 @@ export QT_SELECT = qt5
 DEB_BUILD_ARCH ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
 
 SYSTYPE=Desktop
-DISTRO_MACRO = ""
 SYSTYPE=$(shell cat /etc/deepin-version | grep Type= | awk -F'=' '{print $$2}')
 
 %:
@@ -51,7 +50,12 @@ override_dh_auto_configure:
 endif
 
 ifeq ($(DEB_BUILD_ARCH), arm64)
-	DISTRO_MACRO =  DISABLE_SYS_UPDATE_SOURCE_CHECK=YES \
+override_dh_auto_configure:
+	dh_auto_configure -- DISABLE_SYS_UPDATE_SOURCE_CHECK=YES \
+		DISABLE_SYS_UPDATE_MIRRORS=YES
+endif
+
+DISTRO_MACRO =  DISABLE_SYS_UPDATE_SOURCE_CHECK=YES \
 		DISABLE_SYS_UPDATE_MIRRORS=YES
 
 ifeq ($(SYSTYPE), Professional)
@@ -59,5 +63,4 @@ ifeq ($(SYSTYPE), Professional)
 endif
 
 override_dh_auto_configure:
-	dh_auto_config -- $(DISTRO_MACRO)
-endif
+	dh_auto_configure -- $(DISTRO_MACRO)
