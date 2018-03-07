@@ -174,6 +174,11 @@ void TimeZoneChooser::setIsAddZone(const bool isAdd)
         m_title->setText(tr("Change Timezone"));
 }
 
+void TimeZoneChooser::setMarkedTimeZone(const QString &timezone)
+{
+    m_map->setTimezone(timezone);
+}
+
 void TimeZoneChooser::resizeEvent(QResizeEvent *event)
 {
     QFrame::resizeEvent(event);

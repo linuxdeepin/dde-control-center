@@ -94,6 +94,8 @@ Datetime::Datetime()
         } else {
             emit requestSetTimeZone(timezone);
         }
+
+        m_dialog->hide();
     });
     connect(m_dialog, &TimeZoneChooser::cancelled, this, [this] {
         emit requestUnhold();
@@ -113,6 +115,7 @@ Datetime::Datetime()
         emit requestHold();
         m_dialog->setIsAddZone(false);
         m_dialog->show();
+        m_dialog->setMarkedTimeZone(installer::GetCurrentTimezone());
     });
 
     connect(m_headItem, &SettingsHead::editChanged, this, &Datetime::onEditClicked);
@@ -170,8 +173,6 @@ void Datetime::addTimezone(const ZoneInfo &zone)
         m_timezoneGroup->appendItem(item);
 
     m_zoneList << item;
-
-    m_dialog->hide();
 
     emit requestUnhold();
 

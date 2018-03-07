@@ -62,6 +62,9 @@ signals:
     void confirmed(const QString &zone);
     void cancelled();
 
+public slots:
+    void setMarkedTimeZone(const QString &timezone);
+
 protected:
     void resizeEvent(QResizeEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
