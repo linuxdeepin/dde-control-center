@@ -39,9 +39,6 @@ signals:
     void itemClicked(const QString &id) const;
     void itemEntered(const QString &id) const;
 
-public slots:
-    void recheckHoverState();
-
 protected:
     void paintEvent(QPaintEvent *e);
     void mouseReleaseEvent(QMouseEvent *e);
