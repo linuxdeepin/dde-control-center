@@ -65,7 +65,7 @@ MainWidget::MainWidget(Frame *parent)
 #ifndef DISABLE_SYS_UPDATE
       m_updateNotifier(new UpdateNotifier),
 #endif
-      m_quickSettingsPanel(new QuickControlPanel)
+      m_quickSettingsPanel(new QuickControlPanel(this))
 {
     m_pluginsLayout->setMargin(0);
     m_pluginsLayout->setSpacing(0);

@@ -57,6 +57,16 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
       m_itemStack(new QStackedLayout)
 {
+    QHBoxLayout *btnsLayout = new QHBoxLayout;
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->addLayout(m_itemStack);
+    mainLayout->addLayout(btnsLayout);
+    mainLayout->setSpacing(0);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
+
+    setLayout(mainLayout);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
     m_networkModel = new NetworkModel(this);
     m_networkWorker = new NetworkWorker(m_networkModel, this);
 
@@ -114,7 +124,6 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     m_switchs.append(m_wifiSwitch);
     m_switchs.append(displaySwitch);
 
-    QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addWidget(m_btSwitch);
     btnsLayout->addWidget(m_vpnSwitch);
     btnsLayout->addWidget(m_wifiSwitch);
@@ -122,15 +131,6 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     btnsLayout->addWidget(m_detailSwitch);
     btnsLayout->setContentsMargins(0, 0, 0, 0);
-
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addLayout(m_itemStack);
-    mainLayout->addLayout(btnsLayout);
-    mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
-
-    setLayout(mainLayout);
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     connect(m_btSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
     connect(m_vpnSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
