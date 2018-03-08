@@ -92,22 +92,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="136"/>
-        <source>Yesterday</source>
-        <translation>제</translation>
-    </message>
-    <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="145"/>
-        <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="139"/>
-        <source>The day before yesterday</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="200"/>
         <source>No system notifications</source>
         <translation>시스템 알림 없음</translation>
     </message>
@@ -188,6 +173,24 @@
     </message>
 </context>
 <context>
+    <name>Viewer</name>
+    <message>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="137"/>
+        <source>Yesterday</source>
+        <translation>제</translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="140"/>
+        <source>The day before yesterday</source>
+        <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <location filename="../plugins/notify/notifyviewer.cpp" line="146"/>
+        <source>%n day(s) ago</source>
+        <translation type="unfinished"><numerusform></numerusform></translation>
+    </message>
+</context>
+<context>
     <name>VpnListModel</name>
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
@@ -259,7 +262,7 @@
         <translation>비밀번호</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="74"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="77"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
@@ -339,32 +342,32 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="315"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
         <source>Your host joins the domain server successfully.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="314"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="317"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host failed to leave the domain server.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="318"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
         <source>Your host failed to join the domain server.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="328"/>
         <source>AD domain settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="374"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="381"/>
         <source>Password not match.</source>
         <translation>암호가 일치하지 않습니다.</translation>
     </message>
@@ -2359,7 +2362,7 @@
         <translation>미러 변경</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="135"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="138"/>
         <source>Retest</source>
         <translation type="unfinished"/>
     </message>

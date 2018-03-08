@@ -60,7 +60,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
         <source>Please enter Display module to set if you want to change the custom settings</source>
-        <translation>Zadejte, prosím, režimu obrazovky k nastavení, chcete-li změnit vlastní nastavení</translation>
+        <translation>Zadejte, prosím, režim obrazovky k nastavení, chcete-li změnit vlastní nastavení</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
@@ -92,22 +92,7 @@
         <translation>Vyprázdnit vše</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="136"/>
-        <source>Yesterday</source>
-        <translation>Včera</translation>
-    </message>
-    <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="145"/>
-        <source>%n day(s) ago</source>
-        <translation><numerusform>Před %s dnem</numerusform><numerusform>Před %s dny</numerusform><numerusform>Před %s dny</numerusform></translation>
-    </message>
-    <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="139"/>
-        <source>The day before yesterday</source>
-        <translation>Předevčírem</translation>
-    </message>
-    <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="200"/>
         <source>No system notifications</source>
         <translation>Žádná systémová upozornění</translation>
     </message>
@@ -188,6 +173,24 @@
     </message>
 </context>
 <context>
+    <name>Viewer</name>
+    <message>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="137"/>
+        <source>Yesterday</source>
+        <translation>Včera</translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="140"/>
+        <source>The day before yesterday</source>
+        <translation>Předevčírem</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../plugins/notify/notifyviewer.cpp" line="146"/>
+        <source>%n day(s) ago</source>
+        <translation><numerusform>Před %s dnem</numerusform><numerusform>Před %s dny</numerusform><numerusform>Před %s dny</numerusform></translation>
+    </message>
+</context>
+<context>
     <name>VpnListModel</name>
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
@@ -236,22 +239,22 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
         <source>Exit domain</source>
-        <translation type="unfinished"/>
+        <translation>Opustit doménu</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Připojit se k doméně</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="66"/>
         <source>Domain Server</source>
-        <translation type="unfinished"/>
+        <translation>Doménový server</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>Účet správce</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
@@ -259,7 +262,7 @@
         <translation>Heslo</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="74"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="77"/>
         <source>Cancel</source>
         <translation>Zrušit</translation>
     </message>
@@ -323,12 +326,12 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Exit domain</source>
-        <translation type="unfinished"/>
+        <translation>Opustit doménu</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Připojit se k doméně</translation>
     </message>
 </context>
 <context>
@@ -339,32 +342,32 @@
         <translation>Obrázky</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="315"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
         <source>Your host joins the domain server successfully.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="314"/>
-        <source>Your host was removed from the domain server successfully.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="317"/>
-        <source>Your host failed to leave the domain server.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="318"/>
-        <source>Your host failed to join the domain server.</source>
-        <translation type="unfinished"/>
+        <translation>Váš počítač se k doménovému serveru připojuje úspěšně.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
-        <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <source>Your host was removed from the domain server successfully.</source>
+        <translation>Váš počítač byl z doménového serveru odstraněn úspěšně.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="374"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
+        <source>Your host failed to leave the domain server.</source>
+        <translation>Vašemu počítači se doménový server nepodařilo opustit.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
+        <source>Your host failed to join the domain server.</source>
+        <translation>Vašemu počítači se k doménovému serveru nepodařilo připojit.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="328"/>
+        <source>AD domain settings</source>
+        <translation>Nastavení domény AD</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="381"/>
         <source>Password not match.</source>
         <translation>Heslo neodpovídá.</translation>
     </message>
@@ -513,7 +516,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
         <source>Current Password</source>
-        <translation type="unfinished"/>
+        <translation>Nynější heslo</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
@@ -1386,7 +1389,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Scroll speed</source>
-        <translation type="unfinished"/>
+        <translation>Rychlost posunování</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
@@ -2359,7 +2362,7 @@
         <translation>Přepnout obrazovku</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="135"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="138"/>
         <source>Retest</source>
         <translation>Vyzkoušet znovu</translation>
     </message>
@@ -2494,7 +2497,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="66"/>
         <source>System source detection</source>
-        <translation type="unfinished"/>
+        <translation>Rozpoznání systémového zdroje</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="54"/>
@@ -2514,7 +2517,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Prompt the notification if system source has been modified</source>
-        <translation type="unfinished"/>
+        <translation>Vyvolat upozornění, pokud byl systémový zdroj změněn</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="87"/>

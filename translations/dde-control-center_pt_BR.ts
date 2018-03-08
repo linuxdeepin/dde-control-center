@@ -92,22 +92,7 @@
         <translation>Limpar tudo</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="136"/>
-        <source>Yesterday</source>
-        <translation>Ontem</translation>
-    </message>
-    <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="145"/>
-        <source>%n day(s) ago</source>
-        <translation><numerusform>%n dia atrás</numerusform><numerusform>%n dia(s) atrás</numerusform></translation>
-    </message>
-    <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="139"/>
-        <source>The day before yesterday</source>
-        <translation>Antes de ontem</translation>
-    </message>
-    <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="200"/>
         <source>No system notifications</source>
         <translation>Não há notificações novas</translation>
     </message>
@@ -188,6 +173,24 @@
     </message>
 </context>
 <context>
+    <name>Viewer</name>
+    <message>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="137"/>
+        <source>Yesterday</source>
+        <translation>Ontem</translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="140"/>
+        <source>The day before yesterday</source>
+        <translation>Anteontem</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../plugins/notify/notifyviewer.cpp" line="146"/>
+        <source>%n day(s) ago</source>
+        <translation><numerusform>%n dia(s) atrás</numerusform><numerusform>%n dia(s) atrás</numerusform></translation>
+    </message>
+</context>
+<context>
     <name>VpnListModel</name>
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
@@ -259,7 +262,7 @@
         <translation>Senha</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="74"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="77"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -339,32 +342,32 @@
         <translation>Imagens</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="315"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
         <source>Your host joins the domain server successfully.</source>
-        <translation>Seu host ingressou no domínio com sucesso.</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="314"/>
-        <source>Your host was removed from the domain server successfully.</source>
-        <translation>Seu host saiu do domínio com sucesso.</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="317"/>
-        <source>Your host failed to leave the domain server.</source>
-        <translation>Seu host falhou ao sair do domínio.</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="318"/>
-        <source>Your host failed to join the domain server.</source>
-        <translation>Seu host falhou ao ingressar no domínio.</translation>
+        <translation>Seu computador ingressou no domínio com sucesso.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
+        <source>Your host was removed from the domain server successfully.</source>
+        <translation>Seu computador saiu do domínio com sucesso.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
+        <source>Your host failed to leave the domain server.</source>
+        <translation>Seu computador falhou ao sair do domínio.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
+        <source>Your host failed to join the domain server.</source>
+        <translation>Seu computador falhou ao ingressar no domínio.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="328"/>
         <source>AD domain settings</source>
         <translation>Configurações de AD do domínio</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="374"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="381"/>
         <source>Password not match.</source>
         <translation>As senhas não conferem.</translation>
     </message>
@@ -513,7 +516,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
         <source>Current Password</source>
-        <translation type="unfinished"/>
+        <translation>Senha Atual</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
@@ -2359,7 +2362,7 @@
         <translation>Alterar mirror</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="135"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="138"/>
         <source>Retest</source>
         <translation>Testar novamente</translation>
     </message>

@@ -92,22 +92,7 @@
         <translation>全部清除</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="136"/>
-        <source>Yesterday</source>
-        <translation>昨天</translation>
-    </message>
-    <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="145"/>
-        <source>%n day(s) ago</source>
-        <translation><numerusform>%n天前</numerusform></translation>
-    </message>
-    <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="139"/>
-        <source>The day before yesterday</source>
-        <translation>前天</translation>
-    </message>
-    <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="200"/>
         <source>No system notifications</source>
         <translation>无系统通知</translation>
     </message>
@@ -188,6 +173,24 @@
     </message>
 </context>
 <context>
+    <name>Viewer</name>
+    <message>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="137"/>
+        <source>Yesterday</source>
+        <translation>昨天</translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="140"/>
+        <source>The day before yesterday</source>
+        <translation>前天</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../plugins/notify/notifyviewer.cpp" line="146"/>
+        <source>%n day(s) ago</source>
+        <translation><numerusform>%n天前</numerusform></translation>
+    </message>
+</context>
+<context>
     <name>VpnListModel</name>
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
@@ -259,7 +262,7 @@
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="74"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="77"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -339,32 +342,32 @@
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="315"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>你的主机成功加入了域服务器。</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="314"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>你的主机成功退出了域服务器</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="317"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>你的主机退出域服务器失败</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="318"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
         <source>Your host failed to join the domain server.</source>
         <translation>你的主机加入域服务器失败。</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="328"/>
         <source>AD domain settings</source>
         <translation>AD域设置</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="374"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="381"/>
         <source>Password not match.</source>
         <translation>密码不一致。</translation>
     </message>
@@ -2359,7 +2362,7 @@
         <translation>切换镜像源</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="135"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="138"/>
         <source>Retest</source>
         <translation>重新测速</translation>
     </message>

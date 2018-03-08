@@ -92,22 +92,7 @@
         <translation>Limpiar todo</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="136"/>
-        <source>Yesterday</source>
-        <translation>Ayer</translation>
-    </message>
-    <message numerus="yes">
         <location filename="../plugins/notify/notifymanager.cpp" line="145"/>
-        <source>%n day(s) ago</source>
-        <translation><numerusform>Hace %n día(s)</numerusform><numerusform>%n día(s) atrás</numerusform></translation>
-    </message>
-    <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="139"/>
-        <source>The day before yesterday</source>
-        <translation>Anteayer</translation>
-    </message>
-    <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="200"/>
         <source>No system notifications</source>
         <translation>No hay notificaciones del sistema</translation>
     </message>
@@ -122,7 +107,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation>Por favor, asegúrese de que todos sus datos han sido salvados previamente</translation>
+        <translation>Por favor, asegúrese de que todos sus datos han sido guardados primero</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
@@ -188,6 +173,24 @@
     </message>
 </context>
 <context>
+    <name>Viewer</name>
+    <message>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="137"/>
+        <source>Yesterday</source>
+        <translation>Ayer</translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="140"/>
+        <source>The day before yesterday</source>
+        <translation>Anteayer</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../plugins/notify/notifyviewer.cpp" line="146"/>
+        <source>%n day(s) ago</source>
+        <translation><numerusform>hace %n día</numerusform><numerusform>hace %n días</numerusform></translation>
+    </message>
+</context>
+<context>
     <name>VpnListModel</name>
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
@@ -205,7 +208,7 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
         <source>Loading weather...</source>
-        <translation>Cargando el tiempo...</translation>
+        <translation>Cargando el pronóstico...</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
@@ -259,7 +262,7 @@
         <translation>Contraseña</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="74"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="77"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -339,34 +342,34 @@
         <translation>Imágenes</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="315"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>Su host se unio al servidor de dominio con éxito.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="314"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>Su host se removió del servidor de dominio exitosamente.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="317"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>Su host falló al abandonar el servidor de dominio.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="318"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
         <source>Your host failed to join the domain server.</source>
         <translation>Su host falló al unirse al servidor de dominio.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="328"/>
         <source>AD domain settings</source>
-        <translation>Configuración de dominio AD</translation>
+        <translation>Ajustes de dominio AD</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="374"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="381"/>
         <source>Password not match.</source>
-        <translation>Contraseña no encontrada.</translation>
+        <translation>Contraseña no emparejada.</translation>
     </message>
 </context>
 <context>
@@ -482,7 +485,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="56"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation>La contraseña de huella dactilar se utiliza en la sesión del sistema, autorización de aplicaciones y otros casos. Escanee la huella digital cuando se necesita una contraseña.</translation>
+        <translation>La contraseña de huella dactilar se utiliza en la sesión del sistema, autorizar una aplicación y otros casos. Escanee la huella digital cuando se necesita una contraseña.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="98"/>
@@ -505,7 +508,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation>Configuración de nombre completo </translation>
+        <translation>Ajustes de nombre completo </translation>
     </message>
 </context>
 <context>
@@ -844,7 +847,7 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation>Para proteger su vista el tono de la pantalla se ajustará automáticamente hasta encontrar la intensidad adecuada</translation>
+        <translation>Para proteger su vista, el tono de la pantalla se ajustará automáticamente hasta encontrar la intensidad adecuada</translation>
     </message>
 </context>
 <context>
@@ -1056,7 +1059,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="106"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Este atajo de teclado esta en conflicto con %1, haga clic en Añadir para que sea efectivo inmediatamente</translation>
+        <translation>Este atajo de teclado está en conflicto con %1, haga clic en Añadir para aplicar inmediatamente</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="160"/>
@@ -1100,7 +1103,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="108"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Este atajo de teclado está en conflicto con %1, haga clic en Añadir para que sea efectivo inmediatamente</translation>
+        <translation>Este atajo de teclado está en conflicto con %1, haga clic en Añadir para aplicar inmediatamente</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="148"/>
@@ -1999,7 +2002,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
         <source>Monospaced Font</source>
-        <translation>Fuente monoespaciado</translation>
+        <translation>Fuente monoespaciada</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
@@ -2359,7 +2362,7 @@
         <translation>Cambiar espejo</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="135"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="138"/>
         <source>Retest</source>
         <translation>Reexaminar</translation>
     </message>
@@ -2393,12 +2396,12 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
         <source>%1 downloaded (Click to pause)</source>
-        <translation>%1 descargado (Clic para pausar)</translation>
+        <translation>%1 descargado (clic para pausar)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
         <source>%1 downloaded (Click to continue)</source>
-        <translation>%1 descargado (Clic para continuar)</translation>
+        <translation>%1 descargado (clic para continuar)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
@@ -2468,7 +2471,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="277"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>Su batería esta a menos del 50%, conecte a la toma eléctrica para continuar</translation>
+        <translation>Su batería está a menos del 50%, conecte a la toma eléctrica para continuar</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
