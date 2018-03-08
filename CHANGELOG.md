@@ -1,3 +1,87 @@
+<a name="4.4.0"></a>
+## 4.4.0 (2018-03-08)
+
+
+#### Bug Fixes
+
+*   crash when user avatars count less than 14 ([4bd05eea](https://github.com/linuxdeepin/dde-control-center/commit/4bd05eeaeafd9187069a027c3021af5ffb5b496f))
+*   using the wrong macro ([742e5806](https://github.com/linuxdeepin/dde-control-center/commit/742e5806948e718def1040f7e2b6f54e36c7d3b6))
+*   installer set vendor name as latin1 ([7d53e35c](https://github.com/linuxdeepin/dde-control-center/commit/7d53e35ceda43b0304beb704eeaee5a250889221))
+*   tips align left 16px ([f8ac2c62](https://github.com/linuxdeepin/dde-control-center/commit/f8ac2c6277a3d21155a7cc890d3de18f389486fd))
+*   MPRIS play button icon not using big pix in hidpi ([774b82dc](https://github.com/linuxdeepin/dde-control-center/commit/774b82dc3936b6cf47c03d1e2818511005387d66))
+* **account:**
+  *  AD Dialog style error ([d482d7f9](https://github.com/linuxdeepin/dde-control-center/commit/d482d7f93a4e85b795432cb75c064fcce89ecb58))
+  *  Button status error after cancelling authentication ([4c3769c6](https://github.com/linuxdeepin/dde-control-center/commit/4c3769c615ae4bde7ec4732fca714833d470eb9a))
+* **accounts:**  back when change fullname successed ([ab18612f](https://github.com/linuxdeepin/dde-control-center/commit/ab18612f59538f4762531ee73ee6384c5f72a3f5))
+* **datetime:**  timezone list is empty, group head is visible ([9fb38e53](https://github.com/linuxdeepin/dde-control-center/commit/9fb38e5350f556fccf4d6b4eb0a73f39d6bbcc9a))
+* **dbus:**  ToggleInLeft handle Toggle ([13671739](https://github.com/linuxdeepin/dde-control-center/commit/13671739abd477c4b42ac31f195af7b2924d011d))
+* **defapp:**
+  *  not create local folder ([3c9ee223](https://github.com/linuxdeepin/dde-control-center/commit/3c9ee223128da4bf197802e4517fc02a5fbfe46d))
+  *  not use deepin-custom head ([2ad8b3ff](https://github.com/linuxdeepin/dde-control-center/commit/2ad8b3ff612bb8d5c3cf8f40f2ad8c6127d47772))
+* **display:**
+  *  primary screen is error in monitors ground ([52d1e65a](https://github.com/linuxdeepin/dde-control-center/commit/52d1e65a15beff8b1b60dbf83b3c8dd337f0dabb))
+  *  current resolution not select ([23d4e2ac](https://github.com/linuxdeepin/dde-control-center/commit/23d4e2ac10016bca3498d50fda7b7f457d104852))
+* **frame:**
+  *  update notifier pos error ([a4819eae](https://github.com/linuxdeepin/dde-control-center/commit/a4819eaeb26f39c49f20ffe249201a34490de871))
+  *  No navigationbar is updated after entering the module ([38f7060f](https://github.com/linuxdeepin/dde-control-center/commit/38f7060f8b45640a3795dbc5d22bc2c2030211c1))
+  *  updatenotifier not wordwrap ([7939d0bc](https://github.com/linuxdeepin/dde-control-center/commit/7939d0bc8f6991789b76dd18d573a70f0e1c7ff3))
+  *  not reset position when hideImmediately ([b51ae87b](https://github.com/linuxdeepin/dde-control-center/commit/b51ae87bab3e18c7ff8de728a07749485b969c50))
+* **grub:**
+  *  The width is too wide after the navigation bar is added ([8101cb94](https://github.com/linuxdeepin/dde-control-center/commit/8101cb94c73e51a07a497fb7334a4a0b8d9914ff))
+  *  early call leads to failure ([c5700275](https://github.com/linuxdeepin/dde-control-center/commit/c57002751a64f4ebec5d8b102deb59b7f2ebee13))
+* **keyboard:**
+  *  The width is too wide after the navigation bar is added ([cf98272b](https://github.com/linuxdeepin/dde-control-center/commit/cf98272b4f98b5fe9679406eb763c71a8be20732))
+  *  delay load data cause of DBus is not ready ([45c1c414](https://github.com/linuxdeepin/dde-control-center/commit/45c1c414ddcd37cc27dc73491fb6704cbb3e1122))
+  *  search timer not set single mode ([3b99a71f](https://github.com/linuxdeepin/dde-control-center/commit/3b99a71f738b8ba818a777d7bc82694815f35c07))
+* **mouse:**
+  *  lack of set values of touchpad ([734d6586](https://github.com/linuxdeepin/dde-control-center/commit/734d6586fd3cbe924a789c229198734ab4001d8d))
+  *  hide palm detect when touchpad is not exist ([b230501f](https://github.com/linuxdeepin/dde-control-center/commit/b230501fc9b5eaef7e1a65b8b1b74beb64e404d2))
+  *  hide disable touchpad setting when touchpad is not exist ([82f79609](https://github.com/linuxdeepin/dde-control-center/commit/82f796097ff12c7c666dcbe7d13e73250f44702e))
+  *  error touchpad visible value ([64672d52](https://github.com/linuxdeepin/dde-control-center/commit/64672d529055686351f039e076db91e72f7fb342))
+* **navgation:**  Add compile macro ([f9e1e2ad](https://github.com/linuxdeepin/dde-control-center/commit/f9e1e2ad81caefed90c61e630517670341a6b159))
+* **navigation:**  The module does not exist and does not display ([403241ed](https://github.com/linuxdeepin/dde-control-center/commit/403241ed3dc212c34821d0a1b85a2fd8bb618b8a))
+* **network:**
+  *  hide appproxy when proxychains is not exist ([c92333a4](https://github.com/linuxdeepin/dde-control-center/commit/c92333a4f83b49fd4dd3deec3501911b99493e4e))
+  *  crash of network device changed ([696ca94e](https://github.com/linuxdeepin/dde-control-center/commit/696ca94e372d6f3db7c79fdafa1f46ace8f2c566))
+* **notify:**
+  *  reinvent data ([29cb26b0](https://github.com/linuxdeepin/dde-control-center/commit/29cb26b0136d9f2ef5942ad1a174e6e121b71fdc))
+  *  update item width ([e5298861](https://github.com/linuxdeepin/dde-control-center/commit/e5298861a8b8e87ccc8cd740e249b2a255ae3a2d))
+* **personalization:**  not load the data when animation is not finished ([ad024556](https://github.com/linuxdeepin/dde-control-center/commit/ad0245565458bc23837261baf11993e11a028749))
+* **sound:**  item repeat select ([2dcc01a8](https://github.com/linuxdeepin/dde-control-center/commit/2dcc01a8e1d41f3f79e096201d8c2661d5acab8c))
+* **systeminfo:**  advance start grub2 ([78e27cca](https://github.com/linuxdeepin/dde-control-center/commit/78e27cca124cb8370c49f1bf2cddfbcd6c3bb871))
+* **time:**  other timezone not update when change current timezone ([ed3a6fbe](https://github.com/linuxdeepin/dde-control-center/commit/ed3a6fbebba01308bd198b62a368e469e3a11714))
+* **update:**
+  *  disable source mirror when system type is Professional ([2dc4d015](https://github.com/linuxdeepin/dde-control-center/commit/2dc4d015535c6fc70917341d5d636939c1d513b0))
+  *  low power can update system ([a8706293](https://github.com/linuxdeepin/dde-control-center/commit/a87062930d0ae59c24e15d2910d7a45a511493b1))
+  *  repair cannot update when resotre power ([32fa63ce](https://github.com/linuxdeepin/dde-control-center/commit/32fa63ce963a7a32613bb4f1040851137d575445))
+  *  summary not newline ([f88aed7c](https://github.com/linuxdeepin/dde-control-center/commit/f88aed7ca5014db65f8391e840eb99d269ba5c80))
+  *  updated mode error ([2ac2795c](https://github.com/linuxdeepin/dde-control-center/commit/2ac2795c5c2b2cf261a186ec6a938db3ee17e1bc))
+  *  not call reboot-reminder-dialog ([1951f7cb](https://github.com/linuxdeepin/dde-control-center/commit/1951f7cb58657f990dfe83c0409d16412a389a58))
+* **weather:**  location button not align ([05a4629b](https://github.com/linuxdeepin/dde-control-center/commit/05a4629b060d4984851152acdb5d15696247ebf5))
+
+#### Features
+
+*   enable ad domain for professional version ([cc8ca447](https://github.com/linuxdeepin/dde-control-center/commit/cc8ca4472906dfb5ebf77584a5b53c9035f0ab6e))
+*   update wmswitcher interface ([3ec49a35](https://github.com/linuxdeepin/dde-control-center/commit/3ec49a35d07d8ccf227e2331b490e5845f2e52fb))
+* **account:**  Support the prohibition of modifying the password of other users ([b39bb594](https://github.com/linuxdeepin/dde-control-center/commit/b39bb5947abbaa7a09de21ab18cea3ab5bd6b013))
+* **accounts:**
+  *  crypt user password when create a new user ([686d915a](https://github.com/linuxdeepin/dde-control-center/commit/686d915ad873388b5f1e6d885a3b4c1cf1498ae0))
+  *  use passwd to change user passwd ([e4b0a9c5](https://github.com/linuxdeepin/dde-control-center/commit/e4b0a9c586f0fda8439136c80a27ebff25ef8c51))
+  *  add addomain policy and notify ([12ee7c5a](https://github.com/linuxdeepin/dde-control-center/commit/12ee7c5ae977081dcc8831094942d2997f531d02))
+  *  add AD Domain dialog ([291dad21](https://github.com/linuxdeepin/dde-control-center/commit/291dad215912cbcc429fbb895605483c896edce1))
+* **mouse:**
+  *  support change wheel speed ([bcb4ebfb](https://github.com/linuxdeepin/dde-control-center/commit/bcb4ebfb8b6944bec5b6efebb49646148a4c46d7))
+  *  add palm detect ([28c66974](https://github.com/linuxdeepin/dde-control-center/commit/28c669744affdd78d46bbf74b3a6ae86a60f3400))
+* **network:**  allow modify network settings when cable not pluged ([3259539a](https://github.com/linuxdeepin/dde-control-center/commit/3259539a7ad6b44fec6de22ba4fda98f131bb29f))
+* **update:**
+  *  check netselect exist ([5cac464e](https://github.com/linuxdeepin/dde-control-center/commit/5cac464e432dd04365358a139e1425640f6b17f6))
+  *  add disable source check macro ([41e2c461](https://github.com/linuxdeepin/dde-control-center/commit/41e2c461a4a3b3eea89eec2c2f6f7a50a88909d4))
+  *  support source list check ([656511cf](https://github.com/linuxdeepin/dde-control-center/commit/656511cf8e9a54bdfefd7a73f8645f05d817c63c))
+  *  Use progress bar instead of animation ([c530e36b](https://github.com/linuxdeepin/dde-control-center/commit/c530e36bde7d015b044d01469da088fe2417a7ce))
+  *  no updates when no network ([dfb8a853](https://github.com/linuxdeepin/dde-control-center/commit/dfb8a8535bde709258e636175d93a6520dbdb159))
+
+
+
 <a name="4.3.7"></a>
 ### 4.3.7 (2017-11-29)
 
