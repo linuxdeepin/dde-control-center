@@ -29,8 +29,11 @@
 
 using namespace dcc::accounts;
 
-UserModel::UserModel(QObject *parent) :
-    QObject(parent)
+UserModel::UserModel(QObject *parent)
+    : QObject(parent)
+#ifdef DCC_ENABLE_ADDOMAIN
+    , m_isJoinADDomain(false)
+#endif
 {
 
 }
