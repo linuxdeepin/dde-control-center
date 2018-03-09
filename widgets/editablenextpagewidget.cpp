@@ -58,7 +58,7 @@ EditableNextPageWidget::EditableNextPageWidget(QWidget *parent)
     centralLayout->addSpacing(5);
     centralLayout->addWidget(m_nextButton);
     centralLayout->setSpacing(0);
-    centralLayout->setContentsMargins(15, 8, 15, 8);
+    centralLayout->setContentsMargins(20, 8, 10, 8);
 
     connect(m_nextButton, &DImageButton::clicked, this, &EditableNextPageWidget::acceptNextPage);
     connect(m_editButton, &DImageButton::clicked, this, &EditableNextPageWidget::toEditMode, Qt::QueuedConnection);
