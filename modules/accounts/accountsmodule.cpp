@@ -230,12 +230,16 @@ void AccountsModule::contentPopped(ContentWidget * const w)
 #ifdef DCC_ENABLE_ADDOMAIN
 void AccountsModule::showADDialog()
 {
+    setFrameAutoHide(false);
+
     ADDialog addialog;
     addialog.setUserModel(m_userList);
 
     connect(&addialog, &ADDialog::requestInfos, m_accountsWorker, &AccountsWorker::ADDomainHandle);
 
     addialog.exec();
+
+    setFrameAutoHide(true);
 }
 #endif
 
