@@ -108,6 +108,7 @@ void ADDialog::setVisible(bool visible)
     DDialog::setVisible(visible);
 
     if (m_clickType == Submit) {
+        m_clickType = Cancle;
         emit requestInfos(m_server->text(), m_username->text(), m_password->text());
     }
 }

@@ -4,7 +4,7 @@
  "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
 <policyconfig>
   <vendor>Deepin</vendor>
-  <action id="com.deepin.controlcenter.addomain">
+  <action id="com.deepin.controlcenter.addomain.domainjoin-cli">
     <icon_name>dde</icon_name>
     <defaults>
       <allow_any>no</allow_any>
@@ -14,6 +14,18 @@
     <message>AD domain settings</message>
     <message xml:lang="zh_CN">AD域设置</message>
     <annotate key="org.freedesktop.policykit.exec.path">/opt/pbis/bin/domainjoin-cli</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+  </action>
+  <action id="com.deepin.controlcenter.addomain.config">
+    <icon_name>dde</icon_name>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <message>AD domain settings</message>
+    <message xml:lang="zh_CN">AD域设置</message>
+    <annotate key="org.freedesktop.policykit.exec.path">/opt/pbis/bin/config</annotate>
     <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
   </action>
 
