@@ -10,9 +10,9 @@
         <file>themes/dark/icons/wireless/wireless-6-symbolic.svg</file>
         <file>themes/dark/icons/wireless/wireless-8-symbolic.svg</file>
         <file>themes/dark/icons/wireless/wireless-10-symbolic.svg</file>
-        <file>themes/dark/icons/next_hover.png</file>
-        <file>themes/dark/icons/next_normal.png</file>
-        <file>themes/dark/icons/next_press.png</file>
+        <file>themes/dark/icons/enter_details_normal.svg</file>
+        <file>themes/dark/icons/enter_details_hover.svg</file>
+        <file>themes/dark/icons/enter_details_press.svg</file>
         <file>themes/dark/icons/select.svg</file>
         <file>themes/dark/icons/nav_network_normal.svg</file>
     </qresource>

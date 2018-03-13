@@ -31,6 +31,7 @@
 #include <QDebug>
 
 #include <dimagebutton.h>
+#include <dhidpihelper.h>
 
 DWIDGET_USE_NAMESPACE
 
@@ -83,7 +84,7 @@ void AccessPointWidget::setEncyrpt(const bool encyrpt)
     if (!encyrpt)
         m_lockIcon->clear();
     else
-        m_lockIcon->setPixmap(QPixmap(":/network/themes/dark/icons/wireless/security.svg"));
+        m_lockIcon->setPixmap(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/wireless/security.svg"));
 }
 
 void AccessPointWidget::setAPName(const QString &name)
@@ -112,8 +113,7 @@ void AccessPointWidget::setStrength(const int strength)
         return m_strengthIcon->clear();
 
     const QString iconName = QString(":/network/themes/dark/icons/wireless/wireless-%1-symbolic.svg").arg(strength / 10 & ~1);
-
-    m_strengthIcon->setPixmap(iconName);
+    m_strengthIcon->setPixmap(DHiDPIHelper::loadNxPixmap(iconName));
 }
 
 void AccessPointWidget::setConnected(const bool connected)

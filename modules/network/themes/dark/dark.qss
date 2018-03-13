@@ -9,7 +9,7 @@ QLabel#ModuleHeaderIconNetwork {
 
 #AccessPointWidget > #DetailButton
 {
-    qproperty-normalPic: url(:/network/themes/dark/icons/next_normal.png);
-    qproperty-hoverPic: url(:/network/themes/dark/icons/next_hover.png);
-    qproperty-pressPic: url(:/network/themes/dark/icons/next_press.png);
+    qproperty-normalPic: url(:/network/themes/dark/icons/enter_details_normal.svg);
+    qproperty-hoverPic: url(:/network/themes/dark/icons/enter_details_hover.svg);
+    qproperty-pressPic: url(:/network/themes/dark/icons/enter_details_press.svg);
 }
