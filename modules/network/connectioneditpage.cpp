@@ -161,7 +161,7 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     setContent(mainWidget);
 
     connect(cancelBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
-    connect(acceptBtn, &QPushButton::clicked, this, [this] { emit requestSave(true); });
+    connect(acceptBtn, &QPushButton::clicked, this, &ConnectionEditPage::onAccepted);
     connect(m_disconnectBtn, &QPushButton::clicked, this, [this] { emit requestDisconnect(m_sessionModel->uuid()); });
     connect(m_removeBtn, &QPushButton::clicked, this, [this] { emit requestRemove(m_sessionModel->uuid()); });
     connect(m_removeBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
@@ -209,6 +209,12 @@ void ConnectionEditPage::onDeviceRemoved()
         emit m_nextPage->back();
 
     emit back();
+}
+
+void ConnectionEditPage::onAccepted()
+{
+    // TODO: test if current device is available and can be active, `true` should be passed.
+    emit requestSave(true);
 }
 
 void ConnectionEditPage::recreateUI()

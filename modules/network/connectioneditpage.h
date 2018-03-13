@@ -71,6 +71,7 @@ signals:
 
 public slots:
     void onDeviceRemoved();
+    void onAccepted();
 
 private slots:
     void recreateUI();
