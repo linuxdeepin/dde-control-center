@@ -350,6 +350,8 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
     } else {
         process->start("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "join" << server << admin << password);
     }
+
+    process->waitForFinished();
 }
 #endif
 

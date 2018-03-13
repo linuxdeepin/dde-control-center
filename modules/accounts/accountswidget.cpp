@@ -96,6 +96,6 @@ void AccountsWidget::removeUser(User *user)
 #ifdef DCC_ENABLE_ADDOMAIN
 void AccountsWidget::setADState(bool isJoin)
 {
-    m_adBtn->setText(isJoin ? tr("Exit domain") : tr("Join domain"));
+    m_adBtn->setText(isJoin ? tr("Leave domain") : tr("Join domain"));
 }
 #endif

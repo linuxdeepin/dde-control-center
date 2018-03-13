@@ -51,6 +51,7 @@ signals:
 
 private:
     void initUI();
+    void setVisible(bool visible) override;
 
     enum ButtonType {
         Cancle = 0,
@@ -58,10 +59,11 @@ private:
     };
 
 private:
-    QLineEdit *m_server;
-    QLineEdit *m_username;
+    DLineEdit *m_server;
+    DLineEdit *m_username;
     DPasswordEdit *m_password;
     UserModel *m_model;
+    ButtonType m_clickType;
 };
 }
 }

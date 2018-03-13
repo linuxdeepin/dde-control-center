@@ -35,9 +35,10 @@ using namespace dcc::accounts;
 
 ADDialog::ADDialog(QWidget *parent)
     : DDialog(parent)
-    , m_server(new QLineEdit)
-    , m_username(new QLineEdit)
+    , m_server(new DLineEdit)
+    , m_username(new DLineEdit)
     , m_password(new DPasswordEdit)
+    , m_clickType(Cancle)
 {
     initUI();
 }
@@ -47,7 +48,7 @@ void ADDialog::setUserModel(UserModel *model)
     m_model = model;
 
 #ifdef DCC_ENABLE_ADDOMAIN
-    addButton(model->isJoinADDomain() ? tr("Exit domain") : tr("Join domain"), true);
+    addButton(model->isJoinADDomain() ? tr("Leave domain") : tr("Join domain"), true);
 #endif
 }
 
@@ -81,12 +82,32 @@ void ADDialog::initUI()
     connect(this, &ADDialog::buttonClicked, this, [=] (int index, const QString &text) {
         Q_UNUSED(text);
 
-        switch (index) {
-        case Submit:
-            emit requestInfos(m_server->text(), m_username->text(), m_password->text());
-            break;
-        default:
-            break;
-        }
+        m_clickType = (ButtonType)index;
     });
+}
+
+void ADDialog::setVisible(bool visible)
+{
+    if (m_clickType == Cancle) {
+        DDialog::setVisible(visible);
+        return;
+    }
+
+    const bool serverIsEmpty = m_server->text().isEmpty();
+    const bool usernameIsEmpty = m_username->text().isEmpty();
+    const bool passwordIsEmpty = m_password->text().isEmpty();
+
+    m_server->setAlert(serverIsEmpty);
+    m_username->setAlert(usernameIsEmpty);
+    m_password->setAlert(passwordIsEmpty);
+
+    if (serverIsEmpty || usernameIsEmpty || passwordIsEmpty) {
+        return;
+    }
+
+    DDialog::setVisible(visible);
+
+    if (m_clickType == Submit) {
+        emit requestInfos(m_server->text(), m_username->text(), m_password->text());
+    }
 }
