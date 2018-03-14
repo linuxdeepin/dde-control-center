@@ -109,4 +109,11 @@ void AccountsWidget::setADState(bool isJoin)
 {
     m_adBtn->setText(isJoin ? tr("Leave domain") : tr("Join domain"));
 }
+
+void AccountsWidget::showEvent(QShowEvent *event)
+{
+    ModuleWidget::showEvent(event);
+
+    emit requestRefreshADState();
+}
 #endif

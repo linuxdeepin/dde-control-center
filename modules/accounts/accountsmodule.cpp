@@ -111,6 +111,7 @@ ModuleWidget *AccountsModule::moduleWidget()
 #ifdef DCC_ENABLE_ADDOMAIN
         connect(m_userList, &UserModel::isJoinADDomainChanged, m_accountsWidget, &AccountsWidget::setADState);
         connect(m_accountsWidget, &AccountsWidget::requestShowADDialog, this, &AccountsModule::showADDialog);
+        connect(m_accountsWidget, &AccountsWidget::requestRefreshADState, m_accountsWorker, &AccountsWorker::refreshADDomain);
 #endif
 
         for (auto user : m_userList->userList())

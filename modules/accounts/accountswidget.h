@@ -55,6 +55,7 @@ signals:
     void requestCreateAccount() const;
 #ifdef DCC_ENABLE_ADDOMAIN
     void requestShowADDialog() const;
+    void requestRefreshADState() const;
 #endif
 
 public slots:
@@ -62,6 +63,9 @@ public slots:
     void removeUser(User *user);
 #ifdef DCC_ENABLE_ADDOMAIN
     void setADState(bool isJoin);
+
+protected:
+    void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
 #endif
 
 private:

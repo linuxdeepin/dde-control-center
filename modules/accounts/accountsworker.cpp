@@ -80,9 +80,6 @@ void AccountsWorker::active()
         it.key()->setAvatars(it.value()->iconList());
         it.key()->setCurrentAvatar(it.value()->iconFile());
     }
-#ifdef DCC_ENABLE_ADDOMAIN
-    refreshADDomain();
-#endif
 }
 
 void AccountsWorker::randomUserIcon(User *user)
