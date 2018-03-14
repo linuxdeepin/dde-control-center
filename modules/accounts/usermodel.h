@@ -50,6 +50,9 @@ public:
 #ifdef DCC_ENABLE_ADDOMAIN
     bool isJoinADDomain() const { return m_isJoinADDomain; }
     void setIsJoinADDomain(bool isJoinADDomain);
+
+    bool isADUserLogind() const { return m_isADUserLogind; }
+    void setADUserLogind(bool isADUserLogind);
 #endif
 
 signals:
@@ -57,12 +60,14 @@ signals:
     void userRemoved(User *user);
 #ifdef DCC_ENABLE_ADDOMAIN
     void isJoinADDomainChanged(bool isjoin);
+    void isADUserLoginChanged(bool isLogind);
 #endif
 
 private:
     QMap<QString, User *> m_userList;
 #ifdef DCC_ENABLE_ADDOMAIN
     bool m_isJoinADDomain;
+    bool m_isADUserLogind;
 #endif
 };
 

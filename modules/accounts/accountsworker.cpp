@@ -249,6 +249,9 @@ void AccountsWorker::addUser(const QString &userPath)
         user->setName(name);
         user->setOnline(m_onlineUsers.contains(name));
         user->setIsCurrentUser(name == m_currentUserName);
+#ifdef DCC_ENABLE_ADDOMAIN
+        checkADUser();
+#endif
     });
 
     connect(userInter, &AccountsUser::AutomaticLoginChanged, user, &User::setAutoLogin);
@@ -362,11 +365,33 @@ void AccountsWorker::updateUserOnlineStatus(const QList<QDBusObjectPath> paths)
         m_onlineUsers << tmpSession.userName();
     }
 
-    for (User *user : m_userModel->userList()) {
-        const bool online = m_onlineUsers.contains(user->name());
-        user->setOnline(online);
-    }
+#ifdef DCC_ENABLE_ADDOMAIN
+    checkADUser();
+#endif
 }
+
+#ifdef DCC_ENABLE_ADDOMAIN
+void AccountsWorker::checkADUser()
+{
+    // AD User is not in native user list, but session list have it.
+    bool isADUser = false;
+
+    QStringList userList;
+
+    for (User *user : m_userModel->userList()) {
+        userList << user->name();
+    }
+
+    for (const QString &u : m_onlineUsers) {
+        if (!userList.contains(u)) {
+            isADUser = true;
+            break;
+        }
+    }
+
+    m_userModel->setADUserLogind(isADUser);
+}
+#endif
 
 CreationResult *AccountsWorker::createAccountInternal(const User *user)
 {

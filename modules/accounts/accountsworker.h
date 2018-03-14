@@ -93,6 +93,10 @@ public slots:
 private slots:
     void updateUserOnlineStatus(const QList<QDBusObjectPath> paths);
 
+#ifdef DCC_ENABLE_ADDOMAIN
+    void checkADUser();
+#endif
+
 private:
     AccountsUser *userInter(const QString &userName) const;
     CreationResult *createAccountInternal(const User *user);

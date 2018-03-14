@@ -100,6 +100,10 @@ ModuleWidget *AccountsModule::moduleWidget()
     {
         m_accountsWidget = new AccountsWidget;
 
+#ifdef DCC_ENABLE_ADDOMAIN
+        m_accountsWidget->setModel(m_userList);
+#endif
+
         connect(m_accountsWidget, &AccountsWidget::showAccountsDetail, this, &AccountsModule::showAccountsDetail);
         connect(m_userList, &UserModel::userAdded, m_accountsWidget, &AccountsWidget::addUser);
         connect(m_userList, &UserModel::userRemoved, m_accountsWidget, &AccountsWidget::removeUser);

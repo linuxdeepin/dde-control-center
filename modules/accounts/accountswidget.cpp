@@ -62,6 +62,17 @@ AccountsWidget::AccountsWidget()
 #endif
 }
 
+#ifdef DCC_ENABLE_ADDOMAIN
+void AccountsWidget::setModel(UserModel * const model)
+{
+    m_model = model;
+
+    connect(model, &UserModel::isADUserLoginChanged, m_adBtn, &QPushButton::setDisabled);
+
+    m_adBtn->setDisabled(model->isADUserLogind());
+}
+#endif
+
 void AccountsWidget::addUser(User *user)
 {
     UserOptionItem *w = new UserOptionItem;

@@ -30,6 +30,7 @@
 #include "contentwidget.h"
 #include "settingsgroup.h"
 #include "nextpagewidget.h"
+#include "usermodel.h"
 #include "user.h"
 
 #include <QPushButton>
@@ -44,6 +45,10 @@ class AccountsWidget : public ModuleWidget
 
 public:
     explicit AccountsWidget();
+
+#ifdef DCC_ENABLE_ADDOMAIN
+    void setModel(UserModel * const model);
+#endif
 
 signals:
     void showAccountsDetail(User *account) const;
@@ -64,6 +69,7 @@ private:
     QPushButton *m_createBtn;
 #ifdef DCC_ENABLE_ADDOMAIN
     QPushButton *m_adBtn;
+    UserModel *m_model;
 #endif
 };
 

@@ -33,6 +33,7 @@ UserModel::UserModel(QObject *parent)
     : QObject(parent)
 #ifdef DCC_ENABLE_ADDOMAIN
     , m_isJoinADDomain(false)
+    , m_isADUserLogind(false)
 #endif
 {
 
@@ -84,5 +85,16 @@ void UserModel::setIsJoinADDomain(bool isJoinADDomain)
     m_isJoinADDomain = isJoinADDomain;
 
     emit isJoinADDomainChanged(isJoinADDomain);
+}
+
+void UserModel::setADUserLogind(bool isADUserLogind)
+{
+    if (m_isADUserLogind == isADUserLogind) {
+        return;
+    }
+
+    m_isADUserLogind = isADUserLogind;
+
+    emit isADUserLoginChanged(isADUserLogind);
 }
 #endif
