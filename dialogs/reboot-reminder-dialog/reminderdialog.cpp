@@ -35,8 +35,10 @@ ReminderDialog::ReminderDialog(QRect screenGeometry)
               tr("Please make sure all data have been saved firstly")),
       m_screenGeometry(screenGeometry)
 {
-    QIcon icon( QIcon::fromTheme("system-updated") );
-    setIconPixmap(icon.pixmap(48, 48));
+    const qreal ratio = devicePixelRatioF();
+    QPixmap icon(QIcon::fromTheme("system-updated").pixmap(QSize(48, 48) * ratio));
+    icon.setDevicePixelRatio(ratio);
+    setIconPixmap(icon);
 
     QStringList buttons;
     buttons << tr("Cancel") << tr("Shut down") << tr("Reboot");
