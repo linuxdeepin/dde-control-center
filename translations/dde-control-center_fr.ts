@@ -60,7 +60,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
         <source>Please enter Display module to set if you want to change the custom settings</source>
-        <translation>Veuillez entrer dans le mode d&amp;apos;affichage si vous souhaitez modifier les paramètres personnalisés</translation>
+        <translation>Veuillez entrer dans le mode d&apos;affichage si vous souhaitez modifier les paramètres personnalisés</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
@@ -187,7 +187,7 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifyviewer.cpp" line="146"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Il y a %n jour(s)</numerusform><numerusform>Il y a %n jour(s)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -237,32 +237,32 @@
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
-        <source>Exit domain</source>
-        <translation>Quitter le domaine</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
         <source>Join domain</source>
         <translation>Rejoindre le domaine</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="66"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
+        <source>Leave domain</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
         <source>Domain Server</source>
         <translation>Serveur de domaine</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
         <source>Admin account</source>
         <translation>Compte administrateur</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="69"/>
         <source>Password</source>
         <translation>Mot de passe</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="77"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="78"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
@@ -325,8 +325,8 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
-        <source>Exit domain</source>
-        <translation>Quitter le domaine</translation>
+        <source>Leave domain</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
@@ -337,37 +337,37 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="121"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="123"/>
         <source>Images</source>
         <translation>Images </translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="338"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>Votre hôte a rejoint le serveur de domaine avec succès.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>Votre hôte a quitté le serveur de domaine avec succès.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
         <source>Your host failed to leave the domain server.</source>
-        <translation>Votre hôte n&amp;apos;a pas réussi à quitter le serveur de domaine.</translation>
+        <translation>Votre hôte n&apos;a pas réussi à quitter le serveur de domaine.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to join the domain server.</source>
-        <translation>Votre hôte n&amp;apos;a pas réussi à rejoindre le serveur de domaine.</translation>
+        <translation>Votre hôte n&apos;a pas réussi à rejoindre le serveur de domaine.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="328"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="350"/>
         <source>AD domain settings</source>
-        <translation>paramètres de domaine AD</translation>
+        <translation>Paramètres de domaine AD</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="381"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="394"/>
         <source>Password not match.</source>
         <translation>Le mot de passe ne correspond pas.</translation>
     </message>
@@ -985,27 +985,27 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="115"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="108"/>
         <source>Resolution</source>
         <translation>Résolution</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="204"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="171"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="206"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="173"/>
         <source>Apply</source>
         <translation>Appliquer</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="213"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="180"/>
         <source>Primary</source>
         <translation>Primaire</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="391"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="347"/>
         <source> (Recommended)</source>
         <translation>(Recommandée)</translation>
     </message>
@@ -1731,22 +1731,22 @@
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="210"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="214"/>
         <source>Wired Network Card%1</source>
         <translation>Carte réseau filaire%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="219"/>
         <source>Wired Network Card</source>
         <translation>Carte réseau filaire</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="216"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="220"/>
         <source>Wired Network</source>
         <translation>Réseau filaire</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="211"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
         <source>Wired Network%1</source>
         <translation>Réseau filaire%1</translation>
     </message>
@@ -1756,32 +1756,32 @@
         <translation>Proxy système</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="225"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
         <source>Hotspot</source>
         <translation>Points d&apos;accès</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="233"/>
         <source>Shared</source>
         <translation>Partagé</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
         <source>Wireless Network Card%1</source>
         <translation>Carte réseau sans-fil%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="247"/>
         <source>Wireless Network Card</source>
         <translation>Carte réseau sans-fil</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="244"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="248"/>
         <source>Wireless Network</source>
         <translation>Réseau sans fil</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="239"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wireless Network%1</source>
         <translation>Réseau sans fil%1</translation>
     </message>
@@ -2490,37 +2490,37 @@
 <context>
     <name>dcc::update::UpdateSettings</name>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="42"/>
+        <location filename="../modules/update/updatesettings.cpp" line="50"/>
         <source>Update Settings</source>
         <translation>Paramètres des mises à jour</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="66"/>
+        <location filename="../modules/update/updatesettings.cpp" line="74"/>
         <source>System source detection</source>
         <translation>Détection de source du système</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="54"/>
+        <location filename="../modules/update/updatesettings.cpp" line="62"/>
         <source>Auto clear package cache</source>
         <translation>Nettoyer le cache du package automatiquement</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="57"/>
+        <location filename="../modules/update/updatesettings.cpp" line="65"/>
         <source>Auto-download Updates</source>
         <translation>Auto-téléchargement des mises à jour</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="59"/>
+        <location filename="../modules/update/updatesettings.cpp" line="67"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>Les mises à jour seront automatiquement téléchargées en connexion filaire ou sans-fil</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="70"/>
+        <location filename="../modules/update/updatesettings.cpp" line="78"/>
         <source>Prompt the notification if system source has been modified</source>
         <translation>Afficher la notification si la source du système a été modifiée</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="87"/>
+        <location filename="../modules/update/updatesettings.cpp" line="95"/>
         <source>Switch Mirror</source>
         <translation>Changer de source </translation>
     </message>

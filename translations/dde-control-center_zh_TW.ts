@@ -237,32 +237,32 @@
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
-        <source>Exit domain</source>
-        <translation>離開網域</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
         <source>Join domain</source>
         <translation>加入網域</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="66"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
+        <source>Leave domain</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
         <source>Domain Server</source>
         <translation>網域伺服器</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
         <source>Admin account</source>
         <translation>管理者帳號</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="69"/>
         <source>Password</source>
         <translation>Password</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="77"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="78"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -325,8 +325,8 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
-        <source>Exit domain</source>
-        <translation>離開網域</translation>
+        <source>Leave domain</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
@@ -337,37 +337,37 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="121"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="123"/>
         <source>Images</source>
         <translation>圖片檔案</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="338"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>您的主機成功加入網域。</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>您的主機成功離開網域</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>您的主機離開網域失敗</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to join the domain server.</source>
         <translation>您的主機加入網域失敗</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="328"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="350"/>
         <source>AD domain settings</source>
         <translation>AD 網域設定</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="381"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="394"/>
         <source>Password not match.</source>
         <translation>兩次輸入的密碼不相同。</translation>
     </message>
@@ -985,27 +985,27 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="115"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="108"/>
         <source>Resolution</source>
         <translation>解析度</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="204"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="171"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="206"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="173"/>
         <source>Apply</source>
         <translation>套用</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="213"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="180"/>
         <source>Primary</source>
         <translation>主要螢幕</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="391"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="347"/>
         <source> (Recommended)</source>
         <translation>（建議）</translation>
     </message>
@@ -1731,22 +1731,22 @@
         <translation>網路</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="210"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="214"/>
         <source>Wired Network Card%1</source>
         <translation>有線網路 %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="219"/>
         <source>Wired Network Card</source>
         <translation>有線網路</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="216"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="220"/>
         <source>Wired Network</source>
         <translation>有線網路</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="211"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
         <source>Wired Network%1</source>
         <translation>有線網路 %1</translation>
     </message>
@@ -1756,32 +1756,32 @@
         <translation>系統 Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="225"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
         <source>Hotspot</source>
         <translation>無線熱點</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="233"/>
         <source>Shared</source>
         <translation>共用</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
         <source>Wireless Network Card%1</source>
         <translation>Wi-Fi %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="247"/>
         <source>Wireless Network Card</source>
         <translation>Wi-Fi</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="244"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="248"/>
         <source>Wireless Network</source>
         <translation>Wi-Fi</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="239"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wireless Network%1</source>
         <translation>Wi-Fi %1</translation>
     </message>
@@ -2490,37 +2490,37 @@
 <context>
     <name>dcc::update::UpdateSettings</name>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="42"/>
+        <location filename="../modules/update/updatesettings.cpp" line="50"/>
         <source>Update Settings</source>
         <translation>更新設定</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="66"/>
+        <location filename="../modules/update/updatesettings.cpp" line="74"/>
         <source>System source detection</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="54"/>
+        <location filename="../modules/update/updatesettings.cpp" line="62"/>
         <source>Auto clear package cache</source>
         <translation>自動清理軟體套件快取</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="57"/>
+        <location filename="../modules/update/updatesettings.cpp" line="65"/>
         <source>Auto-download Updates</source>
         <translation>自動下載更新</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="59"/>
+        <location filename="../modules/update/updatesettings.cpp" line="67"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>使用 Wi-Fi 或有線網路時自動下載更新</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="70"/>
+        <location filename="../modules/update/updatesettings.cpp" line="78"/>
         <source>Prompt the notification if system source has been modified</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="87"/>
+        <location filename="../modules/update/updatesettings.cpp" line="95"/>
         <source>Switch Mirror</source>
         <translation>切換鏡像站</translation>
     </message>

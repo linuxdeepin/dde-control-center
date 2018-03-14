@@ -187,7 +187,7 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifyviewer.cpp" line="146"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>преди %n ден()</numerusform><numerusform>преди %n дни()</numerusform></translation>
     </message>
 </context>
 <context>
@@ -237,32 +237,32 @@
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
-        <source>Exit domain</source>
-        <translation>Изход от домейна</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
         <source>Join domain</source>
         <translation>Влезте в домейна</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="66"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
+        <source>Leave domain</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
         <source>Domain Server</source>
         <translation>Домейн сървър</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
         <source>Admin account</source>
         <translation>Администраторски акаунт</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="69"/>
         <source>Password</source>
         <translation>Парола</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="77"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="78"/>
         <source>Cancel</source>
         <translation>Отказ</translation>
     </message>
@@ -325,8 +325,8 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
-        <source>Exit domain</source>
-        <translation>Изход от домейна</translation>
+        <source>Leave domain</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
@@ -337,37 +337,37 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="121"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="123"/>
         <source>Images</source>
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="338"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>Вашият хост влезе в домейн сървъра успешно.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>Вашият хост напусна домейн сървъра успешно.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>Вашият хост не успя да напусне домейн сървъра.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to join the domain server.</source>
         <translation>Вашият хост не успя да влезе в домейн сървъра.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="328"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="350"/>
         <source>AD domain settings</source>
         <translation>AD настройки на домейн</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="381"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="394"/>
         <source>Password not match.</source>
         <translation>Паролата на съвпада</translation>
     </message>
@@ -516,7 +516,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
         <source>Current Password</source>
-        <translation type="unfinished"/>
+        <translation>Текуща парола</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
@@ -985,27 +985,27 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="115"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="108"/>
         <source>Resolution</source>
         <translation>Резолюция</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="204"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="171"/>
         <source>Cancel</source>
         <translation>Отказ</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="206"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="173"/>
         <source>Apply</source>
         <translation>Прилагане</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="213"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="180"/>
         <source>Primary</source>
         <translation>Главен</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="391"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="347"/>
         <source> (Recommended)</source>
         <translation> (Препоръчано)</translation>
     </message>
@@ -1731,22 +1731,22 @@
         <translation>Мрежа</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="210"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="214"/>
         <source>Wired Network Card%1</source>
         <translation>Мрежова карта с кабел%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="219"/>
         <source>Wired Network Card</source>
         <translation>Мрежова карта с кабел</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="216"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="220"/>
         <source>Wired Network</source>
         <translation>Кабелна мрежа</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="211"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
         <source>Wired Network%1</source>
         <translation>Кабелна мрежа%1</translation>
     </message>
@@ -1756,32 +1756,32 @@
         <translation>Системен прокси сървър</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="225"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
         <source>Hotspot</source>
         <translation>Хотспот</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="233"/>
         <source>Shared</source>
         <translation>Споделен</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
         <source>Wireless Network Card%1</source>
         <translation>Безжична мрежова карта%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="247"/>
         <source>Wireless Network Card</source>
         <translation>Безжична мрежова карта</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="244"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="248"/>
         <source>Wireless Network</source>
         <translation>Безжична мрежа</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="239"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wireless Network%1</source>
         <translation>Безжична мрежа%1</translation>
     </message>
@@ -2490,37 +2490,37 @@
 <context>
     <name>dcc::update::UpdateSettings</name>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="42"/>
+        <location filename="../modules/update/updatesettings.cpp" line="50"/>
         <source>Update Settings</source>
         <translation>Настройки на обновяването</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="66"/>
+        <location filename="../modules/update/updatesettings.cpp" line="74"/>
         <source>System source detection</source>
         <translation>Откриване на системен източник</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="54"/>
+        <location filename="../modules/update/updatesettings.cpp" line="62"/>
         <source>Auto clear package cache</source>
         <translation>Авто изчистване на пакетния кеш</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="57"/>
+        <location filename="../modules/update/updatesettings.cpp" line="65"/>
         <source>Auto-download Updates</source>
         <translation>Автоматично сваляне на обновления</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="59"/>
+        <location filename="../modules/update/updatesettings.cpp" line="67"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>Обновленията ще бъдат сваляни автоматично през безжична или кабелна мрежа</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="70"/>
+        <location filename="../modules/update/updatesettings.cpp" line="78"/>
         <source>Prompt the notification if system source has been modified</source>
         <translation>Изискване на уведомление, ако системният източник бъде променен</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="87"/>
+        <location filename="../modules/update/updatesettings.cpp" line="95"/>
         <source>Switch Mirror</source>
         <translation>Смяна на огледалото</translation>
     </message>

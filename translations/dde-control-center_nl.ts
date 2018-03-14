@@ -237,32 +237,32 @@
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
-        <source>Exit domain</source>
-        <translation>Domein afsluiten</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="50"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
         <source>Join domain</source>
         <translation>Word lid van domein</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="66"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
+        <source>Leave domain</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
         <source>Domain Server</source>
         <translation>Domein Server</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
         <source>Admin account</source>
         <translation>Beheerdersaccount</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="69"/>
         <source>Password</source>
         <translation>Wachtwoord</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="77"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="78"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
@@ -325,8 +325,8 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
-        <source>Exit domain</source>
-        <translation>Domein afsluiten</translation>
+        <source>Leave domain</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
@@ -337,37 +337,37 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="121"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="123"/>
         <source>Images</source>
         <translation>Afbeeldingen</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="338"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>Uw host heeft zich met succes bij de domeinserver gevoegd.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>Uw host is met succes van de domeinserver verwijderd.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>Uw host kan de domeinserver niet verlaten.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to join the domain server.</source>
         <translation>Uw host kan niet deelnemen aan de domeinserver.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="328"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="350"/>
         <source>AD domain settings</source>
         <translation>AD domein instellingen</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="381"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="394"/>
         <source>Password not match.</source>
         <translation>Wachtwoord komt niet overeen.</translation>
     </message>
@@ -985,27 +985,27 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="115"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="108"/>
         <source>Resolution</source>
         <translation>Resolutie</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="204"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="171"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="206"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="173"/>
         <source>Apply</source>
         <translation>Toepassen</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="213"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="180"/>
         <source>Primary</source>
         <translation>Primair</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="391"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="347"/>
         <source> (Recommended)</source>
         <translation>(Aanbevolen)</translation>
     </message>
@@ -1731,22 +1731,22 @@
         <translation>Netwerk</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="210"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="214"/>
         <source>Wired Network Card%1</source>
         <translation>Bekabeld Netwerk Kaart%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="219"/>
         <source>Wired Network Card</source>
         <translation>Bekabeld Netwerk Kaart</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="216"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="220"/>
         <source>Wired Network</source>
         <translation>Bekabeld Netwerk</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="211"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
         <source>Wired Network%1</source>
         <translation>Bekabeld Netwerk%1</translation>
     </message>
@@ -1756,32 +1756,32 @@
         <translation>Systeemproxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="225"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
         <source>Hotspot</source>
         <translation>Hotspot</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="233"/>
         <source>Shared</source>
         <translation>Gedeeld</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
         <source>Wireless Network Card%1</source>
         <translation>Draadloos Netwerk Kaart%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="247"/>
         <source>Wireless Network Card</source>
         <translation>Draadloos Netwerk Kaart</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="244"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="248"/>
         <source>Wireless Network</source>
         <translation>Draadloos netwerk</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="239"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wireless Network%1</source>
         <translation>Draadloos Netwerk%1</translation>
     </message>
@@ -2490,37 +2490,37 @@
 <context>
     <name>dcc::update::UpdateSettings</name>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="42"/>
+        <location filename="../modules/update/updatesettings.cpp" line="50"/>
         <source>Update Settings</source>
         <translation>Update-instellingen</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="66"/>
+        <location filename="../modules/update/updatesettings.cpp" line="74"/>
         <source>System source detection</source>
         <translation>Systeembron detectie</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="54"/>
+        <location filename="../modules/update/updatesettings.cpp" line="62"/>
         <source>Auto clear package cache</source>
         <translation>Cachegeheugen van een pakket automatisch wissen</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="57"/>
+        <location filename="../modules/update/updatesettings.cpp" line="65"/>
         <source>Auto-download Updates</source>
         <translation>Updates automatisch downloaden</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="59"/>
+        <location filename="../modules/update/updatesettings.cpp" line="67"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>In een draadloos of bekabeld netwerk worden updates automatisch gedownload</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="70"/>
+        <location filename="../modules/update/updatesettings.cpp" line="78"/>
         <source>Prompt the notification if system source has been modified</source>
         <translation>Vraag een melding als de systeembron is gewijzigd</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="87"/>
+        <location filename="../modules/update/updatesettings.cpp" line="95"/>
         <source>Switch Mirror</source>
         <translation>Van spiegelserver wisselen</translation>
     </message>
