@@ -64,8 +64,13 @@ FrameWidget::FrameWidget(Frame *parent)
     // change widget opacity
     connect(m_slidePosAni, &QPropertyAnimation::valueChanged, this, [=](const QVariant &value) {
         qreal opacity = qBound(qreal(0.0), 1.0 - qAbs(qreal(value.toPoint().x())) / FRAME_WIDTH, qreal(1.0));
+        const bool isOpacity = !qFuzzyCompare(opacity, 1.0);
 
-        m_opacityEffect->setEnabled(!qFuzzyCompare(opacity, 1.0));
+        // junk value
+        if (m_slidePosAni->state() != QPropertyAnimation::Running && isOpacity)
+            return;
+
+        m_opacityEffect->setEnabled(isOpacity);
         m_opacityEffect->setOpacity(opacity);
     });
 #endif
