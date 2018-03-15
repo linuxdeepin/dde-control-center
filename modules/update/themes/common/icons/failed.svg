@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>failed</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="通用图标" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="failed">
+            <circle id="Oval" fill="#E94646" cx="25" cy="25" r="25"></circle>
+            <polygon id="Combined-Shape" fill="#FFFFFF" fill-rule="nonzero" points="25.4852814 26.8994949 19.1213203 33.263456 18.4142136 33.9705627 17 32.5563492 17.7071068 31.8492424 24.0710678 25.4852814 17.7071068 19.1213203 17 18.4142136 18.4142136 17 19.1213203 17.7071068 25.4852814 24.0710678 31.8492424 17.7071068 32.5563492 17 33.9705627 18.4142136 33.263456 19.1213203 26.8994949 25.4852814 33.263456 31.8492424 33.9705627 32.5563492 32.5563492 33.9705627 31.8492424 33.263456"></polygon>
+        </g>
+    </g>
+</svg>

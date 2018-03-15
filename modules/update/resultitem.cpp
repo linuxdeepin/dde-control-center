@@ -27,9 +27,12 @@
 
 #include <QVBoxLayout>
 #include <QLabel>
+#include <dhidpihelper.h>
 
 #include "labels/normallabel.h"
 #include "basiclistdelegate.h"
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace update {
@@ -57,11 +60,11 @@ ResultItem::ResultItem(QFrame *parent)
 
 void ResultItem::setSuccess(bool success)
 {
-    const QString pix = success ? ":/update/themes/common/icons/update_success.png" :
-                                  ":/update/themes/common/icons/update_failed.png";
+    const QString pix = success ? ":/update/themes/common/icons/success.svg" :
+                                  ":/update/themes/common/icons/failed.svg";
     const QString message = success ? tr("Update successfully") :
                                       tr("Failed to update");
-    m_icon->setPixmap(loadPixmap(pix));
+    m_icon->setPixmap(DHiDPIHelper::loadNxPixmap(pix));
     m_message->setText(message);
 }
 
