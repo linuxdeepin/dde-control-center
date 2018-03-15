@@ -215,17 +215,14 @@ void WiredPage::onSessionCreated(const QString &sessionPath)
     ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);
 
     m_editPage->setModel(m_model, sessionModel);
+    m_editPage->setAssociatedDevice(m_device);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestRemove, this, &WiredPage::requestDeleteConnection);
     connect(m_editPage, &ConnectionEditPage::requestDisconnect, this, &WiredPage::requestDisconnectConnection);
     connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
     connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
     connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
-    // FIXME: dont activate when device is unavailable, this should be move to EditPage.
-    connect(m_editPage, &ConnectionEditPage::requestSave, sessionWorker,
-            [=](const bool /* activate */)
-        { sessionWorker->saveSettings(m_device->status() > NetworkDevice::Unavailable); }
-    );
+    connect(m_editPage, &ConnectionEditPage::requestSave, sessionWorker, &ConnectionSessionWorker::saveSettings);
 
     emit requestNextPage(m_editPage);
 }

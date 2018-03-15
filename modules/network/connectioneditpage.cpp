@@ -213,8 +213,12 @@ void ConnectionEditPage::onDeviceRemoved()
 
 void ConnectionEditPage::onAccepted()
 {
-    // TODO: test if current device is available and can be active, `true` should be passed.
-    emit requestSave(true);
+    bool active = false;
+
+    if (!m_associatedDevice.isNull())
+        active = m_associatedDevice->status() > NetworkDevice::Unavailable;
+
+    emit requestSave(active);
 }
 
 void ConnectionEditPage::recreateUI()

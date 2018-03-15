@@ -27,6 +27,7 @@
 #define CONNECTIONEDITPAGE_H
 
 #include "contentwidget.h"
+#include "networkdevice.h"
 
 #include <QMap>
 #include <QPointer>
@@ -58,6 +59,7 @@ public:
     explicit ConnectionEditPage(QWidget *parent = 0);
     ~ConnectionEditPage();
 
+    void setAssociatedDevice(NetworkDevice *dev) { m_associatedDevice = dev; }
     void setModel(NetworkModel *networkModel, ConnectionSessionModel *sessionModel);
 
 signals:
@@ -108,6 +110,7 @@ private:
     QMap<QString, widgets::SettingsGroup *> m_sectionWidgets;
     QMap<QString, QMap<QString, widgets::SettingsItem*>> m_optionWidgets;
 
+    QPointer<NetworkDevice> m_associatedDevice;
     QPointer<ContentWidget> m_nextPage;
     QTimer *m_recreateUITimer;
 };
