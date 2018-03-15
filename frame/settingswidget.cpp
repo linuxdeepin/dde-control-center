@@ -299,8 +299,10 @@ void SettingsWidget::showModulePage(const QString &moduleName, const QString &pa
         return;
     }
 
+    ensureModuleVisible(moduleName, animation);
+
     if (pageName.isEmpty())
-        return ensureModuleVisible(moduleName, animation);
+        return;
 
     for (auto *inter : m_moduleInterfaces)
         if (inter->name() == moduleName)
