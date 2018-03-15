@@ -29,6 +29,9 @@
 #include <QVBoxLayout>
 #include <DThemeManager>
 #include <QDebug>
+#include <DHiDPIHelper>
+
+DWIDGET_USE_NAMESPACE
 
 using namespace dcc;
 using namespace dcc::accounts;
@@ -54,15 +57,7 @@ void ADDialog::setUserModel(UserModel *model)
 
 void ADDialog::initUI()
 {
-    QPixmap pixmap;
-    QImageReader reader;
-    reader.setFileName(":/accounts/themes/dark/icons/default_avatar.png");
-    if (reader.canRead()) {
-        reader.setScaledSize(QSize(64, 64));
-        pixmap = QPixmap::fromImage(reader.read());
-        pixmap.setDevicePixelRatio(devicePixelRatio());
-    }
-    setIcon(QIcon(pixmap));
+    setIconPixmap(DHiDPIHelper::loadNxPixmap(":/accounts/themes/dark/icons/default_avatar.svg"));
 
     m_server->setPlaceholderText(tr("Domain Server"));
     m_username->setPlaceholderText(tr("Admin account"));
