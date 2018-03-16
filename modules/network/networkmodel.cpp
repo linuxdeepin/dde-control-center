@@ -240,6 +240,9 @@ void NetworkModel::onConnectionListChanged(const QString &conns)
     {
         const auto &connList = it.value().toArray();
         const auto &connType = it.key();
+        if (connType.isEmpty())
+            continue;
+
         m_connections[connType].clear();
 
         for (const auto &connObject : connList)
@@ -262,8 +265,7 @@ void NetworkModel::onConnectionListChanged(const QString &conns)
         WiredDevice *wDev = static_cast<WiredDevice *>(dev);
         const QString &hwAdr = wDev->realHwAdr();
 
-        if (devicesConnectionsList.contains(hwAdr))
-            wDev->setConnections(devicesConnectionsList[hwAdr]);
+        wDev->setConnections(devicesConnectionsList[hwAdr]);
     }
 
     emit connectionListChanged();
