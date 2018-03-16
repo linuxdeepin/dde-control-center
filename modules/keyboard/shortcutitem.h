@@ -70,6 +70,7 @@ public slots:
 
 private:
     void onShortcutEdit();
+    void updateTitleSize();
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;

@@ -108,12 +108,7 @@ ShortcutInfo *ShortcutItem::curInfo()
 void ShortcutItem::setTitle(const QString &title)
 {
     m_title->setText(title);
-
-    m_key->adjustSize();
-
-    int v = width() - m_key->width() - 32;
-    if (m_title->fontMetrics().width(m_title->text()) > v)
-        m_title->setFixedWidth(v);
+    QTimer::singleShot(1, this, &ShortcutItem::updateTitleSize);
 }
 
 void ShortcutItem::setShortcut(const QString &shortcut)
@@ -155,6 +150,13 @@ void ShortcutItem::onRemoveClick()
 void ShortcutItem::onShortcutEdit()
 {
     emit shortcutEditChanged(m_info);
+}
+
+void ShortcutItem::updateTitleSize()
+{
+    int v = width() - m_key->width() - 32;
+    if (m_title->fontMetrics().width(m_title->text()) > v)
+        m_title->setFixedWidth(v);
 }
 
 void ShortcutItem::mouseReleaseEvent(QMouseEvent *e)
