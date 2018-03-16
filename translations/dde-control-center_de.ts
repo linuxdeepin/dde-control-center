@@ -187,7 +187,7 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifyviewer.cpp" line="146"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>vor %n Tag(en)</numerusform><numerusform>%n day(s) ago</numerusform></translation>
     </message>
 </context>
 <context>
@@ -244,7 +244,7 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>Domäne verlassen</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
@@ -326,7 +326,7 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>Domäne verlassen</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>

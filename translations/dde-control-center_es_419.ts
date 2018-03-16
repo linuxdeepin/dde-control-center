@@ -244,7 +244,7 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>Salir del dominio</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
@@ -326,7 +326,7 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>Salir del dominio</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
@@ -516,7 +516,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
         <source>Current Password</source>
-        <translation type="unfinished"/>
+        <translation>Contraseña actual</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>

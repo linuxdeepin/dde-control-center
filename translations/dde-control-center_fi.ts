@@ -12,12 +12,12 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
         <source>Connect to other devices</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistä muihin laitteisiin</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Paina kuvaketta ottaaksesi Bluetooth käyttöön</translation>
     </message>
 </context>
 <context>
@@ -40,32 +40,32 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation type="unfinished"/>
+        <translation>Uudet Mukautetut Asetukset</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>Kopioi näytön sisältö yhteen tai useampaan näyttöön</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>Laajenna näyttösi sisältö näyttämään eri sisältöjä eri näytöillä</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Näytön sisältö on näkyvissä vain kohteessa %1</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
         <source>Please enter Display module to set if you want to change the custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Ole hyvä ja siirry Näyttö moduuliin asettaeksesi, jos haluat muuttaa mukautettuja asetuksia</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
-        <translation type="unfinished"/>
+        <translation>Siirry näyttö moduuliin klikkaamalla</translation>
     </message>
 </context>
 <context>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Ei mitään</translation>
     </message>
 </context>
 <context>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../plugins/navigation/navwidget.cpp" line="206"/>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Navigointi</translation>
     </message>
 </context>
 <context>
@@ -89,12 +89,12 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="65"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjennä kaikki</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="145"/>
         <source>No system notifications</source>
-        <translation type="unfinished"/>
+        <translation>Ei järjestelmäilmoituksia</translation>
     </message>
 </context>
 <context>
@@ -102,12 +102,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="34"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Päivitykset asennettu ja uudelleenkäynnistys tarvittu, käynnistetäänkö uudelleen nyt?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>Varmista ensin, että kaikki tiedot on tallennettu</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
@@ -122,7 +122,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistä uudelleen</translation>
     </message>
 </context>
 <context>
@@ -130,7 +130,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation type="unfinished"/>
+        <translation>Käännä hiiren vasemmalla painikkeella ja poistu oikealla painikkeella</translation>
     </message>
 </context>
 <context>
@@ -138,12 +138,12 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="50"/>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>Ei hakutuloksia</translation>
     </message>
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="142"/>
         <source>Current City: %1</source>
-        <translation type="unfinished"/>
+        <translation>Nykyinen Kaupunki: %1</translation>
     </message>
 </context>
 <context>
@@ -151,12 +151,12 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="78"/>
         <source>Reset all settings</source>
-        <translation type="unfinished"/>
+        <translation>Palauta kaikki asetukset</translation>
     </message>
     <message>
         <location filename="../frame/settingswidget.cpp" line="88"/>
         <source>All Settings</source>
-        <translation type="unfinished"/>
+        <translation>Kaikki Asetukset</translation>
     </message>
 </context>
 <context>
@@ -164,12 +164,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Päivitykset</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="38"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Päivityksiä löydetty, klikkaa nähdäksesi</translation>
     </message>
 </context>
 <context>
@@ -182,12 +182,12 @@
     <message>
         <location filename="../plugins/notify/notifyviewer.cpp" line="140"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Toissapäivänä</translation>
     </message>
     <message numerus="yes">
         <location filename="../plugins/notify/notifyviewer.cpp" line="146"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n päivä(ä) sitten</numerusform><numerusform>%n päivä(ä) sitten</numerusform></translation>
     </message>
 </context>
 <context>
@@ -195,7 +195,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
+        <translation>Klikkaa kuvaketta ottaaksesi VPN-yhteys käyttöön</translation>
     </message>
 </context>
 <context>
@@ -203,17 +203,17 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
         <source>Sorry, unable to get weather!</source>
-        <translation type="unfinished"/>
+        <translation>Sori, emme voineet saada säätä!</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
         <source>Loading weather...</source>
-        <translation type="unfinished"/>
+        <translation>Ladataan säätä...</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
         <source>Just updated</source>
-        <translation type="unfinished"/>
+        <translation>Juuri päivitetty</translation>
     </message>
 </context>
 <context>
@@ -221,17 +221,17 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistä piilotettuun verkkoon</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="81"/>
         <source>Click icon to enable WIFI</source>
-        <translation type="unfinished"/>
+        <translation>Klikkaa kuvaketta ottaaksesi Wi-Fi käyttöön</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="210"/>
         <source>Wireless Card %1</source>
-        <translation type="unfinished"/>
+        <translation>Langaton Kortti %1</translation>
     </message>
 </context>
 <context>
@@ -239,22 +239,22 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Liity toimialaan</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>Poistu toimialasta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
         <source>Domain Server</source>
-        <translation type="unfinished"/>
+        <translation>Toimialan Palvelin</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>Admin tunnus</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="69"/>
@@ -272,42 +272,42 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
-        <translation type="unfinished"/>
+        <translation>Muokkaa Avataria</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>Muokkaa Koko Nimeä</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
-        <translation type="unfinished"/>
+        <translation>Muokkaa Salasanaa</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen Kirjautuminen</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu sisään ilman salasanaa</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
         <source>Delete Account</source>
-        <translation>Poista tili</translation>
+        <translation>Poista Tili</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>Ei voida poistaa, nykyinen käyttäjä kirjautuneena sisään</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Sormenjälkitunniste</translation>
     </message>
 </context>
 <context>
@@ -315,23 +315,23 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
-        <translation type="unfinished"/>
+        <translation>Luo Tili</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../plugins/navigation/navwidget.cpp" line="170"/>
         <source>Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Tilit</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>Poistu toimialasta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Liity toimialaan</translation>
     </message>
 </context>
 <context>
@@ -339,27 +339,27 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="123"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Kuvat</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="338"/>
         <source>Your host joins the domain server successfully.</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi liittyi toimialapalvelimeen onnistuneesti.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
         <source>Your host was removed from the domain server successfully.</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi poistettiin toimialapalvelimelta onnistuneesti.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
         <source>Your host failed to leave the domain server.</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi poistuminen toimialapalvelimelta epäonnistui.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to join the domain server.</source>
-        <translation type="unfinished"/>
+        <translation>Laitteesi liittyminen toimialapalvelimeen epäonnistui.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="350"/>
@@ -377,7 +377,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Lisää Sormenjälki</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="55"/>
@@ -392,17 +392,17 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Tunnistetaan sormenjälkeä</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
+        <translation>Sormenjäljen tunnistaminen epäonnistui, laita sormesi sormenjälkilukijan päälle, siirry alhaalta ylöspäin ja päästä irti</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation type="unfinished"/>
+        <translation>Laita sormesi sormenjälkilukijan päälle, siirry alhaalta ylöspäin ja päästä irti, ja toista vaiheet</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
@@ -432,7 +432,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="54"/>
         <location filename="../modules/accounts/createpage.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="53"/>
@@ -470,12 +470,12 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Sormenjälkitunniste</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Lisää Sormenjälki</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="52"/>
@@ -498,7 +498,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>Koko nimi:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -508,7 +508,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>Koko nimen asetukset</translation>
     </message>
 </context>
 <context>
@@ -516,7 +516,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
         <source>Current Password</source>
-        <translation type="unfinished"/>
+        <translation>Nykyinen Salasana</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
@@ -533,7 +533,7 @@
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="56"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
@@ -543,7 +543,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
         <source>Accept</source>
-        <translation type="unfinished"/>
+        <translation>Hyväksy</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="82"/>
@@ -668,17 +668,17 @@
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="56"/>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Vuosi</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="59"/>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Kuukausi</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Päivä</translation>
     </message>
 </context>
 <context>
@@ -686,7 +686,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen Synkronointi</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="51"/>
@@ -697,22 +697,22 @@
         <location filename="../modules/datetime/datetime.cpp" line="58"/>
         <location filename="../plugins/navigation/navwidget.cpp" line="177"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Aika ja päivämäärä</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="62"/>
         <source>Change System Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Vaihda Järjestelmän Aikavyöhykettä</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="70"/>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajan asetukset</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="75"/>
         <source>Timezone List</source>
-        <translation type="unfinished"/>
+        <translation>Aikavyöhyke Lista</translation>
     </message>
 </context>
 <context>
@@ -720,7 +720,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="174"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Vaihda Aikavyöhyke</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
@@ -758,12 +758,12 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="119"/>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 tuntia edellä paikallista aikaa</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="121"/>
         <source>%1 hours late than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 tuntia myöhässä paikallista aikaa</translation>
     </message>
 </context>
 <context>
@@ -820,7 +820,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>Avaa Työpöytätiedosto</translation>
     </message>
 </context>
 <context>
@@ -855,7 +855,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="43"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Muokkaa</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="45"/>
@@ -886,7 +886,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Näytön skaalaus</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
@@ -1044,7 +1044,7 @@
         <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
@@ -1078,7 +1078,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="66"/>
@@ -1500,7 +1500,7 @@
         <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
         <location filename="../modules/network/chainsproxypage.cpp" line="54"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
@@ -1578,7 +1578,7 @@
         <location filename="../modules/network/connectioneditpage.cpp" line="451"/>
         <location filename="../modules/network/connectioneditpage.cpp" line="533"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Vaadittu</translation>
     </message>
 </context>
 <context>
@@ -1966,7 +1966,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="60"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistä piilotettuun verkkoon</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
@@ -2340,7 +2340,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="84"/>
         <location filename="../modules/update/mirroritem.cpp" line="130"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Keskikokoinen</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="86"/>
