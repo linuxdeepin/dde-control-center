@@ -1,3 +1,27 @@
+<a name="4.4.1"></a>
+### 4.4.1 (2018-03-16)
+
+
+#### Features
+
+*   reminder dialog icon support HiDPI ([3ab10f7c](https://github.com/linuxdeepin/dde-control-center/commit/3ab10f7c3415dc71a907d672f5b7e3b331814e14))
+* **accounts:**  AD Dialog add error tips ([e3f27b4e](https://github.com/linuxdeepin/dde-control-center/commit/e3f27b4e753b5763c7156ebbdb4b6edb3c9c7a18))
+* **update_module:**  result item icon support HiDPI ([ccaecc85](https://github.com/linuxdeepin/dde-control-center/commit/ccaecc85e906bd918617aa973c2223cc399855ed))
+
+#### Bug Fixes
+
+*   not sync navigation ([5cba4210](https://github.com/linuxdeepin/dde-control-center/commit/5cba421069269f3bdf246d364a867a5c010b0a63))
+*   wireless list icon support HiDPI ([10d2243c](https://github.com/linuxdeepin/dde-control-center/commit/10d2243c6562207df57745331d4d6ba4036dafe9))
+*   close ADDialog not hidden. ([2b57a334](https://github.com/linuxdeepin/dde-control-center/commit/2b57a3344e192f85e690a0cbbd90a1bfd6011aa1))
+*   QuickControlPanel not set a valid parent for child widget ([3a364a93](https://github.com/linuxdeepin/dde-control-center/commit/3a364a934e1acaedab69f2a6807b6bf287934727))
+* **accounts:**
+  *  check AD User logind ([4f92dcbe](https://github.com/linuxdeepin/dde-control-center/commit/4f92dcbe7fcac5acbb65859a6a4f2b81ea3e6369))
+  *  join AD Domain not set init value ([1aa5e463](https://github.com/linuxdeepin/dde-control-center/commit/1aa5e463af2f898b5561f5db4cc242e65c279ac4))
+* **display:**  screen list item margins error ([0cc5c700](https://github.com/linuxdeepin/dde-control-center/commit/0cc5c700b476e7693df10f02933082dac34a0c9f))
+* **keyboard:**  set fix height need delay when item set title ([3974c122](https://github.com/linuxdeepin/dde-control-center/commit/3974c1224697411c1962dce7ee3fc35dd0b72262))
+
+
+
 <a name="4.4.0"></a>
 ## 4.4.0 (2018-03-08)
 
