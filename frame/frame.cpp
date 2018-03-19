@@ -281,7 +281,7 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
 
     setFixedHeight(m_primaryRect.height() / ratio);
 
-    DBlurEffectWidget::move(m_primaryRect.right() - width() * ratio + 1, m_primaryRect.y());
+    DBlurEffectWidget::move(m_primaryRect.right() / ratio - width() + 1, m_primaryRect.y());
 }
 
 void Frame::onMouseButtonReleased(const QPoint &p, const int flag)
