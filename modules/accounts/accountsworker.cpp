@@ -305,25 +305,24 @@ void AccountsWorker::refreshADDomain()
 #ifdef DCC_ENABLE_ADDOMAIN
 void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin, const QString &password)
 {
-    QProcess process(this);
-
-    if (m_userModel->isJoinADDomain()) {
-        process.execute("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "leave" << admin << password);
+    const bool isJoin = m_userModel->isJoinADDomain();
+    int exitCode = 0;
+    if (isJoin) {
+        exitCode = QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "leave" << admin << password);
     } else {
-        process.execute("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "join" << server << admin << password);
+        exitCode = QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "join" << server << admin << password);
     }
 
     QString message;
-    const bool isJoin = m_userModel->isJoinADDomain();
 
-    if (process.exitStatus() == QProcess::NormalExit && !process.exitCode()) {
+    if (!exitCode) {
         message = isJoin ? tr("Your host was removed from the domain server successfully.")
                          : tr("Your host joins the domain server successfully.");
 
         // Additional operation, need to initialize the user's settings
         if (!isJoin) {
-            process.execute("pkexec", QStringList() << "/opt/pbis/bin/config" << "UserDomainPrefix" << "ADS");
-            process.execute("pkexec", QStringList() << "/opt/pbis/bin/config" << "LoginShellTemplate" << "/bin/bash");
+            QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/config" << "UserDomainPrefix" << "ADS");
+            QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/config" << "LoginShellTemplate" << "/bin/bash");
         }
     } else {
         message = isJoin ? tr("Your host failed to leave the domain server.")
