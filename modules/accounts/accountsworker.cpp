@@ -197,34 +197,17 @@ void AccountsWorker::onUserListChanged(const QStringList &userList)
 
 void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd)
 {
-    /* freedesktop accounts dbus way.
-    AccountsUser *userInter = m_userInters[user];
-    Q_ASSERT(userInter);
+    QProcess process;
+    process.setProgram("passwd");
+    process.setArguments(QStringList() << user->name());
+    process.start();
+    process.write(QString("%1\n%2\n%3").arg(oldpwd).arg(passwd).arg(passwd).toLatin1());
+    process.closeWriteChannel();
+    process.waitForFinished();
 
-    emit requestFrameAutoHide(false);
-    userInter->SetPassword(passwd).waitForFinished();
-    QTimer::singleShot(100, this, [=] { emit requestFrameAutoHide(true); });
-    */
+    qDebug() << Q_FUNC_INFO << process.readAllStandardError() << process.readAllStandardOutput();
 
-    // passwd command way
-    QProcess *cmd = new QProcess;
-    cmd->setProgram("passwd");
-    cmd->setArguments(QStringList(user->name()));
-
-    connect(cmd, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), cmd, [cmd] (int exitCode, QProcess::ExitStatus exitStatus) {
-        qDebug() << "passwd command exit status and exit code:" << exitCode << exitStatus;
-        qWarning() << cmd->errorString() << QString(cmd->readAllStandardOutput()) << QString(cmd->readAllStandardError());
-        cmd->deleteLater();
-    });
-    cmd->start();
-
-    if (!cmd->waitForStarted()) {
-        qWarning() << "failed to start passwd command";
-        return;
-    }
-
-    cmd->write(QString("%1\n%2\n%3").arg(oldpwd).arg(passwd).arg(passwd).toLatin1());
-    cmd->closeWriteChannel();
+    emit user->passwordModifyFinished(process.exitCode());
 }
 
 void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)

@@ -84,6 +84,7 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
     connect(accept, &QPushButton::clicked, this, &ModifyPasswordPage::passwordSubmit);
     connect(cancel, &QPushButton::clicked, this, &ModifyPasswordPage::back);
     connect(m_pwdEditRepeat->textEdit(), &QLineEdit::editingFinished, this, &ModifyPasswordPage::checkPwd);
+    connect(user, &User::passwordModifyFinished, this, &ModifyPasswordPage::onPasswordChangeFinished);
 }
 
 void ModifyPasswordPage::passwordSubmit()
@@ -101,7 +102,6 @@ void ModifyPasswordPage::passwordSubmit()
         return;
 
     emit requestChangePassword(m_userInter, pwdOld, pwd0);
-    emit back();
 }
 
 void ModifyPasswordPage::checkPwd()
@@ -109,4 +109,17 @@ void ModifyPasswordPage::checkPwd()
     m_oldpwdEdit->setIsErr(m_oldpwdEdit->text().isEmpty());
     m_pwdEdit->setIsErr(m_pwdEdit->text().isEmpty());
     m_pwdEditRepeat->setIsErr(m_pwdEditRepeat->text() != m_pwdEdit->text());
+}
+
+void ModifyPasswordPage::onPasswordChangeFinished(const int exitCode)
+{
+    if (exitCode == 0)
+    {
+        emit back();
+        return;
+    } else {
+        qWarning() << Q_FUNC_INFO << "exit =" << exitCode;
+
+        m_oldpwdEdit->setIsErr();
+    }
 }

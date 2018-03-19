@@ -76,6 +76,7 @@ public:
     void setIsCurrentUser(bool isCurrentUser);
 
 signals:
+    void passwordModifyFinished(const int exitCode) const;
     void nameChanged(const QString &name) const;
     void fullnameChanged(const QString &name) const;
     void currentAvatarChanged(const QString &avatar) const;

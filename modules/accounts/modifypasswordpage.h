@@ -48,6 +48,7 @@ signals:
 private slots:
     void passwordSubmit();
     void checkPwd();
+    void onPasswordChangeFinished(const int exitCode);
 
 private:
     User *m_userInter;
