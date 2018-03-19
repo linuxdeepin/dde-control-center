@@ -66,7 +66,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
       m_settingsLayout(new QVBoxLayout),
       m_settingsWidget(new TranslucentFrame),
 
-      m_refershModuleActivableTimer(new QTimer(this))
+      m_refreshModuleActivableTimer(new QTimer(this))
 
 {
     qDebug() << Q_FUNC_INFO << "I'm born!!!!";
@@ -87,12 +87,12 @@ SettingsWidget::SettingsWidget(Frame *frame)
     setContent(m_settingsWidget);
     setTitle(tr("All Settings"));
 
-    m_refershModuleActivableTimer->setSingleShot(true);
-    m_refershModuleActivableTimer->setInterval(500);
+    m_refreshModuleActivableTimer->setSingleShot(true);
+    m_refreshModuleActivableTimer->setInterval(500);
 
     connect(m_resetBtn, &QPushButton::clicked, this, &SettingsWidget::resetAllSettings);
-    connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, m_refershModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-    connect(m_refershModuleActivableTimer, &QTimer::timeout, this, &SettingsWidget::refershModuleActivable);
+    connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, m_refreshModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_refreshModuleActivableTimer, &QTimer::timeout, this, &SettingsWidget::refershModuleActivable, Qt::QueuedConnection);
 
     QMetaObject::invokeMethod(this, "loadModules", Qt::QueuedConnection);
 }
@@ -250,7 +250,7 @@ void SettingsWidget::onModuleInitFinished(ModuleInterface *const module)
     // load all modules finished
     if (m_moduleActivable.size() == m_moduleInterfaces.size())
     {
-        m_refershModuleActivableTimer->start();
+        m_refreshModuleActivableTimer->start();
 
         // scroll to dest widget
         if (m_ensureVisiblePage.isEmpty())
@@ -282,6 +282,9 @@ void SettingsWidget::ensureModuleVisible(const QString &moduleName, bool animati
 
 void SettingsWidget::showModulePage(const QString &moduleName, const QString &pageName, bool animation)
 {
+    // whatever module/page found or not, refresh module active state is necessary.
+    m_refreshModuleActivableTimer->start(animation ?: m_scrollAni->duration());
+
     // test module is loaded
     bool founded = false;
     for (auto *module : m_moduleActivable.keys())
@@ -307,8 +310,6 @@ void SettingsWidget::showModulePage(const QString &moduleName, const QString &pa
     for (auto *inter : m_moduleInterfaces)
         if (inter->name() == moduleName)
             inter->showPage(pageName);
-
-    m_refershModuleActivableTimer->start();
 }
 
 void SettingsWidget::setModuleVisible(ModuleInterface * const inter, const bool visible)
@@ -333,7 +334,7 @@ void SettingsWidget::refershModuleActivable()
 
     QScroller *scroller = QScroller::scroller(m_contentArea);
     if (scroller->state() != QScroller::Inactive) {
-        m_refershModuleActivableTimer->start();
+        m_refreshModuleActivableTimer->start();
         return;
     }
 

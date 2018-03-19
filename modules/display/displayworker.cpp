@@ -92,6 +92,7 @@ DisplayWorker::~DisplayWorker()
 void DisplayWorker::active()
 {
     QDBusPendingCallWatcher *scalewatcher = new QDBusPendingCallWatcher(m_appearanceInter->GetScaleFactor());
+
     connect(scalewatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScaleFinished);
 }
 

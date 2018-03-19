@@ -86,7 +86,7 @@ private:
     QMap<ModuleInterface *, bool> m_moduleActivable;
     QMap<ModuleInterface *, QList<ContentWidget *>> m_moduleWidgets;
 
-    QTimer *m_refershModuleActivableTimer;
+    QTimer *m_refreshModuleActivableTimer;
 
     QString m_ensureVisibleModule;
     QString m_ensureVisiblePage;
