@@ -251,6 +251,12 @@ void WifiListModel::onDeviceApAdded(const QJsonObject &info)
     if (!dev->enabled())
         return;
 
+    // test if ap already exist.
+    const auto &ssid = info.value("Ssid").toString();
+    for (auto &apInfo : m_apInfoList[dev])
+        if (apInfo.value("Ssid").toString() == ssid)
+            return;
+
     const int row = indexOf(static_cast<WirelessDevice *>(dev));
 
     beginInsertRows(QModelIndex(), row, row);
