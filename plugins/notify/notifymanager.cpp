@@ -102,6 +102,8 @@ Viewer *NotifyManager::onNotifyAdd(const QJsonObject &value) {
     viewer->setFixedHeight(80);
     viewer->setContentsMargins(0, 0, 0, 0);
 
+    viewer->adjustSize();
+
     m_viewerList.insert(viewer, value);
     connect(viewer, &Viewer::requestClose, this, &NotifyManager::onNotifyRemove);
     update();

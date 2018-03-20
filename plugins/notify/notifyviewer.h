@@ -64,9 +64,9 @@ private slots:
     void onAnimationFinished();
 
 protected:
-    virtual void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
-    virtual void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
-    virtual void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
+    void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
 
 private:
     QLabel *m_appName, *m_time;

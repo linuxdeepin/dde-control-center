@@ -46,6 +46,7 @@ Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QFrame(parent),
     m_appIcon->setMargin(0);
     m_close->setMargin(0);
     m_appName->setMargin(0);
+    m_appName->setWordWrap(true);
     m_appIcon->setFixedSize(ICON_SIZE,ICON_SIZE);
     m_time->setFixedHeight(10);
 //    m_body->setFixedSize(272, 50);
