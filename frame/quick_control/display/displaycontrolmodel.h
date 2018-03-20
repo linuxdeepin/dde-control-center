@@ -54,7 +54,7 @@ public:
     {
         Duplicate,
         Extend,
-        Specificed,
+        Specified,
         Custom,
         NewConfig,
     };

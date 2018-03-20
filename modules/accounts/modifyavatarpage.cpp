@@ -93,7 +93,7 @@ void ModifyAvatarPage::updateAvatarList()
         ++count;
     }
 
-    // append last avatar, the custom avatar is start with special specificed path
+    // append last avatar, the custom avatar is start with special specified path
     if (!avatars.isEmpty())
     {
         const auto &avatar = avatars.last();

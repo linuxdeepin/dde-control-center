@@ -239,7 +239,7 @@ void Frame::showSettingsPage(const QString &moduleName, const QString &pageName,
     if (pageName.isEmpty() && m_frameWidgetStack.size() == 1)
         showAllSettings();
 
-    // show specificed page
+    // show specified page
 //    m_allSettingsPage->showModulePage(moduleName, pageName);
     QMetaObject::invokeMethod(m_allSettingsPage, "showModulePage", Qt::QueuedConnection, Q_ARG(QString, moduleName), Q_ARG(QString, pageName), Q_ARG(bool, animation));
 

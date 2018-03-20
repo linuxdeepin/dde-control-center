@@ -162,7 +162,7 @@ int main(int argc, char *argv[])
     QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");
     QCommandLineOption toggleOption(QStringList() << "t" << "toggle", "toggle control center visible.");
     QCommandLineOption moduleOption("m", "the module' id of which to be shown.", "module");
-    QCommandLineOption pageOption("p", "specificed module page", "page");
+    QCommandLineOption pageOption("p", "specified module page", "page");
 
     QCommandLineParser parser;
     parser.setApplicationDescription("DDE Control Center");

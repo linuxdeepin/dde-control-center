@@ -153,7 +153,7 @@ DisplayControlModel::ItemType DisplayControlModel::optionType(const int index) c
     else if (index == 1)
         return Extend;
     else if (index < m_displayModel->monitorList().size() + 2)
-        return Specificed;
+        return Specified;
     else if (index != rowCount(QModelIndex()) - 1)
         return Custom;
 
@@ -170,7 +170,7 @@ const QPixmap DisplayControlModel::optionIcon(const int index) const
     case Extend:        return QPixmap(":/frame/themes/dark/icons/extend_mode.png");
     case NewConfig:
     case Custom:        return QPixmap(":/frame/themes/dark/icons/custom.png");
-    case Specificed:    return QPixmap(index > 2 ? ":/frame/themes/dark/icons/only2.png" : ":/frame/themes/dark/icons/only1.png");
+    case Specified:     return QPixmap(index > 2 ? ":/frame/themes/dark/icons/only2.png" : ":/frame/themes/dark/icons/only1.png");
     default:;
     }
 

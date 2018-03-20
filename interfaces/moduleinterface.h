@@ -82,7 +82,7 @@ public:
 
     ///
     /// \brief showPage
-    /// show specificed module page
+    /// show specified module page
     /// \param pageName
     /// the page name
     ///
