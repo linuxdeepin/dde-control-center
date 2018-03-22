@@ -59,4 +59,8 @@ addomain.files = com.deepin.controlcenter.addomain.policy
 
 TRANSLATIONS = translations/dde-control-center.ts
 
-INSTALLS += binary desktop service qm_files docs databases addomain
+INSTALLS += binary desktop service qm_files docs databases
+
+isEqual(DCC_ENABLE_ADDOMAIN, YES) {
+    INSTALLS += addomain
+}

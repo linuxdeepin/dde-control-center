@@ -310,6 +310,8 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
     if (isJoin) {
         exitCode = QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "leave" << admin << password);
     } else {
+        // for safety, restart lwsmd service before join AD Domain
+        QProcess::execute("pkexec", QStringList() << "/bin/systemctl" << "restart" << "lwsmd");
         exitCode = QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "join" << server << admin << password);
     }
 
