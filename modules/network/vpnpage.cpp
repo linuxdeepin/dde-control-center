@@ -210,18 +210,17 @@ void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
         if (!type.startsWith("vpn"))
             continue;
 
-        const QString &name = info.value("ConnectionName").toString();
         const QString &uuid = info.value("ConnectionUuid").toString();
         const int state = m_model->activeConnObjectByUuid(uuid).value("State").toInt();
 
-        activeVpnStates.insert(name, state);
+        activeVpnStates.insert(uuid, state);
     }
 
     for (auto it(m_vpns.cbegin()); it != m_vpns.cend(); ++it)
     {
-        const QString &t = it.key()->title();
-        const bool exist = activeVpnStates.contains(t);
-        const bool loading = exist ? activeVpnStates[t] != 2 : false;
+        const QString &uuid = it.value()["Uuid"].toString();
+        const bool exist = activeVpnStates.contains(uuid);
+        const bool loading = exist ? activeVpnStates[uuid] != 2 : false;
 
         if (exist && !loading)
             it.key()->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));
