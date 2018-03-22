@@ -272,16 +272,16 @@ void ProxyPage::onProxyChanged(const QString &type, const ProxyConfig &config)
     if (type == "http")
     {
         m_httpAddr->setText(config.url);
-        m_httpPort->setText(config.port);
+        m_httpPort->setText(QString::number(config.port));
     } else if (type == "https") {
         m_httpsAddr->setText(config.url);
-        m_httpsPort->setText(config.port);
+        m_httpsPort->setText(QString::number(config.port));
     } else if (type == "ftp") {
         m_ftpAddr->setText(config.url);
-        m_ftpPort->setText(config.port);
+        m_ftpPort->setText(QString::number(config.port));
     } else if (type == "socks") {
         m_socksAddr->setText(config.url);
-        m_socksPort->setText(config.port);
+        m_socksPort->setText(QString::number(config.port));
     }
 }
 

@@ -40,9 +40,9 @@ namespace network {
 
 struct ProxyConfig
 {
+    uint port;
     QString type;
     QString url;
-    QString port;
     QString username;
     QString password;
 };
@@ -62,6 +62,10 @@ public:
     ProxyConfig getChainsProxy() { return m_chainsProxy;}
 
     bool vpnEnabled() const { return m_vpnEnabled; }
+
+    bool appProxyExist() const { return m_appProxyExist; }
+    void setAppProxyExist(bool appProxyExist);
+
     const ProxyConfig proxy(const QString &type) const { return m_proxies[type]; }
     const QString autoProxy() const { return m_autoProxy; }
     const QString proxyMethod() const { return m_proxyMethod; }
@@ -80,9 +84,6 @@ public:
     const QJsonObject connectionByPath(const QString &connPath) const;
     const QJsonObject activeConnObjectByUuid(const QString &uuid) const;
 
-    bool appProxyExist() const { return m_appProxyExist; }
-    void setAppProxyExist(bool appProxyExist);
-
 signals:
     void connectionListChanged() const;
     void deviceEnableChanged(const QString &device, const bool enabled) const;
@@ -98,14 +99,14 @@ signals:
     void unhandledConnectionSessionCreated(const QString &device, const QString &sessionPath) const;
     void chainsTypeChanged(const QString &type) const;
     void chainsAddrChanged(const QString &addr) const;
-    void chainsPortChanged(const QString& port) const;
+    void chainsPortChanged(const uint port) const;
     void chainsUsernameChanged(const QString &username) const;
     void chainsPasswdChanged(const QString &passwd) const;
     void appProxyExistChanged(const bool appProxyExist) const;
 
 private slots:
     void onVPNEnabledChanged(const bool enabled);
-    void onProxiesChanged(const QString &type, const QString &url, const QString &port);
+    void onProxiesChanged(const QString &type, const QString &url, const uint port);
     void onAutoProxyChanged(const QString &proxy);
     void onProxyMethodChanged(const QString &proxyMethod);
     void onProxyIgnoreHostsChanged(const QString &hosts);
@@ -121,7 +122,7 @@ private slots:
     void onDeviceConnectionsChanged(const QString &devPath, const QList<QString> &connections);
     void onChainsTypeChanged(const QString &type);
     void onChainsAddrChanged(const QString &addr);
-    void onChainsPortChanged(const QString &port);
+    void onChainsPortChanged(const uint port);
     void onChainsUserChanged(const QString &user);
     void onChainsPasswdChanged(const QString &passwd);
 

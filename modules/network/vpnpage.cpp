@@ -119,16 +119,16 @@ void VpnPage::setModel(NetworkModel *model)
     connect(m_model, &NetworkModel::vpnEnabledChanged, m_vpnSwitch, &SwitchWidget::setChecked);
     connect(m_model, &NetworkModel::unhandledConnectionSessionCreated, this, &VpnPage::onVpnSessionCreated);
     connect(m_model, &NetworkModel::activeConnInfoChanged, this, &VpnPage::onActiveConnsInfoChanged);
-    connect(m_model, &NetworkModel::connectionListChanged, this, [=] { refershVpnList(m_model->vpns()); });
+    connect(m_model, &NetworkModel::connectionListChanged, this, [=] { refreshVpnList(m_model->vpns()); });
 
     m_vpnSwitch->setChecked(m_model->vpnEnabled());
 
-    refershVpnList(m_model->vpns());
+    refreshVpnList(m_model->vpns());
 }
 
-void VpnPage::refershVpnList(const QList<QJsonObject> &vpnList)
+void VpnPage::refreshVpnList(const QList<QJsonObject> &vpnList)
 {
-    // NOTE: vpn name changed
+    // NOTE: vpn name may changed
 //    if (vpnList.size() == m_vpnGroup->itemCount())
 //        return;
 
@@ -220,7 +220,7 @@ void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
     {
         const QString &uuid = it.value()["Uuid"].toString();
         const bool exist = activeVpnStates.contains(uuid);
-        const bool loading = exist ? activeVpnStates[uuid] != 2 : false;
+        const bool loading = exist && activeVpnStates[uuid] != 2;
 
         if (exist && !loading)
             it.key()->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));

@@ -104,7 +104,7 @@ void ChainsProxyPage::setModel(NetworkModel *model)
 
     connect(model, &NetworkModel::chainsTypeChanged, m_proxyType, &NextPageWidget::setValue);
     connect(model, &NetworkModel::chainsAddrChanged, m_addr, &LineEditWidget::setText);
-    connect(model, &NetworkModel::chainsPortChanged, m_port, &LineEditWidget::setText);
+    connect(model, &NetworkModel::chainsPortChanged, this, [=](const uint port) { m_port->setText(QString::number(port)); });
     connect(model, &NetworkModel::chainsUsernameChanged, m_username, &LineEditWidget::setText);
     connect(model, &NetworkModel::chainsPasswdChanged, m_password, &LineEditWidget::setText);
 
@@ -112,7 +112,7 @@ void ChainsProxyPage::setModel(NetworkModel *model)
 
     m_proxyType->setValue(config.type);
     m_addr->setText(config.url);
-    m_port->setText(config.port);
+    m_port->setText(QString::number(config.port));
     m_username->setText(config.username);
     m_password->setText(config.password);
 }
@@ -130,8 +130,9 @@ void ChainsProxyPage::onCheckValue()
         return;
     }
 
-    const QString &port = m_port->text();
-    if (port.isEmpty()) {
+    bool ok = true;
+    const uint port = m_port->text().toUInt(&ok);
+    if (!ok) {
         m_port->setIsErr();
         return;
     }

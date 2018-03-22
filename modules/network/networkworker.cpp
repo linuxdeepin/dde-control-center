@@ -34,8 +34,8 @@ NetworkWorker::NetworkWorker(NetworkModel *model, QObject *parent)
       m_networkModel(model)
 {
     connect(&m_networkInter, &NetworkInter::ActiveConnectionsChanged, this, &NetworkWorker::queryActiveConnInfo, Qt::QueuedConnection);
-    connect(&m_networkInter, &NetworkInter::DevicesChanged, m_networkModel, &NetworkModel::onDeviceListChanged);
     connect(&m_networkInter, &NetworkInter::ActiveConnectionsChanged, m_networkModel, &NetworkModel::onActiveConnectionsChanged);
+    connect(&m_networkInter, &NetworkInter::DevicesChanged, m_networkModel, &NetworkModel::onDeviceListChanged);
     connect(&m_networkInter, &NetworkInter::ConnectionsChanged, m_networkModel, &NetworkModel::onConnectionListChanged);
     connect(&m_networkInter, &NetworkInter::DeviceEnabled, m_networkModel, &NetworkModel::onDeviceEnableChanged);
     connect(&m_networkInter, &NetworkInter::AccessPointAdded, m_networkModel, &NetworkModel::onDeviceAPInfoChanged);
@@ -49,9 +49,7 @@ NetworkWorker::NetworkWorker(NetworkModel *model, QObject *parent)
     connect(m_chainsInter, &ProxyChains::PasswordChanged, model, &NetworkModel::onChainsPasswdChanged);
     connect(m_chainsInter, &ProxyChains::TypeChanged, model, &NetworkModel::onChainsTypeChanged);
     connect(m_chainsInter, &ProxyChains::UserChanged, model, &NetworkModel::onChainsUserChanged);
-    connect(m_chainsInter, &ProxyChains::PortChanged, this, [=] (uint port) {
-        model->onChainsPortChanged(QString::number(port));
-    });
+    connect(m_chainsInter, &ProxyChains::PortChanged, model, &NetworkModel::onChainsPortChanged);
 
     m_networkModel->onDeviceListChanged(m_networkInter.devices());
     m_networkModel->onConnectionListChanged(m_networkInter.connections());
@@ -116,7 +114,7 @@ void NetworkWorker::setProxy(const QString &type, const QString &addr, const QSt
 
 void NetworkWorker::setChainsProxy(const ProxyConfig &config)
 {
-    m_chainsInter->Set(config.type, config.url, config.port.toUInt(), config.username, config.password);
+    m_chainsInter->Set(config.type, config.url, config.port, config.username, config.password);
 }
 
 void NetworkWorker::initWirelessHotspot(const QString &devPath)
@@ -137,7 +135,7 @@ void NetworkWorker::queryChains()
 {
     m_networkModel->onChainsTypeChanged(m_chainsInter->type());
     m_networkModel->onChainsAddrChanged(m_chainsInter->iP());
-    m_networkModel->onChainsPortChanged(QString::number(m_chainsInter->port()));
+    m_networkModel->onChainsPortChanged(m_chainsInter->port());
     m_networkModel->onChainsUserChanged(m_chainsInter->user());
     m_networkModel->onChainsPasswdChanged(m_chainsInter->password());
 }
@@ -285,9 +283,9 @@ void NetworkWorker::queryProxyCB(QDBusPendingCallWatcher *w)
 {
     QDBusMessage reply = w->reply();
 
-    const QString type = w->property("proxyType").toString();
-    const QString addr = reply.arguments()[0].toString();
-    const QString port = reply.arguments()[1].toString();
+    const QString &type = w->property("proxyType").toString();
+    const QString &addr = reply.arguments()[0].toString();
+    const uint port = reply.arguments()[1].toUInt();
 
     m_networkModel->onProxiesChanged(type, addr, port);
 

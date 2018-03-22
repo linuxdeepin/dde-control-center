@@ -130,9 +130,9 @@ void NetworkModel::onVPNEnabledChanged(const bool enabled)
     }
 }
 
-void NetworkModel::onProxiesChanged(const QString &type, const QString &url, const QString &port)
+void NetworkModel::onProxiesChanged(const QString &type, const QString &url, const uint port)
 {
-    const ProxyConfig config = { type, url, port, "", "" };
+    const ProxyConfig config = { port, type, url, "", "" };
     const ProxyConfig old = m_proxies[type];
 
 
@@ -427,7 +427,7 @@ void NetworkModel::onChainsAddrChanged(const QString &addr)
     }
 }
 
-void NetworkModel::onChainsPortChanged(const QString &port)
+void NetworkModel::onChainsPortChanged(const uint port)
 {
     if (port != m_chainsProxy.port) {
         m_chainsProxy.port = port;

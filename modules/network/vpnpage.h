@@ -68,7 +68,7 @@ signals:
 
 public slots:
     void setModel(NetworkModel *model);
-    void refershVpnList(const QList<QJsonObject> &vpnList);
+    void refreshVpnList(const QList<QJsonObject> &vpnList);
 
 private slots:
     void onVpnDetailClicked();
