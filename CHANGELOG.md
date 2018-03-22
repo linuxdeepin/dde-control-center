@@ -1,3 +1,17 @@
+<a name="4.4.2"></a>
+### 4.4.2 (2018-03-22)
+
+
+#### Bug Fixes
+
+* **accounts:**
+  *  restart lwsmd before join AD Domain ([b25ccb51](https://github.com/linuxdeepin/dde-control-center/commit/b25ccb515e045e3c468d324220299b4270ac1a5f))
+  *  QProcess exitcode error when join AD Domain ([face4c81](https://github.com/linuxdeepin/dde-control-center/commit/face4c81b6eac6fba8bef8264c7c338c44e97add))
+* **display:**  move position error when resolution changed ([3a8f7c84](https://github.com/linuxdeepin/dde-control-center/commit/3a8f7c84ccaa2f7ca0905159a59c5e842c250afe))
+* **notify:**  title not limit on width ([ddd1b2c6](https://github.com/linuxdeepin/dde-control-center/commit/ddd1b2c6e3dbc6972e2265fdb0dfee3147584a9e))
+
+
+
 <a name="4.4.1"></a>
 ### 4.4.1 (2018-03-16)
 
