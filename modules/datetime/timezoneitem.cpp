@@ -103,7 +103,7 @@ void TimezoneItem::updateInfo()
     const QTimeZone zone(m_timezone.getZoneName().toLatin1());
     const QDateTime utcTime( QDateTime::currentDateTimeUtc() );
 
-    const int timeDelta = (zone.offsetFromUtc(utcTime) - localZone.offsetFromUtc(utcTime)) / 3600;
+    const double timeDelta = (zone.offsetFromUtc(utcTime) - localZone.offsetFromUtc(utcTime)) / 3600.0;
 
     QString dateLiteral;
     if (localTime.time().hour() + timeDelta >= 24) {
@@ -116,14 +116,14 @@ void TimezoneItem::updateInfo()
 
     QString compareLiteral;
     if(timeDelta > 0) {
-        compareLiteral = tr("%1 hours earlier than local").arg(timeDelta);
+        compareLiteral = tr("%1 hours earlier than local").arg(QString::number(timeDelta, 'f', 1));
     } else {
-        compareLiteral = tr("%1 hours late than local").arg(-timeDelta);
+        compareLiteral = tr("%1 hours late than local").arg(QString::number(-timeDelta, 'f', 1));
     }
 
     m_details->setText(QString("%1, %2").arg(dateLiteral).arg(compareLiteral));
     m_city->setText(m_timezone.getZoneCity());
-    m_clock->setTimeZone(QTimeZone(m_timezone.getZoneName().toLatin1()));
+    m_clock->setTimeZone(zone);
 }
 
 }
