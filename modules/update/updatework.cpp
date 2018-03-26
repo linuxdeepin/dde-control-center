@@ -90,7 +90,8 @@ UpdateWorker::UpdateWorker(UpdateModel* model, QObject *parent)
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     connect(m_lastoresessionHelper, &LastoressionHelper::SourceCheckEnabledChanged, m_model, &UpdateModel::setSourceCheck);
 #endif
-
+    setOnBattery(m_powerInter->onBattery());
+    setBatteryPercentage(m_powerInter->batteryPercentage());
     onJobListChanged(m_managerInter->jobList());
 }
 
@@ -114,8 +115,6 @@ void UpdateWorker::activate()
 
     m_model->setAutoCleanCache(m_managerInter->autoClean());
     m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
-    setOnBattery(m_powerInter->onBattery());
-    setBatteryPercentage(m_powerInter->batteryPercentage());
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     m_model->setSourceCheck(m_lastoresessionHelper->sourceCheckEnabled());
 #endif
