@@ -1,3 +1,15 @@
+<a name="4.4.3"></a>
+### 4.4.3 (2018-03-26)
+
+
+#### Bug Fixes
+
+* **grub:**  error hide frame when update grub background ([86c68180](https://github.com/linuxdeepin/dde-control-center/commit/86c681803c4daed22f5d6bdbfceb70c91946c4ac))
+* **network:**  Using UUID as a condition ([7ab70303](https://github.com/linuxdeepin/dde-control-center/commit/7ab70303e1f8f6d7d5c368c09141f9f50b90d9b2))
+* **update:**  Error checking low battery ([9c2f944c](https://github.com/linuxdeepin/dde-control-center/commit/9c2f944cbabb42c7b35f17d39be37dee8f0b2243))
+
+
+
 <a name="4.4.2"></a>
 ### 4.4.2 (2018-03-22)
 
