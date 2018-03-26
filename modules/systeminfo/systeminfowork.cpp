@@ -176,13 +176,14 @@ void SystemInfoWork::setBackground(const QString &path)
     QDBusPendingCall call = m_dbusGrubTheme->SetBackgroundSourceFile(path);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
+        emit requestSetAutoHideDCC(true);
+
         if (w->isError()) {
             onBackgroundChanged();
-
+        } else {
             setEnableTheme(true);
         }
 
-        emit requestSetAutoHideDCC(true);
         w->deleteLater();
     });
 }
