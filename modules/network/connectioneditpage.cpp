@@ -242,7 +242,7 @@ void ConnectionEditPage::recreateUI()
 
 void ConnectionEditPage::refershUI()
 {
-    const QString name = m_sessionModel->keysInfo("vs-general", "id").value("Value").toString();
+    const QString &name = m_sessionModel->keysInfo("vs-general", "id").value("Value").toString();
     setTitle(name);
 
     QWidget *fw = qApp->focusWidget();
@@ -273,6 +273,8 @@ void ConnectionEditPage::refershUI()
 
     if (fw)
         fw->setFocus();
+
+    onErrorsChanged(m_sessionModel->errors());
 }
 
 void ConnectionEditPage::exportConnConfig()
@@ -360,17 +362,15 @@ void ConnectionEditPage::onTypeChanged(const QString &type)
     if (!type.startsWith("vpn"))
         return;
 
-    const QStringList suppertedList = { "vpn-l2tp", "vpn-openvpn" };
+    const QStringList supportedList = { "vpn-l2tp", "vpn-openvpn" };
 
-    if (suppertedList.contains(type))
+    if (supportedList.contains(type))
         m_exportBtn->setVisible(true);
 }
 
 void ConnectionEditPage::onActiveStateChanged()
 {
     const bool connected = m_networkModel->activeConnections().contains(m_sessionModel->uuid());
-
-//    qDebug() << m_networkModel->activeConnections() << m_sessionModel->connectionUuid();
 
     m_disconnectBtn->setVisible(connected);
 }
@@ -381,7 +381,7 @@ SettingsItem *ConnectionEditPage::optionWidgets(const QString &section, const QJ
     const QString vType = keyObject.value("WidgetType").toString();
     const QJsonObject vInfo = m_sessionModel->keysInfo(section, vKey);
 
-    // delete old widgets
+    // select old widgets
     if (m_optionWidgets[section][vKey] != nullptr)
     {
         SettingsItem *item = m_optionWidgets[section][vKey];
@@ -423,8 +423,8 @@ SettingsItem *ConnectionEditPage::createSwitchWidget(const QJsonObject &keyObjec
     w->setTitle(keyObject.value("Name").toString());
     w->setChecked(infoObject.value("Value").toBool());
 
-    const QString section = keyObject.value("Section").toString();
-    const QString vKey = keyObject.value("Key").toString();
+    const QString &section = keyObject.value("Section").toString();
+    const QString &vKey = keyObject.value("Key").toString();
     connect(w, &SwitchWidget::checkedChanged, this, [=](const bool checked) {
         emit requestChangeSettings(section, vKey, checked ? "true" : "false");
     });
@@ -451,8 +451,8 @@ SettingsItem *ConnectionEditPage::createEditWidget(const QJsonObject &keyObject,
     else
         w->setSwitchBtnVisible(false);
 
-    const QString section = keyObject.value("Section").toString();
-    const QString vKey = keyObject.value("Key").toString();
+    const QString &section = keyObject.value("Section").toString();
+    const QString &vKey = keyObject.value("Key").toString();
     connect(e, &QLineEdit::editingFinished, this, [=] {
         emit requestChangeSettings(section, vKey, JsonEncoding(e->text()));
     });
@@ -469,8 +469,9 @@ SettingsItem *ConnectionEditPage::createComboWidget(const QJsonObject &keyObject
 
     for (const auto &v : infoObject.value("Values").toArray())
     {
-        const auto vObject = v.toObject();
-        const auto value = vObject.value("Value").toVariant();
+        const auto &vObject = v.toObject();
+        const auto &value = vObject.value("Value").toVariant();
+
         w->appendOption(vObject.value("Text").toString(), value);
     }
 

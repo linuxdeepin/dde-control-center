@@ -37,7 +37,7 @@ ConnectionSessionModel::ConnectionSessionModel(QObject *parent)
 
 }
 
-const QJsonObject ConnectionSessionModel::keysInfo(const QString &section, const QString &vKey) const
+const QJsonObject& ConnectionSessionModel::keysInfo(const QString &section, const QString &vKey) const
 {
     for (const auto &item : m_visibleItems.value(section))
     {
@@ -45,7 +45,7 @@ const QJsonObject ConnectionSessionModel::keysInfo(const QString &section, const
             return item;
     }
 
-    return QJsonObject();
+    return std::move(QJsonObject());
 }
 
 void ConnectionSessionModel::setDeletable(const bool deletable)

@@ -51,7 +51,7 @@ public:
     const NetworkErrors errors() const { return m_errors; }
     const QStringList sections() const { return m_sections; }
     const QList<QJsonObject> sectionKeys(const QString &section) const { return m_visibleItems[section]; }
-    const QJsonObject keysInfo(const QString &section, const QString &vKey) const;
+    const QJsonObject &keysInfo(const QString &section, const QString &vKey) const;
     const QString sectionName(const QString &section) const { return m_sectionName[section]; }
     const QString virtualSectionName(const QString &realSectionName) const { return m_virtualSectionName[realSectionName]; }
     const QMap<QString, QMap<QString, QJsonObject>> vkList() const { return m_vks; }
