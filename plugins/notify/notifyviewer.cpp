@@ -98,7 +98,7 @@ Viewer::Viewer(const QJsonObject &value, QWidget *parent) : QFrame(parent),
 
     setAppName(value["summary"].toString());
     setAppBody(value["body"].toString());
-    setAppId(value["id"].toString());
+    setAppId(value["time"].toString());
 
     if (value["icon"].toString().isEmpty()) {
         setAppIcon(CacheFolder + value["id"].toString() + ".png");
@@ -216,7 +216,6 @@ void Viewer::onPlayCloseAnimation()
 void Viewer::onAnimationFinished()
 {
     emit requestClose(m_id);
-    deleteLater();
 }
 
 void Viewer::paintEvent(QPaintEvent *event)

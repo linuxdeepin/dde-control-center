@@ -113,14 +113,17 @@ Viewer *NotifyManager::onNotifyAdd(const QJsonObject &value) {
 
 void NotifyManager::onNotifyRemove(const QString &id)
 {
-    for (auto it(m_viewerList.begin()); it != m_viewerList.end(); ++it) {
-        if (id == it.value()["id"].toString()) {
-            m_connectLayout->removeWidget(it.key());
-            m_viewerList.remove(it.key());
-            m_dbus->RemoveRecord(id);
-            break;
-        }
-    }
+    // main key is time;
+
+    Viewer *viewer = qobject_cast<Viewer*>(sender());
+
+    Q_ASSERT(viewer);
+
+    m_connectLayout->removeWidget(viewer);
+    m_viewerList.remove(viewer);
+    m_dbus->RemoveRecord(id);
+
+    viewer->deleteLater();
 
     update();
 }
