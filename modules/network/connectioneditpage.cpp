@@ -468,6 +468,11 @@ SettingsItem *ConnectionEditPage::createEditWidget(const QJsonObject &keyObject,
         emit requestChangeSettings(section, vKey, JsonEncoding(e->text()));
     });
 
+    // FIXME(sbw): backend may not save password in settings, it's seems backend's bug.
+    // let's re-setting password to workaround this issue.
+    if (password)
+        emit requestChangeSettings(section, vKey, JsonEncoding(e->text()));
+
     if (m_sessionModel->errors()[section].contains(vKey))
         w->setPlaceholderText(tr("Required"));
 
