@@ -295,9 +295,9 @@ void WifiListModel::onDeviceStateChanged(const NetworkDevice::DeviceStatus &stat
         m_refreshTimer->stop();
 }
 
-void WifiListModel::onDeviceActiveApChanged(const QString &oldName, const QString &newName)
+void WifiListModel::onDeviceActiveApChanged(const QJsonObject &oldApInfo, const QJsonObject &newApInfo)
 {
-    Q_UNUSED(oldName);
+    Q_UNUSED(oldApInfo);
 
     WirelessDevice *dev = static_cast<WirelessDevice *>(sender());
     Q_ASSERT(dev);
@@ -305,7 +305,7 @@ void WifiListModel::onDeviceActiveApChanged(const QString &oldName, const QStrin
     const auto list = m_apInfoList[dev];
     for (int i(0); i != list.size(); ++i)
     {
-        if (list[i].value("Ssid").toString() == newName)
+        if (list[i].value("Uuid").toString() == newApInfo["Uuid"].toString())
         {
             // pass if already first line
             if (i)

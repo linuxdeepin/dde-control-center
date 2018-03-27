@@ -82,7 +82,7 @@ private:
     void onDeviceApAdded(const QJsonObject &info);
     void onDeviceApRemoved(dcc::network::WirelessDevice *dev, const QString &ssid);
     void onDeviceStateChanged(const dcc::network::NetworkDevice::DeviceStatus &stat);
-    void onDeviceActiveApChanged(const QString &oldName, const QString &newName);
+    void onDeviceActiveApChanged(const QJsonObject &oldApInfo, const QJsonObject &newApInfo);
 
     void refershActivatingIndex();
 

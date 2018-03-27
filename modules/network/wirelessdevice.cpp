@@ -99,14 +99,14 @@ void WirelessDevice::deleteAP(const QString &apInfo)
     emit apRemoved(ssid);
 }
 
-void WirelessDevice::setActiveApName(const QString &name)
+void WirelessDevice::setActiveApInfo(const QJsonObject &apInfo)
 {
-    if (m_activeAp != name)
+    if (m_activeApInfo != apInfo)
     {
-        const QString oldName = m_activeAp;
-        m_activeAp = name;
+        const QJsonObject oldApInfo = m_activeApInfo;
+        m_activeApInfo = apInfo;
 
-        emit activeApChanged(oldName, m_activeAp);
+        emit activeApChanged(oldApInfo, m_activeApInfo);
     }
 }
 

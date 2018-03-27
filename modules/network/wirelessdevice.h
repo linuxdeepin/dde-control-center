@@ -44,25 +44,26 @@ public:
     bool supportHotspot() const;
     const QString hotspotUuid() const;
     inline bool hotspotEnabled() const { return !m_hotspotInfo.isEmpty(); }
-    inline const QString activeApName() const { return m_activeAp; }
+    inline QString activeApName() const { return activeApInfo()["ConnectionName"].toString(); }
+    const QJsonObject activeApInfo() const { return m_activeApInfo; }
 
 signals:
     void apAdded(const QJsonObject &apInfo) const;
     void apInfoChanged(const QJsonObject &apInfo) const;
     void apRemoved(const QString &ssid) const;
-    void activeApChanged(const QString &oldName, const QString &newName) const;
+    void activeApChanged(const QJsonObject &oldApInfo, const QJsonObject &newApInfo) const;
     void hotspotEnabledChanged(const bool enabled) const;
 
 public slots:
     void setAPList(const QString &apList);
     void updateAPInfo(const QString &apInfo);
     void deleteAP(const QString &apInfo);
-    void setActiveApName(const QString &name);
+    void setActiveApInfo(const QJsonObject &apInfo);
     void setHotspotInfo(const QJsonObject &hotspotInfo);
 
 private:
     QSet<QString> m_aps;
-    QString m_activeAp;
+    QJsonObject m_activeApInfo;
     QJsonObject m_hotspotInfo;
 };
 

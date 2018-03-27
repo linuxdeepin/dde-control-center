@@ -308,7 +308,7 @@ void NetworkModel::onActiveConnInfoChanged(const QString &conns)
         case NetworkDevice::Wireless:
         {
             WirelessDevice *d = static_cast<WirelessDevice *>(dev);
-            d->setActiveApName(activeConnInfo[hwAdr].value("ConnectionName").toString());
+            d->setActiveApInfo(activeConnInfo[hwAdr]);
             d->setHotspotInfo(activeHotspotInfo.value(hwAdr));
             break;
         }
