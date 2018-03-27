@@ -215,8 +215,19 @@ void ConnectionEditPage::onAccepted()
 {
     bool active = false;
 
-    if (!m_associatedDevice.isNull())
-        active = m_associatedDevice->status() > NetworkDevice::Unavailable;
+    do {
+        // if current connection is already active, need to re-active to refresh info
+        if (m_networkModel->activeConnections().contains(m_sessionModel->uuid()))
+        {
+            active = true;
+            break;
+        }
+
+        // if device is available, need to active this connection
+        if (!m_associatedDevice.isNull())
+            active = m_associatedDevice->status() > NetworkDevice::Unavailable;
+
+    } while (false);
 
     emit requestSave(active);
 }
