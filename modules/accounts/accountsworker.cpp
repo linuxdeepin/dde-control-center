@@ -346,6 +346,10 @@ void AccountsWorker::updateUserOnlineStatus(const QList<QDBusObjectPath> paths)
         m_onlineUsers << tmpSession.userName();
     }
 
+    for (User *user : m_userModel->userList()) {
+        user->setOnline(m_onlineUsers.contains(user->name()));
+    }
+
 #ifdef DCC_ENABLE_ADDOMAIN
     checkADUser();
 #endif
