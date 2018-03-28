@@ -1,3 +1,18 @@
+<a name="4.4.4"></a>
+### 4.4.4 (2018-03-28)
+
+
+#### Bug Fixes
+
+* **network:**  wireless connection device info not saved ([31be9421](https://github.com/linuxdeepin/dde-control-center/commit/31be94218dca3855fb70ca5f86cd0aad73958349))
+* **notify:**  use time as id ([c9b984b6](https://github.com/linuxdeepin/dde-control-center/commit/c9b984b6a3a75e930362b91c4377db239eb86f6c))
+
+#### Features
+
+*   reactive connection when settings changed ([af3ca20c](https://github.com/linuxdeepin/dde-control-center/commit/af3ca20c5e2475e00a81e3b433cb9ff1202d72d9))
+
+
+
 <a name="4.4.3"></a>
 ### 4.4.3 (2018-03-26)
 
