@@ -223,6 +223,19 @@ void ConnectionEditPage::onAccepted()
             break;
         }
 
+        const QString &connType = m_sessionModel->type();
+
+        // if is wireless connection, must active for save device info.
+        if (connType.startsWith("wireless"))
+        {
+            active = true;
+            break;
+        }
+
+        // if is vpn connection, DO NOT active.
+        if (connType.startsWith("vpn"))
+            break;
+
         // if device is available, need to active this connection
         if (!m_associatedDevice.isNull())
             active = m_associatedDevice->status() > NetworkDevice::Unavailable;
