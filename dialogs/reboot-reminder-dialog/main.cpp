@@ -27,6 +27,7 @@
 
 #include <DApplication>
 #include <QTranslator>
+#include <DDBusSender>
 #include <QDBusConnection>
 
 #define Service "com.deepin.dialogs.RebootReminder"
@@ -57,8 +58,12 @@ int main(int argc, char *argv[])
 
     } else {
         qWarning() << "there's an instance running, invoking Show method on it.";
-        QProcess::startDetached("qdbus com.deepin.dialogs.RebootReminder"\
-                                "/com/deepin/dialogs/RebootReminder"\
-                                "com.deepin.dialogs.RebootReminder.Show");
+
+        DDBusSender()
+                .service("com.deepin.dialogs.RebootReminder")
+                .interface("com.deepin.dialogs.RebootReminder")
+                .path("/com/deepin/dialogs/RebootReminder")
+                .method("Show")
+                .call();
     }
 }

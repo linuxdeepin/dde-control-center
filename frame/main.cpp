@@ -27,6 +27,7 @@
 #include "dbuscontrolcenterservice.h"
 
 #include <DApplication>
+#include <DDBusSender>
 #include <DLog>
 #include <QStyle>
 
@@ -191,21 +192,30 @@ int main(int argc, char *argv[])
         qDebug() << "dbus service already registered!";
 
         if (parser.isSet(toggleOption))
-            QProcess::startDetached("dbus-send --print-reply --dest=com.deepin.dde.ControlCenter /com/deepin/dde/ControlCenter com.deepin.dde.ControlCenter.Toggle");
+            DDBusSender()
+                    .service("com.deepin.dde.ControlCenter")
+                    .interface("com.deepin.dde.ControlCenter")
+                    .path("/com/deepin/dde/ControlCenter")
+                    .method("Toggle")
+                    .call();
 
         if (!reqModule.isEmpty())
-            QProcess::startDetached(QString("dbus-send "
-                                            "--print-reply "
-                                            "--dest=com.deepin.dde.ControlCenter "
-                                            "/com/deepin/dde/ControlCenter "
-                                            "com.deepin.dde.ControlCenter.ShowPage "
-                                            "\"string:%1\" \"string:%1\"").arg(reqModule).arg(reqPage));
+            DDBusSender()
+                    .service("com.deepin.dde.ControlCenter")
+                    .interface("com.deepin.dde.ControlCenter")
+                    .path("/com/deepin/dde/ControlCenter")
+                    .method("ShowPage")
+                    .arg(reqModule)
+                    .arg(reqPage)
+                    .call();
+
         else if (parser.isSet(showOption))
-            QProcess::startDetached("dbus-send "
-                                    "--print-reply "
-                                    "--dest=com.deepin.dde.ControlCenter "
-                                    "/com/deepin/dde/ControlCenter "
-                                    "com.deepin.dde.ControlCenter.Show");
+            DDBusSender()
+                    .service("com.deepin.dde.ControlCenter")
+                    .interface("com.deepin.dde.ControlCenter")
+                    .path("/com/deepin/dde/ControlCenter")
+                    .method("Show")
+                    .call();
 
 #ifndef QT_DEBUG
         return 0;
