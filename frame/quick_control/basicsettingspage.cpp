@@ -265,7 +265,7 @@ void BasicSettingsPage::onMuteChanged(const bool &mute)
 void BasicSettingsPage::onGSettingsChanged(const QString &name)
 {
     if (name == "outputVolumeMax") {
-        m_soundSlider->setRange(0, std::min(m_gsettings->get("output-volume-max").toInt(), 100));
+        m_soundSlider->setRange(0, std::min(m_gsettings->get("output-volume-max").toInt(), 150));
     }
 }
 
