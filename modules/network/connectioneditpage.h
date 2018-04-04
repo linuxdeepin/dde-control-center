@@ -63,13 +63,13 @@ public:
     void setModel(NetworkModel *networkModel, ConnectionSessionModel *sessionModel);
 
 signals:
-    void requestCancelSession() const;
-    void requestSave(const bool active) const;
-    void requestRemove(const QString &uuid) const;
-    void requestDisconnect(const QString &uuid) const;
-    void requestChangeSettings(const QString &section, const QString &vKey, const QString &data) const;
-    void requestNextPage(ContentWidget * const page) const;
-    void requestFrameKeepAutoHide(const bool autoHide) const;
+    void requestCancelSession();
+    void requestSave(const bool active);
+    void requestRemove(const QString &uuid);
+    void requestDisconnect(const QString &uuid);
+    void requestChangeSettings(const QString &section, const QString &vKey, const QString &data, const bool encrypt = false);
+    void requestNextPage(ContentWidget * const page);
+    void requestFrameKeepAutoHide(const bool autoHide);
 
 public slots:
     void onDeviceRemoved();

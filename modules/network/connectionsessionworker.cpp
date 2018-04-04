@@ -71,13 +71,24 @@ void ConnectionSessionWorker::saveSettings(const bool active)
     connect(w, &QDBusPendingCallWatcher::finished, this, &ConnectionSessionWorker::saveSettingsCB);
 }
 
-void ConnectionSessionWorker::changeSettings(const QString &section, const QString &vKey, const QString &data)
+void ConnectionSessionWorker::changeSettings(const QString &section, const QString &vKey, const QString &data, const bool encrypt)
 {
 #ifdef QT_DEBUG
-    qDebug() << section << vKey << data;
+    qDebug() << section << vKey << data << encrypt;
 #endif
 
-    m_sessionInter.SetKey(section, vKey, data);
+    if (!encrypt)
+        m_sessionInter.SetKeyQueued(section, vKey, data);
+    else
+        changeSettingsEncrypted(section, vKey, data);
+}
+
+void ConnectionSessionWorker::changeSettingsEncrypted(const QString &section, const QString &vKey, const QString &data)
+{
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_sessionInter.SetKeyFd(section, vKey), this);
+    w->setProperty("encrypted", data);
+
+    connect(w, &QDBusPendingCallWatcher::finished, this, &ConnectionSessionWorker::changeSettingsEncryptedCB);
 }
 
 void ConnectionSessionWorker::queryAvailableKeys()
@@ -112,4 +123,37 @@ void ConnectionSessionWorker::saveSettingsCB(QDBusPendingCallWatcher *w)
     emit m_connModel->saveFinished(reply.value());
 
     w->deleteLater();
+}
+
+void ConnectionSessionWorker::changeSettingsEncryptedCB(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QDBusUnixFileDescriptor> reply = *w;
+    w->deleteLater();
+
+    QFile f;
+    if (!f.open(reply.value().fileDescriptor(), QIODevice::WriteOnly))
+    {
+        qWarning() << Q_FUNC_INFO << "write encrypted data failed, open fd error." << f.errorString();
+        return;
+    }
+
+    const QString &encryptedData = w->property("encrypted").toString();
+    const quint32 length = encryptedData.size();
+
+    // TODO: only support big/little endians.
+#if __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__
+    const char *lengthBytes = reinterpret_cast<const char *>(&length);
+#else
+    Q_ASSERT(__BYTE_ORDER__ == __ORDER_BIG_ENDIAN__);
+
+    const char lengthBytes[] = { char(length >> 0  & 0xff),
+                                 char(length >> 8  & 0xff),
+                                 char(length >> 16 & 0xff),
+                                 char(length >> 24 & 0xff), };
+#endif
+
+    f.write(lengthBytes, 4);
+    f.write(encryptedData.toLatin1());
+    f.flush();
+    f.close();
 }

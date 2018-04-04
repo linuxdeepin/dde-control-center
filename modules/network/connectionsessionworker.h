@@ -48,7 +48,8 @@ public slots:
     void closeSession();
     void queryAllKeys();
     void saveSettings(const bool active);
-    void changeSettings(const QString &section, const QString &vKey, const QString &data);
+    void changeSettings(const QString &section, const QString &vKey, const QString &data, const bool encrypt);
+    void changeSettingsEncrypted(const QString &section, const QString &vKey, const QString &data);
 
 private:
     void queryAvailableKeys();
@@ -57,6 +58,7 @@ private slots:
     void queryAllKeysCB(QDBusPendingCallWatcher *w);
     void queryAvailableKeysCB(QDBusPendingCallWatcher *w);
     void saveSettingsCB(QDBusPendingCallWatcher *w);
+    void changeSettingsEncryptedCB(QDBusPendingCallWatcher *w);
 
 private:
     ConnectionSessionModel *m_connModel;
