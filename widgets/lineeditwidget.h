@@ -31,9 +31,28 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QHBoxLayout>
+#include <darrowrectangle.h>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace widgets {
+
+class ErrorTip : public DArrowRectangle {
+    Q_OBJECT
+public:
+    explicit ErrorTip(QWidget *parent = nullptr);
+
+    void setText(QString text);
+    void clear();
+    bool isEmpty() const;
+
+public slots:
+    void appearIfNotEmpty();
+
+private:
+    QLabel *m_label;
+};
 
 class LineEditWidget : public SettingsItem
 {
@@ -47,6 +66,9 @@ public:
     void setTitleVisible(const bool visible) { m_title->setVisible(visible); }
     void addRightWidget(QWidget *widget);
     void setReadOnly(const bool state);
+
+    void showAlertMessage(const QString &message);
+    void hideAlertMessage();
 
 public slots:
     void setTitle(const QString &title);
@@ -62,6 +84,7 @@ protected:
 private:
     QLabel *m_title;
     QLineEdit *m_edit;
+    ErrorTip *m_errTip;
 };
 
 }

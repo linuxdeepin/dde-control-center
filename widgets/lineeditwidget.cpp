@@ -30,11 +30,47 @@
 namespace dcc {
 namespace widgets {
 
+ErrorTip::ErrorTip(QWidget *parent) :
+    DArrowRectangle(DArrowRectangle::ArrowTop, parent),
+    m_label(new QLabel)
+{
+    m_label->setObjectName("New_Account_errorTip");
+    m_label->setAccessibleName(m_label->objectName());
+    m_label->setStyleSheet("padding: 5px 10px; color: #f9704f");
+    setContent(m_label);
+}
+
+void ErrorTip::setText(QString text)
+{
+    m_label->setText(text);
+    m_label->setAccessibleDescription(text);
+    m_label->adjustSize();
+    resizeWithContent();
+}
+
+void ErrorTip::clear()
+{
+    m_label->clear();
+    hide();
+}
+
+bool ErrorTip::isEmpty() const
+{
+    return m_label->text().isEmpty();
+}
+
+void ErrorTip::appearIfNotEmpty()
+{
+    if (!isEmpty() && !isVisible())
+        QWidget::show();
+}
+
 LineEditWidget::LineEditWidget(QFrame *parent)
     : SettingsItem(parent),
 
       m_title(new QLabel),
-      m_edit(new QLineEdit)
+      m_edit(new QLineEdit),
+      m_errTip(new ErrorTip(this))
 {
     m_title->setFixedWidth(140);
     m_edit->setContextMenuPolicy(Qt::NoContextMenu);
@@ -59,6 +95,20 @@ void LineEditWidget::addRightWidget(QWidget *widget)
 void LineEditWidget::setReadOnly(const bool state)
 {
     m_edit->setReadOnly(state);
+}
+
+void LineEditWidget::showAlertMessage(const QString &message)
+{
+    if (message.isEmpty()) return;
+
+    const QPoint &p = m_edit->mapToGlobal(m_edit->rect().bottomLeft());
+    m_errTip->setText(message);
+    m_errTip->show(p.x(), p.y());
+}
+
+void LineEditWidget::hideAlertMessage()
+{
+    m_errTip->hide();
 }
 
 void LineEditWidget::setTitle(const QString &title)

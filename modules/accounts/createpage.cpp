@@ -180,40 +180,5 @@ void CreatePage::showPasswordMatchErrorTip(QString error)
                      globalStart.y() + m_repeatpass->height() / 2 + 10);
 }
 
-ErrorTip::ErrorTip() :
-    DArrowRectangle(DArrowRectangle::ArrowTop),
-    m_label(new QLabel)
-{
-    m_label->setObjectName("New_Account_errorTip");
-    m_label->setAccessibleName(m_label->objectName());
-    m_label->setStyleSheet("padding: 5px 10px; color: #f9704f");
-    setContent(m_label);
-}
-
-void ErrorTip::setText(QString text)
-{
-    m_label->setText(text);
-    m_label->setAccessibleDescription(text);
-    m_label->adjustSize();
-    resizeWithContent();
-}
-
-void ErrorTip::clear()
-{
-    m_label->clear();
-    hide();
-}
-
-bool ErrorTip::isEmpty() const
-{
-    return m_label->text().isEmpty();
-}
-
-void ErrorTip::appearIfNotEmpty()
-{
-    if (!isEmpty() && !isVisible())
-        QWidget::show();
-}
-
 } // namespace accounts
 } // namespace dcc
