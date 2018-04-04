@@ -4,17 +4,17 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation>Güncelleştirmeler yüklendi, yeniden başlatılması gerekiyor, yeniden başlatılsın mı?</translation>
+        <translation>Güncellemeler yüklendi, yeniden başlatma gerekiyor, şimdi yeniden başlatılsın mı?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation>Lütfen tüm verilerinizin kaydedildiğinden emin olunuz</translation>
+        <translation>Lütfen önce tüm verilerin kaydedildiğinden emin olun</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation>Yeniden başlat</translation>
+        <translation>Yeniden Başlat</translation>
     </message>
 </context>
 </TS>

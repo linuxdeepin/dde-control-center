@@ -92,7 +92,7 @@
         <translation>Összes törlése</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="145"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="150"/>
         <source>No system notifications</source>
         <translation>Nincsenek rendszerértesítések</translation>
     </message>
@@ -110,17 +110,17 @@
         <translation>Kérem bizonyosodjon meg afelől hogy minden adatot mentett</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Cancel</source>
         <translation>Mégse</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Shut down</source>
         <translation>Leállítás</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Reboot</source>
         <translation>Újraindítás</translation>
     </message>
@@ -175,17 +175,17 @@
 <context>
     <name>Viewer</name>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="137"/>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="138"/>
         <source>Yesterday</source>
         <translation>Tegnap</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="140"/>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="141"/>
         <source>The day before yesterday</source>
         <translation>2 napja</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifyviewer.cpp" line="146"/>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="147"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
@@ -237,32 +237,32 @@
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Join domain</source>
         <translation>Domainhez csatlakozás</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Leave domain</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="62"/>
         <source>Domain Server</source>
         <translation>Domain szerver</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Admin account</source>
         <translation>Rendszergazdai fiók</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="69"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="64"/>
         <source>Password</source>
         <translation>Jelszó</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="78"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="73"/>
         <source>Cancel</source>
         <translation>Mégse</translation>
     </message>
@@ -324,12 +324,12 @@
         <translation>Felhasználók</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
         <source>Leave domain</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
         <source>Join domain</source>
         <translation>Domainhez csatlakozás</translation>
     </message>
@@ -337,37 +337,37 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="123"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="120"/>
         <source>Images</source>
         <translation>Képek</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="338"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
         <source>Your host joins the domain server successfully.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="330"/>
         <source>Your host failed to leave the domain server.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="331"/>
         <source>Your host failed to join the domain server.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="350"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
         <source>AD domain settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="394"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="404"/>
         <source>Password not match.</source>
         <translation>A jelszavak nem egyeznek</translation>
     </message>
@@ -549,6 +549,11 @@
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="82"/>
         <source>Password</source>
         <translation>Jelszó</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="100"/>
+        <source>New password should differ from the current one</source>
+        <translation>Az új jelszónak különböznie kell a jelenlegitől </translation>
     </message>
 </context>
 <context>
@@ -923,7 +928,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="178"/>
+        <location filename="../modules/display/displayworker.cpp" line="179"/>
         <source>My Settings %1</source>
         <translation>Saját beállítások %1</translation>
     </message>
@@ -1575,8 +1580,8 @@
         <translation>Mentés</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="451"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="533"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="490"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="573"/>
         <source>Required</source>
         <translation>Szükséges</translation>
     </message>
@@ -1893,47 +1898,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="261"/>
+        <location filename="../modules/network/vpnpage.cpp" line="260"/>
         <source>Import Error</source>
         <translation>Importálási hiba</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="263"/>
+        <location filename="../modules/network/vpnpage.cpp" line="262"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="288"/>
+        <location filename="../modules/network/vpnpage.cpp" line="287"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="291"/>
+        <location filename="../modules/network/vpnpage.cpp" line="290"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="294"/>
+        <location filename="../modules/network/vpnpage.cpp" line="293"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="297"/>
+        <location filename="../modules/network/vpnpage.cpp" line="296"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="300"/>
+        <location filename="../modules/network/vpnpage.cpp" line="299"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="303"/>
+        <location filename="../modules/network/vpnpage.cpp" line="302"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="328"/>
+        <location filename="../modules/network/vpnpage.cpp" line="327"/>
         <source>New VPN</source>
         <translation>Új VPN</translation>
     </message>
@@ -2370,12 +2375,12 @@
 <context>
     <name>dcc::update::ResultItem</name>
     <message>
-        <location filename="../modules/update/resultitem.cpp" line="62"/>
+        <location filename="../modules/update/resultitem.cpp" line="67"/>
         <source>Update successfully</source>
         <translation>Sikeresen frissítve</translation>
     </message>
     <message>
-        <location filename="../modules/update/resultitem.cpp" line="63"/>
+        <location filename="../modules/update/resultitem.cpp" line="68"/>
         <source>Failed to update</source>
         <translation>Frissítés sikertelen</translation>
     </message>
@@ -2438,43 +2443,48 @@
         <source>The newest system installed, restart to take effect</source>
         <translation>A legfrissebb rendszer telepítve, újraindítás szükséges a befejezéshez</translation>
     </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>
+        <source>Insufficient disk space, unable to update system.</source>
+        <translation type="unfinished"/>
+    </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="243"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>%n alkalmazás frissítés elérhető</numerusform><numerusform>%n alkalmazás frissítés elérhető</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="250"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>Új rendszer kiadás és %n alkalmazás frissítés elérhető</numerusform><numerusform>Új rendszer kiadás és %n alkalmazás frissítés elérhető</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="262"/>
         <source>Downloaded</source>
         <translation>Letöltve</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
         <source>Download size: %1</source>
         <translation>Letöltés mérete: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% letöltve (Kattintson a megállításhoz)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
         <source>New system edition detected</source>
         <translation>Új rendszer verzió érhető el</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="277"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Az akkumulátor töltöttsége 50% alatt van, dugjuk hálózatra a készüléket.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="284"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Ellenőrizzük az akummulátor töltöttségét és ne húzzuk ki a hálózatból a dugót.</translation>
     </message>
@@ -2542,12 +2552,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="227"/>
+        <location filename="../modules/update/updatework.cpp" line="226"/>
         <source>Patches</source>
         <translation>Javítások</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="228"/>
+        <location filename="../modules/update/updatework.cpp" line="227"/>
         <source>System patches.</source>
         <translation>Rendszer javítások.</translation>
     </message>

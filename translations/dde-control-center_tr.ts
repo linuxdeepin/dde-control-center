@@ -12,12 +12,12 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
         <source>Connect to other devices</source>
-        <translation>Diğer cihazlara bağlan</translation>
+        <translation>Başka aygıtlara bağlan</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation>Bluetooth&apos;u açmak için simgeye tıklayınız</translation>
+        <translation>Bluetooth&apos;u açmak için simgeye tıklayın</translation>
     </message>
 </context>
 <context>
@@ -35,7 +35,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <source>Only Displayed on %1</source>
-        <translation>Yanlız %1 de gösterildi</translation>
+        <translation>Yanlız %1 üzerinde görüntülenir</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
@@ -50,22 +50,22 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation>Farklı ekranlarda farklı içerikleri görüntülemek için ekran içeriğini genişletiniz.</translation>
+        <translation>Ekran içeriğini farklı ekranlarda farklı içerikler görüntülenecek şekilde genişlet</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation>Ekran içerikleri yalnız %1 &apos;de gösterilecek</translation>
+        <translation>Ekran içerikleri yalnız %1 üzerinde görüntülenir</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
         <source>Please enter Display module to set if you want to change the custom settings</source>
-        <translation>Lütfen özel ayarları değiştirmek ve ayarlamak isterseniz ekran modülünü giriniz</translation>
+        <translation>Lütfen özel ayarlarını değiştirmek istediğiniz ekran modülünü açın</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
-        <translation>Ekran Modülü Girmek İçin Tıklayınız</translation>
+        <translation>Ekran Modülünü Açmak İçin Tıklayın</translation>
     </message>
 </context>
 <context>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation>Hiçbiri</translation>
+        <translation>Yok</translation>
     </message>
 </context>
 <context>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../plugins/navigation/navwidget.cpp" line="206"/>
         <source>Navigation</source>
-        <translation>Navigasyon</translation>
+        <translation>Gezinme</translation>
     </message>
 </context>
 <context>
@@ -89,12 +89,12 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="65"/>
         <source>Clear all</source>
-        <translation>Hepsini temizle</translation>
+        <translation>Tümünü temizle</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="145"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="150"/>
         <source>No system notifications</source>
-        <translation>Sistem bildirimi yok</translation>
+        <translation>Herhangi bir sistem bildirimi yok</translation>
     </message>
 </context>
 <context>
@@ -102,27 +102,27 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="34"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation>Güncelleştirmeler yüklendi, yeniden başlatılmalı, yeniden başlatılsın mı?</translation>
+        <translation>Güncellemeler yüklendi, bilgisayar şimdi yeniden başlatılsın mı?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation>Lütfen tüm verilerin kaydedildiğinden emin olunuz</translation>
+        <translation>Lütfen önce tüm verilerin kaydedildiğinden emin olun</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Shut down</source>
         <translation>Kapat</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Reboot</source>
-        <translation>Yeniden başlat</translation>
+        <translation>Yeniden Başlat</translation>
     </message>
 </context>
 <context>
@@ -130,7 +130,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation>Çevirmek için sol, çıkmak için sağ tıklayınız</translation>
+        <translation>Döndürmek için sol, çıkmak için sağ tıklayın</translation>
     </message>
 </context>
 <context>
@@ -138,12 +138,12 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="50"/>
         <source>No search results</source>
-        <translation>Arama sonucu bulunamadı</translation>
+        <translation>Herhangi bir sonuç bulunamadı</translation>
     </message>
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="142"/>
         <source>Current City: %1</source>
-        <translation>Geçerli Şehir: %1</translation>
+        <translation>Geçerli İl: %1</translation>
     </message>
 </context>
 <context>
@@ -151,12 +151,12 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="78"/>
         <source>Reset all settings</source>
-        <translation>Bütün ayarları sıfırla</translation>
+        <translation>Tüm ayarları sıfırla</translation>
     </message>
     <message>
         <location filename="../frame/settingswidget.cpp" line="88"/>
         <source>All Settings</source>
-        <translation>Bütün Ayarlar</translation>
+        <translation>Tüm Ayarlar</translation>
     </message>
 </context>
 <context>
@@ -164,30 +164,30 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
-        <translation>Güncelleştirmeler</translation>
+        <translation>Güncellemeler</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="38"/>
         <source>Updates detected, click to view</source>
-        <translation>Güncelleştirmeler bulundu, görmek için tıklayınız</translation>
+        <translation>Güncellemeler bulundu, görüntülemek için tıklayın</translation>
     </message>
 </context>
 <context>
     <name>Viewer</name>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="137"/>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="138"/>
         <source>Yesterday</source>
         <translation>Dün</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="140"/>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="141"/>
         <source>The day before yesterday</source>
         <translation>Dünden önceki gün</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifyviewer.cpp" line="146"/>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="147"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>%n gün() önce</numerusform><numerusform>%n gün() önce</numerusform></translation>
+        <translation><numerusform>%n gün() önce</numerusform><numerusform>%n gün önce</numerusform></translation>
     </message>
 </context>
 <context>
@@ -195,7 +195,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation>VPN&apos;yi açmak için simgeye tıklayınız</translation>
+        <translation>VPN bağlantısını açmak için simgeye tıklayın</translation>
     </message>
 </context>
 <context>
@@ -203,12 +203,12 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>Üzgünüm hava durumu bilgisi alınamadı!</translation>
+        <translation>Maalesef hava durumu bilgileri alınamadı!</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
         <source>Loading weather...</source>
-        <translation>Hava durumu yükleniyor...</translation>
+        <translation>Hava durumu bilgileri yükleniyor...</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
@@ -226,7 +226,7 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="81"/>
         <source>Click icon to enable WIFI</source>
-        <translation>Wi-Fi&apos;yi etkinleştirmek için simgesine tıklayınız</translation>
+        <translation>Wi-Fi etkinleştirmek simgeye tıklayın</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="210"/>
@@ -237,34 +237,34 @@
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Join domain</source>
-        <translation>Alan adına katıl</translation>
+        <translation>Etki alanına katıl</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Leave domain</source>
-        <translation>Alan adından ayrıl</translation>
+        <translation>Etki alanından ayrıl</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="62"/>
         <source>Domain Server</source>
-        <translation>Alan Adı Sunucu</translation>
+        <translation>Etki Alanı Sunucusu</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Admin account</source>
         <translation>Yönetici hesabı</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="69"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="64"/>
         <source>Password</source>
         <translation>Parola</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="78"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="73"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
 </context>
 <context>
@@ -282,7 +282,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
-        <translation>Şifreyi Değiştir</translation>
+        <translation>Parolayı Değiştir</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="61"/>
@@ -292,7 +292,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation>Şifresiz oturum aç</translation>
+        <translation>Parola kullanmadan oturum aç</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -302,12 +302,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation>Oturum açan geçerli kullanıcı silinemiyor</translation>
+        <translation>Oturum açmış geçerli kullanıcı silinemez</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
-        <translation>Parmak izi şifresi</translation>
+        <translation>Parmak İzi Parolası</translation>
     </message>
 </context>
 <context>
@@ -324,52 +324,52 @@
         <translation>Hesaplar</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
         <source>Leave domain</source>
-        <translation>Alan adından ayrıl</translation>
+        <translation>Etki alanından ayrıl</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
         <source>Join domain</source>
-        <translation>Alan adına katıl</translation>
+        <translation>Etki alanına katıl</translation>
     </message>
 </context>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="123"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="120"/>
         <source>Images</source>
-        <translation>Resimler</translation>
+        <translation>Görseller</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="338"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
         <source>Your host joins the domain server successfully.</source>
-        <translation>Ana bilgisayarınız alan adı sunucusuna başarıyla katılır.</translation>
+        <translation>Bilgisayarınız etki alanı sunucusuna katıldı.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
         <source>Your host was removed from the domain server successfully.</source>
-        <translation>Ana bilgisayarınız alan adı sunucusundan başarıyla ayrıldı.</translation>
+        <translation>Bilgisayarınız etki alanı sunucusundan ayrıldı.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="330"/>
         <source>Your host failed to leave the domain server.</source>
-        <translation>Ana bilgisayarınız alan adı sunucusundan ayırımı başarısız oldu.</translation>
+        <translation>Bilgisayarınız etki alanı sunucusundan ayrılamadı.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="331"/>
         <source>Your host failed to join the domain server.</source>
-        <translation>Ana bilgisayarınız alan adı sunucusuna katılımı başarısız oldu.</translation>
+        <translation>Bilgisayarınız etki alanı sunucusuna katılamadı.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="350"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
         <source>AD domain settings</source>
-        <translation>ED alan adı ayarları</translation>
+        <translation>AD etki alanı ayarları</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="394"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="404"/>
         <source>Password not match.</source>
-        <translation>Şifre uyuşmuyor.</translation>
+        <translation>Parola ile onayı aynı değil.</translation>
     </message>
 </context>
 <context>
@@ -382,32 +382,32 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
-        <translation>Tekrar-gir</translation>
+        <translation>Yeniden yazın</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="56"/>
         <source>Done</source>
-        <translation>Tamamlandı</translation>
+        <translation>Tamam</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
-        <translation>Parmak izini belirleme</translation>
+        <translation>Parmak izi belirleniyor</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation>Parmak izi tanımlanamadı, parmağınızı parmak izi kayıt cihazına koyun, alttan yukarıya hareket ettirin ve kaldırın</translation>
+        <translation>Parmak izi tanımlanamadı, parmağınızı parmak izi okuyucuya koyun, alttan üste doğru kaydırın ve kaldırın</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation>Parmağınızı parmak izi kayıt cihazına koyun, alttan yukarıya hareket ettirin ve kaldırın, sonra adımları tekrarlayın</translation>
+        <translation>Parmak izi tanımlanamadı, parmağınızı parmak izi okuyucuya koyun, alttan üste doğru kaydırın ve kaldırın. Sonra adımları yineleyin</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
-        <translation>Başarıyla ekle</translation>
+        <translation>Eklendi</translation>
     </message>
 </context>
 <context>
@@ -420,7 +420,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="65"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="51"/>
@@ -432,17 +432,17 @@
         <location filename="../modules/accounts/createpage.cpp" line="54"/>
         <location filename="../modules/accounts/createpage.cpp" line="57"/>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Zorunlu</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="53"/>
         <source>Password</source>
-        <translation>Şifre</translation>
+        <translation>Parola</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="56"/>
         <source>Repeat password</source>
-        <translation>Şifreyi tekrarla</translation>
+        <translation>Parola onayı</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="85"/>
@@ -452,12 +452,12 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="140"/>
         <source>Username can&apos;t be empty.</source>
-        <translation>Kullanıcı adı boş bırakılamaz.</translation>
+        <translation>Kullanıcı adı boş olamaz</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="143"/>
         <source>Password can&apos;t be empty.</source>
-        <translation>Şifre boş bırakılamaz.</translation>
+        <translation>Parola boş olamaz.</translation>
     </message>
 </context>
 <context>
@@ -465,27 +465,27 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
-        <translation>Parmak izi listesi</translation>
+        <translation>Parmak İzi Listesi</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
-        <translation>Parmak izi şifresi</translation>
+        <translation>Parmak İzi Parolası</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation>Parmak izi ekle</translation>
+        <translation>Parmak İzi Ekle</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
-        <translation>Parmak izini temizle</translation>
+        <translation>Parmak İzini Temizle</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="56"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation>Parmak izi şifresi, sistem oturum açma, uygulama yetkilendirme ve diğer durumlarda kullanılır. Şifre gerektiğinde parmak izini tara.</translation>
+        <translation>Parmak izi parolası, sistem oturum açma ve uygulama kimlik doğrulaması gibi durumlarda kullanılır. Parola istendiğinde parmak izinizi tarayın.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="98"/>
@@ -503,7 +503,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
         <source>OK</source>
-        <translation>TAMAM</translation>
+        <translation>Tamam</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
@@ -521,24 +521,24 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
         <source>New Password</source>
-        <translation>Yeni Şifre</translation>
+        <translation>Yeni Parola</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
         <source>Repeat Password</source>
-        <translation>Şifreyi Tekrarla</translation>
+        <translation>Parola Onayı</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="55"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="56"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Zorunlu</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
@@ -548,7 +548,12 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="82"/>
         <source>Password</source>
-        <translation>Şifre</translation>
+        <translation>Parola</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="100"/>
+        <source>New password should differ from the current one</source>
+        <translation>Yeni parola geçerli paroladan farklı olmalı</translation>
     </message>
 </context>
 <context>
@@ -556,17 +561,17 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Administrator permission required to delete account</source>
-        <translation>Hesabı silmek için yönetici izni gerekli</translation>
+        <translation>Hesabı silmek için yönetici izni gereklidir</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
-        <translation>Hesap dizinini sil</translation>
+        <translation>Hesap klasörü silinsin</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
@@ -579,17 +584,17 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="43"/>
         <source>My devices</source>
-        <translation>Cihazlarım</translation>
+        <translation>Aygıtlarım</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="44"/>
         <source>Other devices</source>
-        <translation>Diğer cihazlar</translation>
+        <translation>Diğer aygıtlar</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="61"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>Yakındaki cihazları bulmak için Bluetooth&apos;u etkinleştiriniz (hoparlör, klavye, fare vb...)</translation>
+        <translation>Yakındaki cihazları bulmak için Bluetooth ağını etkinleştirin (hoparlör, tuş takımı , fare gibi)</translation>
     </message>
 </context>
 <context>
@@ -611,7 +616,7 @@
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="43"/>
         <source>Disconnect</source>
-        <translation>Bağlantıyı kes</translation>
+        <translation>Bağlantıyı Kes</translation>
     </message>
 </context>
 <context>
@@ -619,7 +624,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
-        <translation>Bağlandı</translation>
+        <translation>Bağlı</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
@@ -632,12 +637,12 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>Bluetooth cihazına bağlanmak için kullanılan PIN:</translation>
+        <translation>Bluetooth aygıtına bağlanmak için gereken PIN kodu:</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="49"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="51"/>
@@ -650,7 +655,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="68"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="69"/>
@@ -686,7 +691,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
-        <translation>Otomatik Eşitle</translation>
+        <translation>Otomatik Eşitleme</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="51"/>
@@ -712,7 +717,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="75"/>
         <source>Timezone List</source>
-        <translation>Zaman Dilimi Listesi</translation>
+        <translation>Saat Dilimi Listesi</translation>
     </message>
 </context>
 <context>
@@ -725,7 +730,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="64"/>
@@ -758,12 +763,12 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="119"/>
         <source>%1 hours earlier than local</source>
-        <translation>yerelden %1  saat daha önce</translation>
+        <translation>Yerelden %1 saat önce</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="121"/>
         <source>%1 hours late than local</source>
-        <translation>yerelden %1  saat daha geç</translation>
+        <translation>Yerelden %1 saat sonra</translation>
     </message>
 </context>
 <context>
@@ -797,12 +802,12 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="59"/>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation>Görüntü</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="60"/>
         <source>Picture</source>
-        <translation>Resim</translation>
+        <translation>Fotoğraf</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="61"/>
@@ -842,12 +847,12 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="74"/>
         <source>Night Shift</source>
-        <translation>Gece Modu</translation>
+        <translation>Gece Kipi</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="79"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation>Ekran tonunu, gözlerinizi korumak için konumunuzu bulmanıza yardım ederek otomatik olarak ayarlanacak</translation>
+        <translation>Ekran tonu gözlerinizi korumak için konumunuza göre otomatik olarak ayarlanacak</translation>
     </message>
 </context>
 <context>
@@ -865,12 +870,12 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="48"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation>Ayarları değiştirmeden önce lütfen geçerli kipe geçiniz.</translation>
+        <translation>Lütfen ayarları değiştirmeden önce geçerli kipe geçin</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="50"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation>Ayarları silmeden önce lütfen başka bir kipe geçiniz</translation>
+        <translation>Lütfen ayarları silmeden önce başka bir kipe geçin</translation>
     </message>
 </context>
 <context>
@@ -878,7 +883,7 @@
     <message>
         <location filename="../modules/display/displaymodule.cpp" line="254"/>
         <source>Wireless Screen Projection</source>
-        <translation>Kablosuz Ekran Yansıtımı</translation>
+        <translation>Kablosuz Ekran Yansıtması</translation>
     </message>
 </context>
 <context>
@@ -886,7 +891,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation>Görüntüyü ölçeklendirme</translation>
+        <translation>Görüntü ölçeklendirme</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
@@ -911,7 +916,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="227"/>
         <source>Wireless Screen Projection</source>
-        <translation>Kablosuz Ekran Yansıtımı</translation>
+        <translation>Kablosuz Ekran Yansıtması</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
@@ -923,7 +928,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="178"/>
+        <location filename="../modules/display/displayworker.cpp" line="179"/>
         <source>My Settings %1</source>
         <translation>Ayarlarım %1</translation>
     </message>
@@ -933,12 +938,12 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="43"/>
         <source>Scanning devices, please wait...</source>
-        <translation>Aygıtlar taranıyor, lütfen bekleyiniz...</translation>
+        <translation>Aygıtlar taranıyor, lütfen bekleyin...</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="44"/>
         <source>No available device found</source>
-        <translation>Kullanılabilir bir cihaz bulunamadı</translation>
+        <translation>Kullanılabilecek bir aygıt bulunamadı</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="47"/>
@@ -951,7 +956,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="51"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation>Ekran yansıtımı etkinleştirildiğinde Wİ-Fİ bağlantısı kesilecek</translation>
+        <translation>Ekran yansıtması etkinleştirildiğinde Wİ-Fİ bağlantısı kesilecek</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="55"/>
@@ -969,7 +974,7 @@
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="48"/>
         <source>Recognize</source>
-        <translation>Tanımak</translation>
+        <translation>Tanımla</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="55"/>
@@ -992,7 +997,7 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="171"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="173"/>
@@ -1033,7 +1038,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="60"/>
         <source>Name</source>
-        <translation>İsim</translation>
+        <translation>Ad</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="64"/>
@@ -1044,12 +1049,12 @@
         <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Zorunlu</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="82"/>
@@ -1059,12 +1064,12 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="106"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu derhal etkinleştirmek için Ekle&apos;ye tıklayınız</translation>
+        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Ekle üzerine tıklayın</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="160"/>
         <source>Choose File</source>
-        <translation>Dosya Seç</translation>
+        <translation>Dosya Seçin</translation>
     </message>
 </context>
 <context>
@@ -1078,12 +1083,12 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="57"/>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Zorunlu</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="66"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="67"/>
@@ -1093,7 +1098,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="97"/>
         <source>Name</source>
-        <translation>İsim</translation>
+        <translation>Ad</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="98"/>
@@ -1103,12 +1108,12 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="108"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu derhal etkinleştirmek için Ekle&apos;ye tıklayınız</translation>
+        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Ekle üzerine tıklayın</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="148"/>
         <source>Choose File</source>
-        <translation>Dosya Seç</translation>
+        <translation>Dosya Seçin</translation>
     </message>
 </context>
 <context>
@@ -1121,7 +1126,7 @@
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="102"/>
         <source>Please enter a shortcut</source>
-        <translation>Lütfen bir kısayol giriniz</translation>
+        <translation>Lütfen bir kısayol yazın</translation>
     </message>
 </context>
 <context>
@@ -1130,17 +1135,17 @@
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="49"/>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="51"/>
         <source>Keyboard Layout</source>
-        <translation>Klavye Düzeni</translation>
+        <translation>Tuş Takımı Düzeni</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation>Geçiş Düzenleri (Çoklu)</translation>
+        <translation>Düzenleri Değiştir (Birden Çok)</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="88"/>
         <source>Add Keyboard Layout</source>
-        <translation>Klavye Düzeni Ekle</translation>
+        <translation>Tuş Takımı Düzeni Ekle</translation>
     </message>
 </context>
 <context>
@@ -1148,7 +1153,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="50"/>
         <source>Add Keyboard Layout</source>
-        <translation>Klavye Düzeni Ekle</translation>
+        <translation>Tuş Takımı Düzeni Ekle</translation>
     </message>
 </context>
 <context>
@@ -1157,12 +1162,12 @@
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
         <location filename="../plugins/navigation/navwidget.cpp" line="180"/>
         <source>Keyboard and Language</source>
-        <translation>Klavye ve Dil</translation>
+        <translation>Tuş Takımı ve Dil</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="52"/>
         <source>Repeat Delay</source>
-        <translation>Tekrarlama Gecikmesi</translation>
+        <translation>Yineleme Gecikmesi</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
@@ -1177,7 +1182,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="65"/>
         <source>Repeat Rate</source>
-        <translation>Tekrarlama Oranı</translation>
+        <translation>Yineleme Hızı</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="74"/>
@@ -1192,22 +1197,22 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="79"/>
         <source>Please Test Here</source>
-        <translation>Lütfen Burada Test Ediniz</translation>
+        <translation>Lütfen Bu Alanda Deneyin</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="93"/>
         <source>Enable Numeric Keyboard</source>
-        <translation>Sayısal Klavyeyi Etkinleştir</translation>
+        <translation>Sayısal Tuş Takımı Kullanılsın</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="97"/>
         <source>Caps Lock Prompt</source>
-        <translation>Caps Lock İstemi</translation>
+        <translation>Büyük Harf Kilidi Uyarısı</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="103"/>
         <source>Keyboard Layout</source>
-        <translation>Klavye Düzeni</translation>
+        <translation>Tuş Takımı Düzeni</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="111"/>
@@ -1233,12 +1238,12 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="50"/>
         <source>Please Reset Shortcut</source>
-        <translation>Lütfen Kısayolu Sıfırlayınız</translation>
+        <translation>Lütfen Kısayolu Sıfırlayın</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="57"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="58"/>
@@ -1248,7 +1253,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="82"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Değiştir&apos;e tıklayınız</translation>
+        <translation>Bu kısayol %1 ile çakışıyor, bu kısayolu hemen etkinleştirmek için Değiştir üzerine tıklayın</translation>
     </message>
 </context>
 <context>
@@ -1256,7 +1261,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutitem.cpp" line="85"/>
         <source>Please enter a new shortcut</source>
-        <translation>Lütfen yeni bir kısayol giriniz</translation>
+        <translation>Lütfen yeni bir kısayol yazın</translation>
     </message>
 </context>
 <context>
@@ -1297,12 +1302,12 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="52"/>
         <source>Left Hand</source>
-        <translation>Sol El</translation>
+        <translation>Solak</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="53"/>
         <source>Disable the touchpad while typing</source>
-        <translation>Yazarken dokunmatik yüzey devre dışı</translation>
+        <translation>Yazarken dokunmatik yüzey devre dışı bırakılsın</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="63"/>
@@ -1325,7 +1330,7 @@
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="44"/>
         <source>Double-click Test</source>
-        <translation>Çift-Tıklama Testi</translation>
+        <translation>Çift Tıklama Denemesi</translation>
     </message>
 </context>
 <context>
@@ -1362,17 +1367,17 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
         <source>TrackPoint</source>
-        <translation>İz İşareti</translation>
+        <translation>TrackPoint</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
         <source>Left Hand</source>
-        <translation>Sol El</translation>
+        <translation>Solak</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
         <source>Disable the touchpad while typing</source>
-        <translation>Yazarken dokunmatik yüzey devre dışı</translation>
+        <translation>Yazarken dokunmatik yüzey devre dışı bırakılsın</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
@@ -1394,7 +1399,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Fare takıldığında dokunmatik yüzey devre dışı</translation>
+        <translation>Fare bağlandığında dokunmatik yüzey devre dışı bırakılsın</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
@@ -1420,7 +1425,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
         <source>Tap to Click</source>
-        <translation>Tıklamak için dokunun</translation>
+        <translation>Tıklamak için Dokun</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
@@ -1433,22 +1438,22 @@
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detect</source>
-        <translation>Avuç İçi Algıla</translation>
+        <translation>Avuç İçi Algılaması</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <source>Minimum contact surface</source>
-        <translation>En az temas yüzeyi</translation>
+        <translation>En küçük temas yüzeyi</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <source>Minimum pressure value</source>
-        <translation>En az baskı değeri</translation>
+        <translation>En küçük baskı değeri</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation>Etkinleştirildikten sonra dokunmatik yüzey çalışmazsa lütfen bu seçeneği devre dışı bırakınız</translation>
+        <translation>Etkinleştirdikten sonra dokunmatik yüzey çalışmazsa bu seçeneği devre dışı bırakın</translation>
     </message>
 </context>
 <context>
@@ -1456,12 +1461,12 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="43"/>
         <source>TrackPoint</source>
-        <translation>İz İşareti</translation>
+        <translation>TrackPoint</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="46"/>
         <source>Thinkpad Track Point</source>
-        <translation>ThinkPad İz İşareti</translation>
+        <translation>Thinkpad Track Point</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="49"/>
@@ -1484,7 +1489,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="43"/>
         <source>Application proxy</source>
-        <translation>Uygulama Vekil Sunucu</translation>
+        <translation>Uygulama Vekil Sunucusu</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
@@ -1500,12 +1505,12 @@
         <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
         <location filename="../modules/network/chainsproxypage.cpp" line="54"/>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Zorunlu</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
         <source>Port</source>
-        <translation>Bağlantı Noktası</translation>
+        <translation>Kapı Numarası</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
@@ -1521,22 +1526,22 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
         <source>Password</source>
-        <translation>Şifre</translation>
+        <translation>Parola</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>Başlatıldıktan sonra kullanılacak uygulama bağlam menüsünün &quot;Vekil sunucuyla aç&quot; kontrol ediniz.</translation>
+        <translation>Yapılandırdıktan sonra kullanmak için başlatıcıdaki uygulama sağ tık menüsünden &quot;Vekil sunucu ile açılsın&quot; seçeneğini etkinleştirin</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
         <source>OK</source>
-        <translation>TAMAM</translation>
+        <translation>Tamam</translation>
     </message>
 </context>
 <context>
@@ -1567,7 +1572,7 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="146"/>
@@ -1575,10 +1580,10 @@
         <translation>Kaydet</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="451"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="533"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="490"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="573"/>
         <source>Required</source>
-        <translation>Gerekli</translation>
+        <translation>Zorunlu</translation>
     </message>
 </context>
 <context>
@@ -1586,7 +1591,7 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation>Erişim Noktası Ayarlar</translation>
+        <translation>Erişim Noktası Ayarları</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
@@ -1599,7 +1604,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
         <source>Network Details</source>
-        <translation>Ağ Detayları</translation>
+        <translation>Ağ Ayrıntıları</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
@@ -1624,7 +1629,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
         <source>Band</source>
-        <translation>Band</translation>
+        <translation>Bant</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
@@ -1661,7 +1666,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
         <source>Prefix</source>
-        <translation>Önek</translation>
+        <translation>Ön ek</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
@@ -1684,7 +1689,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="84"/>
         <source>Authenticating</source>
-        <translation>Doğrulanıyor</translation>
+        <translation>Kimlik Doğrulanıyor</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="86"/>
@@ -1699,7 +1704,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="89"/>
         <source>Failed</source>
-        <translation>Başarısız</translation>
+        <translation>Bağlanamadı</translation>
     </message>
 </context>
 <context>
@@ -1717,12 +1722,12 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>Application proxy</source>
-        <translation>Uygulama Vekil Sunucu</translation>
+        <translation>Uygulama Vekil Sunucusu</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
         <source>Network Details</source>
-        <translation>Ağ Detayları</translation>
+        <translation>Ağ Ayrıntıları</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="84"/>
@@ -1753,7 +1758,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="54"/>
         <source>System Proxy</source>
-        <translation>Sistem Vekil Sunucu</translation>
+        <translation>Sistem Vekil Sunucusu</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
@@ -1763,7 +1768,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="233"/>
         <source>Shared</source>
-        <translation>Paylaşımlı</translation>
+        <translation>Paylaşılmış</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
@@ -1804,7 +1809,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="56"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="57"/>
@@ -1814,12 +1819,12 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="59"/>
         <source>None</source>
-        <translation>Hiçbiri</translation>
+        <translation>Yok</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="60"/>
         <source>Manual</source>
-        <translation>Klavuz</translation>
+        <translation>El ile</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="61"/>
@@ -1829,7 +1834,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="91"/>
         <source>Http Proxy</source>
-        <translation>HTTP Vekil Sunucu</translation>
+        <translation>HTTP Vekil Sunucusu</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="93"/>
@@ -1837,37 +1842,37 @@
         <location filename="../modules/network/proxypage.cpp" line="103"/>
         <location filename="../modules/network/proxypage.cpp" line="108"/>
         <source>Port</source>
-        <translation>Bağlantı Noktası</translation>
+        <translation>Kapı Numarası</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="96"/>
         <source>Https Proxy</source>
-        <translation>HTTP Vekil Sunucu</translation>
+        <translation>HTTPS Vekil Sunucusu</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="101"/>
         <source>Ftp Proxy</source>
-        <translation>Ftp Vekil Sunucu</translation>
+        <translation>FTP Vekil Sunucusu</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="106"/>
         <source>Socks Proxy</source>
-        <translation>Socks Vekil Sunucu</translation>
+        <translation>SOCKS Vekil Sunucusu</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="115"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Yukarıdaki ana makineler ve alan adları için vekil sunucu yapılandırmalarını yoksay</translation>
+        <translation>Yukarıdaki bilgisayar ve etki alanları için vekil sunucu yapılandırmaları yok sayılsın</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="118"/>
         <source>Configuration URL</source>
-        <translation>URL Yapılandırma</translation>
+        <translation>Yapılandırma Adresi</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="175"/>
         <source>System Proxy</source>
-        <translation>Sistem Vekil Sunucu</translation>
+        <translation>Sistem Vekil Sunucusu</translation>
     </message>
 </context>
 <context>
@@ -1885,7 +1890,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
-        <translation>VPN&apos;yi içe aktar</translation>
+        <translation>İçe VPN Aktar</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="100"/>
@@ -1893,47 +1898,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="261"/>
+        <location filename="../modules/network/vpnpage.cpp" line="260"/>
         <source>Import Error</source>
-        <translation>Hatayı İçeri Aktar</translation>
+        <translation>İçe Aktarma Sorunu</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="263"/>
+        <location filename="../modules/network/vpnpage.cpp" line="262"/>
         <source>OK</source>
         <translation>TAMAM</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="288"/>
+        <location filename="../modules/network/vpnpage.cpp" line="287"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="291"/>
+        <location filename="../modules/network/vpnpage.cpp" line="290"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="294"/>
+        <location filename="../modules/network/vpnpage.cpp" line="293"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="297"/>
+        <location filename="../modules/network/vpnpage.cpp" line="296"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="300"/>
+        <location filename="../modules/network/vpnpage.cpp" line="299"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="303"/>
+        <location filename="../modules/network/vpnpage.cpp" line="302"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="328"/>
+        <location filename="../modules/network/vpnpage.cpp" line="327"/>
         <source>New VPN</source>
         <translation>Yeni VPN</translation>
     </message>
@@ -1948,17 +1953,17 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="62"/>
         <source>Please firstly plug in the network cable</source>
-        <translation>Lütfen öncelikle ağ kablosunu takınız</translation>
+        <translation>Lütfen önce ağ kablosunu takın</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="68"/>
         <source>Add Settings</source>
-        <translation>Ayarlar Ekle</translation>
+        <translation>Ayar Ekle</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="83"/>
         <source>Select Settings</source>
-        <translation>Ayarlar Seç</translation>
+        <translation>Ayarları Seçin</translation>
     </message>
 </context>
 <context>
@@ -1976,7 +1981,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation>Kablosuz ağ işlevini bağlamak ve kullanmak istiyorsanız öncelikle erişim noktasını devre dışı bırakınız</translation>
+        <translation>Kablosuz ağ bağlantısı kurmak için erişim noktası paylaşımını devre dışı bırakın</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>
@@ -2002,7 +2007,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
         <source>Monospaced Font</source>
-        <translation>Tek boşluklu Yazı Tipi</translation>
+        <translation>Sabit Aralıklı Yazı Tipi</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
@@ -2024,7 +2029,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="52"/>
         <source>Font</source>
-        <translation>Yazı tipi</translation>
+        <translation>Yazı Tipi</translation>
     </message>
 </context>
 <context>
@@ -2037,7 +2042,7 @@
     <message>
         <location filename="../modules/personalization/personalizationmodule.cpp" line="126"/>
         <source>Monospaced Font</source>
-        <translation>Tek boşluklu Yazı Tipi</translation>
+        <translation>Sabit Aralıklı Yazı Tipi</translation>
     </message>
 </context>
 <context>
@@ -2045,7 +2050,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="53"/>
         <source>Enable window effect</source>
-        <translation>Pencere efektini etkinleştir</translation>
+        <translation>Pencere etkisi kullanılsın</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="55"/>
@@ -2055,7 +2060,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="56"/>
         <source>Font</source>
-        <translation>Yazı tipi</translation>
+        <translation>Yazı Tipi</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
@@ -2100,12 +2105,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="44"/>
         <source>Monitor will suspend after</source>
-        <translation>Monitör sonra uyutulacak</translation>
+        <translation>Monitör uyuma süresi</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="45"/>
         <source>Computer will suspend after</source>
-        <translation>Bilgisayar sonra uyutulacak</translation>
+        <translation>Bilgisayar şu süre sonunda uyutulacak</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="55"/>
@@ -2116,17 +2121,17 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="74"/>
         <source>Password required to wake up the monitor</source>
-        <translation>Ekranı uyandırmak için şifre gerekli</translation>
+        <translation>Ekranı uyandırmak için parola gereksin</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="77"/>
         <source>Password required to wake up the computer</source>
-        <translation>Bilgisayarı uyandırmak için şifre gerekli</translation>
+        <translation>Bilgisayarı uyandırmak için parola gereksin</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="80"/>
         <source>Suspend on lid close</source>
-        <translation>Kapak kapatıldığında uyut</translation>
+        <translation>Kapak kapatıldığında uyutulsun</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="87"/>
@@ -2159,7 +2164,7 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="37"/>
         <source>Output</source>
-        <translation>Çıktı</translation>
+        <translation>Çıkış</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="38"/>
@@ -2177,22 +2182,22 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="43"/>
         <source>Output Volume</source>
-        <translation>Ses Çıkışı</translation>
+        <translation>Çıkış Ses Düzeyi</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="44"/>
         <source>Left/Right Balance</source>
-        <translation>Sol/Sağ Denge</translation>
+        <translation>Sol/Sağ Dengesi</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="47"/>
         <source>Input Volume</source>
-        <translation>Ses Girişi</translation>
+        <translation>Giriş Ses Düzeyi</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="49"/>
         <source>Feedback Volume</source>
-        <translation>Geribildirim Sesi</translation>
+        <translation>Geri Besleme Ses Düzeyi</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="58"/>
@@ -2218,7 +2223,7 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="109"/>
         <source>Sound Effects</source>
-        <translation>Ses Efektleri</translation>
+        <translation>Ses Etkileri</translation>
     </message>
 </context>
 <context>
@@ -2226,7 +2231,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="60"/>
         <source>Updating...</source>
-        <translation>Güncelleştiriliyor...</translation>
+        <translation>Güncelleniyor...</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="71"/>
@@ -2241,7 +2246,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="76"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
-        <translation>Önyükleme görüntüsünü, sürükleyerek değiştirebilirsiniz ve önyükleme sırasını, vurgulamayı sürükleyerek değiştirilebilirsiniz</translation>
+        <translation>Ön yükleme kalıbı üzerine sürüklenerek, ön yükleme sıralaması vurgulama sürüklenerek değiştirilebilir</translation>
     </message>
 </context>
 <context>
@@ -2257,7 +2262,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Telif Hakkı © 2011-2018 Wuhan Deepin Technology Co., Ltd.</translation>
+        <translation>Telif Hakları © 2011-2018 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
@@ -2288,7 +2293,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
         <source>Boot Menu</source>
-        <translation>Önyükleme Menüsü</translation>
+        <translation>Ön Yükleme Menüsü</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="175"/>
@@ -2322,13 +2327,13 @@
         <location filename="../modules/update/mirroritem.cpp" line="37"/>
         <location filename="../modules/update/mirroritem.cpp" line="132"/>
         <source>Untested</source>
-        <translation>Test edilmemiş</translation>
+        <translation>Denenmemiş</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="80"/>
         <location filename="../modules/update/mirroritem.cpp" line="128"/>
         <source>Timeout</source>
-        <translation>Zaman aşımı</translation>
+        <translation>Zaman Aşımı</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="82"/>
@@ -2354,7 +2359,7 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="42"/>
         <source>Test Speed</source>
-        <translation>Hızı Test Et</translation>
+        <translation>Hızı Dene</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="46"/>
@@ -2364,20 +2369,20 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="138"/>
         <source>Retest</source>
-        <translation>Yeniden Test</translation>
+        <translation>Yeniden Dene</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::ResultItem</name>
     <message>
-        <location filename="../modules/update/resultitem.cpp" line="62"/>
+        <location filename="../modules/update/resultitem.cpp" line="67"/>
         <source>Update successfully</source>
-        <translation>Güncelleştirme başarılı</translation>
+        <translation>Güncellendi</translation>
     </message>
     <message>
-        <location filename="../modules/update/resultitem.cpp" line="63"/>
+        <location filename="../modules/update/resultitem.cpp" line="68"/>
         <source>Failed to update</source>
-        <translation>Güncelleştirme başarısız</translation>
+        <translation>Güncellenemedi</translation>
     </message>
 </context>
 <context>
@@ -2386,22 +2391,22 @@
         <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
         <location filename="../plugins/navigation/navwidget.cpp" line="182"/>
         <source>Update</source>
-        <translation>Güncelleştirme</translation>
+        <translation>Güncelle</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="165"/>
         <source>Checking for updates, please wait...</source>
-        <translation>Güncelleştirmeler kontrol ediliyor, lütfen bekleyiniz...</translation>
+        <translation>Güncellemeler denetleniyor, lütfen bekleyin...</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
         <source>%1 downloaded (Click to pause)</source>
-        <translation>%1 İndirildi (Duraklatmak için tıklayınız)</translation>
+        <translation>%1 indirildi (duraklatmak için tıklayın)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
         <source>%1 downloaded (Click to continue)</source>
-        <translation>%1 İndirildi (Devam etmek için tıklayınız)</translation>
+        <translation>%1 indirildi (devam etmek için tıklayın)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
@@ -2411,72 +2416,77 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="51"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation>Güncellendikten sonra sistem ve uygulamaları doğru bir şekilde kullanmaya başlamak için lütfen yeniden başlatınız.</translation>
+        <translation>Güncelledikten sonra sistem ve uygulamaların doğru çalışması için yeniden başlatın</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation>Ağ bağlantısı kesildi, lütfen bağlandıktan sonra tekrar deneyiniz</translation>
+        <translation>Ağ bağlantısı kesildi, lütfen bağlandıktan sonra yeniden deneyin</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
-        <translation>Güncelleştirmeleri indir ve yükle</translation>
+        <translation>Güncellemeleri indir ve kur</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
         <source>Install updates</source>
-        <translation>Güncelleştirmeleri yükle</translation>
+        <translation>Güncellemeleri kur</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="202"/>
         <source>Updating, please wait...</source>
-        <translation>Güncelleme yükleniyor, lütfen bekleyiniz...</translation>
+        <translation>Güncelleniyor, lütfen bekleyin...</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="216"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation>En yeni sistem yüklendi, aktif etmek için yeniden başlatınız</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="243"/>
-        <source>%n application update(s) detected</source>
-        <translation><numerusform>%n uygulama güncelleştirme(leri) tespit edildi</numerusform><numerusform>%n uygulama güncelleştirme(leri) tespit edildi</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="250"/>
-        <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Yeni sistem baskısı ve %n uygulama güncelleştirme(leri) tespit edildi</numerusform><numerusform>Yeni sistem baskısı ve %n uygulama güncelleştirme(leri) tespit edildi</numerusform></translation>
+        <translation>En yeni sistem dosyaları kuruldu, etkin olması için bilgisayarı yeniden başlatın</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>
+        <source>Insufficient disk space, unable to update system.</source>
+        <translation>Disk alanı yetersiz, sistem güncellenemiyor.</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
+        <source>%n application update(s) detected</source>
+        <translation><numerusform>%n uygulama güncellemesi bulundu</numerusform><numerusform>%n uygulama güncellemesi bulundu</numerusform></translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
+        <source>New system edition and %n application update(s) detected</source>
+        <translation><numerusform>Yeni sistem sürümü ve %n uygulama güncellemesi bulundu</numerusform><numerusform>Yeni sistem sürümü ve %n uygulama güncellemesi bulundu</numerusform></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="262"/>
         <source>Downloaded</source>
         <translation>İndirildi</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
         <source>Download size: %1</source>
-        <translation>İndirme büyüklüğü: %1</translation>
+        <translation>İndirme boyutu: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation>%1% indirildi (Duraklatmak için tıklayınız)</translation>
+        <translation>%1% indirildi (duraklatmak için tıklayın)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
         <source>New system edition detected</source>
-        <translation>Yeni sistem yazılımı algılandı</translation>
+        <translation>Yeni sistem sürümü bulundu</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="277"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>Piliniz %50&apos;den az, lütfen devam etmek için şarja takınız</translation>
+        <translation>Pil düzeyiniz %50 değerinin altında, lütfen devam etmek için fişe takın</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="284"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Lütfen yeniden başlatmak için yeterli güce sahip olduğunuzdan emin olun ve makinenizi kapatmayın veya fişten çekmeyin</translation>
+        <translation>Lütfen yeniden başlatmak için yeterli güce sahip olduğunuzdan emin olun ve bilgisayarınızı kapatmayın ya da fişten çekmeyin</translation>
     </message>
 </context>
 <context>
@@ -2484,7 +2494,7 @@
     <message>
         <location filename="../modules/update/updateitem.cpp" line="118"/>
         <source>Details</source>
-        <translation>Detaylar</translation>
+        <translation>Ayrıntılar</translation>
     </message>
 </context>
 <context>
@@ -2492,32 +2502,32 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="50"/>
         <source>Update Settings</source>
-        <translation>Güncelleştirme Ayarları</translation>
+        <translation>Güncelleme Ayarları</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="74"/>
         <source>System source detection</source>
-        <translation>Sistem kaynak saptaması</translation>
+        <translation>Sistem kaynağı algılaması</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="62"/>
         <source>Auto clear package cache</source>
-        <translation> Paket önbelleğini otomatik temizle</translation>
+        <translation> Paket ön belleğini otomatik temizle</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="65"/>
         <source>Auto-download Updates</source>
-        <translation>Güncelleştirmeleri otomatik indir</translation>
+        <translation>Güncellemeler otomatik indirilsin</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="67"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
-        <translation>Güncelleştirmeler kablosuz veya kablolu ağdan otomatik olarak indirilecek</translation>
+        <translation>Güncellemeler kablosuz ya da kablolu ağdan otomatik olarak indirilecek</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
         <source>Prompt the notification if system source has been modified</source>
-        <translation>Sistem kaynağı değiştirilmişse bildirimi iste</translation>
+        <translation>Sistem kaynağı değiştirilmişse uyarı görüntülensin</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="95"/>
@@ -2531,23 +2541,23 @@
         <location filename="../modules/update/updateview.cpp" line="40"/>
         <location filename="../modules/update/updateview.cpp" line="52"/>
         <source>Update</source>
-        <translation>Güncelleştirme</translation>
+        <translation>Güncelle</translation>
     </message>
     <message>
         <location filename="../modules/update/updateview.cpp" line="45"/>
         <source>Update Settings</source>
-        <translation>Güncelleştirme Ayarları</translation>
+        <translation>Güncelleme Ayarları</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="227"/>
+        <location filename="../modules/update/updatework.cpp" line="226"/>
         <source>Patches</source>
         <translation>Yamalar</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="228"/>
+        <location filename="../modules/update/updatework.cpp" line="227"/>
         <source>System patches.</source>
         <translation>Sistem yamaları.</translation>
     </message>
@@ -2570,7 +2580,7 @@
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitive</source>
-        <translation>Baskı Hassasiyeti</translation>
+        <translation>Basınç Duyarlığı</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="52"/>
@@ -2620,7 +2630,7 @@
     <message>
         <location filename="../widgets/searchinput.cpp" line="42"/>
         <source>Search</source>
-        <translation>Ara</translation>
+        <translation>Arama</translation>
     </message>
 </context>
 <context>
@@ -2633,7 +2643,7 @@
     <message>
         <location filename="../widgets/settingshead.cpp" line="52"/>
         <source>Cancel</source>
-        <translation>İptal et</translation>
+        <translation>İptal</translation>
     </message>
 </context>
 </TS>
