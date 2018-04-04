@@ -92,7 +92,7 @@
         <translation>Обрисати све</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="145"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="150"/>
         <source>No system notifications</source>
         <translation>Нема системских обавештења</translation>
     </message>
@@ -110,17 +110,17 @@
         <translation>Прво се уверите да су сви подаци сачувани</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Cancel</source>
         <translation>Откажи</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Shut down</source>
         <translation>Угаси</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Reboot</source>
         <translation>Поновно покретање</translation>
     </message>
@@ -175,17 +175,17 @@
 <context>
     <name>Viewer</name>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="137"/>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="138"/>
         <source>Yesterday</source>
         <translation>Јуче</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="140"/>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="141"/>
         <source>The day before yesterday</source>
         <translation>Прекључе</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifyviewer.cpp" line="146"/>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="147"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
@@ -237,32 +237,32 @@
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Join domain</source>
         <translation>Приступи домену</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Leave domain</source>
         <translation>Напусти домен</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="62"/>
         <source>Domain Server</source>
         <translation>Доменски Сервер</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Admin account</source>
         <translation>Админ налог</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="69"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="64"/>
         <source>Password</source>
         <translation>Лозинка</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="78"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="73"/>
         <source>Cancel</source>
         <translation>Откажи</translation>
     </message>
@@ -324,12 +324,12 @@
         <translation>Налози</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
         <source>Leave domain</source>
         <translation>Напусти домен</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
         <source>Join domain</source>
         <translation>Придружи се домену</translation>
     </message>
@@ -337,37 +337,37 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="123"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="120"/>
         <source>Images</source>
         <translation>Слике</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="338"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>Ваш домаћин се успешно придружио доменском серверу.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>Ваш домаћин је успешно напустио доменски сервер.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="330"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>Ваш домаћин није успео да напусти доменски сервер.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="331"/>
         <source>Your host failed to join the domain server.</source>
         <translation>Ваш домаћин није успео да се придружи доменском серверу.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="350"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
         <source>AD domain settings</source>
         <translation>АД домен поставке</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="394"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="404"/>
         <source>Password not match.</source>
         <translation>Лозинке се не поклапају.</translation>
     </message>
@@ -549,6 +549,11 @@
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="82"/>
         <source>Password</source>
         <translation>Лозинка</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="100"/>
+        <source>New password should differ from the current one</source>
+        <translation>Нова лозинка треба да се разликује од тренутне</translation>
     </message>
 </context>
 <context>
@@ -923,7 +928,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="178"/>
+        <location filename="../modules/display/displayworker.cpp" line="179"/>
         <source>My Settings %1</source>
         <translation>Моја подешавања %1</translation>
     </message>
@@ -1575,8 +1580,8 @@
         <translation>Сачувај</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="451"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="533"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="490"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="573"/>
         <source>Required</source>
         <translation>Неопходно</translation>
     </message>
@@ -1586,12 +1591,12 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation>Поставке Приступне Тачке</translation>
+        <translation>Поставке Вруће Тачке</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
-        <translation>Приступна тачка</translation>
+        <translation>Врућа тачка</translation>
     </message>
 </context>
 <context>
@@ -1604,7 +1609,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
         <source>Hotspot</source>
-        <translation>Приступна тачка</translation>
+        <translation>Врућа тачка</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
@@ -1758,7 +1763,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
         <source>Hotspot</source>
-        <translation>Приступна тачка</translation>
+        <translation>Врућа тачка</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="233"/>
@@ -1893,47 +1898,47 @@
         <translation>ВПН</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="261"/>
+        <location filename="../modules/network/vpnpage.cpp" line="260"/>
         <source>Import Error</source>
         <translation>Грешка Увоза</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="263"/>
+        <location filename="../modules/network/vpnpage.cpp" line="262"/>
         <source>OK</source>
         <translation>У реду</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="288"/>
+        <location filename="../modules/network/vpnpage.cpp" line="287"/>
         <source>L2TP</source>
         <translation>Л2ТП</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="291"/>
+        <location filename="../modules/network/vpnpage.cpp" line="290"/>
         <source>PPTP</source>
         <translation>ППТП</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="294"/>
+        <location filename="../modules/network/vpnpage.cpp" line="293"/>
         <source>VPNC</source>
         <translation>ВПНЦ</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="297"/>
+        <location filename="../modules/network/vpnpage.cpp" line="296"/>
         <source>OpenVPN</source>
         <translation>ОпенВПН</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="300"/>
+        <location filename="../modules/network/vpnpage.cpp" line="299"/>
         <source>StrongSwan</source>
         <translation>СнажниЛабуд</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="303"/>
+        <location filename="../modules/network/vpnpage.cpp" line="302"/>
         <source>OpenConnect</source>
         <translation>ОпенКонект</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="328"/>
+        <location filename="../modules/network/vpnpage.cpp" line="327"/>
         <source>New VPN</source>
         <translation>Нови ВПН</translation>
     </message>
@@ -1971,12 +1976,12 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
-        <translation>Затвори приступну тачку</translation>
+        <translation>Затвори врућу тачку</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation>Прво онемогућите дељење приступне тачке ако желите да се повежете и користите функцију бежичне мреже</translation>
+        <translation>Прво онемогућите дељење вруће тачке ако желите да се повежете и користите функцију бежичне мреже</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>
@@ -2370,12 +2375,12 @@
 <context>
     <name>dcc::update::ResultItem</name>
     <message>
-        <location filename="../modules/update/resultitem.cpp" line="62"/>
+        <location filename="../modules/update/resultitem.cpp" line="67"/>
         <source>Update successfully</source>
         <translation>Ажурирање успешно</translation>
     </message>
     <message>
-        <location filename="../modules/update/resultitem.cpp" line="63"/>
+        <location filename="../modules/update/resultitem.cpp" line="68"/>
         <source>Failed to update</source>
         <translation>Ажурирање неуспешно</translation>
     </message>
@@ -2438,43 +2443,48 @@
         <source>The newest system installed, restart to take effect</source>
         <translation>Најновији систем је инсталирам, поново покренути рачунар за примену исправки</translation>
     </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>
+        <source>Insufficient disk space, unable to update system.</source>
+        <translation>Недовољно простора на диску, није могуће ажурирати систем.</translation>
+    </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="243"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>ажурирање(а) за %n апликацију је пронађено</numerusform><numerusform>ажурирање(а) за %n апликацију је пронађено</numerusform><numerusform>ажурирање(а) за %n апликацију је пронађено</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="250"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>Пронађено је ново издање система и ажурирање за %n апликацију(е)</numerusform><numerusform>Пронађено је ново издање система и ажурирање за %n апликацију(е)</numerusform><numerusform>Пронађено је ново издање система и ажурирање за %n апликацију(е)</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="262"/>
         <source>Downloaded</source>
         <translation>Преузето</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
         <source>Download size: %1</source>
         <translation>Величина преузимања: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% преузето (Клик за паузу)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
         <source>New system edition detected</source>
         <translation>Нова издања система су пронађена</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="277"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Пуњење ваше батерије је мање од 50%, молимо вас прикључите пуњач за наставак</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="284"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Молимо вас, обезбедите довољно електричне енергије за рестарт, и не прекидајте довод електричне енергије у вашу машину</translation>
     </message>
@@ -2542,12 +2552,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="227"/>
+        <location filename="../modules/update/updatework.cpp" line="226"/>
         <source>Patches</source>
         <translation>Закрпе</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="228"/>
+        <location filename="../modules/update/updatework.cpp" line="227"/>
         <source>System patches.</source>
         <translation>Системске закрпе.</translation>
     </message>

@@ -92,7 +92,7 @@
         <translation>Tout effacer</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="145"/>
+        <location filename="../plugins/notify/notifymanager.cpp" line="150"/>
         <source>No system notifications</source>
         <translation>Aucune notification système </translation>
     </message>
@@ -110,17 +110,17 @@
         <translation>Veuillez vérifier que toutes les données ont été sauvegardées</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Shut down</source>
         <translation>Arrêter</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="42"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Reboot</source>
         <translation>Redémarrer</translation>
     </message>
@@ -175,17 +175,17 @@
 <context>
     <name>Viewer</name>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="137"/>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="138"/>
         <source>Yesterday</source>
         <translation>Hier</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="140"/>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="141"/>
         <source>The day before yesterday</source>
         <translation>Avant-hier</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifyviewer.cpp" line="146"/>
+        <location filename="../plugins/notify/notifyviewer.cpp" line="147"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>Il y a %n jour(s)</numerusform><numerusform>Il y a %n jour(s)</numerusform></translation>
     </message>
@@ -237,32 +237,32 @@
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Join domain</source>
         <translation>Rejoindre le domaine</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="51"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Leave domain</source>
         <translation>Quitter le domaine</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="67"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="62"/>
         <source>Domain Server</source>
         <translation>Serveur de domaine</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="68"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Admin account</source>
         <translation>Compte administrateur</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="69"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="64"/>
         <source>Password</source>
         <translation>Mot de passe</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/widgets/addialog.cpp" line="78"/>
+        <location filename="../modules/accounts/widgets/addialog.cpp" line="73"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
@@ -324,12 +324,12 @@
         <translation>Comptes</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
         <source>Leave domain</source>
         <translation>Quitter le domaine</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
         <source>Join domain</source>
         <translation>Rejoindre le domaine</translation>
     </message>
@@ -337,37 +337,37 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="123"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="120"/>
         <source>Images</source>
         <translation>Images </translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="338"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>Votre hôte a rejoint le serveur de domaine avec succès.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>Votre hôte a quitté le serveur de domaine avec succès.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="346"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="330"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>Votre hôte n&apos;a pas réussi à quitter le serveur de domaine.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="331"/>
         <source>Your host failed to join the domain server.</source>
         <translation>Votre hôte n&apos;a pas réussi à rejoindre le serveur de domaine.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="350"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
         <source>AD domain settings</source>
         <translation>Paramètres de domaine AD</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="394"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="404"/>
         <source>Password not match.</source>
         <translation>Le mot de passe ne correspond pas.</translation>
     </message>
@@ -549,6 +549,11 @@
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="82"/>
         <source>Password</source>
         <translation>Mot de passe</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="100"/>
+        <source>New password should differ from the current one</source>
+        <translation>Le nouveau mot de passe doit être différent de celui en cours</translation>
     </message>
 </context>
 <context>
@@ -923,7 +928,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="178"/>
+        <location filename="../modules/display/displayworker.cpp" line="179"/>
         <source>My Settings %1</source>
         <translation>Mes paramètres %1</translation>
     </message>
@@ -1575,8 +1580,8 @@
         <translation>Sauvegarder</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="451"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="533"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="490"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="573"/>
         <source>Required</source>
         <translation>Requis</translation>
     </message>
@@ -1893,47 +1898,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="261"/>
+        <location filename="../modules/network/vpnpage.cpp" line="260"/>
         <source>Import Error</source>
         <translation>Erreur d&apos;import</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="263"/>
+        <location filename="../modules/network/vpnpage.cpp" line="262"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="288"/>
+        <location filename="../modules/network/vpnpage.cpp" line="287"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="291"/>
+        <location filename="../modules/network/vpnpage.cpp" line="290"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="294"/>
+        <location filename="../modules/network/vpnpage.cpp" line="293"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="297"/>
+        <location filename="../modules/network/vpnpage.cpp" line="296"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="300"/>
+        <location filename="../modules/network/vpnpage.cpp" line="299"/>
         <source>StrongSwan</source>
         <translation>StrongSwan </translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="303"/>
+        <location filename="../modules/network/vpnpage.cpp" line="302"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="328"/>
+        <location filename="../modules/network/vpnpage.cpp" line="327"/>
         <source>New VPN</source>
         <translation>Nouveau VPN</translation>
     </message>
@@ -2370,12 +2375,12 @@
 <context>
     <name>dcc::update::ResultItem</name>
     <message>
-        <location filename="../modules/update/resultitem.cpp" line="62"/>
+        <location filename="../modules/update/resultitem.cpp" line="67"/>
         <source>Update successfully</source>
         <translation>Mise à jour réussie</translation>
     </message>
     <message>
-        <location filename="../modules/update/resultitem.cpp" line="63"/>
+        <location filename="../modules/update/resultitem.cpp" line="68"/>
         <source>Failed to update</source>
         <translation>Échec de la mise à jour</translation>
     </message>
@@ -2438,43 +2443,48 @@
         <source>The newest system installed, restart to take effect</source>
         <translation>La version la plus récente du système est installée, veuillez redémarrer pour appliquer.</translation>
     </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>
+        <source>Insufficient disk space, unable to update system.</source>
+        <translation>Espace disque insuffisant, impossible de mettre à jour le système.</translation>
+    </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="243"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>%n mise à jour d&apos;application détectée</numerusform><numerusform>%n mise à jour d&apos;applications détectées</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="250"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>Nouvelle version système et %n mise à jour d&apos;application détectée</numerusform><numerusform>Nouvelle version système et %n mises à jour d&apos;applications détectées</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="262"/>
         <source>Downloaded</source>
         <translation>Téléchargé</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
         <source>Download size: %1</source>
         <translation>Taille du téléchargement : %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% téléchargés (Cliquez pour suspendre)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
         <source>New system edition detected</source>
         <translation>Nouvelle version du système détectée</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="277"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Votre batterie est faible à plus de 50%, veuillez vous branchez pour continuer</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="284"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Assurez-vous d&apos;avoir votre batterie suffisamment remplie pour redémarrer, et veuillez ne pas éteindre ou débrancher votre appareil</translation>
     </message>
@@ -2542,12 +2552,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="227"/>
+        <location filename="../modules/update/updatework.cpp" line="226"/>
         <source>Patches</source>
         <translation>Correctifs</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="228"/>
+        <location filename="../modules/update/updatework.cpp" line="227"/>
         <source>System patches.</source>
         <translation>Correctifs du système.</translation>
     </message>
