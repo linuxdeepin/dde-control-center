@@ -84,6 +84,7 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
     connect(accept, &QPushButton::clicked, this, &ModifyPasswordPage::passwordSubmit);
     connect(cancel, &QPushButton::clicked, this, &ModifyPasswordPage::back);
     connect(m_pwdEditRepeat->textEdit(), &QLineEdit::editingFinished, this, &ModifyPasswordPage::checkPwd);
+    connect(m_pwdEdit->textEdit(), &QLineEdit::textEdited, m_pwdEdit, &LineEditWidget::hideAlertMessage);
     connect(user, &User::passwordModifyFinished, this, &ModifyPasswordPage::onPasswordChangeFinished);
 }
 
@@ -94,6 +95,11 @@ void ModifyPasswordPage::passwordSubmit()
     const QString pwd1 = m_pwdEditRepeat->textEdit()->text();
 
     checkPwd();
+
+    if (m_oldpwdEdit->text() == m_pwdEdit->text()) {
+        m_pwdEdit->showAlertMessage(tr("New password should differ from the current one"));
+        return;
+    }
 
     if (m_pwdEdit->text().isEmpty() || m_pwdEditRepeat->text().isEmpty() || m_oldpwdEdit->text().isEmpty())
         return;
@@ -107,7 +113,7 @@ void ModifyPasswordPage::passwordSubmit()
 void ModifyPasswordPage::checkPwd()
 {
     m_oldpwdEdit->setIsErr(m_oldpwdEdit->text().isEmpty());
-    m_pwdEdit->setIsErr(m_pwdEdit->text().isEmpty());
+    m_pwdEdit->setIsErr(m_pwdEdit->text().isEmpty() || m_oldpwdEdit->text() == m_pwdEdit->text());
     m_pwdEditRepeat->setIsErr(m_pwdEditRepeat->text() != m_pwdEdit->text());
 }
 

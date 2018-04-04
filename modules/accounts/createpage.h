@@ -42,22 +42,6 @@ DWIDGET_USE_NAMESPACE
 namespace dcc {
 namespace accounts {
 
-class ErrorTip : public DArrowRectangle {
-    Q_OBJECT
-public:
-    explicit ErrorTip();
-
-    void setText(QString text);
-    void clear();
-    bool isEmpty() const;
-
-public slots:
-    void appearIfNotEmpty();
-
-private:
-    QLabel *m_label;
-};
-
 class CreatePage : public ContentWidget
 {
     Q_OBJECT
@@ -89,7 +73,7 @@ private:
     dcc::widgets::LineEditWidget *m_repeatpass;
     dcc::widgets::ButtonTuple *m_buttonTuple;
 
-    ErrorTip *m_errorTip;
+    widgets::ErrorTip *m_errorTip;
 
     User *m_user;
 };
