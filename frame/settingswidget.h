@@ -69,6 +69,7 @@ private slots:
     void onModuleInitFinished(ModuleInterface * const inter);
     void ensureModuleVisible(const QString &moduleName, bool animation);
     void refershModuleActivable();
+    void refreshNavigationbar();
     void resetAllSettings();
     void onNavItemClicked(const QModelIndex &index);
     void onNavItemEntered(const QModelIndex &index);

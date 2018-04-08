@@ -93,6 +93,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
     connect(m_resetBtn, &QPushButton::clicked, this, &SettingsWidget::resetAllSettings);
     connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, m_refreshModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_refreshModuleActivableTimer, &QTimer::timeout, this, &SettingsWidget::refershModuleActivable, Qt::QueuedConnection);
+    connect(this, &SettingsWidget::wheelValueChanged, this, &SettingsWidget::refreshNavigationbar);
 
     QMetaObject::invokeMethod(this, "loadModules", Qt::QueuedConnection);
 }
@@ -342,11 +343,14 @@ void SettingsWidget::refershModuleActivable()
         return;
     }
 
-    const QRect &containerRect = QRect(QPoint(), m_contentArea->size());
-    const QString &currentModuleName = m_frame->currentModuleName();
+    refreshNavigationbar();
+}
+
+void SettingsWidget::refreshNavigationbar()
+{
+    const QRect containerRect = QRect(QPoint(), m_contentArea->size());
 
     ModuleInterface *firstActiveModule = nullptr;
-    ModuleInterface *currentModule = nullptr;
     for (ModuleInterface *module : m_moduleInterfaces)
     {
         if (!m_moduleActivable.contains(module))
@@ -360,9 +364,6 @@ void SettingsWidget::refershModuleActivable()
         if (!firstActiveModule && wRect.top() >= containerRect.top())
             firstActiveModule = module;
 
-        if (currentModuleName == module->name())
-            currentModule = module;
-
         if (m_moduleActivable[module] == activable)
             continue;
 
@@ -373,11 +374,6 @@ void SettingsWidget::refershModuleActivable()
             module->moduleDeactive();
     }
 
-    // if current module is still active, don't change current module.
-    if (currentModule && m_moduleActivable[currentModule])
-        return;
-
-    // set first active module to current.
     if (!firstActiveModule)
     {
         auto it = std::find_if(m_moduleActivable.begin(), m_moduleActivable.end(), [](bool b) -> bool {
@@ -388,7 +384,7 @@ void SettingsWidget::refershModuleActivable()
             firstActiveModule = it.key();
     }
 
-    if (firstActiveModule && firstActiveModule != currentModule)
+    if (firstActiveModule)
         emit currentModuleChanged(firstActiveModule->name());
 }
 

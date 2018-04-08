@@ -60,6 +60,7 @@ signals:
     void back() const;
     void appear() const;
     void disappear() const;
+    void wheelValueChanged() const;
 
 public slots:
     void scrollToWidget(QWidget * const w, bool animation);
@@ -81,6 +82,7 @@ protected:
     QWidget *m_content;
 
     QPropertyAnimation *m_scrollAni;
+    QPropertyAnimation *m_wheelAni;
     double m_speedTime;
     int m_speed;
 };

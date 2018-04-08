@@ -106,11 +106,22 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_scrollAni = new QPropertyAnimation(m_contentArea->verticalScrollBar(), "value");
     m_scrollAni->setEasingCurve(QEasingCurve::OutQuint);
     m_scrollAni->setDuration(ANIMATION_DUARTION);
+
+    m_wheelAni = new QPropertyAnimation(m_contentArea->verticalScrollBar(), "value");
+    m_wheelAni->setEasingCurve(QEasingCurve::OutQuint);
+    m_wheelAni->setDuration(ANIMATION_DUARTION);
+
     connect(m_scrollAni, &QPropertyAnimation::finished, this, [=] {
         m_scrollAni->setEasingCurve(QEasingCurve::OutQuint);
         m_scrollAni->setDuration(ANIMATION_DUARTION);
     });
 
+    connect(m_wheelAni, &QPropertyAnimation::finished, this, [=] {
+        m_wheelAni->setEasingCurve(QEasingCurve::OutQuint);
+        m_wheelAni->setDuration(ANIMATION_DUARTION);
+    });
+
+    connect(m_wheelAni, &QPropertyAnimation::valueChanged, this, &ContentWidget::wheelValueChanged);
 }
 
 void ContentWidget::setTitle(const QString &title)
@@ -217,22 +228,23 @@ void ContentWidget::wheelEvent(QWheelEvent *e)
     // Active by mouse
     else {
         int offset = - e->delta();
-        if (m_scrollAni->state() == QPropertyAnimation::Running) {
+
+        if (m_wheelAni->state() == QPropertyAnimation::Running) {
             m_speedTime += 0.2;
             // if the roll is kept constant, it will be faster and faster
             if (m_speed != offset) {
                 m_speed = offset;
                 m_speedTime = DEFAULT_SPEED_TIME;
             }
-        }
-        else {
+        } else {
             m_speedTime = DEFAULT_SPEED_TIME;
         }
-        m_scrollAni->stop();
-        m_scrollAni->setStartValue(m_contentArea->verticalScrollBar()->value());
-        m_scrollAni->setEndValue(m_contentArea->verticalScrollBar()->value() + offset * qMin(m_speedTime, MAX_SPEED_TIME));
 
-        m_scrollAni->start();
+        m_scrollAni->stop();
+        m_wheelAni->stop();
+        m_wheelAni->setStartValue(m_contentArea->verticalScrollBar()->value());
+        m_wheelAni->setEndValue(m_contentArea->verticalScrollBar()->value() + offset * qMin(m_speedTime, MAX_SPEED_TIME));
+        m_wheelAni->start();
     }
 }
 
