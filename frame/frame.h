@@ -70,6 +70,7 @@ public:
 
     void backToHome();
     void setDebugAutoHide(const bool autoHide);
+    QString currentModuleName() const;
 
 public slots:
     void startup();

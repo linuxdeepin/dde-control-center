@@ -258,6 +258,11 @@ void Frame::setDebugAutoHide(const bool autoHide)
     m_debugAutoHide = autoHide;
 }
 
+QString Frame::currentModuleName() const
+{
+    return m_navigationBar->currentModuleName();
+}
+
 void Frame::contentDetached(QWidget *const c)
 {
     ContentWidget *cw = qobject_cast<ContentWidget *>(c);

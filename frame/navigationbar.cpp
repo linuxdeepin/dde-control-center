@@ -110,6 +110,14 @@ NavigationBar::NavigationBar(QWidget *parent)
     m_navigationButtons[ModuleList.first()]->clicked();
 }
 
+QString NavigationBar::currentModuleName() const
+{
+    if (!m_checkedButton.isNull())
+        return m_navigationButtons.key(m_checkedButton.data());
+
+    return QString();
+}
+
 void NavigationBar::setModuleVisible(const QString &module, bool visible)
 {
     if (m_navigationButtons.contains(module))

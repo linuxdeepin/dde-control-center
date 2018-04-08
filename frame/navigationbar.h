@@ -42,6 +42,8 @@ class NavigationBar : public QWidget
 public:
     explicit NavigationBar(QWidget *parent = nullptr);
 
+    QString currentModuleName() const;
+
 public slots:
     void setModuleVisible(const QString &module, bool visible);
     void setModuleChecked(const QString &module);

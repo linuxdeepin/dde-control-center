@@ -149,11 +149,12 @@ void ContentWidget::scrollToWidget(QWidget * const w, bool animation)
         widget = qobject_cast<QWidget *>(widget->parent());
     }
 
+    const int current = m_contentArea->verticalScrollBar()->value();
     const int value = std::min(m_contentArea->verticalScrollBar()->maximum(), y);
 
     if (animation)
     {
-        m_scrollAni->setStartValue(m_contentArea->verticalScrollBar()->value());
+        m_scrollAni->setStartValue(current);
         m_scrollAni->setEndValue(value);
 
         m_scrollAni->start();
