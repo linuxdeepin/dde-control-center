@@ -83,7 +83,7 @@ void WeatherWidget::showEvent(QShowEvent *event)
 void WeatherWidget::paintEvent(QPaintEvent *e)
 {
     QWidget::paintEvent(e);
-    int count = m_request->count();
+    int count = m_items.count();
     const qreal ratio = devicePixelRatioF();
     if(count == 0)
     {
@@ -218,7 +218,7 @@ void WeatherWidget::mouseMoveEvent(QMouseEvent *event)
 {
     QWidget::mouseMoveEvent(event);
 
-    const bool showButton = event->y() < CurrentItemHeight && event->y() > 10 && m_request->count() != 0;
+    const bool showButton = event->y() < CurrentItemHeight && event->y() > 10 && m_items.count() != 0;
     if (showButton) { m_locationBtn->move(width() - 60, 30); }
     m_locationBtn->setVisible(showButton);
 
@@ -241,6 +241,8 @@ QString WeatherWidget::icon(const WeatherItem &item)
 
 void WeatherWidget::refreshView(QList<WeatherItem> &items)
 {
+    m_items.clear();
+    m_items = items;
     if(items.count() == 0)
     {
         m_view->show();

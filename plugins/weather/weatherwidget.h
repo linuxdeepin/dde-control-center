@@ -63,6 +63,7 @@ private:
     QList<QPixmap> m_pixmaps;
     DPictureSequenceView* m_view;
     DImageButton *m_locationBtn;
+    QList<WeatherItem> m_items;
 };
 
 #endif // WEATHERWIDGET_H
