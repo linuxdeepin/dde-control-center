@@ -235,6 +235,12 @@ void AccountsModule::contentPopped(ContentWidget * const w)
 #ifdef DCC_ENABLE_ADDOMAIN
 void AccountsModule::showADDialog()
 {
+    // No information is needed to leave the domain
+    if (m_userList->isJoinADDomain()) {
+        m_accountsWorker->ADDomainHandle("", "", "");
+        return;
+    }
+
     setFrameAutoHide(false);
 
     ADDialog addialog;
