@@ -32,6 +32,7 @@
 #include <QApplication>
 #include <QKeyEvent>
 #include <QScreen>
+#include <QGSettings>
 
 Frame::Frame(QWidget *parent)
     : DBlurEffectWidget(parent),
@@ -197,13 +198,14 @@ void Frame::prepareAllSettingsPage()
 
 void Frame::onDelayKillerTimeout()
 {
-#ifdef DCC_AUTO_EXIT
-    if (isVisible())
-        return m_delayKillerTimer->start();
-    qWarning() << "Killer Timeout, now quiiting...";
-    qApp->quit();
-#else
-
+    const QGSettings gsettings("com.deepin.dde.control-center", "/com/deepin/dde/control-center/");
+    if (gsettings.keys().contains("auto-exit") && gsettings.get("auto-exit").toBool())
+    {
+        if (isVisible())
+            return m_delayKillerTimer->start();
+        qWarning() << "Killer Timeout, now quiiting...";
+        qApp->quit();
+    } else {
 #ifndef DCC_KEEP_SETTINGS_LIVE
     Q_ASSERT(!m_allSettingsPage.isNull());
 
@@ -213,8 +215,7 @@ void Frame::onDelayKillerTimeout()
 
     m_allSettingsPage->deleteLater();
 #endif // DCC_KEEP_SETTINGS_LIVE
-
-#endif // DCC_AUTO_EXIT
+    }
 }
 
 void Frame::showAllSettings()
