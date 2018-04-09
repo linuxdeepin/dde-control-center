@@ -199,7 +199,7 @@ void Frame::prepareAllSettingsPage()
 void Frame::onDelayKillerTimeout()
 {
     const QGSettings gsettings("com.deepin.dde.control-center", "/com/deepin/dde/control-center/");
-    if (gsettings.keys().contains("auto-exit") && gsettings.get("auto-exit").toBool())
+    if (gsettings.keys().contains("autoExit") && gsettings.get("auto-exit").toBool())
     {
         if (isVisible())
             return m_delayKillerTimer->start();
