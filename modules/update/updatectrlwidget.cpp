@@ -220,6 +220,11 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_resultItem->setSuccess(false);
         m_noNetworkTip->setVisible(true);
         break;
+    case UpdatesStatus::NoSpace:
+        m_resultGroup->setVisible(true);
+        m_resultItem->setSuccess(false);
+        m_resultItem->setMessage(tr("Insufficient disk space, unable to update system."));
+        break;
     default:
         qWarning() << "unknown status!!!";
     }

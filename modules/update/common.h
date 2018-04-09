@@ -40,7 +40,8 @@ enum UpdatesStatus {
     UpdateSucceeded,
     UpdateFailed,
     NeedRestart,
-    NoNetwork
+    NoNetwork,
+    NoSpace
 };
 
 static inline QString formatCap(qulonglong cap, const int size = 1024)

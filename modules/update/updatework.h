@@ -87,6 +87,8 @@ private slots:
     void onDownloadStatusChanged(const QString &status);
     void onUpgradeStatusChanged(const QString &status);
 
+    void checkDiskSpace(JobInter *job);
+
     DownloadInfo *calculateDownloadInfo(const AppUpdateInfoList &list);
 
 private:

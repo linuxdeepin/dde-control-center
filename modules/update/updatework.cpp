@@ -341,7 +341,9 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
         if (status == "failed") {
             qWarning() << "check for updates job failed";
             m_managerInter->CleanJob(m_checkUpdateJob->id());
-            m_model->setStatus(UpdatesStatus::UpdateFailed);
+
+            checkDiskSpace(m_checkUpdateJob);
+
             m_checkUpdateJob->deleteLater();
             m_checkUpdateJob = nullptr;
         } else if (status == "success" || status == "succeed"){
@@ -478,7 +480,9 @@ void UpdateWorker::onDownloadStatusChanged(const QString &status)
     qDebug() << "download: <<<" << status;
     if (status == "failed")  {
         m_managerInter->CleanJob(m_downloadJob->id());
-        m_model->setStatus(UpdatesStatus::UpdateFailed);
+
+        checkDiskSpace(m_downloadJob);
+
         qWarning() << "download updates job failed";
         m_downloadJob->deleteLater();
         m_downloadJob = nullptr;
@@ -493,7 +497,7 @@ void UpdateWorker::onDownloadStatusChanged(const QString &status)
             checkForUpdates();
     } else if (status == "paused") {
         m_model->setStatus(UpdatesStatus::DownloadPaused);
-    } else {
+    } else if (status == "running") {
         m_model->setStatus(UpdatesStatus::Downloading);
     }
 }
@@ -504,7 +508,9 @@ void UpdateWorker::onUpgradeStatusChanged(const QString &status)
     if (status == "failed")  {
         // cleanup failed job
         m_managerInter->CleanJob(m_distUpgradeJob->id());
-        m_model->setStatus(UpdatesStatus::UpdateFailed);
+
+        checkDiskSpace(m_distUpgradeJob);
+
         qWarning() << "install updates job failed";
         m_distUpgradeJob->deleteLater();
         m_distUpgradeJob = nullptr;
@@ -521,6 +527,16 @@ void UpdateWorker::onUpgradeStatusChanged(const QString &status)
             return;
         file.open(QIODevice::WriteOnly);
         file.close();
+    }
+}
+
+void UpdateWorker::checkDiskSpace(JobInter *job)
+{
+    if (job->description().contains("You don't have enough free space") ||
+            !m_lastoresessionHelper->IsDiskSpaceSufficient()) {
+        m_model->setStatus(UpdatesStatus::NoSpace);
+    } else {
+        m_model->setStatus(UpdatesStatus::UpdateFailed);
     }
 }
 

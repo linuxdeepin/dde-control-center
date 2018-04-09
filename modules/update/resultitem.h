@@ -47,6 +47,7 @@ public:
     explicit ResultItem(QFrame* parent = 0);
 
     void setSuccess(bool success);
+    void setMessage(const QString &message);
 
 private:
     dcc::widgets::NormalLabel* m_message;

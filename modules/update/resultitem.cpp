@@ -44,6 +44,8 @@ ResultItem::ResultItem(QFrame *parent)
 {
     m_icon->setFixedSize(50, 50);
 
+    m_message->setWordWrap(true);
+
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(0);
@@ -65,6 +67,11 @@ void ResultItem::setSuccess(bool success)
     const QString message = success ? tr("Update successfully") :
                                       tr("Failed to update");
     m_icon->setPixmap(DHiDPIHelper::loadNxPixmap(pix));
+    setMessage(message);
+}
+
+void ResultItem::setMessage(const QString &message)
+{
     m_message->setText(message);
 }
 
