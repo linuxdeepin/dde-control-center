@@ -10,6 +10,18 @@ SYSTYPE=$(shell cat /etc/deepin-version | grep Type= | awk -F'=' '{print $$2}')
 %:
 	dh $@ --parallel
 
+DISTRO_MACRO =  ""
+
+ifeq ($(SYSTYPE), Professional)
+	DISTRO_MACRO := $(DISTRO_MACRO) DISABLE_SYS_UPDATE_SOURCE_CHECK=YES \
+		DISABLE_SYS_UPDATE_MIRRORS=YES \
+		DCC_ENABLE_ADDOMAIN=YES \
+		DCC_DISABLE_MIRACAST=YES
+endif
+
+override_dh_auto_configure:
+	dh_auto_configure -- $(DISTRO_MACRO)
+
 ifeq ($(DEB_BUILD_ARCH), mips64el)
 override_dh_auto_configure:
 	dh_auto_configure -- QMAKE_CC=clang QMAKE_CXX=clang++ \
@@ -55,14 +67,3 @@ override_dh_auto_configure:
 		DISABLE_SYS_UPDATE_MIRRORS=YES
 endif
 
-DISTRO_MACRO =  ""
-
-ifeq ($(SYSTYPE), Professional)
-	DISTRO_MACRO := $(DISTRO_MACRO) DISABLE_SYS_UPDATE_SOURCE_CHECK=YES \
-		DISABLE_SYS_UPDATE_MIRRORS=YES \
-		DCC_ENABLE_ADDOMAIN=YES \
-		DCC_DISABLE_MIRACAST=YES
-endif
-
-override_dh_auto_configure:
-	dh_auto_configure -- $(DISTRO_MACRO)
