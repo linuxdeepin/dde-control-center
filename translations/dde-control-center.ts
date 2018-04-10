@@ -2380,12 +2380,12 @@
 <context>
     <name>dcc::update::ResultItem</name>
     <message>
-        <location filename="../modules/update/resultitem.cpp" line="65"/>
+        <location filename="../modules/update/resultitem.cpp" line="67"/>
         <source>Update successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/resultitem.cpp" line="66"/>
+        <location filename="../modules/update/resultitem.cpp" line="68"/>
         <source>Failed to update</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2448,8 +2448,13 @@
         <source>The newest system installed, restart to take effect</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>
+        <source>Insufficient disk space, unable to update system.</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="243"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
         <source>%n application update(s) detected</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -2457,7 +2462,7 @@
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="250"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -2465,32 +2470,32 @@
         </translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="257"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="262"/>
         <source>Downloaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
         <source>Download size: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
         <source>New system edition detected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="277"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="279"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="284"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation type="unfinished"></translation>
     </message>
