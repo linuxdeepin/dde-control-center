@@ -33,7 +33,7 @@ Depends: ${shlibs:Depends},
  xkb-data,
  deepin-installer-timezones,
  passwd
-Recommends: dde-control-center-plugin-notify,
+Suggests: dde-control-center-plugin-notify,
  dde-control-center-plugin-weather,
  netselect,
  redshift
