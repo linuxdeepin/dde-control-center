@@ -116,8 +116,10 @@ void Frame::pushWidget(ContentWidget *const w)
 
     m_frameWidgetStack.last()->hide();
     m_frameWidgetStack.push(fw);
-    m_navigationBar->setVisible(m_frameWidgetStack.size() > 1);
     m_navigationBar->raise();
+
+    const bool navBarVisible = m_frameWidgetStack.size() > 1;
+    QTimer::singleShot(100, m_navigationBar, [=] { m_navigationBar->setVisible(navBarVisible); });
 
     connect(w, &ContentWidget::back, this, &Frame::popWidget, Qt::UniqueConnection);
     connect(fw, &FrameWidget::contentDetached, this, &Frame::contentDetached, Qt::UniqueConnection);
@@ -136,7 +138,9 @@ void Frame::popWidget()
     // destroy the container
     m_frameWidgetStack.pop()->destroy();
     m_frameWidgetStack.last()->showBack();
-    m_navigationBar->setVisible(m_frameWidgetStack.size() > 1);
+
+    const bool navBarVisible = m_frameWidgetStack.size() > 1;
+    QTimer::singleShot(100, m_navigationBar, [=] { m_navigationBar->setVisible(navBarVisible); });
 }
 
 void Frame::init()

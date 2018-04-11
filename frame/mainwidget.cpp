@@ -252,7 +252,5 @@ void MainWidget::updateMPRISEnable()
 #endif
     const bool is_768 = qApp->primaryScreen()->geometry().height() == 768;
 
-    qDebug() << Q_FUNC_INFO << "is_768: " << is_768 << "update_visible: " << update_visible;
-
     m_quickSettingsPanel->setMPRISEnable(!(update_visible && is_768));
 }
