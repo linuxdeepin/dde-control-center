@@ -128,12 +128,13 @@ void Frame::popWidget()
     Q_ASSERT(m_frameWidgetStack.size() > 1);
 
     // ensure top widget is sender()
-    ContentWidget *w = static_cast<ContentWidget *>(sender());
-    // w is nullptr if call this function directly
+    ContentWidget *w = qobject_cast<ContentWidget *>(sender());
+
+    // w is nullptr if call this function directly or call by other object
     Q_ASSERT(!w || w == m_frameWidgetStack.last()->content());
 
     // destroy the container
-    m_frameWidgetStack.pop()->destroy1();
+    m_frameWidgetStack.pop()->destroy();
     m_frameWidgetStack.last()->showBack();
     m_navigationBar->setVisible(m_frameWidgetStack.size() > 1);
 }

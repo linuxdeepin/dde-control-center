@@ -110,7 +110,6 @@ void SoundModel::setMicrophoneFeedback(double microphoneFeedback)
 
 void SoundModel::addPort(Port *port)
 {
-    qDebug() << "add port: " << port->id();
     if (!containsPort(port)) {
         m_ports.append(port);
         emit portAdded(port);
@@ -119,7 +118,6 @@ void SoundModel::addPort(Port *port)
 
 void SoundModel::removePort(const QString &portId, const uint &cardId)
 {
-    qDebug() << "remove port: " << portId;
     Port *port = findPort(portId, cardId);
     if (port) {
         m_ports.removeOne(port);

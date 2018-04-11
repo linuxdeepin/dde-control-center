@@ -37,11 +37,6 @@ Adapter::Adapter(QObject *parent) :
 
 }
 
-Adapter::~Adapter()
-{
-    qDebug() << "~Adapter() " << m_id;
-}
-
 void Adapter::setName(const QString &name)
 {
     if (name != m_name) {

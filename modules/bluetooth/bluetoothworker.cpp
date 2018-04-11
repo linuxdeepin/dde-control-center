@@ -263,8 +263,6 @@ void BluetoothWorker::addAdapter(const QString &json)
     QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
     QJsonObject obj = doc.object();
 
-    qDebug() << "add adapter: " << obj["Path"].toString();
-
     Adapter *adapter = new Adapter(m_model);
     inflateAdapter(adapter, obj);
     m_model->addAdapter(adapter);
@@ -275,8 +273,6 @@ void BluetoothWorker::removeAdapter(const QString &json)
     QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
     QJsonObject obj = doc.object();
     const QString id = obj["Path"].toString();
-
-    qDebug() << "remove adapter: " << id;
 
     const Adapter *result = m_model->removeAdapater(id);
     Adapter *adapter = const_cast<Adapter*>(result);
@@ -291,8 +287,6 @@ void BluetoothWorker::addDevice(const QString &json)
     QJsonObject obj = doc.object();
     const QString adapterId = obj["AdapterPath"].toString();
     const QString id = obj["Path"].toString();
-
-    qDebug() << "add device: " << id;
 
     const Adapter *result = m_model->adapterById(adapterId);
     Adapter *adapter = const_cast<Adapter*>(result);
@@ -311,8 +305,6 @@ void BluetoothWorker::removeDevice(const QString &json)
     QJsonObject obj = doc.object();
     const QString adapterId = obj["AdapterPath"].toString();
     const QString id = obj["Path"].toString();
-
-    qDebug() << "remove device: " << id;
 
     const Adapter *result = m_model->adapterById(adapterId);
     Adapter *adapter = const_cast<Adapter*>(result);

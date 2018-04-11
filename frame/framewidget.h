@@ -63,7 +63,7 @@ public:
     void hide();
     void showBack();
     void hideBack();
-    void destroy1();
+    void destroy();
 
     int animationDuration() const;
 
