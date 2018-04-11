@@ -50,7 +50,7 @@ class MainWidget : public FrameWidget
     Q_OBJECT
 
 public:
-    explicit MainWidget(Frame *parent = 0);
+    explicit MainWidget(FrameContentWrapper *parent = 0);
 
 signals:
     void showAllSettings() const;

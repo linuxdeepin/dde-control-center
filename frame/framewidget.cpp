@@ -25,6 +25,7 @@
 
 #include "frame.h"
 #include "framewidget.h"
+#include "framecontentwrapper.h"
 #include "contentwidget.h"
 
 #include <QResizeEvent>
@@ -34,7 +35,7 @@
 
 using namespace dcc;
 
-FrameWidget::FrameWidget(Frame *parent)
+FrameWidget::FrameWidget(FrameContentWrapper *parent)
     : TranslucentFrame(parent),
 
 #ifndef DISABLE_OPACITY_ANIMATION
@@ -51,12 +52,14 @@ FrameWidget::FrameWidget(Frame *parent)
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->setSpacing(0);
-    centralLayout->setContentsMargins(56 - 8, 0, 0, 0);
+    centralLayout->setContentsMargins(0, 0, 0, 0);
+
     setLayout(centralLayout);
+    setMinimumSize(FRAME_WIDTH - NAVBAR_WIDTH, parent->height());
+    setMaximumSize(FRAME_WIDTH - NAVBAR_WIDTH, parent->height());
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     parent->installEventFilter(this);
-    setFixedHeight(parent->size().height());
-    setFixedWidth(FRAME_WIDTH);
 
 #ifndef DISABLE_OPACITY_ANIMATION
     setGraphicsEffect(m_opacityEffect);
@@ -148,7 +151,8 @@ int FrameWidget::animationDuration() const
 bool FrameWidget::eventFilter(QObject *watched, QEvent *event)
 {
     if (watched == parent() && event->type() == QEvent::Resize)
-        setFixedHeight(static_cast<QResizeEvent *>(event)->size().height());
+        setFixedSize(static_cast<QResizeEvent *>(event)->size());
+//        setFixedHeight(static_cast<QResizeEvent *>(event)->size().height());
 
     return false;
 }

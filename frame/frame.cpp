@@ -24,8 +24,9 @@
  */
 
 #include "frame.h"
-#include "settingswidget.h"
 #include "framewidget.h"
+#include "framecontentwrapper.h"
+#include "settingswidget.h"
 #include "mainwidget.h"
 #include "navigationbar.h"
 
@@ -37,6 +38,7 @@
 Frame::Frame(QWidget *parent)
     : DBlurEffectWidget(parent),
 
+      m_contentWrapper(new FrameContentWrapper(this)),
       m_allSettingsPage(nullptr),
       m_delayKillerTimer(new QTimer(this)),
       m_mouseAreaInter(new DRegionMonitor(this)),
@@ -71,12 +73,12 @@ Frame::Frame(QWidget *parent)
     m_delayKillerTimer->setInterval(60 * 1000);
 
     m_navigationBar = new NavigationBar;
-    m_navigationBar->setFixedWidth(56);
+    m_navigationBar->setFixedWidth(NAVBAR_WIDTH);
     m_navigationBar->setVisible(false);
 
     QHBoxLayout *centralLayout = new QHBoxLayout;
     centralLayout->addWidget(m_navigationBar.data());
-    centralLayout->addStretch();
+    centralLayout->addWidget(m_contentWrapper.data());
     centralLayout->setSpacing(0);
     centralLayout->setContentsMargins(0, 0, 0, 0);
 
@@ -107,7 +109,7 @@ void Frame::pushWidget(ContentWidget *const w)
 {
     Q_ASSERT(!m_frameWidgetStack.empty());
 
-    FrameWidget *fw = new FrameWidget(this);
+    FrameWidget *fw = new FrameWidget(m_contentWrapper.data());
     fw->setContent(w);
     fw->show();
     w->setVisible(true);
@@ -139,7 +141,7 @@ void Frame::popWidget()
 void Frame::init()
 {
     // main page
-    MainWidget *w = new MainWidget(this);
+    MainWidget *w = new MainWidget(m_contentWrapper.data());
     connect(w, &MainWidget::showAllSettings, this, &Frame::showAllSettings);
     connect(w, &MainWidget::showSettingPage, this, &Frame::showSettingsPage);
     m_frameWidgetStack.push(w);

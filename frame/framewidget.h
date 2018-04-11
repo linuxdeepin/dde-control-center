@@ -48,13 +48,13 @@ class ContentWidget;
 
 }
 
-class Frame;
+class FrameContentWrapper;
 class FrameWidget : public TranslucentFrame
 {
     Q_OBJECT
 
 public:
-    explicit FrameWidget(Frame *parent = 0);
+    explicit FrameWidget(FrameContentWrapper *parent = 0);
 
     dcc::ContentWidget *setContent(dcc::ContentWidget * const c);
     dcc::ContentWidget *content();

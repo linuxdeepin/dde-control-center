@@ -40,6 +40,7 @@
 #define BUTTON_LEFT     1
 #define BUTTON_RIGHT    3
 #define FRAME_WIDTH     408
+#define NAVBAR_WIDTH    56
 
 using DBusDisplay = com::deepin::daemon::Display;
 using LauncherInter = com::deepin::dde::Launcher;
@@ -47,6 +48,7 @@ using LauncherInter = com::deepin::dde::Launcher;
 DWIDGET_USE_NAMESPACE
 
 class FrameWidget;
+class FrameContentWrapper;
 class SettingsWidget;
 class NavigationBar;
 
@@ -108,6 +110,7 @@ private:
     const QScreen *screenForGeometry(const QRect &rect) const;
 
 private:
+    QPointer<FrameContentWrapper> m_contentWrapper;
     QPointer<NavigationBar> m_navigationBar;
     QPointer<SettingsWidget> m_allSettingsPage;
     QTimer *m_delayKillerTimer;

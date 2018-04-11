@@ -48,7 +48,8 @@ HEADERS    += \
     navigationview.h \
     navigationmodel.h \
     navigationdelegate.h \
-    navigationbar.h
+    navigationbar.h \
+    framecontentwrapper.h
 
 SOURCES    += \
             main.cpp \
@@ -79,7 +80,8 @@ SOURCES    += \
     navigationview.cpp \
     navigationmodel.cpp \
     navigationdelegate.cpp \
-    navigationbar.cpp
+    navigationbar.cpp \
+    framecontentwrapper.cpp
 
 #RESOURCES += \
 #    qss.qrc \

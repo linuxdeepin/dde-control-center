@@ -48,7 +48,7 @@ DWIDGET_USE_NAMESPACE
 static const int PluginsHeightMax = 380;
 static const int PluginsHeightMin = 260;
 
-MainWidget::MainWidget(Frame *parent)
+MainWidget::MainWidget(FrameContentWrapper *parent)
     : FrameWidget(parent),
 
       m_pluginsController(new PluginsController(this)),

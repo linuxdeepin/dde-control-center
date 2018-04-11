@@ -95,7 +95,7 @@ ContentWidget::ContentWidget(QWidget *parent)
     centralLayout->addWidget(new dcc::widgets::HSeparator);
     centralLayout->addLayout(m_contentTopLayout);
     centralLayout->addWidget(m_contentArea);
-    centralLayout->setContentsMargins(8, 8, 8, 0);
+    centralLayout->setContentsMargins(0, 8, 8, 0);
     centralLayout->setSpacing(0);
 
     connect(m_backBtn, &dcc::widgets::BackButton::clicked, this, &ContentWidget::back);

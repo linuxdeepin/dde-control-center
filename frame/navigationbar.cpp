@@ -90,6 +90,7 @@ NavigationBar::NavigationBar(QWidget *parent)
     centralLayout->setSpacing(20);
 
     setLayout(centralLayout);
+//    setStyleSheet("background-color: cyan;");
 
     // init buttons
     for (const auto &module : ModuleList)
