@@ -1,3 +1,17 @@
+<a name=""></a>
+##  4.4.4.1 (2018-04-11)
+
+
+#### Features
+
+*   move auto-exit settings to gsettings ([1607eacd](https://github.com/linuxdeepin/dde-control-center/commit/1607eacdbd0fca02b99d4871fef299a9bc78cd18))
+
+#### Bug Fixes
+
+*   gsettings key error ([968b70c0](https://github.com/linuxdeepin/dde-control-center/commit/968b70c0a31f8c4ca92db34c3e16bbdf0344e6c0))
+
+
+
 <a name="4.4.4"></a>
 ### 4.4.4 (2018-03-28)
 
