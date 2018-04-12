@@ -51,6 +51,7 @@ private:
 
 private slots:
     void updateAvatarList();
+    void updateTitle();
 
 private:
     User *m_userModel;
