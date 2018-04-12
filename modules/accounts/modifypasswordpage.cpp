@@ -79,13 +79,15 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
     mainWidget->setLayout(mainLayout);
 
     setContent(mainWidget);
-    setTitle(tr("Password") + " - " + user->name());
 
     connect(accept, &QPushButton::clicked, this, &ModifyPasswordPage::passwordSubmit);
     connect(cancel, &QPushButton::clicked, this, &ModifyPasswordPage::back);
     connect(m_pwdEditRepeat->textEdit(), &QLineEdit::editingFinished, this, &ModifyPasswordPage::checkPwd);
     connect(m_pwdEdit->textEdit(), &QLineEdit::textEdited, m_pwdEdit, &LineEditWidget::hideAlertMessage);
     connect(user, &User::passwordModifyFinished, this, &ModifyPasswordPage::onPasswordChangeFinished);
+    connect(user, &User::fullnameChanged, this, &ModifyPasswordPage::updateTitle);
+
+    updateTitle();
 }
 
 void ModifyPasswordPage::passwordSubmit()
@@ -128,4 +130,10 @@ void ModifyPasswordPage::onPasswordChangeFinished(const int exitCode)
 
         m_oldpwdEdit->setIsErr();
     }
+}
+
+void ModifyPasswordPage::updateTitle()
+{
+    const QString &fullname = m_userInter->fullname();
+    setTitle(tr("Password") + " - " + (fullname.isEmpty() ? m_userInter->name() : fullname));
 }

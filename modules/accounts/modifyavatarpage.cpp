@@ -55,8 +55,11 @@ ModifyAvatarPage::ModifyAvatarPage(User *user, QWidget *parent)
 
     connect(user, &User::avatarListChanged, this, &ModifyAvatarPage::updateAvatarList);
     connect(user, &User::currentAvatarChanged, this, &ModifyAvatarPage::updateAvatarList);
+    connect(user, &User::fullnameChanged, this, &ModifyAvatarPage::updateTitle);
 
     updateAvatarList();
+
+    updateTitle();
 }
 
 void ModifyAvatarPage::appendAvatar(const QString &avatar, const int index, const bool selected, const bool deletable)
@@ -115,4 +118,10 @@ void ModifyAvatarPage::updateAvatarList()
     connect(btn, &DImageButton::clicked, [=] { emit requestAddNewAvatar(m_userModel); });
 
     m_avatarsLayout->addWidget(btn, count / 4, count % 4, Qt::AlignCenter);
+}
+
+void ModifyAvatarPage::updateTitle()
+{
+    const QString &fullname = m_userModel->fullname();
+    setTitle(fullname.isEmpty() ? m_userModel->name() : fullname);
 }

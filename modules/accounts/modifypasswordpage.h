@@ -49,6 +49,7 @@ private slots:
     void passwordSubmit();
     void checkPwd();
     void onPasswordChangeFinished(const int exitCode);
+    void updateTitle();
 
 private:
     User *m_userInter;
