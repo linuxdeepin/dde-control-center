@@ -17,7 +17,9 @@ Build-Depends: debhelper (>= 9),
  libdframeworkdbus-dev,
  libgsettings-qt-dev,
  qttools5-dev-tools,
- clang [mips64el]
+ clang [mips64el],
+ deepin-desktop-base,
+ deepin-qt5config
 Standards-Version: 3.9.5
 Homepage: https://github.com/linuxdeepin/dde-control-center
 

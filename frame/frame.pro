@@ -1,3 +1,4 @@
+load(deepin_qt)
 
 include(../config.pri)
 include(../interfaces/interfaces.pri)
@@ -152,4 +153,22 @@ isEqual(DCC_DISABLE_ROTATE, YES) {
 
 isEqual(DCC_ENABLE_ADDOMAIN, YES) {
     DEFINES += DCC_ENABLE_ADDOMAIN
+}
+
+deepin_professional {
+    DEFINES += DISABLE_SYS_UPDATE_SOURCE_CHECK
+    DEFINES += DISABLE_SYS_UPDATE_MIRRORS
+    DEFINES += DCC_DISABLE_MIRACAST
+
+    host_x86_64: {
+        DEFINES += DCC_ENABLE_ADDOMAIN
+    }
+
+    host_mips64: {
+        DEFINES += DCC_ENABLE_AUTOSTART
+        DEFINES += DCC_DISABLE_OPACITY_ANIMATION
+        DEFINES += DCC_KEEP_SETTINGS_LIVE
+        DEFINES += DCC_DISABLE_GRUB
+        DEFINES += DCC_DISABLE_LANGUAGE
+    }
 }
