@@ -82,5 +82,5 @@ SOURCES += \
     $$PWD/passwdeditwidget.cpp
 
 RESOURCES += \
-    $$PWD/resources.qrc
+    $$PWD/widgets.qrc
 
