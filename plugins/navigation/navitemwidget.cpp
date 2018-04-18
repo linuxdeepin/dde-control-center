@@ -70,7 +70,9 @@ void NavItemWidget::paintEvent(QPaintEvent *e)
              pixmap.setDevicePixelRatio(devicePixelRatio);
              pixRect = QRect(0, 0, pixmap.width() / devicePixelRatio, pixmap.height() / devicePixelRatio);
          }
-     } else {
+     }
+
+    if (pixmap.isNull()) {
          pixmap.load(file);
          pixRect = pixmap.rect();
      }

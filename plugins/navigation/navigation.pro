@@ -26,7 +26,7 @@ target.path = $${PREFIX}/lib/dde-control-center/plugins/
 INSTALLS += target
 
 RESOURCES += \
-    resources.qrc
+    navigation.qrc
 
 isEqual(DISABLE_ACCOUNT, YES) {
     DEFINES += DISABLE_ACCOUNT
