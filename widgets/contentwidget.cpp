@@ -121,7 +121,11 @@ ContentWidget::ContentWidget(QWidget *parent)
         m_wheelAni->setDuration(ANIMATION_DUARTION);
     });
 
-    connect(m_wheelAni, &QPropertyAnimation::valueChanged, this, &ContentWidget::wheelValueChanged);
+    connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, this, [=] {
+        if (m_scrollAni->state() != QPropertyAnimation::Running) {
+            emit wheelValueChanged();
+        }
+    });
 }
 
 void ContentWidget::setTitle(const QString &title)
@@ -214,6 +218,7 @@ void ContentWidget::stopScroll()
 {
     m_speedTime = DEFAULT_SPEED_TIME;
     m_scrollAni->stop();
+    m_wheelAni->stop();
 }
 
 void ContentWidget::wheelEvent(QWheelEvent *e)
