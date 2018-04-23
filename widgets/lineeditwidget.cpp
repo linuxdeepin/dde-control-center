@@ -85,6 +85,8 @@ LineEditWidget::LineEditWidget(QFrame *parent)
     setLayout(m_mainLayout);
     setObjectName("LineEditWidget");
     setFixedHeight(36);
+
+    connect(m_edit, &QLineEdit::textChanged, m_errTip, &ErrorTip::hide);
 }
 
 void LineEditWidget::addRightWidget(QWidget *widget)

@@ -86,6 +86,7 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
     connect(m_pwdEdit->textEdit(), &QLineEdit::textEdited, m_pwdEdit, &LineEditWidget::hideAlertMessage);
     connect(user, &User::passwordModifyFinished, this, &ModifyPasswordPage::onPasswordChangeFinished);
     connect(user, &User::fullnameChanged, this, &ModifyPasswordPage::updateTitle);
+    connect(this, &ModifyPasswordPage::disappear, m_pwdEdit, &LineEditWidget::hideAlertMessage);
 
     updateTitle();
 }
