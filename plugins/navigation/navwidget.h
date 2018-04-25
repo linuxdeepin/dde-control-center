@@ -26,15 +26,10 @@
 #ifndef NAVWIDGET_H
 #define NAVWIDGET_H
 
-#include <QWidget>
-#include <QGridLayout>
+#include "navmodel.h"
+
 #include <QLabel>
-
-#include <com_deepin_daemon_bluetooth.h>
-#include <com_deepin_daemon_inputdevice_wacom.h>
-
-using BluetoothInter = com::deepin::daemon::Bluetooth;
-using WacomInter = com::deepin::daemon::inputdevice::Wacom;
+#include <QTableView>
 
 class NavWidget : public QWidget
 {
@@ -43,25 +38,24 @@ class NavWidget : public QWidget
 public:
     explicit NavWidget(QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
     void requestModule(const QString &module) const;
 
-private:
-    void onDevicesChanged();
-    void refershGridLayout();
-    void setTipsText(const QString &text);
+protected:
+    void leaveEvent(QEvent *e) Q_DECL_OVERRIDE;
 
-    void leaveEvent(QEvent *e);
+private Q_SLOTS:
+    void onNavEnter(const QModelIndex &index);
+    void onNavClicked(const QModelIndex &index);
+
+private:
+    QStringList getValidModuleList();
+    void setTipsText(const QString &text);
 
 private:
     QLabel *m_tipsLabel;
-    QGridLayout *m_gridLayout;
-    QTimer *m_deviceRefreshDelay;
-
-    BluetoothInter *m_bluetoothInter;
-    WacomInter *m_wacomInter;
-
-    QStringList m_moduleList;
+    QTableView *m_navView;
+    NavModel *m_navModel;
 };
 
 #endif // NAVWIDGET_H

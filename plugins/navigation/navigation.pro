@@ -14,13 +14,15 @@ DISTFILES       += $$PLUGIN_NAME.json
 
 HEADERS += \
     navwidget.h \
-    navitemwidget.h \
-    navigationplugin.h
+    navigationplugin.h \
+    navdelegate.h \
+    navmodel.h
 
 SOURCES += \
     navwidget.cpp \
-    navitemwidget.cpp \
-    navigationplugin.cpp
+    navigationplugin.cpp \
+    navdelegate.cpp \
+    navmodel.cpp
 
 target.path = $${PREFIX}/lib/dde-control-center/plugins/
 INSTALLS += target
