@@ -160,7 +160,7 @@ void Frame::init()
 //    showSettingsPage("network", QString());
 #endif
 
-#ifdef DCC_KEEP_SETTINGS_LIVE
+#ifdef DCC_PREPARE_INIT
     prepareAllSettingsPage();
 #endif
 }
