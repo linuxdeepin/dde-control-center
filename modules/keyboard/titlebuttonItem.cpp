@@ -27,6 +27,7 @@
 #include <QHBoxLayout>
 #include <QFileDialog>
 #include <QSpacerItem>
+#include <QTimer>
 
 TitleButtonItem::TitleButtonItem(QFrame *parent)
     :SettingsItem(parent)
@@ -34,6 +35,8 @@ TitleButtonItem::TitleButtonItem(QFrame *parent)
     QHBoxLayout* layout =new QHBoxLayout();
     m_title = new QLabel();
     m_button = new QPushButton();
+
+    m_title->setWordWrap(true);
 
     layout->addWidget(m_title);
     layout->addStretch();
@@ -47,9 +50,18 @@ TitleButtonItem::TitleButtonItem(QFrame *parent)
 void TitleButtonItem::setTitle(const QString &title)
 {
     m_title->setText(title);
+
+    QTimer::singleShot(1, this, &TitleButtonItem::updateTitleSize);
 }
 
 void TitleButtonItem::setValue(const QString &value)
 {
     m_button->setText(value);
+}
+
+void TitleButtonItem::updateTitleSize()
+{
+    int v = width() - m_button->width() - 32;
+    if (m_title->fontMetrics().width(m_title->text()) > v)
+        m_title->setFixedWidth(v);
 }
