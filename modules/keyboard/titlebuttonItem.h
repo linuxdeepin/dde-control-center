@@ -46,6 +46,9 @@ signals:
     void click();
 
 private:
+    void updateTitleSize();
+
+private:
     QLabel *m_title;
     QPushButton *m_button;
 };
