@@ -324,6 +324,10 @@ void BluetoothWorker::pinCodeConfirm(const QDBusObjectPath &path, bool value)
 {
     m_bluetoothInter->Confirm(path, value);
 }
+void BluetoothWorker::setAdapterDiscovering(const QDBusObjectPath &path, bool enable)
+{
+    m_bluetoothInter->SetAdapterDiscovering(path, enable);
+}
 
 } // namespace bluetooth
 } // namespace dcc

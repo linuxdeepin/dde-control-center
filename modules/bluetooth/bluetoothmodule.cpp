@@ -75,7 +75,7 @@ void BluetoothModule::closePinCode(const QDBusObjectPath &device)
     QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
 }
 
-void BluetoothModule::showDetail(const Adapter *adapter, const Device *device)
+void BluetoothModule::showDeviceDetail(const Adapter *adapter, const Device *device)
 {
     DetailPage *page = new DetailPage(adapter, device);
 
@@ -89,10 +89,18 @@ void BluetoothModule::showBluetoothDetail(const Adapter *adapter)
 {
     AdapterWidget *w = new AdapterWidget(adapter);
 
+    const QDBusObjectPath path(adapter->id());
+
     connect(w, &AdapterWidget::requestSetToggleAdapter, m_bluetoothWorker, &BluetoothWorker::setAdapterPowered);
     connect(w, &AdapterWidget::requestConnectDevice, m_bluetoothWorker, &BluetoothWorker::connectDevice);
-    connect(w, &AdapterWidget::requestShowDetail, this, &BluetoothModule::showDetail);
+    connect(w, &AdapterWidget::requestShowDetail, this, &BluetoothModule::showDeviceDetail);
     connect(w, &AdapterWidget::requestSetAlias, m_bluetoothWorker, &BluetoothWorker::setAlias);
+
+    connect(w, &AdapterWidget::back, this, [=] {
+        m_bluetoothWorker->setAdapterDiscovering(path, false);
+    });
+
+    m_bluetoothWorker->setAdapterDiscovering(path, true);
 
     m_frameProxy->pushWidget(this, w);
 }
