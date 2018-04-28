@@ -11,7 +11,7 @@ void NavDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, c
     QStyledItemDelegate::paint(painter, option, index);
 
     QRect rect = QRect(option.rect.left(), option.rect.top(), option.rect.width()-1, option.rect.height()-1);
-    if (option.state == (QStyle::State_Enabled | QStyle::State_MouseOver)) {
+    if (option.state & QStyle::State_MouseOver) {
         painter->fillRect(rect, QColor(255, 255, 255, 25.5));
     } else {
         painter->fillRect(rect, QColor(255, 255, 255, 7.65));
