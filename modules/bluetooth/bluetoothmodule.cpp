@@ -30,6 +30,9 @@
 #include "adapterwidget.h"
 #include "contentwidget.h"
 #include "detailpage.h"
+#include "pincodedialog.h"
+
+#include <QDBusObjectPath>
 
 namespace dcc {
 namespace bluetooth {
@@ -50,6 +53,26 @@ void BluetoothModule::showPage(const QString &pageName)
     Q_UNUSED(pageName)
 
     showBluetoothDetail(m_bluetoothModel->adapters().first());
+}
+
+void BluetoothModule::showPinCode(const QDBusObjectPath &device, const QString &code)
+{
+    qDebug() << "request confirmation: " << device.path() << code;
+
+    PinCodeDialog *dialog = PinCodeDialog::instance(code);
+    m_dialogs[device] = dialog;
+    if (!dialog->isVisible()) {
+        int ret = dialog->exec();
+        closePinCode(device);
+        m_bluetoothWorker->pinCodeConfirm(device, bool(ret));
+    }
+}
+
+void BluetoothModule::closePinCode(const QDBusObjectPath &device)
+{
+    PinCodeDialog *dialog = m_dialogs[device];
+    m_dialogs.remove(device);
+    QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
 }
 
 void BluetoothModule::showDetail(const Adapter *adapter, const Device *device)
@@ -87,6 +110,9 @@ void BluetoothModule::initialize()
 
     m_bluetoothModel->moveToThread(qApp->thread());
     m_bluetoothWorker->moveToThread(qApp->thread());
+
+    connect(m_bluetoothWorker, &BluetoothWorker::requestConfirmation, this, &BluetoothModule::showPinCode);
+    connect(m_bluetoothWorker, &BluetoothWorker::pinCodeCancel, this, &BluetoothModule::closePinCode);
 }
 
 void BluetoothModule::moduleActive()

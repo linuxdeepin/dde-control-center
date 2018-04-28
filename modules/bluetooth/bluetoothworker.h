@@ -49,6 +49,8 @@ public:
 
 signals:
     void deviceEnableChanged();
+    void requestConfirmation(const QDBusObjectPath &path, const QString &code);
+    void pinCodeCancel(const QDBusObjectPath &device);
 
 public slots:
     void setAdapterPowered(const Adapter *adapter, const bool &powered);
@@ -57,6 +59,7 @@ public slots:
     void ignoreDevice(const Adapter *adapter, const Device *device);
     void setAlias(const Adapter *adapter, const QString &alias);
     void setAdapterDiscoverable(const QString &path);
+    void pinCodeConfirm(const QDBusObjectPath &path, bool value);
 
 private:
     void inflateAdapter(Adapter *adapter, const QJsonObject &adapterObj);

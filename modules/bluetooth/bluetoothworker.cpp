@@ -45,22 +45,13 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
     connect(m_bluetoothInter, &DBusBluetooth::DeviceAdded, this, &BluetoothWorker::addDevice);
     connect(m_bluetoothInter, &DBusBluetooth::DeviceRemoved, this, &BluetoothWorker::removeDevice);
     connect(m_bluetoothInter, &DBusBluetooth::DevicePropertiesChanged, this, &BluetoothWorker::onDevicePropertiesChanged);
+    connect(m_bluetoothInter, &DBusBluetooth::Cancelled, this, &BluetoothWorker::pinCodeCancel);
 
     connect(m_bluetoothInter, &DBusBluetooth::RequestAuthorization, this, [] (const QDBusObjectPath &in0) {
         qDebug() << "request authorization: " << in0.path();
     });
 
-    connect(m_bluetoothInter, &DBusBluetooth::RequestConfirmation, this, [this] (const QDBusObjectPath &in0, const QString &in1) {
-        qDebug() << "request confirmation: " << in0.path() << in1;
-
-        PinCodeDialog *dialog = PinCodeDialog::instance(in1);
-        if (!dialog->isVisible()) {
-            int ret = dialog->exec();
-            QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
-
-            m_bluetoothInter->Confirm(in0, bool(ret));
-        }
-    });
+    connect(m_bluetoothInter, &DBusBluetooth::RequestConfirmation, this, &BluetoothWorker::requestConfirmation);
 
     connect(m_bluetoothInter, &DBusBluetooth::RequestPasskey, this, [] (const QDBusObjectPath &in0) {
         qDebug() << "request passkey: " << in0.path();
@@ -327,6 +318,11 @@ void BluetoothWorker::setAdapterDiscoverable(const QString &path)
     m_bluetoothInter->SetAdapterDiscoverable(dPath, true);
 
     m_bluetoothInter->RequestDiscovery(dPath);
+}
+
+void BluetoothWorker::pinCodeConfirm(const QDBusObjectPath &path, bool value)
+{
+    m_bluetoothInter->Confirm(path, value);
 }
 
 } // namespace bluetooth

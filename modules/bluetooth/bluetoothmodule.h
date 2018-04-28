@@ -28,6 +28,8 @@
 
 #include "moduleinterface.h"
 
+class QDBusObjectPath;
+
 namespace dcc {
 namespace bluetooth {
 
@@ -36,6 +38,7 @@ class BluetoothModel;
 class BluetoothWorker;
 class Device;
 class Adapter;
+class PinCodeDialog;
 
 class BluetoothModule : public QObject, public ModuleInterface
 {
@@ -58,10 +61,14 @@ private:
     ModuleWidget *moduleWidget();
     void showPage(const QString &pageName);
 
+    void showPinCode(const QDBusObjectPath &device, const QString &code);
+    void closePinCode(const QDBusObjectPath &device);
+
 private:
     BluetoothWidget *m_bluetoothView;
     BluetoothModel *m_bluetoothModel;
     BluetoothWorker *m_bluetoothWorker;
+    QMap<QDBusObjectPath, PinCodeDialog*> m_dialogs;
 };
 
 }
