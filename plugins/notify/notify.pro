@@ -15,13 +15,21 @@ HEADERS += \
     notifyplugin.h \
     notifymanager.h \
     notifyviewer.h \
-    notifybody.h
+    notifybody.h \
+    notifymodel.h \
+    notifyview.h \
+    notifydelegate.h \
+    notifywidget.h
 
 SOURCES += \
     notifyplugin.cpp \
     notifymanager.cpp \
     notifyviewer.cpp \
-    notifybody.cpp
+    notifybody.cpp \
+    notifymodel.cpp \
+    notifyview.cpp \
+    notifydelegate.cpp \
+    notifywidget.cpp
 
 target.path = $${PREFIX}/lib/dde-control-center/plugins/
 

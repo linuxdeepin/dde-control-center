@@ -1,15 +1,9 @@
 /*
  * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
  *
- * Author:     sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
- *             listenerri <190771752ri@gmail.com>
+ * Author:     listenerri <190771752ri@gmail.com>
  *
- * Maintainer: sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
- *             listenerri <190771752ri@gmail.com>
+ * Maintainer: listenerri <190771752ri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,19 +19,29 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "plugininterface.h"
-#include "notifyplugin.h"
+#ifndef NOTIFYWIDGET_H
+#define NOTIFYWIDGET_H
 
-NotifyPlugin::NotifyPlugin(QObject *parent)
-    : QObject(parent)
+#include "notifymodel.h"
+#include "notifydelegate.h"
+#include "notifyview.h"
+
+#include <QWidget>
+
+class NotifyWidget : public QWidget
 {
-    m_notifyWidget = new NotifyWidget;
-}
+    Q_OBJECT
+public:
+    explicit NotifyWidget(QWidget *parent = nullptr);
 
-void NotifyPlugin::initialize(FrameProxyInterface *proxy) {
-    m_proxyInter    = proxy;
-}
+private slots:
+    void showRemoveAnim(const QModelIndex &index);
+    void showClearAllAnim();
 
-QWidget *NotifyPlugin::centralWidget() {
-    return m_notifyWidget;
-}
+private:
+    NotifyView *m_notifyView;
+    NotifyModel *m_notifyModel;
+    NotifyDelegate *m_notifyDelegate;
+};
+
+#endif // NOTIFYWIDGET_H

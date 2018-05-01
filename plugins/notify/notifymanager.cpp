@@ -162,6 +162,7 @@ void NotifyManager::onNotifyGetAllFinished(QDBusPendingCallWatcher *w)
     QJsonDocument jsonDocument = QJsonDocument::fromJson(reply.value().toLocal8Bit().data());
 
     m_dataJsonArray = jsonDocument.array();
+    qDebug() << "====================================" << m_dataJsonArray;
 
     m_checkIndex = m_dataJsonArray.size();
 

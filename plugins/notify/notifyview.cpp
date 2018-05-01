@@ -1,15 +1,9 @@
 /*
  * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
  *
- * Author:     sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
- *             listenerri <190771752ri@gmail.com>
+ * Author:     listenerri <190771752ri@gmail.com>
  *
- * Maintainer: sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
- *             listenerri <190771752ri@gmail.com>
+ * Maintainer: listenerri <190771752ri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,19 +19,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "plugininterface.h"
-#include "notifyplugin.h"
+#include "notifyview.h"
 
-NotifyPlugin::NotifyPlugin(QObject *parent)
-    : QObject(parent)
+NotifyView::NotifyView(QWidget *parent) : QListView(parent)
 {
-    m_notifyWidget = new NotifyWidget;
-}
-
-void NotifyPlugin::initialize(FrameProxyInterface *proxy) {
-    m_proxyInter    = proxy;
-}
-
-QWidget *NotifyPlugin::centralWidget() {
-    return m_notifyWidget;
+    setFrameStyle(QFrame::NoFrame);
+    setMouseTracking(true);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setHorizontalScrollMode(QListView::ScrollPerPixel);
+    setSpacing(0);
+    setContentsMargins(0, 0, 0, 0);
+    setUpdatesEnabled(true);
+    setStyleSheet("background-color: rgba(255, 255, 255, 7.65);");
 }

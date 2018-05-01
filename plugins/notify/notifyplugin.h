@@ -4,10 +4,12 @@
  * Author:     sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <190771752ri@gmail.com>
  *
  * Maintainer: sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <190771752ri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,9 +29,10 @@
 #define EXAMPLEPLUGIN_H
 
 #include "plugininterface.h"
+//#include "notifymanager.h"
+#include "notifywidget.h"
 
 #include <QLabel>
-#include "notifymanager.h"
 
 using namespace dcc;
 
@@ -46,7 +49,7 @@ public:
     QWidget *centralWidget();
 
 private:
-    NotifyManager *m_notifymanager;
+    NotifyWidget *m_notifyWidget;
 };
 
 #endif // EXAMPLEPLUGIN_H
