@@ -22,47 +22,64 @@
 #include "notifywidget.h"
 
 #include <QVBoxLayout>
-#include <dimagebutton.h>
-
-DWIDGET_USE_NAMESPACE
 
 NotifyWidget::NotifyWidget(QWidget *parent) : QWidget(parent)
 {
     QVBoxLayout *mainVBLayout = new QVBoxLayout;
-    DImageButton *clearAllButton = new DImageButton;
+    m_clearAllButton = new DImageButton;
     m_notifyView = new NotifyView;
     m_notifyModel = new NotifyModel;
     m_notifyDelegate = new NotifyDelegate;
+    m_noNotify = new QLabel(tr("No system notifications"));
 
-    clearAllButton->setText(tr("Clear all"));
-    clearAllButton->setAlignment(Qt::AlignCenter);
-    clearAllButton->setStyleSheet("background-color: rgba(255, 255, 255, 7.65); padding: 4px 0;");
+    m_clearAllButton->setText(tr("Clear all"));
+    m_clearAllButton->setAlignment(Qt::AlignCenter);
+    m_clearAllButton->setStyleSheet("background-color: rgba(255, 255, 255, 7.65); padding: 4px 0;");
 
     m_notifyView->setModel(m_notifyModel);
     m_notifyView->setItemDelegate(m_notifyDelegate);
 
-    mainVBLayout->addWidget(clearAllButton);
+    m_noNotify->setAlignment(Qt::AlignCenter);
+    m_noNotify->setVisible(false);
+
+    mainVBLayout->addWidget(m_clearAllButton);
     mainVBLayout->addWidget(m_notifyView);
+    mainVBLayout->addWidget(m_noNotify);
 
     mainVBLayout->setSpacing(1);
     mainVBLayout->setMargin(0);
     mainVBLayout->setContentsMargins(0, 0, 0, 0);
 
+    setStyleSheet("background-color: rgba(255, 255, 255, 7.65);");
     setContentsMargins(0, 0, 0, 0);
     setLayout(mainVBLayout);
 
-    connect(clearAllButton, &DImageButton::clicked, this, &NotifyWidget::showClearAllAnim);
+    connect(m_clearAllButton, &DImageButton::clicked, this, &NotifyWidget::showClearAllAnim);
     connect(m_notifyView, &NotifyView::clicked, this, &NotifyWidget::showRemoveAnim);
     connect(m_notifyModel, &NotifyModel::removeAnimFinished, m_notifyModel, &NotifyModel::removeNotify);
     connect(m_notifyModel, &NotifyModel::clearAllAnimFinished, m_notifyModel, &NotifyModel::clearAllNotify);
+    connect(m_notifyModel, &NotifyModel::notifyClearStateChanged, this, &NotifyWidget::onNotifyClearStateChanged);
 }
 
 void NotifyWidget::showRemoveAnim(const QModelIndex &index)
 {
-    m_notifyModel->showAnimRemove(index, m_notifyView->width());
+    m_notifyModel->showRemoveAnim(index, m_notifyView->width());
 }
 
 void NotifyWidget::showClearAllAnim()
 {
-    m_notifyModel->showAnimClearAll(m_notifyView->width());
+    m_notifyModel->showClearAllAnim(m_notifyView->width());
+}
+
+void NotifyWidget::onNotifyClearStateChanged(bool isClear)
+{
+    if (isClear) {
+        m_clearAllButton->setVisible(false);
+        m_notifyView->setVisible(false);
+        m_noNotify->setVisible(true);
+    } else {
+        m_clearAllButton->setVisible(true);
+        m_notifyView->setVisible(true);
+        m_noNotify->setVisible(false);
+    }
 }

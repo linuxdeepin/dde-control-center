@@ -52,12 +52,13 @@ public:
 public Q_SLOTS:
     void clearAllNotify();
     void removeNotify(const QModelIndex &index);
-    void showAnimClearAll(int maxXOffset);
-    void showAnimRemove(const QModelIndex &removeIndex, int maxXOffset);
+    void showClearAllAnim(int maxXOffset);
+    void showRemoveAnim(const QModelIndex &removeIndex, int maxXOffset);
 
 Q_SIGNALS:
     void removeAnimFinished(const QModelIndex &index);
     void clearAllAnimFinished();
+    void notifyClearStateChanged(bool isClear);
 
 protected:
     void timerEvent(QTimerEvent *event) Q_DECL_OVERRIDE;

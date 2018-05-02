@@ -97,6 +97,7 @@ void NotifyModel::clearAllNotify()
     beginResetModel();
     m_dataJsonArray = {};
     endResetModel();
+    Q_EMIT notifyClearStateChanged(true);
 }
 
 void NotifyModel::onNotifyGetAllFinished(QDBusPendingCallWatcher *w)
@@ -109,17 +110,25 @@ void NotifyModel::onNotifyGetAllFinished(QDBusPendingCallWatcher *w)
     m_dataJsonArray = jsonDocument.array();
     endResetModel();
 
+    if (m_dataJsonArray.isEmpty()) {
+        Q_EMIT notifyClearStateChanged(true);
+    }
+
     w->deleteLater();
 }
 
 void NotifyModel::addNotify(const QString &s)
 {
+    if (m_dataJsonArray.isEmpty()) {
+        Q_EMIT notifyClearStateChanged(false);
+    }
+
     m_dataJsonArray.append(QJsonDocument::fromJson(s.toLocal8Bit().data()).object());
     const QModelIndex mindex = index(0);
     Q_EMIT dataChanged(mindex, mindex);
 }
 
-void NotifyModel::showAnimClearAll(int maxXOffset)
+void NotifyModel::showClearAllAnim(int maxXOffset)
 {
     m_isClearAll = true;
     m_maxXOffset = maxXOffset;
@@ -128,7 +137,7 @@ void NotifyModel::showAnimClearAll(int maxXOffset)
     }
 }
 
-void NotifyModel::showAnimRemove(const QModelIndex &removeIndex, int maxXOffset)
+void NotifyModel::showRemoveAnim(const QModelIndex &removeIndex, int maxXOffset)
 {
     m_removeIndex = removeIndex;
     m_maxXOffset = maxXOffset;
@@ -172,4 +181,8 @@ void NotifyModel::removeNotify(const QModelIndex &index)
     m_dbus->RemoveRecord(notifyObject.value("time").toString());
     m_dataJsonArray.removeAt(m_dataJsonArray.size() - 1 - index.row());
     Q_EMIT dataChanged(index, index);
+
+    if (m_dataJsonArray.size() == 0) {
+        Q_EMIT notifyClearStateChanged(true);
+    }
 }

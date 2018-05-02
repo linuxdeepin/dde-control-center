@@ -26,7 +26,11 @@
 #include "notifydelegate.h"
 #include "notifyview.h"
 
+#include <dimagebutton.h>
 #include <QWidget>
+#include <QLabel>
+
+DWIDGET_USE_NAMESPACE
 
 class NotifyWidget : public QWidget
 {
@@ -34,14 +38,17 @@ class NotifyWidget : public QWidget
 public:
     explicit NotifyWidget(QWidget *parent = nullptr);
 
-private slots:
+private Q_SLOTS:
     void showRemoveAnim(const QModelIndex &index);
     void showClearAllAnim();
+    void onNotifyClearStateChanged(bool isClear);
 
 private:
+    DImageButton *m_clearAllButton;
     NotifyView *m_notifyView;
     NotifyModel *m_notifyModel;
     NotifyDelegate *m_notifyDelegate;
+    QLabel *m_noNotify;
 };
 
 #endif // NOTIFYWIDGET_H
