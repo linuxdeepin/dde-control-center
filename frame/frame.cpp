@@ -96,6 +96,7 @@ Frame::Frame(QWidget *parent)
     connect(m_launcherInter, &LauncherInter::Shown, this, &Frame::hideImmediately);
     connect(m_wmHelper, &DWindowManagerHelper::hasCompositeChanged, this, &Frame::adjustShadowMask);
     connect(&m_appearAnimation, &QPropertyAnimation::stateChanged, this, &Frame::adjustShadowMask, Qt::QueuedConnection);
+    connect(&m_appearAnimation, &QPropertyAnimation::finished, this, [=] { emit rectChanged(rect()); });
 
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
 }

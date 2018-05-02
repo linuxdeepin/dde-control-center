@@ -68,7 +68,7 @@ DBusControlCenterService::DBusControlCenterService(Frame *parent)
 
 //    connect(parent, &Frame::hideInLeftChanged, parent, &Frame::xChanged);
 
-    connect(parent, &Frame::rectChanged, this, &DBusControlCenterService::rectChanged);
+    connect(parent, &Frame::rectChanged, this, &DBusControlCenterService::rectChanged, Qt::QueuedConnection);
 }
 
 DBusControlCenterService::~DBusControlCenterService()
