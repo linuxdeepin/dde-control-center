@@ -35,7 +35,7 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
     }
 
     const QString &strId = index.data(NotifyModel::NotifyIdRole).toString();
-    const QString &strName = index.data(NotifyModel::NotifyNameRole).toString();
+//    const QString &strName = index.data(NotifyModel::NotifyNameRole).toString();
     const QString &strSum = index.data(NotifyModel::NotifySummaryRole).toString();
     const QString &strBody = index.data(NotifyModel::NotifyBodyRole).toString();
     const QString &strIcon = index.data(NotifyModel::NotifyIconRole).toString();
@@ -84,8 +84,9 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
 //    int bodyWidth = bodyFM.boundingRect(strBody).width();
     int bodyHeight = bodyFM.boundingRect(strBody).height();
     QRect bodyRect = QRect(sumRect.topLeft().x(), mRect.y() + mRect.height() / 2 - bodyHeight,
-                           mRect.width() / 3 * 2, mRect.height() - 10 - sumHeight);
+                           option.rect.width() / 3 * 2, option.rect.height() - sumHeight - 40);
     painter->setFont(bodyFont);
+//    QString newStrBody = bodyFM.elidedText(strBody, Qt::ElideRight, option.rect.width() / 3 * 2 * 2 - 20);
     painter->drawText(bodyRect, strBody);
 
     // draw time
