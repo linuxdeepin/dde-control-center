@@ -91,6 +91,14 @@ QVariant NotifyModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
+Qt::ItemFlags NotifyModel::flags(const QModelIndex &index) const
+{
+    if (index.isValid()) {
+        return QAbstractListModel::flags(index) | Qt::ItemIsEditable;
+    }
+    return QAbstractListModel::flags(index);
+}
+
 void NotifyModel::clearAllNotify()
 {
     m_dbus->ClearRecords();

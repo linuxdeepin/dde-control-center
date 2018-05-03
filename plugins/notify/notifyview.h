@@ -26,9 +26,23 @@
 
 class NotifyView : public QListView
 {
+    Q_OBJECT
+
 public:
     NotifyView(QWidget *parent = Q_NULLPTR);
 
+Q_SIGNALS:
+    void currentHoverChanged(const QModelIndex &previous, const QModelIndex &current);
+
+public Q_SLOTS:
+    void onCurrentHoverChanged(const QModelIndex &previous, const QModelIndex &current);
+
+protected:
+    void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+
+private:
+    QModelIndex m_indexPrevious;
+    QModelIndex m_indexCurrent;
 };
 
 #endif // NOTIFYVIEW_H

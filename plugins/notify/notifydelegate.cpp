@@ -23,6 +23,9 @@
 #include "notifymodel.h"
 
 #include <QPainter>
+#include <dimagebutton.h>
+
+DWIDGET_USE_NAMESPACE
 
 NotifyDelegate::NotifyDelegate(QObject *parent) : QStyledItemDelegate(parent)
 {
@@ -101,6 +104,27 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
     painter->drawText(timeRect, strTime);
 }
 
+QWidget *NotifyDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    Q_UNUSED(option)
+    Q_UNUSED(index)
+
+    // view class will delete these object later
+    return new DImageButton(":/images/notify_close_normal.svg",
+                             ":/images/notify_close_hover.svg",
+                             ":/images/notify_close_press.svg", parent);
+}
+
+void NotifyDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    Q_UNUSED(index)
+
+    DImageButton *mEditor = static_cast<DImageButton *>(editor);
+    mEditor->setFixedSize(QPixmap(mEditor->getNormalPic()).size());
+    QRect mRect = option.rect;
+    editor->setGeometry(mRect.x() + mRect.width() - 20, mRect.y() + 20, mEditor->width(), mEditor->height());
+}
+
 QPixmap NotifyDelegate::notifyPixmap(const QString &name, QPaintDevice *device) const
 {
     const QIcon &icon = QIcon::fromTheme(name, QIcon::fromTheme("application-x-desktop"));
@@ -167,4 +191,6 @@ QString NotifyDelegate::notifyTime(const QString &t) const
     } else {
         return date.toString("yyyy/MM/dd hh:mm");
     }
+
+    return t;
 }

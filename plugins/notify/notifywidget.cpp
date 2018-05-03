@@ -38,6 +38,7 @@ NotifyWidget::NotifyWidget(QWidget *parent) : QWidget(parent)
 
     m_notifyView->setModel(m_notifyModel);
     m_notifyView->setItemDelegate(m_notifyDelegate);
+    m_notifyView->setEditTriggers(QListView::NoEditTriggers);
 
     m_noNotify->setAlignment(Qt::AlignCenter);
     m_noNotify->setVisible(false);
@@ -55,7 +56,6 @@ NotifyWidget::NotifyWidget(QWidget *parent) : QWidget(parent)
     setLayout(mainVBLayout);
 
     connect(m_clearAllButton, &DImageButton::clicked, this, &NotifyWidget::showClearAllAnim);
-    connect(m_notifyView, &NotifyView::clicked, this, &NotifyWidget::showRemoveAnim);
     connect(m_notifyModel, &NotifyModel::removeAnimFinished, m_notifyModel, &NotifyModel::removeNotify);
     connect(m_notifyModel, &NotifyModel::clearAllAnimFinished, m_notifyModel, &NotifyModel::clearAllNotify);
     connect(m_notifyModel, &NotifyModel::notifyClearStateChanged, this, &NotifyWidget::onNotifyClearStateChanged);

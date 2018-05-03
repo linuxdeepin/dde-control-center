@@ -20,6 +20,9 @@
  */
 
 #include "notifyview.h"
+#include "notifydelegate.h"
+
+#include <QMouseEvent>
 
 NotifyView::NotifyView(QWidget *parent) : QListView(parent)
 {
@@ -32,4 +35,25 @@ NotifyView::NotifyView(QWidget *parent) : QListView(parent)
     setContentsMargins(0, 0, 0, 0);
     setUpdatesEnabled(true);
     setStyleSheet("background-color: rgba(255, 255, 255, 7.65);");
+
+    connect(this, &NotifyView::currentHoverChanged, this, &NotifyView::onCurrentHoverChanged);
+}
+
+void NotifyView::onCurrentHoverChanged(const QModelIndex &previous, const QModelIndex &current)
+{
+    if (previous.isValid()) {
+        closePersistentEditor(previous);
+    }
+    openPersistentEditor(current);
+}
+
+void NotifyView::mouseMoveEvent(QMouseEvent *event)
+{
+    m_indexCurrent = indexAt(event->pos());
+    if (m_indexPrevious != m_indexCurrent) {
+        Q_EMIT currentHoverChanged(m_indexPrevious, m_indexCurrent);
+        m_indexPrevious = m_indexCurrent;
+    }
+
+    QListView::mouseMoveEvent(event);
 }
