@@ -37,24 +37,34 @@ using namespace dcc::widgets;
 using namespace dcc::network;
 
 NetworkModuleWidget::NetworkModuleWidget()
-    : ModuleWidget(),
-
-      m_devicesLayout(new QVBoxLayout),
-
-      m_pppBtn(new NextPageWidget),
-      m_vpnBtn(new NextPageWidget),
-      m_proxyBtn(new NextPageWidget),
-
-      m_detailBtn(new NextPageWidget)
+    : ModuleWidget()
+    , m_devicesLayout(new QVBoxLayout)
+#ifndef DISABLE_NETWORK_PPPOE
+    , m_pppBtn(new NextPageWidget)
+#endif
+#ifndef DISABLE_NETWORK_VPN
+    , m_vpnBtn(new NextPageWidget)
+#endif
+#ifndef DISABLE_NETWORK_PROXY
+    , m_proxyBtn(new NextPageWidget)
+#endif
+    , m_detailBtn(new NextPageWidget)
 {
     setObjectName("Network");
 
+#ifndef DISABLE_NETWORK_PPPOE
     m_pppBtn->setTitle(tr("DSL"));
-    m_vpnBtn->setTitle(tr("VPN"));
-    m_proxyBtn->setTitle(tr("System Proxy"));
+#endif
 
+#ifndef DISABLE_NETWORK_VPN
+    m_vpnBtn->setTitle(tr("VPN"));
+#endif
+
+#ifndef DISABLE_NETWORK_PROXY
+    m_proxyBtn->setTitle(tr("System Proxy"));
     m_appProxy = new NextPageWidget;
     m_appProxy->setTitle(tr("Application proxy"));
+#endif
 
     m_detailBtn->setTitle(tr("Network Details"));
 
@@ -67,9 +77,11 @@ NetworkModuleWidget::NetworkModuleWidget()
 #ifndef DISABLE_NETWORK_PPPOE
     connGroup->appendItem(m_pppBtn);
 #endif
+
 #ifndef DISABLE_NETWORK_VPN
     connGroup->appendItem(m_vpnBtn);
 #endif
+
 #ifndef DISABLE_NETWORK_PROXY
     connGroup->appendItem(m_appProxy);
     connGroup->appendItem(m_proxyBtn);
@@ -84,19 +96,29 @@ NetworkModuleWidget::NetworkModuleWidget()
     setTitle(tr("Network"));
 
     connect(m_detailBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowInfomation);
+
+#ifndef DISABLE_NETWORK_VPN
     connect(m_vpnBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowVpnPage);
+#endif
+
+#ifndef DISABLE_NETWORK_PPPOE
     connect(m_pppBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowPppPage);
+#endif
+
+#ifndef DISABLE_NETWORK_PROXY
     connect(m_proxyBtn, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowProxyPage);
     connect(m_appProxy, &NextPageWidget::clicked, this, &NetworkModuleWidget::requestShowChainsPage);
+#endif
 }
 
 void NetworkModuleWidget::setModel(NetworkModel *model)
 {
     connect(model, &NetworkModel::deviceListChanged, this, &NetworkModuleWidget::onDeviceListChanged);
 
+#ifndef DISABLE_NETWORK_PROXY
     connect(model, &NetworkModel::appProxyExistChanged, m_appProxy, &NextPageWidget::setVisible);
-
     m_appProxy->setVisible(model->appProxyExist());
+#endif
 
     onDeviceListChanged(model->devices());
 }
