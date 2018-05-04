@@ -17,7 +17,7 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Κλικάρετε το εικονίδιο για ενεργοποίηση του bluetooth</translation>
     </message>
 </context>
 <context>
@@ -40,22 +40,22 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation type="unfinished"/>
+        <translation>Νέες Προσαρμοσμένες Ρυθμίσεις</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>Αντιγράψτε τα περιεχόμενα της οθόνης σας σε μία ή περισσότερες οθόνες.</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>Μεγιστοποιήστε τα περιεχόμενα της οθόνης σας ώστε να εμφανίζονται διαφορετικά περιεχόμενα σε διαφορετικές οθόνες.</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Τα περιεχόμενα οθόνης εμφανίζονται μόνο στο %1</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
@@ -73,15 +73,25 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Κανένα</translation>
     </message>
 </context>
 <context>
-    <name>NavWidget</name>
+    <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/navigation/navwidget.cpp" line="206"/>
-        <source>Navigation</source>
-        <translation type="unfinished"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="184"/>
+        <source>Yesterday</source>
+        <translation>Χθες</translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="187"/>
+        <source>The day before yesterday</source>
+        <translation>Προχθές</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../plugins/notify/notifydelegate.cpp" line="193"/>
+        <source>%n day(s) ago</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -89,12 +99,25 @@
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="65"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>Εκκαθάριση όλων</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifymanager.cpp" line="150"/>
         <source>No system notifications</source>
-        <translation type="unfinished"/>
+        <translation>Καμία ειδοποίηση συστήματος</translation>
+    </message>
+</context>
+<context>
+    <name>NotifyWidget</name>
+    <message>
+        <location filename="../plugins/notify/notifywidget.cpp" line="33"/>
+        <source>No system notifications</source>
+        <translation>Καμία ειδοποίηση συστήματος</translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifywidget.cpp" line="35"/>
+        <source>Clear all</source>
+        <translation>Εκκαθάριση όλων</translation>
     </message>
 </context>
 <context>
@@ -102,12 +125,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="34"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Οι αναβαθμίσεις εγκαταστάθηκαν, χρειάζεται επανεκκίνηση, να γίνει τώρα;</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>Παρακαλούμε σιγουρευτείτε πρώτα ότι αποθηκεύτηκαν όλα τα δεδομένα σας</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
@@ -122,7 +145,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Επανεκκίνηση</translation>
     </message>
 </context>
 <context>
@@ -130,7 +153,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation type="unfinished"/>
+        <translation>Αριστερό κλικ για περιστροφή και δεξί κλικ για έξοδο</translation>
     </message>
 </context>
 <context>
@@ -143,7 +166,7 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="142"/>
         <source>Current City: %1</source>
-        <translation type="unfinished"/>
+        <translation>Τρέχουσα Πόλη: %1</translation>
     </message>
 </context>
 <context>
@@ -151,12 +174,12 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="78"/>
         <source>Reset all settings</source>
-        <translation type="unfinished"/>
+        <translation>Επαναφορά όλων των ρυθμίσεων</translation>
     </message>
     <message>
         <location filename="../frame/settingswidget.cpp" line="88"/>
         <source>All Settings</source>
-        <translation type="unfinished"/>
+        <translation>Όλες οι Ρυθμίσεις</translation>
     </message>
 </context>
 <context>
@@ -164,12 +187,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Ενημερώσεις</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="38"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Ανιχνεύτηκαν ενημερώσεις, κλικάρετε για εμφάνιση</translation>
     </message>
 </context>
 <context>
@@ -182,12 +205,12 @@
     <message>
         <location filename="../plugins/notify/notifyviewer.cpp" line="141"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Προχθές</translation>
     </message>
     <message numerus="yes">
         <location filename="../plugins/notify/notifyviewer.cpp" line="147"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>πριν από %n ημέρες</numerusform><numerusform>Πριν από %n ημέρες</numerusform></translation>
     </message>
 </context>
 <context>
@@ -195,7 +218,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
+        <translation>Κλικάρετε το εικονίδιο για ενεργοποίηση του VPN</translation>
     </message>
 </context>
 <context>
@@ -208,12 +231,12 @@
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
         <source>Loading weather...</source>
-        <translation type="unfinished"/>
+        <translation>Φόρτωση καιρού...</translation>
     </message>
     <message>
         <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
         <source>Just updated</source>
-        <translation type="unfinished"/>
+        <translation>Μόλις ενημερώθηκε</translation>
     </message>
 </context>
 <context>
@@ -221,17 +244,17 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>Σύνδεση σε κρυφό δίκτυο</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="81"/>
         <source>Click icon to enable WIFI</source>
-        <translation type="unfinished"/>
+        <translation>Κλικάρετε το εικονίδιο για ενεργοποίηση του Wi-Fi</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="210"/>
         <source>Wireless Card %1</source>
-        <translation type="unfinished"/>
+        <translation>Ασύρματη Κάρτα %1</translation>
     </message>
 </context>
 <context>
@@ -254,7 +277,7 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>Λογαριασμός Διαχειριστή</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="64"/>
@@ -272,27 +295,27 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
-        <translation type="unfinished"/>
+        <translation>Αλλαγή Εικόνας Προφίλ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>Αλλαγή Ονόματος</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
-        <translation type="unfinished"/>
+        <translation>Αλλαγή Κωδικού</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>Αυτόματη Είσοδος</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Είσοδος χωρίς κωδικό</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -307,7 +330,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Κωδικός Αποτυπώματος</translation>
     </message>
 </context>
 <context>
@@ -319,7 +342,7 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="170"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="121"/>
         <source>Accounts</source>
         <translation>Λογαριασμοί </translation>
     </message>
@@ -339,7 +362,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="120"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Εικόνες</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
@@ -369,7 +392,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="404"/>
         <source>Password not match.</source>
-        <translation type="unfinished"/>
+        <translation>Ο κωδικός δεν ταιριάζει.</translation>
     </message>
 </context>
 <context>
@@ -377,12 +400,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Προσθήκη Αποτυπώματος</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>Επανεισαγωγή</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="56"/>
@@ -392,7 +415,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Προσδιορισμός αποτυπώματος</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="114"/>
@@ -407,7 +430,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>Επιτυχής προσθήκη</translation>
     </message>
 </context>
 <context>
@@ -415,7 +438,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="66"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Δημιουργία</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="65"/>
@@ -442,22 +465,22 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="56"/>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation>Επανάλληψη κωδικού πρόσβασης</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="85"/>
         <source>New Account</source>
-        <translation type="unfinished"/>
+        <translation>Νέος Λογαριασμός</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="140"/>
         <source>Username can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>Το Όνομα Χρήστη δεν μπορεί να είναι κενό.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="143"/>
         <source>Password can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>Ο Κωδικός πρόσβασης δεν μπορεί να είναι κενός.</translation>
     </message>
 </context>
 <context>
@@ -465,22 +488,22 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>Λίστα Αποτυπωμάτων</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Κωδικός Αποτυπώματος</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Προσθήκη Αποτυπώματος</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Καθαρισμός Αποτυπώματος</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="56"/>
@@ -490,7 +513,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Αποτώπωμα</translation>
     </message>
 </context>
 <context>
@@ -498,7 +521,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>Όνομα:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -508,7 +531,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ρυθμίσεις Ονόματος</translation>
     </message>
 </context>
 <context>
@@ -516,7 +539,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
         <source>Current Password</source>
-        <translation type="unfinished"/>
+        <translation>Καθαρισμός Κωδικού Πρόσβασης</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
@@ -543,15 +566,15 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
         <source>Accept</source>
-        <translation type="unfinished"/>
+        <translation>Αποδοχή</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="82"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="138"/>
         <source>Password</source>
         <translation>Κωδικός πρόσβασης</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="100"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="102"/>
         <source>New password should differ from the current one</source>
         <translation>Ο νέος κωδικός πρόσβασης πρέπει να διαφέρει από τον ισχύοντα</translation>
     </message>
@@ -561,12 +584,12 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>Απαραίτητα δικαιώματα Διαχειριστή για διαγραφή λογαριασμού</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>Διαγραδή φακέλου λογαριασμού</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
@@ -594,14 +617,14 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="61"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>Ενεργοποιήστε το bluetooth για να βρείτε κοντινές συσκευές (ηχείο, πληκτρολόγιο, ποντίκι)</translation>
     </message>
 </context>
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="123"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="175"/>
+        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="157"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="126"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -629,7 +652,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Δεν Συνδέθηκε</translation>
     </message>
 </context>
 <context>
@@ -665,7 +688,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="63"/>
         <source>Change Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Αλλαγή Ρυθμίσεων Ώρας </translation>
     </message>
 </context>
 <context>
@@ -691,7 +714,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
-        <translation type="unfinished"/>
+        <translation>Αυτόματος συγχρονισμός</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="51"/>
@@ -700,14 +723,14 @@
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="58"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="177"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="128"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Ώρα και Ημερομηνία</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="62"/>
         <source>Change System Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Αλλαγή Ζώνης ώρας Συστήματος</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="70"/>
@@ -717,7 +740,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="75"/>
         <source>Timezone List</source>
-        <translation type="unfinished"/>
+        <translation>Λίστα Ζωνών Ώρας</translation>
     </message>
 </context>
 <context>
@@ -725,7 +748,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="174"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Αλλαγή Ζώνης Ώρας</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
@@ -746,36 +769,36 @@
 <context>
     <name>dcc::datetime::TimezoneItem</name>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="110"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="107"/>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>Αύριο</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="112"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="109"/>
         <source>Yesterday</source>
         <translation>Χθες</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="114"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="111"/>
         <source>Today</source>
         <translation>Σήμερα</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="119"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="116"/>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 ώρες νωρίτερα από την τοπική</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="121"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="118"/>
         <source>%1 hours late than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 ώρες αργότερα από την τοπική</translation>
     </message>
 </context>
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="172"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="123"/>
         <source>Default Applications</source>
         <translation>Προεπιλεγμένες Εφαρμογές</translation>
     </message>
@@ -860,7 +883,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="43"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Τροποποίηση</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="45"/>
@@ -896,12 +919,12 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
         <source>Rotate</source>
-        <translation type="unfinished"/>
+        <translation>Περιστροφή</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="58"/>
         <source>New custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Νέες προσαρμοσμένες ρυθμίσεις</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="60"/>
@@ -920,7 +943,7 @@
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="171"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="122"/>
         <source>Display</source>
         <translation>Εμφάνιση</translation>
     </message>
@@ -930,7 +953,7 @@
     <message>
         <location filename="../modules/display/displayworker.cpp" line="179"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>Οι Ρυθμίσεις μου %1</translation>
     </message>
 </context>
 <context>
@@ -938,12 +961,12 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="43"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Ανίχνευση συσκευών, παρακαλούμε περιμένετε...</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="44"/>
         <source>No available device found</source>
-        <translation type="unfinished"/>
+        <translation>Καμία διαθέσιμη συσκευή δεν βρέθηκε</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="47"/>
@@ -966,7 +989,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="69"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>Λίστα Συσκευών</translation>
     </message>
 </context>
 <context>
@@ -1012,7 +1035,7 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="347"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>(Απαραίτητο)</translation>
     </message>
 </context>
 <context>
@@ -1025,7 +1048,7 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="80"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>(Απαραίτητο)</translation>
     </message>
 </context>
 <context>
@@ -1069,7 +1092,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="160"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>Επιλογή Αρχείου</translation>
     </message>
 </context>
 <context>
@@ -1113,7 +1136,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="148"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>Επιλογή Αρχείου</translation>
     </message>
 </context>
 <context>
@@ -1121,12 +1144,12 @@
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Συντόμευση</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="102"/>
         <source>Please enter a shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Παρακαλούμε εισάγετε μια συντόμευση</translation>
     </message>
 </context>
 <context>
@@ -1160,7 +1183,7 @@
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="180"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="131"/>
         <source>Keyboard and Language</source>
         <translation>Πληκτρολόγιο και Γλώσσα</translation>
     </message>
@@ -1172,12 +1195,12 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>Κοντό</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Μακρύ</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="65"/>
@@ -1202,7 +1225,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="93"/>
         <source>Enable Numeric Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Ενεργοποίηση Αριθμητικού Πληκτρολογίου</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="97"/>
@@ -1217,12 +1240,12 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="111"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Γλώσσα Συστήματος</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Συντόμευση</translation>
     </message>
 </context>
 <context>
@@ -1230,7 +1253,7 @@
     <message>
         <location filename="../modules/keyboard/langwidget.cpp" line="48"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Γλώσσα Συστήματος</translation>
     </message>
 </context>
 <context>
@@ -1279,7 +1302,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="57"/>
         <source>WorkSpace</source>
-        <translation type="unfinished"/>
+        <translation>Χώρος Εργασίας</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="78"/>
@@ -1307,7 +1330,7 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="53"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Απενεργοποίηση του Touchpad όταν πληκτρολογείτε</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="63"/>
@@ -1360,14 +1383,14 @@
     <name>dcc::mouse::MouseWidget</name>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="179"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="130"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Ποντίκι</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>Trackpoint</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
@@ -1377,7 +1400,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Απενεργοποίηση του Touchpad όταν πληκτρολογείτε</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
@@ -1394,7 +1417,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Scroll speed</source>
-        <translation type="unfinished"/>
+        <translation>Ταχύτητα κύλισης</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
@@ -1414,7 +1437,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>Touchpad</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
@@ -1461,7 +1484,7 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="43"/>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>Trackpoint</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="46"/>
@@ -1499,7 +1522,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>Διεύθυνση IP</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
@@ -1604,7 +1627,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
         <source>Network Details</source>
-        <translation type="unfinished"/>
+        <translation>Λεπτομέριες Δικτύου</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
@@ -1624,7 +1647,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
         <source>MAC</source>
-        <translation type="unfinished"/>
+        <translation>MAC</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
@@ -1634,7 +1657,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
         <source>IPv4 Address</source>
-        <translation type="unfinished"/>
+        <translation>Διεύθυνση IPv4</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
@@ -1661,7 +1684,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
         <source>IPv6 Address</source>
-        <translation type="unfinished"/>
+        <translation>Διεύθυνση IPv6</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
@@ -1671,7 +1694,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>Ταχύτητα</translation>
     </message>
 </context>
 <context>
@@ -1689,7 +1712,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="84"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Πιστοποίηση</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="86"/>
@@ -1710,85 +1733,85 @@
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="52"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="56"/>
         <source>DSL</source>
-        <translation type="unfinished"/>
+        <translation>DSL</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="53"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="60"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="66"/>
         <source>Application proxy</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="69"/>
         <source>Network Details</source>
-        <translation type="unfinished"/>
+        <translation>Λεπτομέριες Δικτύου</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="84"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="174"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="96"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="125"/>
         <source>Network</source>
         <translation>Δίκτυο</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="214"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="236"/>
         <source>Wired Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Κάρτα Ενσύρματου Δικτύου%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="219"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="241"/>
         <source>Wired Network Card</source>
-        <translation type="unfinished"/>
+        <translation>Κάρτα Ενσύρματου Δικτύου</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="220"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
         <source>Wired Network</source>
         <translation>Ενσύρματο Δίκτυο</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
         <source>Wired Network%1</source>
-        <translation type="unfinished"/>
+        <translation>Ενσύρματο Δίκτυο%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="54"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="64"/>
         <source>System Proxy</source>
         <translation>Σύστημα μεσολάβησης</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="251"/>
         <source>Hotspot</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="233"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="255"/>
         <source>Shared</source>
         <translation>Κοινόχρηστο</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="264"/>
         <source>Wireless Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Κάρτα Ασύρματου Δικτύου%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="247"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="269"/>
         <source>Wireless Network Card</source>
-        <translation type="unfinished"/>
+        <translation>Κάρτα Ασύρματου Δικτύου</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="248"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="270"/>
         <source>Wireless Network</source>
         <translation>Ασύρματο Δίκτυο</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="265"/>
         <source>Wireless Network%1</source>
-        <translation type="unfinished"/>
+        <translation>Ασύρματο Δίκτυο%1</translation>
     </message>
 </context>
 <context>
@@ -1796,7 +1819,7 @@
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="53"/>
         <source>Create PPPoE Connection</source>
-        <translation type="unfinished"/>
+        <translation>Δημιουργία Σύνδεσης PPPoE</translation>
     </message>
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="67"/>
@@ -1834,7 +1857,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="91"/>
         <source>Http Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Http Διακομιστής Μεσολάβησης</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="93"/>
@@ -1847,12 +1870,12 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="96"/>
         <source>Https Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Https Διακομιστής Μεσολάβησης</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="101"/>
         <source>Ftp Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Ftp Διακομιστής Μεσολάβησης</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="106"/>
@@ -1880,17 +1903,17 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="75"/>
         <source>VPN Status</source>
-        <translation type="unfinished"/>
+        <translation>Κατάσταση VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="78"/>
         <source>Create VPN</source>
-        <translation type="unfinished"/>
+        <translation>Δημιουργία VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="81"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>Εισαγωγή VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="100"/>
@@ -1900,7 +1923,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="260"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>Σφάλμα Εισαγωγής</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="262"/>
@@ -1940,7 +1963,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="327"/>
         <source>New VPN</source>
-        <translation type="unfinished"/>
+        <translation>Νέο VPN</translation>
     </message>
 </context>
 <context>
@@ -1948,7 +1971,7 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="58"/>
         <source>Setting List</source>
-        <translation type="unfinished"/>
+        <translation>Λίστα Ρυθμίσεων</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="62"/>
@@ -1958,12 +1981,12 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="68"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>Προσθήκη Ρυθμίσεων</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="83"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>Επιλογή Ρυθμίσεων</translation>
     </message>
 </context>
 <context>
@@ -1971,7 +1994,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="60"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>Σύνδεση σε κρυφό δίκτυο</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
@@ -1986,7 +2009,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="89"/>
         <source>WLAN</source>
-        <translation type="unfinished"/>
+        <translation>WLAN</translation>
     </message>
 </context>
 <context>
@@ -2064,7 +2087,7 @@
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="173"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="124"/>
         <source>Personalization</source>
         <translation>Εξατομίκευση</translation>
     </message>
@@ -2135,7 +2158,7 @@
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="87"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="178"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="129"/>
         <source>Power Management</source>
         <translation>Διαχείριση Ισχύος</translation>
     </message>
@@ -2151,7 +2174,7 @@
         <location filename="../modules/power/powerwidget.cpp" line="134"/>
         <location filename="../modules/power/powerwidget.cpp" line="140"/>
         <source>%1 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>%1 Λεπτά</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="136"/>
@@ -2169,7 +2192,7 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="38"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Είσοδος</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="40"/>
@@ -2201,7 +2224,7 @@
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="176"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="127"/>
         <source>Sound</source>
         <translation>Ήχος</translation>
     </message>
@@ -2262,11 +2285,11 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Copyright (c) 2011-2018 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="183"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="134"/>
         <source>System Information</source>
         <translation>Πληροφορίες Συστήματος</translation>
     </message>
@@ -2298,7 +2321,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="175"/>
         <source>%1Bit</source>
-        <translation type="unfinished"/>
+        <translation>%1Bit</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
@@ -2308,7 +2331,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
         <source>Edition:</source>
-        <translation type="unfinished"/>
+        <translation>Έκδοση:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="102"/>
@@ -2377,19 +2400,19 @@
     <message>
         <location filename="../modules/update/resultitem.cpp" line="67"/>
         <source>Update successfully</source>
-        <translation type="unfinished"/>
+        <translation>Επιτυχής ενημέρωση</translation>
     </message>
     <message>
         <location filename="../modules/update/resultitem.cpp" line="68"/>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>Αποτυχία ενημέρωσης</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="182"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="133"/>
         <source>Update</source>
         <translation>Ενημέρωση</translation>
     </message>
@@ -2426,17 +2449,17 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
-        <translation type="unfinished"/>
+        <translation>Κατέβασμα και εγκατάσταση ενημερώσεων</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
         <source>Install updates</source>
-        <translation type="unfinished"/>
+        <translation>Εγκατάσταση ενημερώσεων</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="202"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Ενημέρωση, παρακαλούμε περιμένετε...</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="216"/>
@@ -2466,7 +2489,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>Μέγεθος Λήψης: %1</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
@@ -2494,7 +2517,7 @@
     <message>
         <location filename="../modules/update/updateitem.cpp" line="118"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>Λεπτομέριες</translation>
     </message>
 </context>
 <context>
@@ -2502,7 +2525,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="50"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ρυθμίσεις Ενημερώσεων</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="74"/>
@@ -2526,7 +2549,7 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
-        <source>Prompt the notification if system source has been modified</source>
+        <source>Prompt the notification if system update mirror has been modified</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2546,7 +2569,7 @@
     <message>
         <location filename="../modules/update/updateview.cpp" line="45"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ρυθμίσεις Ενημερώσεων</translation>
     </message>
 </context>
 <context>
@@ -2567,12 +2590,12 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Γραφίδα</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Ποντίκι</translation>
     </message>
 </context>
 <context>
@@ -2580,24 +2603,24 @@
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitive</source>
-        <translation type="unfinished"/>
+        <translation>Ευαισθησία Πίεσης</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>light</source>
-        <translation type="unfinished"/>
+        <translation>ελαφριά</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>heavy</source>
-        <translation type="unfinished"/>
+        <translation>βαριά</translation>
     </message>
 </context>
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="181"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="132"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>
@@ -2609,12 +2632,12 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Ποντίκι</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Γραφίδα</translation>
     </message>
 </context>
 <context>

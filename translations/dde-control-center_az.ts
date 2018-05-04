@@ -77,11 +77,21 @@
     </message>
 </context>
 <context>
-    <name>NavWidget</name>
+    <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/navigation/navwidget.cpp" line="206"/>
-        <source>Navigation</source>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="184"/>
+        <source>Yesterday</source>
+        <translation>Dünən</translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="187"/>
+        <source>The day before yesterday</source>
         <translation type="unfinished"/>
+    </message>
+    <message numerus="yes">
+        <location filename="../plugins/notify/notifydelegate.cpp" line="193"/>
+        <source>%n day(s) ago</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -95,6 +105,19 @@
         <location filename="../plugins/notify/notifymanager.cpp" line="150"/>
         <source>No system notifications</source>
         <translation>Sistem bildirişi yoxdur</translation>
+    </message>
+</context>
+<context>
+    <name>NotifyWidget</name>
+    <message>
+        <location filename="../plugins/notify/notifywidget.cpp" line="33"/>
+        <source>No system notifications</source>
+        <translation>Sistem bildirişi yoxdur</translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifywidget.cpp" line="35"/>
+        <source>Clear all</source>
+        <translation>Hamısını təmizlə</translation>
     </message>
 </context>
 <context>
@@ -307,7 +330,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Barmaq izi şifrəsi</translation>
     </message>
 </context>
 <context>
@@ -319,7 +342,7 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="170"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="121"/>
         <source>Accounts</source>
         <translation type="unfinished"/>
     </message>
@@ -377,7 +400,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Barmaq izi daxil et</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="55"/>
@@ -415,7 +438,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="66"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Yarat</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="65"/>
@@ -432,7 +455,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="54"/>
         <location filename="../modules/accounts/createpage.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Tələb olunur</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="53"/>
@@ -447,17 +470,17 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="85"/>
         <source>New Account</source>
-        <translation type="unfinished"/>
+        <translation>Yeni hesab</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="140"/>
         <source>Username can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>İstifadəçi adı boş ola bilməz.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="143"/>
         <source>Password can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>Şifrə boş ola bilməz.</translation>
     </message>
 </context>
 <context>
@@ -465,22 +488,22 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>Barmaq izi siyahısı</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Barmaq izi şifrəsi</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Barmaq izi daxil et</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Barmaq izini təmizlə</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="56"/>
@@ -490,7 +513,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Barmaq izi</translation>
     </message>
 </context>
 <context>
@@ -498,7 +521,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>Tam ad:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -516,7 +539,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
         <source>Current Password</source>
-        <translation type="unfinished"/>
+        <translation>Hal-hazırki şifrə</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
@@ -533,7 +556,7 @@
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="56"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Tələb olunur</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
@@ -543,15 +566,15 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
         <source>Accept</source>
-        <translation type="unfinished"/>
+        <translation>Qəbul et</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="82"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="138"/>
         <source>Password</source>
         <translation>Şifrə</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="100"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="102"/>
         <source>New password should differ from the current one</source>
         <translation type="unfinished"/>
     </message>
@@ -600,8 +623,8 @@
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="123"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="175"/>
+        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="157"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="126"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -624,12 +647,12 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>Qoşuldu</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Qoşulmayıb</translation>
     </message>
 </context>
 <context>
@@ -673,17 +696,17 @@
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="56"/>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>İl</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="59"/>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Ay</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Gün</translation>
     </message>
 </context>
 <context>
@@ -700,9 +723,9 @@
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="58"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="177"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="128"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Vaxt və Tarix</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="62"/>
@@ -746,27 +769,27 @@
 <context>
     <name>dcc::datetime::TimezoneItem</name>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="110"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="107"/>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>Sabah</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="112"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="109"/>
         <source>Yesterday</source>
         <translation>Dünən</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="114"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="111"/>
         <source>Today</source>
         <translation>Bu gün</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="119"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="116"/>
         <source>%1 hours earlier than local</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="121"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="118"/>
         <source>%1 hours late than local</source>
         <translation type="unfinished"/>
     </message>
@@ -775,9 +798,9 @@
     <name>dcc::defapp::DefAppViewer</name>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="172"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="123"/>
         <source>Default Applications</source>
-        <translation type="unfinished"/>
+        <translation>Varsayılan proqramlar</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="55"/>
@@ -807,7 +830,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="60"/>
         <source>Picture</source>
-        <translation type="unfinished"/>
+        <translation>Şəkil</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="61"/>
@@ -834,7 +857,7 @@
         <location filename="../modules/defapp/defappwidget.cpp" line="46"/>
         <location filename="../modules/defapp/defappwidget.cpp" line="50"/>
         <source>Default Applications</source>
-        <translation type="unfinished"/>
+        <translation>Varsayılan proqramlar</translation>
     </message>
 </context>
 <context>
@@ -860,7 +883,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="43"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Dəyişdir</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="45"/>
@@ -896,7 +919,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
         <source>Rotate</source>
-        <translation type="unfinished"/>
+        <translation>Çevir</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="58"/>
@@ -920,7 +943,7 @@
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="171"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="122"/>
         <source>Display</source>
         <translation type="unfinished"/>
     </message>
@@ -966,7 +989,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="69"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>Qurğu siyahısı</translation>
     </message>
 </context>
 <context>
@@ -1033,7 +1056,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="51"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Qısayollar</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="60"/>
@@ -1049,7 +1072,7 @@
         <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Tələb olunur</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
@@ -1069,7 +1092,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="160"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>Fayl seçin</translation>
     </message>
 </context>
 <context>
@@ -1078,12 +1101,12 @@
         <location filename="../modules/keyboard/customedit.cpp" line="47"/>
         <location filename="../modules/keyboard/customedit.cpp" line="94"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Qısayollar</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Tələb olunur</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="66"/>
@@ -1113,7 +1136,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="148"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>Fayl seçin</translation>
     </message>
 </context>
 <context>
@@ -1121,12 +1144,12 @@
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Qısayol</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="102"/>
         <source>Please enter a shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Qısayolu daxil edin</translation>
     </message>
 </context>
 <context>
@@ -1160,7 +1183,7 @@
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="180"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="131"/>
         <source>Keyboard and Language</source>
         <translation>Klaviatura və Dil</translation>
     </message>
@@ -1172,12 +1195,12 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>Qısa</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Uzun</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="65"/>
@@ -1192,7 +1215,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Sürətli</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="79"/>
@@ -1217,12 +1240,12 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="111"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Sistem dili</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Qısayol</translation>
     </message>
 </context>
 <context>
@@ -1230,7 +1253,7 @@
     <message>
         <location filename="../modules/keyboard/langwidget.cpp" line="48"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Sistem dili</translation>
     </message>
 </context>
 <context>
@@ -1261,7 +1284,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutitem.cpp" line="85"/>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Zəhmət olmasa yeni qısayolu daxil edin</translation>
     </message>
 </context>
 <context>
@@ -1289,7 +1312,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="88"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Qısayollar</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
@@ -1302,7 +1325,7 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="52"/>
         <source>Left Hand</source>
-        <translation type="unfinished"/>
+        <translation>Sol əl</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="53"/>
@@ -1317,7 +1340,7 @@
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="63"/>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Sürətli</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/basesettings.cpp" line="65"/>
@@ -1348,7 +1371,7 @@
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="54"/>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Sürətli</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/mousesettings.cpp" line="55"/>
@@ -1360,9 +1383,9 @@
     <name>dcc::mouse::MouseWidget</name>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="179"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="130"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Siçan</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
@@ -1372,7 +1395,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
         <source>Left Hand</source>
-        <translation type="unfinished"/>
+        <translation>Sol əl</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
@@ -1409,7 +1432,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Sürətli</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
@@ -1481,7 +1504,7 @@
     <message>
         <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="57"/>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Sürətli</translation>
     </message>
 </context>
 <context>
@@ -1499,18 +1522,18 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>İP ünvan</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
         <location filename="../modules/network/chainsproxypage.cpp" line="54"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Tələb olunur</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Port</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
@@ -1583,7 +1606,7 @@
         <location filename="../modules/network/connectioneditpage.cpp" line="490"/>
         <location filename="../modules/network/connectioneditpage.cpp" line="573"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Tələb olunur</translation>
     </message>
 </context>
 <context>
@@ -1634,7 +1657,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
         <source>IPv4 Address</source>
-        <translation type="unfinished"/>
+        <translation>İPv4 Ünvan</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
@@ -1671,7 +1694,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>Sürət</translation>
     </message>
 </context>
 <context>
@@ -1699,7 +1722,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="87"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>Qoşuldu</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="89"/>
@@ -1710,83 +1733,83 @@
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="52"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="56"/>
         <source>DSL</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="53"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="60"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="66"/>
         <source>Application proxy</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="69"/>
         <source>Network Details</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="84"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="174"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="96"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="125"/>
         <source>Network</source>
         <translation>Şəbəkə</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="214"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="236"/>
         <source>Wired Network Card%1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="219"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="241"/>
         <source>Wired Network Card</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="220"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
         <source>Wired Network</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
         <source>Wired Network%1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="54"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="64"/>
         <source>System Proxy</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="251"/>
         <source>Hotspot</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="233"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="255"/>
         <source>Shared</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="264"/>
         <source>Wireless Network Card%1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="247"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="269"/>
         <source>Wireless Network Card</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="248"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="270"/>
         <source>Wireless Network</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="265"/>
         <source>Wireless Network%1</source>
         <translation type="unfinished"/>
     </message>
@@ -1842,7 +1865,7 @@
         <location filename="../modules/network/proxypage.cpp" line="103"/>
         <location filename="../modules/network/proxypage.cpp" line="108"/>
         <source>Port</source>
-        <translation type="unfinished"/>
+        <translation>Port</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="96"/>
@@ -2064,7 +2087,7 @@
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="173"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="124"/>
         <source>Personalization</source>
         <translation type="unfinished"/>
     </message>
@@ -2135,7 +2158,7 @@
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="87"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="178"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="129"/>
         <source>Power Management</source>
         <translation type="unfinished"/>
     </message>
@@ -2201,7 +2224,7 @@
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="176"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="127"/>
         <source>Sound</source>
         <translation>Səs</translation>
     </message>
@@ -2266,7 +2289,7 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="183"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="134"/>
         <source>System Information</source>
         <translation>Sistem Məlumatları</translation>
     </message>
@@ -2351,7 +2374,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="86"/>
         <location filename="../modules/update/mirroritem.cpp" line="131"/>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Sürətli</translation>
     </message>
 </context>
 <context>
@@ -2389,7 +2412,7 @@
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="182"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="133"/>
         <source>Update</source>
         <translation>Yenilə</translation>
     </message>
@@ -2526,7 +2549,7 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
-        <source>Prompt the notification if system source has been modified</source>
+        <source>Prompt the notification if system update mirror has been modified</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2572,7 +2595,7 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Siçan</translation>
     </message>
 </context>
 <context>
@@ -2597,7 +2620,7 @@
     <name>dcc::wacom::WacomWidget</name>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="181"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="132"/>
         <source>Wacom</source>
         <translation type="unfinished"/>
     </message>
@@ -2609,7 +2632,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Siçan</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
@@ -2622,7 +2645,7 @@
     <message>
         <location filename="../modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>Qoşuldu</translation>
     </message>
 </context>
 <context>

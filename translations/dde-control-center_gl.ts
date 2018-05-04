@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ml" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="gl" version="2.1">
 <context>
     <name>BluetoothDelegate</name>
     <message>
@@ -25,17 +25,17 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
         <source>Copy</source>
-        <translation>പകർത്തുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <source>Extend</source>
-        <translation>ദീർഘിപ്പിക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <source>Only Displayed on %1</source>
-        <translation>%1 - ഇതിൽ മാത്രം പ്രദർശിപ്പിക്കുന്നു</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../plugins/notify/notifydelegate.cpp" line="184"/>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Onte</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifydelegate.cpp" line="187"/>
@@ -135,12 +135,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
         <source>Shut down</source>
-        <translation>നിർത്തുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
@@ -161,7 +161,7 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="50"/>
         <source>No search results</source>
-        <translation>ഫലങ്ങളൊന്നുമില്ല</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="142"/>
@@ -200,7 +200,7 @@
     <message>
         <location filename="../plugins/notify/notifyviewer.cpp" line="138"/>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Onte</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifyviewer.cpp" line="141"/>
@@ -282,12 +282,12 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="64"/>
         <source>Password</source>
-        <translation>രഹസ്യവാക്ക്</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="73"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -320,7 +320,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
         <source>Delete Account</source>
-        <translation>അക്കൗണ്ട് നീക്കം ചെയ്യുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
@@ -410,7 +410,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="56"/>
         <source>Done</source>
-        <translation>പൂർത്തിയായി</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="108"/>
@@ -443,12 +443,12 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="65"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="51"/>
         <source>Username</source>
-        <translation>ഉപയോക്തൃനാമം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="52"/>
@@ -460,7 +460,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="53"/>
         <source>Password</source>
-        <translation>രഹസ്യവാക്ക്</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="56"/>
@@ -549,7 +549,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
         <source>Repeat Password</source>
-        <translation>രഹസ്യവാക്ക് വീണ്ടും</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="55"/>
@@ -561,7 +561,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
@@ -571,12 +571,12 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="138"/>
         <source>Password</source>
-        <translation>രഹസ്യവാക്ക്</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="102"/>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"/>
+        <translation>O novo contrasinal ten que ser diferente do actual</translation>
     </message>
 </context>
 <context>
@@ -594,12 +594,12 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Delete</source>
-        <translation>നീക്കം ചെയ്യുക</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -607,12 +607,12 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="43"/>
         <source>My devices</source>
-        <translation>എന്റെ ഉപകരണങ്ങൾ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="44"/>
         <source>Other devices</source>
-        <translation>മറ്റ് ഉപകരണങ്ങൾ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="61"/>
@@ -626,7 +626,7 @@
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="157"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="126"/>
         <source>Bluetooth</source>
-        <translation>ബ്ലൂടൂത്ത്</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -634,12 +634,12 @@
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="42"/>
         <source>Ignore</source>
-        <translation>അവഗണിക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="43"/>
         <source>Disconnect</source>
-        <translation>വിച്ഛേദിക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -647,7 +647,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
-        <translation>ബന്ധിച്ചിരിക്കുന്നു</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
@@ -665,7 +665,7 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="49"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="51"/>
@@ -678,12 +678,12 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="68"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="69"/>
         <source>Confirm</source>
-        <translation>ഉറപ്പാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="63"/>
@@ -753,12 +753,12 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="64"/>
         <source>Confirm</source>
-        <translation>ഉറപ്പാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="172"/>
@@ -781,7 +781,7 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="111"/>
         <source>Today</source>
-        <translation>ഇന്ന്</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="116"/>
@@ -800,42 +800,42 @@
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="123"/>
         <source>Default Applications</source>
-        <translation>സ്വതേ അപ്ലിക്കേഷനുകൾ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="55"/>
         <source>Browser</source>
-        <translation>ബ്രൗസർ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="56"/>
         <source>Mail</source>
-        <translation>മെയിൽ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="57"/>
         <source>Text</source>
-        <translation>ടെക്സ്റ്റ്</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="58"/>
         <source>Music</source>
-        <translation>സംഗീതം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="59"/>
         <source>Video</source>
-        <translation>ചലച്ചിത്രം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="60"/>
         <source>Picture</source>
-        <translation>ചിത്രം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="61"/>
         <source>Terminal</source>
-        <translation>ടെർമിനൽ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -843,7 +843,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="44"/>
         <source>Add</source>
-        <translation>ചേർക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
@@ -857,7 +857,7 @@
         <location filename="../modules/defapp/defappwidget.cpp" line="46"/>
         <location filename="../modules/defapp/defappwidget.cpp" line="50"/>
         <source>Default Applications</source>
-        <translation>സ്വതേ അപ്ലിക്കേഷനുകൾ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -865,7 +865,7 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="52"/>
         <source>Brightness</source>
-        <translation>തെളിച്ചം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="74"/>
@@ -888,7 +888,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="45"/>
         <source>Delete</source>
-        <translation>നീക്കം ചെയ്യുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="48"/>
@@ -929,12 +929,12 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
-        <translation>റെസലൂഷൻ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="62"/>
         <source>Brightness</source>
-        <translation>തെളിച്ചം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="227"/>
@@ -945,7 +945,7 @@
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="122"/>
         <source>Display</source>
-        <translation>പ്രദർശനം</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1015,22 +1015,22 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="108"/>
         <source>Resolution</source>
-        <translation>റെസലൂഷൻ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="171"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="173"/>
         <source>Apply</source>
-        <translation>പ്രയോഗിക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="180"/>
         <source>Primary</source>
-        <translation>പ്രാഥമികം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="347"/>
@@ -1043,7 +1043,7 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="41"/>
         <source>Resolution</source>
-        <translation>റെസലൂഷൻ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="80"/>
@@ -1061,12 +1061,12 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="60"/>
         <source>Name</source>
-        <translation>പേര്</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="64"/>
         <source>Command</source>
-        <translation>നിർദേശം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
@@ -1077,12 +1077,12 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="82"/>
         <source>Add</source>
-        <translation>ചേർക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="106"/>
@@ -1111,22 +1111,22 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="66"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="67"/>
         <source>Save</source>
-        <translation>സൂക്ഷിക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="97"/>
         <source>Name</source>
-        <translation>പേര്</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="98"/>
         <source>Command</source>
-        <translation>നിർദേശം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="108"/>
@@ -1158,7 +1158,7 @@
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="49"/>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="51"/>
         <source>Keyboard Layout</source>
-        <translation>കീബോർഡ് ലേയൗട്ട്</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="60"/>
@@ -1168,7 +1168,7 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="88"/>
         <source>Add Keyboard Layout</source>
-        <translation>കീബോർഡ് ലേയൗട്ട് ചേർക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1176,7 +1176,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="50"/>
         <source>Add Keyboard Layout</source>
-        <translation>കീബോർഡ് ലേയൗട്ട് ചേർക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1185,12 +1185,12 @@
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="131"/>
         <source>Keyboard and Language</source>
-        <translation>കീബോർഡ് ഭാഷ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="52"/>
         <source>Repeat Delay</source>
-        <translation>ദിവസവും ആവർത്തിക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
@@ -1205,7 +1205,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="65"/>
         <source>Repeat Rate</source>
-        <translation>ആവർത്തന നിരക്ക്</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="74"/>
@@ -1235,7 +1235,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="103"/>
         <source>Keyboard Layout</source>
-        <translation>കീബോർഡ് ലേയൗട്ട്</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="111"/>
@@ -1266,12 +1266,12 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="57"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="58"/>
         <source>Replace</source>
-        <translation>മാറ്റിവയ്ക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="82"/>
@@ -1292,12 +1292,12 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="55"/>
         <source>System</source>
-        <translation>സിസ്റ്റം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="56"/>
         <source>Window</source>
-        <translation>ജാലകം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="57"/>
@@ -1538,7 +1538,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
         <source>Username</source>
-        <translation>ഉപയോക്തൃനാമം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="58"/>
@@ -1549,7 +1549,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
         <source>Password</source>
-        <translation>രഹസ്യവാക്ക്</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
@@ -1559,7 +1559,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
@@ -1580,12 +1580,12 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="133"/>
         <source>Disconnect</source>
-        <translation>വിച്ഛേദിക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="135"/>
         <source>Delete</source>
-        <translation>നീക്കം ചെയ്യുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="137"/>
@@ -1595,12 +1595,12 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="146"/>
         <source>Save</source>
-        <translation>സൂക്ഷിക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="490"/>
@@ -1722,7 +1722,7 @@
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="87"/>
         <source>Connected</source>
-        <translation>ബന്ധിച്ചിരിക്കുന്നു</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkdevice.cpp" line="89"/>
@@ -1740,7 +1740,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="60"/>
         <source>VPN</source>
-        <translation>വി പി എൻ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="66"/>
@@ -1832,12 +1832,12 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="56"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="57"/>
         <source>Confirm</source>
-        <translation>ഉറപ്പാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="59"/>
@@ -1918,7 +1918,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="100"/>
         <source>VPN</source>
-        <translation>വി പി എൻ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="260"/>
@@ -2044,7 +2044,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsizewidget.cpp" line="41"/>
         <source>Size</source>
-        <translation>വലുപ്പം</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2078,7 +2078,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="55"/>
         <source>Theme</source>
-        <translation>തീം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="56"/>
@@ -2120,7 +2120,7 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="54"/>
         <source>Theme</source>
-        <translation>തീം</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2139,7 +2139,7 @@
         <location filename="../modules/power/powerwidget.cpp" line="55"/>
         <location filename="../modules/power/powerwidget.cpp" line="138"/>
         <source>Never</source>
-        <translation>ഒരിക്കലും വേണ്ട</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="74"/>
@@ -2165,7 +2165,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="126"/>
         <source>1 Minute</source>
-        <translation>1 മിനുട്ട്</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="128"/>
@@ -2179,7 +2179,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="136"/>
         <source>1 Hour</source>
-        <translation>1 മണിക്കൂർ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2254,7 +2254,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="60"/>
         <source>Updating...</source>
-        <translation>പുതുക്കുന്നു.....</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="71"/>
@@ -2264,7 +2264,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="74"/>
         <source>Theme</source>
-        <translation>തീം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="76"/>
@@ -2316,7 +2316,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
         <source>Boot Menu</source>
-        <translation>ബൂട്ട് മെനു</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="175"/>
@@ -2368,7 +2368,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="84"/>
         <location filename="../modules/update/mirroritem.cpp" line="130"/>
         <source>Medium</source>
-        <translation>ഇടത്തരം</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="86"/>
@@ -2414,7 +2414,7 @@
         <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="133"/>
         <source>Update</source>
-        <translation>പുതുക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="165"/>
@@ -2517,7 +2517,7 @@
     <message>
         <location filename="../modules/update/updateitem.cpp" line="118"/>
         <source>Details</source>
-        <translation>വിശദാംശങ്ങള്‍</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2564,7 +2564,7 @@
         <location filename="../modules/update/updateview.cpp" line="40"/>
         <location filename="../modules/update/updateview.cpp" line="52"/>
         <source>Update</source>
-        <translation>പുതുക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updateview.cpp" line="45"/>
@@ -2627,7 +2627,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="50"/>
         <source>Mode</source>
-        <translation>രീതി</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
@@ -2645,7 +2645,7 @@
     <message>
         <location filename="../modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
-        <translation>ബന്ധിച്ചിരിക്കുന്നു</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2653,7 +2653,7 @@
     <message>
         <location filename="../widgets/searchinput.cpp" line="42"/>
         <source>Search</source>
-        <translation>തിരയുക</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2666,7 +2666,7 @@
     <message>
         <location filename="../widgets/settingshead.cpp" line="52"/>
         <source>Cancel</source>
-        <translation>റദ്ദാക്കുക</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

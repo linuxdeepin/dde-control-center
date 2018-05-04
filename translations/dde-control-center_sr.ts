@@ -77,11 +77,21 @@
     </message>
 </context>
 <context>
-    <name>NavWidget</name>
+    <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/navigation/navwidget.cpp" line="206"/>
-        <source>Navigation</source>
-        <translation>Навигација</translation>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="184"/>
+        <source>Yesterday</source>
+        <translation>Јуче</translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="187"/>
+        <source>The day before yesterday</source>
+        <translation>Прекључе</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../plugins/notify/notifydelegate.cpp" line="193"/>
+        <source>%n day(s) ago</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -95,6 +105,19 @@
         <location filename="../plugins/notify/notifymanager.cpp" line="150"/>
         <source>No system notifications</source>
         <translation>Нема системских обавештења</translation>
+    </message>
+</context>
+<context>
+    <name>NotifyWidget</name>
+    <message>
+        <location filename="../plugins/notify/notifywidget.cpp" line="33"/>
+        <source>No system notifications</source>
+        <translation>Нема системских обавештења</translation>
+    </message>
+    <message>
+        <location filename="../plugins/notify/notifywidget.cpp" line="35"/>
+        <source>Clear all</source>
+        <translation>Обрисати све</translation>
     </message>
 </context>
 <context>
@@ -319,7 +342,7 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="170"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="121"/>
         <source>Accounts</source>
         <translation>Налози</translation>
     </message>
@@ -546,12 +569,12 @@
         <translation>Прихвати</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="82"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="138"/>
         <source>Password</source>
         <translation>Лозинка</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="100"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="102"/>
         <source>New password should differ from the current one</source>
         <translation>Нова лозинка треба да се разликује од тренутне</translation>
     </message>
@@ -600,8 +623,8 @@
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="123"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="175"/>
+        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="157"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="126"/>
         <source>Bluetooth</source>
         <translation>Блутут</translation>
     </message>
@@ -700,7 +723,7 @@
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="58"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="177"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="128"/>
         <source>Time and Date</source>
         <translation>Датум и Време</translation>
     </message>
@@ -746,27 +769,27 @@
 <context>
     <name>dcc::datetime::TimezoneItem</name>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="110"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="107"/>
         <source>Tomorrow</source>
         <translation>Сутра</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="112"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="109"/>
         <source>Yesterday</source>
         <translation>Јуче</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="114"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="111"/>
         <source>Today</source>
         <translation>Данас</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="119"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="116"/>
         <source>%1 hours earlier than local</source>
         <translation>%1 сати раније него локално време</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezoneitem.cpp" line="121"/>
+        <location filename="../modules/datetime/timezoneitem.cpp" line="118"/>
         <source>%1 hours late than local</source>
         <translation>%1 сати касније него локално време</translation>
     </message>
@@ -775,7 +798,7 @@
     <name>dcc::defapp::DefAppViewer</name>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="172"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="123"/>
         <source>Default Applications</source>
         <translation>Подразумеване Апликације</translation>
     </message>
@@ -920,7 +943,7 @@
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="171"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="122"/>
         <source>Display</source>
         <translation>Екран</translation>
     </message>
@@ -1160,7 +1183,7 @@
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="180"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="131"/>
         <source>Keyboard and Language</source>
         <translation>Тастатура и језик</translation>
     </message>
@@ -1360,7 +1383,7 @@
     <name>dcc::mouse::MouseWidget</name>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="179"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="130"/>
         <source>Mouse</source>
         <translation>Миш</translation>
     </message>
@@ -1710,83 +1733,83 @@
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="52"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="56"/>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="53"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="60"/>
         <source>VPN</source>
         <translation>ВПН</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="66"/>
         <source>Application proxy</source>
         <translation>Програмски посредник</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="59"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="69"/>
         <source>Network Details</source>
         <translation>Детаљи Мреже</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="84"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="174"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="96"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="125"/>
         <source>Network</source>
         <translation>Мрежа</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="214"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="236"/>
         <source>Wired Network Card%1</source>
         <translation>Жичана Мрежна Карта%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="219"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="241"/>
         <source>Wired Network Card</source>
         <translation>Жичана Мрежна Карта</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="220"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
         <source>Wired Network</source>
         <translation>Жична Мрежа</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="215"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
         <source>Wired Network%1</source>
         <translation>Жична Мрежа%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="54"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="64"/>
         <source>System Proxy</source>
         <translation>Системски Посредник</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="229"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="251"/>
         <source>Hotspot</source>
         <translation>Врућа тачка</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="233"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="255"/>
         <source>Shared</source>
         <translation>Дељено</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="264"/>
         <source>Wireless Network Card%1</source>
         <translation>Бежична Мрежна Карта%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="247"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="269"/>
         <source>Wireless Network Card</source>
         <translation>Бежична Мрежна Карта</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="248"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="270"/>
         <source>Wireless Network</source>
         <translation>Бежична Мрежа</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="265"/>
         <source>Wireless Network%1</source>
         <translation>Бежична Мрежа%1</translation>
     </message>
@@ -2064,7 +2087,7 @@
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="173"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="124"/>
         <source>Personalization</source>
         <translation>Личне промене</translation>
     </message>
@@ -2135,7 +2158,7 @@
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="87"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="178"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="129"/>
         <source>Power Management</source>
         <translation>Управљање напајањем</translation>
     </message>
@@ -2201,7 +2224,7 @@
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="176"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="127"/>
         <source>Sound</source>
         <translation>Звук</translation>
     </message>
@@ -2266,7 +2289,7 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="183"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="134"/>
         <source>System Information</source>
         <translation>Подаци Система</translation>
     </message>
@@ -2389,7 +2412,7 @@
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="182"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="133"/>
         <source>Update</source>
         <translation>Ажурирања</translation>
     </message>
@@ -2526,8 +2549,8 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
-        <source>Prompt the notification if system source has been modified</source>
-        <translation>Одзив обавештења ако је извор система измењен</translation>
+        <source>Prompt the notification if system update mirror has been modified</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="95"/>
@@ -2597,7 +2620,7 @@
     <name>dcc::wacom::WacomWidget</name>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
-        <location filename="../plugins/navigation/navwidget.cpp" line="181"/>
+        <location filename="../plugins/navigation/navmodel.cpp" line="132"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>
