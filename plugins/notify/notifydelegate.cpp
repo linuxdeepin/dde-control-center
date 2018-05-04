@@ -88,11 +88,15 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
 //    int bodyWidth = bodyFM.boundingRect(strBody).width();
     int bodyHeight = bodyFM.boundingRect(strBody).height();
     QRect bodyRect = QRect(sumRect.topLeft().x(), mRect.y() + mRect.height() / 2 - bodyHeight,
-                           option.rect.width() - iconRect.bottomRight().x() - 20, option.rect.height() - sumHeight - 40);
+                           option.rect.width() - iconRect.bottomRight().x() - 40, option.rect.height() - sumHeight - 40);
     painter->setFont(bodyFont);
 //    QString newStrBody = bodyFM.elidedText(strBody, Qt::ElideRight, option.rect.width() / 3 * 2 * 2 - 20);
     painter->drawText(bodyRect, strBody);
 
+    // hide time when hover
+    if (option.state & (QStyle::State_MouseOver)) {
+        return;
+    }
     // draw time
     QFont timeFont = painter->font();
     timeFont.setPixelSize(10);
@@ -114,6 +118,7 @@ QWidget *NotifyDelegate::createEditor(QWidget *parent, const QStyleOptionViewIte
     DImageButton *removeBtn = new DImageButton(":/images/notify_close_normal.svg",
                              ":/images/notify_close_hover.svg",
                              ":/images/notify_close_press.svg", parent);
+    removeBtn->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
 
     connect(removeBtn, &DImageButton::clicked, this, &NotifyDelegate::removeBtnClicked);
     return removeBtn;
@@ -124,9 +129,9 @@ void NotifyDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionVie
     Q_UNUSED(index)
 
     DImageButton *mEditor = static_cast<DImageButton *>(editor);
-    mEditor->setFixedSize(QPixmap(mEditor->getNormalPic()).size());
+    mEditor->setFixedSize(QPixmap(mEditor->getNormalPic()).size() + QSize(20, 20));
     QRect mRect = option.rect;
-    editor->setGeometry(mRect.x() + mRect.width() - mEditor->width() - 10, mRect.y() + 20,
+    editor->setGeometry(mRect.x() + mRect.width() - mEditor->width(), mRect.y(),
                         mEditor->width(), mEditor->height());
 }
 
