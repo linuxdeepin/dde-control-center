@@ -37,6 +37,7 @@ NotifyView::NotifyView(QWidget *parent) : QListView(parent)
     setStyleSheet("background-color: rgba(255, 255, 255, 7.65);");
 
     connect(this, &NotifyView::currentHoverChanged, this, &NotifyView::onCurrentHoverChanged);
+    connect(this, &NotifyView::entered, this, &NotifyView::onItemEntered);
 }
 
 void NotifyView::onCurrentHoverChanged(const QModelIndex &previous, const QModelIndex &current)
@@ -47,13 +48,11 @@ void NotifyView::onCurrentHoverChanged(const QModelIndex &previous, const QModel
     openPersistentEditor(current);
 }
 
-void NotifyView::mouseMoveEvent(QMouseEvent *event)
+void NotifyView::onItemEntered(const QModelIndex &index)
 {
-    m_indexCurrent = indexAt(event->pos());
+    m_indexCurrent = index;
     if (m_indexPrevious != m_indexCurrent) {
         Q_EMIT currentHoverChanged(m_indexPrevious, m_indexCurrent);
         m_indexPrevious = m_indexCurrent;
     }
-
-    QListView::mouseMoveEvent(event);
 }

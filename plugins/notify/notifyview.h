@@ -34,11 +34,9 @@ public:
 Q_SIGNALS:
     void currentHoverChanged(const QModelIndex &previous, const QModelIndex &current);
 
-public Q_SLOTS:
+private Q_SLOTS:
     void onCurrentHoverChanged(const QModelIndex &previous, const QModelIndex &current);
-
-protected:
-    void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void onItemEntered(const QModelIndex &index);
 
 private:
     QModelIndex m_indexPrevious;
