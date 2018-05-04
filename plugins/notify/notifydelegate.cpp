@@ -87,7 +87,7 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
 //    int bodyWidth = bodyFM.boundingRect(strBody).width();
     int bodyHeight = bodyFM.boundingRect(strBody).height();
     QRect bodyRect = QRect(sumRect.topLeft().x(), mRect.y() + mRect.height() / 2 - bodyHeight,
-                           option.rect.width() / 3 * 2, option.rect.height() - sumHeight - 40);
+                           option.rect.width() - iconRect.bottomRight().x() - 20, option.rect.height() - sumHeight - 40);
     painter->setFont(bodyFont);
 //    QString newStrBody = bodyFM.elidedText(strBody, Qt::ElideRight, option.rect.width() / 3 * 2 * 2 - 20);
     painter->drawText(bodyRect, strBody);
@@ -98,7 +98,7 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
     QFontMetrics timeFM(timeFont);
     int timeWidth = timeFM.boundingRect(strTime).width();
     int timeHeight = timeFM.boundingRect(strTime).height();
-    QRect timeRect = QRect(bodyRect.topRight().x() + 25, mRect.y() + 10,
+    QRect timeRect = QRect(mRect.x() + option.rect.width() - timeWidth - 10, mRect.y() + 10,
                            timeWidth, timeHeight);
     painter->setFont(timeFont);
     painter->drawText(timeRect, strTime);
@@ -125,7 +125,8 @@ void NotifyDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionVie
     DImageButton *mEditor = static_cast<DImageButton *>(editor);
     mEditor->setFixedSize(QPixmap(mEditor->getNormalPic()).size());
     QRect mRect = option.rect;
-    editor->setGeometry(mRect.x() + mRect.width() - 20, mRect.y() + 20, mEditor->width(), mEditor->height());
+    editor->setGeometry(mRect.x() + mRect.width() - mEditor->width() - 10, mRect.y() + 20,
+                        mEditor->width(), mEditor->height());
 }
 
 QPixmap NotifyDelegate::notifyPixmap(const QString &name, QPaintDevice *device) const
