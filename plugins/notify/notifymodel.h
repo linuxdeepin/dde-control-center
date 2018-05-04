@@ -40,7 +40,8 @@ public:
         NotifyIconRole = Qt::UserRole + 5,
         NotifyTimeRole = Qt::UserRole + 6,
         NotifyRemoveRole = Qt::UserRole + 7,
-        NotifyXOffsetRole = Qt::UserRole + 8
+        NotifyXOffsetRole = Qt::UserRole + 8,
+        NotifyHoverRole = Qt::UserRole + 9
     };
 
     NotifyModel(QObject *parent = Q_NULLPTR);
@@ -55,6 +56,7 @@ public Q_SLOTS:
     void removeNotify(const QModelIndex &index);
     void showClearAllAnim(int maxXOffset);
     void showRemoveAnim(const QModelIndex &removeIndex, int maxXOffset);
+    void setHoverIndex(const QModelIndex &index);
 
 Q_SIGNALS:
     void removeAnimFinished(const QModelIndex &index);
@@ -73,6 +75,7 @@ private:
 
     QJsonArray m_dataJsonArray;
     QModelIndex m_removeIndex;
+    QModelIndex m_hoverIndex;
 
     int m_currentXOffset;
     int m_maxXOffset;

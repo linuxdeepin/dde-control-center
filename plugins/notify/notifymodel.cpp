@@ -26,6 +26,9 @@ NotifyModel::NotifyModel(QObject *parent) : QAbstractListModel(parent)
     m_dbus = new Notification("com.deepin.dde.Notification", "/com/deepin/dde/Notification", QDBusConnection::sessionBus(), this);
     m_dbus->setSync(false);
 
+    m_removeIndex = QModelIndex();
+    m_hoverIndex = QModelIndex();
+
     m_currentXOffset = 0;
     m_maxXOffset = 0;
     m_animTimerID = 0;
@@ -84,6 +87,10 @@ QVariant NotifyModel::data(const QModelIndex &index, int role) const
     }
     case NotifyXOffsetRole:
         return m_currentXOffset;
+        break;
+    case NotifyHoverRole:
+        return m_hoverIndex == index;
+        break;
     default:
         break;
     }
@@ -152,6 +159,12 @@ void NotifyModel::showRemoveAnim(const QModelIndex &removeIndex, int maxXOffset)
     if (m_animTimerID == 0) {
         m_animTimerID = startTimer(10);
     }
+}
+
+void NotifyModel::setHoverIndex(const QModelIndex &index)
+{
+    m_hoverIndex = index;
+    Q_EMIT dataChanged(m_hoverIndex, m_hoverIndex);
 }
 
 void NotifyModel::timerEvent(QTimerEvent *event)

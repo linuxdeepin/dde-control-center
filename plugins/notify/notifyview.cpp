@@ -20,6 +20,7 @@
  */
 
 #include "notifyview.h"
+#include "notifymodel.h"
 
 NotifyView::NotifyView(QWidget *parent) : QListView(parent)
 {
@@ -42,6 +43,24 @@ const QModelIndex &NotifyView::currentHoverIndex() const
     return m_indexCurrent;
 }
 
+void NotifyView::enterEvent(QEvent *event)
+{
+    if (m_indexCurrent.isValid()) {
+        openPersistentEditor(m_indexCurrent);
+    }
+
+    QWidget::enterEvent(event);
+}
+
+void NotifyView::leaveEvent(QEvent *event)
+{
+    if (m_indexCurrent.isValid()) {
+        closePersistentEditor(m_indexCurrent);
+        static_cast<NotifyModel *>(model())->setHoverIndex(QModelIndex());
+    }
+    QWidget::leaveEvent(event);
+}
+
 void NotifyView::onCurrentHoverChanged(const QModelIndex &previous, const QModelIndex &current)
 {
     if (previous.isValid()) {
@@ -53,6 +72,7 @@ void NotifyView::onCurrentHoverChanged(const QModelIndex &previous, const QModel
 void NotifyView::onItemEntered(const QModelIndex &index)
 {
     m_indexCurrent = index;
+    static_cast<NotifyModel *>(model())->setHoverIndex(m_indexCurrent);
     if (m_indexPrevious != m_indexCurrent) {
         Q_EMIT currentHoverChanged(m_indexPrevious, m_indexCurrent);
         m_indexPrevious = m_indexCurrent;

@@ -44,6 +44,7 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
     const QString &strIcon = index.data(NotifyModel::NotifyIconRole).toString();
     const QString &strTime = notifyTime(index.data(NotifyModel::NotifyTimeRole).toString());
     bool isRemove = index.data(NotifyModel::NotifyRemoveRole).toBool();
+    bool isHover = index.data(NotifyModel::NotifyHoverRole).toBool();
     int xOffset = index.data(NotifyModel::NotifyXOffsetRole).toInt();
 
     QRect mRect = option.rect;
@@ -54,7 +55,7 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
     }
 
     // draw hover background
-    if (option.state & (QStyle::State_MouseOver)) {
+    if (isHover) {
         painter->fillRect(mRect, QColor(254, 254, 254, 0.13 * 255));
     }
 

@@ -36,6 +36,10 @@ public:
 Q_SIGNALS:
     void currentHoverChanged(const QModelIndex &previous, const QModelIndex &current);
 
+protected:
+    void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
+    void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
+
 private Q_SLOTS:
     void onCurrentHoverChanged(const QModelIndex &previous, const QModelIndex &current);
     void onItemEntered(const QModelIndex &index);
