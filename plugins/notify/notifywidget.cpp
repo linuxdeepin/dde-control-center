@@ -58,12 +58,14 @@ NotifyWidget::NotifyWidget(QWidget *parent) : QWidget(parent)
     connect(m_notifyDelegate, &NotifyDelegate::removeBtnClicked, this, &NotifyWidget::onRemoveBtnClicked);
     connect(m_clearAllButton, &DImageButton::clicked, this, &NotifyWidget::showClearAllAnim);
     connect(m_notifyModel, &NotifyModel::removeAnimFinished, m_notifyModel, &NotifyModel::removeNotify);
+    connect(m_notifyModel, &NotifyModel::removeAnimFinished, this, &NotifyWidget::onRemoveAnimFinished);
     connect(m_notifyModel, &NotifyModel::clearAllAnimFinished, m_notifyModel, &NotifyModel::clearAllNotify);
     connect(m_notifyModel, &NotifyModel::notifyClearStateChanged, this, &NotifyWidget::onNotifyClearStateChanged);
 }
 
 void NotifyWidget::showRemoveAnim(const QModelIndex &index)
 {
+    m_notifyView->closePersistentEditor(index);
     m_notifyModel->showRemoveAnim(index, m_notifyView->width());
 }
 
@@ -88,4 +90,13 @@ void NotifyWidget::onNotifyClearStateChanged(bool isClear)
 void NotifyWidget::onRemoveBtnClicked()
 {
     showRemoveAnim(m_notifyView->currentHoverIndex());
+}
+
+void NotifyWidget::onRemoveAnimFinished(const QModelIndex &index)
+{
+    // to avoid the remove button appearing at an has removed notification
+    if (m_notifyModel->rowCount(QModelIndex()) <= index.row()) {
+        return;
+    }
+    m_notifyView->openPersistentEditor(m_notifyView->currentHoverIndex());
 }
