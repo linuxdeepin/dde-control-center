@@ -31,6 +31,8 @@ class NotifyView : public QListView
 public:
     NotifyView(QWidget *parent = Q_NULLPTR);
 
+    const QModelIndex &currentHoverIndex() const;
+
 Q_SIGNALS:
     void currentHoverChanged(const QModelIndex &previous, const QModelIndex &current);
 

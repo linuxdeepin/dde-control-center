@@ -42,6 +42,7 @@ private Q_SLOTS:
     void showRemoveAnim(const QModelIndex &index);
     void showClearAllAnim();
     void onNotifyClearStateChanged(bool isClear);
+    void onRemoveBtnClicked();
 
 private:
     DImageButton *m_clearAllButton;

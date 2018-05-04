@@ -20,9 +20,6 @@
  */
 
 #include "notifyview.h"
-#include "notifydelegate.h"
-
-#include <QMouseEvent>
 
 NotifyView::NotifyView(QWidget *parent) : QListView(parent)
 {
@@ -38,6 +35,11 @@ NotifyView::NotifyView(QWidget *parent) : QListView(parent)
 
     connect(this, &NotifyView::currentHoverChanged, this, &NotifyView::onCurrentHoverChanged);
     connect(this, &NotifyView::entered, this, &NotifyView::onItemEntered);
+}
+
+const QModelIndex &NotifyView::currentHoverIndex() const
+{
+    return m_indexCurrent;
 }
 
 void NotifyView::onCurrentHoverChanged(const QModelIndex &previous, const QModelIndex &current)

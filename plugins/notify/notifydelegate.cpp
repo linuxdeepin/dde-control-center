@@ -110,9 +110,12 @@ QWidget *NotifyDelegate::createEditor(QWidget *parent, const QStyleOptionViewIte
     Q_UNUSED(index)
 
     // view class will delete these object later
-    return new DImageButton(":/images/notify_close_normal.svg",
+    DImageButton *removeBtn = new DImageButton(":/images/notify_close_normal.svg",
                              ":/images/notify_close_hover.svg",
                              ":/images/notify_close_press.svg", parent);
+
+    connect(removeBtn, &DImageButton::clicked, this, &NotifyDelegate::removeBtnClicked);
+    return removeBtn;
 }
 
 void NotifyDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const

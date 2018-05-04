@@ -31,8 +31,13 @@ static const QString CacheFolder = Directory.first() + "/.cache/deepin/deepin-no
 
 class NotifyDelegate : public QStyledItemDelegate
 {
+    Q_OBJECT
+
 public:
     NotifyDelegate(QObject *parent = Q_NULLPTR);
+
+Q_SIGNALS:
+    void removeBtnClicked() const;
 
 public:
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;

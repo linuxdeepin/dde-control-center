@@ -55,6 +55,7 @@ NotifyWidget::NotifyWidget(QWidget *parent) : QWidget(parent)
     setContentsMargins(0, 0, 0, 0);
     setLayout(mainVBLayout);
 
+    connect(m_notifyDelegate, &NotifyDelegate::removeBtnClicked, this, &NotifyWidget::onRemoveBtnClicked);
     connect(m_clearAllButton, &DImageButton::clicked, this, &NotifyWidget::showClearAllAnim);
     connect(m_notifyModel, &NotifyModel::removeAnimFinished, m_notifyModel, &NotifyModel::removeNotify);
     connect(m_notifyModel, &NotifyModel::clearAllAnimFinished, m_notifyModel, &NotifyModel::clearAllNotify);
@@ -82,4 +83,9 @@ void NotifyWidget::onNotifyClearStateChanged(bool isClear)
         m_notifyView->setVisible(true);
         m_noNotify->setVisible(false);
     }
+}
+
+void NotifyWidget::onRemoveBtnClicked()
+{
+    showRemoveAnim(m_notifyView->currentHoverIndex());
 }
