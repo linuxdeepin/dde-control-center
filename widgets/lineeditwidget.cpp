@@ -86,7 +86,7 @@ LineEditWidget::LineEditWidget(QFrame *parent)
     setObjectName("LineEditWidget");
     setFixedHeight(36);
 
-    connect(m_edit, &QLineEdit::textChanged, m_errTip, &ErrorTip::hide);
+    connect(m_edit, &QLineEdit::textChanged, this, &LineEditWidget::hideAlertMessage);
 }
 
 void LineEditWidget::addRightWidget(QWidget *widget)
@@ -110,6 +110,7 @@ void LineEditWidget::showAlertMessage(const QString &message)
 
 void LineEditWidget::hideAlertMessage()
 {
+    setIsErr(false);
     m_errTip->hide();
 }
 

@@ -50,6 +50,7 @@ private slots:
     void checkPwd();
     void onPasswordChangeFinished(const int exitCode);
     void updateTitle();
+    void hideAlert();
 
 private:
     User *m_userInter;
