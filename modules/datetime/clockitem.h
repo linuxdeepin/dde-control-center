@@ -29,6 +29,7 @@
 #include "settingsitem.h"
 
 #include <QDateTime>
+#include <types/zoneinfo.h>
 
 namespace dcc {
 namespace widgets {
@@ -47,12 +48,15 @@ class ClockItem : public dcc::widgets::SettingsItem
 public:
     explicit ClockItem(QWidget *parent = 0);
 
+    void setTimeZone(const ZoneInfo &zone);
+
 private slots:
     void updateDateTime();
 
 private:
     Clock *m_clock;
     dcc::widgets::NormalLabel *m_label;
+    ZoneInfo m_zoneInfo;
 };
 
 } // namespace datetime

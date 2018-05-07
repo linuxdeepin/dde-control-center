@@ -29,7 +29,6 @@
 #include <QPainterPath>
 #include <QTime>
 #include <QtMath>
-#include <QDebug>
 
 namespace dcc {
 namespace datetime {
@@ -37,8 +36,7 @@ namespace datetime {
 Clock::Clock(QWidget *parent) :
     QWidget(parent),
     m_drawTicks(true),
-    m_autoNightMode(true),
-    m_timeZone(QTimeZone::systemTimeZone())
+    m_autoNightMode(true)
 {
 
 }
@@ -51,7 +49,7 @@ Clock::~Clock()
 void Clock::paintEvent(QPaintEvent *)
 {
     QDateTime datetime( QDateTime::currentDateTimeUtc() );
-    datetime = datetime.addSecs(m_timeZone.offsetFromUtc(datetime));
+    datetime = datetime.addSecs(m_timeZone.getUTCOffset());
 
     const QTime time(datetime.time());
     const QRect rct(rect());
@@ -128,17 +126,12 @@ void Clock::setAutoNightMode(bool autoNightMode)
     }
 }
 
-QTimeZone Clock::timeZone() const
+void Clock::setTimeZone(const ZoneInfo &timeZone)
 {
-    return m_timeZone;
-}
+    if (m_timeZone == timeZone) return;
 
-void Clock::setTimeZone(const QTimeZone &timeZone)
-{
-    if (m_timeZone != timeZone) {
-        m_timeZone = timeZone;
-        update();
-    }
+    m_timeZone = timeZone;
+    update();
 }
 
 bool Clock::drawTicks() const
