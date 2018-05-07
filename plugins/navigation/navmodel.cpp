@@ -1,3 +1,24 @@
+/*
+ * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
+ *
+ * Author:     listenerri <190771752ri@gmail.com>
+ *
+ * Maintainer: listenerri <190771752ri@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #include "navmodel.h"
 
 NavModel::NavModel(QObject *parent) : QAbstractTableModel(parent)
@@ -10,6 +31,7 @@ NavModel::NavModel(QObject *parent) : QAbstractTableModel(parent)
                                   QDBusConnection::sessionBus(), this);
 
     m_moduleList = validModuleList();
+    m_hoverIndex = QModelIndex();
 
     connect(m_bluetoothInter, &BluetoothInter::StateChanged, this, &NavModel::onBTStateChanged);
     connect(m_wacomInter, &WacomInter::ExistChanged, this, &NavModel::onWacomExistChanged);
@@ -45,6 +67,10 @@ QVariant NavModel::data(const QModelIndex &index, int role) const
     {
     case Qt::WhatsThisRole:
         return m_moduleList.at(mIndex);
+        break;
+    case NavHoverRole:
+        return m_hoverIndex == index;
+        break;
     default:;
     }
 
@@ -81,6 +107,12 @@ void NavModel::addModule(const QString &moduleName)
     }
     m_moduleList.insert(mIndex, moduleName);
     Q_EMIT layoutChanged();
+}
+
+void NavModel::setHoverIndex(const QModelIndex &index)
+{
+    m_hoverIndex = index;
+    Q_EMIT dataChanged(m_hoverIndex, m_hoverIndex);
 }
 
 QString NavModel::transModuleName(const QString &moduleName)

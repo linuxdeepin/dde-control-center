@@ -4,10 +4,12 @@
  * Author:     sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <190771752ri@gmail.com>
  *
  * Maintainer: sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <190771752ri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -80,11 +82,13 @@ void NavWidget::leaveEvent(QEvent *e)
     QWidget::leaveEvent(e);
 
     setTipsText(QString());
+    m_navModel->setHoverIndex(QModelIndex());
 }
 
 void NavWidget::onNavEnter(const QModelIndex &index)
 {
     setTipsText(index.data(Qt::WhatsThisRole).toString());
+    m_navModel->setHoverIndex(index);
 }
 
 void NavWidget::onNavClicked(const QModelIndex &index)

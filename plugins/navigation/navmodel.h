@@ -1,3 +1,24 @@
+/*
+ * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
+ *
+ * Author:     listenerri <190771752ri@gmail.com>
+ *
+ * Maintainer: listenerri <190771752ri@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #ifndef NAVMODEL_H
 #define NAVMODEL_H
 
@@ -15,6 +36,10 @@ const QStringList MODULES = { "accounts", "display", "defapp", "personalization"
 class NavModel : public QAbstractTableModel
 {
 public:
+    enum NavDataRole{
+        NavHoverRole = Qt::UserRole + 1,
+    };
+
     NavModel(QObject *parent = Q_NULLPTR);
 
 public:
@@ -26,6 +51,7 @@ public Q_SLOTS:
     void removeModule(const QModelIndex &index);
     void removeModule(const QString &moduleName);
     void addModule(const QString &moduleName);
+    void setHoverIndex(const QModelIndex &index);
 
 public:
     QString transModuleName(const QString &moduleName);
@@ -42,6 +68,7 @@ private:
     WacomInter *m_wacomInter;
 
     QStringList m_moduleList;
+    QModelIndex m_hoverIndex;
 };
 
 #endif // NAVMODEL_H
