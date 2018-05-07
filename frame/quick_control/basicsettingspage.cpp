@@ -179,6 +179,8 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     m_lightSlider->setTracking(true);
 
     m_mprisWidget = new DMPRISControl;
+    m_mprisWidget->setPictureVisible(true);
+    m_mprisWidget->setPictureSize({120, 120});
 
     QHBoxLayout *volumeLayout = new QHBoxLayout;
     volumeLayout->setMargin(0);
@@ -232,14 +234,12 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     connect(m_mprisWidget, &DMPRISControl::mprisAcquired, this, &BasicSettingsPage::onMPRISChanged);
     connect(m_mprisWidget, &DMPRISControl::mprisLosted, this, &BasicSettingsPage::onMPRISChanged);
     connect(m_gsettings, &QGSettings::changed, this, &BasicSettingsPage::onGSettingsChanged);
+    connect(m_soundSlider, &DCCSlider::valueChanged, m_worker, &BasicSettingsWorker::setVolume);
+    connect(m_lightSlider, &QSlider::valueChanged, m_worker, &BasicSettingsWorker::setBrightness);
+
     onVolumeChanged(m_model->volume());
     onBrightnessChanged(m_model->brightness());
     onMuteChanged(m_model->mute());
-
-    connect(m_soundSlider, &DCCSlider::valueChanged, this, [this] (const int &value) {
-        m_worker->setVolume(value);
-    });
-    connect(m_lightSlider, &QSlider::valueChanged, m_worker, &BasicSettingsWorker::setBrightness);
 }
 
 void BasicSettingsPage::setMPRISEnable(const bool enable)
