@@ -98,12 +98,9 @@ void TimezoneItem::toNormalMode()
 
 void TimezoneItem::updateInfo()
 {
-    const QTimeZone localZone( QTimeZone::systemTimeZone() );
     const QDateTime localTime( QDateTime::currentDateTime() );
-    const QTimeZone zone(m_timezone.getZoneName().toLatin1());
-    const QDateTime utcTime( QDateTime::currentDateTimeUtc() );
 
-    const double timeDelta = (zone.offsetFromUtc(utcTime) - localZone.offsetFromUtc(utcTime)) / 3600.0;
+    const double timeDelta = (m_timezone.getUTCOffset() - localTime.offsetFromUtc()) / 3600.0;
 
     QString dateLiteral;
     if (localTime.time().hour() + timeDelta >= 24) {
@@ -123,7 +120,7 @@ void TimezoneItem::updateInfo()
 
     m_details->setText(QString("%1, %2").arg(dateLiteral).arg(compareLiteral));
     m_city->setText(m_timezone.getZoneCity());
-    m_clock->setTimeZone(zone);
+    m_clock->setTimeZone(m_timezone);
 }
 
 }

@@ -62,8 +62,8 @@ Datetime::Datetime()
     m_timezoneItem->setTitle(tr("Change System Timezone"));
 #endif
     SettingsGroup *clockGroup = new SettingsGroup;
-    ClockItem *clock = new ClockItem;
-    clockGroup->appendItem(clock);
+    m_clockItem = new ClockItem;
+    clockGroup->appendItem(m_clockItem);
 #ifndef DCC_DISABLE_TIMEZONE
     clockGroup->appendItem(m_timezoneItem);
 #endif
@@ -169,8 +169,11 @@ void Datetime::addTimezone(const ZoneInfo &zone)
 
     item->setTimeZone(zone);
 
-    if (zone.getZoneName() != QTimeZone::systemTimeZoneId())
+    if (zone.getZoneName() != QTimeZone::systemTimeZoneId()) {
         m_timezoneGroup->appendItem(item);
+    } else {
+        m_clockItem->setTimeZone(zone);
+    }
 
     m_zoneList << item;
 

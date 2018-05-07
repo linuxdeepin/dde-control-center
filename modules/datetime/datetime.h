@@ -101,6 +101,7 @@ private:
     QPushButton *m_addTimezoneButton;
     NextPageWidget *m_timezoneItem;
 #endif
+    ClockItem *m_clockItem;
     QList<TimezoneItem*> m_zoneList;
     bool m_addTimeZone;
     TimeZoneChooser *m_dialog;

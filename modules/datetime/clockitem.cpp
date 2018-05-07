@@ -64,9 +64,16 @@ ClockItem::ClockItem(QWidget *parent) :
     timer->start(1000);
 }
 
+void ClockItem::setTimeZone(const ZoneInfo &zone)
+{
+    if (m_zoneInfo == zone) return;
+
+    m_zoneInfo = zone;
+}
+
 void ClockItem::updateDateTime()
 {
-    m_clock->setTimeZone(QTimeZone::systemTimeZone());
+    m_clock->setTimeZone(m_zoneInfo);
     m_clock->update();
     m_label->setText(QDate::currentDate().toString(Qt::SystemLocaleLongDate));
 }

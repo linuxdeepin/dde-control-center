@@ -28,6 +28,7 @@
 
 #include <QWidget>
 #include <QTimeZone>
+#include <types/zoneinfo.h>
 
 namespace dcc {
 namespace datetime {
@@ -42,8 +43,7 @@ public:
     bool drawTicks() const;
     void setDrawTicks(bool drawTicks);
 
-    QTimeZone timeZone() const;
-    void setTimeZone(const QTimeZone &timeZone);
+    void setTimeZone(const ZoneInfo &timeZone);
 
     bool autoNightMode() const;
     void setAutoNightMode(bool autoNightMode);
@@ -54,7 +54,7 @@ protected:
 private:
     bool m_drawTicks;
     bool m_autoNightMode;
-    QTimeZone m_timeZone;
+    ZoneInfo m_timeZone;
 };
 }
 }
