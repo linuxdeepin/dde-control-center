@@ -76,6 +76,8 @@ void PluginsController::loadPlugins()
         QWidget *w = interface->centralWidget();
         w->setVisible(false);
         emit pluginAdded(w);
+
+        QThread::msleep(500);
     }
 }
 

@@ -178,7 +178,8 @@ MainWidget::MainWidget(Frame *parent)
     });
 #endif
 
-    m_pluginsController->loadPlugins();
+    QTimer::singleShot(2000, m_pluginsController, &PluginsController::loadPlugins);
+
     refershTimedate();
 }
 
