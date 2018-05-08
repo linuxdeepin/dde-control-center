@@ -199,6 +199,10 @@ void NotifyModel::timerEvent(QTimerEvent *event)
 void NotifyModel::removeNotify(const QModelIndex &index)
 {
     QJsonObject notifyObject = m_dataJsonArray.at(m_dataJsonArray.size() - 1 - index.row()).toObject();
+#ifdef QT_DEBUG
+    m_dbus->RemoveRecord(notifyObject.value("id").toString());
+#endif
+    // TODO: need to remove
     m_dbus->RemoveRecord(notifyObject.value("time").toString());
     m_dataJsonArray.removeAt(m_dataJsonArray.size() - 1 - index.row());
     Q_EMIT dataChanged(index, index);
