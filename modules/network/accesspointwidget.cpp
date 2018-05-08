@@ -110,7 +110,7 @@ void AccessPointWidget::setStrength(const int strength)
     m_strength = strength;
 
     if (m_strength < 0)
-        return m_strengthIcon->clear();
+        m_strength = 0;
 
     const QString iconName = QString(":/network/themes/dark/icons/wireless/wireless-%1-symbolic.svg").arg(strength / 10 & ~1);
     m_strengthIcon->setPixmap(DHiDPIHelper::loadNxPixmap(iconName));
