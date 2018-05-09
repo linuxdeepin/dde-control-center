@@ -93,5 +93,8 @@ void NavWidget::onNavEnter(const QModelIndex &index)
 
 void NavWidget::onNavClicked(const QModelIndex &index)
 {
-    requestModule(index.data(Qt::WhatsThisRole).toString());
+    const QString &itemName = index.data(Qt::WhatsThisRole).toString();
+    if (!itemName.isEmpty()) {
+        requestModule(itemName);
+    }
 }
