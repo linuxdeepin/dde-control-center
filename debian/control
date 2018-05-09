@@ -27,6 +27,7 @@ Package: dde-control-center
 Architecture: any
 Depends: ${shlibs:Depends},
  ${misc:Depends},
+ ${dist:Depends},
  dde-account-faces,
  dde-daemon,
  dde-api (>=2.92.1),
@@ -35,9 +36,7 @@ Depends: ${shlibs:Depends},
  xkb-data,
  deepin-installer-timezones,
  passwd
-Suggests: dde-control-center-plugin-notify,
- dde-control-center-plugin-weather,
- netselect,
+Suggests: netselect,
  redshift
 Description: New control center for Deepin Desktop Environment
  DDE Control Center is the control panel of Deepin Desktop Environment.
