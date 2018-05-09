@@ -4,10 +4,12 @@
  * Author:     sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <listenerri@gmail.com>
  *
  * Maintainer: sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <listenerri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -365,6 +367,7 @@ void Frame::show()
     r.setLeft(r.x() + r.width());
     m_appearAnimation.setStartValue(r);
     r.setLeft(r.x() + r.width() - FRAME_WIDTH);
+    Q_EMIT destRectChanged(r);
     m_appearAnimation.setEndValue(r);
     m_appearAnimation.start();
 
@@ -415,6 +418,7 @@ void Frame::hide()
     r.setLeft(r.x() + r.width() - FRAME_WIDTH);
     m_appearAnimation.setStartValue(r);
     r.setLeft(r.x() + r.width());
+    Q_EMIT destRectChanged(r);
     m_appearAnimation.setEndValue(r);
     m_appearAnimation.start();
 
@@ -467,6 +471,7 @@ void Frame::hideImmediately()
         r.moveTopLeft(screenGeo.topLeft() + (r.topLeft() - screenGeo.topLeft()) / dpr);
     }
     r.setLeft(r.x() + r.width());
+    Q_EMIT destRectChanged(r);
     move(r.topLeft());
 
     DBlurEffectWidget::hide();

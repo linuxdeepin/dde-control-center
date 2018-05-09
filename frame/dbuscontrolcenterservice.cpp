@@ -4,10 +4,12 @@
  * Author:     sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <listenerri@gmail.com>
  *
  * Maintainer: sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <listenerri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -69,6 +71,7 @@ DBusControlCenterService::DBusControlCenterService(Frame *parent)
 //    connect(parent, &Frame::hideInLeftChanged, parent, &Frame::xChanged);
 
     connect(parent, &Frame::rectChanged, this, &DBusControlCenterService::rectChanged, Qt::QueuedConnection);
+    connect(parent, &Frame::destRectChanged, this, &DBusControlCenterService::destRectChanged, Qt::QueuedConnection);
 }
 
 DBusControlCenterService::~DBusControlCenterService()
