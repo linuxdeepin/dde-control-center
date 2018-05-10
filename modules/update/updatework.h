@@ -97,13 +97,14 @@ private:
     void distUpgradeDownloadUpdates();
     void distUpgradeInstallUpdates();
     void setAppUpdateInfo(const AppUpdateInfoList &list);
+    inline bool checkDbusIsValid();
 
 private:
     UpdateModel* m_model;
-    JobInter* m_downloadJob;
-    JobInter* m_checkUpdateJob;
-    JobInter* m_distUpgradeJob;
-    JobInter* m_otherUpdateJob;
+    QPointer<JobInter> m_downloadJob;
+    QPointer<JobInter> m_checkUpdateJob;
+    QPointer<JobInter> m_distUpgradeJob;
+    QPointer<JobInter> m_otherUpdateJob;
     LastoressionHelper *m_lastoresessionHelper;
     UpdateInter* m_updateInter;
     ManagerInter* m_managerInter;

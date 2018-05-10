@@ -127,8 +127,9 @@ void UpdateWorker::deactivate()
 
 void UpdateWorker::checkForUpdates()
 {
-    if (m_checkUpdateJob || m_downloadJob || m_distUpgradeJob)
+    if (checkDbusIsValid()) {
         return;
+    }
 
     if (m_networkInter->state() <= MIN_NM_ACTIVE) {
         qWarning() << "no network, please check network connect.";
@@ -246,9 +247,47 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
     }
 }
 
+bool UpdateWorker::checkDbusIsValid()
+{
+    // If DBUS is valid, the check will bee blocked
+    if (!m_checkUpdateJob.isNull()) {
+        if (m_checkUpdateJob->isValid()) {
+            return true;
+        } else {
+            m_checkUpdateJob->deleteLater();
+        }
+    }
+
+    if (!m_downloadJob.isNull()) {
+        if (m_downloadJob->isValid()) {
+            return true;
+        } else {
+            m_downloadJob->deleteLater();
+        }
+    }
+
+    if (!m_distUpgradeJob.isNull()) {
+        if (m_distUpgradeJob->isValid()) {
+            return true;
+        } else {
+            m_distUpgradeJob->deleteLater();
+        }
+    }
+
+    if (!m_otherUpdateJob.isNull()) {
+        if (m_otherUpdateJob->isValid()) {
+            return true;
+        } else {
+            m_otherUpdateJob->deleteLater();
+        }
+    }
+
+    return false;
+}
+
 void UpdateWorker::pauseDownload()
 {
-    if (m_downloadJob) {
+    if (!m_downloadJob.isNull()) {
         m_managerInter->PauseJob(m_downloadJob->id());
         m_model->setStatus(UpdatesStatus::DownloadPaused);
     }
@@ -256,7 +295,7 @@ void UpdateWorker::pauseDownload()
 
 void UpdateWorker::resumeDownload()
 {
-    if (m_downloadJob) {
+    if (!m_downloadJob.isNull()) {
         m_managerInter->StartJob(m_downloadJob->id());
         m_model->setStatus(UpdatesStatus::Downloading);
     }
@@ -331,7 +370,7 @@ void UpdateWorker::checkNetselect()
 
 void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
 {
-    if (m_checkUpdateJob)
+    if (!m_checkUpdateJob.isNull())
         return;
 
     m_model->setStatus(UpdatesStatus::Checking);
@@ -345,10 +384,8 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
             checkDiskSpace(m_checkUpdateJob);
 
             m_checkUpdateJob->deleteLater();
-            m_checkUpdateJob = nullptr;
         } else if (status == "success" || status == "succeed"){
             m_checkUpdateJob->deleteLater();
-            m_checkUpdateJob = nullptr;
 
             QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()), this);
             connect(w, &QDBusPendingCallWatcher::finished, this, &UpdateWorker::onAppUpdateInfoFinished);
@@ -363,7 +400,7 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
 
 void UpdateWorker::setDownloadJob(const QString &jobPath)
 {
-    if (m_downloadJob)
+    if (!m_downloadJob.isNull())
         return;
 
     setAppUpdateInfo(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()));
@@ -386,7 +423,7 @@ void UpdateWorker::setDownloadJob(const QString &jobPath)
 
 void UpdateWorker::setDistUpgradeJob(const QString &jobPath)
 {
-    if (m_distUpgradeJob)
+    if (!m_distUpgradeJob.isNull())
         return;
 
     setAppUpdateInfo(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()));
@@ -409,7 +446,7 @@ void UpdateWorker::setDistUpgradeJob(const QString &jobPath)
 
 void UpdateWorker::setOtherUpdate(const QString &jobPath)
 {
-    if (m_otherUpdateJob)
+    if (!m_otherUpdateJob.isNull())
         return;
 
     m_otherUpdateJob = new JobInter("com.deepin.lastore",
@@ -420,7 +457,6 @@ void UpdateWorker::setOtherUpdate(const QString &jobPath)
         if (status == "succeed") {
             checkForUpdates();
             m_otherUpdateJob->deleteLater();
-            m_otherUpdateJob = nullptr;
         }
     });
 
@@ -485,10 +521,8 @@ void UpdateWorker::onDownloadStatusChanged(const QString &status)
 
         qWarning() << "download updates job failed";
         m_downloadJob->deleteLater();
-        m_downloadJob = nullptr;
     } else if (status == "success" || status == "succeed") {
         m_downloadJob->deleteLater();
-        m_downloadJob = nullptr;
 
         // install the updates immediately.
         if (!m_model->autoDownloadUpdates())
@@ -513,10 +547,8 @@ void UpdateWorker::onUpgradeStatusChanged(const QString &status)
 
         qWarning() << "install updates job failed";
         m_distUpgradeJob->deleteLater();
-        m_distUpgradeJob = nullptr;
     } else if (status == "success" || status == "succeed") {
         m_distUpgradeJob->deleteLater();
-        m_distUpgradeJob = nullptr;
 
         m_model->setStatus(UpdatesStatus::UpdateSucceeded);
 
