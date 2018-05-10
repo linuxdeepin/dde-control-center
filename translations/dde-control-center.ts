@@ -2563,7 +2563,7 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
-        <source>Prompt the notification if system source has been modified</source>
+        <source>Prompt the notification if system update mirror has been modified</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
