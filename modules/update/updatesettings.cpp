@@ -75,7 +75,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     sourceCheckGrp->appendItem(m_sourceCheck);
     layout->addWidget(sourceCheckGrp);
     layout->addSpacing(8);
-    TipsLabel *sourceCheckLbl = new TipsLabel(tr("Prompt the notification if system source has been modified"));
+    TipsLabel *sourceCheckLbl = new TipsLabel(tr("Prompt the notification if system update mirror has been modified"));
     sourceCheckLbl->setWordWrap(true);
     sourceCheckLbl->setContentsMargins(20, 0, 20, 0);
     layout->addWidget(sourceCheckLbl);
