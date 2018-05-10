@@ -44,6 +44,7 @@ public:
     void setValue(const int progress);
 
     inline const QString text() { return m_message; }
+    inline const int value() { return m_currentValue; }
     inline int minimum() { return 0; }
     inline int maximum() { return 100; }
 
