@@ -49,7 +49,7 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
 
       m_mainLayout(new QVBoxLayout),
 
-      m_strength(0),
+      m_strength(-1),
       m_connected(false)
 {
     m_lockIcon->setFixedSize(16, 16);
