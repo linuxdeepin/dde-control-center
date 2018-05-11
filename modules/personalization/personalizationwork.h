@@ -76,6 +76,7 @@ private:
     float sliderValueToSize(const int value) const;
     QList<QJsonObject> converToList(const QString &type, const QJsonArray &array);
     void addList(ThemeModel *model, const QString &type, QJsonArray &array);
+    void refreshWMState();
 
 private:
     PersonalizationModel *m_model;

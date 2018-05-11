@@ -65,8 +65,7 @@ void PersonalizationWork::active()
     m_dbus->blockSignals(false);
     m_wmSwitcher->blockSignals(false);
 
-    QDBusPendingCallWatcher *wmWatcher = new QDBusPendingCallWatcher(m_wmSwitcher->CurrentWM(), this);
-    connect(wmWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetCurrentWMFinished);
+    refreshWMState();
 }
 
 void PersonalizationWork::deactive()
@@ -107,6 +106,12 @@ void PersonalizationWork::addList(ThemeModel *model, const QString &type, QJsonA
             model->removeItem(id);
         }
     }
+}
+
+void PersonalizationWork::refreshWMState()
+{
+    QDBusPendingCallWatcher *wmWatcher = new QDBusPendingCallWatcher(m_wmSwitcher->CurrentWM(), this);
+    connect(wmWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetCurrentWMFinished);
 }
 
 void PersonalizationWork::FontSizeChanged(const double value) const
@@ -337,4 +342,9 @@ void PersonalizationWork::setFontSize(const int value)
 void PersonalizationWork::switchWM()
 {
     m_wmSwitcher->RequestSwitchWM();
+
+    QTimer::singleShot(1000, this, [=] {
+        emit m_model->wmChanged(m_wmSwitcher->CurrentWM() == "deepin wm");
+        refreshWMState();
+    });
 }
