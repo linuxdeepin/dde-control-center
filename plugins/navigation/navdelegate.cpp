@@ -23,6 +23,8 @@
 #include "navmodel.h"
 
 #include <QPainter>
+#include <QImageReader>
+#include <QApplication>
 
 NavDelegate::NavDelegate(QObject *parent) : QStyledItemDelegate(parent)
 {
@@ -43,11 +45,33 @@ void NavDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, c
 
     QString moduleName = index.data(Qt::WhatsThisRole).toString();
     if (!moduleName.isEmpty()) {
-        QPixmap modulePm = QPixmap(QString(":/icons/nav_%1.png").arg(moduleName));
+        QPixmap modulePm = loadPixmap(QString(":/icons/nav_%1.png").arg(moduleName));
         painter->drawPixmap(option.rect.center().x() - modulePm.width()/2,
                             option.rect.center().y() - modulePm.height()/2,
                             modulePm);
     }
 
     QStyledItemDelegate::paint(painter, option, index);
+}
+
+QPixmap NavDelegate::loadPixmap(const QString &path) const
+{
+    qreal ratio = 1.0;
+    QPixmap pixmap;
+
+    const qreal devicePR = qApp->devicePixelRatio();
+
+    if (!qFuzzyCompare(ratio, devicePR)) {
+        QImageReader reader;
+        reader.setFileName(qt_findAtNxFile(path, devicePR, &ratio));
+        if (reader.canRead()) {
+            reader.setScaledSize(reader.size() * (devicePR / ratio));
+            pixmap = QPixmap::fromImage(reader.read());
+            pixmap.setDevicePixelRatio(devicePR);
+        }
+    } else {
+        pixmap.load(path);
+    }
+
+    return pixmap;
 }

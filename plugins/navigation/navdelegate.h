@@ -31,6 +31,9 @@ public:
 
 public:
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
+
+private:
+    QPixmap loadPixmap(const QString &path) const;
 };
 
 #endif // NAVDELEGATE_H
