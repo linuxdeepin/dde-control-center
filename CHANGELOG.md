@@ -1,3 +1,28 @@
+<a name="4.4.4.2"></a>
+## 4.4.4.2 (2018-05-14)
+
+
+#### Features
+
+*   delay load plugins ([ecf61914](https://github.com/linuxdeepin/dde-control-center/commit/ecf61914acfc925ff306ff2b441045158938c6c3))
+*   disable second page create ([d6f6672f](https://github.com/linuxdeepin/dde-control-center/commit/d6f6672fc6d8ccb7f2f3249d23cb18fcde212ca5))
+
+#### Bug Fixes
+
+*   the maximum volume is 150 ([04f3c1e3](https://github.com/linuxdeepin/dde-control-center/commit/04f3c1e319e70cd02ad3db826d6cac0abd133ea1))
+*   crash if no connections info ([27d56561](https://github.com/linuxdeepin/dde-control-center/commit/27d5656124a4dc2aa83acb22b1433a9ad660c432))
+*   prevent the new password is equal the old ([4d22b30f](https://github.com/linuxdeepin/dde-control-center/commit/4d22b30f4cbfa51a6f3b2533868b2748c55198a0))
+* **Personalization:**  refresh wm state when toggle wm ([581f0b5b](https://github.com/linuxdeepin/dde-control-center/commit/581f0b5bc64c8cd9280df91cc3fc65a4c828fa47))
+* **accounts:**
+  *  error tip not hide when frame hide ([65ac6aea](https://github.com/linuxdeepin/dde-control-center/commit/65ac6aeab819890e4350ec073cd91309ff322d5f))
+  *  modify avatar page not use fullname set title ([bbf686fd](https://github.com/linuxdeepin/dde-control-center/commit/bbf686fd7012ec3840da2ea8e43ecd12d7bbdab2))
+* **keyboard:**  title breaking ([56f8dd5d](https://github.com/linuxdeepin/dde-control-center/commit/56f8dd5dd3a7244aff37ef9057819a5f55ccc624))
+* **network:**  update complie macro ([798ef166](https://github.com/linuxdeepin/dde-control-center/commit/798ef16609887cd957e62a8606970bf85bf82e67))
+* **update:**  Incorrect setting of hints ([024230ee](https://github.com/linuxdeepin/dde-control-center/commit/024230ee8ff1da67ba1deb15864cc927ac5b1c50))
+* **zone:**  repair time offset error ([81aae937](https://github.com/linuxdeepin/dde-control-center/commit/81aae937d28407b384639867eb6e808fce728cf9))
+
+
+
 <a name=""></a>
 ##  4.4.4.1 (2018-04-11)
 
