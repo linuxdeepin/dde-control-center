@@ -40,5 +40,5 @@ endif
 
 ifeq ($(SYSTYPE), Desktop)
 override_dh_gencontrol:
-	dh_gencontrol -- -Vdist:Depends="de-control-center-plugin-notify, dde-control-center-plugin-weather"
+	dh_gencontrol -- -Vdist:Depends="dde-control-center-plugin-notify, dde-control-center-plugin-weather"
 endif
