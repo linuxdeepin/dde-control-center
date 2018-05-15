@@ -46,9 +46,8 @@ void NavDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, c
     QString moduleName = index.data(Qt::WhatsThisRole).toString();
     if (!moduleName.isEmpty()) {
         QPixmap modulePm = loadPixmap(QString(":/icons/nav_%1.png").arg(moduleName));
-        painter->drawPixmap(option.rect.center().x() - modulePm.width()/2,
-                            option.rect.center().y() - modulePm.height()/2,
-                            modulePm);
+        const qreal devicePixelRatio = qApp->devicePixelRatio();
+        painter->drawPixmap((option.rect.center() - modulePm.rect().center() / devicePixelRatio), modulePm);
     }
 
     QStyledItemDelegate::paint(painter, option, index);
