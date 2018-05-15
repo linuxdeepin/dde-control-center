@@ -91,7 +91,7 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifydelegate.cpp" line="193"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>pred %1 dňom</numerusform><numerusform>pred %1 dňami</numerusform><numerusform>pred %1 dňami</numerusform></translation>
     </message>
 </context>
 <context>
@@ -2550,7 +2550,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation type="unfinished"/>
+        <translation> Oznámiť notifikáciou, ak bolo systémové zrkadlo aktualizácií upravené </translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="95"/>

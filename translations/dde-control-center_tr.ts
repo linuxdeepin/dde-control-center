@@ -2550,7 +2550,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation type="unfinished"/>
+        <translation>Sistem güncelleme yansısı değiştirilirse bildirim görüntülensin</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="95"/>

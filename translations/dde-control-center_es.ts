@@ -91,7 +91,7 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifydelegate.cpp" line="193"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Hace %n día(s)</numerusform><numerusform>Hace %n dia(s)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -2550,7 +2550,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation type="unfinished"/>
+        <translation>Solicitar notificación si el espejo de actualización del sistema ha sido modificado</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="95"/>
