@@ -94,7 +94,7 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
     painter->drawText(bodyRect, strBody);
 
     // hide time when hover
-    if (option.state & (QStyle::State_MouseOver)) {
+    if (isHover) {
         return;
     }
     // draw time
