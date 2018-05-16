@@ -77,19 +77,27 @@
     </message>
 </context>
 <context>
+    <name>NavModel</name>
+    <message>
+        <location filename="../plugins/navigation/navmodel.cpp" line="157"/>
+        <source>Navigation</source>
+        <translation>يول باشلىغۇچ</translation>
+    </message>
+</context>
+<context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="184"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="183"/>
         <source>Yesterday</source>
         <translation>تۈنۈگۈن</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="187"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="186"/>
         <source>The day before yesterday</source>
         <translation>ئۈلۈشكۈن</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="193"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="192"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
@@ -2422,16 +2430,6 @@
         <translation>يېڭىلانما تەكشۈرۈۋاتىدۇ... سەل كۈتۈپ تۇرۇڭ...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
-        <source>%1 downloaded (Click to pause)</source>
-        <translation>%1 چۈشۈرۈلۈپ بولدى(چېكىپ ۋاقىتلىق توختىتالايسىز)</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
-        <source>%1 downloaded (Click to continue)</source>
-        <translation>%1 چۈشۈرۈلۈپ بولدى(چېكىپ داۋاملاشتۇرالايسىز)</translation>
-    </message>
-    <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
         <source>Your system is up to date</source>
         <translation>سىستېمىڭىزنىڭ نەشرى ئەڭ يېڭىسى ئىكەن</translation>
@@ -2450,6 +2448,11 @@
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
         <translation>يېڭىلانمىلارنى چۈشۈرۈش ۋە قاچىلاش</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
@@ -2492,6 +2495,7 @@
         <translation>چۈشۈرۈش چوڭلۇقى: %1</translation>
     </message>
     <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% چۈشۈرۈلدى(چېكىپ ۋاقىتلىق توختىتالايسىز)</translation>

@@ -77,19 +77,27 @@
     </message>
 </context>
 <context>
+    <name>NavModel</name>
+    <message>
+        <location filename="../plugins/navigation/navmodel.cpp" line="157"/>
+        <source>Navigation</source>
+        <translation>Navegación</translation>
+    </message>
+</context>
+<context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="184"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="183"/>
         <source>Yesterday</source>
         <translation>Ayer</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="187"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="186"/>
         <source>The day before yesterday</source>
         <translation>Anteayer</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="193"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="192"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>Hace %n día(s)</numerusform><numerusform>Hace %n dia(s)</numerusform></translation>
     </message>
@@ -112,7 +120,7 @@
     <message>
         <location filename="../plugins/notify/notifywidget.cpp" line="33"/>
         <source>No system notifications</source>
-        <translation>No hay notificaciones del sistema</translation>
+        <translation>Sin notificaciones del sistema</translation>
     </message>
     <message>
         <location filename="../plugins/notify/notifywidget.cpp" line="35"/>
@@ -210,7 +218,7 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifyviewer.cpp" line="147"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>hace %n día</numerusform><numerusform>hace %n días</numerusform></translation>
+        <translation><numerusform>hace %n día</numerusform><numerusform>hace %n día(s)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -1276,7 +1284,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="82"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Este atajo de teclado esta en conflicto con %1, haga clic en Reemplazar para que sea efectivo inmediatamente</translation>
+        <translation>Este atajo de teclado está en conflicto con %1, haga clic en Reemplazar para aplicar el atajo inmediatamente</translation>
     </message>
 </context>
 <context>
@@ -2422,16 +2430,6 @@
         <translation>Comprobando actualizaciones, por favor espere...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
-        <source>%1 downloaded (Click to pause)</source>
-        <translation>%1 descargado (clic para pausar)</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
-        <source>%1 downloaded (Click to continue)</source>
-        <translation>%1 descargado (clic para continuar)</translation>
-    </message>
-    <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
         <source>Your system is up to date</source>
         <translation>Su sistema está actualizado</translation>
@@ -2450,6 +2448,11 @@
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
         <translation>Descargar e instalar actualizaciones</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation>%1% descargado (clic para continuar)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
@@ -2492,6 +2495,7 @@
         <translation>Tamaño de descarga: %1</translation>
     </message>
     <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% descargado (Clic para pausar)</translation>
@@ -2550,7 +2554,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation>Solicitar notificación si el espejo de actualización del sistema ha sido modificado</translation>
+        <translation>Solicitar notificación si se modificó el espejo para la actualización del sistema</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="95"/>

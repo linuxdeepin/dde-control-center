@@ -77,19 +77,27 @@
     </message>
 </context>
 <context>
+    <name>NavModel</name>
+    <message>
+        <location filename="../plugins/navigation/navmodel.cpp" line="157"/>
+        <source>Navigation</source>
+        <translation>Навигација</translation>
+    </message>
+</context>
+<context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="184"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="183"/>
         <source>Yesterday</source>
         <translation>Јуче</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="187"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="186"/>
         <source>The day before yesterday</source>
         <translation>Прекључе</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="193"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="192"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
@@ -2422,16 +2430,6 @@
         <translation>Потрага за ажурирањима, молимо сачекајте...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
-        <source>%1 downloaded (Click to pause)</source>
-        <translation>%1 преузето (Клик за паузу)</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
-        <source>%1 downloaded (Click to continue)</source>
-        <translation>%1 преузето (Клик за наставак)</translation>
-    </message>
-    <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
         <source>Your system is up to date</source>
         <translation>Ваш систем је ажуран</translation>
@@ -2450,6 +2448,11 @@
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
         <translation>Преузми и инсталирај ажурирања</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation>%1% преузето (Клик за наставак)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
@@ -2492,6 +2495,7 @@
         <translation>Величина преузимања: %1</translation>
     </message>
     <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% преузето (Клик за паузу)</translation>
@@ -2550,12 +2554,12 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation type="unfinished"/>
+        <translation>Прикажи обавештење ако је сервер за ажурирање система промењен</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="95"/>
         <source>Switch Mirror</source>
-        <translation>Промени сервер ажурирања</translation>
+        <translation>Промени сервер</translation>
     </message>
 </context>
 <context>

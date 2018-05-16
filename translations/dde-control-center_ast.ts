@@ -77,19 +77,27 @@
     </message>
 </context>
 <context>
+    <name>NavModel</name>
+    <message>
+        <location filename="../plugins/navigation/navmodel.cpp" line="157"/>
+        <source>Navigation</source>
+        <translation>Navegación</translation>
+    </message>
+</context>
+<context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="184"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="183"/>
         <source>Yesterday</source>
         <translation>Ayeri</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="187"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="186"/>
         <source>The day before yesterday</source>
         <translation>Antayeri</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="193"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="192"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
@@ -2422,16 +2430,6 @@
         <translation>Comprobando anovamientos, espera por favor...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
-        <source>%1 downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
-        <source>%1 downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
         <source>Your system is up to date</source>
         <translation>El to sistema ta anováu</translation>
@@ -2450,6 +2448,11 @@
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
         <translation>Baxar ya instalar anovamientos</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
@@ -2492,6 +2495,7 @@
         <translation>Tamañu de descarga: %1</translation>
     </message>
     <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>Baxóse&apos;l %1% (clic pa posar)</translation>

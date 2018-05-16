@@ -77,21 +77,29 @@
     </message>
 </context>
 <context>
+    <name>NavModel</name>
+    <message>
+        <location filename="../plugins/navigation/navmodel.cpp" line="157"/>
+        <source>Navigation</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="184"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="183"/>
         <source>Yesterday</source>
         <translation>אתמול</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="187"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="186"/>
         <source>The day before yesterday</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="193"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="192"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -210,7 +218,7 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifyviewer.cpp" line="147"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -2422,16 +2430,6 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
-        <source>%1 downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
-        <source>%1 downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
         <source>Your system is up to date</source>
         <translation type="unfinished"/>
@@ -2449,6 +2447,11 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
         <source>Download and install updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
+        <source>%1% downloaded (Click to continue)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2474,12 +2477,12 @@
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="262"/>
@@ -2492,6 +2495,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation type="unfinished"/>
