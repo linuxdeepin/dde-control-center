@@ -54,6 +54,8 @@ void PluginsController::loadPlugins()
 
     for (const QString file : plugins)
     {
+        qApp->processEvents();
+
         if (!QLibrary::isLibrary(file))
             continue;
 
@@ -76,8 +78,6 @@ void PluginsController::loadPlugins()
         QWidget *w = interface->centralWidget();
         w->setVisible(false);
         emit pluginAdded(w);
-
-        QThread::msleep(500);
     }
 }
 
