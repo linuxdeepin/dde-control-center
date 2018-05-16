@@ -28,7 +28,7 @@ NotifyView::NotifyView(QWidget *parent) : QListView(parent)
     setMouseTracking(true);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setHorizontalScrollMode(QListView::ScrollPerPixel);
+    setVerticalScrollMode(QListView::ScrollPerPixel);
     setSpacing(0);
     setContentsMargins(0, 0, 0, 0);
     setUpdatesEnabled(true);
