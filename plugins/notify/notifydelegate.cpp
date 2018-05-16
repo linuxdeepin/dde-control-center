@@ -54,9 +54,21 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
         mRect.setX(mRect.x() + xOffset);
     }
 
-    // draw hover background
+    QFont timeFont = painter->font();
+    timeFont.setPixelSize(10);
+    QFontMetrics timeFM(timeFont);
+    int timeWidth = timeFM.boundingRect(strTime).width();
+    int timeHeight = timeFM.boundingRect(strTime).height();
+
     if (isHover) {
+        // draw hover background
         painter->fillRect(mRect, QColor(254, 254, 254, 0.13 * 255));
+    } else {
+        // draw time
+        QRect timeRect = QRect(mRect.x() + option.rect.width() - timeWidth - 10, mRect.y() + 10,
+                               timeWidth, timeHeight);
+        painter->setFont(timeFont);
+        painter->drawText(timeRect, strTime);
     }
 
     // draw icon
@@ -74,12 +86,14 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
     QFont sumFont = painter->font();
     sumFont.setPixelSize(10);
     QFontMetrics sumFM(sumFont);
-    int sumWidth = sumFM.boundingRect(strSum).width();
+//    int sumWidth = sumFM.boundingRect(strSum).width();
+    int sumWidth = option.rect.width() - iconRect.topRight().x() - timeWidth - 40;
     int sumHeight = sumFM.boundingRect(strSum).height();
     QRect sumRect = QRect(iconRect.topRight().x() + 10, mRect.y() + 10,
                            sumWidth, sumHeight);
     painter->setFont(sumFont);
-    painter->drawText(sumRect, strSum);
+    const QString &newStrSum = sumFM.elidedText(strSum, Qt::ElideRight, sumWidth);
+    painter->drawText(sumRect, newStrSum);
 
     // draw body
     QFont bodyFont = painter->font();
@@ -92,21 +106,6 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
     painter->setFont(bodyFont);
 //    QString newStrBody = bodyFM.elidedText(strBody, Qt::ElideRight, option.rect.width() / 3 * 2 * 2 - 20);
     painter->drawText(bodyRect, strBody);
-
-    // hide time when hover
-    if (isHover) {
-        return;
-    }
-    // draw time
-    QFont timeFont = painter->font();
-    timeFont.setPixelSize(10);
-    QFontMetrics timeFM(timeFont);
-    int timeWidth = timeFM.boundingRect(strTime).width();
-    int timeHeight = timeFM.boundingRect(strTime).height();
-    QRect timeRect = QRect(mRect.x() + option.rect.width() - timeWidth - 10, mRect.y() + 10,
-                           timeWidth, timeHeight);
-    painter->setFont(timeFont);
-    painter->drawText(timeRect, strTime);
 }
 
 QWidget *NotifyDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
