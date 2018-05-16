@@ -154,7 +154,7 @@ QString NavModel::transModuleName(const QString &moduleName)
     const int idx = moduleName.isEmpty() ? -1 : MODULES.indexOf(moduleName);
 
     if (idx == -1)
-        return QString("Navigation");
+        return tr("Navigation");
     else
         return QCoreApplication::translate(modules_scope[idx].toStdString().c_str(),
                                            modules_trans[idx].toStdString().c_str());

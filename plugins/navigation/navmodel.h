@@ -35,6 +35,8 @@ const QStringList MODULES = { "accounts", "display", "defapp", "personalization"
 
 class NavModel : public QAbstractTableModel
 {
+    Q_OBJECT
+
 public:
     enum NavDataRole{
         NavHoverRole = Qt::UserRole + 1,

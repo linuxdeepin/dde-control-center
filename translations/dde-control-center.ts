@@ -79,6 +79,14 @@
     </message>
 </context>
 <context>
+    <name>NavModel</name>
+    <message>
+        <location filename="../plugins/navigation/navmodel.cpp" line="157"/>
+        <source>Navigation</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NotifyDelegate</name>
     <message>
         <location filename="../plugins/notify/notifydelegate.cpp" line="184"/>
