@@ -60,7 +60,6 @@ signals:
 
 public slots:
     void addUser(User *user);
-    void removeUser(User *user);
 #ifdef DCC_ENABLE_ADDOMAIN
     void setADState(bool isJoin);
 

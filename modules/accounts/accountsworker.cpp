@@ -56,9 +56,9 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     pws = getpwuid(getuid());
     m_currentUserName = QString(pws->pw_name);
 
-    connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged);
-    connect(m_accountsInter, &Accounts::UserAdded, this, &AccountsWorker::addUser);
-    connect(m_accountsInter, &Accounts::UserDeleted, this, &AccountsWorker::removeUser);
+    connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged, Qt::QueuedConnection);
+    connect(m_accountsInter, &Accounts::UserAdded, this, &AccountsWorker::addUser, Qt::QueuedConnection);
+    connect(m_accountsInter, &Accounts::UserDeleted, this, &AccountsWorker::removeUser, Qt::QueuedConnection);
 
     connect(m_dmInter, &DisplayManager::SessionsChanged, this, &AccountsWorker::updateUserOnlineStatus);
 
@@ -225,7 +225,7 @@ void AccountsWorker::addUser(const QString &userPath)
 
     User *user = new User(this);
 
-    connect(userInter, &AccountsUser::UserNameChanged, [=](const QString &name) {
+    connect(userInter, &AccountsUser::UserNameChanged, user, [=](const QString &name) {
         user->setName(name);
         user->setOnline(m_onlineUsers.contains(name));
         user->setIsCurrentUser(name == m_currentUserName);
@@ -258,6 +258,7 @@ void AccountsWorker::removeUser(const QString &userPath)
         if (userInter->path() == userPath)
         {
             User *user = m_userInters.key(userInter);
+            user->deleteLater();
 
             m_userInters.remove(user);
             m_userModel->removeUser(userPath);

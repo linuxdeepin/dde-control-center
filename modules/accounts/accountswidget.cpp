@@ -86,22 +86,11 @@ void AccountsWidget::addUser(User *user)
     connect(user, &User::nameChanged, this, setName);
     connect(user, &User::fullnameChanged, this, setName);
     connect(user, &User::currentAvatarChanged, w, &UserOptionItem::setAvatar);
+    connect(user, &User::destroyed, this, [=] { m_userGroup->removeItem(w); w->deleteLater(); });
     connect(w, &NextPageWidget::clicked, [=] { emit showAccountsDetail(user); });
 
     setName();
     w->setAvatar(user->currentAvatar());
-}
-
-void AccountsWidget::removeUser(User *user)
-{
-    QList<NextPageWidget *> items = findChildren<NextPageWidget*>();
-    for (NextPageWidget *item : items) {
-        if (item->title() == user->name()) {
-            m_userGroup->removeItem(item);
-            item->deleteLater();
-            break;
-        }
-    }
 }
 
 #ifdef DCC_ENABLE_ADDOMAIN

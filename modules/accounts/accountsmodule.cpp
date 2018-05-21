@@ -106,7 +106,6 @@ ModuleWidget *AccountsModule::moduleWidget()
 
         connect(m_accountsWidget, &AccountsWidget::showAccountsDetail, this, &AccountsModule::showAccountsDetail);
         connect(m_userList, &UserModel::userAdded, m_accountsWidget, &AccountsWidget::addUser);
-        connect(m_userList, &UserModel::userRemoved, m_accountsWidget, &AccountsWidget::removeUser);
         connect(m_accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::showCreateAccountPage);
 #ifdef DCC_ENABLE_ADDOMAIN
         connect(m_userList, &UserModel::isJoinADDomainChanged, m_accountsWidget, &AccountsWidget::setADState);

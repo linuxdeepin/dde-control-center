@@ -65,11 +65,12 @@ void UserModel::addUser(const QString &id, User *user)
 
 void UserModel::removeUser(const QString &id)
 {
-    User * user = getUser(id);
+    Q_ASSERT(m_userList.contains(id));
+
+    User *user = m_userList[id];
     m_userList.remove(id);
 
-    if (user)
-        emit userRemoved(user);
+    emit userRemoved(user);
 }
 
 bool UserModel::contains(const QString &id)
