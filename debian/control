@@ -36,8 +36,8 @@ Depends: ${shlibs:Depends},
  xkb-data,
  deepin-installer-timezones,
  passwd
-Suggests: netselect,
- redshift
+Recommends: netselect
+Suggests: redshift
 Description: New control center for Deepin Desktop Environment
  DDE Control Center is the control panel of Deepin Desktop Environment.
 
