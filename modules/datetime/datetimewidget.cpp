@@ -63,7 +63,6 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
         m_lineEdit->setAccessibleName("TimeDay");
     }
 
-    m_lineEdit->setFixedWidth(40);
     m_lineEdit->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     setRange(minimum, maximum);
     m_lineEdit->installEventFilter(this);
