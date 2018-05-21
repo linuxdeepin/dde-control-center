@@ -405,7 +405,8 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
         return result;
     }
 
-    QDBusObjectPath path = m_accountsInter->CreateUser(user->name(), user->name(), 1);
+    // default FullName is empty string
+    QDBusObjectPath path = m_accountsInter->CreateUser(user->name(), QString(), 1);
     const QString userPath = path.path();
     if (userPath.isEmpty() || userPath.isNull()) {
         result->setType(CreationResult::UnknownError);
