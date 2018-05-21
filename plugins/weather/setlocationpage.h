@@ -105,7 +105,7 @@ private:
 
     QList<LocationProvider*> m_locationProviders;
 
-    LargeLabel *m_currentCityLabel;
+    QLabel *m_currentCityLabel;
     SearchInput *m_searchInput;
     SearchResultView *m_resultView;
     SearchDelegate *m_resultDelegate;

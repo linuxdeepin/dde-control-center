@@ -47,7 +47,10 @@ WeatherPlugin::WeatherPlugin(QObject *parent)
     layout->addWidget(locationPage);
 
     m_view->setLayout(layout);
-    m_view->setStyleSheet("background-color: rgba(255, 255, 255, .03);");
+    m_view->setObjectName("WeatherView");
+    m_view->setStyleSheet("WeatherView {"
+                          "background-color: rgba(255, 255, 255, .03);"
+                          "}");
 
     connect(weatherWidget, &WeatherWidget::locationButtonClicked, this, [this, layout, locationPage] {
         locationPage->reset();
