@@ -121,11 +121,7 @@ ContentWidget::ContentWidget(QWidget *parent)
         m_wheelAni->setDuration(ANIMATION_DUARTION);
     });
 
-    connect(m_contentArea->verticalScrollBar(), &QScrollBar::valueChanged, this, [=] {
-        if (m_scrollAni->state() != QPropertyAnimation::Running) {
-            emit wheelValueChanged();
-        }
-    });
+    connect(m_wheelAni, &QPropertyAnimation::valueChanged, this, &ContentWidget::wheelValueChanged);
 }
 
 void ContentWidget::setTitle(const QString &title)

@@ -349,8 +349,10 @@ void SettingsWidget::refershModuleActivable()
 void SettingsWidget::refreshNavigationbar()
 {
     const QRect containerRect = QRect(QPoint(), m_contentArea->size());
+    const QString currentModuleName = m_frame->currentModuleName();
 
     ModuleInterface *firstActiveModule = nullptr;
+    ModuleInterface *currentModule = nullptr;
     for (ModuleInterface *module : m_moduleInterfaces)
     {
         if (!m_moduleActivable.contains(module))
@@ -364,6 +366,9 @@ void SettingsWidget::refreshNavigationbar()
         if (!firstActiveModule && wRect.top() >= containerRect.top())
             firstActiveModule = module;
 
+        if (currentModuleName == module->name())
+            currentModule = module;
+
         if (m_moduleActivable[module] == activable)
             continue;
 
@@ -373,6 +378,9 @@ void SettingsWidget::refreshNavigationbar()
         else
             module->moduleDeactive();
     }
+
+    if (currentModule && m_moduleActivable[currentModule])
+        return;
 
     if (!firstActiveModule)
     {
