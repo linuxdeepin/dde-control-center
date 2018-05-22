@@ -65,6 +65,7 @@ void BrightnessPage::setModel(DisplayModel *model)
     m_nightMode->setVisible(redshiftIsValid);
     m_nightTips->setVisible(redshiftIsValid);
     m_nightMode->setChecked(model->isNightMode());
+    m_nightMode->setDisabled(model->redshiftSetting());
 }
 
 void BrightnessPage::initUI()
@@ -111,6 +112,7 @@ void BrightnessPage::initConnect()
     connect(m_displayModel, &DisplayModel::redshiftVaildChanged, m_nightTips, &TipsLabel::setVisible);
 
     connect(m_nightMode, &SwitchWidget::checkedChanged, this, &BrightnessPage::requestSetNightMode);
+    connect(m_displayModel, &DisplayModel::redshiftSettingChanged, m_nightMode, &SwitchWidget::setDisabled);
 }
 
 }

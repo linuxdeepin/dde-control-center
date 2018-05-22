@@ -40,6 +40,7 @@ bool contains(const QList<Resolution> &container, const Resolution &item)
 DisplayModel::DisplayModel(QObject *parent)
     : QObject(parent)
     , m_uiScale(1)
+    , m_redshiftSetting(false)
 {
 
 }
@@ -167,6 +168,15 @@ void DisplayModel::monitorRemoved(Monitor *mon)
     m_monitors.removeOne(mon);
 
     emit monitorListChanged();
+}
+
+void DisplayModel::setRedshiftSetting(bool redshiftSetting)
+{
+    if (m_redshiftSetting == redshiftSetting) return;
+
+    m_redshiftSetting = redshiftSetting;
+
+    emit redshiftSettingChanged(redshiftSetting);
 }
 
 bool DisplayModel::redshiftIsValid() const

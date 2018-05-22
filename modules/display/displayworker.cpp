@@ -344,7 +344,7 @@ void DisplayWorker::setUiScale(const double value)
 
 void DisplayWorker::setNightMode(const bool nightmode)
 {
-    QProcess process;
+    QProcess *process = new QProcess(this);
 
     QString cmd;
     QString serverCmd;
@@ -356,12 +356,18 @@ void DisplayWorker::setNightMode(const bool nightmode)
        serverCmd = "disable";
     }
 
-    process.startDetached("systemctl", QStringList() << "--user" << serverCmd << "redshift.service");
+    connect(process, static_cast<void (QProcess::*)(int exitCode)>(&QProcess::finished), this, [=] {
+        process->close();
+        process->deleteLater();
+        // reload
+        updateNightModeStatus();
+    });
 
-    process.startDetached("systemctl", QStringList() << "--user" << cmd << "redshift.service");
+    process->start("bash", QStringList() << "-c" << QString("systemctl --user %1 redshift.service && systemctl --user %2 redshift.service")
+                  .arg(serverCmd)
+                  .arg(cmd));
 
-    // reload
-    updateNightModeStatus();
+    m_model->setRedshiftSetting(true);
 }
 
 //void DisplayWorker::loadRotations(Monitor * const mon)
@@ -473,6 +479,7 @@ void DisplayWorker::updateNightModeStatus()
 
     connect(process, &QProcess::readyRead, this, [=] {
         m_model->setIsNightMode(process->readAll().replace("\n","") == "active");
+        m_model->setRedshiftSetting(false);
         process->close();
         process->deleteLater();
     });

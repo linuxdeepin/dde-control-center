@@ -63,6 +63,9 @@ public:
 
     bool redshiftIsValid() const;
 
+    inline bool redshiftSetting() const { return m_redshiftSetting; }
+    void setRedshiftSetting(bool redshiftSetting);
+
 signals:
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;
@@ -76,6 +79,7 @@ signals:
     void monitorListChanged() const;
     void nightModeChanged(const bool nightmode) const;
     void redshiftVaildChanged(const bool isvalid) const;
+    void redshiftSettingChanged(const bool setting) const;
 
 private slots:
     void setScreenHeight(const int h);
@@ -102,6 +106,7 @@ private:
     QList<Monitor *> m_monitors;
     bool m_isNightMode;
     bool m_redshiftIsValid;
+    bool m_redshiftSetting;
 };
 
 } // namespace display
