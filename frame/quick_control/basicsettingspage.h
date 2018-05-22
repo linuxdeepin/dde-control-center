@@ -96,6 +96,7 @@ public:
 
 public slots:
     void setMPRISEnable(const bool enable);
+    void setMPRISPictureEnable(const bool enable);
 
 private slots:
     void onMuteChanged(const bool &mute);

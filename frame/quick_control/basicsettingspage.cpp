@@ -249,6 +249,11 @@ void BasicSettingsPage::setMPRISEnable(const bool enable)
     onMPRISChanged();
 }
 
+void BasicSettingsPage::setMPRISPictureEnable(const bool enable)
+{
+    m_mprisWidget->setPictureVisible(enable);
+}
+
 void BasicSettingsPage::onMuteChanged(const bool &mute)
 {
     if (mute) {

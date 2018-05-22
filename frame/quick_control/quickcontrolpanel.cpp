@@ -195,6 +195,11 @@ void QuickControlPanel::setMPRISEnable(const bool enable)
     m_basicSettingsPage->setMPRISEnable(enable);
 }
 
+void QuickControlPanel::setMPRISPictureEnable(const bool enable)
+{
+    m_basicSettingsPage->setMPRISPictureEnable(enable);
+}
+
 void QuickControlPanel::leaveEvent(QEvent *e)
 {
     QWidget::leaveEvent(e);

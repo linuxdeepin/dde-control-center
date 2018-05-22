@@ -67,6 +67,7 @@ public:
 
     void setAllSettingsVisible(const bool visible);
     void setMPRISEnable(const bool enable);
+    void setMPRISPictureEnable(const bool enable);
 
 signals:
     void requestDetailConfig() const;
