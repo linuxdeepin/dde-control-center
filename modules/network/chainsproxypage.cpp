@@ -60,6 +60,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     m_password = new LineEditWidget;
     m_password->setTitle(tr("Password"));
     m_password->setPlaceholderText(tr("Optional"));
+    m_password->textEdit()->setEchoMode(QLineEdit::Password);
 
     SettingsGroup *grp = new SettingsGroup;
     grp->appendItem(m_proxyType);
