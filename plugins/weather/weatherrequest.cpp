@@ -111,6 +111,7 @@ void WeatherRequest::processWeatherServiceReply()
     m_items.clear();
 
     QByteArray ba = reply->readAll();
+    qDebug() << ba;
     QJsonArray items = QJsonDocument::fromJson(ba).array();
     for (QJsonValue val : items) {
         QJsonObject obj = val.toObject();
@@ -137,6 +138,8 @@ void WeatherRequest::processGeoNameIdReply()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply*>(sender());
     QByteArray ba = reply->readAll();
+
+    qDebug() << ba;
 
     QDomDocument domDocument;
     QString errorMsg;
