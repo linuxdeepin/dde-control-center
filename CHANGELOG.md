@@ -1,3 +1,14 @@
+<a name=""></a>
+##  4.4.4.3 (2018-05-23)
+
+
+#### Bug Fixes
+
+* **date:**  remove lineedit fixwidth ([f4718033](https://github.com/linuxdeepin/dde-control-center/commit/f4718033a182be5ea30c6fbc3017503bdb1e01f8))
+* **update:**  changelog can select ([ceb7b405](https://github.com/linuxdeepin/dde-control-center/commit/ceb7b4055db7e17ad52a353c779abec6e22a7108))
+
+
+
 <a name="4.4.4.2"></a>
 ## 4.4.4.2 (2018-05-14)
 
