@@ -113,6 +113,7 @@ private:
     const QScreen *screenForGeometry(const QRect &rect) const;
 
 private:
+    QPointer<QWidget> m_frameWrapper;
     QPointer<FrameContentWrapper> m_contentWrapper;
     QPointer<NavigationBar> m_navigationBar;
     QPointer<SettingsWidget> m_allSettingsPage;

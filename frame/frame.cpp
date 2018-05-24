@@ -40,6 +40,7 @@
 Frame::Frame(QWidget *parent)
     : DBlurEffectWidget(parent),
 
+      m_frameWrapper(new QWidget(this)),
       m_contentWrapper(new FrameContentWrapper(this)),
       m_allSettingsPage(nullptr),
       m_delayKillerTimer(new QTimer(this)),
@@ -84,7 +85,9 @@ Frame::Frame(QWidget *parent)
     centralLayout->setSpacing(0);
     centralLayout->setContentsMargins(0, 0, 0, 0);
 
-    setLayout(centralLayout);
+    m_frameWrapper->setLayout(centralLayout);
+    m_frameWrapper->setFixedWidth(FRAME_WIDTH);
+    m_frameWrapper->move(0, 0);
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_TranslucentBackground, true);
     setMaximumWidth(FRAME_WIDTH);
@@ -294,8 +297,10 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
     m_primaryRect = primaryRect;
 
     const qreal ratio = devicePixelRatioF();
+    const auto h = m_primaryRect.height() / ratio;
 
-    setFixedHeight(m_primaryRect.height() / ratio);
+    setFixedHeight(h);
+    m_frameWrapper->setFixedHeight(h);
 
     DBlurEffectWidget::move(m_primaryRect.right() / ratio - width() + 1, m_primaryRect.y());
 }
