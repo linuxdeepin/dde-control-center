@@ -88,5 +88,14 @@ void DatetimeModel::removeUserTimeZone(const ZoneInfo &zone)
     }
 }
 
+void DatetimeModel::setCurrentTimeZone(const ZoneInfo &currentTimeZone)
+{
+    if (m_currentTimeZone == currentTimeZone) return;
+
+    m_currentTimeZone = currentTimeZone;
+
+    emit currentTimeZoneChanged(currentTimeZone);
+}
+
 }
 }

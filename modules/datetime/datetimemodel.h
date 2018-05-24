@@ -50,12 +50,16 @@ public:
     QString systemTimeZoneId() const;
     void setSystemTimeZoneId(const QString &systemTimeZoneId);
 #endif
+    inline ZoneInfo currentTimeZone() const { return m_currentTimeZone; }
+    void setCurrentTimeZone(const ZoneInfo &currentTimeZone);
+
 signals:
     void NTPChanged(bool value);
     void userTimeZoneAdded(const ZoneInfo &zone);
     void userTimeZoneRemoved(const ZoneInfo &zone);
     void systemTimeZoneIdChanged(const QString &zone);
     void systemTimeChanged();
+    void currentTimeZoneChanged(const ZoneInfo &zone) const;
 
 private:
     bool m_ntp;
@@ -64,6 +68,7 @@ private:
     QString m_systemTimeZoneId;
 #endif
     QList<ZoneInfo> m_userTimeZones;
+    ZoneInfo m_currentTimeZone;
 };
 
 }

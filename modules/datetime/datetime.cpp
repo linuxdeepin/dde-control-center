@@ -130,9 +130,13 @@ void Datetime::setModel(const DatetimeModel *model)
 {
     m_model = model;
 
+
 #ifndef DCC_DISABLE_TIMEZONE
     connect(model, &DatetimeModel::userTimeZoneAdded, this, &Datetime::addTimezone);
     connect(model, &DatetimeModel::userTimeZoneRemoved, this, &Datetime::removeTimezone);
+
+#else
+    connect(model, &DatetimeModel::userTimeZoneAdded, m_clockItem, &ClockItem::setTimeZone);
 #endif
 
     // we need to update all the timezone items after the system time has changed.
@@ -152,6 +156,8 @@ void Datetime::setModel(const DatetimeModel *model)
     updateSystemTimezone(model->systemTimeZoneId());
 #endif
     m_ntpSwitch->setChecked(model->nTP());
+
+    m_clockItem->setTimeZone(m_model->currentTimeZone());
 }
 
 #ifndef DCC_DISABLE_TIMEZONE
