@@ -118,7 +118,10 @@ void ComboBoxWidget::onItemClicked()
     Q_ASSERT(item);
 
     if (item == m_lastSelectedItem)
+    {
+        emit m_contentPage->back();
         return;
+    }
 
     NextPageWidget::setValue(item->title());
 
@@ -131,6 +134,13 @@ void ComboBoxWidget::onItemClicked()
         m_lastSelectedItem->blockSignals(true);
         m_lastSelectedItem->setSelected(false);
         m_lastSelectedItem->blockSignals(false);
+    }
+
+    if (!item->selected())
+    {
+        item->blockSignals(true);
+        item->setSelected(true);
+        item->blockSignals(false);
     }
 
     m_lastSelectedItem = item;
