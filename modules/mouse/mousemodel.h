@@ -31,10 +31,6 @@
 
 namespace dcc {
 namespace mouse {
-class MouseModelBase;
-class MouseModelBaseSettings;
-class MouseModelMouseSettings;
-class MouseModelThinkpadSettings;
 class MouseModel : public QObject
 {
     Q_OBJECT
@@ -42,10 +38,6 @@ class MouseModel : public QObject
 public:
     explicit MouseModel(QObject *parent = 0);
     ~MouseModel();
-    MouseModelBaseSettings *getBaseSettings() const;
-    MouseModelMouseSettings *getMouseSettings() const;
-    MouseModelMouseSettings *getTouchSettings() const;
-    MouseModelThinkpadSettings *getTrackSettings() const;
 
     inline bool leftHandState() const { return m_leftHandState; }
     void setLeftHandState(const bool state);
@@ -118,10 +110,6 @@ signals:
     void scrollSpeedChanged(int speed);
 
 private:
-    MouseModelBaseSettings     *m_baseSettings;
-    MouseModelMouseSettings    *m_mouseSettings;
-    MouseModelMouseSettings    *m_touchSettings;
-    MouseModelThinkpadSettings *m_trackSettings;
     bool m_leftHandState;
     bool m_disIfTyping;
     bool m_tpadExist;
