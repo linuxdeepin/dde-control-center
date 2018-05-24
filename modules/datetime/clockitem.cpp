@@ -69,6 +69,8 @@ void ClockItem::setTimeZone(const ZoneInfo &zone)
     if (m_zoneInfo == zone) return;
 
     m_zoneInfo = zone;
+
+    updateDateTime();
 }
 
 void ClockItem::updateDateTime()

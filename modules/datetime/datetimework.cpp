@@ -48,12 +48,10 @@ static Timedate *timedateInter(QObject *parent = nullptr)
     return TimedateInter;
 }
 
-#ifndef DCC_DISABLE_TIMEZONE
 static ZoneInfo GetZoneInfo (const QString &zoneId)
 {
     return timedateInter()->GetZoneInfo(zoneId);
 }
-#endif
 
 DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     : QObject(parent),
@@ -67,6 +65,8 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     connect(m_timedateInter, &__Timedate::TimezoneChanged, m_model, &DatetimeModel::setSystemTimeZoneId);
 #endif
     connect(m_timedateInter, &__Timedate::NTPChanged, m_model, &DatetimeModel::setNTP);
+
+    m_model->setCurrentTimeZone(GetZoneInfo(QTimeZone::systemTimeZoneId()));
 }
 
 DatetimeWork::~DatetimeWork()
@@ -83,6 +83,7 @@ void DatetimeWork::activate()
     m_model->setSystemTimeZoneId(m_timedateInter->timezone());
     onTimezoneListChanged(m_timedateInter->userTimezones());
 #endif
+
 }
 
 void DatetimeWork::deactivate()
