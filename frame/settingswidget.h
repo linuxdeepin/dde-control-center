@@ -35,6 +35,7 @@
 #include <QMap>
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <QAtomicInt>
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -78,6 +79,8 @@ private:
     int m_moduleLoadDelay;
 
     Frame *m_frame;
+
+    QAtomicInt m_visibleQueueCount;
 
     QPushButton *m_resetBtn;
     QVBoxLayout *m_settingsLayout;

@@ -61,6 +61,7 @@ SettingsWidget::SettingsWidget(Frame *frame)
 
       m_moduleLoadDelay(0),
       m_frame(frame),
+      m_visibleQueueCount(0),
 
       m_resetBtn(new QPushButton),
       m_settingsLayout(new QVBoxLayout),
@@ -119,11 +120,17 @@ void SettingsWidget::setFrameAutoHide(ModuleInterface *const inter, const bool a
     qDebug() << "setFrameAutoHide: " << inter << inter->name() << autoHide;
 
     if (autoHide) {
+        --m_visibleQueueCount;
+    } else {
+        ++m_visibleQueueCount;
+    }
+
+    if (m_visibleQueueCount == 0) {
         QTimer::singleShot(100, this, [=] {
-            m_frame->setAutoHide(autoHide);
+            m_frame->setAutoHide(true);
         });
     } else {
-        m_frame->setAutoHide(autoHide);
+        m_frame->setAutoHide(false);
     }
 }
 
