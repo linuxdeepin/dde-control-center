@@ -1855,7 +1855,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="60"/>
         <source>Manual</source>
-        <translation>Вручную</translation>
+        <translation>Руководство</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="61"/>

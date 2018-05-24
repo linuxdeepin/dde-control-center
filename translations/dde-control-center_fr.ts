@@ -2452,7 +2452,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
+        <translation>%1% téléchargés (Cliquer pour continuer)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
