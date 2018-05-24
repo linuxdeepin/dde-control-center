@@ -75,11 +75,19 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
     QRect iconRect = QRect(mRect.x() + 10, mRect.y() + ((mRect.height() - IconSize.height()) / 2),
                            IconSize.width(), IconSize.height());
     QPixmap pix;
-    if (strIcon.isEmpty()) {
-        pix = notifyPixmap(CacheFolder + strId + ".png", painter->device());
-    } else {
-        pix = notifyPixmap(strIcon, painter->device());
+    QString iconUrl;
+
+    if (!strIcon.isEmpty()) {
+        const QUrl url(strIcon);
+        iconUrl = url.isLocalFile() ? url.toLocalFile() : url.url();
     }
+
+    if (!iconUrl.isEmpty() && QFile::exists(iconUrl)) {
+        pix = notifyPixmap(iconUrl, painter->device());
+    } else {
+        pix = notifyPixmap(CacheFolder + strId + ".png", painter->device());
+    }
+
     painter->drawPixmap(iconRect, pix);
 
     // draw summary
