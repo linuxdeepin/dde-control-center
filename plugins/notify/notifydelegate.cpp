@@ -82,7 +82,7 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
         iconUrl = url.isLocalFile() ? url.toLocalFile() : url.url();
     }
 
-    if (!iconUrl.isEmpty() && QFile::exists(iconUrl)) {
+    if (!iconUrl.isEmpty()) {
         pix = notifyPixmap(iconUrl, painter->device());
     } else {
         pix = notifyPixmap(CacheFolder + strId + ".png", painter->device());
@@ -92,28 +92,35 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
 
     // draw summary
     QFont sumFont = painter->font();
-    sumFont.setPixelSize(10);
+    sumFont.setPixelSize(11);
+
     QFontMetrics sumFM(sumFont);
-//    int sumWidth = sumFM.boundingRect(strSum).width();
-    int sumWidth = option.rect.width() - iconRect.topRight().x() - timeWidth - 40;
-    int sumHeight = sumFM.boundingRect(strSum).height();
-    QRect sumRect = QRect(iconRect.topRight().x() + 10, mRect.y() + 10,
-                           sumWidth, sumHeight);
+
+    QRect sumRect = option.rect;
+    sumRect.setLeft(iconRect.right() + 5);
+    sumRect.setTop(mRect.top() + 10);
+    sumRect.setRight(option.rect.right() - timeWidth - 40);
+    sumRect.setHeight(sumFM.height() * 1.2);
+
+    const QString &newStrSum = sumFM.elidedText(strSum, Qt::ElideRight, sumRect.width());
+
     painter->setFont(sumFont);
-    const QString &newStrSum = sumFM.elidedText(strSum, Qt::ElideRight, sumWidth);
     painter->drawText(sumRect, newStrSum);
 
     // draw body
     QFont bodyFont = painter->font();
     bodyFont.setPixelSize(13);
-    QFontMetrics bodyFM(bodyFont);
-//    int bodyWidth = bodyFM.boundingRect(strBody).width();
-    int bodyHeight = bodyFM.boundingRect(strBody).height();
-    QRect bodyRect = QRect(sumRect.topLeft().x(), mRect.y() + mRect.height() / 2 - bodyHeight,
-                           option.rect.width() - iconRect.bottomRight().x() - 40, option.rect.height() - sumHeight - 40);
+
+    QRect bodyRect = option.rect;
+    bodyRect.setLeft(sumRect.left());
+    bodyRect.setRight(sumRect.right());
+    bodyRect.setTop(sumRect.bottom() + 5);
+    bodyRect.setBottom(option.rect.bottom() - 5);
+
     painter->setFont(bodyFont);
-//    QString newStrBody = bodyFM.elidedText(strBody, Qt::ElideRight, option.rect.width() / 3 * 2 * 2 - 20);
-    painter->drawText(bodyRect, strBody);
+    const auto bodyElided = holdTextInRect(painter->fontMetrics(), strBody, bodyRect);
+
+    painter->drawText(bodyRect, bodyElided.first);
 }
 
 QWidget *NotifyDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -210,4 +217,28 @@ QString NotifyDelegate::notifyTime(const QString &t) const
     }
 
     return t;
+}
+
+const QPair<QString, bool> NotifyDelegate::holdTextInRect(const QFontMetrics &fm, const QString &text, const QRect &rect) const
+{
+    const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
+
+    if (rect.contains(fm.boundingRect(rect, textFlag, text)))
+        return QPair<QString, bool>(text, true);
+
+    QString str(text + "...");
+
+    while (true)
+    {
+        if (str.size() < 4)
+            break;
+
+        QRect boundingRect = fm.boundingRect(rect, textFlag, str);
+        if (rect.contains(boundingRect))
+            break;
+
+        str.remove(str.size() - 4, 1);
+    }
+
+    return QPair<QString, bool>(str, false);
 }
