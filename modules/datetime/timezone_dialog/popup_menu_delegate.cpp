@@ -33,13 +33,6 @@
 
 namespace installer {
 
-namespace {
-
-const int kBorderRadius = 5;
-const int kBorderDiameter = kBorderRadius * 2;
-
-}  // namespace
-
 PopupMenuDelegate::PopupMenuDelegate(QWidget* parent)
     : QStyledItemDelegate(parent) {
   this->setObjectName("popup_menu_delegate");

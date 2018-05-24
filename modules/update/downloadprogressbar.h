@@ -43,13 +43,13 @@ public:
     void setMessage(const QString &message);
     void setValue(const int progress);
 
-    inline const QString text() { return m_message; }
-    inline const int value() { return m_currentValue; }
-    inline int minimum() { return 0; }
-    inline int maximum() { return 100; }
+    inline const QString text() const { return m_message; }
+    inline int value() const { return m_currentValue; }
+    inline int minimum() const { return 0; }
+    inline int maximum() const { return 100; }
 
 protected:
-    void mouseReleaseEvent(QMouseEvent *e);
+    void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 signals:

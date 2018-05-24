@@ -67,7 +67,7 @@ WeatherPlugin::WeatherPlugin(QObject *parent)
         layout->setCurrentWidget(weatherWidget);
     });
 
-    connect(locationPage, &SetLocationPage::cancelled, this, [this, layout, weatherWidget] {
+    connect(locationPage, &SetLocationPage::cancelled, this, [=] {
         qDebug() << "cancelled setting city" ;
         layout->setCurrentWidget(weatherWidget);
     });

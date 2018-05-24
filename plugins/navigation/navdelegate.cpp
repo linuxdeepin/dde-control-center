@@ -38,9 +38,9 @@ void NavDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, c
 
     // draw background
     if (isHover) {
-        painter->fillRect(rect, QColor(255, 255, 255, 25.5));
+        painter->fillRect(rect, QColor(255, 255, 255, 25));
     } else {
-        painter->fillRect(rect, QColor(255, 255, 255, 7.65));
+        painter->fillRect(rect, QColor(255, 255, 255, 7));
     }
 
     QString moduleName = index.data(Qt::WhatsThisRole).toString();
