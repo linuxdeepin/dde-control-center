@@ -120,6 +120,11 @@ const QString JsonEncoding(const QString &str)
 ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     : ContentWidget(parent),
 
+      m_pageType(NormalEditPage),
+
+      m_networkModel(nullptr),
+      m_sessionModel(nullptr),
+
       m_disconnectBtn(new QPushButton),
       m_removeBtn(new QPushButton),
       m_exportBtn(new QPushButton),
@@ -201,6 +206,14 @@ void ConnectionEditPage::setModel(NetworkModel *networkModel, ConnectionSessionM
     onActiveStateChanged();
 
     m_recreateUITimer->start();
+}
+
+void ConnectionEditPage::setPageType(ConnectionEditPage::PageType type)
+{
+    m_pageType = type;
+
+    if (m_sessionModel)
+        onTypeChanged(m_sessionModel->type());
 }
 
 void ConnectionEditPage::onDeviceRemoved()
@@ -383,6 +396,10 @@ void ConnectionEditPage::onErrorsChanged(const NetworkErrors &errors)
 ///
 void ConnectionEditPage::onTypeChanged(const QString &type)
 {
+    // if in create connection page, don't show export button.
+    if (m_pageType == VPNCreatePage)
+        return m_exportBtn->setVisible(false);
+
     if (!type.startsWith("vpn"))
         return;
 

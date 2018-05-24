@@ -184,6 +184,7 @@ void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionP
     Q_ASSERT(m_editPage.isNull());
 
     m_editPage = new ConnectionEditPage;
+    m_editPage->setPageType(ConnectionEditPage::VPNCreatePage);
 
     ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_editPage);
     ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);

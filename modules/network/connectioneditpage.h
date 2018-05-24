@@ -56,11 +56,19 @@ class ConnectionEditPage : public ContentWidget
     Q_OBJECT
 
 public:
+
+    enum PageType
+    {
+        NormalEditPage,
+        VPNCreatePage,
+    };
+
     explicit ConnectionEditPage(QWidget *parent = 0);
     ~ConnectionEditPage();
 
     void setAssociatedDevice(NetworkDevice *dev) { m_associatedDevice = dev; }
     void setModel(NetworkModel *networkModel, ConnectionSessionModel *sessionModel);
+    void setPageType(PageType type);
 
 signals:
     void requestCancelSession();
@@ -98,6 +106,8 @@ private:
     void setItemRequired(widgets::SettingsItem *item);
 
 private:
+    PageType m_pageType;
+
     NetworkModel *m_networkModel;
     ConnectionSessionModel *m_sessionModel;
 
