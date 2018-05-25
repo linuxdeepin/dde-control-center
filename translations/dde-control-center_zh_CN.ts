@@ -2400,13 +2400,13 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
-        <source>%1 downloaded (Click to pause)</source>
-        <translation>已下载%1 （单击以暂停）</translation>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation>已下载%1% （单击以暂停）</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
-        <source>%1 downloaded (Click to continue)</source>
-        <translation>已下载%1 （单击以继续）</translation>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation>已下载%1% （单击以继续）</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
@@ -2467,11 +2467,6 @@
         <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
         <source>Download size: %1</source>
         <translation>下载大小：%1</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
-        <source>%1% downloaded (Click to pause)</source>
-        <translation>已下载%1%（点击暂停）</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
