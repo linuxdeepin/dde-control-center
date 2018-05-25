@@ -28,6 +28,7 @@
 
 #include <QObject>
 #include <QDate>
+#include <QDebug>
 
 class WeatherItem : public QObject
 {
@@ -56,6 +57,8 @@ public:
 
     QString description() const;
     void setDescription(const QString &description);
+
+    friend QDebug operator <<(QDebug debug, const WeatherItem &item);
 
 private:
     QString m_name;

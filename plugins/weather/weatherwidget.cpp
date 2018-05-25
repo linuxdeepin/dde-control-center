@@ -243,6 +243,7 @@ void WeatherWidget::refreshView(QList<WeatherItem> &items)
 {
     m_items.clear();
     m_items = items;
+    qDebug() << items;
     if(items.count() == 0)
     {
         m_view->show();

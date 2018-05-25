@@ -118,3 +118,14 @@ void WeatherItem::setDescription(const QString &description)
 {
     m_description = description;
 }
+
+QDebug operator <<(QDebug debug, const WeatherItem &item)
+{
+    return debug << QString("name:%1,description:%2,date:%3,temperature:{%4, %5},fahrenheit:%6")
+                    .arg(item.m_name)
+                    .arg(item.m_description)
+                    .arg(item.m_date.toString())
+                    .arg(item.m_temperature.first)
+                    .arg(item.m_temperature.second)
+                    .arg(item.m_fahrenheit);
+}

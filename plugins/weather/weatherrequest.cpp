@@ -48,6 +48,12 @@ static const QString KeyLocalizedName = "LocalizedName";
 static const QString KeyPreferredService = "PreferredService";
 static const QString KeyTemperatureFormat = "TemperatureFormat";
 
+static void errorCheck(const QString &funcInfo, const QNetworkReply::NetworkError &error) {
+    if (error != QNetworkReply::NoError) {
+        qDebug() << funcInfo << error;
+    }
+}
+
 WeatherRequest::WeatherRequest(QObject *parent) :
     QObject(parent),
     m_retryTimer(new QTimer(this)),
@@ -107,6 +113,7 @@ void WeatherRequest::setCity(const City &city)
 void WeatherRequest::processWeatherServiceReply()
 {
     QNetworkReply *reply = qobject_cast<QNetworkReply*>(sender());
+    errorCheck(Q_FUNC_INFO, reply->error());
 
     m_items.clear();
 
@@ -139,6 +146,8 @@ void WeatherRequest::processGeoNameIdReply()
     QNetworkReply *reply = qobject_cast<QNetworkReply*>(sender());
     QByteArray ba = reply->readAll();
 
+    errorCheck(Q_FUNC_INFO, reply->error());
+
     qDebug() << ba;
 
     QDomDocument domDocument;
@@ -168,6 +177,8 @@ void WeatherRequest::processGeoNameInfoReply()
     QNetworkReply *reply = qobject_cast<QNetworkReply*>(sender());
     QByteArray ba = reply->readAll();
 
+    errorCheck(Q_FUNC_INFO, reply->error());
+
     QDomDocument domDocument;
     QString errorMsg;
     if (!domDocument.setContent(ba, false, &errorMsg)) {
@@ -195,6 +206,8 @@ void WeatherRequest::processSearchCityReply()
 
     QNetworkReply *reply = qobject_cast<QNetworkReply*>(sender());
     QByteArray ba = reply->readAll();
+
+    errorCheck(Q_FUNC_INFO, reply->error());
 
     QDomDocument domDocument;
     QString errorMsg;
