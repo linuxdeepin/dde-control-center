@@ -199,6 +199,8 @@ void DisplayModule::showCustomSettings(const QString &config)
 
     MonitorSettingDialog dialog(m_displayModel);
 
+    m_frameProxy->setFrameAutoHide(this, false);
+
     connect(&dialog, &MonitorSettingDialog::requestMerge, m_displayWorker, &DisplayWorker::mergeScreens);
     connect(&dialog, &MonitorSettingDialog::requestSplit, m_displayWorker, &DisplayWorker::splitScreens);
     connect(&dialog, &MonitorSettingDialog::requestSetPrimary, m_displayWorker, &DisplayWorker::setPrimary);
@@ -221,6 +223,8 @@ void DisplayModule::showCustomSettings(const QString &config)
     }
 
     m_displayWorker->saveChanges();
+
+    m_frameProxy->setFrameAutoHide(this, true);
 }
 
 void DisplayModule::showRecognize()
