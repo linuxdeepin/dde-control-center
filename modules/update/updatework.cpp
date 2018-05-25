@@ -528,7 +528,7 @@ void UpdateWorker::onDownloadStatusChanged(const QString &status)
         if (!m_model->autoDownloadUpdates())
             distUpgradeInstallUpdates();
         else
-            checkForUpdates();
+            m_model->setStatus(UpdatesStatus::Downloaded);
     } else if (status == "paused") {
         m_model->setStatus(UpdatesStatus::DownloadPaused);
     } else if (status == "running") {
