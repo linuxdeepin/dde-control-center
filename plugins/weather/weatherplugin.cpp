@@ -48,7 +48,7 @@ WeatherPlugin::WeatherPlugin(QObject *parent)
 
     m_view->setLayout(layout);
     m_view->setObjectName("WeatherView");
-    m_view->setStyleSheet("WeatherView {"
+    m_view->setStyleSheet("#WeatherView {"
                           "background-color: rgba(255, 255, 255, .03);"
                           "}");
 
