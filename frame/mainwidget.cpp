@@ -70,6 +70,7 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     m_pluginsLayout->setMargin(0);
     m_pluginsLayout->setSpacing(0);
 
+#ifndef DISABLE_ACCOUNT
     // TODO: get dbus data
     const int uid = getuid();
     AccountsInter accountsInter("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this);
@@ -90,6 +91,7 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
         }
         inter->deleteLater();
     }
+#endif
 
     m_timeRefersh->setInterval(1000);
     m_timeRefersh->setSingleShot(false);

@@ -38,12 +38,9 @@ HEADERS    += \
     quick_control/display/displaycontrolmodel.h \
     quick_control/wifi/wifipage.h \
     quick_control/wifi/wifilistmodel.h \
-    quick_control/bluetooth/bluetoothlist.h \
-    quick_control/bluetooth/bluetoothlistmodel.h \
     quick_control/vpn/vpnlistdelegate.h \
     quick_control/wifi/wifilistdelegate.h \
     quick_control/display/displayitemdelegate.h \
-    quick_control/bluetooth/bluetoothdelegate.h \
     indicatorwidget.h \
     updatenotifier.h \
     navigationview.h \
@@ -70,12 +67,9 @@ SOURCES    += \
     quick_control/display/displaycontrolmodel.cpp \
     quick_control/wifi/wifipage.cpp \
     quick_control/wifi/wifilistmodel.cpp \
-    quick_control/bluetooth/bluetoothlist.cpp \
-    quick_control/bluetooth/bluetoothlistmodel.cpp \
     quick_control/vpn/vpnlistdelegate.cpp \
     quick_control/wifi/wifilistdelegate.cpp \
     quick_control/display/displayitemdelegate.cpp \
-    quick_control/bluetooth/bluetoothdelegate.cpp \
     indicatorwidget.cpp \
     updatenotifier.cpp \
     navigationview.cpp \
@@ -83,6 +77,18 @@ SOURCES    += \
     navigationdelegate.cpp \
     navigationbar.cpp \
     framecontentwrapper.cpp
+
+!isEqual(DISABLE_BLUETOOTH, YES) {
+HEADERS += \
+    quick_control/bluetooth/bluetoothlist.h \
+    quick_control/bluetooth/bluetoothlistmodel.h \
+    quick_control/bluetooth/bluetoothdelegate.h \
+
+SOURCES    += \
+    quick_control/bluetooth/bluetoothlist.cpp \
+    quick_control/bluetooth/bluetoothlistmodel.cpp \
+    quick_control/bluetooth/bluetoothdelegate.cpp \
+}
 
 #RESOURCES += \
 #    qss.qrc \

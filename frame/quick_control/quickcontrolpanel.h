@@ -49,13 +49,14 @@ class DisplayWorker;
 
 }
 
+#ifndef DISABLE_BLUETOOTH
 namespace bluetooth {
 
 class BluetoothModel;
 class BluetoothWorker;
 
 }
-
+#endif
 }
 
 class QuickControlPanel : public QWidget
@@ -81,9 +82,11 @@ private slots:
     void onNetworkDeviceListChanged();
     void onNetworkConnectionListChanged();
     void onWirelessButtonClicked();
+#ifndef DISABLE_BLUETOOTH
     void onBluetoothDeviceEnableChanged();
     void onBluetoothButtonClicked(const bool checked);
     void onBluetoothDeviceListChanged();
+#endif
     void onIndexChanged(const int index);
 
 private:
@@ -92,13 +95,18 @@ private:
     dcc::network::NetworkWorker *m_networkWorker;
     dcc::display::DisplayModel *m_displayModel;
     dcc::display::DisplayWorker *m_displayWorker;
+
+#ifndef DISABLE_BLUETOOTH
     dcc::bluetooth::BluetoothModel *m_bluetoothModel;
     dcc::bluetooth::BluetoothWorker *m_bluetoothWorker;
+#endif
 
     dcc::BasicSettingsPage *m_basicSettingsPage;
 
     dcc::QuickSwitchButton *m_wifiSwitch;
+#ifndef DISABLE_BLUETOOTH
     dcc::QuickSwitchButton *m_btSwitch;
+#endif
     dcc::QuickSwitchButton *m_vpnSwitch;
     dcc::QuickSwitchButton *m_detailSwitch;
     QList<dcc::QuickSwitchButton *> m_switchs;
