@@ -29,7 +29,6 @@
 #include "vpn/vpncontrolpage.h"
 #include "display/displaycontrolpage.h"
 #include "wifi/wifipage.h"
-#include "bluetooth/bluetoothlist.h"
 
 #include "network/networkmodel.h"
 #include "network/networkworker.h"
@@ -37,9 +36,12 @@
 #include "display/displaymodel.h"
 #include "display/displayworker.h"
 
+#ifndef DISABLE_BLUETOOTH
+#include "bluetooth/bluetoothlist.h"
 #include "bluetooth/bluetoothmodel.h"
 #include "bluetooth/bluetoothworker.h"
 #include "bluetooth/adapter.h"
+#endif
 
 #include <QVBoxLayout>
 
@@ -49,8 +51,11 @@ using dcc::network::NetworkWorker;
 using dcc::network::NetworkDevice;
 using dcc::display::DisplayModel;
 using dcc::display::DisplayWorker;
+
+#ifndef DISABLE_BLUETOOTH
 using dcc::bluetooth::BluetoothModel;
 using dcc::bluetooth::BluetoothWorker;
+#endif
 
 QuickControlPanel::QuickControlPanel(QWidget *parent)
     : QWidget(parent),
@@ -75,11 +80,13 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
 
     WifiPage *wifiPage = new WifiPage(m_networkModel);
 
+#ifndef DISABLE_BLUETOOTH
     m_bluetoothModel = new BluetoothModel(this);
     m_bluetoothWorker = new BluetoothWorker(m_bluetoothModel);
     m_bluetoothWorker->activate();
 
     BluetoothList *bluetoothList = new BluetoothList(m_bluetoothModel);
+#endif
 
     DisplayControlPage *displayPage = new DisplayControlPage(m_displayModel);
 
@@ -88,20 +95,26 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     m_basicSettingsPage = new BasicSettingsPage;
 
     m_itemStack->addWidget(m_basicSettingsPage);
+#ifndef DISABLE_BLUETOOTH
     m_itemStack->addWidget(bluetoothList);
+#endif
     m_itemStack->addWidget(vpnPage);
     m_itemStack->addWidget(wifiPage);
     m_itemStack->addWidget(displayPage);
 
+#ifndef DISABLE_BLUETOOTH
     m_btSwitch = new QuickSwitchButton(1, "bluetooth");
+#endif
     m_vpnSwitch = new QuickSwitchButton(2, "VPN");
     m_wifiSwitch = new QuickSwitchButton(3, "wifi");
 
     m_detailSwitch = new QuickSwitchButton(0, "all_settings");
     QuickSwitchButton *displaySwitch = new QuickSwitchButton(4, "display");
 
+#ifndef DISABLE_BLUETOOTH
     m_btSwitch->setObjectName("QuickSwitchBluetooth");
     m_btSwitch->setAccessibleName("QuickSwitchBluetooth");
+#endif
     m_vpnSwitch->setObjectName("QuickSwitchVPN");
     m_vpnSwitch->setAccessibleName("QuickSwitchVPN");
     m_wifiSwitch->setObjectName("QuickSwitchWiFi");
@@ -119,12 +132,16 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     m_detailSwitch->setVisible(false);
 
     m_switchs.append(m_detailSwitch);
+#ifndef DISABLE_BLUETOOTH
     m_switchs.append(m_btSwitch);
+#endif
     m_switchs.append(m_vpnSwitch);
     m_switchs.append(m_wifiSwitch);
     m_switchs.append(displaySwitch);
 
+#ifndef DISABLE_BLUETOOTH
     btnsLayout->addWidget(m_btSwitch);
+#endif
     btnsLayout->addWidget(m_vpnSwitch);
     btnsLayout->addWidget(m_wifiSwitch);
     btnsLayout->addWidget(displaySwitch);
@@ -132,7 +149,9 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     btnsLayout->addWidget(m_detailSwitch);
     btnsLayout->setContentsMargins(0, 0, 0, 0);
 
+#ifndef DISABLE_BLUETOOTH
     connect(m_btSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
+#endif
     connect(m_vpnSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
     connect(m_wifiSwitch, &QuickSwitchButton::hovered, m_itemStack, &QStackedLayout::setCurrentIndex);
 
@@ -147,9 +166,13 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(vpnPage, &VpnControlPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
     connect(vpnPage, &VpnControlPage::requestDisconnect, m_networkWorker, &NetworkWorker::deactiveConnection);
 
+
+#ifndef DISABLE_BLUETOOTH
     connect(m_btSwitch, &QuickSwitchButton::checkedChanged, this, &QuickControlPanel::onBluetoothButtonClicked);
     connect(m_bluetoothWorker, &BluetoothWorker::deviceEnableChanged, this, &QuickControlPanel::onBluetoothDeviceEnableChanged);
     connect(m_bluetoothModel, &BluetoothModel::adpaterListChanged, this, &QuickControlPanel::onBluetoothDeviceListChanged);
+#endif
+
     connect(m_networkModel, &NetworkModel::deviceEnableChanged, this, &QuickControlPanel::onNetworkDeviceEnableChanged);
     connect(m_networkModel, &NetworkModel::deviceListChanged, this, &QuickControlPanel::onNetworkDeviceListChanged);
     connect(m_wifiSwitch, &QuickSwitchButton::checkedChanged, this, &QuickControlPanel::onWirelessButtonClicked);
@@ -167,11 +190,14 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(displayPage, &DisplayControlPage::requestConfig, m_displayWorker, &DisplayWorker::switchConfig);
     connect(displayPage, &DisplayControlPage::requestCustom, [=] { emit requestPage("display", QString(), false); });
 
+
+#ifndef DISABLE_BLUETOOTH
     connect(bluetoothList, &BluetoothList::mouseLeaveView, this, [=] { m_itemStack->setCurrentIndex(0); });
     connect(bluetoothList, &BluetoothList::requestConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::connectDevice);
     connect(bluetoothList, &BluetoothList::requestDisConnect, m_bluetoothWorker, &bluetooth::BluetoothWorker::disconnectDevice);
     connect(bluetoothList, &BluetoothList::requestDetailPage, this, &QuickControlPanel::requestPage);
     connect(bluetoothList, &BluetoothList::requestAdapterDiscoverable, m_bluetoothWorker, &bluetooth::BluetoothWorker::setAdapterDiscoverable);
+#endif
 
     connect(m_itemStack, &QStackedLayout::currentChanged, this, &QuickControlPanel::onIndexChanged);
 
@@ -179,10 +205,12 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     m_vpnSwitch->setChecked(m_networkModel->vpnEnabled());
     onNetworkDeviceEnableChanged();
     onNetworkDeviceListChanged();
+
+#ifndef DISABLE_BLUETOOTH
     onNetworkConnectionListChanged();
     onBluetoothDeviceEnableChanged();
     onBluetoothDeviceListChanged();
-
+#endif
 }
 
 void QuickControlPanel::setAllSettingsVisible(const bool visible)
@@ -251,6 +279,7 @@ void QuickControlPanel::onWirelessButtonClicked()
     }
 }
 
+#ifndef DISABLE_BLUETOOTH
 void QuickControlPanel::onBluetoothDeviceEnableChanged()
 {
     QTimer::singleShot(100, this,[=]{
@@ -283,6 +312,7 @@ void QuickControlPanel::onBluetoothDeviceListChanged()
     m_btSwitch->setVisible(false);
     m_itemStack->setCurrentIndex(0);
 }
+#endif
 
 void QuickControlPanel::onIndexChanged(const int index)
 {
