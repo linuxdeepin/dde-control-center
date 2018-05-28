@@ -184,10 +184,13 @@ void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionP
     Q_ASSERT(m_editPage.isNull());
 
     m_editPage = new ConnectionEditPage;
-    m_editPage->setPageType(ConnectionEditPage::VPNCreatePage);
 
     ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_editPage);
     ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);
+
+    auto onDeletableChanged = [=] (const bool deletable) {
+        m_editPage->setPageType(deletable ? ConnectionEditPage::NormalEditPage : ConnectionEditPage::VPNCreatePage);
+    };
 
     m_editPage->setModel(m_model, sessionModel);
     connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
@@ -198,6 +201,10 @@ void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionP
     connect(m_editPage, &ConnectionEditPage::requestRemove, [=] { emit requestDeleteConnection(m_editingConnUuid); });
     connect(m_editPage, &ConnectionEditPage::requestDisconnect, [=] { emit requestDeactiveConnection(m_editingConnUuid); });
     connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
+    connect(sessionModel, &ConnectionSessionModel::deletableChanged, this, onDeletableChanged);
+
+    onDeletableChanged(sessionModel->deletable());
+
     emit requestNextPage(m_editPage);
 }
 
