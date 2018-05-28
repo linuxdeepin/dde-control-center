@@ -102,6 +102,7 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     m_currentTimeLbl->setObjectName("CurrentTimeLabel");
     m_currentTimeLbl->setFont(font);
     m_currentDateLbl->setObjectName("CurrentDateLabel");
+    m_currentDateLbl->setWordWrap(true);
 
     // Header
     TranslucentFrame *headerFrame = new TranslucentFrame;
