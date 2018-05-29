@@ -92,7 +92,7 @@ private slots:
     void initPlaceholderText(const NetworkErrors &errors);
 
     void onActiveStateChanged();
-    void onErrorsChanged(const NetworkErrors &errors);
+    void checkErrors();
     void onTypeChanged(const QString &type);
 
 private:
@@ -123,6 +123,7 @@ private:
     QPointer<NetworkDevice> m_associatedDevice;
     QPointer<ContentWidget> m_nextPage;
     QTimer *m_recreateUITimer;
+    QTimer *m_checkErrorsTimer;
 };
 
 }

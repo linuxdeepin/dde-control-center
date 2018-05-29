@@ -131,7 +131,8 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
       m_buttonTuple(new ButtonTuple),
       m_sectionsLayout(new QVBoxLayout),
 
-      m_recreateUITimer(new QTimer(this))
+      m_recreateUITimer(new QTimer(this)),
+      m_checkErrorsTimer(new QTimer(this))
 {
     m_sectionsLayout->setSpacing(10);
 
@@ -144,6 +145,8 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
 
     m_recreateUITimer->setSingleShot(true);
     m_recreateUITimer->setInterval(100);
+    m_checkErrorsTimer->setSingleShot(true);
+    m_checkErrorsTimer->setInterval(200);
 
     QPushButton *cancelBtn = m_buttonTuple->leftButton();
     QPushButton *acceptBtn = m_buttonTuple->rightButton();
@@ -171,7 +174,9 @@ ConnectionEditPage::ConnectionEditPage(QWidget *parent)
     connect(m_removeBtn, &QPushButton::clicked, this, [this] { emit requestRemove(m_sessionModel->uuid()); });
     connect(m_removeBtn, &QPushButton::clicked, this, &ConnectionEditPage::back);
     connect(m_exportBtn, &QPushButton::clicked, this, &ConnectionEditPage::exportConnConfig);
-    connect(m_recreateUITimer, &QTimer::timeout, this, &ConnectionEditPage::recreateUI);
+    connect(m_recreateUITimer, &QTimer::timeout, this, &ConnectionEditPage::recreateUI, Qt::QueuedConnection);
+    connect(m_checkErrorsTimer, &QTimer::timeout, this, &ConnectionEditPage::checkErrors, Qt::QueuedConnection);
+    connect(this, &ConnectionEditPage::requestChangeSettings, m_checkErrorsTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(this, &ConnectionEditPage::requestNextPage, [=](ContentWidget *w) { m_nextPage = w; });
 }
 
@@ -195,9 +200,9 @@ void ConnectionEditPage::setModel(NetworkModel *networkModel, ConnectionSessionM
 
     connect(m_networkModel, &NetworkModel::activeConnectionsChanged, this, &ConnectionEditPage::onActiveStateChanged);
     connect(m_sessionModel, &ConnectionSessionModel::keysChanged, m_recreateUITimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_sessionModel, &ConnectionSessionModel::errorsChanged, m_checkErrorsTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_sessionModel, &ConnectionSessionModel::deletableChanged, m_removeBtn, &QPushButton::setVisible);
     connect(m_sessionModel, &ConnectionSessionModel::visibleItemsChanged, this, &ConnectionEditPage::refershUI);
-    connect(m_sessionModel, &ConnectionSessionModel::errorsChanged, this, &ConnectionEditPage::onErrorsChanged);
     connect(m_sessionModel, &ConnectionSessionModel::saveFinished, this, &ConnectionEditPage::saveFinished);
     connect(m_sessionModel, &ConnectionSessionModel::uuidChanged, this, &ConnectionEditPage::onActiveStateChanged);
     connect(m_sessionModel, &ConnectionSessionModel::typeChanged, this, &ConnectionEditPage::onTypeChanged);
@@ -311,7 +316,7 @@ void ConnectionEditPage::refershUI()
     if (fw)
         fw->setFocus();
 
-    onErrorsChanged(m_sessionModel->errors());
+    m_checkErrorsTimer->start();
 }
 
 void ConnectionEditPage::exportConnConfig()
@@ -364,8 +369,12 @@ void ConnectionEditPage::initPlaceholderText(const NetworkErrors &errors)
     }
 }
 
-void ConnectionEditPage::onErrorsChanged(const NetworkErrors &errors)
+void ConnectionEditPage::checkErrors()
 {
+    Q_ASSERT(sender() == m_checkErrorsTimer);
+
+    const auto& errors = m_sessionModel->errors();
+
     // clear old errors
     for (const auto &v : m_optionWidgets)
         for (auto *i : v)
