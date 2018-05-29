@@ -97,9 +97,7 @@ Datetime::Datetime()
 
         m_dialog->hide();
     });
-    connect(m_dialog, &TimeZoneChooser::cancelled, this, [this] {
-        emit requestUnhold();
-    });
+    connect(m_dialog, &TimeZoneChooser::cancelled, this, &Datetime::requestUnhold);
 
     connect(m_addTimezoneButton, &QPushButton::clicked, this, [this] {
         m_addTimeZone = true;
@@ -183,8 +181,6 @@ void Datetime::addTimezone(const ZoneInfo &zone)
 
     m_zoneList << item;
 
-    emit requestUnhold();
-
     m_headItem->setVisible(m_zoneList.size() >= 2);
     m_headItem->setEditEnable(true);
 }
@@ -250,8 +246,6 @@ void Datetime::updateSystemTimezone(const QString &timezone)
     m_timezoneGroup->appendItem(m_headItem);
 
     addTimezones(m_model->userTimeZones());
-
-    emit requestUnhold();
 }
 
 void Datetime::onEditClicked(const bool &edit)
