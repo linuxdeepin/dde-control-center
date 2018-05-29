@@ -87,17 +87,17 @@
 <context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="183"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="198"/>
         <source>Yesterday</source>
         <translation>昨日</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="186"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="201"/>
         <source>The day before yesterday</source>
         <translation type="unfinished"/>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="192"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="207"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
@@ -131,27 +131,27 @@
 <context>
     <name>ReminderDialog</name>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="34"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Updates installed, need to restart, restart now?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
         <source>Please make sure all data have been saved firstly</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
         <translation>シャットダウン</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Reboot</source>
         <translation>再起動</translation>
     </message>
@@ -180,12 +180,12 @@
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="78"/>
+        <location filename="../frame/settingswidget.cpp" line="79"/>
         <source>Reset all settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="88"/>
+        <location filename="../frame/settingswidget.cpp" line="89"/>
         <source>All Settings</source>
         <translation>全体の設定</translation>
     </message>
@@ -356,12 +356,12 @@
         <translation>アカウント</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
         <translation type="unfinished"/>
     </message>
@@ -374,32 +374,32 @@
         <translation>画像</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="323"/>
         <source>Your host joins the domain server successfully.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="330"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="331"/>
         <source>Your host failed to leave the domain server.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="331"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="332"/>
         <source>Your host failed to join the domain server.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="335"/>
         <source>AD domain settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="404"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="405"/>
         <source>Password not match.</source>
         <translation type="unfinished"/>
     </message>
@@ -877,12 +877,12 @@
         <translation>明るさ</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="74"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
         <source>Night Shift</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="79"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="80"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
         <translation type="unfinished"/>
     </message>
@@ -913,7 +913,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="254"/>
+        <location filename="../modules/display/displaymodule.cpp" line="258"/>
         <source>Wireless Screen Projection</source>
         <translation type="unfinished"/>
     </message>
@@ -1330,62 +1330,11 @@
     </message>
 </context>
 <context>
-    <name>dcc::mouse::BaseSettings</name>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="52"/>
-        <source>Left Hand</source>
-        <translation>左手</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="53"/>
-        <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="63"/>
-        <source>Slow</source>
-        <translation>遅い</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="63"/>
-        <source>Fast</source>
-        <translation>速い</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="65"/>
-        <source>Double-click Speed</source>
-        <translation>ダブルクリックの速度</translation>
-    </message>
-</context>
-<context>
     <name>dcc::mouse::DouTestWidget</name>
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="44"/>
         <source>Double-click Test</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dcc::mouse::MouseSettings</name>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="50"/>
-        <source>Natural Scrolling</source>
-        <translation>ナチュラル・スクロール</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="54"/>
-        <source>Slow</source>
-        <translation>遅い</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="54"/>
-        <source>Fast</source>
-        <translation>速い</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="55"/>
-        <source>Pointer Speed</source>
-        <translation>ポインターの速度</translation>
     </message>
 </context>
 <context>
@@ -1424,11 +1373,6 @@
         <translation>ポインターの速度</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
-        <source>Scroll speed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>マウスを挿した時タッチパッドを無効にする</translation>
@@ -1446,6 +1390,11 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Scroll Speed</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1486,34 +1435,6 @@
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dcc::mouse::ThinkpadSettings</name>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="43"/>
-        <source>TrackPoint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="46"/>
-        <source>Thinkpad Track Point</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="49"/>
-        <source>Pointer Speed</source>
-        <translation>ポインターの速度</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="57"/>
-        <source>Slow</source>
-        <translation>遅い</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="57"/>
-        <source>Fast</source>
-        <translation>速い</translation>
     </message>
 </context>
 <context>
@@ -1561,17 +1482,17 @@
         <translation>パスワード</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="80"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="86"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -1587,33 +1508,33 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="133"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="139"/>
         <source>Disconnect</source>
         <translation>切断</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="135"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="141"/>
         <source>Delete</source>
         <translation>削除</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="137"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="143"/>
         <source>Export</source>
         <translation>エクスポート</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="153"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="146"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="154"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="490"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="573"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="516"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="599"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
@@ -1798,27 +1719,27 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="255"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="256"/>
         <source>Shared</source>
         <translation>共有</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="264"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="265"/>
         <source>Wireless Network Card%1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="269"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="270"/>
         <source>Wireless Network Card</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="270"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network</source>
         <translation>無線ネットワーク</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="265"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="266"/>
         <source>Wireless Network%1</source>
         <translation type="unfinished"/>
     </message>
@@ -1930,47 +1851,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="260"/>
+        <location filename="../modules/network/vpnpage.cpp" line="268"/>
         <source>Import Error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="262"/>
+        <location filename="../modules/network/vpnpage.cpp" line="270"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="287"/>
+        <location filename="../modules/network/vpnpage.cpp" line="295"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="290"/>
+        <location filename="../modules/network/vpnpage.cpp" line="298"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="293"/>
+        <location filename="../modules/network/vpnpage.cpp" line="301"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="296"/>
+        <location filename="../modules/network/vpnpage.cpp" line="304"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="299"/>
+        <location filename="../modules/network/vpnpage.cpp" line="307"/>
         <source>StrongSwan</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="302"/>
+        <location filename="../modules/network/vpnpage.cpp" line="310"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="327"/>
+        <location filename="../modules/network/vpnpage.cpp" line="335"/>
         <source>New VPN</source>
         <translation type="unfinished"/>
     </message>
@@ -2520,7 +2441,7 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../modules/update/updateitem.cpp" line="118"/>
+        <location filename="../modules/update/updateitem.cpp" line="119"/>
         <source>Details</source>
         <translation>削除</translation>
     </message>
@@ -2580,12 +2501,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="226"/>
+        <location filename="../modules/update/updatework.cpp" line="227"/>
         <source>Patches</source>
         <translation>パッチ</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="227"/>
+        <location filename="../modules/update/updatework.cpp" line="228"/>
         <source>System patches.</source>
         <translation type="unfinished"/>
     </message>

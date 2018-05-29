@@ -87,17 +87,17 @@
 <context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="183"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="198"/>
         <source>Yesterday</source>
         <translation>Včera</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="186"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="201"/>
         <source>The day before yesterday</source>
         <translation>Předevčírem</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="192"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="207"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
@@ -131,27 +131,27 @@
 <context>
     <name>ReminderDialog</name>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="34"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Updates installed, need to restart, restart now?</source>
         <translation>Aktualizace nainstalovány. Je potřeba provést opětovné spuštění. Restartovat nyní?</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
         <source>Please make sure all data have been saved firstly</source>
         <translation>Ujistěte se, prosím, že byla všechna data uložena</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
         <translation>Zrušit</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
         <translation>Vypnout</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Reboot</source>
         <translation>Restartovat</translation>
     </message>
@@ -180,12 +180,12 @@
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="78"/>
+        <location filename="../frame/settingswidget.cpp" line="79"/>
         <source>Reset all settings</source>
         <translation>Vrátit všechna nastavení znovu na výchozí</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="88"/>
+        <location filename="../frame/settingswidget.cpp" line="89"/>
         <source>All Settings</source>
         <translation>Všechna nastavení</translation>
     </message>
@@ -355,12 +355,12 @@
         <translation>Účty</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
         <translation>Připojit se k doméně</translation>
     </message>
@@ -373,32 +373,32 @@
         <translation>Obrázky</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="323"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>Váš počítač se k doménovému serveru připojuje úspěšně.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>Váš počítač byl z doménového serveru odstraněn úspěšně.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="330"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="331"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>Vašemu počítači se doménový server nepodařilo opustit.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="331"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="332"/>
         <source>Your host failed to join the domain server.</source>
         <translation>Vašemu počítači se k doménovému serveru nepodařilo připojit.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="335"/>
         <source>AD domain settings</source>
         <translation>Nastavení domény AD</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="404"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="405"/>
         <source>Password not match.</source>
         <translation>Heslo neodpovídá.</translation>
     </message>
@@ -876,12 +876,12 @@
         <translation>Jas</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="74"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
         <source>Night Shift</source>
         <translation>Noční posun</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="79"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="80"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
         <translation>Odstín obrazovky bude automaticky upraven s pomocí přijití na vaši polohu, aby byly chráněny vaše oči</translation>
     </message>
@@ -912,7 +912,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="254"/>
+        <location filename="../modules/display/displaymodule.cpp" line="258"/>
         <source>Wireless Screen Projection</source>
         <translation>Bezdrátové promítání na plátno</translation>
     </message>
@@ -1329,62 +1329,11 @@
     </message>
 </context>
 <context>
-    <name>dcc::mouse::BaseSettings</name>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="52"/>
-        <source>Left Hand</source>
-        <translation>Levá ruka</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="53"/>
-        <source>Disable the touchpad while typing</source>
-        <translation>Zakázat dotykovou plochu při psaní</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="63"/>
-        <source>Slow</source>
-        <translation>Pomalé</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="63"/>
-        <source>Fast</source>
-        <translation>Rychlé</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="65"/>
-        <source>Double-click Speed</source>
-        <translation>Rychlost dvojitého klepnutí levým tlačítkem myši</translation>
-    </message>
-</context>
-<context>
     <name>dcc::mouse::DouTestWidget</name>
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="44"/>
         <source>Double-click Test</source>
         <translation>Zkouška dvojitého klepnutí levým tlačítkem myši</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::mouse::MouseSettings</name>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="50"/>
-        <source>Natural Scrolling</source>
-        <translation>Přirozené posunování</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="54"/>
-        <source>Slow</source>
-        <translation>Pomalé</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="54"/>
-        <source>Fast</source>
-        <translation>Rychlé</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="55"/>
-        <source>Pointer Speed</source>
-        <translation>Rychlost ukazovátka</translation>
     </message>
 </context>
 <context>
@@ -1423,11 +1372,6 @@
         <translation>Rychlost ukazovátka</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
-        <source>Scroll speed</source>
-        <translation>Rychlost posunování</translation>
-    </message>
-    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Zakázat dotykovou plochu při připojení myši</translation>
@@ -1446,6 +1390,11 @@
         <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
         <translation>Dotyková plocha</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Scroll Speed</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
@@ -1485,34 +1434,6 @@
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation>Zakažte, prosím, volbu, pokud dotyková plocha po povolení nepracuje</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::mouse::ThinkpadSettings</name>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="43"/>
-        <source>TrackPoint</source>
-        <translation>Polohovací zařízení počítače</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="46"/>
-        <source>Thinkpad Track Point</source>
-        <translation>Polohovací zařízení počítače Thinkpad</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="49"/>
-        <source>Pointer Speed</source>
-        <translation>Rychlost ukazovátka</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="57"/>
-        <source>Slow</source>
-        <translation>Pomalé</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="57"/>
-        <source>Fast</source>
-        <translation>Rychlé</translation>
     </message>
 </context>
 <context>
@@ -1560,17 +1481,17 @@
         <translation>Heslo</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="80"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
         <translation>Zaškrtnout Otevřít v zastoupení související nabídky programu ve spouštěči, k použití po nastavení</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
         <source>Cancel</source>
         <translation>Zrušit</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="86"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -1586,33 +1507,33 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="133"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="139"/>
         <source>Disconnect</source>
         <translation>Odpojit</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="135"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="141"/>
         <source>Delete</source>
         <translation>Smazat</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="137"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="143"/>
         <source>Export</source>
         <translation>Vyvést</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="153"/>
         <source>Cancel</source>
         <translation>Zrušit</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="146"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="154"/>
         <source>Save</source>
         <translation>Uložit</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="490"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="573"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="516"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="599"/>
         <source>Required</source>
         <translation>Požadováno</translation>
     </message>
@@ -1797,27 +1718,27 @@
         <translation>Činný bod</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="255"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="256"/>
         <source>Shared</source>
         <translation>Sdíleno</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="264"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="265"/>
         <source>Wireless Network Card%1</source>
         <translation>Karta bezdrátové sítě %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="269"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="270"/>
         <source>Wireless Network Card</source>
         <translation>Karta bezdrátové sítě</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="270"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network</source>
         <translation>Bezdrátová síť</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="265"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="266"/>
         <source>Wireless Network%1</source>
         <translation>Bezdrátová síť %1</translation>
     </message>
@@ -1929,47 +1850,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="260"/>
+        <location filename="../modules/network/vpnpage.cpp" line="268"/>
         <source>Import Error</source>
         <translation>Chyba při zavádění</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="262"/>
+        <location filename="../modules/network/vpnpage.cpp" line="270"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="287"/>
+        <location filename="../modules/network/vpnpage.cpp" line="295"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="290"/>
+        <location filename="../modules/network/vpnpage.cpp" line="298"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="293"/>
+        <location filename="../modules/network/vpnpage.cpp" line="301"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="296"/>
+        <location filename="../modules/network/vpnpage.cpp" line="304"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="299"/>
+        <location filename="../modules/network/vpnpage.cpp" line="307"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="302"/>
+        <location filename="../modules/network/vpnpage.cpp" line="310"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="327"/>
+        <location filename="../modules/network/vpnpage.cpp" line="335"/>
         <source>New VPN</source>
         <translation>Nová VPN</translation>
     </message>
@@ -2519,7 +2440,7 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../modules/update/updateitem.cpp" line="118"/>
+        <location filename="../modules/update/updateitem.cpp" line="119"/>
         <source>Details</source>
         <translation>Podrobnosti</translation>
     </message>
@@ -2579,12 +2500,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="226"/>
+        <location filename="../modules/update/updatework.cpp" line="227"/>
         <source>Patches</source>
         <translation>Opravy</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="227"/>
+        <location filename="../modules/update/updatework.cpp" line="228"/>
         <source>System patches.</source>
         <translation>Opravy pro systém.</translation>
     </message>

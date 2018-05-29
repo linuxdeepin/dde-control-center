@@ -87,17 +87,17 @@
 <context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="183"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="198"/>
         <source>Yesterday</source>
         <translation>أمس</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="186"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="201"/>
         <source>The day before yesterday</source>
         <translation>أول أمس</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="192"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="207"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
@@ -131,27 +131,27 @@
 <context>
     <name>ReminderDialog</name>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="34"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Updates installed, need to restart, restart now?</source>
         <translation>تم تثبيت التحديثات ، تحتاج إلى إعادةالتشغيل ، إعادة التشغيل اﻵن ؟</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
         <source>Please make sure all data have been saved firstly</source>
         <translation>يرجى التأكد من حفظ جميع البيانات أولاَ</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
         <translation>إيقاف التشغيل</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Reboot</source>
         <translation>إعادة التشغيل</translation>
     </message>
@@ -180,12 +180,12 @@
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="78"/>
+        <location filename="../frame/settingswidget.cpp" line="79"/>
         <source>Reset all settings</source>
         <translation>إعادة ضبط كل الإعدادات</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="88"/>
+        <location filename="../frame/settingswidget.cpp" line="89"/>
         <source>All Settings</source>
         <translation>كل الإعدادات</translation>
     </message>
@@ -355,12 +355,12 @@
         <translation>الحسابات</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
         <translation>مغادرة النطاق</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
         <translation>دخول إلى النطاق</translation>
     </message>
@@ -373,32 +373,32 @@
         <translation>صور</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="323"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>انضم مضيفك إلى خادوم النطاقات بنجاح.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>أزيل مضيفك من خادوم النطاقات بنجاح.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="330"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="331"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>فشلت إزالة مضيفك من خادوم النطاقات.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="331"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="332"/>
         <source>Your host failed to join the domain server.</source>
         <translation>فشل انضمام مضيفك إلى خادوم النطاقات.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="335"/>
         <source>AD domain settings</source>
         <translation>إعدادات نطاق الدليل النشط</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="404"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="405"/>
         <source>Password not match.</source>
         <translation>كلمة المرور غير متطابقة.</translation>
     </message>
@@ -876,12 +876,12 @@
         <translation>السطوع</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="74"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
         <source>Night Shift</source>
         <translation>الوضع الليلي</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="79"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="80"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
         <translation>سيتم تعديل نغمة الشاشة تلقائيا بمساعدة من معرفة موقعك لحماية العينين</translation>
     </message>
@@ -912,7 +912,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="254"/>
+        <location filename="../modules/display/displaymodule.cpp" line="258"/>
         <source>Wireless Screen Projection</source>
         <translation>شاشة إسقاط لاسلكية</translation>
     </message>
@@ -1329,62 +1329,11 @@
     </message>
 </context>
 <context>
-    <name>dcc::mouse::BaseSettings</name>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="52"/>
-        <source>Left Hand</source>
-        <translation>اليد اليسرى</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="53"/>
-        <source>Disable the touchpad while typing</source>
-        <translation>تعطيل لوحة اللمس أثناء الكتابة</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="63"/>
-        <source>Slow</source>
-        <translation>بطيء</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="63"/>
-        <source>Fast</source>
-        <translation>سريع</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="65"/>
-        <source>Double-click Speed</source>
-        <translation>سرعة النقر المزدوج</translation>
-    </message>
-</context>
-<context>
     <name>dcc::mouse::DouTestWidget</name>
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="44"/>
         <source>Double-click Test</source>
         <translation>اختبار النقر المزدوج</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::mouse::MouseSettings</name>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="50"/>
-        <source>Natural Scrolling</source>
-        <translation>تمرير طبيعي</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="54"/>
-        <source>Slow</source>
-        <translation>بطيء</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="54"/>
-        <source>Fast</source>
-        <translation>سريع</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="55"/>
-        <source>Pointer Speed</source>
-        <translation>سرعة المؤشر</translation>
     </message>
 </context>
 <context>
@@ -1423,11 +1372,6 @@
         <translation>سرعة المؤشر</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
-        <source>Scroll speed</source>
-        <translation>سرعة التمرير</translation>
-    </message>
-    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>تعطيل لوحة اللمس عند إدخال الفأرة</translation>
@@ -1446,6 +1390,11 @@
         <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
         <translation>لوحة اللمس</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Scroll Speed</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
@@ -1485,34 +1434,6 @@
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation>يُرجى تعطيل الخيار إن لم تعمل لوحة اللمس بعد التمكين.</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::mouse::ThinkpadSettings</name>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="43"/>
-        <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="46"/>
-        <source>Thinkpad Track Point</source>
-        <translation>Thinkpad Track Point</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="49"/>
-        <source>Pointer Speed</source>
-        <translation>سرعة المؤشر</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="57"/>
-        <source>Slow</source>
-        <translation>بطيء</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="57"/>
-        <source>Fast</source>
-        <translation>سريع</translation>
     </message>
 </context>
 <context>
@@ -1560,17 +1481,17 @@
         <translation>كلمة المرور</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="80"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
         <translation>تحقق من &quot;فتح بواسطة بروكسي&quot; من قائمة سياق التطبيق في المشغل لاستخدامها بعد الإعداد</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="86"/>
         <source>OK</source>
         <translation>موافق</translation>
     </message>
@@ -1586,33 +1507,33 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="133"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="139"/>
         <source>Disconnect</source>
         <translation>قطع الاتصال</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="135"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="141"/>
         <source>Delete</source>
         <translation>حذف</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="137"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="143"/>
         <source>Export</source>
         <translation>تصدير</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="153"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="146"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="154"/>
         <source>Save</source>
         <translation>حفظ</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="490"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="573"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="516"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="599"/>
         <source>Required</source>
         <translation>مطلوب</translation>
     </message>
@@ -1797,27 +1718,27 @@
         <translation>نقطة الإتصال</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="255"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="256"/>
         <source>Shared</source>
         <translation>مشترك</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="264"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="265"/>
         <source>Wireless Network Card%1</source>
         <translation>بطاقة الشبكة اللاسلكية %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="269"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="270"/>
         <source>Wireless Network Card</source>
         <translation>بطاقة الشبكة اللاسلكية</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="270"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network</source>
         <translation>شبكة لاسلكية</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="265"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="266"/>
         <source>Wireless Network%1</source>
         <translation>شبكة لاسلكية %1</translation>
     </message>
@@ -1929,47 +1850,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="260"/>
+        <location filename="../modules/network/vpnpage.cpp" line="268"/>
         <source>Import Error</source>
         <translation>خطأ في الإستيراد</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="262"/>
+        <location filename="../modules/network/vpnpage.cpp" line="270"/>
         <source>OK</source>
         <translation>موافق</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="287"/>
+        <location filename="../modules/network/vpnpage.cpp" line="295"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="290"/>
+        <location filename="../modules/network/vpnpage.cpp" line="298"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="293"/>
+        <location filename="../modules/network/vpnpage.cpp" line="301"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="296"/>
+        <location filename="../modules/network/vpnpage.cpp" line="304"/>
         <source>OpenVPN</source>
         <translation>OpenVPN </translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="299"/>
+        <location filename="../modules/network/vpnpage.cpp" line="307"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="302"/>
+        <location filename="../modules/network/vpnpage.cpp" line="310"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="327"/>
+        <location filename="../modules/network/vpnpage.cpp" line="335"/>
         <source>New VPN</source>
         <translation>VPN جديد</translation>
     </message>
@@ -2453,7 +2374,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
+        <translation>%1% تم تحميله (أنقر للإستمرار)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
@@ -2473,7 +2394,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>
         <source>Insufficient disk space, unable to update system.</source>
-        <translation type="unfinished"/>
+        <translation>لا توجد مساحة كافية , غير قادر على تحديث النظام.</translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
@@ -2520,7 +2441,7 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../modules/update/updateitem.cpp" line="118"/>
+        <location filename="../modules/update/updateitem.cpp" line="119"/>
         <source>Details</source>
         <translation>التفاصيل</translation>
     </message>
@@ -2555,7 +2476,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation type="unfinished"/>
+        <translation>تنبيه عاجل إذا تم تغيير سيرفر تحديث النظام</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="95"/>
@@ -2580,12 +2501,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="226"/>
+        <location filename="../modules/update/updatework.cpp" line="227"/>
         <source>Patches</source>
         <translation>تصحيحات</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="227"/>
+        <location filename="../modules/update/updatework.cpp" line="228"/>
         <source>System patches.</source>
         <translation>تصحيحات النظام.</translation>
     </message>

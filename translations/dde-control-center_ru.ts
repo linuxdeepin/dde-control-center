@@ -87,17 +87,17 @@
 <context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="183"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="198"/>
         <source>Yesterday</source>
         <translation>Вчера</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="186"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="201"/>
         <source>The day before yesterday</source>
         <translation>Позавчера</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="192"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="207"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>%n день(ей) назад</numerusform><numerusform>%n день(ей) назад</numerusform><numerusform>%n день(ей) назад</numerusform><numerusform>%n день(ей) назад</numerusform></translation>
     </message>
@@ -131,27 +131,27 @@
 <context>
     <name>ReminderDialog</name>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="34"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Updates installed, need to restart, restart now?</source>
         <translation>Обновления установлены, необходимо перезагрузить, перезагрузить сейчас?</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
         <source>Please make sure all data have been saved firstly</source>
         <translation>Сначала убедитесь, что все данные были сохранены </translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
         <translation>Выключить</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
+        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Reboot</source>
         <translation>Перезагрузить</translation>
     </message>
@@ -180,12 +180,12 @@
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="78"/>
+        <location filename="../frame/settingswidget.cpp" line="79"/>
         <source>Reset all settings</source>
         <translation>Сбросить все настройки</translation>
     </message>
     <message>
-        <location filename="../frame/settingswidget.cpp" line="88"/>
+        <location filename="../frame/settingswidget.cpp" line="89"/>
         <source>All Settings</source>
         <translation>Все настройки</translation>
     </message>
@@ -355,12 +355,12 @@
         <translation>Учетные записи</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
         <translation>Покинуть Домен</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="110"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
         <translation>Присоединить домен</translation>
     </message>
@@ -373,32 +373,32 @@
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="323"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>Ваш хост успешно присоединился к домену сервера.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="321"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>Ваш хост успешно удален из сервера домена.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="330"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="331"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>Ваш хост не смог покинуть сервер домена.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="331"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="332"/>
         <source>Your host failed to join the domain server.</source>
         <translation>Ваш хост не смог присоединиться к серверу домена.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="335"/>
         <source>AD domain settings</source>
         <translation>Настройки домена AD</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="404"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="405"/>
         <source>Password not match.</source>
         <translation>Пароль не совпадает.</translation>
     </message>
@@ -876,12 +876,12 @@
         <translation>Яркость</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="74"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
         <source>Night Shift</source>
         <translation>Ночной Сдвиг</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="79"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="80"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
         <translation>Тональный сигнал экрана будет автоматически отрегулирован с помощью определения местоположения для защиты глаз</translation>
     </message>
@@ -912,7 +912,7 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="254"/>
+        <location filename="../modules/display/displaymodule.cpp" line="258"/>
         <source>Wireless Screen Projection</source>
         <translation>Беспроводной Проекционный Экран</translation>
     </message>
@@ -1329,62 +1329,11 @@
     </message>
 </context>
 <context>
-    <name>dcc::mouse::BaseSettings</name>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="52"/>
-        <source>Left Hand</source>
-        <translation>Левая рука</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="53"/>
-        <source>Disable the touchpad while typing</source>
-        <translation>Отключать сенсорную панель когда печатаю</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="63"/>
-        <source>Slow</source>
-        <translation>Медленно</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="63"/>
-        <source>Fast</source>
-        <translation>Быстро</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/basesettings.cpp" line="65"/>
-        <source>Double-click Speed</source>
-        <translation>Скорость двойного клика</translation>
-    </message>
-</context>
-<context>
     <name>dcc::mouse::DouTestWidget</name>
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="44"/>
         <source>Double-click Test</source>
         <translation>Дважды щелкните для Тестирования</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::mouse::MouseSettings</name>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="50"/>
-        <source>Natural Scrolling</source>
-        <translation>Естественная Прокрутка</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="54"/>
-        <source>Slow</source>
-        <translation>Медленно</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="54"/>
-        <source>Fast</source>
-        <translation>Быстро</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/mousesettings.cpp" line="55"/>
-        <source>Pointer Speed</source>
-        <translation>Скорость Указателя</translation>
     </message>
 </context>
 <context>
@@ -1423,11 +1372,6 @@
         <translation>Скорость Указателя</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
-        <source>Scroll speed</source>
-        <translation>Скорость прокрутки</translation>
-    </message>
-    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Отключать тачпад при подключении мыши</translation>
@@ -1446,6 +1390,11 @@
         <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
         <translation>Сенсорная панель</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Scroll Speed</source>
+        <translation>Скорость Прокрутки</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
@@ -1485,34 +1434,6 @@
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation>Отключите эту опцию, если тачпад не работает после включения</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::mouse::ThinkpadSettings</name>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="43"/>
-        <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="46"/>
-        <source>Thinkpad Track Point</source>
-        <translation>Thinkpad Track Point</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="49"/>
-        <source>Pointer Speed</source>
-        <translation>Скорость указателя</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="57"/>
-        <source>Slow</source>
-        <translation>Медленно</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/widget/thinkpadsettings.cpp" line="57"/>
-        <source>Fast</source>
-        <translation>Быстро</translation>
     </message>
 </context>
 <context>
@@ -1560,17 +1481,17 @@
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="79"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="80"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
         <translation>Установите флажок «Открыть через прокси» контекстного меню приложения в Выборе Программ для использования после настройки</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="84"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="86"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -1586,33 +1507,33 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="133"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="139"/>
         <source>Disconnect</source>
         <translation>Отключить</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="135"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="141"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="137"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="143"/>
         <source>Export</source>
         <translation>Экспорт</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="153"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="146"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="154"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="490"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="573"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="516"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="599"/>
         <source>Required</source>
         <translation>Требуется</translation>
     </message>
@@ -1797,27 +1718,27 @@
         <translation>Точка доступа</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="255"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="256"/>
         <source>Shared</source>
         <translation>Общий</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="264"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="265"/>
         <source>Wireless Network Card%1</source>
         <translation>Беспроводная Карта%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="269"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="270"/>
         <source>Wireless Network Card</source>
         <translation>Беспроводная Карта</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="270"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network</source>
         <translation>Беспроводная Сеть</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="265"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="266"/>
         <source>Wireless Network%1</source>
         <translation>Беспроводная Сеть%1</translation>
     </message>
@@ -1929,47 +1850,47 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="260"/>
+        <location filename="../modules/network/vpnpage.cpp" line="268"/>
         <source>Import Error</source>
         <translation>Ошибка Импорта</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="262"/>
+        <location filename="../modules/network/vpnpage.cpp" line="270"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="287"/>
+        <location filename="../modules/network/vpnpage.cpp" line="295"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="290"/>
+        <location filename="../modules/network/vpnpage.cpp" line="298"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="293"/>
+        <location filename="../modules/network/vpnpage.cpp" line="301"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="296"/>
+        <location filename="../modules/network/vpnpage.cpp" line="304"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="299"/>
+        <location filename="../modules/network/vpnpage.cpp" line="307"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="302"/>
+        <location filename="../modules/network/vpnpage.cpp" line="310"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="327"/>
+        <location filename="../modules/network/vpnpage.cpp" line="335"/>
         <source>New VPN</source>
         <translation>Новый VPN</translation>
     </message>
@@ -2519,7 +2440,7 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../modules/update/updateitem.cpp" line="118"/>
+        <location filename="../modules/update/updateitem.cpp" line="119"/>
         <source>Details</source>
         <translation>Подробнее</translation>
     </message>
@@ -2579,12 +2500,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="226"/>
+        <location filename="../modules/update/updatework.cpp" line="227"/>
         <source>Patches</source>
         <translation>Патчи</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="227"/>
+        <location filename="../modules/update/updatework.cpp" line="228"/>
         <source>System patches.</source>
         <translation>Исправления Системы</translation>
     </message>
