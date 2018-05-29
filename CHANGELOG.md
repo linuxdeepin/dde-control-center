@@ -1,3 +1,23 @@
+<a name="4.5.1"></a>
+### 4.5.1 (2018-05-29)
+
+
+#### Bug Fixes
+
+* **Network:**  not update vpn type ([459bb57e](https://github.com/linuxdeepin/dde-control-center/commit/459bb57e5d7d8b48b344b16d472d9cdfe31cd93a))
+* **datetime:**  system time zone not initialize ([b7e25c08](https://github.com/linuxdeepin/dde-control-center/commit/b7e25c08b2a6554c799ae810057cbd1a295c8d6b))
+* **display:**  set frame auto hide when multiple screen setting dialog show ([f0a333f8](https://github.com/linuxdeepin/dde-control-center/commit/f0a333f880ad0cfab8c9b9c795edf7eb910bca51))
+* **frame:**  datetime label not word wrap ([1252dd6a](https://github.com/linuxdeepin/dde-control-center/commit/1252dd6ad110cf1c72a96cbb1663c9150fdd740a))
+* **live:**  Failure of live system compilation ([8149c9a6](https://github.com/linuxdeepin/dde-control-center/commit/8149c9a6956b04ca01af799b9e58ec43c407d872))
+* **weather:**  draw background color ([86ecce5e](https://github.com/linuxdeepin/dde-control-center/commit/86ecce5e2fcf91861e483850602d9b5231c7e470))
+
+#### Features
+
+* **frame:**  use QAtomInt to set frame visible ([c6583e38](https://github.com/linuxdeepin/dde-control-center/commit/c6583e38a37e5e93ca3523356976786bffa203b2))
+* **weather:**  print all weather info ([62fde1bd](https://github.com/linuxdeepin/dde-control-center/commit/62fde1bd6b2aa041d41e283696f2e080e0589d11))
+
+
+
 <a name=""></a>
 ##  4.5.0 (2018-05-24)
 
