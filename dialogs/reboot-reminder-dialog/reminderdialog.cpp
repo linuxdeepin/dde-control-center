@@ -27,6 +27,7 @@
 
 #include <QApplication>
 #include <QDesktopWidget>
+#include <QScreen>
 
 #include <QDebug>
 
@@ -80,14 +81,25 @@ Manager::Manager() :
 
 void Manager::setupDialog()
 {
-    const QDesktopWidget *desktop = QApplication::desktop();
-    const QPoint cursorPoint = QCursor::pos();
-    const QRect geom = desktop->screenGeometry(cursorPoint);
+    const auto ratio = qApp->devicePixelRatio();
+    const QPoint cp(QCursor::pos());
 
-    if (!m_dialog)
-        m_dialog = new ReminderDialog(geom);
-    else
-        m_dialog->setScreenGeometry(geom);
+    for (const auto *s : qApp->screens()) {
+        const QRect &g = s->geometry();
+        const QRect realRect(g.topLeft() / ratio, g.size());
+
+        // Without using the processed geometry and mouse coordinates,
+        // the results can be obtained using the original information.
+        // If the original screen contains the original mouse, save the scaled geometry.
+        if (g.contains(cp)) {
+            if (!m_dialog)
+                m_dialog = new ReminderDialog(realRect);
+            else
+                m_dialog->setScreenGeometry(realRect);
+
+            break;
+        }
+    }
 }
 
 void Manager::showDialog()
