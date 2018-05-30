@@ -1,3 +1,13 @@
+<a name="4.5.2"></a>
+### 4.5.2 (2018-05-30)
+
+
+#### Bug Fixes
+
+* **datetime:**  delete signals that do not need to be send ([3d75c6aa](https://github.com/linuxdeepin/dde-control-center/commit/3d75c6aa3f575221a7467549e3837eff4b604399))
+
+
+
 <a name="4.5.1"></a>
 ### 4.5.1 (2018-05-29)
 
