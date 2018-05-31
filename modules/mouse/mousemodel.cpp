@@ -66,7 +66,7 @@ void MouseModel::setLeftHandState(const bool state)
 
 void MouseModel::setDisIfTyping(const bool state)
 {
-    if (m_disIfTyping != state)
+    if (m_disIfTyping == state)
         return;
 
     m_disIfTyping = state;

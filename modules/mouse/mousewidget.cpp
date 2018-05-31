@@ -186,6 +186,7 @@ void MouseWidget::setModel(MouseModel *const model)
     m_disTchStn->setChecked(model->disTpad());
     m_touchClickStn->setChecked(model->tapclick());
     m_leftHand->setChecked(model->leftHandState());
+    m_disInTyping->setChecked(model->disIfTyping());
 }
 
 void MouseWidget::onTouchpadHideChanged(const bool visible)
