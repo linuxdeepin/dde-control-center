@@ -1,3 +1,15 @@
+<a name="4.5.3"></a>
+### 4.5.3 (2018-05-31)
+
+
+#### Bug Fixes
+
+*   use new functions in new Qt ([170602e2](https://github.com/linuxdeepin/dde-control-center/commit/170602e250db333dd55c588a0c3227fb7766d870))
+* **datetime:**  not hide frame casue dialog confirmed ([d80f1804](https://github.com/linuxdeepin/dde-control-center/commit/d80f18049a5de2136a19474e3c2ce6ca510ddd48))
+* **keyboard:**  error set DisableIfTyping value ([270c52ae](https://github.com/linuxdeepin/dde-control-center/commit/270c52aef938cc714eea93c78f9450552ce2fd6e))
+
+
+
 <a name="4.5.2"></a>
 ### 4.5.2 (2018-05-30)
 
