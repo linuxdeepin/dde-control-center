@@ -96,6 +96,7 @@ Datetime::Datetime()
         }
 
         m_dialog->hide();
+        emit requestUnhold();
     });
     connect(m_dialog, &TimeZoneChooser::cancelled, this, &Datetime::requestUnhold);
 
