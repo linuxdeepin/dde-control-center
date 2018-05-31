@@ -181,7 +181,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     }
 }
 
-void NetworkModuleWidget::onDevStatusChanged(const QString &statString)
+void NetworkModuleWidget::onDevStatusChanged()
 {
     NetworkDevice *dev = static_cast<NetworkDevice *>(sender());
     NextPageWidget *w = m_devicesWidgets.key(dev);
@@ -196,7 +196,7 @@ void NetworkModuleWidget::onDevStatusChanged(const QString &statString)
             return w->setValue(QString());
     }
 
-    w->setValue(statString);
+    w->setValue(dev->statusString());
 }
 
 void NetworkModuleWidget::onNextPageClicked()
@@ -252,6 +252,7 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
             g->appendItem(hotspot);
 
             connect(dev, &NetworkDevice::enableChanged, hotspot, &NextPageWidget::setVisible);
+            connect(wdev, &WirelessDevice::hotspotEnabledChanged, this, &NetworkModuleWidget::onDevStatusChanged, Qt::QueuedConnection);
             connect(wdev, &WirelessDevice::hotspotEnabledChanged, hotspot, [=] (const bool enabled) { hotspot->setValue(enabled ? tr("Shared") : QString()); });
             connect(hotspot, &NextPageWidget::clicked, this, [=] { emit requestHotspotPage(wdev); });
 

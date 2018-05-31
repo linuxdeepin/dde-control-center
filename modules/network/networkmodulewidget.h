@@ -60,7 +60,7 @@ signals:
 
 private slots:
     void onDeviceListChanged(const QList<NetworkDevice *> &devices);
-    void onDevStatusChanged(const QString &statString);
+    void onDevStatusChanged();
     void onNextPageClicked();
 
 private:
