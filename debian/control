@@ -45,13 +45,15 @@ Package: dde-control-center-plugin-weather
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends},
  tzdata-l10n, geoip-database-extra
-Breaks: dde-control-center (<= 4.3.7)
+Replaces: dde-control-center (<< 4.4.0)
+Conflicts: dde-control-center (<< 4.4.0)
 Description: Deepin DDE Control-Center weathcer plugin.
  Weather Plugin.
 
 Package: dde-control-center-plugin-notify
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Breaks: dde-control-center (<= 4.3.7)
+Replaces: dde-control-center (<< 4.4.0)
+Conflicts: dde-control-center (<< 4.4.0)
 Description: Deepin DDE Control-Center notify plugin.
  Notify Plugin.
