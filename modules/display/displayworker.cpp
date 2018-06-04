@@ -72,9 +72,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
 //    model->setHasConfig(m_displayInter.hasCustomConfig());
     model->setDisplayMode(m_displayInter.displayMode());
 
-    QProcess *process = new QProcess;
-
-    const bool isRedshiftValid = process->execute("which", QStringList() << "redshift") == 0;
+    const bool isRedshiftValid = QProcess::execute("which", QStringList() << "redshift") == 0;
 
     if (isRedshiftValid)
         updateNightModeStatus();

@@ -184,6 +184,8 @@ void ContentWidget::mouseReleaseEvent(QMouseEvent *e)
 
 bool ContentWidget::eventFilter(QObject *watched, QEvent *event)
 {
+    if (!m_content) return false;
+
     if (m_content && watched == m_contentArea && event->type() == QEvent::Resize)
         m_content->setFixedWidth(static_cast<QResizeEvent *>(event)->size().width());
 
