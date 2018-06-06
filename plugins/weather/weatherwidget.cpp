@@ -139,7 +139,7 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
         QRect rect(0,y,width(),((i == 0) ? fh : h));
         QPoint center = rect.center();
 //        painter.drawRect(rect);
-        WeatherItem item = m_request->dayAt(i);
+        WeatherItem item = m_items[i];
 
         QPixmap icon = loadPixmap(this->icon(item));
         QRect iconRect(0,0,icon.width() / ratio, icon.height() / ratio);
