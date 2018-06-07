@@ -1,3 +1,18 @@
+<a name="4.5.4"></a>
+### 4.5.4 (2018-06-07)
+
+
+#### Features
+
+* **network:**  support remove app proxy config ([906eeb27](https://github.com/linuxdeepin/dde-control-center/commit/906eeb27574b5088a3958f98d04d233eb4320bd3))
+
+#### Bug Fixes
+
+* **accounts:**  hide alert when lineedit editing finished ([2518b7cd](https://github.com/linuxdeepin/dde-control-center/commit/2518b7cd5623f3f48bea23a69af34c84693094b9))
+* **display:**  memory leak ([e412745a](https://github.com/linuxdeepin/dde-control-center/commit/e412745aeb44dea73440d27276b104c10f8d9814))
+
+
+
 <a name="4.5.3"></a>
 ### 4.5.3 (2018-05-31)
 
