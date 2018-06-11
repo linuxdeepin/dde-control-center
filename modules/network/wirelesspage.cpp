@@ -227,7 +227,7 @@ void WirelessPage::sortAPList()
 
 void WirelessPage::onApWidgetEditRequested(const QString &path, const QString &ssid)
 {
-    const QString uuid = m_model->connectionUuidByApInfo(m_device->usingHwAdr(), ssid);
+    const QString uuid = m_model->connectionUuidByApInfo(m_device, ssid);
 
     if (!uuid.isEmpty())
     {
@@ -241,7 +241,7 @@ void WirelessPage::onApWidgetEditRequested(const QString &path, const QString &s
 
 void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString &ssid)
 {
-    const QString uuid = m_model->connectionUuidByApInfo(m_device->usingHwAdr(), ssid);
+    const QString uuid = m_model->connectionUuidByApInfo(m_device, ssid);
 
     emit requestConnectAp(m_device->path(), path, uuid);
 }

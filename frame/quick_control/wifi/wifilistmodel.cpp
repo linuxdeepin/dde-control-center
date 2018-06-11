@@ -109,7 +109,7 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
     case ItemApPathRole:
         return info.info ? info.info->value("Path") : QVariant();
     case ItemUuidRole:
-        return info.info ? m_networkModel->connectionUuidByApInfo(info.device->usingHwAdr(), info.info->value("Ssid").toString()) : QVariant();
+        return info.info ? m_networkModel->connectionUuidByApInfo(static_cast<const WirelessDevice *>(info.device), info.info->value("Ssid").toString()) : QVariant();
     case ItemIsHiddenTipsRole:
         return !info.info && !info.device;
     case ItemNextRole:

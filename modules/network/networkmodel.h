@@ -79,7 +79,8 @@ public:
     const QSet<QString> activeConnections() const { return m_activeConnections; }
     const QString connectionUuidByPath(const QString &connPath) const;
     const QString connectionNameByPath(const QString &connPath) const;
-    const QString connectionUuidByApInfo(const QString &hwAddr, const QString &ssid) const;
+    const QString connectionUuidByApInfo(const WirelessDevice * const wdev, const QString &ssid) const;
+    const QString activeConnUuidByInfo(const QString &devPath, const QString &id) const;
     const QJsonObject connectionByUuid(const QString &uuid) const;
     const QJsonObject connectionByPath(const QString &connPath) const;
     const QJsonObject activeConnObjectByUuid(const QString &uuid) const;

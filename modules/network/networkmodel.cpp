@@ -92,15 +92,32 @@ const QJsonObject NetworkModel::activeConnObjectByUuid(const QString &uuid) cons
     return QJsonObject();
 }
 
-const QString NetworkModel::connectionUuidByApInfo(const QString &hwAddr, const QString &ssid) const
+const QString NetworkModel::connectionUuidByApInfo(const WirelessDevice * const wdev, const QString &ssid) const
 {
+    if (wdev->status() == NetworkDevice::Activated)
+        return activeConnUuidByInfo(wdev->path(), ssid);
+
     for (const auto &list : m_connections)
     {
         for (const auto &cfg : list)
         {
-            if (cfg.value("HwAddress").toString() == hwAddr && cfg.value("Ssid").toString() == ssid)
+            if (cfg.value("HwAddress").toString() == wdev->usingHwAdr() && cfg.value("Ssid").toString() == ssid)
                 return cfg.value("Uuid").toString();
         }
+    }
+
+    return QString();
+}
+
+const QString NetworkModel::activeConnUuidByInfo(const QString &devPath, const QString &id) const
+{
+    for (const auto &info : m_activeConnObjects)
+    {
+        if (info.value("Id").toString() != id)
+            continue;
+
+        if (info.value("Devices").toArray().contains(devPath))
+            return info.value("Uuid").toString();
     }
 
     return QString();
