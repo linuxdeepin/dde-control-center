@@ -102,10 +102,12 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
     sumRect.setRight(option.rect.right() - timeWidth - 40);
     sumRect.setHeight(sumFM.height() * 1.2);
 
-    const QString &newStrSum = sumFM.elidedText(strSum, Qt::ElideRight, sumRect.width());
+    if (!strBody.isEmpty()) {
+        const QString &newStrSum = sumFM.elidedText(strSum, Qt::ElideRight, sumRect.width());
 
-    painter->setFont(sumFont);
-    painter->drawText(sumRect, newStrSum);
+        painter->setFont(sumFont);
+        painter->drawText(sumRect, newStrSum);
+    }
 
     // draw body
     QFont bodyFont = painter->font();
@@ -118,7 +120,7 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
     bodyRect.setBottom(option.rect.bottom() - 5);
 
     painter->setFont(bodyFont);
-    const auto bodyElided = holdTextInRect(painter->fontMetrics(), strBody, bodyRect);
+    const auto bodyElided = holdTextInRect(painter->fontMetrics(), strBody.isEmpty() ? strSum : strBody, bodyRect);
 
     painter->drawText(bodyRect, bodyElided.first);
 }
