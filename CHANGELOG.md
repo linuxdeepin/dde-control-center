@@ -1,3 +1,14 @@
+<a name="4.5.5"></a>
+### 4.5.5 (2018-06-12)
+
+
+#### Bug Fixes
+
+*   Activated connection can't disconnect ([ac0b3c8c](https://github.com/linuxdeepin/dde-control-center/commit/ac0b3c8c2be4a07340108da8a0f62c1ce15250c1))
+* **weather:**  exceptions caused by using different data ([a366850c](https://github.com/linuxdeepin/dde-control-center/commit/a366850cb2f8bfdfe2c5b801852cb7c7ade96c08))
+
+
+
 <a name="4.5.4"></a>
 ### 4.5.4 (2018-06-07)
 
