@@ -87,17 +87,17 @@
 <context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="198"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="200"/>
         <source>Yesterday</source>
         <translation>昨天</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="201"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="203"/>
         <source>The day before yesterday</source>
         <translation>前天</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="207"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="209"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform></translation>
     </message>
@@ -250,17 +250,17 @@
 <context>
     <name>WifiListModel</name>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
         <source>Connect to hidden network</source>
         <translation>連線到隱藏網路</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="81"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WIFI</source>
         <translation>點擊圖示開啟 Wi-Fi</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="210"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="213"/>
         <source>Wireless Card %1</source>
         <translation>Wi-Fi %1</translation>
     </message>
@@ -368,37 +368,37 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="120"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="122"/>
         <source>Images</source>
         <translation>圖片檔案</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="323"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>您的主機成功加入網域。</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>您的主機成功離開網域</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="331"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="333"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>您的主機離開網域失敗</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="332"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
         <source>Your host failed to join the domain server.</source>
         <translation>您的主機加入網域失敗</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="335"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
         <source>AD domain settings</source>
         <translation>AD 網域設定</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="405"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="406"/>
         <source>Password not match.</source>
         <translation>兩次輸入的密碼不相同。</translation>
     </message>
@@ -577,12 +577,12 @@
         <translation>確定</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="138"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
         <source>Password</source>
         <translation>密碼</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="102"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="105"/>
         <source>New password should differ from the current one</source>
         <translation>新密碼須和目前的密碼不同</translation>
     </message>
@@ -613,17 +613,17 @@
 <context>
     <name>dcc::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="43"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="47"/>
         <source>My devices</source>
         <translation>已配對的裝置</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="44"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="48"/>
         <source>Other devices</source>
         <translation>偵測到的裝置</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="61"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="65"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
         <translation>開啟藍牙尋找附近的裝置（音響、鍵盤、滑鼠等）</translation>
     </message>
@@ -631,7 +631,7 @@
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="157"/>
+        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="126"/>
         <source>Bluetooth</source>
         <translation>藍牙</translation>
@@ -959,7 +959,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="179"/>
+        <location filename="../modules/display/displayworker.cpp" line="177"/>
         <source>My Settings %1</source>
         <translation>我的設定值 %1</translation>
     </message>
@@ -1439,59 +1439,59 @@
 <context>
     <name>dcc::network::ChainsProxyPage</name>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="43"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
         <source>Application proxy</source>
         <translation>應用程式 proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <source>Proxy Type</source>
         <translation>Proxy 類型</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="52"/>
         <source>IP address</source>
         <translation>IP 位址</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
-        <location filename="../modules/network/chainsproxypage.cpp" line="54"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
         <source>Required</source>
         <translation>必須輸入</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="56"/>
         <source>Port</source>
         <translation>通訊埠</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="60"/>
         <source>Username</source>
         <translation>Username</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="58"/>
-        <location filename="../modules/network/chainsproxypage.cpp" line="62"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="65"/>
         <source>Optional</source>
         <translation>選填</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="64"/>
         <source>Password</source>
         <translation>Password</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="80"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="88"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="86"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="89"/>
         <source>OK</source>
         <translation>確定</translation>
     </message>
@@ -1507,33 +1507,33 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="139"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="141"/>
         <source>Disconnect</source>
         <translation>中斷連線</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="141"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="143"/>
         <source>Delete</source>
         <translation>刪除網路</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="143"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
         <source>Export</source>
         <translation>匯出</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="153"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="155"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="154"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="156"/>
         <source>Save</source>
         <translation>儲存設定</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="516"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="599"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="518"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="601"/>
         <source>Required</source>
         <translation>必須輸入</translation>
     </message>
@@ -1541,12 +1541,12 @@
 <context>
     <name>dcc::network::HotspotPage</name>
     <message>
-        <location filename="../modules/network/hotspotpage.cpp" line="61"/>
+        <location filename="../modules/network/hotspotpage.cpp" line="63"/>
         <source>Hotspot Settings</source>
         <translation>熱點設定</translation>
     </message>
     <message>
-        <location filename="../modules/network/hotspotpage.cpp" line="76"/>
+        <location filename="../modules/network/hotspotpage.cpp" line="78"/>
         <source>Hotspot</source>
         <translation>無線熱點</translation>
     </message>
@@ -1554,191 +1554,158 @@
 <context>
     <name>dcc::network::NetworkDetailPage</name>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="94"/>
         <source>Network Details</source>
         <translation>網路詳細資訊</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="136"/>
         <source>Hotspot</source>
         <translation>無線熱點</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="141"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="149"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
         <source>Security</source>
         <translation>安全</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="162"/>
         <source>MAC</source>
         <translation>MAC 位址</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="168"/>
         <source>Band</source>
         <translation>頻段</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="177"/>
         <source>IPv4 Address</source>
         <translation>IPv4 位址</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="205"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="182"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="207"/>
         <source>Gateway</source>
         <translation>閘道器</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="185"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="210"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="187"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="212"/>
         <source>Primary DNS</source>
         <translation>主要 DNS</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="190"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="192"/>
         <source>Netmask</source>
         <translation>子網路遮罩</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="155"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
         <source>Interface</source>
         <translation>介面</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="202"/>
         <source>IPv6 Address</source>
         <translation>IPv6 位址</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="217"/>
         <source>Prefix</source>
         <translation>前置詞</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="223"/>
         <source>Speed</source>
         <translation>速度</translation>
     </message>
 </context>
 <context>
-    <name>dcc::network::NetworkDevice</name>
-    <message>
-        <location filename="../modules/network/networkdevice.cpp" line="81"/>
-        <source>Disconnected</source>
-        <translation>中斷連線</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdevice.cpp" line="83"/>
-        <source>Connecting</source>
-        <translation>正在連線</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdevice.cpp" line="84"/>
-        <source>Authenticating</source>
-        <translation>正在驗證</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdevice.cpp" line="86"/>
-        <source>Obtaining Address</source>
-        <translation>正在取得 IP 位址</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdevice.cpp" line="87"/>
-        <source>Connected</source>
-        <translation>已連線</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdevice.cpp" line="89"/>
-        <source>Failed</source>
-        <translation>連線失敗</translation>
-    </message>
-</context>
-<context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="56"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="60"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="61"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="66"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="67"/>
         <source>Application proxy</source>
         <translation>應用程式 proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="69"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="70"/>
         <source>Network Details</source>
         <translation>網路詳細資訊</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="96"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="125"/>
         <source>Network</source>
         <translation>網路</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="236"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
         <source>Wired Network Card%1</source>
         <translation>有線網路 %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="241"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
         <source>Wired Network Card</source>
         <translation>有線網路</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wired Network</source>
         <translation>有線網路</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
         <source>Wired Network%1</source>
         <translation>有線網路 %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="64"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="65"/>
         <source>System Proxy</source>
         <translation>系統 Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="251"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="252"/>
         <source>Hotspot</source>
         <translation>無線熱點</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="256"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="257"/>
         <source>Shared</source>
         <translation>共用</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="265"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="266"/>
         <source>Wireless Network Card%1</source>
         <translation>Wi-Fi %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="270"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network Card</source>
         <translation>Wi-Fi</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="272"/>
         <source>Wireless Network</source>
         <translation>Wi-Fi</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="266"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="267"/>
         <source>Wireless Network%1</source>
         <translation>Wi-Fi %1</translation>
     </message>
@@ -1746,12 +1713,12 @@
 <context>
     <name>dcc::network::PppoePage</name>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="53"/>
+        <location filename="../modules/network/pppoepage.cpp" line="54"/>
         <source>Create PPPoE Connection</source>
         <translation>建立 PPPoE 連線</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="67"/>
+        <location filename="../modules/network/pppoepage.cpp" line="68"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -1759,70 +1726,70 @@
 <context>
     <name>dcc::network::ProxyPage</name>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="56"/>
+        <location filename="../modules/network/proxypage.cpp" line="58"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="57"/>
+        <location filename="../modules/network/proxypage.cpp" line="59"/>
         <source>Confirm</source>
         <translation>確定</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="59"/>
+        <location filename="../modules/network/proxypage.cpp" line="61"/>
         <source>None</source>
         <translation>無</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="60"/>
+        <location filename="../modules/network/proxypage.cpp" line="62"/>
         <source>Manual</source>
         <translation>手動</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="61"/>
+        <location filename="../modules/network/proxypage.cpp" line="63"/>
         <source>Auto</source>
         <translation>自動</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="91"/>
+        <location filename="../modules/network/proxypage.cpp" line="93"/>
         <source>Http Proxy</source>
         <translation>Http Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="93"/>
-        <location filename="../modules/network/proxypage.cpp" line="98"/>
-        <location filename="../modules/network/proxypage.cpp" line="103"/>
-        <location filename="../modules/network/proxypage.cpp" line="108"/>
+        <location filename="../modules/network/proxypage.cpp" line="95"/>
+        <location filename="../modules/network/proxypage.cpp" line="100"/>
+        <location filename="../modules/network/proxypage.cpp" line="105"/>
+        <location filename="../modules/network/proxypage.cpp" line="110"/>
         <source>Port</source>
         <translation>通訊埠</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="96"/>
+        <location filename="../modules/network/proxypage.cpp" line="98"/>
         <source>Https Proxy</source>
         <translation>Https Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="101"/>
+        <location filename="../modules/network/proxypage.cpp" line="103"/>
         <source>Ftp Proxy</source>
         <translation>Ftp Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="106"/>
+        <location filename="../modules/network/proxypage.cpp" line="108"/>
         <source>Socks Proxy</source>
         <translation>Socks Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="115"/>
+        <location filename="../modules/network/proxypage.cpp" line="117"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>為主機和網域忽略 proxy 設定</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="118"/>
+        <location filename="../modules/network/proxypage.cpp" line="120"/>
         <source>Configuration URL</source>
         <translation>設定 URL</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="175"/>
+        <location filename="../modules/network/proxypage.cpp" line="177"/>
         <source>System Proxy</source>
         <translation>系統 Proxy</translation>
     </message>
@@ -1830,67 +1797,67 @@
 <context>
     <name>dcc::network::VpnPage</name>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="75"/>
+        <location filename="../modules/network/vpnpage.cpp" line="76"/>
         <source>VPN Status</source>
         <translation>VPN 狀態</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="78"/>
+        <location filename="../modules/network/vpnpage.cpp" line="79"/>
         <source>Create VPN</source>
         <translation>建立 VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="81"/>
+        <location filename="../modules/network/vpnpage.cpp" line="82"/>
         <source>Import VPN</source>
         <translation>加入 VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="100"/>
+        <location filename="../modules/network/vpnpage.cpp" line="101"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="268"/>
+        <location filename="../modules/network/vpnpage.cpp" line="269"/>
         <source>Import Error</source>
         <translation>加入錯誤</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="270"/>
+        <location filename="../modules/network/vpnpage.cpp" line="271"/>
         <source>OK</source>
         <translation>確定</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="295"/>
+        <location filename="../modules/network/vpnpage.cpp" line="296"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="298"/>
+        <location filename="../modules/network/vpnpage.cpp" line="299"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="301"/>
+        <location filename="../modules/network/vpnpage.cpp" line="302"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="304"/>
+        <location filename="../modules/network/vpnpage.cpp" line="305"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="307"/>
+        <location filename="../modules/network/vpnpage.cpp" line="308"/>
         <source>StrongSwan</source>
         <translation>strongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="310"/>
+        <location filename="../modules/network/vpnpage.cpp" line="311"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="335"/>
+        <location filename="../modules/network/vpnpage.cpp" line="336"/>
         <source>New VPN</source>
         <translation>新增 VPN</translation>
     </message>
@@ -1898,22 +1865,22 @@
 <context>
     <name>dcc::network::WiredPage</name>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="58"/>
+        <location filename="../modules/network/wiredpage.cpp" line="60"/>
         <source>Setting List</source>
         <translation>設定清單</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="62"/>
+        <location filename="../modules/network/wiredpage.cpp" line="64"/>
         <source>Please firstly plug in the network cable</source>
         <translation>請先插入網路線</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="68"/>
+        <location filename="../modules/network/wiredpage.cpp" line="70"/>
         <source>Add Settings</source>
         <translation>新增設定</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="83"/>
+        <location filename="../modules/network/wiredpage.cpp" line="85"/>
         <source>Select Settings</source>
         <translation>選擇設定</translation>
     </message>
@@ -1921,22 +1888,22 @@
 <context>
     <name>dcc::network::WirelessPage</name>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="60"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="61"/>
         <source>Connect to hidden network</source>
         <translation>連線到隱藏網路</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="63"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="64"/>
         <source>Close hotspot</source>
         <translation>關閉熱點</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="66"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="67"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
         <translation>使用 Wi-Fi 前請先關閉無線熱點功能</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="89"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="90"/>
         <source>WLAN</source>
         <translation>Wi-Fi</translation>
     </message>
@@ -2055,58 +2022,68 @@
 <context>
     <name>dcc::power::PowerWidget</name>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="44"/>
+        <location filename="../modules/power/powerwidget.cpp" line="45"/>
         <source>Monitor will suspend after</source>
         <translation>關閉顯示器</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="45"/>
+        <location filename="../modules/power/powerwidget.cpp" line="46"/>
         <source>Computer will suspend after</source>
         <translation>電腦待機</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="55"/>
-        <location filename="../modules/power/powerwidget.cpp" line="138"/>
+        <location filename="../modules/power/powerwidget.cpp" line="56"/>
+        <location filename="../modules/power/powerwidget.cpp" line="155"/>
         <source>Never</source>
         <translation>從不</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="74"/>
+        <location filename="../modules/power/powerwidget.cpp" line="75"/>
         <source>Password required to wake up the monitor</source>
         <translation>喚醒螢幕需要密碼</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="77"/>
+        <location filename="../modules/power/powerwidget.cpp" line="78"/>
         <source>Password required to wake up the computer</source>
         <translation>喚醒電腦需要密碼</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="80"/>
+        <location filename="../modules/power/powerwidget.cpp" line="81"/>
         <source>Suspend on lid close</source>
         <translation>筆電闔上後待機</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="87"/>
+        <location filename="../modules/power/powerwidget.cpp" line="84"/>
+        <source>Power Saving Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="85"/>
+        <source>Auto Mode Switch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="96"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="129"/>
         <source>Power Management</source>
         <translation>電源管理</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="126"/>
+        <location filename="../modules/power/powerwidget.cpp" line="143"/>
         <source>1 Minute</source>
         <translation>1 分鐘後</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="128"/>
-        <location filename="../modules/power/powerwidget.cpp" line="130"/>
-        <location filename="../modules/power/powerwidget.cpp" line="132"/>
-        <location filename="../modules/power/powerwidget.cpp" line="134"/>
-        <location filename="../modules/power/powerwidget.cpp" line="140"/>
+        <location filename="../modules/power/powerwidget.cpp" line="145"/>
+        <location filename="../modules/power/powerwidget.cpp" line="147"/>
+        <location filename="../modules/power/powerwidget.cpp" line="149"/>
+        <location filename="../modules/power/powerwidget.cpp" line="151"/>
+        <location filename="../modules/power/powerwidget.cpp" line="157"/>
         <source>%1 Minutes</source>
         <translation>%1 分鐘後</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="136"/>
+        <location filename="../modules/power/powerwidget.cpp" line="153"/>
         <source>1 Hour</source>
         <translation>1 小時後</translation>
     </message>

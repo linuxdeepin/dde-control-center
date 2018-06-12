@@ -87,19 +87,19 @@
 <context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="198"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="200"/>
         <source>Yesterday</source>
         <translation>Вчора</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="201"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="203"/>
         <source>The day before yesterday</source>
         <translation>Позавчора</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="207"/>
+        <location filename="../plugins/notify/notifydelegate.cpp" line="209"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n день тому</numerusform><numerusform>%n дні тому</numerusform><numerusform>%n днів тому</numerusform><numerusform>%n дні(в) тому</numerusform></translation>
     </message>
 </context>
 <context>
@@ -250,17 +250,17 @@
 <context>
     <name>WifiListModel</name>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="86"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
         <source>Connect to hidden network</source>
         <translation>Підключитися до прихованої мережі</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="81"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WIFI</source>
         <translation>Натисніть на іконку, щоб увімкнути WiFi</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="210"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="213"/>
         <source>Wireless Card %1</source>
         <translation>Бездротова карта %1</translation>
     </message>
@@ -368,37 +368,37 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="120"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="122"/>
         <source>Images</source>
         <translation>Зображення</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="323"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
         <source>Your host joins the domain server successfully.</source>
         <translation>Ваш хост успішно приєднується до сервера домену.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="322"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>Ваш хост покидає сервер домену успішно.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="331"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="333"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>Вашому хосту не вдалося покинути сервер домену.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="332"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
         <source>Your host failed to join the domain server.</source>
         <translation>Ваш сервер не може приєднатися до сервера домену.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="335"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
         <source>AD domain settings</source>
         <translation>Налаштування домену AD</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="405"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="406"/>
         <source>Password not match.</source>
         <translation>Пароль не збігається</translation>
     </message>
@@ -577,12 +577,12 @@
         <translation>Прийняти </translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="138"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="102"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="105"/>
         <source>New password should differ from the current one</source>
         <translation>Новий пароль повинен відрізнятися від попереднього</translation>
     </message>
@@ -613,17 +613,17 @@
 <context>
     <name>dcc::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="43"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="47"/>
         <source>My devices</source>
         <translation>Мої пристрої</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="44"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="48"/>
         <source>Other devices</source>
         <translation>Інші пристрої</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="61"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="65"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
         <translation>Увімкніть bluetooth , щоб знайти пристрої поблизу (гучномовець, клавіатура, мишка)</translation>
     </message>
@@ -631,7 +631,7 @@
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="157"/>
+        <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="126"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
@@ -959,7 +959,7 @@
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="179"/>
+        <location filename="../modules/display/displayworker.cpp" line="177"/>
         <source>My Settings %1</source>
         <translation>Мої налаштування %1</translation>
     </message>
@@ -1394,7 +1394,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Scroll Speed</source>
-        <translation type="unfinished"/>
+        <translation>Швидкість прокрутки</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
@@ -1439,59 +1439,59 @@
 <context>
     <name>dcc::network::ChainsProxyPage</name>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="43"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
         <source>Application proxy</source>
         <translation>Проксі програма</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <source>Proxy Type</source>
         <translation>Тип проксі</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="52"/>
         <source>IP address</source>
         <translation>IP-адреса</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="50"/>
-        <location filename="../modules/network/chainsproxypage.cpp" line="54"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
         <source>Required</source>
         <translation>Вимагається</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="56"/>
         <source>Port</source>
         <translation>Порт</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="60"/>
         <source>Username</source>
         <translation>Ім&apos;я користувача</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="58"/>
-        <location filename="../modules/network/chainsproxypage.cpp" line="62"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="65"/>
         <source>Optional</source>
         <translation>Необов&apos;язково</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="64"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="80"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
         <translation>Встановіть прапорець «Відкрити через проксі» контекстного меню програми в Launcher для використання після налаштування</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="85"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="88"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../modules/network/chainsproxypage.cpp" line="86"/>
+        <location filename="../modules/network/chainsproxypage.cpp" line="89"/>
         <source>OK</source>
         <translation>Гаразд</translation>
     </message>
@@ -1507,33 +1507,33 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="139"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="141"/>
         <source>Disconnect</source>
         <translation>Відключитись</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="141"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="143"/>
         <source>Delete</source>
         <translation>Видалити</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="143"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
         <source>Export</source>
         <translation>Експортувати</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="153"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="155"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="154"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="156"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="516"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="599"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="518"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="601"/>
         <source>Required</source>
         <translation>Вимагається</translation>
     </message>
@@ -1541,12 +1541,12 @@
 <context>
     <name>dcc::network::HotspotPage</name>
     <message>
-        <location filename="../modules/network/hotspotpage.cpp" line="61"/>
+        <location filename="../modules/network/hotspotpage.cpp" line="63"/>
         <source>Hotspot Settings</source>
         <translation>Налаштування точки доступу</translation>
     </message>
     <message>
-        <location filename="../modules/network/hotspotpage.cpp" line="76"/>
+        <location filename="../modules/network/hotspotpage.cpp" line="78"/>
         <source>Hotspot</source>
         <translation>Точка доступу</translation>
     </message>
@@ -1554,191 +1554,158 @@
 <context>
     <name>dcc::network::NetworkDetailPage</name>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="92"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="94"/>
         <source>Network Details</source>
         <translation>Деталі Мережі</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="134"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="136"/>
         <source>Hotspot</source>
         <translation>Точка доступу</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="141"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="149"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
         <source>Security</source>
         <translation>Безпека</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="162"/>
         <source>MAC</source>
         <translation>МАС</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="166"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="168"/>
         <source>Band</source>
         <translation>Група</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="175"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="177"/>
         <source>IPv4 Address</source>
         <translation>IPv4 адреса</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="205"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="182"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="207"/>
         <source>Gateway</source>
         <translation>Шлюз</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="185"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="210"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="187"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="212"/>
         <source>Primary DNS</source>
         <translation>Первинний DNS</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="190"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="192"/>
         <source>Netmask</source>
         <translation>Маска мережі</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="155"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
         <source>Interface</source>
         <translation>Інтерфейс</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="200"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="202"/>
         <source>IPv6 Address</source>
         <translation>IPv6 Адреса</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="217"/>
         <source>Prefix</source>
         <translation>Префікс</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="221"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="223"/>
         <source>Speed</source>
         <translation>Швидкість</translation>
     </message>
 </context>
 <context>
-    <name>dcc::network::NetworkDevice</name>
-    <message>
-        <location filename="../modules/network/networkdevice.cpp" line="81"/>
-        <source>Disconnected</source>
-        <translation>Відключено</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdevice.cpp" line="83"/>
-        <source>Connecting</source>
-        <translation>Підключення</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdevice.cpp" line="84"/>
-        <source>Authenticating</source>
-        <translation>Автентифікація</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdevice.cpp" line="86"/>
-        <source>Obtaining Address</source>
-        <translation>Отримання Адреси</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdevice.cpp" line="87"/>
-        <source>Connected</source>
-        <translation>Підключено</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdevice.cpp" line="89"/>
-        <source>Failed</source>
-        <translation>Збій</translation>
-    </message>
-</context>
-<context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="56"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="60"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="61"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="66"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="67"/>
         <source>Application proxy</source>
         <translation>Проксі програма</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="69"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="70"/>
         <source>Network Details</source>
         <translation>Деталі Мережі</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="96"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="125"/>
         <source>Network</source>
         <translation>Мережа</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="236"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
         <source>Wired Network Card%1</source>
         <translation>Бездротова Мережева Карта%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="241"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
         <source>Wired Network Card</source>
         <translation>Дротова Мережева Карта</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wired Network</source>
         <translation>Провідна мережа</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
         <source>Wired Network%1</source>
         <translation>Провідна мережа%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="64"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="65"/>
         <source>System Proxy</source>
         <translation>Системний проксі-сервер</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="251"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="252"/>
         <source>Hotspot</source>
         <translation>Точка доступу</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="256"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="257"/>
         <source>Shared</source>
         <translation>Поширено</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="265"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="266"/>
         <source>Wireless Network Card%1</source>
         <translation>Бездротова Мережева Карта%1</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="270"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network Card</source>
         <translation>Бездротова Мережева Карта</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="272"/>
         <source>Wireless Network</source>
         <translation>Бездротова мережа</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="266"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="267"/>
         <source>Wireless Network%1</source>
         <translation>Бездротова мережа%1</translation>
     </message>
@@ -1746,12 +1713,12 @@
 <context>
     <name>dcc::network::PppoePage</name>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="53"/>
+        <location filename="../modules/network/pppoepage.cpp" line="54"/>
         <source>Create PPPoE Connection</source>
         <translation>Створити PPPoE з&apos;єднання</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="67"/>
+        <location filename="../modules/network/pppoepage.cpp" line="68"/>
         <source>PPP</source>
         <translation>Протокол PPP</translation>
     </message>
@@ -1759,70 +1726,70 @@
 <context>
     <name>dcc::network::ProxyPage</name>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="56"/>
+        <location filename="../modules/network/proxypage.cpp" line="58"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="57"/>
+        <location filename="../modules/network/proxypage.cpp" line="59"/>
         <source>Confirm</source>
         <translation>Підтвердити</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="59"/>
+        <location filename="../modules/network/proxypage.cpp" line="61"/>
         <source>None</source>
         <translation>Нічого</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="60"/>
+        <location filename="../modules/network/proxypage.cpp" line="62"/>
         <source>Manual</source>
         <translation>Інструкція</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="61"/>
+        <location filename="../modules/network/proxypage.cpp" line="63"/>
         <source>Auto</source>
         <translation>Автоматично</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="91"/>
+        <location filename="../modules/network/proxypage.cpp" line="93"/>
         <source>Http Proxy</source>
         <translation>HTTP-проксі</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="93"/>
-        <location filename="../modules/network/proxypage.cpp" line="98"/>
-        <location filename="../modules/network/proxypage.cpp" line="103"/>
-        <location filename="../modules/network/proxypage.cpp" line="108"/>
+        <location filename="../modules/network/proxypage.cpp" line="95"/>
+        <location filename="../modules/network/proxypage.cpp" line="100"/>
+        <location filename="../modules/network/proxypage.cpp" line="105"/>
+        <location filename="../modules/network/proxypage.cpp" line="110"/>
         <source>Port</source>
         <translation>Порт</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="96"/>
+        <location filename="../modules/network/proxypage.cpp" line="98"/>
         <source>Https Proxy</source>
         <translation>HTTPS-проксі</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="101"/>
+        <location filename="../modules/network/proxypage.cpp" line="103"/>
         <source>Ftp Proxy</source>
         <translation>Проксі-сервер FTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="106"/>
+        <location filename="../modules/network/proxypage.cpp" line="108"/>
         <source>Socks Proxy</source>
         <translation>Socks Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="115"/>
+        <location filename="../modules/network/proxypage.cpp" line="117"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>Ігнорувати конфігурації проксі для зазначених вище вузлів і доменів</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="118"/>
+        <location filename="../modules/network/proxypage.cpp" line="120"/>
         <source>Configuration URL</source>
         <translation>Конфігурація URL</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="175"/>
+        <location filename="../modules/network/proxypage.cpp" line="177"/>
         <source>System Proxy</source>
         <translation>Системний проксі-сервер</translation>
     </message>
@@ -1830,67 +1797,67 @@
 <context>
     <name>dcc::network::VpnPage</name>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="75"/>
+        <location filename="../modules/network/vpnpage.cpp" line="76"/>
         <source>VPN Status</source>
         <translation>Статус VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="78"/>
+        <location filename="../modules/network/vpnpage.cpp" line="79"/>
         <source>Create VPN</source>
         <translation>Створити VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="81"/>
+        <location filename="../modules/network/vpnpage.cpp" line="82"/>
         <source>Import VPN</source>
         <translation>Імпортувати VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="100"/>
+        <location filename="../modules/network/vpnpage.cpp" line="101"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="268"/>
+        <location filename="../modules/network/vpnpage.cpp" line="269"/>
         <source>Import Error</source>
         <translation>Помилка імпорту</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="270"/>
+        <location filename="../modules/network/vpnpage.cpp" line="271"/>
         <source>OK</source>
         <translation>Гаразд</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="295"/>
+        <location filename="../modules/network/vpnpage.cpp" line="296"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="298"/>
+        <location filename="../modules/network/vpnpage.cpp" line="299"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="301"/>
+        <location filename="../modules/network/vpnpage.cpp" line="302"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="304"/>
+        <location filename="../modules/network/vpnpage.cpp" line="305"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="307"/>
+        <location filename="../modules/network/vpnpage.cpp" line="308"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="310"/>
+        <location filename="../modules/network/vpnpage.cpp" line="311"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="335"/>
+        <location filename="../modules/network/vpnpage.cpp" line="336"/>
         <source>New VPN</source>
         <translation>Новий VPN</translation>
     </message>
@@ -1898,22 +1865,22 @@
 <context>
     <name>dcc::network::WiredPage</name>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="58"/>
+        <location filename="../modules/network/wiredpage.cpp" line="60"/>
         <source>Setting List</source>
         <translation>Список налаштувань</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="62"/>
+        <location filename="../modules/network/wiredpage.cpp" line="64"/>
         <source>Please firstly plug in the network cable</source>
         <translation>По-перше, підключіть мережний кабель</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="68"/>
+        <location filename="../modules/network/wiredpage.cpp" line="70"/>
         <source>Add Settings</source>
         <translation>Додати Налаштування</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="83"/>
+        <location filename="../modules/network/wiredpage.cpp" line="85"/>
         <source>Select Settings</source>
         <translation>Обрати Налаштування</translation>
     </message>
@@ -1921,22 +1888,22 @@
 <context>
     <name>dcc::network::WirelessPage</name>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="60"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="61"/>
         <source>Connect to hidden network</source>
         <translation>Підключитися до прихованої мережі</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="63"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="64"/>
         <source>Close hotspot</source>
         <translation>Закрити точку доступу</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="66"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="67"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
         <translation>Будь ласка, спочатку скасуйте доступ до мережі, якщо ви хочете підключитися та використовувати функцію бездротової мережі</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="89"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="90"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -2055,58 +2022,68 @@
 <context>
     <name>dcc::power::PowerWidget</name>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="44"/>
+        <location filename="../modules/power/powerwidget.cpp" line="45"/>
         <source>Monitor will suspend after</source>
         <translation>Монітор вимкнеться після</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="45"/>
+        <location filename="../modules/power/powerwidget.cpp" line="46"/>
         <source>Computer will suspend after</source>
         <translation>Комп&apos;ютер вимкнеться після</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="55"/>
-        <location filename="../modules/power/powerwidget.cpp" line="138"/>
+        <location filename="../modules/power/powerwidget.cpp" line="56"/>
+        <location filename="../modules/power/powerwidget.cpp" line="155"/>
         <source>Never</source>
         <translation>Ніколи</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="74"/>
+        <location filename="../modules/power/powerwidget.cpp" line="75"/>
         <source>Password required to wake up the monitor</source>
         <translation>Щоб увімкнути монітор, необхідно ввести пароль</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="77"/>
+        <location filename="../modules/power/powerwidget.cpp" line="78"/>
         <source>Password required to wake up the computer</source>
         <translation>Щоб увімкнути комп&apos;ютер, необхідно ввести пароль</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="80"/>
+        <location filename="../modules/power/powerwidget.cpp" line="81"/>
         <source>Suspend on lid close</source>
         <translation>Призупинити при закритті кришки</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="87"/>
+        <location filename="../modules/power/powerwidget.cpp" line="84"/>
+        <source>Power Saving Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="85"/>
+        <source>Auto Mode Switch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="96"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="129"/>
         <source>Power Management</source>
         <translation>Керування живленням</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="126"/>
+        <location filename="../modules/power/powerwidget.cpp" line="143"/>
         <source>1 Minute</source>
         <translation>1 Хвилина</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="128"/>
-        <location filename="../modules/power/powerwidget.cpp" line="130"/>
-        <location filename="../modules/power/powerwidget.cpp" line="132"/>
-        <location filename="../modules/power/powerwidget.cpp" line="134"/>
-        <location filename="../modules/power/powerwidget.cpp" line="140"/>
+        <location filename="../modules/power/powerwidget.cpp" line="145"/>
+        <location filename="../modules/power/powerwidget.cpp" line="147"/>
+        <location filename="../modules/power/powerwidget.cpp" line="149"/>
+        <location filename="../modules/power/powerwidget.cpp" line="151"/>
+        <location filename="../modules/power/powerwidget.cpp" line="157"/>
         <source>%1 Minutes</source>
         <translation>%1 Хвилин</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="136"/>
+        <location filename="../modules/power/powerwidget.cpp" line="153"/>
         <source>1 Hour</source>
         <translation>1 Година</translation>
     </message>
@@ -2373,7 +2350,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
+        <translation>%1% завантажено (Натисність щоб продовжити)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
@@ -2475,7 +2452,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation type="unfinished"/>
+        <translation>Показати сповіщення, якщо системне зеркало для оновлення було змінено</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="95"/>
