@@ -242,7 +242,7 @@ void NetworkModule::showChainsProxyTypePage()
     ChainsTypePage *page = new ChainsTypePage;
     page->setDefault(m_networkModel->getChainsProxy().type);
 
-    connect(page, &ChainsTypePage::requestTypeChanged, m_networkModel, &NetworkModel::onChainsTypeChanged);
+    connect(page, &ChainsTypePage::requestTypeChanged, m_networkWorker, &NetworkWorker::onChainsTypeChanged);
 
     m_frameProxy->pushWidget(this, page);
 }

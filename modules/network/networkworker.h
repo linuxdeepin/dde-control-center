@@ -77,6 +77,7 @@ public slots:
     void setAutoProxy(const QString &proxy);
     void setProxy(const QString &type, const QString &addr, const QString &port);
     void setChainsProxy(const ProxyConfig &config);
+    void onChainsTypeChanged(const QString &type);
 
 private slots:
     void queryAutoProxyCB(QDBusPendingCallWatcher *w);

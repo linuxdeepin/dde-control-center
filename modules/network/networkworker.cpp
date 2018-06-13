@@ -117,6 +117,11 @@ void NetworkWorker::setChainsProxy(const ProxyConfig &config)
     m_chainsInter->Set(config.type, config.url, config.port, config.username, config.password);
 }
 
+void NetworkWorker::onChainsTypeChanged(const QString &type)
+{
+    m_networkModel->onChainsTypeChanged(type);
+}
+
 void NetworkWorker::initWirelessHotspot(const QString &devPath)
 {
     m_networkInter.EnableWirelessHotspotMode(QDBusObjectPath(devPath));

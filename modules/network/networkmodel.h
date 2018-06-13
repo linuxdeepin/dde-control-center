@@ -26,7 +26,6 @@
 #ifndef NETWORKMODEL_H
 #define NETWORKMODEL_H
 
-#include "networkmodule.h"
 #include "networkdevice.h"
 
 #include <QObject>
@@ -49,12 +48,12 @@ struct ProxyConfig
 
 class NetworkDevice;
 class NetworkWorker;
+class WirelessDevice;
 class NetworkModel : public QObject
 {
     Q_OBJECT
 
     friend class NetworkWorker;
-    friend class NetworkModule;
 
 public:
     explicit NetworkModel(QObject *parent = 0);
