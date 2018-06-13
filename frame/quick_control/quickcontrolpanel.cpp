@@ -30,9 +30,6 @@
 #include "display/displaycontrolpage.h"
 #include "wifi/wifipage.h"
 
-#include "network/networkmodel.h"
-#include "network/networkworker.h"
-
 #include "display/displaymodel.h"
 #include "display/displayworker.h"
 
@@ -44,11 +41,13 @@
 #endif
 
 #include <QVBoxLayout>
+#include <networkmodel.h>
+#include <networkworker.h>
 
 using namespace dcc;
-using dcc::network::NetworkModel;
-using dcc::network::NetworkWorker;
-using dcc::network::NetworkDevice;
+using dde::network::NetworkModel;
+using dde::network::NetworkWorker;
+using dde::network::NetworkDevice;
 using dcc::display::DisplayModel;
 using dcc::display::DisplayWorker;
 

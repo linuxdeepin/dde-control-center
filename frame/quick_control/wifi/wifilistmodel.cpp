@@ -24,15 +24,18 @@
  */
 
 #include "wifilistmodel.h"
-#include "network/networkdevice.h"
 
 #include <QSize>
 #include <QDebug>
 #include <QTimer>
 
-using dcc::network::NetworkModel;
-using dcc::network::NetworkDevice;
-using dcc::network::WirelessDevice;
+#include <networkdevice.h>
+#include <networkmodel.h>
+#include <wirelessdevice.h>
+
+using dde::network::NetworkModel;
+using dde::network::NetworkDevice;
+using dde::network::WirelessDevice;
 
 WifiListModel::WifiListModel(NetworkModel *model, QObject *parent)
     : QAbstractListModel(parent),
@@ -140,7 +143,7 @@ void WifiListModel::setCurrentActivating(const QModelIndex &index)
     emit dataChanged(oldIndex, oldIndex);
 }
 
-int WifiListModel::indexOf(dcc::network::WirelessDevice * const dev) const
+int WifiListModel::indexOf(dde::network::WirelessDevice * const dev) const
 {
     int pos = 0;
     for (auto *d : m_networkModel->devices())
@@ -267,7 +270,7 @@ void WifiListModel::onDeviceApAdded(const QJsonObject &info)
     endInsertRows();
 }
 
-void WifiListModel::onDeviceApRemoved(dcc::network::WirelessDevice *dev, const QString &ssid)
+void WifiListModel::onDeviceApRemoved(dde::network::WirelessDevice *dev, const QString &ssid)
 {
     // XXX: fix if ssid is in used by multiple AP
     int row = indexOf(dev);

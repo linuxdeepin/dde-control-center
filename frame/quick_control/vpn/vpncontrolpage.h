@@ -35,7 +35,7 @@ class VpnControlPage : public QWidget
     Q_OBJECT
 
 public:
-    explicit VpnControlPage(dcc::network::NetworkModel *model, QWidget *parent = 0);
+    explicit VpnControlPage(dde::network::NetworkModel *model, QWidget *parent = 0);
 
 signals:
     void mouseLeaveView() const;

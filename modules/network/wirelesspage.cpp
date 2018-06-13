@@ -23,9 +23,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "networkmodel.h"
 #include "wirelesspage.h"
-#include "wirelessdevice.h"
 #include "accesspointwidget.h"
 #include "settingsgroup.h"
 #include "switchwidget.h"
@@ -35,12 +33,15 @@
 #include "connectionsessionmodel.h"
 #include "tipsitem.h"
 
+#include <networkmodel.h>
+#include <wirelessdevice.h>
 #include <QDebug>
 #include <QVBoxLayout>
 #include <QPushButton>
 
 using namespace dcc::widgets;
 using namespace dcc::network;
+using namespace dde::network;
 
 WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     : ContentWidget(parent),

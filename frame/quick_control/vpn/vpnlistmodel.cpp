@@ -25,14 +25,14 @@
 
 #include "vpnlistmodel.h"
 
-#include "network/networkmodel.h"
 #include "basiclistdelegate.h"
 
 #include <QDebug>
 #include <QSize>
 #include <QJsonObject>
+#include <networkmodel.h>
 
-using dcc::network::NetworkModel;
+using dde::network::NetworkModel;
 
 VpnListModel::VpnListModel(NetworkModel *model, QObject *parent)
     : QAbstractListModel(parent),

@@ -29,6 +29,14 @@
 #include "modulewidget.h"
 #include "nextpagewidget.h"
 
+namespace dde {
+namespace network {
+class NetworkDevice;
+class WirelessDevice;
+class NetworkModel;
+}
+}
+
 namespace dcc{
 namespace widgets {
 class SettingsGroup;
@@ -36,9 +44,6 @@ class SettingsGroup;
 
 namespace network {
 
-class NetworkDevice;
-class WirelessDevice;
-class NetworkModel;
 class NetworkModuleWidget : public dcc::ModuleWidget
 {
     Q_OBJECT
@@ -46,7 +51,7 @@ class NetworkModuleWidget : public dcc::ModuleWidget
 public:
     explicit NetworkModuleWidget();
 
-    void setModel(NetworkModel *model);
+    void setModel(dde::network::NetworkModel *model);
 
 signals:
     void requestShowVpnPage() const;
@@ -54,17 +59,17 @@ signals:
     void requestShowProxyPage() const;
     void requestShowInfomation() const;
     void requestShowChainsPage() const;
-    void requestHotspotPage(WirelessDevice *wdev) const;
-    void requestShowDeviceDetail(NetworkDevice *device) const;
+    void requestHotspotPage(dde::network::WirelessDevice *wdev) const;
+    void requestShowDeviceDetail(dde::network::NetworkDevice *device) const;
     void requestDeviceEnable(const QString &devPath, const bool enable) const;
 
 private slots:
-    void onDeviceListChanged(const QList<NetworkDevice *> &devices);
+    void onDeviceListChanged(const QList<dde::network::NetworkDevice *> &devices);
     void onDevStatusChanged();
     void onNextPageClicked();
 
 private:
-    void createDeviceGroup(NetworkDevice *dev, const int number, const bool multiple);
+    void createDeviceGroup(dde::network::NetworkDevice *dev, const int number, const bool multiple);
 
 private:
     QVBoxLayout *m_devicesLayout;
@@ -74,7 +79,7 @@ private:
     dcc::widgets::NextPageWidget *m_detailBtn;
     dcc::widgets::NextPageWidget *m_appProxy;
 
-    QMap<dcc::widgets::NextPageWidget *, NetworkDevice *> m_devicesWidgets;
+    QMap<dcc::widgets::NextPageWidget *, dde::network::NetworkDevice *> m_devicesWidgets;
 };
 
 }   // namespace network

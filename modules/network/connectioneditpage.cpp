@@ -34,7 +34,6 @@
 #include "comboboxwidget.h"
 #include "filechoosewidget.h"
 #include "spinboxwidget.h"
-#include "networkmodel.h"
 #include "buttontuple.h"
 #include "passwdeditwidget.h"
 
@@ -52,9 +51,12 @@
 #include <cstring>
 
 #include <dspinbox.h>
+#include <networkmodel.h>
+#include <networkdevice.h>
 
 using namespace dcc::widgets;
 using namespace dcc::network;
+using namespace dde::network;
 
 DWIDGET_USE_NAMESPACE
 

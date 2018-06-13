@@ -26,10 +26,16 @@
 #ifndef CHAINSPROXYPAGE_H
 #define CHAINSPROXYPAGE_H
 
-#include "networkmodel.h"
 #include "contentwidget.h"
 
 #include <QObject>
+
+namespace dde {
+namespace network {
+class NetworkModel;
+struct ProxyConfig;
+}
+}
 
 namespace dcc {
 
@@ -45,10 +51,10 @@ class ChainsProxyPage : public ContentWidget
     Q_OBJECT
 public:
     explicit ChainsProxyPage(QWidget *parent = nullptr);
-    void setModel(NetworkModel *model);
+    void setModel(dde::network::NetworkModel *model);
 
 signals:
-    void requestSet(const ProxyConfig &config) const;
+    void requestSet(const dde::network::ProxyConfig &config) const;
     void requestShowTypePage() const;
 
 private slots:
@@ -56,7 +62,7 @@ private slots:
     bool isIPV4(const QString &ipv4);
 
 private:
-    NetworkModel *m_model;
+    dde::network::NetworkModel *m_model;
     dcc::widgets::NextPageWidget *m_proxyType;
     dcc::widgets::LineEditWidget *m_addr;
     dcc::widgets::LineEditWidget *m_port;

@@ -28,9 +28,16 @@
 
 #include "contentwidget.h"
 #include "connectioneditpage.h"
-#include "wireddevice.h"
+
+#include <wireddevice.h>
 
 class QPushButton;
+
+namespace dde {
+namespace network {
+class NetworkModel;
+}
+}
 
 namespace dcc {
 
@@ -41,16 +48,14 @@ class NextPageWidget;
 
 namespace network {
 
-class WiredDevice;
-class NetworkModel;
 class ConnectionEditPage;
 class WiredPage : public ContentWidget
 {
     Q_OBJECT
 public:
-    explicit WiredPage(WiredDevice *dev, QWidget *parent = 0);
+    explicit WiredPage(dde::network::WiredDevice *dev, QWidget *parent = 0);
 
-    void setModel(NetworkModel *model);
+    void setModel(dde::network::NetworkModel *model);
 
 signals:
     void requestConnectionsList(const QString &devPath);
@@ -70,13 +75,13 @@ private slots:
     void createNewConnection();
     void activeConnection();
     void checkActivatedConnection();
-    void onDeviceStatusChanged(const WiredDevice::DeviceStatus stat);
+    void onDeviceStatusChanged(const dde::network::WiredDevice::DeviceStatus stat);
     void onSessionCreated(const QString &sessionPath);
     void onDeviceRemoved();
 
 private:
-    WiredDevice *m_device;
-    NetworkModel *m_model;
+    dde::network::WiredDevice *m_device;
+    dde::network::NetworkModel *m_model;
 
     QPointer<ConnectionEditPage> m_editPage;
 

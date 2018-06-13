@@ -32,7 +32,9 @@
 #include <QDebug>
 #include <QEvent>
 
-using dcc::network::NetworkModel;
+#include <networkmodel.h>
+
+using dde::network::NetworkModel;
 using dcc::widgets::BasicListView;
 
 WifiPage::WifiPage(NetworkModel *model, QWidget *parent)

@@ -27,16 +27,21 @@
 #define WIFIPAGE_H
 
 #include "wifipage.h"
-#include "network/networkmodel.h"
 
 #include <QWidget>
+
+namespace dde {
+namespace network {
+class NetworkModel;
+}
+}
 
 class WifiPage : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit WifiPage(dcc::network::NetworkModel *model, QWidget *parent = 0);
+    explicit WifiPage(dde::network::NetworkModel *model, QWidget *parent = 0);
 
 signals:
     void mouseLeaveView() const;
@@ -52,7 +57,7 @@ private slots:
     void onItemClicked(const QModelIndex &index);
 
 private:
-    dcc::network::NetworkModel *m_networkModel;
+    dde::network::NetworkModel *m_networkModel;
 };
 
 #endif // WIFIPAGE_H

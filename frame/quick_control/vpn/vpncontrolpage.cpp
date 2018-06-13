@@ -33,7 +33,7 @@
 #include <QEvent>
 
 using dcc::widgets::BasicListView;
-using dcc::network::NetworkModel;
+using dde::network::NetworkModel;
 
 VpnControlPage::VpnControlPage(NetworkModel *model, QWidget *parent)
     : QWidget(parent),

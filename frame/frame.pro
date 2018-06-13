@@ -14,7 +14,7 @@ DESTDIR    = $$_PRO_FILE_PWD_/../
 TEMPLATE   = app
 CONFIG += c++14 link_pkgconfig
 LIBS += -L../widgets
-PKGCONFIG      += dtkwidget dframeworkdbus xcb xext gsettings-qt
+PKGCONFIG      += dtkwidget dframeworkdbus xcb xext gsettings-qt dde-network-utils
 LIBS += -lcrypt
 
 # for gperftools

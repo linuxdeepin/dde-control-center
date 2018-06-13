@@ -33,6 +33,13 @@
 #include <QPointer>
 #include <QJsonObject>
 
+namespace dde {
+namespace network {
+class NetworkModel;
+class WirelessDevice;
+}
+}
+
 namespace dcc {
 
 namespace widgets {
@@ -45,17 +52,15 @@ namespace network {
 class ConnectHiddenPage;
 class ConnectionEditPage;
 class AccessPointWidget;
-class NetworkModel;
-class WirelessDevice;
 class WirelessPage : public ContentWidget
 {
     Q_OBJECT
 
 public:
-    explicit WirelessPage(WirelessDevice *dev, QWidget *parent = 0);
+    explicit WirelessPage(dde::network::WirelessDevice *dev, QWidget *parent = 0);
     ~WirelessPage();
 
-    void setModel(NetworkModel *model);
+    void setModel(dde::network::NetworkModel *model);
 
 signals:
     void requestEditAP(const QString &devPath, const QString &uuid) const;
@@ -89,8 +94,8 @@ private:
     void updateActiveAp();
 
 private:
-    WirelessDevice *m_device;
-    NetworkModel *m_model;
+    dde::network::WirelessDevice *m_device;
+    dde::network::NetworkModel *m_model;
 
     dcc::widgets::SettingsGroup *m_listGroup;
     dcc::widgets::SettingsGroup *m_tipsGroup;

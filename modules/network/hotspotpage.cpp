@@ -27,8 +27,6 @@
 #include "nextpagewidget.h"
 #include "switchwidget.h"
 #include "settingsgroup.h"
-#include "wirelessdevice.h"
-#include "networkmodel.h"
 #include "connectionsessionmodel.h"
 #include "connectionsessionworker.h"
 
@@ -36,6 +34,10 @@
 #include <QDebug>
 
 #include <unistd.h>
+#include <networkmodel.h>
+#include <wirelessdevice.h>
+
+using namespace dde::network;
 
 namespace dcc {
 

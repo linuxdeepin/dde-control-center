@@ -28,14 +28,19 @@
 
 #include "moduleinterface.h"
 
+namespace dde {
+namespace network {
+class WirelessDevice;
+class NetworkDevice;
+class NetworkWorker;
+class NetworkModel;
+}
+}
+
 namespace dcc {
 namespace network {
 
-class WirelessDevice;
-class NetworkDevice;
 class NetworkModuleWidget;
-class NetworkWorker;
-class NetworkModel;
 class NetworkModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -61,14 +66,14 @@ private slots:
     void showProxyPage();
     void showChainsProxyTypePage();
     void showDetailPage();
-    void showHotspotPage(WirelessDevice *wdev);
-    void showDeviceDetailPage(NetworkDevice *dev);
+    void showHotspotPage(dde::network::WirelessDevice *wdev);
+    void showDeviceDetailPage(dde::network::NetworkDevice *dev);
     void showWiredConnectionEditPage(const QString &session);
     void onSetFrameAutoHide(const bool autoHide);
 
 private:
-    NetworkModel *m_networkModel;
-    NetworkWorker *m_networkWorker;
+    dde::network::NetworkModel *m_networkModel;
+    dde::network::NetworkWorker *m_networkWorker;
     NetworkModuleWidget *m_networkWidget;
 
     QString m_editingWiredUuid;

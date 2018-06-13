@@ -27,15 +27,21 @@
 #define CONNECTIONEDITPAGE_H
 
 #include "contentwidget.h"
-#include "networkdevice.h"
 
 #include <QMap>
 #include <QPointer>
 
 #include <types/networkerrors.h>
+#include <networkdevice.h>
 
 class QVBoxLayout;
 class QPushButton;
+
+namespace dde {
+namespace network {
+class NetworkModel;
+}
+}
 
 namespace dcc {
 
@@ -49,7 +55,6 @@ class ButtonTuple;
 
 namespace network {
 
-class NetworkModel;
 class ConnectionSessionModel;
 class ConnectionEditPage : public ContentWidget
 {
@@ -66,8 +71,8 @@ public:
     explicit ConnectionEditPage(QWidget *parent = 0);
     ~ConnectionEditPage();
 
-    void setAssociatedDevice(NetworkDevice *dev) { m_associatedDevice = dev; }
-    void setModel(NetworkModel *networkModel, ConnectionSessionModel *sessionModel);
+    void setAssociatedDevice(dde::network::NetworkDevice *dev) { m_associatedDevice = dev; }
+    void setModel(dde::network::NetworkModel *networkModel, ConnectionSessionModel *sessionModel);
     void setPageType(PageType type);
 
 signals:
@@ -108,7 +113,7 @@ private:
 private:
     PageType m_pageType;
 
-    NetworkModel *m_networkModel;
+    dde::network::NetworkModel *m_networkModel;
     ConnectionSessionModel *m_sessionModel;
 
     QPushButton *m_disconnectBtn;
@@ -120,7 +125,7 @@ private:
     QMap<QString, widgets::SettingsGroup *> m_sectionWidgets;
     QMap<QString, QMap<QString, widgets::SettingsItem*>> m_optionWidgets;
 
-    QPointer<NetworkDevice> m_associatedDevice;
+    QPointer<dde::network::NetworkDevice> m_associatedDevice;
     QPointer<ContentWidget> m_nextPage;
     QTimer *m_recreateUITimer;
     QTimer *m_checkErrorsTimer;

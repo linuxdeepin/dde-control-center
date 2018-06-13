@@ -24,7 +24,6 @@
  */
 
 #include "proxypage.h"
-#include "networkmodel.h"
 #include "translucentframe.h"
 #include "settingsgroup.h"
 #include "settingsheaderitem.h"
@@ -34,9 +33,12 @@
 #include <QVBoxLayout>
 #include <QDebug>
 
+#include <networkmodel.h>
+
 DWIDGET_USE_NAMESPACE
 
 using namespace dcc::widgets;
+using namespace dde::network;
 
 namespace dcc {
 

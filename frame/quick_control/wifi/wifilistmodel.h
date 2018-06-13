@@ -26,16 +26,21 @@
 #ifndef WIFILISTMODEL_H
 #define WIFILISTMODEL_H
 
-#include "network/networkmodel.h"
-#include "network/networkdevice.h"
-#include "network/wirelessdevice.h"
-
 #include <QAbstractListModel>
 #include <QTimer>
 
+#include <networkdevice.h>
+
+namespace dde {
+namespace network {
+class NetworkModel;
+class WirelessDevice;
+}
+}
+
 struct ItemInfo
 {
-    const dcc::network::NetworkDevice *device = nullptr;
+    const dde::network::NetworkDevice *device = nullptr;
     const QJsonObject *info = nullptr;
 };
 
@@ -61,7 +66,7 @@ public:
         ItemCountRole,
     };
 
-    explicit WifiListModel(dcc::network::NetworkModel *model, QObject *parent = 0);
+    explicit WifiListModel(dde::network::NetworkModel *model, QObject *parent = 0);
 
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
@@ -74,14 +79,14 @@ signals:
     void requestDeviceApList(const QString &devPath) const;
 
 private:
-    int indexOf(dcc::network::WirelessDevice * const dev) const;
+    int indexOf(dde::network::WirelessDevice * const dev) const;
     const ItemInfo indexInfo(const int index) const;
-    const QString deviceName(const dcc::network::NetworkDevice *wirelessDevice) const;
+    const QString deviceName(const dde::network::NetworkDevice *wirelessDevice) const;
 
-    void onDeviceListChanged(const QList<dcc::network::NetworkDevice *> &devices);
+    void onDeviceListChanged(const QList<dde::network::NetworkDevice *> &devices);
     void onDeviceApAdded(const QJsonObject &info);
-    void onDeviceApRemoved(dcc::network::WirelessDevice *dev, const QString &ssid);
-    void onDeviceStateChanged(const dcc::network::NetworkDevice::DeviceStatus &stat);
+    void onDeviceApRemoved(dde::network::WirelessDevice *dev, const QString &ssid);
+    void onDeviceStateChanged(const dde::network::NetworkDevice::DeviceStatus &stat);
     void onDeviceActiveApChanged(const QJsonObject &oldApInfo, const QJsonObject &newApInfo);
 
     void refershActivatingIndex();
@@ -90,14 +95,14 @@ private:
     void onDeviceEnableChanged(const bool enable);
 
 private:
-    dcc::network::NetworkModel *m_networkModel;
+    dde::network::NetworkModel *m_networkModel;
 
     QModelIndex m_currentIndex;
     QModelIndex m_activatingIndex;
 
     QTimer *m_refreshTimer;
 
-    QMap<dcc::network::WirelessDevice *, QList<QJsonObject>> m_apInfoList;
+    QMap<dde::network::WirelessDevice *, QList<QJsonObject>> m_apInfoList;
 };
 
 #endif // WIFILISTMODEL_H

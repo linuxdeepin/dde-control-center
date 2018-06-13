@@ -35,13 +35,6 @@ namespace dcc {
 class QuickSwitchButton;
 class BasicSettingsPage;
 
-namespace network {
-
-class NetworkModel;
-class NetworkWorker;
-
-}
-
 namespace display {
 
 class DisplayModel;
@@ -57,6 +50,13 @@ class BluetoothWorker;
 
 }
 #endif
+}
+
+namespace dde {
+namespace network {
+class NetworkModel;
+class NetworkWorker;
+}
 }
 
 class QuickControlPanel : public QWidget
@@ -91,8 +91,8 @@ private slots:
 
 private:
     QStackedLayout *m_itemStack;
-    dcc::network::NetworkModel *m_networkModel;
-    dcc::network::NetworkWorker *m_networkWorker;
+    dde::network::NetworkModel *m_networkModel;
+    dde::network::NetworkWorker *m_networkWorker;
     dcc::display::DisplayModel *m_displayModel;
     dcc::display::DisplayWorker *m_displayWorker;
 

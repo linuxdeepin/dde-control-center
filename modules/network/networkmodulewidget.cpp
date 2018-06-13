@@ -24,17 +24,18 @@
  */
 
 #include "networkmodulewidget.h"
-#include "networkdevice.h"
-#include "wirelessdevice.h"
-#include "networkmodel.h"
 #include "nextpagewidget.h"
 #include "settingsgroup.h"
 #include "switchwidget.h"
 
+#include <networkmodel.h>
+#include <networkdevice.h>
+#include <wirelessdevice.h>
 #include <QDebug>
 
 using namespace dcc::widgets;
 using namespace dcc::network;
+using namespace dde::network;
 
 NetworkModuleWidget::NetworkModuleWidget()
     : ModuleWidget()

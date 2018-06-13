@@ -24,8 +24,6 @@
  */
 
 #include "wiredpage.h"
-#include "wireddevice.h"
-#include "networkmodel.h"
 #include "settingsgroup.h"
 #include "settingsheaderitem.h"
 #include "nextpagewidget.h"
@@ -40,6 +38,9 @@
 #include <QPointer>
 #include <DHiDPIHelper>
 
+#include <networkmodel.h>
+#include <wireddevice.h>
+
 DWIDGET_USE_NAMESPACE
 
 namespace dcc {
@@ -47,6 +48,7 @@ namespace dcc {
 namespace network {
 
 using namespace widgets;
+using namespace dde::network;
 
 WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     : ContentWidget(parent),

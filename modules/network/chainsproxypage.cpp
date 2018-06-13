@@ -34,9 +34,12 @@
 #include <QLabel>
 #include <QRegularExpression>
 
+#include <networkmodel.h>
+
 using namespace dcc;
 using namespace dcc::network;
 using namespace dcc::widgets;
+using namespace dde::network;
 
 ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
 {

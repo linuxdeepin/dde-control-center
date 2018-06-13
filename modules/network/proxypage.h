@@ -31,6 +31,13 @@
 
 #include <dsegmentedcontrol.h>
 
+namespace dde {
+namespace network {
+class NetworkModel;
+struct ProxyConfig;
+}
+}
+
 namespace dcc {
 
 namespace widgets {
@@ -42,8 +49,6 @@ class PlainTextItem;
 
 namespace network {
 
-struct ProxyConfig;
-class NetworkModel;
 class ProxyPage : public ContentWidget
 {
     Q_OBJECT
@@ -51,7 +56,7 @@ class ProxyPage : public ContentWidget
 public:
     explicit ProxyPage(QWidget *parent = 0);
 
-    void setModel(NetworkModel *model);
+    void setModel(dde::network::NetworkModel *model);
 
 signals:
     void requestQueryProxyData() const;
@@ -64,7 +69,7 @@ signals:
 private slots:
     void onProxyMethodChanged(const QString &proxyMethod);
     void onIgnoreHostsChanged(const QString &hosts);
-    void onProxyChanged(const QString &type, const ProxyConfig &config);
+    void onProxyChanged(const QString &type, const dde::network::ProxyConfig &config);
     void onProxyToggled(const int index);
     void applySettings() const;
 
@@ -72,7 +77,7 @@ private:
     void applyProxy(const QString &type);
 
 private:
-    NetworkModel *m_model;
+    dde::network::NetworkModel *m_model;
 
     QWidget *m_manualWidget;
     QWidget *m_autoWidget;

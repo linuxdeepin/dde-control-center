@@ -27,11 +27,7 @@
 #include "networkmodulewidget.h"
 #include "contentwidget.h"
 #include "modulewidget.h"
-#include "networkworker.h"
-#include "networkmodel.h"
 #include "wirelesspage.h"
-#include "wirelessdevice.h"
-#include "wireddevice.h"
 #include "connectioneditpage.h"
 #include "connectionsessionmodel.h"
 #include "connectionsessionworker.h"
@@ -44,9 +40,16 @@
 #include "chainsproxypage.h"
 #include "chainstypepage.h"
 
+#include <networkworker.h>
+#include <networkmodel.h>
+#include <networkdevice.h>
+#include <wirelessdevice.h>
+#include <wireddevice.h>
+
 using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::network;
+using namespace dde::network;
 
 NetworkModule::NetworkModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),

@@ -31,11 +31,16 @@
 #include <QList>
 #include <QJsonObject>
 
+namespace dde {
+namespace network {
+class NetworkModel;
+}
+}
+
 namespace dcc {
 
 namespace network {
 
-class NetworkModel;
 class NetworkDetailPage : public ContentWidget
 {
     Q_OBJECT
@@ -43,7 +48,7 @@ class NetworkDetailPage : public ContentWidget
 public:
     explicit NetworkDetailPage(QWidget *parent = 0);
 
-    void setModel(NetworkModel *model);
+    void setModel(dde::network::NetworkModel *model);
 
 private slots:
     void onActiveInfoChanged(const QList<QJsonObject> &infos);

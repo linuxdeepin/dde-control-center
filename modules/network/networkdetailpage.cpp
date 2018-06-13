@@ -24,7 +24,6 @@
  */
 
 #include "networkdetailpage.h"
-#include "networkmodel.h"
 #include "settingsgroup.h"
 #include "settingsheaderitem.h"
 #include "translucentframe.h"
@@ -34,7 +33,10 @@
 #include <QDebug>
 #include <QJsonArray>
 
+#include <networkmodel.h>
+
 using namespace dcc::widgets;
+using namespace dde::network;
 
 const QString compressedIpv6Addr(const QString &ipv6Adr)
 {

@@ -25,8 +25,6 @@
 
 #include "pppoepage.h"
 #include "settingsgroup.h"
-#include "networkmodel.h"
-#include "wireddevice.h"
 #include "settingsheaderitem.h"
 #include "translucentframe.h"
 #include "nextpagewidget.h"
@@ -35,6 +33,8 @@
 #include "connectionsessionmodel.h"
 #include "connectioneditpage.h"
 
+#include <networkmodel.h>
+#include <wireddevice.h>
 #include <DHiDPIHelper>
 #include <QPushButton>
 #include <QDebug>
@@ -44,6 +44,7 @@ DWIDGET_USE_NAMESPACE
 
 using namespace dcc::widgets;
 using namespace dcc::network;
+using namespace dde::network;
 
 PppoePage::PppoePage(QWidget *parent)
     : ContentWidget(parent),

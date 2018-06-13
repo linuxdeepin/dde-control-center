@@ -27,7 +27,6 @@
 #include "switchwidget.h"
 #include "settingsgroup.h"
 #include "translucentframe.h"
-#include "networkmodel.h"
 #include "optionitem.h"
 #include "nextpagewidget.h"
 #include "loadingnextpagewidget.h"
@@ -35,6 +34,7 @@
 #include "connectionsessionworker.h"
 #include "connectionsessionmodel.h"
 
+#include <networkmodel.h>
 #include <QDebug>
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -48,6 +48,7 @@ DWIDGET_USE_NAMESPACE
 
 using namespace dcc::widgets;
 using namespace dcc::network;
+using namespace dde::network;
 
 QString vpnConfigType(const QString &path)
 {

@@ -34,6 +34,12 @@
 class QVBoxLayout;
 class QPushButton;
 
+namespace dde {
+namespace network {
+class NetworkModel;
+}
+}
+
 namespace dcc {
 
 namespace widgets {
@@ -44,8 +50,6 @@ namespace widgets {
 
 namespace network {
 
-class WiredDevice;
-class NetworkModel;
 class ConnectionEditPage;
 class PppoePage : public ContentWidget
 {
@@ -54,7 +58,7 @@ public:
     explicit PppoePage(QWidget *parent = 0);
     ~PppoePage();
 
-    void setModel(NetworkModel *model);
+    void setModel(dde::network::NetworkModel *model);
 
 signals:
     void requestNextPage(ContentWidget * const w) const;
@@ -74,7 +78,7 @@ private slots:
     void onActivateConnectionChanged(const QSet<QString> &conns);
 
 private:
-    NetworkModel *m_model;
+    dde::network::NetworkModel *m_model;
 
     widgets::SettingsGroup *m_settingsGrp;
     QPushButton *m_createBtn;

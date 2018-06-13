@@ -30,14 +30,10 @@
 #include <QPixmap>
 #include <QJsonObject>
 
-namespace dcc {
-
+namespace dde {
 namespace network {
-
 class NetworkModel;
-
 }
-
 }
 
 class VpnListModel : public QAbstractListModel
@@ -65,7 +61,7 @@ public:
         VpnDisableRole,
     };
 
-    explicit VpnListModel(dcc::network::NetworkModel *model, QObject *parent = 0);
+    explicit VpnListModel(dde::network::NetworkModel *model, QObject *parent = 0);
 
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
@@ -88,7 +84,7 @@ private:
 
     QList<QJsonObject> m_activeVpns;
 
-    dcc::network::NetworkModel *m_networkModel;
+    dde::network::NetworkModel *m_networkModel;
     QTimer *m_refreshTimer;
 };
 

@@ -31,6 +31,12 @@
 
 #include <QJsonObject>
 
+namespace dde {
+namespace network {
+class WirelessDevice;
+}
+}
+
 namespace dcc {
 
 namespace widgets {
@@ -42,16 +48,14 @@ class SwitchWidget;
 
 namespace network {
 
-class NetworkModel;
-class WirelessDevice;
 class HotspotPage : public ContentWidget
 {
     Q_OBJECT
 
 public:
-    explicit HotspotPage(WirelessDevice *wdev, QWidget *parent = nullptr);
+    explicit HotspotPage(dde::network::WirelessDevice *wdev, QWidget *parent = nullptr);
 
-    void setModel(NetworkModel *model);
+    void setModel(dde::network::NetworkModel *model);
 
 signals:
     void requestNextPage(ContentWidget * const w) const;
@@ -77,8 +81,8 @@ private:
     { return m_hotspotInfo.value("Uuid").toString(); }
 
 private:
-    WirelessDevice * const m_wdev;
-    NetworkModel *m_model;
+    dde::network::WirelessDevice * const m_wdev;
+    dde::network::NetworkModel *m_model;
     widgets::SwitchWidget *m_hotspotSwitch;
     widgets::NextPageWidget *m_configureWidget;
 

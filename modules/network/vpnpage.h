@@ -33,6 +33,12 @@
 #include <QMap>
 #include <QPointer>
 
+namespace dde {
+namespace network {
+class NetworkModel;
+}
+}
+
 namespace dcc {
 
 namespace widgets {
@@ -46,7 +52,6 @@ class LoadingNextPageWidget;
 
 namespace network {
 
-class NetworkModel;
 class ConnectionEditPage;
 class VpnPage : public ContentWidget
 {
@@ -67,7 +72,7 @@ signals:
     void requestFrameKeepAutoHide(const bool autoHide) const;
 
 public slots:
-    void setModel(NetworkModel *model);
+    void setModel(dde::network::NetworkModel *model);
     void refreshVpnList(const QList<QJsonObject> &vpnList);
 
 private slots:
@@ -82,7 +87,7 @@ private slots:
     void createVPN(const QString &type);
 
 private:
-    NetworkModel *m_model;
+    dde::network::NetworkModel *m_model;
 
     widgets::SwitchWidget *m_vpnSwitch;
     widgets::SettingsGroup *m_vpnGroup;
