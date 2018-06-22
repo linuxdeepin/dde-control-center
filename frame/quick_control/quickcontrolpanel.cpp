@@ -80,8 +80,8 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     WifiPage *wifiPage = new WifiPage(m_networkModel);
 
 #ifndef DISABLE_BLUETOOTH
-    m_bluetoothModel = new BluetoothModel(this);
-    m_bluetoothWorker = new BluetoothWorker(m_bluetoothModel);
+    m_bluetoothWorker = BluetoothWorker::Instance();
+    m_bluetoothModel = m_bluetoothWorker->model();
     m_bluetoothWorker->activate();
 
     BluetoothList *bluetoothList = new BluetoothList(m_bluetoothModel);
@@ -225,6 +225,16 @@ void QuickControlPanel::setMPRISEnable(const bool enable)
 void QuickControlPanel::setMPRISPictureEnable(const bool enable)
 {
     m_basicSettingsPage->setMPRISPictureEnable(enable);
+}
+
+void QuickControlPanel::appear()
+{
+    m_bluetoothWorker->blockDBusSignals(false);
+}
+
+void QuickControlPanel::disappear()
+{
+    m_bluetoothWorker->blockDBusSignals(true);
 }
 
 void QuickControlPanel::leaveEvent(QEvent *e)

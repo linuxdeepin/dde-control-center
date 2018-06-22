@@ -57,8 +57,8 @@ private:
 private:
     BluetoothModel *m_model;
 //    QList<AdapterWidget *> m_widgets;
-    QMap<const Adapter*, NextPageWidget*> m_valueMap;
-    SettingsGroup *m_mainGroup;
+    QMap<const Adapter*, widgets::NextPageWidget*> m_valueMap;
+    widgets::SettingsGroup *m_mainGroup;
 };
 
 } // namespace bluetooth

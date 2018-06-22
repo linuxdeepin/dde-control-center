@@ -70,6 +70,9 @@ public:
     void setMPRISEnable(const bool enable);
     void setMPRISPictureEnable(const bool enable);
 
+    void appear();
+    void disappear();
+
 signals:
     void requestDetailConfig() const;
     void requestPage(const QString &module, const QString &page, bool animation);

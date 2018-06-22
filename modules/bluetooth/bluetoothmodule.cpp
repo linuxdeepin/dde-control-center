@@ -96,8 +96,12 @@ void BluetoothModule::showBluetoothDetail(const Adapter *adapter)
     connect(w, &AdapterWidget::requestShowDetail, this, &BluetoothModule::showDeviceDetail);
     connect(w, &AdapterWidget::requestSetAlias, m_bluetoothWorker, &BluetoothWorker::setAlias);
 
-    connect(w, &AdapterWidget::back, this, [=] {
+    connect(w, &AdapterWidget::disappear, this, [=] {
         m_bluetoothWorker->setAdapterDiscovering(path, false);
+    });
+
+    connect(w, &AdapterWidget::appear, this, [=] {
+        m_bluetoothWorker->setAdapterDiscovering(path, true);
     });
 
     m_bluetoothWorker->setAdapterDiscovering(path, true);
@@ -113,8 +117,8 @@ BluetoothModule::~BluetoothModule()
 
 void BluetoothModule::initialize()
 {
-    m_bluetoothModel = new BluetoothModel;
-    m_bluetoothWorker = new BluetoothWorker(m_bluetoothModel);
+    m_bluetoothWorker = BluetoothWorker::Instance();
+    m_bluetoothModel = m_bluetoothWorker->model();
 
     m_bluetoothModel->moveToThread(qApp->thread());
     m_bluetoothWorker->moveToThread(qApp->thread());

@@ -43,7 +43,7 @@ public:
     const Adapter *adapterById(const QString &id);
 
 public slots:
-    void addAdapter(const Adapter *adapter);
+    void addAdapter(Adapter *adapter);
     const Adapter *removeAdapater(const QString &adapterId);
 
 signals:

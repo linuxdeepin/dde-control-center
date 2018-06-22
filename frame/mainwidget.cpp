@@ -173,6 +173,8 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     connect(m_indicatorWidget, &IndicatorWidget::requestPrevious, this, &MainWidget::showNextPlugin);
     connect(m_quickSettingsPanel, &QuickControlPanel::requestDetailConfig, this, &MainWidget::showAllSettings);
     connect(m_quickSettingsPanel, &QuickControlPanel::requestPage, this, &MainWidget::showSettingPage);
+    connect(this, &MainWidget::appear, m_quickSettingsPanel, &QuickControlPanel::appear);
+    connect(this, &MainWidget::disappear, m_quickSettingsPanel, &QuickControlPanel::disappear);
     connect(m_timeRefersh, &QTimer::timeout, this, &MainWidget::refershTimedate);
 
 #ifndef DISABLE_SYS_UPDATE

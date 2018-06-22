@@ -29,12 +29,15 @@
 #include "contentwidget.h"
 #include "adapter.h"
 #include "TitleEdit.h"
-#include "switchwidget.h"
-#include "settingsgroup.h"
-
-using namespace dcc::widgets;
 
 namespace dcc {
+
+namespace widgets {
+class LoadingIndicator;
+class SwitchWidget;
+class SettingsGroup;
+}
+
 namespace bluetooth {
 
 class AdapterWidget : public ContentWidget
@@ -62,11 +65,12 @@ private slots:
 private:
     const Adapter *m_adapter;
     TitleEdit *m_titleEdit;
-    SwitchWidget *m_switch;
-    SettingsGroup *m_titleGroup;
-    SettingsGroup *m_myDevicesGroup;
-    SettingsGroup *m_otherDevicesGroup;
+    widgets::SwitchWidget *m_switch;
+    widgets::SettingsGroup *m_titleGroup;
+    widgets::SettingsGroup *m_myDevicesGroup;
+    widgets::SettingsGroup *m_otherDevicesGroup;
     QLabel        *m_tip;
+    widgets::LoadingIndicator *m_refreshIndicator;
 };
 
 }

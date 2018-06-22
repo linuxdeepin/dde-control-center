@@ -55,6 +55,8 @@ public:
 signals:
     void showAllSettings() const;
     void showSettingPage(const QString &module, const QString &page, bool animation);
+    void appear() const;
+    void disappear() const;
 
 protected:
     void resizeEvent(QResizeEvent *e);

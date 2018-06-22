@@ -381,10 +381,13 @@ void Frame::show()
     DBlurEffectWidget::activateWindow();
 
     // notify top widget appear
-    if (m_frameWidgetStack.last() && m_frameWidgetStack.last()->content())
+    if (m_frameWidgetStack.last())
     {
         QTimer::singleShot(m_frameWidgetStack.last()->animationDuration(), [=] {
-            emit m_frameWidgetStack.last()->content()->appear();
+            if (m_frameWidgetStack.last()->content())
+                emit m_frameWidgetStack.last()->content()->appear();
+            else
+                emit static_cast<MainWidget*>(m_frameWidgetStack.first())->appear();
         });
     }
 
@@ -430,8 +433,12 @@ void Frame::hide()
     QTimer::singleShot(m_appearAnimation.duration(), this, &QFrame::hide);
 
     // notify top widget disappear
-    if (m_frameWidgetStack.last() && m_frameWidgetStack.last()->content())
-        emit m_frameWidgetStack.last()->content()->disappear();
+    if (m_frameWidgetStack.last()) {
+        if ( m_frameWidgetStack.last()->content())
+            emit m_frameWidgetStack.last()->content()->disappear();
+        else
+            emit static_cast<MainWidget*>(m_frameWidgetStack.first())->disappear();
+    }
 
     m_mouseAreaInter->unregisterRegion();
 

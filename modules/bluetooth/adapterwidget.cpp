@@ -24,13 +24,17 @@
  */
 
 #include "adapterwidget.h"
-#include <QVBoxLayout>
-#include <QDebug>
-
 #include "devicesettingsitem.h"
 #include "translucentframe.h"
 #include "settingsheaderitem.h"
 #include "loadingindicator.h"
+#include "switchwidget.h"
+#include "settingsgroup.h"
+
+#include <QVBoxLayout>
+#include <QDebug>
+
+using namespace dcc::widgets;
 
 namespace dcc {
 namespace bluetooth {
@@ -53,10 +57,10 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     m_myDevicesGroup->setHeaderVisible(true);
     m_otherDevicesGroup->setHeaderVisible(true);
 
-    LoadingIndicator *load = new LoadingIndicator;
-    load->setTheme("dark");
-    m_otherDevicesGroup->headerItem()->setRightWidget(load);
-    load->play();
+    m_refreshIndicator = new LoadingIndicator;
+    m_refreshIndicator->setTheme("dark");
+    m_otherDevicesGroup->headerItem()->setRightWidget(m_refreshIndicator);
+    m_refreshIndicator->play();
 
     m_tip = new QLabel(tr("Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)"));
     m_tip->setVisible(!m_switch->checked());
@@ -77,6 +81,9 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, [=](const QString &alias) {
         emit requestSetAlias(adapter, alias);
     });
+
+    connect(this, &AdapterWidget::disappear, m_refreshIndicator, &DPictureSequenceView::stop);
+    connect(this, &AdapterWidget::appear, m_refreshIndicator, &DPictureSequenceView::play);
 
     connect(adapter, &Adapter::nameChanged, this, &AdapterWidget::setTitle);
     connect(adapter, &Adapter::destroyed, this, &AdapterWidget::back);

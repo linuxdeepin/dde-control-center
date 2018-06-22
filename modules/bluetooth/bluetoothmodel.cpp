@@ -33,13 +33,16 @@ BluetoothModel::BluetoothModel(QObject *parent) : QObject(parent)
 
 }
 
-void BluetoothModel::addAdapter(const Adapter *adapter)
+void BluetoothModel::addAdapter(Adapter *adapter)
 {
     if (!adapterById(adapter->id())) {
         m_adapters.append(adapter);
         emit adapterAdded(adapter);
         emit adpaterListChanged();
+        return;
     }
+
+    adapter->deleteLater();
 }
 
 const Adapter *BluetoothModel::removeAdapater(const QString &adapterId)

@@ -75,34 +75,31 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
         }
     });
 
-    QDBusPendingCall call = m_bluetoothInter->GetAdapters();
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
-        if (!call.isError()) {
-            QDBusReply<QString> reply = call.reply();
-            const QString replyStr = reply.value();
-            QJsonDocument doc = QJsonDocument::fromJson(replyStr.toUtf8());
-            QJsonArray arr = doc.array();
-            for (QJsonValue val : arr) {
-                Adapter *adapter = new Adapter(m_model);
-                inflateAdapter(adapter, val.toObject());
+    refresh();
+}
 
-                m_model->addAdapter(adapter);
-            }
-        } else {
-            qWarning() << call.error().message();
-        }
-    });
-
+BluetoothWorker *BluetoothWorker::Instance()
+{
+    static BluetoothWorker *worker = new BluetoothWorker(new BluetoothModel);
+    return worker;
 }
 
 void BluetoothWorker::activate()
 {
+    blockDBusSignals(false);
     m_bluetoothInter->ClearUnpairedDevice();
+
+    refresh();
 }
 
 void BluetoothWorker::deactivate()
 {
+    blockDBusSignals(true);
+}
+
+void BluetoothWorker::blockDBusSignals(bool block)
+{
+    m_bluetoothInter->blockSignals(block);
 }
 
 void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powered)
@@ -304,6 +301,28 @@ void BluetoothWorker::removeDevice(const QString &json)
         Device *device = const_cast<Device*>(result);
         device->deleteLater();
     }
+}
+
+void BluetoothWorker::refresh()
+{
+    QDBusPendingCall call = m_bluetoothInter->GetAdapters();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+        if (!call.isError()) {
+            QDBusReply<QString> reply = call.reply();
+            const QString replyStr = reply.value();
+            QJsonDocument doc = QJsonDocument::fromJson(replyStr.toUtf8());
+            QJsonArray arr = doc.array();
+            for (QJsonValue val : arr) {
+                Adapter *adapter = new Adapter(m_model);
+                inflateAdapter(adapter, val.toObject());
+
+                m_model->addAdapter(adapter);
+            }
+        } else {
+            qWarning() << call.error().message();
+        }
+    });
 }
 
 void BluetoothWorker::setAlias(const Adapter *adapter, const QString &alias)

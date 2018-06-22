@@ -42,10 +42,14 @@ class BluetoothWorker : public QObject, public ModuleWorker
 {
     Q_OBJECT
 public:
-    explicit BluetoothWorker(BluetoothModel *model);
+    static BluetoothWorker* Instance();
+
+    BluetoothModel *model() { return m_model; }
 
     void activate() Q_DECL_OVERRIDE;
     void deactivate() Q_DECL_OVERRIDE;
+
+    void blockDBusSignals(bool block);
 
 signals:
     void deviceEnableChanged();
@@ -76,7 +80,10 @@ private slots:
     void addDevice(const QString &json);
     void removeDevice(const QString &json);
 
+    void refresh();
+
 private:
+    explicit BluetoothWorker(BluetoothModel *model);
     DBusBluetooth *m_bluetoothInter;
     BluetoothModel *m_model;
 };
