@@ -85,7 +85,7 @@ private:
 
     void onDeviceListChanged(const QList<dde::network::NetworkDevice *> &devices);
     void onDeviceApAdded(const QJsonObject &info);
-    void onDeviceApRemoved(dde::network::WirelessDevice *dev, const QString &ssid);
+    void onDeviceApRemoved(dde::network::WirelessDevice *dev, const QJsonObject &apInfo);
     void onDeviceStateChanged(const dde::network::NetworkDevice::DeviceStatus &stat);
     void onDeviceActiveApChanged(const QJsonObject &oldApInfo, const QJsonObject &newApInfo);
 

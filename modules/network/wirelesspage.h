@@ -78,7 +78,7 @@ signals:
 public slots:
     void onAPAdded(const QJsonObject &apInfo);
     void onAPChanged(const QJsonObject &apInfo);
-    void onAPRemoved(const QString &ssid);
+    void onAPRemoved(const QJsonObject &apInfo);
     void onHotspotEnableChanged(const bool enabled);
     void onCloseHotspotClicked();
 

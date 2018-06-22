@@ -102,10 +102,14 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(dev, &WirelessDevice::hotspotEnabledChanged, this, &WirelessPage::onHotspotEnableChanged);
 
     // init data
-    QTimer::singleShot(0, this, [=] {
-        const QString devPath = m_device->path();
-
-        emit requestDeviceAPList(devPath);
+    const QJsonArray mApList = m_device->apList();
+    if (!mApList.isEmpty()) {
+        for (auto ap : mApList) {
+            onAPAdded(ap.toObject());
+        }
+    }
+    QTimer::singleShot(100, this, [=] {
+        emit requestDeviceAPList(m_device->path());
     });
 }
 
@@ -130,16 +134,18 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 {
     const QString ssid = apInfo.value("Ssid").toString();
 
-    AccessPointWidget *w = new AccessPointWidget;
+    if (!m_apItems.contains(ssid)) {
+        AccessPointWidget *w = new AccessPointWidget;
 
-    w->setConnected(ssid == m_device->activeApName());
-    w->setAPName(ssid);
+        w->setConnected(ssid == m_device->activeApName());
+        w->setAPName(ssid);
 
-    connect(w, &AccessPointWidget::requestEdit, this, &WirelessPage::onApWidgetEditRequested);
-    connect(w, &AccessPointWidget::requestConnect, this, &WirelessPage::onApWidgetConnectRequested);
+        connect(w, &AccessPointWidget::requestEdit, this, &WirelessPage::onApWidgetEditRequested);
+        connect(w, &AccessPointWidget::requestConnect, this, &WirelessPage::onApWidgetConnectRequested);
 
-    m_apItems.insert(ssid, w);
-    m_listGroup->appendItem(w);
+        m_apItems.insert(ssid, w);
+        m_listGroup->appendItem(w);
+    }
 
     onAPChanged(apInfo);
 }
@@ -170,8 +176,9 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
     m_sortDelayTimer.start();
 }
 
-void WirelessPage::onAPRemoved(const QString &ssid)
+void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
 {
+    const QString &ssid = apInfo.value("Ssid").toString();
     if (!m_apItems.contains(ssid))
         return;
 
