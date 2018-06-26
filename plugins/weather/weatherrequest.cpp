@@ -74,7 +74,7 @@ WeatherRequest::WeatherRequest(QObject *parent) :
     connect(m_manager, &QNetworkAccessManager::networkAccessibleChanged, this, [this] { m_retryCount = 0; });
 
     m_retryTimer->setSingleShot(false);
-    m_retryTimer->setInterval(5000);
+    m_retryTimer->setInterval(10 * 60 * 1000);
 
     auto func = [this] {
         if (m_retryCount >= 10) return;
@@ -89,7 +89,8 @@ WeatherRequest::WeatherRequest(QObject *parent) :
     };
     connect(m_retryTimer, &QTimer::timeout, this, func);
 
-    func();
+
+    QTimer::singleShot(0, func);
     m_retryTimer->start();
 }
 
@@ -118,7 +119,7 @@ void WeatherRequest::processWeatherServiceReply()
     m_items.clear();
 
     QByteArray ba = reply->readAll();
-    qDebug() << ba;
+    qDebug() << "got weather info size: " << ba.size();
     QJsonArray items = QJsonDocument::fromJson(ba).array();
     for (QJsonValue val : items) {
         QJsonObject obj = val.toObject();
@@ -148,7 +149,7 @@ void WeatherRequest::processGeoNameIdReply()
 
     errorCheck(Q_FUNC_INFO, reply->error());
 
-    qDebug() << ba;
+    qDebug() << "got geo id size: " << ba;
 
     QDomDocument domDocument;
     QString errorMsg;
