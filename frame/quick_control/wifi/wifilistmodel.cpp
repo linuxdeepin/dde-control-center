@@ -104,7 +104,7 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
     case ItemIsHeaderRole:
         return !info.info && info.device;
     case ItemIsActiveRole:
-        return info.info && static_cast<const WirelessDevice *>(info.device)->activeApName() == info.info->value("Ssid").toString();
+        return info.info && static_cast<const WirelessDevice *>(info.device)->activeConnName() == info.info->value("Ssid").toString();
     case ItemIsActivatingRole:
         return m_refreshTimer->isActive() && index == m_activatingIndex;
     case ItemDevicePathRole:
@@ -226,9 +226,9 @@ void WifiListModel::onDeviceListChanged(const QList<NetworkDevice *> &devices)
             continue;
 
         connect(d, &WirelessDevice::enableChanged, this, &WifiListModel::onDeviceEnableChanged, Qt::UniqueConnection);
-        connect(d, &WirelessDevice::activeApChanged, this, &WifiListModel::refershActivatingIndex, Qt::UniqueConnection);
+        connect(d, &WirelessDevice::activeConnectionChanged, this, &WifiListModel::refershActivatingIndex, Qt::UniqueConnection);
         connect(d, &WirelessDevice::apAdded, this, &WifiListModel::onDeviceApAdded, Qt::UniqueConnection);
-        connect(d, &WirelessDevice::activeApChanged, this, &WifiListModel::onDeviceActiveApChanged, Qt::UniqueConnection);
+        connect(d, &WirelessDevice::activeConnectionChanged, this, &WifiListModel::onDeviceActiveApChanged, Qt::UniqueConnection);
         connect(d, static_cast<void (WirelessDevice::*)(const NetworkDevice::DeviceStatus) const>(&WirelessDevice::statusChanged), this, &WifiListModel::onDeviceStateChanged, Qt::UniqueConnection);
         connect(d, &WirelessDevice::apRemoved, d, [=](const QJsonObject &apInfo) { onDeviceApRemoved(d, apInfo); }, Qt::UniqueConnection);
 
@@ -263,7 +263,7 @@ void WifiListModel::onDeviceApAdded(const QJsonObject &info)
     const int row = indexOf(static_cast<WirelessDevice *>(dev));
 
     beginInsertRows(QModelIndex(), row, row);
-    if (info.value("Ssid").toString() == dev->activeApName())
+    if (info.value("Ssid").toString() == dev->activeConnName())
         m_apInfoList[dev].insert(0, info);
     else
         m_apInfoList[dev].append(info);
