@@ -1,4 +1,13 @@
 <a name=""></a>
+##  4.4.4.4 (2018-06-27)
+
+#### Bug Fixes
+* **accounts:** use new icon with AD Dialog
+* **live:** Failure of live system compilation
+* **date:** system time zone not initialize
+* **update:** missing percent sign
+
+<a name=""></a>
 ##  4.4.4.3 (2018-05-23)
 
 
