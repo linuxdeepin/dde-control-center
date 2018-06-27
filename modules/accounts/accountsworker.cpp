@@ -332,8 +332,7 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
                          : tr("Your host failed to join the domain server.");
     }
 
-    m_notifyInter->Notify("", QDateTime::currentMSecsSinceEpoch(), "dde", tr("AD domain settings"), message, QStringList(), QVariantMap(), 0);
-
+    m_notifyInter->Notify("", QDateTime::currentMSecsSinceEpoch(), exitCode ? "dialog-warning" : "dialog-ok", tr("AD domain settings"), message, QStringList(), QVariantMap(), 0);
     refreshADDomain();
 }
 #endif
