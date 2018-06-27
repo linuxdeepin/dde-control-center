@@ -111,8 +111,6 @@ void BluetoothModule::showBluetoothDetail(const Adapter *adapter)
 
 BluetoothModule::~BluetoothModule()
 {
-    m_bluetoothModel->deleteLater();
-    m_bluetoothWorker->deleteLater();
 }
 
 void BluetoothModule::initialize()
