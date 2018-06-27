@@ -228,6 +228,7 @@ void WifiListModel::onDeviceListChanged(const QList<NetworkDevice *> &devices)
         connect(d, &WirelessDevice::enableChanged, this, &WifiListModel::onDeviceEnableChanged, Qt::UniqueConnection);
         connect(d, &WirelessDevice::activeConnectionChanged, this, &WifiListModel::refershActivatingIndex, Qt::UniqueConnection);
         connect(d, &WirelessDevice::apAdded, this, &WifiListModel::onDeviceApAdded, Qt::UniqueConnection);
+        connect(d, &WirelessDevice::apInfoChanged, this, &WifiListModel::onDeviceApInfoChanged, Qt::UniqueConnection);
         connect(d, &WirelessDevice::activeConnectionChanged, this, &WifiListModel::onDeviceActiveApChanged, Qt::UniqueConnection);
         connect(d, static_cast<void (WirelessDevice::*)(const NetworkDevice::DeviceStatus) const>(&WirelessDevice::statusChanged), this, &WifiListModel::onDeviceStateChanged, Qt::UniqueConnection);
         connect(d, &WirelessDevice::apRemoved, d, [=](const QJsonObject &apInfo) { onDeviceApRemoved(d, apInfo); }, Qt::UniqueConnection);
@@ -255,9 +256,9 @@ void WifiListModel::onDeviceApAdded(const QJsonObject &info)
         return;
 
     // test if ap already exist.
-    const auto &ssid = info.value("Ssid").toString();
+    const auto &path = info.value("Path").toString();
     for (auto &apInfo : m_apInfoList[dev])
-        if (apInfo.value("Ssid").toString() == ssid)
+        if (apInfo.value("Path").toString() == path)
             return;
 
     const int row = indexOf(static_cast<WirelessDevice *>(dev));
@@ -270,15 +271,38 @@ void WifiListModel::onDeviceApAdded(const QJsonObject &info)
     endInsertRows();
 }
 
+void WifiListModel::onDeviceApInfoChanged(const QJsonObject &info)
+{
+    WirelessDevice *dev = static_cast<WirelessDevice *>(sender());
+    Q_ASSERT(dev);
+
+    if (!dev->enabled())
+        return;
+
+    int row = indexOf(dev);
+
+    auto &list = m_apInfoList[dev];
+    for (int i(0); i != list.size(); ++i)
+    {
+        if (list[i].value("Path").toString() == info.value("Path").toString())
+        {
+            row += i + 1;
+            list.replace(i, info);
+            auto changedIndex = index(row);
+            Q_EMIT dataChanged(changedIndex, changedIndex);
+            return;
+        }
+    }
+}
+
 void WifiListModel::onDeviceApRemoved(dde::network::WirelessDevice *dev, const QJsonObject &apInfo)
 {
-    // XXX: fix if ssid is in used by multiple AP
     int row = indexOf(dev);
 
     const auto list = m_apInfoList[dev];
     for (int i(0); i != list.size(); ++i)
     {
-        if (list[i].value("Ssid").toString() == apInfo.value("Ssid").toString())
+        if (list[i].value("Path").toString() == apInfo.value("Path").toString())
         {
             row += i + 1;
             beginRemoveRows(QModelIndex(), row, row);
