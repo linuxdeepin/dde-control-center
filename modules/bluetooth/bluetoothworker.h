@@ -42,7 +42,7 @@ class BluetoothWorker : public QObject, public ModuleWorker
 {
     Q_OBJECT
 public:
-    static BluetoothWorker* Instance();
+    static BluetoothWorker &Instance();
 
     BluetoothModel *model() { return m_model; }
 
@@ -84,6 +84,10 @@ private slots:
 
 private:
     explicit BluetoothWorker(BluetoothModel *model);
+    BluetoothWorker(BluetoothWorker const &);
+    BluetoothWorker& operator =(BluetoothWorker const &);
+    ~BluetoothWorker();
+
     DBusBluetooth *m_bluetoothInter;
     BluetoothModel *m_model;
 };

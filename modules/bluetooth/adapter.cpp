@@ -59,7 +59,7 @@ const Device *Adapter::removeDevice(const QString &deviceId)
 
     device = deviceById(deviceId);
     if (device) {
-        m_devices.removeAll(device);
+        m_devices.removeOne(device);
         emit deviceRemoved(deviceId);
     }
 

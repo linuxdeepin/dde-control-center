@@ -80,7 +80,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     WifiPage *wifiPage = new WifiPage(m_networkModel);
 
 #ifndef DISABLE_BLUETOOTH
-    m_bluetoothWorker = BluetoothWorker::Instance();
+    m_bluetoothWorker = &BluetoothWorker::Instance();
     m_bluetoothModel = m_bluetoothWorker->model();
     m_bluetoothWorker->activate();
 

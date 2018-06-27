@@ -78,9 +78,24 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
     refresh();
 }
 
-BluetoothWorker *BluetoothWorker::Instance()
+BluetoothWorker::BluetoothWorker(const BluetoothWorker &)
 {
-    static BluetoothWorker *worker = new BluetoothWorker(new BluetoothModel);
+
+}
+
+BluetoothWorker &BluetoothWorker::operator =(const BluetoothWorker &)
+{
+
+}
+
+BluetoothWorker::~BluetoothWorker()
+{
+
+}
+
+BluetoothWorker &BluetoothWorker::Instance()
+{
+    static BluetoothWorker worker(new BluetoothModel);
     return worker;
 }
 

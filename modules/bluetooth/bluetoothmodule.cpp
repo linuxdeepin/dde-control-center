@@ -115,7 +115,7 @@ BluetoothModule::~BluetoothModule()
 
 void BluetoothModule::initialize()
 {
-    m_bluetoothWorker = BluetoothWorker::Instance();
+    m_bluetoothWorker = &BluetoothWorker::Instance();
     m_bluetoothModel = m_bluetoothWorker->model();
 
     m_bluetoothModel->moveToThread(qApp->thread());
