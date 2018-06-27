@@ -45,7 +45,7 @@ public:
     inline QString id() const { return m_id; }
     void setId(const QString &id);
 
-    QList<const Device *> devices() const;
+    QMap<QString, const Device *> devices() const;
     const Device *deviceById(const QString &id) const;
 
     inline bool powered() const { return m_powered; }
@@ -65,7 +65,7 @@ private:
     QString m_id;
     QString m_name;
     bool m_powered;
-    QList<const Device *> m_devices;
+    QMap<QString, const Device *> m_devices;
 };
 
 } // namespace bluetooth

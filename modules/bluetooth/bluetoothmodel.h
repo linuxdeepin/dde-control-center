@@ -39,7 +39,7 @@ class BluetoothModel : public QObject
 public:
     explicit BluetoothModel(QObject *parent = 0);
 
-    QList<const Adapter *> adapters() const;
+    QMap<QString, const Adapter *> adapters() const;
     const Adapter *adapterById(const QString &id);
 
 public slots:
@@ -52,7 +52,7 @@ signals:
     void adpaterListChanged();
 
 private:
-    QList<const Adapter *> m_adapters;
+    QMap<QString, const Adapter *> m_adapters;
 
     friend class BluetoothWorker;
 };

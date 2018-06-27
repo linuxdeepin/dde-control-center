@@ -39,7 +39,7 @@ class SettingsGroup;
 }
 
 namespace bluetooth {
-
+class DeviceSettingsItem;
 class AdapterWidget : public ContentWidget
 {
     Q_OBJECT
@@ -71,6 +71,7 @@ private:
     widgets::SettingsGroup *m_otherDevicesGroup;
     QLabel        *m_tip;
     widgets::LoadingIndicator *m_refreshIndicator;
+    QList<DeviceSettingsItem*> m_deviceLists;
 };
 
 }

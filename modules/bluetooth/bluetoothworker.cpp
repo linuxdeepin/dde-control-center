@@ -236,13 +236,9 @@ void BluetoothWorker::onAdapterPropertiesChanged(const QString &json)
     const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
     const QJsonObject obj = doc.object();
     const QString id = obj["Path"].toString();
-    for (const Adapter *adapter : m_model->adapters()) {
-        if (adapter->id() == id) {
-            Adapter *vAdapter = const_cast<Adapter*>(adapter);
-            inflateAdapter(vAdapter, obj);
-            break;
-        }
-    }
+
+    Adapter *adapter = const_cast<Adapter*>(m_model->adapterById(id));
+    if (adapter) inflateAdapter(adapter, obj);
 }
 
 void BluetoothWorker::onDevicePropertiesChanged(const QString &json)
@@ -251,13 +247,8 @@ void BluetoothWorker::onDevicePropertiesChanged(const QString &json)
     const QJsonObject obj = doc.object();
     const QString id = obj["Path"].toString();
     for (const Adapter *adapter : m_model->adapters()) {
-        for (const Device *device : adapter->devices()) {
-            if (device->id() == id) {
-                Device *vDevice = const_cast<Device*>(device);
-                inflateDevice(vDevice, obj);
-                return;
-            }
-        }
+        Device *device = const_cast<Device*>(adapter->deviceById(id));
+        if (device) inflateDevice(device, obj);
     }
 }
 

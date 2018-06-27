@@ -127,7 +127,6 @@ void AdapterWidget::toggleSwitch(const bool &checked)
 
 void AdapterWidget::addDevice(const Device *device)
 {
-
     DeviceSettingsItem *w = new DeviceSettingsItem(device);
 
     auto CategoryDevice = [this, w] (const bool paired) {
@@ -144,27 +143,23 @@ void AdapterWidget::addDevice(const Device *device)
     connect(w, &DeviceSettingsItem::requestShowDetail, [this] (const Device *device) {
         emit requestShowDetail(m_adapter, device);
     });
+
+    m_deviceLists << w;
 }
 
 void AdapterWidget::removeDevice(const QString &deviceId)
 {
-    QList<DeviceSettingsItem*> devices = m_myDevicesGroup->findChildren<DeviceSettingsItem*>();
-    for (DeviceSettingsItem *item : devices) {
-        if (item->device()->id() == deviceId) {
-            m_myDevicesGroup->removeItem(item);
-            item->deleteLater();
-            return;
-        }
-    }
+    QList<DeviceSettingsItem*>::iterator it = std::find_if(m_deviceLists.begin(),
+                                                           m_deviceLists.end(),
+                                                           [=] (DeviceSettingsItem *item) {
+        return item->device()->id() == deviceId;
+    });
 
-    devices = m_otherDevicesGroup->findChildren<DeviceSettingsItem*>();
-    for (DeviceSettingsItem *item : devices) {
-        if (item->device()->id() == deviceId) {
-            m_otherDevicesGroup->removeItem(item);
-            item->deleteLater();
-            return;
-        }
-    }
+    Q_ASSERT(it != m_deviceLists.end());
+
+    m_myDevicesGroup->removeItem(*it);
+    m_deviceLists.removeOne(*it);
+    (*it)->deleteLater();
 }
 
 const Adapter *AdapterWidget::adapter() const

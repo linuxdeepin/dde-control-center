@@ -36,7 +36,7 @@ BluetoothModel::BluetoothModel(QObject *parent) : QObject(parent)
 void BluetoothModel::addAdapter(Adapter *adapter)
 {
     if (!adapterById(adapter->id())) {
-        m_adapters.append(adapter);
+        m_adapters[adapter->id()] = adapter;
         emit adapterAdded(adapter);
         emit adpaterListChanged();
         return;
@@ -51,7 +51,7 @@ const Adapter *BluetoothModel::removeAdapater(const QString &adapterId)
 
     adapter = adapterById(adapterId);
     if (adapter) {
-        m_adapters.removeOne(adapter);
+        m_adapters.remove(adapterId);
         emit adapterRemoved(adapter);
         emit adpaterListChanged();
     }
@@ -59,20 +59,14 @@ const Adapter *BluetoothModel::removeAdapater(const QString &adapterId)
     return adapter;
 }
 
-QList<const Adapter *> BluetoothModel::adapters() const
+QMap<QString, const Adapter *> BluetoothModel::adapters() const
 {
     return m_adapters;
 }
 
 const Adapter *BluetoothModel::adapterById(const QString &id)
 {
-    for (const Adapter *adapter : m_adapters) {
-        if (adapter->id() == id) {
-            return adapter;
-        }
-    }
-
-    return nullptr;
+    return m_adapters.keys().contains(id) ? m_adapters[id] : nullptr;
 }
 
 } // namespace bluetooth
