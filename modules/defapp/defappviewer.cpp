@@ -69,37 +69,15 @@ QWidget *DefAppViewer::defappDetail()
     mainlayout->addWidget(m_modPicture);
     mainlayout->addWidget(m_modTerminal);
 
-    connect(m_modBrowser,  &DefCategoryWidget::requestSetDefaultApp,    this, &DefAppViewer::requestSetDefaultApp);
-    connect(m_modMail,     &DefCategoryWidget::requestSetDefaultApp,    this, &DefAppViewer::requestSetDefaultApp);
-    connect(m_modText,     &DefCategoryWidget::requestSetDefaultApp,    this, &DefAppViewer::requestSetDefaultApp);
-    connect(m_modMusic,    &DefCategoryWidget::requestSetDefaultApp,    this, &DefAppViewer::requestSetDefaultApp);
-    connect(m_modVideo,    &DefCategoryWidget::requestSetDefaultApp,    this, &DefAppViewer::requestSetDefaultApp);
-    connect(m_modPicture,  &DefCategoryWidget::requestSetDefaultApp,    this, &DefAppViewer::requestSetDefaultApp);
-    connect(m_modTerminal, &DefCategoryWidget::requestSetDefaultApp,    this, &DefAppViewer::requestSetDefaultApp);
+    QList<DefCategoryWidget*> list;
+    list << m_modBrowser << m_modMail << m_modText << m_modMusic << m_modVideo << m_modPicture << m_modTerminal;
 
-    connect(m_modBrowser,  &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
-    connect(m_modMail,     &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
-    connect(m_modText,     &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
-    connect(m_modMusic,    &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
-    connect(m_modVideo,    &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
-    connect(m_modPicture,  &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
-    connect(m_modTerminal, &DefCategoryWidget::requestDelUserApp,    this, &DefAppViewer::requestDelUserApp);
-
-    connect(m_modBrowser,  &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
-    connect(m_modMail,     &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
-    connect(m_modText,     &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
-    connect(m_modMusic,    &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
-    connect(m_modVideo,    &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
-    connect(m_modPicture,  &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
-    connect(m_modTerminal, &DefCategoryWidget::requestFrameAutoHide,    this, &DefAppViewer::requestFrameAutoHide);
-
-    connect(m_modBrowser,  &DefCategoryWidget::requestCreateFile,    this, &DefAppViewer::requestCreateFile);
-    connect(m_modMail,     &DefCategoryWidget::requestCreateFile,    this, &DefAppViewer::requestCreateFile);
-    connect(m_modText,     &DefCategoryWidget::requestCreateFile,    this, &DefAppViewer::requestCreateFile);
-    connect(m_modMusic,    &DefCategoryWidget::requestCreateFile,    this, &DefAppViewer::requestCreateFile);
-    connect(m_modVideo,    &DefCategoryWidget::requestCreateFile,    this, &DefAppViewer::requestCreateFile);
-    connect(m_modPicture,  &DefCategoryWidget::requestCreateFile,    this, &DefAppViewer::requestCreateFile);
-    connect(m_modTerminal, &DefCategoryWidget::requestCreateFile,    this, &DefAppViewer::requestCreateFile);
+    for (DefCategoryWidget *def : list) {
+        connect(def, &DefCategoryWidget::requestSetDefaultApp, this, &DefAppViewer::requestSetDefaultApp);
+        connect(def, &DefCategoryWidget::requestDelUserApp, this, &DefAppViewer::requestDelUserApp);
+        connect(def, &DefCategoryWidget::requestFrameAutoHide, this, &DefAppViewer::requestFrameAutoHide);
+        connect(def, &DefCategoryWidget::requestCreateFile, this, &DefAppViewer::requestCreateFile);
+    }
 
     return mainwidget;
 }
