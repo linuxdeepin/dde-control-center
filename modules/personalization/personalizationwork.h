@@ -62,8 +62,7 @@ public slots:
 
 private slots:
     void FontSizeChanged(const double value) const;
-    void onStandardFontFinished(QDBusPendingCallWatcher *w);
-    void onMonoFontFinished(QDBusPendingCallWatcher *w);
+    void onGetFontFinished(QDBusPendingCallWatcher *w);
     void onGetThemeFinished(QDBusPendingCallWatcher *w);
     void onGetPicFinished(QDBusPendingCallWatcher *w);
     void onRefreshedChanged(const QString &type);
@@ -75,13 +74,17 @@ private:
     int sizeToSliderValue(const double value) const;
     float sliderValueToSize(const int value) const;
     QList<QJsonObject> converToList(const QString &type, const QJsonArray &array);
-    void addList(ThemeModel *model, const QString &type, QJsonArray &array);
+    void addList(ThemeModel *model, const QString &type, const QJsonArray &array);
     void refreshWMState();
+    void refreshThemeByType(const QString &type);
+    void refreshFontByType(const QString &type);
 
 private:
     PersonalizationModel *m_model;
     Appearance           *m_dbus;
     WMSwitcher *m_wmSwitcher;
+    QMap<QString, ThemeModel*> m_themeModels;
+    QMap<QString, FontModel*> m_fontModels;
 };
 }
 }

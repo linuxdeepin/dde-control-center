@@ -56,6 +56,12 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
 
     connect(m_wmSwitcher, &WMSwitcher::WMChanged, this, &PersonalizationWork::onToggleWM);
 
+    m_themeModels["gtk"]           = windowTheme;
+    m_themeModels["icon"]          = iconTheme;
+    m_themeModels["cursor"]        = cursorTheme;
+    m_fontModels["standardfont"]   = fontStand;
+    m_fontModels["monospacefont"]  = fontMono;
+
     m_dbus->setSync(false);
     m_wmSwitcher->setSync(false);
 }
@@ -85,7 +91,7 @@ QList<QJsonObject> PersonalizationWork::converToList(const QString &type, const 
     return list;
 }
 
-void PersonalizationWork::addList(ThemeModel *model, const QString &type, QJsonArray &array)
+void PersonalizationWork::addList(ThemeModel *model, const QString &type, const QJsonArray &array)
 {
     QList<QString> list;
     for (int i = 0; i != array.size(); i++) {
@@ -120,25 +126,14 @@ void PersonalizationWork::FontSizeChanged(const double value) const
     fontSizeModel->setFontSize(sizeToSliderValue(value));
 }
 
-void PersonalizationWork::onStandardFontFinished(QDBusPendingCallWatcher *w)
+void PersonalizationWork::onGetFontFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QString> reply = *w;
-    FontModel *fontStand = m_model->getStandFontModel();
 
-    setFontList(fontStand, "standardfont", reply.value());
+    const QString &category = w->property("category").toString();
 
-    fontStand->setFontName(m_dbus->standardFont());
-    w->deleteLater();
-}
+    setFontList(m_fontModels[category], category, reply.value());
 
-void PersonalizationWork::onMonoFontFinished(QDBusPendingCallWatcher *w)
-{
-    QDBusPendingReply<QString> reply = *w;
-    FontModel *fontMono = m_model->getMonoFontModel();
-
-    setFontList(fontMono, "monospacefont", reply.value());
-
-    fontMono->setFontName(m_dbus->monospaceFont());
     w->deleteLater();
 }
 
@@ -146,20 +141,10 @@ void PersonalizationWork::onGetThemeFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QString> reply = *w;
 
-    const QString category = w->property("category").toString();
+    const QString &category = w->property("category").toString();
+    const QJsonArray &array = QJsonDocument::fromJson(reply.value().toUtf8()).array();
 
-    QJsonArray array = QJsonDocument::fromJson(reply.value().toUtf8()).array();
-
-    if (category == "gtk") {
-        ThemeModel *windowTheme = m_model->getWindowModel();
-        addList(windowTheme, "gtk", array);
-    } else if (category == "icon") {
-        ThemeModel *iconTheme = m_model->getIconModel();
-        addList(iconTheme, "icon", array);
-    } else {
-        ThemeModel *cursorTheme = m_model->getMouseModel();
-        addList(cursorTheme, "cursor", array);
-    }
+    addList(m_themeModels[category], category, array);
 
     w->deleteLater();
 }
@@ -168,44 +153,22 @@ void PersonalizationWork::onGetPicFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QString> reply = *w;
 
-    const QString category = w->property("category").toString();
-    const QString id = w->property("id").toString();
+    const QString &category = w->property("category").toString();
+    const QString &id = w->property("id").toString();
 
-    if (category == "gtk") {
-        ThemeModel *windowTheme = m_model->getWindowModel();
-        windowTheme->addPic(id, reply.value());
-    } else if (category == "icon") {
-        ThemeModel *iconTheme = m_model->getIconModel();
-        iconTheme->addPic(id, reply.value());
-    } else {
-        ThemeModel *cursorTheme = m_model->getMouseModel();
-        cursorTheme->addPic(id, reply.value());
-    }
+    m_themeModels[category]->addPic(id, reply.value());
 
     w->deleteLater();
 }
 
 void PersonalizationWork::onRefreshedChanged(const QString &type)
 {
-    if (type == "gtk") {
-        QDBusPendingReply<QString> gtk = m_dbus->List("gtk");
-        QDBusPendingCallWatcher *gtkWatcher = new QDBusPendingCallWatcher(gtk, this);
-        gtkWatcher->setProperty("category", "gtk");
-        connect(gtkWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetThemeFinished);
+    if (m_themeModels.keys().contains(type)) {
+        refreshThemeByType(type);
     }
 
-    if (type == "icon") {
-        QDBusPendingReply<QString> icon = m_dbus->List("icon");
-        QDBusPendingCallWatcher *iconWatcher = new QDBusPendingCallWatcher(icon, this);
-        iconWatcher->setProperty("category", "icon");
-        connect(iconWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetThemeFinished);
-    }
-
-    if (type == "cursor") {
-        QDBusPendingReply<QString> cursor = m_dbus->List("cursor");
-        QDBusPendingCallWatcher *cursorWatcher = new QDBusPendingCallWatcher(cursor, this);
-        cursorWatcher->setProperty("category", "cursor");
-        connect(cursorWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetThemeFinished);
+    if (m_fontModels.keys().contains(type)) {
+        refreshFontByType(type);
     }
 }
 
@@ -247,20 +210,9 @@ void PersonalizationWork::setFontList(FontModel *model, const QString &type, con
 
 void PersonalizationWork::refreshTheme()
 {
-    QDBusPendingReply<QString> gtk = m_dbus->List("gtk");
-    QDBusPendingCallWatcher *gtkWatcher = new QDBusPendingCallWatcher(gtk, this);
-    gtkWatcher->setProperty("category", "gtk");
-    connect(gtkWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetThemeFinished);
-
-    QDBusPendingReply<QString> icon = m_dbus->List("icon");
-    QDBusPendingCallWatcher *iconWatcher = new QDBusPendingCallWatcher(icon, this);
-    iconWatcher->setProperty("category", "icon");
-    connect(iconWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetThemeFinished);
-
-    QDBusPendingReply<QString> cursor = m_dbus->List("cursor");
-    QDBusPendingCallWatcher *cursorWatcher = new QDBusPendingCallWatcher(cursor, this);
-    cursorWatcher->setProperty("category", "cursor");
-    connect(cursorWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetThemeFinished);
+    for (QMap<QString, ThemeModel*>::ConstIterator it = m_themeModels.begin(); it != m_themeModels.end(); it++) {
+        refreshThemeByType(it.key());
+    }
 
     ThemeModel *cursorTheme      = m_model->getMouseModel();
     ThemeModel *windowTheme      = m_model->getWindowModel();
@@ -271,19 +223,32 @@ void PersonalizationWork::refreshTheme()
     cursorTheme->setDefault(m_dbus->cursorTheme());
 }
 
+void PersonalizationWork::refreshThemeByType(const QString &type)
+{
+    QDBusPendingReply<QString> theme = m_dbus->List(type);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(theme, this);
+    watcher->setProperty("category", type);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetThemeFinished);
+}
+
 void PersonalizationWork::refreshFont()
 {
-    QDBusPendingReply<QString> standardFont = m_dbus->List("standardfont");
-    QDBusPendingCallWatcher *standardFontWatcher = new QDBusPendingCallWatcher(standardFont, this);
-    connect(standardFontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onStandardFontFinished);
+    for (QMap<QString, FontModel*>::const_iterator it = m_fontModels.begin(); it != m_fontModels.end(); it++) {
+        refreshFontByType(it.key());
+    }
 
-    QDBusPendingReply<QString> monoFont = m_dbus->List("monospacefont");
-    QDBusPendingCallWatcher *monoFontWatcher = new QDBusPendingCallWatcher(monoFont, this);
-    connect(monoFontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onMonoFontFinished);
+    m_model->getMonoFontModel()->setFontName(m_dbus->monospaceFont());
+    m_model->getStandFontModel()->setFontName(m_dbus->standardFont());
 
     FontSizeChanged(m_dbus->fontSize());
 }
 
+void PersonalizationWork::refreshFontByType(const QString &type) {
+    QDBusPendingReply<QString> font = m_dbus->List(type);
+    QDBusPendingCallWatcher *fontWatcher = new QDBusPendingCallWatcher(font, this);
+    fontWatcher->setProperty("category", type);
+    connect(fontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetFontFinished);
+}
 
 int PersonalizationWork::sizeToSliderValue(const double value) const
 {
