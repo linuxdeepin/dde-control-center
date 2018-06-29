@@ -70,6 +70,7 @@ Frame::Frame(QWidget *parent)
     m_platformWindowHandle.setBorderWidth(0);
     m_platformWindowHandle.setShadowOffset(QPoint(0, 0));
     m_platformWindowHandle.setShadowColor(QColor(0, 0, 0, 255 * 0.5));
+    m_platformWindowHandle.setShadowRadius(20);
 //    m_platformWindowHandle.setShadowColor(Qt::red);
 
     m_delayKillerTimer->setSingleShot(true);
@@ -177,17 +178,14 @@ void Frame::adjustShadowMask()
         !m_shown ||
         m_appearAnimation.state() == QPropertyAnimation::Running)
     {
-        m_platformWindowHandle.setShadowRadius(0);
-        m_platformWindowHandle.setFrameMask(QRegion());
         return;
     }
 
-    const int radius = 20;
+    const int radius = m_platformWindowHandle.shadowRadius();
     const QSize s = size();
     const qreal ratio = devicePixelRatioF();
     const QRect r(0, radius / ratio, s.width() + radius / ratio, s.height());
 
-    m_platformWindowHandle.setShadowRadius(radius);
     m_platformWindowHandle.setFrameMask(r);
 }
 
