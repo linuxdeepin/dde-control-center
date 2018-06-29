@@ -94,10 +94,11 @@ QList<QJsonObject> PersonalizationWork::converToList(const QString &type, const 
 void PersonalizationWork::addList(ThemeModel *model, const QString &type, const QJsonArray &array)
 {
     QList<QString> list;
+    QList<QJsonObject> objList;
     for (int i = 0; i != array.size(); i++) {
         QJsonObject object = array.at(i).toObject();
         object.insert("type", QJsonValue(type));
-        model->addItem(object["Id"].toString(), object);
+        objList << object;
         list.append(object["Id"].toString());
 
         QDBusPendingReply<QString> pic = m_dbus->Thumbnail(type, object["Id"].toString());
@@ -105,6 +106,16 @@ void PersonalizationWork::addList(ThemeModel *model, const QString &type, const 
         picWatcher->setProperty("category", type);
         picWatcher->setProperty("id", object["Id"].toString());
         connect(picWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetPicFinished);
+    }
+
+    // sort for display name
+    std::sort(objList.begin(), objList.end(), [=] (const QJsonObject &obj1, const QJsonObject &obj2) {
+        QCollator qc;
+        return qc.compare(obj1["Id"].toString(), obj2["Id"].toString()) < 0;
+    });
+
+    for (const QJsonObject &obj : objList) {
+        model->addItem(obj["Id"].toString(), obj);
     }
 
     for (const QString &id : model->getList().keys()) {
@@ -202,7 +213,14 @@ void PersonalizationWork::setFontList(FontModel *model, const QString &type, con
 
         QJsonArray array = QJsonDocument::fromJson(r.value().toLocal8Bit().data()).array();
 
-        model->setFontList(converToList(type, array));
+        QList<QJsonObject> list = converToList(type, array);
+        // sort for display name
+        std::sort(list.begin(), list.end(), [=] (const QJsonObject &obj1, const QJsonObject &obj2) {
+            QCollator qc;
+            return qc.compare(obj1["Name"].toString(), obj2["Name"].toString()) < 0;
+        });
+
+        model->setFontList(list);
 
         watcher->deleteLater();
     });
