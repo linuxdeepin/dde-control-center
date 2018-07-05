@@ -30,9 +30,10 @@ using namespace dcc;
 using namespace dcc::power;
 
 PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
-    : QObject(parent),
-      m_powerModel(model),
-      m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
+    : QObject(parent)
+    , m_powerModel(model)
+    , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
+    , m_sysPowerInter(new SysPowerInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::systemBus(), this))
 {
     m_powerInter->setSync(false);
 
@@ -42,6 +43,9 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerInter, &PowerInter::LidClosedSleepChanged, m_powerModel, &PowerModel::setSleepOnLidClose);
     connect(m_powerInter, &PowerInter::LinePowerScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModel);
     connect(m_powerInter, &PowerInter::LinePowerSleepDelayChanged, this, &PowerWorker::setSleepDelayToModel);
+    connect(m_sysPowerInter, &SysPowerInter::PowerSavingModeAutoChanged, m_powerModel, &PowerModel::setAutoPowerSaveMode);
+    connect(m_sysPowerInter, &SysPowerInter::PowerSavingModeEnabledChanged, m_powerModel, &PowerModel::setPowerSaveMode);
+    connect(m_sysPowerInter, &SysPowerInter::HasBatteryChanged, m_powerModel, &PowerModel::setHaveBettary);
 }
 
 void PowerWorker::active()
@@ -56,6 +60,10 @@ void PowerWorker::active()
 
     setScreenBlackDelayToModel(m_powerInter->linePowerScreenBlackDelay());
     setSleepDelayToModel(m_powerInter->linePowerSleepDelay());
+
+    m_powerModel->setAutoPowerSaveMode(m_sysPowerInter->powerSavingModeAuto());
+    m_powerModel->setPowerSaveMode(m_sysPowerInter->powerSavingModeEnabled());
+    m_powerModel->setHaveBettary(m_sysPowerInter->hasBattery());
 }
 
 void PowerWorker::deactive()
@@ -98,6 +106,16 @@ void PowerWorker::setSleepDelayToModel(const int delay)
 void PowerWorker::setScreenBlackDelayToModel(const int delay)
 {
     m_powerModel->setScreenBlackDelay(converToDelayModel(delay));
+}
+
+void PowerWorker::setEnablePowerSave(const bool isEnable)
+{
+    m_sysPowerInter->setPowerSavingModeEnabled(isEnable);
+}
+
+void PowerWorker::setAutoEnablePowerSave(const bool isEnable)
+{
+    m_sysPowerInter->setPowerSavingModeAuto(isEnable);
 }
 
 int PowerWorker::converToDelayModel(int value)

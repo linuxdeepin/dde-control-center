@@ -27,9 +27,11 @@
 #define POWERWORKER_H
 
 #include <com_deepin_daemon_power.h>
+#include <com_deepin_system_systempower.h>
 #include <QObject>
 
 using PowerInter = com::deepin::daemon::Power;
+using SysPowerInter = com::deepin::system::Power;
 
 namespace dcc{
 namespace power {
@@ -52,6 +54,8 @@ public slots:
     void setScreenBlackDelay(const int delay);
     void setSleepDelayToModel(const int delay);
     void setScreenBlackDelayToModel(const int delay);
+    void setEnablePowerSave(const bool isEnable);
+    void setAutoEnablePowerSave(const bool isEnable);
 
 private:
     int  converToDelayModel(int value);
@@ -60,6 +64,7 @@ private:
 private:
     PowerModel *m_powerModel;
     PowerInter *m_powerInter;
+    SysPowerInter *m_sysPowerInter;
 };
 
 }

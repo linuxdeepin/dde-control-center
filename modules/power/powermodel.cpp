@@ -80,6 +80,33 @@ void PowerModel::setSleepOnLidClose(bool sleepOnLidClose)
     }
 }
 
+void PowerModel::setAutoPowerSaveMode(bool autoPowerSavingMode)
+{
+    if (m_autoPowerSaveMode == autoPowerSavingMode) return;
+
+    m_autoPowerSaveMode = autoPowerSavingMode;
+
+    emit autoPowerSavingModeChanged(autoPowerSavingMode);
+}
+
+void PowerModel::setPowerSaveMode(bool powerSaveMode)
+{
+    if (m_powerSaveMode == powerSaveMode) return;
+
+    m_powerSaveMode = powerSaveMode;
+
+    emit powerSaveModeChanged(powerSaveMode);
+}
+
+void PowerModel::setHaveBettary(bool haveBettary)
+{
+    if (haveBettary == m_haveBettary) return;
+
+    m_haveBettary = haveBettary;
+
+    emit haveBettaryChanged(haveBettary);
+}
+
 void PowerModel::setSleepLock(bool sleepLock)
 {
     if (sleepLock != m_sleepLock) {
