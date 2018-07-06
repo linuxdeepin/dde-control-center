@@ -46,7 +46,9 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
       m_resultItem(new ResultItem),
       m_progress(new DownloadProgressBar),
       m_summaryGroup(new SettingsGroup),
+      m_upgradeWarningGroup(new SettingsGroup),
       m_summary(new SummaryItem),
+      m_upgradeWarning(new SummaryItem),
       m_powerTip(new TipsLabel),
       m_reminderTip(new TipsLabel(tr("Please restart to use the system and applications properly after updated"))),
       m_noNetworkTip(new TipsLabel(tr("Network disconnected, please retry after connected")))
@@ -56,7 +58,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
-    layout->setSpacing(3);
+    layout->setSpacing(10);
 
     m_checkGroup->setVisible(false);
     m_checkGroup->appendItem(m_checkUpdateItem);
@@ -81,11 +83,16 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_noNetworkTip->setAlignment(Qt::AlignHCenter);
     m_noNetworkTip->setVisible(false);
 
+    m_upgradeWarning->setTitle(tr("This update may take a long time, please do not shutdown or reboot during the process."));
+    m_upgradeWarning->setContentsMargins(20, 0, 20, 0);
+    m_upgradeWarningGroup->setVisible(false);
+    m_upgradeWarningGroup->appendItem(m_upgradeWarning);
+
     layout->addSpacing(10);
     layout->addWidget(m_checkGroup);
     layout->addWidget(m_resultGroup);
     layout->addWidget(m_progress);
-    layout->addSpacing(10);
+    layout->addWidget(m_upgradeWarningGroup);
     layout->addWidget(m_summaryGroup);
     layout->addWidget(m_powerTip);
     layout->addWidget(m_reminderTip);
@@ -152,6 +159,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     m_resultGroup->setVisible(false);
     m_progress->setVisible(false);
     m_summaryGroup->setVisible(false);
+    m_upgradeWarningGroup->setVisible(false);
     m_reminderTip->setVisible(false);
     m_checkGroup->setVisible(false);
     m_checkUpdateItem->setVisible(false);
@@ -260,8 +268,12 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
 
     if (!downloadSize)
         m_summary->setDetails(tr("Downloaded"));
-    else
+    else {
         m_summary->setDetails(QString(tr("Download size: %1").arg(formatCap(downloadSize))));
+
+        if ((downloadSize / 1024) / 1024 > 1000)
+            m_upgradeWarningGroup->setVisible(true);
+    }
 
     loadAppList(apps);
 }

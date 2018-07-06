@@ -83,7 +83,9 @@ private:
     ResultItem *m_resultItem;
     DownloadProgressBar* m_progress;
     SettingsGroup* m_summaryGroup;
+    SettingsGroup* m_upgradeWarningGroup;
     SummaryItem* m_summary;
+    SummaryItem* m_upgradeWarning;
     TipsLabel *m_powerTip;
     TipsLabel *m_reminderTip;
     TipsLabel *m_noNetworkTip;
