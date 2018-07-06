@@ -86,11 +86,12 @@ void AccountsWorker::randomUserIcon(User *user)
 {
     QDBusPendingCall call = m_accountsInter->RandUserIcon();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [user, call] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, [=] {
         if (!call.isError()) {
             QDBusReply<QString> reply = call.reply();
             user->setCurrentAvatar(reply.value());
         }
+        watcher->deleteLater();
     });
 }
 
@@ -104,6 +105,7 @@ void AccountsWorker::createAccount(const User *user)
         CreationResult *result = watcher->result();
         emit accountCreationFinished(result);
         emit requestFrameAutoHide(true);
+        watcher->deleteLater();
     });
 
     QFuture<CreationResult*> future = QtConcurrent::run(this, &AccountsWorker::createAccountInternal, user);
