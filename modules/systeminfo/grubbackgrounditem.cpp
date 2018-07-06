@@ -130,6 +130,11 @@ void GrubBackgroundItem::dropEvent(QDropEvent *e)
     }
 }
 
+void GrubBackgroundItem::dragMoveEvent(QDragMoveEvent *event)
+{
+    event->accept();
+}
+
 void GrubBackgroundItem::updateBackground(const QPixmap &pixmap)
 {
     m_background = pixmap;
