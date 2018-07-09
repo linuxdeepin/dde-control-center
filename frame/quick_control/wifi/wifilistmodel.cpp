@@ -255,14 +255,31 @@ void WifiListModel::onDeviceApAdded(const QJsonObject &info)
     if (!dev->enabled())
         return;
 
-    // test if ap already exist.
     const auto &path = info.value("Path").toString();
-    for (auto &apInfo : m_apInfoList[dev])
-        if (apInfo.value("Path").toString() == path)
+    const auto &ssid = info.value("Ssid").toString();
+    const auto &strength = info.value("Strength").toInt();
+
+    // test if ap already exist.
+    int row = indexOf(dev);
+    auto &list = m_apInfoList[dev];
+    for (int i(0); i != list.size(); ++i) {
+        const auto &mAp = list.at(i);
+        // same Path means same ap, return
+        if (mAp.value("Path").toString() == path)
             return;
+        // different Path but use the same Ssid, then compare Theirs Strength
+        else if (mAp.value("Ssid").toString() == ssid) {
+            if (mAp.value("Strength").toInt() < strength) {
+                row += i + 1;
+                list.replace(i, info);
+                auto changedIndex = index(row);
+                Q_EMIT dataChanged(changedIndex, changedIndex);
+            }
+            return;
+        }
+    }
 
-    const int row = indexOf(static_cast<WirelessDevice *>(dev));
-
+    // reach here means it is a new ap need to add
     beginInsertRows(QModelIndex(), row, row);
     if (info.value("Ssid").toString() == dev->activeConnName())
         m_apInfoList[dev].insert(0, info);
@@ -280,7 +297,6 @@ void WifiListModel::onDeviceApInfoChanged(const QJsonObject &info)
         return;
 
     int row = indexOf(dev);
-
     auto &list = m_apInfoList[dev];
     for (int i(0); i != list.size(); ++i)
     {
@@ -293,6 +309,9 @@ void WifiListModel::onDeviceApInfoChanged(const QJsonObject &info)
             return;
         }
     }
+
+    // reach here means it is a new ap need to add
+    onDeviceApAdded(info);
 }
 
 void WifiListModel::onDeviceApRemoved(dde::network::WirelessDevice *dev, const QJsonObject &apInfo)
