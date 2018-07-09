@@ -109,7 +109,7 @@ void NetworkModule::moduleActive()
 
 void NetworkModule::moduleDeactive()
 {
-
+    m_networkWorker->deactive();
 }
 
 void NetworkModule::contentPopped(ContentWidget * const w)
