@@ -271,7 +271,7 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
     else {
         m_summary->setDetails(QString(tr("Download size: %1").arg(formatCap(downloadSize))));
 
-        if ((downloadSize / 1024) / 1024 > 1000)
+        if ((downloadSize / 1024) / 1024 > 500)
             m_upgradeWarningGroup->setVisible(true);
     }
 
