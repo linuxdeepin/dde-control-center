@@ -1,3 +1,99 @@
+<a name=""></a>
+##  4.6.0 (2018-07-20)
+
+
+#### Bug Fixes
+
+*   have prohibit drag and drop icons ([a262c6f5](https://github.com/linuxdeepin/dde-control-center/commit/a262c6f56e60e41947ecd04b0818eb22732ec2d1))
+*   the window shadow joggle when window show animation finished ([444cb257](https://github.com/linuxdeepin/dde-control-center/commit/444cb257dc83a71693c17e8d989bef3a73135e83))
+*   wifi quick control obtain AP info ([f2f6f2a9](https://github.com/linuxdeepin/dde-control-center/commit/f2f6f2a9099184d62aa5f52a1ca6c8c4c69bfff2))
+*   Activated connection can't disconnect ([ac0b3c8c](https://github.com/linuxdeepin/dde-control-center/commit/ac0b3c8c2be4a07340108da8a0f62c1ce15250c1))
+*   use new functions in new Qt ([170602e2](https://github.com/linuxdeepin/dde-control-center/commit/170602e250db333dd55c588a0c3227fb7766d870))
+*   navbar item selected is incorrect. ([b4c98260](https://github.com/linuxdeepin/dde-control-center/commit/b4c98260cad75061411ad61f6092f6402aa9a954))
+*   update the status of the mpris picture. ([c4d2e64c](https://github.com/linuxdeepin/dde-control-center/commit/c4d2e64cc31ca1a2f2ea9412cf312ff2d84a4be1))
+*   navigation pixmap incorrect rect in high dpi ([c2f52680](https://github.com/linuxdeepin/dde-control-center/commit/c2f526809e4d4d043609e6c3cbc90951616caf3a))
+*   vertical ScrollMode ([93d0645c](https://github.com/linuxdeepin/dde-control-center/commit/93d0645c51d26b24c57da4466bb3e1fc179d883f))
+*   translation ([f846337a](https://github.com/linuxdeepin/dde-control-center/commit/f846337ae9d3315ca9a90bc61a16a239f011a676))
+*   time of notify visible ([44ac6e1a](https://github.com/linuxdeepin/dde-control-center/commit/44ac6e1ad6bfa503403615204c2e93c2d4d2f449))
+*   click on blank item will open settings ([b4cbf273](https://github.com/linuxdeepin/dde-control-center/commit/b4cbf273cfe9c07adb360b9cf742131cd089a7ca))
+*   left mouse button gesture does not refresh navbar. ([3535b9a9](https://github.com/linuxdeepin/dde-control-center/commit/3535b9a96be42bafeba38c39b21d3a5d16bf5ca0))
+*   crash if no connections info ([8bdab525](https://github.com/linuxdeepin/dde-control-center/commit/8bdab52599884bd38149ee8ab6a8aed0ea8dd4b2))
+*   gsettings key error ([20c16a89](https://github.com/linuxdeepin/dde-control-center/commit/20c16a89d321495575d688baedb7f460c2035b0c))
+*   prevent the new password is equal the old ([840959b0](https://github.com/linuxdeepin/dde-control-center/commit/840959b074f47551aa80b06b8760968e7e8293df))
+*   the maximum volume is 150 ([4ce223b4](https://github.com/linuxdeepin/dde-control-center/commit/4ce223b48c5f7b31ae7dcdfab527d7884f8aa952))
+*   incorrect time zone ([aa866c7d](https://github.com/linuxdeepin/dde-control-center/commit/aa866c7dbe86880b85f444726ab0ab9af073f93f))
+* **Network:**  not update vpn type ([459bb57e](https://github.com/linuxdeepin/dde-control-center/commit/459bb57e5d7d8b48b344b16d472d9cdfe31cd93a))
+* **Personalization:**  refresh wm state when toggle wm ([da4323d7](https://github.com/linuxdeepin/dde-control-center/commit/da4323d7590367eae061be5290c34e8c3d8b20a4))
+* **accounts:**
+  *  memory leak ([5583d2a2](https://github.com/linuxdeepin/dde-control-center/commit/5583d2a2d8f54dc5845bc43120acb74ab8d71bed))
+  *  hide alert when lineedit editing finished ([2518b7cd](https://github.com/linuxdeepin/dde-control-center/commit/2518b7cd5623f3f48bea23a69af34c84693094b9))
+  *  hide all alert when edit changed ([c85bf972](https://github.com/linuxdeepin/dde-control-center/commit/c85bf972a618066db9dbbbeade7b9b1c57b04374))
+  *  error tip not hide when frame hide ([3234fb0b](https://github.com/linuxdeepin/dde-control-center/commit/3234fb0b517235ee0ad6f76c0e7ddecf3b54a911))
+  *  modify avatar page not use fullname set title ([f5254130](https://github.com/linuxdeepin/dde-control-center/commit/f525413056586080ec9cf47e6795df79e4c60870))
+  *  not refresh user online state ([a03ecf81](https://github.com/linuxdeepin/dde-control-center/commit/a03ecf818729863f83e9039bbc8940c097c31282))
+* **date:**  remove lineedit fixwidth ([4a6448fd](https://github.com/linuxdeepin/dde-control-center/commit/4a6448fd24fe8675185e0b5942eaf1ef2d7c2275))
+* **datetime:**
+  *  not hide frame casue dialog confirmed ([d80f1804](https://github.com/linuxdeepin/dde-control-center/commit/d80f18049a5de2136a19474e3c2ce6ca510ddd48))
+  *  delete signals that do not need to be send ([3d75c6aa](https://github.com/linuxdeepin/dde-control-center/commit/3d75c6aa3f575221a7467549e3837eff4b604399))
+  *  system time zone not initialize ([b7e25c08](https://github.com/linuxdeepin/dde-control-center/commit/b7e25c08b2a6554c799ae810057cbd1a295c8d6b))
+* **display:**
+  *  memory leak ([e412745a](https://github.com/linuxdeepin/dde-control-center/commit/e412745aeb44dea73440d27276b104c10f8d9814))
+  *  set frame auto hide when multiple screen setting dialog show ([f0a333f8](https://github.com/linuxdeepin/dde-control-center/commit/f0a333f880ad0cfab8c9b9c795edf7eb910bca51))
+  *  switch button will be disabled when changing night mode ([b0dd4d9d](https://github.com/linuxdeepin/dde-control-center/commit/b0dd4d9d7de4dc112764cb8bdcc6909e2be4e492))
+* **frame:**
+  *  datetime label not word wrap ([1252dd6a](https://github.com/linuxdeepin/dde-control-center/commit/1252dd6ad110cf1c72a96cbb1663c9150fdd740a))
+  *  error sending geometry at the end of the animation ([01b30562](https://github.com/linuxdeepin/dde-control-center/commit/01b30562d7738fbb68d7d2b1fefbbef350130952))
+* **keyboard:**
+  *  error set DisableIfTyping value ([270c52ae](https://github.com/linuxdeepin/dde-control-center/commit/270c52aef938cc714eea93c78f9450552ce2fd6e))
+  *  title breaking ([b7afa0de](https://github.com/linuxdeepin/dde-control-center/commit/b7afa0de5163ebc619d68b400f9103db72f8e487))
+* **live:**  Failure of live system compilation ([8149c9a6](https://github.com/linuxdeepin/dde-control-center/commit/8149c9a6956b04ca01af799b9e58ec43c407d872))
+* **network:**
+  *  item not mark as selected ([b142de39](https://github.com/linuxdeepin/dde-control-center/commit/b142de3992d053e83d0495e2d56c1331e72fcee0))
+  *  set app proxy password hiding ([6c660d39](https://github.com/linuxdeepin/dde-control-center/commit/6c660d394d9dedfbf36aa2a51435adc3128d3faa))
+  *  update complie macro ([bf555941](https://github.com/linuxdeepin/dde-control-center/commit/bf55594157f2bab42abe3b619417bf0bf29c4e67))
+* **notify:**  icon missing ([e72aeca1](https://github.com/linuxdeepin/dde-control-center/commit/e72aeca19fb3720e2b728ceb61b903ba03e3b19d))
+* **quick-wifi:**  multiple same ssid ap ([67d0947a](https://github.com/linuxdeepin/dde-control-center/commit/67d0947acd1cef99284adf4d3d2a7d4f64ce227c))
+* **update:**
+  *  mirror test button is non-existent ([62ff76e2](https://github.com/linuxdeepin/dde-control-center/commit/62ff76e2f627b06f394736076883ef0c959741d9))
+  *  changelog can select ([2f4be91f](https://github.com/linuxdeepin/dde-control-center/commit/2f4be91fb9e326559ae8b86f4af11848aa547eb0))
+  *  If job is already unavailable, it needs to be deleted ([b09ac352](https://github.com/linuxdeepin/dde-control-center/commit/b09ac352be1f0f0267d0bcf682550f659bb9d144))
+  *  missing percent sign ([f9dfc470](https://github.com/linuxdeepin/dde-control-center/commit/f9dfc470b05b4c64bfd34663c9d6f11a46e16539))
+  *  Incorrect setting of hints ([ecb6001f](https://github.com/linuxdeepin/dde-control-center/commit/ecb6001fcf985edebefe17c9dc77c4556a927b89))
+* **weather:**
+  *  exceptions caused by using different data ([a366850c](https://github.com/linuxdeepin/dde-control-center/commit/a366850cb2f8bfdfe2c5b801852cb7c7ade96c08))
+  *  draw background color ([86ecce5e](https://github.com/linuxdeepin/dde-control-center/commit/86ecce5e2fcf91861e483850602d9b5231c7e470))
+  *  hide item when refresh city ([27ca031f](https://github.com/linuxdeepin/dde-control-center/commit/27ca031fa72f82da5541298be1c554799a69eff6))
+* **zone:**  repair time offset error ([ab908a17](https://github.com/linuxdeepin/dde-control-center/commit/ab908a1727adde3a889085aeb7d192165332c7b4))
+
+#### Performance
+
+* **bluetooth:**  stop handle with frame hide ([b9112712](https://github.com/linuxdeepin/dde-control-center/commit/b91127124c1759d71be35bfd6c45a574c022751c))
+
+#### Features
+
+*   optimization refresh time for weather plugin ([c0ddf95b](https://github.com/linuxdeepin/dde-control-center/commit/c0ddf95b7f965c440eaba41974b8673868e5849d))
+*   disable second page create ([5821e270](https://github.com/linuxdeepin/dde-control-center/commit/5821e270e7f1211e346859f7a3e5934abf98ae64))
+*   real time sync navigation bar ([a64cbc17](https://github.com/linuxdeepin/dde-control-center/commit/a64cbc17135351acf4cf330cfa34adb1cc356cdf))
+*   optimize animation ([964d324f](https://github.com/linuxdeepin/dde-control-center/commit/964d324ffe95689f108f76f2814125dc953619cf))
+*   check disk space for update ([29acc794](https://github.com/linuxdeepin/dde-control-center/commit/29acc7941c0b38b84d2e0d5704e2f29eb0a1b224))
+*   move auto-exit settings to gsettings ([c11c1da4](https://github.com/linuxdeepin/dde-control-center/commit/c11c1da4c9c80317fcdbd918f96210dcced4df2f))
+*   encrypt password in dbus transfer ([5cac53d6](https://github.com/linuxdeepin/dde-control-center/commit/5cac53d615cab91603f5106fcba4002bba64e0c5))
+* **bluetooth:**
+  *  disable discover when leave bluetooth page ([6c953772](https://github.com/linuxdeepin/dde-control-center/commit/6c953772eea568a3913a81e9cc6bef0d2b975772))
+  *  support close pincode dialog ([47f019bf](https://github.com/linuxdeepin/dde-control-center/commit/47f019bfc79128dce9ca5148e690d194083eea0d))
+* **frame:**  use QAtomInt to set frame visible ([c6583e38](https://github.com/linuxdeepin/dde-control-center/commit/c6583e38a37e5e93ca3523356976786bffa203b2))
+* **network:**
+  *  load dde-network-utils translator ([bbac6bbb](https://github.com/linuxdeepin/dde-control-center/commit/bbac6bbb30fd23a32b66c9cd314eb4df40dce23b))
+  *  support remove app proxy config ([906eeb27](https://github.com/linuxdeepin/dde-control-center/commit/906eeb27574b5088a3958f98d04d233eb4320bd3))
+  *  hide export button in vpn create page ([2361a9aa](https://github.com/linuxdeepin/dde-control-center/commit/2361a9aa605cfad5dec31981e6e61ed3e3765caa))
+* **personalization:**  country based list sort ([650edb2e](https://github.com/linuxdeepin/dde-control-center/commit/650edb2e940b17e80b4c629c5cd7ee6d76ce6117))
+* **power:**  add power save mode settings ([3a894022](https://github.com/linuxdeepin/dde-control-center/commit/3a89402289b3ab1eac1d85cf5387e87bf7e2166b))
+* **weather:**
+  *  print all weather info ([62fde1bd](https://github.com/linuxdeepin/dde-control-center/commit/62fde1bd6b2aa041d41e283696f2e080e0589d11))
+  *  add log ([e00d53ef](https://github.com/linuxdeepin/dde-control-center/commit/e00d53efdafa9cd8c8294e9bafd0d485f6f142ce))
+
+
+
 <a name="4.5.5"></a>
 ### 4.5.5 (2018-06-12)
 
