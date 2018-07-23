@@ -58,7 +58,7 @@ public slots:
 
 private:
     QTime m_time;
-    QTimer* m_timer;
+    QTimer *m_refreshTipsTimer;
     WeatherRequest *m_request;
     QList<QPixmap> m_pixmaps;
     DPictureSequenceView* m_view;

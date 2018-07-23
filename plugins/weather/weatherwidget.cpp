@@ -39,8 +39,9 @@ static const int ForecastItemHeight = 60;
 static const int LoadingBaselineOffset = -30;
 
 WeatherWidget::WeatherWidget(WeatherRequest *request, QWidget *parent)
-    :QWidget(parent),
-      m_request(request)
+    : QWidget(parent)
+    , m_request(request)
+    , m_refreshTipsTimer(new QTimer(this))
 {
     setMouseTracking(true);
 
@@ -64,11 +65,16 @@ WeatherWidget::WeatherWidget(WeatherRequest *request, QWidget *parent)
     m_locationBtn->setPressPic(":/icon/location_press.png");
     m_locationBtn->setVisible(false);
 
+    m_refreshTipsTimer->setInterval(60 * 1000);
+    m_refreshTipsTimer->setSingleShot(true);
+
     connect(m_locationBtn, &DImageButton::clicked, this, &WeatherWidget::locationButtonClicked);
 
     connect(m_request, SIGNAL(dataRefreshed(QList<WeatherItem>&)),
             this, SLOT(refreshView(QList<WeatherItem>&)));
     connect(m_request, SIGNAL(fetchLocalizedCityNameDone(QString)), this, SLOT(update()));
+
+    connect(m_refreshTipsTimer, &QTimer::timeout, this, static_cast<void (WeatherWidget::*)()>(&WeatherWidget::update));
 
     m_request->sendRefreshSignal();
 }
@@ -184,14 +190,17 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
                 QRect cityArea(descRect.right(), rect.y(), rect.width() - descRect.right() - ItemRightMargin, rect.height()/2+6);
 //                painter.fillRect(cityArea, Qt::red);
                 painter.drawText(cityArea, Qt::AlignBottom | Qt::AlignRight, fm.elidedText(city, Qt::ElideRight, cityArea.width()));
-                font.setPointSize(curFont.pointSize() * 0.8);
-                fm=QFontMetrics(font);
-                QString updateTime = tr("Just updated");
-                QRect statusArea(descRect.right(), cityArea.bottom(), rect.width() - descRect.right() - ItemRightMargin, rect.height()/2 -6);
-                pen1.setAlphaF(0.5);
-                painter.setPen(pen1);
-                painter.setFont(font);
-                painter.drawText(statusArea, Qt::AlignTop|Qt::AlignRight, updateTime);
+
+                if (m_refreshTipsTimer->isActive()) {
+                    font.setPointSize(curFont.pointSize() * 0.8);
+                    fm=QFontMetrics(font);
+                    QString updateTime = tr("Just updated");
+                    QRect statusArea(descRect.right(), cityArea.bottom(), rect.width() - descRect.right() - ItemRightMargin, rect.height()/2 -6);
+                    pen1.setAlphaF(0.5);
+                    painter.setPen(pen1);
+                    painter.setFont(font);
+                    painter.drawText(statusArea, Qt::AlignTop|Qt::AlignRight, updateTime);
+                }
             }
 
             painter.restore();
@@ -243,7 +252,7 @@ void WeatherWidget::refreshView(QList<WeatherItem> &items)
 {
     m_items.clear();
     m_items = items;
-    qDebug() << items;
+    m_refreshTipsTimer->start();
     if(items.count() == 0)
     {
         m_view->show();
