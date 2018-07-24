@@ -41,6 +41,7 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
     connect(m_dbusMouse, &Mouse::NaturalScrollChanged, this, &MouseWorker::setMouseNaturalScrollState);
     connect(m_dbusMouse, &Mouse::DoubleClickChanged, this, &MouseWorker::setDouClick);
     connect(m_dbusMouse, &Mouse::DisableTpadChanged, this, &MouseWorker::setDisTouchPad);
+    connect(m_dbusMouse, &Mouse::AdaptiveAccelProfileChanged, this, &MouseWorker::setAccelProfile);
     connect(m_dbusMouse, &Mouse::MotionAccelerationChanged, this, &MouseWorker::setMouseMotionAcceleration);
 
     connect(m_dbusTouchPad, &TouchPad::ExistChanged, m_model, &MouseModel::setTpadExist);
@@ -89,6 +90,7 @@ void MouseWorker::init()
     setDisTouchPad(m_dbusMouse->disableTpad());
     setTapClick(m_dbusTouchPad->tapClick());
     setDouClick(m_dbusMouse->doubleClick());
+    setAccelProfile(m_dbusMouse->adaptiveAccelProfile());
     setMouseMotionAcceleration(m_dbusMouse->motionAcceleration());
     setTouchpadMotionAcceleration(m_dbusTouchPad->motionAcceleration());
     setTrackPointMotionAcceleration(m_dbusTrackPoint->motionAcceleration());
@@ -142,6 +144,11 @@ void MouseWorker::setDouClick(const int &value)
 void MouseWorker::setMouseMotionAcceleration(const double &value)
 {
     m_model->setMouseMoveSpeed(converToModelMotionAcceleration(value));
+}
+
+void MouseWorker::setAccelProfile(const bool state)
+{
+    m_model->setAccelProfile(state);
 }
 
 void MouseWorker::setTouchpadMotionAcceleration(const double &value)
@@ -222,6 +229,11 @@ void MouseWorker::onDouClickChanged(const int &value)
 void MouseWorker::onMouseMotionAccelerationChanged(const int &value)
 {
     m_dbusMouse->setMotionAcceleration(converToMotionAcceleration(value));
+}
+
+void MouseWorker::onAccelProfileChanged(const bool state)
+{
+    m_dbusMouse->setAdaptiveAccelProfile(state);
 }
 
 void MouseWorker::onTouchpadMotionAccelerationChanged(const int &value)

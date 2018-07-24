@@ -69,6 +69,9 @@ public:
     inline int tpadMoveSpeed() const { return m_tpadMoveSpeed; }
     void setTpadMoveSpeed(int tpadMoveSpeed);
 
+    inline bool accelProfile() const { return m_accelProfile; }
+    void setAccelProfile(bool useAdaptiveProfile);
+
     inline bool disTpad() const { return m_disTpad; }
     void setDisTpad(bool disTpad);
 
@@ -101,6 +104,7 @@ signals:
     void tpadNaturalScrollChanged(bool natural);
     void mouseMoveSpeedChanged(int speed);
     void tpadMoveSpeedChanged(int speed);
+    void accelProfileChanged(bool useAdaptiveProfile);
     void redPointMoveSpeedChanged(int speed);
     void disTpadChanged(bool disable);
     void palmDetectChanged(bool detect);
@@ -117,6 +121,7 @@ private:
     bool m_redPointExist;
     bool m_mouseNaturalScroll;
     bool m_tpadNaturalScroll;
+    bool m_accelProfile;
     bool m_disTpad;
     bool m_palmDetect;
     bool m_tapclick;

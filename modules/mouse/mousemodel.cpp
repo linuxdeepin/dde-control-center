@@ -37,6 +37,7 @@ MouseModel::MouseModel(QObject *parent)
     , m_mouseNaturalScroll(false)
     , m_tpadNaturalScroll(false)
     , m_disTpad(false)
+    , m_accelProfile(true)
     , m_palmDetect(false)
     , m_tapclick(false)
     , m_doubleSpeed(1)
@@ -152,6 +153,16 @@ void MouseModel::setTpadMoveSpeed(int tpadMoveSpeed)
     m_tpadMoveSpeed = tpadMoveSpeed;
 
     emit tpadMoveSpeedChanged(tpadMoveSpeed);
+}
+
+void MouseModel::setAccelProfile(bool useAdaptiveProfile)
+{
+    if (m_accelProfile == useAdaptiveProfile)
+        return;
+
+    m_accelProfile = useAdaptiveProfile;
+
+    emit accelProfileChanged(useAdaptiveProfile);
 }
 
 void MouseModel::setDisTpad(bool disTpad)

@@ -74,6 +74,7 @@ ModuleWidget *MouseModule::moduleWidget()
         connect(m_mouseWidget, &MouseWidget::setDefault, m_worker, &MouseWorker::onDefaultReset);
         connect(m_mouseWidget, &MouseWidget::requestSetDouClick, m_worker, &MouseWorker::onDouClickChanged);
         connect(m_mouseWidget, &MouseWidget::requestSetMouseMotionAcceleration, m_worker, &MouseWorker::onMouseMotionAccelerationChanged);
+        connect(m_mouseWidget, &MouseWidget::requestSetAccelProfile, m_worker, &MouseWorker::onAccelProfileChanged);
         connect(m_mouseWidget, &MouseWidget::requestSetTouchpadMotionAcceleration, m_worker, &MouseWorker::onTouchpadMotionAccelerationChanged);
         connect(m_mouseWidget, &MouseWidget::requestSetTrackPointMotionAcceleration, m_worker, &MouseWorker::onTrackPointMotionAccelerationChanged);
         connect(m_mouseWidget, &MouseWidget::requestDetectState, m_worker, &MouseWorker::setPalmDetect);

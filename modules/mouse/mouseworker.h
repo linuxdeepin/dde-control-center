@@ -61,6 +61,7 @@ public slots:
     void setTapClick(const bool state);
     void setDouClick(const int &value);
     void setMouseMotionAcceleration(const double &value);
+    void setAccelProfile(const bool state);
     void setTouchpadMotionAcceleration(const double &value);
     void setTrackPointMotionAcceleration(const double &value);
     void setPalmDetect(bool palmDetect);
@@ -77,6 +78,7 @@ public slots:
     void onTapClick(const bool state);
     void onDouClickChanged(const int &value);
     void onMouseMotionAccelerationChanged(const int &value);
+    void onAccelProfileChanged(const bool state);
     void onTouchpadMotionAccelerationChanged(const int &value);
     void onTrackPointMotionAccelerationChanged(const int &value);
 
