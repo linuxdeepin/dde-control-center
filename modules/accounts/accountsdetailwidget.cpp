@@ -118,6 +118,8 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     m_deleteAccount->setDisabled(isOnline);
     tip->setVisible(isOnline);
 
+    fingerGrp->setVisible(user->isCurrentUser());
+
     const bool isCurrent = user->isCurrentUser();
     m_modifyPassword->setEnabled(isCurrent);
     m_autoLogin->setEnabled(isCurrent);
