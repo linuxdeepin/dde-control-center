@@ -46,7 +46,7 @@ DWIDGET_USE_NAMESPACE
 
 namespace {
 
-const int DEFAULT_SPEED_TIME = 1;
+const int DEFAULT_SPEED_TIME = 2;
 const double MAX_SPEED_TIME = 14;
 const int ANIMATION_DUARTION = 1400;
 
@@ -221,34 +221,19 @@ void ContentWidget::stopScroll()
 
 void ContentWidget::wheelEvent(QWheelEvent *e)
 {
-    // Active by touchpad
-    if (e->pixelDelta().y() != 0) {
-        QWheelEvent ve(e->pos(), e->globalPos(), e->pixelDelta()
-                       , e->angleDelta(), e->delta() * 4/*speed up*/
-                       , Qt::Vertical, e->buttons(), e->modifiers());
-        QWidget::wheelEvent(&ve);
-    }
-    // Active by mouse
-    else {
-        int offset = - e->delta();
+    int offset = - e->delta();
 
-        if (m_wheelAni->state() == QPropertyAnimation::Running) {
-            m_speedTime += 0.2;
-            // if the roll is kept constant, it will be faster and faster
-            if (m_speed != offset) {
-                m_speed = offset;
-                m_speedTime = DEFAULT_SPEED_TIME;
-            }
-        } else {
-            m_speedTime = DEFAULT_SPEED_TIME;
-        }
-
-        m_scrollAni->stop();
-        m_wheelAni->stop();
-        m_wheelAni->setStartValue(m_contentArea->verticalScrollBar()->value());
-        m_wheelAni->setEndValue(m_contentArea->verticalScrollBar()->value() + offset * qMin(m_speedTime, MAX_SPEED_TIME));
-        m_wheelAni->start();
+    if (m_wheelAni->state() == QPropertyAnimation::Running) {
+        m_speedTime += 0.02;
+    } else {
+        m_speedTime = DEFAULT_SPEED_TIME;
     }
+
+    m_scrollAni->stop();
+    m_wheelAni->stop();
+    m_wheelAni->setStartValue(m_contentArea->verticalScrollBar()->value());
+    m_wheelAni->setEndValue(m_contentArea->verticalScrollBar()->value() + offset * qMin(m_speedTime, MAX_SPEED_TIME));
+    m_wheelAni->start();
 }
 
 void ContentWidget::mousePressEvent(QMouseEvent *e)
