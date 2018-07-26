@@ -53,7 +53,7 @@ void Adapter::addDevice(const Device *device)
     }
 }
 
-const Device *Adapter::removeDevice(const QString &deviceId)
+void Adapter::removeDevice(const QString &deviceId)
 {
     const Device *device = nullptr;
 
@@ -62,8 +62,6 @@ const Device *Adapter::removeDevice(const QString &deviceId)
         m_devices.remove(deviceId);
         emit deviceRemoved(deviceId);
     }
-
-    return device;
 }
 
 void Adapter::setPowered(bool powered)

@@ -303,9 +303,7 @@ void BluetoothWorker::removeDevice(const QString &json)
     const Adapter *result = m_model->adapterById(adapterId);
     Adapter *adapter = const_cast<Adapter*>(result);
     if (adapter) {
-        const Device *result = adapter->removeDevice(id);
-        Device *device = const_cast<Device*>(result);
-        device->deleteLater();
+        adapter->removeDevice(id);
     }
 }
 

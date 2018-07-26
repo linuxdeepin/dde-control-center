@@ -53,7 +53,7 @@ public:
 
 public slots:
     void addDevice(const Device *device);
-    const Device *removeDevice(const QString &deviceId);
+    void removeDevice(const QString &deviceId);
 
 signals:
     void nameChanged(const QString &name) const;

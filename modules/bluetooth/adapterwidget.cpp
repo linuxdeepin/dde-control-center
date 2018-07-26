@@ -97,10 +97,10 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
 
 void AdapterWidget::setAdapter(const Adapter *adapter)
 {
-    connect(adapter, &Adapter::nameChanged, m_titleEdit, &TitleEdit::setTitle);
-    connect(adapter, &Adapter::deviceAdded, this, &AdapterWidget::addDevice);
-    connect(adapter, &Adapter::deviceRemoved, this, &AdapterWidget::removeDevice);
-    connect(adapter, &Adapter::poweredChanged, m_switch, &SwitchWidget::setChecked);
+    connect(adapter, &Adapter::nameChanged, m_titleEdit, &TitleEdit::setTitle, Qt::QueuedConnection);
+    connect(adapter, &Adapter::deviceAdded, this, &AdapterWidget::addDevice, Qt::QueuedConnection);
+    connect(adapter, &Adapter::deviceRemoved, this, &AdapterWidget::removeDevice, Qt::QueuedConnection);
+    connect(adapter, &Adapter::poweredChanged, m_switch, &SwitchWidget::setChecked, Qt::QueuedConnection);
 
     m_switch->blockSignals(true);
     m_titleEdit->setTitle(adapter->name());
@@ -149,17 +149,14 @@ void AdapterWidget::addDevice(const Device *device)
 
 void AdapterWidget::removeDevice(const QString &deviceId)
 {
-    QList<DeviceSettingsItem*>::iterator it = std::find_if(m_deviceLists.begin(),
-                                                           m_deviceLists.end(),
-                                                           [=] (DeviceSettingsItem *item) {
-        return item->device()->id() == deviceId;
-    });
-
-    Q_ASSERT(it != m_deviceLists.end());
-
-    m_myDevicesGroup->removeItem(*it);
-    m_deviceLists.removeOne(*it);
-    (*it)->deleteLater();
+    for (int i = 0; i != m_deviceLists.count(); ++i) {
+        DeviceSettingsItem *item = m_deviceLists[i];
+        if (item->device()->id() != deviceId) continue;
+        m_myDevicesGroup->removeItem(item);
+        m_deviceLists.removeAt(i);
+        item->deleteLater();
+        break;
+    }
 }
 
 const Adapter *AdapterWidget::adapter() const
