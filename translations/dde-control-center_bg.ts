@@ -2055,12 +2055,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="84"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <translation>Режим за спестяване на енергия</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="85"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>Ключ за автоматичен режим</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="96"/>

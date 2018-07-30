@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Nada</translation>
     </message>
 </context>
 <context>
@@ -99,7 +99,7 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifydelegate.cpp" line="209"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Hai %n día</numerusform><numerusform>Hai %n díes</numerusform></translation>
     </message>
 </context>
 <context>
@@ -285,7 +285,7 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>Cuenta d&apos;alministrador</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="64"/>
@@ -308,7 +308,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>Modificar el nome</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
@@ -521,7 +521,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Buelga</translation>
     </message>
 </context>
 <context>
@@ -539,7 +539,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>Axustes del nome</translation>
     </message>
 </context>
 <context>
@@ -547,7 +547,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
         <source>Current Password</source>
-        <translation type="unfinished"/>
+        <translation>Contraseña actual</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
@@ -722,7 +722,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
-        <translation type="unfinished"/>
+        <translation>Sincornización automática</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="51"/>
@@ -738,7 +738,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="62"/>
         <source>Change System Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Cambéu del fusu horariu del sistema</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="70"/>
@@ -748,7 +748,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="75"/>
         <source>Timezone List</source>
-        <translation>Llistáu de fusos horarios</translation>
+        <translation>Llista de fusos horarios</translation>
     </message>
 </context>
 <context>
@@ -808,7 +808,7 @@
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="123"/>
         <source>Default Applications</source>
-        <translation>Aplicaciones por defeutu</translation>
+        <translation>Aplicaciones predeterminaes</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="55"/>
@@ -838,7 +838,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="60"/>
         <source>Picture</source>
-        <translation>Semeya</translation>
+        <translation>Semeyes</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="61"/>
@@ -865,7 +865,7 @@
         <location filename="../modules/defapp/defappwidget.cpp" line="46"/>
         <location filename="../modules/defapp/defappwidget.cpp" line="50"/>
         <source>Default Applications</source>
-        <translation>Aplicaciones por defeutu</translation>
+        <translation>Aplicaciones predeterminaes</translation>
     </message>
 </context>
 <context>
@@ -922,7 +922,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Escaláu de pantalla</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
@@ -997,7 +997,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="69"/>
         <source>Device List</source>
-        <translation>Llistáu de preseos</translation>
+        <translation>Llista de preseos</translation>
     </message>
 </context>
 <context>
@@ -1043,7 +1043,7 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="347"/>
         <source> (Recommended)</source>
-        <translation>(Aconséyase)</translation>
+        <translation> (Aconséyase)</translation>
     </message>
 </context>
 <context>
@@ -1056,7 +1056,7 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="80"/>
         <source> (Recommended)</source>
-        <translation>(Aconséyase)</translation>
+        <translation> (Aconséyase)</translation>
     </message>
 </context>
 <context>
@@ -1603,7 +1603,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="192"/>
         <source>Netmask</source>
-        <translation>Mázacara de rede</translation>
+        <translation>Mázcara de rede</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
@@ -1867,7 +1867,7 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="60"/>
         <source>Setting List</source>
-        <translation>Llistáu d&apos;axustes</translation>
+        <translation>Llista d&apos;axustes</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="64"/>
@@ -2147,7 +2147,7 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="106"/>
         <source>Advanced</source>
-        <translation>Avanzáu</translation>
+        <translation>Avanzao</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="109"/>

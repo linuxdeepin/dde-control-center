@@ -1418,7 +1418,7 @@
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detect</source>
-        <translation>Avuç İçi Algılaması</translation>
+        <translation>Avuç İçi Algılansın</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
@@ -2024,12 +2024,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="45"/>
         <source>Monitor will suspend after</source>
-        <translation>Ekran Şu Süre Sonunda Uyutulsun</translation>
+        <translation>Ekranın Uykuya Dalma Süresi</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="46"/>
         <source>Computer will suspend after</source>
-        <translation>Bilgisayar Şu Süre Sonunda Uyutulsun</translation>
+        <translation>Bilgisayarın Uykuya Dalma Süresi</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="56"/>
@@ -2050,12 +2050,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="81"/>
         <source>Suspend on lid close</source>
-        <translation>Kapak Kapatıldığında Bilgisayar Uyutulsun</translation>
+        <translation>Kapak kapatıldığında bilgisayar uyutulsun</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="84"/>
         <source>Power Saving Mode</source>
-        <translation>Güç Tasarruf Kipi</translation>
+        <translation>Güç Tasarrufu Kipi</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="85"/>
