@@ -141,9 +141,14 @@ void PersonalizationWork::onGetFontFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QString> reply = *w;
 
-    const QString &category = w->property("category").toString();
+    if (!reply.isError()) {
+        const QString &category = w->property("category").toString();
 
-    setFontList(m_fontModels[category], category, reply.value());
+        setFontList(m_fontModels[category], category, reply.value());
+    }
+    else {
+        qWarning() << reply.error();
+    }
 
     w->deleteLater();
 }
@@ -152,10 +157,15 @@ void PersonalizationWork::onGetThemeFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QString> reply = *w;
 
-    const QString &category = w->property("category").toString();
-    const QJsonArray &array = QJsonDocument::fromJson(reply.value().toUtf8()).array();
+    if (!reply.isError()) {
+        const QString &category = w->property("category").toString();
+        const QJsonArray &array = QJsonDocument::fromJson(reply.value().toUtf8()).array();
 
-    addList(m_themeModels[category], category, array);
+        addList(m_themeModels[category], category, array);
+    }
+    else {
+        qWarning() << reply.error();
+    }
 
     w->deleteLater();
 }
@@ -164,10 +174,15 @@ void PersonalizationWork::onGetPicFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QString> reply = *w;
 
-    const QString &category = w->property("category").toString();
-    const QString &id = w->property("id").toString();
+    if (!reply.isError()) {
+        const QString &category = w->property("category").toString();
+        const QString &id = w->property("id").toString();
 
-    m_themeModels[category]->addPic(id, reply.value());
+        m_themeModels[category]->addPic(id, reply.value());
+    }
+    else {
+        qWarning() << reply.error();
+    }
 
     w->deleteLater();
 }
@@ -192,7 +207,12 @@ void PersonalizationWork::onGetCurrentWMFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QString> reply = w->reply();
 
-    onToggleWM(reply.value());
+    if (!reply.isError()) {
+        onToggleWM(reply.value());
+    }
+    else {
+        qWarning() << reply.error();
+    }
 
     w->deleteLater();
 }
@@ -208,19 +228,24 @@ void PersonalizationWork::setFontList(FontModel *model, const QString &type, con
 
     QDBusPendingCallWatcher *watcher  = new QDBusPendingCallWatcher(m_dbus->Show(type, l), this);
 
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-        QDBusPendingReply<QString> r = watcher->reply();
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
+        if (!w->isError()) {
+            QDBusPendingReply<QString> r = w->reply();
 
-        QJsonArray array = QJsonDocument::fromJson(r.value().toLocal8Bit().data()).array();
+            QJsonArray array = QJsonDocument::fromJson(r.value().toLocal8Bit().data()).array();
 
-        QList<QJsonObject> list = converToList(type, array);
-        // sort for display name
-        std::sort(list.begin(), list.end(), [=] (const QJsonObject &obj1, const QJsonObject &obj2) {
-            QCollator qc;
-            return qc.compare(obj1["Name"].toString(), obj2["Name"].toString()) < 0;
-        });
+            QList<QJsonObject> list = converToList(type, array);
+            // sort for display name
+            std::sort(list.begin(), list.end(), [=] (const QJsonObject &obj1, const QJsonObject &obj2) {
+                QCollator qc;
+                return qc.compare(obj1["Name"].toString(), obj2["Name"].toString()) < 0;
+            });
 
-        model->setFontList(list);
+            model->setFontList(list);
+        }
+        else {
+            qWarning() << w->error();
+        }
 
         watcher->deleteLater();
     });
