@@ -56,7 +56,7 @@ MouseWidget::MouseWidget()
     m_doubleTest = new DouTestWidget;
 
     m_mouseMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
-    m_adaptiveAccelProfile = new SwitchWidget(tr("Enhance pointer precision"));
+    m_adaptiveAccelProfile = new SwitchWidget(tr("Mouse Acceleration"));
     m_scrollSpeedSlider = new TitledSliderItem(tr("Scroll Speed"));
     m_disTchStn = new SwitchWidget(tr("Disable the touchpad when inserting the mouse"));
     m_mouseNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
