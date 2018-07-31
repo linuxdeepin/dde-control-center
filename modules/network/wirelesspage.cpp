@@ -110,6 +110,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     }
     QTimer::singleShot(100, this, [=] {
         emit requestDeviceAPList(m_device->path());
+        emit requestWirelessScan();
     });
 }
 
@@ -132,7 +133,7 @@ void WirelessPage::setModel(NetworkModel *model)
 
 void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 {
-    const QString ssid = apInfo.value("Ssid").toString();
+    const QString &ssid = apInfo.value("Ssid").toString();
 
     if (!m_apItems.contains(ssid)) {
         AccessPointWidget *w = new AccessPointWidget;
@@ -152,11 +153,11 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 
 void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 {
-    const QString ssid = apInfo.value("Ssid").toString();
+    const QString &ssid = apInfo.value("Ssid").toString();
     if (!m_apItems.contains(ssid))
         return;
 
-    const QString path = apInfo.value("Path").toString();
+    const QString &path = apInfo.value("Path").toString();
     const int strength = apInfo.value("Strength").toInt();
 
     AccessPointWidget *w = m_apItems[ssid];
@@ -182,11 +183,15 @@ void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
     if (!m_apItems.contains(ssid))
         return;
 
+    const QString &path = apInfo.value("Path").toString();
+
     AccessPointWidget *w = m_apItems[ssid];
 
-    m_apItems.remove(ssid);
-    m_listGroup->removeItem(w);
-    w->deleteLater();
+    if (w->path() ==  path) {
+        m_apItems.remove(ssid);
+        m_listGroup->removeItem(w);
+        w->deleteLater();
+    }
 }
 
 void WirelessPage::onHotspotEnableChanged(const bool enabled)

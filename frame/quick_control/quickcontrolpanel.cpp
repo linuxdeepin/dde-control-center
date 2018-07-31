@@ -164,6 +164,7 @@ QuickControlPanel::QuickControlPanel(QWidget *parent)
     connect(vpnPage, &VpnControlPage::mouseLeaveView, this, [=] { m_itemStack->setCurrentIndex(0); });
     connect(vpnPage, &VpnControlPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
     connect(vpnPage, &VpnControlPage::requestDisconnect, m_networkWorker, &NetworkWorker::deactiveConnection);
+    connect(m_wifiSwitch, &QuickSwitchButton::hovered, m_networkWorker, &NetworkWorker::requestWirelessScan);
 
 
 #ifndef DISABLE_BLUETOOTH

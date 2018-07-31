@@ -147,6 +147,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
     {
         WirelessPage *p = new WirelessPage(static_cast<WirelessDevice *>(dev));
         connect(p, &WirelessPage::requestDeviceAPList, m_networkWorker, &NetworkWorker::queryAccessPoints);
+        connect(p, &WirelessPage::requestWirelessScan, m_networkWorker, &NetworkWorker::requestWirelessScan);
         connect(p, &WirelessPage::requestEditAP, m_networkWorker, &NetworkWorker::queryConnectionSession);
         connect(p, &WirelessPage::requestConnectAp, m_networkWorker, &NetworkWorker::activateAccessPoint);
         connect(p, &WirelessPage::requestCreateAp, m_networkWorker, &NetworkWorker::createConnection);
