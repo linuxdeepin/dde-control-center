@@ -232,17 +232,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="120"/>
         <source>Sorry, unable to get weather!</source>
         <translation>Perdoneu, no es pot obtenir la informació meteorològica!</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="127"/>
         <source>Loading weather...</source>
         <translation>Carregant la informació meteorològica...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="197"/>
         <source>Just updated</source>
         <translation>S&apos;acaba d&apos;actualitzar.</translation>
     </message>
@@ -1366,23 +1366,23 @@
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
-        <location filename="../modules/mouse/mousewidget.cpp" line="63"/>
-        <location filename="../modules/mouse/mousewidget.cpp" line="69"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="70"/>
         <source>Pointer Speed</source>
         <translation>Velocitat del punter</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Inhabilita el ratolí tàctil quan es connecti un ratolí.</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
         <source>Slow</source>
         <translation>Lenta</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
         <source>Fast</source>
         <translation>Ràpida</translation>
     </message>
@@ -1393,17 +1393,22 @@
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Mouse Acceleration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
         <translation>Velocitat de desplaçament</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
-        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="62"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="66"/>
         <source>Natural Scrolling</source>
         <translation>Desplaçament natural</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
         <source>Tap to Click</source>
         <translation>Un toc per fer clic</translation>
     </message>
@@ -2317,99 +2322,104 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="56"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="133"/>
         <source>Update</source>
         <translation>Actualitza</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="165"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="173"/>
         <source>Checking for updates, please wait...</source>
         <translation>Comprovant si hi ha actualitzacions. Espereu, si us plau...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
         <source>Your system is up to date</source>
         <translation>El sistema està actualitzat.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="51"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
         <source>Please restart to use the system and applications properly after updated</source>
         <translation>Si us plau, reinicieu el sistema per usar-lo correctament després de l&apos;actualització.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>Xarxa desconnectada. Si us plau, torneu-ho a intentar després de connectar.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="86"/>
+        <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>Download and install updates</source>
         <translation>Baixa i instal·la les actualitzacions</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="192"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% baixat (cliqueu per repredre-ho)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
         <source>Install updates</source>
         <translation>Instal·la les actualitzacions</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="202"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="210"/>
         <source>Updating, please wait...</source>
         <translation>Actualitzant. Espereu, si us plau...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="216"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="224"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>S&apos;ha instal·lat el sistema més nou. Reinicieu-lo perquè tingui efecte.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>Insufficient disk space, unable to update system.</source>
         <translation>Espai de disc insuficient. No es pot actualitzar el sistema.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>%n actualització d&apos;aplicació detectada</numerusform><numerusform>%n actualitzacions d&apos;aplicacions detectades</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>S&apos;ha detectat una edició nova del sistema i %n actualització d&apos;aplicació.</numerusform><numerusform>S&apos;ha detectat una edició nova del sistema i %n actualitzacions d&apos;aplicacions.</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="262"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
         <source>Downloaded</source>
         <translation>Baixat</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
         <source>Download size: %1</source>
         <translation>Mida de la baixada: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="187"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="286"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% baixat (cliqueu per interrompre-ho)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
         <source>New system edition detected</source>
         <translation>Nova edició del sistema detectada</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="294"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>La bateria no arriba al 50 %. Si us plau, endolleu l&apos;ordinador per continuar.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="284"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="296"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Si us plau, assegureu-vos que hi ha energia suficient per reiniciar i no atureu o desendolleu l&apos;ordinador.</translation>
     </message>

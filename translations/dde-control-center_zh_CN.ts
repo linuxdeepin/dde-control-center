@@ -232,17 +232,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="120"/>
         <source>Sorry, unable to get weather!</source>
         <translation>抱歉，获取天气失败！</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="127"/>
         <source>Loading weather...</source>
         <translation>天气加载中.....</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="197"/>
         <source>Just updated</source>
         <translation>刚刚更新</translation>
     </message>
@@ -1366,23 +1366,23 @@
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
-        <location filename="../modules/mouse/mousewidget.cpp" line="63"/>
-        <location filename="../modules/mouse/mousewidget.cpp" line="69"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="70"/>
         <source>Pointer Speed</source>
         <translation>指针速度</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>插入鼠标时禁用触控板</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
@@ -1393,17 +1393,22 @@
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Mouse Acceleration</source>
+        <translation>鼠标加速</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
         <translation>滚动速度</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
-        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="62"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="66"/>
         <source>Natural Scrolling</source>
         <translation>自然滚动</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
         <source>Tap to Click</source>
         <translation>轻触以点击</translation>
     </message>
@@ -2317,99 +2322,104 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="56"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="133"/>
         <source>Update</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="165"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="173"/>
         <source>Checking for updates, please wait...</source>
         <translation>检查更新中，请稍候...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
         <source>Your system is up to date</source>
         <translation>您的系统已经是最新的</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="51"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
         <source>Please restart to use the system and applications properly after updated</source>
         <translation>为了您能够正常的使用系统和应用，更新后请重新启动</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>网络断开，请联网后重试</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="86"/>
+        <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
+        <translation>本次更新可能会用时较长，更新完成前请不要关机或重启。</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>Download and install updates</source>
         <translation>下载并安装更新</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="192"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>已下载%1%（点击继续）</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
         <source>Install updates</source>
         <translation>安装更新</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="202"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="210"/>
         <source>Updating, please wait...</source>
         <translation>正在更新，请稍候......</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="216"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="224"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>您已安装最新版本，重启生效！</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>Insufficient disk space, unable to update system.</source>
         <translation>当前硬盘空间不足，无法进行系统更新。</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>检测到%n个应用更新</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>检测到新系统版本和%n个应用更新</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="262"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
         <source>Downloaded</source>
         <translation>已下载</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
         <source>Download size: %1</source>
         <translation>下载大小：%1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="187"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="286"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>已下载%1%（点击暂停）</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
         <source>New system edition detected</source>
         <translation>检测到有新系统版本</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="294"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>您的电池电量少于50%，请插入电源后继续</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="284"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="296"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>请确保重启后有充足的电源，并不要关机或者拔出电源</translation>
     </message>

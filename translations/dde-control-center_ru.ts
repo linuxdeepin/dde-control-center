@@ -232,17 +232,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="120"/>
         <source>Sorry, unable to get weather!</source>
         <translation>Извините, получить погоду не удалось!</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="127"/>
         <source>Loading weather...</source>
         <translation>Загружаю погоду...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="197"/>
         <source>Just updated</source>
         <translation>Обновлено</translation>
     </message>
@@ -1366,23 +1366,23 @@
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
-        <location filename="../modules/mouse/mousewidget.cpp" line="63"/>
-        <location filename="../modules/mouse/mousewidget.cpp" line="69"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="70"/>
         <source>Pointer Speed</source>
         <translation>Скорость Указателя</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Отключать тачпад при подключении мыши</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
         <source>Slow</source>
         <translation>Медленно</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
         <source>Fast</source>
         <translation>Быстро</translation>
     </message>
@@ -1393,17 +1393,22 @@
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Mouse Acceleration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
         <translation>Скорость Прокрутки</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
-        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="62"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="66"/>
         <source>Natural Scrolling</source>
         <translation>Естественная Прокрутка</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
         <source>Tap to Click</source>
         <translation>Включить Касание</translation>
     </message>
@@ -2317,99 +2322,104 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="56"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="133"/>
         <source>Update</source>
         <translation>Обновление</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="165"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="173"/>
         <source>Checking for updates, please wait...</source>
         <translation>Проверка на наличие обновлений, пожалуйста ждите...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
         <source>Your system is up to date</source>
         <translation>Ваша система в актуальном состоянии</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="51"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
         <source>Please restart to use the system and applications properly after updated</source>
         <translation>Перезагрузитесь, чтобы правильно использовать систему и приложения после обновления.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>Сеть отключена, повторите попытку после подключения</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="86"/>
+        <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>Download and install updates</source>
         <translation>Загрузка и установка обновлений</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="192"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% загружено (Нажмите, чтобы продолжить)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
         <source>Install updates</source>
         <translation>Установка обновлений</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="202"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="210"/>
         <source>Updating, please wait...</source>
         <translation>Обновляю, пожалуйста ждите... </translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="216"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="224"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Новейшая система установлена, перезагрузите для начала использования</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>Insufficient disk space, unable to update system.</source>
         <translation>Недостаточно места на диске, не удалось обновить систему.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>%n приложение обнаружено обновление(я)</numerusform><numerusform>%n приложение обнаружено обновление(я)</numerusform><numerusform>%n приложение обнаружено обновление(я)</numerusform><numerusform>%n приложение обнаружено обновление(я)</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>Обнаружена новая версия системы и обнаружено %n обновление(я)</numerusform><numerusform>Обнаружена новая версия системы и обнаружено %n обновление(я)</numerusform><numerusform>Обнаружена новая версия системы и обновление(я) приложения %n</numerusform><numerusform>Обнаружена новая версия системы и  обновление(я) приложения %n</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="262"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
         <source>Downloaded</source>
         <translation>Загружено</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
         <source>Download size: %1</source>
         <translation>Размер загрузки: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="187"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="286"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% загружается (Нажмите для приостановки)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
         <source>New system edition detected</source>
         <translation>Обнаружена новая версия системы</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="294"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Ваша батарея заряжена менее чем на 50%, пожалуйста подключите для пролжения</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="284"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="296"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Пожалуйста, не выключайте питание компьютера</translation>
     </message>

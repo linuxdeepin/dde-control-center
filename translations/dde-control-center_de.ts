@@ -232,17 +232,17 @@
 <context>
     <name>WeatherWidget</name>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="114"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="120"/>
         <source>Sorry, unable to get weather!</source>
         <translation>Entschuldigung, Wetterdaten konnten nicht abgerufen werden!</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="121"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="127"/>
         <source>Loading weather...</source>
         <translation>Wetter wird geladen...</translation>
     </message>
     <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="189"/>
+        <location filename="../plugins/weather/weatherwidget.cpp" line="197"/>
         <source>Just updated</source>
         <translation>Gerade aktualisiert</translation>
     </message>
@@ -1366,23 +1366,23 @@
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
-        <location filename="../modules/mouse/mousewidget.cpp" line="63"/>
-        <location filename="../modules/mouse/mousewidget.cpp" line="69"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="70"/>
         <source>Pointer Speed</source>
         <translation>Zeigergeschwindigkeit</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Touchpad beim Anstecken der Maus deaktivieren</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
         <source>Slow</source>
         <translation>Langsam</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="72"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
         <source>Fast</source>
         <translation>Schnell</translation>
     </message>
@@ -1393,17 +1393,22 @@
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
+        <source>Mouse Acceleration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
         <translation>Scrollgeschwindigkeit</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
-        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="62"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="66"/>
         <source>Natural Scrolling</source>
         <translation>Natürlicher Bildlauf</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
+        <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
         <source>Tap to Click</source>
         <translation>Zum Klicken antippen</translation>
     </message>
@@ -2317,99 +2322,104 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="56"/>
         <location filename="../plugins/navigation/navmodel.cpp" line="133"/>
         <source>Update</source>
         <translation>Aktualisieren</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="165"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="173"/>
         <source>Checking for updates, please wait...</source>
         <translation>Auf Aktualisierungen wird geprüft, bitte warten...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="197"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
         <source>Your system is up to date</source>
         <translation>Ihr System ist auf dem neuesten Stand</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="51"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
         <source>Please restart to use the system and applications properly after updated</source>
         <translation>Bitte starten Sie den Rechner neu, damit das System und alle Anwendungen nach der Aktualisierung ordnungsgemäß funktionieren.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="52"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>Netzwerkverbindung unterbrochen, bitte versuchen Sie es erneut, wenn die Verbindung wiederhergestellt ist</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="170"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="86"/>
+        <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
         <source>Download and install updates</source>
         <translation>Aktualisierungen herunterladen und installieren</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="184"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="192"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% heruntergeladen (Zum Fortsetzen klicken)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
         <source>Install updates</source>
         <translation>Aktualisierungen installieren</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="202"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="210"/>
         <source>Updating, please wait...</source>
         <translation>Wird aktualisiert, bitte warten...</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="216"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="224"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Das neuste System wurde installiert. Zum Abschließen Neustarten.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="226"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>Insufficient disk space, unable to update system.</source>
         <translation>Unzureichender Festplattenspeicher, System konnte nicht aktualisiert werden.</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="248"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
         <source>%n application update(s) detected</source>
         <translation><numerusform>%n Aktualisierung entdeckt</numerusform><numerusform>%n Aktualisierungen entdeckt</numerusform></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="255"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation><numerusform>Neue Systemedition und %n Anwendungsaktualisierung erkannt</numerusform><numerusform>Neue Systemedition und %n Anwendungsaktualisierungen erkannt</numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="262"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
         <source>Downloaded</source>
         <translation>Heruntergeladen</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
         <source>Download size: %1</source>
         <translation>Herunterladegröße: %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="179"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="274"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="187"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="286"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% heruntergeladen (Zum Pausieren klicken)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="253"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
         <source>New system edition detected</source>
         <translation>Neue Systemedition entdeckt</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="282"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="294"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Die Akkuladung ist unter 50 % gefallen. Bitte stecken Sie ein Netzteil an.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="284"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="296"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Bitte stellen Sie sicher, dass dem Gerät genug Energie für den Neustart zur Verfügung steht und schalten Sie das Gerät nicht aus oder ziehen Sie den Netzstecker!</translation>
     </message>
