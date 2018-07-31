@@ -92,6 +92,7 @@ private slots:
 
 private:
     void updateActiveAp();
+    QString connectionUuid(const QString &ssid);
 
 private:
     dde::network::WirelessDevice *m_device;
