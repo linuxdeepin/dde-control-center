@@ -1,3 +1,21 @@
+<a name="4.6.2"></a>
+### 4.6.2 (2018-07-31)
+
+
+#### Bug Fixes
+
+* **accounts:**  disable modify the fingerprints of other users ([04dcfed6](https://github.com/linuxdeepin/dde-control-center/commit/04dcfed6d63ccdd72dbcb242265b470743aef3d9))
+* **bluetooth:**  Iterator failure ([2e820733](https://github.com/linuxdeepin/dde-control-center/commit/2e82073374d5b6d094057537881bd6c99f985820))
+* **network:**
+  *  scan wireless ([f18bf436](https://github.com/linuxdeepin/dde-control-center/commit/f18bf436ff6d10aa4710283ab70ec6e15f29ebda))
+  *  uuid invalid of ap-connection ([efb4786c](https://github.com/linuxdeepin/dde-control-center/commit/efb4786c64f8b2eceb618f1de072c7f9b4ef9292))
+
+#### Features
+
+* **mouse:**  Ability to set accel profile ([d2c88c59](https://github.com/linuxdeepin/dde-control-center/commit/d2c88c5939a89a5f5f4b5cb7d48d6652d9e308bd))
+* **network:**  set filter for import vpn ([196c1fc2](https://github.com/linuxdeepin/dde-control-center/commit/196c1fc2b31d0db80f01c8d247ac695b85e1cb27))
+* **weather:**  Hide the tips after one minute of the refresh of the weather ([c4aca867](https://github.com/linuxdeepin/dde-control-center/commit/c4aca8673a2c1ca275a3c5881223a584a014eb0f))
+
 <a name="4.6.1"></a>
 ### 4.6.1 (2018-07-20)
 
