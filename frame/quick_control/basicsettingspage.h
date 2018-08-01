@@ -36,6 +36,9 @@
 #include <com_deepin_daemon_audio.h>
 #include <com_deepin_daemon_audio_sink.h>
 #include <com_deepin_daemon_display.h>
+#include <com_deepin_daemon_power.h>
+
+using PowerInter = com::deepin::daemon::Power;
 
 class QLabel;
 
@@ -75,6 +78,7 @@ public slots:
     void setMute(const bool &mute);
     void setVolume(const double &volume);
     void setBrightness(const double brightness);
+    void disableALABrightness();
 
 private slots:
     void onDefaultSinkChanged(const QDBusObjectPath & value);
@@ -82,10 +86,13 @@ private slots:
 
 private:
     BasicSettingsModel *m_model;
-    QStringList m_monitors;
     com::deepin::daemon::Audio *m_audioInter;
-    QPointer<com::deepin::daemon::audio::Sink> m_sinkInter;
     com::deepin::daemon::Display *m_displayInter;
+    PowerInter *m_powerInter;
+
+    QPointer<com::deepin::daemon::audio::Sink> m_sinkInter;
+
+    QStringList m_monitors;
 };
 
 class BasicSettingsPage : public QFrame
@@ -114,6 +121,7 @@ private:
     QLabel *m_brightnessLow;
     QLabel *m_brightnessHigh;
     QSlider *m_lightSlider;
+    QTimer *m_delayDisableALABTimer;
 
     BasicSettingsModel *m_model;
     BasicSettingsWorker *m_worker;

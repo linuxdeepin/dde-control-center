@@ -39,8 +39,9 @@ namespace display {
 
 BrightnessPage::BrightnessPage(QWidget *parent)
     : ContentWidget(parent),
-
-      m_centralLayout(new QVBoxLayout)
+      m_centralLayout(new QVBoxLayout),
+      m_delayDisableALABTimer(new QTimer(this)),
+      m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
@@ -48,6 +49,11 @@ BrightnessPage::BrightnessPage(QWidget *parent)
 
     QWidget *w = new TranslucentFrame;
     w->setLayout(m_centralLayout);
+
+    m_delayDisableALABTimer->setSingleShot(true);
+    m_delayDisableALABTimer->setInterval(500);
+
+    m_powerInter->setSync(true);
 
     setTitle(tr("Brightness"));
     setContent(w);
@@ -84,12 +90,30 @@ void BrightnessPage::initUI()
     m_centralLayout->addWidget(nightGrp);
     m_centralLayout->addWidget(m_nightTips);
 
+    // add auto ambient light
+    m_autoLightMode = new SwitchWidget;
+    m_autoLightMode->setTitle(tr("Auto Brightness"));
+    m_autoLightMode->setChecked(m_powerInter->ambientLightAdjustBrightness());
+
+    SettingsGroup *autoLightGrp = new SettingsGroup;
+    autoLightGrp->appendItem(m_autoLightMode);
+    m_centralLayout->addWidget(autoLightGrp);
+
+    if (!m_powerInter->hasAmbientLightSensor()) {
+        m_autoLightMode->setVisible(false);
+    }
+
     for (auto *mon : m_displayModel->monitorList())
     {
         BrightnessItem *slider = new BrightnessItem;
         connect(mon, &Monitor::brightnessChanged, slider, &BrightnessItem::setValue);
         connect(m_displayModel, &DisplayModel::minimumBrightnessScaleChanged, slider, &BrightnessItem::setMinimumBrightnessScale);
         connect(slider, &BrightnessItem::requestSetMonitorBrightness, this, &BrightnessPage::requestSetMonitorBrightness);
+        connect(slider, &BrightnessItem::requestSetMonitorBrightness, [=]() {
+            if (!m_delayDisableALABTimer->isActive()) {
+                m_delayDisableALABTimer->start();
+            }
+        });
         slider->setMonitor(mon);
         slider->setValue(mon->brightness());
 
@@ -113,6 +137,19 @@ void BrightnessPage::initConnect()
 
     connect(m_nightMode, &SwitchWidget::checkedChanged, this, &BrightnessPage::requestSetNightMode);
     connect(m_displayModel, &DisplayModel::redshiftSettingChanged, m_nightMode, &SwitchWidget::setDisabled);
+
+    connect(m_delayDisableALABTimer, &QTimer::timeout, this, &BrightnessPage::disableALABrightness);
+
+    connect(m_powerInter, &PowerInter::HasAmbientLightSensorChanged, m_autoLightMode, &SwitchWidget::setVisible);
+    connect(m_powerInter, &PowerInter::AmbientLightAdjustBrightnessChanged, m_autoLightMode, &SwitchWidget::setChecked);
+    connect(m_autoLightMode, &SwitchWidget::checkedChanged, m_powerInter, &PowerInter::setAmbientLightAdjustBrightness);
+}
+
+void BrightnessPage::disableALABrightness()
+{
+    if (m_powerInter->ambientLightAdjustBrightness()) {
+        m_powerInter->setAmbientLightAdjustBrightness(false);
+    }
 }
 
 }

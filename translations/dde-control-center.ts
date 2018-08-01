@@ -893,6 +893,11 @@
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="94"/>
+        <source>Auto Brightness</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>dcc::display::CustomConfigPage</name>

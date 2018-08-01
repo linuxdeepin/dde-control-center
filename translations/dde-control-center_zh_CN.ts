@@ -885,6 +885,11 @@
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
         <translation>将通过获取地理位置来辅助系统实现自动调节屏幕颜色色调，让你轻松使用的同时还能帮您舒缓眼睛的压力</translation>
     </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="94"/>
+        <source>Auto Brightness</source>
+        <translation>自动调节亮度</translation>
+    </message>
 </context>
 <context>
     <name>dcc::display::CustomConfigPage</name>

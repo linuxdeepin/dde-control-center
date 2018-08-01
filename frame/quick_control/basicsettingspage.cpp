@@ -77,7 +77,8 @@ BasicSettingsWorker::BasicSettingsWorker(BasicSettingsModel *model, QObject *par
     QObject(parent),
     m_model(model),
     m_audioInter(new com::deepin::daemon::Audio("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", QDBusConnection::sessionBus(), this)),
-    m_displayInter(new com::deepin::daemon::Display("com.deepin.daemon.Display", "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this))
+    m_displayInter(new com::deepin::daemon::Display("com.deepin.daemon.Display", "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this)),
+    m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
 {
     m_audioInter->setSync(false);
     m_displayInter->setSync(false);
@@ -142,6 +143,13 @@ void BasicSettingsWorker::onBrightnessChanged(const BrightnessMap value)
     m_model->setBrightness(brightness);
 }
 
+void BasicSettingsWorker::disableALABrightness()
+{
+    if (m_powerInter->ambientLightAdjustBrightness()) {
+        m_powerInter->setAmbientLightAdjustBrightness(false);
+    }
+}
+
 BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     : QFrame(parent),
 
@@ -152,6 +160,7 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
       m_brightnessLow(new QLabel),
       m_brightnessHigh(new QLabel),
       m_lightSlider(new QSlider),
+      m_delayDisableALABTimer(new QTimer(this)),
       m_model(new BasicSettingsModel(this)),
       m_worker(new BasicSettingsWorker(m_model, this))
 {
@@ -163,6 +172,9 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     m_brightnessLow->setFixedSize(24, 24);
     m_brightnessHigh->setObjectName("HomeBrightnessHighLabel");
     m_brightnessHigh->setFixedSize(24, 24);
+
+    m_delayDisableALABTimer->setSingleShot(true);
+    m_delayDisableALABTimer->setInterval(500);
 
     m_gsettings = new QGSettings("com.deepin.dde.audio", "", this);
 
@@ -240,6 +252,19 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     onVolumeChanged(m_model->volume());
     onBrightnessChanged(m_model->brightness());
     onMuteChanged(m_model->mute());
+
+    connect(m_soundSlider, &DCCSlider::valueChanged, this, [this] (const int &value) {
+        m_worker->setVolume(value);
+    });
+
+    connect(m_delayDisableALABTimer, &QTimer::timeout, m_worker, &BasicSettingsWorker::disableALABrightness);
+
+    connect(m_lightSlider, &QSlider::valueChanged, m_worker, &BasicSettingsWorker::setBrightness);
+    connect(m_lightSlider, &QSlider::valueChanged, [=]() {
+        if (!m_delayDisableALABTimer->isActive()) {
+            m_delayDisableALABTimer->start();
+        }
+    });
 }
 
 void BasicSettingsPage::setMPRISEnable(const bool enable)

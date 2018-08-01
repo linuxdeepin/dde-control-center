@@ -31,6 +31,10 @@
 
 #include <QVBoxLayout>
 
+#include <com_deepin_daemon_power.h>
+
+using PowerInter = com::deepin::daemon::Power;
+
 namespace dcc {
 
 namespace widgets {
@@ -41,6 +45,7 @@ namespace display {
 
 class Monitor;
 class DisplayModel;
+
 class BrightnessPage : public ContentWidget
 {
     Q_OBJECT
@@ -57,11 +62,18 @@ signals:
 private:
     void initUI();
     void initConnect();
+    void disableALABrightness();
 
 private:
     DisplayModel *m_displayModel;
 
     QVBoxLayout *m_centralLayout;
+    QTimer *m_delayDisableALABTimer;
+
+    PowerInter *m_powerInter;
+
+    dcc::widgets::SwitchWidget *m_autoLightMode;
+    widgets::TipsLabel *m_autoLightTips;
 
     dcc::widgets::SwitchWidget *m_nightMode;
     widgets::TipsLabel *m_nightTips;
