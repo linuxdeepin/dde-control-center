@@ -35,6 +35,7 @@ NotifyWidget::NotifyWidget(QWidget *parent) : QWidget(parent)
     m_clearAllButton->setText(tr("Clear all"));
     m_clearAllButton->setAlignment(Qt::AlignCenter);
     m_clearAllButton->setStyleSheet("background-color: rgba(255, 255, 255, 7.65); padding: 4px 0;");
+    m_clearAllButton->setContentsMargins(1, 1, -1, -1);
 
     m_notifyView->setModel(m_notifyModel);
     m_notifyView->setItemDelegate(m_notifyDelegate);
