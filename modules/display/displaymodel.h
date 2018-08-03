@@ -29,6 +29,7 @@
 #include <QObject>
 
 #include "monitor.h"
+#include "types/brightnessmap.h"
 
 namespace dcc {
 
@@ -65,6 +66,9 @@ public:
 
     inline bool redshiftSetting() const { return m_redshiftSetting; }
     void setRedshiftSetting(bool redshiftSetting);
+
+    inline BrightnessMap brightnessMap() const { return m_brightnessMap; }
+    void setBrightnessMap(const BrightnessMap &brightnessMap);
 
 signals:
     void screenHeightChanged(const int h) const;
@@ -107,6 +111,7 @@ private:
     bool m_isNightMode;
     bool m_redshiftIsValid;
     bool m_redshiftSetting;
+    BrightnessMap m_brightnessMap;
 };
 
 } // namespace display

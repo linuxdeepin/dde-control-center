@@ -55,6 +55,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
 
     connect(&m_displayInter, &DisplayInter::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
     connect(&m_displayInter, &DisplayInter::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
+    connect(&m_displayInter, &DisplayInter::BrightnessChanged, model, &DisplayModel::setBrightnessMap);
     connect(&m_displayInter, &DisplayInter::ScreenHeightChanged, model, &DisplayModel::setScreenHeight);
     connect(&m_displayInter, &DisplayInter::ScreenWidthChanged, model, &DisplayModel::setScreenWidth);
     connect(&m_displayInter, &DisplayInter::DisplayModeChanged, model, &DisplayModel::setDisplayMode);
@@ -245,8 +246,11 @@ void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
 
 void DisplayWorker::onMonitorsBrightnessChanged(const BrightnessMap &brightness)
 {
-    for (auto it(brightness.cbegin()); it != brightness.cend(); ++it)
-        updateMonitorBrightness(it.key(), it.value());
+    if (brightness.isEmpty()) return;
+
+    for (auto it = m_monitors.begin(); it != m_monitors.end(); ++it) {
+        it.key()->setBrightness(brightness[it.key()->name()]);
+    }
 }
 
 void DisplayWorker::onModifyConfigNameFinished(QDBusPendingCallWatcher *w)
@@ -433,6 +437,10 @@ void DisplayWorker::monitorAdded(const QString &path)
     mon->setRotateList(inter->rotations());
     mon->setPrimary(m_displayInter.primary());
 
+    if (!m_model->brightnessMap().isEmpty()) {
+        mon->setBrightness(m_model->brightnessMap()[mon->name()]);
+    }
+
     m_model->monitorAdded(mon);
     m_monitors.insert(mon, inter);
 }
@@ -457,18 +465,6 @@ void DisplayWorker::monitorRemoved(const QString &path)
     m_monitors.remove(monitor);
 
     monitor->deleteLater();
-}
-
-void DisplayWorker::updateMonitorBrightness(const QString &monName, const double brightness)
-{
-    for (auto mon : m_monitors.keys())
-    {
-        if (mon->name() == monName)
-        {
-            mon->setBrightness(brightness);
-            return;
-        }
-    }
 }
 
 void DisplayWorker::updateNightModeStatus()

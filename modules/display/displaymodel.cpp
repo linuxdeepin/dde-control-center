@@ -170,6 +170,13 @@ void DisplayModel::monitorRemoved(Monitor *mon)
     emit monitorListChanged();
 }
 
+void DisplayModel::setBrightnessMap(const BrightnessMap &brightnessMap)
+{
+    if (brightnessMap == m_brightnessMap) return;
+
+    m_brightnessMap = brightnessMap;
+}
+
 void DisplayModel::setRedshiftSetting(bool redshiftSetting)
 {
     if (m_redshiftSetting == redshiftSetting) return;
