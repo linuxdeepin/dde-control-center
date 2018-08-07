@@ -2060,7 +2060,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="84"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <translation>節能模式</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="85"/>
@@ -2385,12 +2385,12 @@
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>偵測到 %1 個應用程式更新</numerusform></translation>
+        <translation><numerusform>偵測到 %n 個應用程式更新</numerusform></translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>偵測到新版本系統與 %1 個應用程式更新</numerusform></translation>
+        <translation><numerusform>偵測到新版本系統與 %n 個應用程式更新</numerusform></translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>

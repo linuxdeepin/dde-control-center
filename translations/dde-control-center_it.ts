@@ -1394,7 +1394,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Accelerazione del mouse</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
@@ -2350,7 +2350,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="86"/>
         <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
-        <translation type="unfinished"/>
+        <translation>Questo aggiornamento potrebbe richiedere molto tempo, non spegnere o riavviare il PC durante il processo.</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>

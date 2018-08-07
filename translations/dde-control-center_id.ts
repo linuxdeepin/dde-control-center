@@ -1937,7 +1937,7 @@
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="108"/>
         <source> (Unsupported font)</source>
-        <translation>(Fon tidak didukung)</translation>
+        <translation>(Fonta tidak didukung)</translation>
     </message>
 </context>
 <context>

@@ -4,12 +4,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation>Atualizações instaladas, é necessário reiniciar, reiniciar agora?</translation>
+        <translation>Atualizações instaladas, é necessário reiniciar. Reiniciar agora?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation>Primeiro certifique-se que todos os dados estão guardados</translation>
+        <translation>Por favor, primeiro certifique-se que todos os dados estão guardados</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
