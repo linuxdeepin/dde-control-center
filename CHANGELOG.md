@@ -1,3 +1,14 @@
+<a name="4.6.3"></a>
+### 4.6.3 (2018-08-07)
+
+
+#### Bug Fixes
+
+* **display:**  brightness error when monitor changed ([3a881312](https://github.com/linuxdeepin/dde-control-center/commit/3a881312575eb09e9a2eac6af26d3421403905db))
+* **notify:**  high screen filament ([83d17c9d](https://github.com/linuxdeepin/dde-control-center/commit/83d17c9d38fe828bd8e8a239a4fb775b541534ef))
+
+
+
 <a name="4.6.2"></a>
 ### 4.6.2 (2018-07-31)
 
