@@ -76,7 +76,11 @@ void NextPageWidget::setIcon(const QPixmap &icon)
 
 void NextPageWidget::mouseReleaseEvent(QMouseEvent *e)
 {
-    e->accept();
+    SettingsItem::mousePressEvent(e);
+
+    if (e->button() != Qt::LeftButton) {
+        return;
+    }
 
     emit selected();
     emit clicked();

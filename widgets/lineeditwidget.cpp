@@ -136,6 +136,10 @@ void LineEditWidget::mousePressEvent(QMouseEvent *e)
 {
     SettingsItem::mousePressEvent(e);
 
+    if (e->button() != Qt::LeftButton) {
+        return;
+    }
+
     m_edit->setFocus();
 }
 

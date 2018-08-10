@@ -79,9 +79,11 @@ void EditableNextPageWidget::setIcon(const QPixmap &icon)
 
 void EditableNextPageWidget::mousePressEvent(QMouseEvent *e)
 {
-    e->accept();
-
     SettingsItem::mousePressEvent(e);
+
+    if (e->button() != Qt::LeftButton) {
+        return;
+    }
 
     // ensure is echo mode
     if (m_name->isVisible())

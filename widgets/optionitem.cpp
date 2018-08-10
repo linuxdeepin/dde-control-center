@@ -26,6 +26,8 @@
 #include "optionitem.h"
 #include "translucentframe.h"
 
+#include <QMouseEvent>
+
 namespace dcc {
 namespace widgets {
 
@@ -116,6 +118,10 @@ void OptionItem::setContentsMargins(int left, int top, int right, int bottom)
 void OptionItem::mouseReleaseEvent(QMouseEvent *e)
 {
     SettingsItem::mouseReleaseEvent(e);
+
+    if (e->button() != Qt::LeftButton) {
+        return;
+    }
 
     emit selectedChanged();
 }
