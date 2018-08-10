@@ -31,10 +31,11 @@
 #include "summaryitem.h"
 #include "downloadprogressbar.h"
 #include "resultitem.h"
+#include "labels/tipslabel.h"
 
 #include <types/appupdateinfolist.h>
 
-#include "labels/tipslabel.h"
+#include <QSettings>
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -89,6 +90,8 @@ private:
     TipsLabel *m_powerTip;
     TipsLabel *m_reminderTip;
     TipsLabel *m_noNetworkTip;
+
+    QSettings *m_qsettings;
 };
 
 }

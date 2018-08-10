@@ -33,6 +33,8 @@
 #include "loadingitem.h"
 #include "labels/normallabel.h"
 
+#define UpgradeWarningSize 500
+
 namespace dcc{
 namespace update{
 
@@ -51,7 +53,8 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
       m_upgradeWarning(new SummaryItem),
       m_powerTip(new TipsLabel),
       m_reminderTip(new TipsLabel(tr("Please restart to use the system and applications properly after updated"))),
-      m_noNetworkTip(new TipsLabel(tr("Network disconnected, please retry after connected")))
+      m_noNetworkTip(new TipsLabel(tr("Network disconnected, please retry after connected"))),
+      m_qsettings(new QSettings(this))
 {
     setTitle(tr("Update"));
 
@@ -271,7 +274,7 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
     else {
         m_summary->setDetails(QString(tr("Download size: %1").arg(formatCap(downloadSize))));
 
-        if ((downloadSize / 1024) / 1024 > 500)
+        if ((downloadSize / 1024) / 1024 >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt())
             m_upgradeWarningGroup->setVisible(true);
     }
 
