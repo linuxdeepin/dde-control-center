@@ -50,7 +50,7 @@ BrightnessItem::BrightnessItem(QWidget *parent)
     m_rightIcon->setPixmap(DHiDPIHelper::loadNxPixmap(":/display/themes/dark/icons/light_high.png"));
     m_brightnessSlider->setOrientation(Qt::Horizontal);
     m_brightnessSlider->setMaximum(BRIGHTNESS_MUL);
-    m_brightnessSlider->setMinimum(0);
+    m_brightnessSlider->setMinimum(200);
     m_brightnessSlider->setTracking(true);
 
     QHBoxLayout *centralLayout = new QHBoxLayout;
