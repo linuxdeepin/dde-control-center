@@ -691,7 +691,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="69"/>
         <source>Confirm</source>
-        <translation>Подтвердить</translation>
+        <translation>Ок</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="63"/>
@@ -766,7 +766,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="64"/>
         <source>Confirm</source>
-        <translation>Подтвердить</translation>
+        <translation>Ок</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="172"/>
@@ -1738,7 +1738,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="59"/>
         <source>Confirm</source>
-        <translation>Подтвердить</translation>
+        <translation>Ок</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="61"/>

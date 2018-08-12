@@ -99,7 +99,7 @@
     <message numerus="yes">
         <location filename="../plugins/notify/notifydelegate.cpp" line="209"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Před %s dnem</numerusform><numerusform>Před %s dny</numerusform><numerusform>Před %s dny</numerusform><numerusform>Před %s dny</numerusform></translation>
     </message>
 </context>
 <context>
@@ -1394,7 +1394,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Zrychlení myši</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
@@ -2060,12 +2060,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="84"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <translation>Režim šetření energií</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="85"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>Přepnutí do automatického režimu</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="96"/>
@@ -2350,7 +2350,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="86"/>
         <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
-        <translation type="unfinished"/>
+        <translation>Tato aktualizace může trvat delší čas. Nevypínejte, prosím, počítač ani jej během této doby nerestartujte.</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
@@ -2360,7 +2360,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="192"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
+        <translation>%1% staženo (klepněte pro pokračování)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
@@ -2380,7 +2380,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
         <source>Insufficient disk space, unable to update system.</source>
-        <translation type="unfinished"/>
+        <translation>Nedostatek místa na disku. Systém nelze zaktualizovat.</translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
@@ -2462,7 +2462,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation type="unfinished"/>
+        <translation>Vyvolat upozornění, pokud bylo zrcadlo pro aktualizaci systému změněno</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="95"/>

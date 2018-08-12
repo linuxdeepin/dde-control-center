@@ -1394,7 +1394,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Прискорення миші</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
@@ -2060,12 +2060,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="84"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <translation>Режим заощадження енергії</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="85"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>Автоперемикання режимів</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="96"/>
@@ -2350,7 +2350,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="86"/>
         <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
-        <translation type="unfinished"/>
+        <translation>Це оновлення може бути тривалим. Будь ласка, не вимикайте і не перезавантажуйте комп&apos;ютер, доки воно триватиме.</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>

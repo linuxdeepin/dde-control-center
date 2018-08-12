@@ -153,7 +153,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>पुनः आरंभ करें</translation>
     </message>
 </context>
 <context>
@@ -169,7 +169,7 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="50"/>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>खोज का कोई परिणाम नहीं मिला</translation>
     </message>
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="142"/>
@@ -187,7 +187,7 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="89"/>
         <source>All Settings</source>
-        <translation type="unfinished"/>
+        <translation>सभी सेटिंग्स</translation>
     </message>
 </context>
 <context>
@@ -195,7 +195,7 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>अपडेट</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="38"/>
@@ -280,7 +280,7 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="62"/>
         <source>Domain Server</source>
-        <translation type="unfinished"/>
+        <translation>डोमेन सर्वर</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="63"/>
@@ -318,12 +318,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>स्वतः लॉगिन</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>बिना कूटशब्द के लॉगिन करें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -370,7 +370,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="122"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>चित्र</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
@@ -463,7 +463,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="54"/>
         <location filename="../modules/accounts/createpage.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>आवश्यक</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="53"/>
@@ -564,7 +564,7 @@
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="56"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>आवश्यक</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
@@ -743,7 +743,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="70"/>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>समय संबंधी सेटिंग्स</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="75"/>

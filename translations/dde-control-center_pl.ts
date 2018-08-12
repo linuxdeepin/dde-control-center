@@ -738,7 +738,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="62"/>
         <source>Change System Timezone</source>
-        <translation>Zmień systemową strefę czasową</translation>
+        <translation>Zmień strefę czasową systemu</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="70"/>
@@ -2029,12 +2029,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="45"/>
         <source>Monitor will suspend after</source>
-        <translation>Monitor przejdzie w stan wstrzymania po</translation>
+        <translation>Monitor zostanie wstrzymany po</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="46"/>
         <source>Computer will suspend after</source>
-        <translation>Komputer przejdzie w stan wstrzymania po</translation>
+        <translation>Komputer zostanie wstrzymany po</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="56"/>

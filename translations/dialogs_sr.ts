@@ -4,7 +4,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation>Ажурирања су инсталирана, потребно је поновно покретање рачунара. Поновно покренути сада?</translation>
+        <translation>Ажурирања су инсталирана, потребно је поново покренути рачунара. Поновно покрени сада?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation>Поновно покретање</translation>
+        <translation>Поново покрени</translation>
     </message>
 </context>
 </TS>

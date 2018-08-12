@@ -4,12 +4,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="18"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation>Обновяванията са инсталирани, нужен е рестарт?</translation>
+        <translation>Обновяванията са инсталирани и е необходимо рестартиране. Да се рестартира ли сега?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="19"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation>Моля, нека всички неща първо да са записани</translation>
+        <translation>Моля, направете необходимото, всички данни да бъдат съхранени</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="26"/>
         <source>Reboot</source>
-        <translation>Рестарт</translation>
+        <translation>Рестартиране</translation>
     </message>
 </context>
 </TS>

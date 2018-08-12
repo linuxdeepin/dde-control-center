@@ -17,7 +17,7 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>여기　클릭하여　블루투스를　활성화하기　</translation>
     </message>
 </context>
 <context>
@@ -40,22 +40,22 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation type="unfinished"/>
+        <translation>사용자 정의 설정</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>다른 화면에 기본 화면의 내용을 복사합니다.</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>다른 화면에 서로 다른 내용을 표시할 수 있도록 확장합니다.</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation type="unfinished"/>
+        <translation>화면 콘텐츠가 %1에만 표시됩니다.</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
@@ -133,12 +133,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>업데이트　설치　완료되었습니다．재시동이　필요합니다，　지금　재시동합니까？</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>모든 데이터가 저장되었는지 확인하십시오.</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
@@ -161,7 +161,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation type="unfinished"/>
+        <translation>왼쪽 버튼을 클릭해서　회전하며 오른쪽 버튼을 클릭해서　종료합니다．</translation>
     </message>
 </context>
 <context>
@@ -169,7 +169,7 @@
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="50"/>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>검색결과가　없습니다.</translation>
     </message>
     <message>
         <location filename="../plugins/weather/setlocationpage.cpp" line="142"/>
@@ -195,12 +195,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>업데이트</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="38"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>업데이트가　발견되었습니다．클릭해서　보기　</translation>
     </message>
 </context>
 <context>
@@ -226,7 +226,7 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
+        <translation>아이콘을 클릭해서　VPN를　켜기　</translation>
     </message>
 </context>
 <context>
@@ -257,7 +257,7 @@
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WIFI</source>
-        <translation type="unfinished"/>
+        <translation>아이콘을 클릭해서　와이파이를　켜기　</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="213"/>
@@ -285,7 +285,7 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>관리자　계정　</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="64"/>
@@ -323,7 +323,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호없이 로그인하기　</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -338,7 +338,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>지문　암호　</translation>
     </message>
 </context>
 <context>
@@ -370,7 +370,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="122"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>이미지　</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
@@ -408,7 +408,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>지문을　추가하기　</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="55"/>
@@ -423,7 +423,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>지문을　식별하고　있습니다　</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="114"/>
@@ -438,7 +438,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>성공적으로　추가했습니다　</translation>
     </message>
 </context>
 <context>
@@ -483,7 +483,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="140"/>
         <source>Username can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>사용자 이름은 비워둘 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="143"/>
@@ -496,7 +496,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>지문　리스트　</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="46"/>
@@ -506,12 +506,12 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>지문을　추가하기　</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>지문을　삭제하기　</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="56"/>
@@ -592,7 +592,7 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>계정을 삭제하려면 관리자 권한이 필요합니다.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="67"/>
@@ -660,7 +660,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>연결되지 않음</translation>
     </message>
 </context>
 <context>
@@ -756,7 +756,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="174"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>시간대　변경　</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
@@ -891,7 +891,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="43"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>편집　</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="45"/>
@@ -969,7 +969,7 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="43"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation> 디바이스를　스캔　중입니다．　기다려　주십시요　</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="44"/>
@@ -997,7 +997,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="69"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation> 디바이스　리스트　</translation>
     </message>
 </context>
 <context>
@@ -1456,7 +1456,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="52"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP 주소</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
@@ -1618,7 +1618,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="202"/>
         <source>IPv6 Address</source>
-        <translation type="unfinished"/>
+        <translation>IPv6 주소</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="217"/>
@@ -1771,12 +1771,12 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="98"/>
         <source>Https Proxy</source>
-        <translation type="unfinished"/>
+        <translation>HTTPS 프록시</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="103"/>
         <source>Ftp Proxy</source>
-        <translation type="unfinished"/>
+        <translation>FTP 프록시</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="108"/>
@@ -1882,12 +1882,12 @@
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="70"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>설정을　 추가하기　</translation>
     </message>
     <message>
         <location filename="../modules/network/wiredpage.cpp" line="85"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>설정을　선택하기　</translation>
     </message>
 </context>
 <context>
@@ -1900,7 +1900,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="64"/>
         <source>Close hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot를　닫기　</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="67"/>
@@ -1974,7 +1974,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="53"/>
         <source>Enable window effect</source>
-        <translation type="unfinished"/>
+        <translation>윈도우 효과 활성화</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="55"/>
@@ -2045,12 +2045,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="75"/>
         <source>Password required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>모니터를 깨울 때 비밀번호 요구</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="78"/>
         <source>Password required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>컴퓨터를 깨울 때 비밀번호 요구</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="81"/>
@@ -2060,7 +2060,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="84"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <translation>절전　모드　</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="85"/>
@@ -2196,7 +2196,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
@@ -2311,12 +2311,12 @@
     <message>
         <location filename="../modules/update/resultitem.cpp" line="67"/>
         <source>Update successfully</source>
-        <translation type="unfinished"/>
+        <translation>성공적으로 업데이트 완료!</translation>
     </message>
     <message>
         <location filename="../modules/update/resultitem.cpp" line="68"/>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>업데이트에 실패했습니다.</translation>
     </message>
 </context>
 <context>
@@ -2370,7 +2370,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="210"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>업데이트중...기다려주십시요　</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="224"/>

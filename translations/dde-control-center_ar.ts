@@ -1394,12 +1394,12 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>تسارع الفأرة</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
-        <translation type="unfinished"/>
+        <translation>سرعة التمرير</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="62"/>
@@ -2060,12 +2060,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="84"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <translation>وضع توفير الطاقة</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="85"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>تبديل الوضع تلقائيا</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="96"/>
@@ -2351,7 +2351,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="86"/>
         <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
-        <translation type="unfinished"/>
+        <translation>قد يستغرق هذا التحديث وقتا طويلا، يرجى عدم إيقاف أو إعادة التشغيل خلال العملية</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
