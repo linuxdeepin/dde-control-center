@@ -35,28 +35,12 @@
 #include <QtConcurrent>
 
 #include "labels/tipslabel.h"
+#include "utils.h"
 
 DWIDGET_USE_NAMESPACE
 
 namespace dcc{
 namespace systeminfo{
-
-const QString getLicense(const QString &filePath, const QString &type)
-{
-    QString lang = QLocale::system().name();
-    if (lang != "zh_CN" && lang != "zh_TW")
-        lang = "en";
-
-    QString path = QString(filePath).arg(lang).arg(type);
-    QFile license(path);
-    if (!license.open(QIODevice::ReadOnly))
-        return QString();
-
-    const QByteArray buf = license.readAll();
-    license.close();
-
-    return std::move(buf);
-}
 
 QPair<QString, QString> loadLicenses()
 {

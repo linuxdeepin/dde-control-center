@@ -115,15 +115,25 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     infoGroup->appendItem(m_memory);
     infoGroup->appendItem(m_disk);
 
+#ifndef DCC_ENABLE_END_USER_LICENSE
     m_copyright = new NextPageWidget();
     m_copyright->setTitle(tr("Edition License"));
+#else
+    NextPageWidget *user_license = new NextPageWidget;
+    user_license->setTitle(tr("End User License Agreement"));
+#endif
 
 #ifndef DCC_DISABLE_GRUB
     m_boot = new NextPageWidget();
     m_boot->setTitle(tr("Boot Menu"));
 #endif
 
+#ifndef DCC_ENABLE_END_USER_LICENSE
     crGroup->appendItem(m_copyright);
+#else
+    crGroup->appendItem(user_license);
+#endif
+
 #ifndef DCC_DISABLE_GRUB
     bootGroup->appendItem(m_boot);
 #endif
@@ -131,7 +141,12 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     m_centralLayout->addWidget(crGroup);
     m_centralLayout->addWidget(bootGroup);
 
+#ifndef DCC_ENABLE_END_USER_LICENSE
     connect(m_copyright, SIGNAL(clicked()), this, SIGNAL(copyright()));
+#else
+    connect(user_license, &NextPageWidget::clicked, this, &SystemInfoWidget::copyright);
+#endif
+
 #ifndef DCC_DISABLE_GRUB
     connect(m_boot, SIGNAL(clicked()), this, SIGNAL(boot()));
 #endif

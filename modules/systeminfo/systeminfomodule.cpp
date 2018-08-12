@@ -26,6 +26,7 @@
 #include "systeminfomodule.h"
 #include "copyrightwidget.h"
 #include "bootwidget.h"
+#include "userlicense.h"
 
 namespace dcc{
 namespace systeminfo{
@@ -112,12 +113,16 @@ void SystemInfoModule::contentPopped(ContentWidget * const w)
 
 void SystemInfoModule::onPushCopyright()
 {
+#ifndef DCC_ENABLE_END_USER_LICENSE
     if(!m_copyrightWidget)
     {
         m_copyrightWidget = new CopyrightWidget();
     }
 
     m_frameProxy->pushWidget(this, m_copyrightWidget);
+#else
+    m_frameProxy->pushWidget(this, new UserLicense);
+#endif
 }
 
 #ifndef DCC_DISABLE_GRUB

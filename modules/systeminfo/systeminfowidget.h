@@ -73,7 +73,10 @@ private:
     widgets::TitleValueItem* m_memory;
     widgets::TitleValueItem* m_disk;
 
+#ifndef DCC_ENABLE_END_USER_LICENSE
     widgets::NextPageWidget* m_copyright;
+#endif
+
 #ifndef DCC_DISABLE_GRUB
     widgets::NextPageWidget* m_boot;
 #endif

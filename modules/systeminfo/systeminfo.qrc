@@ -16,5 +16,7 @@
         <file>themes/dark/icons/rearrange.png</file>
         <file>themes/common/icons/select.svg</file>
         <file>themes/dark/icons/nav_systeminfo_normal.svg</file>
+        <file>license/deepin-end-user-license-agreement_zh_CN.txt</file>
+        <file>license/deepin-end-user-license-agreement_en_US.txt</file>
     </qresource>
 </RCC>

@@ -40,7 +40,8 @@ HEADERS += \
     $$PWD/editablenextpagewidget.h \
     $$PWD/tipsitem.h \
     $$PWD/loadingnextpagewidget.h \
-    $$PWD/passwdeditwidget.h
+    $$PWD/passwdeditwidget.h \
+    $$PWD/utils.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \

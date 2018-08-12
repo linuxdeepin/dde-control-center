@@ -13,7 +13,8 @@ HEADERS += \
     $$PWD/copyrightwidget.h \
     $$PWD/bootwidget.h \
     $$PWD/grubbackgrounditem.h \
-    $$PWD/logoitem.h
+    $$PWD/logoitem.h \
+    $$PWD/userlicense.h
 
 SOURCES += \
     $$PWD/systeminfowork.cpp \
@@ -23,4 +24,5 @@ SOURCES += \
     $$PWD/copyrightwidget.cpp \
     $$PWD/bootwidget.cpp \
     $$PWD/grubbackgrounditem.cpp \
-    $$PWD/logoitem.cpp
+    $$PWD/logoitem.cpp \
+    $$PWD/userlicense.cpp
