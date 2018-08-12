@@ -1,3 +1,14 @@
+<a name="4.6.4"></a>
+### 4.6.4 (2018-08-12)
+
+
+#### Bug Fixes
+
+*   back button of mouse clicked on frame ([729cdcc0](https://github.com/linuxdeepin/dde-control-center/commit/729cdcc06e45a308c5f8930b0e2749af7f2f9d33))
+* **network:**  hotspot page refresh ([117e5069](https://github.com/linuxdeepin/dde-control-center/commit/117e5069afa453d14dae20073871bfcda2109fac))
+
+
+
 <a name="4.6.3"></a>
 ### 4.6.3 (2018-08-07)
 
