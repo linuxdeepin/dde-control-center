@@ -47,7 +47,7 @@ public:
     void deactivate();
 
 signals:
-    void requestSetAutoHide(const bool visiable) const;
+    void requestSetAutoHide(const bool visible) const;
 
 public slots:
     void setNTP(bool ntp);

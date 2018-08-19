@@ -145,9 +145,9 @@ void SystemInfoModule::onPushBoot()
 }
 #endif
 
-void SystemInfoModule::onSetAutoHide(const bool visiable)
+void SystemInfoModule::onSetAutoHide(const bool visible)
 {
-    m_frameProxy->setFrameAutoHide(this, visiable);
+    m_frameProxy->setFrameAutoHide(this, visible);
 }
 
 }

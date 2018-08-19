@@ -70,7 +70,7 @@ signals:
     void requestScrollSpeed(int speed);
 
 private slots:
-    void onTouchpadHideChanged(const bool visiable);
+    void onTouchpadHideChanged(const bool visible);
     void onMouseMoveSpeedChanged(int speed);
     void onTouchMoveSpeedChanged(int speed);
     void onRedPointMoveSpeedChanged(int speed);

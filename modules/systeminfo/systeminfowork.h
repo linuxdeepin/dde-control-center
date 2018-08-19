@@ -57,7 +57,7 @@ public:
     void loadGrubSettings();
 
 signals:
-    void requestSetAutoHideDCC(const bool visiable) const;
+    void requestSetAutoHideDCC(const bool visible) const;
 
 public slots:
     void setBootDelay(bool value);

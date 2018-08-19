@@ -116,9 +116,9 @@ void DatetimeModule::showTimeSettingsPage()
     m_frameProxy->pushWidget(this, m_dateSettings);
 }
 
-void DatetimeModule::setFrameAutoHide(const bool visiable)
+void DatetimeModule::setFrameAutoHide(const bool visible)
 {
-    m_frameProxy->setFrameAutoHide(this, visiable);
+    m_frameProxy->setFrameAutoHide(this, visible);
 }
 
 DatetimeModule::~DatetimeModule()

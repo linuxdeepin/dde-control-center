@@ -51,7 +51,7 @@ public:
 
 public slots:
     void showTimeSettingsPage();
-    void setFrameAutoHide(const bool visiable);
+    void setFrameAutoHide(const bool visible);
 
 private:
     ~DatetimeModule();
