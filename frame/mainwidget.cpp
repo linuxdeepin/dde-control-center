@@ -256,7 +256,7 @@ void MainWidget::updateMPRISEnable()
     const bool update_visible = false;
 #endif
     const int screen_height = qApp->primaryScreen()->geometry().height();
-    const bool is_768 = screen_height == 768;
+    const bool is_768 = screen_height <= 768;
 
     m_quickSettingsPanel->setMPRISEnable(!(update_visible && is_768));
     m_quickSettingsPanel->setMPRISPictureEnable(screen_height > 1000);
