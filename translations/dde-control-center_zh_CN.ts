@@ -10,14 +10,14 @@
 <context>
     <name>BluetoothListModel</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
-        <source>Connect to other devices</source>
-        <translation>连接其他设备</translation>
-    </message>
-    <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
         <translation>点击图标开启蓝牙</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
+        <source>Connect to other devices</source>
+        <translation>连接其他设备</translation>
     </message>
 </context>
 <context>
@@ -79,7 +79,7 @@
 <context>
     <name>NavModel</name>
     <message>
-        <location filename="../plugins/navigation/navmodel.cpp" line="157"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="160"/>
         <source>Navigation</source>
         <translation>导航</translation>
     </message>
@@ -87,17 +87,17 @@
 <context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="200"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="200"/>
         <source>Yesterday</source>
         <translation>昨天</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="203"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="203"/>
         <source>The day before yesterday</source>
         <translation>前天</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="209"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="209"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>%n天前</numerusform></translation>
     </message>
@@ -105,12 +105,12 @@
 <context>
     <name>NotifyManager</name>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="65"/>
+        <location filename="../frame/notify/notifymanager.cpp" line="65"/>
         <source>Clear all</source>
         <translation>全部清除</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="150"/>
+        <location filename="../frame/notify/notifymanager.cpp" line="150"/>
         <source>No system notifications</source>
         <translation>无系统通知</translation>
     </message>
@@ -118,12 +118,12 @@
 <context>
     <name>NotifyWidget</name>
     <message>
-        <location filename="../plugins/notify/notifywidget.cpp" line="33"/>
+        <location filename="../frame/notify/notifywidget.cpp" line="33"/>
         <source>No system notifications</source>
         <translation>无系统通知</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifywidget.cpp" line="35"/>
+        <location filename="../frame/notify/notifywidget.cpp" line="35"/>
         <source>Clear all</source>
         <translation>全部清除</translation>
     </message>
@@ -165,19 +165,6 @@
     </message>
 </context>
 <context>
-    <name>SetLocationPage</name>
-    <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="50"/>
-        <source>No search results</source>
-        <translation>无搜索结果</translation>
-    </message>
-    <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="142"/>
-        <source>Current City: %1</source>
-        <translation>当前城市：%1</translation>
-    </message>
-</context>
-<context>
     <name>SettingsWidget</name>
     <message>
         <location filename="../frame/settingswidget.cpp" line="79"/>
@@ -206,17 +193,17 @@
 <context>
     <name>Viewer</name>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="138"/>
+        <location filename="../frame/notify/notifyviewer.cpp" line="138"/>
         <source>Yesterday</source>
         <translation>昨天</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="141"/>
+        <location filename="../frame/notify/notifyviewer.cpp" line="141"/>
         <source>The day before yesterday</source>
         <translation>前天</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifyviewer.cpp" line="147"/>
+        <location filename="../frame/notify/notifyviewer.cpp" line="147"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>%n天前</numerusform></translation>
     </message>
@@ -230,37 +217,19 @@
     </message>
 </context>
 <context>
-    <name>WeatherWidget</name>
-    <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="120"/>
-        <source>Sorry, unable to get weather!</source>
-        <translation>抱歉，获取天气失败！</translation>
-    </message>
-    <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="127"/>
-        <source>Loading weather...</source>
-        <translation>天气加载中.....</translation>
-    </message>
-    <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="197"/>
-        <source>Just updated</source>
-        <translation>刚刚更新</translation>
-    </message>
-</context>
-<context>
     <name>WifiListModel</name>
-    <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
-        <source>Connect to hidden network</source>
-        <translation>连接到隐藏网络</translation>
-    </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WIFI</source>
         <translation>点击图标开启WIFI </translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="213"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
+        <source>Connect to hidden network</source>
+        <translation>连接到隐藏网络</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
         <source>Wireless Card %1</source>
         <translation>无线网卡 %1</translation>
     </message>
@@ -269,13 +238,13 @@
     <name>dcc::accounts::ADDialog</name>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
-        <source>Join domain</source>
-        <translation>加入域</translation>
+        <source>Leave domain</source>
+        <translation>离开域</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
-        <source>Leave domain</source>
-        <translation>离开域</translation>
+        <source>Join domain</source>
+        <translation>加入域</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="62"/>
@@ -344,15 +313,15 @@
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="124"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
+        <source>Accounts</source>
+        <translation>账户</translation>
+    </message>
+    <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
         <translation>创建账户</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="121"/>
-        <source>Accounts</source>
-        <translation>账户</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
@@ -373,14 +342,14 @@
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
-        <source>Your host joins the domain server successfully.</source>
-        <translation>你的主机成功加入了域服务器。</translation>
-    </message>
-    <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>你的主机成功退出了域服务器</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
+        <source>Your host joins the domain server successfully.</source>
+        <translation>你的主机成功加入了域服务器。</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="333"/>
@@ -431,28 +400,18 @@
         <translation>识别指纹失败，将手指放入指纹录入器上并从下往上移动手指再松开。</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
-        <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation>将手指放入指纹录入器上并从下往上移动手指再松开，重复此步骤</translation>
-    </message>
-    <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
         <translation>成功添加指纹</translation>
     </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
+        <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
+        <translation>将手指放入指纹录入器上并从下往上移动手指再松开，重复此步骤</translation>
+    </message>
 </context>
 <context>
     <name>dcc::accounts::CreatePage</name>
-    <message>
-        <location filename="../modules/accounts/createpage.cpp" line="66"/>
-        <source>Create</source>
-        <translation>创建</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/createpage.cpp" line="65"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="51"/>
         <source>Username</source>
@@ -474,6 +433,16 @@
         <location filename="../modules/accounts/createpage.cpp" line="56"/>
         <source>Repeat password</source>
         <translation>重复密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="65"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="66"/>
+        <source>Create</source>
+        <translation>创建</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="85"/>
@@ -577,14 +546,14 @@
         <translation>接受</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
-        <source>Password</source>
-        <translation>密码</translation>
-    </message>
-    <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="105"/>
         <source>New password should differ from the current one</source>
         <translation>新密码和旧密码不能相同</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
+        <source>Password</source>
+        <translation>密码</translation>
     </message>
 </context>
 <context>
@@ -631,8 +600,8 @@
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="129"/>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="159"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="126"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
@@ -684,6 +653,11 @@
 <context>
     <name>dcc::datetime::DateSettings</name>
     <message>
+        <location filename="../modules/datetime/datesettings.cpp" line="63"/>
+        <source>Change Time Settings</source>
+        <translation>修改时间设置</translation>
+    </message>
+    <message>
         <location filename="../modules/datetime/datesettings.cpp" line="68"/>
         <source>Cancel</source>
         <translation>取消</translation>
@@ -692,11 +666,6 @@
         <location filename="../modules/datetime/datesettings.cpp" line="69"/>
         <source>Confirm</source>
         <translation>确定</translation>
-    </message>
-    <message>
-        <location filename="../modules/datetime/datesettings.cpp" line="63"/>
-        <source>Change Time Settings</source>
-        <translation>修改时间设置</translation>
     </message>
 </context>
 <context>
@@ -720,6 +689,12 @@
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="131"/>
+        <location filename="../modules/datetime/datetime.cpp" line="58"/>
+        <source>Time and Date</source>
+        <translation>时间日期</translation>
+    </message>
+    <message>
         <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
         <translation>自动同步</translation>
@@ -728,12 +703,6 @@
         <location filename="../modules/datetime/datetime.cpp" line="51"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
-    </message>
-    <message>
-        <location filename="../modules/datetime/datetime.cpp" line="58"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="128"/>
-        <source>Time and Date</source>
-        <translation>时间日期</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="62"/>
@@ -754,11 +723,6 @@
 <context>
     <name>dcc::datetime::TimeZoneChooser</name>
     <message>
-        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="174"/>
-        <source>Change Timezone</source>
-        <translation>修改系统时区</translation>
-    </message>
-    <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
         <source>Cancel</source>
         <translation>取消</translation>
@@ -769,9 +733,14 @@
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="172"/>
+        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="173"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
+    </message>
+    <message>
+        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="173"/>
+        <source>Change Timezone</source>
+        <translation>修改系统时区</translation>
     </message>
 </context>
 <context>
@@ -805,8 +774,8 @@
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="126"/>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="123"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
     </message>
@@ -871,24 +840,24 @@
 <context>
     <name>dcc::display::BrightnessPage</name>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="52"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="58"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="81"/>
         <source>Night Shift</source>
         <translation>自动调节色温</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="80"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="86"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
         <translation>将通过获取地理位置来辅助系统实现自动调节屏幕颜色色调，让你轻松使用的同时还能帮您舒缓眼睛的压力</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="94"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="95"/>
         <source>Auto Brightness</source>
-        <translation>自动调节亮度</translation>
+        <translation>自动亮度</translation>
     </message>
 </context>
 <context>
@@ -925,6 +894,12 @@
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../modules/display/displaywidget.cpp" line="107"/>
+        <source>Display</source>
+        <translation>显示</translation>
+    </message>
+    <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
         <translation>屏幕缩放</translation>
@@ -954,17 +929,11 @@
         <source>Wireless Screen Projection</source>
         <translation>无线投屏</translation>
     </message>
-    <message>
-        <location filename="../modules/display/displaywidget.cpp" line="107"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="122"/>
-        <source>Display</source>
-        <translation>显示</translation>
-    </message>
 </context>
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="177"/>
+        <location filename="../modules/display/displayworker.cpp" line="178"/>
         <source>My Settings %1</source>
         <translation>我的设置%1</translation>
     </message>
@@ -1048,7 +1017,7 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="347"/>
         <source> (Recommended)</source>
-        <translation>(已推荐)</translation>
+        <translation>（推荐）</translation>
     </message>
 </context>
 <context>
@@ -1061,7 +1030,7 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="80"/>
         <source> (Recommended)</source>
-        <translation>(已推荐)</translation>
+        <translation>（推荐）</translation>
     </message>
 </context>
 <context>
@@ -1077,15 +1046,15 @@
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="64"/>
-        <source>Command</source>
-        <translation>命令</translation>
-    </message>
-    <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
         <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customcontent.cpp" line="64"/>
+        <source>Command</source>
+        <translation>命令</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
@@ -1195,8 +1164,8 @@
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="134"/>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="131"/>
         <source>Keyboard and Language</source>
         <translation>键盘和语言</translation>
     </message>
@@ -1318,6 +1287,11 @@
         <translation>工作区</translation>
     </message>
     <message>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
+        <source>Custom Shortcut</source>
+        <translation>自定义快捷键</translation>
+    </message>
+    <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
         <translation>添加自定义快捷键</translation>
@@ -1326,11 +1300,6 @@
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="88"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
-        <source>Custom Shortcut</source>
-        <translation>自定义快捷键</translation>
     </message>
 </context>
 <context>
@@ -1344,10 +1313,20 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="133"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="130"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
+        <source>Mouse and Touchpad</source>
+        <translation>鼠标和触控板</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
+        <source>TouchPad</source>
+        <translation>触控板</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
@@ -1377,26 +1356,6 @@
         <translation>指针速度</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
-        <source>Disable the touchpad when inserting the mouse</source>
-        <translation>插入鼠标时禁用触控板</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
-        <source>Slow</source>
-        <translation>慢</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
-        <source>Fast</source>
-        <translation>快</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
-        <source>TouchPad</source>
-        <translation>触控板</translation>
-    </message>
-    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
         <translation>鼠标加速</translation>
@@ -1405,6 +1364,11 @@
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
         <translation>滚动速度</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
+        <source>Disable the touchpad when inserting the mouse</source>
+        <translation>插入鼠标时禁用触控板</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="62"/>
@@ -1418,9 +1382,14 @@
         <translation>轻触以点击</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
-        <source>Mouse and Touchpad</source>
-        <translation>鼠标和触控板</translation>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
+        <source>Slow</source>
+        <translation>慢</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
+        <source>Fast</source>
+        <translation>快</translation>
     </message>
 </context>
 <context>
@@ -1517,48 +1486,215 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="141"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="82"/>
         <source>Disconnect</source>
         <translation>断开</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="143"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="84"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
-        <source>Export</source>
-        <translation>导出</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="155"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="89"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="156"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="90"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="518"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="601"/>
-        <source>Required</source>
-        <translation>必填</translation>
+        <location filename="../modules/network/connectioneditpage.cpp" line="311"/>
+        <source>Wired Connection %1</source>
+        <translation>有线连接 %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectioneditpage.cpp" line="315"/>
+        <source>Wireless Connection %1</source>
+        <translation>无线连接 %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectioneditpage.cpp" line="319"/>
+        <source>PPPoE Connection %1</source>
+        <translation>PPPoE连接 %1</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::ConnectionVpnEditPage</name>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="141"/>
+        <source>VPN L2TP %1</source>
+        <translation>VPN L2TP %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="145"/>
+        <source>VPN PPTP %1</source>
+        <translation>VPN PPTP %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="149"/>
+        <source>VPN VPNC %1</source>
+        <translation>VPN VPNC %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="153"/>
+        <source>VPN OpenVPN %1</source>
+        <translation>VPN OpenVPN %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
+        <source>VPN StrongSwan %1</source>
+        <translation>VPN StrongSwan %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
+        <source>VPN OpenConnect %1</source>
+        <translation>VPN OpenConnect %1</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::EthernetSection</name>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="89"/>
+        <source>Device MAC Addr</source>
+        <translation>设备MAC地址</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="101"/>
+        <source>Cloned MAC Addr</source>
+        <translation>克隆MAC地址</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="114"/>
+        <source>Customize MTU</source>
+        <translation>自定义MTU</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="117"/>
+        <source>MTU</source>
+        <translation>MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::GenericHotspotSection</name>
+    <message>
+        <location filename="../modules/network/sections/generichotspotsection.cpp" line="31"/>
+        <source>General</source>
+        <translation>通用</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/generichotspotsection.cpp" line="63"/>
+        <source>Name</source>
+        <translation>名称</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::GenericSection</name>
+    <message>
+        <location filename="../modules/network/sections/genericsection.cpp" line="31"/>
+        <source>General</source>
+        <translation>通用</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/genericsection.cpp" line="62"/>
+        <source>Name</source>
+        <translation>名称</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/genericsection.cpp" line="65"/>
+        <source>Automatically connect</source>
+        <translation>自动连接</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::HotspotPage</name>
     <message>
-        <location filename="../modules/network/hotspotpage.cpp" line="63"/>
+        <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
         <translation>热点设置</translation>
     </message>
     <message>
-        <location filename="../modules/network/hotspotpage.cpp" line="78"/>
+        <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
         <translation>热点</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::IpvxSection</name>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="32"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="37"/>
+        <source>Auto</source>
+        <translation>自动</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="33"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="38"/>
+        <source>Manual</source>
+        <translation>手动</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="39"/>
+        <source>Ignore</source>
+        <translation>忽略</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="43"/>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="63"/>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="203"/>
+        <source>Method</source>
+        <translation>方法</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="204"/>
+        <source>IP Address</source>
+        <translation>IP 地址</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="205"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="270"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="206"/>
+        <source>Gateway</source>
+        <translation>网关</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="207"/>
+        <source>Primary DNS</source>
+        <translation>首选DNS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="208"/>
+        <source>Secondary DNS</source>
+        <translation>备用DNS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="209"/>
+        <source>Only applied in corresponding resources</source>
+        <translation>仅用于相对应的网络上的资源</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="269"/>
+        <source>Netmask</source>
+        <translation>子网掩码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="313"/>
+        <source>Prefix</source>
+        <translation>前缀</translation>
     </message>
 </context>
 <context>
@@ -1582,6 +1718,11 @@
         <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
         <source>Security</source>
         <translation>安全</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
+        <source>Interface</source>
+        <translation>接口</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="162"/>
@@ -1616,11 +1757,6 @@
         <translation>子网掩码</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
-        <source>Interface</source>
-        <translation>接口</translation>
-    </message>
-    <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="202"/>
         <source>IPv6 Address</source>
         <translation>IPv6地址</translation>
@@ -1639,6 +1775,12 @@
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="128"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
+        <source>Network</source>
+        <translation>网络</translation>
+    </message>
+    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>DSL</source>
         <translation>DSL</translation>
@@ -1647,6 +1789,11 @@
         <location filename="../modules/network/networkmodulewidget.cpp" line="61"/>
         <source>VPN</source>
         <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="65"/>
+        <source>System Proxy</source>
+        <translation>系统代理</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="67"/>
@@ -1659,15 +1806,14 @@
         <translation>网络详情</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="125"/>
-        <source>Network</source>
-        <translation>网络</translation>
-    </message>
-    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
         <source>Wired Network Card%1</source>
         <translation>有线网卡%1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
+        <source>Wired Network%1</source>
+        <translation>有线网络%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
@@ -1678,16 +1824,6 @@
         <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wired Network</source>
         <translation>有线网络</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
-        <source>Wired Network%1</source>
-        <translation>有线网络%1</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="65"/>
-        <source>System Proxy</source>
-        <translation>系统代理</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="252"/>
@@ -1705,6 +1841,11 @@
         <translation>无线网卡%1</translation>
     </message>
     <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="267"/>
+        <source>Wireless Network%1</source>
+        <translation>无线网络%1</translation>
+    </message>
+    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network Card</source>
         <translation>无线网卡</translation>
@@ -1714,21 +1855,118 @@
         <source>Wireless Network</source>
         <translation>无线网络</translation>
     </message>
+</context>
+<context>
+    <name>dcc::network::PPPOESection</name>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="267"/>
-        <source>Wireless Network%1</source>
-        <translation>无线网络%1</translation>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="31"/>
+        <source>PPPoE</source>
+        <translation>拨号</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="76"/>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="77"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="84"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="80"/>
+        <source>Service</source>
+        <translation>服务</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="83"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::PPPSection</name>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="31"/>
+        <source>Refuse EAP Authentication</source>
+        <translation>拒绝EAP认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="32"/>
+        <source>Refuse PAP Authentication</source>
+        <translation>拒绝PAP认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="33"/>
+        <source>Refuse CHAP Authentication</source>
+        <translation>拒绝CHAP认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="34"/>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation>拒绝MSCHAP认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="35"/>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation>拒绝MSCHAPv2认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="36"/>
+        <source>No BSD Data Compression</source>
+        <translation>无BSD数据压缩</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="37"/>
+        <source>No Deflate Data Compression</source>
+        <translation>无Deflate数据压缩</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="38"/>
+        <source>No TCP Header Compression</source>
+        <translation>无TCP头压缩</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="39"/>
+        <source>No Protocol Field Compression</source>
+        <translation>无协议字段压缩</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="40"/>
+        <source>No Address/Control Compression</source>
+        <translation>无地址/控制压缩</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="41"/>
+        <source>Send PPP Echo Packets</source>
+        <translation>发送PPP回响包</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="45"/>
+        <source>PPP</source>
+        <translation>PPP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="98"/>
+        <source>Use MPPE</source>
+        <translation>使用MPPE点到点加密</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="101"/>
+        <source>128-bit MPPE</source>
+        <translation>使用128位MPPE</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::PppoePage</name>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="54"/>
+        <location filename="../modules/network/pppoepage.cpp" line="52"/>
         <source>Create PPPoE Connection</source>
         <translation>创建PPPoE连接</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="68"/>
+        <location filename="../modules/network/pppoepage.cpp" line="66"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -1805,6 +2043,727 @@
     </message>
 </context>
 <context>
+    <name>dcc::network::Secret8021xSection</name>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="31"/>
+        <source>TLS</source>
+        <translation>TLS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="32"/>
+        <source>MD5</source>
+        <translation>MD5</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="33"/>
+        <source>LEAP</source>
+        <translation>LEAP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="34"/>
+        <source>FAST</source>
+        <translation>FAST</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="35"/>
+        <source>Tunneled TLS</source>
+        <translation>隧道TLS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="36"/>
+        <source>Protected EAP</source>
+        <translation>受保护的EAP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="41"/>
+        <source>Saved</source>
+        <translation>已保存的</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="42"/>
+        <source>Ask</source>
+        <translation>总是询问</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="47"/>
+        <source>Disabled</source>
+        <translation>已禁用</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="48"/>
+        <source>Anonymous</source>
+        <translation>匿名</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="49"/>
+        <source>Authenticated</source>
+        <translation>已认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="50"/>
+        <source>Both</source>
+        <translation>兼有</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="66"/>
+        <source>Automatic</source>
+        <translation>自动</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="78"/>
+        <source>Security</source>
+        <translation>安全</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="197"/>
+        <source>EAP Auth</source>
+        <translation>EAP认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="43"/>
+        <source>Not Required</source>
+        <translation>不要求</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="67"/>
+        <source>Version 0</source>
+        <translation>版本0</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="68"/>
+        <source>Version 1</source>
+        <translation>版本1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="209"/>
+        <source>Identity</source>
+        <translation>身份</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="211"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="219"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="213"/>
+        <source>Ask for Pwd</source>
+        <translation>询问密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="299"/>
+        <source>Private Key</source>
+        <translation>私钥</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="303"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="376"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="408"/>
+        <source>CA Cert</source>
+        <translation>CA证书</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="307"/>
+        <source>User Cert</source>
+        <translation>用户证书</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="325"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="372"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="404"/>
+        <source>Anonymous ID</source>
+        <translation>匿名身份</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="329"/>
+        <source>Provisioning</source>
+        <translation>自动PAC配置</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="341"/>
+        <source>PAC file</source>
+        <translation>PAC文件</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="345"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="380"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="423"/>
+        <source>Inner Auth</source>
+        <translation>内部认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="412"/>
+        <source>PEAP Version</source>
+        <translation>PEAP版本</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="503"/>
+        <source>Private Pwd</source>
+        <translation>私钥密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="505"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::SecretHotspotSection</name>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="36"/>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="37"/>
+        <source>WEP 40/128-bit</source>
+        <translation>WEP40/128位密钥</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="38"/>
+        <source>WPA/WPA2 Personal</source>
+        <translation>WPA/WPA2个人版</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="101"/>
+        <source>Security</source>
+        <translation>安全</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="107"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="137"/>
+        <source>Key</source>
+        <translation>密钥</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="143"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::SecretWiredSection</name>
+    <message>
+        <location filename="../modules/network/sections/secretwiredsection.cpp" line="32"/>
+        <source>Security Required</source>
+        <translation>安全</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::SecretWirelessSection</name>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="37"/>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="38"/>
+        <source>WEP 40/128-bit</source>
+        <translation>WEP40/128位密钥</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="39"/>
+        <source>WPA/WPA2 Personal</source>
+        <translation>WPA/WPA2个人版</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="40"/>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation>WPA/WPA2企业版</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="103"/>
+        <source>Security</source>
+        <translation>安全</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="109"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="151"/>
+        <source>Key</source>
+        <translation>密钥</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="158"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnAdvOpenVPNSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
+        <source>VPN Advanced</source>
+        <translation>VPN高级选项</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
+        <source>Customize Gateway Port</source>
+        <translation>自定义网关端口</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
+        <source>Gateway Port</source>
+        <translation>网关端口</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
+        <source>Customize Renegotiation Interval</source>
+        <translation>自定义重新协商间隔</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
+        <source>Renegotiation Interval</source>
+        <translation>重新协商间隔</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
+        <source>Use LZO data compression</source>
+        <translation>使用LZO压缩</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
+        <source>Use TCP connection</source>
+        <translation>使用TCP连接</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
+        <source>Use TAP device</source>
+        <translation>使用TAP设备</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
+        <source>Customize Tunnel MTU</source>
+        <translation>自定义最大传输单元(MTU)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
+        <source>MTU</source>
+        <translation>MTU</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
+        <source>Customize UDP Fragment Size</source>
+        <translation>自定义UDP数据报段长度</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
+        <source>UDP Fragment Size</source>
+        <translation>UDP数据报段长度</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
+        <source>Restrict Tunnel TCP MSS</source>
+        <translation>限制隧道TCP最大段长度(MSS)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
+        <source>Randomize Remote Hosts</source>
+        <translation>随机远程主机</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnAdvVPNCSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
+        <source>Cisco (default)</source>
+        <translation>思科（默认）</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="32"/>
+        <source>Netscreen</source>
+        <translation>网屏</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="35"/>
+        <source>Secure (default)</source>
+        <translation>安全（默认）</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="36"/>
+        <source>Weak</source>
+        <translation>弱</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="37"/>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="52"/>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="40"/>
+        <source>NAT-T When Available (default)</source>
+        <translation>NAT-T若可用（默认）</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="41"/>
+        <source>NAT-T Always</source>
+        <translation>总是NAT-T</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="42"/>
+        <source>Cisco UDP</source>
+        <translation>思科UDP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="43"/>
+        <source>Disabled</source>
+        <translation>已禁用</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="46"/>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="53"/>
+        <source>DH Group 1</source>
+        <translation>DH Group 1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="47"/>
+        <source>DH Group 2 (default)</source>
+        <translation>DH Group 2（默认）</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="48"/>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="55"/>
+        <source>DH Group 5</source>
+        <translation>DH Group 5</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="51"/>
+        <source>Server (default)</source>
+        <translation>服务器（默认）</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="54"/>
+        <source>DH Group 2</source>
+        <translation>DH Group 2</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="59"/>
+        <source>VPN Advanced</source>
+        <translation>VPN高级选项</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="165"/>
+        <source>Domain</source>
+        <translation>域</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="168"/>
+        <source>Vendor</source>
+        <translation>供应商</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="174"/>
+        <source>Version</source>
+        <translation>版本</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="177"/>
+        <source>Encryption</source>
+        <translation>加密</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="183"/>
+        <source>NAT Traversal Mode</source>
+        <translation>NAT遍历</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="189"/>
+        <source>IKE DH Group</source>
+        <translation>IKE DH 组</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="195"/>
+        <source>Forward Secrecy</source>
+        <translation>前向保密</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="201"/>
+        <source>Local Port</source>
+        <translation>本地端口</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
+        <source>Disable Dead Peer Detection</source>
+        <translation>禁用死端检测</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnIpsecSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
+        <source>VPN IPsec</source>
+        <translation>VPN IPsec</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="83"/>
+        <source>Enable IPsec</source>
+        <translation>启用IPsec</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
+        <source>Group Name</source>
+        <translation>组名</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
+        <source>Group ID</source>
+        <translation>组ID</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
+        <source>Pre-Shared Key</source>
+        <translation>预共享密钥</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
+        <source>Phase1 Algorithms</source>
+        <translation>密钥交换协议</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
+        <source>Phase2 Algorithms</source>
+        <translation>安全封装协议</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnOpenConnectSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="84"/>
+        <source>Gateway</source>
+        <translation>网关</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="85"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <source>CA Cert</source>
+        <translation>CA证书</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="91"/>
+        <source>Proxy</source>
+        <translation>代理</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="94"/>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation>允许思科安全桌面木马</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="97"/>
+        <source>CSD Script</source>
+        <translation>CSD 脚本</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="100"/>
+        <source>User Cert</source>
+        <translation>用户证书</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="103"/>
+        <source>Private Key</source>
+        <translation>私钥</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="106"/>
+        <source>Use FSID for Key Passphrase</source>
+        <translation>为密钥口令句使用FSID</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnOpenVPNSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
+        <source>Certificates (TLS)</source>
+        <translation>证书（TLS）</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="32"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="33"/>
+        <source>Certificates with Password (TLS)</source>
+        <translation>证书和密码（TLS）</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="34"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="266"/>
+        <source>Static Key</source>
+        <translation>静态密钥</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="39"/>
+        <source>Saved</source>
+        <translation>已保存的</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="40"/>
+        <source>Ask</source>
+        <translation>总是询问</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="41"/>
+        <source>Not Required</source>
+        <translation>不要求</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="45"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="127"/>
+        <source>Gateway</source>
+        <translation>网关</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="128"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="223"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="239"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="282"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="138"/>
+        <source>Auth Type</source>
+        <translation>认证类型</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="141"/>
+        <source>CA Cert</source>
+        <translation>CA证书</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="226"/>
+        <source>Ask for Pwd</source>
+        <translation>询问密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="192"/>
+        <source>Private Pwd</source>
+        <translation>私钥密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="270"/>
+        <source>Customize Key Direction</source>
+        <translation>自定义密钥方向</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="274"/>
+        <source>Key Direction</source>
+        <translation>密钥方向</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnPPPSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
+        <source>All Available (default)</source>
+        <translation>都可用（默认）</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="32"/>
+        <source>40-bit (less secure)</source>
+        <translation>40位（较安全）</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="33"/>
+        <source>128-bit (most secure)</source>
+        <translation>128位（最安全）</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="37"/>
+        <source>Refuse EAP Authentication</source>
+        <translation>拒绝EAP认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="38"/>
+        <source>Refuse PAP Authentication</source>
+        <translation>拒绝PAP认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="39"/>
+        <source>Refuse CHAP Authentication</source>
+        <translation>拒绝CHAP认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="40"/>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation>拒绝MSCHAP认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="41"/>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation>拒绝MSCHAPv2认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="42"/>
+        <source>No BSD Data Compression</source>
+        <translation>无BSD数据压缩</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="43"/>
+        <source>No Deflate Data Compression</source>
+        <translation>无Deflate数据压缩</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="44"/>
+        <source>No TCP Header Compression</source>
+        <translation>无TCP头压缩</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="45"/>
+        <source>No Protocol Field Compression</source>
+        <translation>无协议字段压缩</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="46"/>
+        <source>No Address/Control Compression</source>
+        <translation>无地址/控制压缩</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="47"/>
+        <source>Send PPP Echo Packets</source>
+        <translation>发送PPP回响包</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="51"/>
+        <source>VPN PPP</source>
+        <translation>VPN PPP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
+        <source>Use MPPE</source>
+        <translation>使用MPPE点到点加密</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
+        <source>Security</source>
+        <translation>安全</translation>
+    </message>
+</context>
+<context>
     <name>dcc::network::VpnPage</name>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="76"/>
@@ -1827,70 +2786,430 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="269"/>
+        <location filename="../modules/network/vpnpage.cpp" line="241"/>
         <source>Import Error</source>
         <translation>导入错误</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="271"/>
+        <location filename="../modules/network/vpnpage.cpp" line="243"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="296"/>
+        <location filename="../modules/network/vpnpage.cpp" line="265"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="299"/>
+        <location filename="../modules/network/vpnpage.cpp" line="268"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="302"/>
+        <location filename="../modules/network/vpnpage.cpp" line="271"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="305"/>
+        <location filename="../modules/network/vpnpage.cpp" line="274"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="308"/>
+        <location filename="../modules/network/vpnpage.cpp" line="277"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="311"/>
+        <location filename="../modules/network/vpnpage.cpp" line="280"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="336"/>
+        <location filename="../modules/network/vpnpage.cpp" line="305"/>
         <source>New VPN</source>
         <translation>新建VPN</translation>
     </message>
 </context>
 <context>
+    <name>dcc::network::VpnProxySection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
+        <source>Not Required</source>
+        <translation>不要求</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="32"/>
+        <source>HTTP</source>
+        <translation>HTTP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="33"/>
+        <source>SOCKS</source>
+        <translation>SOCKS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="37"/>
+        <source>VPN Proxies</source>
+        <translation>VPN代理</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="149"/>
+        <source>Server IP</source>
+        <translation>服务器地址</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="150"/>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
+        <source>Port</source>
+        <translation>端口</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="158"/>
+        <source>Retry Indefinitely When Failed</source>
+        <translation>失败时重试</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="161"/>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnSecOpenVPNSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="50"/>
+        <source>Default</source>
+        <translation>默认</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="30"/>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="51"/>
+        <source>None</source>
+        <translation>无</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="63"/>
+        <source>VPN Security</source>
+        <translation>VPN安全</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="107"/>
+        <source>Cipher</source>
+        <translation>加密</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="117"/>
+        <source>HMAC Auth</source>
+        <translation>HMAC认证</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="30"/>
+        <source>Saved</source>
+        <translation>已保存的</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="31"/>
+        <source>Ask</source>
+        <translation>总是询问</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="32"/>
+        <source>Not Required</source>
+        <translation>不要求</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="36"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="110"/>
+        <source>Gateway</source>
+        <translation>网关</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="111"/>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="115"/>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="125"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="114"/>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="118"/>
+        <source>Ask for Pwd</source>
+        <translation>询问密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="124"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="128"/>
+        <source>NT Domain</source>
+        <translation>NT域</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnStrongSwanSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="29"/>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="168"/>
+        <source>Private Key</source>
+        <translation>私钥</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="30"/>
+        <source>SSH Agent</source>
+        <translation>SSH代理</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="31"/>
+        <source>Smartcard</source>
+        <translation>智能卡</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="32"/>
+        <source>EAP</source>
+        <translation>EAP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="33"/>
+        <source>Pre-Shared Key</source>
+        <translation>预共享密钥</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="37"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="148"/>
+        <source>Gateway</source>
+        <translation>网关</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="149"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
+        <source>CA Cert</source>
+        <translation>CA证书</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="155"/>
+        <source>Auth Type</source>
+        <translation>认证类型</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="165"/>
+        <source>User Cert</source>
+        <translation>用户证书</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="171"/>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="174"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="177"/>
+        <source>Request an Inner IP Address</source>
+        <translation>请求内部IP地址</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="180"/>
+        <source>Enforce UDP Encapsulation</source>
+        <translation>强制使用UDP封装</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="183"/>
+        <source>Use IP Compression</source>
+        <translation>使用IP压缩 </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="186"/>
+        <source>Enable custom cipher proposals</source>
+        <translation>启用自定义加密方案</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="189"/>
+        <source>IKE</source>
+        <translation>IKE</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="192"/>
+        <source>ESP</source>
+        <translation>ESP</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnTLSSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
+        <source>Default</source>
+        <translation>默认</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="30"/>
+        <source>Client</source>
+        <translation>客户端</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
+        <source>Server</source>
+        <translation>服务器</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="35"/>
+        <source>VPN TLS Authentication</source>
+        <translation>VPN TLS 认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="83"/>
+        <source>Subject Match</source>
+        <translation>主题匹配</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="86"/>
+        <source>Remote Cert Type</source>
+        <translation>远程证书类型</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="96"/>
+        <source>Key File</source>
+        <translation>密钥文件</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="99"/>
+        <source>Customize Key Direction</source>
+        <translation>自定义密钥方向</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="102"/>
+        <source>Key Direction</source>
+        <translation>密钥方向</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnVPNCSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="30"/>
+        <source>Saved</source>
+        <translation>已保存的</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="31"/>
+        <source>Ask</source>
+        <translation>总是询问</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="32"/>
+        <source>Not Required</source>
+        <translation>不要求</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="36"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="162"/>
+        <source>Gateway</source>
+        <translation>网关</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="167"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="177"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="191"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="166"/>
+        <source>Username</source>
+        <translation>用户名</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="170"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="184"/>
+        <source>Ask for Pwd</source>
+        <translation>询问密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="176"/>
+        <source>Password</source>
+        <translation>密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="180"/>
+        <source>Group Name</source>
+        <translation>组名</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="190"/>
+        <source>Group Pwd</source>
+        <translation>组密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="194"/>
+        <source>Use Hybrid Authentication</source>
+        <translation>使用混合认证</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="197"/>
+        <source>CA File</source>
+        <translation>CA文件</translation>
+    </message>
+</context>
+<context>
     <name>dcc::network::WiredPage</name>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="60"/>
+        <location filename="../modules/network/wiredpage.cpp" line="59"/>
         <source>Setting List</source>
         <translation>设置列表</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="64"/>
+        <location filename="../modules/network/wiredpage.cpp" line="63"/>
         <source>Please firstly plug in the network cable</source>
         <translation>请您先插入网线！</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="70"/>
+        <location filename="../modules/network/wiredpage.cpp" line="69"/>
         <source>Add Settings</source>
         <translation>添加设置</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="85"/>
+        <location filename="../modules/network/wiredpage.cpp" line="84"/>
         <source>Select Settings</source>
         <translation>选择设置</translation>
     </message>
@@ -1898,24 +3217,52 @@
 <context>
     <name>dcc::network::WirelessPage</name>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="61"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="60"/>
         <source>Connect to hidden network</source>
         <translation>连接到隐藏网络</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="64"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
         <translation>关闭热点</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="67"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
         <translation>若要连接并使用无线网络功能，请先关闭热点分享</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="90"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="89"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::WirelessSection</name>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="104"/>
+        <source>SSID</source>
+        <translation>SSID</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="105"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="108"/>
+        <source>Device MAC Addr</source>
+        <translation>设备MAC地址</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="134"/>
+        <source>Customize MTU</source>
+        <translation>自定义MTU</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="137"/>
+        <source>MTU</source>
+        <translation>MTU</translation>
     </message>
 </context>
 <context>
@@ -1964,12 +3311,12 @@
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="117"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="118"/>
         <source>Standard Font</source>
         <translation>标准字体</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="126"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="127"/>
         <source>Monospaced Font</source>
         <translation>等宽字体</translation>
     </message>
@@ -1977,25 +3324,30 @@
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="53"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="127"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="79"/>
+        <source>Personalization</source>
+        <translation>个性化</translation>
+    </message>
+    <message>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="45"/>
+        <source>Transparency</source>
+        <translation>透明度</translation>
+    </message>
+    <message>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="70"/>
         <source>Enable window effect</source>
         <translation>开启窗口特效</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="55"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="72"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="56"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="73"/>
         <source>Font</source>
         <translation>字体</translation>
-    </message>
-    <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="124"/>
-        <source>Personalization</source>
-        <translation>个性化</translation>
     </message>
 </context>
 <context>
@@ -2032,6 +3384,12 @@
 <context>
     <name>dcc::power::PowerWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="132"/>
+        <location filename="../modules/power/powerwidget.cpp" line="96"/>
+        <source>Power Management</source>
+        <translation>电源管理</translation>
+    </message>
+    <message>
         <location filename="../modules/power/powerwidget.cpp" line="45"/>
         <source>Monitor will suspend after</source>
         <translation>关闭显示器于</translation>
@@ -2039,7 +3397,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="46"/>
         <source>Computer will suspend after</source>
-        <translation>电脑进入睡眠模式</translation>
+        <translation>电脑进入待机模式</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="56"/>
@@ -2060,7 +3418,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="81"/>
         <source>Suspend on lid close</source>
-        <translation>合上盖子时进入睡眠模式</translation>
+        <translation>合上盖子时待机</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="84"/>
@@ -2071,12 +3429,6 @@
         <location filename="../modules/power/powerwidget.cpp" line="85"/>
         <source>Auto Mode Switch</source>
         <translation>自动切换节能模式</translation>
-    </message>
-    <message>
-        <location filename="../modules/power/powerwidget.cpp" line="96"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="129"/>
-        <source>Power Management</source>
-        <translation>电源管理</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="143"/>
@@ -2119,6 +3471,12 @@
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="130"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="58"/>
+        <source>Sound</source>
+        <translation>声音</translation>
+    </message>
+    <message>
         <location filename="../modules/sound/soundwidget.cpp" line="43"/>
         <source>Output Volume</source>
         <translation>输出音量</translation>
@@ -2137,12 +3495,6 @@
         <location filename="../modules/sound/soundwidget.cpp" line="49"/>
         <source>Feedback Volume</source>
         <translation>反馈音量</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="127"/>
-        <source>Sound</source>
-        <translation>声音</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="60"/>
@@ -2191,7 +3543,7 @@
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
-        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="86"/>
+        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="70"/>
         <source>License</source>
         <translation>协议</translation>
     </message>
@@ -2199,15 +3551,15 @@
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="137"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <source>System Information</source>
+        <translation>系统信息</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>Copyright © 2011-2018 武汉深之度科技有限公司</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="134"/>
-        <source>System Information</source>
-        <translation>系统信息</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -2220,34 +3572,19 @@
         <translation>发行版</translation>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
+        <source>Edition:</source>
+        <translation>版本：</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="95"/>
         <source>Type:</source>
         <translation>类型：</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="119"/>
-        <source>Edition License</source>
-        <translation>版本协议</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
-        <source>Boot Menu</source>
-        <translation>启动菜单</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="175"/>
-        <source>%1Bit</source>
-        <translation>%1位</translation>
-    </message>
-    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Processor:</source>
         <translation>处理器：</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
-        <source>Edition:</source>
-        <translation>版本：</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="102"/>
@@ -2258,6 +3595,34 @@
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="106"/>
         <source>Disk:</source>
         <translation>磁盘：</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="120"/>
+        <source>Edition License</source>
+        <translation>版本协议</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
+        <source>End User License Agreement</source>
+        <translation>最终用户许可协议</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="128"/>
+        <source>Boot Menu</source>
+        <translation>启动菜单</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="190"/>
+        <source>%1Bit</source>
+        <translation>%1位</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::systeminfo::UserLicense</name>
+    <message>
+        <location filename="../modules/systeminfo/userlicense.cpp" line="15"/>
+        <source>End User License Agreement</source>
+        <translation>最终用户许可协议</translation>
     </message>
 </context>
 <context>
@@ -2327,104 +3692,104 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="56"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="133"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="136"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="59"/>
         <source>Update</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="173"/>
-        <source>Checking for updates, please wait...</source>
-        <translation>检查更新中，请稍候...</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
-        <source>Your system is up to date</source>
-        <translation>您的系统已经是最新的</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="55"/>
         <source>Please restart to use the system and applications properly after updated</source>
         <translation>为了您能够正常的使用系统和应用，更新后请重新启动</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="56"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>网络断开，请联网后重试</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="86"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
         <translation>本次更新可能会用时较长，更新完成前请不要关机或重启。</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="176"/>
+        <source>Checking for updates, please wait...</source>
+        <translation>检查更新中，请稍候...</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Download and install updates</source>
         <translation>下载并安装更新</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="192"/>
-        <source>%1% downloaded (Click to continue)</source>
-        <translation>已下载%1%（点击继续）</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
-        <source>Install updates</source>
-        <translation>安装更新</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="210"/>
-        <source>Updating, please wait...</source>
-        <translation>正在更新，请稍候......</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="224"/>
-        <source>The newest system installed, restart to take effect</source>
-        <translation>您已安装最新版本，重启生效！</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
-        <source>Insufficient disk space, unable to update system.</source>
-        <translation>当前硬盘空间不足，无法进行系统更新。</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
-        <source>%n application update(s) detected</source>
-        <translation><numerusform>检测到%n个应用更新</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
-        <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>检测到新系统版本和%n个应用更新</numerusform></translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
-        <source>Downloaded</source>
-        <translation>已下载</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
-        <source>Download size: %1</source>
-        <translation>下载大小：%1</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="187"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="286"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="289"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>已下载%1%（点击暂停）</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="195"/>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation>已下载%1%（点击继续）</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
+        <source>Install updates</source>
+        <translation>安装更新</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="208"/>
+        <source>Your system is up to date</source>
+        <translation>您的系统已经是最新的</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="213"/>
+        <source>Updating, please wait...</source>
+        <translation>正在更新，请稍候......</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="227"/>
+        <source>The newest system installed, restart to take effect</source>
+        <translation>您已安装最新版本，重启生效！</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="237"/>
+        <source>Insufficient disk space, unable to update system.</source>
+        <translation>当前硬盘空间不足，无法进行系统更新。</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
+        <source>%n application update(s) detected</source>
+        <translation><numerusform>检测到%n个应用更新</numerusform></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
         <source>New system edition detected</source>
         <translation>检测到有新系统版本</translation>
     </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="266"/>
+        <source>New system edition and %n application update(s) detected</source>
+        <translation><numerusform>检测到新系统版本和%n个应用更新</numerusform></translation>
+    </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="294"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="273"/>
+        <source>Downloaded</source>
+        <translation>已下载</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="275"/>
+        <source>Download size: %1</source>
+        <translation>下载大小：%1</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="297"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>您的电池电量少于50%，请插入电源后继续</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="296"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="299"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>请确保重启后有充足的电源，并不要关机或者拔出电源</translation>
     </message>
@@ -2445,11 +3810,6 @@
         <translation>更新设置</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="74"/>
-        <source>System source detection</source>
-        <translation>系统源检测</translation>
-    </message>
-    <message>
         <location filename="../modules/update/updatesettings.cpp" line="62"/>
         <source>Auto clear package cache</source>
         <translation>自动清除软件包缓存</translation>
@@ -2463,6 +3823,11 @@
         <location filename="../modules/update/updatesettings.cpp" line="67"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>更新会在有无线网络或者有线网络的情况下自动下载</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="74"/>
+        <source>System source detection</source>
+        <translation>系统源检测</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
@@ -2536,8 +3901,8 @@
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="135"/>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="132"/>
         <source>Wacom</source>
         <translation>Wacom 数位板</translation>
     </message>

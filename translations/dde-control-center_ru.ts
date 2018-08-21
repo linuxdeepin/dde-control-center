@@ -10,14 +10,14 @@
 <context>
     <name>BluetoothListModel</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
-        <source>Connect to other devices</source>
-        <translation>Подключение к другим устройствам</translation>
-    </message>
-    <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
         <translation>Щелкните иконку для включения bluetoth</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
+        <source>Connect to other devices</source>
+        <translation>Подключение к другим устройствам</translation>
     </message>
 </context>
 <context>
@@ -79,7 +79,7 @@
 <context>
     <name>NavModel</name>
     <message>
-        <location filename="../plugins/navigation/navmodel.cpp" line="157"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="160"/>
         <source>Navigation</source>
         <translation>Навигация</translation>
     </message>
@@ -87,30 +87,30 @@
 <context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="200"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="200"/>
         <source>Yesterday</source>
         <translation>Вчера</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="203"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="203"/>
         <source>The day before yesterday</source>
         <translation>Позавчера</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="209"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="209"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>%n день(ей) назад</numerusform><numerusform>%n день(ей) назад</numerusform><numerusform>%n день(ей) назад</numerusform><numerusform>%n день(ей) назад</numerusform></translation>
+        <translation><numerusform>%n день(й) назад</numerusform><numerusform>%n день(й) назад</numerusform><numerusform>%n день(й) назад</numerusform><numerusform>%n день(й) назад</numerusform></translation>
     </message>
 </context>
 <context>
     <name>NotifyManager</name>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="65"/>
+        <location filename="../frame/notify/notifymanager.cpp" line="65"/>
         <source>Clear all</source>
         <translation>Очистить всё</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="150"/>
+        <location filename="../frame/notify/notifymanager.cpp" line="150"/>
         <source>No system notifications</source>
         <translation>Нет системных уведомлений</translation>
     </message>
@@ -118,12 +118,12 @@
 <context>
     <name>NotifyWidget</name>
     <message>
-        <location filename="../plugins/notify/notifywidget.cpp" line="33"/>
+        <location filename="../frame/notify/notifywidget.cpp" line="33"/>
         <source>No system notifications</source>
         <translation>Нет системных уведомлений</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifywidget.cpp" line="35"/>
+        <location filename="../frame/notify/notifywidget.cpp" line="35"/>
         <source>Clear all</source>
         <translation>Очистить всё</translation>
     </message>
@@ -165,19 +165,6 @@
     </message>
 </context>
 <context>
-    <name>SetLocationPage</name>
-    <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="50"/>
-        <source>No search results</source>
-        <translation>Ничего не найдено</translation>
-    </message>
-    <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="142"/>
-        <source>Current City: %1</source>
-        <translation>Текущий Город: %1</translation>
-    </message>
-</context>
-<context>
     <name>SettingsWidget</name>
     <message>
         <location filename="../frame/settingswidget.cpp" line="79"/>
@@ -206,17 +193,17 @@
 <context>
     <name>Viewer</name>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="138"/>
+        <location filename="../frame/notify/notifyviewer.cpp" line="138"/>
         <source>Yesterday</source>
         <translation>Вчера</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="141"/>
+        <location filename="../frame/notify/notifyviewer.cpp" line="141"/>
         <source>The day before yesterday</source>
         <translation>Позавчера</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifyviewer.cpp" line="147"/>
+        <location filename="../frame/notify/notifyviewer.cpp" line="147"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>%n день(й) назад</numerusform><numerusform>%n день(й) назад</numerusform><numerusform>%n день(й) назад</numerusform><numerusform>%n день(й) назад</numerusform></translation>
     </message>
@@ -230,37 +217,19 @@
     </message>
 </context>
 <context>
-    <name>WeatherWidget</name>
-    <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="120"/>
-        <source>Sorry, unable to get weather!</source>
-        <translation>Извините, получить погоду не удалось!</translation>
-    </message>
-    <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="127"/>
-        <source>Loading weather...</source>
-        <translation>Загружаю погоду...</translation>
-    </message>
-    <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="197"/>
-        <source>Just updated</source>
-        <translation>Обновлено</translation>
-    </message>
-</context>
-<context>
     <name>WifiListModel</name>
-    <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
-        <source>Connect to hidden network</source>
-        <translation>Подключиться к скрытой сети</translation>
-    </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WIFI</source>
         <translation>Щелкните иконку для включения WiFi</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="213"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
+        <source>Connect to hidden network</source>
+        <translation>Подключиться к скрытой сети</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
         <source>Wireless Card %1</source>
         <translation>Беспроводная Карта %1</translation>
     </message>
@@ -269,13 +238,13 @@
     <name>dcc::accounts::ADDialog</name>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
-        <source>Join domain</source>
-        <translation>Присоединить домен</translation>
+        <source>Leave domain</source>
+        <translation>Покинуть Домен</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
-        <source>Leave domain</source>
-        <translation>Покинуть Домен</translation>
+        <source>Join domain</source>
+        <translation>Присоединить домен</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="62"/>
@@ -344,15 +313,15 @@
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="124"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
+        <source>Accounts</source>
+        <translation>Учетные записи</translation>
+    </message>
+    <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
         <translation>Создать Учетную запись</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="121"/>
-        <source>Accounts</source>
-        <translation>Учетные записи</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
@@ -373,14 +342,14 @@
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
-        <source>Your host joins the domain server successfully.</source>
-        <translation>Ваш хост успешно присоединился к домену сервера.</translation>
-    </message>
-    <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>Ваш хост успешно удален из сервера домена.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
+        <source>Your host joins the domain server successfully.</source>
+        <translation>Ваш хост успешно присоединился к домену сервера.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="333"/>
@@ -431,28 +400,18 @@
         <translation>Не удалось идентифицировать отпечаток пальца, поместите палец на устройство записи отпечатка пальца, передвигайте палец снизу и отпустите</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
-        <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation>Положите палец на устройство записи отпечатка пальца, двигайте вверх и снимите, затем повторите шаги</translation>
-    </message>
-    <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
         <translation>Успешно добавлено</translation>
     </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
+        <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
+        <translation>Положите палец на устройство записи отпечатка пальца, двигайте вверх и снимите, затем повторите шаги</translation>
+    </message>
 </context>
 <context>
     <name>dcc::accounts::CreatePage</name>
-    <message>
-        <location filename="../modules/accounts/createpage.cpp" line="66"/>
-        <source>Create</source>
-        <translation>Создать</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/createpage.cpp" line="65"/>
-        <source>Cancel</source>
-        <translation>Отмена</translation>
-    </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="51"/>
         <source>Username</source>
@@ -474,6 +433,16 @@
         <location filename="../modules/accounts/createpage.cpp" line="56"/>
         <source>Repeat password</source>
         <translation>Повторите пароль</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="65"/>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="66"/>
+        <source>Create</source>
+        <translation>Создать</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="85"/>
@@ -577,14 +546,14 @@
         <translation>Принять</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-    <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="105"/>
         <source>New password should differ from the current one</source>
         <translation>Новый пароль должен отличаться от текущего</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
+        <source>Password</source>
+        <translation>Пароль</translation>
     </message>
 </context>
 <context>
@@ -631,8 +600,8 @@
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="129"/>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="159"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="126"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -684,6 +653,11 @@
 <context>
     <name>dcc::datetime::DateSettings</name>
     <message>
+        <location filename="../modules/datetime/datesettings.cpp" line="63"/>
+        <source>Change Time Settings</source>
+        <translation>Изменить Настройки Времени</translation>
+    </message>
+    <message>
         <location filename="../modules/datetime/datesettings.cpp" line="68"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
@@ -692,11 +666,6 @@
         <location filename="../modules/datetime/datesettings.cpp" line="69"/>
         <source>Confirm</source>
         <translation>Ок</translation>
-    </message>
-    <message>
-        <location filename="../modules/datetime/datesettings.cpp" line="63"/>
-        <source>Change Time Settings</source>
-        <translation>Изменить Настройки Времени</translation>
     </message>
 </context>
 <context>
@@ -720,6 +689,12 @@
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="131"/>
+        <location filename="../modules/datetime/datetime.cpp" line="58"/>
+        <source>Time and Date</source>
+        <translation>Время и Дата</translation>
+    </message>
+    <message>
         <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
         <translation>Авто-Синхронизация</translation>
@@ -728,12 +703,6 @@
         <location filename="../modules/datetime/datetime.cpp" line="51"/>
         <source>Add Timezone</source>
         <translation>Добавить Часовой пояс</translation>
-    </message>
-    <message>
-        <location filename="../modules/datetime/datetime.cpp" line="58"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="128"/>
-        <source>Time and Date</source>
-        <translation>Время и Дата</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="62"/>
@@ -754,11 +723,6 @@
 <context>
     <name>dcc::datetime::TimeZoneChooser</name>
     <message>
-        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="174"/>
-        <source>Change Timezone</source>
-        <translation>Изменить Часовой Пояс</translation>
-    </message>
-    <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
@@ -769,9 +733,14 @@
         <translation>Ок</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="172"/>
+        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="173"/>
         <source>Add Timezone</source>
         <translation>Добавить Часовой пояс</translation>
+    </message>
+    <message>
+        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="173"/>
+        <source>Change Timezone</source>
+        <translation>Изменить Часовой Пояс</translation>
     </message>
 </context>
 <context>
@@ -805,8 +774,8 @@
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="126"/>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="123"/>
         <source>Default Applications</source>
         <translation>Приложения по Умолчанию</translation>
     </message>
@@ -871,19 +840,24 @@
 <context>
     <name>dcc::display::BrightnessPage</name>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="52"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="58"/>
         <source>Brightness</source>
         <translation>Яркость</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="81"/>
         <source>Night Shift</source>
         <translation>Ночной Сдвиг</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="80"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="86"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
         <translation>Тональный сигнал экрана будет автоматически отрегулирован с помощью определения местоположения для защиты глаз</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="95"/>
+        <source>Auto Brightness</source>
+        <translation>Автоматическая Яркость</translation>
     </message>
 </context>
 <context>
@@ -920,6 +894,12 @@
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../modules/display/displaywidget.cpp" line="107"/>
+        <source>Display</source>
+        <translation>Дисплей</translation>
+    </message>
+    <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
         <translation>Масштабирование дисплея</translation>
@@ -949,17 +929,11 @@
         <source>Wireless Screen Projection</source>
         <translation>Беспроводной Проекционный Экран</translation>
     </message>
-    <message>
-        <location filename="../modules/display/displaywidget.cpp" line="107"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="122"/>
-        <source>Display</source>
-        <translation>Дисплей</translation>
-    </message>
 </context>
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="177"/>
+        <location filename="../modules/display/displayworker.cpp" line="178"/>
         <source>My Settings %1</source>
         <translation>Мои Настройки %1</translation>
     </message>
@@ -1072,15 +1046,15 @@
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="64"/>
-        <source>Command</source>
-        <translation>Команда</translation>
-    </message>
-    <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
         <translation>Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customcontent.cpp" line="64"/>
+        <source>Command</source>
+        <translation>Команда</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
@@ -1190,8 +1164,8 @@
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="134"/>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="131"/>
         <source>Keyboard and Language</source>
         <translation>Язык и  Клавиатура</translation>
     </message>
@@ -1313,6 +1287,11 @@
         <translation>Рабочее Окружение</translation>
     </message>
     <message>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
+        <source>Custom Shortcut</source>
+        <translation>Пользовательское Сочетание</translation>
+    </message>
+    <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
         <translation>Добавить сочетание</translation>
@@ -1321,11 +1300,6 @@
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="88"/>
         <source>Shortcuts</source>
         <translation>Сочетание клавиш</translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
-        <source>Custom Shortcut</source>
-        <translation>Пользовательское Сочетание</translation>
     </message>
 </context>
 <context>
@@ -1339,10 +1313,20 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="133"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="130"/>
         <source>Mouse</source>
         <translation>Мышь</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
+        <source>Mouse and Touchpad</source>
+        <translation>Мышь и сенсорная панель</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
+        <source>TouchPad</source>
+        <translation>Сенсорная панель</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
@@ -1372,26 +1356,6 @@
         <translation>Скорость Указателя</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
-        <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Отключать тачпад при подключении мыши</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
-        <source>Slow</source>
-        <translation>Медленно</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
-        <source>Fast</source>
-        <translation>Быстро</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
-        <source>TouchPad</source>
-        <translation>Сенсорная панель</translation>
-    </message>
-    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
         <translation>Ускорение Мыши</translation>
@@ -1400,6 +1364,11 @@
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
         <translation>Скорость Прокрутки</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
+        <source>Disable the touchpad when inserting the mouse</source>
+        <translation>Отключать тачпад при подключении мыши</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="62"/>
@@ -1413,9 +1382,14 @@
         <translation>Включить Касание</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
-        <source>Mouse and Touchpad</source>
-        <translation>Мышь и сенсорная панель</translation>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
+        <source>Slow</source>
+        <translation>Медленно</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
+        <source>Fast</source>
+        <translation>Быстро</translation>
     </message>
 </context>
 <context>
@@ -1512,48 +1486,215 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="141"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="82"/>
         <source>Disconnect</source>
         <translation>Отключить</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="143"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="84"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
-        <source>Export</source>
-        <translation>Экспорт</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="155"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="89"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="156"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="90"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="518"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="601"/>
-        <source>Required</source>
-        <translation>Требуется</translation>
+        <location filename="../modules/network/connectioneditpage.cpp" line="311"/>
+        <source>Wired Connection %1</source>
+        <translation>Проводное Соединение %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectioneditpage.cpp" line="315"/>
+        <source>Wireless Connection %1</source>
+        <translation>Беспроводное Соединение %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectioneditpage.cpp" line="319"/>
+        <source>PPPoE Connection %1</source>
+        <translation>PPPoE Соединение %1</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::ConnectionVpnEditPage</name>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="141"/>
+        <source>VPN L2TP %1</source>
+        <translation>VPN L2TP %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="145"/>
+        <source>VPN PPTP %1</source>
+        <translation>VPN PPTP %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="149"/>
+        <source>VPN VPNC %1</source>
+        <translation>VPN VPNC %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="153"/>
+        <source>VPN OpenVPN %1</source>
+        <translation>VPN OpenVPN %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
+        <source>VPN StrongSwan %1</source>
+        <translation>VPN StrongSwan %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
+        <source>VPN OpenConnect %1</source>
+        <translation>VPN OpenConnect %1</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::EthernetSection</name>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="89"/>
+        <source>Device MAC Addr</source>
+        <translation>MAC-адрес Устройства</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="101"/>
+        <source>Cloned MAC Addr</source>
+        <translation>Клонированный MAC-адрес</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="114"/>
+        <source>Customize MTU</source>
+        <translation>Настроить MTU</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="117"/>
+        <source>MTU</source>
+        <translation>MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::GenericHotspotSection</name>
+    <message>
+        <location filename="../modules/network/sections/generichotspotsection.cpp" line="31"/>
+        <source>General</source>
+        <translation>Основной</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/generichotspotsection.cpp" line="63"/>
+        <source>Name</source>
+        <translation>Имя</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::GenericSection</name>
+    <message>
+        <location filename="../modules/network/sections/genericsection.cpp" line="31"/>
+        <source>General</source>
+        <translation>Основной</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/genericsection.cpp" line="62"/>
+        <source>Name</source>
+        <translation>Имя</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/genericsection.cpp" line="65"/>
+        <source>Automatically connect</source>
+        <translation>Соединять автоматически</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::HotspotPage</name>
     <message>
-        <location filename="../modules/network/hotspotpage.cpp" line="63"/>
+        <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
         <translation>Настройки Точки доступа</translation>
     </message>
     <message>
-        <location filename="../modules/network/hotspotpage.cpp" line="78"/>
+        <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
         <translation>Точка доступа</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::IpvxSection</name>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="32"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="37"/>
+        <source>Auto</source>
+        <translation>Автоматически</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="33"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="38"/>
+        <source>Manual</source>
+        <translation>Руководство</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="39"/>
+        <source>Ignore</source>
+        <translation>Игнорировать</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="43"/>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="63"/>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="203"/>
+        <source>Method</source>
+        <translation>Метод</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="204"/>
+        <source>IP Address</source>
+        <translation>IP-адрес</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="205"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="270"/>
+        <source>Required</source>
+        <translation>Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="206"/>
+        <source>Gateway</source>
+        <translation>Шлюз</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="207"/>
+        <source>Primary DNS</source>
+        <translation>Основной DNS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="208"/>
+        <source>Secondary DNS</source>
+        <translation>Дополнительный DNS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="209"/>
+        <source>Only applied in corresponding resources</source>
+        <translation>Применяется только на соответствующих ресурсах</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="269"/>
+        <source>Netmask</source>
+        <translation>Маска сети</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="313"/>
+        <source>Prefix</source>
+        <translation>Префикс</translation>
     </message>
 </context>
 <context>
@@ -1577,6 +1718,11 @@
         <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
         <source>Security</source>
         <translation>Безопасность</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
+        <source>Interface</source>
+        <translation>Интерфейс</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="162"/>
@@ -1611,11 +1757,6 @@
         <translation>Маска сети</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
-        <source>Interface</source>
-        <translation>Интерфейс</translation>
-    </message>
-    <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="202"/>
         <source>IPv6 Address</source>
         <translation>IPv6 Адрес</translation>
@@ -1634,6 +1775,12 @@
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="128"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
+        <source>Network</source>
+        <translation>Сеть</translation>
+    </message>
+    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>DSL</source>
         <translation>DSL</translation>
@@ -1642,6 +1789,11 @@
         <location filename="../modules/network/networkmodulewidget.cpp" line="61"/>
         <source>VPN</source>
         <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="65"/>
+        <source>System Proxy</source>
+        <translation>Системный Прокси</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="67"/>
@@ -1654,15 +1806,14 @@
         <translation>Сеть Подробности</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="125"/>
-        <source>Network</source>
-        <translation>Сеть</translation>
-    </message>
-    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
         <source>Wired Network Card%1</source>
         <translation>Сетевая Карта%1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
+        <source>Wired Network%1</source>
+        <translation>Проводная Сеть%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
@@ -1673,16 +1824,6 @@
         <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wired Network</source>
         <translation>Проводная сеть</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
-        <source>Wired Network%1</source>
-        <translation>Проводная Сеть%1</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="65"/>
-        <source>System Proxy</source>
-        <translation>Системный Прокси</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="252"/>
@@ -1700,6 +1841,11 @@
         <translation>Беспроводная Карта%1</translation>
     </message>
     <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="267"/>
+        <source>Wireless Network%1</source>
+        <translation>Беспроводная Сеть%1</translation>
+    </message>
+    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network Card</source>
         <translation>Беспроводная Карта</translation>
@@ -1709,21 +1855,118 @@
         <source>Wireless Network</source>
         <translation>Беспроводная Сеть</translation>
     </message>
+</context>
+<context>
+    <name>dcc::network::PPPOESection</name>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="267"/>
-        <source>Wireless Network%1</source>
-        <translation>Беспроводная Сеть%1</translation>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="31"/>
+        <source>PPPoE</source>
+        <translation>PPPoE</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="76"/>
+        <source>Username</source>
+        <translation>Имя пользователя</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="77"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="84"/>
+        <source>Required</source>
+        <translation>Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="80"/>
+        <source>Service</source>
+        <translation>Служба</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="83"/>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::PPPSection</name>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="31"/>
+        <source>Refuse EAP Authentication</source>
+        <translation>Отказ EAP-аутентификации</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="32"/>
+        <source>Refuse PAP Authentication</source>
+        <translation>Отказ PAP-аутентификации</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="33"/>
+        <source>Refuse CHAP Authentication</source>
+        <translation>Отказ CHAP-аутентификации</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="34"/>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation>Отказ MSCHAP-аутентификации</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="35"/>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation>Отказ MSCHAPv2-аутентификации</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="36"/>
+        <source>No BSD Data Compression</source>
+        <translation>Без Сжатия BSD-данных</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="37"/>
+        <source>No Deflate Data Compression</source>
+        <translation>Без Сжатия Данных Deflate</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="38"/>
+        <source>No TCP Header Compression</source>
+        <translation>Без Сжатия TCP-заголовков</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="39"/>
+        <source>No Protocol Field Compression</source>
+        <translation>Без Сжатия Полевого Протокола</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="40"/>
+        <source>No Address/Control Compression</source>
+        <translation>Без Адреса/Управление Сжатием</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="41"/>
+        <source>Send PPP Echo Packets</source>
+        <translation>Отправка Эхо-пакетов PPP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="45"/>
+        <source>PPP</source>
+        <translation>PPP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="98"/>
+        <source>Use MPPE</source>
+        <translation>Использовать MPPE</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="101"/>
+        <source>128-bit MPPE</source>
+        <translation>128-бит. MPPE</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::PppoePage</name>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="54"/>
+        <location filename="../modules/network/pppoepage.cpp" line="52"/>
         <source>Create PPPoE Connection</source>
         <translation>Создать PPPoE Соединение</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="68"/>
+        <location filename="../modules/network/pppoepage.cpp" line="66"/>
         <source>PPP</source>
         <translation>PPP</translation>
     </message>
@@ -1800,6 +2043,727 @@
     </message>
 </context>
 <context>
+    <name>dcc::network::Secret8021xSection</name>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="31"/>
+        <source>TLS</source>
+        <translation>TLS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="32"/>
+        <source>MD5</source>
+        <translation>MD5</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="33"/>
+        <source>LEAP</source>
+        <translation>LEAP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="34"/>
+        <source>FAST</source>
+        <translation>FAST</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="35"/>
+        <source>Tunneled TLS</source>
+        <translation>Туннельный TLS </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="36"/>
+        <source>Protected EAP</source>
+        <translation>Защищенный EAP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="41"/>
+        <source>Saved</source>
+        <translation>Сохранено</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="42"/>
+        <source>Ask</source>
+        <translation>Спросить</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="47"/>
+        <source>Disabled</source>
+        <translation>Отключено</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="48"/>
+        <source>Anonymous</source>
+        <translation>Анонимный</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="49"/>
+        <source>Authenticated</source>
+        <translation>Проверенный</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="50"/>
+        <source>Both</source>
+        <translation>Оба</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="66"/>
+        <source>Automatic</source>
+        <translation>Автоматически</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="78"/>
+        <source>Security</source>
+        <translation>Безопасность</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="197"/>
+        <source>EAP Auth</source>
+        <translation>EAP-аутентификация</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="43"/>
+        <source>Not Required</source>
+        <translation>Не Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="67"/>
+        <source>Version 0</source>
+        <translation>Версия 0</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="68"/>
+        <source>Version 1</source>
+        <translation>Версия 1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="209"/>
+        <source>Identity</source>
+        <translation>Идентично</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="211"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="219"/>
+        <source>Required</source>
+        <translation>Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="213"/>
+        <source>Ask for Pwd</source>
+        <translation>Запрос Пароля</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="299"/>
+        <source>Private Key</source>
+        <translation>Личный Ключ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="303"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="376"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="408"/>
+        <source>CA Cert</source>
+        <translation>CA-сертификат</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="307"/>
+        <source>User Cert</source>
+        <translation>Сертификат Пользователя</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="325"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="372"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="404"/>
+        <source>Anonymous ID</source>
+        <translation>Анонимный ID</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="329"/>
+        <source>Provisioning</source>
+        <translation>Резервирование</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="341"/>
+        <source>PAC file</source>
+        <translation>PAC-файл</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="345"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="380"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="423"/>
+        <source>Inner Auth</source>
+        <translation>Внутренняя Аутентификация</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="412"/>
+        <source>PEAP Version</source>
+        <translation>Версия PEAP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="503"/>
+        <source>Private Pwd</source>
+        <translation>Личный Пароль</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="505"/>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::SecretHotspotSection</name>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="36"/>
+        <source>None</source>
+        <translation>Ничего</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="37"/>
+        <source>WEP 40/128-bit</source>
+        <translation>WEP 40/128-bit</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="38"/>
+        <source>WPA/WPA2 Personal</source>
+        <translation>Персональный WPA/WPA2</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="101"/>
+        <source>Security</source>
+        <translation>Безопасность</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="107"/>
+        <source>Required</source>
+        <translation>Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="137"/>
+        <source>Key</source>
+        <translation>Ключ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="143"/>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::SecretWiredSection</name>
+    <message>
+        <location filename="../modules/network/sections/secretwiredsection.cpp" line="32"/>
+        <source>Security Required</source>
+        <translation>Требования Безопасности</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::SecretWirelessSection</name>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="37"/>
+        <source>None</source>
+        <translation>Ничего</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="38"/>
+        <source>WEP 40/128-bit</source>
+        <translation>WEP 40/128-bit</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="39"/>
+        <source>WPA/WPA2 Personal</source>
+        <translation>Персональный WPA/WPA2</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="40"/>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation>Корпоративный WPA/WPA2</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="103"/>
+        <source>Security</source>
+        <translation>Безопасность</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="109"/>
+        <source>Required</source>
+        <translation>Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="151"/>
+        <source>Key</source>
+        <translation>Ключ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="158"/>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnAdvOpenVPNSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
+        <source>VPN Advanced</source>
+        <translation>Расширенный VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
+        <source>Customize Gateway Port</source>
+        <translation>Настройка Порта Шлюза</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
+        <source>Gateway Port</source>
+        <translation>Порт шлюза</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
+        <source>Customize Renegotiation Interval</source>
+        <translation>Настроить Интервал повторного согласования</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
+        <source>Renegotiation Interval</source>
+        <translation>Интервал повторного согласования</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
+        <source>Use LZO data compression</source>
+        <translation>Использовать сжатие LZO-данных</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
+        <source>Use TCP connection</source>
+        <translation>Использовать TCP-соединение</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
+        <source>Use TAP device</source>
+        <translation>Использовать TAP-устройство</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
+        <source>Customize Tunnel MTU</source>
+        <translation>Настроить MTU-туннель</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
+        <source>MTU</source>
+        <translation>MTU</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
+        <source>Customize UDP Fragment Size</source>
+        <translation>Настройте размер UDP-фрагмента</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
+        <source>UDP Fragment Size</source>
+        <translation>Размер UDP-фрагмента</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
+        <source>Restrict Tunnel TCP MSS</source>
+        <translation>Ограничить туннель TCP MSS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
+        <source>Randomize Remote Hosts</source>
+        <translation>Случайные удаленные узлы</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnAdvVPNCSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
+        <source>Cisco (default)</source>
+        <translation>Cisco (по умолчанию)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="32"/>
+        <source>Netscreen</source>
+        <translation>Netscreen</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="35"/>
+        <source>Secure (default)</source>
+        <translation>Безопасный (по умолчанию)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="36"/>
+        <source>Weak</source>
+        <translation>Слабый</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="37"/>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="52"/>
+        <source>None</source>
+        <translation>Ничего</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="40"/>
+        <source>NAT-T When Available (default)</source>
+        <translation>NAT-T когда доступен (по умолчанию)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="41"/>
+        <source>NAT-T Always</source>
+        <translation>NAT-T всегда</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="42"/>
+        <source>Cisco UDP</source>
+        <translation>Cisco UDP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="43"/>
+        <source>Disabled</source>
+        <translation>Отключено</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="46"/>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="53"/>
+        <source>DH Group 1</source>
+        <translation>DH Группа 1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="47"/>
+        <source>DH Group 2 (default)</source>
+        <translation>DH Группа 2 (по умолчанию)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="48"/>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="55"/>
+        <source>DH Group 5</source>
+        <translation>DH Группа 5</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="51"/>
+        <source>Server (default)</source>
+        <translation>Сервер (по умолчанию)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="54"/>
+        <source>DH Group 2</source>
+        <translation>DH Группа 2</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="59"/>
+        <source>VPN Advanced</source>
+        <translation>Расширенный VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="165"/>
+        <source>Domain</source>
+        <translation>Домен</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="168"/>
+        <source>Vendor</source>
+        <translation>Поставщик</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="174"/>
+        <source>Version</source>
+        <translation>Версия</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="177"/>
+        <source>Encryption</source>
+        <translation>Шифрование</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="183"/>
+        <source>NAT Traversal Mode</source>
+        <translation>Режим Обхода NAT</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="189"/>
+        <source>IKE DH Group</source>
+        <translation>IKE DH Группа</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="195"/>
+        <source>Forward Secrecy</source>
+        <translation>Скрытная Пересылка</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="201"/>
+        <source>Local Port</source>
+        <translation>Локальный Порт</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
+        <source>Disable Dead Peer Detection</source>
+        <translation>Отключить обнаружение нерабочих пиров</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnIpsecSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
+        <source>VPN IPsec</source>
+        <translation>VPN IPsec</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="83"/>
+        <source>Enable IPsec</source>
+        <translation>Влючить IPsec</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
+        <source>Group Name</source>
+        <translation>Имя Группы</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
+        <source>Group ID</source>
+        <translation>ID Группы</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
+        <source>Pre-Shared Key</source>
+        <translation>Совместно Используемый Ключ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
+        <source>Phase1 Algorithms</source>
+        <translation>Phase1 Алгоритмы</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
+        <source>Phase2 Algorithms</source>
+        <translation>Phase2 Алгоритмы</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnOpenConnectSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="84"/>
+        <source>Gateway</source>
+        <translation>Шлюз</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="85"/>
+        <source>Required</source>
+        <translation>Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <source>CA Cert</source>
+        <translation>CA Сертификат</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="91"/>
+        <source>Proxy</source>
+        <translation>Прокси</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="94"/>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation>Разрешить Троян Cisco Secure Desktop</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="97"/>
+        <source>CSD Script</source>
+        <translation>CSD Скрипт</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="100"/>
+        <source>User Cert</source>
+        <translation>Сертификат Пользователя</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="103"/>
+        <source>Private Key</source>
+        <translation>Личный Ключ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="106"/>
+        <source>Use FSID for Key Passphrase</source>
+        <translation>Использовать FSID для Ключевой Фразы</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnOpenVPNSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
+        <source>Certificates (TLS)</source>
+        <translation>Сертификаты (TLS)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="32"/>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="33"/>
+        <source>Certificates with Password (TLS)</source>
+        <translation>Пароль и сертификаты (TLS)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="34"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="266"/>
+        <source>Static Key</source>
+        <translation>Статический Ключ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="39"/>
+        <source>Saved</source>
+        <translation>Сохранено</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="40"/>
+        <source>Ask</source>
+        <translation>Спросить</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="41"/>
+        <source>Not Required</source>
+        <translation>Не Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="45"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="127"/>
+        <source>Gateway</source>
+        <translation>Шлюз</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="128"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="223"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="239"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="282"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
+        <source>Required</source>
+        <translation>Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="138"/>
+        <source>Auth Type</source>
+        <translation>Тип Аутентификации</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="141"/>
+        <source>CA Cert</source>
+        <translation>CA Сертификат</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="226"/>
+        <source>Ask for Pwd</source>
+        <translation>Запрос Пароля</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="192"/>
+        <source>Private Pwd</source>
+        <translation>Личный Пароль</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="270"/>
+        <source>Customize Key Direction</source>
+        <translation>Настроить Ключевое Направление</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="274"/>
+        <source>Key Direction</source>
+        <translation>Ключевое Направление</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnPPPSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
+        <source>All Available (default)</source>
+        <translation>Доступно Всё (по умолчанию)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="32"/>
+        <source>40-bit (less secure)</source>
+        <translation>40-bit (наименее безопасное)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="33"/>
+        <source>128-bit (most secure)</source>
+        <translation>128-bit (наиболее безопасное)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="37"/>
+        <source>Refuse EAP Authentication</source>
+        <translation>Отказ EAP-аутентификации</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="38"/>
+        <source>Refuse PAP Authentication</source>
+        <translation>Отказ PAP-аутентификации</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="39"/>
+        <source>Refuse CHAP Authentication</source>
+        <translation>Отказ CHAP-аутентификации</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="40"/>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation>Отказ MSCHAP-аутентификации</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="41"/>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation>Отказ MSCHAPv2-аутентификации</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="42"/>
+        <source>No BSD Data Compression</source>
+        <translation>Без Сжатия BSD-данных</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="43"/>
+        <source>No Deflate Data Compression</source>
+        <translation>Без Сжатия Данных Deflate</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="44"/>
+        <source>No TCP Header Compression</source>
+        <translation>Без Сжатия TCP-заголовков</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="45"/>
+        <source>No Protocol Field Compression</source>
+        <translation>Без Сжатия Полевого Протокола</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="46"/>
+        <source>No Address/Control Compression</source>
+        <translation>Без Адреса/Управление Сжатием</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="47"/>
+        <source>Send PPP Echo Packets</source>
+        <translation>Отправка Эхо-пакетов PPP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="51"/>
+        <source>VPN PPP</source>
+        <translation>VPN PPP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
+        <source>Use MPPE</source>
+        <translation>Использовать MPPE</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
+        <source>Security</source>
+        <translation>Безопасность</translation>
+    </message>
+</context>
+<context>
     <name>dcc::network::VpnPage</name>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="76"/>
@@ -1822,70 +2786,430 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="269"/>
+        <location filename="../modules/network/vpnpage.cpp" line="241"/>
         <source>Import Error</source>
         <translation>Ошибка Импорта</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="271"/>
+        <location filename="../modules/network/vpnpage.cpp" line="243"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="296"/>
+        <location filename="../modules/network/vpnpage.cpp" line="265"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="299"/>
+        <location filename="../modules/network/vpnpage.cpp" line="268"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="302"/>
+        <location filename="../modules/network/vpnpage.cpp" line="271"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="305"/>
+        <location filename="../modules/network/vpnpage.cpp" line="274"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="308"/>
+        <location filename="../modules/network/vpnpage.cpp" line="277"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="311"/>
+        <location filename="../modules/network/vpnpage.cpp" line="280"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="336"/>
+        <location filename="../modules/network/vpnpage.cpp" line="305"/>
         <source>New VPN</source>
         <translation>Новый VPN</translation>
     </message>
 </context>
 <context>
+    <name>dcc::network::VpnProxySection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
+        <source>Not Required</source>
+        <translation>Не Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="32"/>
+        <source>HTTP</source>
+        <translation>HTTP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="33"/>
+        <source>SOCKS</source>
+        <translation>SOCKS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="37"/>
+        <source>VPN Proxies</source>
+        <translation>VPN-прокси</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="149"/>
+        <source>Server IP</source>
+        <translation>IP сервера</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="150"/>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
+        <source>Required</source>
+        <translation>Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
+        <source>Port</source>
+        <translation>Порт</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="158"/>
+        <source>Retry Indefinitely When Failed</source>
+        <translation>Повторять Бесконечно при Неудаче</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="161"/>
+        <source>Username</source>
+        <translation>Имя пользователя</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnSecOpenVPNSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="50"/>
+        <source>Default</source>
+        <translation>По умолчанию</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="30"/>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="51"/>
+        <source>None</source>
+        <translation>Ничего</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="63"/>
+        <source>VPN Security</source>
+        <translation>Безопасность VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="107"/>
+        <source>Cipher</source>
+        <translation>Шифр</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="117"/>
+        <source>HMAC Auth</source>
+        <translation>HMAC Аутентификация</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="30"/>
+        <source>Saved</source>
+        <translation>Сохранено</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="31"/>
+        <source>Ask</source>
+        <translation>Спрашивать</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="32"/>
+        <source>Not Required</source>
+        <translation>Не Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="36"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="110"/>
+        <source>Gateway</source>
+        <translation>Шлюз</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="111"/>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="115"/>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="125"/>
+        <source>Required</source>
+        <translation>Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="114"/>
+        <source>Username</source>
+        <translation>Имя пользователя</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="118"/>
+        <source>Ask for Pwd</source>
+        <translation>Запрос Пароля</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="124"/>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="128"/>
+        <source>NT Domain</source>
+        <translation>NT-домен</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnStrongSwanSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="29"/>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="168"/>
+        <source>Private Key</source>
+        <translation>Личный Ключ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="30"/>
+        <source>SSH Agent</source>
+        <translation>Агент SSH</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="31"/>
+        <source>Smartcard</source>
+        <translation>Смарт-карта</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="32"/>
+        <source>EAP</source>
+        <translation>EAP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="33"/>
+        <source>Pre-Shared Key</source>
+        <translation>Совместно Используемый Ключ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="37"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="148"/>
+        <source>Gateway</source>
+        <translation>Шлюз</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="149"/>
+        <source>Required</source>
+        <translation>Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
+        <source>CA Cert</source>
+        <translation>CA-сертификат</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="155"/>
+        <source>Auth Type</source>
+        <translation>Тип Аутентификации</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="165"/>
+        <source>User Cert</source>
+        <translation>Сертификат Пользователя</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="171"/>
+        <source>Username</source>
+        <translation>Имя пользователя</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="174"/>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="177"/>
+        <source>Request an Inner IP Address</source>
+        <translation>Запрос Внутреннего IP-ареса</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="180"/>
+        <source>Enforce UDP Encapsulation</source>
+        <translation>Соблюдать UDP-инкапсуляцию</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="183"/>
+        <source>Use IP Compression</source>
+        <translation>Использовать IP-сжатие</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="186"/>
+        <source>Enable custom cipher proposals</source>
+        <translation>Включить специальные предложения шифрования</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="189"/>
+        <source>IKE</source>
+        <translation>IKE</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="192"/>
+        <source>ESP</source>
+        <translation>ESP</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnTLSSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
+        <source>Default</source>
+        <translation>По умолчанию</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="30"/>
+        <source>Client</source>
+        <translation>Клиент</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
+        <source>Server</source>
+        <translation>Сервер</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="35"/>
+        <source>VPN TLS Authentication</source>
+        <translation>VPN TLS Аутентификация</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="83"/>
+        <source>Subject Match</source>
+        <translation>Тематическое Совпадение</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="86"/>
+        <source>Remote Cert Type</source>
+        <translation>Удаленный Тип Сертификата</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="96"/>
+        <source>Key File</source>
+        <translation>Файл Ключа</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="99"/>
+        <source>Customize Key Direction</source>
+        <translation>Настроить Ключевое Направление</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="102"/>
+        <source>Key Direction</source>
+        <translation>Ключевое Направление</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnVPNCSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="30"/>
+        <source>Saved</source>
+        <translation>Сохранено</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="31"/>
+        <source>Ask</source>
+        <translation>Спросить</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="32"/>
+        <source>Not Required</source>
+        <translation>Не Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="36"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="162"/>
+        <source>Gateway</source>
+        <translation>Шлюз</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="167"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="177"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="191"/>
+        <source>Required</source>
+        <translation>Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="166"/>
+        <source>Username</source>
+        <translation>Имя пользователя</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="170"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="184"/>
+        <source>Ask for Pwd</source>
+        <translation>Запрос Пароля</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="176"/>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="180"/>
+        <source>Group Name</source>
+        <translation>Имя Группы</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="190"/>
+        <source>Group Pwd</source>
+        <translation>Пароль Группы</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="194"/>
+        <source>Use Hybrid Authentication</source>
+        <translation>Использовать Гибридную Аутентификацию</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="197"/>
+        <source>CA File</source>
+        <translation>CA-файл</translation>
+    </message>
+</context>
+<context>
     <name>dcc::network::WiredPage</name>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="60"/>
+        <location filename="../modules/network/wiredpage.cpp" line="59"/>
         <source>Setting List</source>
         <translation>Список Настроек</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="64"/>
+        <location filename="../modules/network/wiredpage.cpp" line="63"/>
         <source>Please firstly plug in the network cable</source>
         <translation>Пожалуйста, сначала подключите сетевой кабель</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="70"/>
+        <location filename="../modules/network/wiredpage.cpp" line="69"/>
         <source>Add Settings</source>
         <translation>Добавить Настройки</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="85"/>
+        <location filename="../modules/network/wiredpage.cpp" line="84"/>
         <source>Select Settings</source>
         <translation>Выберите Настройки</translation>
     </message>
@@ -1893,24 +3217,52 @@
 <context>
     <name>dcc::network::WirelessPage</name>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="61"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="60"/>
         <source>Connect to hidden network</source>
         <translation>Подключиться к скрытой сети</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="64"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
         <translation>Закрыть точку доступа</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="67"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
         <translation>Пожалуйста, сначала отключите точку доступа, если вы хотите подключиться и использовать функцию беспроводной сети</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="90"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="89"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::WirelessSection</name>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="104"/>
+        <source>SSID</source>
+        <translation>SSID</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="105"/>
+        <source>Required</source>
+        <translation>Требуется</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="108"/>
+        <source>Device MAC Addr</source>
+        <translation>MAC-адрес Устройства</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="134"/>
+        <source>Customize MTU</source>
+        <translation>Настроить MTU</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="137"/>
+        <source>MTU</source>
+        <translation>MTU</translation>
     </message>
 </context>
 <context>
@@ -1959,12 +3311,12 @@
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="117"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="118"/>
         <source>Standard Font</source>
         <translation>Стандартный Шрифт</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="126"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="127"/>
         <source>Monospaced Font</source>
         <translation>Моноширный Шрифт</translation>
     </message>
@@ -1972,25 +3324,30 @@
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="53"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="127"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="79"/>
+        <source>Personalization</source>
+        <translation>Персональные настройки</translation>
+    </message>
+    <message>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="45"/>
+        <source>Transparency</source>
+        <translation>Прозрачность</translation>
+    </message>
+    <message>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="70"/>
         <source>Enable window effect</source>
         <translation>Эффекты окна включены</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="55"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="72"/>
         <source>Theme</source>
         <translation>Тема</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="56"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="73"/>
         <source>Font</source>
         <translation>Шрифт</translation>
-    </message>
-    <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="124"/>
-        <source>Personalization</source>
-        <translation>Персональные настройки</translation>
     </message>
 </context>
 <context>
@@ -2011,7 +3368,7 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="41"/>
         <source>Icon Theme</source>
-        <translation>Тема Иконок</translation>
+        <translation>Тема Значков</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="42"/>
@@ -2026,6 +3383,12 @@
 </context>
 <context>
     <name>dcc::power::PowerWidget</name>
+    <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="132"/>
+        <location filename="../modules/power/powerwidget.cpp" line="96"/>
+        <source>Power Management</source>
+        <translation>Управление Питанием</translation>
+    </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="45"/>
         <source>Monitor will suspend after</source>
@@ -2068,12 +3431,6 @@
         <translation>Автоматическое Переключение Режима</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="96"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="129"/>
-        <source>Power Management</source>
-        <translation>Управление Питанием</translation>
-    </message>
-    <message>
         <location filename="../modules/power/powerwidget.cpp" line="143"/>
         <source>1 Minute</source>
         <translation>1 Минута</translation>
@@ -2114,6 +3471,12 @@
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="130"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="58"/>
+        <source>Sound</source>
+        <translation>Звук</translation>
+    </message>
+    <message>
         <location filename="../modules/sound/soundwidget.cpp" line="43"/>
         <source>Output Volume</source>
         <translation>Выходной Уровень</translation>
@@ -2132,12 +3495,6 @@
         <location filename="../modules/sound/soundwidget.cpp" line="49"/>
         <source>Feedback Volume</source>
         <translation>Уровень Сигнала</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="127"/>
-        <source>Sound</source>
-        <translation>Звук</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="60"/>
@@ -2186,7 +3543,7 @@
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
-        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="86"/>
+        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="70"/>
         <source>License</source>
         <translation>Лицензия</translation>
     </message>
@@ -2194,15 +3551,15 @@
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="137"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <source>System Information</source>
+        <translation>Информация о системе</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>Авторское право © 2011-2018 Wuhan Deepin Technology Co., Ltd.</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="134"/>
-        <source>System Information</source>
-        <translation>Информация о системе</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -2215,34 +3572,19 @@
         <translation>Распространяемый Выпуск:</translation>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
+        <source>Edition:</source>
+        <translation>Версия:</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="95"/>
         <source>Type:</source>
         <translation>Тип:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="119"/>
-        <source>Edition License</source>
-        <translation>Лицензия</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
-        <source>Boot Menu</source>
-        <translation>Меню Загрузки</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="175"/>
-        <source>%1Bit</source>
-        <translation>%1Бит</translation>
-    </message>
-    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Processor:</source>
         <translation>Процессор:</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
-        <source>Edition:</source>
-        <translation>Версия:</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="102"/>
@@ -2253,6 +3595,34 @@
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="106"/>
         <source>Disk:</source>
         <translation>Диск:</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="120"/>
+        <source>Edition License</source>
+        <translation>Лицензия</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
+        <source>End User License Agreement</source>
+        <translation>Лицензионное Соглашение с Конечным Пользователем</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="128"/>
+        <source>Boot Menu</source>
+        <translation>Меню Загрузки</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="190"/>
+        <source>%1Bit</source>
+        <translation>%1Бит</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::systeminfo::UserLicense</name>
+    <message>
+        <location filename="../modules/systeminfo/userlicense.cpp" line="15"/>
+        <source>End User License Agreement</source>
+        <translation>Лицензионное Соглашение с Конечным Пользователем</translation>
     </message>
 </context>
 <context>
@@ -2322,104 +3692,104 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="56"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="133"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="136"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="59"/>
         <source>Update</source>
         <translation>Обновление</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="173"/>
-        <source>Checking for updates, please wait...</source>
-        <translation>Проверка на наличие обновлений, пожалуйста ждите...</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
-        <source>Your system is up to date</source>
-        <translation>Ваша система в актуальном состоянии</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="55"/>
         <source>Please restart to use the system and applications properly after updated</source>
         <translation>Перезагрузитесь, чтобы правильно использовать систему и приложения после обновления.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="56"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>Сеть отключена, повторите попытку после подключения</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="86"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
         <translation>Это обновление может занять много времени, пожалуйста, не завершайте работу или не перезагружайтесь во время процесса.</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="176"/>
+        <source>Checking for updates, please wait...</source>
+        <translation>Проверка на наличие обновлений, пожалуйста ждите...</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Download and install updates</source>
         <translation>Загрузка и установка обновлений</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="192"/>
-        <source>%1% downloaded (Click to continue)</source>
-        <translation>%1% загружено (Нажмите, чтобы продолжить)</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
-        <source>Install updates</source>
-        <translation>Установка обновлений</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="210"/>
-        <source>Updating, please wait...</source>
-        <translation>Обновляю, пожалуйста ждите... </translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="224"/>
-        <source>The newest system installed, restart to take effect</source>
-        <translation>Новейшая система установлена, перезагрузите для начала использования</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
-        <source>Insufficient disk space, unable to update system.</source>
-        <translation>Недостаточно места на диске, не удалось обновить систему.</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
-        <source>%n application update(s) detected</source>
-        <translation><numerusform>%n приложение обнаружено обновление(я)</numerusform><numerusform>%n приложение обнаружено обновление(я)</numerusform><numerusform>%n приложение обнаружено обновление(я)</numerusform><numerusform>%n приложение обнаружено обновление(я)</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
-        <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Обнаружена новая версия системы и обнаружено %n обновление(я)</numerusform><numerusform>Обнаружена новая версия системы и обнаружено %n обновление(я)</numerusform><numerusform>Обнаружена новая версия системы и обновление(я) приложения %n</numerusform><numerusform>Обнаружена новая версия системы и  обновление(я) приложения %n</numerusform></translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
-        <source>Downloaded</source>
-        <translation>Загружено</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
-        <source>Download size: %1</source>
-        <translation>Размер загрузки: %1</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="187"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="286"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="289"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% загружается (Нажмите для приостановки)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="195"/>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation>%1% загружено (Нажмите, чтобы продолжить)</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
+        <source>Install updates</source>
+        <translation>Установка обновлений</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="208"/>
+        <source>Your system is up to date</source>
+        <translation>Ваша система в актуальном состоянии</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="213"/>
+        <source>Updating, please wait...</source>
+        <translation>Обновляю, пожалуйста ждите... </translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="227"/>
+        <source>The newest system installed, restart to take effect</source>
+        <translation>Новейшая система установлена, перезагрузите для начала использования</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="237"/>
+        <source>Insufficient disk space, unable to update system.</source>
+        <translation>Недостаточно места на диске, не удалось обновить систему.</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
+        <source>%n application update(s) detected</source>
+        <translation><numerusform>%n приложение обнаружено обновление(я)</numerusform><numerusform>%n приложение обнаружено обновление(я)</numerusform><numerusform>%n приложение обнаружено обновление(я)</numerusform><numerusform>%n приложение обновление(я) обнаружены</numerusform></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
         <source>New system edition detected</source>
         <translation>Обнаружена новая версия системы</translation>
     </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="266"/>
+        <source>New system edition and %n application update(s) detected</source>
+        <translation><numerusform>Обнаружена новая версия системы и  обновление(я) приложения %n</numerusform><numerusform>Обнаружена новая версия системы и  обновление(я) приложения %n</numerusform><numerusform>Обнаружена новая версия системы и  обновление(я) приложения %n</numerusform><numerusform>Обнаружена новая версия системы и  обновление(я) приложения %n</numerusform></translation>
+    </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="294"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="273"/>
+        <source>Downloaded</source>
+        <translation>Загружено</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="275"/>
+        <source>Download size: %1</source>
+        <translation>Размер загрузки: %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="297"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Ваша батарея заряжена менее чем на 50%, пожалуйста подключите для пролжения</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="296"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="299"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Пожалуйста, не выключайте питание компьютера</translation>
     </message>
@@ -2440,11 +3810,6 @@
         <translation>Настройки Обновления</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="74"/>
-        <source>System source detection</source>
-        <translation>Обнаружение источника системы</translation>
-    </message>
-    <message>
         <location filename="../modules/update/updatesettings.cpp" line="62"/>
         <source>Auto clear package cache</source>
         <translation>Автоматическая очистка кэша пакетов</translation>
@@ -2458,6 +3823,11 @@
         <location filename="../modules/update/updatesettings.cpp" line="67"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>Обновления будут автоматически загружены в беспроводной или проводной сети</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="74"/>
+        <source>System source detection</source>
+        <translation>Обнаружение источника системы</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
@@ -2531,8 +3901,8 @@
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="135"/>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="132"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>

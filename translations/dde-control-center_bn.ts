@@ -10,14 +10,14 @@
 <context>
     <name>BluetoothListModel</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
-        <source>Connect to other devices</source>
-        <translation>অন্যান্য ডিভাইসের সাথে সংযোগ স্থাপন করুন</translation>
-    </message>
-    <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
         <translation>ব্লুটুথ সক্রিয় করতে আইকনে ক্লিক করুন</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
+        <source>Connect to other devices</source>
+        <translation>অন্যান্য ডিভাইসের সাথে সংযোগ স্থাপন করুন</translation>
     </message>
 </context>
 <context>
@@ -79,7 +79,7 @@
 <context>
     <name>NavModel</name>
     <message>
-        <location filename="../plugins/navigation/navmodel.cpp" line="157"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="160"/>
         <source>Navigation</source>
         <translation>ন্যাভিগেশন</translation>
     </message>
@@ -87,30 +87,30 @@
 <context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="200"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="200"/>
         <source>Yesterday</source>
         <translation>গতকাল</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="203"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="203"/>
         <source>The day before yesterday</source>
         <translation>গত পরশু</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="209"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="209"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>%n দিন আগে</numerusform><numerusform>%n দিন আগে</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
     <name>NotifyManager</name>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="65"/>
+        <location filename="../frame/notify/notifymanager.cpp" line="65"/>
         <source>Clear all</source>
         <translation>সব পরিষ্কার করুন</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="150"/>
+        <location filename="../frame/notify/notifymanager.cpp" line="150"/>
         <source>No system notifications</source>
         <translation>কোনও সিস্টেম বিজ্ঞপ্তি নেই</translation>
     </message>
@@ -118,12 +118,12 @@
 <context>
     <name>NotifyWidget</name>
     <message>
-        <location filename="../plugins/notify/notifywidget.cpp" line="33"/>
+        <location filename="../frame/notify/notifywidget.cpp" line="33"/>
         <source>No system notifications</source>
         <translation>কোনও সিস্টেম বিজ্ঞপ্তি নেই</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifywidget.cpp" line="35"/>
+        <location filename="../frame/notify/notifywidget.cpp" line="35"/>
         <source>Clear all</source>
         <translation>সব পরিষ্কার করুন</translation>
     </message>
@@ -165,19 +165,6 @@
     </message>
 </context>
 <context>
-    <name>SetLocationPage</name>
-    <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="50"/>
-        <source>No search results</source>
-        <translation>অনুসন্ধানের কোন ফলাফল নেই</translation>
-    </message>
-    <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="142"/>
-        <source>Current City: %1</source>
-        <translation>বর্তমান শহর: %1</translation>
-    </message>
-</context>
-<context>
     <name>SettingsWidget</name>
     <message>
         <location filename="../frame/settingswidget.cpp" line="79"/>
@@ -206,19 +193,19 @@
 <context>
     <name>Viewer</name>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="138"/>
+        <location filename="../frame/notify/notifyviewer.cpp" line="138"/>
         <source>Yesterday</source>
         <translation>গতকাল</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="141"/>
+        <location filename="../frame/notify/notifyviewer.cpp" line="141"/>
         <source>The day before yesterday</source>
         <translation>গত পরশু</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifyviewer.cpp" line="147"/>
+        <location filename="../frame/notify/notifyviewer.cpp" line="147"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>%n দিন আগে</numerusform><numerusform>%n দিন আগে</numerusform></translation>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
 </context>
 <context>
@@ -230,37 +217,19 @@
     </message>
 </context>
 <context>
-    <name>WeatherWidget</name>
-    <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="120"/>
-        <source>Sorry, unable to get weather!</source>
-        <translation>দুঃখিত, আবহাওয়ার খবর পেতে অক্ষম!</translation>
-    </message>
-    <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="127"/>
-        <source>Loading weather...</source>
-        <translation>আবহাওয়ার খবর লোড হচ্ছে...</translation>
-    </message>
-    <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="197"/>
-        <source>Just updated</source>
-        <translation>এইমাত্র আপডেট করা হয়েছে</translation>
-    </message>
-</context>
-<context>
     <name>WifiListModel</name>
-    <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
-        <source>Connect to hidden network</source>
-        <translation>গোপন নেটওয়ার্কে সংযুক্ত করুন</translation>
-    </message>
     <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WIFI</source>
         <translation>ওয়াইফাই সক্রিয় করতে আইকনে ক্লিক করুন</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="213"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
+        <source>Connect to hidden network</source>
+        <translation>গোপন নেটওয়ার্কে সংযুক্ত করুন</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
         <source>Wireless Card %1</source>
         <translation>ওয়্যারলেস কার্ড %1</translation>
     </message>
@@ -269,13 +238,13 @@
     <name>dcc::accounts::ADDialog</name>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
-        <source>Join domain</source>
-        <translation>ডোমেইনে যোগ দিন</translation>
+        <source>Leave domain</source>
+        <translation>ডোমেইন থেকে বের হয়ে যান</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
-        <source>Leave domain</source>
-        <translation>ডোমেইন থেকে বের হয়ে যান</translation>
+        <source>Join domain</source>
+        <translation>ডোমেইনে যোগ দিন</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="62"/>
@@ -344,15 +313,15 @@
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="124"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
+        <source>Accounts</source>
+        <translation>অ্যাকাউন্ট সমূহ</translation>
+    </message>
+    <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
         <translation>অ্যাকাউন্ট তৈরি করুন</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="121"/>
-        <source>Accounts</source>
-        <translation>অ্যাকাউন্ট সমূহ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
@@ -373,14 +342,14 @@
         <translation>ছবি সমূহ</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
-        <source>Your host joins the domain server successfully.</source>
-        <translation>আপনার হোস্ট সফলভাবে ডোমেইন সার্ভারে যোগদান করেছে</translation>
-    </message>
-    <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host was removed from the domain server successfully.</source>
         <translation>আপনার হোস্ট সফলভাবে ডোমেইন সার্ভার হতে সরানো হয়েছে</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
+        <source>Your host joins the domain server successfully.</source>
+        <translation>আপনার হোস্ট সফলভাবে ডোমেইন সার্ভারে যোগদান করেছে</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="333"/>
@@ -431,28 +400,18 @@
         <translation>আঙুলের ছাপ সনাক্ত করতে বার্থ হয়েছে। আঙুলের ছাপ সনাক্তকারি যন্ত্রের উপর আপনার আঙুল রাখুন এবং নিচ থেকে উপরের দিকে উঠিয়ে ছেড়ে দিন।</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
-        <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation>আঙুলের ছাপ সনাক্তকারি যন্ত্রের উপর আপনার আঙুল রাখুন এবং নিচ থেকে উপরের দিকে উঠিয়ে ছেড়ে দিন, এরপর পদক্ষেপগুলির পুনরাবৃত্তি করুন</translation>
-    </message>
-    <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
         <translation>সফলভাবে যোগ হয়েছে</translation>
     </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
+        <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
+        <translation>আঙুলের ছাপ সনাক্তকারি যন্ত্রের উপর আপনার আঙুল রাখুন এবং নিচ থেকে উপরের দিকে উঠিয়ে ছেড়ে দিন, এরপর পদক্ষেপগুলির পুনরাবৃত্তি করুন</translation>
+    </message>
 </context>
 <context>
     <name>dcc::accounts::CreatePage</name>
-    <message>
-        <location filename="../modules/accounts/createpage.cpp" line="66"/>
-        <source>Create</source>
-        <translation>তৈরি করুন</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/createpage.cpp" line="65"/>
-        <source>Cancel</source>
-        <translation>বাতিল</translation>
-    </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="51"/>
         <source>Username</source>
@@ -474,6 +433,16 @@
         <location filename="../modules/accounts/createpage.cpp" line="56"/>
         <source>Repeat password</source>
         <translation>পুনরায় পাসওয়ার্ড দিন</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="65"/>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="66"/>
+        <source>Create</source>
+        <translation>তৈরি করুন</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="85"/>
@@ -577,14 +546,14 @@
         <translation>গ্রহণ করুন</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
-        <source>Password</source>
-        <translation>পাসওয়ার্ড</translation>
-    </message>
-    <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="105"/>
         <source>New password should differ from the current one</source>
         <translation>নতুন পাসওয়ার্ডটি বর্তমান পাসওয়ার্ড হতে পৃথক হওয়া উচিত</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
+        <source>Password</source>
+        <translation>পাসওয়ার্ড</translation>
     </message>
 </context>
 <context>
@@ -631,8 +600,8 @@
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="129"/>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="159"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="126"/>
         <source>Bluetooth</source>
         <translation>ব্লুটুথ</translation>
     </message>
@@ -684,6 +653,11 @@
 <context>
     <name>dcc::datetime::DateSettings</name>
     <message>
+        <location filename="../modules/datetime/datesettings.cpp" line="63"/>
+        <source>Change Time Settings</source>
+        <translation>সময় সেটিংস সমূহ পরিবর্তন করুন</translation>
+    </message>
+    <message>
         <location filename="../modules/datetime/datesettings.cpp" line="68"/>
         <source>Cancel</source>
         <translation>বাতিল</translation>
@@ -692,11 +666,6 @@
         <location filename="../modules/datetime/datesettings.cpp" line="69"/>
         <source>Confirm</source>
         <translation>নিশ্চিত করুন</translation>
-    </message>
-    <message>
-        <location filename="../modules/datetime/datesettings.cpp" line="63"/>
-        <source>Change Time Settings</source>
-        <translation>সময় সেটিংস সমূহ পরিবর্তন করুন</translation>
     </message>
 </context>
 <context>
@@ -720,6 +689,12 @@
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="131"/>
+        <location filename="../modules/datetime/datetime.cpp" line="58"/>
+        <source>Time and Date</source>
+        <translation>সময় এবং তারিখ</translation>
+    </message>
+    <message>
         <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
         <translation>স্বয়ংক্রিয়-সিংক্রোনাইজেশন</translation>
@@ -728,12 +703,6 @@
         <location filename="../modules/datetime/datetime.cpp" line="51"/>
         <source>Add Timezone</source>
         <translation>টাইমজোন যোগ করুন</translation>
-    </message>
-    <message>
-        <location filename="../modules/datetime/datetime.cpp" line="58"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="128"/>
-        <source>Time and Date</source>
-        <translation>সময় এবং তারিখ</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="62"/>
@@ -754,11 +723,6 @@
 <context>
     <name>dcc::datetime::TimeZoneChooser</name>
     <message>
-        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="174"/>
-        <source>Change Timezone</source>
-        <translation>টাইমজোন পরিবর্তন করুন</translation>
-    </message>
-    <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
         <source>Cancel</source>
         <translation>বাতিল</translation>
@@ -769,9 +733,14 @@
         <translation>নিশ্চিত করুন</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="172"/>
+        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="173"/>
         <source>Add Timezone</source>
         <translation>টাইমজোন যোগ করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="173"/>
+        <source>Change Timezone</source>
+        <translation>টাইমজোন পরিবর্তন করুন</translation>
     </message>
 </context>
 <context>
@@ -805,8 +774,8 @@
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="126"/>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="123"/>
         <source>Default Applications</source>
         <translation>পূর্বনির্ধারিত অ্যাপ্লিকেশন সমূহ</translation>
     </message>
@@ -871,19 +840,24 @@
 <context>
     <name>dcc::display::BrightnessPage</name>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="52"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="58"/>
         <source>Brightness</source>
         <translation>উজ্জ্বলতা</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="81"/>
         <source>Night Shift</source>
         <translation>রাতের শিফট</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="80"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="86"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
         <translation>চোখের সুরক্ষার জন্য আপনার অবস্থানটি চিহ্নিত করার সাহায্যে পর্দার আলোর প্রভাব স্বয়ংক্রিয়ভাবে সমন্বয় করা হবে</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="95"/>
+        <source>Auto Brightness</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -920,6 +894,12 @@
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../modules/display/displaywidget.cpp" line="107"/>
+        <source>Display</source>
+        <translation>ডিসপ্লে</translation>
+    </message>
+    <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
         <translation>প্রদর্শন স্কেলিং</translation>
@@ -949,17 +929,11 @@
         <source>Wireless Screen Projection</source>
         <translation>তারবিহীন পর্দা প্রক্ষেপণ</translation>
     </message>
-    <message>
-        <location filename="../modules/display/displaywidget.cpp" line="107"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="122"/>
-        <source>Display</source>
-        <translation>ডিসপ্লে</translation>
-    </message>
 </context>
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="177"/>
+        <location filename="../modules/display/displayworker.cpp" line="178"/>
         <source>My Settings %1</source>
         <translation>আমার সেটিংস সমূহ %1</translation>
     </message>
@@ -1073,15 +1047,15 @@
         <translation>নাম </translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="64"/>
-        <source>Command</source>
-        <translation>কমান্ড</translation>
-    </message>
-    <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
         <translation>আবশ্যক</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customcontent.cpp" line="64"/>
+        <source>Command</source>
+        <translation>কমান্ড</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
@@ -1192,8 +1166,8 @@
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="134"/>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="131"/>
         <source>Keyboard and Language</source>
         <translation>কিবোর্ড এবং ভাষা</translation>
     </message>
@@ -1315,6 +1289,11 @@
         <translation>ওয়ার্কস্পেস</translation>
     </message>
     <message>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
+        <source>Custom Shortcut</source>
+        <translation>কাস্টম শর্টকাট</translation>
+    </message>
+    <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
         <translation>কাস্টম শর্টকাট যোগ করুন</translation>
@@ -1324,11 +1303,6 @@
         <source>Shortcuts</source>
         <translation>
 শর্টকাট</translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
-        <source>Custom Shortcut</source>
-        <translation>কাস্টম শর্টকাট</translation>
     </message>
 </context>
 <context>
@@ -1342,10 +1316,20 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="133"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="130"/>
         <source>Mouse</source>
         <translation>মাউস</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
+        <source>Mouse and Touchpad</source>
+        <translation>মাউস এবং টাচপ্যাড</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
+        <source>TouchPad</source>
+        <translation>টাচপ্যাড</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
@@ -1375,26 +1359,6 @@
         <translation>নির্দেশকের গতি</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
-        <source>Disable the touchpad when inserting the mouse</source>
-        <translation>মাউস প্রবেশ করানোর সময় টাচপ্যাড বন্ধ করুন</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
-        <source>Slow</source>
-        <translation>ধীরে</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
-        <source>Fast</source>
-        <translation>দ্রুত</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
-        <source>TouchPad</source>
-        <translation>টাচপ্যাড</translation>
-    </message>
-    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
         <translation>মাউসের ত্বরণ</translation>
@@ -1403,6 +1367,11 @@
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
         <translation>স্ক্রল করার গতি</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
+        <source>Disable the touchpad when inserting the mouse</source>
+        <translation>মাউস প্রবেশ করানোর সময় টাচপ্যাড বন্ধ করুন</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="62"/>
@@ -1416,9 +1385,14 @@
         <translation>ক্লিক করতে ট্যাপ করুন</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
-        <source>Mouse and Touchpad</source>
-        <translation>মাউস এবং টাচপ্যাড</translation>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
+        <source>Slow</source>
+        <translation>ধীরে</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
+        <source>Fast</source>
+        <translation>দ্রুত</translation>
     </message>
 </context>
 <context>
@@ -1515,48 +1489,215 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="141"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="82"/>
         <source>Disconnect</source>
         <translation>সংযোগ বিচ্ছিন্ন করুন</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="143"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="84"/>
         <source>Delete</source>
         <translation>মুছে ফেলুন</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
-        <source>Export</source>
-        <translation>রপ্তানি</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="155"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="89"/>
         <source>Cancel</source>
         <translation>বাতিল</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="156"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="90"/>
         <source>Save</source>
         <translation>সংরক্ষণ করুন</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="518"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="601"/>
-        <source>Required</source>
-        <translation>আবশ্যক</translation>
+        <location filename="../modules/network/connectioneditpage.cpp" line="311"/>
+        <source>Wired Connection %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/connectioneditpage.cpp" line="315"/>
+        <source>Wireless Connection %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/connectioneditpage.cpp" line="319"/>
+        <source>PPPoE Connection %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::network::ConnectionVpnEditPage</name>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="141"/>
+        <source>VPN L2TP %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="145"/>
+        <source>VPN PPTP %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="149"/>
+        <source>VPN VPNC %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="153"/>
+        <source>VPN OpenVPN %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
+        <source>VPN StrongSwan %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
+        <source>VPN OpenConnect %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::network::EthernetSection</name>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="89"/>
+        <source>Device MAC Addr</source>
+        <translation>ডিভাইস ম্যাক Addr</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="101"/>
+        <source>Cloned MAC Addr</source>
+        <translation>ক্লোন ম্যাক Addr</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="114"/>
+        <source>Customize MTU</source>
+        <translation>MTU কে কাস্টমাইজ করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="117"/>
+        <source>MTU</source>
+        <translation>MTU </translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::GenericHotspotSection</name>
+    <message>
+        <location filename="../modules/network/sections/generichotspotsection.cpp" line="31"/>
+        <source>General</source>
+        <translation>সাধারণ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/generichotspotsection.cpp" line="63"/>
+        <source>Name</source>
+        <translation>নাম </translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::GenericSection</name>
+    <message>
+        <location filename="../modules/network/sections/genericsection.cpp" line="31"/>
+        <source>General</source>
+        <translation>সাধারণ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/genericsection.cpp" line="62"/>
+        <source>Name</source>
+        <translation>নাম </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/genericsection.cpp" line="65"/>
+        <source>Automatically connect</source>
+        <translation>স্বয়ংক্রিয়ভাবে সংযোগ করুন</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::HotspotPage</name>
     <message>
-        <location filename="../modules/network/hotspotpage.cpp" line="63"/>
+        <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
         <translation>হটস্পট সেটিংস</translation>
     </message>
     <message>
-        <location filename="../modules/network/hotspotpage.cpp" line="78"/>
+        <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
         <translation>হটস্পট</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::IpvxSection</name>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="32"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="37"/>
+        <source>Auto</source>
+        <translation>অটো</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="33"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="38"/>
+        <source>Manual</source>
+        <translation>ম্যানুয়াল</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="39"/>
+        <source>Ignore</source>
+        <translation>উপেক্ষা করা</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="43"/>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="63"/>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="203"/>
+        <source>Method</source>
+        <translation>পদ্ধতি</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="204"/>
+        <source>IP Address</source>
+        <translation>আইপি ঠিকানা</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="205"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="270"/>
+        <source>Required</source>
+        <translation>আবশ্যক</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="206"/>
+        <source>Gateway</source>
+        <translation>প্রবেশপথ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="207"/>
+        <source>Primary DNS</source>
+        <translation>প্রাথমিক DNS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="208"/>
+        <source>Secondary DNS</source>
+        <translation>সেকেন্ডারি DNS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="209"/>
+        <source>Only applied in corresponding resources</source>
+        <translation>শুধুমাত্র সংশ্লিষ্ট সম্পদ প্রয়োগ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="269"/>
+        <source>Netmask</source>
+        <translation>নেটমাস্ক</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="313"/>
+        <source>Prefix</source>
+        <translation>উপসর্গ</translation>
     </message>
 </context>
 <context>
@@ -1580,6 +1721,11 @@
         <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
         <source>Security</source>
         <translation>নিরাপত্তা</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
+        <source>Interface</source>
+        <translation>ইন্টারফেস</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="162"/>
@@ -1614,11 +1760,6 @@
         <translation>নেটমাস্ক</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
-        <source>Interface</source>
-        <translation>ইন্টারফেস</translation>
-    </message>
-    <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="202"/>
         <source>IPv6 Address</source>
         <translation>IPv6 ঠিকানা</translation>
@@ -1637,6 +1778,12 @@
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="128"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
+        <source>Network</source>
+        <translation>নেটওয়ার্ক</translation>
+    </message>
+    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>DSL</source>
         <translation>ডিএসএল</translation>
@@ -1645,6 +1792,11 @@
         <location filename="../modules/network/networkmodulewidget.cpp" line="61"/>
         <source>VPN</source>
         <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="65"/>
+        <source>System Proxy</source>
+        <translation>সিস্টেমের প্রক্সি</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="67"/>
@@ -1657,15 +1809,14 @@
         <translation>নেটওয়ার্কের বিবরণ</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="125"/>
-        <source>Network</source>
-        <translation>নেটওয়ার্ক</translation>
-    </message>
-    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
         <source>Wired Network Card%1</source>
         <translation>ওয়্যার্ড নেটওয়ার্ক কার্ড%1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
+        <source>Wired Network%1</source>
+        <translation>ওয়্যার্ড নেটওয়ার্ক%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
@@ -1676,16 +1827,6 @@
         <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wired Network</source>
         <translation>ওয়্যার্ড নেটওয়ার্ক</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
-        <source>Wired Network%1</source>
-        <translation>ওয়্যার্ড নেটওয়ার্ক%1</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="65"/>
-        <source>System Proxy</source>
-        <translation>সিস্টেমের প্রক্সি</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="252"/>
@@ -1703,6 +1844,11 @@
         <translation>ওয়্যারলেস নেটওয়ার্ক কার্ড%1</translation>
     </message>
     <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="267"/>
+        <source>Wireless Network%1</source>
+        <translation>ওয়্যারলেস নেটওয়ার্ক%1</translation>
+    </message>
+    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network Card</source>
         <translation>ওয়্যারলেস নেটওয়ার্ক কার্ড</translation>
@@ -1712,21 +1858,118 @@
         <source>Wireless Network</source>
         <translation>ওয়্যারলেস নেটওয়ার্ক</translation>
     </message>
+</context>
+<context>
+    <name>dcc::network::PPPOESection</name>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="267"/>
-        <source>Wireless Network%1</source>
-        <translation>ওয়্যারলেস নেটওয়ার্ক%1</translation>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="31"/>
+        <source>PPPoE</source>
+        <translation>PPPoE</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="76"/>
+        <source>Username</source>
+        <translation>ব্যবহারকারীর নাম </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="77"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="84"/>
+        <source>Required</source>
+        <translation>আবশ্যক</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="80"/>
+        <source>Service</source>
+        <translation>সেবা</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="83"/>
+        <source>Password</source>
+        <translation>পাসওয়ার্ড</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::PPPSection</name>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="31"/>
+        <source>Refuse EAP Authentication</source>
+        <translation>ইএপি প্রমাণীকরণ প্রত্যাখ্যান করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="32"/>
+        <source>Refuse PAP Authentication</source>
+        <translation>পিএপি প্রমাণীকরণ প্রত্যাখ্যান করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="33"/>
+        <source>Refuse CHAP Authentication</source>
+        <translation>CHAP প্রমাণীকরণ প্রত্যাখ্যান করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="34"/>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation>MSCHAP প্রমাণীকরণ প্রত্যাখ্যান করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="35"/>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation>MSCHAPv2 প্রমাণীকরণ প্রত্যাখ্যান করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="36"/>
+        <source>No BSD Data Compression</source>
+        <translation>কোন BSD ডাটা কম্প্রেশন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="37"/>
+        <source>No Deflate Data Compression</source>
+        <translation>কোন ডেফ্লেট ডেটা কম্প্রেশন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="38"/>
+        <source>No TCP Header Compression</source>
+        <translation>কোন টিসিপি হেডার কম্প্রেশন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="39"/>
+        <source>No Protocol Field Compression</source>
+        <translation>কোন প্রোটোকল ক্ষেত্র সংকোচন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="40"/>
+        <source>No Address/Control Compression</source>
+        <translation>কোন ঠিকানা / কন্ট্রোল কম্প্রেশন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="41"/>
+        <source>Send PPP Echo Packets</source>
+        <translation>পিপিপি ইকো প্যাকেটগুলি পাঠান</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="45"/>
+        <source>PPP</source>
+        <translation>পিপিপি</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="98"/>
+        <source>Use MPPE</source>
+        <translation>এমপিপিই ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="101"/>
+        <source>128-bit MPPE</source>
+        <translation>128-বিট এমপিপিই</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::PppoePage</name>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="54"/>
+        <location filename="../modules/network/pppoepage.cpp" line="52"/>
         <source>Create PPPoE Connection</source>
         <translation>PPPoE সংযোগ তৈরি করুন</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="68"/>
+        <location filename="../modules/network/pppoepage.cpp" line="66"/>
         <source>PPP</source>
         <translation>পিপিপি</translation>
     </message>
@@ -1803,6 +2046,727 @@
     </message>
 </context>
 <context>
+    <name>dcc::network::Secret8021xSection</name>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="31"/>
+        <source>TLS</source>
+        <translation>টিএলএস</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="32"/>
+        <source>MD5</source>
+        <translation>MD5</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="33"/>
+        <source>LEAP</source>
+        <translation>লিপ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="34"/>
+        <source>FAST</source>
+        <translation>দ্রুত</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="35"/>
+        <source>Tunneled TLS</source>
+        <translation>টানেলড টিএলএস</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="36"/>
+        <source>Protected EAP</source>
+        <translation>সুরক্ষিত EAP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="41"/>
+        <source>Saved</source>
+        <translation>সংরক্ষিত</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="42"/>
+        <source>Ask</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="47"/>
+        <source>Disabled</source>
+        <translation>অক্ষম</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="48"/>
+        <source>Anonymous</source>
+        <translation>নামবিহীন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="49"/>
+        <source>Authenticated</source>
+        <translation>প্রমাণীকৃত</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="50"/>
+        <source>Both</source>
+        <translation>উভয়</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="66"/>
+        <source>Automatic</source>
+        <translation>স্বয়ংক্রিয়</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="78"/>
+        <source>Security</source>
+        <translation>নিরাপত্তা</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="197"/>
+        <source>EAP Auth</source>
+        <translation>EAP Auth</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="43"/>
+        <source>Not Required</source>
+        <translation>আবশ্যক না</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="67"/>
+        <source>Version 0</source>
+        <translation>সংস্করণ 0</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="68"/>
+        <source>Version 1</source>
+        <translation>সংস্করণ 1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="209"/>
+        <source>Identity</source>
+        <translation>পরিচয়</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="211"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="219"/>
+        <source>Required</source>
+        <translation>আবশ্যক</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="213"/>
+        <source>Ask for Pwd</source>
+        <translation>Pwd-এর জন্য জিজ্ঞাসা করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="299"/>
+        <source>Private Key</source>
+        <translation>ব্যক্তিগত কী</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="303"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="376"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="408"/>
+        <source>CA Cert</source>
+        <translation>CA সনদ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="307"/>
+        <source>User Cert</source>
+        <translation>ব্যবহারকারীর সনদ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="325"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="372"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="404"/>
+        <source>Anonymous ID</source>
+        <translation>নামহীন আইডি</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="329"/>
+        <source>Provisioning</source>
+        <translation>প্রভিশনিং</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="341"/>
+        <source>PAC file</source>
+        <translation>পিএসি ফাইল</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="345"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="380"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="423"/>
+        <source>Inner Auth</source>
+        <translation>ইনার Auth</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="412"/>
+        <source>PEAP Version</source>
+        <translation>PEAP সংস্করণ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="503"/>
+        <source>Private Pwd</source>
+        <translation>ব্যক্তিগত Pwd</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="505"/>
+        <source>Password</source>
+        <translation>পাসওয়ার্ড</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::SecretHotspotSection</name>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="36"/>
+        <source>None</source>
+        <translation>কোনটিই নয়</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="37"/>
+        <source>WEP 40/128-bit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="38"/>
+        <source>WPA/WPA2 Personal</source>
+        <translation>WPA / WPA2 ব্যক্তিগত</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="101"/>
+        <source>Security</source>
+        <translation>নিরাপত্তা</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="107"/>
+        <source>Required</source>
+        <translation>আবশ্যক</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="137"/>
+        <source>Key</source>
+        <translation>চাবি</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="143"/>
+        <source>Password</source>
+        <translation>পাসওয়ার্ড</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::SecretWiredSection</name>
+    <message>
+        <location filename="../modules/network/sections/secretwiredsection.cpp" line="32"/>
+        <source>Security Required</source>
+        <translation>নিরাপত্তা প্রয়োজন</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::SecretWirelessSection</name>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="37"/>
+        <source>None</source>
+        <translation>কোনটিই নয়</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="38"/>
+        <source>WEP 40/128-bit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="39"/>
+        <source>WPA/WPA2 Personal</source>
+        <translation>WPA / WPA2 ব্যক্তিগত</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="40"/>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation>WPA / WPA2 এন্টারপ্রাইজ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="103"/>
+        <source>Security</source>
+        <translation>নিরাপত্তা</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="109"/>
+        <source>Required</source>
+        <translation>আবশ্যক</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="151"/>
+        <source>Key</source>
+        <translation>চাবি</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="158"/>
+        <source>Password</source>
+        <translation>পাসওয়ার্ড</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnAdvOpenVPNSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
+        <source>VPN Advanced</source>
+        <translation>ভিপিএন অ্যাডভান্সড</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
+        <source>Customize Gateway Port</source>
+        <translation>গেটওয়ে পোর্ট কাস্টমাইজ করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
+        <source>Gateway Port</source>
+        <translation>গেটওয়ে পোর্ট</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
+        <source>Customize Renegotiation Interval</source>
+        <translation>পুনর্বিবেচনা বিরতি কাস্টমাইজ করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
+        <source>Renegotiation Interval</source>
+        <translation>রেনগোটেশান বিরতি</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
+        <source>Use LZO data compression</source>
+        <translation>LZO ডেটা কম্প্রেশন ব্যবহার করুন </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
+        <source>Use TCP connection</source>
+        <translation>TCP সংযোগ ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
+        <source>Use TAP device</source>
+        <translation>ট্যাপ ডিভাইস ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
+        <source>Customize Tunnel MTU</source>
+        <translation>এমটি টানেল কাস্টমাইজ করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
+        <source>MTU</source>
+        <translation>MTU </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
+        <source>Customize UDP Fragment Size</source>
+        <translation>UDP ফ্র্যাগমেন্ট সাইজ কাস্টমাইজ করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
+        <source>UDP Fragment Size</source>
+        <translation>UDP ফ্র্যাগমেন্ট সাইজ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
+        <source>Restrict Tunnel TCP MSS</source>
+        <translation>টানেল টিসিপি এমএসএস নিয়ন্ত্রণ করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
+        <source>Randomize Remote Hosts</source>
+        <translation>র্যান্ডমাইজ রিমোট হোস্ট</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnAdvVPNCSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
+        <source>Cisco (default)</source>
+        <translation>সিসকো (ডিফল্ট)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="32"/>
+        <source>Netscreen</source>
+        <translation>Netscreen</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="35"/>
+        <source>Secure (default)</source>
+        <translation>নিরাপদ (ডিফল্ট)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="36"/>
+        <source>Weak</source>
+        <translation>দুর্বল</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="37"/>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="52"/>
+        <source>None</source>
+        <translation>কোনটিই নয়</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="40"/>
+        <source>NAT-T When Available (default)</source>
+        <translation>NAT-T উপলভ্য হলে (ডিফল্ট)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="41"/>
+        <source>NAT-T Always</source>
+        <translation>NAT-T সর্বদা</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="42"/>
+        <source>Cisco UDP</source>
+        <translation>সিসকো ইউডিপি</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="43"/>
+        <source>Disabled</source>
+        <translation>অক্ষম</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="46"/>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="53"/>
+        <source>DH Group 1</source>
+        <translation>DH গ্রুপ 1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="47"/>
+        <source>DH Group 2 (default)</source>
+        <translation>DH গ্রুপ 2 (ডিফল্ট)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="48"/>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="55"/>
+        <source>DH Group 5</source>
+        <translation>DH গ্রুপ 5</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="51"/>
+        <source>Server (default)</source>
+        <translation>সার্ভার (ডিফল্ট)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="54"/>
+        <source>DH Group 2</source>
+        <translation>DH গ্রুপ 2</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="59"/>
+        <source>VPN Advanced</source>
+        <translation>ভিপিএন অ্যাডভান্সড</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="165"/>
+        <source>Domain</source>
+        <translation>ডোমেইন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="168"/>
+        <source>Vendor</source>
+        <translation>বিক্রেতা</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="174"/>
+        <source>Version</source>
+        <translation>সংস্করণ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="177"/>
+        <source>Encryption</source>
+        <translation>এনক্রিপশন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="183"/>
+        <source>NAT Traversal Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="189"/>
+        <source>IKE DH Group</source>
+        <translation>IKE DH গ্রুপ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="195"/>
+        <source>Forward Secrecy</source>
+        <translation>ফরওয়ার্ড গোপনীয়তা</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="201"/>
+        <source>Local Port</source>
+        <translation>স্থানীয় পোর্ট</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
+        <source>Disable Dead Peer Detection</source>
+        <translation>মৃত পীর সনাক্তকরণ অক্ষম করুন</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnIpsecSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
+        <source>VPN IPsec</source>
+        <translation>ভিপিএন IPsec</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="83"/>
+        <source>Enable IPsec</source>
+        <translation>IPsec সক্ষম করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
+        <source>Group Name</source>
+        <translation>দলের নাম</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
+        <source>Group ID</source>
+        <translation>দলের আইডি</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
+        <source>Pre-Shared Key</source>
+        <translation>প্রাক-ভাগ করা কী</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
+        <source>Phase1 Algorithms</source>
+        <translation>পর্ব 1 এর অ্যালগরিদম সমূহ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
+        <source>Phase2 Algorithms</source>
+        <translation>পর্ব 2 এর অ্যালগরিদম সমূহ</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnOpenConnectSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="84"/>
+        <source>Gateway</source>
+        <translation>প্রবেশপথ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="85"/>
+        <source>Required</source>
+        <translation>আবশ্যক</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <source>CA Cert</source>
+        <translation>CA সনদ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="91"/>
+        <source>Proxy</source>
+        <translation>প্রক্সি</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="94"/>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation>সিসকো সিকিউর ডেস্কটপ Trojan অনুমতি দিন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="97"/>
+        <source>CSD Script</source>
+        <translation>সিএসডি স্ক্রিপ্ট</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="100"/>
+        <source>User Cert</source>
+        <translation>ব্যবহারকারীর সনদ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="103"/>
+        <source>Private Key</source>
+        <translation>ব্যক্তিগত কী</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="106"/>
+        <source>Use FSID for Key Passphrase</source>
+        <translation>কী পাসফ্রেজের জন্য FSID ব্যবহার করুন</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnOpenVPNSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
+        <source>Certificates (TLS)</source>
+        <translation>সার্টিফিকেট (টিএলএস)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="32"/>
+        <source>Password</source>
+        <translation>পাসওয়ার্ড</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="33"/>
+        <source>Certificates with Password (TLS)</source>
+        <translation>পাসওয়ার্ড (TLS) সহ সার্টিফিকেট</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="34"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="266"/>
+        <source>Static Key</source>
+        <translation>স্ট্যাটিক কী</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="39"/>
+        <source>Saved</source>
+        <translation>সংরক্ষিত</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="40"/>
+        <source>Ask</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="41"/>
+        <source>Not Required</source>
+        <translation>আবশ্যক না</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="45"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="127"/>
+        <source>Gateway</source>
+        <translation>প্রবেশপথ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="128"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="223"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="239"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="282"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
+        <source>Required</source>
+        <translation>আবশ্যক</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="138"/>
+        <source>Auth Type</source>
+        <translation>AUTH প্রকার</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="141"/>
+        <source>CA Cert</source>
+        <translation>CA সনদ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="226"/>
+        <source>Ask for Pwd</source>
+        <translation>Pwd-এর জন্য জিজ্ঞাসা করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="192"/>
+        <source>Private Pwd</source>
+        <translation>ব্যক্তিগত Pwd</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="270"/>
+        <source>Customize Key Direction</source>
+        <translation>কী দিকনির্দেশনা কাস্টমাইজ করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="274"/>
+        <source>Key Direction</source>
+        <translation>কী দিকনির্দেশনা</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnPPPSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
+        <source>All Available (default)</source>
+        <translation>সব উপলব্ধ (ডিফল্ট)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="32"/>
+        <source>40-bit (less secure)</source>
+        <translation>40-বিট (কম নিরাপদ)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="33"/>
+        <source>128-bit (most secure)</source>
+        <translation>128-বিট (সবচেয়ে নিরাপদ)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="37"/>
+        <source>Refuse EAP Authentication</source>
+        <translation>ইএপি প্রমাণীকরণ প্রত্যাখ্যান করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="38"/>
+        <source>Refuse PAP Authentication</source>
+        <translation>পিএপি প্রমাণীকরণ প্রত্যাখ্যান করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="39"/>
+        <source>Refuse CHAP Authentication</source>
+        <translation>CHAP প্রমাণীকরণ প্রত্যাখ্যান করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="40"/>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation>MSCHAP প্রমাণীকরণ প্রত্যাখ্যান করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="41"/>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation>MSCHAPv2 প্রমাণীকরণ প্রত্যাখ্যান করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="42"/>
+        <source>No BSD Data Compression</source>
+        <translation>কোন BSD ডাটা কম্প্রেশন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="43"/>
+        <source>No Deflate Data Compression</source>
+        <translation>কোন ডেফ্লেট ডেটা কম্প্রেশন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="44"/>
+        <source>No TCP Header Compression</source>
+        <translation>কোন টিসিপি হেডার কম্প্রেশন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="45"/>
+        <source>No Protocol Field Compression</source>
+        <translation>কোন প্রোটোকল ক্ষেত্র সংকোচন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="46"/>
+        <source>No Address/Control Compression</source>
+        <translation>কোন ঠিকানা / কন্ট্রোল কম্প্রেশন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="47"/>
+        <source>Send PPP Echo Packets</source>
+        <translation>পিপিপি ইকো প্যাকেটগুলি পাঠান</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="51"/>
+        <source>VPN PPP</source>
+        <translation>ভিপিএন পিপিপি</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
+        <source>Use MPPE</source>
+        <translation>এমপিপিই ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
+        <source>Security</source>
+        <translation>নিরাপত্তা</translation>
+    </message>
+</context>
+<context>
     <name>dcc::network::VpnPage</name>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="76"/>
@@ -1825,70 +2789,430 @@
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="269"/>
+        <location filename="../modules/network/vpnpage.cpp" line="241"/>
         <source>Import Error</source>
         <translation>আমদানি করার সময় ত্রুটি</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="271"/>
+        <location filename="../modules/network/vpnpage.cpp" line="243"/>
         <source>OK</source>
         <translation>ঠিক আছে</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="296"/>
+        <location filename="../modules/network/vpnpage.cpp" line="265"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="299"/>
+        <location filename="../modules/network/vpnpage.cpp" line="268"/>
         <source>PPTP</source>
         <translation>পিপিটিপি</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="302"/>
+        <location filename="../modules/network/vpnpage.cpp" line="271"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="305"/>
+        <location filename="../modules/network/vpnpage.cpp" line="274"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="308"/>
+        <location filename="../modules/network/vpnpage.cpp" line="277"/>
         <source>StrongSwan</source>
         <translation>স্ট্রংসওয়ান</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="311"/>
+        <location filename="../modules/network/vpnpage.cpp" line="280"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="336"/>
+        <location filename="../modules/network/vpnpage.cpp" line="305"/>
         <source>New VPN</source>
         <translation>নতুন VPN</translation>
     </message>
 </context>
 <context>
+    <name>dcc::network::VpnProxySection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
+        <source>Not Required</source>
+        <translation>আবশ্যক না</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="32"/>
+        <source>HTTP</source>
+        <translation>HTTP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="33"/>
+        <source>SOCKS</source>
+        <translation>সক্স</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="37"/>
+        <source>VPN Proxies</source>
+        <translation>ভিপিএন প্রক্সি</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="149"/>
+        <source>Server IP</source>
+        <translation>সার্ভার আইপি</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="150"/>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
+        <source>Required</source>
+        <translation>আবশ্যক</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
+        <source>Port</source>
+        <translation>পোর্ট</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="158"/>
+        <source>Retry Indefinitely When Failed</source>
+        <translation>ব্যর্থ হলে অনির্দিষ্টকালের জন্য পুনরায় চেষ্টা করুন </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="161"/>
+        <source>Username</source>
+        <translation>ব্যবহারকারীর নাম </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
+        <source>Password</source>
+        <translation>পাসওয়ার্ড</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnSecOpenVPNSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="50"/>
+        <source>Default</source>
+        <translation>পূর্বনির্ধারিত</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="30"/>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="51"/>
+        <source>None</source>
+        <translation>কোনটিই নয়</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="63"/>
+        <source>VPN Security</source>
+        <translation>ভিপিএন সিকিউরিটি</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="107"/>
+        <source>Cipher</source>
+        <translation>গোল্লা</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="117"/>
+        <source>HMAC Auth</source>
+        <translation>HMAC Auth</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="30"/>
+        <source>Saved</source>
+        <translation>সংরক্ষিত</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="31"/>
+        <source>Ask</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="32"/>
+        <source>Not Required</source>
+        <translation>আবশ্যক না</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="36"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="110"/>
+        <source>Gateway</source>
+        <translation>প্রবেশপথ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="111"/>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="115"/>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="125"/>
+        <source>Required</source>
+        <translation>আবশ্যক</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="114"/>
+        <source>Username</source>
+        <translation>ব্যবহারকারীর নাম </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="118"/>
+        <source>Ask for Pwd</source>
+        <translation>Pwd-এর জন্য জিজ্ঞাসা করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="124"/>
+        <source>Password</source>
+        <translation>পাসওয়ার্ড</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="128"/>
+        <source>NT Domain</source>
+        <translation>এনটি ডোমেন</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnStrongSwanSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="29"/>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="168"/>
+        <source>Private Key</source>
+        <translation>ব্যক্তিগত কী</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="30"/>
+        <source>SSH Agent</source>
+        <translation>এসএসএইচ এজেন্ট</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="31"/>
+        <source>Smartcard</source>
+        <translation>স্মার্টকার্ড</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="32"/>
+        <source>EAP</source>
+        <translation>ইএপি</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="33"/>
+        <source>Pre-Shared Key</source>
+        <translation>প্রাক-ভাগ করা কী</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="37"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="148"/>
+        <source>Gateway</source>
+        <translation>প্রবেশপথ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="149"/>
+        <source>Required</source>
+        <translation>আবশ্যক</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
+        <source>CA Cert</source>
+        <translation>CA সনদ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="155"/>
+        <source>Auth Type</source>
+        <translation>AUTH প্রকার</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="165"/>
+        <source>User Cert</source>
+        <translation>ব্যবহারকারীর সনদ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="171"/>
+        <source>Username</source>
+        <translation>ব্যবহারকারীর নাম </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="174"/>
+        <source>Password</source>
+        <translation>পাসওয়ার্ড</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="177"/>
+        <source>Request an Inner IP Address</source>
+        <translation>একটি ইনার আইপি ঠিকানা অনুরোধ করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="180"/>
+        <source>Enforce UDP Encapsulation</source>
+        <translation>UDP Encapsulation প্রয়োগ করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="183"/>
+        <source>Use IP Compression</source>
+        <translation>আইপি কম্প্রেশন ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="186"/>
+        <source>Enable custom cipher proposals</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="189"/>
+        <source>IKE</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="192"/>
+        <source>ESP</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnTLSSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
+        <source>Default</source>
+        <translation>পূর্বনির্ধারিত</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="30"/>
+        <source>Client</source>
+        <translation>খরিদ্দার</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
+        <source>Server</source>
+        <translation>সার্ভার</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="35"/>
+        <source>VPN TLS Authentication</source>
+        <translation>ভিপিএন TLS প্রমাণীকরণ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="83"/>
+        <source>Subject Match</source>
+        <translation>বিষয় ম্যাচ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="86"/>
+        <source>Remote Cert Type</source>
+        <translation>রিমোট সার্ট টাইপ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="96"/>
+        <source>Key File</source>
+        <translation>কী ফাইল</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="99"/>
+        <source>Customize Key Direction</source>
+        <translation>কী দিকনির্দেশনা কাস্টমাইজ করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="102"/>
+        <source>Key Direction</source>
+        <translation>কী দিকনির্দেশনা</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnVPNCSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="30"/>
+        <source>Saved</source>
+        <translation>সংরক্ষিত</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="31"/>
+        <source>Ask</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="32"/>
+        <source>Not Required</source>
+        <translation>আবশ্যক না</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="36"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="162"/>
+        <source>Gateway</source>
+        <translation>প্রবেশপথ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="167"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="177"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="191"/>
+        <source>Required</source>
+        <translation>আবশ্যক</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="166"/>
+        <source>Username</source>
+        <translation>ব্যবহারকারীর নাম </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="170"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="184"/>
+        <source>Ask for Pwd</source>
+        <translation>Pwd-এর জন্য জিজ্ঞাসা করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="176"/>
+        <source>Password</source>
+        <translation>পাসওয়ার্ড</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="180"/>
+        <source>Group Name</source>
+        <translation>দলের নাম</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="190"/>
+        <source>Group Pwd</source>
+        <translation>গ্রুপ Pwd</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="194"/>
+        <source>Use Hybrid Authentication</source>
+        <translation>হাইব্রীড প্রমাণীকরণ ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="197"/>
+        <source>CA File</source>
+        <translation>CA ফাইল</translation>
+    </message>
+</context>
+<context>
     <name>dcc::network::WiredPage</name>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="60"/>
+        <location filename="../modules/network/wiredpage.cpp" line="59"/>
         <source>Setting List</source>
         <translation>সেটিংসের তালিকা</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="64"/>
+        <location filename="../modules/network/wiredpage.cpp" line="63"/>
         <source>Please firstly plug in the network cable</source>
         <translation>অনুগ্রহ করে প্রথমে নেটওয়ার্ক ক্যাবলটি লাগান</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="70"/>
+        <location filename="../modules/network/wiredpage.cpp" line="69"/>
         <source>Add Settings</source>
         <translation>সেটিংস যোগ করুন</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="85"/>
+        <location filename="../modules/network/wiredpage.cpp" line="84"/>
         <source>Select Settings</source>
         <translation>সেটিংস নির্বাচন করুন</translation>
     </message>
@@ -1896,24 +3220,52 @@
 <context>
     <name>dcc::network::WirelessPage</name>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="61"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="60"/>
         <source>Connect to hidden network</source>
         <translation>গোপন নেটওয়ার্কে সংযুক্ত করুন</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="64"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
         <translation>হটস্পট বন্ধ করুন</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="67"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
         <translation>আপনি যদি ওয়ারলেস নেটওয়ার্কে সংযুক্ত হতে চান এবং ব্যবহার করতে চান তাহলে প্রথমে হটস্পট শেয়ার করা বন্ধ করুন</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="90"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="89"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::WirelessSection</name>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="104"/>
+        <source>SSID</source>
+        <translation>SSID</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="105"/>
+        <source>Required</source>
+        <translation>আবশ্যক</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="108"/>
+        <source>Device MAC Addr</source>
+        <translation>ডিভাইস ম্যাক Addr</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="134"/>
+        <source>Customize MTU</source>
+        <translation>MTU কে কাস্টমাইজ করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="137"/>
+        <source>MTU</source>
+        <translation>MTU </translation>
     </message>
 </context>
 <context>
@@ -1962,12 +3314,12 @@
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="117"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="118"/>
         <source>Standard Font</source>
         <translation>স্ট্যান্ডার্ড ফন্ট</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="126"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="127"/>
         <source>Monospaced Font</source>
         <translation>মনোস্পেসড ফন্ট</translation>
     </message>
@@ -1975,25 +3327,30 @@
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="53"/>
-        <source>Enable window effect</source>
-        <translation>উইন্ডো ইফেক্ট সক্রিয় করুন</translation>
+        <location filename="../frame/navigation/navmodel.cpp" line="127"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="79"/>
+        <source>Personalization</source>
+        <translation>নিজস্বকরণ</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="55"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="45"/>
+        <source>Transparency</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="70"/>
+        <source>Enable window effect</source>
+        <translation>উইন্ডো ইফেক্ট চালু করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="72"/>
         <source>Theme</source>
         <translation>থিম</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="56"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="73"/>
         <source>Font</source>
         <translation>ফন্ট</translation>
-    </message>
-    <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="124"/>
-        <source>Personalization</source>
-        <translation>নিজস্বকরণ</translation>
     </message>
 </context>
 <context>
@@ -2029,6 +3386,12 @@
 </context>
 <context>
     <name>dcc::power::PowerWidget</name>
+    <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="132"/>
+        <location filename="../modules/power/powerwidget.cpp" line="96"/>
+        <source>Power Management</source>
+        <translation>শক্তি ব্যবস্থাপনা</translation>
+    </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="45"/>
         <source>Monitor will suspend after</source>
@@ -2071,12 +3434,6 @@
         <translation>স্বয়ংক্রিয়ভাবে মোড স্যুইচ</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="96"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="129"/>
-        <source>Power Management</source>
-        <translation>শক্তি ব্যবস্থাপনা</translation>
-    </message>
-    <message>
         <location filename="../modules/power/powerwidget.cpp" line="143"/>
         <source>1 Minute</source>
         <translation>1 মিনিট</translation>
@@ -2117,6 +3474,12 @@
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="130"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="58"/>
+        <source>Sound</source>
+        <translation>শব্দ</translation>
+    </message>
+    <message>
         <location filename="../modules/sound/soundwidget.cpp" line="43"/>
         <source>Output Volume</source>
         <translation>আউটপুট ভলিউম</translation>
@@ -2135,12 +3498,6 @@
         <location filename="../modules/sound/soundwidget.cpp" line="49"/>
         <source>Feedback Volume</source>
         <translation>ফিডব্যাক ভলিউম</translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="127"/>
-        <source>Sound</source>
-        <translation>শব্দ</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="60"/>
@@ -2189,7 +3546,7 @@
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
-        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="86"/>
+        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="70"/>
         <source>License</source>
         <translation>লাইসেন্স</translation>
     </message>
@@ -2197,15 +3554,15 @@
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="137"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <source>System Information</source>
+        <translation>সিস্টেমের তথ্য</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>কপিরাইট © 2011-2018 উওহান ডিপিন প্রযুক্তি কোং লিমিটেড।</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="134"/>
-        <source>System Information</source>
-        <translation>সিস্টেমের তথ্য</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -2218,34 +3575,19 @@
         <translation>ডিসট্রিবিউশন রিলিজঃ</translation>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
+        <source>Edition:</source>
+        <translation>সংস্করণঃ</translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="95"/>
         <source>Type:</source>
         <translation>ধরণ:</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="119"/>
-        <source>Edition License</source>
-        <translation>সংস্করণ লাইসেন্স</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
-        <source>Boot Menu</source>
-        <translation>বুট মেনু</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="175"/>
-        <source>%1Bit</source>
-        <translation>%1বিট</translation>
-    </message>
-    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Processor:</source>
         <translation>প্রসেসরঃ</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
-        <source>Edition:</source>
-        <translation>সংস্করণঃ</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="102"/>
@@ -2256,6 +3598,34 @@
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="106"/>
         <source>Disk:</source>
         <translation>ডিস্কঃ</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="120"/>
+        <source>Edition License</source>
+        <translation>সংস্করণ লাইসেন্স</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="128"/>
+        <source>Boot Menu</source>
+        <translation>বুট মেনু</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="190"/>
+        <source>%1Bit</source>
+        <translation>%1বিট</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::systeminfo::UserLicense</name>
+    <message>
+        <location filename="../modules/systeminfo/userlicense.cpp" line="15"/>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2325,104 +3695,104 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="56"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="133"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="136"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="59"/>
         <source>Update</source>
         <translation>আপডেট করুন</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="173"/>
-        <source>Checking for updates, please wait...</source>
-        <translation>আপডেটের জন্য চেক করা হচ্ছে, দয়া করে অপেক্ষা করুন...</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
-        <source>Your system is up to date</source>
-        <translation>আপনার সিস্টেম আপ টু ডেট আছে</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="55"/>
         <source>Please restart to use the system and applications properly after updated</source>
         <translation>আপডেট করার পরে সিস্টেম এবং অ্যাপ্লিকেশন সঠিকভাবে ব্যবহার করার জন্য দয়া করে পুনরায় আরম্ভ করুন</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="56"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>নেটওয়ার্ক সংযোগ বিচ্ছিন্ন হয়েছে, সংযুক্ত হওয়ার জন্য পুনরায় চেষ্টা করুন</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="86"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
         <translation>এই আপডেটটি অনেক সময় নিতে পারে, প্রক্রিয়াটি শেষ না হওয়া পর্যন্ত অনুগ্রহ করে বন্ধ বা পুনরায় চালু করবেন না।</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="176"/>
+        <source>Checking for updates, please wait...</source>
+        <translation>আপডেটের জন্য চেক করা হচ্ছে, দয়া করে অপেক্ষা করুন...</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Download and install updates</source>
         <translation>আপডেট ডাউনলোড এবং ইনস্টল করুন</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="192"/>
-        <source>%1% downloaded (Click to continue)</source>
-        <translation>%1% ডাউনলোড করা হয়েছে (চালিয়ে যেতে ক্লিক করুন)</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
-        <source>Install updates</source>
-        <translation>আপডেট সমূহ ইনস্টল করুন</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="210"/>
-        <source>Updating, please wait...</source>
-        <translation>আপডেট করা হচ্ছে, দয়া করে অপেক্ষা করুন...</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="224"/>
-        <source>The newest system installed, restart to take effect</source>
-        <translation>সবচেয়ে নতুন সিস্টেম ইনস্টল করা হয়েছে, কার্যকর করতে বন্ধ করে পুনরায় চালু করুন</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
-        <source>Insufficient disk space, unable to update system.</source>
-        <translation>ডিস্কে জায়গা অপর্যাপ্ত, সিস্টেম আপডেট করতে অক্ষম।</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
-        <source>%n application update(s) detected</source>
-        <translation><numerusform>%n অ্যাপ্লিকেশন আপডেট (গুলি) সনাক্ত করা হয়ছে</numerusform><numerusform>%n অ্যাপ্লিকেশন আপডেট (গুলি) সনাক্ত করা হয়ছে</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
-        <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>নতুন সিস্টেম সংস্করণ এবং %n অ্যাপ্লিকেশন আপডেট (গুলি) সনাক্ত করা হয়েছে</numerusform><numerusform>নতুন সিস্টেম সংস্করণ এবং %n অ্যাপ্লিকেশন আপডেট (গুলি) সনাক্ত করা হয়েছে</numerusform></translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
-        <source>Downloaded</source>
-        <translation>ডাউনলোড করা হয়েছে</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
-        <source>Download size: %1</source>
-        <translation>ডাউনলোডের আকারঃ %1</translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="187"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="286"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="289"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% ডাউনলোড করা হয়েছে (বিরতি দিতে ক্লিক করুন)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="195"/>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation>%1% ডাউনলোড করা হয়েছে (চালিয়ে যেতে ক্লিক করুন)</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
+        <source>Install updates</source>
+        <translation>আপডেট সমূহ ইনস্টল করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="208"/>
+        <source>Your system is up to date</source>
+        <translation>আপনার সিস্টেম আপ টু ডেট আছে</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="213"/>
+        <source>Updating, please wait...</source>
+        <translation>আপডেট করা হচ্ছে, দয়া করে অপেক্ষা করুন...</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="227"/>
+        <source>The newest system installed, restart to take effect</source>
+        <translation>সবচেয়ে নতুন সিস্টেম ইনস্টল করা হয়েছে, কার্যকর করতে বন্ধ করে পুনরায় চালু করুন</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="237"/>
+        <source>Insufficient disk space, unable to update system.</source>
+        <translation>ডিস্কে জায়গা অপর্যাপ্ত, সিস্টেম আপডেট করতে অক্ষম।</translation>
+    </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
+        <source>%n application update(s) detected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
         <source>New system edition detected</source>
         <translation>নতুন সিস্টেম সংস্করণ সনাক্ত করা হয়েছে</translation>
     </message>
+    <message numerus="yes">
+        <location filename="../modules/update/updatectrlwidget.cpp" line="266"/>
+        <source>New system edition and %n application update(s) detected</source>
+        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+    </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="294"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="273"/>
+        <source>Downloaded</source>
+        <translation>ডাউনলোড করা হয়েছে</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="275"/>
+        <source>Download size: %1</source>
+        <translation>ডাউনলোডের আকারঃ %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="297"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>আপনার ব্যাটারী 50% এর কম, চালিয়ে যেতে দয়া করে চার্জার লাগান</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="296"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="299"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>দয়া করে পুনরায় চালু করার পর্যাপ্ত শক্তি নিশ্চিত করুন, এবং আপনার মেশিনটি বন্ধ বা আনপ্লাগ করবেন না</translation>
     </message>
@@ -2443,11 +3813,6 @@
         <translation>আপডেট সেটিংস্‌</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="74"/>
-        <source>System source detection</source>
-        <translation>সিস্টেমের উত্স সনাক্তকরণ</translation>
-    </message>
-    <message>
         <location filename="../modules/update/updatesettings.cpp" line="62"/>
         <source>Auto clear package cache</source>
         <translation>প্যাকেজ ক্যাশ স্বয়ংক্রিয়ভাবে পরিষ্কার করুন</translation>
@@ -2461,6 +3826,11 @@
         <location filename="../modules/update/updatesettings.cpp" line="67"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>আপডেটগুলি ওয়ারলেস বা ওয়্যার্ড নেটওয়ার্কের মধ্যে স্বয়ংক্রিয়ভাবে ডাউনলোড হবে</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="74"/>
+        <source>System source detection</source>
+        <translation>সিস্টেমের উত্স সনাক্তকরণ</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
@@ -2534,8 +3904,8 @@
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="135"/>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="132"/>
         <source>Wacom</source>
         <translation>ওয়াকম</translation>
     </message>

@@ -4,20 +4,20 @@
     <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
         <source>Refresh</source>
-        <translation>रिफ्रेश </translation>
+        <translation>रिफ्रेश करें</translation>
     </message>
 </context>
 <context>
     <name>BluetoothListModel</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
-        <source>Connect to other devices</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>ब्लूटूथ सक्रिय करने के लिए आइकन पर क्लिक करें</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
+        <source>Connect to other devices</source>
+        <translation>अन्य डिवाइसों से जुड़ें</translation>
     </message>
 </context>
 <context>
@@ -25,12 +25,12 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
         <source>Copy</source>
-        <translation>प्रति</translation>
+        <translation>कॉपी करें</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <source>Extend</source>
-        <translation>बढ़ाएँ</translation>
+        <translation>विस्तारित करें</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
@@ -40,32 +40,32 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation type="unfinished"/>
+        <translation>नई अनुकूलित सेटिंग्स</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>स्क्रीन की सामग्रियों को एक या एकाधिक स्क्रीनों पर कॉपी करें</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>भिन्न समाग्री को भिन्न स्क्रीन पर प्रदर्शित करने हेतु स्क्रीन की सामग्रियों को विस्तारित करें</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation type="unfinished"/>
+        <translation>स्क्रीन सामग्रियों को केवल %1 पर प्रदर्शित किया जाएँ</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
         <source>Please enter Display module to set if you want to change the custom settings</source>
-        <translation type="unfinished"/>
+        <translation>अनुकूलित सेटिंग्स को बदलने हेतु कृपया डिस्प्ले अनुखंड में प्रवेश करें</translation>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
-        <translation type="unfinished"/>
+        <translation>डिस्प्ले अनुखंड में प्रवेश करने हेतु क्लिक करें</translation>
     </message>
 </context>
 <context>
@@ -73,31 +73,31 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>कोई नहीं</translation>
     </message>
 </context>
 <context>
     <name>NavModel</name>
     <message>
-        <location filename="../plugins/navigation/navmodel.cpp" line="157"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="160"/>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>संचालन</translation>
     </message>
 </context>
 <context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="200"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="200"/>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>बीता हुआ कल</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifydelegate.cpp" line="203"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="203"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>परसों</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifydelegate.cpp" line="209"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="209"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
@@ -105,27 +105,27 @@
 <context>
     <name>NotifyManager</name>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="65"/>
+        <location filename="../frame/notify/notifymanager.cpp" line="65"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>सभी को हटाएँ</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifymanager.cpp" line="150"/>
+        <location filename="../frame/notify/notifymanager.cpp" line="150"/>
         <source>No system notifications</source>
-        <translation type="unfinished"/>
+        <translation>कोई सिस्टम अधिसूचना नहीं है</translation>
     </message>
 </context>
 <context>
     <name>NotifyWidget</name>
     <message>
-        <location filename="../plugins/notify/notifywidget.cpp" line="33"/>
+        <location filename="../frame/notify/notifywidget.cpp" line="33"/>
         <source>No system notifications</source>
-        <translation type="unfinished"/>
+        <translation>कोई सिस्टम अधिसूचना नहीं है</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifywidget.cpp" line="35"/>
+        <location filename="../frame/notify/notifywidget.cpp" line="35"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>सभी को हटाएँ</translation>
     </message>
 </context>
 <context>
@@ -133,17 +133,17 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>अपडेट इंस्टॉल हो गई हैं, अब पुनः आरंभ करने की आवश्यकता है, अभी पुनः आरंभ करें?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>इससे पहले कृपया सुनिश्चित करें कि सारा डेटा संचित है</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
@@ -161,20 +161,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>SetLocationPage</name>
-    <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="50"/>
-        <source>No search results</source>
-        <translation>खोज का कोई परिणाम नहीं मिला</translation>
-    </message>
-    <message>
-        <location filename="../plugins/weather/setlocationpage.cpp" line="142"/>
-        <source>Current City: %1</source>
-        <translation type="unfinished"/>
+        <translation>घुमाने हेतु बायाँ-क्लिक करें एवं बंद करने हेतु दायाँ-क्लिक</translation>
     </message>
 </context>
 <context>
@@ -182,7 +169,7 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="79"/>
         <source>Reset all settings</source>
-        <translation type="unfinished"/>
+        <translation>सभी सेटिंग्स पुनः स्थापित करें</translation>
     </message>
     <message>
         <location filename="../frame/settingswidget.cpp" line="89"/>
@@ -200,23 +187,23 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="38"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>अपडेट उपलब्ध हैं, देखने के लिए क्लिक करें</translation>
     </message>
 </context>
 <context>
     <name>Viewer</name>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="138"/>
+        <location filename="../frame/notify/notifyviewer.cpp" line="138"/>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>बीता हुआ कल</translation>
     </message>
     <message>
-        <location filename="../plugins/notify/notifyviewer.cpp" line="141"/>
+        <location filename="../frame/notify/notifyviewer.cpp" line="141"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>परसों</translation>
     </message>
     <message numerus="yes">
-        <location filename="../plugins/notify/notifyviewer.cpp" line="147"/>
+        <location filename="../frame/notify/notifyviewer.cpp" line="147"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
@@ -226,56 +213,38 @@
     <message>
         <location filename="../frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>WeatherWidget</name>
-    <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="120"/>
-        <source>Sorry, unable to get weather!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="127"/>
-        <source>Loading weather...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../plugins/weather/weatherwidget.cpp" line="197"/>
-        <source>Just updated</source>
-        <translation type="unfinished"/>
+        <translation>वीपीएन सक्रिय करने के लिए आइकन पर क्लिक करें</translation>
     </message>
 </context>
 <context>
     <name>WifiListModel</name>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
-        <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WIFI</source>
-        <translation type="unfinished"/>
+        <translation>वाई-फाई सक्रिय करने के लिए आइकन पर क्लिक करें</translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="213"/>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
+        <source>Connect to hidden network</source>
+        <translation>छुपे नेटवर्क से जुड़ें</translation>
+    </message>
+    <message>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
         <source>Wireless Card %1</source>
-        <translation type="unfinished"/>
+        <translation>बेतार कार्ड %1</translation>
     </message>
 </context>
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
-        <source>Join domain</source>
-        <translation type="unfinished"/>
+        <source>Leave domain</source>
+        <translation>डोमेन छोड़ें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
-        <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <source>Join domain</source>
+        <translation>डोमेन से जुड़ें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="62"/>
@@ -285,17 +254,17 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>प्रबंधक खाता</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="64"/>
         <source>Password</source>
-        <translation>पासवर्ड </translation>
+        <translation>कूटशब्द</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="73"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
 </context>
 <context>
@@ -303,17 +272,17 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
-        <translation type="unfinished"/>
+        <translation>उपयोक्ता चित्र बदलें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>पूर्ण नाम बदलें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
-        <translation type="unfinished"/>
+        <translation>कूटशब्द बदलें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="61"/>
@@ -333,36 +302,36 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>हटाने में विफल, उपयोक्ता अभी लॉगिन है</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>अंगुली-चिन्ह कूटशब्द</translation>
     </message>
 </context>
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
-        <source>Create Account</source>
-        <translation type="unfinished"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="124"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
+        <source>Accounts</source>
+        <translation>खातें</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="121"/>
-        <source>Accounts</source>
-        <translation type="unfinished"/>
+        <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
+        <source>Create Account</source>
+        <translation>खाता बनाएँ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>डोमेन छोड़ें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>डोमेन से जुड़ें</translation>
     </message>
 </context>
 <context>
@@ -373,34 +342,34 @@
         <translation>चित्र</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
-        <source>Your host joins the domain server successfully.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host was removed from the domain server successfully.</source>
-        <translation type="unfinished"/>
+        <translation>आपका होस्ट डोमेन सर्वर से सफलतापूर्वक हटा दिया गया है।</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
+        <source>Your host joins the domain server successfully.</source>
+        <translation>आपका होस्ट डोमेन सर्वर से सफलतापूर्वक जुड़ गया है।</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="333"/>
         <source>Your host failed to leave the domain server.</source>
-        <translation type="unfinished"/>
+        <translation>आपका होस्ट डोमेन सर्वर छोड़ने में विफल रहा।</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
         <source>Your host failed to join the domain server.</source>
-        <translation type="unfinished"/>
+        <translation>आपका होस्ट डोमेन सर्वर से जुड़ने में विफल रहा।</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>सक्रिय डायरेक्टरी डोमेन सेटिंग्स</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="406"/>
         <source>Password not match.</source>
-        <translation type="unfinished"/>
+        <translation>कूटशब्द मेल नहीं खाते।</translation>
     </message>
 </context>
 <context>
@@ -408,55 +377,45 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>अंगुली-चिन्ह जोड़ें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>पुनः दर्ज करें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="56"/>
         <source>Done</source>
-        <translation>हो गया</translation>
+        <translation>पूर्ण हुआ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>अंगुली-चिन्ह की पहचान की जा रही है</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
-        <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation type="unfinished"/>
+        <translation>अंगुली-चिन्ह की पहचान करने में विफल, अपनी अंगुली को अंगुली-चिन्ह रिकॉर्डर पर रखें, अंगुली को नीचे से ऊपर की ओर स्पर्श कर, रिकॉर्डर से हटा लें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>अंगुली-चिन्ह सफलतापूर्वक जोड़ें</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
+        <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
+        <translation>अपनी अंगुली को अंगुली-चिन्ह रिकॉर्डर पर रखें, अंगुली को नीचे से ऊपर की ओर स्पर्श कर, रिकॉर्डर से हटा लें, फिर चरणों को दोहराएँ</translation>
     </message>
 </context>
 <context>
     <name>dcc::accounts::CreatePage</name>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="66"/>
-        <source>Create</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/accounts/createpage.cpp" line="65"/>
-        <source>Cancel</source>
-        <translation>रद्द करो</translation>
-    </message>
-    <message>
         <location filename="../modules/accounts/createpage.cpp" line="51"/>
         <source>Username</source>
-        <translation>यूजर नेम </translation>
+        <translation>उपयोक्ता नाम</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="52"/>
@@ -468,27 +427,37 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="53"/>
         <source>Password</source>
-        <translation>पासवर्ड </translation>
+        <translation>कूटशब्द</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="56"/>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation>कूटशब्द पुनः दर्ज करें</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="65"/>
+        <source>Cancel</source>
+        <translation>रद्द करें</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="66"/>
+        <source>Create</source>
+        <translation>बनाएँ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="85"/>
         <source>New Account</source>
-        <translation type="unfinished"/>
+        <translation>नया खाता</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="140"/>
         <source>Username can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>उपयोक्ता नाम रिक्त नहीं हो सकता है।</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="143"/>
         <source>Password can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>कूटशब्द रिक्त नहीं हो सकता है।</translation>
     </message>
 </context>
 <context>
@@ -496,32 +465,32 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>अंगुली-चिन्ह सूची</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>अंगुली-चिन्ह कूटशब्द</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>अंगुली-चिन्ह जोड़ें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>अंगुली-चिन्ह हटाएँ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="56"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation type="unfinished"/>
+        <translation>अंगुली-चिन्ह कूटशब्द का उपयोग सिस्टम लॉगिन, अनुप्रयोग प्रमाणीकरण एवं अन्य स्थितियों में होता है। जब कूटशब्द की आवश्यकता पड़ने पर अंगुली-चिन्ह स्कैन करें।</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>अंगुली-चिन्ह</translation>
     </message>
 </context>
 <context>
@@ -529,17 +498,17 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>पूर्ण नाम :</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
         <source>OK</source>
-        <translation>ठीक</translation>
+        <translation>ठीक है</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>पूर्ण नाम सेटिंग्स</translation>
     </message>
 </context>
 <context>
@@ -547,7 +516,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
         <source>Current Password</source>
-        <translation type="unfinished"/>
+        <translation>वर्तमान कूटशब्द</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
@@ -557,7 +526,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
         <source>Repeat Password</source>
-        <translation>पुनः कूटशब्द</translation>
+        <translation>कूटशब्द पुनः दर्ज करें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="55"/>
@@ -569,22 +538,22 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
         <source>Accept</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
-        <source>Password</source>
-        <translation>पासवर्ड </translation>
+        <translation>स्वीकारें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="105"/>
         <source>New password should differ from the current one</source>
-        <translation>यहा पासवर्ड मौजूदा पासवर्ड से भिन्न नहीं होना चाहिए </translation>
+        <translation>नया कूटशब्द वर्तमान वाले से अलग होना चाहिए</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
+        <source>Password</source>
+        <translation>कूटशब्द</translation>
     </message>
 </context>
 <context>
@@ -592,17 +561,17 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>खाता हटाने हेतु प्रबंधक विशेषाधिकार आवश्यक है</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>खाता डायरेक्टरी हटाएँ</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
@@ -615,26 +584,26 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="47"/>
         <source>My devices</source>
-        <translation>मेरे उपकरण </translation>
+        <translation>मेरे डिवाइस</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="48"/>
         <source>Other devices</source>
-        <translation>अन्य उपकरण </translation>
+        <translation>अन्य डिवाइस</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="65"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>निकटवर्ती डिवाइस (लाउडस्पीकर, कुंजीपटल, माउस) खोजने हेतु ब्लूटूथ सक्रीय करें</translation>
     </message>
 </context>
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="129"/>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="159"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="126"/>
         <source>Bluetooth</source>
-        <translation>ब्लूटुथ  </translation>
+        <translation>ब्लूटूथ</translation>
     </message>
 </context>
 <context>
@@ -647,7 +616,7 @@
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="43"/>
         <source>Disconnect</source>
-        <translation>बंद हुआ</translation>
+        <translation>डिस्कनेक्ट है</translation>
     </message>
 </context>
 <context>
@@ -655,12 +624,12 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
-        <translation>जुड़ा हुआ</translation>
+        <translation>कनेक्ट है </translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>कनेक्ट नहीं है</translation>
     </message>
 </context>
 <context>
@@ -668,35 +637,35 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation type="unfinished"/>
+        <translation>ब्लूटूथ डिवाइस से कनेक्ट करने के लिए है पिन है :</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="49"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="51"/>
         <source>OK</source>
-        <translation>ठीक</translation>
+        <translation>ठीक है</translation>
     </message>
 </context>
 <context>
     <name>dcc::datetime::DateSettings</name>
     <message>
+        <location filename="../modules/datetime/datesettings.cpp" line="63"/>
+        <source>Change Time Settings</source>
+        <translation>समय संबंधी सेटिंग्स बदलें</translation>
+    </message>
+    <message>
         <location filename="../modules/datetime/datesettings.cpp" line="68"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="69"/>
         <source>Confirm</source>
-        <translation>पुष्टि</translation>
-    </message>
-    <message>
-        <location filename="../modules/datetime/datesettings.cpp" line="63"/>
-        <source>Change Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>पुष्टि करें</translation>
     </message>
 </context>
 <context>
@@ -704,41 +673,41 @@
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="56"/>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>वर्ष</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="59"/>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>माह</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>दिन</translation>
     </message>
 </context>
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="131"/>
+        <location filename="../modules/datetime/datetime.cpp" line="58"/>
+        <source>Time and Date</source>
+        <translation>समय व दिनांक</translation>
+    </message>
+    <message>
         <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
-        <translation type="unfinished"/>
+        <translation>स्वतः समन्वयित करें</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="51"/>
         <source>Add Timezone</source>
-        <translation>टाइमजोन शामिल करें </translation>
-    </message>
-    <message>
-        <location filename="../modules/datetime/datetime.cpp" line="58"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="128"/>
-        <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>समय-क्षेत्र जोड़ें</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="62"/>
         <source>Change System Timezone</source>
-        <translation type="unfinished"/>
+        <translation>सिस्टम का समय-क्षेत्र बदलें</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="70"/>
@@ -748,30 +717,30 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="75"/>
         <source>Timezone List</source>
-        <translation type="unfinished"/>
+        <translation>समय-क्षेत्र सूची</translation>
     </message>
 </context>
 <context>
     <name>dcc::datetime::TimeZoneChooser</name>
     <message>
-        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="174"/>
-        <source>Change Timezone</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="64"/>
         <source>Confirm</source>
-        <translation>पुष्टि</translation>
+        <translation>पुष्टि करें</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="172"/>
+        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="173"/>
         <source>Add Timezone</source>
-        <translation>टाइमजोन शामिल करें </translation>
+        <translation>समय-क्षेत्र जोड़ें</translation>
+    </message>
+    <message>
+        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="173"/>
+        <source>Change Timezone</source>
+        <translation>समय-क्षेत्र बदलें</translation>
     </message>
 </context>
 <context>
@@ -779,12 +748,12 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="107"/>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>आने वाला कल</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="109"/>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>बीता हुआ कल</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="111"/>
@@ -794,26 +763,26 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="116"/>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>स्थानीय समय से %1 घंटे पहले</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="118"/>
         <source>%1 hours late than local</source>
-        <translation type="unfinished"/>
+        <translation>स्थानीय समय से %1 घंटे बाद</translation>
     </message>
 </context>
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="126"/>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="123"/>
         <source>Default Applications</source>
-        <translation>मूल अनुप्रयोग</translation>
+        <translation>डिफ़ॉल्ट अनुप्रयोग</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="55"/>
         <source>Browser</source>
-        <translation>विचरक</translation>
+        <translation>ब्राउज़र</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="56"/>
@@ -823,7 +792,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="57"/>
         <source>Text</source>
-        <translation>पाठ्य</translation>
+        <translation>टेक्स्ट</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="58"/>
@@ -838,12 +807,12 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="60"/>
         <source>Picture</source>
-        <translation>तस्वीर</translation>
+        <translation>चित्र</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="61"/>
         <source>Terminal</source>
-        <translation>छोर</translation>
+        <translation>टर्मिनल</translation>
     </message>
 </context>
 <context>
@@ -856,7 +825,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>डेस्कटॉप फ़ाइल खोलें</translation>
     </message>
 </context>
 <context>
@@ -865,24 +834,29 @@
         <location filename="../modules/defapp/defappwidget.cpp" line="46"/>
         <location filename="../modules/defapp/defappwidget.cpp" line="50"/>
         <source>Default Applications</source>
-        <translation>मूल अनुप्रयोग</translation>
+        <translation>डिफ़ॉल्ट अनुप्रयोग</translation>
     </message>
 </context>
 <context>
     <name>dcc::display::BrightnessPage</name>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="52"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="58"/>
         <source>Brightness</source>
-        <translation>चमक</translation>
+        <translation>स्क्रीन की चमक</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="75"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="81"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>नीले प्रकाश हेतु फिल्टर</translation>
     </message>
     <message>
-        <location filename="../modules/display/brightnesspage.cpp" line="80"/>
+        <location filename="../modules/display/brightnesspage.cpp" line="86"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
+        <translation>यह आपके स्थान के आधार पर स्क्रीन के प्रकाश को स्वतः समायोजित करता है ताकि आपके नेत्र सुरक्षित रहें</translation>
+    </message>
+    <message>
+        <location filename="../modules/display/brightnesspage.cpp" line="95"/>
+        <source>Auto Brightness</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -891,7 +865,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="43"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>बदलाव करें</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="45"/>
@@ -901,12 +875,12 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="48"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation type="unfinished"/>
+        <translation>सेटिंग्स बदलने से पहले कृपया वर्तमान मोड में बदले लें</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="50"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation type="unfinished"/>
+        <translation>सेटिंग्स हटाने से पहले कृपया अन्य मोड में बदले लें</translation>
     </message>
 </context>
 <context>
@@ -914,54 +888,54 @@
     <message>
         <location filename="../modules/display/displaymodule.cpp" line="258"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>बेतार स्क्रीन प्रक्षेपण</translation>
     </message>
 </context>
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../modules/display/displaywidget.cpp" line="107"/>
+        <source>Display</source>
+        <translation>प्रदर्शन </translation>
+    </message>
+    <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>डिस्प्ले मापन</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
         <source>Rotate</source>
-        <translation type="unfinished"/>
+        <translation>घुमाएँ</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="58"/>
         <source>New custom settings</source>
-        <translation type="unfinished"/>
+        <translation>नई अनुकूलित सेटिंग्स</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
-        <translation>आकार</translation>
+        <translation>रिज़ॉल्यूशन</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="62"/>
         <source>Brightness</source>
-        <translation>चमक</translation>
+        <translation>स्क्रीन की चमक</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="227"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/display/displaywidget.cpp" line="107"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="122"/>
-        <source>Display</source>
-        <translation>प्रदर्शन </translation>
+        <translation>बेतार स्क्रीन प्रक्षेपण</translation>
     </message>
 </context>
 <context>
     <name>dcc::display::DisplayWorker</name>
     <message>
-        <location filename="../modules/display/displayworker.cpp" line="177"/>
+        <location filename="../modules/display/displayworker.cpp" line="178"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>मेरी सेटिंग्स %1</translation>
     </message>
 </context>
 <context>
@@ -969,17 +943,17 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="43"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>डिवाइस स्कैन किए जा रहे हैं, कृपया प्रतीक्षा करें...</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="44"/>
         <source>No available device found</source>
-        <translation type="unfinished"/>
+        <translation>कोई उपलब्ध डिवाइस नहीं मिला</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="47"/>
         <source>Refresh</source>
-        <translation>रिफ्रेश </translation>
+        <translation>रिफ्रेश करें</translation>
     </message>
 </context>
 <context>
@@ -987,17 +961,17 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="51"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation type="unfinished"/>
+        <translation>स्क्रीन प्रक्षेपण सक्रिय होने पर वाई-फाई डिस्कनेक्ट हो जाएगा</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="55"/>
         <source>Refresh</source>
-        <translation>रिफ्रेश </translation>
+        <translation>रिफ्रेश करें</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="69"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>डिवाइस सूची </translation>
     </message>
 </context>
 <context>
@@ -1005,7 +979,7 @@
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="48"/>
         <source>Recognize</source>
-        <translation>मान्यता देना </translation>
+        <translation>पहचानें</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="55"/>
@@ -1015,7 +989,7 @@
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="62"/>
         <source>Merge</source>
-        <translation type="unfinished"/>
+        <translation>विलय करें</translation>
     </message>
 </context>
 <context>
@@ -1023,12 +997,12 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="108"/>
         <source>Resolution</source>
-        <translation>आकार</translation>
+        <translation>रिज़ॉल्यूशन</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="171"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="173"/>
@@ -1038,12 +1012,12 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="180"/>
         <source>Primary</source>
-        <translation>प्राथमिक</translation>
+        <translation>मुख्य</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="347"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>(सुझाया गया)</translation>
     </message>
 </context>
 <context>
@@ -1051,12 +1025,12 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="41"/>
         <source>Resolution</source>
-        <translation>आकार</translation>
+        <translation>रिज़ॉल्यूशन</translation>
     </message>
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="80"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>(सुझाया गया)</translation>
     </message>
 </context>
 <context>
@@ -1064,7 +1038,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="51"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>शॉर्टकट</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="60"/>
@@ -1072,20 +1046,20 @@
         <translation>नाम</translation>
     </message>
     <message>
+        <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="65"/>
+        <source>Required</source>
+        <translation>आवश्यक</translation>
+    </message>
+    <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="64"/>
         <source>Command</source>
         <translation>कमांड </translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
-        <location filename="../modules/keyboard/customcontent.cpp" line="65"/>
-        <source>Required</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="82"/>
@@ -1095,12 +1069,12 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="106"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>इस शॉर्टकट का %1 के साथ विरोधाभास है, &apos;में जोड़ें&apos; पर क्लिक कर इसे तुरंत प्रभाव से लागू करें</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="160"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>फ़ाइल चुनें</translation>
     </message>
 </context>
 <context>
@@ -1109,22 +1083,22 @@
         <location filename="../modules/keyboard/customedit.cpp" line="47"/>
         <location filename="../modules/keyboard/customedit.cpp" line="94"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>शॉर्टकट</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>आवश्यक</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="66"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="67"/>
         <source>Save</source>
-        <translation>सहेजें</translation>
+        <translation>संचित करें</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="97"/>
@@ -1139,12 +1113,12 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="108"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>इस शॉर्टकट का %1 के साथ विरोधाभास है, &apos;में जोड़ें&apos; पर क्लिक कर इसे तुरंत प्रभाव से लागू करें</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="148"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>फ़ाइल चुनें</translation>
     </message>
 </context>
 <context>
@@ -1152,12 +1126,12 @@
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>शॉर्टकट</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="102"/>
         <source>Please enter a shortcut</source>
-        <translation type="unfinished"/>
+        <translation>कृपया शॉर्टकट दर्ज करें</translation>
     </message>
 </context>
 <context>
@@ -1166,17 +1140,17 @@
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="49"/>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="51"/>
         <source>Keyboard Layout</source>
-        <translation>की-बोर्ड ले आउट </translation>
+        <translation>कुंजीपटल अभिन्यास</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>अभिन्यास बदलें (एकाधिक है तो)</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="88"/>
         <source>Add Keyboard Layout</source>
-        <translation>की-बोर्ड ले आउट शामिल करें </translation>
+        <translation>कुंजीपटल अभिन्यास जोड़ें</translation>
     </message>
 </context>
 <context>
@@ -1184,76 +1158,76 @@
     <message>
         <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="50"/>
         <source>Add Keyboard Layout</source>
-        <translation>की-बोर्ड ले आउट शामिल करें </translation>
+        <translation>कुंजीपटल अभिन्यास जोड़ें</translation>
     </message>
 </context>
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="134"/>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="131"/>
         <source>Keyboard and Language</source>
-        <translation>की-बोर्ड तथा भाषा </translation>
+        <translation>कुंजीपटल व भाषा</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="52"/>
         <source>Repeat Delay</source>
-        <translation>विलंब दोहराएं  </translation>
+        <translation>कुंजी दोहराव में विलंब</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>लघु</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>दीर्घ</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="65"/>
         <source>Repeat Rate</source>
-        <translation>दर दोहराएं  </translation>
+        <translation>दोहराव की दर</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>धीमा</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>तेज़</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="79"/>
         <source>Please Test Here</source>
-        <translation type="unfinished"/>
+        <translation>यहाँ जाँचें</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="93"/>
         <source>Enable Numeric Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>संख्यात्मक कुंजीपटल सक्रिय करें</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="97"/>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished"/>
+        <translation>कैप्स लॉक सूचक</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="103"/>
         <source>Keyboard Layout</source>
-        <translation>की-बोर्ड ले आउट </translation>
+        <translation>कुंजीपटल अभिन्यास</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="111"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>सिस्टम भाषा</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>शॉर्टकट</translation>
     </message>
 </context>
 <context>
@@ -1261,7 +1235,7 @@
     <message>
         <location filename="../modules/keyboard/langwidget.cpp" line="48"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>सिस्टम भाषा</translation>
     </message>
 </context>
 <context>
@@ -1269,22 +1243,22 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="50"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>कृपया शॉर्टकट पुनः सेट करें</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="57"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="58"/>
         <source>Replace</source>
-        <translation>बदलें </translation>
+        <translation>प्रतिस्थापित करें</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="82"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>इस शॉर्टकट का %1 के साथ विरोधाभास है, &apos;प्रतिस्थापित करें&apos; पर क्लिक कर इसे तुरंत प्रभाव से लागू करें</translation>
     </message>
 </context>
 <context>
@@ -1292,7 +1266,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutitem.cpp" line="85"/>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>कृपया नया शॉर्टकट दर्ज करें</translation>
     </message>
 </context>
 <context>
@@ -1300,7 +1274,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="55"/>
         <source>System</source>
-        <translation>प्रणाली</translation>
+        <translation>सिस्टम</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="56"/>
@@ -1310,22 +1284,22 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="57"/>
         <source>WorkSpace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="78"/>
-        <source>Add Custom Shortcut</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="88"/>
-        <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>कार्यस्थान</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
         <source>Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>अनुकूलित शॉर्टकट</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="78"/>
+        <source>Add Custom Shortcut</source>
+        <translation>अनुकूलित शॉर्टकट जोड़ें</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <source>Shortcuts</source>
+        <translation>शॉर्टकट</translation>
     </message>
 </context>
 <context>
@@ -1333,89 +1307,89 @@
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="44"/>
         <source>Double-click Test</source>
-        <translation type="unfinished"/>
+        <translation>दोहरे-क्लिक का परीक्षण</translation>
     </message>
 </context>
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="133"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="130"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>माउस</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
+        <source>Mouse and Touchpad</source>
+        <translation>माउस व टचपैड </translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
+        <source>TouchPad</source>
+        <translation>टचपैड</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>ट्रैकपॉइंट</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
         <source>Left Hand</source>
-        <translation>बाएँ हाथ</translation>
+        <translation>बायाँ हाथ</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>टाइप करते समय टचपैड निष्क्रिय करें</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
         <source>Double-click Speed</source>
-        <translation>डबल क्लिक की गति </translation>
+        <translation>दोहरे-क्लिक की गति </translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="70"/>
         <source>Pointer Speed</source>
-        <translation>प्वाइंटर की गति</translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
-        <source>Disable the touchpad when inserting the mouse</source>
-        <translation>माउस इंसर्ट करते वक्त टचपैड निष्क्रिय करें। </translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
-        <source>Slow</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
-        <source>Fast</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
-        <source>TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>पॉइंटर की गति</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>माउस त्वरण</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
-        <translation type="unfinished"/>
+        <translation>स्क्रॉल गति</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
+        <source>Disable the touchpad when inserting the mouse</source>
+        <translation>माउस लगाते समय टचपैड निष्क्रिय करें</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="62"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="66"/>
         <source>Natural Scrolling</source>
-        <translation>स्वाभाविक स्क्रॉलिंग</translation>
+        <translation>सामान्य स्क्रॉल</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>क्लिक करने हेतु टैप करें</translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
-        <source>Mouse and Touchpad</source>
-        <translation>माउस और टचपैड </translation>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
+        <source>Slow</source>
+        <translation>धीमा</translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
+        <source>Fast</source>
+        <translation>तेज़</translation>
     </message>
 </context>
 <context>
@@ -1423,22 +1397,22 @@
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detect</source>
-        <translation type="unfinished"/>
+        <translation>टचपैड पर हथेली संवेदन</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <source>Minimum contact surface</source>
-        <translation type="unfinished"/>
+        <translation>न्यूनतम संपर्क सतह</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <source>Minimum pressure value</source>
-        <translation type="unfinished"/>
+        <translation>न्यूनतम दबाव मान</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>अगर टचपैड सक्रिय होने के बाद भी नहीं चल रहा है, तो इस विकल्प को निष्क्रिय करें</translation>
     </message>
 </context>
 <context>
@@ -1446,23 +1420,23 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="46"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>अनुप्रयोग प्रॉक्सी</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="49"/>
         <source>Proxy Type</source>
-        <translation>प्रॉक्सि प्रकार</translation>
+        <translation>प्रॉक्सी का प्रकार</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="52"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>आईपी पता </translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
         <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>आवश्यक</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="56"/>
@@ -1472,33 +1446,33 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="60"/>
         <source>Username</source>
-        <translation>यूजर नेम </translation>
+        <translation>उपयोक्ता नाम</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
         <location filename="../modules/network/chainsproxypage.cpp" line="65"/>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>वैकल्पिक</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="64"/>
         <source>Password</source>
-        <translation>पासवर्ड </translation>
+        <translation>कूटशब्द</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation type="unfinished"/>
+        <translation>विन्यास के बाद उपयोग करने हेतु, लॉन्चर में अनुप्रयोग प्रसंग मेन्यू में &quot;प्रॉक्सी द्वारा खोलें&quot; को चयनित करें</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="88"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="89"/>
         <source>OK</source>
-        <translation>ठीक</translation>
+        <translation>ठीक है</translation>
     </message>
 </context>
 <context>
@@ -1506,54 +1480,221 @@
     <message>
         <location filename="../modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
-        <translation>प्रॉक्सि प्रकार</translation>
+        <translation>प्रॉक्सी का प्रकार</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="141"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="82"/>
         <source>Disconnect</source>
-        <translation>बंद हुआ</translation>
+        <translation>डिस्कनेक्ट है</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="143"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="84"/>
         <source>Delete</source>
         <translation>हटाएँ</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="145"/>
-        <source>Export</source>
-        <translation>निर्यात करें</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="155"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="89"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="156"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="90"/>
         <source>Save</source>
-        <translation>सहेजें</translation>
+        <translation>संचित करें</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="518"/>
-        <location filename="../modules/network/connectioneditpage.cpp" line="601"/>
-        <source>Required</source>
+        <location filename="../modules/network/connectioneditpage.cpp" line="311"/>
+        <source>Wired Connection %1</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/connectioneditpage.cpp" line="315"/>
+        <source>Wireless Connection %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/connectioneditpage.cpp" line="319"/>
+        <source>PPPoE Connection %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::network::ConnectionVpnEditPage</name>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="141"/>
+        <source>VPN L2TP %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="145"/>
+        <source>VPN PPTP %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="149"/>
+        <source>VPN VPNC %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="153"/>
+        <source>VPN OpenVPN %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
+        <source>VPN StrongSwan %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
+        <source>VPN OpenConnect %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::network::EthernetSection</name>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="89"/>
+        <source>Device MAC Addr</source>
+        <translation>उपकरण MAC ऐड्रेस</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="101"/>
+        <source>Cloned MAC Addr</source>
+        <translation>क्लोन किया MAC ऐड्रेस</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="114"/>
+        <source>Customize MTU</source>
+        <translation>MTU को कस्टमाइज करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="117"/>
+        <source>MTU</source>
+        <translation>एमटीयू</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::GenericHotspotSection</name>
+    <message>
+        <location filename="../modules/network/sections/generichotspotsection.cpp" line="31"/>
+        <source>General</source>
+        <translation>सामान्य</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/generichotspotsection.cpp" line="63"/>
+        <source>Name</source>
+        <translation>नाम</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::GenericSection</name>
+    <message>
+        <location filename="../modules/network/sections/genericsection.cpp" line="31"/>
+        <source>General</source>
+        <translation>सामान्य</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/genericsection.cpp" line="62"/>
+        <source>Name</source>
+        <translation>नाम</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/genericsection.cpp" line="65"/>
+        <source>Automatically connect</source>
+        <translation>स्वचालित रूप से कनेक्ट करें </translation>
     </message>
 </context>
 <context>
     <name>dcc::network::HotspotPage</name>
     <message>
-        <location filename="../modules/network/hotspotpage.cpp" line="63"/>
+        <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
+        <translation>हॉटस्पॉट की सेटिंग्स</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/hotspotpage.cpp" line="76"/>
+        <source>Hotspot</source>
+        <translation>हॉटस्पॉट</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::IpvxSection</name>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="32"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="37"/>
+        <source>Auto</source>
+        <translation>स्वतः</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="33"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="38"/>
+        <source>Manual</source>
+        <translation>मैनुअल </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="39"/>
+        <source>Ignore</source>
+        <translation>अनदेखा करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="43"/>
+        <source>IPv4</source>
+        <translation>आईपीवी4</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="63"/>
+        <source>IPv6</source>
+        <translation>आईपीवी6</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="203"/>
+        <source>Method</source>
+        <translation>विधि</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="204"/>
+        <source>IP Address</source>
+        <translation>आईपी पता</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="205"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="270"/>
+        <source>Required</source>
+        <translation>आवश्यक</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="206"/>
+        <source>Gateway</source>
+        <translation>नेटवर्क गेटवे</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="207"/>
+        <source>Primary DNS</source>
+        <translation>प्राथमिक DNS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="208"/>
+        <source>Secondary DNS</source>
+        <translation>माध्यमिक डीएनएस</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="209"/>
+        <source>Only applied in corresponding resources</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/hotspotpage.cpp" line="78"/>
-        <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="269"/>
+        <source>Netmask</source>
+        <translation>Netmask</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="313"/>
+        <source>Prefix</source>
+        <translation>नेटवर्क उपसर्ग </translation>
     </message>
 </context>
 <context>
@@ -1561,17 +1702,17 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="94"/>
         <source>Network Details</source>
-        <translation type="unfinished"/>
+        <translation>नेटवर्क विवरण</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="136"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>हॉटस्पॉट</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="141"/>
         <source>SSID</source>
-        <translation>एसएसआईडी</translation>
+        <translation>SSID</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
@@ -1579,9 +1720,14 @@
         <translation>सुरक्षा</translation>
     </message>
     <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
+        <source>Interface</source>
+        <translation>इंटरफेस </translation>
+    </message>
+    <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="162"/>
         <source>MAC</source>
-        <translation type="unfinished"/>
+        <translation>MAC</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="168"/>
@@ -1591,52 +1737,53 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="177"/>
         <source>IPv4 Address</source>
-        <translation type="unfinished"/>
+        <translation>IPv4 पता</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="182"/>
         <location filename="../modules/network/networkdetailpage.cpp" line="207"/>
         <source>Gateway</source>
-        <translation>द्वार</translation>
+        <translation>नेटवर्क गेटवे</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="187"/>
         <location filename="../modules/network/networkdetailpage.cpp" line="212"/>
         <source>Primary DNS</source>
-        <translation>प्राथमिक डीएनएस</translation>
+        <translation>प्राथमिक DNS</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="192"/>
         <source>Netmask</source>
-        <translation>नेटमास्क </translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
-        <source>Interface</source>
-        <translation>इंटरफेस </translation>
+        <translation>Netmask</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="202"/>
         <source>IPv6 Address</source>
-        <translation type="unfinished"/>
+        <translation>IPv6 पता</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="217"/>
         <source>Prefix</source>
-        <translation>उपसर्ग </translation>
+        <translation>नेटवर्क उपसर्ग </translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="223"/>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>गति</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="128"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
+        <source>Network</source>
+        <translation>नेटवर्क </translation>
+    </message>
+    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>DSL</source>
-        <translation type="unfinished"/>
+        <translation>DSL</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="61"/>
@@ -1644,88 +1791,184 @@
         <translation>वीपीएन</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="67"/>
-        <source>Application proxy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="70"/>
-        <source>Network Details</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="125"/>
-        <source>Network</source>
-        <translation>संचार</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
-        <source>Wired Network Card%1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
-        <source>Wired Network Card</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
-        <source>Wired Network</source>
-        <translation>वायर्ड कनेक्शन </translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
-        <source>Wired Network%1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="65"/>
         <source>System Proxy</source>
         <translation>सिस्टम प्रॉक्सी </translation>
     </message>
     <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="67"/>
+        <source>Application proxy</source>
+        <translation>अनुप्रयोग प्रॉक्सी</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="70"/>
+        <source>Network Details</source>
+        <translation>नेटवर्क विवरण</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
+        <source>Wired Network Card%1</source>
+        <translation>तार वाले नेटवर्क का कार्ड %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
+        <source>Wired Network%1</source>
+        <translation>तार वाला नेटवर्क %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
+        <source>Wired Network Card</source>
+        <translation>तार वाले नेटवर्क का कार्ड</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
+        <source>Wired Network</source>
+        <translation>तार वाला नेटवर्क</translation>
+    </message>
+    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="252"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>हॉटस्पॉट</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="257"/>
         <source>Shared</source>
-        <translation>साझा किया हुआ </translation>
+        <translation>साझा</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="266"/>
         <source>Wireless Network Card%1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
-        <source>Wireless Network Card</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="272"/>
-        <source>Wireless Network</source>
-        <translation>बिना वायर के संचार</translation>
+        <translation>बेतार नेटवर्क का कार्ड %1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="267"/>
         <source>Wireless Network%1</source>
-        <translation type="unfinished"/>
+        <translation>बेतार नेटवर्क %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
+        <source>Wireless Network Card</source>
+        <translation>बेतार नेटवर्क का कार्ड</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="272"/>
+        <source>Wireless Network</source>
+        <translation>बेतार नेटवर्क</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::PPPOESection</name>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="31"/>
+        <source>PPPoE</source>
+        <translation>PPPoE </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="76"/>
+        <source>Username</source>
+        <translation>उपयोक्ता नाम</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="77"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="84"/>
+        <source>Required</source>
+        <translation>आवश्यक</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="80"/>
+        <source>Service</source>
+        <translation>सेवा</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="83"/>
+        <source>Password</source>
+        <translation>कूटशब्द</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::PPPSection</name>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="31"/>
+        <source>Refuse EAP Authentication</source>
+        <translation>EAP प्रमाणीकरण से इंकार करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="32"/>
+        <source>Refuse PAP Authentication</source>
+        <translation>PAP प्रमाणीकरण से इंकार करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="33"/>
+        <source>Refuse CHAP Authentication</source>
+        <translation>CHAP प्रमाणीकरण से इंकार करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="34"/>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation>MSCHAP प्रमाणीकरण से इंकार करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="35"/>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation>MSCHAPv2 प्रमाणीकरण से इंकार करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="36"/>
+        <source>No BSD Data Compression</source>
+        <translation>कोई BSD डेटा संपीड़न नहीं</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="37"/>
+        <source>No Deflate Data Compression</source>
+        <translation>कोई डिफ्लेट डेटा संपीड़न नहीं </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="38"/>
+        <source>No TCP Header Compression</source>
+        <translation>कोई TCP हेडर संपीड़न नहीं</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="39"/>
+        <source>No Protocol Field Compression</source>
+        <translation>कोई प्रोटोकोल फील्ड संपीड़न नहीं </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="40"/>
+        <source>No Address/Control Compression</source>
+        <translation>कोई ऐड्रेस/कंट्रोल संपीड़न नहीं</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="41"/>
+        <source>Send PPP Echo Packets</source>
+        <translation>PPP ईको पैकेट्स भेजें</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="45"/>
+        <source>PPP</source>
+        <translation>PPP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="98"/>
+        <source>Use MPPE</source>
+        <translation>MPPE का इस्तेमाल करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/pppsection.cpp" line="101"/>
+        <source>128-bit MPPE</source>
+        <translation>128-बिट एमपीपीई</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::PppoePage</name>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="54"/>
+        <location filename="../modules/network/pppoepage.cpp" line="52"/>
         <source>Create PPPoE Connection</source>
-        <translation type="unfinished"/>
+        <translation>PPPoE कनेक्शन बनाएँ</translation>
     </message>
     <message>
-        <location filename="../modules/network/pppoepage.cpp" line="68"/>
+        <location filename="../modules/network/pppoepage.cpp" line="66"/>
         <source>PPP</source>
-        <translation>पीपीपी</translation>
+        <translation>PPP</translation>
     </message>
 </context>
 <context>
@@ -1733,12 +1976,12 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="58"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="59"/>
         <source>Confirm</source>
-        <translation>पुष्टि</translation>
+        <translation>पुष्टि करें</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="61"/>
@@ -1758,7 +2001,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="93"/>
         <source>Http Proxy</source>
-        <translation type="unfinished"/>
+        <translation>एचटीटीपी प्रॉक्सी</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="95"/>
@@ -1771,27 +2014,27 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="98"/>
         <source>Https Proxy</source>
-        <translation type="unfinished"/>
+        <translation>एचटीटीपीएस प्रॉक्सी</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="103"/>
         <source>Ftp Proxy</source>
-        <translation type="unfinished"/>
+        <translation>एफ़टीपी प्रॉक्सी</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="108"/>
         <source>Socks Proxy</source>
-        <translation>सॉक्स प्रॉक्सी </translation>
+        <translation>Socks प्रॉक्सी </translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="117"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="unfinished"/>
+        <translation>ऊपर दिए गए होस्ट एवं डोमेन के लिए विन्यस्त प्रॉक्सी सेटिंग्स को अनदेखा करें</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="120"/>
         <source>Configuration URL</source>
-        <translation>कंफिगरेशन URL</translation>
+        <translation>विन्यास यूआरएल</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="177"/>
@@ -1800,21 +2043,742 @@
     </message>
 </context>
 <context>
+    <name>dcc::network::Secret8021xSection</name>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="31"/>
+        <source>TLS</source>
+        <translation>TLS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="32"/>
+        <source>MD5</source>
+        <translation>MD5</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="33"/>
+        <source>LEAP</source>
+        <translation>LEAP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="34"/>
+        <source>FAST</source>
+        <translation>तीव्र </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="35"/>
+        <source>Tunneled TLS</source>
+        <translation>टनल युक्त TLS</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="36"/>
+        <source>Protected EAP</source>
+        <translation>सुरक्षित EAP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="41"/>
+        <source>Saved</source>
+        <translation>सहेजा गया</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="42"/>
+        <source>Ask</source>
+        <translation>पूंछें</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="47"/>
+        <source>Disabled</source>
+        <translation>बंद किया हुआ है</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="48"/>
+        <source>Anonymous</source>
+        <translation>गुमनाम </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="49"/>
+        <source>Authenticated</source>
+        <translation>प्रमाणीकृत </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="50"/>
+        <source>Both</source>
+        <translation>दोनों</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="66"/>
+        <source>Automatic</source>
+        <translation>स्वतः</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="78"/>
+        <source>Security</source>
+        <translation>सुरक्षा</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="197"/>
+        <source>EAP Auth</source>
+        <translation>EAP ऑथ</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="43"/>
+        <source>Not Required</source>
+        <translation>आवश्यक नहीं </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="67"/>
+        <source>Version 0</source>
+        <translation>संस्करण 0</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="68"/>
+        <source>Version 1</source>
+        <translation>संस्करण 1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="209"/>
+        <source>Identity</source>
+        <translation>पहचान</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="211"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="219"/>
+        <source>Required</source>
+        <translation>आवश्यक</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="213"/>
+        <source>Ask for Pwd</source>
+        <translation>कूटशब्द हेतु पूछें</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="299"/>
+        <source>Private Key</source>
+        <translation>निजी कुंजी </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="303"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="376"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="408"/>
+        <source>CA Cert</source>
+        <translation>CA Cert</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="307"/>
+        <source>User Cert</source>
+        <translation>यूजर  Cert</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="325"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="372"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="404"/>
+        <source>Anonymous ID</source>
+        <translation>अज्ञात आईडी</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="329"/>
+        <source>Provisioning</source>
+        <translation>प्रोविजनिंग </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="341"/>
+        <source>PAC file</source>
+        <translation>पीएसी फ़ाइल</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="345"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="380"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="423"/>
+        <source>Inner Auth</source>
+        <translation>इनर ऑथ </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="412"/>
+        <source>PEAP Version</source>
+        <translation>पीईएपी संस्करण</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="503"/>
+        <source>Private Pwd</source>
+        <translation>निजी कूटशब्द</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="505"/>
+        <source>Password</source>
+        <translation>कूटशब्द</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::SecretHotspotSection</name>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="36"/>
+        <source>None</source>
+        <translation>कोई नहीं</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="37"/>
+        <source>WEP 40/128-bit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="38"/>
+        <source>WPA/WPA2 Personal</source>
+        <translation>WPA/WPA2 पर्सनल </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="101"/>
+        <source>Security</source>
+        <translation>सुरक्षा</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="107"/>
+        <source>Required</source>
+        <translation>आवश्यक</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="137"/>
+        <source>Key</source>
+        <translation>कुंजी</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="143"/>
+        <source>Password</source>
+        <translation>कूटशब्द</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::SecretWiredSection</name>
+    <message>
+        <location filename="../modules/network/sections/secretwiredsection.cpp" line="32"/>
+        <source>Security Required</source>
+        <translation>सुरक्षा आवश्यक </translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::SecretWirelessSection</name>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="37"/>
+        <source>None</source>
+        <translation>कोई नहीं</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="38"/>
+        <source>WEP 40/128-bit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="39"/>
+        <source>WPA/WPA2 Personal</source>
+        <translation>WPA/WPA2 पर्सनल </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="40"/>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation>WPA/WPA2 एंटरप्राइज </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="103"/>
+        <source>Security</source>
+        <translation>सुरक्षा</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="109"/>
+        <source>Required</source>
+        <translation>आवश्यक</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="151"/>
+        <source>Key</source>
+        <translation>कुंजी</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="158"/>
+        <source>Password</source>
+        <translation>कूटशब्द</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnAdvOpenVPNSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
+        <source>VPN Advanced</source>
+        <translation>VPN ऐडवांस्ड </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
+        <source>Customize Gateway Port</source>
+        <translation>गेटवे पोर्ट कस्टमाइज करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
+        <source>Gateway Port</source>
+        <translation>गेटवे पोर्ट </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
+        <source>Customize Renegotiation Interval</source>
+        <translation>रीनिगोशिएशन इंटरवल कस्टमाइज करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
+        <source>Renegotiation Interval</source>
+        <translation>रिनिगोशिएशन इंटरवल </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
+        <source>Use LZO data compression</source>
+        <translation>LZO डेटा संपीड़न </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
+        <source>Use TCP connection</source>
+        <translation>TCP कनेक्शन का इस्तेमाल करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
+        <source>Use TAP device</source>
+        <translation>TAP उपकरण का इस्तेमाल करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
+        <source>Customize Tunnel MTU</source>
+        <translation>टनल MTU को कस्टमाइज करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
+        <source>MTU</source>
+        <translation>एमटीयू</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
+        <source>Customize UDP Fragment Size</source>
+        <translation>UDP फ्रैगमेंट साइज को कस्टमाइज करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
+        <source>UDP Fragment Size</source>
+        <translation>UDP फ्रैगमेंट साइज</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
+        <source>Restrict Tunnel TCP MSS</source>
+        <translation>टनल TCP MSS को प्रतिबंधित करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
+        <source>Randomize Remote Hosts</source>
+        <translation>रिमोट होस्ट को रैंडमाइज करें </translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnAdvVPNCSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
+        <source>Cisco (default)</source>
+        <translation>सिस्को (डिफॉल्ट)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="32"/>
+        <source>Netscreen</source>
+        <translation>नेटस्क्रीन </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="35"/>
+        <source>Secure (default)</source>
+        <translation>सुरक्षित (डिफॉल्ट)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="36"/>
+        <source>Weak</source>
+        <translation>कमजोर</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="37"/>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="52"/>
+        <source>None</source>
+        <translation>कोई नहीं</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="40"/>
+        <source>NAT-T When Available (default)</source>
+        <translation>NAT-T उपलब्ध होने पर (डिफॉल्ट)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="41"/>
+        <source>NAT-T Always</source>
+        <translation>NAT-T हमेशा </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="42"/>
+        <source>Cisco UDP</source>
+        <translation>सिस्को UDP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="43"/>
+        <source>Disabled</source>
+        <translation>बंद किया हुआ है</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="46"/>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="53"/>
+        <source>DH Group 1</source>
+        <translation>DH ग्रुप 1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="47"/>
+        <source>DH Group 2 (default)</source>
+        <translation>DH ग्रुप 2 (डिफॉल्ट)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="48"/>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="55"/>
+        <source>DH Group 5</source>
+        <translation>DH ग्रुप 5</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="51"/>
+        <source>Server (default)</source>
+        <translation>सर्वर (डिफॉल्ट)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="54"/>
+        <source>DH Group 2</source>
+        <translation>DH ग्रुप 2</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="59"/>
+        <source>VPN Advanced</source>
+        <translation>VPN ऐडवांस्ड </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="165"/>
+        <source>Domain</source>
+        <translation>डोमैन</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="168"/>
+        <source>Vendor</source>
+        <translation>वेंडर </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="174"/>
+        <source>Version</source>
+        <translation>संस्करण</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="177"/>
+        <source>Encryption</source>
+        <translation>एंक्रिप्शन </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="183"/>
+        <source>NAT Traversal Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="189"/>
+        <source>IKE DH Group</source>
+        <translation>IKE DH ग्रुप </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="195"/>
+        <source>Forward Secrecy</source>
+        <translation>गोपनीयता आगे बढ़ाएं  </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="201"/>
+        <source>Local Port</source>
+        <translation>स्थानीय पोर्ट</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
+        <source>Disable Dead Peer Detection</source>
+        <translation>डेड पीयर डिटेक्शन निष्क्रिय करें</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnIpsecSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
+        <source>VPN IPsec</source>
+        <translation>VPN IPसेक</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="83"/>
+        <source>Enable IPsec</source>
+        <translation>IPsec को सक्रिय करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
+        <source>Group Name</source>
+        <translation>समूह का नाम</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
+        <source>Group ID</source>
+        <translation>समूह आईडी</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
+        <source>Pre-Shared Key</source>
+        <translation>प्री-शेयर्ड-की </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
+        <source>Phase1 Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
+        <source>Phase2 Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnOpenConnectSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
+        <source>VPN</source>
+        <translation>वीपीएन</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="84"/>
+        <source>Gateway</source>
+        <translation>नेटवर्क गेटवे</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="85"/>
+        <source>Required</source>
+        <translation>आवश्यक</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <source>CA Cert</source>
+        <translation>CA Cert</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="91"/>
+        <source>Proxy</source>
+        <translation>प्रॉक्सि</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="94"/>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation>सिस्को सिक्योर डेस्कटॉप ट्रोजन की अनुमति दें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="97"/>
+        <source>CSD Script</source>
+        <translation>CSD स्क्रिप्ट</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="100"/>
+        <source>User Cert</source>
+        <translation>यूजर  Cert</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="103"/>
+        <source>Private Key</source>
+        <translation>निजी कुंजी </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="106"/>
+        <source>Use FSID for Key Passphrase</source>
+        <translation>की पासफ्रेज के लिए FSID </translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnOpenVPNSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
+        <source>Certificates (TLS)</source>
+        <translation>सर्टिफिकेट्स (TLS)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="32"/>
+        <source>Password</source>
+        <translation>कूटशब्द</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="33"/>
+        <source>Certificates with Password (TLS)</source>
+        <translation>पासवर्ड के साथ सर्टिफिकेट (TLS)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="34"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="266"/>
+        <source>Static Key</source>
+        <translation>स्टेटिक-की </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="39"/>
+        <source>Saved</source>
+        <translation>सहेजा गया</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="40"/>
+        <source>Ask</source>
+        <translation>पूंछें</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="41"/>
+        <source>Not Required</source>
+        <translation>आवश्यक नहीं </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="45"/>
+        <source>VPN</source>
+        <translation>वीपीएन</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="127"/>
+        <source>Gateway</source>
+        <translation>नेटवर्क गेटवे</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="128"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="223"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="239"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="282"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
+        <source>Required</source>
+        <translation>आवश्यक</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="138"/>
+        <source>Auth Type</source>
+        <translation>ऑथ टाइप </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="141"/>
+        <source>CA Cert</source>
+        <translation>CA Cert</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="226"/>
+        <source>Ask for Pwd</source>
+        <translation>कूटशब्द हेतु पूछें</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="192"/>
+        <source>Private Pwd</source>
+        <translation>निजी कूटशब्द</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="270"/>
+        <source>Customize Key Direction</source>
+        <translation>कस्टमाइज्ड की-डाइरेक्शन </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="274"/>
+        <source>Key Direction</source>
+        <translation>की-डाइरेक्शन </translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnPPPSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
+        <source>All Available (default)</source>
+        <translation>सभी उपलब्ध (डिफॉल्ट)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="32"/>
+        <source>40-bit (less secure)</source>
+        <translation>40-बिट (कम सुरक्षित)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="33"/>
+        <source>128-bit (most secure)</source>
+        <translation>128-बिट (सर्वाधिक सुरक्षित)</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="37"/>
+        <source>Refuse EAP Authentication</source>
+        <translation>EAP प्रमाणीकरण से इंकार करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="38"/>
+        <source>Refuse PAP Authentication</source>
+        <translation>PAP प्रमाणीकरण से इंकार करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="39"/>
+        <source>Refuse CHAP Authentication</source>
+        <translation>CHAP प्रमाणीकरण से इंकार करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="40"/>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation>MSCHAP प्रमाणीकरण से इंकार करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="41"/>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation>MSCHAPv2 प्रमाणीकरण से इंकार करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="42"/>
+        <source>No BSD Data Compression</source>
+        <translation>कोई BSD डेटा संपीड़न नहीं</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="43"/>
+        <source>No Deflate Data Compression</source>
+        <translation>कोई डिफ्लेट डेटा संपीड़न नहीं </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="44"/>
+        <source>No TCP Header Compression</source>
+        <translation>कोई TCP हेडर संपीड़न नहीं</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="45"/>
+        <source>No Protocol Field Compression</source>
+        <translation>कोई प्रोटोकोल फील्ड संपीड़न नहीं </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="46"/>
+        <source>No Address/Control Compression</source>
+        <translation>कोई ऐड्रेस/कंट्रोल संपीड़न नहीं</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="47"/>
+        <source>Send PPP Echo Packets</source>
+        <translation>PPP ईको पैकेट्स भेजें</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="51"/>
+        <source>VPN PPP</source>
+        <translation>वीपीएन पीपीपी</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
+        <source>Use MPPE</source>
+        <translation>MPPE का इस्तेमाल करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
+        <source>Security</source>
+        <translation>सुरक्षा</translation>
+    </message>
+</context>
+<context>
     <name>dcc::network::VpnPage</name>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="76"/>
         <source>VPN Status</source>
-        <translation type="unfinished"/>
+        <translation>वीपीएन स्थिति</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="79"/>
         <source>Create VPN</source>
-        <translation type="unfinished"/>
+        <translation>वीपीएन बनाएँ</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="82"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>वीपीएन आयात करें</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="101"/>
@@ -1822,95 +2786,483 @@
         <translation>वीपीएन</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="269"/>
+        <location filename="../modules/network/vpnpage.cpp" line="241"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>आयात करते समय त्रुटि</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/vpnpage.cpp" line="243"/>
+        <source>OK</source>
+        <translation>ठीक है</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/vpnpage.cpp" line="265"/>
+        <source>L2TP</source>
+        <translation>L2TP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/vpnpage.cpp" line="268"/>
+        <source>PPTP</source>
+        <translation>PPTP</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="271"/>
-        <source>OK</source>
-        <translation>ठीक</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/vpnpage.cpp" line="296"/>
-        <source>L2TP</source>
-        <translation>एल2टीपी</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/vpnpage.cpp" line="299"/>
-        <source>PPTP</source>
-        <translation>पीपीटीपी</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/vpnpage.cpp" line="302"/>
         <source>VPNC</source>
-        <translation>वीपीएनसी</translation>
+        <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="305"/>
+        <location filename="../modules/network/vpnpage.cpp" line="274"/>
         <source>OpenVPN</source>
         <translation>ओपेनवीपीएन</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="308"/>
+        <location filename="../modules/network/vpnpage.cpp" line="277"/>
         <source>StrongSwan</source>
-        <translation type="unfinished"/>
+        <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="311"/>
+        <location filename="../modules/network/vpnpage.cpp" line="280"/>
         <source>OpenConnect</source>
         <translation>ओपनकनेक्ट </translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="336"/>
+        <location filename="../modules/network/vpnpage.cpp" line="305"/>
         <source>New VPN</source>
+        <translation>नया वीपीएन</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnProxySection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
+        <source>Not Required</source>
+        <translation>आवश्यक नहीं </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="32"/>
+        <source>HTTP</source>
+        <translation>HTTP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="33"/>
+        <source>SOCKS</source>
+        <translation>सॉक्स </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="37"/>
+        <source>VPN Proxies</source>
+        <translation>वीपीएन प्रॉक्सि</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="149"/>
+        <source>Server IP</source>
+        <translation>सर्वर आईपी</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="150"/>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
+        <source>Required</source>
+        <translation>आवश्यक</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
+        <source>Port</source>
+        <translation>पोर्ट</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="158"/>
+        <source>Retry Indefinitely When Failed</source>
+        <translation>विफल होने पर अनिश्चित समय तक प्रयास करें  </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="161"/>
+        <source>Username</source>
+        <translation>उपयोक्ता नाम</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
+        <source>Password</source>
+        <translation>कूटशब्द</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnSecOpenVPNSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="50"/>
+        <source>Default</source>
+        <translation>डिफ़ॉल्ट</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="30"/>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="51"/>
+        <source>None</source>
+        <translation>कोई नहीं</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="63"/>
+        <source>VPN Security</source>
+        <translation>वीपीएन सुरक्षा</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="107"/>
+        <source>Cipher</source>
+        <translation>साइफ़र </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="117"/>
+        <source>HMAC Auth</source>
+        <translation>HMAC ऑथ </translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="30"/>
+        <source>Saved</source>
+        <translation>सहेजा गया</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="31"/>
+        <source>Ask</source>
+        <translation>पूंछें</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="32"/>
+        <source>Not Required</source>
+        <translation>आवश्यक नहीं </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="36"/>
+        <source>VPN</source>
+        <translation>वीपीएन</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="110"/>
+        <source>Gateway</source>
+        <translation>नेटवर्क गेटवे</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="111"/>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="115"/>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="125"/>
+        <source>Required</source>
+        <translation>आवश्यक</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="114"/>
+        <source>Username</source>
+        <translation>उपयोक्ता नाम</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="118"/>
+        <source>Ask for Pwd</source>
+        <translation>कूटशब्द हेतु पूछें</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="124"/>
+        <source>Password</source>
+        <translation>कूटशब्द</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="128"/>
+        <source>NT Domain</source>
+        <translation>एनटी डोमैन</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnStrongSwanSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="29"/>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="168"/>
+        <source>Private Key</source>
+        <translation>निजी कुंजी </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="30"/>
+        <source>SSH Agent</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="31"/>
+        <source>Smartcard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="32"/>
+        <source>EAP</source>
+        <translation>EAP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="33"/>
+        <source>Pre-Shared Key</source>
+        <translation>प्री-शेयर्ड-की </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="37"/>
+        <source>VPN</source>
+        <translation>वीपीएन</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="148"/>
+        <source>Gateway</source>
+        <translation>नेटवर्क गेटवे</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="149"/>
+        <source>Required</source>
+        <translation>आवश्यक</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
+        <source>CA Cert</source>
+        <translation>CA Cert</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="155"/>
+        <source>Auth Type</source>
+        <translation>ऑथ टाइप </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="165"/>
+        <source>User Cert</source>
+        <translation>यूजर  Cert</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="171"/>
+        <source>Username</source>
+        <translation>उपयोक्ता नाम</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="174"/>
+        <source>Password</source>
+        <translation>कूटशब्द</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="177"/>
+        <source>Request an Inner IP Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="180"/>
+        <source>Enforce UDP Encapsulation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="183"/>
+        <source>Use IP Compression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="186"/>
+        <source>Enable custom cipher proposals</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="189"/>
+        <source>IKE</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="192"/>
+        <source>ESP</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnTLSSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
+        <source>Default</source>
+        <translation>डिफ़ॉल्ट</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="30"/>
+        <source>Client</source>
+        <translation>क्लाइंट </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
+        <source>Server</source>
+        <translation>सर्वर</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="35"/>
+        <source>VPN TLS Authentication</source>
+        <translation>VPN TLS प्रमाणीकरण </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="83"/>
+        <source>Subject Match</source>
+        <translation>विषय मैच </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="86"/>
+        <source>Remote Cert Type</source>
+        <translation>रिमोट सर्ट टाइप </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="96"/>
+        <source>Key File</source>
+        <translation>कुंजी फ़ाइल</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="99"/>
+        <source>Customize Key Direction</source>
+        <translation>कस्टमाइज्ड की-डाइरेक्शन </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpntlssection.cpp" line="102"/>
+        <source>Key Direction</source>
+        <translation>की-डाइरेक्शन </translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnVPNCSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="30"/>
+        <source>Saved</source>
+        <translation>सहेजा गया</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="31"/>
+        <source>Ask</source>
+        <translation>पूंछें</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="32"/>
+        <source>Not Required</source>
+        <translation>आवश्यक नहीं </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="36"/>
+        <source>VPN</source>
+        <translation>वीपीएन</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="162"/>
+        <source>Gateway</source>
+        <translation>नेटवर्क गेटवे</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="167"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="177"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="191"/>
+        <source>Required</source>
+        <translation>आवश्यक</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="166"/>
+        <source>Username</source>
+        <translation>उपयोक्ता नाम</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="170"/>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="184"/>
+        <source>Ask for Pwd</source>
+        <translation>कूटशब्द हेतु पूछें</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="176"/>
+        <source>Password</source>
+        <translation>कूटशब्द</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="180"/>
+        <source>Group Name</source>
+        <translation>समूह का नाम</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="190"/>
+        <source>Group Pwd</source>
+        <translation>समूह का कूटशब्द</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="194"/>
+        <source>Use Hybrid Authentication</source>
+        <translation>हाइब्रिड ऑथेंटिकेशन का इस्तेमाल करें</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="197"/>
+        <source>CA File</source>
+        <translation>सीए फ़ाइल</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::WiredPage</name>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="60"/>
+        <location filename="../modules/network/wiredpage.cpp" line="59"/>
         <source>Setting List</source>
-        <translation type="unfinished"/>
+        <translation>सेटिंग सूची</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="64"/>
+        <location filename="../modules/network/wiredpage.cpp" line="63"/>
         <source>Please firstly plug in the network cable</source>
-        <translation type="unfinished"/>
+        <translation>कृपया पहले नेटवर्क केबल लगाएँ</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="70"/>
+        <location filename="../modules/network/wiredpage.cpp" line="69"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>सेटिंग्स जोड़ें</translation>
     </message>
     <message>
-        <location filename="../modules/network/wiredpage.cpp" line="85"/>
+        <location filename="../modules/network/wiredpage.cpp" line="84"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>सेटिंग्स चुनें</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::WirelessPage</name>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="61"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="60"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>छुपे नेटवर्क से जुड़ें</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="64"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
-        <translation type="unfinished"/>
+        <translation>हॉटस्पॉट बंद करें</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="67"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="66"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation type="unfinished"/>
+        <translation>बेतार नेटवर्क से जुड़ने व उपयोग करने से पहले, कृपया हॉटस्पॉट साझाकरण को निष्क्रिय अवश्य कर लें</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="90"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="89"/>
         <source>WLAN</source>
-        <translation type="unfinished"/>
+        <translation>WLAN</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::WirelessSection</name>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="104"/>
+        <source>SSID</source>
+        <translation>SSID</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="105"/>
+        <source>Required</source>
+        <translation>आवश्यक</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="108"/>
+        <source>Device MAC Addr</source>
+        <translation>उपकरण MAC ऐड्रेस</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="134"/>
+        <source>Customize MTU</source>
+        <translation>MTU को कस्टमाइज करें </translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="137"/>
+        <source>MTU</source>
+        <translation>एमटीयू</translation>
     </message>
 </context>
 <context>
@@ -1918,7 +3270,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="83"/>
         <source> (Unsupported font)</source>
-        <translation type="unfinished"/>
+        <translation>(असमर्थित मुद्रलिपि)</translation>
     </message>
 </context>
 <context>
@@ -1926,18 +3278,18 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="45"/>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>सामान्य मुद्रलिपि</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Monospace मुद्रलिपि</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
         <location filename="../modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="108"/>
         <source> (Unsupported font)</source>
-        <translation type="unfinished"/>
+        <translation>(असमर्थित मुद्रलिपि)</translation>
     </message>
 </context>
 <context>
@@ -1953,44 +3305,49 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontswidget.cpp" line="52"/>
         <source>Font</source>
-        <translation>फॉन्ट</translation>
+        <translation>मुद्रलिपि</translation>
     </message>
 </context>
 <context>
     <name>dcc::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="117"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="118"/>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>सामान्य मुद्रलिपि</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationmodule.cpp" line="126"/>
+        <location filename="../modules/personalization/personalizationmodule.cpp" line="127"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Monospace मुद्रलिपि</translation>
     </message>
 </context>
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="53"/>
-        <source>Enable window effect</source>
+        <location filename="../frame/navigation/navmodel.cpp" line="127"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="79"/>
+        <source>Personalization</source>
+        <translation>अनुकूलन</translation>
+    </message>
+    <message>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="45"/>
+        <source>Transparency</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="55"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="70"/>
+        <source>Enable window effect</source>
+        <translation>विंडो प्रभाव सक्रिय करें</translation>
+    </message>
+    <message>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="72"/>
         <source>Theme</source>
-        <translation>विषय</translation>
+        <translation>थीम</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="56"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="73"/>
         <source>Font</source>
-        <translation>फॉन्ट</translation>
-    </message>
-    <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="62"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="124"/>
-        <source>Personalization</source>
-        <translation>अनुकूलीकरण </translation>
+        <translation>मुद्रलिपि</translation>
     </message>
 </context>
 <context>
@@ -1998,7 +3355,7 @@
     <message>
         <location filename="../modules/personalization/widget/themeitem.cpp" line="72"/>
         <source>Default</source>
-        <translation>मूल</translation>
+        <translation>डिफ़ॉल्ट</translation>
     </message>
 </context>
 <context>
@@ -2006,35 +3363,41 @@
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="40"/>
         <source>Window Theme</source>
-        <translation type="unfinished"/>
+        <translation>विंडो थीम</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="41"/>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>आइकन थीम</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="42"/>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>कर्सर थीम</translation>
     </message>
     <message>
         <location filename="../modules/personalization/module/themewidget/themewidget.cpp" line="54"/>
         <source>Theme</source>
-        <translation>विषय</translation>
+        <translation>थीम</translation>
     </message>
 </context>
 <context>
     <name>dcc::power::PowerWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="132"/>
+        <location filename="../modules/power/powerwidget.cpp" line="96"/>
+        <source>Power Management</source>
+        <translation>ऊर्जा प्रबंधन </translation>
+    </message>
+    <message>
         <location filename="../modules/power/powerwidget.cpp" line="45"/>
         <source>Monitor will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>मॉनिटर इस अवधि के बाद स्थगित हो जाएगा</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="46"/>
         <source>Computer will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>कंप्यूटर इस अवधि के बाद स्थगित हो जाएगा</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="56"/>
@@ -2045,38 +3408,32 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="75"/>
         <source>Password required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>मॉनिटर चालू करने हेतु कूटशब्द आवश्यक है</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="78"/>
         <source>Password required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>कंप्यूटर चालू करने हेतु कूटशब्द आवश्यक है</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="81"/>
         <source>Suspend on lid close</source>
-        <translation type="unfinished"/>
+        <translation>लैपटॉप की लिड बंद करने पर स्थगित करें</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="84"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <translation>ऊर्जा संरक्षण मोड</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="85"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/power/powerwidget.cpp" line="96"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="129"/>
-        <source>Power Management</source>
-        <translation>बिजली प्रबंधन </translation>
+        <translation>स्वतः बदलाव मोड</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="143"/>
         <source>1 Minute</source>
-        <translation type="unfinished"/>
+        <translation>1 मिनट</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="145"/>
@@ -2085,12 +3442,12 @@
         <location filename="../modules/power/powerwidget.cpp" line="151"/>
         <location filename="../modules/power/powerwidget.cpp" line="157"/>
         <source>%1 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>%1 मिनट</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="153"/>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
+        <translation>1 घंटा</translation>
     </message>
 </context>
 <context>
@@ -2103,41 +3460,41 @@
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="38"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>इनपुट</translation>
     </message>
     <message>
         <location filename="../modules/sound/advancedpage.cpp" line="40"/>
         <source>Advanced</source>
-        <translation>उन्नत</translation>
+        <translation>विस्तृत</translation>
     </message>
 </context>
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="130"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="58"/>
+        <source>Sound</source>
+        <translation>ध्वनि</translation>
+    </message>
+    <message>
         <location filename="../modules/sound/soundwidget.cpp" line="43"/>
         <source>Output Volume</source>
-        <translation>आउटपुट वॉल्यूम </translation>
+        <translation>आउटपुट ध्वनि स्तर</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="44"/>
         <source>Left/Right Balance</source>
-        <translation>बायां/दायां संतुलन </translation>
+        <translation>बायाँ/दायाँ ऑडियो संतुलन </translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="47"/>
         <source>Input Volume</source>
-        <translation>इनपुट वॉल्यूम </translation>
+        <translation>इनपुट ध्वनि स्तर</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="49"/>
         <source>Feedback Volume</source>
-        <translation>फीडबैक वॉल्यूम </translation>
-    </message>
-    <message>
-        <location filename="../modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="127"/>
-        <source>Sound</source>
-        <translation>ध्वनि</translation>
+        <translation>फीडबैक ध्वनि स्तर</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="60"/>
@@ -2152,7 +3509,7 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="106"/>
         <source>Advanced</source>
-        <translation>उन्नत</translation>
+        <translation>विस्तृत</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="109"/>
@@ -2165,94 +3522,107 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="60"/>
         <source>Updating...</source>
-        <translation>अद्यतन कर रहा है ...</translation>
+        <translation>अपडेट किया जा रहा है...</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="71"/>
         <source>Startup Delay</source>
-        <translation type="unfinished"/>
+        <translation>स्टार्टअप में विलंब</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="74"/>
         <source>Theme</source>
-        <translation>विषय</translation>
+        <translation>थीम</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="76"/>
         <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
-        <translation type="unfinished"/>
+        <translation>बूट छवि फ़ाइल पर माउस द्वारा दूसरी फ़ाइल को ड्रैग कर उसे बदला जा सकता है, एवं बूट क्रम बदलने हेतु हाईलाइट हो रखी प्रविष्टि को ड्रैग करें</translation>
     </message>
 </context>
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
-        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="86"/>
+        <location filename="../modules/systeminfo/copyrightwidget.cpp" line="70"/>
         <source>License</source>
-        <translation type="unfinished"/>
+        <translation>लाइसेंस</translation>
     </message>
 </context>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="137"/>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
+        <source>System Information</source>
+        <translation>सिस्टम जानकारी</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="134"/>
-        <source>System Information</source>
-        <translation>सिस्टम सूचना </translation>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
+        <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation>कॉपीराइट © 2011-2018 वुहान प्रौद्योगिकी कं, लिमिटेड</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Distribution:</source>
-        <translation>वितरण: </translation>
+        <translation>वितरण : </translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="86"/>
         <source>Distribution Release:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="95"/>
-        <source>Type:</source>
-        <translation>प्रकार:</translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="119"/>
-        <source>Edition License</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
-        <source>Boot Menu</source>
-        <translation>बूट मैन्यू </translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="175"/>
-        <source>%1Bit</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
-        <source>Processor:</source>
-        <translation>प्रॉसेसर </translation>
+        <translation>वितरण रिलीज़ : </translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
         <source>Edition:</source>
-        <translation type="unfinished"/>
+        <translation>संस्करण :</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="95"/>
+        <source>Type:</source>
+        <translation>प्रकार :</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
+        <source>Processor:</source>
+        <translation>प्रोसेसर :</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="102"/>
         <source>Memory:</source>
-        <translation>मेमरी: </translation>
+        <translation>मेमोरी : </translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="106"/>
         <source>Disk:</source>
-        <translation>डिस्क: </translation>
+        <translation>डिस्क : </translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="120"/>
+        <source>Edition License</source>
+        <translation>संस्करण का लाइसेंस</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="128"/>
+        <source>Boot Menu</source>
+        <translation>बूट मेन्यू</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="190"/>
+        <source>%1Bit</source>
+        <translation>%1Bit</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::systeminfo::UserLicense</name>
+    <message>
+        <location filename="../modules/systeminfo/userlicense.cpp" line="15"/>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2261,31 +3631,31 @@
         <location filename="../modules/update/mirroritem.cpp" line="37"/>
         <location filename="../modules/update/mirroritem.cpp" line="132"/>
         <source>Untested</source>
-        <translation type="unfinished"/>
+        <translation>अपरीक्षित</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="80"/>
         <location filename="../modules/update/mirroritem.cpp" line="128"/>
         <source>Timeout</source>
-        <translation type="unfinished"/>
+        <translation>समय समाप्त</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="82"/>
         <location filename="../modules/update/mirroritem.cpp" line="129"/>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>धीमा</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="84"/>
         <location filename="../modules/update/mirroritem.cpp" line="130"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>मध्यम</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="86"/>
         <location filename="../modules/update/mirroritem.cpp" line="131"/>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>तेज़</translation>
     </message>
 </context>
 <context>
@@ -2293,17 +3663,17 @@
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="42"/>
         <source>Test Speed</source>
-        <translation type="unfinished"/>
+        <translation>गति जाँचें</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="46"/>
         <source>Switch Mirror</source>
-        <translation type="unfinished"/>
+        <translation>मिरर-सर्वर बदलें</translation>
     </message>
     <message>
         <location filename="../modules/update/mirrorswidget.cpp" line="138"/>
         <source>Retest</source>
-        <translation type="unfinished"/>
+        <translation>पुनः जाँचें</translation>
     </message>
 </context>
 <context>
@@ -2311,117 +3681,117 @@
     <message>
         <location filename="../modules/update/resultitem.cpp" line="67"/>
         <source>Update successfully</source>
-        <translation type="unfinished"/>
+        <translation>अपडेट प्रक्रिया सफल रही</translation>
     </message>
     <message>
         <location filename="../modules/update/resultitem.cpp" line="68"/>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>अपडेट प्रक्रिया विफल रही</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="56"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="133"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="136"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="59"/>
         <source>Update</source>
-        <translation>अद्यतन</translation>
+        <translation>अपडेट</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="173"/>
-        <source>Checking for updates, please wait...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="205"/>
-        <source>Your system is up to date</source>
-        <translation>आपका सिस्टम अद्यतन है </translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="53"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="55"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation type="unfinished"/>
+        <translation>अपडेट के उपरांत, अपने सिस्टम व अनुप्रयोगों के उचित क्रियान्वन हेतु, कृपया पुनः आरंभ करें</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="54"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="56"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
+        <translation>नेटवर्क डिस्कनेक्ट हो गया है, कृपया कनेक्ट होने के बाद पुनः प्रयास करें</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="86"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
-        <translation type="unfinished"/>
+        <translation>अपडेट प्रक्रिया में कुछ समय लग सकता है, कृपया इस दौरान सिस्टम को बंद या पुनः आरंभ न करें।</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="178"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="176"/>
+        <source>Checking for updates, please wait...</source>
+        <translation>अपडेट खोजी जा रही हैं, कृपया प्रतीक्षा करें...</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Download and install updates</source>
-        <translation type="unfinished"/>
+        <translation>अपडेट डाउनलोड कर इंस्टॉल करें</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="192"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="289"/>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation>%1% डाउनलोड किया गया (रोकने हेतु क्लिक करें)</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="195"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
+        <translation>%1% डाउनलोड किया गया (जारी रखने हेतु क्लिक करें)</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="198"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Install updates</source>
-        <translation type="unfinished"/>
+        <translation>अपडेट इंस्टॉल करें</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="210"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="208"/>
+        <source>Your system is up to date</source>
+        <translation>आपका सिस्टम नवीनतम है </translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="213"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>अपडेट किया जा रहा है, कृपया प्रतीक्षा करें... </translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="224"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="227"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>नवीनतम सिस्टम इंस्टॉल कर दिया गया, लागू करने हेतु पुनः आरंभ करें</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="234"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="237"/>
         <source>Insufficient disk space, unable to update system.</source>
-        <translation type="unfinished"/>
+        <translation>अपर्याप्त डिस्क स्पेस, सिस्टम को अपडेट करने में अक्षम</translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="256"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
         <source>%n application update(s) detected</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
+        <source>New system edition detected</source>
+        <translation>नया सिस्टम संस्करण पाया गया</translation>
+    </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="263"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="266"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="270"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="273"/>
         <source>Downloaded</source>
-        <translation>डाउनलोड हुआ</translation>
+        <translation>डाउनलोड किया गया</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="272"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="275"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>डाउनलोड आकार : %1</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="187"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="286"/>
-        <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="261"/>
-        <source>New system edition detected</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="294"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="297"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation type="unfinished"/>
+        <translation>बैटरी का स्तर 50% से कम है, जारी रखने हेतु कृपया चार्जिंग पर लगाएँ</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="296"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="299"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="unfinished"/>
+        <translation>कृपया सुनिश्चित करें कि सिस्टम में पुनः आरंभ हो सकने जितनी बैटरी शेष हो, और कंप्यूटर को बंद न करें व न ही प्लग हटाएँ</translation>
     </message>
 </context>
 <context>
@@ -2429,7 +3799,7 @@
     <message>
         <location filename="../modules/update/updateitem.cpp" line="119"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>विवरण</translation>
     </message>
 </context>
 <context>
@@ -2437,37 +3807,37 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="50"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/update/updatesettings.cpp" line="74"/>
-        <source>System source detection</source>
-        <translation type="unfinished"/>
+        <translation>अपडेट सेटिंग्स</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="62"/>
         <source>Auto clear package cache</source>
-        <translation type="unfinished"/>
+        <translation>पैकेज की कैश स्वतः हटाएँ</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="65"/>
         <source>Auto-download Updates</source>
-        <translation type="unfinished"/>
+        <translation>अपडेट स्वतः डाउनलोड करें</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="67"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
-        <translation type="unfinished"/>
+        <translation>तार या बेतार नेटवर्क से कनेक्ट होने पर अपडेट स्वतः ही डाउनलोड हो जाएँगी</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="74"/>
+        <source>System source detection</source>
+        <translation>सिस्टम स्रोत पहचानना</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="78"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation type="unfinished"/>
+        <translation>सिस्टम अपडेट के मिरर-सर्वर में बदलाव होने पर अधिसूचना प्रदर्शित करें</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="95"/>
         <source>Switch Mirror</source>
-        <translation type="unfinished"/>
+        <translation>मिरर-सर्वर बदलें</translation>
     </message>
 </context>
 <context>
@@ -2476,12 +3846,12 @@
         <location filename="../modules/update/updateview.cpp" line="40"/>
         <location filename="../modules/update/updateview.cpp" line="52"/>
         <source>Update</source>
-        <translation>अद्यतन</translation>
+        <translation>अपडेट</translation>
     </message>
     <message>
         <location filename="../modules/update/updateview.cpp" line="45"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>अपडेट सेटिंग्स</translation>
     </message>
 </context>
 <context>
@@ -2489,12 +3859,12 @@
     <message>
         <location filename="../modules/update/updatework.cpp" line="227"/>
         <source>Patches</source>
-        <translation>पैचेज </translation>
+        <translation>सॉफ्टवेयर पैच</translation>
     </message>
     <message>
         <location filename="../modules/update/updatework.cpp" line="228"/>
         <source>System patches.</source>
-        <translation type="unfinished"/>
+        <translation>सिस्टम पैच</translation>
     </message>
 </context>
 <context>
@@ -2502,12 +3872,12 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>पेन (Stylus)</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>माउस</translation>
     </message>
 </context>
 <context>
@@ -2515,26 +3885,26 @@
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitive</source>
-        <translation type="unfinished"/>
+        <translation>दबाव संवेदनशील</translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>light</source>
-        <translation type="unfinished"/>
+        <translation>हल्का </translation>
     </message>
     <message>
         <location filename="../modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>heavy</source>
-        <translation type="unfinished"/>
+        <translation>भारी</translation>
     </message>
 </context>
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="135"/>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
-        <location filename="../plugins/navigation/navmodel.cpp" line="132"/>
         <source>Wacom</source>
-        <translation>वैकॉम </translation>
+        <translation>Wacom</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="50"/>
@@ -2544,12 +3914,12 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>माउस</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>पेन (Stylus)</translation>
     </message>
 </context>
 <context>
@@ -2557,7 +3927,7 @@
     <message>
         <location filename="../modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
-        <translation>जुड़ा हुआ</translation>
+        <translation>कनेक्ट है </translation>
     </message>
 </context>
 <context>
@@ -2565,7 +3935,7 @@
     <message>
         <location filename="../widgets/searchinput.cpp" line="42"/>
         <source>Search</source>
-        <translation>खोज</translation>
+        <translation>खोजें</translation>
     </message>
 </context>
 <context>
@@ -2573,12 +3943,12 @@
     <message>
         <location filename="../widgets/settingshead.cpp" line="49"/>
         <source>Edit</source>
-        <translation>सम्पादन</translation>
+        <translation>संपादित करें</translation>
     </message>
     <message>
         <location filename="../widgets/settingshead.cpp" line="52"/>
         <source>Cancel</source>
-        <translation>रद्द करो</translation>
+        <translation>रद्द करें</translation>
     </message>
 </context>
 </TS>

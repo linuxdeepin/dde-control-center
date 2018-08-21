@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="mn" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sq" version="2.1">
 <context>
     <name>BluetoothDelegate</name>
     <message>
@@ -25,17 +25,17 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
         <source>Copy</source>
-        <translation>Хуулах</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <source>Extend</source>
-        <translation>Tэлэх</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <source>Only Displayed on %1</source>
-        <translation>Зөвхөн %1 дэлгэц дээр гарна </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
@@ -45,7 +45,7 @@
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation>Дэлгэцэн дээрх зүйлсийг нэг эсвэл олон дэлгэцрүү хуулах</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
@@ -73,7 +73,7 @@
     <message>
         <location filename="../modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation>Байхгүй</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -143,12 +143,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
-        <translation>Унтраах</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
@@ -169,12 +169,12 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="79"/>
         <source>Reset all settings</source>
-        <translation>Бүх тохиргоог буцаах</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../frame/settingswidget.cpp" line="89"/>
         <source>All Settings</source>
-        <translation>Бүх Тохиргоо</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -259,12 +259,12 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="64"/>
         <source>Password</source>
-        <translation>Нууц үг</translation>
+        <translation>Fjalëkalim</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="73"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
 </context>
 <context>
@@ -297,7 +297,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
         <source>Delete Account</source>
-        <translation>Бүртгэлийг устгах</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
@@ -387,7 +387,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="56"/>
         <source>Done</source>
-        <translation>Дуусгах</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="108"/>
@@ -415,7 +415,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="51"/>
         <source>Username</source>
-        <translation>Хэрэглэгчийн нэр</translation>
+        <translation>Emër përdoruesi</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="52"/>
@@ -427,7 +427,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="53"/>
         <source>Password</source>
-        <translation>Нууц үг</translation>
+        <translation>Fjalëkalim</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="56"/>
@@ -437,7 +437,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="65"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="66"/>
@@ -521,12 +521,12 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
         <source>New Password</source>
-        <translation>Шинэ Нууц үг</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
         <source>Repeat Password</source>
-        <translation>Нууц Үг Давтах</translation>
+        <translation>Rijepeni Fjalëkalimin</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="55"/>
@@ -538,7 +538,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
@@ -553,7 +553,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
         <source>Password</source>
-        <translation>Нууц үг</translation>
+        <translation>Fjalëkalim</translation>
     </message>
 </context>
 <context>
@@ -571,12 +571,12 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Delete</source>
-        <translation>Устгах</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -584,12 +584,12 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="47"/>
         <source>My devices</source>
-        <translation>Миний төхөөрөмжүүд</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="48"/>
         <source>Other devices</source>
-        <translation>Бусад төхөөрөмжүүд</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="65"/>
@@ -603,7 +603,7 @@
         <location filename="../frame/navigation/navmodel.cpp" line="129"/>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <source>Bluetooth</source>
-        <translation>Блютүүт</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -611,12 +611,12 @@
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="42"/>
         <source>Ignore</source>
-        <translation>Орхих</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/bluetooth/detailpage.cpp" line="43"/>
         <source>Disconnect</source>
-        <translation>Салгах</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -624,7 +624,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
-        <translation>Холбогдсон</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
@@ -642,7 +642,7 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="49"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="51"/>
@@ -660,12 +660,12 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="68"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="69"/>
         <source>Confirm</source>
-        <translation>Батлах</translation>
+        <translation>Ripohojeni</translation>
     </message>
 </context>
 <context>
@@ -702,7 +702,7 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="51"/>
         <source>Add Timezone</source>
-        <translation>Цагийн бүс Нэмэх</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="62"/>
@@ -725,17 +725,17 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="64"/>
         <source>Confirm</source>
-        <translation>Батлах</translation>
+        <translation>Ripohojeni</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="173"/>
         <source>Add Timezone</source>
-        <translation>Цагийн бүс Нэмэх</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="173"/>
@@ -758,7 +758,7 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="111"/>
         <source>Today</source>
-        <translation>Өнөөдөр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="116"/>
@@ -777,42 +777,42 @@
         <location filename="../frame/navigation/navmodel.cpp" line="126"/>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
         <source>Default Applications</source>
-        <translation>Ерөнхий Аппликейшнүүд</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="55"/>
         <source>Browser</source>
-        <translation>Хөтөч</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="56"/>
         <source>Mail</source>
-        <translation>Мэйл</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="57"/>
         <source>Text</source>
-        <translation>Текст</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="58"/>
         <source>Music</source>
-        <translation>Хөгжим</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="59"/>
         <source>Video</source>
-        <translation>Видео</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="60"/>
         <source>Picture</source>
-        <translation>Зураг</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="61"/>
         <source>Terminal</source>
-        <translation>Терминал</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -820,7 +820,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="44"/>
         <source>Add</source>
-        <translation>Нэмэх</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
@@ -834,7 +834,7 @@
         <location filename="../modules/defapp/defappwidget.cpp" line="46"/>
         <location filename="../modules/defapp/defappwidget.cpp" line="50"/>
         <source>Default Applications</source>
-        <translation>Ерөнхий Аппликейшнүүд</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -842,7 +842,7 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="58"/>
         <source>Brightness</source>
-        <translation>Цайралт</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="81"/>
@@ -870,7 +870,7 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="45"/>
         <source>Delete</source>
-        <translation>Устгах</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="48"/>
@@ -897,7 +897,7 @@
         <location filename="../frame/navigation/navmodel.cpp" line="125"/>
         <location filename="../modules/display/displaywidget.cpp" line="107"/>
         <source>Display</source>
-        <translation>Дэлгэц</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
@@ -917,12 +917,12 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
-        <translation>Нягтаршил</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="62"/>
         <source>Brightness</source>
-        <translation>Цайралт</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="227"/>
@@ -997,22 +997,22 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="108"/>
         <source>Resolution</source>
-        <translation>Нягтаршил</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="171"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="173"/>
         <source>Apply</source>
-        <translation>Ашиглах</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="180"/>
         <source>Primary</source>
-        <translation>Үндсэн</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="347"/>
@@ -1025,7 +1025,7 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="41"/>
         <source>Resolution</source>
-        <translation>Нягтаршил</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="80"/>
@@ -1043,7 +1043,7 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="60"/>
         <source>Name</source>
-        <translation>Нэр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
@@ -1059,12 +1059,12 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="82"/>
         <source>Add</source>
-        <translation>Нэмэх</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="106"/>
@@ -1093,17 +1093,17 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="66"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="67"/>
         <source>Save</source>
-        <translation>Хадгалах</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="97"/>
         <source>Name</source>
-        <translation>Нэр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="98"/>
@@ -1192,12 +1192,12 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Slow</source>
-        <translation>Удаан</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Fast</source>
-        <translation>Хурдан</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="79"/>
@@ -1248,12 +1248,12 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="57"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="58"/>
         <source>Replace</source>
-        <translation>Солих</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="82"/>
@@ -1274,12 +1274,12 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="55"/>
         <source>System</source>
-        <translation>Систем</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="56"/>
         <source>Window</source>
-        <translation>Цонх</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="57"/>
@@ -1346,14 +1346,14 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
         <source>Double-click Speed</source>
-        <translation>Давхар товших Хурд</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="58"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="64"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="70"/>
         <source>Pointer Speed</source>
-        <translation>Чиглүүлэгчийн хурд</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
@@ -1384,12 +1384,12 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
         <source>Slow</source>
-        <translation>Удаан</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
         <source>Fast</source>
-        <translation>Хурдан</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1441,12 +1441,12 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="56"/>
         <source>Port</source>
-        <translation>Оролт</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="60"/>
         <source>Username</source>
-        <translation>Хэрэглэгчийн нэр</translation>
+        <translation>Emër përdoruesi</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
@@ -1457,7 +1457,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="64"/>
         <source>Password</source>
-        <translation>Нууц үг</translation>
+        <translation>Fjalëkalim</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="83"/>
@@ -1467,7 +1467,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="88"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="89"/>
@@ -1488,22 +1488,22 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="82"/>
         <source>Disconnect</source>
-        <translation>Салгах</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="84"/>
         <source>Delete</source>
-        <translation>Устгах</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="89"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="90"/>
         <source>Save</source>
-        <translation>Хадгалах</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="311"/>
@@ -1587,7 +1587,7 @@
     <message>
         <location filename="../modules/network/sections/generichotspotsection.cpp" line="63"/>
         <source>Name</source>
-        <translation>Нэр</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1600,7 +1600,7 @@
     <message>
         <location filename="../modules/network/sections/genericsection.cpp" line="62"/>
         <source>Name</source>
-        <translation>Нэр</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/genericsection.cpp" line="65"/>
@@ -1638,7 +1638,7 @@
     <message>
         <location filename="../modules/network/sections/ipvxsection.cpp" line="39"/>
         <source>Ignore</source>
-        <translation>Орхих</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/ipvxsection.cpp" line="43"/>
@@ -1658,7 +1658,7 @@
     <message>
         <location filename="../modules/network/sections/ipvxsection.cpp" line="204"/>
         <source>IP Address</source>
-        <translation>IP Хаяг</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/ipvxsection.cpp" line="205"/>
@@ -1778,7 +1778,7 @@
         <location filename="../frame/navigation/navmodel.cpp" line="128"/>
         <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
         <source>Network</source>
-        <translation>Сүлжээ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
@@ -1788,7 +1788,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="61"/>
         <source>VPN</source>
-        <translation>Хийсвэр Хувийн Сүлжээ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="65"/>
@@ -1861,12 +1861,12 @@
     <message>
         <location filename="../modules/network/sections/pppoesection.cpp" line="31"/>
         <source>PPPoE</source>
-        <translation>PPPoE</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/pppoesection.cpp" line="76"/>
         <source>Username</source>
-        <translation>Хэрэглэгчийн нэр</translation>
+        <translation>Emër përdoruesi</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/pppoesection.cpp" line="77"/>
@@ -1882,7 +1882,7 @@
     <message>
         <location filename="../modules/network/sections/pppoesection.cpp" line="83"/>
         <source>Password</source>
-        <translation>Нууц үг</translation>
+        <translation>Fjalëkalim</translation>
     </message>
 </context>
 <context>
@@ -1976,17 +1976,17 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="58"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="59"/>
         <source>Confirm</source>
-        <translation>Батлах</translation>
+        <translation>Ripohojeni</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="61"/>
         <source>None</source>
-        <translation>Байхгүй</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="62"/>
@@ -2009,7 +2009,7 @@
         <location filename="../modules/network/proxypage.cpp" line="105"/>
         <location filename="../modules/network/proxypage.cpp" line="110"/>
         <source>Port</source>
-        <translation>Оролт</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="98"/>
@@ -2082,7 +2082,7 @@
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="42"/>
         <source>Ask</source>
-        <translation>Асуух</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="47"/>
@@ -2204,7 +2204,7 @@
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="505"/>
         <source>Password</source>
-        <translation>Нууц үг</translation>
+        <translation>Fjalëkalim</translation>
     </message>
 </context>
 <context>
@@ -2212,7 +2212,7 @@
     <message>
         <location filename="../modules/network/sections/secrethotspotsection.cpp" line="36"/>
         <source>None</source>
-        <translation>Байхгүй</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/secrethotspotsection.cpp" line="37"/>
@@ -2242,7 +2242,7 @@
     <message>
         <location filename="../modules/network/sections/secrethotspotsection.cpp" line="143"/>
         <source>Password</source>
-        <translation>Нууц үг</translation>
+        <translation>Fjalëkalim</translation>
     </message>
 </context>
 <context>
@@ -2258,7 +2258,7 @@
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="37"/>
         <source>None</source>
-        <translation>Байхгүй</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="38"/>
@@ -2293,7 +2293,7 @@
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="158"/>
         <source>Password</source>
-        <translation>Нууц үг</translation>
+        <translation>Fjalëkalim</translation>
     </message>
 </context>
 <context>
@@ -2395,7 +2395,7 @@
         <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="37"/>
         <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="52"/>
         <source>None</source>
-        <translation>Байхгүй</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="40"/>
@@ -2538,7 +2538,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
         <source>VPN</source>
-        <translation>Хийсвэр Хувийн Сүлжээ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="84"/>
@@ -2596,7 +2596,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="32"/>
         <source>Password</source>
-        <translation>Нууц үг</translation>
+        <translation>Fjalëkalim</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="33"/>
@@ -2617,7 +2617,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="40"/>
         <source>Ask</source>
-        <translation>Асуух</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="41"/>
@@ -2627,7 +2627,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="45"/>
         <source>VPN</source>
-        <translation>Хийсвэр Хувийн Сүлжээ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="127"/>
@@ -2783,7 +2783,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="101"/>
         <source>VPN</source>
-        <translation>Хийсвэр Хувийн Сүлжээ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="241"/>
@@ -2868,7 +2868,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
         <source>Port</source>
-        <translation>Оролт</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="158"/>
@@ -2878,12 +2878,12 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="161"/>
         <source>Username</source>
-        <translation>Хэрэглэгчийн нэр</translation>
+        <translation>Emër përdoruesi</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
         <source>Password</source>
-        <translation>Нууц үг</translation>
+        <translation>Fjalëkalim</translation>
     </message>
 </context>
 <context>
@@ -2898,7 +2898,7 @@
         <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="30"/>
         <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="51"/>
         <source>None</source>
-        <translation>Байхгүй</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="63"/>
@@ -2926,7 +2926,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="31"/>
         <source>Ask</source>
-        <translation>Асуух</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="32"/>
@@ -2936,7 +2936,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="36"/>
         <source>VPN</source>
-        <translation>Хийсвэр Хувийн Сүлжээ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="110"/>
@@ -2953,7 +2953,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="114"/>
         <source>Username</source>
-        <translation>Хэрэглэгчийн нэр</translation>
+        <translation>Emër përdoruesi</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="118"/>
@@ -2963,7 +2963,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="124"/>
         <source>Password</source>
-        <translation>Нууц үг</translation>
+        <translation>Fjalëkalim</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="128"/>
@@ -3002,7 +3002,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="37"/>
         <source>VPN</source>
-        <translation>Хийсвэр Хувийн Сүлжээ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="148"/>
@@ -3032,12 +3032,12 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="171"/>
         <source>Username</source>
-        <translation>Хэрэглэгчийн нэр</translation>
+        <translation>Emër përdoruesi</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="174"/>
         <source>Password</source>
-        <translation>Нууц үг</translation>
+        <translation>Fjalëkalim</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="177"/>
@@ -3128,7 +3128,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="31"/>
         <source>Ask</source>
-        <translation>Асуух</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="32"/>
@@ -3138,7 +3138,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="36"/>
         <source>VPN</source>
-        <translation>Хийсвэр Хувийн Сүлжээ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="162"/>
@@ -3157,7 +3157,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="166"/>
         <source>Username</source>
-        <translation>Хэрэглэгчийн нэр</translation>
+        <translation>Emër përdoruesi</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="170"/>
@@ -3168,7 +3168,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="176"/>
         <source>Password</source>
-        <translation>Нууц үг</translation>
+        <translation>Fjalëkalim</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="180"/>
@@ -3297,7 +3297,7 @@
     <message>
         <location filename="../modules/personalization/module/fontswidget/fontsizewidget.cpp" line="41"/>
         <source>Size</source>
-        <translation>Хэмжээ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3403,7 +3403,7 @@
         <location filename="../modules/power/powerwidget.cpp" line="56"/>
         <location filename="../modules/power/powerwidget.cpp" line="155"/>
         <source>Never</source>
-        <translation>Хэзээ ч</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="75"/>
@@ -3433,7 +3433,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="143"/>
         <source>1 Minute</source>
-        <translation>1 Минут</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="145"/>
@@ -3447,7 +3447,7 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="153"/>
         <source>1 Hour</source>
-        <translation>1 Цаг</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3522,7 +3522,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="60"/>
         <source>Updating...</source>
-        <translation>Шинэчилж байна...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="71"/>
@@ -3554,7 +3554,7 @@
         <location filename="../frame/navigation/navmodel.cpp" line="137"/>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>System Information</source>
-        <translation>Системийн мэдээлэл</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
@@ -3584,17 +3584,17 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Processor:</source>
-        <translation>Процессор:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="102"/>
         <source>Memory:</source>
-        <translation>Санах ой:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="106"/>
         <source>Disk:</source>
-        <translation>Диск:</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="120"/>
@@ -3643,19 +3643,19 @@
         <location filename="../modules/update/mirroritem.cpp" line="82"/>
         <location filename="../modules/update/mirroritem.cpp" line="129"/>
         <source>Slow</source>
-        <translation>Удаан</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="84"/>
         <location filename="../modules/update/mirroritem.cpp" line="130"/>
         <source>Medium</source>
-        <translation>Дундаж</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="86"/>
         <location filename="../modules/update/mirroritem.cpp" line="131"/>
         <source>Fast</source>
-        <translation>Хурдан</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3695,7 +3695,7 @@
         <location filename="../frame/navigation/navmodel.cpp" line="136"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="59"/>
         <source>Update</source>
-        <translation>Шинэчлэх</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="55"/>
@@ -3846,7 +3846,7 @@
         <location filename="../modules/update/updateview.cpp" line="40"/>
         <location filename="../modules/update/updateview.cpp" line="52"/>
         <source>Update</source>
-        <translation>Шинэчлэх</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updateview.cpp" line="45"/>
@@ -3927,7 +3927,7 @@
     <message>
         <location filename="../modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
-        <translation>Холбогдсон</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3935,7 +3935,7 @@
     <message>
         <location filename="../widgets/searchinput.cpp" line="42"/>
         <source>Search</source>
-        <translation>Хайх</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3943,12 +3943,12 @@
     <message>
         <location filename="../widgets/settingshead.cpp" line="49"/>
         <source>Edit</source>
-        <translation>Засах</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../widgets/settingshead.cpp" line="52"/>
         <source>Cancel</source>
-        <translation>Цуцлах</translation>
+        <translation>Anuloje</translation>
     </message>
 </context>
 </TS>
