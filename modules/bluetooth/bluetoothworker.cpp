@@ -75,17 +75,9 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
         }
     });
 
+    m_bluetoothInter->setSync(false, false);
+
     refresh();
-}
-
-BluetoothWorker::BluetoothWorker(const BluetoothWorker &)
-{
-
-}
-
-BluetoothWorker &BluetoothWorker::operator =(const BluetoothWorker &)
-{
-
 }
 
 BluetoothWorker::~BluetoothWorker()
@@ -102,6 +94,11 @@ BluetoothWorker &BluetoothWorker::Instance()
 void BluetoothWorker::activate()
 {
     blockDBusSignals(false);
+
+    if (!m_bluetoothInter->isValid()) {
+        return;
+    }
+
     m_bluetoothInter->ClearUnpairedDevice();
 
     refresh();
@@ -309,6 +306,8 @@ void BluetoothWorker::removeDevice(const QString &json)
 
 void BluetoothWorker::refresh()
 {
+    if (!m_bluetoothInter->isValid()) return;
+
     QDBusPendingCall call = m_bluetoothInter->GetAdapters();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {

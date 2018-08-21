@@ -84,8 +84,8 @@ private slots:
 
 private:
     explicit BluetoothWorker(BluetoothModel *model);
-    BluetoothWorker(BluetoothWorker const &);
-    BluetoothWorker& operator =(BluetoothWorker const &);
+    BluetoothWorker(BluetoothWorker const &) = default;
+    BluetoothWorker& operator =(BluetoothWorker const &) = default;
     ~BluetoothWorker();
 
     DBusBluetooth *m_bluetoothInter;

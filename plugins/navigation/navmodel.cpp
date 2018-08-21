@@ -33,7 +33,7 @@ NavModel::NavModel(QObject *parent) : QAbstractTableModel(parent)
     m_moduleList = validModuleList();
     m_hoverIndex = QModelIndex();
 
-    connect(m_bluetoothInter, &BluetoothInter::StateChanged, this, &NavModel::onBTStateChanged);
+    connect(m_bluetoothInter, &BluetoothInter::serviceValidChanged, this, &NavModel::onBTValidChanged);
     connect(m_wacomInter, &WacomInter::ExistChanged, this, &NavModel::onWacomExistChanged);
 }
 
@@ -160,12 +160,13 @@ QString NavModel::transModuleName(const QString &moduleName)
                                            modules_trans[idx].toStdString().c_str());
 }
 
-void NavModel::onBTStateChanged(uint value)
+void NavModel::onBTValidChanged(const bool valid)
 {
-    if (value > 0) {
+    if (valid) {
         addModule("bluetooth");
         return;
     }
+
     removeModule("bluetooth");
 }
 
@@ -227,7 +228,7 @@ QStringList NavModel::validModuleList()
 #endif
 
 #ifndef DISABLE_BLUETOOTH
-    if (!m_bluetoothInter->state())
+    if (!m_bluetoothInter->isValid())
 #endif
         moduleList.removeOne("bluetooth");
 

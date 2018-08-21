@@ -59,7 +59,7 @@ public:
     QString transModuleName(const QString &moduleName);
 
 private Q_SLOTS:
-    void onBTStateChanged(uint value);
+    void onBTValidChanged(const bool valid);
     void onWacomExistChanged(bool value);
 
 private:
