@@ -28,6 +28,7 @@
 
 #include "contentwidget.h"
 #include "connectioneditpage.h"
+#include "connectioneditpagenew.h"
 
 #include <wireddevice.h>
 
@@ -84,6 +85,7 @@ private:
     dde::network::NetworkModel *m_model;
 
     QPointer<ConnectionEditPage> m_editPage;
+    QPointer<ConnectionEditPageNew> m_editPageNew;
 
     QPushButton *m_createBtn;
     widgets::SettingsGroup *m_settingsGrp;

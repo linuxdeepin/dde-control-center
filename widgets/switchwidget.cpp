@@ -27,6 +27,8 @@
 
 #include <QHBoxLayout>
 
+#include <QDebug>
+
 #include "labels/normallabel.h"
 
 DWIDGET_USE_NAMESPACE

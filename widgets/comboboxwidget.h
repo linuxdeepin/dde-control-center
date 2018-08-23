@@ -47,6 +47,7 @@ public:
     explicit ComboBoxWidget(QFrame *parent = 0);
 
     void appendOption(const QString &name, const QVariant &value);
+    void removeOption(const QVariant &value);
     void setCurrent(const QVariant &value);
     void setEditable(const bool editable = true);
 

@@ -27,6 +27,7 @@
 #define VPNPAGE_H
 
 #include "contentwidget.h"
+#include "connectionvpneditpage.h"
 
 #include <QList>
 #include <QJsonObject>
@@ -84,7 +85,7 @@ private slots:
 
     void importVPN();
     void createVPNSession();
-    void createVPN(const QString &type);
+    void createVPN(ConnectionVpnEditPage::VpnType vpnType);
 
 private:
     dde::network::NetworkModel *m_model;

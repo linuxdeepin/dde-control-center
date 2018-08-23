@@ -50,7 +50,7 @@ class SwitchWidget;
 namespace network {
 
 class ConnectHiddenPage;
-class ConnectionEditPage;
+class ConnectionWirelessEditPage;
 class AccessPointWidget;
 class WirelessPage : public ContentWidget
 {
@@ -86,7 +86,7 @@ public slots:
 private slots:
     void onDeviceRemoved();
     void sortAPList();
-    void onApWidgetEditRequested(const QString &path, const QString &ssid);
+    void onApWidgetEditRequested(const QString &apPath, const QString &ssid);
     void onApWidgetConnectRequested(const QString &path, const QString &ssid);
     void showConnectHidePage();
     void showAPEditPage(const QString &session);
@@ -104,7 +104,7 @@ private:
     AccessPointWidget *m_connectHideSSID;
     QPushButton *m_closeHotspotBtn;
 
-    QPointer<ConnectionEditPage> m_apEditPage;
+    QPointer<ConnectionWirelessEditPage> m_apEditPage;
 
     QString m_editingUuid;
     QTimer m_sortDelayTimer;

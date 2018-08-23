@@ -31,6 +31,7 @@
 #include "nextpagewidget.h"
 #include "loadingnextpagewidget.h"
 #include "connectioneditpage.h"
+#include "connectionvpneditpage.h"
 #include "connectionsessionworker.h"
 #include "connectionsessionmodel.h"
 
@@ -159,7 +160,12 @@ void VpnPage::onVpnDetailClicked()
 
     m_editingConnUuid = m_vpns[w].value("Uuid").toString();
 
-    emit requestEditVpn("/", m_editingConnUuid);
+    ConnectionVpnEditPage *editPage = new ConnectionVpnEditPage(m_editingConnUuid);
+    editPage->initSettingsWidget();
+    connect(editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
+    Q_EMIT requestNextPage(editPage);
+
+    //emit requestEditVpn("/", m_editingConnUuid);
 }
 
 void VpnPage::onVpnSelected()
@@ -281,7 +287,7 @@ void VpnPage::importVPN()
     if (match.hasMatch())
     {
         m_editingConnUuid = match.captured(1);
-        emit requestEditVpn("/", m_editingConnUuid);
+        //emit requestEditVpn("/", m_editingConnUuid);
     }
 }
 
@@ -310,12 +316,12 @@ void VpnPage::createVPNSession()
         openconnect->setContentsMargins(20, 0, 10, 0);
         openconnect->setTitle(tr("OpenConnect"));
 
-        connect(l2tp, &OptionItem::selectedChanged, [=] { createVPN("vpn-l2tp"); });
-        connect(pptp, &OptionItem::selectedChanged, [=] { createVPN("vpn-pptp"); });
-        connect(vpnc, &OptionItem::selectedChanged, [=] { createVPN("vpn-vpnc"); });
-        connect(openvpn, &OptionItem::selectedChanged, [=] { createVPN("vpn-openvpn"); });
-        connect(strongswan, &OptionItem::selectedChanged, [=] { createVPN("vpn-strongswan"); });
-        connect(openconnect, &OptionItem::selectedChanged, [=] { createVPN("vpn-openconnect"); });
+        connect(l2tp, &OptionItem::selectedChanged, [=] { createVPN(ConnectionVpnEditPage::VpnType::L2TP); });
+        connect(pptp, &OptionItem::selectedChanged, [=] { createVPN(ConnectionVpnEditPage::VpnType::PPTP); });
+        connect(vpnc, &OptionItem::selectedChanged, [=] { createVPN(ConnectionVpnEditPage::VpnType::VPNC); });
+        connect(openvpn, &OptionItem::selectedChanged, [=] { createVPN(ConnectionVpnEditPage::VpnType::OPENVPN); });
+        connect(strongswan, &OptionItem::selectedChanged, [=] { createVPN(ConnectionVpnEditPage::VpnType::STRONGSWAN); });
+        connect(openconnect, &OptionItem::selectedChanged, [=] { createVPN(ConnectionVpnEditPage::VpnType::OPENCONNECT); });
 
         TranslucentFrame *widget = new TranslucentFrame;
         QVBoxLayout *mainLayout = new QVBoxLayout(widget);
@@ -342,9 +348,14 @@ void VpnPage::createVPNSession()
     emit requestNextPage(m_vpnTypePage);
 }
 
-void VpnPage::createVPN(const QString &type)
+void VpnPage::createVPN(ConnectionVpnEditPage::VpnType vpnType)
 {
     Q_ASSERT(m_vpnTypePage);
 
-    emit requestCreateConnection(type, "/");
+    ConnectionVpnEditPage *editPage = new ConnectionVpnEditPage();
+    editPage->initSettingsWidgetByType(vpnType);
+    connect(editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
+    Q_EMIT requestNextPage(editPage);
+
+    //emit requestCreateConnection(type, "/");
 }

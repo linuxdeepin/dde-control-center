@@ -170,12 +170,23 @@ void WiredPage::editConnection()
 
     const QString connPath = m_connectionPath[w];
 
-    emit requestEditConnection(m_device->path(), m_model->connectionUuidByPath(connPath));
+    m_editPageNew = new ConnectionEditPageNew(ConnectionEditPageNew::WiredConnection,
+            m_device->path(), m_model->connectionUuidByPath(connPath));
+    m_editPageNew->initSettingsWidget();
+    connect(m_editPageNew, &ConnectionEditPageNew::requestNextPage, this, &WiredPage::requestNextPage);
+    emit requestNextPage(m_editPageNew);
+
+    //emit requestEditConnection(m_device->path(), m_model->connectionUuidByPath(connPath));
 }
 
 void WiredPage::createNewConnection()
 {
-    emit requestCreateConnection("wired", m_device->path());
+    m_editPageNew = new ConnectionEditPageNew(ConnectionEditPageNew::WiredConnection, m_device->path());
+    m_editPageNew->initSettingsWidget();
+    connect(m_editPageNew, &ConnectionEditPageNew::requestNextPage, this, &WiredPage::requestNextPage);
+    emit requestNextPage(m_editPageNew);
+
+    //emit requestCreateConnection("wired", m_device->path());
 }
 
 void WiredPage::activeConnection()
@@ -211,26 +222,29 @@ void WiredPage::onSessionCreated(const QString &sessionPath)
 {
     Q_ASSERT(m_editPage.isNull());
 
-    m_editPage = new ConnectionEditPage;
+    Q_UNUSED(sessionPath);
 
-    ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_editPage);
-    ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);
+    //m_editPage = new ConnectionEditPage;
 
-    m_editPage->setModel(m_model, sessionModel);
-    m_editPage->setAssociatedDevice(m_device);
-    connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
-    connect(m_editPage, &ConnectionEditPage::requestRemove, this, &WiredPage::requestDeleteConnection);
-    connect(m_editPage, &ConnectionEditPage::requestDisconnect, this, &WiredPage::requestDisconnectConnection);
-    connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
-    connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
-    connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
-    connect(m_editPage, &ConnectionEditPage::requestSave, sessionWorker, &ConnectionSessionWorker::saveSettings);
+    //ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_editPage);
+    //ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);
 
-    emit requestNextPage(m_editPage);
+    //m_editPage->setModel(m_model, sessionModel);
+    //m_editPage->setAssociatedDevice(m_device);
+    //connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
+    //connect(m_editPage, &ConnectionEditPage::requestRemove, this, &WiredPage::requestDeleteConnection);
+    //connect(m_editPage, &ConnectionEditPage::requestDisconnect, this, &WiredPage::requestDisconnectConnection);
+    //connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
+    //connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
+    //connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
+    //connect(m_editPage, &ConnectionEditPage::requestSave, sessionWorker, &ConnectionSessionWorker::saveSettings);
+
+    //emit requestNextPage(m_editPage);
 }
 
 void WiredPage::onDeviceRemoved()
 {
+    /* TODO: back all edit page's subpage */
     if (!m_editPage.isNull())
         emit m_editPage->back();
 

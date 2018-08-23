@@ -62,6 +62,25 @@ void ComboBoxWidget::appendOption(const QString &name, const QVariant &value)
     m_options[item] = value;
 }
 
+void ComboBoxWidget::removeOption(const QVariant &value)
+{
+    OptionItem *item = m_options.key(value, nullptr);
+    if (!item) {
+        return;
+    }
+    m_options.remove(item);
+    m_optionsGroup->removeItem(item);
+    if (m_lastSelectedItem == item) {
+        m_lastSelectedItem = m_options.firstKey();
+        m_lastSelectedItem->blockSignals(true);
+        m_lastSelectedItem->setSelected(true);
+        m_lastSelectedItem->blockSignals(false);
+        NextPageWidget::setValue(m_lastSelectedItem->title());
+        emit dataChanged(m_options.first());
+    }
+    item->deleteLater();
+}
+
 void ComboBoxWidget::setCurrent(const QVariant &value)
 {
     OptionItem *item = m_options.key(value);

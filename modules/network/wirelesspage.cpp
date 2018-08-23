@@ -29,6 +29,7 @@
 #include "switchwidget.h"
 #include "translucentframe.h"
 #include "connectioneditpage.h"
+#include "connectionwirelesseditpage.h"
 #include "connectionsessionworker.h"
 #include "connectionsessionmodel.h"
 #include "tipsitem.h"
@@ -209,9 +210,10 @@ void WirelessPage::onCloseHotspotClicked()
 
 void WirelessPage::onDeviceRemoved()
 {
+    /* TODO: back all edit page's subpage */
     // back if ap edit page exist
     if (!m_apEditPage.isNull())
-        m_apEditPage->onDeviceRemoved();
+        m_apEditPage->back();
 
     // destroy self page
     emit back();
@@ -238,18 +240,29 @@ void WirelessPage::sortAPList()
         m_listGroup->moveItem(sortedList[i], i);
 }
 
-void WirelessPage::onApWidgetEditRequested(const QString &path, const QString &ssid)
+void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString &ssid)
 {
     const QString uuid = connectionUuid(ssid);
+
+    m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), uuid);
 
     if (!uuid.isEmpty())
     {
         m_editingUuid = uuid;
-        emit requestEditAP(m_device->path(), uuid);
-        return;
+
+        m_apEditPage->initSettingsWidget();
+
+        //emit requestEditAP(m_device->path(), uuid);
+        //return;
+    } else {
+        m_apEditPage->initSettingsWidgetFromAp(apPath);
     }
 
-    emit requestCreateApConfig(m_device->path(), path);
+    connect(m_apEditPage, &ConnectionEditPageNew::requestNextPage, this, &WirelessPage::requestNextPage);
+
+    emit requestNextPage(m_apEditPage);
+
+    //emit requestCreateApConfig(m_device->path(), path);
 }
 
 void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString &ssid)
@@ -271,28 +284,34 @@ void WirelessPage::showConnectHidePage()
 
 //    emit requestNextPage(m_connectHidePage);
 
-    emit requestCreateAp("wireless", m_device->path());
+    m_apEditPage = new ConnectionWirelessEditPage(m_device->path());
+    m_apEditPage->initSettingsWidget();
+    connect(m_apEditPage, &ConnectionEditPageNew::requestNextPage, this, &WirelessPage::requestNextPage);
+    emit requestNextPage(m_apEditPage);
+
+    //emit requestCreateAp("wireless", m_device->path());
 }
 
 void WirelessPage::showAPEditPage(const QString &session)
 {
+    Q_UNUSED(session)
     // ensure edit page is empty
-    Q_ASSERT(m_apEditPage.isNull());
+    //Q_ASSERT(m_apEditPage.isNull());
 
-    m_apEditPage = new ConnectionEditPage;
+    //m_apEditPage = new ConnectionEditPage;
 
-    ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_apEditPage);
-    ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(session, sessionModel, m_apEditPage);
+    //ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_apEditPage);
+    //ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(session, sessionModel, m_apEditPage);
 
-    m_apEditPage->setModel(m_model, sessionModel);
-    connect(m_apEditPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
-    connect(m_apEditPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
-    connect(m_apEditPage, &ConnectionEditPage::requestSave, sessionWorker, &ConnectionSessionWorker::saveSettings);
-    connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
-    connect(m_apEditPage, &ConnectionEditPage::requestRemove, [this] { emit requestDeleteConnection(m_editingUuid); });
-    connect(m_apEditPage, &ConnectionEditPage::requestDisconnect, [this] { emit requestDisconnectConnection(m_editingUuid); });
-    connect(m_apEditPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &WirelessPage::requestFrameKeepAutoHide);
-    emit requestNextPage(m_apEditPage);
+    //m_apEditPage->setModel(m_model, sessionModel);
+    //connect(m_apEditPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
+    //connect(m_apEditPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
+    //connect(m_apEditPage, &ConnectionEditPage::requestSave, sessionWorker, &ConnectionSessionWorker::saveSettings);
+    //connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
+    //connect(m_apEditPage, &ConnectionEditPage::requestRemove, [this] { emit requestDeleteConnection(m_editingUuid); });
+    //connect(m_apEditPage, &ConnectionEditPage::requestDisconnect, [this] { emit requestDisconnectConnection(m_editingUuid); });
+    //connect(m_apEditPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &WirelessPage::requestFrameKeepAutoHide);
+    //emit requestNextPage(m_apEditPage);
 }
 
 void WirelessPage::updateActiveAp()
