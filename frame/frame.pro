@@ -193,5 +193,6 @@ deepin_professional {
         DEFINES += DCC_DISABLE_FEEDBACK
         DEFINES += DCC_DISABLE_ROTATE
         DEFINES += DISABLE_NETWORK_PROXY
+        QMAKE_CXXFLAGS += -mieee
     }
 }
