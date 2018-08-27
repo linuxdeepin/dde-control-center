@@ -140,7 +140,6 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
 
     QVBoxLayout *pluginWidgetLayout = new QVBoxLayout;
     pluginWidgetLayout->addWidget(m_pluginWrapper);
-    pluginWidgetLayout->addSpacing(10);
     pluginWidgetLayout->addWidget(m_indicatorWidget);
     pluginWidgetLayout->setSpacing(0);
     pluginWidgetLayout->setMargin(0);
@@ -162,7 +161,6 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     centralLayout->addSpacing(1);
 #endif
     centralLayout->addWidget(m_pluginWidget);
-    centralLayout->addSpacing(20);
     centralLayout->addWidget(m_quickSettingsPanel);
     centralLayout->setSpacing(0);
     centralLayout->setMargin(0);
