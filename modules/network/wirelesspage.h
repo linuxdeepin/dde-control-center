@@ -37,6 +37,7 @@
 namespace dde {
 namespace network {
 class NetworkModel;
+class NetworkDevice;
 class WirelessDevice;
 }
 }
@@ -71,6 +72,8 @@ signals:
     void requestWirelessScan();
     void requestDeviceEnabled(const QString &devPath, const bool enabled) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
+    void requestShowAPEditPage(dde::network::NetworkDevice *device, const QString &session) const;
+    void requestRemoveAPEditPage(dde::network::NetworkDevice *device) const;
 
 public slots:
     void onAPAdded(const QJsonObject &apInfo);
@@ -80,11 +83,11 @@ public slots:
     void onCloseHotspotClicked();
 
 private slots:
-    void onDeviceRemoved();
     void sortAPList();
     void onApWidgetEditRequested(const QString &apPath, const QString &ssid);
     void onApWidgetConnectRequested(const QString &path, const QString &ssid);
     void showConnectHidePage();
+    void onDeviceRemoved();
 
 private:
     void updateActiveAp();

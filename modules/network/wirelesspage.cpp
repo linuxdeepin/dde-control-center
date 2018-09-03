@@ -95,9 +95,9 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(dev, &WirelessDevice::apAdded, this, &WirelessPage::onAPAdded);
     connect(dev, &WirelessDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
     connect(dev, &WirelessDevice::apRemoved, this, &WirelessPage::onAPRemoved);
-    connect(dev, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
     connect(dev, &WirelessDevice::activeConnectionChanged, this, &WirelessPage::updateActiveAp);
     connect(dev, &WirelessDevice::hotspotEnabledChanged, this, &WirelessPage::onHotspotEnableChanged);
+    connect(dev, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
 
     // init data
     const QJsonArray mApList = m_device->apList();
@@ -114,8 +114,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
 WirelessPage::~WirelessPage()
 {
-    if (!m_apEditPage.isNull())
-        m_apEditPage->deleteLater();
 }
 
 void WirelessPage::setModel(NetworkModel *model)

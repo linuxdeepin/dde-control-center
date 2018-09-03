@@ -86,8 +86,8 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
     connect(m_device, &WiredDevice::connectionsChanged, this, &WiredPage::refreshConnectionList);
     connect(m_device, &WiredDevice::activeConnectionChanged, this, &WiredPage::checkActivatedConnection);
-    connect(m_device, &WiredDevice::removed, this, &WiredPage::onDeviceRemoved);
     connect(m_device, static_cast<void (WiredDevice::*)(WiredDevice::DeviceStatus) const>(&WiredDevice::statusChanged), this, &WiredPage::onDeviceStatusChanged);
+    connect(m_device, &WiredDevice::removed, this, &WiredPage::onDeviceRemoved);
 
     onDeviceStatusChanged(m_device->status());
     QTimer::singleShot(1, this, &WiredPage::refreshConnectionList);
@@ -168,19 +168,19 @@ void WiredPage::editConnection()
 
     const QString connPath = m_connectionPath[w];
 
-    m_editPageNew = new ConnectionEditPage(ConnectionEditPage::WiredConnection,
+    m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection,
             m_device->path(), m_model->connectionUuidByPath(connPath));
-    m_editPageNew->initSettingsWidget();
-    connect(m_editPageNew, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
-    emit requestNextPage(m_editPageNew);
+    m_editPage->initSettingsWidget();
+    connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
+    emit requestNextPage(m_editPage);
 }
 
 void WiredPage::createNewConnection()
 {
-    m_editPageNew = new ConnectionEditPage(ConnectionEditPage::WiredConnection, m_device->path());
-    m_editPageNew->initSettingsWidget();
-    connect(m_editPageNew, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
-    emit requestNextPage(m_editPageNew);
+    m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection, m_device->path());
+    m_editPage->initSettingsWidget();
+    connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
+    emit requestNextPage(m_editPage);
 }
 
 void WiredPage::activeConnection()
@@ -215,10 +215,10 @@ void WiredPage::onDeviceStatusChanged(const NetworkDevice::DeviceStatus stat)
 void WiredPage::onDeviceRemoved()
 {
     /* TODO: back all edit page's subpage */
-    if (!m_editPageNew.isNull())
-        emit m_editPageNew->back();
+    if (!m_editPage.isNull())
+        Q_EMIT m_editPage->back();
 
-    emit back();
+    Q_EMIT back();
 }
 
 }

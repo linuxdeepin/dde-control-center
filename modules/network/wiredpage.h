@@ -63,6 +63,8 @@ signals:
     void requestActiveConnection(const QString &devPath, const QString &uuid) const;
     void requestNextPage(ContentWidget * const w) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
+    void requestShowConnEditPage(dde::network::NetworkDevice *device, const QString &session) const;
+    void requestRemoveConnEditPage(dde::network::NetworkDevice *device) const;
 
 private slots:
     void initUI();
@@ -79,7 +81,7 @@ private:
     dde::network::WiredDevice *m_device;
     dde::network::NetworkModel *m_model;
 
-    QPointer<ConnectionEditPage> m_editPageNew;
+    QPointer<ConnectionEditPage> m_editPage;
 
     QPushButton *m_createBtn;
     widgets::SettingsGroup *m_settingsGrp;

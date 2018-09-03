@@ -149,6 +149,11 @@ void ConnectionEditPage::initSettingsWidget()
     m_settingsLayout->addWidget(m_settingsWidget);
 }
 
+void ConnectionEditPage::onDeviceRemoved()
+{
+    // popup m_settingsWidget
+}
+
 void ConnectionEditPage::initConnection()
 {
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ConnectionEditPage::saveConnSettings);

@@ -28,6 +28,7 @@
 #define NETWORKMODULE_H
 
 #include "moduleinterface.h"
+#include "connectioneditpage.h"
 
 namespace dde {
 namespace network {
@@ -49,7 +50,7 @@ class NetworkModule : public QObject, public ModuleInterface
 public:
     explicit NetworkModule(FrameProxyInterface *frame, QObject *parent = 0);
     ~NetworkModule();
-    void showPage(const QString &pageName);
+    void showPage(const QString &jsonData);
 
 private:
     void initialize();
@@ -71,12 +72,16 @@ private slots:
     void showDeviceDetailPage(dde::network::NetworkDevice *dev);
     void onSetFrameAutoHide(const bool autoHide);
 
+    void showWiredEditPage(dde::network::NetworkDevice *dev, const QString &connUuid = QString());
+    void showWirelessEditPage(dde::network::NetworkDevice *dev, const QString &connUuid = QString(), const QString &apPath = QString());
+    void removeConnEditPageByDevice(dde::network::NetworkDevice *dev);
+
 private:
     dde::network::NetworkModel *m_networkModel;
     dde::network::NetworkWorker *m_networkWorker;
     NetworkModuleWidget *m_networkWidget;
 
-    QString m_editingWiredUuid;
+    ConnectionEditPage *m_connEditPage;
 };
 
 } // namespace network

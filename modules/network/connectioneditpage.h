@@ -54,6 +54,10 @@ public:
     // This method or some similar method of Subclass must be called after initialization
     virtual void initSettingsWidget();
 
+    inline const QString associatedDevicePath() { return m_devPath; }
+
+    void onDeviceRemoved();
+
 Q_SIGNALS:
     void requestNextPage(ContentWidget * const page);
 

@@ -37,6 +37,7 @@
 #include "hotspotpage.h"
 #include "chainsproxypage.h"
 #include "chainstypepage.h"
+#include "connectionwirelesseditpage.h"
 
 #include <networkworker.h>
 #include <networkmodel.h>
@@ -55,7 +56,8 @@ NetworkModule::NetworkModule(FrameProxyInterface *frame, QObject *parent)
 
       m_networkModel(nullptr),
       m_networkWorker(nullptr),
-      m_networkWidget(nullptr)
+      m_networkWidget(nullptr),
+      m_connEditPage(nullptr)
 {
 }
 
@@ -65,9 +67,50 @@ NetworkModule::~NetworkModule()
     m_networkWorker->deleteLater();
 }
 
-void NetworkModule::showPage(const QString &pageName)
+void NetworkModule::showPage(const QString &jsonData)
 {
-    Q_UNUSED(pageName)
+    // Json data format:
+    // Required Keys : conn-type, device-path
+    // Optional Keys : conn-uuid, ap-path
+    // Valid values of key "conn-type" : wired, wireless, vpn，pppoe (vpn and pppoe have not been supperted for now)
+
+    // Tips:
+    // - a new Connection will be created if "conn-uuid" is empty
+    // - the value of "ap-path" is path/SettingPath of connecting ap
+    // - "ap-path" must not be empty if "conn-uuid" is empty while creating or editing a wireless connection
+
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(jsonData.toLocal8Bit());
+    if (!jsonDoc.isEmpty()) {
+        QJsonObject jsonObj = jsonDoc.object();
+        const QString &devPath = jsonObj.value("device-path").toString();
+        const QString &connType = jsonObj.value("conn-type").toString();
+
+        dde::network::NetworkDevice *device = nullptr;
+        for (auto dev : m_networkModel->devices()) {
+            if (dev->path() == devPath) {
+                device = dev;
+                break;
+            }
+        }
+
+        if (device == nullptr) {
+            qDebug() << "can not fand device by device-path:" << jsonDoc;
+            return;
+        }
+
+        const QString &connUuid = jsonObj.value("conn-uuid").toString();
+        if (connType == "wired") {
+            showWiredEditPage(device, connUuid);
+        } else if (connType == "wireless") {
+            const QString &apPath = jsonObj.value("ap-path").toString();
+            showWirelessEditPage(device, connUuid, apPath);
+        } else {
+            qDebug() << "unhandled device type:" << jsonDoc;
+            return;
+        }
+
+        return;
+    }
 
     NetworkDevice *wireless = nullptr;
 
@@ -141,32 +184,44 @@ ModuleWidget *NetworkModule::moduleWidget()
 
 void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
 {
+    ContentWidget *p = nullptr;
+
     if (dev->type() == NetworkDevice::Wireless)
     {
-        WirelessPage *p = new WirelessPage(static_cast<WirelessDevice *>(dev));
-        connect(p, &WirelessPage::requestDeviceAPList, m_networkWorker, &NetworkWorker::queryAccessPoints);
-        connect(p, &WirelessPage::requestWirelessScan, m_networkWorker, &NetworkWorker::requestWirelessScan);
-        connect(p, &WirelessPage::requestConnectAp, m_networkWorker, &NetworkWorker::activateAccessPoint);
-        connect(p, &WirelessPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
-        connect(p, &WirelessPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
-        connect(p, &WirelessPage::requestDeviceRemanage, m_networkWorker, &NetworkWorker::remanageDevice, Qt::QueuedConnection);
-        connect(p, &WirelessPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
-        connect(p, &WirelessPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
-        p->setModel(m_networkModel);
+        p = new WirelessPage(static_cast<WirelessDevice *>(dev));
 
-        m_frameProxy->pushWidget(this, p);
+        WirelessPage *wirelessPage = static_cast<WirelessPage *>(p);
+
+        connect(wirelessPage, &WirelessPage::requestDeviceAPList, m_networkWorker, &NetworkWorker::queryAccessPoints);
+        connect(wirelessPage, &WirelessPage::requestWirelessScan, m_networkWorker, &NetworkWorker::requestWirelessScan);
+        connect(wirelessPage, &WirelessPage::requestConnectAp, m_networkWorker, &NetworkWorker::activateAccessPoint);
+        connect(wirelessPage, &WirelessPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
+        connect(wirelessPage, &WirelessPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
+        connect(wirelessPage, &WirelessPage::requestDeviceRemanage, m_networkWorker, &NetworkWorker::remanageDevice, Qt::QueuedConnection);
+        connect(wirelessPage, &WirelessPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
+        connect(wirelessPage, &WirelessPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
+
+        wirelessPage->setModel(m_networkModel);
     }
     else if (dev->type() == NetworkDevice::Wired)
     {
-        WiredPage *p = new WiredPage(static_cast<WiredDevice *>(dev));
-//        connect(p, &WiredPage::requestConnectionsList, m_networkWorker, &NetworkWorker::queryDeviceConnections);
-        connect(p, &WiredPage::requestActiveConnection, m_networkWorker, &NetworkWorker::activateConnection);
-        connect(p, &WiredPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
-        connect(p, &WiredPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
-        p->setModel(m_networkModel);
+        p = new WiredPage(static_cast<WiredDevice *>(dev));
 
-        m_frameProxy->pushWidget(this, p);
+        WiredPage *wiredPage = static_cast<WiredPage *>(p);
+
+//        connect(p, &WiredPage::requestConnectionsList, m_networkWorker, &NetworkWorker::queryDeviceConnections);
+        connect(wiredPage, &WiredPage::requestActiveConnection, m_networkWorker, &NetworkWorker::activateConnection);
+        connect(wiredPage, &WiredPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
+        connect(wiredPage, &WiredPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
+
+        wiredPage->setModel(m_networkModel);
     }
+
+    if (!p) {
+        return;
+    }
+
+    m_frameProxy->pushWidget(this, p);
 }
 
 void NetworkModule::showVpnPage()
@@ -258,4 +313,57 @@ void NetworkModule::showHotspotPage(WirelessDevice *wdev)
 void NetworkModule::onSetFrameAutoHide(const bool autoHide)
 {
     m_frameProxy->setFrameAutoHide(this, autoHide);
+}
+
+void NetworkModule::showWiredEditPage(NetworkDevice *dev, const QString &connUuid)
+{
+    // it will be destroyed by Frame
+    m_connEditPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::WiredConnection, dev->path(), connUuid);
+
+    connect(m_connEditPage, &ConnectionEditPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
+    //connect(m_connEditPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
+    connect(m_connEditPage, &ConnectionEditPage::back, this, [=]() {m_connEditPage = nullptr; });
+    connect(dev, &dde::network::NetworkDevice::removed, this, [=]() {
+        removeConnEditPageByDevice(dev);
+    });
+
+    m_connEditPage->initSettingsWidget();
+
+    m_frameProxy->pushWidget(this, m_connEditPage);
+}
+
+void NetworkModule::showWirelessEditPage(dde::network::NetworkDevice *dev, const QString &connUuid, const QString &apPath)
+{
+    // it will be destroyed by Frame
+    m_connEditPage = new ConnectionWirelessEditPage(dev->path(), connUuid);
+
+    connect(m_connEditPage, &ConnectionEditPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
+    //connect(m_connEditPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
+    connect(m_connEditPage, &ConnectionEditPage::back, this, [=]() {m_connEditPage = nullptr; });
+    connect(dev, &dde::network::NetworkDevice::removed, this, [=]() {
+        removeConnEditPageByDevice(dev);
+    });
+
+    if (connUuid.isEmpty()) {
+        if (apPath.isEmpty()) {
+            qDebug() << "show edit page failed! both of connUuid and apPath are empty";
+            m_connEditPage->deleteLater();
+            return;
+        } else {
+            ConnectionWirelessEditPage *wirelessEditPage = static_cast<ConnectionWirelessEditPage *>(m_connEditPage);
+            wirelessEditPage->initSettingsWidgetFromAp(apPath);
+        }
+    } else {
+        m_connEditPage->initSettingsWidget();
+    }
+
+    m_frameProxy->pushWidget(this, m_connEditPage);
+}
+
+void NetworkModule::removeConnEditPageByDevice(dde::network::NetworkDevice *dev)
+{
+    if (m_connEditPage && dev->path() == m_connEditPage->associatedDevicePath()) {
+        m_connEditPage->onDeviceRemoved();
+        m_connEditPage = nullptr;
+    }
 }

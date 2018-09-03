@@ -104,13 +104,13 @@ void SettingsWidget::contentPopuped(ContentWidget *const w)
     QMap<ModuleInterface *, QList<ContentWidget *>>::iterator it =
         std::find_if(m_moduleWidgets.begin(), m_moduleWidgets.end(),
                      [=](const QList<ContentWidget *> &list) {
-                         return !list.isEmpty() && list.back() == w;
+                         return !list.isEmpty() && list.contains(w);
                      });
 
     Q_ASSERT(it != m_moduleWidgets.end());
 
     it.key()->contentPopped(w);
-    it.value().pop_back();
+    it.value().removeAll(w);
 }
 
 void SettingsWidget::setFrameAutoHide(ModuleInterface *const inter, const bool autoHide)
