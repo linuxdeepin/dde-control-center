@@ -1,4 +1,14 @@
 <a name=""></a>
+##  4.6.4.2 (2018-09-07)
+
+
+#### Features
+
+* **pro:**  set auto start for mips and sw ([4eef110f](https://github.com/linuxdeepin/dde-control-center/commit/4eef110fd9536be89f56fab3450f39bbd909857f))
+
+
+
+<a name=""></a>
 ##  4.6.4.1 (2018-08-31)
 
 
