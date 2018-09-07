@@ -230,13 +230,17 @@ void QuickControlPanel::setMPRISPictureEnable(const bool enable)
 
 void QuickControlPanel::appear()
 {
+#ifndef DISABLE_BLUETOOTH
     m_bluetoothWorker->blockDBusSignals(false);
+#endif
     m_networkWorker->active();
 }
 
 void QuickControlPanel::disappear()
 {
+#ifndef DISABLE_BLUETOOTH
     m_bluetoothWorker->blockDBusSignals(true);
+#endif
     m_networkWorker->deactive();
 }
 
