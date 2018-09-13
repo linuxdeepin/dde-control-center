@@ -1,4 +1,14 @@
 <a name=""></a>
+##  4.6.4.6 (2018-09-13)
+
+
+#### Bug Fixes
+
+*   mission bin ([0afc93ae](https://github.com/linuxdeepin/dde-control-center/commit/0afc93ae08efacd5aa34167ca3f0e6c8260e9346))
+
+
+
+<a name=""></a>
 ##  4.6.4.5 (2018-09-13)
 
 

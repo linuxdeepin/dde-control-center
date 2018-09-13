@@ -1,1 +1,5 @@
+/usr/bin
+/usr/share
+/usr/lib/dde-control-center/plugins/libwtf.so
+/usr/lib/dde-control-center/reboot-reminder-dialog
 /etc/xdg/autostart/dde-control-center-autostart.desktop
