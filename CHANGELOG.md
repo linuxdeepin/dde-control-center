@@ -1,4 +1,14 @@
 <a name=""></a>
+##  4.6.4.5 (2018-09-13)
+
+
+#### Bug Fixes
+
+*   not enable autostart for mips and sw64 ([78ce7631](https://github.com/linuxdeepin/dde-control-center/commit/78ce7631bfee919434b8f12bc102293ee8dd3e95))
+
+
+
+<a name=""></a>
 ##  4.6.4.4 (2018-09-07)
 
 
