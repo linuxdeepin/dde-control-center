@@ -91,6 +91,7 @@ private:
     void onDeviceActiveApChanged(const QJsonObject &oldApInfo, const QJsonObject &newApInfo);
 
     void refershActivatingIndex();
+    void sortApList();
 
 private:
     void onDeviceEnableChanged(const bool enable);
@@ -100,10 +101,12 @@ private:
 
     QModelIndex m_currentIndex;
     QModelIndex m_activatingIndex;
+    QString m_activatingSsid;
 
     QTimer *m_refreshTimer;
 
     QMap<dde::network::WirelessDevice *, QList<QJsonObject>> m_apInfoList;
+    QMap<dde::network::WirelessDevice *, QString> m_activeConnNameMap;
 };
 
 #endif // WIFILISTMODEL_H

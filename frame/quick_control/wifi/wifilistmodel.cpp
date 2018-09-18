@@ -106,7 +106,7 @@ QVariant WifiListModel::data(const QModelIndex &index, int role) const
     case ItemIsActiveRole:
         return info.info && static_cast<const WirelessDevice *>(info.device)->activeConnName() == info.info->value("Ssid").toString();
     case ItemIsActivatingRole:
-        return m_refreshTimer->isActive() && index == m_activatingIndex;
+        return m_refreshTimer->isActive() && info.info && m_activatingSsid == info.info->value("Ssid").toString();
     case ItemDevicePathRole:
         return info.device->path();
     case ItemApPathRole:
@@ -139,6 +139,12 @@ void WifiListModel::setCurrentActivating(const QModelIndex &index)
     const QModelIndex oldIndex = m_activatingIndex;
 
     m_activatingIndex = index;
+    const ItemInfo &info = indexInfo(index.row());
+    if (info.info) {
+        m_activatingSsid = info.info->value("Ssid").toString();
+    } else {
+        m_activatingSsid = QString();
+    }
 
     emit dataChanged(oldIndex, oldIndex);
 }
@@ -244,6 +250,8 @@ void WifiListModel::onDeviceListChanged(const QList<NetworkDevice *> &devices)
     for (auto *d : removedDeviceList)
         m_apInfoList.remove(d);
 
+    sortApList();
+
     emit layoutChanged();
 }
 
@@ -281,10 +289,13 @@ void WifiListModel::onDeviceApAdded(const QJsonObject &info)
 
     // reach here means it is a new ap need to add
     beginInsertRows(QModelIndex(), row, row);
-    if (info.value("Ssid").toString() == dev->activeConnName())
+    if (info.value("Ssid").toString() == dev->activeConnName()) {
+        m_activeConnNameMap.insert(dev, dev->activeConnName());
         m_apInfoList[dev].insert(0, info);
-    else
+    } else {
         m_apInfoList[dev].append(info);
+    }
+    sortApList();
     endInsertRows();
 }
 
@@ -339,6 +350,8 @@ void WifiListModel::onDeviceStateChanged(const NetworkDevice::DeviceStatus &stat
         m_refreshTimer->start();
     else
         m_refreshTimer->stop();
+
+    Q_EMIT layoutChanged();
 }
 
 void WifiListModel::onDeviceActiveApChanged(const QJsonObject &oldApInfo, const QJsonObject &newApInfo)
@@ -348,11 +361,14 @@ void WifiListModel::onDeviceActiveApChanged(const QJsonObject &oldApInfo, const 
     WirelessDevice *dev = static_cast<WirelessDevice *>(sender());
     Q_ASSERT(dev);
 
+    const QString &activeConnName = newApInfo["ConnectionName"].toString();
     const auto list = m_apInfoList[dev];
     for (int i(0); i != list.size(); ++i)
     {
-        if (list[i].value("Uuid").toString() == newApInfo["Uuid"].toString())
+        if (list[i].value("Ssid").toString() == activeConnName)
         {
+            m_activeConnNameMap.insert(dev, activeConnName);
+
             // pass if already first line
             if (i)
             {
@@ -363,6 +379,7 @@ void WifiListModel::onDeviceActiveApChanged(const QJsonObject &oldApInfo, const 
 //                endMoveRows();
             }
 
+            sortApList();
             emit layoutChanged();
             return;
         }
@@ -372,6 +389,29 @@ void WifiListModel::onDeviceActiveApChanged(const QJsonObject &oldApInfo, const 
 void WifiListModel::refershActivatingIndex()
 {
     emit dataChanged(m_activatingIndex, m_activatingIndex);
+}
+
+void WifiListModel::sortApList()
+{
+    QString *activeSsid = new QString();
+
+    auto cmpFunc = [=](const QJsonObject &a, const QJsonObject &b) {
+        // make sure active ap is the first one of ap list
+        bool aIsActive = (a.value("Ssid").toString() == *activeSsid);
+        if (aIsActive || b.value("Ssid").toString() == *activeSsid) {
+            return aIsActive;
+        }
+        return a.value("Strength").toInt() > b.value("Strength").toInt();
+    };
+
+    for (auto dev : m_apInfoList.keys()) {
+        *activeSsid = m_activeConnNameMap.value(dev);
+        QList<QJsonObject> list = m_apInfoList.value(dev);
+        std::sort(list.begin(), list.end(), cmpFunc);
+        m_apInfoList.insert(dev, list);
+    }
+
+    delete activeSsid;
 }
 
 void WifiListModel::onDeviceEnableChanged(const bool enable)
