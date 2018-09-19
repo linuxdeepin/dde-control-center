@@ -82,10 +82,10 @@ ModuleWidget *DatetimeModule::moduleWidget()
 
         connect(m_datetimeWidget, &Datetime::requestHold, this, [this] {
             m_frameProxy->setFrameAutoHide(this, false);
-        });
+        }, Qt::QueuedConnection);
         connect(m_datetimeWidget, &Datetime::requestUnhold, this, [this] {
             m_frameProxy->setFrameAutoHide(this, true);
-        });
+        }, Qt::QueuedConnection);
 #endif
     }
 

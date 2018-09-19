@@ -89,7 +89,7 @@ Datetime::Datetime()
 
 #ifndef DCC_DISABLE_TIMEZONE
     connect(m_dialog, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
-        if (m_addTimeZone) {
+        if (m_dialog->isAddZone()) {
             emit requestAddUserTimeZone(timezone);
         } else {
             emit requestSetTimeZone(timezone);
@@ -101,21 +101,21 @@ Datetime::Datetime()
     connect(m_dialog, &TimeZoneChooser::cancelled, this, &Datetime::requestUnhold);
 
     connect(m_addTimezoneButton, &QPushButton::clicked, this, [this] {
-        m_addTimeZone = true;
+        if (m_dialog->isVisible()) return;
 
         emit requestHold();
         m_dialog->setIsAddZone(true);
         m_dialog->show();
-    });
+    }, Qt::QueuedConnection);
 
     connect(m_timezoneItem, &NextPageWidget::clicked, this, [this] {
-        m_addTimeZone = false;
+        if (m_dialog->isVisible()) return;
 
         emit requestHold();
         m_dialog->setIsAddZone(false);
         m_dialog->show();
         m_dialog->setMarkedTimeZone(installer::GetCurrentTimezone());
-    });
+    }, Qt::QueuedConnection);
 
     connect(m_headItem, &SettingsHead::editChanged, this, &Datetime::onEditClicked);
 #endif

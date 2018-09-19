@@ -57,6 +57,7 @@ class TimeZoneChooser : public QFrame
 public:
     explicit TimeZoneChooser();
     void setIsAddZone(const bool isAdd);
+    inline bool isAddZone() { return m_isAddZone; }
 
 signals:
     void confirmed(const QString &zone);
@@ -75,6 +76,7 @@ private:
     void setupSize();
 
 private:
+    bool m_isAddZone;
     QMap<QString, QString> m_completionCache;
 
     DBlurEffectWidget *m_blurEffect;
