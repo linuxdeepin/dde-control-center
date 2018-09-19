@@ -168,10 +168,9 @@ TimeZoneChooser::TimeZoneChooser()
 
 void TimeZoneChooser::setIsAddZone(const bool isAdd)
 {
-    if (isAdd)
-        m_title->setText(tr("Add Timezone"));
-    else
-        m_title->setText(tr("Change Timezone"));
+    m_isAddZone = isAdd;
+
+    m_title->setText(isAdd ? tr("Add Timezone") : tr("Change Timezone"));
 }
 
 void TimeZoneChooser::setMarkedTimeZone(const QString &timezone)
