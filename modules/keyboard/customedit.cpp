@@ -162,11 +162,11 @@ void keyboard::CustomEdit::onSaveAccels()
     if (m_name->text().isEmpty() || m_command->text().isEmpty() || m_short->text().isEmpty())
         return;
 
-    if (m_conflict)
-        emit requestDisableShortcut(m_conflict);
+    if (m_conflict) {
+        m_info->replace = m_conflict;
+    }
 
-    emit requestSaveShortcut(m_info->id, m_name->text(), m_command->text(), m_short->text());
-
+    emit requestSaveShortcut(m_info);
 
     emit back();
 }

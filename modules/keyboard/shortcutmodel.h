@@ -54,6 +54,7 @@ struct ShortcutInfo
     QString name;
     QString command;
     quint32 type;
+    ShortcutInfo* replace = nullptr;
     ShortcutItem* item;
 
     bool operator==(const ShortcutInfo &info) const
