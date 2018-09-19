@@ -1,4 +1,19 @@
 <a name=""></a>
+##  4.6.4.7 (2018-09-19)
+
+
+#### Features
+
+*   update license ([2d3bbea2](https://github.com/linuxdeepin/dde-control-center/commit/2d3bbea2d4ac7d3761770965e16e635a3e50fef4))
+
+#### Bug Fixes
+
+* **datetime:**  frame cannot auto hide ([eae38fc4](https://github.com/linuxdeepin/dde-control-center/commit/eae38fc493f249b8d4619b4698c37afcfc2297d0))
+* **shortcut:**  replace shortcut without waiting to complete ([ce6e279c](https://github.com/linuxdeepin/dde-control-center/commit/ce6e279c9d6fdb503136f5a55133119fb597e708))
+
+
+
+<a name=""></a>
 ##  4.6.4.6 (2018-09-13)
 
 
