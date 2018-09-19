@@ -190,23 +190,28 @@ void KeyboardWorker::addCustomShortcut(const QString &name, const QString &comma
     m_keybindInter->AddCustomShortcut(name, command, accels);
 }
 
-void KeyboardWorker::modifyCustomShortcut(const QString &id, const QString &name, const QString &command, const QString &accles)
+void KeyboardWorker::modifyCustomShortcut(ShortcutInfo *info)
 {
-    const QString &result = m_keybindInter->LookupConflictingShortcut(accles);
+    onDisableShortcut(info->replace);
+
+    // reset replace shortcut
+    info->replace = nullptr;
+
+    const QString &result = m_keybindInter->LookupConflictingShortcut(info->accels);
 
     if (!result.isEmpty()) {
         const QJsonObject obj = QJsonDocument::fromJson(result.toLatin1()).object();
         QDBusPendingCall call = m_keybindInter->ClearShortcutKeystrokes(obj["Id"].toString(), obj["Type"].toInt());
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
 
-        watcher->setProperty("id", id);
-        watcher->setProperty("name", name);
-        watcher->setProperty("command", command);
-        watcher->setProperty("shortcut", accles);
+        watcher->setProperty("id", info->id);
+        watcher->setProperty("name", info->name);
+        watcher->setProperty("command", info->command);
+        watcher->setProperty("shortcut", info->accels);
 
         connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onCustomConflictCleanFinished);
     } else {
-        m_keybindInter->ModifyCustomShortcut(id, name, command, accles);
+        m_keybindInter->ModifyCustomShortcut(info->id, info->name, info->command, info->accels);
     }
 }
 
@@ -340,7 +345,8 @@ void KeyboardWorker::onAdded(const QString &in0, int in1)
 
 void KeyboardWorker::onDisableShortcut(ShortcutInfo *info)
 {
-    m_keybindInter->ClearShortcutKeystrokes(info->id, info->type);
+    // disable shortcut need wait!
+    m_keybindInter->ClearShortcutKeystrokes(info->id, info->type).waitForFinished();
 }
 
 void KeyboardWorker::onAddedFinished(QDBusPendingCallWatcher *watch)

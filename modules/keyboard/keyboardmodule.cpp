@@ -274,8 +274,6 @@ void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
     connect(m_customEdit, &CustomEdit::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
     connect(m_customEdit, &CustomEdit::requestSaveShortcut, head, &SettingsHead::toCancel);
     connect(m_customEdit, &CustomEdit::requestSaveShortcut, m_work, &KeyboardWorker::modifyCustomShortcut);
-    connect(m_customEdit, &CustomEdit::requestDisableShortcut, m_work, &KeyboardWorker::onDisableShortcut);
-    connect(m_customEdit, &CustomEdit::requestDisableShortcut, head, &SettingsHead::toCancel);
 
     m_frameProxy->pushWidget(this, m_customEdit);
 }

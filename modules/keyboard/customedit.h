@@ -50,8 +50,7 @@ public:
 
 signals:
     void requestUpdateKey(ShortcutInfo *info);
-    void requestSaveShortcut(const QString &id, const QString &name, const QString &command, const QString &accles);
-    void requestDisableShortcut(ShortcutInfo *info);
+    void requestSaveShortcut(ShortcutInfo *info);
     void requestFrameAutoHide(const bool autoHide) const;
 
 public slots:
