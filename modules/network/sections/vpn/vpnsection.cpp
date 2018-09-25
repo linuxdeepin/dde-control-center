@@ -41,15 +41,21 @@ bool VpnSection::allInputValid()
     if (m_gateway->text().isEmpty()) {
         valid = false;
         m_gateway->setIsErr(true);
+    } else {
+        m_gateway->setIsErr(false);
     }
     if (m_userName->text().isEmpty()) {
         valid = false;
         m_userName->setIsErr(true);
+    } else {
+        m_userName->setIsErr(false);
     }
     if (m_currentPasswordType == NetworkManager::Setting::SecretFlagType::None
             && m_password->text().isEmpty()) {
         valid = false;
         m_password->setIsErr(true);
+    } else {
+        m_password->setIsErr(false);
     }
 
     return valid;
@@ -65,11 +71,11 @@ void VpnSection::saveSettings()
     m_dataMap.insert("user", m_userName->text());
     m_dataMap.insert("password-flags", QString::number(m_currentPasswordType));
     if (m_currentPasswordType == NetworkManager::Setting::SecretFlagType::None) {
-        m_dataMap.insert("password", m_password->text());
+        m_secretMap.insert("password", m_password->text());
+    } else {
+        m_secretMap.remove("password");
     }
     m_dataMap.insert("domain", m_domain->text());
-
-    m_secretMap.insert("password", m_password->text());
 
     m_vpnSetting->setData(m_dataMap);
     m_vpnSetting->setSecrets(m_secretMap);

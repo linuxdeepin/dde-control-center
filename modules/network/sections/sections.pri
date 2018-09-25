@@ -10,7 +10,9 @@ HEADERS += \
     $$PWD/wirelesssection.h \
     $$PWD/vpn/vpnsection.h \
     $$PWD/vpn/vpnpppsection.h \
-    $$PWD/vpn/vpnipsecsection.h
+    $$PWD/vpn/vpnipsecsection.h \
+    $$PWD/vpn/vpnvpncsection.h \
+    $$PWD/vpn/vpnadvvpncsection.h
 
 SOURCES += \
     $$PWD/abstractsection.cpp \
@@ -23,4 +25,6 @@ SOURCES += \
     $$PWD/wirelesssection.cpp \
     $$PWD/vpn/vpnsection.cpp \
     $$PWD/vpn/vpnpppsection.cpp \
-    $$PWD/vpn/vpnipsecsection.cpp
+    $$PWD/vpn/vpnipsecsection.cpp \
+    $$PWD/vpn/vpnvpncsection.cpp \
+    $$PWD/vpn/vpnadvvpncsection.cpp

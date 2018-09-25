@@ -1,6 +1,10 @@
 #include "connectionvpneditpage.h"
 #include "settings/vpn/vpnl2tpsettings.h"
 #include "settings/vpn/vpnpptpsettings.h"
+#include "settings/vpn/vpnvpncsettings.h"
+#include "settings/vpn/vpnopenvpnsettings.h"
+#include "settings/vpn/vpnstrongswansettings.h"
+#include "settings/vpn/vpnopenconnectsettings.h"
 
 #include <networkmanagerqt/vpnsetting.h>
 
@@ -81,22 +85,22 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
         }
         case VpnType::VPNC: {
             vpnSetting->setServiceType(ServiceTypeVPNC);
-            m_settingsWidget = new VpnL2tpSettings(m_connectionSettings, this);
+            m_settingsWidget = new VpnVPNCSettings(m_connectionSettings, this);
             break;
         }
         case VpnType::OPENVPN: {
             vpnSetting->setServiceType(ServiceTypeOpenVPN);
-            m_settingsWidget = new VpnL2tpSettings(m_connectionSettings, this);
+            m_settingsWidget = new VpnOpenVPNSettings(m_connectionSettings, this);
             break;
         }
         case VpnType::STRONGSWAN: {
             vpnSetting->setServiceType(ServiceTypeStrongSwan);
-            m_settingsWidget = new VpnL2tpSettings(m_connectionSettings, this);
+            m_settingsWidget = new VpnStrongSwanSettings(m_connectionSettings, this);
             break;
         }
         case VpnType::OPENCONNECT: {
             vpnSetting->setServiceType(ServiceTypeOpenConnect);
-            m_settingsWidget = new VpnL2tpSettings(m_connectionSettings, this);
+            m_settingsWidget = new VpnOpenConnectSettings(m_connectionSettings, this);
             break;
         }
         default:
