@@ -52,8 +52,12 @@ public:
     void setIs3DWm(const bool is3d);
     bool is3DWm() const;
 
+    inline std::pair<int, double> opacity() const { return m_opacity; }
+    void setOpacity(std::pair<int, double> opacity);
+
 signals:
     void wmChanged(const bool is3d);
+    void onOpacityChanged(std::pair<int, double> opacity);
 
 private:
     ThemeModel    *m_windowModel;
@@ -63,6 +67,7 @@ private:
     FontModel     *m_monoFontModel;
     FontSizeModel *m_fontSizeModel;
     bool m_is3DWm;
+    std::pair<int, double> m_opacity;
 };
 }
 }

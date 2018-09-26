@@ -33,6 +33,7 @@ using namespace dcc::personalization;
 
 PersonalizationModel::PersonalizationModel(QObject *parent)
     : QObject(parent)
+    , m_opacity(std::pair<int, double>(3, 0.4f))
 {
     m_windowModel    = new ThemeModel(this);
     m_iconModel      = new ThemeModel(this);
@@ -59,4 +60,13 @@ void PersonalizationModel::setIs3DWm(const bool is3d)
 bool PersonalizationModel::is3DWm() const
 {
     return m_is3DWm;
+}
+
+void PersonalizationModel::setOpacity(std::pair<int, double> opacity)
+{
+    if (m_opacity == opacity) return;
+
+    m_opacity = opacity;
+
+    emit onOpacityChanged(opacity);
 }

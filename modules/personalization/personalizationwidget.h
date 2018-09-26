@@ -26,40 +26,42 @@
 #ifndef PERSONALIZATIONWIDGET_H
 #define PERSONALIZATIONWIDGET_H
 
+#include <QPushButton>
+#include <QVBoxLayout>
 #include "modulewidget.h"
 #include "personalizationmodel.h"
 #include "switchwidget.h"
-#include <QPushButton>
-#include <QVBoxLayout>
 
-namespace dcc
-{
+namespace dcc {
 namespace widgets {
 class SettingsGroup;
+class TitledSliderItem;
 }
-namespace personalization
-{
-class PersonalizationWidget : public dcc::ModuleWidget
-{
+namespace personalization {
+class PersonalizationWidget : public dcc::ModuleWidget {
     Q_OBJECT
 
 public:
     explicit PersonalizationWidget();
 
 public slots:
-    void setModel(PersonalizationModel *const model);
+    void setModel(PersonalizationModel* const model);
 
 signals:
     void showThemeWidget();
     void showFontsWidget();
     void requestSwitchWM();
+    void requestSetOpacity(int value);
 
 private:
-    dcc::widgets::SettingsGroup *m_userGroup;
-    dcc::widgets::SwitchWidget *m_wmSwitch;
+    void onOpacityChanged(std::pair<int, double> value);
+
+private:
+    dcc::widgets::SettingsGroup* m_userGroup;
+    dcc::widgets::SwitchWidget*  m_wmSwitch;
+    widgets::TitledSliderItem*   m_transparentSlider;
 };
 }
 }
 
-
-#endif // PERSONALIZATIONWIDGET_H
+#endif  // PERSONALIZATIONWIDGET_H

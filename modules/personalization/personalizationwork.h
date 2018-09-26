@@ -59,6 +59,7 @@ public slots:
     void setDefault(const QJsonObject &value);
     void setFontSize(const int value);
     void switchWM();
+    void setOpacity(int opcaity);
 
 private slots:
     void FontSizeChanged(const double value) const;
@@ -73,11 +74,16 @@ private slots:
 private:
     int sizeToSliderValue(const double value) const;
     float sliderValueToSize(const int value) const;
+    double sliderValutToOpacity(const int value) const;
     QList<QJsonObject> converToList(const QString &type, const QJsonArray &array);
     void addList(ThemeModel *model, const QString &type, const QJsonArray &array);
     void refreshWMState();
     void refreshThemeByType(const QString &type);
     void refreshFontByType(const QString &type);
+    void refreshOpacity(double opacity);
+
+    template<typename T1, typename T2, typename T3>
+    T3 toSliderValue(T1 map, T2 value);
 
 private:
     PersonalizationModel *m_model;

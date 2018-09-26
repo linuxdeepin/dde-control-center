@@ -25,30 +25,48 @@
 
 #include "personalizationwidget.h"
 #include "contentwidget.h"
-#include "settingsgroup.h"
+#include "dccslider.h"
+#include "nextpagewidget.h"
 #include "personalizationmodel.h"
-#include "nextpagewidget.h"
 #include "settingsgroup.h"
-#include "nextpagewidget.h"
 #include "switchwidget.h"
+#include "titledslideritem.h"
 
-#include <QPushButton>
 #include <QDebug>
+#include <QPushButton>
 
 using namespace dcc;
 using namespace dcc::personalization;
 using namespace dcc::widgets;
 
 PersonalizationWidget::PersonalizationWidget()
-    : ModuleWidget(),
-
-      m_userGroup(new SettingsGroup)
+    : ModuleWidget()
+    , m_userGroup(new SettingsGroup)
+    , m_transparentSlider(new TitledSliderItem(tr("Transparency")))
 {
     setObjectName("Personalization");
 
+    SettingsGroup *trGrp = new SettingsGroup;
+    trGrp->appendItem(m_transparentSlider);
+
+    DCCSlider *slider = m_transparentSlider->slider();
+    slider->setRange(0, 6);
+    slider->setType(DCCSlider::Vernier);
+    slider->setTickPosition(QSlider::TicksBelow);
+    slider->setTickInterval(1);
+    slider->setPageStep(1);
+
+    const QStringList list{ QString("0"),   QString("0.1"), QString("0.25"),
+                            QString("0.4"), QString("0.6"), QString("0.8"),
+                            QString("1") };
+
+    m_transparentSlider->setAnnotations(list);
+
+    m_centralLayout->addWidget(trGrp);
+
     m_centralLayout->addWidget(m_userGroup);
     NextPageWidget *theme = new NextPageWidget;
-    NextPageWidget *font = new NextPageWidget;
+    NextPageWidget *font  = new NextPageWidget;
 
     m_wmSwitch = new SwitchWidget(tr("Enable window effect"));
 
@@ -60,14 +78,34 @@ PersonalizationWidget::PersonalizationWidget()
     m_userGroup->appendItem(m_wmSwitch);
 
     setTitle(tr("Personalization"));
-    connect(theme, &NextPageWidget::clicked, this, &PersonalizationWidget::showThemeWidget);
-    connect(font, &NextPageWidget::clicked, this, &PersonalizationWidget::showFontsWidget);
-    connect(m_wmSwitch, &SwitchWidget::checkedChanged, this, &PersonalizationWidget::requestSwitchWM);
+    connect(theme, &NextPageWidget::clicked, this,
+            &PersonalizationWidget::showThemeWidget);
+    connect(font, &NextPageWidget::clicked, this,
+            &PersonalizationWidget::showFontsWidget);
+    connect(m_wmSwitch, &SwitchWidget::checkedChanged, this,
+            &PersonalizationWidget::requestSwitchWM);
+
+    connect(m_transparentSlider->slider(), &DCCSlider::valueChanged, this,
+            &PersonalizationWidget::requestSetOpacity);
 }
 
-void PersonalizationWidget::setModel(PersonalizationModel * const model)
+void PersonalizationWidget::setModel(PersonalizationModel *const model)
 {
-    connect(model, &PersonalizationModel::wmChanged, m_wmSwitch, &SwitchWidget::setChecked);
+    connect(model, &PersonalizationModel::wmChanged, m_wmSwitch,
+            &SwitchWidget::setChecked);
 
     m_wmSwitch->setChecked(model->is3DWm());
+    connect(model, &PersonalizationModel::onOpacityChanged,
+            this, &PersonalizationWidget::onOpacityChanged);
+
+    onOpacityChanged(model->opacity());
+}
+
+void PersonalizationWidget::onOpacityChanged(std::pair<int, double> value)
+{
+    m_transparentSlider->setValueLiteral(QString::number(value.second));
+
+    m_transparentSlider->slider()->blockSignals(true);
+    m_transparentSlider->slider()->setValue(value.first);
+    m_transparentSlider->slider()->blockSignals(false);
 }

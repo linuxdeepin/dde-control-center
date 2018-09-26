@@ -34,6 +34,16 @@ using namespace dcc::personalization;
 const QString Service = "com.deepin.daemon.Appearance";
 const QString Path    = "/com/deepin/daemon/Appearance";
 
+static const QMap<int, double> OPACITY_SLIDER {
+    {0, 0.0f},
+    {1, 0.1f},
+    {2, 0.25f},
+    {3, 0.4f},
+    {4, 0.6f},
+    {5, 0.8f},
+    {6, 1.0f}
+};
+
 PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *parent)
     : QObject(parent),
       m_model(model),
@@ -55,6 +65,7 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     connect(m_dbus, &Appearance::Refreshed, this, &PersonalizationWork::onRefreshedChanged);
 
     connect(m_wmSwitcher, &WMSwitcher::WMChanged, this, &PersonalizationWork::onToggleWM);
+    connect(m_dbus, &Appearance::OpacityChanged, this, &PersonalizationWork::refreshOpacity);
 
     m_themeModels["gtk"]           = windowTheme;
     m_themeModels["icon"]          = iconTheme;
@@ -72,6 +83,7 @@ void PersonalizationWork::active()
     m_wmSwitcher->blockSignals(false);
 
     refreshWMState();
+    refreshOpacity(m_dbus->opacity());
 }
 
 void PersonalizationWork::deactive()
@@ -293,6 +305,12 @@ void PersonalizationWork::refreshFontByType(const QString &type) {
     connect(fontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetFontFinished);
 }
 
+void PersonalizationWork::refreshOpacity(double opacity)
+{
+    int slider { toSliderValue<QMap<int, double>, double, int>(OPACITY_SLIDER, opacity) };
+    m_model->setOpacity(std::pair<int, double>(slider, opacity));
+}
+
 int PersonalizationWork::sizeToSliderValue(const double value) const
 {
     if (value <= 8.2) {
@@ -336,6 +354,11 @@ float PersonalizationWork::sliderValueToSize(const int value) const
     }
 }
 
+double PersonalizationWork::sliderValutToOpacity(const int value) const
+{
+    return OPACITY_SLIDER[value];
+}
+
 void PersonalizationWork::setDefault(const QJsonObject &value)
 {
     //使用type去调用
@@ -355,4 +378,21 @@ void PersonalizationWork::switchWM()
         emit m_model->wmChanged(m_wmSwitcher->CurrentWM() == "deepin wm");
         refreshWMState();
     });
+}
+
+void PersonalizationWork::setOpacity(int opacity)
+{
+    m_dbus->setOpacity(sliderValutToOpacity(opacity));
+}
+
+template<typename T1, typename T2, typename T3>
+T3 PersonalizationWork::toSliderValue(T1 map,T2 value)
+{
+    for (auto it = map.constBegin(); it != map.constEnd(); ++it) {
+        if (value < it.value()) {
+            return (--it).key();
+        }
+    }
+
+    return map.lastKey();
 }
