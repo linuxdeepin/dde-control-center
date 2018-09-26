@@ -18,7 +18,7 @@ class VpnAdvVPNCSection : public AbstractSection
     Q_OBJECT
 
 public:
-    VpnAdvVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = 0);
+    explicit VpnAdvVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = 0);
     virtual ~VpnAdvVPNCSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;
