@@ -8,6 +8,7 @@
  * Maintainer: sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <listenerri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -148,12 +149,8 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
         WirelessPage *p = new WirelessPage(static_cast<WirelessDevice *>(dev));
         connect(p, &WirelessPage::requestDeviceAPList, m_networkWorker, &NetworkWorker::queryAccessPoints);
         connect(p, &WirelessPage::requestWirelessScan, m_networkWorker, &NetworkWorker::requestWirelessScan);
-        connect(p, &WirelessPage::requestEditAP, m_networkWorker, &NetworkWorker::queryConnectionSession);
         connect(p, &WirelessPage::requestConnectAp, m_networkWorker, &NetworkWorker::activateAccessPoint);
-        connect(p, &WirelessPage::requestCreateAp, m_networkWorker, &NetworkWorker::createConnection);
-        connect(p, &WirelessPage::requestCreateApConfig, m_networkWorker, &NetworkWorker::createApConfig);
         connect(p, &WirelessPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
-        connect(p, &WirelessPage::requestDeleteConnection, m_networkWorker, &NetworkWorker::deleteConnection);
         connect(p, &WirelessPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
         connect(p, &WirelessPage::requestDeviceRemanage, m_networkWorker, &NetworkWorker::remanageDevice, Qt::QueuedConnection);
         connect(p, &WirelessPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
@@ -167,10 +164,6 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
         WiredPage *p = new WiredPage(static_cast<WiredDevice *>(dev));
 //        connect(p, &WiredPage::requestConnectionsList, m_networkWorker, &NetworkWorker::queryDeviceConnections);
         connect(p, &WiredPage::requestActiveConnection, m_networkWorker, &NetworkWorker::activateConnection);
-        connect(p, &WiredPage::requestCreateConnection, m_networkWorker, &NetworkWorker::createConnection);
-        connect(p, &WiredPage::requestEditConnection, m_networkWorker, &NetworkWorker::queryConnectionSession);
-        connect(p, &WiredPage::requestDeleteConnection, m_networkWorker, &NetworkWorker::deleteConnection);
-        connect(p, &WiredPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
         connect(p, &WiredPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
         connect(p, &WiredPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
         p->setModel(m_networkModel);
@@ -184,11 +177,7 @@ void NetworkModule::showVpnPage()
     VpnPage *p = new VpnPage;
 
     connect(p, &VpnPage::requestVpnEnabled, m_networkWorker, &NetworkWorker::setVpnEnable);
-    connect(p, &VpnPage::requestCreateConnection, m_networkWorker, &NetworkWorker::createConnection);
-    connect(p, &VpnPage::requestDeleteConnection, m_networkWorker, &NetworkWorker::deleteConnection);
     connect(p, &VpnPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
-    connect(p, &VpnPage::requestDeactiveConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
-    connect(p, &VpnPage::requestEditVpn, m_networkWorker, &NetworkWorker::queryConnectionSession);
     connect(p, &VpnPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
     connect(p, &VpnPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
 

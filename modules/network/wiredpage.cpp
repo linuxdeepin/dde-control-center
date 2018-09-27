@@ -8,6 +8,7 @@
  * Maintainer: sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <listenerri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -85,7 +86,6 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     setTitle(tr("Select Settings"));
 
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
-    connect(m_device, &WiredDevice::sessionCreated, this, &WiredPage::onSessionCreated);
     connect(m_device, &WiredDevice::connectionsChanged, this, &WiredPage::refreshConnectionList);
     connect(m_device, &WiredDevice::activeConnectionChanged, this, &WiredPage::checkActivatedConnection);
     connect(m_device, &WiredDevice::removed, this, &WiredPage::onDeviceRemoved);
@@ -175,8 +175,6 @@ void WiredPage::editConnection()
     m_editPageNew->initSettingsWidget();
     connect(m_editPageNew, &ConnectionEditPageNew::requestNextPage, this, &WiredPage::requestNextPage);
     emit requestNextPage(m_editPageNew);
-
-    //emit requestEditConnection(m_device->path(), m_model->connectionUuidByPath(connPath));
 }
 
 void WiredPage::createNewConnection()
@@ -185,8 +183,6 @@ void WiredPage::createNewConnection()
     m_editPageNew->initSettingsWidget();
     connect(m_editPageNew, &ConnectionEditPageNew::requestNextPage, this, &WiredPage::requestNextPage);
     emit requestNextPage(m_editPageNew);
-
-    //emit requestCreateConnection("wired", m_device->path());
 }
 
 void WiredPage::activeConnection()
@@ -216,30 +212,6 @@ void WiredPage::onDeviceStatusChanged(const NetworkDevice::DeviceStatus stat)
     const bool unavailable = stat <= NetworkDevice::Unavailable;
 
     m_tipsGrp->setVisible(unavailable);
-}
-
-void WiredPage::onSessionCreated(const QString &sessionPath)
-{
-    Q_ASSERT(m_editPage.isNull());
-
-    Q_UNUSED(sessionPath);
-
-    //m_editPage = new ConnectionEditPage;
-
-    //ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_editPage);
-    //ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);
-
-    //m_editPage->setModel(m_model, sessionModel);
-    //m_editPage->setAssociatedDevice(m_device);
-    //connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
-    //connect(m_editPage, &ConnectionEditPage::requestRemove, this, &WiredPage::requestDeleteConnection);
-    //connect(m_editPage, &ConnectionEditPage::requestDisconnect, this, &WiredPage::requestDisconnectConnection);
-    //connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
-    //connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
-    //connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
-    //connect(m_editPage, &ConnectionEditPage::requestSave, sessionWorker, &ConnectionSessionWorker::saveSettings);
-
-    //emit requestNextPage(m_editPage);
 }
 
 void WiredPage::onDeviceRemoved()

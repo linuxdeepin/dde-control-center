@@ -8,6 +8,7 @@
  * Maintainer: sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <listenerri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -63,13 +64,9 @@ public:
     ~VpnPage();
 
 signals:
-    void requestDeleteConnection(const QString &uuid) const;
-    void requestDeactiveConnection(const QString &uuid) const;
     void requestNextPage(ContentWidget * const w) const;
     void requestVpnEnabled(const bool enabled) const;
-    void requestEditVpn(const QString &devPath, const QString &uuid) const;
     void requestActivateConnection(const QString &devPath, const QString &uuid) const;
-    void requestCreateConnection(const QString &type, const QString &devicePath) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
 
 public slots:
@@ -80,7 +77,6 @@ private slots:
     void onVpnDetailClicked();
     void onVpnSelected();
     void onSessionPageFinished();
-    void onVpnSessionCreated(const QString &device, const QString &sessionPath);
     void onActiveConnsInfoChanged(const QList<QJsonObject> &infos);
 
     void importVPN();

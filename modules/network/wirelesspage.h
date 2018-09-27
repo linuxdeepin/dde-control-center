@@ -8,6 +8,7 @@
  * Maintainer: sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <listenerri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -63,11 +64,7 @@ public:
     void setModel(dde::network::NetworkModel *model);
 
 signals:
-    void requestEditAP(const QString &devPath, const QString &uuid) const;
     void requestConnectAp(const QString &devPath, const QString &apPath, const QString &uuid) const;
-    void requestCreateApConfig(const QString &devPath, const QString &apPath) const;
-    void requestCreateAp(const QString &type, const QString &devPath) const;
-    void requestDeleteConnection(const QString &uuid);
     void requestDisconnectConnection(const QString &uuid);
     void requestNextPage(ContentWidget * const w) const;
     void requestDeviceRemanage(const QString &devPath) const;
@@ -89,7 +86,6 @@ private slots:
     void onApWidgetEditRequested(const QString &apPath, const QString &ssid);
     void onApWidgetConnectRequested(const QString &path, const QString &ssid);
     void showConnectHidePage();
-    void showAPEditPage(const QString &session);
 
 private:
     void updateActiveAp();

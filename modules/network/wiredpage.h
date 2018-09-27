@@ -8,6 +8,7 @@
  * Maintainer: sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <listenerri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -60,11 +61,7 @@ public:
 
 signals:
     void requestConnectionsList(const QString &devPath);
-    void requestEditConnection(const QString &devPath, const QString &uuid) const;
-    void requestCreateConnection(const QString &type, const QString &devPath) const;
     void requestActiveConnection(const QString &devPath, const QString &uuid) const;
-    void requestDeleteConnection(const QString &uuid) const;
-    void requestDisconnectConnection(const QString &uuid) const;
     void requestNextPage(ContentWidget * const w) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
 
@@ -77,7 +74,6 @@ private slots:
     void activeConnection();
     void checkActivatedConnection();
     void onDeviceStatusChanged(const dde::network::WiredDevice::DeviceStatus stat);
-    void onSessionCreated(const QString &sessionPath);
     void onDeviceRemoved();
 
 private:

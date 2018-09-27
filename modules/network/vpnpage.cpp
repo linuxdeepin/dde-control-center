@@ -8,6 +8,7 @@
  * Maintainer: sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <listenerri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -119,7 +120,6 @@ void VpnPage::setModel(NetworkModel *model)
     m_model = model;
 
     connect(m_model, &NetworkModel::vpnEnabledChanged, m_vpnSwitch, &SwitchWidget::setChecked);
-    connect(m_model, &NetworkModel::unhandledConnectionSessionCreated, this, &VpnPage::onVpnSessionCreated);
     connect(m_model, &NetworkModel::activeConnInfoChanged, this, &VpnPage::onActiveConnsInfoChanged);
     connect(m_model, &NetworkModel::connectionListChanged, this, [=] { refreshVpnList(m_model->vpns()); });
 
@@ -164,8 +164,6 @@ void VpnPage::onVpnDetailClicked()
     editPage->initSettingsWidget();
     connect(editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
     Q_EMIT requestNextPage(editPage);
-
-    //emit requestEditVpn("/", m_editingConnUuid);
 }
 
 void VpnPage::onVpnSelected()
@@ -183,36 +181,6 @@ void VpnPage::onSessionPageFinished()
 {
     if (m_vpnTypePage)
         emit m_vpnTypePage->back();
-}
-
-void VpnPage::onVpnSessionCreated(const QString &device, const QString &sessionPath)
-{
-    Q_ASSERT(device == "/");
-    Q_ASSERT(m_editPage.isNull());
-
-    m_editPage = new ConnectionEditPage;
-
-    ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_editPage);
-    ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);
-
-    auto onDeletableChanged = [=] (const bool deletable) {
-        m_editPage->setPageType(deletable ? ConnectionEditPage::NormalEditPage : ConnectionEditPage::VPNCreatePage);
-    };
-
-    m_editPage->setModel(m_model, sessionModel);
-    connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
-    connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
-    connect(m_editPage, &ConnectionEditPage::requestSave, sessionWorker, &ConnectionSessionWorker::saveSettings);
-    connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &VpnPage::requestNextPage);
-    connect(m_editPage, &ConnectionEditPage::back, this, &VpnPage::onSessionPageFinished, Qt::QueuedConnection);
-    connect(m_editPage, &ConnectionEditPage::requestRemove, [=] { emit requestDeleteConnection(m_editingConnUuid); });
-    connect(m_editPage, &ConnectionEditPage::requestDisconnect, [=] { emit requestDeactiveConnection(m_editingConnUuid); });
-    connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
-    connect(sessionModel, &ConnectionSessionModel::deletableChanged, this, onDeletableChanged);
-
-    onDeletableChanged(sessionModel->deletable());
-
-    emit requestNextPage(m_editPage);
 }
 
 void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
@@ -287,14 +255,11 @@ void VpnPage::importVPN()
     if (match.hasMatch())
     {
         m_editingConnUuid = match.captured(1);
-        //emit requestEditVpn("/", m_editingConnUuid);
     }
 }
 
 void VpnPage::createVPNSession()
 {
-//    emit requestCreateConnection("vpn", "/");
-
     if (!m_vpnTypePage)
     {
         OptionItem *l2tp = new OptionItem;
@@ -356,6 +321,4 @@ void VpnPage::createVPN(ConnectionVpnEditPage::VpnType vpnType)
     editPage->initSettingsWidgetByType(vpnType);
     connect(editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
     Q_EMIT requestNextPage(editPage);
-
-    //emit requestCreateConnection(type, "/");
 }

@@ -8,6 +8,7 @@
  * Maintainer: sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <listenerri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -98,7 +99,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(dev, &WirelessDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
     connect(dev, &WirelessDevice::apRemoved, this, &WirelessPage::onAPRemoved);
     connect(dev, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
-    connect(dev, &WirelessDevice::sessionCreated, this, &WirelessPage::showAPEditPage);
     connect(dev, &WirelessDevice::activeConnectionChanged, this, &WirelessPage::updateActiveAp);
     connect(dev, &WirelessDevice::hotspotEnabledChanged, this, &WirelessPage::onHotspotEnableChanged);
 
@@ -251,9 +251,6 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
         m_editingUuid = uuid;
 
         m_apEditPage->initSettingsWidget();
-
-        //emit requestEditAP(m_device->path(), uuid);
-        //return;
     } else {
         m_apEditPage->initSettingsWidgetFromAp(apPath);
     }
@@ -261,8 +258,6 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
     connect(m_apEditPage, &ConnectionEditPageNew::requestNextPage, this, &WirelessPage::requestNextPage);
 
     emit requestNextPage(m_apEditPage);
-
-    //emit requestCreateApConfig(m_device->path(), path);
 }
 
 void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString &ssid)
@@ -276,42 +271,10 @@ void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString
 
 void WirelessPage::showConnectHidePage()
 {
-//    if (m_connectHidePage.isNull())
-//    {
-//        m_connectHidePage = new ConnectHiddenPage(this);
-//        connect(m_connectHidePage, &ConnectHiddenPage::requestNextPage, this, &WirelessPage::requestNextPage);
-//    }
-
-//    emit requestNextPage(m_connectHidePage);
-
     m_apEditPage = new ConnectionWirelessEditPage(m_device->path());
     m_apEditPage->initSettingsWidget();
     connect(m_apEditPage, &ConnectionEditPageNew::requestNextPage, this, &WirelessPage::requestNextPage);
     emit requestNextPage(m_apEditPage);
-
-    //emit requestCreateAp("wireless", m_device->path());
-}
-
-void WirelessPage::showAPEditPage(const QString &session)
-{
-    Q_UNUSED(session)
-    // ensure edit page is empty
-    //Q_ASSERT(m_apEditPage.isNull());
-
-    //m_apEditPage = new ConnectionEditPage;
-
-    //ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_apEditPage);
-    //ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(session, sessionModel, m_apEditPage);
-
-    //m_apEditPage->setModel(m_model, sessionModel);
-    //connect(m_apEditPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
-    //connect(m_apEditPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
-    //connect(m_apEditPage, &ConnectionEditPage::requestSave, sessionWorker, &ConnectionSessionWorker::saveSettings);
-    //connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
-    //connect(m_apEditPage, &ConnectionEditPage::requestRemove, [this] { emit requestDeleteConnection(m_editingUuid); });
-    //connect(m_apEditPage, &ConnectionEditPage::requestDisconnect, [this] { emit requestDisconnectConnection(m_editingUuid); });
-    //connect(m_apEditPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &WirelessPage::requestFrameKeepAutoHide);
-    //emit requestNextPage(m_apEditPage);
 }
 
 void WirelessPage::updateActiveAp()
