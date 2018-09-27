@@ -24,9 +24,11 @@ AbstractSettings::~AbstractSettings()
 bool AbstractSettings::allInputValid()
 {
     for (auto section : m_settingSections) {
-        if (!section->allInputValid()) {
-            qDebug() << "some section has Error!" << m_settingSections.indexOf(section);
-            return false;
+        if (section->isVisible()) {
+            if (!section->allInputValid()) {
+                qDebug() << "some section has Error!" << m_settingSections.indexOf(section);
+                return false;
+            }
         }
     }
 
@@ -36,6 +38,8 @@ bool AbstractSettings::allInputValid()
 void AbstractSettings::saveSettings()
 {
     for (auto section : m_settingSections) {
-        section->saveSettings();
+        if (section->isVisible()) {
+            section->saveSettings();
+        }
     }
 }

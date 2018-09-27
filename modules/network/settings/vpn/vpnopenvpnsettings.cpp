@@ -4,6 +4,7 @@
 #include "../../sections/vpn/vpnadvopenvpnsection.h"
 #include "../../sections/vpn/vpnsecopenvpnsection.h"
 #include "../../sections/vpn/vpnproxysection.h"
+#include "../../sections/vpn/vpntlssection.h"
 #include "../../sections/ipvxsection.h"
 
 using namespace dcc::widgets;
@@ -49,12 +50,19 @@ void VpnOpenVPNSettings::initSections()
     ipv6Section->setIpv6ConfigMethodEnable(NetworkManager::Ipv6Setting::ConfigMethod::Manual, false);
     ipv6Section->setNeverDefaultEnable(true);
 
+    VpnTLSSection *vpnTLSSection = new VpnTLSSection(vpnSetting);
+    vpnTLSSection->setVisible(vpnOpenVPNSection->authType() != "static-key");
+
     connect(vpnOpenVPNSection, &VpnOpenVPNSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
+    connect(vpnOpenVPNSection, &VpnOpenVPNSection::authTypeChanged, this, [=](const QString &type) {
+        vpnTLSSection->setVisible(type != "static-key");
+    });
     connect(vpnAdvOpenVPNSection, &VpnAdvOpenVPNSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(vpnSecOpenVPNSection, &VpnSecOpenVPNSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(vpnProxySection, &VpnProxySection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(ipv6Section, &IpvxSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
+    connect(vpnTLSSection, &VpnTLSSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(vpnOpenVPNSection);
@@ -63,6 +71,7 @@ void VpnOpenVPNSettings::initSections()
     m_sectionsLayout->addWidget(vpnProxySection);
     m_sectionsLayout->addWidget(ipv4Section);
     m_sectionsLayout->addWidget(ipv6Section);
+    m_sectionsLayout->addWidget(vpnTLSSection);
 
     m_settingSections.append(genericSection);
     m_settingSections.append(vpnOpenVPNSection);
@@ -71,4 +80,5 @@ void VpnOpenVPNSettings::initSections()
     m_settingSections.append(vpnProxySection);
     m_settingSections.append(ipv4Section);
     m_settingSections.append(ipv6Section);
+    m_settingSections.append(vpnTLSSection);
 }

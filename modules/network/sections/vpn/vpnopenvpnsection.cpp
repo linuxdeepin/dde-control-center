@@ -311,6 +311,7 @@ void VpnOpenVPNSection::onAuthTypeChanged(const QString &type)
     }
 
     m_currentAuthType = type;
+    Q_EMIT authTypeChanged(m_currentAuthType);
 
     if (m_currentAuthType == "password-tls") {
         setItemsVisible("tls", true);
