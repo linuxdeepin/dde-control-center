@@ -30,23 +30,31 @@ void VpnOpenVPNSettings::initSections()
     }
 
     GenericSection *genericSection = new GenericSection(m_connSettings);
+
     VpnOpenVPNSection *vpnOpenVPNSection = new VpnOpenVPNSection(vpnSetting);
+
     VpnAdvOpenVPNSection *vpnAdvOpenVPNSection = new VpnAdvOpenVPNSection(vpnSetting);
+
     VpnSecOpenVPNSection *vpnSecOpenVPNSection = new VpnSecOpenVPNSection(vpnSetting);
+
     VpnProxySection *vpnProxySection = new VpnProxySection(vpnSetting);
+
     IpvxSection *ipv4Section = new IpvxSection(
             m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     ipv4Section->setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod::Manual, false);
     ipv4Section->setNeverDefaultEnable(true);
-    //IpvxSection *ipv6Section = new IpvxSection(
-            //m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
+
+    IpvxSection *ipv6Section = new IpvxSection(
+            m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
+    ipv6Section->setIpv6ConfigMethodEnable(NetworkManager::Ipv6Setting::ConfigMethod::Manual, false);
+    ipv6Section->setNeverDefaultEnable(true);
 
     connect(vpnOpenVPNSection, &VpnOpenVPNSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(vpnAdvOpenVPNSection, &VpnAdvOpenVPNSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(vpnSecOpenVPNSection, &VpnSecOpenVPNSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(vpnProxySection, &VpnProxySection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
-    //connect(ipv6Section, &IpvxSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
+    connect(ipv6Section, &IpvxSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(vpnOpenVPNSection);
@@ -54,7 +62,7 @@ void VpnOpenVPNSettings::initSections()
     m_sectionsLayout->addWidget(vpnSecOpenVPNSection);
     m_sectionsLayout->addWidget(vpnProxySection);
     m_sectionsLayout->addWidget(ipv4Section);
-    //m_sectionsLayout->addWidget(ipv6Section);
+    m_sectionsLayout->addWidget(ipv6Section);
 
     m_settingSections.append(genericSection);
     m_settingSections.append(vpnOpenVPNSection);
@@ -62,5 +70,5 @@ void VpnOpenVPNSettings::initSections()
     m_settingSections.append(vpnSecOpenVPNSection);
     m_settingSections.append(vpnProxySection);
     m_settingSections.append(ipv4Section);
-    //m_settingSections.append(ipv6Section);
+    m_settingSections.append(ipv6Section);
 }
