@@ -2,6 +2,7 @@
 #include "../../sections/genericsection.h"
 #include "../../sections/vpn/vpnopenvpnsection.h"
 #include "../../sections/vpn/vpnadvopenvpnsection.h"
+#include "../../sections/vpn/vpnsecopenvpnsection.h"
 #include "../../sections/ipvxsection.h"
 
 using namespace dcc::widgets;
@@ -30,6 +31,7 @@ void VpnOpenVPNSettings::initSections()
     GenericSection *genericSection = new GenericSection(m_connSettings);
     VpnOpenVPNSection *vpnOpenVPNSection = new VpnOpenVPNSection(vpnSetting);
     VpnAdvOpenVPNSection *vpnAdvOpenVPNSection = new VpnAdvOpenVPNSection(vpnSetting);
+    VpnSecOpenVPNSection *vpnSecOpenVPNSection = new VpnSecOpenVPNSection(vpnSetting);
     IpvxSection *ipv4Section = new IpvxSection(
             m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     ipv4Section->setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod::Manual, false);
@@ -39,18 +41,21 @@ void VpnOpenVPNSettings::initSections()
 
     connect(vpnOpenVPNSection, &VpnOpenVPNSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(vpnAdvOpenVPNSection, &VpnAdvOpenVPNSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
+    connect(vpnSecOpenVPNSection, &VpnSecOpenVPNSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
     //connect(ipv6Section, &IpvxSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(vpnOpenVPNSection);
     m_sectionsLayout->addWidget(vpnAdvOpenVPNSection);
+    m_sectionsLayout->addWidget(vpnSecOpenVPNSection);
     m_sectionsLayout->addWidget(ipv4Section);
     //m_sectionsLayout->addWidget(ipv6Section);
 
     m_settingSections.append(genericSection);
     m_settingSections.append(vpnOpenVPNSection);
     m_settingSections.append(vpnAdvOpenVPNSection);
+    m_settingSections.append(vpnSecOpenVPNSection);
     m_settingSections.append(ipv4Section);
     //m_settingSections.append(ipv6Section);
 }

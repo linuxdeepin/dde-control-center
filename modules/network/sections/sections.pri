@@ -14,7 +14,8 @@ HEADERS += \
     $$PWD/vpn/vpnvpncsection.h \
     $$PWD/vpn/vpnadvvpncsection.h \
     $$PWD/vpn/vpnopenvpnsection.h \
-    $$PWD/vpn/vpnadvopenvpnsection.h
+    $$PWD/vpn/vpnadvopenvpnsection.h \
+    $$PWD/vpn/vpnsecopenvpnsection.h
 
 SOURCES += \
     $$PWD/abstractsection.cpp \
@@ -31,4 +32,5 @@ SOURCES += \
     $$PWD/vpn/vpnvpncsection.cpp \
     $$PWD/vpn/vpnadvvpncsection.cpp \
     $$PWD/vpn/vpnopenvpnsection.cpp \
-    $$PWD/vpn/vpnadvopenvpnsection.cpp
+    $$PWD/vpn/vpnadvopenvpnsection.cpp \
+    $$PWD/vpn/vpnsecopenvpnsection.cpp
