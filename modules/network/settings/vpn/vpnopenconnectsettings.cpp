@@ -1,5 +1,6 @@
 #include "vpnopenconnectsettings.h"
 #include "../../sections/genericsection.h"
+#include "../../sections/vpn/vpnopenconnectsection.h"
 #include "../../sections/ipvxsection.h"
 
 using namespace dcc::widgets;
@@ -17,30 +18,38 @@ VpnOpenConnectSettings::~VpnOpenConnectSettings()
 
 void VpnOpenConnectSettings::initSections()
 {
-    //NetworkManager::VpnSetting::Ptr vpnSetting = m_connSettings->setting(
-            //NetworkManager::Setting::SettingType::Vpn).staticCast<NetworkManager::VpnSetting>();
+    NetworkManager::VpnSetting::Ptr vpnSetting = m_connSettings->setting(
+            NetworkManager::Setting::SettingType::Vpn).staticCast<NetworkManager::VpnSetting>();
 
-    //if (!vpnSetting) {
-        //qDebug() << "vpn setting is invalid...";
-        //return;
-    //}
+    if (!vpnSetting) {
+        qDebug() << "vpn setting is invalid...";
+        return;
+    }
 
     GenericSection *genericSection = new GenericSection(m_connSettings);
+
+    VpnOpenConnectSection *vpnOpenConnectSection = new VpnOpenConnectSection(vpnSetting);
+
     IpvxSection *ipv4Section = new IpvxSection(
             m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     ipv4Section->setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod::Manual, false);
     ipv4Section->setNeverDefaultEnable(true);
-    //IpvxSection *ipv6Section = new IpvxSection(
-            //m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
+
+    IpvxSection *ipv6Section = new IpvxSection(
+            m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
+    ipv6Section->setIpv6ConfigMethodEnable(NetworkManager::Ipv6Setting::ConfigMethod::Manual, false);
+    ipv6Section->setNeverDefaultEnable(true);
 
     connect(ipv4Section, &IpvxSection::requestPage, this, &VpnOpenConnectSettings::requestNextPage);
-    //connect(ipv6Section, &IpvxSection::requestPage, this, &VpnOpenConnectSettings::requestNextPage);
+    connect(ipv6Section, &IpvxSection::requestPage, this, &VpnOpenConnectSettings::requestNextPage);
 
     m_sectionsLayout->addWidget(genericSection);
+    m_sectionsLayout->addWidget(vpnOpenConnectSection);
     m_sectionsLayout->addWidget(ipv4Section);
-    //m_sectionsLayout->addWidget(ipv6Section);
+    m_sectionsLayout->addWidget(ipv6Section);
 
     m_settingSections.append(genericSection);
+    m_settingSections.append(vpnOpenConnectSection);
     m_settingSections.append(ipv4Section);
-    //m_settingSections.append(ipv6Section);
+    m_settingSections.append(ipv6Section);
 }

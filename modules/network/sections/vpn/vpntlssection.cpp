@@ -50,7 +50,7 @@ void VpnTLSSection::saveSettings()
     } else {
         m_dataMap.remove("ta-dir");
     }
-    
+
     m_vpnSetting->setData(m_dataMap);
 
     m_vpnSetting->setInitialized(true);
