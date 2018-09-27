@@ -143,17 +143,17 @@ void BasicSettingsWorker::onBrightnessChanged(const BrightnessMap value)
 }
 
 BasicSettingsPage::BasicSettingsPage(QWidget *parent)
-    : QFrame(parent),
-
-      m_mprisEnable(true),
-      m_volumeLow(new QLabel),
-      m_volumeHigh(new QLabel),
-      m_soundSlider(new QSlider),
-      m_brightnessLow(new QLabel),
-      m_brightnessHigh(new QLabel),
-      m_lightSlider(new QSlider),
-      m_model(new BasicSettingsModel(this)),
-      m_worker(new BasicSettingsWorker(m_model, this))
+    : QFrame(parent)
+    , m_mprisEnable(true)
+    , m_volumeLow(new QLabel)
+    , m_volumeHigh(new QLabel)
+    , m_soundSlider(new QSlider)
+    , m_brightnessLow(new QLabel)
+    , m_brightnessHigh(new QLabel)
+    , m_lightSlider(new QSlider)
+    , m_model(new BasicSettingsModel(this))
+    , m_worker(new BasicSettingsWorker(m_model, this))
+    , m_scrollTimer(new QTimer(this))
 {
     m_volumeLow->setObjectName("HomeVolumeLowLabel");
     m_volumeLow->setFixedSize(24, 24);
@@ -163,6 +163,9 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     m_brightnessLow->setFixedSize(24, 24);
     m_brightnessHigh->setObjectName("HomeBrightnessHighLabel");
     m_brightnessHigh->setFixedSize(24, 24);
+
+    m_scrollTimer->setInterval(300);
+    m_scrollTimer->setSingleShot(false);
 
     m_gsettings = new QGSettings("com.deepin.dde.audio", "", this);
 
@@ -215,7 +218,7 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     setLayout(mainLayout);
 
     auto onVolumeChanged = [this] (const double &volume) {
-        if (!m_model->mute()) {
+        if (!m_model->mute() && !m_scrollTimer->isActive()) {
             m_soundSlider->blockSignals(true);
             m_soundSlider->setValue(volume * 100);
             m_soundSlider->blockSignals(false);
@@ -223,9 +226,11 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     };
 
     auto onBrightnessChanged = [this] (const double &brightness) {
-        m_lightSlider->blockSignals(true);
-        m_lightSlider->setValue(brightness * 100);
-        m_lightSlider->blockSignals(false);
+        if (!m_scrollTimer->isActive()) {
+            m_lightSlider->blockSignals(true);
+            m_lightSlider->setValue(brightness * 100);
+            m_lightSlider->blockSignals(false);
+        }
     };
 
     connect(m_model, &BasicSettingsModel::muteChanged, this, &BasicSettingsPage::onMuteChanged);
@@ -235,7 +240,11 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     connect(m_mprisWidget, &DMPRISControl::mprisLosted, this, &BasicSettingsPage::onMPRISChanged);
     connect(m_gsettings, &QGSettings::changed, this, &BasicSettingsPage::onGSettingsChanged);
     connect(m_soundSlider, &DCCSlider::valueChanged, m_worker, &BasicSettingsWorker::setVolume);
+    connect(m_soundSlider, &QSlider::valueChanged,
+            m_scrollTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_lightSlider, &QSlider::valueChanged, m_worker, &BasicSettingsWorker::setBrightness);
+    connect(m_lightSlider, &QSlider::valueChanged,
+            m_scrollTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
 
     onVolumeChanged(m_model->volume());
     onBrightnessChanged(m_model->brightness());

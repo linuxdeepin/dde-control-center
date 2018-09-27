@@ -120,6 +120,7 @@ private:
 
     Dtk::Widget::DMPRISControl *m_mprisWidget;
     QGSettings *m_gsettings;
+    QTimer *m_scrollTimer;
 };
 
 }
