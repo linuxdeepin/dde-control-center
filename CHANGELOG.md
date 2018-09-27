@@ -1,4 +1,14 @@
 <a name=""></a>
+##  4.6.4.8 (2018-09-27)
+
+
+#### Features
+
+*   merge operations in a short time for quick control panel ([f354796d](https://github.com/linuxdeepin/dde-control-center/commit/f354796d61cd7ae60c9a6404ead6a3494409faa9))
+
+
+
+<a name=""></a>
 ##  4.6.4.7 (2018-09-19)
 
 
