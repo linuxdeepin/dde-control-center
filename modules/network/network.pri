@@ -16,6 +16,7 @@ HEADERS += \
     $$PWD/connectioneditpagenew.h \
     $$PWD/connectionwirelesseditpage.h \
     $$PWD/connectionvpneditpage.h \
+    $$PWD/connectionhotspoteditpage.h \
     $$PWD/pppoepage.h \
     $$PWD/networkdetailpage.h \
     $$PWD/proxypage.h \
@@ -36,6 +37,7 @@ SOURCES += \
     $$PWD/connectioneditpagenew.cpp \
     $$PWD/connectionwirelesseditpage.cpp \
     $$PWD/connectionvpneditpage.cpp \
+    $$PWD/connectionhotspoteditpage.cpp \
     $$PWD/pppoepage.cpp \
     $$PWD/networkdetailpage.cpp \
     $$PWD/proxypage.cpp \

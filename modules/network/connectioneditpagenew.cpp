@@ -124,6 +124,7 @@ void ConnectionEditPageNew::initSettingsWidget()
     }
 
     connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionEditPageNew::requestNextPage);
+
     m_settingsLayout->addWidget(m_settingsWidget);
 }
 
@@ -181,8 +182,15 @@ void ConnectionEditPageNew::initConnectionSecrets()
         }
         case NetworkManager::ConnectionSettings::ConnectionType::Wireless: {
             sType = NetworkManager::Setting::SettingType::WirelessSecurity;
-            if (m_connectionSettings->setting(sType).staticCast<NetworkManager::WirelessSecuritySetting>()->keyMgmt()
-                    == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap) {
+
+            NetworkManager::WirelessSecuritySetting::KeyMgmt keyMgmt =
+                m_connectionSettings->setting(sType).staticCast<NetworkManager::WirelessSecuritySetting>()->keyMgmt();
+            if (keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone
+                    || keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown) {
+                break;
+            }
+
+            if (keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap) {
                 sType = NetworkManager::Setting::SettingType::Security8021x;
             }
             sSecretsMapMap = secretsMapMapBySettingType(sType);

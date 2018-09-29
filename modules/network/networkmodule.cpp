@@ -254,12 +254,9 @@ void NetworkModule::showHotspotPage(WirelessDevice *wdev)
     HotspotPage *p = new HotspotPage(wdev);
 
     p->setModel(m_networkModel);
-    connect(p, &HotspotPage::requestNewHotspot, m_networkWorker, &NetworkWorker::initWirelessHotspot);
     connect(p, &HotspotPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
     connect(p, &HotspotPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
     connect(p, &HotspotPage::requestDeviceRemanage, m_networkWorker, &NetworkWorker::remanageDevice, Qt::QueuedConnection);
-    connect(p, &HotspotPage::requestEditConnection, m_networkWorker, &NetworkWorker::queryConnectionSession);
-    connect(p, &HotspotPage::requestDeleteConnection, m_networkWorker, &NetworkWorker::deleteConnection);
     connect(p, &HotspotPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
 
     m_frameProxy->pushWidget(this, p);

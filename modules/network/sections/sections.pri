@@ -2,11 +2,13 @@
 HEADERS += \
     $$PWD/abstractsection.h \
     $$PWD/genericsection.h \
+    $$PWD/generichotspotsection.h \
     $$PWD/secret8021xsection.h \
     $$PWD/ipvxsection.h \
     $$PWD/ethernetsection.h \
     $$PWD/secretwiredsection.h \
     $$PWD/secretwirelesssection.h \
+    $$PWD/secrethotspotsection.h \
     $$PWD/wirelesssection.h \
     $$PWD/pppsection.h \
     $$PWD/pppoesection.h \
@@ -26,11 +28,13 @@ HEADERS += \
 SOURCES += \
     $$PWD/abstractsection.cpp \
     $$PWD/genericsection.cpp \
+    $$PWD/generichotspotsection.cpp \
     $$PWD/secret8021xsection.cpp \
     $$PWD/ipvxsection.cpp \
     $$PWD/ethernetsection.cpp \
     $$PWD/secretwiredsection.cpp \
     $$PWD/secretwirelesssection.cpp \
+    $$PWD/secrethotspotsection.cpp \
     $$PWD/wirelesssection.cpp \
     $$PWD/pppsection.cpp \
     $$PWD/pppoesection.cpp \

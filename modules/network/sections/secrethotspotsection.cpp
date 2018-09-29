@@ -1,4 +1,4 @@
-#include "secretwirelesssection.h"
+#include "secrethotspotsection.h"
 #include "contentwidget.h"
 
 #include <networkmanagerqt/utils.h>
@@ -9,24 +9,19 @@ static const QList<NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtList
     NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone,
     NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep,
     NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk,
-    NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap
 };
 static const QMap<QString, NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtStrMap {
     {"None", NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone},
     {"WEP 40/128-bit", NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep},
     {"WPA/WPA2 Personal", NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk},
-    {"WPA/WPA2 Enterprise", NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap}
 };
 
-SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySetting::Ptr wsSeting,
-        NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent)
-    : Secret8021xSection(sSetting, parent),
+SecretHotspotSection::SecretHotspotSection(NetworkManager::WirelessSecuritySetting::Ptr wsSeting, QFrame *parent)
+    : AbstractSection(parent),
       m_keyMgmtChooser(new ComboBoxWidget(this)),
       m_passwdEdit(new PasswdEditWidget(this)),
-      m_enableWatcher(new Secret8021xEnableWatcher(this)),
       m_currentKeyMgmt(NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone),
-      m_wsSetting(wsSeting),
-      m_s8Setting(sSetting)
+      m_wsSetting(wsSeting)
 {
     // init KeyMgmt
     const NetworkManager::WirelessSecuritySetting::KeyMgmt &keyMgmt = m_wsSetting->keyMgmt();
@@ -39,11 +34,11 @@ SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySet
     onKeyMgmtChanged(m_currentKeyMgmt);
 }
 
-SecretWirelessSection::~SecretWirelessSection()
+SecretHotspotSection::~SecretHotspotSection()
 {
 }
 
-bool SecretWirelessSection::allInputValid()
+bool SecretHotspotSection::allInputValid()
 {
     bool valid = true;
 
@@ -58,11 +53,16 @@ bool SecretWirelessSection::allInputValid()
         m_passwdEdit->setIsErr(!valid);
     }
 
-    return valid ? Secret8021xSection::allInputValid() : false;
+    return valid;
 }
 
-void SecretWirelessSection::saveSettings()
+void SecretHotspotSection::saveSettings()
 {
+    if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone) {
+        m_wsSetting->setInitialized(false);
+        return;
+    }
+
     m_wsSetting->setKeyMgmt(m_currentKeyMgmt);
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
         m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
@@ -72,11 +72,9 @@ void SecretWirelessSection::saveSettings()
     }
 
     m_wsSetting->setInitialized(true);
-
-    Secret8021xSection::saveSettings();
 }
 
-void SecretWirelessSection::initUI()
+void SecretHotspotSection::initUI()
 {
     m_keyMgmtChooser->setTitle(tr("Security"));
     for (auto keyMgmt : KeyMgmtList) {
@@ -86,33 +84,22 @@ void SecretWirelessSection::initUI()
 
     m_passwdEdit->setPlaceholderText(tr("Required"));
 
-    m_enableWatcher->setSecretEnable(m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap);
-
-    QList<NetworkManager::Security8021xSetting::EapMethod> eapMethodsWantedList;
-    eapMethodsWantedList.append(NetworkManager::Security8021xSetting::EapMethod::EapMethodTls);
-    eapMethodsWantedList.append(NetworkManager::Security8021xSetting::EapMethod::EapMethodLeap);
-    eapMethodsWantedList.append(NetworkManager::Security8021xSetting::EapMethod::EapMethodFast);
-    eapMethodsWantedList.append(NetworkManager::Security8021xSetting::EapMethod::EapMethodTtls);
-    eapMethodsWantedList.append(NetworkManager::Security8021xSetting::EapMethod::EapMethodPeap);
-
-    init(m_enableWatcher, eapMethodsWantedList);
-
-    insertItem(1, m_keyMgmtChooser);
-    insertItem(2, m_passwdEdit);
+    appendItem(m_keyMgmtChooser);
+    appendItem(m_passwdEdit);
 }
 
-void SecretWirelessSection::initConnection()
+void SecretHotspotSection::initConnection()
 {
-    connect(m_keyMgmtChooser, &ComboBoxWidget::requestPage, this, &SecretWirelessSection::requestPage);
+    connect(m_keyMgmtChooser, &ComboBoxWidget::requestPage, this, &SecretHotspotSection::requestPage);
     connect(m_keyMgmtChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         onKeyMgmtChanged(data.value<NetworkManager::WirelessSecuritySetting::KeyMgmt>());
     });
 
-    connect(m_passwdEdit->textEdit(), &QLineEdit::editingFinished, this, &SecretWirelessSection::saveUserInputPassword);
-    connect(m_passwdEdit->textEdit(), &QLineEdit::editingFinished, this, &SecretWirelessSection::allInputValid);
+    connect(m_passwdEdit->textEdit(), &QLineEdit::editingFinished, this, &SecretHotspotSection::saveUserInputPassword);
+    connect(m_passwdEdit->textEdit(), &QLineEdit::editingFinished, this, &SecretHotspotSection::allInputValid);
 }
 
-void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySetting::KeyMgmt keyMgmt)
+void SecretHotspotSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySetting::KeyMgmt keyMgmt)
 {
     if (m_currentKeyMgmt != keyMgmt) {
         m_currentKeyMgmt = keyMgmt;
@@ -121,26 +108,18 @@ void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySet
     switch (m_currentKeyMgmt) {
         case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone: {
             m_passwdEdit->setVisible(false);
-            m_enableWatcher->setSecretEnable(false);
             break;
         }
         case NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep: {
             m_passwdEdit->setText(m_wsSetting->wepKey0());
             m_passwdEdit->setTitle(tr("Key"));
             m_passwdEdit->setVisible(true);
-            m_enableWatcher->setSecretEnable(false);
             break;
         }
         case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk: {
             m_passwdEdit->setText(m_wsSetting->psk());
             m_passwdEdit->setTitle(tr("Password"));
             m_passwdEdit->setVisible(true);
-            m_enableWatcher->setSecretEnable(false);
-            break;
-        }
-        case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap: {
-            m_passwdEdit->setVisible(false);
-            m_enableWatcher->setSecretEnable(true);
             break;
         }
         default:
@@ -152,7 +131,7 @@ void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySet
     }
 }
 
-void SecretWirelessSection::saveUserInputPassword()
+void SecretHotspotSection::saveUserInputPassword()
 {
     m_userInputPasswordMap.insert(m_currentKeyMgmt, m_passwdEdit->text());
 }

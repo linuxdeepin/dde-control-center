@@ -26,13 +26,15 @@
 #ifndef HOTSPOTPAGE_H
 #define HOTSPOTPAGE_H
 
+#include "connectionhotspoteditpage.h"
 #include "contentwidget.h"
-#include "connectioneditpage.h"
 
+#include <QPointer>
 #include <QJsonObject>
 
 namespace dde {
 namespace network {
+class NetworkModel;
 class WirelessDevice;
 }
 }
@@ -59,12 +61,9 @@ public:
 
 signals:
     void requestNextPage(ContentWidget * const w) const;
-    void requestNewHotspot(const QString &devPath) const;
     void requestDeviceRemanage(const QString &devPath) const;
     void requestDisconnectConnection(const QString &uuid) const;
-    void requestDeleteConnection(const QString &uuid);
     void requestActivateConnection(const QString &devPath, const QString &uuid) const;
-    void requestEditConnection(const QString &devPath, const QString &uuid) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
 
 private:
@@ -72,7 +71,6 @@ private:
     void onConfigWidgetClicked();
     void onConnectionsChanged();
     void onActiveConnsChanged();
-    void onConnectionSessionCreated(const QString &sessionPath);
 
     void closeHotspot();
     void openHotspot();
@@ -87,7 +85,7 @@ private:
     widgets::NextPageWidget *m_configureWidget;
 
     QJsonObject m_hotspotInfo;
-    QPointer<ConnectionEditPage> m_editPage;
+    QPointer<ConnectionHotspotEditPage> m_editPage;
 };
 
 }
