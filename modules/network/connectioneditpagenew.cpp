@@ -1,16 +1,14 @@
 #include "connectioneditpagenew.h"
 #include "translucentframe.h"
 
-#include "sections/genericsection.h"
-#include "sections/ipvxsection.h"
-#include "sections/ethernetsection.h"
-
 #include "settings/wiredsettings.h"
 #include "settings/wirelesssettings.h"
+#include "settings/dslpppoesettings.h"
 
 #include <networkmanagerqt/settings.h>
 #include <networkmanagerqt/security8021xsetting.h>
 #include <networkmanagerqt/wirelesssecuritysetting.h>
+#include <networkmanagerqt/pppoesetting.h>
 #include <networkmanagerqt/vpnsetting.h>
 
 using namespace dcc::widgets;
@@ -117,6 +115,10 @@ void ConnectionEditPageNew::initSettingsWidget()
             m_settingsWidget = new WirelessSettings(m_connectionSettings, this);
             break;
         }
+        case NetworkManager::ConnectionSettings::ConnectionType::Pppoe: {
+            m_settingsWidget = new DslPppoeSettings(m_connectionSettings, this);
+            break;
+        }
         default:
             break;
     }
@@ -193,6 +195,12 @@ void ConnectionEditPageNew::initConnectionSecrets()
             setSecretsFromMapMap<NetworkManager::VpnSetting>(sType, sSecretsMapMap);
             break;
         }
+        case NetworkManager::ConnectionSettings::ConnectionType::Pppoe: {
+            sType = NetworkManager::Setting::SettingType::Pppoe;
+            sSecretsMapMap = secretsMapMapBySettingType(sType);
+            setSecretsFromMapMap<NetworkManager::PppoeSetting>(sType, sSecretsMapMap);
+            break;
+        }
         default:
             break;
     }
@@ -267,6 +275,7 @@ void ConnectionEditPageNew::createConnSettings()
     m_connectionSettings = QSharedPointer<NetworkManager::ConnectionSettings>(
             new NetworkManager::ConnectionSettings(m_connType));
 
+    // do not handle vpn name here
     QString connName;
     switch (m_connType) {
         case NetworkManager::ConnectionSettings::ConnectionType::Wired: {
@@ -275,6 +284,10 @@ void ConnectionEditPageNew::createConnSettings()
         }
         case NetworkManager::ConnectionSettings::ConnectionType::Wireless: {
             connName = tr("Wireless Connection %1");
+            break;
+        }
+        case NetworkManager::ConnectionSettings::ConnectionType::Pppoe: {
+            connName = tr("PPPoE Connection %1");
             break;
         }
         default:

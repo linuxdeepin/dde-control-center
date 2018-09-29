@@ -8,6 +8,8 @@ HEADERS += \
     $$PWD/secretwiredsection.h \
     $$PWD/secretwirelesssection.h \
     $$PWD/wirelesssection.h \
+    $$PWD/pppsection.h \
+    $$PWD/pppoesection.h \
     $$PWD/vpn/vpnsection.h \
     $$PWD/vpn/vpnpppsection.h \
     $$PWD/vpn/vpnipsecsection.h \
@@ -30,6 +32,8 @@ SOURCES += \
     $$PWD/secretwiredsection.cpp \
     $$PWD/secretwirelesssection.cpp \
     $$PWD/wirelesssection.cpp \
+    $$PWD/pppsection.cpp \
+    $$PWD/pppoesection.cpp \
     $$PWD/vpn/vpnsection.cpp \
     $$PWD/vpn/vpnpppsection.cpp \
     $$PWD/vpn/vpnipsecsection.cpp \

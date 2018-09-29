@@ -21,7 +21,9 @@ class ConnectionEditPageNew : public ContentWidget
 
 public:
     // Keep the same enum value as NetworkManager::ConnectionSettings::ConnectionType
-    enum ConnectionType {VpnConnection = 11, WiredConnection = 13, WirelessConnection = 14};
+    enum ConnectionType {
+        PppoeConnection = 9, VpnConnection = 11, WiredConnection = 13, WirelessConnection = 14
+    };
 
     // Connection will NOT be activated if "devPath" is empty
     // A NEW connection will be created if "connUuid" is empty

@@ -8,6 +8,7 @@
  * Maintainer: sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
  *             Hualet <mr.asianwang@gmail.com>
+ *             listenerri <listenerri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,6 +33,7 @@
 #include "connectionsessionworker.h"
 #include "connectionsessionmodel.h"
 #include "connectioneditpage.h"
+#include "connectioneditpagenew.h"
 
 #include <networkmodel.h>
 #include <wireddevice.h>
@@ -89,7 +91,14 @@ void PppoePage::setModel(NetworkModel *model)
 
 void PppoePage::createPPPoEConnection()
 {
-    emit requestCreateConnection("pppoe", "/");
+    ConnectionEditPageNew *editPage = new ConnectionEditPageNew(
+            ConnectionEditPageNew::ConnectionType::PppoeConnection, "/");
+    editPage->initSettingsWidget();
+    connect(editPage, &ConnectionEditPageNew::requestNextPage, this, &PppoePage::requestNextPage);
+
+    Q_EMIT requestNextPage(editPage);
+
+    //emit requestCreateConnection("pppoe", "/");
 }
 
 void PppoePage::onConnectionListChanged()
@@ -123,7 +132,12 @@ void PppoePage::onConnectionDetailClicked()
 
     m_editingUuid = m_connUuid[w];
 
-    emit requestEditConnection("/", m_editingUuid);
+    ConnectionEditPageNew *editPage = new ConnectionEditPageNew(
+            ConnectionEditPageNew::ConnectionType::PppoeConnection, "/", m_editingUuid);
+    editPage->initSettingsWidget();
+    connect(editPage, &ConnectionEditPageNew::requestNextPage, this, &PppoePage::requestNextPage);
+
+    Q_EMIT requestNextPage(editPage);
 }
 
 void PppoePage::onConnectionSessionCreated(const QString &devicePath, const QString &sessionPath)
