@@ -299,7 +299,6 @@ void IpvxSection::initForIpv6()
         NetworkManager::IpAddress ipAddress = ipAddressList.first();
         m_ipAddress->setText(ipAddress.ip().toString());
         m_prefixIpv6->spinBox()->setValue(ipAddress.prefixLength());
-        m_prefixIpv6->spinBox()->setRange(0, 99);
         const QString &gateStr = ipAddress.gateway().toString();
         m_gateway->setText(isIpv6Address(gateStr) ? gateStr : "");
     }
@@ -315,6 +314,7 @@ void IpvxSection::initForIpv6()
     }
 
     m_prefixIpv6->setTitle(tr("Prefix"));
+    m_prefixIpv6->spinBox()->setRange(0, 128);
     appendItem(m_prefixIpv6);
 
     m_neverDefault->setChecked(ipv6Setting->neverDefault());

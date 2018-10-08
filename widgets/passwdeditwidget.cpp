@@ -2,6 +2,10 @@
  * Copyright (C) 2017 ~ 2018 Deepin Technology Co., Ltd.
  *
  * Author:     kirigaya <kirigaya@mkacg.com>
+ *
+ * Maintainer: kirigaya <kirigaya@mkacg.com>
+ *             listenerri <listenerri@gmail.com>
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -30,6 +34,8 @@ PasswdEditWidget::PasswdEditWidget(QFrame *parent)
 
     m_mainLayout->addWidget(m_switchBtn);
     m_mainLayout->addSpacing(10);
+
+    textEdit()->setEchoMode(QLineEdit::Password);
 
     connect(m_switchBtn, &DImageButton::clicked, this, &PasswdEditWidget::switchMode);
 }

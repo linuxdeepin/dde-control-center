@@ -540,11 +540,13 @@ bool Secret8021xSection::commonItemsInpuValid()
         m_identity->setIsErr(false);
     }
 
-    if (m_password->text().isEmpty()) {
-        valid = false;
-        m_password->setIsErr(true);
-    } else {
-        m_password->setIsErr(false);
+    if (m_currentPasswordType == NetworkManager::Setting::None) {
+        if (m_password->text().isEmpty()) {
+            valid = false;
+            m_password->setIsErr(true);
+        } else {
+            m_password->setIsErr(false);
+        }
     }
 
     return valid;

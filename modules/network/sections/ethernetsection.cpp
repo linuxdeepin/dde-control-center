@@ -115,6 +115,8 @@ void EthernetSection::initUI()
     m_customMtuSwitch->setChecked(!(m_wiredSetting->mtu() == 0));
 
     m_customMtu->setTitle(tr("MTU"));
+    m_customMtu->spinBox()->setMinimum(0);
+    m_customMtu->spinBox()->setMaximum(10000);
     m_customMtu->spinBox()->setValue(m_wiredSetting->mtu());
     onCostomMtuChanged(m_customMtuSwitch->checked());
 
