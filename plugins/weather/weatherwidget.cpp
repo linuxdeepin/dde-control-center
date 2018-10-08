@@ -211,7 +211,16 @@ void WeatherWidget::paintEvent(QPaintEvent *e)
             painter.setFont(curFont);
             painter.setRenderHint(QPainter::Antialiasing);
             QFontMetrics fm(curFont);
-            text = QString("%1-%2°C").arg((int)(item.temperature().first)).arg((int)(item.temperature().second));
+
+            if (item.isFahrenheit())
+                text = QString("%1-%2°F")
+                    .arg((int)(32 + item.temperature().first * 1.8))
+                    .arg((int)(32 + item.temperature().second * 1.8));
+            else
+                text = QString("%1-%2°C")
+                        .arg((int)(item.temperature().first))
+                        .arg((int)(item.temperature().second));
+
             QRect textRect(iconRect.right()+10,rect.y(),fm.width(text)+2, rect.height());
             painter.drawText(textRect,Qt::AlignLeft | Qt::AlignVCenter, text);
 
