@@ -30,6 +30,7 @@
 
 #include <com_deepin_daemon_display.h>
 #include <com_deepin_dde_launcher.h>
+#include <com_deepin_daemon_appearance.h>
 
 #include <QStack>
 #include <QPropertyAnimation>
@@ -46,6 +47,7 @@
 
 using DBusDisplay = com::deepin::daemon::Display;
 using LauncherInter = com::deepin::dde::Launcher;
+using Appearance = com::deepin::daemon::Appearance;
 
 DWIDGET_USE_NAMESPACE
 
@@ -122,7 +124,7 @@ private:
     DRegionMonitor *m_mouseAreaInter;
     DBusDisplay *m_displayInter;
     LauncherInter *m_launcherInter;
-
+    Appearance *m_appearanceInter;
     QStack<FrameWidget *> m_frameWidgetStack;
 
     QRect m_primaryRect;

@@ -47,6 +47,7 @@ Frame::Frame(QWidget *parent)
       m_mouseAreaInter(new DRegionMonitor(this)),
       m_displayInter(new DBusDisplay("com.deepin.daemon.Display", "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this)),
       m_launcherInter(new LauncherInter("com.deepin.dde.Launcher", "/com/deepin/dde/Launcher", QDBusConnection::sessionBus(), this)),
+      m_appearanceInter(new Appearance("com.deepin.daemon.Appearance", "/com/deepin/daemon/Appearance", QDBusConnection::sessionBus(), this)),
 
       m_primaryRect(m_displayInter->primaryRect()),
       m_appearAnimation(this, "geometry"),
@@ -58,6 +59,7 @@ Frame::Frame(QWidget *parent)
       m_autoHide(true),
       m_debugAutoHide(true)
 {
+    m_appearanceInter->setSync(false, false);
     // set async
     m_displayInter->setSync(false);
 
@@ -96,6 +98,10 @@ Frame::Frame(QWidget *parent)
 
     resize(0, height());
 
+    auto setOpacity = [=] (double opacity) {
+        setMaskAlpha(opacity * 255);
+    };
+
     connect(m_navigationBar, &NavigationBar::requestModule, this, [=](const QString &module) { showSettingsPage(module, QString(), true); });
     connect(m_delayKillerTimer, &QTimer::timeout, this, &Frame::onDelayKillerTimeout);
     connect(m_displayInter, &DBusDisplay::PrimaryRectChanged, this, &Frame::onScreenRectChanged);
@@ -103,6 +109,9 @@ Frame::Frame(QWidget *parent)
     connect(m_wmHelper, &DWindowManagerHelper::hasCompositeChanged, this, &Frame::adjustShadowMask);
     connect(&m_appearAnimation, &QPropertyAnimation::stateChanged, this, &Frame::adjustShadowMask, Qt::QueuedConnection);
     connect(&m_appearAnimation, &QPropertyAnimation::finished, this, [=] { emit rectChanged(geometry()); });
+    connect(m_appearanceInter, &Appearance::OpacityChanged, this, setOpacity);
+
+    setOpacity(m_appearanceInter->opacity());
 
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
 }
