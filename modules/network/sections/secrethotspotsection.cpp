@@ -24,6 +24,7 @@
 
 #include <networkmanagerqt/utils.h>
 
+using namespace dcc::network;
 using namespace dcc::widgets;
 
 static const QList<NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtList {

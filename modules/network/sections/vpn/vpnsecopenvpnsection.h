@@ -29,7 +29,7 @@
 #include <networkmanagerqt/vpnsetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class VpnSecOpenVPNSection : public AbstractSection
 {
@@ -53,14 +53,14 @@ private:
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 
-    ComboBoxWidget *m_cipherChooser;
-    ComboBoxWidget *m_hmacChooser;
+    dcc::widgets::ComboBoxWidget *m_cipherChooser;
+    dcc::widgets::ComboBoxWidget *m_hmacChooser;
 
     QString m_currentCipher;
     QString m_currentHMAC;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* VPNSECOPENVPNSECTION_H */

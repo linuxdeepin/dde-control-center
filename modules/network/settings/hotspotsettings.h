@@ -27,7 +27,7 @@
 #include <networkmanagerqt/connectionsettings.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class HotspotSettings : public AbstractSettings
 {
@@ -41,7 +41,7 @@ protected:
     void initSections() Q_DECL_OVERRIDE;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* HOTSPOTSETTINGS_H */

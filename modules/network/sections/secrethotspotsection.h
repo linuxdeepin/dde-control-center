@@ -29,7 +29,7 @@
 #include <networkmanagerqt/wirelesssecuritysetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class SecretHotspotSection : public AbstractSection
 {
@@ -52,8 +52,8 @@ private:
     void saveUserInputPassword();
 
 private:
-    ComboBoxWidget *m_keyMgmtChooser;
-    PasswdEditWidget *m_passwdEdit;
+    dcc::widgets::ComboBoxWidget *m_keyMgmtChooser;
+    dcc::widgets::PasswdEditWidget *m_passwdEdit;
 
     NetworkManager::WirelessSecuritySetting::KeyMgmt m_currentKeyMgmt;
 
@@ -62,9 +62,9 @@ private:
     QMap<NetworkManager::WirelessSecuritySetting::KeyMgmt, QString> m_userInputPasswordMap;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
-Q_DECLARE_METATYPE(NetworkManager::WirelessSecuritySetting::KeyMgmt);
+Q_DECLARE_METATYPE(NetworkManager::WirelessSecuritySetting::KeyMgmt)
 
 #endif /* SECRETHOTSPOTSECTION_H */

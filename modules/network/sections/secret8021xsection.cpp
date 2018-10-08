@@ -23,6 +23,7 @@
 #include "filechoosewidget.h"
 #include "contentwidget.h"
 
+using namespace dcc::network;
 using namespace NetworkManager;
 using namespace dcc::widgets;
 

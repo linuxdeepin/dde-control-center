@@ -25,6 +25,7 @@
 
 using namespace NetworkManager;
 using namespace dcc::widgets;
+using namespace dcc::network;
 
 GenericSection::GenericSection(NetworkManager::ConnectionSettings::Ptr connSettings, QFrame *parent)
     : AbstractSection(tr("General"), parent),

@@ -28,7 +28,7 @@
 #include <networkmanagerqt/connectionsettings.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class GenericHotspotSection : public AbstractSection
 {
@@ -45,12 +45,12 @@ private:
     void initUI();
 
 private:
-    LineEditWidget *m_connIdItem;
+    dcc::widgets::LineEditWidget *m_connIdItem;
 
     NetworkManager::ConnectionSettings::Ptr m_connSettings;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* GENERICHOTSPOTSECTION_H */

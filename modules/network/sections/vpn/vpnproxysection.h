@@ -33,7 +33,7 @@
 #include <networkmanagerqt/vpnsetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class VpnProxySection : public AbstractSection
 {
@@ -59,17 +59,17 @@ private:
     NMStringMap m_dataMap;
     NMStringMap m_secretMap;
 
-    ComboBoxWidget *m_proxyTypeChooser;
-    LineEditWidget *m_server;
-    SpinBoxWidget *m_port;
-    SwitchWidget *m_retry;
-    LineEditWidget *m_userName;
-    PasswdEditWidget *m_password;
+    dcc::widgets::ComboBoxWidget *m_proxyTypeChooser;
+    dcc::widgets::LineEditWidget *m_server;
+    dcc::widgets::SpinBoxWidget *m_port;
+    dcc::widgets::SwitchWidget *m_retry;
+    dcc::widgets::LineEditWidget *m_userName;
+    dcc::widgets::PasswdEditWidget *m_password;
 
     QString m_currentProxyType;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* VPNPROXYSECTION_H */

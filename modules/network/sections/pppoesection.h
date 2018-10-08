@@ -29,7 +29,7 @@
 #include <networkmanagerqt/pppoesetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class PPPOESection : public AbstractSection
 {
@@ -52,12 +52,12 @@ private:
 private:
     NetworkManager::PppoeSetting::Ptr m_pppoeSetting;
 
-    LineEditWidget *m_userName;
-    LineEditWidget *m_service;
-    LineEditWidget *m_password;
+    dcc::widgets::LineEditWidget *m_userName;
+    dcc::widgets::LineEditWidget *m_service;
+    dcc::widgets::LineEditWidget *m_password;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* PPPOESECTION_H */

@@ -32,7 +32,7 @@
 #include <networkmanagerqt/wirelessdevice.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class WirelessSection : public AbstractSection
 {
@@ -55,11 +55,11 @@ private:
     void onCostomMtuChanged(const bool enable);
 
 private:
-    LineEditWidget *m_apSsid;
-    ComboBoxWidget *m_deviceMac;
+    dcc::widgets::LineEditWidget *m_apSsid;
+    dcc::widgets::ComboBoxWidget *m_deviceMac;
     //LineEditWidget *m_clonedMac;
-    SwitchWidget *m_customMtuSwitch;
-    SpinBoxWidget *m_customMtu;
+    dcc::widgets::SwitchWidget *m_customMtuSwitch;
+    dcc::widgets::SpinBoxWidget *m_customMtu;
 
     NetworkManager::WirelessSetting::Ptr m_wirelessSetting;
 
@@ -67,7 +67,7 @@ private:
     QMap<QString, QString> m_macStrMap;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* WIRELESSSECTION_H */

@@ -26,7 +26,7 @@
 #include "../sections/pppsection.h"
 #include "../sections/ethernetsection.h"
 
-using namespace dcc::widgets;
+using namespace dcc::network;
 using namespace NetworkManager;
 
 DslPppoeSettings::DslPppoeSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent)

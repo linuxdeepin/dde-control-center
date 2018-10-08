@@ -32,7 +32,7 @@
 #include <networkmanagerqt/wireddevice.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class EthernetSection : public AbstractSection
 {
@@ -55,10 +55,10 @@ private:
     void onCostomMtuChanged(const bool enable);
 
 private:
-    ComboBoxWidget *m_deviceMac;
-    LineEditWidget *m_clonedMac;
-    SwitchWidget *m_customMtuSwitch;
-    SpinBoxWidget *m_customMtu;
+    dcc::widgets::ComboBoxWidget *m_deviceMac;
+    dcc::widgets::LineEditWidget *m_clonedMac;
+    dcc::widgets::SwitchWidget *m_customMtuSwitch;
+    dcc::widgets::SpinBoxWidget *m_customMtu;
 
     NetworkManager::WiredSetting::Ptr m_wiredSetting;
 
@@ -66,7 +66,7 @@ private:
     QMap<QString, QString> m_macStrMap;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* ETHERNETSECTION_H */

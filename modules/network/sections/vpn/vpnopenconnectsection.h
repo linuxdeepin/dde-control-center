@@ -31,7 +31,7 @@
 #include <networkmanagerqt/vpnsetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class VpnOpenConnectSection : public AbstractSection
 {
@@ -54,17 +54,17 @@ private:
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 
-    LineEditWidget *m_gateway;
-    FileChooseWidget *m_caCert;
-    LineEditWidget *m_proxy;
-    SwitchWidget *m_enableCSDTrojan;
-    LineEditWidget *m_csdScript;
-    FileChooseWidget *m_userCert;
-    FileChooseWidget *m_userKey;
-    SwitchWidget *m_useFSID;
+    dcc::widgets::LineEditWidget *m_gateway;
+    dcc::widgets::FileChooseWidget *m_caCert;
+    dcc::widgets::LineEditWidget *m_proxy;
+    dcc::widgets::SwitchWidget *m_enableCSDTrojan;
+    dcc::widgets::LineEditWidget *m_csdScript;
+    dcc::widgets::FileChooseWidget *m_userCert;
+    dcc::widgets::FileChooseWidget *m_userKey;
+    dcc::widgets::SwitchWidget *m_useFSID;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* VPNOPENCONNECTSECTION_H */

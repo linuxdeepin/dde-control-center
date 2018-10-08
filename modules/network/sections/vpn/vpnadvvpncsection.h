@@ -32,7 +32,7 @@
 #include <networkmanagerqt/vpnsetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class VpnAdvVPNCSection : public AbstractSection
 {
@@ -56,15 +56,15 @@ private:
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 
-    LineEditWidget *m_domain;
-    ComboBoxWidget *m_vendorChooser;
-    LineEditWidget *m_version;
-    ComboBoxWidget *m_encryptionChooser;
-    ComboBoxWidget *m_natTravModeChooser;
-    ComboBoxWidget *m_ikeDHGroupChooser;
-    ComboBoxWidget *m_forwordSecrecyChooser;
-    SpinBoxWidget *m_localPort;
-    SwitchWidget *m_disableDPD;
+    dcc::widgets::LineEditWidget *m_domain;
+    dcc::widgets::ComboBoxWidget *m_vendorChooser;
+    dcc::widgets::LineEditWidget *m_version;
+    dcc::widgets::ComboBoxWidget *m_encryptionChooser;
+    dcc::widgets::ComboBoxWidget *m_natTravModeChooser;
+    dcc::widgets::ComboBoxWidget *m_ikeDHGroupChooser;
+    dcc::widgets::ComboBoxWidget *m_forwordSecrecyChooser;
+    dcc::widgets::SpinBoxWidget *m_localPort;
+    dcc::widgets::SwitchWidget *m_disableDPD;
 
     QString m_currentVendor;
     QString m_currentEncryption;
@@ -73,7 +73,7 @@ private:
     QString m_currentForwordSecrecy;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* VPNADVVPNCSECTION_H */

@@ -30,7 +30,7 @@
 #include <networkmanagerqt/vpnsetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class VpnAdvOpenVPNSection : public AbstractSection
 {
@@ -54,23 +54,23 @@ private:
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 
-    SwitchWidget *m_portSwitch;
-    SwitchWidget *m_renegIntervalSwitch;
-    SwitchWidget *m_compLZOSwitch;
-    SwitchWidget *m_tcpProtoSwitch;
-    SwitchWidget *m_useTapSwitch;
-    SwitchWidget *m_tunnelMTUSwitch;
-    SwitchWidget *m_udpFragSizeSwitch;
-    SwitchWidget *m_restrictMSSSwitch;
-    SwitchWidget *m_randomRemoteSwitch;
+    dcc::widgets::SwitchWidget *m_portSwitch;
+    dcc::widgets::SwitchWidget *m_renegIntervalSwitch;
+    dcc::widgets::SwitchWidget *m_compLZOSwitch;
+    dcc::widgets::SwitchWidget *m_tcpProtoSwitch;
+    dcc::widgets::SwitchWidget *m_useTapSwitch;
+    dcc::widgets::SwitchWidget *m_tunnelMTUSwitch;
+    dcc::widgets::SwitchWidget *m_udpFragSizeSwitch;
+    dcc::widgets::SwitchWidget *m_restrictMSSSwitch;
+    dcc::widgets::SwitchWidget *m_randomRemoteSwitch;
 
-    SpinBoxWidget *m_port;
-    SpinBoxWidget *m_renegInterval;
-    SpinBoxWidget *m_tunnelMTU;
-    SpinBoxWidget *m_udpFragSize;
+    dcc::widgets::SpinBoxWidget *m_port;
+    dcc::widgets::SpinBoxWidget *m_renegInterval;
+    dcc::widgets::SpinBoxWidget *m_tunnelMTU;
+    dcc::widgets::SpinBoxWidget *m_udpFragSize;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* VPNADVOPENVPNSECTION_H */

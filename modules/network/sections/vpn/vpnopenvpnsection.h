@@ -31,7 +31,7 @@
 #include <networkmanagerqt/vpnsetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class VpnOpenVPNSection : public AbstractSection
 {
@@ -44,7 +44,7 @@ public:
     bool allInputValid() Q_DECL_OVERRIDE;
     void saveSettings() Q_DECL_OVERRIDE;
 
-    inline QString authType() const {return m_currentAuthType;};
+    inline QString authType() const {return m_currentAuthType;}
 
 Q_SIGNALS:
     void requestPage(ContentWidget * const page) const;
@@ -71,20 +71,20 @@ private:
     NMStringMap m_dataMap;
     NMStringMap m_secretMap;
 
-    LineEditWidget *m_gateway;
-    ComboBoxWidget *m_authTypeChooser;
-    FileChooseWidget *m_caFile;
+    dcc::widgets::LineEditWidget *m_gateway;
+    dcc::widgets::ComboBoxWidget *m_authTypeChooser;
+    dcc::widgets::FileChooseWidget *m_caFile;
 
-    QMap<QString, QList<SettingsItem *>> m_settingItemsMap;
+    QMap<QString, QList<dcc::widgets::SettingsItem *>> m_settingItemsMap;
     QString m_currentAuthType;
     QString m_currentKeyDirection;
     NetworkManager::Setting::SecretFlagType m_currentPasswordType;
     NetworkManager::Setting::SecretFlagType m_currentCertPasswordType;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
-Q_DECLARE_METATYPE(NetworkManager::Setting::SecretFlagType);
+Q_DECLARE_METATYPE(NetworkManager::Setting::SecretFlagType)
 
 #endif /* VPNOPENVPNSECTION_H */

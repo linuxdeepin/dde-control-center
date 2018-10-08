@@ -32,7 +32,7 @@
 #include <networkmanagerqt/ipv6setting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class IpvxSection : public AbstractSection
 {
@@ -75,25 +75,25 @@ private:
     QList<QHostAddress> dnsList();
 
 private:
-    ComboBoxWidget *m_methodChooser;
-    LineEditWidget *m_ipAddress;
-    LineEditWidget *m_netmaskIpv4;
-    SpinBoxWidget *m_prefixIpv6;
-    LineEditWidget *m_gateway;
-    LineEditWidget *m_dnsPrimary;
-    LineEditWidget *m_dnsSecond;
-    SwitchWidget *m_neverDefault;
+    dcc::widgets::ComboBoxWidget *m_methodChooser;
+    dcc::widgets::LineEditWidget *m_ipAddress;
+    dcc::widgets::LineEditWidget *m_netmaskIpv4;
+    dcc::widgets::SpinBoxWidget *m_prefixIpv6;
+    dcc::widgets::LineEditWidget *m_gateway;
+    dcc::widgets::LineEditWidget *m_dnsPrimary;
+    dcc::widgets::LineEditWidget *m_dnsSecond;
+    dcc::widgets::SwitchWidget *m_neverDefault;
 
-    QList<SettingsItem *> m_itemsList;
+    QList<dcc::widgets::SettingsItem *> m_itemsList;
 
     Ipvx m_currentIpvx;
     NetworkManager::Setting::Ptr m_ipvxSetting;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
-Q_DECLARE_METATYPE(NetworkManager::Ipv4Setting::ConfigMethod);
-Q_DECLARE_METATYPE(NetworkManager::Ipv6Setting::ConfigMethod);
+Q_DECLARE_METATYPE(NetworkManager::Ipv4Setting::ConfigMethod)
+Q_DECLARE_METATYPE(NetworkManager::Ipv6Setting::ConfigMethod)
 
 #endif /* IPVXSECTION_H */

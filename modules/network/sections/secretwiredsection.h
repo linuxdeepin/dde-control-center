@@ -26,7 +26,7 @@
 #include "switchwidget.h"
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class SecretWiredSection : public Secret8021xSection
 {
@@ -40,11 +40,11 @@ public:
     void saveSettings() Q_DECL_OVERRIDE;
 
 private:
-    SwitchWidget *m_secretEnable;
+    dcc::widgets::SwitchWidget *m_secretEnable;
     Secret8021xEnableWatcher *m_enableWatcher;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* SECRETWIREDSECTION_H */

@@ -24,7 +24,7 @@
 #include <QVBoxLayout>
 #include <QDebug>
 
-using namespace dcc::widgets;
+using namespace dcc::network;
 
 AbstractSettings::AbstractSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent)
     : QWidget(parent),

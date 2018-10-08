@@ -30,7 +30,7 @@
 #include <networkmanagerqt/vpnsetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class VpnPPPSection : public AbstractSection
 {
@@ -58,16 +58,16 @@ private:
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 
-    SwitchWidget *m_mppeEnable;
-    ComboBoxWidget *m_mppeChooser;
-    SwitchWidget *m_mppeStateful;
+    dcc::widgets::SwitchWidget *m_mppeEnable;
+    dcc::widgets::ComboBoxWidget *m_mppeChooser;
+    dcc::widgets::SwitchWidget *m_mppeStateful;
 
     QString m_currentMppeMethod;
     QStringList m_supportOptions;
-    QList<SwitchWidget *> m_optionsWidgets;
+    QList<dcc::widgets::SwitchWidget *> m_optionsWidgets;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* VPNPPPSECTION_H */

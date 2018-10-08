@@ -30,15 +30,15 @@
 #include <networkmanagerqt/security8021xsetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class Secret8021xEnableWatcher : public QObject
 {
     Q_OBJECT
 
 public:
-    Secret8021xEnableWatcher (QObject *parent = 0) : QObject(parent) {};
-    virtual ~Secret8021xEnableWatcher () {};
+    Secret8021xEnableWatcher (QObject *parent = 0) : QObject(parent) {}
+    virtual ~Secret8021xEnableWatcher () {}
 
     inline bool secretEnabled() {return m_secretEnabled;}
 
@@ -79,10 +79,10 @@ private:
     void initUI();
     void initConnection();
     void initEapItems(NetworkManager::Security8021xSetting::EapMethod method);
-    void initEapMethodTlsItems(QList<SettingsItem *> *itemList);
-    void initEapMethodFastItems(QList<SettingsItem *> *itemList);
-    void initEapMethodTtlsItems(QList<SettingsItem *> *itemList);
-    void initEapMethodPeapItems(QList<SettingsItem *> *itemList);
+    void initEapMethodTlsItems(QList<dcc::widgets::SettingsItem *> *itemList);
+    void initEapMethodFastItems(QList<dcc::widgets::SettingsItem *> *itemList);
+    void initEapMethodTtlsItems(QList<dcc::widgets::SettingsItem *> *itemList);
+    void initEapMethodPeapItems(QList<dcc::widgets::SettingsItem *> *itemList);
 
     void onSecretEnableChanged(const bool enable);
     void onEapMethodChanged(NetworkManager::Security8021xSetting::EapMethod method);
@@ -103,10 +103,10 @@ private:
     void savePeapItems();
 
 private:
-    ComboBoxWidget *m_eapMethmodChooser;
-    ComboBoxWidget *m_passwordFlagsChooser;
-    LineEditWidget *m_identity;
-    PasswdEditWidget *m_password;
+    dcc::widgets::ComboBoxWidget *m_eapMethmodChooser;
+    dcc::widgets::ComboBoxWidget *m_passwordFlagsChooser;
+    dcc::widgets::LineEditWidget *m_identity;
+    dcc::widgets::PasswdEditWidget *m_password;
     Secret8021xEnableWatcher *m_enableWatcher;
 
     NetworkManager::Security8021xSetting::EapMethod m_currentEapMethod;
@@ -114,15 +114,15 @@ private:
     NetworkManager::Security8021xSetting::Ptr m_secretSetting;
 
     QList<NetworkManager::Security8021xSetting::EapMethod> m_eapMethodsWantedList;
-    QMap<NetworkManager::Security8021xSetting::EapMethod, QList<SettingsItem *>> m_eapMethodItemsMap;
+    QMap<NetworkManager::Security8021xSetting::EapMethod, QList<dcc::widgets::SettingsItem *>> m_eapMethodItemsMap;
     QMap<NetworkManager::Security8021xSetting::EapMethod, QString> m_userInputIdentifyMap;
     QMap<NetworkManager::Security8021xSetting::EapMethod, QString> m_userInputPasswordMap;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
-Q_DECLARE_METATYPE(NetworkManager::Security8021xSetting::EapMethod);
-Q_DECLARE_METATYPE(NetworkManager::Setting::SecretFlagType);
+Q_DECLARE_METATYPE(NetworkManager::Security8021xSetting::EapMethod)
+Q_DECLARE_METATYPE(NetworkManager::Setting::SecretFlagType)
 
 #endif /* SECRET8021xSECTION_H */

@@ -33,7 +33,7 @@
 #include <networkmanagerqt/vpnsetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class VpnStrongSwanSection : public AbstractSection
 {
@@ -60,26 +60,26 @@ private:
     NMStringMap m_dataMap;
     NMStringMap m_secretMap;
 
-    LineEditWidget *m_gateway;
-    FileChooseWidget *m_caCert;
-    ComboBoxWidget *m_authTypeChooser;
+    dcc::widgets::LineEditWidget *m_gateway;
+    dcc::widgets::FileChooseWidget *m_caCert;
+    dcc::widgets::ComboBoxWidget *m_authTypeChooser;
 
-    FileChooseWidget *m_userCert;
-    FileChooseWidget *m_userKey;
-    LineEditWidget *m_userName;
-    PasswdEditWidget *m_password;
+    dcc::widgets::FileChooseWidget *m_userCert;
+    dcc::widgets::FileChooseWidget *m_userKey;
+    dcc::widgets::LineEditWidget *m_userName;
+    dcc::widgets::PasswdEditWidget *m_password;
 
-    SwitchWidget *m_requestInnerIp;
-    SwitchWidget *m_enforceUDP;
-    SwitchWidget *m_useIPComp;
-    SwitchWidget *m_enableCustomCipher;
-    LineEditWidget *m_ike;
-    LineEditWidget *m_esp;
+    dcc::widgets::SwitchWidget *m_requestInnerIp;
+    dcc::widgets::SwitchWidget *m_enforceUDP;
+    dcc::widgets::SwitchWidget *m_useIPComp;
+    dcc::widgets::SwitchWidget *m_enableCustomCipher;
+    dcc::widgets::LineEditWidget *m_ike;
+    dcc::widgets::LineEditWidget *m_esp;
 
     QString m_currentAuthType;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* VPNSTRONGSWANSECTION_H */

@@ -25,7 +25,7 @@
 #include "../sections/ipvxsection.h"
 #include "../sections/wirelesssection.h"
 
-using namespace dcc::widgets;
+using namespace dcc::network;
 using namespace NetworkManager;
 
 WirelessSettings::WirelessSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent)

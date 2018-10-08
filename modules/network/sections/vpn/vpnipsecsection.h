@@ -30,7 +30,7 @@
 #include <networkmanagerqt/vpnsetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class VpnIpsecSection : public AbstractSection
 {
@@ -55,15 +55,15 @@ private:
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 
-    SwitchWidget *m_ipsecEnable;
-    LineEditWidget *m_groupName;
-    LineEditWidget *m_gatewayId;
-    LineEditWidget *m_psk;
-    LineEditWidget *m_ike;
-    LineEditWidget *m_esp;
+    dcc::widgets::SwitchWidget *m_ipsecEnable;
+    dcc::widgets::LineEditWidget *m_groupName;
+    dcc::widgets::LineEditWidget *m_gatewayId;
+    dcc::widgets::LineEditWidget *m_psk;
+    dcc::widgets::LineEditWidget *m_ike;
+    dcc::widgets::LineEditWidget *m_esp;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* VPNIPSECSECTION_H */

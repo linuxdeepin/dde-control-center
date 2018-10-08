@@ -21,6 +21,7 @@
 
 #include "abstractsection.h"
 
+using namespace dcc::network;
 using namespace dcc::widgets;
 
 AbstractSection::AbstractSection(QFrame *parent)

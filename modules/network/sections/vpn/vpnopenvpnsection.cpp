@@ -23,6 +23,7 @@
 #include "passwdeditwidget.h"
 #include "switchwidget.h"
 
+using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 

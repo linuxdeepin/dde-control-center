@@ -32,7 +32,7 @@
 #include <networkmanagerqt/vpnsetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class VpnTLSSection : public AbstractSection
 {
@@ -56,17 +56,17 @@ private:
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 
-    LineEditWidget *m_remote;
-    ComboBoxWidget *m_remoteCertTypeChooser;
-    FileChooseWidget *m_caCert;
-    SwitchWidget *m_customKeyDirection;
-    ComboBoxWidget *m_keyDirectionChooser;
+    dcc::widgets::LineEditWidget *m_remote;
+    dcc::widgets::ComboBoxWidget *m_remoteCertTypeChooser;
+    dcc::widgets::FileChooseWidget *m_caCert;
+    dcc::widgets::SwitchWidget *m_customKeyDirection;
+    dcc::widgets::ComboBoxWidget *m_keyDirectionChooser;
 
     QString m_currentRemoteCertType;
     QString m_currentKeyDirection;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* VPNTLSSECTION_H */

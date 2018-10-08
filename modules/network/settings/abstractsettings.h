@@ -30,7 +30,7 @@
 #include <QWidget>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class AbstractSettings : public QWidget
 {
@@ -53,10 +53,10 @@ protected:
     NetworkManager::ConnectionSettings::Ptr m_connSettings;
 
     QVBoxLayout *m_sectionsLayout;
-    QList<dcc::widgets::AbstractSection *> m_settingSections;
+    QList<dcc::network::AbstractSection *> m_settingSections;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* ABSTRACTSETTINGS_H */

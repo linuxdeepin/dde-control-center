@@ -25,7 +25,7 @@
 #include "../sections/ipvxsection.h"
 #include "../sections/ethernetsection.h"
 
-using namespace dcc::widgets;
+using namespace dcc::network;
 using namespace NetworkManager;
 
 WiredSettings::WiredSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent)

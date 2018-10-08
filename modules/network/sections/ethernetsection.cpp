@@ -27,6 +27,7 @@
 #include <networkmanagerqt/manager.h>
 #include <networkmanagerqt/wireddevice.h>
 
+using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 

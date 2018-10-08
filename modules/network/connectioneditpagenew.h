@@ -85,7 +85,7 @@ protected:
     NetworkManager::Connection::Ptr m_connection;
     NetworkManager::ConnectionSettings::Ptr m_connectionSettings;
 
-    dcc::widgets::AbstractSettings *m_settingsWidget;
+    dcc::network::AbstractSettings *m_settingsWidget;
 
 private:
     QPushButton *m_disconnectBtn;

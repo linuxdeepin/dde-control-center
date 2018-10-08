@@ -24,7 +24,7 @@
 #include "../../sections/vpn/vpnstrongswansection.h"
 #include "../../sections/ipvxsection.h"
 
-using namespace dcc::widgets;
+using namespace dcc::network;
 using namespace NetworkManager;
 
 VpnStrongSwanSettings::VpnStrongSwanSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent)

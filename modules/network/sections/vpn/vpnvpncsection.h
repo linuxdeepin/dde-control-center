@@ -33,7 +33,7 @@
 #include <networkmanagerqt/vpnsetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class VpnVPNCSection : public AbstractSection
 {
@@ -62,21 +62,21 @@ private:
     NMStringMap m_dataMap;
     NMStringMap m_secretMap;
 
-    LineEditWidget *m_gateway;
-    LineEditWidget *m_userName;
-    ComboBoxWidget *m_passwordFlagsChooser;
-    PasswdEditWidget *m_password;
+    dcc::widgets::LineEditWidget *m_gateway;
+    dcc::widgets::LineEditWidget *m_userName;
+    dcc::widgets::ComboBoxWidget *m_passwordFlagsChooser;
+    dcc::widgets::PasswdEditWidget *m_password;
 
-    LineEditWidget *m_groupName;
-    ComboBoxWidget *m_groupPasswordFlagsChooser;
-    PasswdEditWidget *m_groupPassword;
-    SwitchWidget *m_userHybrid;
-    FileChooseWidget *m_caFile;
+    dcc::widgets::LineEditWidget *m_groupName;
+    dcc::widgets::ComboBoxWidget *m_groupPasswordFlagsChooser;
+    dcc::widgets::PasswdEditWidget *m_groupPassword;
+    dcc::widgets::SwitchWidget *m_userHybrid;
+    dcc::widgets::FileChooseWidget *m_caFile;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
-Q_DECLARE_METATYPE(NetworkManager::Setting::SecretFlagType);
+Q_DECLARE_METATYPE(NetworkManager::Setting::SecretFlagType)
 
 #endif /* VPNVPNCSECTION_H */

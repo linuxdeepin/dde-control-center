@@ -30,7 +30,7 @@
 #include <networkmanagerqt/pppsetting.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class PPPSection : public AbstractSection
 {
@@ -54,21 +54,21 @@ private:
 private:
     NetworkManager::PppSetting::Ptr m_pppSetting;
 
-    SwitchWidget *m_mppeEnable;
-    SwitchWidget *m_mppe128;
-    SwitchWidget *m_mppeStateful;
-    SwitchWidget *m_refuseEAP;
-    SwitchWidget *m_refusePAP;
-    SwitchWidget *m_refuseCHAP;
-    SwitchWidget *m_refuseMSCHAP;
-    SwitchWidget *m_refuseMSCHAP2;
-    SwitchWidget *m_noBSDComp;
-    SwitchWidget *m_noDeflate;
-    SwitchWidget *m_noVJComp;
-    SwitchWidget *m_lcpEchoInterval;
+    dcc::widgets::SwitchWidget *m_mppeEnable;
+    dcc::widgets::SwitchWidget *m_mppe128;
+    dcc::widgets::SwitchWidget *m_mppeStateful;
+    dcc::widgets::SwitchWidget *m_refuseEAP;
+    dcc::widgets::SwitchWidget *m_refusePAP;
+    dcc::widgets::SwitchWidget *m_refuseCHAP;
+    dcc::widgets::SwitchWidget *m_refuseMSCHAP;
+    dcc::widgets::SwitchWidget *m_refuseMSCHAP2;
+    dcc::widgets::SwitchWidget *m_noBSDComp;
+    dcc::widgets::SwitchWidget *m_noDeflate;
+    dcc::widgets::SwitchWidget *m_noVJComp;
+    dcc::widgets::SwitchWidget *m_lcpEchoInterval;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* PPPSECTION_H */

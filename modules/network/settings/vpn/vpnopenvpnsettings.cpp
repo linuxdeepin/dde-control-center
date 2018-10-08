@@ -28,7 +28,7 @@
 #include "../../sections/vpn/vpntlssection.h"
 #include "../../sections/ipvxsection.h"
 
-using namespace dcc::widgets;
+using namespace dcc::network;
 using namespace NetworkManager;
 
 VpnOpenVPNSettings::VpnOpenVPNSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent)

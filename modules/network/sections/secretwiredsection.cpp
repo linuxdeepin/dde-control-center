@@ -21,6 +21,7 @@
 
 #include "secretwiredsection.h"
 
+using namespace dcc::network;
 using namespace dcc::widgets;
 
 SecretWiredSection::SecretWiredSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent)

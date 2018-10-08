@@ -29,7 +29,7 @@
 #include <networkmanagerqt/connectionsettings.h>
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
 class GenericSection : public AbstractSection
 {
@@ -46,13 +46,13 @@ private:
     void initUI();
 
 private:
-    LineEditWidget *m_connIdItem;
-    SwitchWidget *m_autoConnItem;
+    dcc::widgets::LineEditWidget *m_connIdItem;
+    dcc::widgets::SwitchWidget *m_autoConnItem;
 
     NetworkManager::ConnectionSettings::Ptr m_connSettings;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* GENERICSECTION_H */

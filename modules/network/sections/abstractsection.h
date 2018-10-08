@@ -25,9 +25,9 @@
 #include "settingsgroup.h"
 
 namespace dcc {
-namespace widgets {
+namespace network {
 
-class AbstractSection : public SettingsGroup
+class AbstractSection : public dcc::widgets::SettingsGroup
 {
     Q_OBJECT
 
@@ -43,7 +43,7 @@ protected:
     void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
 };
 
-} /* widgets */
+} /* network */
 } /* dcc */
 
 #endif /* ABSTRACTSECTION_H */

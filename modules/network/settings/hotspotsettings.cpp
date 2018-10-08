@@ -24,7 +24,7 @@
 #include "../sections/secrethotspotsection.h"
 #include "../sections/wirelesssection.h"
 
-using namespace dcc::widgets;
+using namespace dcc::network;
 using namespace NetworkManager;
 
 HotspotSettings::HotspotSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent)
