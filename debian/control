@@ -36,17 +36,12 @@ Depends: ${shlibs:Depends},
  passwd
 Recommends: netselect
 Suggests: redshift
+Conflicts:
+ dde-control-center-plugin-weather
+Replaces:
+ dde-control-center-plugin-weather
 Description: New control center for Deepin Desktop Environment
  DDE Control Center is the control panel of Deepin Desktop Environment.
-
-Package: dde-control-center-plugin-weather
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends},
- tzdata-l10n, geoip-database-extra
-Replaces: dde-control-center (<< 4.4.0)
-Conflicts: dde-control-center (<< 4.4.0)
-Description: Deepin DDE Control-Center weathcer plugin.
- Weather Plugin.
 
 Package: dde-control-center-plugin-notify
 Architecture: any
