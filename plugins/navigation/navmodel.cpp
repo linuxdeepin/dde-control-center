@@ -42,14 +42,14 @@ int NavModel::rowCount(const QModelIndex &parent) const
     Q_UNUSED(parent)
 
     int mSize = m_moduleList.size();
-    return mSize % 3 > 0 ? mSize / 3 + 1 : mSize / 3;
+    return mSize % 2 > 0 ? mSize / 2 + 1 : mSize / 2;
 }
 
 int NavModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
 
-    return 3;
+    return 2;
 }
 
 QVariant NavModel::data(const QModelIndex &index, int role) const
@@ -58,7 +58,7 @@ QVariant NavModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    int mIndex = index.row() * 3 + index.column();
+    int mIndex = index.row() * 2 + index.column();
     if (mIndex >= m_moduleList.size()) {
         return QVariant();
     }
@@ -70,6 +70,9 @@ QVariant NavModel::data(const QModelIndex &index, int role) const
         break;
     case NavHoverRole:
         return m_hoverIndex == index;
+        break;
+    case NavDisplayRole:
+        return transModuleName(m_moduleList.at(mIndex));
         break;
     default:;
     }
@@ -115,7 +118,7 @@ void NavModel::setHoverIndex(const QModelIndex &index)
     Q_EMIT dataChanged(m_hoverIndex, m_hoverIndex);
 }
 
-QString NavModel::transModuleName(const QString &moduleName)
+QString NavModel::transModuleName(const QString &moduleName) const
 {
     static const QStringList modules_trans = {
         QT_TRANSLATE_NOOP("dcc::accounts::AccountsWidget", "Accounts"),

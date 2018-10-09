@@ -40,6 +40,7 @@ class NavModel : public QAbstractTableModel
 public:
     enum NavDataRole{
         NavHoverRole = Qt::UserRole + 1,
+        NavDisplayRole
     };
 
     NavModel(QObject *parent = Q_NULLPTR);
@@ -56,7 +57,7 @@ public Q_SLOTS:
     void setHoverIndex(const QModelIndex &index);
 
 public:
-    QString transModuleName(const QString &moduleName);
+    QString transModuleName(const QString &moduleName) const;
 
 private Q_SLOTS:
     void onBTValidChanged(const bool valid);

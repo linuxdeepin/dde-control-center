@@ -25,6 +25,7 @@
 #include <QPainter>
 #include <QImageReader>
 #include <QApplication>
+#include <QScreen>
 
 NavDelegate::NavDelegate(QObject *parent) : QStyledItemDelegate(parent)
 {
@@ -34,7 +35,10 @@ void NavDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, c
 {
     bool isHover = index.data(NavModel::NavHoverRole).toBool();
 
-    QRect rect = QRect(option.rect.left(), option.rect.top(), option.rect.width()-1, option.rect.height()-1);
+    QRect rect = QRect(option.rect.left() + 10,
+                       option.rect.top() + 10,
+                       option.rect.width() - 10,
+                       option.rect.height() - 10);
 
     // draw background
     if (isHover) {
@@ -46,8 +50,30 @@ void NavDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, c
     QString moduleName = index.data(Qt::WhatsThisRole).toString();
     if (!moduleName.isEmpty()) {
         QPixmap modulePm = loadPixmap(QString(":/icons/nav_%1.png").arg(moduleName));
-        const qreal devicePixelRatio = qApp->devicePixelRatio();
-        painter->drawPixmap((option.rect.center() - modulePm.rect().center() / devicePixelRatio), modulePm);
+
+        // Keep and offset from the top left corner, base is 1080P
+        const double Sh = qApp->primaryScreen()->geometry().height();
+        double keepRatio = 1;
+        if (Sh <= 1080) {
+            keepRatio = Sh / 1080;
+        }
+
+        QPoint p(rect.x() + 20 * keepRatio, rect.y() + 26 * keepRatio);
+        painter->drawPixmap(p, modulePm);
+
+        if (rect.height() <= modulePm.height() * 2.5) {
+            p = QPoint(p.x() + modulePm.width() + 20 * keepRatio, p.y());
+        }
+        else {
+            p = QPoint(p.x(), p.y() + modulePm.height());
+        }
+
+        QTextOption option;
+        option.setAlignment(Qt::AlignLeft | Qt::AlignTop);
+
+        painter->drawText(QRect(p, QSize(rect.width() - 20 * keepRatio, rect.height())),
+                          index.data(NavModel::NavDisplayRole).toString(),
+                          option);
     }
 
     QStyledItemDelegate::paint(painter, option, index);

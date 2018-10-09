@@ -34,14 +34,6 @@
 NavWidget::NavWidget(QWidget *parent)
     : QWidget(parent)
 {
-    m_tipsLabel = new QLabel;
-    m_tipsLabel->setStyleSheet("QLabel {"
-                               "color: white;"
-                               "background-color: rgba(255, 255, 255, .03);"
-                               "padding: 4px 0;"
-                               "}");
-    m_tipsLabel->setAlignment(Qt::AlignCenter);
-
     m_navView = new QTableView;
     m_navModel = new NavModel;
     m_navView->setModel(m_navModel);
@@ -60,7 +52,6 @@ NavWidget::NavWidget(QWidget *parent)
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
 
-    centralLayout->addWidget(m_tipsLabel);
     centralLayout->addWidget(m_navView);
     centralLayout->addStretch();
     centralLayout->setSpacing(1);
@@ -69,26 +60,17 @@ NavWidget::NavWidget(QWidget *parent)
 
     connect(m_navView, &QTableView::entered, this, &NavWidget::onNavEnter);
     connect(m_navView, &QTableView::clicked, this, &NavWidget::onNavClicked);
-
-    setTipsText(QString());
-}
-
-void NavWidget::setTipsText(const QString &text)
-{
-    m_tipsLabel->setText(m_navModel->transModuleName(text));
 }
 
 void NavWidget::leaveEvent(QEvent *e)
 {
     QWidget::leaveEvent(e);
 
-    setTipsText(QString());
     m_navModel->setHoverIndex(QModelIndex());
 }
 
 void NavWidget::onNavEnter(const QModelIndex &index)
 {
-    setTipsText(index.data(Qt::WhatsThisRole).toString());
     m_navModel->setHoverIndex(index);
 }
 

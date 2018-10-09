@@ -30,7 +30,6 @@
 
 #include "navmodel.h"
 
-#include <QLabel>
 #include <QTableView>
 
 class NavWidget : public QWidget
@@ -52,10 +51,8 @@ private Q_SLOTS:
 
 private:
     QStringList getValidModuleList();
-    void setTipsText(const QString &text);
 
 private:
-    QLabel *m_tipsLabel;
     QTableView *m_navView;
     NavModel *m_navModel;
 };
