@@ -61,7 +61,6 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
       m_currentTimeLbl(new QLabel),
       m_currentDateLbl(new QLabel),
       m_pluginsLayout(new QStackedLayout),
-      m_indicatorWidget(new IndicatorWidget),
 #ifndef DISABLE_SYS_UPDATE
       m_updateNotifier(new UpdateNotifier),
 #endif
@@ -140,13 +139,14 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
 
     QVBoxLayout *pluginWidgetLayout = new QVBoxLayout;
     pluginWidgetLayout->addWidget(m_pluginWrapper);
-    pluginWidgetLayout->addWidget(m_indicatorWidget);
+//    pluginWidgetLayout->addWidget(m_quickSettingsPanel);
     pluginWidgetLayout->setSpacing(0);
     pluginWidgetLayout->setMargin(0);
 
+    m_quickSettingsPanel->hide();
+
     m_pluginWidget = new TranslucentFrame;
     m_pluginWidget->setLayout(pluginWidgetLayout);
-    m_indicatorWidget->setVisible(false);
 
 #ifndef DISABLE_SYS_UPDATE
     m_updateNotifier->setObjectName("UpdateNotifier");
@@ -160,15 +160,13 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     centralLayout->addWidget(m_updateNotifier);
     centralLayout->addSpacing(1);
 #endif
-    centralLayout->addWidget(m_pluginWidget);
-    centralLayout->addWidget(m_quickSettingsPanel);
+    centralLayout->addWidget(m_pluginWrapper);
+//    centralLayout->addWidget(m_quickSettingsPanel);
     centralLayout->setSpacing(0);
     centralLayout->setMargin(0);
 
     connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded, Qt::QueuedConnection);
     connect(m_pluginsController, &PluginsController::requestModulePage, this, &MainWidget::showSettingPage, Qt::QueuedConnection);
-    connect(m_indicatorWidget, &IndicatorWidget::requestNext, this, &MainWidget::showPrevPlugin);
-    connect(m_indicatorWidget, &IndicatorWidget::requestPrevious, this, &MainWidget::showNextPlugin);
     connect(m_quickSettingsPanel, &QuickControlPanel::requestDetailConfig, this, &MainWidget::showAllSettings);
     connect(m_quickSettingsPanel, &QuickControlPanel::requestPage, this, &MainWidget::showSettingPage);
     connect(this, &MainWidget::appear, m_quickSettingsPanel, &QuickControlPanel::appear);
@@ -203,9 +201,6 @@ void MainWidget::updatePluginsHeight()
     m_pluginWidget->setVisible(b);
     m_quickSettingsPanel->setAllSettingsVisible(!b);
 
-    const int h = getPluginsHeight();
-    m_pluginWrapper->setFixedHeight(h);
-
     updateMPRISEnable();
 }
 
@@ -215,14 +210,10 @@ void MainWidget::pluginAdded(QWidget * const w)
     const int idx = m_pluginsLayout->addWidget(w);
     const int count = m_pluginsLayout->count();
     m_pluginsLayout->setCurrentIndex(idx);
-    m_indicatorWidget->setVisible(count > 1);
-    m_indicatorWidget->setPageCount(m_pluginsLayout->count());
 }
 
 void MainWidget::showNextPlugin()
 {
-//    m_pluginsIndicator->nextPage();
-
     const int index = m_pluginsLayout->currentIndex();
     const int count = m_pluginsLayout->count();
 
@@ -231,8 +222,6 @@ void MainWidget::showNextPlugin()
 
 void MainWidget::showPrevPlugin()
 {
-//    m_pluginsIndicator->previousPage();
-
     const int index = m_pluginsLayout->currentIndex();
     const int count = m_pluginsLayout->count();
 

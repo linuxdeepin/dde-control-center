@@ -28,7 +28,6 @@
 
 #include "pluginscontroller.h"
 #include "framewidget.h"
-#include "indicatorwidget.h"
 #include "quick_control/quickcontrolpanel.h"
 
 #include <QVBoxLayout>
@@ -75,18 +74,15 @@ private slots:
 private:
     PluginsController *m_pluginsController;
 
-//    QWidget *m_lastPluginWidget;
     QTimer *m_timeRefersh;
 
     // ui widgets
     dcc::accounts::AvatarWidget *m_userAvatarBtn;
     QLabel *m_currentTimeLbl;
     QLabel *m_currentDateLbl;
-//    QHBoxLayout *m_pluginsLayout;
     QStackedLayout *m_pluginsLayout;
     QWidget *m_pluginWrapper;
     QWidget *m_pluginWidget;
-    IndicatorWidget *m_indicatorWidget;
 #ifndef DISABLE_SYS_UPDATE
     UpdateNotifier *m_updateNotifier;
 #endif

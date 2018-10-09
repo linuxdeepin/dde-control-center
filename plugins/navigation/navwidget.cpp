@@ -62,6 +62,7 @@ NavWidget::NavWidget(QWidget *parent)
 
     centralLayout->addWidget(m_tipsLabel);
     centralLayout->addWidget(m_navView);
+    centralLayout->addStretch();
     centralLayout->setSpacing(1);
     centralLayout->setContentsMargins(0, 0, 0, 0);
     setLayout(centralLayout);
