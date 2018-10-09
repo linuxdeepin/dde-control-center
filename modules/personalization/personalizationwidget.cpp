@@ -50,15 +50,14 @@ PersonalizationWidget::PersonalizationWidget()
     trGrp->appendItem(m_transparentSlider);
 
     DCCSlider *slider = m_transparentSlider->slider();
-    slider->setRange(0, 6);
+    slider->setRange(2, 6);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::TicksBelow);
     slider->setTickInterval(1);
     slider->setPageStep(1);
 
-    const QStringList list{ QString("0"),   QString("0.1"), QString("0.25"),
-                            QString("0.4"), QString("0.6"), QString("0.8"),
-                            QString("1") };
+    const QStringList list{ QString("0.25"), QString("0.4"), QString("0.6"),
+                            QString("0.8"), QString("1") };
 
     m_transparentSlider->setAnnotations(list);
 
@@ -95,8 +94,8 @@ void PersonalizationWidget::setModel(PersonalizationModel *const model)
             &SwitchWidget::setChecked);
 
     m_wmSwitch->setChecked(model->is3DWm());
-    connect(model, &PersonalizationModel::onOpacityChanged,
-            this, &PersonalizationWidget::onOpacityChanged);
+    connect(model, &PersonalizationModel::onOpacityChanged, this,
+            &PersonalizationWidget::onOpacityChanged);
 
     onOpacityChanged(model->opacity());
 }
