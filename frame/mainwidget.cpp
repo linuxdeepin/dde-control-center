@@ -173,7 +173,9 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     connect(this, &MainWidget::disappear, m_quickSettingsPanel, &QuickControlPanel::disappear);
     connect(m_timeRefersh, &QTimer::timeout, this, &MainWidget::refershTimedate);
     connect(m_notifyToggleBtn, &DImageButton::clicked, this, &MainWidget::toggleNotify, Qt::QueuedConnection);
-
+    connect(m_navWidget, &NavWidget::requestModule, this, [=] (const QString &moduleName) {
+        emit showSettingPage(moduleName, "", false);
+    });
 #ifndef DISABLE_SYS_UPDATE
     connect(m_updateNotifier, &UpdateNotifier::clicked, this, [this] {
         showSettingPage("update", "available-updates", false);
