@@ -54,7 +54,6 @@ class LoadingNextPageWidget;
 
 namespace network {
 
-class ConnectionEditPage;
 class VpnPage : public ContentWidget
 {
     Q_OBJECT
@@ -76,7 +75,7 @@ public slots:
 private slots:
     void onVpnDetailClicked();
     void onVpnSelected();
-    void onSessionPageFinished();
+    void onVpnEditFinished();
     void onActiveConnsInfoChanged(const QList<QJsonObject> &infos);
 
     void importVPN();
@@ -89,7 +88,7 @@ private:
     widgets::SwitchWidget *m_vpnSwitch;
     widgets::SettingsGroup *m_vpnGroup;
 
-    QPointer<ConnectionEditPage> m_editPage;
+    QPointer<ConnectionVpnEditPage> m_editPage;
     QString m_editingConnUuid;
     ContentWidget *m_vpnTypePage;
 

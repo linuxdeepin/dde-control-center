@@ -31,10 +31,6 @@
 #include "optionitem.h"
 #include "nextpagewidget.h"
 #include "loadingnextpagewidget.h"
-#include "connectioneditpage.h"
-#include "connectionvpneditpage.h"
-#include "connectionsessionworker.h"
-#include "connectionsessionmodel.h"
 
 #include <networkmodel.h>
 #include <QDebug>
@@ -45,6 +41,8 @@
 #include <QMessageBox>
 #include <DHiDPIHelper>
 #include <ddialog.h>
+#include <QProcess>
+#include <QRegularExpression>
 
 DWIDGET_USE_NAMESPACE
 
@@ -160,10 +158,10 @@ void VpnPage::onVpnDetailClicked()
 
     m_editingConnUuid = m_vpns[w].value("Uuid").toString();
 
-    ConnectionVpnEditPage *editPage = new ConnectionVpnEditPage(m_editingConnUuid);
-    editPage->initSettingsWidget();
-    connect(editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
-    Q_EMIT requestNextPage(editPage);
+    m_editPage = new ConnectionVpnEditPage(m_editingConnUuid);
+    m_editPage->initSettingsWidget();
+    connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
+    Q_EMIT requestNextPage(m_editPage);
 }
 
 void VpnPage::onVpnSelected()
@@ -177,7 +175,7 @@ void VpnPage::onVpnSelected()
     emit requestActivateConnection("/", uuid);
 }
 
-void VpnPage::onSessionPageFinished()
+void VpnPage::onVpnEditFinished()
 {
     if (m_vpnTypePage)
         emit m_vpnTypePage->back();
@@ -307,7 +305,7 @@ void VpnPage::createVPNSession()
         m_vpnTypePage->setTitle(tr("New VPN"));
         m_vpnTypePage->setContent(widget);
 
-        connect(m_vpnTypePage, &ContentWidget::back, [=] { m_vpnTypePage = nullptr; });
+        connect(m_vpnTypePage, &ContentWidget::back, [=] {m_vpnTypePage = nullptr; });
     }
 
     emit requestNextPage(m_vpnTypePage);
@@ -317,8 +315,11 @@ void VpnPage::createVPN(ConnectionVpnEditPage::VpnType vpnType)
 {
     Q_ASSERT(m_vpnTypePage);
 
-    ConnectionVpnEditPage *editPage = new ConnectionVpnEditPage();
-    editPage->initSettingsWidgetByType(vpnType);
-    connect(editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
-    Q_EMIT requestNextPage(editPage);
+    m_editPage = new ConnectionVpnEditPage();
+    m_editPage->initSettingsWidgetByType(vpnType);
+    connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
+    connect(m_editPage, &ConnectionVpnEditPage::back, [=]{
+        QTimer::singleShot(0, this, &VpnPage::onVpnEditFinished);
+    });
+    Q_EMIT requestNextPage(m_editPage);
 }

@@ -28,8 +28,6 @@
 #include "settingsgroup.h"
 #include "settingsheaderitem.h"
 #include "nextpagewidget.h"
-#include "connectionsessionmodel.h"
-#include "connectionsessionworker.h"
 #include "tipsitem.h"
 
 #include <QTimer>
@@ -217,8 +215,8 @@ void WiredPage::onDeviceStatusChanged(const NetworkDevice::DeviceStatus stat)
 void WiredPage::onDeviceRemoved()
 {
     /* TODO: back all edit page's subpage */
-    if (!m_editPage.isNull())
-        emit m_editPage->back();
+    if (!m_editPageNew.isNull())
+        emit m_editPageNew->back();
 
     emit back();
 }

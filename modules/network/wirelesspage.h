@@ -50,7 +50,6 @@ class SwitchWidget;
 
 namespace network {
 
-class ConnectHiddenPage;
 class ConnectionWirelessEditPage;
 class AccessPointWidget;
 class WirelessPage : public ContentWidget

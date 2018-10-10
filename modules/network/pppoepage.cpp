@@ -30,10 +30,6 @@
 #include "translucentframe.h"
 #include "nextpagewidget.h"
 #include "switchwidget.h"
-#include "connectionsessionworker.h"
-#include "connectionsessionmodel.h"
-#include "connectioneditpage.h"
-#include "connectioneditpagenew.h"
 
 #include <networkmodel.h>
 #include <wireddevice.h>
@@ -82,7 +78,6 @@ void PppoePage::setModel(NetworkModel *model)
 {
     m_model = model;
 
-    connect(model, &NetworkModel::unhandledConnectionSessionCreated, this, &PppoePage::onConnectionSessionCreated);
     connect(model, &NetworkModel::connectionListChanged, this, &PppoePage::onConnectionListChanged);
     connect(model, &NetworkModel::activeConnectionsChanged, this, &PppoePage::onActivateConnectionChanged);
 
@@ -91,14 +86,11 @@ void PppoePage::setModel(NetworkModel *model)
 
 void PppoePage::createPPPoEConnection()
 {
-    ConnectionEditPageNew *editPage = new ConnectionEditPageNew(
-            ConnectionEditPageNew::ConnectionType::PppoeConnection, "/");
-    editPage->initSettingsWidget();
-    connect(editPage, &ConnectionEditPageNew::requestNextPage, this, &PppoePage::requestNextPage);
+    m_editPage = new ConnectionEditPageNew(ConnectionEditPageNew::ConnectionType::PppoeConnection, "/");
+    m_editPage->initSettingsWidget();
+    connect(m_editPage, &ConnectionEditPageNew::requestNextPage, this, &PppoePage::requestNextPage);
 
-    Q_EMIT requestNextPage(editPage);
-
-    //emit requestCreateConnection("pppoe", "/");
+    Q_EMIT requestNextPage(m_editPage);
 }
 
 void PppoePage::onConnectionListChanged()
@@ -132,33 +124,11 @@ void PppoePage::onConnectionDetailClicked()
 
     m_editingUuid = m_connUuid[w];
 
-    ConnectionEditPageNew *editPage = new ConnectionEditPageNew(
-            ConnectionEditPageNew::ConnectionType::PppoeConnection, "/", m_editingUuid);
-    editPage->initSettingsWidget();
-    connect(editPage, &ConnectionEditPageNew::requestNextPage, this, &PppoePage::requestNextPage);
+    m_editPage = new ConnectionEditPageNew(ConnectionEditPageNew::ConnectionType::PppoeConnection, "/", m_editingUuid);
+    m_editPage->initSettingsWidget();
+    connect(m_editPage, &ConnectionEditPageNew::requestNextPage, this, &PppoePage::requestNextPage);
 
-    Q_EMIT requestNextPage(editPage);
-}
-
-void PppoePage::onConnectionSessionCreated(const QString &devicePath, const QString &sessionPath)
-{
-    Q_ASSERT(devicePath == "/");
-    Q_ASSERT(m_editPage.isNull());
-
-    m_editPage = new ConnectionEditPage;
-
-    ConnectionSessionModel *sessionModel = new ConnectionSessionModel(m_editPage);
-    ConnectionSessionWorker *sessionWorker = new ConnectionSessionWorker(sessionPath, sessionModel, m_editPage);
-
-    m_editPage->setModel(m_model, sessionModel);
-    connect(m_editPage, &ConnectionEditPage::requestCancelSession, sessionWorker, &ConnectionSessionWorker::closeSession);
-    connect(m_editPage, &ConnectionEditPage::requestChangeSettings, sessionWorker, &ConnectionSessionWorker::changeSettings);
-    connect(m_editPage, &ConnectionEditPage::requestSave, sessionWorker, &ConnectionSessionWorker::saveSettings);
-    connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
-    connect(m_editPage, &ConnectionEditPage::requestRemove, [this] { emit requestDeleteConnection(m_editingUuid); });
-    connect(m_editPage, &ConnectionEditPage::requestDisconnect, [this] { emit requestDisconnectConnection(m_editingUuid); });
-    connect(m_editPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
-    emit requestNextPage(m_editPage);
+    Q_EMIT requestNextPage(m_editPage);
 }
 
 void PppoePage::onPPPoESelected()

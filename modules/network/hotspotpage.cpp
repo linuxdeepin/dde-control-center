@@ -27,9 +27,6 @@
 #include "nextpagewidget.h"
 #include "switchwidget.h"
 #include "settingsgroup.h"
-#include "connectionsessionmodel.h"
-#include "connectionsessionworker.h"
-#include "connectionhotspoteditpage.h"
 
 #include <QVBoxLayout>
 #include <QDebug>

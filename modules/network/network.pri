@@ -9,10 +9,7 @@ HEADERS += \
     $$PWD/networkmodulewidget.h \
     $$PWD/wirelesspage.h \
     $$PWD/accesspointwidget.h \
-    $$PWD/connectionsessionmodel.h \
-    $$PWD/connectionsessionworker.h \
     $$PWD/vpnpage.h \
-    $$PWD/connectioneditpage.h \
     $$PWD/connectioneditpagenew.h \
     $$PWD/connectionwirelesseditpage.h \
     $$PWD/connectionvpneditpage.h \
@@ -30,10 +27,7 @@ SOURCES += \
     $$PWD/networkmodulewidget.cpp \
     $$PWD/wirelesspage.cpp \
     $$PWD/accesspointwidget.cpp \
-    $$PWD/connectionsessionmodel.cpp \
-    $$PWD/connectionsessionworker.cpp \
     $$PWD/vpnpage.cpp \
-    $$PWD/connectioneditpage.cpp \
     $$PWD/connectioneditpagenew.cpp \
     $$PWD/connectionwirelesseditpage.cpp \
     $$PWD/connectionvpneditpage.cpp \
@@ -45,30 +39,6 @@ SOURCES += \
     $$PWD/hotspotpage.cpp \
     $$PWD/chainsproxypage.cpp \
     $$PWD/chainstypepage.cpp
-
-#HEADERS += \
-#    $$PWD/sections/abstractsection.h \
-#    $$PWD/sections/genericsection.h \
-#    $$PWD/sections/secretsection.h \
-#    $$PWD/sections/ipvxsection.h \
-#    $$PWD/sections/ethernetsection.h \
-#    $$PWD/sections/secretwirelesssection.h
-#
-#SOURCES += \
-#    $$PWD/sections/abstractsection.cpp \
-#    $$PWD/sections/genericsection.cpp \
-#    $$PWD/sections/secretsection.cpp \
-#    $$PWD/sections/ipvxsection.cpp \
-#    $$PWD/sections/ethernetsection.cpp \
-#    $$PWD/sections/secretwirelesssection.cpp
-
-#HEADERS += \
-#    $$PWD/settings/abstractsettings.h \
-#    $$PWD/settings/wiredsettings.h
-#
-#SOURCES += \
-#    $$PWD/settings/abstractsettings.cpp \
-#    $$PWD/settings/wiredsettings.cpp
 
 RESOURCES += \
     $$PWD/network.qrc

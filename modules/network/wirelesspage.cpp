@@ -29,10 +29,7 @@
 #include "settingsgroup.h"
 #include "switchwidget.h"
 #include "translucentframe.h"
-#include "connectioneditpage.h"
 #include "connectionwirelesseditpage.h"
-#include "connectionsessionworker.h"
-#include "connectionsessionmodel.h"
 #include "tipsitem.h"
 
 #include <networkmodel.h>

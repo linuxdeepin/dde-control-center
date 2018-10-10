@@ -69,7 +69,6 @@ private slots:
     void showDetailPage();
     void showHotspotPage(dde::network::WirelessDevice *wdev);
     void showDeviceDetailPage(dde::network::NetworkDevice *dev);
-    void showWiredConnectionEditPage(const QString &session);
     void onSetFrameAutoHide(const bool autoHide);
 
 private:

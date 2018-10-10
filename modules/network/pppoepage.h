@@ -27,6 +27,7 @@
 #define PPPOEPAGE_H
 
 #include "contentwidget.h"
+#include "connectioneditpagenew.h"
 
 #include <QMap>
 #include <QPointer>
@@ -50,7 +51,6 @@ namespace widgets {
 
 namespace network {
 
-class ConnectionEditPage;
 class PppoePage : public ContentWidget
 {
     Q_OBJECT
@@ -62,10 +62,6 @@ public:
 
 signals:
     void requestNextPage(ContentWidget * const w) const;
-    void requestCreateConnection(const QString &type, const QString &devicePath) const;
-    void requestEditConnection(const QString &devPath, const QString &uuid) const;
-    void requestDeleteConnection(const QString &uuid) const;
-    void requestDisconnectConnection(const QString &uuid) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
     void requestActivateConnection(const QString &devPath, const QString &uuid) const;
 
@@ -73,7 +69,6 @@ private slots:
     void createPPPoEConnection();
     void onConnectionListChanged();
     void onConnectionDetailClicked();
-    void onConnectionSessionCreated(const QString &devicePath, const QString &sessionPath);
     void onPPPoESelected();
     void onActivateConnectionChanged(const QSet<QString> &conns);
 
@@ -83,7 +78,7 @@ private:
     widgets::SettingsGroup *m_settingsGrp;
     QPushButton *m_createBtn;
     QMap<widgets::NextPageWidget *, QString> m_connUuid;
-    QPointer<ConnectionEditPage> m_editPage;
+    QPointer<ConnectionEditPageNew> m_editPage;
 
     QString m_editingUuid;
 };

@@ -28,9 +28,9 @@
 #define WIREDPAGE_H
 
 #include "contentwidget.h"
-#include "connectioneditpage.h"
 #include "connectioneditpagenew.h"
 
+#include <QPointer>
 #include <wireddevice.h>
 
 class QPushButton;
@@ -50,7 +50,6 @@ class NextPageWidget;
 
 namespace network {
 
-class ConnectionEditPage;
 class WiredPage : public ContentWidget
 {
     Q_OBJECT
@@ -80,7 +79,6 @@ private:
     dde::network::WiredDevice *m_device;
     dde::network::NetworkModel *m_model;
 
-    QPointer<ConnectionEditPage> m_editPage;
     QPointer<ConnectionEditPageNew> m_editPageNew;
 
     QPushButton *m_createBtn;
