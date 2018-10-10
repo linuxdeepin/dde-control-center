@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "connectioneditpagenew.h"
+#include "connectioneditpage.h"
 #include "translucentframe.h"
 
 #include "settings/wiredsettings.h"
@@ -36,7 +36,7 @@ using namespace dcc::widgets;
 using namespace dcc::network;
 using namespace NetworkManager;
 
-ConnectionEditPageNew::ConnectionEditPageNew(ConnectionType connType, const QString &devPath,  const QString &connUuid, QWidget *parent)
+ConnectionEditPage::ConnectionEditPage(ConnectionType connType, const QString &devPath,  const QString &connUuid, QWidget *parent)
     : ContentWidget(parent),
       m_settingsLayout(new QVBoxLayout),
       m_connection(nullptr),
@@ -71,11 +71,11 @@ ConnectionEditPageNew::ConnectionEditPageNew(ConnectionType connType, const QStr
     initConnection();
 }
 
-ConnectionEditPageNew::~ConnectionEditPageNew()
+ConnectionEditPage::~ConnectionEditPage()
 {
 }
 
-void ConnectionEditPageNew::initUI()
+void ConnectionEditPage::initUI()
 {
     m_settingsLayout->setSpacing(10);
 
@@ -104,7 +104,7 @@ void ConnectionEditPageNew::initUI()
     setContent(mainWidget);
 }
 
-void ConnectionEditPageNew::initHeaderButtons()
+void ConnectionEditPage::initHeaderButtons()
 {
     if (m_isNewConnection) {
         return;
@@ -121,7 +121,7 @@ void ConnectionEditPageNew::initHeaderButtons()
     m_removeBtn->setVisible(true);
 }
 
-void ConnectionEditPageNew::initSettingsWidget()
+void ConnectionEditPage::initSettingsWidget()
 {
     if (!m_connectionSettings) {
         return;
@@ -144,17 +144,17 @@ void ConnectionEditPageNew::initSettingsWidget()
             break;
     }
 
-    connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionEditPageNew::requestNextPage);
+    connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionEditPage::requestNextPage);
 
     m_settingsLayout->addWidget(m_settingsWidget);
 }
 
-void ConnectionEditPageNew::initConnection()
+void ConnectionEditPage::initConnection()
 {
-    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ConnectionEditPageNew::saveConnSettings);
-    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &ConnectionEditPageNew::back);
-    connect(this, &ConnectionEditPageNew::saveSettingsDone, this, &ConnectionEditPageNew::prepareConnection);
-    connect(this, &ConnectionEditPageNew::prepareConnectionDone, this, &ConnectionEditPageNew::updateConnection);
+    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ConnectionEditPage::saveConnSettings);
+    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &ConnectionEditPage::back);
+    connect(this, &ConnectionEditPage::saveSettingsDone, this, &ConnectionEditPage::prepareConnection);
+    connect(this, &ConnectionEditPage::prepareConnectionDone, this, &ConnectionEditPage::updateConnection);
 
     connect(m_removeBtn, &QPushButton::clicked, this, [=]() {
         m_connection->remove();
@@ -167,7 +167,7 @@ void ConnectionEditPageNew::initConnection()
     });
 }
 
-NMVariantMapMap ConnectionEditPageNew::secretsMapMapBySettingType(NetworkManager::Setting::SettingType settingType)
+NMVariantMapMap ConnectionEditPage::secretsMapMapBySettingType(NetworkManager::Setting::SettingType settingType)
 {
     QDBusPendingReply<NMVariantMapMap> reply;
     reply = m_connection->secrets(m_connectionSettings->setting(settingType)->name());
@@ -181,13 +181,13 @@ NMVariantMapMap ConnectionEditPageNew::secretsMapMapBySettingType(NetworkManager
 }
 
 template <typename T>
-void ConnectionEditPageNew::setSecretsFromMapMap(NetworkManager::Setting::SettingType settingType, NMVariantMapMap secretsMapMap)
+void ConnectionEditPage::setSecretsFromMapMap(NetworkManager::Setting::SettingType settingType, NMVariantMapMap secretsMapMap)
 {
     QSharedPointer<T> setting = m_connectionSettings->setting(settingType).staticCast<T>();
     setting->secretsFromMap(secretsMapMap.value(setting->name()));
 }
 
-void ConnectionEditPageNew::initConnectionSecrets()
+void ConnectionEditPage::initConnectionSecrets()
 {
     NetworkManager::Setting::SettingType sType;
     NMVariantMapMap sSecretsMapMap;
@@ -235,7 +235,7 @@ void ConnectionEditPageNew::initConnectionSecrets()
     }
 }
 
-void ConnectionEditPageNew::saveConnSettings()
+void ConnectionEditPage::saveConnSettings()
 {
     if (!m_settingsWidget->allInputValid()) {
         return;
@@ -261,7 +261,7 @@ void ConnectionEditPageNew::saveConnSettings()
     Q_EMIT saveSettingsDone();
 }
 
-void ConnectionEditPageNew::prepareConnection()
+void ConnectionEditPage::prepareConnection()
 {
     if (!m_connection) {
         qDebug() << "preparing connection...";
@@ -278,7 +278,7 @@ void ConnectionEditPageNew::prepareConnection()
     Q_EMIT prepareConnectionDone();
 }
 
-void ConnectionEditPageNew::updateConnection()
+void ConnectionEditPage::updateConnection()
 {
     QDBusPendingReply<> reply;
 
@@ -299,7 +299,7 @@ void ConnectionEditPageNew::updateConnection()
     Q_EMIT back();
 }
 
-void ConnectionEditPageNew::createConnSettings()
+void ConnectionEditPage::createConnSettings()
 {
     m_connectionSettings = QSharedPointer<NetworkManager::ConnectionSettings>(
             new NetworkManager::ConnectionSettings(m_connType));
@@ -329,7 +329,7 @@ void ConnectionEditPageNew::createConnSettings()
     m_connectionSettings->setUuid(m_connectionSettings->createNewUuid());
 }
 
-int ConnectionEditPageNew::connectionSuffixNum(const QString &matchConnName)
+int ConnectionEditPage::connectionSuffixNum(const QString &matchConnName)
 {
     if (matchConnName.isEmpty()) {
         return 0;

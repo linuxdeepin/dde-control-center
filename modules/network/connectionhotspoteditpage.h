@@ -22,12 +22,12 @@
 #ifndef CONNECTIONHOTSPOTEDITPAGE_H
 #define CONNECTIONHOTSPOTEDITPAGE_H
 
-#include "connectioneditpagenew.h"
+#include "connectioneditpage.h"
 
 namespace dcc {
 namespace network {
 
-class ConnectionHotspotEditPage : public ConnectionEditPageNew
+class ConnectionHotspotEditPage : public ConnectionEditPage
 {
     Q_OBJECT
 

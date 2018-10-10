@@ -36,7 +36,7 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 ConnectionVpnEditPage::ConnectionVpnEditPage(const QString &connUuid, QWidget *parent)
-    : ConnectionEditPageNew(ConnectionEditPageNew::ConnectionType::VpnConnection, QString(), connUuid, parent)
+    : ConnectionEditPage(ConnectionEditPage::ConnectionType::VpnConnection, QString(), connUuid, parent)
 {
 }
 

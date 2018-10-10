@@ -33,7 +33,7 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 ConnectionHotspotEditPage::ConnectionHotspotEditPage(const QString &devPath, const QString &connUuid, QWidget *parent)
-    : ConnectionEditPageNew(ConnectionEditPageNew::ConnectionType::WirelessConnection, devPath, connUuid, parent)
+    : ConnectionEditPage(ConnectionEditPage::ConnectionType::WirelessConnection, devPath, connUuid, parent)
 {
     m_devPath = devPath;
 }
@@ -58,7 +58,7 @@ void ConnectionHotspotEditPage::initSettingsWidget()
 
     m_settingsWidget = new HotspotSettings(m_connectionSettings, this);
 
-    connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionEditPageNew::requestNextPage);
+    connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionEditPage::requestNextPage);
 
     m_settingsLayout->addWidget(m_settingsWidget);
 }

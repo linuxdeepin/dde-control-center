@@ -10,7 +10,6 @@ HEADERS += \
     $$PWD/wirelesspage.h \
     $$PWD/accesspointwidget.h \
     $$PWD/vpnpage.h \
-    $$PWD/connectioneditpagenew.h \
     $$PWD/connectionwirelesseditpage.h \
     $$PWD/connectionvpneditpage.h \
     $$PWD/connectionhotspoteditpage.h \
@@ -20,7 +19,8 @@ HEADERS += \
     $$PWD/wiredpage.h \
     $$PWD/hotspotpage.h \
     $$PWD/chainsproxypage.h \
-    $$PWD/chainstypepage.h
+    $$PWD/chainstypepage.h \
+    $$PWD/connectioneditpage.h
 
 SOURCES += \
     $$PWD/networkmodule.cpp \
@@ -28,7 +28,6 @@ SOURCES += \
     $$PWD/wirelesspage.cpp \
     $$PWD/accesspointwidget.cpp \
     $$PWD/vpnpage.cpp \
-    $$PWD/connectioneditpagenew.cpp \
     $$PWD/connectionwirelesseditpage.cpp \
     $$PWD/connectionvpneditpage.cpp \
     $$PWD/connectionhotspoteditpage.cpp \
@@ -38,7 +37,8 @@ SOURCES += \
     $$PWD/wiredpage.cpp \
     $$PWD/hotspotpage.cpp \
     $$PWD/chainsproxypage.cpp \
-    $$PWD/chainstypepage.cpp
+    $$PWD/chainstypepage.cpp \
+    $$PWD/connectioneditpage.cpp
 
 RESOURCES += \
     $$PWD/network.qrc

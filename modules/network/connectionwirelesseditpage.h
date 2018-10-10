@@ -22,14 +22,14 @@
 #ifndef CONNECTIONWIRELESSEDITPAGE_H
 #define CONNECTIONWIRELESSEDITPAGE_H
 
-#include "connectioneditpagenew.h"
+#include "connectioneditpage.h"
 
 #include <networkmanagerqt/accesspoint.h>
 
 namespace dcc {
 namespace network {
 
-class ConnectionWirelessEditPage : public ConnectionEditPageNew
+class ConnectionWirelessEditPage : public ConnectionEditPage
 {
     Q_OBJECT
 

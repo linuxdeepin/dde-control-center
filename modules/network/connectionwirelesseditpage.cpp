@@ -32,7 +32,7 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 ConnectionWirelessEditPage::ConnectionWirelessEditPage(const QString &devPath, const QString &connUuid, QWidget *parent)
-    : ConnectionEditPageNew(ConnectionEditPageNew::ConnectionType::WirelessConnection, devPath, connUuid, parent)
+    : ConnectionEditPage(ConnectionEditPage::ConnectionType::WirelessConnection, devPath, connUuid, parent)
 {
 }
 
@@ -66,7 +66,7 @@ void ConnectionWirelessEditPage::initSettingsWidgetFromAp(const QString &apPath)
 
     m_settingsWidget = new WirelessSettings(m_connectionSettings, this);
 
-    connect(m_settingsWidget, &WirelessSettings::requestNextPage, this, &ConnectionEditPageNew::requestNextPage);
+    connect(m_settingsWidget, &WirelessSettings::requestNextPage, this, &ConnectionEditPage::requestNextPage);
     m_settingsLayout->addWidget(m_settingsWidget);
 }
 

@@ -22,7 +22,7 @@
 #ifndef CONNECTIONVPNEDITPAGE_H
 #define CONNECTIONVPNEDITPAGE_H
 
-#include "connectioneditpagenew.h"
+#include "connectioneditpage.h"
 
 #include <networkmanagerqt/accesspoint.h>
 
@@ -36,7 +36,7 @@
 namespace dcc {
 namespace network {
 
-class ConnectionVpnEditPage : public ConnectionEditPageNew
+class ConnectionVpnEditPage : public ConnectionEditPage
 {
     Q_OBJECT
 

@@ -168,18 +168,18 @@ void WiredPage::editConnection()
 
     const QString connPath = m_connectionPath[w];
 
-    m_editPageNew = new ConnectionEditPageNew(ConnectionEditPageNew::WiredConnection,
+    m_editPageNew = new ConnectionEditPage(ConnectionEditPage::WiredConnection,
             m_device->path(), m_model->connectionUuidByPath(connPath));
     m_editPageNew->initSettingsWidget();
-    connect(m_editPageNew, &ConnectionEditPageNew::requestNextPage, this, &WiredPage::requestNextPage);
+    connect(m_editPageNew, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
     emit requestNextPage(m_editPageNew);
 }
 
 void WiredPage::createNewConnection()
 {
-    m_editPageNew = new ConnectionEditPageNew(ConnectionEditPageNew::WiredConnection, m_device->path());
+    m_editPageNew = new ConnectionEditPage(ConnectionEditPage::WiredConnection, m_device->path());
     m_editPageNew->initSettingsWidget();
-    connect(m_editPageNew, &ConnectionEditPageNew::requestNextPage, this, &WiredPage::requestNextPage);
+    connect(m_editPageNew, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
     emit requestNextPage(m_editPageNew);
 }
 

@@ -19,8 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef CONNECTIONEDITPAGENEW_H
-#define CONNECTIONEDITPAGENEW_H
+#ifndef CONNECTIONEDITPAGE_H
+#define CONNECTIONEDITPAGE_H
 
 #include "contentwidget.h"
 #include "sections/abstractsection.h"
@@ -36,7 +36,7 @@
 namespace dcc {
 namespace network {
 
-class ConnectionEditPageNew : public ContentWidget
+class ConnectionEditPage : public ContentWidget
 {
     Q_OBJECT
 
@@ -48,8 +48,8 @@ public:
 
     // Connection will NOT be activated if "devPath" is empty
     // A NEW connection will be created if "connUuid" is empty
-    explicit ConnectionEditPageNew(ConnectionType connType, const QString &devPath, const QString &connUuid = QString(), QWidget *parent = 0);
-    virtual ~ConnectionEditPageNew();
+    explicit ConnectionEditPage(ConnectionType connType, const QString &devPath, const QString &connUuid = QString(), QWidget *parent = 0);
+    virtual ~ConnectionEditPage();
 
     // This method or some similar method of Subclass must be called after initialization
     virtual void initSettingsWidget();
@@ -102,4 +102,4 @@ private:
 } /* network */ 
 } /* dcc */ 
 
-#endif /* CONNECTIONEDITPAGENEW_H */
+#endif /* CONNECTIONEDITPAGE_H */

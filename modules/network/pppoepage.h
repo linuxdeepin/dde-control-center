@@ -27,7 +27,7 @@
 #define PPPOEPAGE_H
 
 #include "contentwidget.h"
-#include "connectioneditpagenew.h"
+#include "connectioneditpage.h"
 
 #include <QMap>
 #include <QPointer>
@@ -78,7 +78,7 @@ private:
     widgets::SettingsGroup *m_settingsGrp;
     QPushButton *m_createBtn;
     QMap<widgets::NextPageWidget *, QString> m_connUuid;
-    QPointer<ConnectionEditPageNew> m_editPage;
+    QPointer<ConnectionEditPage> m_editPage;
 
     QString m_editingUuid;
 };
