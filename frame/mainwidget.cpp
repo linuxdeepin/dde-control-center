@@ -48,22 +48,19 @@ static const int PluginsHeightMax = 380;
 static const int PluginsHeightMin = 260;
 
 MainWidget::MainWidget(FrameContentWrapper *parent)
-    : FrameWidget(parent),
-
-      m_pluginsController(new PluginsController(this)),
-
-//      m_lastPluginWidget(nullptr),
-
-      m_timeRefersh(new QTimer(this)),
-
-      m_userAvatarBtn(nullptr),
-      m_currentTimeLbl(new QLabel),
-      m_currentDateLbl(new QLabel),
-      m_pluginsLayout(new QStackedLayout),
+    : FrameWidget(parent)
+    , m_pluginsController(new PluginsController(this))
+    , m_timeRefersh(new QTimer(this))
+    , m_userAvatarBtn(nullptr)
+    , m_currentTimeLbl(new QLabel)
+    , m_currentDateLbl(new QLabel)
+    , m_pluginsLayout(new QStackedLayout)
 #ifndef DISABLE_SYS_UPDATE
-      m_updateNotifier(new UpdateNotifier),
+    , m_navWidget(new NavWidget(this))
+    , m_notifyWidget(new NotifyWidget(this))
+    , m_updateNotifier(new UpdateNotifier)
 #endif
-      m_quickSettingsPanel(new QuickControlPanel(this))
+    , m_quickSettingsPanel(new QuickControlPanel(this))
 {
     m_pluginsLayout->setMargin(0);
     m_pluginsLayout->setSpacing(0);
@@ -104,14 +101,17 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     m_currentDateLbl->setObjectName("CurrentDateLabel");
     m_currentDateLbl->setWordWrap(true);
 
-    DImageButton *notifyToggleBtn = new DImageButton(this);
-    notifyToggleBtn->setFixedSize(32, 32);
-    notifyToggleBtn->setObjectName("NotifyToggleBtn");
+    m_notifyToggleBtn = new DImageButton(this);
+    m_notifyToggleBtn->setFixedSize(32, 32);
+    m_notifyToggleBtn->setObjectName("NotifyToggleBtn");
+    m_notifyToggleBtn->setNormalPic(":/frame/themes/dark/icons/notifications_toggle_normal.svg");
+    m_notifyToggleBtn->setPressPic(":/frame/themes/dark/icons/notifications_toggle_checked.svg");
+    m_notifyToggleBtn->setHoverPic(":/frame/themes/dark/icons/notifications_toggle_hover.svg");
 
     QHBoxLayout *toggleNotifyLayout = new QHBoxLayout(this);
     toggleNotifyLayout->setMargin(0);
     toggleNotifyLayout->setSpacing(0);
-    toggleNotifyLayout->addWidget(notifyToggleBtn, 0, Qt::AlignVCenter);
+    toggleNotifyLayout->addWidget(m_notifyToggleBtn, 0, Qt::AlignVCenter);
 
     // Header
     TranslucentFrame *headerFrame = new TranslucentFrame;
@@ -141,21 +141,7 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
 
     headerFrame->setLayout(headerLayout);
 
-    // Plugins
-    m_pluginWrapper = new TranslucentFrame;
-    m_pluginWrapper->setLayout(m_pluginsLayout);
-    m_pluginWrapper->setObjectName("HomePluginsFrame");
-
-    QVBoxLayout *pluginWidgetLayout = new QVBoxLayout;
-    pluginWidgetLayout->addWidget(m_pluginWrapper);
-//    pluginWidgetLayout->addWidget(m_quickSettingsPanel);
-    pluginWidgetLayout->setSpacing(0);
-    pluginWidgetLayout->setMargin(0);
-
     m_quickSettingsPanel->hide();
-
-    m_pluginWidget = new TranslucentFrame;
-    m_pluginWidget->setLayout(pluginWidgetLayout);
 
 #ifndef DISABLE_SYS_UPDATE
     m_updateNotifier->setObjectName("UpdateNotifier");
@@ -163,26 +149,30 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
 //    connect(m_updateNotifier, &UpdateNotifier::notifierVisibleChanged, this, &MainWidget::updateMPRISEnable);
 #endif
 
+    m_pluginsLayout->addWidget(m_navWidget);
+    m_pluginsLayout->addWidget(m_notifyWidget);
+
     QVBoxLayout *centralLayout = static_cast<QVBoxLayout *>(layout());
     centralLayout->addWidget(headerFrame);
 #ifndef DISABLE_SYS_UPDATE
     centralLayout->addWidget(m_updateNotifier);
     centralLayout->addSpacing(1);
 #endif
-    centralLayout->addWidget(m_pluginWidget);
+    centralLayout->addLayout(m_pluginsLayout);
 //    centralLayout->addWidget(m_quickSettingsPanel);
     centralLayout->addSpacing(10);
     centralLayout->setSpacing(0);
     centralLayout->setMargin(0);
+    centralLayout->setContentsMargins(1, 1, 1, 1);
 
-    connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded, Qt::QueuedConnection);
-    connect(m_pluginsController, &PluginsController::requestModulePage, this, &MainWidget::showSettingPage, Qt::QueuedConnection);
+//    connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded, Qt::QueuedConnection);
+//    connect(m_pluginsController, &PluginsController::requestModulePage, this, &MainWidget::showSettingPage, Qt::QueuedConnection);
     connect(m_quickSettingsPanel, &QuickControlPanel::requestDetailConfig, this, &MainWidget::showAllSettings);
     connect(m_quickSettingsPanel, &QuickControlPanel::requestPage, this, &MainWidget::showSettingPage);
     connect(this, &MainWidget::appear, m_quickSettingsPanel, &QuickControlPanel::appear);
     connect(this, &MainWidget::disappear, m_quickSettingsPanel, &QuickControlPanel::disappear);
     connect(m_timeRefersh, &QTimer::timeout, this, &MainWidget::refershTimedate);
-    connect(notifyToggleBtn, &DImageButton::clicked, this, &MainWidget::toggleNotify);
+    connect(m_notifyToggleBtn, &DImageButton::clicked, this, &MainWidget::toggleNotify, Qt::QueuedConnection);
 
 #ifndef DISABLE_SYS_UPDATE
     connect(m_updateNotifier, &UpdateNotifier::clicked, this, [this] {
@@ -190,7 +180,7 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     });
 #endif
 
-    m_pluginsController->loadPlugins();
+//    m_pluginsController->loadPlugins();
     refershTimedate();
 }
 
@@ -262,5 +252,14 @@ void MainWidget::updateMPRISEnable()
 
 void MainWidget::toggleNotify()
 {
-    showPrevPlugin();
+    if (m_pluginsLayout->currentWidget() == m_navWidget) {
+        m_pluginsLayout->setCurrentWidget(m_notifyWidget);
+        m_notifyToggleBtn->setHoverPic(":/frame/themes/dark/icons/notifications_toggle_checkedhover.svg");
+        m_notifyToggleBtn->setNormalPic(":/frame/themes/dark/icons/notifications_toggle_checked.svg");
+    }
+    else {
+        m_pluginsLayout->setCurrentWidget(m_navWidget);
+        m_notifyToggleBtn->setHoverPic(":/frame/themes/dark/icons/notifications_toggle_hover.svg");
+        m_notifyToggleBtn->setNormalPic(":/frame/themes/dark/icons/notifications_toggle_normal.svg");
+    }
 }

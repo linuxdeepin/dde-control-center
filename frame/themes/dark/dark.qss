@@ -93,12 +93,6 @@ Dtk--Widget--DImageButton#NotifyCloseButton{
     qproperty-pressPic: url(:/frame/themes/dark/icons/notify_close_press.png);
 }
 
-Dtk--Widget--DImageButton#NotifyToggleBtn{
-    qproperty-normalPic: url(:/frame/themes/dark/icons/notifications_toggle_normal.svg);
-    qproperty-hoverPic: url(:/frame/themes/dark/icons/notifications_toggle_hover.svg);
-    qproperty-pressPic: url(:/frame/themes/dark/icons/notifications_toggle_checked.svg);
-}
-
 NavigationBar Dtk--Widget--DImageButton {
     margin: 0 10px 0 10px;
     padding: 5px 0;

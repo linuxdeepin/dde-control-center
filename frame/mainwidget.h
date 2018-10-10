@@ -29,6 +29,8 @@
 #include "pluginscontroller.h"
 #include "framewidget.h"
 #include "quick_control/quickcontrolpanel.h"
+#include "navigation/navwidget.h"
+#include "notify/notifywidget.h"
 
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -81,9 +83,10 @@ private:
     dcc::accounts::AvatarWidget *m_userAvatarBtn;
     QLabel *m_currentTimeLbl;
     QLabel *m_currentDateLbl;
+    DImageButton *m_notifyToggleBtn;
     QStackedLayout *m_pluginsLayout;
-    QWidget *m_pluginWrapper;
-    QWidget *m_pluginWidget;
+    NavWidget *m_navWidget;
+    NotifyWidget *m_notifyWidget;
 #ifndef DISABLE_SYS_UPDATE
     UpdateNotifier *m_updateNotifier;
 #endif

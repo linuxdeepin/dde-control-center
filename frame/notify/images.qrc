@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>notify.json</file>
         <file>images/notify_close_hover.svg</file>
         <file>images/notify_close_normal.svg</file>
         <file>images/notify_close_press.svg</file>

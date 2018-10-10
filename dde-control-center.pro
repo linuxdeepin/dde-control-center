@@ -23,12 +23,10 @@ isEmpty(PREFIX) {
     PREFIX = /usr
 }
 
-deepin_professional {
-    host_mips64 | host_sw_64 {
-        autostart.path = /etc/xdg/autostart
-        autostart.files = dde-control-center-autostart.desktop
-        INSTALLS += autostart
-    }
+host_mips64 | host_sw_64 {
+    autostart.path = /etc/xdg/autostart
+    autostart.files = dde-control-center-autostart.desktop
+    INSTALLS += autostart
 }
 
 # add install files

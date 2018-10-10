@@ -47,7 +47,17 @@ HEADERS    += \
     navigationmodel.h \
     navigationdelegate.h \
     navigationbar.h \
-    framecontentwrapper.h
+    framecontentwrapper.h \
+    navigation/navwidget.h \
+    navigation/navmodel.h \
+    navigation/navdelegate.h \
+    notify/notifymodel.h \
+    notify/notifywidget.h \
+    notify/notifybody.h \
+    notify/notifymanager.h \
+    notify/notifyview.h \
+    notify/notifydelegate.h \
+    notify/notifyviewer.h
 
 SOURCES    += \
             main.cpp \
@@ -76,7 +86,17 @@ SOURCES    += \
     navigationmodel.cpp \
     navigationdelegate.cpp \
     navigationbar.cpp \
-    framecontentwrapper.cpp
+    framecontentwrapper.cpp \
+    navigation/navmodel.cpp \
+    navigation/navdelegate.cpp \
+    navigation/navwidget.cpp \
+    notify/notifymanager.cpp \
+    notify/notifydelegate.cpp \
+    notify/notifyview.cpp \
+    notify/notifywidget.cpp \
+    notify/notifymodel.cpp \
+    notify/notifyviewer.cpp \
+    notify/notifybody.cpp
 
 !isEqual(DISABLE_BLUETOOTH, YES) {
 HEADERS += \
@@ -107,7 +127,9 @@ SOURCES    += \
 #}
 
 RESOURCES += \
-    frame.qrc
+    frame.qrc \
+    navigation/navigation.qrc \
+    notify/images.qrc
 
 isEqual(DISABLE_SYS_UPDATE, YES) {
     DEFINES += DISABLE_SYS_UPDATE

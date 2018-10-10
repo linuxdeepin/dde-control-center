@@ -32,8 +32,3 @@ override_dh_auto_configure:
 	dh_auto_configure -- DISABLE_SYS_UPDATE_SOURCE_CHECK=YES \
 		DISABLE_SYS_UPDATE_MIRRORS=YES
 endif
-
-ifeq ($(SYSTYPE), Desktop)
-override_dh_gencontrol:
-	dh_gencontrol -- -Vdist:Depends="dde-control-center-plugin-notify"
-endif
