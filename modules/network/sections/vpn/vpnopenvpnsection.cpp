@@ -27,18 +27,18 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-static const QMap<QString, QString> AuthTypeStrMap {
-    {"Certificates (TLS)", "tls"},
-    {"Password", "password"},
-    {"Certificates with Password (TLS)", "password-tls"},
-    {"Static Key", "static-key"},
+const QMap<QString, QString> VpnOpenVPNSection::AuthTypeStrMap {
+    {tr("Certificates (TLS)"), "tls"},
+    {tr("Password"), "password"},
+    {tr("Certificates with Password (TLS)"), "password-tls"},
+    {tr("Static Key"), "static-key"},
 };
 
-static const QMap<QString, NetworkManager::Setting::SecretFlagType> PasswordFlagsStrMap {
+const QMap<QString, NetworkManager::Setting::SecretFlagType> VpnOpenVPNSection::PasswordFlagsStrMap {
     //{"Saved", NetworkManager::Setting::AgentOwned},
-    {"Saved", NetworkManager::Setting::SecretFlagType::None},
-    {"Ask", NetworkManager::Setting::SecretFlagType::NotSaved},
-    {"NotRequired", NetworkManager::Setting::SecretFlagType::NotRequired}
+    {tr("Saved"), NetworkManager::Setting::SecretFlagType::None},
+    {tr("Ask"), NetworkManager::Setting::SecretFlagType::NotSaved},
+    {tr("NotRequired"), NetworkManager::Setting::SecretFlagType::NotRequired}
 };
 
 VpnOpenVPNSection::VpnOpenVPNSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)

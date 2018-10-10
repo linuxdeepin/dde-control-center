@@ -25,10 +25,10 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-static const QMap<QString, QString> RemoteCertTypeStrMap {
-    {"Default", "default"},
-    {"Client", "client"},
-    {"Server", "server"},
+const QMap<QString, QString> VpnTLSSection::RemoteCertTypeStrMap {
+    {tr("Default"), "default"},
+    {tr("Client"), "client"},
+    {tr("Server"), "server"},
 };
 
 VpnTLSSection::VpnTLSSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)

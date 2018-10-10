@@ -55,6 +55,8 @@ private:
     void onProxyTypeChanged(const QString &type);
 
 private:
+    static const QMap<QString, QString> ProxyTypeStrMap;
+
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
     NMStringMap m_secretMap;

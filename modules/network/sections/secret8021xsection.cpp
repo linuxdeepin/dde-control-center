@@ -27,48 +27,48 @@ using namespace dcc::network;
 using namespace NetworkManager;
 using namespace dcc::widgets;
 
-static const QMap<QString, NetworkManager::Security8021xSetting::EapMethod> EapMethodStrMap {
-    {"TLS", NetworkManager::Security8021xSetting::EapMethodTls},
-    {"MD5", NetworkManager::Security8021xSetting::EapMethodMd5},
-    {"LEAP", NetworkManager::Security8021xSetting::EapMethodLeap},
-    {"FAST", NetworkManager::Security8021xSetting::EapMethodFast},
-    {"Tunneled TLS", NetworkManager::Security8021xSetting::EapMethodTtls},
-    {"Protected EAP", NetworkManager::Security8021xSetting::EapMethodPeap}
+const QMap<QString, NetworkManager::Security8021xSetting::EapMethod> Secret8021xSection::EapMethodStrMap {
+    {tr("TLS"), NetworkManager::Security8021xSetting::EapMethodTls},
+    {tr("MD5"), NetworkManager::Security8021xSetting::EapMethodMd5},
+    {tr("LEAP"), NetworkManager::Security8021xSetting::EapMethodLeap},
+    {tr("FAST"), NetworkManager::Security8021xSetting::EapMethodFast},
+    {tr("Tunneled TLS"), NetworkManager::Security8021xSetting::EapMethodTtls},
+    {tr("Protected EAP"), NetworkManager::Security8021xSetting::EapMethodPeap}
 };
 
-static const QMap<QString, NetworkManager::Setting::SecretFlagType> PasswordFlagsStrMap {
-    //{"Saved", NetworkManager::Setting::AgentOwned},
-    {"Saved", NetworkManager::Setting::None},
-    {"Ask", NetworkManager::Setting::NotSaved},
-    {"NotRequired", NetworkManager::Setting::NotRequired}
+const QMap<QString, NetworkManager::Setting::SecretFlagType> Secret8021xSection::PasswordFlagsStrMap {
+    //{tr("Saved"), NetworkManager::Setting::AgentOwned},
+    {tr("Saved"), NetworkManager::Setting::None},
+    {tr("Ask"), NetworkManager::Setting::NotSaved},
+    {tr("NotRequired"), NetworkManager::Setting::NotRequired}
 };
 
-static const QMap<QString, NetworkManager::Security8021xSetting::FastProvisioning> FastrProvisioningStrMap {
-    {"Disabled", NetworkManager::Security8021xSetting::FastProvisioningDisabled},
-    {"Anonymous", NetworkManager::Security8021xSetting::FastProvisioningAllowUnauthenticated},
-    {"Authenticated", NetworkManager::Security8021xSetting::FastProvisioningAllowAuthenticated},
-    {"Both", NetworkManager::Security8021xSetting::FastProvisioningAllowBoth}
+const QMap<QString, NetworkManager::Security8021xSetting::FastProvisioning> Secret8021xSection::FastrProvisioningStrMap {
+    {tr("Disabled"), NetworkManager::Security8021xSetting::FastProvisioningDisabled},
+    {tr("Anonymous"), NetworkManager::Security8021xSetting::FastProvisioningAllowUnauthenticated},
+    {tr("Authenticated"), NetworkManager::Security8021xSetting::FastProvisioningAllowAuthenticated},
+    {tr("Both"), NetworkManager::Security8021xSetting::FastProvisioningAllowBoth}
 };
 
-static const QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapFast {
+const QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> Secret8021xSection::AuthMethodStrMapFast {
     {"GTC", NetworkManager::Security8021xSetting::AuthMethodGtc},
     {"MSCHAPV2", NetworkManager::Security8021xSetting::AuthMethodMschapv2}
 };
 
-static const QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapTtls {
+const QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> Secret8021xSection::AuthMethodStrMapTtls {
     {"PAP", NetworkManager::Security8021xSetting::AuthMethodPap},
     {"MSCHAP", NetworkManager::Security8021xSetting::AuthMethodMschap},
     {"MSCHAPV2", NetworkManager::Security8021xSetting::AuthMethodMschapv2},
     {"CHAP", NetworkManager::Security8021xSetting::AuthMethodChap}
 };
 
-static const QMap<QString, NetworkManager::Security8021xSetting::PeapVersion> PeapVersionStrMap {
-    {"Automatic", NetworkManager::Security8021xSetting::PeapVersionUnknown},
-    {"Version0", NetworkManager::Security8021xSetting::PeapVersionZero},
-    {"Version1", NetworkManager::Security8021xSetting::PeapVersionOne}
+const QMap<QString, NetworkManager::Security8021xSetting::PeapVersion> Secret8021xSection::PeapVersionStrMap {
+    {tr("Automatic"), NetworkManager::Security8021xSetting::PeapVersionUnknown},
+    {tr("Version0"), NetworkManager::Security8021xSetting::PeapVersionZero},
+    {tr("Version1"), NetworkManager::Security8021xSetting::PeapVersionOne}
 };
 
-static const QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapPeap {
+const QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> Secret8021xSection::AuthMethodStrMapPeap {
     {"GTC", NetworkManager::Security8021xSetting::AuthMethodGtc},
     {"MD5", NetworkManager::Security8021xSetting::AuthMethodMd5},
     {"MSCHAPV2", NetworkManager::Security8021xSetting::AuthMethodMschapv2}

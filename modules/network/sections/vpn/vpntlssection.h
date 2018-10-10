@@ -53,6 +53,8 @@ private:
     void initConnection();
 
 private:
+    static const QMap<QString, QString> RemoteCertTypeStrMap;
+
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 

@@ -52,6 +52,8 @@ private:
     void onMppeEnableChanged(const bool checked);
 
 private:
+    static const QMap<QString, QString> OptionsStrMap;
+
     NetworkManager::PppSetting::Ptr m_pppSetting;
 
     dcc::widgets::SwitchWidget *m_mppeEnable;

@@ -67,6 +67,9 @@ private:
     void saveStaticKeyItems();
 
 private:
+    static const QMap<QString, QString> AuthTypeStrMap;
+    static const QMap<QString, NetworkManager::Setting::SecretFlagType> PasswordFlagsStrMap;
+
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
     NMStringMap m_secretMap;

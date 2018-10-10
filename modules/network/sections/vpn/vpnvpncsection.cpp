@@ -25,11 +25,11 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-static const QMap<QString, NetworkManager::Setting::SecretFlagType> PasswordFlagsStrMap {
+const QMap<QString, NetworkManager::Setting::SecretFlagType> VpnVPNCSection::PasswordFlagsStrMap {
     //{"Saved", NetworkManager::Setting::AgentOwned},
-    {"Saved", NetworkManager::Setting::SecretFlagType::None},
-    {"Ask", NetworkManager::Setting::SecretFlagType::NotSaved},
-    {"NotRequired", NetworkManager::Setting::SecretFlagType::NotRequired}
+    {tr("Saved"), NetworkManager::Setting::SecretFlagType::None},
+    {tr("Ask"), NetworkManager::Setting::SecretFlagType::NotSaved},
+    {tr("NotRequired"), NetworkManager::Setting::SecretFlagType::NotRequired}
 };
 
 VpnVPNCSection::VpnVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)

@@ -53,6 +53,8 @@ private:
     void onPasswordFlagsChanged(NetworkManager::Setting::SecretFlagType type);
 
 private:
+    static const QMap<QString, NetworkManager::Setting::SecretFlagType> PasswordFlagsStrMap;
+
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NetworkManager::Setting::SecretFlagType m_currentPasswordType;
     NMStringMap m_dataMap;

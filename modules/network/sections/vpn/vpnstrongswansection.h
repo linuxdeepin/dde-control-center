@@ -56,6 +56,8 @@ private:
     void onCustomCipherEnableChanged(const bool enabled);
 
 private:
+    static const QMap<QString, QString> AuthTypeStrMap;
+
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
     NMStringMap m_secretMap;

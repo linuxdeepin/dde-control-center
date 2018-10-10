@@ -55,6 +55,9 @@ private:
     void onMppeMethodChanged(const QString &method);
 
 private:
+    static const QMap<QString, QString> MppeMethodStrMap;
+    static const QMap<QString, QString> OptionsStrMap;
+
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 

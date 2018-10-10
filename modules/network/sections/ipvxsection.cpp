@@ -28,15 +28,15 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-static const QMap<QString, NetworkManager::Ipv4Setting::ConfigMethod> Ipv4ConfigMethodStrMap {
-    {"Auto", NetworkManager::Ipv4Setting::ConfigMethod::Automatic},
-    {"Manual", NetworkManager::Ipv4Setting::ConfigMethod::Manual}
+const QMap<QString, NetworkManager::Ipv4Setting::ConfigMethod> IpvxSection::Ipv4ConfigMethodStrMap {
+    {tr("Auto"), NetworkManager::Ipv4Setting::ConfigMethod::Automatic},
+    {tr("Manual"), NetworkManager::Ipv4Setting::ConfigMethod::Manual}
 };
 
-static const QMap<QString, NetworkManager::Ipv6Setting::ConfigMethod> Ipv6ConfigMethodStrMap {
-    {"Auto", NetworkManager::Ipv6Setting::ConfigMethod::Automatic},
-    {"Manual", NetworkManager::Ipv6Setting::ConfigMethod::Manual},
-    {"Ignore", NetworkManager::Ipv6Setting::ConfigMethod::Ignored}
+const QMap<QString, NetworkManager::Ipv6Setting::ConfigMethod> IpvxSection::Ipv6ConfigMethodStrMap {
+    {tr("Auto"), NetworkManager::Ipv6Setting::ConfigMethod::Automatic},
+    {tr("Manual"), NetworkManager::Ipv6Setting::ConfigMethod::Manual},
+    {tr("Ignore"), NetworkManager::Ipv6Setting::ConfigMethod::Ignored}
 };
 
 IpvxSection::IpvxSection(NetworkManager::Ipv4Setting::Ptr ipv4Setting, QFrame *parent)

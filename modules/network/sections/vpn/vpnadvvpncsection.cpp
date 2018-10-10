@@ -27,32 +27,32 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-static const QMap<QString, QString> VendorStrMap {
-    {"Cisco (default)", "cisco"},
-    {"Netscreen", "netscreen"},
+const QMap<QString, QString> VpnAdvVPNCSection::VendorStrMap {
+    {tr("Cisco (default)"), "cisco"},
+    {tr("Netscreen"), "netscreen"},
 };
-static const QMap<QString, QString> EncryptionStrMap {
-    {"Secure (default)", "secure"},
-    {"Weak", "weak"},
-    {"None", "none"},
+const QMap<QString, QString> VpnAdvVPNCSection::EncryptionStrMap {
+    {tr("Secure (default)"), "secure"},
+    {tr("Weak"), "weak"},
+    {tr("None"), "none"},
 };
-static const QMap<QString, QString> NATTravModeStrMap {
-    {"NAT-T When Available (default)", "natt"},
-    {"NAT-T Always", "force-natt"},
-    {"Cisco UDP", "cisco-udp"},
-    {"Disabled", "none"},
+const QMap<QString, QString> VpnAdvVPNCSection::NATTravModeStrMap {
+    {tr("NAT-T When Available (default)"), "natt"},
+    {tr("NAT-T Always"), "force-natt"},
+    {tr("Cisco UDP"), "cisco-udp"},
+    {tr("Disabled"), "none"},
 };
-static const QMap<QString, QString> IKEDHGroupStrMap {
-    {"DH Group 1", "dh1"},
-    {"DH Group 2 (default)", "dh2"},
-    {"DH Group 5", "dh5"},
+const QMap<QString, QString> VpnAdvVPNCSection::IKEDHGroupStrMap {
+    {tr("DH Group 1"), "dh1"},
+    {tr("DH Group 2 (default)"), "dh2"},
+    {tr("DH Group 5"), "dh5"},
 };
-static const QMap<QString, QString> ForwardSecrecyStrMap {
-    {"Server (default)", "server"},
-    {"None", "nopfs"},
-    {"DH Group 1", "dh1"},
-    {"DH Group 2", "dh2"},
-    {"DH Group 5", "dh5"},
+const QMap<QString, QString> VpnAdvVPNCSection::ForwardSecrecyStrMap {
+    {tr("Server (default)"), "server"},
+    {tr("None"), "nopfs"},
+    {tr("DH Group 1"), "dh1"},
+    {tr("DH Group 2"), "dh2"},
+    {tr("DH Group 5"), "dh5"},
 };
 
 VpnAdvVPNCSection::VpnAdvVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)

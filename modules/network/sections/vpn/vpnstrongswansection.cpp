@@ -25,12 +25,12 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-static const QMap<QString, QString> AuthTypeStrMap {
-    {"Private Key", "key"},
-    {"SSH Agent", "agent"},
-    {"Smartcard", "smartcard"},
-    {"EAP", "eap"},
-    {"Pre-Shared Key", "psk"},
+const QMap<QString, QString> VpnStrongSwanSection::AuthTypeStrMap {
+    {tr("Private Key"), "key"},
+    {tr("SSH Agent"), "agent"},
+    {tr("Smartcard"), "smartcard"},
+    {tr("EAP"), "eap"},
+    {tr("Pre-Shared Key"), "psk"},
 };
 
 VpnStrongSwanSection::VpnStrongSwanSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)

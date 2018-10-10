@@ -50,6 +50,9 @@ private:
     void initConnection();
 
 private:
+    static const QMap<QString, QString> CipherStrMap;
+    static const QMap<QString, QString> HMACStrMap;
+
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 

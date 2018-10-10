@@ -27,10 +27,10 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-static const QMap<QString, QString> ProxyTypeStrMap {
-    {"Not Required", "none"},
-    {"HTTP", "http"},
-    {"SOCKS", "socks"},
+const QMap<QString, QString> VpnProxySection::ProxyTypeStrMap {
+    {tr("Not Required"), "none"},
+    {tr("HTTP"), "http"},
+    {tr("SOCKS"), "socks"},
 };
 
 VpnProxySection::VpnProxySection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)

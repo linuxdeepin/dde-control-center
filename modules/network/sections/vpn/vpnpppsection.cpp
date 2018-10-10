@@ -27,24 +27,24 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-static const QMap<QString, QString> MppeMethodStrMap {
-    {"All Available (default)", "require-mppe"},
-    {"40-bit (less secure)", "require-mppe-40"},
-    {"128-bit (most secure)", "require-mppe-128"}
+const QMap<QString, QString> VpnPPPSection::MppeMethodStrMap {
+    {tr("All Available (default)"), "require-mppe"},
+    {tr("40-bit (less secure)"), "require-mppe-40"},
+    {tr("128-bit (most secure)"), "require-mppe-128"}
 };
 
-static const QMap<QString, QString> OptionsStrMap {
-    {"Refuse EAP Authentication", "refuse-eap"},
-    {"Refuse PAP Authentication", "refuse-pap"},
-    {"Refuse CHAP Authentication", "refuse-chap"},
-    {"Refuse MSCHAP Authentication", "refuse-mschap"},
-    {"Refuse MSCHAPv2 Authentication", "refuse-mschapv2"},
-    {"No BSD Data Compression", "nobsdcomp"},
-    {"No Deflate Data Compression", "nodeflate"},
-    {"No TCP Header Compression", "no-vj-comp"},
-    {"No Protocol Field Compression", "nopcomp"},
-    {"No Address/Control Compression", "noaccomp"},
-    {"Send PPP Echo Packets", "lcp-echo-interval"}
+const QMap<QString, QString> VpnPPPSection::OptionsStrMap {
+    {tr("Refuse EAP Authentication"), "refuse-eap"},
+    {tr("Refuse PAP Authentication"), "refuse-pap"},
+    {tr("Refuse CHAP Authentication"), "refuse-chap"},
+    {tr("Refuse MSCHAP Authentication"), "refuse-mschap"},
+    {tr("Refuse MSCHAPv2 Authentication"), "refuse-mschapv2"},
+    {tr("No BSD Data Compression"), "nobsdcomp"},
+    {tr("No Deflate Data Compression"), "nodeflate"},
+    {tr("No TCP Header Compression"), "no-vj-comp"},
+    {tr("No Protocol Field Compression"), "nopcomp"},
+    {tr("No Address/Control Compression"), "noaccomp"},
+    {tr("Send PPP Echo Packets"), "lcp-echo-interval"}
 };
 
 VpnPPPSection::VpnPPPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)

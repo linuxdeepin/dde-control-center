@@ -53,6 +53,12 @@ private:
     void initConnection();
 
 private:
+    static const QMap<QString, QString> VendorStrMap;
+    static const QMap<QString, QString> EncryptionStrMap;
+    static const QMap<QString, QString> NATTravModeStrMap;
+    static const QMap<QString, QString> IKEDHGroupStrMap;
+    static const QMap<QString, QString> ForwardSecrecyStrMap;
+
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 

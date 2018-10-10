@@ -50,6 +50,8 @@ private:
     void saveUserInputPassword();
 
 private:
+    static const QMap<QString, NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtStrMap;
+
     dcc::widgets::ComboBoxWidget *m_keyMgmtChooser;
     dcc::widgets::PasswdEditWidget *m_passwdEdit;
     Secret8021xEnableWatcher *m_enableWatcher;

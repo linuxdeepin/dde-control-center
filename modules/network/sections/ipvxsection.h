@@ -75,6 +75,9 @@ private:
     QList<QHostAddress> dnsList();
 
 private:
+    static const QMap<QString, NetworkManager::Ipv4Setting::ConfigMethod> Ipv4ConfigMethodStrMap;
+    static const QMap<QString, NetworkManager::Ipv6Setting::ConfigMethod> Ipv6ConfigMethodStrMap;
+
     dcc::widgets::ComboBoxWidget *m_methodChooser;
     dcc::widgets::LineEditWidget *m_ipAddress;
     dcc::widgets::LineEditWidget *m_netmaskIpv4;
