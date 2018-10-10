@@ -70,6 +70,7 @@ private slots:
     void showPrevPlugin();
     void refershTimedate();
     void updateMPRISEnable();
+    void toggleNotify();
 
 private:
     PluginsController *m_pluginsController;

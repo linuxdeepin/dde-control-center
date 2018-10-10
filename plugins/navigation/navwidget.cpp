@@ -53,7 +53,6 @@ NavWidget::NavWidget(QWidget *parent)
     QVBoxLayout *centralLayout = new QVBoxLayout;
 
     centralLayout->addWidget(m_navView);
-    centralLayout->addStretch();
     centralLayout->setSpacing(1);
     centralLayout->setContentsMargins(0, 0, 0, 0);
     setLayout(centralLayout);

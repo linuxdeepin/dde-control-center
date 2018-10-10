@@ -518,5 +518,8 @@
         <file>themes/light/icons/white_loading/loading_087@2x.png</file>
         <file>themes/light/icons/white_loading/loading_088@2x.png</file>
         <file>themes/light/icons/white_loading/loading_089@2x.png</file>
+        <file>themes/dark/icons/notifications_toggle_normal.svg</file>
+        <file>themes/dark/icons/notifications_toggle_checked.svg</file>
+        <file>themes/dark/icons/notifications_toggle_hover.svg</file>
     </qresource>
 </RCC>

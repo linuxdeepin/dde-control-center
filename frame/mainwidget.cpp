@@ -36,7 +36,6 @@
 #include <QSettings>
 #include <QApplication>
 #include <QScreen>
-
 #include <unistd.h>
 
 using namespace dcc::accounts;
@@ -105,6 +104,15 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     m_currentDateLbl->setObjectName("CurrentDateLabel");
     m_currentDateLbl->setWordWrap(true);
 
+    DImageButton *notifyToggleBtn = new DImageButton(this);
+    notifyToggleBtn->setFixedSize(32, 32);
+    notifyToggleBtn->setObjectName("NotifyToggleBtn");
+
+    QHBoxLayout *toggleNotifyLayout = new QHBoxLayout(this);
+    toggleNotifyLayout->setMargin(0);
+    toggleNotifyLayout->setSpacing(0);
+    toggleNotifyLayout->addWidget(notifyToggleBtn, 0, Qt::AlignVCenter);
+
     // Header
     TranslucentFrame *headerFrame = new TranslucentFrame;
     headerFrame->setFixedHeight(140);
@@ -128,6 +136,7 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     headerLayout->setContentsMargins(40, 0, 0, 10);
     headerLayout->addLayout(avatarLayout);
     headerLayout->addLayout(timedateLayout);
+    headerLayout->addLayout(toggleNotifyLayout);
     headerLayout->addStretch();
 
     headerFrame->setLayout(headerLayout);
@@ -151,7 +160,7 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
 #ifndef DISABLE_SYS_UPDATE
     m_updateNotifier->setObjectName("UpdateNotifier");
 
-    connect(m_updateNotifier, &UpdateNotifier::notifierVisibleChanged, this, &MainWidget::updateMPRISEnable);
+//    connect(m_updateNotifier, &UpdateNotifier::notifierVisibleChanged, this, &MainWidget::updateMPRISEnable);
 #endif
 
     QVBoxLayout *centralLayout = static_cast<QVBoxLayout *>(layout());
@@ -160,8 +169,9 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     centralLayout->addWidget(m_updateNotifier);
     centralLayout->addSpacing(1);
 #endif
-    centralLayout->addWidget(m_pluginWrapper);
+    centralLayout->addWidget(m_pluginWidget);
 //    centralLayout->addWidget(m_quickSettingsPanel);
+    centralLayout->addSpacing(10);
     centralLayout->setSpacing(0);
     centralLayout->setMargin(0);
 
@@ -172,6 +182,7 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     connect(this, &MainWidget::appear, m_quickSettingsPanel, &QuickControlPanel::appear);
     connect(this, &MainWidget::disappear, m_quickSettingsPanel, &QuickControlPanel::disappear);
     connect(m_timeRefersh, &QTimer::timeout, this, &MainWidget::refershTimedate);
+    connect(notifyToggleBtn, &DImageButton::clicked, this, &MainWidget::toggleNotify);
 
 #ifndef DISABLE_SYS_UPDATE
     connect(m_updateNotifier, &UpdateNotifier::clicked, this, [this] {
@@ -197,11 +208,11 @@ int MainWidget::getPluginsHeight()
 
 void MainWidget::updatePluginsHeight()
 {
-    const bool b = height() > 650;
-    m_pluginWidget->setVisible(b);
-    m_quickSettingsPanel->setAllSettingsVisible(!b);
+//    const bool b = height() > 650;
+//    m_pluginWidget->setVisible(b);
+//    m_quickSettingsPanel->setAllSettingsVisible(!b);
 
-    updateMPRISEnable();
+//    updateMPRISEnable();
 }
 
 void MainWidget::pluginAdded(QWidget * const w)
@@ -247,4 +258,9 @@ void MainWidget::updateMPRISEnable()
 
     m_quickSettingsPanel->setMPRISEnable(!(update_visible && is_768));
     m_quickSettingsPanel->setMPRISPictureEnable(screen_height > 1000);
+}
+
+void MainWidget::toggleNotify()
+{
+    showPrevPlugin();
 }
