@@ -70,10 +70,10 @@ void NavDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, c
         painter->drawPixmap(p, modulePm);
 
         if (rect.height() <= modulePm.height() * 2.5) {
-            p = QPoint(p.x() + modulePm.width() + 20 * keepRatio, p.y());
+            p = QPoint(p.x() + modulePm.width() / qApp->devicePixelRatio() + 20 * keepRatio, p.y());
         }
         else {
-            p = QPoint(p.x(), p.y() + modulePm.height() + 14);
+            p = QPoint(p.x(), p.y() + modulePm.height() / qApp->devicePixelRatio() + 14);
         }
 
         QTextOption option;
