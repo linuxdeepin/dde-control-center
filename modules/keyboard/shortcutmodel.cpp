@@ -24,33 +24,49 @@
  */
 
 #include "shortcutmodel.h"
-#include "shortcutitem.h"
-#include <QThreadPool>
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QJsonValue>
-#include <QJsonObject>
 #include <QDBusInterface>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonValue>
+#include <QThreadPool>
+#include "shortcutitem.h"
 
-static const QStringList systemFilter = { "terminal" , "terminal-quake" , "screenshot" , "screenshot-delayed" , "screenshot-window" , "deepin-screen-recorder"
-                                          , "switch-group" , "switch-group-backward" , "preview-workspace" , "expose-windows" , "expose-all-windows"
-                                          , "launcher" , "switch-applications" , "switch-applications-backward" , "show-desktop" , "file-manager"
-                                          , "lock-screen" , "logout" , "wm-switcher" , "system-monitor" , "color-picker"};
+static const QStringList systemFilter = { "terminal",
+                                          "terminal-quake",
+                                          "screenshot",
+                                          "screenshot-delayed",
+                                          "screenshot-window",
+                                          "screenshot-fullscreen",
+                                          "deepin-screen-recorder",
+                                          "switch-group",
+                                          "switch-group-backward",
+                                          "preview-workspace",
+                                          "expose-windows",
+                                          "expose-all-windows",
+                                          "launcher",
+                                          "switch-applications",
+                                          "switch-applications-backward",
+                                          "show-desktop",
+                                          "file-manager",
+                                          "lock-screen",
+                                          "logout",
+                                          "wm-switcher",
+                                          "system-monitor",
+                                          "color-picker" };
 
-QStringList windowFilter = {"maximize" , "unmaximize" , "minimize" , "begin-move" , "begin-resize" , "close"};
+QStringList windowFilter = { "maximize",   "unmaximize",   "minimize",
+                             "begin-move", "begin-resize", "close" };
 
-QStringList workspaceFilter ={ "switch-to-workspace-left" , "switch-to-workspace-right"
-                               , "move-to-workspace-left" , "move-to-workspace-right"};
+QStringList workspaceFilter = { "switch-to-workspace-left", "switch-to-workspace-right",
+                                "move-to-workspace-left", "move-to-workspace-right" };
 
-namespace dcc
-{
-namespace keyboard
-{
+namespace dcc {
+namespace keyboard {
 
 ShortcutModel::ShortcutModel(QObject *parent) : QObject(parent)
 {
-
 }
 
 ShortcutModel::~ShortcutModel()
@@ -113,15 +129,16 @@ void ShortcutModel::onParseInfo(const QString &info)
 
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
 
-    foreach(QJsonValue value, array) {
-        QJsonObject obj = value.toObject();
-        int type = obj["Type"].toInt();
+    foreach (QJsonValue value, array) {
+        QJsonObject obj  = value.toObject();
+        int         type = obj["Type"].toInt();
 
         ShortcutInfo *info = new ShortcutInfo();
-        info->type = type;
-        info->accels = obj["Accels"].toArray().first().toString();;
-        info->name = obj["Name"].toString();
-        info->id = obj["Id"].toString();
+        info->type         = type;
+        info->accels       = obj["Accels"].toArray().first().toString();
+        ;
+        info->name    = obj["Name"].toString();
+        info->id      = obj["Id"].toString();
         info->command = obj["Exec"].toString();
 
         m_infos << info;
@@ -142,8 +159,7 @@ void ShortcutModel::onParseInfo(const QString &info)
                 continue;
             }
 
-            if (type == 1)
-                m_customInfos << info;
+            if (type == 1) m_customInfos << info;
         }
     }
 
@@ -155,9 +171,10 @@ void ShortcutModel::onParseInfo(const QString &info)
         return windowFilter.indexOf(s1->id) < windowFilter.indexOf(s2->id);
     });
 
-    qSort(m_workspaceInfos.begin(), m_workspaceInfos.end(), [=] (ShortcutInfo *s1, ShortcutInfo *s2) {
-        return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
-    });
+    qSort(m_workspaceInfos.begin(), m_workspaceInfos.end(),
+          [=] (ShortcutInfo *s1, ShortcutInfo *s2) {
+              return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
+          });
 
     emit listChanged(m_systemInfos, InfoType::System);
     emit listChanged(m_windowInfos, InfoType::Window);
@@ -167,15 +184,15 @@ void ShortcutModel::onParseInfo(const QString &info)
 
 void ShortcutModel::onCustomInfo(const QString &json)
 {
-    QJsonObject obj = QJsonDocument::fromJson(json.toStdString().c_str()).object();
+    QJsonObject   obj  = QJsonDocument::fromJson(json.toStdString().c_str()).object();
     ShortcutInfo *info = new ShortcutInfo();
-    info->type = obj["Type"].toInt();
-    QString accels = obj["Accels"].toArray().at(0).toString();
+    info->type         = obj["Type"].toInt();
+    QString accels     = obj["Accels"].toArray().at(0).toString();
 
     info->accels = accels;
 
-    info->name = obj["Name"].toString();
-    info->id = obj["Id"].toString();
+    info->name    = obj["Name"].toString();
+    info->id      = obj["Id"].toString();
     info->command = obj["Exec"].toString();
     m_infos.append(info);
     m_customInfos.append(info);
@@ -184,14 +201,15 @@ void ShortcutModel::onCustomInfo(const QString &json)
 
 void ShortcutModel::onKeyBindingChanged(const QString &value)
 {
-    const QJsonObject &obj = QJsonDocument::fromJson(value.toStdString().c_str()).object();
-    const QString &update_id = obj["Id"].toString();
+    const QJsonObject &obj       = QJsonDocument::fromJson(value.toStdString().c_str()).object();
+    const QString &    update_id = obj["Id"].toString();
 
     for (ShortcutInfo *info : m_infos) {
         if (info->id == update_id) {
-            info->type = obj["Type"].toInt();;
-            info->accels = obj["Accels"].toArray().first().toString();
-            info->name = obj["Name"].toString();
+            info->type = obj["Type"].toInt();
+            ;
+            info->accels  = obj["Accels"].toArray().first().toString();
+            info->name    = obj["Name"].toString();
             info->command = obj["Exec"].toString();
 
             emit shortcutChanged(info);
@@ -213,8 +231,7 @@ void ShortcutModel::setCurrentInfo(ShortcutInfo *currentInfo)
 ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
 {
     for (ShortcutInfo *info : m_infos) {
-        if (QString::compare(info->accels, shortcut, Qt::CaseInsensitive) == 0)
-            return info;
+        if (QString::compare(info->accels, shortcut, Qt::CaseInsensitive) == 0) return info;
     }
 
     return nullptr;
@@ -224,6 +241,5 @@ ShortcutInfo::ShortcutInfo()
 {
     item = NULL;
 }
-
 }
 }
