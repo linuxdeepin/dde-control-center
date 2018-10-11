@@ -136,7 +136,7 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
     if (!m_apItems.contains(ssid)) {
         AccessPointWidget *w = new AccessPointWidget;
 
-        w->setConnected(ssid == m_device->activeConnName());
+        w->setConnected(ssid == m_device->activeApSsid());
         w->setAPName(ssid);
 
         connect(w, &AccessPointWidget::requestEdit, this, &WirelessPage::onApWidgetEditRequested);
@@ -277,7 +277,7 @@ void WirelessPage::showConnectHidePage()
 void WirelessPage::updateActiveAp()
 {
     for (auto it(m_apItems.cbegin()); it != m_apItems.cend(); ++it)
-        it.value()->setConnected(it.key() == m_device->activeConnName());
+        it.value()->setConnected(it.key() == m_device->activeApSsid());
 
     sortAPList();
 }

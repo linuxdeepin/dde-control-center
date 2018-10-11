@@ -195,10 +195,10 @@ void WiredPage::activeConnection()
 
 void WiredPage::checkActivatedConnection()
 {
-    const auto activeConnection = m_device->activeConnection().value("ConnectionName").toString();
+    const auto activeConnPath = m_device->activeConnSettingPath();
     for (auto it(m_connectionPath.cbegin()); it != m_connectionPath.cend(); ++it)
     {
-        if (it.key()->title() == activeConnection)
+        if (it.value() == activeConnPath)
             it.key()->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));
         else
             it.key()->clearValue();
