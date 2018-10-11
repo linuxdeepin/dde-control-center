@@ -168,6 +168,23 @@ void DisplayWorker::splitScreens()
     m_displayInter.ApplyChanges();
 }
 
+void DisplayWorker::duplicateMode()
+{
+    switchMode(MERGE_MODE);
+    saveChanges();
+}
+
+void DisplayWorker::extendMode()
+{
+    switchMode(EXTEND_MODE);
+    saveChanges();
+}
+
+void DisplayWorker::onlyMonitor(const QString &monName)
+{
+    switchMode(SINGLE_MODE, monName);
+}
+
 void DisplayWorker::createConfig()
 {
     int idx = 0;

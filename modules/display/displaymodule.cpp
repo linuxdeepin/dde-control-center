@@ -178,6 +178,10 @@ ModuleWidget *DisplayModule::moduleWidget()
 #endif
     connect(m_displayWidget, &DisplayWidget::requestUiScaleChanged, m_displayWorker, &DisplayWorker::setUiScale);
 
+    connect(m_displayWidget, &DisplayWidget::requestDuplicateMode, m_displayWorker, &DisplayWorker::duplicateMode);
+    connect(m_displayWidget, &DisplayWidget::requestExtendMode, m_displayWorker, &DisplayWorker::extendMode);
+    connect(m_displayWidget, &DisplayWidget::requestOnlyMonitor, m_displayWorker, &DisplayWorker::onlyMonitor);
+
     return m_displayWidget;
 }
 

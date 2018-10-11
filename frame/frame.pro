@@ -29,18 +29,18 @@ HEADERS    += \
     settingswidget.h \
     moduleinitthread.h \
     dbuscontrolcenterservice.h \
-    quick_control/quickcontrolpanel.h \
-    quick_control/basicsettingspage.h \
-    quick_control/quickswitchbutton.h \
-    quick_control/vpn/vpncontrolpage.h \
-    quick_control/vpn/vpnlistmodel.h \
-    quick_control/display/displaycontrolpage.h \
-    quick_control/display/displaycontrolmodel.h \
-    quick_control/wifi/wifipage.h \
-    quick_control/wifi/wifilistmodel.h \
-    quick_control/vpn/vpnlistdelegate.h \
-    quick_control/wifi/wifilistdelegate.h \
-    quick_control/display/displayitemdelegate.h \
+#    quick_control/quickcontrolpanel.h \
+#    quick_control/basicsettingspage.h \
+#    quick_control/quickswitchbutton.h \
+#    quick_control/vpn/vpncontrolpage.h \
+#    quick_control/vpn/vpnlistmodel.h \
+#    quick_control/display/displaycontrolpage.h \
+#    quick_control/display/displaycontrolmodel.h \
+#    quick_control/wifi/wifipage.h \
+#    quick_control/wifi/wifilistmodel.h \
+#    quick_control/vpn/vpnlistdelegate.h \
+#    quick_control/wifi/wifilistdelegate.h \
+#    quick_control/display/displayitemdelegate.h \
     indicatorwidget.h \
     updatenotifier.h \
     navigationview.h \
@@ -68,18 +68,18 @@ SOURCES    += \
     settingswidget.cpp \
     moduleinitthread.cpp \
     dbuscontrolcenterservice.cpp \
-    quick_control/quickcontrolpanel.cpp \
-    quick_control/basicsettingspage.cpp \
-    quick_control/quickswitchbutton.cpp \
-    quick_control/vpn/vpncontrolpage.cpp \
-    quick_control/vpn/vpnlistmodel.cpp \
-    quick_control/display/displaycontrolpage.cpp \
-    quick_control/display/displaycontrolmodel.cpp \
-    quick_control/wifi/wifipage.cpp \
-    quick_control/wifi/wifilistmodel.cpp \
-    quick_control/vpn/vpnlistdelegate.cpp \
-    quick_control/wifi/wifilistdelegate.cpp \
-    quick_control/display/displayitemdelegate.cpp \
+#    quick_control/quickcontrolpanel.cpp \
+#    quick_control/basicsettingspage.cpp \
+#    quick_control/quickswitchbutton.cpp \
+#    quick_control/vpn/vpncontrolpage.cpp \
+#    quick_control/vpn/vpnlistmodel.cpp \
+#    quick_control/display/displaycontrolpage.cpp \
+#    quick_control/display/displaycontrolmodel.cpp \
+#    quick_control/wifi/wifipage.cpp \
+#    quick_control/wifi/wifilistmodel.cpp \
+#    quick_control/vpn/vpnlistdelegate.cpp \
+#    quick_control/wifi/wifilistdelegate.cpp \
+#    quick_control/display/displayitemdelegate.cpp \
     indicatorwidget.cpp \
     updatenotifier.cpp \
     navigationview.cpp \
@@ -98,17 +98,17 @@ SOURCES    += \
     notify/notifyviewer.cpp \
     notify/notifybody.cpp
 
-!isEqual(DISABLE_BLUETOOTH, YES) {
-HEADERS += \
-    quick_control/bluetooth/bluetoothlist.h \
-    quick_control/bluetooth/bluetoothlistmodel.h \
-    quick_control/bluetooth/bluetoothdelegate.h \
+#!isEqual(DISABLE_BLUETOOTH, YES) {
+#HEADERS += \
+#    quick_control/bluetooth/bluetoothlist.h \
+#    quick_control/bluetooth/bluetoothlistmodel.h \
+#    quick_control/bluetooth/bluetoothdelegate.h \
 
-SOURCES    += \
-    quick_control/bluetooth/bluetoothlist.cpp \
-    quick_control/bluetooth/bluetoothlistmodel.cpp \
-    quick_control/bluetooth/bluetoothdelegate.cpp \
-}
+#SOURCES    += \
+#    quick_control/bluetooth/bluetoothlist.cpp \
+#    quick_control/bluetooth/bluetoothlistmodel.cpp \
+#    quick_control/bluetooth/bluetoothdelegate.cpp \
+#}
 
 #RESOURCES += \
 #    qss.qrc \

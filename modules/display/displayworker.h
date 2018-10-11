@@ -63,6 +63,9 @@ public slots:
     void discardChanges();
     void mergeScreens();
     void splitScreens();
+    void duplicateMode();
+    void extendMode();
+    void onlyMonitor(const QString &monName);
 //    void switchCustom(const bool deleteConfig = true);
     void createConfig();
     void switchConfig(const QString &config);

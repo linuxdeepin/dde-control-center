@@ -28,13 +28,13 @@
 
 #include "pluginscontroller.h"
 #include "framewidget.h"
-#include "quick_control/quickcontrolpanel.h"
 #include "navigation/navwidget.h"
 #include "notify/notifywidget.h"
 
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QLabel>
+#include <QStackedLayout>
 
 #include <dimagebutton.h>
 #include <dpageindicator.h>
@@ -90,7 +90,6 @@ private:
 #ifndef DISABLE_SYS_UPDATE
     UpdateNotifier *m_updateNotifier;
 #endif
-    QuickControlPanel *m_quickSettingsPanel;
 };
 
 #endif // MAINWIDGET_H

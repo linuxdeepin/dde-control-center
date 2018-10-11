@@ -24,7 +24,10 @@ HEADERS += \
     $$PWD/miracastitem.h \
     $$PWD/connectwidget.h \
     $$PWD/iconbutton.h \
-    $$PWD/miracastnodevicewidget.h
+    $$PWD/miracastnodevicewidget.h \
+    $$PWD/displaycontrolpage.h \
+    $$PWD/displayitemdelegate.h \
+    $$PWD/displaycontrolmodel.h
 
 SOURCES += \
     $$PWD/displaymodule.cpp \
@@ -52,7 +55,10 @@ SOURCES += \
     $$PWD/miracastitem.cpp \
     $$PWD/connectwidget.cpp \
     $$PWD/iconbutton.cpp \
-    $$PWD/miracastnodevicewidget.cpp
+    $$PWD/miracastnodevicewidget.cpp \
+    $$PWD/displaycontrolpage.cpp \
+    $$PWD/displaycontrolmodel.cpp \
+    $$PWD/displayitemdelegate.cpp
 
 #INCLUDEPATH += $$PWD/..
 

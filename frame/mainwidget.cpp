@@ -60,7 +60,6 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     , m_notifyWidget(new NotifyWidget(this))
     , m_updateNotifier(new UpdateNotifier)
 #endif
-    , m_quickSettingsPanel(new QuickControlPanel(this))
 {
     m_pluginsLayout->setMargin(0);
     m_pluginsLayout->setSpacing(0);
@@ -141,8 +140,6 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
 
     headerFrame->setLayout(headerLayout);
 
-    m_quickSettingsPanel->hide();
-
 #ifndef DISABLE_SYS_UPDATE
     m_updateNotifier->setObjectName("UpdateNotifier");
 
@@ -167,10 +164,10 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
 
 //    connect(m_pluginsController, &PluginsController::pluginAdded, this, &MainWidget::pluginAdded, Qt::QueuedConnection);
 //    connect(m_pluginsController, &PluginsController::requestModulePage, this, &MainWidget::showSettingPage, Qt::QueuedConnection);
-    connect(m_quickSettingsPanel, &QuickControlPanel::requestDetailConfig, this, &MainWidget::showAllSettings);
-    connect(m_quickSettingsPanel, &QuickControlPanel::requestPage, this, &MainWidget::showSettingPage);
-    connect(this, &MainWidget::appear, m_quickSettingsPanel, &QuickControlPanel::appear);
-    connect(this, &MainWidget::disappear, m_quickSettingsPanel, &QuickControlPanel::disappear);
+//    connect(m_quickSettingsPanel, &QuickControlPanel::requestDetailConfig, this, &MainWidget::showAllSettings);
+//    connect(m_quickSettingsPanel, &QuickControlPanel::requestPage, this, &MainWidget::showSettingPage);
+//    connect(this, &MainWidget::appear, m_quickSettingsPanel, &QuickControlPanel::appear);
+//    connect(this, &MainWidget::disappear, m_quickSettingsPanel, &QuickControlPanel::disappear);
     connect(m_timeRefersh, &QTimer::timeout, this, &MainWidget::refershTimedate);
     connect(m_notifyToggleBtn, &DImageButton::clicked, this, &MainWidget::toggleNotify, Qt::QueuedConnection);
     connect(m_navWidget, &NavWidget::requestModule, this, [=] (const QString &moduleName) {
@@ -247,9 +244,6 @@ void MainWidget::updateMPRISEnable()
 #endif
     const int screen_height = qApp->primaryScreen()->geometry().height();
     const bool is_768 = screen_height <= 768;
-
-    m_quickSettingsPanel->setMPRISEnable(!(update_visible && is_768));
-    m_quickSettingsPanel->setMPRISPictureEnable(screen_height > 1000);
 }
 
 void MainWidget::toggleNotify()

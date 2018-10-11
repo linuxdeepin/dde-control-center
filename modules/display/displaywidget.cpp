@@ -24,48 +24,50 @@
  */
 
 #include "displaywidget.h"
-#include "translucentframe.h"
-#include "nextpagewidget.h"
-#include "editablenextpagewidget.h"
-#include "settingsgroup.h"
+#include "basiclistdelegate.h"
+#include "dccslider.h"
+#include "displaycontrolpage.h"
 #include "displaymodel.h"
 #include "displayworker.h"
-#include "basiclistdelegate.h"
+#include "editablenextpagewidget.h"
+#include "nextpagewidget.h"
+#include "settingsgroup.h"
 #include "titledslideritem.h"
-#include "dccslider.h"
+#include "translucentframe.h"
 
 using namespace dcc::widgets;
 using namespace dcc::display;
 
 DisplayWidget::DisplayWidget()
-    : ModuleWidget(),
-
-      m_resolution(new NextPageWidget),
-      m_brightnessSettings(new NextPageWidget),
-      m_customSettingsGrp(new SettingsGroup),
-      m_scaleWidget(new TitledSliderItem(tr("Display scaling"))),
+    : ModuleWidget()
+    , m_displayControlPage(new DisplayControlPage)
+    , m_resolution(new NextPageWidget)
+    , m_brightnessSettings(new NextPageWidget)
+    , m_customSettingsGrp(new SettingsGroup)
+    , m_scaleWidget(new TitledSliderItem(tr("Display scaling")))
 #ifndef DCC_DISABLE_ROTATE
-      m_rotate(new QPushButton),
+    , m_rotate(new QPushButton)
 #endif
-      m_createConfig(new QPushButton),
-
-      m_configListRefershTimer(new QTimer(this))
+    , m_createConfig(new QPushButton)
+    , m_configListRefershTimer(new QTimer(this))
 {
     setObjectName("Display");
 #ifndef DCC_DISABLE_ROTATE
     m_rotate->setText(tr("Rotate"));
 #endif
     m_createConfig->setText(tr("New custom settings"));
-
     m_resolution->setTitle(tr("Resolution"));
-
     m_brightnessSettings->setTitle(tr("Brightness"));
 
     QStringList scaleList;
-    scaleList << "1.0" << "1.25" << "1.5" << "1.75" << "2.0";
+    scaleList << "1.0"
+              << "1.25"
+              << "1.5"
+              << "1.75"
+              << "2.0";
 
     DCCSlider *slider = m_scaleWidget->slider();
-    slider->setRange(1,5);
+    slider->setRange(1, 5);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::TicksBelow);
     slider->setTickInterval(1);
@@ -73,6 +75,9 @@ DisplayWidget::DisplayWidget()
     slider->blockSignals(true);
     slider->blockSignals(false);
     m_scaleWidget->setAnnotations(scaleList);
+
+    m_displayControlPageGrp = new SettingsGroup;
+    m_displayControlPageGrp->appendItem(m_displayControlPage);
 
     SettingsGroup *scaleGrp = new SettingsGroup;
     scaleGrp->appendItem(m_scaleWidget);
@@ -89,6 +94,7 @@ DisplayWidget::DisplayWidget()
     SettingsGroup *brightnessGrp = new SettingsGroup;
     brightnessGrp->appendItem(m_brightnessSettings);
 
+    m_centralLayout->addWidget(m_displayControlPageGrp);
     m_centralLayout->addWidget(scaleGrp);
     m_centralLayout->addWidget(m_resolutionsGrp);
 #ifndef DCC_DISABLE_MIRACAST
@@ -106,18 +112,26 @@ DisplayWidget::DisplayWidget()
 
     setTitle(tr("Display"));
 
-    connect(m_brightnessSettings, &NextPageWidget::clicked, this, &DisplayWidget::showBrightnessPage);
+    connect(m_brightnessSettings, &NextPageWidget::clicked, this,
+            &DisplayWidget::showBrightnessPage);
     connect(m_resolution, &NextPageWidget::clicked, this, &DisplayWidget::showResolutionPage);
 #ifndef DCC_DISABLE_ROTATE
     connect(m_rotate, &QPushButton::clicked, this, &DisplayWidget::requestRotate);
 #endif
     connect(m_createConfig, &QPushButton::clicked, this, &DisplayWidget::requestNewConfig);
     connect(m_configListRefershTimer, &QTimer::timeout, this, &DisplayWidget::onConfigListChanged);
-    connect(slider, &DCCSlider::valueChanged, this, [=] (const int value) {
+    connect(slider, &DCCSlider::valueChanged, this, [=](const int value) {
         emit requestUiScaleChanged(converToScale(value));
 
         m_scaleWidget->setValueLiteral(QString::number(converToScale(value)));
     });
+
+    connect(m_displayControlPage, &DisplayControlPage::requestDuplicateMode, this,
+            &DisplayWidget::requestDuplicateMode);
+    connect(m_displayControlPage, &DisplayControlPage::requestExtendMode, this,
+            &DisplayWidget::requestExtendMode);
+    connect(m_displayControlPage, &DisplayControlPage::requestOnlyMonitor, this,
+            &DisplayWidget::requestOnlyMonitor);
 }
 
 void DisplayWidget::setModel(DisplayModel *model)
@@ -126,13 +140,21 @@ void DisplayWidget::setModel(DisplayModel *model)
 
     connect(m_model, &DisplayModel::monitorListChanged, this, &DisplayWidget::onScreenListChanged);
     connect(m_model, &DisplayModel::configListChanged, this, &DisplayWidget::onScreenListChanged);
-    connect(m_model, &DisplayModel::configListChanged, m_configListRefershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-    connect(m_model, &DisplayModel::currentConfigChanged, m_configListRefershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-    connect(m_model, &DisplayModel::displayModeChanged, m_configListRefershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-    connect(m_model, &DisplayModel::screenHeightChanged, this, &DisplayWidget::onScreenSizeChanged, Qt::QueuedConnection);
-    connect(m_model, &DisplayModel::screenWidthChanged, this, &DisplayWidget::onScreenSizeChanged, Qt::QueuedConnection);
-    connect(m_model, &DisplayModel::firstConfigCreated, this, &DisplayWidget::onFirstConfigCreated, Qt::QueuedConnection);
+    connect(m_model, &DisplayModel::configListChanged, m_configListRefershTimer,
+            static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_model, &DisplayModel::currentConfigChanged, m_configListRefershTimer,
+            static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_model, &DisplayModel::displayModeChanged, m_configListRefershTimer,
+            static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_model, &DisplayModel::screenHeightChanged, this, &DisplayWidget::onScreenSizeChanged,
+            Qt::QueuedConnection);
+    connect(m_model, &DisplayModel::screenWidthChanged, this, &DisplayWidget::onScreenSizeChanged,
+            Qt::QueuedConnection);
+    connect(m_model, &DisplayModel::firstConfigCreated, this, &DisplayWidget::onFirstConfigCreated,
+            Qt::QueuedConnection);
     connect(m_model, &DisplayModel::uiScaleChanged, this, &DisplayWidget::onUiScaleChanged);
+
+    m_displayControlPage->setModel(model);
 
     onScreenListChanged();
     onScreenSizeChanged();
@@ -144,12 +166,12 @@ void DisplayWidget::setModel(DisplayModel *model)
 void DisplayWidget::setMiracastModel(MiracastModel *miracastModel)
 {
     connect(miracastModel, &MiracastModel::linkAdded, this, &DisplayWidget::onMiracastLinkAdded);
-    connect(miracastModel, &MiracastModel::linkRemoved, this, &DisplayWidget::onMiracastLinkRemoved);
+    connect(miracastModel, &MiracastModel::linkRemoved, this,
+            &DisplayWidget::onMiracastLinkRemoved);
 
     m_miracastGrp->setVisible(!m_miracastList.isEmpty());
 
-    for (const LinkInfo &link : miracastModel->links())
-        onMiracastLinkAdded(link);
+    for (const LinkInfo &link : miracastModel->links()) onMiracastLinkAdded(link);
 }
 #endif
 
@@ -157,17 +179,24 @@ void DisplayWidget::onScreenListChanged() const
 {
     const auto mons = m_model->monitorList();
 
-    if (mons.size() <= 1)
-    {
+    if (mons.size() <= 1) {
         m_createConfig->hide();
         m_customSettingsGrp->hide();
+
+        m_displayControlPageGrp->hide();
+        m_displayControlPage->hide();
 
         m_resolutionsGrp->show();
         m_resolution->show();
 #ifndef DCC_DISABLE_ROTATE
         m_rotate->show();
 #endif
-    } else {
+    }
+    else {
+
+        m_displayControlPage->show();
+        m_displayControlPageGrp->show();
+
         m_createConfig->show();
         m_customSettingsGrp->setVisible(!m_model->configList().isEmpty());
 
@@ -181,31 +210,33 @@ void DisplayWidget::onScreenListChanged() const
 
 void DisplayWidget::onScreenSizeChanged() const
 {
-    const QString resolution = QString("%1×%2").arg(m_model->screenWidth()).arg(m_model->screenHeight());
+    const QString resolution =
+        QString("%1×%2").arg(m_model->screenWidth()).arg(m_model->screenHeight());
     m_resolution->setValue(resolution);
 }
 
 void DisplayWidget::onConfigListChanged()
 {
     m_customSettingsGrp->clear();
-    for (auto *w : m_customSettings)
-        QTimer::singleShot(1, w, &NextPageWidget::deleteLater);
+    for (auto *w : m_customSettings) QTimer::singleShot(1, w, &NextPageWidget::deleteLater);
     m_customSettings.clear();
 
-    const auto mode = m_model->displayMode();
-    const auto current = m_model->config();
+    const auto mode       = m_model->displayMode();
+    const auto current    = m_model->config();
     const auto configList = m_model->configList();
 
-    for (const auto &config : configList)
-    {
+    for (const auto &config : configList) {
         EditableNextPageWidget *w = new EditableNextPageWidget;
         w->setTitle(config);
         if (mode == CUSTOM_MODE && config == current)
             w->setIcon(loadPixmap(":/widgets/themes/dark/icons/select.svg"));
 
-        connect(w, &EditableNextPageWidget::textChanged, this, &DisplayWidget::requestModifyConfigName);
-        connect(w, &EditableNextPageWidget::acceptNextPage, this, [=] { emit requestConfigPage(config); });
-        connect(w, &EditableNextPageWidget::selected, this, [=] { emit requestSwitchConfig(config); });
+        connect(w, &EditableNextPageWidget::textChanged, this,
+                &DisplayWidget::requestModifyConfigName);
+        connect(w, &EditableNextPageWidget::acceptNextPage, this,
+                [=] { emit requestConfigPage(config); });
+        connect(w, &EditableNextPageWidget::selected, this,
+                [=] { emit requestSwitchConfig(config); });
 
         m_customSettingsGrp->appendItem(w);
     }
@@ -220,16 +251,14 @@ void DisplayWidget::onFirstConfigCreated(const QString &config)
 #ifndef DCC_DISABLE_MIRACAST
 void DisplayWidget::onMiracastLinkAdded(const LinkInfo &link)
 {
-    if (m_miracastList.contains(link.m_dbusPath))
-        return;
+    if (m_miracastList.contains(link.m_dbusPath)) return;
 
     NextPageWidget *miracast = new NextPageWidget;
     miracast->setTitle(tr("Wireless Screen Projection"));
     m_miracastGrp->appendItem(miracast);
     m_miracastList.insert(link.m_dbusPath, miracast);
-    connect(miracast, &NextPageWidget::clicked, this, [=]{
-        emit requestMiracastConfigPage(link.m_dbusPath);
-    });
+    connect(miracast, &NextPageWidget::clicked, this,
+            [=] { emit requestMiracastConfigPage(link.m_dbusPath); });
 
     m_miracastGrp->setVisible(!m_miracastList.isEmpty());
 }
@@ -277,24 +306,11 @@ int DisplayWidget::converToSlider(const float value)
 float DisplayWidget::converToScale(const int value)
 {
     switch (value) {
-    case 1:
-        return 1.0;
-        break;
-    case 2:
-        return 1.25;
-        break;
-    case 3:
-        return 1.5;
-        break;
-    case 4:
-        return 1.75;
-        break;
-    case 5:
-        return 2.0;
-        break;
-    default:
-        return 1.0;
-        break;
+        case 1: return 1.0; break;
+        case 2: return 1.25; break;
+        case 3: return 1.5; break;
+        case 4: return 1.75; break;
+        case 5: return 2.0; break;
+        default: return 1.0; break;
     }
 }
-

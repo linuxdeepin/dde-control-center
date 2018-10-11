@@ -26,9 +26,9 @@
 #ifndef DISPLAYWIDGET_H
 #define DISPLAYWIDGET_H
 
-#include "modulewidget.h"
-#include "miracastmodel.h"
 #include <QPushButton>
+#include "miracastmodel.h"
+#include "modulewidget.h"
 
 namespace dcc {
 
@@ -41,8 +41,8 @@ class TitledSliderItem;
 namespace display {
 
 class DisplayModel;
-class DisplayWidget : public ModuleWidget
-{
+class DisplayControlPage;
+class DisplayWidget : public ModuleWidget {
     Q_OBJECT
 
 public:
@@ -68,6 +68,9 @@ signals:
     void requestMiracastConfigPage(const QDBusObjectPath &path) const;
 #endif
     void requestUiScaleChanged(const double value) const;
+    void requestDuplicateMode() const;
+    void requestExtendMode() const;
+    void requestOnlyMonitor(const QString &monName) const;
 
 private:
     int converToSlider(const float value);
@@ -85,13 +88,15 @@ private slots:
     void onUiScaleChanged(const double scale);
 
 private:
-    DisplayModel *m_model;
-    widgets::NextPageWidget *m_resolution;
-    widgets::NextPageWidget *m_brightnessSettings;
+    DisplayModel *                   m_model;
+    widgets::SettingsGroup *         m_displayControlPageGrp;
+    DisplayControlPage *             m_displayControlPage;
+    widgets::NextPageWidget *        m_resolution;
+    widgets::NextPageWidget *        m_brightnessSettings;
     QList<widgets::NextPageWidget *> m_customSettings;
-    widgets::SettingsGroup *m_customSettingsGrp;
-    widgets::SettingsGroup *m_resolutionsGrp;
-    widgets::TitledSliderItem *m_scaleWidget;
+    widgets::SettingsGroup *         m_customSettingsGrp;
+    widgets::SettingsGroup *         m_resolutionsGrp;
+    widgets::TitledSliderItem *      m_scaleWidget;
 #ifndef DCC_DISABLE_MIRACAST
     widgets::SettingsGroup *m_miracastGrp;
 #endif
@@ -102,12 +107,12 @@ private:
 
     QTimer *m_configListRefershTimer;
 #ifndef DCC_DISABLE_MIRACAST
-    QMap<QDBusObjectPath, NextPageWidget*> m_miracastList;
+    QMap<QDBusObjectPath, NextPageWidget *> m_miracastList;
 #endif
 };
 
-} // namespace display
+}  // namespace display
 
-} // namespace dcc
+}  // namespace dcc
 
-#endif // DISPLAYWIDGET_H
+#endif  // DISPLAYWIDGET_H
