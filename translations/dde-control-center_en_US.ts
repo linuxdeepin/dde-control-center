@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="en_US">
 <context>
     <name>BluetoothDelegate</name>
     <message>
@@ -12,13 +12,13 @@
 <context>
     <name>BluetoothListModel</name>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
-        <source>Connect to other devices</source>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
+        <source>Click icon to enable bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
-        <source>Click icon to enable bluetooth</source>
+        <location filename="../frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
+        <source>Connect to other devices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -102,6 +102,7 @@
         <location filename="../frame/notify/notifydelegate.cpp" line="209"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished">
+            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -211,6 +212,7 @@
         <source>%n day(s) ago</source>
         <translation type="unfinished">
             <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
 </context>
@@ -225,13 +227,13 @@
 <context>
     <name>WifiListModel</name>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
-        <source>Connect to hidden network</source>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
+        <source>Click icon to enable WIFI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
-        <source>Click icon to enable WIFI</source>
+        <location filename="../frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
+        <source>Connect to hidden network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -244,12 +246,12 @@
     <name>dcc::accounts::ADDialog</name>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
-        <source>Join domain</source>
+        <source>Leave domain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
-        <source>Leave domain</source>
+        <source>Join domain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -319,14 +321,14 @@
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
-        <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
-        <source>Create Account</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../frame/navigation/navmodel.cpp" line="124"/>
         <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
         <source>Accounts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
+        <source>Create Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -348,13 +350,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
-        <source>Your host joins the domain server successfully.</source>
+        <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
+        <source>Your host was removed from the domain server successfully.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
-        <source>Your host was removed from the domain server successfully.</source>
+        <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
+        <source>Your host joins the domain server successfully.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -406,28 +408,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
-        <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
+        <source>Add successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
-        <source>Add successfully</source>
+        <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
+        <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>dcc::accounts::CreatePage</name>
-    <message>
-        <location filename="../modules/accounts/createpage.cpp" line="66"/>
-        <source>Create</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/createpage.cpp" line="65"/>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="51"/>
         <source>Username</source>
@@ -448,6 +440,16 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="56"/>
         <source>Repeat password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="65"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="66"/>
+        <source>Create</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -552,13 +554,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
-        <source>Password</source>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="105"/>
+        <source>New password should differ from the current one</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="105"/>
-        <source>New password should differ from the current one</source>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
+        <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -659,6 +661,11 @@
 <context>
     <name>dcc::datetime::DateSettings</name>
     <message>
+        <location filename="../modules/datetime/datesettings.cpp" line="63"/>
+        <source>Change Time Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/datetime/datesettings.cpp" line="68"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
@@ -666,11 +673,6 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="69"/>
         <source>Confirm</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/datetime/datesettings.cpp" line="63"/>
-        <source>Change Time Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -695,6 +697,12 @@
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="131"/>
+        <location filename="../modules/datetime/datetime.cpp" line="58"/>
+        <source>Time and Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
         <translation type="unfinished"></translation>
@@ -702,12 +710,6 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="51"/>
         <source>Add Timezone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="131"/>
-        <location filename="../modules/datetime/datetime.cpp" line="58"/>
-        <source>Time and Date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -729,11 +731,6 @@
 <context>
     <name>dcc::datetime::TimeZoneChooser</name>
     <message>
-        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="173"/>
-        <source>Change Timezone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
@@ -746,6 +743,11 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="173"/>
         <source>Add Timezone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="173"/>
+        <source>Change Timezone</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -900,6 +902,12 @@
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../modules/display/displaywidget.cpp" line="107"/>
+        <source>Display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/display/displaywidget.cpp" line="46"/>
         <source>Display scaling</source>
         <translation type="unfinished"></translation>
@@ -927,12 +935,6 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="227"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="125"/>
-        <location filename="../modules/display/displaywidget.cpp" line="107"/>
-        <source>Display</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1052,14 +1054,14 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="64"/>
-        <source>Command</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/customcontent.cpp" line="64"/>
+        <source>Command</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1293,6 +1295,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
+        <source>Custom Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
         <translation type="unfinished"></translation>
@@ -1300,11 +1307,6 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="88"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
-        <source>Custom Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1322,6 +1324,16 @@
         <location filename="../frame/navigation/navmodel.cpp" line="133"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <source>Mouse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
+        <source>Mouse and Touchpad</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
+        <source>TouchPad</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1352,26 +1364,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
-        <source>Disable the touchpad when inserting the mouse</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
-        <source>Slow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
-        <source>Fast</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
-        <source>TouchPad</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
         <translation type="unfinished"></translation>
@@ -1379,6 +1371,11 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
+        <source>Disable the touchpad when inserting the mouse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1393,8 +1390,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
-        <source>Mouse and Touchpad</source>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
+        <source>Slow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
+        <source>Fast</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1502,6 +1504,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/network/connectioneditpage.cpp" line="89"/>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectioneditpage.cpp" line="90"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="311"/>
         <source>Wired Connection %1</source>
         <translation type="unfinished"></translation>
@@ -1514,16 +1526,6 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="319"/>
         <source>PPPoE Connection %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="89"/>
-        <source>Cancel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="90"/>
-        <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1726,6 +1728,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
+        <source>Interface</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="162"/>
         <source>MAC</source>
         <translation type="unfinished"></translation>
@@ -1758,11 +1765,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
-        <source>Interface</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="202"/>
         <source>IPv6 Address</source>
         <translation type="unfinished"></translation>
@@ -1781,6 +1783,12 @@
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="128"/>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>DSL</source>
         <translation type="unfinished"></translation>
@@ -1788,6 +1796,11 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="61"/>
         <source>VPN</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="65"/>
+        <source>System Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1801,14 +1814,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="128"/>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
-        <source>Network</source>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
+        <source>Wired Network Card%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
-        <source>Wired Network Card%1</source>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
+        <source>Wired Network%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1819,16 +1831,6 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wired Network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
-        <source>Wired Network%1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="65"/>
-        <source>System Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1847,6 +1849,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/network/networkmodulewidget.cpp" line="267"/>
+        <source>Wireless Network%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network Card</source>
         <translation type="unfinished"></translation>
@@ -1854,11 +1861,6 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="272"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkmodulewidget.cpp" line="267"/>
-        <source>Wireless Network%1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3330,6 +3332,12 @@
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="127"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="79"/>
+        <source>Personalization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="45"/>
         <source>Transparency</source>
         <translation type="unfinished"></translation>
@@ -3347,12 +3355,6 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="73"/>
         <source>Font</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="127"/>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="79"/>
-        <source>Personalization</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3389,6 +3391,12 @@
 </context>
 <context>
     <name>dcc::power::PowerWidget</name>
+    <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="132"/>
+        <location filename="../modules/power/powerwidget.cpp" line="96"/>
+        <source>Power Management</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="45"/>
         <source>Monitor will suspend after</source>
@@ -3428,12 +3436,6 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="85"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="132"/>
-        <location filename="../modules/power/powerwidget.cpp" line="96"/>
-        <source>Power Management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3477,6 +3479,12 @@
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
+        <location filename="../frame/navigation/navmodel.cpp" line="130"/>
+        <location filename="../modules/sound/soundwidget.cpp" line="58"/>
+        <source>Sound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/sound/soundwidget.cpp" line="43"/>
         <source>Output Volume</source>
         <translation type="unfinished"></translation>
@@ -3494,12 +3502,6 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="49"/>
         <source>Feedback Volume</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="130"/>
-        <location filename="../modules/sound/soundwidget.cpp" line="58"/>
-        <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3557,14 +3559,14 @@
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../frame/navigation/navmodel.cpp" line="137"/>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>System Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
+        <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3578,8 +3580,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
+        <source>Edition:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="95"/>
         <source>Type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
+        <source>Processor:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="102"/>
+        <source>Memory:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="106"/>
+        <source>Disk:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3600,26 +3622,6 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="190"/>
         <source>%1Bit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="98"/>
-        <source>Processor:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="91"/>
-        <source>Edition:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="102"/>
-        <source>Memory:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/systeminfo/systeminfowidget.cpp" line="106"/>
-        <source>Disk:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3704,16 +3706,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="176"/>
-        <source>Checking for updates, please wait...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="208"/>
-        <source>Your system is up to date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="55"/>
         <source>Please restart to use the system and applications properly after updated</source>
         <translation type="unfinished"></translation>
@@ -3729,8 +3721,19 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="176"/>
+        <source>Checking for updates, please wait...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Download and install updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="289"/>
+        <source>%1% downloaded (Click to pause)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3741,6 +3744,11 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Install updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="208"/>
+        <source>Your system is up to date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3763,12 +3771,19 @@
         <source>%n application update(s) detected</source>
         <translation type="unfinished">
             <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
+        <source>New system edition detected</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="266"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation type="unfinished">
+            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -3780,17 +3795,6 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="275"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="289"/>
-        <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
-        <source>New system edition detected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3820,11 +3824,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="74"/>
-        <source>System source detection</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/update/updatesettings.cpp" line="62"/>
         <source>Auto clear package cache</source>
         <translation type="unfinished"></translation>
@@ -3837,6 +3836,11 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="67"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="74"/>
+        <source>System source detection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
