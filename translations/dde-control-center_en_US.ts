@@ -2093,11 +2093,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="43"/>
-        <source>NotRequired</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="47"/>
         <source>Disabled</source>
         <translation type="unfinished"></translation>
@@ -2123,16 +2118,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="67"/>
-        <source>Version0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="68"/>
-        <source>Version1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="78"/>
         <source>Security</source>
         <translation type="unfinished"></translation>
@@ -2143,8 +2128,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="43"/>
+        <source>Not Required</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="67"/>
+        <source>Version 0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="68"/>
+        <source>Version 1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="209"/>
-        <source>Identiy</source>
+        <source>Identity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2629,7 +2629,7 @@
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="41"/>
-        <source>NotRequired</source>
+        <source>Not Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2938,7 +2938,7 @@
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="32"/>
-        <source>NotRequired</source>
+        <source>Not Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3140,7 +3140,7 @@
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="32"/>
-        <source>NotRequired</source>
+        <source>Not Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
