@@ -69,7 +69,7 @@ void NavDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, c
         QPoint p(rect.x() + 20 * keepRatio, rect.y() + 26 * keepRatio);
         painter->drawPixmap(p, modulePm);
 
-        if (rect.height() <= modulePm.height() * 2.5) {
+        if (rect.height() <= modulePm.height() / qApp->devicePixelRatio() * 2.5) {
             p = QPoint(p.x() + modulePm.width() / qApp->devicePixelRatio() + 20 * keepRatio, p.y());
         }
         else {
