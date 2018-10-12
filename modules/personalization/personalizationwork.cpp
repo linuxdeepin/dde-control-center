@@ -36,11 +36,11 @@ const QString Path    = "/com/deepin/daemon/Appearance";
 
 static const QMap<int, double> OPACITY_SLIDER {
     {0, 0.0f},
-    {1, 0.1f},
-    {2, 0.25f},
-    {3, 0.4f},
-    {4, 0.6f},
-    {5, 0.8f},
+    {1, 0.25f},
+    {2, 0.4f},
+    {3, 0.55f},
+    {4, 0.7f},
+    {5, 0.85f},
     {6, 1.0f}
 };
 

@@ -50,14 +50,14 @@ PersonalizationWidget::PersonalizationWidget()
     trGrp->appendItem(m_transparentSlider);
 
     DCCSlider *slider = m_transparentSlider->slider();
-    slider->setRange(2, 6);
+    slider->setRange(1, 6);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::TicksBelow);
     slider->setTickInterval(1);
     slider->setPageStep(1);
 
-    const QStringList list{ QString("0.25"), QString("0.4"), QString("0.6"),
-                            QString("0.8"), QString("1") };
+    const QStringList list{ QString("0.25"), QString("0.4"),  QString("0.55"),
+                            QString("0.7"),  QString("0.85"), QString("1") };
 
     m_transparentSlider->setAnnotations(list);
 
