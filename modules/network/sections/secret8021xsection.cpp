@@ -40,7 +40,7 @@ const QMap<QString, NetworkManager::Setting::SecretFlagType> Secret8021xSection:
     //{tr("Saved"), NetworkManager::Setting::AgentOwned},
     {tr("Saved"), NetworkManager::Setting::None},
     {tr("Ask"), NetworkManager::Setting::NotSaved},
-    {tr("NotRequired"), NetworkManager::Setting::NotRequired}
+    {tr("Not Required"), NetworkManager::Setting::NotRequired}
 };
 
 const QMap<QString, NetworkManager::Security8021xSetting::FastProvisioning> Secret8021xSection::FastrProvisioningStrMap {
@@ -64,8 +64,8 @@ const QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> Secret8021
 
 const QMap<QString, NetworkManager::Security8021xSetting::PeapVersion> Secret8021xSection::PeapVersionStrMap {
     {tr("Automatic"), NetworkManager::Security8021xSetting::PeapVersionUnknown},
-    {tr("Version0"), NetworkManager::Security8021xSetting::PeapVersionZero},
-    {tr("Version1"), NetworkManager::Security8021xSetting::PeapVersionOne}
+    {tr("Version 0"), NetworkManager::Security8021xSetting::PeapVersionZero},
+    {tr("Version 1"), NetworkManager::Security8021xSetting::PeapVersionOne}
 };
 
 const QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> Secret8021xSection::AuthMethodStrMapPeap {
@@ -206,7 +206,7 @@ void Secret8021xSection::initUI()
     }
     m_eapMethmodChooser->setCurrent(m_currentEapMethod);
 
-    m_identity->setTitle(tr("Identiy"));
+    m_identity->setTitle(tr("Identity"));
     m_identity->setText(m_secretSetting->identity());
     m_identity->setPlaceholderText(tr("Required"));
 

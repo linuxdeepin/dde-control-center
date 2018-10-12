@@ -29,7 +29,7 @@ const QMap<QString, NetworkManager::Setting::SecretFlagType> VpnVPNCSection::Pas
     //{"Saved", NetworkManager::Setting::AgentOwned},
     {tr("Saved"), NetworkManager::Setting::SecretFlagType::None},
     {tr("Ask"), NetworkManager::Setting::SecretFlagType::NotSaved},
-    {tr("NotRequired"), NetworkManager::Setting::SecretFlagType::NotRequired}
+    {tr("Not Required"), NetworkManager::Setting::SecretFlagType::NotRequired}
 };
 
 VpnVPNCSection::VpnVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
