@@ -54,8 +54,11 @@ public slots:
     void setScreenBlackDelay(const int delay);
     void setSleepDelayToModel(const int delay);
     void setScreenBlackDelayToModel(const int delay);
+
+#ifndef DCC_DISABLE_POWERSAVE
     void setEnablePowerSave(const bool isEnable);
     void setAutoEnablePowerSave(const bool isEnable);
+#endif
 
 private:
     int  converToDelayModel(int value);

@@ -55,8 +55,10 @@ signals:
     void requestSetSleepOnLidClosed(const bool sleep) const;
     void requestSetScreenBlackDelay(const int delay) const;
     void requestSetSleepDelay(const int delay) const;
+#ifndef DCC_DISABLE_POWERSAVE
     void requestSetPowerSaveMode(const bool enablePowerSave) const;
     void requestSetEnableAutoPSM(const bool enableAuto) const;
+#endif
 
 private:
     QString delayToLiteralString(const int delay) const;
@@ -66,9 +68,12 @@ private slots:
     void setSleepDelay(const int delay);
 
 private:
+#ifndef DCC_DISABLE_POWERSAVE
     widgets::SettingsGroup *m_powerSaveGrp;
     widgets::SwitchWidget *m_powerSaveMode;
     widgets::SwitchWidget *m_autoPowerSave;
+#endif
+
     widgets::SettingsGroup *m_sleepTimeoutSettings;
     widgets::TitledSliderItem *m_monitorSleep;
     widgets::TitledSliderItem *m_computerSleep;

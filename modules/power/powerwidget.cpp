@@ -39,8 +39,10 @@ using namespace dcc::power;
 
 PowerWidget::PowerWidget()
     : ModuleWidget()
+#ifndef DCC_DISABLE_POWERSAVE
     , m_powerSaveMode(new SwitchWidget)
     , m_autoPowerSave(new SwitchWidget)
+#endif
     , m_sleepTimeoutSettings(new SettingsGroup)
     , m_monitorSleep(new TitledSliderItem(tr("Monitor will suspend after")))
     , m_computerSleep(new TitledSliderItem(tr("Computer will suspend after")))
@@ -81,14 +83,15 @@ PowerWidget::PowerWidget()
     m_sleepOnLidOff->setTitle(tr("Suspend on lid close"));
     m_notebookSettings->appendItem(m_sleepOnLidOff);
 
+#ifndef DCC_DISABLE_POWERSAVE
     m_powerSaveMode->setTitle(tr("Power Saving Mode"));
     m_autoPowerSave->setTitle(tr("Auto Mode Switch"));
-
     m_powerSaveGrp = new SettingsGroup;
     m_powerSaveGrp->appendItem(m_powerSaveMode);
     m_powerSaveGrp->appendItem(m_autoPowerSave);
-
     m_centralLayout->addWidget(m_powerSaveGrp);
+#endif
+
     m_centralLayout->addWidget(m_sleepTimeoutSettings);
     m_centralLayout->addWidget(m_passwordSettings);
     m_centralLayout->addWidget(m_notebookSettings);
@@ -104,8 +107,11 @@ PowerWidget::PowerWidget()
 
     connect(m_monitorSlider, &QSlider::valueChanged, this, &PowerWidget::requestSetScreenBlackDelay);
     connect(m_sleepSlider, &QSlider::valueChanged, this, &PowerWidget::requestSetSleepDelay);
+
+#ifndef DCC_DISABLE_POWERSAVE
     connect(m_powerSaveMode, &SwitchWidget::checkedChanged, this, &PowerWidget::requestSetPowerSaveMode);
     connect(m_autoPowerSave, &SwitchWidget::checkedChanged, this, &PowerWidget::requestSetEnableAutoPSM);
+#endif
 }
 
 void PowerWidget::setModel(PowerModel *const model)
@@ -116,9 +122,12 @@ void PowerWidget::setModel(PowerModel *const model)
     connect(model, &PowerModel::sleepOnLidCloseChanged, m_sleepOnLidOff, &SwitchWidget::setChecked);
     connect(model, &PowerModel::screenBlackDelayChanged, this, &PowerWidget::setScreenBlackDelay);
     connect(model, &PowerModel::sleepDelayChanged, this, &PowerWidget::setSleepDelay);
+
+#ifndef DCC_DISABLE_POWERSAVE
     connect(model, &PowerModel::autoPowerSavingModeChanged, m_autoPowerSave, &SwitchWidget::setChecked);
     connect(model, &PowerModel::powerSaveModeChanged, m_powerSaveMode, &SwitchWidget::setChecked);
     connect(model, &PowerModel::haveBettaryChanged, m_powerSaveGrp, &SettingsGroup::setVisible);
+#endif
 
     // init ui data
     blockSignals(true);
@@ -131,9 +140,11 @@ void PowerWidget::setModel(PowerModel *const model)
     setScreenBlackDelay(model->screenBlackDelay());
     setSleepDelay(model->sleepDelay());
 
+#ifndef DCC_DISABLE_POWERSAVE
     m_autoPowerSave->setChecked(model->autoPowerSaveMode());
     m_powerSaveMode->setChecked(model->powerSaveMode());
     m_powerSaveGrp->setVisible(model->haveBettary());
+#endif
 }
 
 QString PowerWidget::delayToLiteralString(const int delay) const

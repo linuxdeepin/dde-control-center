@@ -59,11 +59,13 @@ public:
     inline bool sleepOnLidClose() const { return m_sleepOnLidClose; }
     void setSleepOnLidClose(bool sleepOnLidClose);
 
+#ifndef DCC_DISABLE_POWERSAVE
     inline bool autoPowerSaveMode() const { return m_autoPowerSaveMode; }
     void setAutoPowerSaveMode(bool autoPowerSaveMode);
 
     inline bool powerSaveMode() const { return m_powerSaveMode; }
     void setPowerSaveMode(bool powerSaveMode);
+#endif
 
     inline bool haveBettary() const { return m_haveBettary; }
     void setHaveBettary(bool haveBettary);
@@ -75,8 +77,10 @@ signals:
     void sleepOnLidCloseChanged(const bool sleepOnLidClose);
     void screenBlackDelayChanged(const int screenBlackDelay);
     void sleepDelayChanged(const int sleepDelay);
+#ifndef DCC_DISABLE_POWERSAVE
     void autoPowerSavingModeChanged(bool autoPowerSaveMode);
     void powerSaveModeChanged(bool powerSaveMode);
+#endif
     void haveBettaryChanged(bool haveBettary);
 
 private:
@@ -86,8 +90,10 @@ private:
     bool m_sleepLock;
     int m_screenBlackDelay;
     int m_sleepDelay;
+#ifndef DCC_DISABLE_POWERSAVE
     bool m_autoPowerSaveMode;
     bool m_powerSaveMode;
+#endif
     bool m_haveBettary;
 };
 
