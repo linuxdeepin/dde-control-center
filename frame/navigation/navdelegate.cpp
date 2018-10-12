@@ -33,30 +33,30 @@ NavDelegate::NavDelegate(QObject *parent) : QStyledItemDelegate(parent)
 
 void NavDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    bool isHover = index.data(NavModel::NavHoverRole).toBool();
-
-    QRect rect = QRect(option.rect.left() + 5,
-                       option.rect.top() + 5,
-                       option.rect.width() - 10,
-                       option.rect.height() - 10);
-
-    QPainterPath path;
-    path.addRoundedRect(rect, 5, 5);
-
-    auto renderHints = painter->renderHints();
-    painter->setRenderHint(QPainter::Antialiasing);
-
-    // draw background
-    if (isHover) {
-        painter->fillPath(path, QColor(255, 255, 255, 25));
-    } else {
-        painter->fillPath(path, QColor(255, 255, 255, 7));
-    }
-
-    painter->setRenderHints(renderHints);
-
     QString moduleName = index.data(Qt::WhatsThisRole).toString();
     if (!moduleName.isEmpty()) {
+        bool isHover = index.data(NavModel::NavHoverRole).toBool();
+
+        QRect rect = QRect(option.rect.left() + 5,
+                           option.rect.top() + 5,
+                           option.rect.width() - 10,
+                           option.rect.height() - 10);
+
+        QPainterPath path;
+        path.addRoundedRect(rect, 5, 5);
+
+        auto renderHints = painter->renderHints();
+        painter->setRenderHint(QPainter::Antialiasing);
+
+        // draw background
+        if (isHover) {
+            painter->fillPath(path, QColor(255, 255, 255, 25));
+        } else {
+            painter->fillPath(path, QColor(255, 255, 255, 7));
+        }
+
+        painter->setRenderHints(renderHints);
+
         QPixmap modulePm = loadPixmap(QString(":/icons/nav_%1.png").arg(moduleName));
 
         // Keep and offset from the top left corner, base is 1080P
