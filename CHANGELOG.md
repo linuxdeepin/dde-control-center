@@ -1,4 +1,14 @@
 <a name=""></a>
+##  4.6.4.9 (2018-10-12)
+
+
+#### Features
+
+* **power:**  disable powersave for sw and mips64 ([8c45fd74](https://github.com/linuxdeepin/dde-control-center/commit/8c45fd74e81f74165672e5f3a6892a5640d6760e))
+
+
+
+<a name=""></a>
 ##  4.6.4.8 (2018-09-27)
 
 

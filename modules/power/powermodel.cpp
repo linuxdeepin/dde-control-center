@@ -80,6 +80,7 @@ void PowerModel::setSleepOnLidClose(bool sleepOnLidClose)
     }
 }
 
+#ifndef DCC_DISABLE_POWERSAVE
 void PowerModel::setAutoPowerSaveMode(bool autoPowerSavingMode)
 {
     if (m_autoPowerSaveMode == autoPowerSavingMode) return;
@@ -97,6 +98,7 @@ void PowerModel::setPowerSaveMode(bool powerSaveMode)
 
     emit powerSaveModeChanged(powerSaveMode);
 }
+#endif
 
 void PowerModel::setHaveBettary(bool haveBettary)
 {
