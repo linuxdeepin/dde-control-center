@@ -29,7 +29,6 @@
 #include <QPainterPath>
 
 using namespace dcc;
-using namespace dcc::personalization;
 using namespace dcc::widgets;
 
 ThemeItemPic::ThemeItemPic(QWidget *parent)

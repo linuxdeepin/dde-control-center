@@ -34,10 +34,8 @@
 #include <QLabel>
 #include <QVariant>
 
-using namespace dcc::widgets;
-
 namespace dcc {
-namespace personalization {
+namespace widgets {
 class ThemeItemPic;
 class ThemeItem : public widgets::SettingsItem
 {

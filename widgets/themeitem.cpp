@@ -32,7 +32,6 @@
 #include <QMouseEvent>
 
 using namespace dcc;
-using namespace dcc::personalization;
 using namespace dcc::widgets;
 
 ThemeItem::ThemeItem(QWidget *parent)

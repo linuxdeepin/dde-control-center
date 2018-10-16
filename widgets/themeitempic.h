@@ -33,9 +33,6 @@ namespace dcc
 namespace widgets
 {
 class TranslucentFrame;
-}
-namespace personalization
-{
 class ThemeItemPic : public QWidget
 {
     Q_OBJECT
