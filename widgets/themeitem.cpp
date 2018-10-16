@@ -35,10 +35,11 @@ using namespace dcc;
 using namespace dcc::personalization;
 using namespace dcc::widgets;
 
-ThemeItem::ThemeItem(const QJsonObject &json):
-    m_mainLayout(new QVBoxLayout),
-    m_title(new NormalLabel),
-    m_selectLabel(new QLabel)
+ThemeItem::ThemeItem(QWidget *parent)
+    : SettingsItem(parent)
+    , m_mainLayout(new QVBoxLayout)
+    , m_title(new NormalLabel)
+    , m_selectLabel(new QLabel)
 {
     m_itemPic = new ThemeItemPic;
 
@@ -49,7 +50,7 @@ ThemeItem::ThemeItem(const QJsonObject &json):
     titleLayout->setMargin(0);
     titleLayout->setSpacing(0);
 
-    m_selectLabel->setPixmap(loadPixmap(":/defapp/icons/select.png"));
+    m_selectLabel->setPixmap(loadPixmap(":/widgets/themes/dark/icons/select.svg"));
     m_selectLabel->setVisible(false);
 
     titleLayout->addSpacing(10);
@@ -61,16 +62,11 @@ ThemeItem::ThemeItem(const QJsonObject &json):
     m_mainLayout->addWidget(m_itemPic, 0, Qt::AlignHCenter);
 
     setLayout(m_mainLayout);
-    setAccessibleName(json["Id"].toString());
-
-    setTitle(json["Id"].toString());
 }
 
 void ThemeItem::setTitle(const QString &title)
 {
-    m_id = title;
-    QString t = title == "deepin" ? "deepin ("+tr("Default") + ")" : title;
-    m_title->setText(t);
+    m_title->setText(title);
 }
 
 void ThemeItem::setSelected(bool selected)
@@ -84,9 +80,9 @@ void ThemeItem::setPic(const QString &picPath)
     m_itemPic->setPicPath(picPath);
 }
 
-const QString ThemeItem::id() const
+void ThemeItem::setId(const QVariant &id)
 {
-    return m_id;
+    m_id = id;
 }
 
 void ThemeItem::mouseReleaseEvent(QMouseEvent *e)

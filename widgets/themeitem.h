@@ -27,11 +27,12 @@
 #define THEMEITEM_H
 
 #include "settingsitem.h"
-#include "../../../widgets/labels/normallabel.h"
+#include "labels/normallabel.h"
 #include <QWidget>
 #include <QJsonObject>
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QVariant>
 
 using namespace dcc::widgets;
 
@@ -42,12 +43,13 @@ class ThemeItem : public widgets::SettingsItem
 {
     Q_OBJECT
 public:
-    explicit ThemeItem(const QJsonObject &json);
+    explicit ThemeItem(QWidget *parent = nullptr);
 
     void setTitle(const QString &title);
     void setSelected(bool selected);
     void setPic(const QString &picPath);
-    const QString id() const;
+    void setId(const QVariant &id);
+    const QVariant id() const { return m_id; }
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e);
@@ -61,8 +63,7 @@ private:
     QLabel *m_selectLabel;
     bool m_state;
     ThemeItemPic *m_itemPic;
-    QString m_id;
-
+    QVariant m_id;
 };
 }
 }

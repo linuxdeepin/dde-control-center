@@ -12,9 +12,7 @@ HEADERS += \
     $$PWD/module/fontswidget/fontlistwidget.h \
     $$PWD/model/fontsizemodel.h \
     $$PWD/module/themewidget/theme.h \
-    $$PWD/widget/fontitem.h \
-    $$PWD/widget/themeitempic.h \
-    $$PWD/widget/themeitem.h
+    $$PWD/widget/fontitem.h
 
 SOURCES += \
     $$PWD/personalizationmodel.cpp \
@@ -30,9 +28,7 @@ SOURCES += \
     $$PWD/module/fontswidget/fontlistwidget.cpp \
     $$PWD/model/fontsizemodel.cpp \
     $$PWD/module/themewidget/theme.cpp \
-    $$PWD/widget/fontitem.cpp \
-    $$PWD/widget/themeitempic.cpp \
-    $$PWD/widget/themeitem.cpp
+    $$PWD/widget/fontitem.cpp
 
 #INCLUDEPATH += $$PWD/..
 

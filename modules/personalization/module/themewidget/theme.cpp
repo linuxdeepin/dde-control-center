@@ -26,11 +26,11 @@
 #include "theme.h"
 #include "settingsheaderitem.h"
 #include "labels/largelabel.h"
-#include "../../widget/themeitempic.h"
+#include "themeitempic.h"
 #include "../../model/thememodel.h"
 #include "optionitem.h"
 #include "personalization/personalizationmodel.h"
-#include "../../widget/themeitem.h"
+#include "themeitem.h"
 
 using namespace dcc;
 using namespace dcc::personalization;
@@ -77,7 +77,11 @@ void Theme::onAddItem(const QJsonObject &json)
 {
     if (m_valueMap.values().contains(json))
         return;
-    ThemeItem *theme = new ThemeItem(json);
+
+    ThemeItem *theme = new ThemeItem;
+    const QString &title = json["Id"].toString();
+    theme->setId(title);
+    theme->setTitle(title == "deepin" ? "deepin ("+tr("Default") + ")" : title);
     m_mainGroup->appendItem(theme);
     m_valueMap.insert(theme, json);
     connect(theme, &ThemeItem::selectedChanged, this, &Theme::onItemClicked);
@@ -86,7 +90,7 @@ void Theme::onAddItem(const QJsonObject &json)
 void Theme::setDefault(const QString &name)
 {
     for (ThemeItem *item : m_valueMap.keys()) {
-        item->setSelected(item->id() == name);
+        item->setSelected(item->id().toString() == name);
     }
 }
 

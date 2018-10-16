@@ -41,7 +41,9 @@ HEADERS += \
     $$PWD/tipsitem.h \
     $$PWD/loadingnextpagewidget.h \
     $$PWD/passwdeditwidget.h \
-    $$PWD/utils.h
+    $$PWD/utils.h \
+    $$PWD/themeitempic.h \
+    $$PWD/themeitem.h
 
 SOURCES += \
     $$PWD/settingsgroup.cpp \
@@ -80,7 +82,9 @@ SOURCES += \
     $$PWD/editablenextpagewidget.cpp \
     $$PWD/tipsitem.cpp \
     $$PWD/loadingnextpagewidget.cpp \
-    $$PWD/passwdeditwidget.cpp
+    $$PWD/passwdeditwidget.cpp \
+    $$PWD/themeitem.cpp \
+    $$PWD/themeitempic.cpp
 
 RESOURCES += \
     $$PWD/widgets.qrc
