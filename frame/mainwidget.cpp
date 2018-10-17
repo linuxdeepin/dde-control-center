@@ -135,8 +135,9 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     headerLayout->setContentsMargins(40, 0, 0, 10);
     headerLayout->addLayout(avatarLayout);
     headerLayout->addLayout(timedateLayout);
-    headerLayout->addLayout(toggleNotifyLayout);
     headerLayout->addStretch();
+    headerLayout->addLayout(toggleNotifyLayout);
+    headerLayout->addSpacing(20);
 
     headerFrame->setLayout(headerLayout);
 
