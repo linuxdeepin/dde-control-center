@@ -83,6 +83,8 @@ void MonitorSettingDialog::mouseMoveEvent(QMouseEvent *e)
 
 void MonitorSettingDialog::init()
 {
+    setWindowFlags(windowFlags() | Qt::X11BypassWindowManagerHint);
+
     DThemeManager::instance()->setTheme(this, "light");
 
     setBackgroundColor(QColor(Qt::white));

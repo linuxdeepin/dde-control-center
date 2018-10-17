@@ -34,6 +34,7 @@
 #include <QCompleter>
 #include <QKeyEvent>
 #include <QDebug>
+#include <QScreen>
 
 #include <QApplication>
 #include <QDesktopWidget>
@@ -63,7 +64,7 @@ TimeZoneChooser::TimeZoneChooser()
       m_cancelBtn(new QPushButton(tr("Cancel"))),
       m_confirmBtn(new QPushButton(tr("Confirm")))
 {
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | Qt::X11BypassWindowManagerHint);
     setAttribute(Qt::WA_TranslucentBackground);
     setupSize();
 
@@ -209,6 +210,13 @@ bool TimeZoneChooser::eventFilter(QObject *watched, QEvent *event)
     }
 
     return false;
+}
+
+void TimeZoneChooser::showEvent(QShowEvent *event)
+{
+    QFrame::showEvent(event);
+
+    move(qApp->primaryScreen()->geometry().center() - rect().center());
 }
 
 QSize TimeZoneChooser::getFitSize() const

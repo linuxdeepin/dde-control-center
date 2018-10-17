@@ -70,6 +70,7 @@ protected:
     void resizeEvent(QResizeEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
     bool eventFilter(QObject *watched, QEvent *event);
+    void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
 
 private:
     QSize getFitSize() const;
