@@ -54,7 +54,7 @@ public:
 private slots:
     void showBrightnessPage();
     void showResolutionDetailPage();
-    void showCustomSettings(const QString &config);
+    void showCustomSettings(const QString &config, bool isNewConfig = false);
     void showConfigPage(const QString &config);
     void showRecognize();
 #ifndef DCC_DISABLE_ROTATE

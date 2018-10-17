@@ -70,6 +70,7 @@ signals:
 #endif
     void requestSetMonitorMode(Monitor *mon, const int mode) const;
     void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
+    void requestApplySave() const;
 
 private:
     void mouseMoveEvent(QMouseEvent *e);

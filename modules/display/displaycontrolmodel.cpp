@@ -50,9 +50,7 @@ int DisplayControlModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent);
 
-    const int configCount = 2 + m_displayModel->monitorList().size();
-
-    return configCount + m_displayModel->configList().size();
+    return m_displayModel->monitorList().size() + 2;
 }
 
 QVariant DisplayControlModel::data(const QModelIndex &index, int role) const
@@ -89,8 +87,10 @@ const QString DisplayControlModel::optionName(const int index) const
         return tr("Copy");
     else if (index == 1)
         return tr("Extend");
-    else
+    else if (index < m_displayModel->monitorList().size() + 2)
         return tr("Only Displayed on %1").arg(m_displayModel->monitorList()[index - 2]->name());
+    else
+        return QString();
 }
 
 const QString DisplayControlModel::optionDescription(const int index) const
@@ -99,8 +99,10 @@ const QString DisplayControlModel::optionDescription(const int index) const
         return tr("Copy the screen contents to one or more screens");
     else if (index == 1)
         return tr("Extend the screen contents to display different contents on different screens");
-    else
+    else if (index < m_displayModel->monitorList().size() + 2)
         return tr("Screen contents are only displayed on %1").arg(m_displayModel->monitorList()[index - 2]->name());
+    else
+        return QString();
 }
 
 void DisplayControlModel::onDisplayModeChanged(const int mode)

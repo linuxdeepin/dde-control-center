@@ -55,7 +55,7 @@ DisplayWidget::DisplayWidget()
 #ifndef DCC_DISABLE_ROTATE
     m_rotate->setText(tr("Rotate"));
 #endif
-    m_createConfig->setText(tr("New custom settings"));
+    m_createConfig->setText(tr("Advanced Settings"));
     m_resolution->setTitle(tr("Resolution"));
     m_brightnessSettings->setTitle(tr("Brightness"));
 
@@ -244,8 +244,8 @@ void DisplayWidget::onConfigListChanged()
 
 void DisplayWidget::onFirstConfigCreated(const QString &config)
 {
-    emit requestConfigPage(config);
-    emit requestModifyConfig(config);
+//    emit requestConfigPage(config);
+    emit requestModifyConfig(config, true);
 }
 
 #ifndef DCC_DISABLE_MIRACAST

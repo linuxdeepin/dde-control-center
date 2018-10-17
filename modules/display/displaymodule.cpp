@@ -100,7 +100,9 @@ void DisplayModule::showConfigPage(const QString &config)
 
     page->onCurrentConfigChanged(m_displayModel->displayMode() == CUSTOM_MODE, m_displayModel->config());
     connect(page, &CustomConfigPage::requestDeleteConfig, m_displayWorker, &DisplayWorker::deleteConfig);
-    connect(page, &CustomConfigPage::requestModifyConfig, this, &DisplayModule::showCustomSettings);
+    connect(page, &CustomConfigPage::requestModifyConfig, this, [=] (const QString &config) {
+        showCustomSettings(config, false);
+    });
 
     m_frameProxy->pushWidget(this, page);
 }
@@ -185,7 +187,7 @@ ModuleWidget *DisplayModule::moduleWidget()
     return m_displayWidget;
 }
 
-void DisplayModule::showCustomSettings(const QString &config)
+void DisplayModule::showCustomSettings(const QString &config, bool isNewConfig)
 {
     // save last mode
     const int displayMode = m_displayModel->displayMode();
@@ -193,7 +195,6 @@ void DisplayModule::showCustomSettings(const QString &config)
 
     // only allow modify current used config
     Q_ASSERT(displayMode == CUSTOM_MODE);
-    Q_ASSERT(m_displayModel->config() == config);
 //    if (displayMode != CUSTOM_MODE)
 //        m_displayWorker->switchMode(CUSTOM_MODE, config);
 
@@ -215,18 +216,21 @@ void DisplayModule::showCustomSettings(const QString &config)
 #ifndef DCC_DISABLE_ROTATE
     connect(&dialog, &MonitorSettingDialog::requestMonitorRotate, this, &DisplayModule::showRotate);
 #endif
+    connect(&dialog, &MonitorSettingDialog::requestApplySave, m_displayWorker, &DisplayWorker::saveChanges);
 
     // discard or save
     if (dialog.exec() != QDialog::Accepted)
     {
+        std::pair<int, QString> lastConfig { m_displayModel->lastConfig() };
+
         m_displayWorker->discardChanges();
 
-        // restore old mode
-//        if (displayMode != CUSTOM_MODE)
-//            m_displayWorker->switchMode(displayMode, displayMode == SINGLE_MODE ? primaryName : QString());
+        if (isNewConfig && config != lastConfig.second) {
+            m_displayWorker->switchMode(lastConfig.first, lastConfig.second);
+            m_displayWorker->saveChanges();
+            m_displayWorker->deleteConfig(config);
+        }
     }
-
-    m_displayWorker->saveChanges();
 
     m_frameProxy->setFrameAutoHide(this, true);
 }

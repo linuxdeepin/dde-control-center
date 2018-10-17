@@ -201,6 +201,11 @@ void DisplayWorker::createConfig()
 //    if (m_model->displayMode() == CUSTOM_MODE)
 //        return switchConfig(configName);
 
+    // 因为在自定义的情况下修改mode不会有dbus的changed信号，需要手动设置
+    if (m_model->displayMode() == CUSTOM_MODE) {
+        m_model->setLastConfig({CUSTOM_MODE, m_model->lastConfig().second});
+    }
+
     const auto reply = m_displayInter.SwitchMode(CUSTOM_MODE, configName);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply);
     watcher->setProperty("Name", configName);

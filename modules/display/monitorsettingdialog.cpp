@@ -34,6 +34,7 @@
 #include <QVBoxLayout>
 #include <QTimer>
 #include <QMouseEvent>
+#include <DSuggestButton>
 
 DWIDGET_USE_NAMESPACE
 
@@ -169,11 +170,11 @@ void MonitorSettingDialog::initPrimary()
 
     QPushButton *cancelBtn = new QPushButton;
     cancelBtn->setText(tr("Cancel"));
-    QPushButton *applyBtn = new QPushButton;
-    applyBtn->setText(tr("Apply"));
+    DSuggestButton *applySaveBtn = new DSuggestButton;
+    applySaveBtn->setText(tr("Save Config"));
 
     m_btnsLayout->addWidget(cancelBtn);
-    m_btnsLayout->addWidget(applyBtn);
+    m_btnsLayout->addWidget(applySaveBtn);
 
     // add primary screen settings widget
     m_primarySettingsWidget = new SettingsListWidget;
@@ -199,14 +200,15 @@ void MonitorSettingDialog::initPrimary()
     connect(m_model, &DisplayModel::screenWidthChanged, this, &MonitorSettingDialog::updateScreensRelation, Qt::QueuedConnection);
     connect(m_model, &DisplayModel::displayModeChanged, this, &MonitorSettingDialog::reject);
     connect(cancelBtn, &QPushButton::clicked, this, &MonitorSettingDialog::reject);
-    connect(applyBtn, &QPushButton::clicked, this, &MonitorSettingDialog::accept);
+    connect(applySaveBtn, &DSuggestButton::clicked, this, &MonitorSettingDialog::requestApplySave);
+    connect(applySaveBtn, &DSuggestButton::clicked, this, &MonitorSettingDialog::accept);
 
     reloadOtherScreensDialog();
 
     onPrimaryChanged();
     QTimer::singleShot(1, this, &MonitorSettingDialog::updateScreensRelation);
 
-    applyBtn->setFocus();
+    applySaveBtn->setFocus();
 }
 
 void MonitorSettingDialog::reloadMonitorObject(Monitor *monitor)

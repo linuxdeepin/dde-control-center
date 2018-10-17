@@ -62,7 +62,7 @@ signals:
     void requestNewConfig() const;
     void requestConfigPage(const QString &config) const;
     void requestSwitchConfig(const QString &config) const;
-    void requestModifyConfig(const QString &config) const;
+    void requestModifyConfig(const QString &config, bool isNewConfig) const;
     void requestModifyConfigName(const QString &oldName, const QString &newName) const;
 #ifndef DCC_DISABLE_MIRACAST
     void requestMiracastConfigPage(const QDBusObjectPath &path) const;

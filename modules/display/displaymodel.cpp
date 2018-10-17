@@ -106,6 +106,7 @@ void DisplayModel::setDisplayMode(const int mode)
 {
     if (m_mode != mode)
     {
+        m_lastConfig.first = m_mode;
         m_mode = mode;
         emit displayModeChanged(m_mode);
     }
@@ -142,6 +143,7 @@ void DisplayModel::setCurrentConfig(const QString &config)
 {
     if (m_currentConfig != config)
     {
+        m_lastConfig.second = m_currentConfig;
         m_currentConfig = config;
         emit currentConfigChanged(m_currentConfig);
     }
@@ -168,6 +170,11 @@ void DisplayModel::monitorRemoved(Monitor *mon)
     m_monitors.removeOne(mon);
 
     emit monitorListChanged();
+}
+
+void DisplayModel::setLastConfig(const std::pair<int, QString> &lastConfig)
+{
+    m_lastConfig = lastConfig;
 }
 
 void DisplayModel::setBrightnessMap(const BrightnessMap &brightnessMap)

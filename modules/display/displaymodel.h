@@ -70,6 +70,9 @@ public:
     inline BrightnessMap brightnessMap() const { return m_brightnessMap; }
     void setBrightnessMap(const BrightnessMap &brightnessMap);
 
+    inline std::pair<int, QString> lastConfig() const { return m_lastConfig; }
+    void setLastConfig(const std::pair<int, QString> &lastConfig);
+
 signals:
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;
@@ -112,6 +115,7 @@ private:
     bool m_redshiftIsValid;
     bool m_redshiftSetting;
     BrightnessMap m_brightnessMap;
+    std::pair<int, QString> m_lastConfig;
 };
 
 } // namespace display
