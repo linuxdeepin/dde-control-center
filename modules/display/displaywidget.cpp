@@ -55,7 +55,7 @@ DisplayWidget::DisplayWidget()
 #ifndef DCC_DISABLE_ROTATE
     m_rotate->setText(tr("Rotate"));
 #endif
-    m_createConfig->setText(tr("Advanced Settings"));
+    m_createConfig->setText(tr("Custom Settings"));
     m_resolution->setTitle(tr("Resolution"));
     m_brightnessSettings->setTitle(tr("Brightness"));
 
@@ -118,7 +118,14 @@ DisplayWidget::DisplayWidget()
 #ifndef DCC_DISABLE_ROTATE
     connect(m_rotate, &QPushButton::clicked, this, &DisplayWidget::requestRotate);
 #endif
-    connect(m_createConfig, &QPushButton::clicked, this, &DisplayWidget::requestNewConfig);
+    connect(m_createConfig, &QPushButton::clicked, this, [=] {
+        if (m_model->config().startsWith("_dde_display")) {
+            emit requestModifyConfig(m_model->config(), false);
+        }
+        else {
+            emit requestNewConfig();
+        }
+    });
     connect(m_configListRefershTimer, &QTimer::timeout, this, &DisplayWidget::onConfigListChanged);
     connect(slider, &DCCSlider::valueChanged, this, [=](const int value) {
         emit requestUiScaleChanged(converToScale(value));
@@ -230,6 +237,8 @@ void DisplayWidget::onConfigListChanged()
         w->setTitle(config);
         if (mode == CUSTOM_MODE && config == current)
             w->setIcon(loadPixmap(":/widgets/themes/dark/icons/select.svg"));
+
+        w->setVisible(!config.startsWith("_dde_display"));
 
         connect(w, &EditableNextPageWidget::textChanged, this,
                 &DisplayWidget::requestModifyConfigName);

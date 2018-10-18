@@ -192,7 +192,7 @@ void DisplayWorker::createConfig()
 
     do
     {
-        configName = tr("My Settings %1").arg(++idx);
+        configName = QString("_dde_display_%1").arg(++idx);
 
         if (!m_model->configList().contains(configName))
             break;
@@ -329,6 +329,11 @@ void DisplayWorker::setMonitorEnable(Monitor *mon, const bool enabled)
 
     inter->Enable(enabled).waitForFinished();
     m_displayInter.ApplyChanges();
+}
+
+void DisplayWorker::applyChanges()
+{
+    m_displayInter.ApplyChanges().waitForFinished();
 }
 
 void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)

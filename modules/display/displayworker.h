@@ -74,6 +74,7 @@ public slots:
     void switchMode(const int mode, const QString &name = QString());
     void setPrimary(const int index);
     void setMonitorEnable(Monitor *mon, const bool enabled);
+    void applyChanges();
 #ifndef DCC_DISABLE_ROTATE
     void setMonitorRotateAll(const quint16 rotate);
     void setMonitorRotate(Monitor *mon, const quint16 rotate);

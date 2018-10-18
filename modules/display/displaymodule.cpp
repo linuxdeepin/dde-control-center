@@ -216,7 +216,18 @@ void DisplayModule::showCustomSettings(const QString &config, bool isNewConfig)
 #ifndef DCC_DISABLE_ROTATE
     connect(&dialog, &MonitorSettingDialog::requestMonitorRotate, this, &DisplayModule::showRotate);
 #endif
-    connect(&dialog, &MonitorSettingDialog::requestApplySave, m_displayWorker, &DisplayWorker::saveChanges);
+    connect(&dialog, &MonitorSettingDialog::requestJustApply, m_displayWorker, &DisplayWorker::applyChanges);
+    connect(&dialog, &MonitorSettingDialog::requestApplySave, this, [=] {
+        int idx = 0;
+        QString configName;
+        do {
+            configName = tr("My Settings %1").arg(++idx);
+            if (!m_displayModel->configList().contains(configName))
+                break;
+        } while (true);
+        m_displayWorker->modifyConfigName(config, configName);
+        m_displayWorker->saveChanges();
+    });
 
     // discard or save
     if (dialog.exec() != QDialog::Accepted)
