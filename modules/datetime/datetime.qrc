@@ -1,8 +1,6 @@
 <RCC>
     <qresource prefix="/datetime">
         <file>themes/dark/dark.qss</file>
-        <file>themes/dark/icons/nav_datetime.png</file>
-        <file>themes/dark/icons/nav_datetime@2x.png</file>
         <file>themes/light/light.qss</file>
         <file>themes/dark/icons/add_disabled.png</file>
         <file>themes/dark/icons/add_hover.png</file>
@@ -19,7 +17,6 @@
         <file>themes/light/icons/list_delete_press.png</file>
         <file>themes/light/icons/map_light.png</file>
         <file>themes/light/icons/map.svg</file>
-        <file>themes/light/icons/nav_time.png</file>
         <file>themes/light/icons/reduce_hover.png</file>
         <file>themes/light/icons/reduce_normal.png</file>
         <file>themes/light/icons/reduce_press.png</file>
@@ -33,6 +30,25 @@
         <file>themes/dark/icons/reduce_hover.svg</file>
         <file>themes/dark/icons/reduce_normal.svg</file>
         <file>themes/dark/icons/reduce_press.svg</file>
+        <file>themes/dark/icons/nav_datetime_normal.svg</file>
+        <file>themes/dark/icons/nav_datetime.svg</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>themes/dark/icons/add_normal.png</file>
+        <file>themes/dark/icons/list_delete_normal.svg</file>
+        <file>themes/dark/icons/reduce_press.svg</file>
+        <file>themes/dark/icons/reduce_disabled.svg</file>
+        <file>themes/dark/icons/add_hover.png</file>
+        <file>themes/dark/icons/list_delete_hover.svg</file>
+        <file>themes/dark/icons/add_press.png</file>
+        <file>themes/dark/icons/reduce_normal.svg</file>
+        <file>themes/dark/icons/add_disabled.png</file>
+        <file>themes/dark/icons/reduce_hover.svg</file>
+        <file>themes/dark/icons/map_dark.png</file>
+        <file>themes/dark/icons/map.png</file>
+        <file>themes/dark/icons/nav_datetime.svg</file>
+        <file>themes/dark/icons/list_delete_press.svg</file>
+        <file>themes/dark/icons/map.svg</file>
         <file>themes/dark/icons/nav_datetime_normal.svg</file>
     </qresource>
 </RCC>

@@ -1,8 +1,6 @@
 <RCC>
     <qresource prefix="/display">
         <file>themes/dark/dark.qss</file>
-        <file>themes/dark/icons/nav_display.png</file>
-        <file>themes/dark/icons/nav_display@2x.png</file>
         <file>themes/dark/icons/rotate_press.png</file>
         <file>themes/dark/icons/rotate_normal.png</file>
         <file>themes/dark/icons/rotate_hover.png</file>
@@ -42,6 +40,8 @@
         <file>themes/dark/icons/union_press@2x.png</file>
         <file>themes/common/icon/list_select@2x.png</file>
         <file>themes/common/icon/rotate.svg</file>
+        <file>themes/dark/icons/nav_display.svg</file>
+        <file>themes/dark/icons/only.svg</file>
         <file>themes/dark/icons/nav_display_normal.svg</file>
     </qresource>
 </RCC>

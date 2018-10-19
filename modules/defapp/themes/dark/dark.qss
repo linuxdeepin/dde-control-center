@@ -1,5 +1,5 @@
 QLabel#ModuleHeaderIconDefapp {
-    background-image: url(:/defapp/themes/dark/icons/nav_defapp.png);
+    background-image: url(:/defapp/themes/dark/icons/nav_defapp.svg);
 }
 
 #DefAppViewer {

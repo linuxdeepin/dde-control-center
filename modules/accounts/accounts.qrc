@@ -2,8 +2,6 @@
     <qresource prefix="/accounts">
         <file>themes/common/common.qss</file>
         <file>themes/dark/dark.qss</file>
-        <file>themes/dark/icons/nav_accounts.png</file>
-        <file>themes/dark/icons/nav_accounts@2x.png</file>
         <file>themes/common/icons/add_avatar_hover.svg</file>
         <file>themes/common/icons/add_avatar_normal.svg</file>
         <file>themes/common/icons/add_avatar_press.svg</file>
@@ -190,7 +188,8 @@
         <file>themes/dark/icons/finger/finished/success_28.png</file>
         <file>themes/dark/icons/finger/finished/success_29.png</file>
         <file>themes/dark/icons/finger/finished/success_30.png</file>
-        <file>themes/dark/icons/nav_accounts_normal.svg</file>
         <file>themes/dark/icons/default_avatar.svg</file>
+        <file>themes/dark/icons/nav_accounts.svg</file>
+        <file>themes/dark/icons/nav_accounts_normal.svg</file>
     </qresource>
 </RCC>

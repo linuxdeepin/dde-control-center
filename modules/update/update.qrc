@@ -2,13 +2,11 @@
     <qresource prefix="/update">
         <file>themes/dark/dark.qss</file>
         <file>themes/light/light.qss</file>
-        <file>themes/dark/icons/nav_update.png</file>
-        <file>themes/dark/icons/nav_update@2x.png</file>
         <file>themes/light/icons/select.png</file>
-        <file>themes/light/icons/nav_update.png</file>
         <file>themes/common/icons/success.svg</file>
         <file>themes/common/icons/failed.svg</file>
         <file>themes/dark/icons/select.svg</file>
         <file>themes/dark/icons/nav_update_normal.svg</file>
+        <file>themes/dark/icons/nav_update.svg</file>
     </qresource>
 </RCC>

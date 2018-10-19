@@ -1,32 +1,4 @@
 <RCC>
     <qresource prefix="/">
-        <file>icons/nav_accounts.png</file>
-        <file>icons/nav_bluetooth.png</file>
-        <file>icons/nav_datetime.png</file>
-        <file>icons/nav_defapp.png</file>
-        <file>icons/nav_display.png</file>
-        <file>icons/nav_keyboard.png</file>
-        <file>icons/nav_mouse.png</file>
-        <file>icons/nav_network.png</file>
-        <file>icons/nav_personalization.png</file>
-        <file>icons/nav_power.png</file>
-        <file>icons/nav_sound.png</file>
-        <file>icons/nav_systeminfo.png</file>
-        <file>icons/nav_update.png</file>
-        <file>icons/nav_wacom.png</file>
-        <file>icons/nav_accounts@2x.png</file>
-        <file>icons/nav_bluetooth@2x.png</file>
-        <file>icons/nav_datetime@2x.png</file>
-        <file>icons/nav_display@2x.png</file>
-        <file>icons/nav_keyboard@2x.png</file>
-        <file>icons/nav_mouse@2x.png</file>
-        <file>icons/nav_network@2x.png</file>
-        <file>icons/nav_personalization@2x.png</file>
-        <file>icons/nav_power@2x.png</file>
-        <file>icons/nav_sound@2x.png</file>
-        <file>icons/nav_systeminfo@2x.png</file>
-        <file>icons/nav_wacom@2x.png</file>
-        <file>icons/nav_update@2x.png</file>
-        <file>icons/nav_defapp@2x.png</file>
     </qresource>
 </RCC>

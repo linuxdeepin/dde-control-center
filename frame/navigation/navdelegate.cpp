@@ -57,7 +57,7 @@ void NavDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, c
 
         painter->setRenderHints(renderHints);
 
-        QPixmap modulePm = loadPixmap(QString(":/icons/nav_%1.png").arg(moduleName));
+        QPixmap modulePm = loadPixmap(QString(":/%1/themes/dark/icons/nav_%1.svg").arg(moduleName));
 
         // Keep and offset from the top left corner, base is 1080P
         const double Sh = qApp->primaryScreen()->geometry().height();

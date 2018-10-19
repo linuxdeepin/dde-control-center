@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>nav_mouse</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="nav_mouse" fill="#FFFFFF">
+            <path d="M9.725,8.425 L4.01,2.88 C5.484,1.663 7.317,1 9.253,1 C11.404,1 13.418,1.817 14.962,3.295 L9.725,8.425 Z M8.582,9.5446 L3.179,14.8376 C1.776,13.3126 1,11.3486 1,9.2586 C1,7.3196 1.663,5.4846 2.879,4.0106 L8.582,9.5446 Z M20.5852,8.9064 C22.1432,10.4634 23.0012,12.5374 23.0012,14.7464 C23.0012,16.9554 22.1432,19.0294 20.5852,20.5874 C19.0242,22.1464 16.9492,23.0064 14.7432,23.0064 C12.5382,23.0064 10.4642,22.1464 8.9032,20.5874 L4.2972,15.9804 L16.0932,4.4264 C16.0952,4.4234 16.0952,4.4214 16.0982,4.4194 L20.5852,8.9064 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>

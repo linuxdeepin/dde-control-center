@@ -1,8 +1,6 @@
 <RCC>
     <qresource prefix="/mouse">
         <file>themes/dark/dark.qss</file>
-        <file>themes/dark/icons/nav_mouse.png</file>
-        <file>themes/dark/icons/nav_mouse@2x.png</file>
         <file>themes/light/light.qss</file>
         <file>themes/common/double_test/bow_head/bow_head_00001.png</file>
         <file>themes/common/double_test/bow_head/bow_head_00002.png</file>
@@ -152,6 +150,7 @@
         <file>themes/common/double_test/raise_head_ears/raise_head_ears_00007@2x.png</file>
         <file>themes/common/double_test/raise_head_ears/raise_head_ears_00008@2x.png</file>
         <file>themes/common/double_test/raise_head_ears/raise_head_ears_00009@2x.png</file>
+        <file>themes/dark/icons/nav_mouse.svg</file>
         <file>themes/dark/icons/nav_mouse_normal.svg</file>
     </qresource>
 </RCC>

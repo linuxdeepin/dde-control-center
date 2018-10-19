@@ -108,7 +108,7 @@ void NavigationDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
     if (module.isEmpty())
         return;
 
-    const QString picFile = QString(":/%1/themes/dark/icons/nav_%2.png").arg(module).arg(module);
+    const QString picFile = QString(":/%1/themes/dark/icons/nav_%1.svg").arg(module);
 
     QRect pixRect;
     QPixmap pixmap(loadPixmap(picFile));

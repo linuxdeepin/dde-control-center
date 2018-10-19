@@ -1,5 +1,5 @@
 QLabel#ModuleHeaderIconWacom {
-    background-image: url(:/wacom/themes/dark/icons/nav_wacom.png);
+    background-image: url(:/wacom/themes/dark/icons/nav_wacom.svg);
 }
 
 #WacomPressure QLabel {

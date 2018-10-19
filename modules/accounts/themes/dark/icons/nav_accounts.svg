@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>nav_user</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="UI" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="nav_user" fill="#FFFFFF">
+            <path d="M14.746,13.351 C16.7,12.361 18.046,10.337 18.046,8 C18.046,4.692 15.354,2 12.046,2 C8.737,2 6.046,4.692 6.046,8 C6.046,10.344 7.4,12.373 9.363,13.36 C5.345,14.29 1,17.255 1,22.491 C1,22.767 1.224,22.991 1.5,22.991 L1.501,22.991 L22.501,22.991 L22.501,22.991 C22.777,22.991 23.001,22.767 23.001,22.491 C23.001,17.193 18.772,14.263 14.746,13.351" id="Fill-215"></path>
+        </g>
+    </g>
+</svg>

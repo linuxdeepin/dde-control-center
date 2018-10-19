@@ -1,5 +1,5 @@
 QLabel#ModuleHeaderIconSound {
-    background-image: url(:/sound/themes/dark/icons/nav_sound.png);
+    background-image: url(:/sound/themes/dark/icons/nav_sound.svg);
 }
 
 dcc--widgets--TitledSliderItem#OutputVolumeSliderItem {

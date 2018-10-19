@@ -1,8 +1,6 @@
 <RCC>
     <qresource prefix="/systeminfo">
         <file>themes/dark/dark.qss</file>
-        <file>themes/dark/icons/nav_systeminfo.png</file>
-        <file>themes/dark/icons/nav_systeminfo@2x.png</file>
         <file>themes/light/light.qss</file>
         <file>themes/dark/icons/logo.png</file>
         <file>themes/light/icons/logo.png</file>
@@ -13,10 +11,11 @@
         <file>themes/dark/icons/logo@2x.png</file>
         <file>themes/dark/icons/rearrange.png</file>
         <file>themes/common/icons/select.svg</file>
-        <file>themes/dark/icons/nav_systeminfo_normal.svg</file>
         <file>license/deepin-end-user-license-agreement_zh_CN.txt</file>
         <file>license/deepin-end-user-license-agreement_en_US.txt</file>
         <file>gpl/gpl-3.0-en_US-body.txt</file>
         <file>gpl/gpl-3.0-en_US-title.txt</file>
+        <file>themes/dark/icons/nav_systeminfo.svg</file>
+        <file>themes/dark/icons/nav_systeminfo_normal.svg</file>
     </qresource>
 </RCC>

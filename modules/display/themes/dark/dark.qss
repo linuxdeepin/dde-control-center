@@ -1,5 +1,5 @@
 QLabel#ModuleHeaderIconDisplay {
-    background-image: url(:/display/themes/dark/icons/nav_display.png);
+    background-image: url(:/display/themes/dark/icons/nav_display.svg);
 }
 
 dcc--display--MonitorSettingDialog QLabel {

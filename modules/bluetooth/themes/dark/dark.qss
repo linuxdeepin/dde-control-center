@@ -1,5 +1,5 @@
 QLabel#ModuleHeaderIconBluetooth {
-    background-image: url(:/bluetooth/themes/dark/icons/nav_bluetooth.png);
+    background-image: url(:/bluetooth/themes/dark/icons/nav_bluetooth.svg);
 }
 
 dcc-widgets--NormalLabel#DeviceTitle, dcc-widgets--NormalLabel#DeviceState {

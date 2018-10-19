@@ -1,5 +1,5 @@
 QLabel#ModuleHeaderIconDatetime {
-    background-image: url(:/datetime/themes/dark/icons/nav_datetime.png);
+    background-image: url(:/datetime/themes/dark/icons/nav_datetime.svg);
 }
 
 Dtk--Widget--DImageButton#DCC-Datetime-Datewidget-Add{

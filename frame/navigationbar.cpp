@@ -96,7 +96,7 @@ NavigationBar::NavigationBar(QWidget *parent)
     for (const auto &module : ModuleList)
     {
         DImageButton *b = new DImageButton;
-        b->setCheckedPic(QString(":/%1/themes/dark/icons/nav_%1.png").arg(module));
+        b->setCheckedPic(QString(":/%1/themes/dark/icons/nav_%1.svg").arg(module));
         b->setNormalPic(QString(":/%1/themes/dark/icons/nav_%1_normal.svg").arg(module));
         b->setCheckable(true);
         b->setVisible(false);
