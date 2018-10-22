@@ -28,6 +28,7 @@
 
 #include "settingsitem.h"
 #include "labels/normallabel.h"
+#include "../model/category.h"
 #include <QWidget>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -49,13 +50,8 @@ class OptionWidget : public widgets::SettingsItem
 
 public:
     explicit OptionWidget(const bool state = false, QWidget *parent = 0);
-    const QJsonObject getItem() { return m_CategoryItem;}
-    void setItem(const QJsonObject &item);
-    const QString id()    const;
-    const QString name()  const;
-    const QString displayName() const;
-    const QString mime() const;
-    const QString exec() const;
+    inline const App getItem() { return m_CategoryItem;}
+    void setItem(const App &item);
     bool checked() const;
     void setCheckedIcon(const QPixmap &icon);
     bool userCheck() const;
@@ -65,7 +61,6 @@ public slots:
     void setChecked(const bool checked);
     void setDelete(const bool delchecked);
     void setMime(const QString &mime);
-    void setUserCheck(const bool check);
 
 private:
     QHBoxLayout  *m_mainlayout;
@@ -78,13 +73,13 @@ private:
     bool          m_delchecked        = false;
     bool          m_userCheck         = false;
     QString       m_mime;
-    QJsonObject m_CategoryItem;
+    App m_CategoryItem;
 
 protected:
     void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
-    void removeItem(const QJsonObject &item);
+    void removeItem(const App &item);
     void setDefault();
     void checkedChanged(const bool checked) const;
 };

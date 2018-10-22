@@ -26,6 +26,8 @@
 #ifndef DEFAPPWORKER_H
 #define DEFAPPWORKER_H
 
+#include "model/category.h"
+
 #include <com_deepin_daemon_mime.h>
 #include <QObject>
 using com::deepin::daemon::Mime;
@@ -45,20 +47,17 @@ public:
     void deactive();
 
 public slots:
-    void onSetDefaultApp(const QString &category, const QJsonObject &item);
-    void onGetDefaultApp();
+    void onSetDefaultApp(const QString &category, const App &item);
     void onGetListApps();
     void onResetTriggered();
-    void onDelUserApp(const QString &mine, const QJsonObject &item);
+    void onDelUserApp(const QString &mine, const App &item);
     void onCreateFile(const QString &mime, const QFileInfo &info);
 
 private slots:
     void getListAppFinished(QDBusPendingCallWatcher *w);
-    void getUserAppFinished(QDBusPendingCallWatcher *w);
     void getDefaultAppFinished(QDBusPendingCallWatcher *w);
-    void saveListApp(const QString &mime, const QJsonArray &json);
-    void saveUserApp(const QString &mime, const QJsonArray &json);
-    void saveDefaultApp(const QString &mime, const QJsonObject &app);
+    void saveListApp(const QString &mime, const QJsonArray &json, const bool isUser);
+    void saveDefaultApp(const QString &mime, const QJsonObject &json);
 
 private:
     DefAppModel *m_defAppModel;

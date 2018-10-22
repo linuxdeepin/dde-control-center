@@ -27,6 +27,8 @@
 #define DEFAPPVIEWER_H
 
 #include "contentwidget.h"
+#include "model/category.h"
+
 #include <QMap>
 #include <QStringList>
 #include <QObject>
@@ -55,8 +57,8 @@ public:
     void setModel(DefAppModel * const model);
 
 signals:
-    void requestSetDefaultApp(const QString &category, const QJsonObject &item);
-    void requestDelUserApp(const QString &name, const QJsonObject &item);
+    void requestSetDefaultApp(const QString &category, const App &item);
+    void requestDelUserApp(const QString &name, const App &item);
     void autoOpenChanged(const bool state);
     void requestFrameAutoHide(const bool autoHide) const;
     void requestCreateFile(const QString &category, const QFileInfo &info);

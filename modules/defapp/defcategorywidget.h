@@ -28,6 +28,7 @@
 
 #include "modulewidget.h"
 #include "translucentframe.h"
+#include "model/category.h"
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QMap>
@@ -53,38 +54,34 @@ public:
     void setCategory(Category * const category);
 
 signals:
-    void requestSetDefaultApp(const QString &category, const QJsonObject &item);
-    void requestDelUserApp(const QString &name, const QJsonObject &item);
+    void requestSetDefaultApp(const QString &category, const App &item);
+    void requestDelUserApp(const QString &name, const App &item);
     void requestFrameAutoHide(const bool autoHide) const;
     void requestCreateFile(const QString &category, const QFileInfo &info);
 
 public slots:
     void setDefault();
-    void onDefaultAppSet(const QJsonObject &json);
+    void onDefaultAppSet(const App &app);
     void slotEditMode(bool edit);
     void setCategoryName(const QString &name);
 
 private:
-    void AppsItemChanged(const QList<QJsonObject> &list);
-    void UserItemChanged(const QList<QJsonObject> &list);
-    void addItem(const QJsonObject &item);
-    void addUserItem(const QJsonObject &item);
-    void removeItem(const QJsonObject &item);
+    void AppsItemChanged(const QList<App> &list);
+    void addItem(const dcc::defapp::App &item);
+    void removeItem(const App &item);
 
 private:
     QVBoxLayout           *m_centralLayout;
     widgets::SettingsGroup    *m_userGroup;
     QWidget               *m_listWidget;
     QVBoxLayout           *m_listLayout;
-    OptionWidget          *m_optionWidget;
     QLayoutItem           *m_userGroupLayout;
     DefCategoryAddWidget  *m_addWidget;
     widgets::SettingsHead *m_headWidget;
     QString                m_categoryName;
     Category              *m_category;
-    QMap<QString, OptionWidget *> m_mainMap;
-    QMap<QString, OptionWidget *> m_userMap;
-    QMap<OptionWidget *, QJsonObject>  m_valueMap;
+    QMap<OptionWidget *, App>  m_valueMap;
+    QList<App> m_userMap;
 };
 
 }

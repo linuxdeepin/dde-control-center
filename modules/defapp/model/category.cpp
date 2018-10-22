@@ -33,25 +33,15 @@ Category::Category(QObject *parent)
 
 }
 
-void Category::setuserList(const QList<QJsonObject> &list)
+void Category::setappList(const QList<App> &list)
 {
-    if (m_userlist != list && list.size() != 0) {
-        m_userlist = list;
-        emit userItemChanged(m_userlist);
-    }
+    m_applist = list;
+    emit itemsChanged(list);
 }
 
-void Category::setappList(const QList<QJsonObject> &list)
+void Category::setDefault(const App &def)
 {
-    if (m_applist != list && list.size() != 0) {
-        m_applist = list;
-        emit itemsChanged(list);
-    }
-}
-
-void Category::setDefault(const QJsonObject &def)
-{
-    if (m_default != def && def.size() != 0) {
+    if (m_default != def) {
         m_default = def;
         emit defaultChanged(def);
     }
@@ -66,16 +56,15 @@ void Category::setCategory(const QString &category)
     emit categoryNameChanged(category);
 }
 
-void Category::addUserItem(const QJsonObject &value)
+void Category::addUserItem(const App &value)
 {
-    if(!m_userlist.contains(value)) {
-        m_userlist.insert(m_userlist.end(), value);
-        emit AdduserItem(value);
-    }
+    if (m_applist.contains(value)) return;
+
+    m_applist << value;
+    emit AdduserItem(value);
 }
 
-void Category::delUserItem(const QJsonObject &value)
+void Category::delUserItem(const App &value)
 {
-    m_userlist.removeOne(value);
+    m_applist.removeOne(value);
 }
-

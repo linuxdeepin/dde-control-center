@@ -49,7 +49,6 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     m_stringToCategory.insert("Picture",     Picture);
     m_stringToCategory.insert("Terminal",    Terminal);
 
-    connect(m_dbusManager, &Mime::Change, this, &DefAppWorker::onGetDefaultApp);
     connect(m_dbusManager, &Mime::Change, this, &DefAppWorker::onGetListApps);
 
     m_userLocalPath = QDir::homePath()+ "/.local/share/applications/";
@@ -69,41 +68,31 @@ void DefAppWorker::deactive()
     m_dbusManager->blockSignals(true);
 }
 
-void DefAppWorker::onSetDefaultApp(const QString &category, const QJsonObject &item)
+void DefAppWorker::onSetDefaultApp(const QString &category, const App &item)
 {
     QStringList mimelist = getTypeListByCategory(m_stringToCategory[category]);
-    m_dbusManager->SetDefaultApp(mimelist, item["Id"].toString());
-    qDebug() << "setting MIME " << category << "to " <<  item["Id"].toString();
-}
-
-void DefAppWorker::onGetDefaultApp()
-{
-    //得到默认程序
-    for (QMap<QString, DefAppWorker::DefaultAppsCategory>::const_iterator mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
-        QDBusPendingReply<QString> rep = m_dbusManager->GetDefaultApp(getTypeByCategory(mimelist.value()));
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(rep, this);
-        watcher->setProperty("mime", mimelist.key());
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, &DefAppWorker::getDefaultAppFinished);
-
-    }
+    m_dbusManager->SetDefaultApp(mimelist, item.Id);
+    qDebug() << "setting MIME " << category << "to " <<  item.Id;
 }
 
 void DefAppWorker::onGetListApps()
 {
     //遍历QMap去获取dbus数据
     for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
-        QDBusPendingReply<QString> rep = m_dbusManager->ListApps(getTypeByCategory(mimelist.value()));
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(rep, this);
-        watcher->setProperty("mime", mimelist.key());
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, &DefAppWorker::getListAppFinished);
-    }
-    //get user app list
-    for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
-        QDBusPendingReply<QString> rep;
-        rep = m_dbusManager->ListUserApps(getTypeByCategory(mimelist.value()));
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(rep, this);
-        watcher->setProperty("mime", mimelist.key());
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, &DefAppWorker::getUserAppFinished);
+        const QString type { getTypeByCategory(mimelist.value()) };
+        QDBusPendingCallWatcher *Default_Watcher = new QDBusPendingCallWatcher(m_dbusManager->GetDefaultApp(type), this);
+        Default_Watcher->setProperty("mime", mimelist.key());
+        connect(Default_Watcher, &QDBusPendingCallWatcher::finished, this, &DefAppWorker::getDefaultAppFinished);
+
+        QDBusPendingCallWatcher *System_Watcher = new QDBusPendingCallWatcher(m_dbusManager->ListApps(type), this);
+        System_Watcher->setProperty("mime", mimelist.key());
+        System_Watcher->setProperty("isUser", false);
+        connect(System_Watcher, &QDBusPendingCallWatcher::finished, this, &DefAppWorker::getListAppFinished);
+
+        QDBusPendingCallWatcher *User_Watcher = new QDBusPendingCallWatcher(m_dbusManager->ListUserApps(type), this);
+        User_Watcher->setProperty("mime", mimelist.key());
+        User_Watcher->setProperty("isUser", true);
+        connect(User_Watcher, &QDBusPendingCallWatcher::finished, this, &DefAppWorker::getListAppFinished);
     }
 }
 
@@ -112,14 +101,15 @@ void DefAppWorker::onResetTriggered()
     m_dbusManager->Reset();
 }
 
-void DefAppWorker::onDelUserApp(const QString &mime, const QJsonObject &item)
+void DefAppWorker::onDelUserApp(const QString &mime, const App &item)
 {
     Category *category = getCategory(mime);
+
     category->delUserItem(item);
-    m_dbusManager->DeleteUserApp(item["Id"].toString());
+    m_dbusManager->DeleteUserApp(item.Id);
 
     //remove file
-    QFile file(m_userLocalPath + item["Id"].toString());
+    QFile file(m_userLocalPath + item.Id);
     file.remove();
 }
 
@@ -134,19 +124,23 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
         file.close();
 
         QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
-        QJsonObject object;
         QFileInfo fileInfo(info.filePath());
 
         const QString &filename = "deepin-custom-" + fileInfo.baseName() + ".desktop";
 
         m_dbusManager->AddUserApp(mimelist, filename);
-        object.insert("Id", filename);
-        object.insert("Name", fileInfo.baseName());
-        object.insert("DisplayName", fileInfo.baseName());
-        object.insert("Icon", "application-default-icon");
-        object.insert("Exec", info.filePath());
+
+        App app;
+        app.Id = filename;
+        app.Name = fileInfo.baseName();
+        app.DisplayName = fileInfo.baseName();
+        app.Icon = "application-default-icon";
+        app.Description = "";
+        app.Exec = info.filePath();
+        app.isUser = true;
+
         Category *category = getCategory(mime);
-        category->addUserItem(object);
+        category->addUserItem(app);
     } else {
         QFile file(m_userLocalPath +"deepin-custom-" + info.baseName() + ".desktop");
 
@@ -169,16 +163,21 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
         file.close();
 
         QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
-        QJsonObject object;
+
         QFileInfo fileInfo(info.filePath());
-        m_dbusManager->AddUserApp(mimelist, "deepin-custom-" + fileInfo.baseName() + ".desktop");
-        object.insert("Id", "deepin-custom-" + fileInfo.baseName() + ".desktop");
-        object.insert("Name", fileInfo.baseName());
-        object.insert("DisplayName", fileInfo.baseName());
-        object.insert("Icon", "application-default-icon");
-        object.insert("Exec", info.filePath());
+        m_dbusManager->AddUserApp(mimelist, "deepin-custom-" + fileInfo.baseName() + ".desktop").waitForFinished();
+
+        App app;
+        app.Id = "deepin-custom-" + fileInfo.baseName() + ".desktop";
+        app.Name = fileInfo.baseName();
+        app.DisplayName = fileInfo.baseName();
+        app.Icon = "application-default-icon";
+        app.Description = "";
+        app.Exec = info.filePath();
+        app.isUser = true;
+
         Category *category = getCategory(mime);
-        category->addUserItem(object);
+        category->addUserItem(app);
     }
 }
 
@@ -186,17 +185,9 @@ void DefAppWorker::getListAppFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QString> reply = *w;
     const QString mime = w->property("mime").toString();
+    const bool isUser = w->property("isUser").toBool();
     const  QJsonArray defaultApp = QJsonDocument::fromJson(reply.value().toUtf8()).array();
-    saveListApp(mime, defaultApp);
-    w->deleteLater();
-}
-
-void DefAppWorker::getUserAppFinished(QDBusPendingCallWatcher *w)
-{
-    QDBusPendingReply<QString> reply = *w;
-    const QString mime = w->property("mime").toString();
-    const  QJsonArray &defaultApp = QJsonDocument::fromJson(reply.value().toUtf8()).array();
-    saveUserApp(mime, defaultApp);
+    saveListApp(mime, defaultApp, isUser);
     w->deleteLater();
 }
 
@@ -209,45 +200,49 @@ void DefAppWorker::getDefaultAppFinished(QDBusPendingCallWatcher *w)
     w->deleteLater();
 }
 
-void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json)
+void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json, const bool isUser)
 {
     Category *category = getCategory(mime);
     if (!category) {
         return;
     }
-    QList<QJsonObject> t;
-    for (int i = 0; i != json.size(); ++i) {
-        const QJsonObject object = json.at(i).toObject();
-        t.insert(t.end(), object);
+
+    QList<App> list;
+
+    for (const QJsonValue &value : json) {
+        QJsonObject obj = value.toObject();
+        App app;
+        app.Id = obj["Id"].toString();
+        app.Name = obj["Name"].toString();
+        app.DisplayName = obj["DisplayName"].toString();
+        app.Icon = obj["Icon"].toString();
+        app.Description = obj["Description"].toString();
+        app.Exec = obj["Exec"].toString();
+        app.isUser = isUser;
+        list << app;
     }
+
     category->setCategory(mime);
-    category->setappList(t);
+    category->setappList(list);
 }
 
-void DefAppWorker::saveUserApp(const QString &mime, const QJsonArray &json)
-{
-    qDebug() << mime;
-    Category *category = getCategory(mime);
-    if (!category) {
-        return;
-    }
-
-    QList<QJsonObject> t;
-    for (int i = 0; i != json.size(); ++i) {
-        const QJsonObject object = json.at(i).toObject();
-        t.insert(t.end(), object);
-    }
-    category->setCategory(mime);
-    category->setuserList(t);
-}
-
-void DefAppWorker::saveDefaultApp(const QString &mime, const QJsonObject &app)
+void DefAppWorker::saveDefaultApp(const QString &mime, const QJsonObject &json)
 {
     Category *category = getCategory(mime);
     if (!category) {
         return;
     }
     category->setCategory(mime);
+
+    App app;
+    app.Id = json["Id"].toString();
+    app.Name = json["Name"].toString();
+    app.DisplayName = json["DisplayName"].toString();
+    app.Icon = json["Icon"].toString();
+    app.Description = json["Description"].toString();
+    app.Exec = json["Exec"].toString();
+    app.isUser = false;
+
     category->setDefault(app);
 }
 

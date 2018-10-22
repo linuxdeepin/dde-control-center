@@ -68,25 +68,16 @@ void DefCategoryWidget::setCategory(Category *const category)
 {
     m_category = category;
     connect(category, &Category::itemsChanged, this, &DefCategoryWidget::AppsItemChanged);
-    connect(category, &Category::userItemChanged, this, &DefCategoryWidget::UserItemChanged);
     connect(category, &Category::defaultChanged, this, &DefCategoryWidget::onDefaultAppSet);
-    connect(category, &Category::AdduserItem, this, &DefCategoryWidget::addUserItem);
+    connect(category, &Category::AdduserItem, this, &DefCategoryWidget::addItem);
     connect(category, &Category::categoryNameChanged, this, &DefCategoryWidget::setCategoryName);
 
-    QList<QJsonObject> it = category->getappItem();
-    for (const QJsonObject list : it) {
-        addItem(list);
-    }
-    it = category->getuserItem();
-    for (const QJsonObject list : it) {
-        addUserItem(list);
-    }
+    AppsItemChanged(category->getappItem());
+
     onDefaultAppSet(category->getDefault());
     setCategoryName(category->getName());
 
-    if(m_userMap.empty()) {
-        m_headWidget->setEditEnable(false);
-    }
+    m_headWidget->setEditEnable(!m_userMap.isEmpty());
 }
 
 void DefCategoryWidget::setDefault()
@@ -96,63 +87,52 @@ void DefCategoryWidget::setDefault()
     onDefaultAppSet(m_valueMap.value(item));
 }
 
-void DefCategoryWidget::addItem(const QJsonObject &item)
+void DefCategoryWidget::addItem(const App &item)
 {
-    m_optionWidget = new OptionWidget;
-    m_optionWidget->setItem(item);
-    m_optionWidget->setMime(m_category->getName());
-    m_optionWidget->setFixedHeight(36);
-    m_userGroup->insertItem(1, m_optionWidget);
-    m_mainMap.insert(m_optionWidget->id(), m_optionWidget);
-    m_valueMap.insert(m_optionWidget, item);
-    connect(m_optionWidget, &OptionWidget::setDefault, this, &DefCategoryWidget::setDefault);
-    connect(m_optionWidget, &OptionWidget::removeItem, this, &DefCategoryWidget::removeItem);
+    if (item.isUser) m_userMap.append(item);
+
+    OptionWidget *widget = new OptionWidget;
+    widget->setItem(item);
+    widget->setMime(m_category->getName());
+    widget->setFixedHeight(36);
+    m_userGroup->insertItem(1, widget);
+    m_valueMap.insert(widget, item);
+
+    connect(widget, &OptionWidget::setDefault, this, &DefCategoryWidget::setDefault);
+    connect(widget, &OptionWidget::removeItem, this, &DefCategoryWidget::removeItem);
+
+    if(!m_userMap.empty()) {
+        m_headWidget->setEditEnable(true);
+    }
 }
 
-void DefCategoryWidget::addUserItem(const QJsonObject &item)
-{
-    m_optionWidget = new OptionWidget(true);
-    m_optionWidget->setItem(item);
-    m_optionWidget->setMime(m_category->getName());
-    m_optionWidget->setUserCheck(true);
-    m_optionWidget->setFixedHeight(36);
-    m_userGroup->insertItem(1, m_optionWidget);
-    m_userMap.insert(m_optionWidget->id(), m_optionWidget);
-    m_valueMap.insert(m_optionWidget, item);
-    connect(m_optionWidget, &OptionWidget::setDefault, this, &DefCategoryWidget::setDefault);
-    connect(m_optionWidget, &OptionWidget::removeItem, this, &DefCategoryWidget::removeItem);
-
-    m_headWidget->setEditEnable(true);
-}
-
-void DefCategoryWidget::removeItem(const QJsonObject &item)
+void DefCategoryWidget::removeItem(const App &item)
 {
     OptionWidget *w = m_valueMap.key(item);
     m_userGroup->removeItem(w);
-    w->deleteLater();
-    m_userMap.remove(m_userMap.key(m_valueMap.key(item)));
+    m_userMap.removeOne(w->getItem());
     m_valueMap.remove(m_valueMap.key(item));
     emit requestDelUserApp(m_categoryName, item);
 
     if(m_userMap.empty()) {
         m_headWidget->setEditEnable(false);
     }
+
+    w->deleteLater();
 }
 
-void DefCategoryWidget::onDefaultAppSet(const QJsonObject &json)
+void DefCategoryWidget::onDefaultAppSet(const App &app)
 {
-    const QString &id = json["Id"].toString();
-
     for (OptionWidget *item : m_valueMap.keys()) {
-        item->setChecked(item->id() ==id);
+        item->setChecked(item->getItem() == app);
     }
 }
 
 void DefCategoryWidget::slotEditMode(bool edit)
 {
     if (m_userMap.size() != 0) {
-        for (OptionWidget *item : m_userMap.values()) {
-            item->setDelete(edit);
+        for (auto it = m_valueMap.constBegin(); it != m_valueMap.constEnd(); ++it) {
+            it.key()->setDelete(edit);
         }
     }
 }
@@ -163,31 +143,20 @@ void DefCategoryWidget::setCategoryName(const QString &name)
     m_addWidget->setCategory(name);
 }
 
-void DefCategoryWidget::AppsItemChanged(const QList<QJsonObject> &list)
+void DefCategoryWidget::AppsItemChanged(const QList<App> &list)
 {
-    for (OptionWidget *item : m_mainMap.values()) {
-        m_userGroup->removeItem(item);
-        m_valueMap.remove(item);
-        item->deleteLater();
-    }
-    for (const QJsonObject item : list) {
-        addItem(item);
-    }
-    onDefaultAppSet(m_category->getDefault());
-}
-
-
-void DefCategoryWidget::UserItemChanged(const QList<QJsonObject> &list)
-{
-    for (OptionWidget *item : m_userMap.values()) {
-        m_userMap.remove(m_userMap.key(item));
-        m_valueMap.remove(item);
-        m_userGroup->removeItem(item);
-        item->deleteLater();
+    for (auto it = m_valueMap.constBegin(); it != m_valueMap.constEnd(); ++it) {
+        m_userGroup->removeItem(it.key());
+        it.key()->deleteLater();
     }
 
-    for (const QJsonObject item : list) {
-        addUserItem(item);
+    m_valueMap.clear();
+
+    for (const App& app : list) {
+        addItem(app);
     }
+
+    m_headWidget->setEditEnable(!m_userMap.isEmpty());
+
     onDefaultAppSet(m_category->getDefault());
 }

@@ -82,17 +82,19 @@ OptionWidget::OptionWidget(const bool state, QWidget *parent)
     setObjectName("OptionWidget");
 }
 
-void OptionWidget::setItem(const QJsonObject &item)
+void OptionWidget::setItem(const App &item)
 {
     m_CategoryItem = item;
 
-    if (item["Name"].toString().isEmpty()) {
-        m_displayName->setText(item["DisplayName"].toString());
+    if (item.Name.isEmpty()) {
+        m_displayName->setText(item.DisplayName);
     } else {
-        m_displayName->setText(item["Name"].toString());
+        m_displayName->setText(item.Name);
     }
 
-    const QIcon &icon = QIcon::fromTheme(item["Icon"].toString(), QIcon::fromTheme("application-x-desktop"));
+    m_userCheck = item.isUser;
+
+    const QIcon &icon = QIcon::fromTheme(item.Icon, QIcon::fromTheme("application-x-desktop"));
 
     const qreal ratio = qApp->devicePixelRatio();
 
@@ -104,8 +106,8 @@ void OptionWidget::setItem(const QJsonObject &item)
 
     m_optionIcon->setPixmap(pixmap);
 
-    m_execPath->setText(" ("+item["Exec"].toString()+ ")");
-    setAccessibleName(item["Id"].toString());
+    m_execPath->setText(" ("+ item.Exec + ")");
+    setAccessibleName(item.Id);
 }
 void OptionWidget::setDelete(const bool delchecked)     //删除
 {
@@ -125,36 +127,6 @@ void OptionWidget::setDelete(const bool delchecked)     //删除
 void OptionWidget::setMime(const QString &mime)
 {
     m_mime = mime;
-}
-
-void OptionWidget::setUserCheck(const bool check)
-{
-    m_userCheck = check;
-}
-
-const QString OptionWidget::id() const
-{
-    return m_CategoryItem["Id"].toString();
-}
-
-const QString OptionWidget::name() const
-{
-    return m_CategoryItem["Name"].toString();
-}
-
-const QString OptionWidget::displayName() const
-{
-    return m_displayName->text();
-}
-
-const QString OptionWidget::mime() const
-{
-    return m_mime;
-}
-
-const QString OptionWidget::exec() const
-{
-    return m_execPath->text();
 }
 
 bool OptionWidget::checked() const
