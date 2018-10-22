@@ -32,11 +32,6 @@ static const QList<NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtList
     NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep,
     NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk,
 };
-const QMap<QString, NetworkManager::WirelessSecuritySetting::KeyMgmt> SecretHotspotSection::KeyMgmtStrMap {
-    {tr("None"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone},
-    {tr("WEP 40/128-bit"), NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep},
-    {tr("WPA/WPA2 Personal"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk},
-};
 
 SecretHotspotSection::SecretHotspotSection(NetworkManager::WirelessSecuritySetting::Ptr wsSeting, QFrame *parent)
     : AbstractSection(parent),
@@ -45,6 +40,8 @@ SecretHotspotSection::SecretHotspotSection(NetworkManager::WirelessSecuritySetti
       m_currentKeyMgmt(NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone),
       m_wsSetting(wsSeting)
 {
+    initStrMaps();
+
     // init KeyMgmt
     const NetworkManager::WirelessSecuritySetting::KeyMgmt &keyMgmt = m_wsSetting->keyMgmt();
     m_currentKeyMgmt = (keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown) ?
@@ -94,6 +91,15 @@ void SecretHotspotSection::saveSettings()
     }
 
     m_wsSetting->setInitialized(true);
+}
+
+void SecretHotspotSection::initStrMaps()
+{
+    KeyMgmtStrMap = {
+        {tr("None"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone},
+        {tr("WEP 40/128-bit"), NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep},
+        {tr("WPA/WPA2 Personal"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk},
+    };
 }
 
 void SecretHotspotSection::initUI()

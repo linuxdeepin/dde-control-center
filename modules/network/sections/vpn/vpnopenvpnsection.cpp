@@ -27,20 +27,6 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-const QMap<QString, QString> VpnOpenVPNSection::AuthTypeStrMap {
-    {tr("Certificates (TLS)"), "tls"},
-    {tr("Password"), "password"},
-    {tr("Certificates with Password (TLS)"), "password-tls"},
-    {tr("Static Key"), "static-key"},
-};
-
-const QMap<QString, NetworkManager::Setting::SecretFlagType> VpnOpenVPNSection::PasswordFlagsStrMap {
-    //{"Saved", NetworkManager::Setting::AgentOwned},
-    {tr("Saved"), NetworkManager::Setting::SecretFlagType::None},
-    {tr("Ask"), NetworkManager::Setting::SecretFlagType::NotSaved},
-    {tr("Not Required"), NetworkManager::Setting::SecretFlagType::NotRequired}
-};
-
 VpnOpenVPNSection::VpnOpenVPNSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN"), parent),
       m_vpnSetting(vpnSetting),
@@ -51,6 +37,7 @@ VpnOpenVPNSection::VpnOpenVPNSection(NetworkManager::VpnSetting::Ptr vpnSetting,
     m_dataMap = vpnSetting->data();
     m_secretMap = vpnSetting->secrets();
 
+    initStrMaps();
     initUI();
     initConnection();
 
@@ -120,6 +107,23 @@ void VpnOpenVPNSection::saveSettings()
     m_vpnSetting->setSecrets(m_secretMap);
 
     m_vpnSetting->setInitialized(true);
+}
+
+void VpnOpenVPNSection::initStrMaps()
+{
+    AuthTypeStrMap = {
+        {tr("Certificates (TLS)"), "tls"},
+        {tr("Password"), "password"},
+        {tr("Certificates with Password (TLS)"), "password-tls"},
+        {tr("Static Key"), "static-key"},
+    };
+
+    PasswordFlagsStrMap = {
+        //{"Saved", NetworkManager::Setting::AgentOwned},
+        {tr("Saved"), NetworkManager::Setting::SecretFlagType::None},
+        {tr("Ask"), NetworkManager::Setting::SecretFlagType::NotSaved},
+        {tr("Not Required"), NetworkManager::Setting::SecretFlagType::NotRequired}
+    };
 }
 
 void VpnOpenVPNSection::initUI()

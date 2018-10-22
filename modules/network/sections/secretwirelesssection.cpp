@@ -33,12 +33,6 @@ static const QList<NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtList
     NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk,
     NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap
 };
-const QMap<QString, NetworkManager::WirelessSecuritySetting::KeyMgmt> SecretWirelessSection::KeyMgmtStrMap {
-    {tr("None"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone},
-    {tr("WEP 40/128-bit"), NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep},
-    {tr("WPA/WPA2 Personal"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk},
-    {tr("WPA/WPA2 Enterprise"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap}
-};
 
 SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySetting::Ptr wsSeting,
         NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent)
@@ -50,6 +44,8 @@ SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySet
       m_wsSetting(wsSeting),
       m_s8Setting(sSetting)
 {
+    initStrMaps();
+
     // init KeyMgmt
     const NetworkManager::WirelessSecuritySetting::KeyMgmt &keyMgmt = m_wsSetting->keyMgmt();
     m_currentKeyMgmt = (keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown) ?
@@ -96,6 +92,16 @@ void SecretWirelessSection::saveSettings()
     m_wsSetting->setInitialized(true);
 
     Secret8021xSection::saveSettings();
+}
+
+void SecretWirelessSection::initStrMaps()
+{
+    KeyMgmtStrMap = {
+        {tr("None"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone},
+        {tr("WEP 40/128-bit"), NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep},
+        {tr("WPA/WPA2 Personal"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk},
+        {tr("WPA/WPA2 Enterprise"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap}
+    };
 }
 
 void SecretWirelessSection::initUI()

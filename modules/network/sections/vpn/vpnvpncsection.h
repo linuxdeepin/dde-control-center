@@ -50,13 +50,14 @@ Q_SIGNALS:
     void requestPage(ContentWidget * const page) const;
 
 private:
+    void initStrMaps();
     void initUI();
     void initConnection();
     void onPasswordFlagsChanged(NetworkManager::Setting::SecretFlagType type);
     void onGroupPasswordFlagsChanged(NetworkManager::Setting::SecretFlagType type);
 
 private:
-    static const QMap<QString, NetworkManager::Setting::SecretFlagType> PasswordFlagsStrMap;
+    QMap<QString, NetworkManager::Setting::SecretFlagType> PasswordFlagsStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NetworkManager::Setting::SecretFlagType m_currentPasswordType;

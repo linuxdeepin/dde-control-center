@@ -46,12 +46,13 @@ Q_SIGNALS:
     void requestPage(ContentWidget * const page) const;
 
 private:
+    void initStrMaps();
     void initUI();
     void initConnection();
 
 private:
-    static const QMap<QString, QString> CipherStrMap;
-    static const QMap<QString, QString> HMACStrMap;
+    QMap<QString, QString> CipherStrMap;
+    QMap<QString, QString> HMACStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;

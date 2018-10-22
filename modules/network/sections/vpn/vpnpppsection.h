@@ -49,14 +49,15 @@ Q_SIGNALS:
     void requestPage(ContentWidget * const page) const;
 
 private:
+    void initStrMaps();
     void initUI();
     void initConnection();
     void onMppeEnableChanged(const bool checked);
     void onMppeMethodChanged(const QString &method);
 
 private:
-    static const QMap<QString, QString> MppeMethodStrMap;
-    static const QMap<QString, QString> OptionsStrMap;
+    QMap<QString, QString> MppeMethodStrMap;
+    QMap<QString, QString> OptionsStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;

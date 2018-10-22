@@ -51,6 +51,7 @@ Q_SIGNALS:
     void authTypeChanged(const QString &type) const;
 
 private:
+    void initStrMaps();
     void initUI();
     void initItems(const QString &type);
     void initTLSItems();
@@ -67,8 +68,8 @@ private:
     void saveStaticKeyItems();
 
 private:
-    static const QMap<QString, QString> AuthTypeStrMap;
-    static const QMap<QString, NetworkManager::Setting::SecretFlagType> PasswordFlagsStrMap;
+    QMap<QString, QString> AuthTypeStrMap;
+    QMap<QString, NetworkManager::Setting::SecretFlagType> PasswordFlagsStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;

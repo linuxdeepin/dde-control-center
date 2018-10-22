@@ -25,12 +25,6 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-const QMap<QString, QString> VpnTLSSection::RemoteCertTypeStrMap {
-    {tr("Default"), "default"},
-    {tr("Client"), "client"},
-    {tr("Server"), "server"},
-};
-
 VpnTLSSection::VpnTLSSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN TLS Authentication"), parent),
       m_vpnSetting(vpnSetting),
@@ -42,6 +36,7 @@ VpnTLSSection::VpnTLSSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame 
 {
     m_dataMap = vpnSetting->data();
 
+    initStrMaps();
     initUI();
     initConnection();
 }
@@ -76,6 +71,15 @@ void VpnTLSSection::saveSettings()
     m_vpnSetting->setData(m_dataMap);
 
     m_vpnSetting->setInitialized(true);
+}
+
+void VpnTLSSection::initStrMaps()
+{
+    RemoteCertTypeStrMap = {
+        {tr("Default"), "default"},
+        {tr("Client"), "client"},
+        {tr("Server"), "server"},
+    };
 }
 
 void VpnTLSSection::initUI()

@@ -25,14 +25,6 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-const QMap<QString, QString> VpnStrongSwanSection::AuthTypeStrMap {
-    {tr("Private Key"), "key"},
-    {tr("SSH Agent"), "agent"},
-    {tr("Smartcard"), "smartcard"},
-    {tr("EAP"), "eap"},
-    {tr("Pre-Shared Key"), "psk"},
-};
-
 VpnStrongSwanSection::VpnStrongSwanSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN"), parent),
       m_vpnSetting(vpnSetting),
@@ -55,6 +47,7 @@ VpnStrongSwanSection::VpnStrongSwanSection(NetworkManager::VpnSetting::Ptr vpnSe
     m_dataMap = vpnSetting->data();
     m_secretMap = vpnSetting->secrets();
 
+    initStrMaps();
     initUI();
     initConnection();
 
@@ -141,6 +134,17 @@ void VpnStrongSwanSection::saveSettings()
     m_vpnSetting->setSecrets(m_secretMap);
 
     m_vpnSetting->setInitialized(true);
+}
+
+void VpnStrongSwanSection::initStrMaps()
+{
+    AuthTypeStrMap = {
+        {tr("Private Key"), "key"},
+        {tr("SSH Agent"), "agent"},
+        {tr("Smartcard"), "smartcard"},
+        {tr("EAP"), "eap"},
+        {tr("Pre-Shared Key"), "psk"},
+    };
 }
 
 void VpnStrongSwanSection::initUI()

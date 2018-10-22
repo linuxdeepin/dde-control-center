@@ -27,26 +27,6 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-const QMap<QString, QString> VpnPPPSection::MppeMethodStrMap {
-    {tr("All Available (default)"), "require-mppe"},
-    {tr("40-bit (less secure)"), "require-mppe-40"},
-    {tr("128-bit (most secure)"), "require-mppe-128"}
-};
-
-const QMap<QString, QString> VpnPPPSection::OptionsStrMap {
-    {tr("Refuse EAP Authentication"), "refuse-eap"},
-    {tr("Refuse PAP Authentication"), "refuse-pap"},
-    {tr("Refuse CHAP Authentication"), "refuse-chap"},
-    {tr("Refuse MSCHAP Authentication"), "refuse-mschap"},
-    {tr("Refuse MSCHAPv2 Authentication"), "refuse-mschapv2"},
-    {tr("No BSD Data Compression"), "nobsdcomp"},
-    {tr("No Deflate Data Compression"), "nodeflate"},
-    {tr("No TCP Header Compression"), "no-vj-comp"},
-    {tr("No Protocol Field Compression"), "nopcomp"},
-    {tr("No Address/Control Compression"), "noaccomp"},
-    {tr("Send PPP Echo Packets"), "lcp-echo-interval"}
-};
-
 VpnPPPSection::VpnPPPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN PPP"), parent),
       m_vpnSetting(vpnSetting),
@@ -55,6 +35,8 @@ VpnPPPSection::VpnPPPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame 
       m_mppeStateful(new SwitchWidget(this))
 {
     m_dataMap = vpnSetting->data();
+
+    initStrMaps();
 
     m_currentMppeMethod = "require-mppe";
     bool mppeEnable = false;
@@ -145,6 +127,29 @@ void VpnPPPSection::setSupportOptions(const QStringList &supportOptions)
             qDebug() << "Unsupport mppe option:" << option;
         }
     }
+}
+
+void VpnPPPSection::initStrMaps()
+{
+    MppeMethodStrMap = {
+        {tr("All Available (default)"), "require-mppe"},
+        {tr("40-bit (less secure)"), "require-mppe-40"},
+        {tr("128-bit (most secure)"), "require-mppe-128"}
+    };
+
+    OptionsStrMap = {
+        {tr("Refuse EAP Authentication"), "refuse-eap"},
+        {tr("Refuse PAP Authentication"), "refuse-pap"},
+        {tr("Refuse CHAP Authentication"), "refuse-chap"},
+        {tr("Refuse MSCHAP Authentication"), "refuse-mschap"},
+        {tr("Refuse MSCHAPv2 Authentication"), "refuse-mschapv2"},
+        {tr("No BSD Data Compression"), "nobsdcomp"},
+        {tr("No Deflate Data Compression"), "nodeflate"},
+        {tr("No TCP Header Compression"), "no-vj-comp"},
+        {tr("No Protocol Field Compression"), "nopcomp"},
+        {tr("No Address/Control Compression"), "noaccomp"},
+        {tr("Send PPP Echo Packets"), "lcp-echo-interval"}
+    };
 }
 
 void VpnPPPSection::initUI()

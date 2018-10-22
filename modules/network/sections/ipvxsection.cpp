@@ -28,17 +28,6 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-const QMap<QString, NetworkManager::Ipv4Setting::ConfigMethod> IpvxSection::Ipv4ConfigMethodStrMap {
-    {tr("Auto"), NetworkManager::Ipv4Setting::ConfigMethod::Automatic},
-    {tr("Manual"), NetworkManager::Ipv4Setting::ConfigMethod::Manual}
-};
-
-const QMap<QString, NetworkManager::Ipv6Setting::ConfigMethod> IpvxSection::Ipv6ConfigMethodStrMap {
-    {tr("Auto"), NetworkManager::Ipv6Setting::ConfigMethod::Automatic},
-    {tr("Manual"), NetworkManager::Ipv6Setting::ConfigMethod::Manual},
-    {tr("Ignore"), NetworkManager::Ipv6Setting::ConfigMethod::Ignored}
-};
-
 IpvxSection::IpvxSection(NetworkManager::Ipv4Setting::Ptr ipv4Setting, QFrame *parent)
     : AbstractSection(tr("IPv4"), parent),
       m_methodChooser(new ComboBoxWidget(this)),
@@ -52,7 +41,7 @@ IpvxSection::IpvxSection(NetworkManager::Ipv4Setting::Ptr ipv4Setting, QFrame *p
       m_currentIpvx(Ipv4),
       m_ipvxSetting(ipv4Setting)
 {
-
+    initStrMaps();
     initUI();
     initConnection();
 
@@ -72,6 +61,7 @@ IpvxSection::IpvxSection(NetworkManager::Ipv6Setting::Ptr ipv6Setting, QFrame *p
       m_currentIpvx(Ipv6),
       m_ipvxSetting(ipv6Setting)
 {
+    initStrMaps();
     initUI();
     initConnection();
 
@@ -196,6 +186,20 @@ void IpvxSection::setIpv6ConfigMethodEnable(NetworkManager::Ipv6Setting::ConfigM
 void IpvxSection::setNeverDefaultEnable(const bool neverDefault)
 {
     m_neverDefault->setVisible(neverDefault);
+}
+
+void IpvxSection::initStrMaps()
+{
+    Ipv4ConfigMethodStrMap = {
+        {tr("Auto"), NetworkManager::Ipv4Setting::ConfigMethod::Automatic},
+        {tr("Manual"), NetworkManager::Ipv4Setting::ConfigMethod::Manual}
+    };
+
+    Ipv6ConfigMethodStrMap = {
+        {tr("Auto"), NetworkManager::Ipv6Setting::ConfigMethod::Automatic},
+        {tr("Manual"), NetworkManager::Ipv6Setting::ConfigMethod::Manual},
+        {tr("Ignore"), NetworkManager::Ipv6Setting::ConfigMethod::Ignored}
+    };
 }
 
 void IpvxSection::initUI()

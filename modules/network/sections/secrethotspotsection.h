@@ -46,13 +46,14 @@ Q_SIGNALS:
     void requestPage(ContentWidget * const page) const;
 
 private:
+    void initStrMaps();
     void initUI();
     void initConnection();
     void onKeyMgmtChanged(NetworkManager::WirelessSecuritySetting::KeyMgmt);
     void saveUserInputPassword();
 
 private:
-    static const QMap<QString, NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtStrMap;
+    QMap<QString, NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtStrMap;
 
     dcc::widgets::ComboBoxWidget *m_keyMgmtChooser;
     dcc::widgets::PasswdEditWidget *m_passwdEdit;

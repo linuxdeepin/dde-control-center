@@ -50,13 +50,14 @@ Q_SIGNALS:
     void requestPage(ContentWidget * const page) const;
 
 private:
+    void initStrMaps();
     void initUI();
     void initConnection();
     void onAuthTypeChanged(const QString type);
     void onCustomCipherEnableChanged(const bool enabled);
 
 private:
-    static const QMap<QString, QString> AuthTypeStrMap;
+    QMap<QString, QString> AuthTypeStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;

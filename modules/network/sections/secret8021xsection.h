@@ -76,6 +76,7 @@ protected:
     void init(Secret8021xEnableWatcher *watcher, QList<NetworkManager::Security8021xSetting::EapMethod> eapMethodsSupportList);
 
 private:
+    void initStrMaps();
     void initUI();
     void initConnection();
     void initEapItems(NetworkManager::Security8021xSetting::EapMethod method);
@@ -103,13 +104,13 @@ private:
     void savePeapItems();
 
 private:
-    static const QMap<QString, NetworkManager::Security8021xSetting::EapMethod> EapMethodStrMap;
-    static const QMap<QString, NetworkManager::Setting::SecretFlagType> PasswordFlagsStrMap;
-    static const QMap<QString, NetworkManager::Security8021xSetting::FastProvisioning> FastrProvisioningStrMap;
-    static const QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapFast;
-    static const QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapTtls;
-    static const QMap<QString, NetworkManager::Security8021xSetting::PeapVersion> PeapVersionStrMap;
-    static const QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapPeap;
+    QMap<QString, NetworkManager::Security8021xSetting::EapMethod> EapMethodStrMap;
+    QMap<QString, NetworkManager::Setting::SecretFlagType> PasswordFlagsStrMap;
+    QMap<QString, NetworkManager::Security8021xSetting::FastProvisioning> FastrProvisioningStrMap;
+    QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapFast;
+    QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapTtls;
+    QMap<QString, NetworkManager::Security8021xSetting::PeapVersion> PeapVersionStrMap;
+    QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapPeap;
 
     dcc::widgets::ComboBoxWidget *m_eapMethmodChooser;
     dcc::widgets::ComboBoxWidget *m_passwordFlagsChooser;

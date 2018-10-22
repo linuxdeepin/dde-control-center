@@ -27,34 +27,6 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-const QMap<QString, QString> VpnAdvVPNCSection::VendorStrMap {
-    {tr("Cisco (default)"), "cisco"},
-    {tr("Netscreen"), "netscreen"},
-};
-const QMap<QString, QString> VpnAdvVPNCSection::EncryptionStrMap {
-    {tr("Secure (default)"), "secure"},
-    {tr("Weak"), "weak"},
-    {tr("None"), "none"},
-};
-const QMap<QString, QString> VpnAdvVPNCSection::NATTravModeStrMap {
-    {tr("NAT-T When Available (default)"), "natt"},
-    {tr("NAT-T Always"), "force-natt"},
-    {tr("Cisco UDP"), "cisco-udp"},
-    {tr("Disabled"), "none"},
-};
-const QMap<QString, QString> VpnAdvVPNCSection::IKEDHGroupStrMap {
-    {tr("DH Group 1"), "dh1"},
-    {tr("DH Group 2 (default)"), "dh2"},
-    {tr("DH Group 5"), "dh5"},
-};
-const QMap<QString, QString> VpnAdvVPNCSection::ForwardSecrecyStrMap {
-    {tr("Server (default)"), "server"},
-    {tr("None"), "nopfs"},
-    {tr("DH Group 1"), "dh1"},
-    {tr("DH Group 2"), "dh2"},
-    {tr("DH Group 5"), "dh5"},
-};
-
 VpnAdvVPNCSection::VpnAdvVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN Advanced"), parent),
       m_vpnSetting(vpnSetting),
@@ -74,6 +46,8 @@ VpnAdvVPNCSection::VpnAdvVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting,
       m_currentForwordSecrecy("server")
 {
     m_dataMap = vpnSetting->data();
+
+    initStrMaps();
 
     // init chooser current values
     for (auto vendor : VendorStrMap.values()) {
@@ -158,6 +132,37 @@ void VpnAdvVPNCSection::saveSettings()
     m_vpnSetting->setData(m_dataMap);
 
     m_vpnSetting->setInitialized(true);
+}
+
+void VpnAdvVPNCSection::initStrMaps()
+{
+    VendorStrMap = {
+        {tr("Cisco (default)"), "cisco"},
+        {tr("Netscreen"), "netscreen"},
+    };
+    EncryptionStrMap = {
+        {tr("Secure (default)"), "secure"},
+        {tr("Weak"), "weak"},
+        {tr("None"), "none"},
+    };
+    NATTravModeStrMap = {
+        {tr("NAT-T When Available (default)"), "natt"},
+        {tr("NAT-T Always"), "force-natt"},
+        {tr("Cisco UDP"), "cisco-udp"},
+        {tr("Disabled"), "none"},
+    };
+    IKEDHGroupStrMap = {
+        {tr("DH Group 1"), "dh1"},
+        {tr("DH Group 2 (default)"), "dh2"},
+        {tr("DH Group 5"), "dh5"},
+    };
+    ForwardSecrecyStrMap = {
+        {tr("Server (default)"), "server"},
+        {tr("None"), "nopfs"},
+        {tr("DH Group 1"), "dh1"},
+        {tr("DH Group 2"), "dh2"},
+        {tr("DH Group 5"), "dh5"},
+    };
 }
 
 void VpnAdvVPNCSection::initUI()

@@ -25,13 +25,6 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-const QMap<QString, NetworkManager::Setting::SecretFlagType> VpnVPNCSection::PasswordFlagsStrMap {
-    //{"Saved", NetworkManager::Setting::AgentOwned},
-    {tr("Saved"), NetworkManager::Setting::SecretFlagType::None},
-    {tr("Ask"), NetworkManager::Setting::SecretFlagType::NotSaved},
-    {tr("Not Required"), NetworkManager::Setting::SecretFlagType::NotRequired}
-};
-
 VpnVPNCSection::VpnVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN"), parent),
       m_vpnSetting(vpnSetting),
@@ -47,6 +40,8 @@ VpnVPNCSection::VpnVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFram
 {
     m_dataMap = vpnSetting->data();
     m_secretMap = vpnSetting->secrets();
+
+    initStrMaps();
 
     m_currentPasswordType = (NetworkManager::Setting::SecretFlagType)m_dataMap
         .value("Xauth password-flags", "0").toInt();
@@ -155,6 +150,16 @@ void VpnVPNCSection::saveSettings()
     m_vpnSetting->setSecrets(m_secretMap);
 
     m_vpnSetting->setInitialized(true);
+}
+
+void VpnVPNCSection::initStrMaps()
+{
+    PasswordFlagsStrMap = {
+        //{"Saved", NetworkManager::Setting::AgentOwned},
+        {tr("Saved"), NetworkManager::Setting::SecretFlagType::None},
+        {tr("Ask"), NetworkManager::Setting::SecretFlagType::NotSaved},
+        {tr("Not Required"), NetworkManager::Setting::SecretFlagType::NotRequired}
+    };
 }
 
 void VpnVPNCSection::initUI()

@@ -47,12 +47,13 @@ Q_SIGNALS:
     void requestPage(ContentWidget * const page) const;
 
 private:
+    void initStrMaps();
     void initUI();
     void initConnection();
     void onMppeEnableChanged(const bool checked);
 
 private:
-    static const QMap<QString, QString> OptionsStrMap;
+    QMap<QString, QString> OptionsStrMap;
 
     NetworkManager::PppSetting::Ptr m_pppSetting;
 

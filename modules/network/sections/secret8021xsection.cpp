@@ -27,53 +27,6 @@ using namespace dcc::network;
 using namespace NetworkManager;
 using namespace dcc::widgets;
 
-const QMap<QString, NetworkManager::Security8021xSetting::EapMethod> Secret8021xSection::EapMethodStrMap {
-    {tr("TLS"), NetworkManager::Security8021xSetting::EapMethodTls},
-    {tr("MD5"), NetworkManager::Security8021xSetting::EapMethodMd5},
-    {tr("LEAP"), NetworkManager::Security8021xSetting::EapMethodLeap},
-    {tr("FAST"), NetworkManager::Security8021xSetting::EapMethodFast},
-    {tr("Tunneled TLS"), NetworkManager::Security8021xSetting::EapMethodTtls},
-    {tr("Protected EAP"), NetworkManager::Security8021xSetting::EapMethodPeap}
-};
-
-const QMap<QString, NetworkManager::Setting::SecretFlagType> Secret8021xSection::PasswordFlagsStrMap {
-    //{tr("Saved"), NetworkManager::Setting::AgentOwned},
-    {tr("Saved"), NetworkManager::Setting::None},
-    {tr("Ask"), NetworkManager::Setting::NotSaved},
-    {tr("Not Required"), NetworkManager::Setting::NotRequired}
-};
-
-const QMap<QString, NetworkManager::Security8021xSetting::FastProvisioning> Secret8021xSection::FastrProvisioningStrMap {
-    {tr("Disabled"), NetworkManager::Security8021xSetting::FastProvisioningDisabled},
-    {tr("Anonymous"), NetworkManager::Security8021xSetting::FastProvisioningAllowUnauthenticated},
-    {tr("Authenticated"), NetworkManager::Security8021xSetting::FastProvisioningAllowAuthenticated},
-    {tr("Both"), NetworkManager::Security8021xSetting::FastProvisioningAllowBoth}
-};
-
-const QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> Secret8021xSection::AuthMethodStrMapFast {
-    {"GTC", NetworkManager::Security8021xSetting::AuthMethodGtc},
-    {"MSCHAPV2", NetworkManager::Security8021xSetting::AuthMethodMschapv2}
-};
-
-const QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> Secret8021xSection::AuthMethodStrMapTtls {
-    {"PAP", NetworkManager::Security8021xSetting::AuthMethodPap},
-    {"MSCHAP", NetworkManager::Security8021xSetting::AuthMethodMschap},
-    {"MSCHAPV2", NetworkManager::Security8021xSetting::AuthMethodMschapv2},
-    {"CHAP", NetworkManager::Security8021xSetting::AuthMethodChap}
-};
-
-const QMap<QString, NetworkManager::Security8021xSetting::PeapVersion> Secret8021xSection::PeapVersionStrMap {
-    {tr("Automatic"), NetworkManager::Security8021xSetting::PeapVersionUnknown},
-    {tr("Version 0"), NetworkManager::Security8021xSetting::PeapVersionZero},
-    {tr("Version 1"), NetworkManager::Security8021xSetting::PeapVersionOne}
-};
-
-const QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> Secret8021xSection::AuthMethodStrMapPeap {
-    {"GTC", NetworkManager::Security8021xSetting::AuthMethodGtc},
-    {"MD5", NetworkManager::Security8021xSetting::AuthMethodMd5},
-    {"MSCHAPV2", NetworkManager::Security8021xSetting::AuthMethodMschapv2}
-};
-
 Secret8021xSection::Secret8021xSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent)
     : AbstractSection(tr("Security"), parent),
       m_eapMethmodChooser(new ComboBoxWidget(this)),
@@ -84,6 +37,8 @@ Secret8021xSection::Secret8021xSection(NetworkManager::Security8021xSetting::Ptr
       m_currentPasswordType(NetworkManager::Setting::None),
       m_secretSetting(sSetting)
 {
+    initStrMaps();
+
     // init eapMethod
     const QList<NetworkManager::Security8021xSetting::EapMethod> &eapMethods = m_secretSetting->eapMethods();
     m_currentEapMethod = eapMethods.isEmpty() ? NetworkManager::Security8021xSetting::EapMethodTls : eapMethods.first();
@@ -190,6 +145,56 @@ void Secret8021xSection::init(Secret8021xEnableWatcher *watcher,
     onSecretEnableChanged(m_enableWatcher->secretEnabled());
     onEapMethodChanged(m_currentEapMethod);
     onPasswordFlagsChanged(m_currentPasswordType);
+}
+
+void Secret8021xSection::initStrMaps()
+{
+    EapMethodStrMap = {
+        {tr("TLS"), NetworkManager::Security8021xSetting::EapMethodTls},
+        {tr("MD5"), NetworkManager::Security8021xSetting::EapMethodMd5},
+        {tr("LEAP"), NetworkManager::Security8021xSetting::EapMethodLeap},
+        {tr("FAST"), NetworkManager::Security8021xSetting::EapMethodFast},
+        {tr("Tunneled TLS"), NetworkManager::Security8021xSetting::EapMethodTtls},
+        {tr("Protected EAP"), NetworkManager::Security8021xSetting::EapMethodPeap}
+    };
+
+    PasswordFlagsStrMap = {
+        //{tr("Saved"), NetworkManager::Setting::AgentOwned},
+        {tr("Saved"), NetworkManager::Setting::None},
+        {tr("Ask"), NetworkManager::Setting::NotSaved},
+        {tr("Not Required"), NetworkManager::Setting::NotRequired}
+    };
+
+    FastrProvisioningStrMap = {
+        {tr("Disabled"), NetworkManager::Security8021xSetting::FastProvisioningDisabled},
+        {tr("Anonymous"), NetworkManager::Security8021xSetting::FastProvisioningAllowUnauthenticated},
+        {tr("Authenticated"), NetworkManager::Security8021xSetting::FastProvisioningAllowAuthenticated},
+        {tr("Both"), NetworkManager::Security8021xSetting::FastProvisioningAllowBoth}
+    };
+
+    AuthMethodStrMapFast = {
+        {"GTC", NetworkManager::Security8021xSetting::AuthMethodGtc},
+        {"MSCHAPV2", NetworkManager::Security8021xSetting::AuthMethodMschapv2}
+    };
+
+    AuthMethodStrMapTtls = {
+        {"PAP", NetworkManager::Security8021xSetting::AuthMethodPap},
+        {"MSCHAP", NetworkManager::Security8021xSetting::AuthMethodMschap},
+        {"MSCHAPV2", NetworkManager::Security8021xSetting::AuthMethodMschapv2},
+        {"CHAP", NetworkManager::Security8021xSetting::AuthMethodChap}
+    };
+
+    PeapVersionStrMap = {
+        {tr("Automatic"), NetworkManager::Security8021xSetting::PeapVersionUnknown},
+        {tr("Version 0"), NetworkManager::Security8021xSetting::PeapVersionZero},
+        {tr("Version 1"), NetworkManager::Security8021xSetting::PeapVersionOne}
+    };
+
+    AuthMethodStrMapPeap = {
+        {"GTC", NetworkManager::Security8021xSetting::AuthMethodGtc},
+        {"MD5", NetworkManager::Security8021xSetting::AuthMethodMd5},
+        {"MSCHAPV2", NetworkManager::Security8021xSetting::AuthMethodMschapv2}
+    };
 }
 
 void Secret8021xSection::initUI()

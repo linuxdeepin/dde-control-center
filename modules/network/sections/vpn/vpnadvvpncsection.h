@@ -49,15 +49,16 @@ Q_SIGNALS:
     void requestPage(ContentWidget * const page) const;
 
 private:
+    void initStrMaps();
     void initUI();
     void initConnection();
 
 private:
-    static const QMap<QString, QString> VendorStrMap;
-    static const QMap<QString, QString> EncryptionStrMap;
-    static const QMap<QString, QString> NATTravModeStrMap;
-    static const QMap<QString, QString> IKEDHGroupStrMap;
-    static const QMap<QString, QString> ForwardSecrecyStrMap;
+    QMap<QString, QString> VendorStrMap;
+    QMap<QString, QString> EncryptionStrMap;
+    QMap<QString, QString> NATTravModeStrMap;
+    QMap<QString, QString> IKEDHGroupStrMap;
+    QMap<QString, QString> ForwardSecrecyStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;

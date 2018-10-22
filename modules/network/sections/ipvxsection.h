@@ -59,6 +59,7 @@ Q_SIGNALS:
     void requestPage(ContentWidget * const page) const;
 
 private:
+    void initStrMaps();
     void initUI();
     void initForIpv4();
     void initForIpv6();
@@ -75,8 +76,8 @@ private:
     QList<QHostAddress> dnsList();
 
 private:
-    static const QMap<QString, NetworkManager::Ipv4Setting::ConfigMethod> Ipv4ConfigMethodStrMap;
-    static const QMap<QString, NetworkManager::Ipv6Setting::ConfigMethod> Ipv6ConfigMethodStrMap;
+    QMap<QString, NetworkManager::Ipv4Setting::ConfigMethod> Ipv4ConfigMethodStrMap;
+    QMap<QString, NetworkManager::Ipv6Setting::ConfigMethod> Ipv6ConfigMethodStrMap;
 
     dcc::widgets::ComboBoxWidget *m_methodChooser;
     dcc::widgets::LineEditWidget *m_ipAddress;

@@ -27,12 +27,6 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-const QMap<QString, QString> VpnProxySection::ProxyTypeStrMap {
-    {tr("Not Required"), "none"},
-    {tr("HTTP"), "http"},
-    {tr("SOCKS"), "socks"},
-};
-
 VpnProxySection::VpnProxySection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN Proxies"), parent),
       m_vpnSetting(vpnSetting),
@@ -46,6 +40,7 @@ VpnProxySection::VpnProxySection(NetworkManager::VpnSetting::Ptr vpnSetting, QFr
     m_dataMap = vpnSetting->data();
     m_secretMap = vpnSetting->secrets();
 
+    initStrMaps();
     initUI();
     initConnection();
 
@@ -132,6 +127,15 @@ void VpnProxySection::saveSettings()
     m_vpnSetting->setSecrets(m_secretMap);
 
     m_vpnSetting->setInitialized(true);
+}
+
+void VpnProxySection::initStrMaps()
+{
+    ProxyTypeStrMap = {
+        {tr("Not Required"), "none"},
+        {tr("HTTP"), "http"},
+        {tr("SOCKS"), "socks"},
+    };
 }
 
 void VpnProxySection::initUI()

@@ -49,11 +49,12 @@ Q_SIGNALS:
     void requestPage(ContentWidget * const page) const;
 
 private:
+    void initStrMaps();
     void initUI();
     void initConnection();
 
 private:
-    static const QMap<QString, QString> RemoteCertTypeStrMap;
+    QMap<QString, QString> RemoteCertTypeStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;

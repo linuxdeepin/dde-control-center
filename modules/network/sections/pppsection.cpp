@@ -27,20 +27,6 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-const QMap<QString, QString> PPPSection::OptionsStrMap {
-    {tr("Refuse EAP Authentication"), "refuse-eap"},
-    {tr("Refuse PAP Authentication"), "refuse-pap"},
-    {tr("Refuse CHAP Authentication"), "refuse-chap"},
-    {tr("Refuse MSCHAP Authentication"), "refuse-mschap"},
-    {tr("Refuse MSCHAPv2 Authentication"), "refuse-mschapv2"},
-    {tr("No BSD Data Compression"), "nobsdcomp"},
-    {tr("No Deflate Data Compression"), "nodeflate"},
-    {tr("No TCP Header Compression"), "no-vj-comp"},
-    {tr("No Protocol Field Compression"), "nopcomp"},
-    {tr("No Address/Control Compression"), "noaccomp"},
-    {tr("Send PPP Echo Packets"), "lcp-echo-interval"}
-};
-
 PPPSection::PPPSection(NetworkManager::PppSetting::Ptr pppSetting, QFrame *parent)
     : AbstractSection(tr("PPP"), parent),
       m_pppSetting(pppSetting),
@@ -57,6 +43,7 @@ PPPSection::PPPSection(NetworkManager::PppSetting::Ptr pppSetting, QFrame *paren
       m_noVJComp(new SwitchWidget(this)),
       m_lcpEchoInterval(new SwitchWidget(this))
 {
+    initStrMaps();
     initUI();
     initConnection();
 
@@ -91,6 +78,23 @@ void PPPSection::saveSettings()
     m_pppSetting->setLcpEchoFailure(m_lcpEchoInterval->checked() ? 5 : 0);
 }
 
+void PPPSection::initStrMaps()
+{
+    OptionsStrMap = {
+        {tr("Refuse EAP Authentication"), "refuse-eap"},
+        {tr("Refuse PAP Authentication"), "refuse-pap"},
+        {tr("Refuse CHAP Authentication"), "refuse-chap"},
+        {tr("Refuse MSCHAP Authentication"), "refuse-mschap"},
+        {tr("Refuse MSCHAPv2 Authentication"), "refuse-mschapv2"},
+        {tr("No BSD Data Compression"), "nobsdcomp"},
+        {tr("No Deflate Data Compression"), "nodeflate"},
+        {tr("No TCP Header Compression"), "no-vj-comp"},
+        {tr("No Protocol Field Compression"), "nopcomp"},
+        {tr("No Address/Control Compression"), "noaccomp"},
+        {tr("Send PPP Echo Packets"), "lcp-echo-interval"}
+    };
+}
+
 void PPPSection::initUI()
 {
     bool empty = m_pppSetting->toMap().isEmpty();
@@ -101,34 +105,34 @@ void PPPSection::initUI()
     m_mppe128->setTitle(tr("128-bit MPPE"));
     m_mppe128->setChecked(m_pppSetting->requireMppe128());
 
-    m_mppeStateful->setTitle("Stateful MPPE");
+    m_mppeStateful->setTitle(tr("Stateful MPPE"));
     m_mppeStateful->setChecked(m_pppSetting->mppeStateful());
 
-    m_refuseEAP->setTitle("Refuse EAP Authentication");
+    m_refuseEAP->setTitle(OptionsStrMap.key("refuse-eap"));
     m_refuseEAP->setChecked(m_pppSetting->refuseEap());
 
-    m_refusePAP->setTitle("Refuse PAP Authentication");
+    m_refusePAP->setTitle(OptionsStrMap.key("refuse-pap"));
     m_refusePAP->setChecked(m_pppSetting->refusePap());
 
-    m_refuseCHAP->setTitle("Refuse CHAP Authentication");
+    m_refuseCHAP->setTitle(OptionsStrMap.key("refuse-chap"));
     m_refuseCHAP->setChecked(m_pppSetting->refuseChap());
 
-    m_refuseMSCHAP->setTitle("Refuse MSCHAP Authentication");
+    m_refuseMSCHAP->setTitle(OptionsStrMap.key("refuse-mschap"));
     m_refuseMSCHAP->setChecked(m_pppSetting->refuseMschap());
 
-    m_refuseMSCHAP2->setTitle("Refuse MSCHAPv2 Authentication");
+    m_refuseMSCHAP2->setTitle(OptionsStrMap.key("refuse-mschapv2"));
     m_refuseMSCHAP2->setChecked(m_pppSetting->refuseMschapv2());
 
-    m_noBSDComp->setTitle("No BSD Data Compression");
+    m_noBSDComp->setTitle(OptionsStrMap.key("nobsdcomp"));
     m_noBSDComp->setChecked(m_pppSetting->noBsdComp());
 
-    m_noDeflate->setTitle("No Deflate Data Compressio");
+    m_noDeflate->setTitle(OptionsStrMap.key("nodeflate"));
     m_noDeflate->setChecked(m_pppSetting->noDeflate());
 
-    m_noVJComp->setTitle("No TCP Header Compression");
+    m_noVJComp->setTitle(OptionsStrMap.key("no-vj-comp"));
     m_noVJComp->setChecked(m_pppSetting->noVjComp());
 
-    m_lcpEchoInterval->setTitle("Send PPP Echo Packets");
+    m_lcpEchoInterval->setTitle(OptionsStrMap.key("lcp-echo-interval"));
     if (empty) {
         m_lcpEchoInterval->setChecked(true);
     } else {

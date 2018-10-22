@@ -50,12 +50,13 @@ Q_SIGNALS:
     void requestPage(ContentWidget * const page) const;
 
 private:
+    void initStrMaps();
     void initUI();
     void initConnection();
     void onProxyTypeChanged(const QString &type);
 
 private:
-    static const QMap<QString, QString> ProxyTypeStrMap;
+    QMap<QString, QString> ProxyTypeStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;

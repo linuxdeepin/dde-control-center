@@ -25,40 +25,6 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-const QMap<QString, QString> VpnSecOpenVPNSection::CipherStrMap {
-    {tr("Default"), "default"},
-    {tr("None"), "none"},
-    {"DES-CBC", "DES-CBC"},
-    {"RC2-CBC", "RC2-CBC"},
-    {"DES-EDE-CBC", "DES-EDE-CBC"},
-    {"DES-EDE3-CBC", "DES-EDE3-CBC"},
-    {"DESX-CBC", "DESX-CBC"},
-    {"BF-CBC", "BF-CBC"},
-    {"RC2-40-CBC", "RC2-40-CBC"},
-    {"CAST5-CBC", "CAST5-CBC"},
-    {"RC2-64-CBC", "RC2-64-CBC"},
-    {"AES-128-CBC", "AES-128-CBC"},
-    {"AES-192-CBC", "AES-192-CBC"},
-    {"AES-256-CBC", "AES-256-CBC"},
-    {"CAMELLIA-128-CBC", "CAMELLIA-128-CBC"},
-    {"CAMELLIA-192-CBC", "CAMELLIA-192-CBC"},
-    {"CAMELLIA-256-CBC", "CAMELLIA-256-CBC"},
-    {"SEED-CBC", "SEED-CBC"}
-};
-
-const QMap<QString, QString> VpnSecOpenVPNSection::HMACStrMap {
-    {tr("Default"), "default"},
-    {tr("None"), "none"},
-    {"RSA MD-4", "RSA-MD4"},
-    {"MD-5", "MD5"},
-    {"SHA-1", "SHA1"},
-    {"SHA-224", "SHA224"},
-    {"SHA-256", "SHA256"},
-    {"SHA-384", "SHA384"},
-    {"SHA-512", "SHA512"},
-    {"RIPEMD-160", "RIPEMD160"},
-};
-
 VpnSecOpenVPNSection::VpnSecOpenVPNSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN Security"), parent),
       m_vpnSetting(vpnSetting),
@@ -67,6 +33,7 @@ VpnSecOpenVPNSection::VpnSecOpenVPNSection(NetworkManager::VpnSetting::Ptr vpnSe
 {
     m_dataMap = vpnSetting->data();
 
+    initStrMaps();
     initUI();
     initConnection();
 }
@@ -100,6 +67,43 @@ void VpnSecOpenVPNSection::saveSettings()
     m_vpnSetting->setData(m_dataMap);
 
     m_vpnSetting->setInitialized(true);
+}
+
+void VpnSecOpenVPNSection::initStrMaps()
+{
+    CipherStrMap = {
+        {tr("Default"), "default"},
+        {tr("None"), "none"},
+        {"DES-CBC", "DES-CBC"},
+        {"RC2-CBC", "RC2-CBC"},
+        {"DES-EDE-CBC", "DES-EDE-CBC"},
+        {"DES-EDE3-CBC", "DES-EDE3-CBC"},
+        {"DESX-CBC", "DESX-CBC"},
+        {"BF-CBC", "BF-CBC"},
+        {"RC2-40-CBC", "RC2-40-CBC"},
+        {"CAST5-CBC", "CAST5-CBC"},
+        {"RC2-64-CBC", "RC2-64-CBC"},
+        {"AES-128-CBC", "AES-128-CBC"},
+        {"AES-192-CBC", "AES-192-CBC"},
+        {"AES-256-CBC", "AES-256-CBC"},
+        {"CAMELLIA-128-CBC", "CAMELLIA-128-CBC"},
+        {"CAMELLIA-192-CBC", "CAMELLIA-192-CBC"},
+        {"CAMELLIA-256-CBC", "CAMELLIA-256-CBC"},
+        {"SEED-CBC", "SEED-CBC"}
+    };
+
+    HMACStrMap = {
+        {tr("Default"), "default"},
+        {tr("None"), "none"},
+        {"RSA MD-4", "RSA-MD4"},
+        {"MD-5", "MD5"},
+        {"SHA-1", "SHA1"},
+        {"SHA-224", "SHA224"},
+        {"SHA-256", "SHA256"},
+        {"SHA-384", "SHA384"},
+        {"SHA-512", "SHA512"},
+        {"RIPEMD-160", "RIPEMD160"},
+    };
 }
 
 void VpnSecOpenVPNSection::initUI()
