@@ -458,6 +458,15 @@ void UpdateWorker::setOtherUpdate(const QString &jobPath)
             checkForUpdates();
             m_otherUpdateJob->deleteLater();
         }
+        else if (status == "failed")  {
+            // cleanup failed job
+            m_managerInter->CleanJob(m_otherUpdateJob->id());
+
+            checkDiskSpace(m_otherUpdateJob);
+
+            qWarning() << "other install job failed";
+            m_otherUpdateJob->deleteLater();
+        }
     });
 
     m_otherUpdateJob->StatusChanged(m_otherUpdateJob->status());
