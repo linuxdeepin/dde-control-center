@@ -45,7 +45,7 @@ ConnectionHotspotEditPage::~ConnectionHotspotEditPage()
 void ConnectionHotspotEditPage::initSettingsWidget()
 {
     // some special configurations for hotspot
-    m_connectionSettings->setId("hotspot");
+    m_connectionSettings->setId(tr("hotspot"));
     NetworkManager::Device::Ptr device = findNetworkInterface(m_devPath);
     if (device) {
         m_connectionSettings->setInterfaceName(device->interfaceName());
