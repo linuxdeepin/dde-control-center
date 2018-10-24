@@ -182,7 +182,7 @@ void VpnOpenVPNSection::initTLSItems()
     priKeyFile->edit()->setText(m_dataMap.value("key"));
 
     ComboBoxWidget *certPasswordFlagsChooser = new ComboBoxWidget(this);
-    certPasswordFlagsChooser->setTitle(tr("Ask for Pwd"));
+    certPasswordFlagsChooser->setTitle(tr("Pwd Options"));
     m_currentCertPasswordType = NetworkManager::Setting::SecretFlagType::None;
     for (auto flag : PasswordFlagsStrMap.values()) {
         if (flag == m_dataMap.value("cert-pass-flags").toInt()) {
@@ -227,7 +227,7 @@ void VpnOpenVPNSection::initPasswordItems()
     userName->setPlaceholderText(tr("Required"));
 
     ComboBoxWidget *passwordFlagsChooser = new ComboBoxWidget(this);
-    passwordFlagsChooser->setTitle(tr("Ask for Pwd"));
+    passwordFlagsChooser->setTitle(tr("Pwd Options"));
     m_currentPasswordType = NetworkManager::Setting::SecretFlagType::None;
     for (auto flag : PasswordFlagsStrMap.values()) {
         if (flag == m_dataMap.value("password-flags").toInt()) {

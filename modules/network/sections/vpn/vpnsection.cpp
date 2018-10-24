@@ -119,7 +119,7 @@ void VpnSection::initUI()
     m_userName->setPlaceholderText(tr("Required"));
     m_userName->setText(m_dataMap.value("user"));
 
-    m_passwordFlagsChooser->setTitle(tr("Ask for Pwd"));
+    m_passwordFlagsChooser->setTitle(tr("Pwd Options"));
     for (const QString &key : PasswordFlagsStrMap.keys()) {
         m_passwordFlagsChooser->appendOption(key, PasswordFlagsStrMap.value(key));
     }

@@ -215,7 +215,7 @@ void Secret8021xSection::initUI()
     m_identity->setText(m_secretSetting->identity());
     m_identity->setPlaceholderText(tr("Required"));
 
-    m_passwordFlagsChooser->setTitle(tr("Ask for Pwd"));
+    m_passwordFlagsChooser->setTitle(tr("Pwd Options"));
     for (const QString &key : PasswordFlagsStrMap.keys()) {
         m_passwordFlagsChooser->appendOption(key, PasswordFlagsStrMap.value(key));
     }

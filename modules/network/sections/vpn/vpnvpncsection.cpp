@@ -172,7 +172,7 @@ void VpnVPNCSection::initUI()
     m_userName->setPlaceholderText(tr("Required"));
     m_userName->setText(m_dataMap.value("Xauth username"));
 
-    m_passwordFlagsChooser->setTitle(tr("Ask for Pwd"));
+    m_passwordFlagsChooser->setTitle(tr("Pwd Options"));
     for (const QString &key : PasswordFlagsStrMap.keys()) {
         m_passwordFlagsChooser->appendOption(key, PasswordFlagsStrMap.value(key));
     }
@@ -186,7 +186,7 @@ void VpnVPNCSection::initUI()
     m_groupName->setPlaceholderText(tr("Required"));
     m_groupName->setText(m_dataMap.value("IPSec ID"));
 
-    m_groupPasswordFlagsChooser->setTitle(tr("Ask for Pwd"));
+    m_groupPasswordFlagsChooser->setTitle(tr("Pwd Options"));
     for (const QString &key : PasswordFlagsStrMap.keys()) {
         m_groupPasswordFlagsChooser->appendOption(key, PasswordFlagsStrMap.value(key));
     }
