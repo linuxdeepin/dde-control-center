@@ -33,7 +33,6 @@ Depends: ${shlibs:Depends},
  dde-daemon,
  dde-api (>=2.92.1),
  libqt5multimedia5-plugins,
- gstreamer1.0-plugins-bad,
  xkb-data,
  deepin-installer-timezones,
  passwd
