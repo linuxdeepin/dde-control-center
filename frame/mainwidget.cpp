@@ -55,9 +55,9 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     , m_currentTimeLbl(new QLabel)
     , m_currentDateLbl(new QLabel)
     , m_pluginsLayout(new QStackedLayout)
-#ifndef DISABLE_SYS_UPDATE
     , m_navWidget(new NavWidget(this))
     , m_notifyWidget(new NotifyWidget(this))
+#ifndef DISABLE_SYS_UPDATE
     , m_updateNotifier(new UpdateNotifier)
 #endif
 {
