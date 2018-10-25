@@ -31,6 +31,10 @@ Depends: ${shlibs:Depends},
  dde-account-faces,
  dde-daemon,
  dde-api (>=2.92.1),
+<<<<<<< HEAD
+=======
+ libqt5multimedia5-plugins,
+>>>>>>> maintain/co/15.7
  xkb-data,
  deepin-installer-timezones,
  passwd

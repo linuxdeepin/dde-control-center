@@ -1,4 +1,34 @@
 <a name=""></a>
+##  4.6.4.10 (2018-10-24)
+
+
+#### Bug Fixes
+
+* **quick:**  missing disable bluetooth macro ([25335239](https://github.com/linuxdeepin/dde-control-center/commit/25335239f2afb3433defbfc9706b5a9762557c84))
+
+
+
+<a name=""></a>
+##  4.6.4.9 (2018-10-12)
+
+
+#### Features
+
+* **power:**  disable powersave for sw and mips64 ([8c45fd74](https://github.com/linuxdeepin/dde-control-center/commit/8c45fd74e81f74165672e5f3a6892a5640d6760e))
+
+
+
+<a name=""></a>
+##  4.6.4.8 (2018-09-27)
+
+
+#### Features
+
+*   merge operations in a short time for quick control panel ([f354796d](https://github.com/linuxdeepin/dde-control-center/commit/f354796d61cd7ae60c9a6404ead6a3494409faa9))
+
+
+
+<a name=""></a>
 ##  4.6.4.7 (2018-09-19)
 
 

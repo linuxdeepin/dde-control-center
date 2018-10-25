@@ -182,13 +182,8 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     onGSettingsChanged("outputVolumeMax");
 
     m_soundSlider->setOrientation(Qt::Horizontal);
-    m_soundSlider->setAccessibleName("SoundSlider");
     m_soundSlider->setFocusProxy(this);
     m_soundSlider->installEventFilter(this);
-    m_lightSlider->setOrientation(Qt::Horizontal);
-    m_lightSlider->setRange(0.2 * 100, 100);
-    m_lightSlider->setAccessibleName("LightSlider");
-    m_lightSlider->setTracking(true);
 
     m_mprisWidget = new DMPRISControl;
     m_mprisWidget->setPictureVisible(true);
@@ -227,7 +222,7 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     setLayout(mainLayout);
 
     auto onVolumeChanged = [this] (const double &volume) {
-        if (!m_model->mute()) {
+        if (!m_model->mute() && !m_scrollTimer->isActive()) {
             m_soundSlider->blockSignals(true);
             m_soundSlider->setValue(volume * 100);
             m_soundSlider->blockSignals(false);
@@ -235,9 +230,11 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     };
 
     auto onBrightnessChanged = [this] (const double &brightness) {
-        m_lightSlider->blockSignals(true);
-        m_lightSlider->setValue(brightness * 100);
-        m_lightSlider->blockSignals(false);
+        if (!m_scrollTimer->isActive()) {
+            m_lightSlider->blockSignals(true);
+            m_lightSlider->setValue(brightness * 100);
+            m_lightSlider->blockSignals(false);
+        }
     };
 
     connect(m_model, &BasicSettingsModel::muteChanged, this, &BasicSettingsPage::onMuteChanged);
@@ -247,7 +244,11 @@ BasicSettingsPage::BasicSettingsPage(QWidget *parent)
     connect(m_mprisWidget, &DMPRISControl::mprisLosted, this, &BasicSettingsPage::onMPRISChanged);
     connect(m_gsettings, &QGSettings::changed, this, &BasicSettingsPage::onGSettingsChanged);
     connect(m_soundSlider, &DCCSlider::valueChanged, m_worker, &BasicSettingsWorker::setVolume);
+    connect(m_soundSlider, &QSlider::valueChanged,
+            m_scrollTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
     connect(m_lightSlider, &QSlider::valueChanged, m_worker, &BasicSettingsWorker::setBrightness);
+    connect(m_lightSlider, &QSlider::valueChanged,
+            m_scrollTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
 
     onVolumeChanged(m_model->volume());
     onBrightnessChanged(m_model->brightness());
