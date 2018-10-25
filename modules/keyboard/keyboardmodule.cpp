@@ -235,13 +235,14 @@ void KeyboardModule::onPushConflict(ShortcutInfo *info, const QString &shortcut)
 {
     if (!m_scContent) {
         m_scContent = new ShortcutContent(m_shortcutModel);
-        m_scContent->setBottomTip(m_shortcutModel->getInfo(shortcut));
-        m_scContent->setInfo(info);
-        m_scContent->setShortcut(shortcut);
 
         connect(m_scContent, &ShortcutContent::requestSaveShortcut, m_work, &KeyboardWorker::modifyShortcutEdit);
         connect(m_scContent, &ShortcutContent::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
         connect(m_scContent, &ShortcutContent::requestDisableShortcut, m_work, &KeyboardWorker::onDisableShortcut);
+
+        m_scContent->setInfo(info);
+        m_scContent->setShortcut(shortcut);
+        m_scContent->setBottomTip(m_shortcutModel->getInfo(shortcut));
 
         m_frameProxy->pushWidget(this, m_scContent);
     }

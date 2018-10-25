@@ -38,6 +38,7 @@ ShortcutContent::ShortcutContent(ShortcutModel *model, QWidget *parent)
     : ContentWidget(parent)
     , m_model(model)
     , m_conflict(NULL)
+    , m_shortcutItem(new ShortcutItem)
     , m_buttonTuple(new ButtonTuple)
 {
     TranslucentFrame* widget = new TranslucentFrame();
@@ -46,9 +47,8 @@ ShortcutContent::ShortcutContent(ShortcutModel *model, QWidget *parent)
     layout->addSpacing(10);
 
     SettingsGroup* group = new SettingsGroup();
-    m_item = new TitleButtonItem();
-    m_item->setValue(tr("Please Reset Shortcut"));
-    group->appendItem(m_item);
+    m_shortcutItem->setShortcut(tr("Please Reset Shortcut"));
+    group->appendItem(m_shortcutItem);
     layout->addWidget(group);
 
     QPushButton *cancel = m_buttonTuple->leftButton();
@@ -69,13 +69,15 @@ ShortcutContent::ShortcutContent(ShortcutModel *model, QWidget *parent)
 
     connect(ok, &QPushButton::clicked, this, &ShortcutContent::onReplace);
     connect(cancel, &QPushButton::clicked, this, &ShortcutContent::back);
-    connect(m_item, &TitleButtonItem::click, this, &ShortcutContent::onUpdateKey);
+    connect(m_shortcutItem, &ShortcutItem::requestUpdateKey, this, &ShortcutContent::onUpdateKey);
     connect(model, &ShortcutModel::keyEvent, this, &ShortcutContent::keyEvent);
 }
 
 void ShortcutContent::setBottomTip(ShortcutInfo *conflict)
 {
     m_conflict = conflict;
+
+    m_info->replace = conflict;
 
     if(conflict)
     {
@@ -93,12 +95,13 @@ void ShortcutContent::setBottomTip(ShortcutInfo *conflict)
 void ShortcutContent::setInfo(ShortcutInfo *info)
 {
     m_info = info;
-    m_item->setTitle(info->name);
+    m_shortcutItem->setShortcutInfo(info);
 }
 
 void ShortcutContent::setShortcut(const QString &shortcut)
 {
     m_shortcut = shortcut;
+    m_shortcutItem->setShortcut(shortcut);
 }
 
 void ShortcutContent::keyEvent(bool press, const QString &shortcut)
@@ -116,14 +119,17 @@ void ShortcutContent::keyEvent(bool press, const QString &shortcut)
             return;
         }
 
+        m_shortcut = shortcut;
+
         // check conflict
         ShortcutInfo *info = m_model->getInfo(shortcut);
         if (info && info != m_info && info->accels != m_info->accels) {
+            m_shortcutItem->setShortcut(info->accels);
             setBottomTip(info);
             return;
         }
         setBottomTip(nullptr);
-        m_shortcut = shortcut;
+        m_shortcutItem->setShortcut(shortcut);
     }
 }
 

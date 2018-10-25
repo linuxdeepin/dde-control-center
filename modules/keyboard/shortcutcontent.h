@@ -41,7 +41,7 @@ namespace keyboard{
 class ShortcutModel;
 struct ShortcutInfo;
 class KeyboardControl;
-
+class ShortcutItem;
 class ShortcutContent  : public ContentWidget
 {
     Q_OBJECT
@@ -67,6 +67,7 @@ private:
     QLabel* m_bottomTip;
     ShortcutInfo* m_conflict;
     ShortcutInfo* m_info;
+    ShortcutItem *m_shortcutItem;
     dcc::widgets::ButtonTuple *m_buttonTuple;
     TitleButtonItem* m_item;
     QString m_shortcut;

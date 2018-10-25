@@ -167,6 +167,10 @@ void KeyboardWorker::modifyShortcutEdit(ShortcutInfo *info)
     if (!info)
         return;
 
+    if (info->replace) {
+        onDisableShortcut(info->replace);
+    }
+
     const QString &shortcut = info->accels;
     const QString &result = m_keybindInter->LookupConflictingShortcut(shortcut);
 
@@ -347,6 +351,7 @@ void KeyboardWorker::onDisableShortcut(ShortcutInfo *info)
 {
     // disable shortcut need wait!
     m_keybindInter->ClearShortcutKeystrokes(info->id, info->type).waitForFinished();
+    info->accels.clear();
 }
 
 void KeyboardWorker::onAddedFinished(QDBusPendingCallWatcher *watch)
