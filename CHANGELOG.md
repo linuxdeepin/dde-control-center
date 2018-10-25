@@ -1,4 +1,63 @@
 <a name=""></a>
+##  4.7.0 (2018-10-25)
+
+
+#### Features
+
+*   move notify toggle button 20px away from the right side ([331f7813](https://github.com/linuxdeepin/dde-control-center/commit/331f78135bbf2bb76d0b2152d7e4db11760d1caf))
+*   update opacity list ([a5946c60](https://github.com/linuxdeepin/dde-control-center/commit/a5946c604b03966f58fb3c1b7084a9bb13ec189c))
+*   change full screenshot position ([8dfbe50a](https://github.com/linuxdeepin/dde-control-center/commit/8dfbe50a9e4ec6c619455a14dab54d71c2e9f3bb))
+*   hide empty item for navigation ([9ecc8978](https://github.com/linuxdeepin/dde-control-center/commit/9ecc8978dd876a9600d4c8ded292db8ffcc56301))
+*   navigation add rectangular round angle ([39c56f6f](https://github.com/linuxdeepin/dde-control-center/commit/39c56f6fe08b7ada77ac2cd0b14901b4035a45c3))
+*   add notify toggle button ([91ced2de](https://github.com/linuxdeepin/dde-control-center/commit/91ced2def2f791a1e6b43e880eefdb332b028ff8))
+*   support change frame opacity ([650a151f](https://github.com/linuxdeepin/dde-control-center/commit/650a151fe980ca046fad42c0d970986606ce8acb))
+*   use new gpl chinese license ([a6a0d761](https://github.com/linuxdeepin/dde-control-center/commit/a6a0d761ca30479751227e08e62759854a798ff1))
+*   update license ([05637776](https://github.com/linuxdeepin/dde-control-center/commit/056377760a9ee7995ff42e5da650fba737d06376))
+*   update license ([2c53e92b](https://github.com/linuxdeepin/dde-control-center/commit/2c53e92bcb903084d709d2b2ef4657e92ca529f2))
+*   add end-user-license ([3a307825](https://github.com/linuxdeepin/dde-control-center/commit/3a3078252b483c23d624fd05a1002e007ec128b5))
+* **brightness:**  ambient light sensor support ([d9011601](https://github.com/linuxdeepin/dde-control-center/commit/d9011601d6cced649e35fed813f89ae5c92306d8))
+* **display:**
+  *  support save tmp display config ([73d7d938](https://github.com/linuxdeepin/dde-control-center/commit/73d7d938ae6884c95ea5ede150c66ad572425bf0))
+  *  add display control listview ([8a72fc8f](https://github.com/linuxdeepin/dde-control-center/commit/8a72fc8f88cb36bedc8dc93c8112ec24377ca268))
+* **personalization:**
+  *  change opacity range ([458385f0](https://github.com/linuxdeepin/dde-control-center/commit/458385f0ac166ae687873672f8cb9dbf23d18884))
+  *  support set frame transparent ([a94b8f08](https://github.com/linuxdeepin/dde-control-center/commit/a94b8f0861a3930ec4c245c2b74ae940a5ed39c6))
+* **power:**  disable powersave for sw and mips64 ([c387324f](https://github.com/linuxdeepin/dde-control-center/commit/c387324f99d5ffad4d3691ac5bd009d7912cd3db))
+* **pro:**  set auto start for mips and sw ([1d0ce544](https://github.com/linuxdeepin/dde-control-center/commit/1d0ce5442b3f4d9b792e7bebba469cd0181af0d4))
+* **shortcut:**  add full screenshort ([9a43cd1e](https://github.com/linuxdeepin/dde-control-center/commit/9a43cd1eebf243fa8110c60eeb82b014cde6c6fe))
+
+#### Bug Fixes
+
+*   some connection edit bugs ([9c978f24](https://github.com/linuxdeepin/dde-control-center/commit/9c978f242423d464625e5101a18f49bdaff4814c))
+*   translation of hotspot edit page ([4043e35d](https://github.com/linuxdeepin/dde-control-center/commit/4043e35d0a21ee7de20dec3c50c29958d14c13e8))
+*   add default button for reminder dialog ([824c29b4](https://github.com/linuxdeepin/dde-control-center/commit/824c29b4f11b7ba8a24e19a365ff970a567c341f))
+*   timezone map and monitor settings dialog show on frame ([b2f97182](https://github.com/linuxdeepin/dde-control-center/commit/b2f97182d9088bcbbd948ee53ffaa2190d6d3db3))
+*   namespace ([c8bef6ff](https://github.com/linuxdeepin/dde-control-center/commit/c8bef6ff946143b05aa03200d13d89d7a68d2e5f))
+*   active connection identify ([5adaa246](https://github.com/linuxdeepin/dde-control-center/commit/5adaa24611d0b4401f9b34a946e414cea15aeadb))
+*   navigation text pos error ([ce35abee](https://github.com/linuxdeepin/dde-control-center/commit/ce35abee44e0a6ae48758e7daa9d4535162ea4d3))
+*   translation string typo error ([83f99581](https://github.com/linuxdeepin/dde-control-center/commit/83f99581ee95f75daa3574fffeef35e6a9ab7981))
+*   navigation not use scale ratio ([838b3c8e](https://github.com/linuxdeepin/dde-control-center/commit/838b3c8e192fa5295261f0ec623b1a62b12daef4))
+*   translations after network refactor ([0ffc3c70](https://github.com/linuxdeepin/dde-control-center/commit/0ffc3c702b986541a4573e421f1d9df1eed5e1d6))
+*   mission bin ([6e43c431](https://github.com/linuxdeepin/dde-control-center/commit/6e43c431de522095d622a8118ab0e2cb368fce2b))
+*   not enable autostart for mips and sw64 ([e7bbcffb](https://github.com/linuxdeepin/dde-control-center/commit/e7bbcffb8f3a2233492a3e3dc5d97a8d9abd0938))
+*   quick control wifi bugs ([6ab587a8](https://github.com/linuxdeepin/dde-control-center/commit/6ab587a89742a61f976bce155648e5a9a1e5f0e8))
+*   lost macro controlled by bluetooth ([0354de17](https://github.com/linuxdeepin/dde-control-center/commit/0354de17d5b84dc7f4a452750d7510a9c54ad7f3))
+*   remove excess spacing ([92be5f5c](https://github.com/linuxdeepin/dde-control-center/commit/92be5f5cb4b5c3714595c52e4a2588f6da151e1a))
+* **bluetooth:**  check dbus service is valid ([40d33330](https://github.com/linuxdeepin/dde-control-center/commit/40d33330bbbe1fcee553254fad67ba5ffbd17c3b))
+* **datetime:**  frame cannot auto hide ([09931604](https://github.com/linuxdeepin/dde-control-center/commit/09931604ea1856432421c5c2ac6474d4d652c43d))
+* **frame:**  incorrect coordinate when primary screen changed ([2a3cf613](https://github.com/linuxdeepin/dde-control-center/commit/2a3cf613ec2985dce81875d9b7d97242a5f872ca))
+* **keyboard:**  update conflict shortcut item ([6405d70d](https://github.com/linuxdeepin/dde-control-center/commit/6405d70d0ab83c3210eb0f4a928b3178d413ea12))
+* **nav:**  text offset ([4489d5b2](https://github.com/linuxdeepin/dde-control-center/commit/4489d5b22a7ad4ddf4d3b2239b27cd43295af1a9))
+* **plugins:**  temperature not fully use fahrenheit ([8ce53f37](https://github.com/linuxdeepin/dde-control-center/commit/8ce53f378acc4c996a9c5fe3686e4747a01e42ee))
+* **quick:**  error of high judgement ([8cc10d05](https://github.com/linuxdeepin/dde-control-center/commit/8cc10d050fe4d20b26c06761da18523ae41c211f))
+* **shortcut:**  replace shortcut without waiting to complete ([fb227595](https://github.com/linuxdeepin/dde-control-center/commit/fb227595b81b20994fcaae908f41d20061ce85ff))
+* **sw:**  mission mieee ([b93ac2cd](https://github.com/linuxdeepin/dde-control-center/commit/b93ac2cdb17ba9e2d8e23e4d0d0b68ae23b99faf))
+* **systeminfo:**  gpl file name error ([57339a2f](https://github.com/linuxdeepin/dde-control-center/commit/57339a2f0b6c57f6ed2a9e6d05921f004bf467bc))
+* **update:**  clean other job when failed ([819cd824](https://github.com/linuxdeepin/dde-control-center/commit/819cd824760b04d5fb98d04b9186d8b68ff42d69))
+
+
+
+<a name=""></a>
 ##  4.6.4.10 (2018-10-24)
 
 
