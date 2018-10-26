@@ -1,3 +1,13 @@
+<a name="4.7.1"></a>
+### 4.7.1 (2018-10-26)
+
+
+#### Bug Fixes
+
+* **keyboard:**  null pointer execption ([09678cee](https://github.com/linuxdeepin/dde-control-center/commit/09678ceeb304534dd66facf1d856d4dbbdf09eb9))
+
+
+
 <a name=""></a>
 ##  4.7.0 (2018-10-25)
 
