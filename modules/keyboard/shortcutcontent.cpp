@@ -81,7 +81,14 @@ void ShortcutContent::setBottomTip(ShortcutInfo *conflict)
 
     if(conflict)
     {
-        QString str = tr("This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately").arg(conflict->name);
+        QString accels = conflict->accels;
+        accels = accels.replace("<", "");
+        accels = accels.replace(">", "+");
+        accels = accels.replace("_L","");
+        accels = accels.replace("_R", "");
+
+        QString str = tr("This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately")
+                .arg(QString("<span style=\"color: rgba(255, 90, 90, 1);\">%1 %2</span>").arg(conflict->name).arg(QString("[%1]").arg(accels)));
         m_bottomTip->setText(str);
         m_bottomTip->show();
     }
