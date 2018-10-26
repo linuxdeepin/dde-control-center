@@ -196,7 +196,9 @@ void KeyboardWorker::addCustomShortcut(const QString &name, const QString &comma
 
 void KeyboardWorker::modifyCustomShortcut(ShortcutInfo *info)
 {
-    onDisableShortcut(info->replace);
+    if (info->replace) {
+        onDisableShortcut(info->replace);
+    }
 
     // reset replace shortcut
     info->replace = nullptr;
