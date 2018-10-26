@@ -38,9 +38,6 @@ public:
 
     virtual bool allInputValid() = 0;
     virtual void saveSettings() = 0;
-
-protected:
-    void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
 };
 
 } /* network */

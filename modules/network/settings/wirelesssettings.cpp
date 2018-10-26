@@ -41,6 +41,7 @@ WirelessSettings::~WirelessSettings()
 void WirelessSettings::initSections()
 {
     GenericSection *genericSection = new GenericSection(m_connSettings);
+    genericSection->setConnectionNameEditable(false);
 
     SecretWirelessSection *secretSection = new SecretWirelessSection(
             m_connSettings->setting(Setting::SettingType::WirelessSecurity).staticCast<NetworkManager::WirelessSecuritySetting>(),
@@ -54,11 +55,17 @@ void WirelessSettings::initSections()
     
     WirelessSection *wirelessSection = new WirelessSection(
             m_connSettings->setting(Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>());
+    // we need enable ssid text edit since it is a hidden wifi edit page if ssid is empty
+    if (!wirelessSection->ssid().isEmpty()) {
+        wirelessSection->setSsidEditable(false);
+    }
 
     connect(wirelessSection, &WirelessSection::requestPage, this, &WirelessSettings::requestNextPage);
     connect(secretSection, &Secret8021xSection::requestPage, this, &WirelessSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestPage, this, &WirelessSettings::requestNextPage);
     connect(ipv6Section, &IpvxSection::requestPage, this, &WirelessSettings::requestNextPage);
+
+    connect(wirelessSection, &WirelessSection::ssidChanged, genericSection, &GenericSection::setConnectionName);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(secretSection);

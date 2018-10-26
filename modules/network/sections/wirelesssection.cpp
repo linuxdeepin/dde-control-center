@@ -152,6 +152,8 @@ void WirelessSection::initConnection()
     connect(m_deviceMac, &ComboBoxWidget::requestPage, this, &WirelessSection::requestPage);
     //connect(m_clonedMac->textEdit(), &QLineEdit::editingFinished, this, &WirelessSection::allInputValid);
     connect(m_customMtuSwitch, &SwitchWidget::checkedChanged, this, &WirelessSection::onCostomMtuChanged);
+    connect(m_apSsid->textEdit(), &QLineEdit::editingFinished, this, &WirelessSection::allInputValid);
+    connect(m_apSsid->textEdit(), &QLineEdit::textChanged, this, &WirelessSection::ssidChanged);
 }
 
 void WirelessSection::onCostomMtuChanged(const bool enable)

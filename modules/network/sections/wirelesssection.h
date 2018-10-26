@@ -45,8 +45,14 @@ public:
     bool allInputValid() Q_DECL_OVERRIDE;
     void saveSettings() Q_DECL_OVERRIDE;
 
+    inline bool ssidIsEditable() const { return m_apSsid->isEnabled(); }
+    inline void setSsidEditable(const bool editable) { m_apSsid->setEnabled(editable); }
+    inline const QString ssid() const { return m_apSsid->text(); }
+    inline void setSsid(const QString &ssid) { m_apSsid->setText(ssid); }
+
 Q_SIGNALS:
     void requestPage(ContentWidget * const page) const;
+    void ssidChanged(const QString &ssid);
 
 private:
     void initUI();

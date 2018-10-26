@@ -37,10 +37,3 @@ AbstractSection::AbstractSection(const QString &title, QFrame *parent)
 AbstractSection::~AbstractSection()
 {
 }
-
-void AbstractSection::showEvent(QShowEvent *event)
-{
-    Q_UNUSED(event);
-
-    allInputValid();
-}

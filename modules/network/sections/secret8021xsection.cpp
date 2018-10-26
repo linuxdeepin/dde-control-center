@@ -248,13 +248,11 @@ void Secret8021xSection::initConnection()
     connect(m_eapMethmodChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         onEapMethodChanged(data.value<NetworkManager::Security8021xSetting::EapMethod>());
     });
-    connect(m_eapMethmodChooser, &ComboBoxWidget::dataChanged, this, &Secret8021xSection::allInputValid);
 
     connect(m_passwordFlagsChooser, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestPage);
     connect(m_passwordFlagsChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         onPasswordFlagsChanged(data.value<NetworkManager::Setting::SecretFlagType>());
     });
-    connect(m_passwordFlagsChooser, &ComboBoxWidget::dataChanged, this, &Secret8021xSection::allInputValid);
 }
 
 void Secret8021xSection::initEapItems(NetworkManager::Security8021xSetting::EapMethod method)

@@ -42,6 +42,11 @@ public:
     bool allInputValid() Q_DECL_OVERRIDE;
     void saveSettings() Q_DECL_OVERRIDE;
 
+    inline bool connectionNameIsEditable() const { return m_connIdItem->isEnabled(); }
+    inline void setConnectionNameEditable(const bool editable) { m_connIdItem->setEnabled(editable); }
+    inline const QString connectionName() const { return m_connIdItem->text(); }
+    inline void setConnectionName(const QString &name) { m_connIdItem->setText(name); }
+
 private:
     void initUI();
 
