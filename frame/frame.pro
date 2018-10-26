@@ -53,11 +53,8 @@ HEADERS    += \
     navigation/navdelegate.h \
     notify/notifymodel.h \
     notify/notifywidget.h \
-    notify/notifybody.h \
-    notify/notifymanager.h \
     notify/notifyview.h \
-    notify/notifydelegate.h \
-    notify/notifyviewer.h
+    notify/notifydelegate.h
 
 SOURCES    += \
             main.cpp \
@@ -90,13 +87,10 @@ SOURCES    += \
     navigation/navmodel.cpp \
     navigation/navdelegate.cpp \
     navigation/navwidget.cpp \
-    notify/notifymanager.cpp \
     notify/notifydelegate.cpp \
     notify/notifyview.cpp \
     notify/notifywidget.cpp \
-    notify/notifymodel.cpp \
-    notify/notifyviewer.cpp \
-    notify/notifybody.cpp
+    notify/notifymodel.cpp
 
 #!isEqual(DISABLE_BLUETOOTH, YES) {
 #HEADERS += \

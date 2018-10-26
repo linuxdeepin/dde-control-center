@@ -38,6 +38,11 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
     }
 
     const QString &strId = index.data(NotifyModel::NotifyIdRole).toString();
+
+    if (strId.isEmpty()) {
+        return;
+    }
+
 //    const QString &strName = index.data(NotifyModel::NotifyNameRole).toString();
     const QString &strSum = index.data(NotifyModel::NotifySummaryRole).toString();
     const QString &strBody = index.data(NotifyModel::NotifyBodyRole).toString();
@@ -128,7 +133,12 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
 QWidget *NotifyDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     Q_UNUSED(option)
-    Q_UNUSED(index)
+
+    const QString &strId = index.data(NotifyModel::NotifyIdRole).toString();
+
+    if (strId.isEmpty()) {
+        return nullptr;
+    }
 
     // view class will delete these object later
     DImageButton *removeBtn = new DImageButton(":/images/notify_close_normal.svg",

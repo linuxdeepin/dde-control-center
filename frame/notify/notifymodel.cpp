@@ -45,7 +45,10 @@ int NotifyModel::rowCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
 
-    return m_dataJsonArray.size();
+    // FIXME: Need to use an extra piece of data to update the hover
+    const int size = m_dataJsonArray.size();
+
+    return size == 1 ? size + 1 : size;
 }
 
 QVariant NotifyModel::data(const QModelIndex &index, int role) const
