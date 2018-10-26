@@ -26,7 +26,6 @@
 #ifndef MONITORPROXYWIDGET_H
 #define MONITORPROXYWIDGET_H
 
-#include "monitorindicator.h"
 #include <QWidget>
 #include <memory>
 
@@ -51,11 +50,10 @@ public:
 
     const QString name() const;
 
-public slots:
-    void setIndicatorGeometry();
-
 signals:
     void requestApplyMove(MonitorProxyWidget *self) const;
+    void requestMonitorPress(Monitor *mon);
+    void requestMonitorRelease(Monitor *mon);
 
 protected:
     void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;
@@ -72,7 +70,6 @@ private:
     QPoint m_lastPos;
 
     bool m_underMouseMove;
-    std::unique_ptr<MonitorIndicator> m_fullIndication;
 };
 
 } // namespace display

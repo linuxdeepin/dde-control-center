@@ -48,6 +48,8 @@ public:
 
 signals:
     void requestApplySettings(Monitor *mon, const int x, const int y);
+    void requestMonitorPress(Monitor *mon);
+    void requestMonitorRelease(Monitor *mon);
 
 private slots:
     void resetMonitorsView();

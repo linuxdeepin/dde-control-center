@@ -32,17 +32,14 @@
 using namespace dcc::display;
 
 MonitorProxyWidget::MonitorProxyWidget(Monitor *mon, QWidget *parent)
-    : QWidget(parent),
-
-      m_monitor(mon),
-      m_movedX(m_monitor->x()),
-      m_movedY(m_monitor->y()),
-      m_underMouseMove(false),
-      m_fullIndication(new MonitorIndicator)
+    : QWidget(parent)
+    , m_monitor(mon)
+    , m_movedX(m_monitor->x())
+    , m_movedY(m_monitor->y())
+    , m_underMouseMove(false)
 {
     connect(m_monitor, &Monitor::xChanged, this, &MonitorProxyWidget::setMovedX);
     connect(m_monitor, &Monitor::yChanged, this, &MonitorProxyWidget::setMovedY);
-    connect(m_monitor, &Monitor::geometryChanged, this, &MonitorProxyWidget::setIndicatorGeometry);
 }
 
 int MonitorProxyWidget::w() const
@@ -58,11 +55,6 @@ int MonitorProxyWidget::h() const
 const QString MonitorProxyWidget::name() const
 {
     return m_monitor->name();
-}
-
-void MonitorProxyWidget::setIndicatorGeometry()
-{
-    m_fullIndication->setGeometry(m_monitor->rect());
 }
 
 void MonitorProxyWidget::paintEvent(QPaintEvent *)
@@ -112,8 +104,7 @@ void MonitorProxyWidget::mousePressEvent(QMouseEvent *e)
 
     m_underMouseMove = true;
 
-    m_fullIndication->setGeometry(m_monitor->rect());
-    m_fullIndication->show();
+    emit requestMonitorPress(m_monitor);
 
     update();
 }
@@ -133,7 +124,7 @@ void MonitorProxyWidget::mouseReleaseEvent(QMouseEvent *e)
 
     m_underMouseMove = false;
 
-    m_fullIndication->hide();
+    emit requestMonitorRelease(m_monitor);
 
     update();
 

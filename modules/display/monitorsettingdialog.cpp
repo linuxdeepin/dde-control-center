@@ -87,6 +87,8 @@ void MonitorSettingDialog::init()
 
     DThemeManager::instance()->setTheme(this, "light");
 
+    m_fullIndication = std::unique_ptr<MonitorIndicator>(new MonitorIndicator(this));
+
     setBackgroundColor(QColor(Qt::white));
     setBorderColor(QColor(0, 0, 0, 0.2 * 255));
 
@@ -195,6 +197,8 @@ void MonitorSettingDialog::initPrimary()
     for (auto mon : m_model->monitorList())
         m_primarySettingsWidget->appendOption(mon->name());
 
+    connect(m_ctrlWidget, &MonitorControlWidget::requestMonitorPress, this, &MonitorSettingDialog::onMonitorPress);
+    connect(m_ctrlWidget, &MonitorControlWidget::requestMonitorRelease, this, &MonitorSettingDialog::onMonitorRelease);
     connect(m_ctrlWidget, &MonitorControlWidget::requestRecognize, this, &MonitorSettingDialog::requestRecognize);
     connect(m_ctrlWidget, &MonitorControlWidget::requestMerge, this, &MonitorSettingDialog::requestMerge);
     connect(m_ctrlWidget, &MonitorControlWidget::requestSplit, this, &MonitorSettingDialog::requestSplit);
@@ -399,6 +403,18 @@ void MonitorSettingDialog::onRotateBtnClicked()
         emit requestMonitorRotate(m_monitor);
 }
 #endif
+
+void MonitorSettingDialog::onMonitorPress(Monitor *mon)
+{
+    m_fullIndication->setGeometry(mon->rect());
+    m_fullIndication->show();
+}
+
+void MonitorSettingDialog::onMonitorRelease(Monitor *mon)
+{
+    // FIXME: I don't know why indicator not hide at new for monitorproxywidget
+    m_fullIndication->hide();
+}
 
 } // namespace display
 

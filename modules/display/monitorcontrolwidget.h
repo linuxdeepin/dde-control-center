@@ -52,6 +52,8 @@ signals:
     void requestMerge() const;
     void requestSplit() const;
     void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
+    void requestMonitorPress(Monitor *mon);
+    void requestMonitorRelease(Monitor *mon);
 
 private:
     MonitorsGround *m_screensGround;

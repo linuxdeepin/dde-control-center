@@ -28,6 +28,7 @@
 
 #include "monitor.h"
 #include "dccslider.h"
+#include "monitorindicator.h"
 
 #include <QDialog>
 #include <QPushButton>
@@ -74,7 +75,7 @@ signals:
     void requestApplySave() const;
 
 private:
-    void mouseMoveEvent(QMouseEvent *e);
+    void mouseMoveEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
 
     void init();
     void initPrimary();
@@ -93,6 +94,8 @@ private slots:
 #ifndef DCC_DISABLE_ROTATE
     void onRotateBtnClicked();
 #endif
+    void onMonitorPress(Monitor *mon);
+    void onMonitorRelease(Monitor *mon);
 
 private:
     bool m_primary;
@@ -107,6 +110,7 @@ private:
 #endif
     SettingsListWidget *m_primarySettingsWidget;
     MonitorControlWidget *m_ctrlWidget;
+    std::unique_ptr<MonitorIndicator> m_fullIndication;
     QHBoxLayout *m_btnsLayout;
     QVBoxLayout *m_mainLayout;
 
