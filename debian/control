@@ -19,7 +19,8 @@ Build-Depends: debhelper (>= 9),
  deepin-desktop-base,
  deepin-qt5config,
  libdde-network-utils-dev,
- libkf5networkmanagerqt-dev
+ libkf5networkmanagerqt-dev,
+ qtbase5-private-dev
 Standards-Version: 3.9.5
 Homepage: https://github.com/linuxdeepin/dde-control-center
 

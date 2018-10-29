@@ -9,6 +9,9 @@ include(../modules/modules.pri)
 
 QT += widgets dbus svg sql x11extras concurrent
 
+greaterThan(QT_MAJOR_VERSION, 5)|greaterThan(QT_MINOR_VERSION, 7): QT += gui-private
+else: QT += platformsupport-private
+
 TARGET     = dde-control-center
 DESTDIR    = $$_PRO_FILE_PWD_/../
 TEMPLATE   = app

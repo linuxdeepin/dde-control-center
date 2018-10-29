@@ -36,6 +36,7 @@
 #include <QKeyEvent>
 #include <QScreen>
 #include <QGSettings>
+#include <qpa/qplatformwindow.h>
 
 Frame::Frame(QWidget *parent)
     : DBlurEffectWidget(parent),
@@ -59,6 +60,9 @@ Frame::Frame(QWidget *parent)
       m_autoHide(true),
       m_debugAutoHide(true)
 {
+    // use original coordinate
+    m_mouseAreaInter->setCoordinateType(DRegionMonitor::Original);
+
     m_appearanceInter->setSync(false, false);
     // set async
     m_displayInter->setSync(false);
@@ -324,7 +328,7 @@ void Frame::onMouseButtonReleased(const QPoint &p, const int flag)
         return;
     }
 
-    if (isVisible() && geometry().contains(p))
+    if (isVisible() && windowHandle()->handle()->geometry().contains(p))
         return;
 
     // ready to hide frame
