@@ -57,6 +57,8 @@ ShortcutContent::ShortcutContent(ShortcutModel *model, QWidget *parent)
     cancel->setText(tr("Cancel"));
     ok->setText(tr("Replace"));
 
+    setTitle(tr("Shortcuts"));
+
     m_bottomTip = new QLabel();
     m_bottomTip->setWordWrap(true);
 
