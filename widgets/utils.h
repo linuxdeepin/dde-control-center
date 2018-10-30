@@ -5,11 +5,14 @@
 #include <QLocale>
 #include <QFile>
 
+static const QMap<QString, QString> SYSTEM_LOCAL_MAP {
+    {"zh_CN", "zh_CN"},
+    {"zh_TW", "zh_TW"},
+};
+
 static const QString getLicense(const QString &filePath, const QString &type)
 {
-    QString lang = QLocale::system().name();
-    if (lang != "zh_CN")
-        lang = "en_US";
+    const QString lang { SYSTEM_LOCAL_MAP.value(QLocale::system().name(), "en_US") };
 
     QString path = QString(filePath).arg(lang).arg(type);
     QFile license(path);
