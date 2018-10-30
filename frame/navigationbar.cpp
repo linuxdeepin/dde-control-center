@@ -28,6 +28,7 @@
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QSignalMapper>
+#include <QCoreApplication>
 
 static const QStringList ModuleList = {
 #ifndef DISABLE_ACCOUNT
@@ -76,8 +77,11 @@ static const QStringList ModuleList = {
 
 NavigationBar::NavigationBar(QWidget *parent)
     : QWidget(parent)
-
+    , m_arrowRectangle(new DArrowRectangle(DArrowRectangle::ArrowRight))
+    , m_navLabel(new QLabel)
 {
+    m_arrowRectangle->setContent(m_navLabel);
+
     QVBoxLayout *buttonsLayout = new QVBoxLayout;
     buttonsLayout->setContentsMargins(0, 0, 0, 0);
     buttonsLayout->setSpacing(20);
@@ -100,6 +104,7 @@ NavigationBar::NavigationBar(QWidget *parent)
         b->setNormalPic(QString(":/%1/themes/dark/icons/nav_%1_normal.svg").arg(module));
         b->setCheckable(true);
         b->setVisible(false);
+        b->installEventFilter(this);
 
         buttonsLayout->addWidget(b);
         m_navigationButtons.insert(module, b);
@@ -134,6 +139,26 @@ void NavigationBar::setModuleChecked(const QString &module)
     setModuleChecked(b);
 }
 
+bool NavigationBar::eventFilter(QObject *watched, QEvent *event)
+{
+    if (event->type() == QEvent::Enter) {
+        DImageButton *btn = static_cast<DImageButton*>(watched);
+        const QPoint p { std::move(mapToGlobal(btn->geometry().topLeft())) };
+        const QString str { std::move(transModuleName(m_navigationButtons.key(btn))) };
+        const int width { std::move(fontMetrics().width(str)) };
+        m_navLabel->setText(str);
+        m_navLabel->setFixedWidth(width);
+        m_arrowRectangle->setWidth(width);
+        m_arrowRectangle->show(p.x(), p.y() + btn->height() / 2);
+    }
+
+    if (event->type() == QEvent::Leave) {
+        m_arrowRectangle->hide();
+    }
+
+    return QWidget::eventFilter(watched, event);
+}
+
 void NavigationBar::onNavigationButtonClicked()
 {
     DImageButton *b = static_cast<DImageButton *>(sender());
@@ -154,4 +179,59 @@ void NavigationBar::setModuleChecked(DImageButton *button)
 
     m_checkedButton = button;
     m_checkedButton->setChecked(true);
+}
+
+QString NavigationBar::transModuleName(const QString &moduleName) const
+{
+    const QStringList MODULES = { "accounts",        "display",   "defapp",
+                                  "personalization", "network",   "bluetooth",
+                                  "sound",           "datetime",  "power",
+                                  "mouse",           "keyboard",  "wacom",
+                                  "update",          "systeminfo" };
+
+    static const QStringList modules_trans = {
+        QT_TRANSLATE_NOOP("dcc::accounts::AccountsWidget", "Accounts"),
+        QT_TRANSLATE_NOOP("dcc::display::DisplayWidget", "Display"),
+        QT_TRANSLATE_NOOP("dcc::defapp::DefAppViewer", "Default Applications"),
+        QT_TRANSLATE_NOOP("dcc::personalization::PersonalizationWidget",
+                          "Personalization"),
+        QT_TRANSLATE_NOOP("dcc::network::NetworkModuleWidget", "Network"),
+        QT_TRANSLATE_NOOP("dcc::bluetooth::BluetoothModule", "Bluetooth"),
+        QT_TRANSLATE_NOOP("dcc::sound::SoundWidget", "Sound"),
+        QT_TRANSLATE_NOOP("dcc::datetime::Datetime", "Time and Date"),
+        QT_TRANSLATE_NOOP("dcc::power::PowerWidget", "Power Management"),
+        QT_TRANSLATE_NOOP("dcc::mouse::MouseWidget", "Mouse"),
+        QT_TRANSLATE_NOOP("dcc::keyboard::KeyboardWidget",
+                          "Keyboard and Language"),
+        QT_TRANSLATE_NOOP("dcc::wacom::WacomWidget", "Wacom"),
+        QT_TRANSLATE_NOOP("dcc::update::UpdateCtrlWidget", "Update"),
+        QT_TRANSLATE_NOOP("dcc::systeminfo::SystemInfoWidget",
+                          "System Information"),
+    };
+
+    static const QStringList modules_scope = {
+        "dcc::accounts::AccountsWidget",
+        "dcc::display::DisplayWidget",
+        "dcc::defapp::DefAppViewer",
+        "dcc::personalization::PersonalizationWidget",
+        "dcc::network::NetworkModuleWidget",
+        "dcc::bluetooth::BluetoothModule",
+        "dcc::sound::SoundWidget",
+        "dcc::datetime::Datetime",
+        "dcc::power::PowerWidget",
+        "dcc::mouse::MouseWidget",
+        "dcc::keyboard::KeyboardWidget",
+        "dcc::wacom::WacomWidget",
+        "dcc::update::UpdateCtrlWidget",
+        "dcc::systeminfo::SystemInfoWidget",
+    };
+
+    const int idx = moduleName.isEmpty() ? -1 : MODULES.indexOf(moduleName);
+
+    if (idx == -1)
+        return tr("Navigation");
+    else
+        return QCoreApplication::translate(
+            modules_scope[idx].toStdString().c_str(),
+            modules_trans[idx].toStdString().c_str());
 }

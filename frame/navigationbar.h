@@ -32,6 +32,7 @@
 #include <QPointer>
 
 #include <dimagebutton.h>
+#include <darrowrectangle.h>
 
 DWIDGET_USE_NAMESPACE
 
@@ -51,13 +52,19 @@ public slots:
 signals:
     void requestModule(const QString &name) const;
 
+protected:
+    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
+
 private slots:
     void onNavigationButtonClicked();
     void setModuleChecked(DImageButton *button);
+    QString transModuleName(const QString &moduleName) const;
 
 private:
     QMap<QString, DImageButton *> m_navigationButtons;
     QPointer<DImageButton> m_checkedButton;
+    DArrowRectangle *m_arrowRectangle;
+    QLabel *m_navLabel;
 };
 
 #endif // NAVIGATIONBAR_H
