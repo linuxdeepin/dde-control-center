@@ -73,7 +73,7 @@ void NavDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, c
 
         QFontMetrics fontMetrics(displayText);
 
-        if (rect.height() < modulePm.height() / qApp->devicePixelRatio() + fontMetrics.height() + 40 * keepRatio) {
+        if (rect.height() < static_cast<int>(modulePm.height() / qApp->devicePixelRatio() + fontMetrics.height() + 40 * keepRatio)) {
             p = QPoint(p.x() + modulePm.width() / qApp->devicePixelRatio() + 20 * keepRatio, p.y());
         }
         else {
