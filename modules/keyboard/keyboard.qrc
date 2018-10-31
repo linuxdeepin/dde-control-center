@@ -17,5 +17,8 @@
         <file>themes/common/icons/edit_press.svg</file>
         <file>themes/dark/icons/nav_keyboard.svg</file>
         <file>themes/dark/icons/nav_keyboard_normal.svg</file>
+        <file>themes/dark/icons/loadfile_hover.svg</file>
+        <file>themes/dark/icons/loadfile_press.svg</file>
+        <file>themes/dark/icons/loadfile_normal.svg</file>
     </qresource>
 </RCC>

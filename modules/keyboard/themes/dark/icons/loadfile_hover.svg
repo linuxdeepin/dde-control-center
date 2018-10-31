@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <linearGradient id="loadfile_hover-c" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#FDFDFD"/>
+    </linearGradient>
+    <rect id="loadfile_hover-b" width="44" height="36"/>
+    <filter id="loadfile_hover-a" width="102.3%" height="105.6%" x="-1.1%" y="-1.4%" filterUnits="objectBoundingBox">
+      <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.02 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <use fill="#000" filter="url(#loadfile_hover-a)" xlink:href="#loadfile_hover-b"/>
+    <use fill="url(#loadfile_hover-c)" fill-opacity=".3" xlink:href="#loadfile_hover-b"/>
+    <path fill="#FFF" d="M15.5,20 C14.6715729,20 14,19.3284271 14,18.5 C14,17.6715729 14.6715729,17 15.5,17 C16.3284271,17 17,17.6715729 17,18.5 C17,19.3284271 16.3284271,20 15.5,20 Z M22.5,20 C21.6715729,20 21,19.3284271 21,18.5 C21,17.6715729 21.6715729,17 22.5,17 C23.3284271,17 24,17.6715729 24,18.5 C24,19.3284271 23.3284271,20 22.5,20 Z M29.5,20 C28.6715729,20 28,19.3284271 28,18.5 C28,17.6715729 28.6715729,17 29.5,17 C30.3284271,17 31,17.6715729 31,18.5 C31,19.3284271 30.3284271,20 29.5,20 Z"/>
+  </g>
+</svg>

@@ -63,8 +63,11 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     m_command = new LineEditWidget();
     m_command->setTitle(tr("Command"));
     m_command->setPlaceholderText(tr("Required"));
-    QPushButton *pushbutton = new QPushButton("...");
-    pushbutton->setFixedWidth(50);
+
+    DImageButton *pushbutton = new DImageButton;
+    pushbutton->setNormalPic(":/keyboard/themes/dark/icons/loadfile_normal.svg");
+    pushbutton->setHoverPic(":/keyboard/themes/dark/icons/loadfile_hover.svg");
+    pushbutton->setPressPic(":/keyboard/themes/dark/icons/loadfile_press.svg");
     m_command->addRightWidget(pushbutton);
 
     m_shortcut = new CustomItem;
@@ -94,7 +97,7 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
 
     connect(cancel, SIGNAL(clicked()), this, SIGNAL(back()));
     connect(ok, SIGNAL(clicked()), this, SLOT(onShortcut()));
-    connect(pushbutton, &QPushButton::clicked, this, &CustomContent::onOpenFile);
+    connect(pushbutton, &DImageButton::clicked, this, &CustomContent::onOpenFile);
     connect(m_shortcut, &CustomItem::requestUpdateKey, this, &CustomContent::updateKey);
     connect(model, &ShortcutModel::keyEvent, this, &CustomContent::keyEvent);
 }
