@@ -55,18 +55,6 @@ void GrubBackgroundItem::paintEvent(QPaintEvent *e)
     if(!m_background.isNull()){
         QPainter painter(this);
         painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
-        int arcR = 5;
-        QRect rect = this->rect();
-        QPainterPath path;
-        path.moveTo(arcR, 0);
-        path.arcTo(0, 0, arcR * 2, arcR * 2, 90.0f, 90.0f);
-        path.lineTo(0, rect.height());
-        path.lineTo(rect.width(), rect.height());
-        path.lineTo(rect.width(), arcR);
-        path.arcTo(rect.width() - arcR * 2, 0, arcR * 2, arcR * 2, 0.0f, 90.0f);
-        path.lineTo(arcR, 0);
-        painter.save();
-        painter.setClipPath(path);
 
         QRect pixRect(m_background.rect().topLeft(), m_background.rect().size() / devicePixelRatioF());
         pixRect.moveCenter(this->rect().center());

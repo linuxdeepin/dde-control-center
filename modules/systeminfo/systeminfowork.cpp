@@ -30,8 +30,8 @@
 namespace dcc{
 namespace systeminfo{
 
-static const int ItemWidth = 344;
-static const int ItemHeight = 187;
+static const int ItemWidth = 334;
+static const int ItemHeight = 177;
 
 SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     :QObject(parent),
