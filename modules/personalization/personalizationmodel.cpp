@@ -33,7 +33,7 @@ using namespace dcc::personalization;
 
 PersonalizationModel::PersonalizationModel(QObject *parent)
     : QObject(parent)
-    , m_opacity(std::pair<int, double>(3, 0.4f))
+    , m_opacity(std::pair<int, double>(2, 0.4f))
 {
     m_windowModel    = new ThemeModel(this);
     m_iconModel      = new ThemeModel(this);

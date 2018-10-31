@@ -308,6 +308,7 @@ void PersonalizationWork::refreshFontByType(const QString &type) {
 void PersonalizationWork::refreshOpacity(double opacity)
 {
     int slider { toSliderValue<QMap<int, double>, double, int>(OPACITY_SLIDER, opacity) };
+    qDebug() << QString("opacity: %1, slider: %2").arg(opacity).arg(slider);
     m_model->setOpacity(std::pair<int, double>(slider, opacity));
 }
 
