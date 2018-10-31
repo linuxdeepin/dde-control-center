@@ -82,8 +82,8 @@ private:
     void refreshFontByType(const QString &type);
     void refreshOpacity(double opacity);
 
-    template<typename T1, typename T2, typename T3>
-    T3 toSliderValue(T1 map, T2 value);
+    template<typename T>
+    T toSliderValue(std::vector<T> list, T value);
 
 private:
     PersonalizationModel *m_model;

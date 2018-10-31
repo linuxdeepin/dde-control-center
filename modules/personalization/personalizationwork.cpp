@@ -34,14 +34,14 @@ using namespace dcc::personalization;
 const QString Service = "com.deepin.daemon.Appearance";
 const QString Path    = "/com/deepin/daemon/Appearance";
 
-static const QMap<int, double> OPACITY_SLIDER {
-    {0, 0.0f},
-    {1, 0.25f},
-    {2, 0.4f},
-    {3, 0.55f},
-    {4, 0.7f},
-    {5, 0.85f},
-    {6, 1.0f}
+static const std::vector<int> OPACITY_SLIDER {
+    0,
+    25,
+    40,
+    55,
+    70,
+    85,
+    100
 };
 
 PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *parent)
@@ -307,7 +307,7 @@ void PersonalizationWork::refreshFontByType(const QString &type) {
 
 void PersonalizationWork::refreshOpacity(double opacity)
 {
-    int slider { toSliderValue<QMap<int, double>, double, int>(OPACITY_SLIDER, opacity) };
+    int slider { toSliderValue<int>(OPACITY_SLIDER, static_cast<int>(opacity * 100)) };
     qDebug() << QString("opacity: %1, slider: %2").arg(opacity).arg(slider);
     m_model->setOpacity(std::pair<int, double>(slider, opacity));
 }
@@ -357,7 +357,7 @@ float PersonalizationWork::sliderValueToSize(const int value) const
 
 double PersonalizationWork::sliderValutToOpacity(const int value) const
 {
-    return OPACITY_SLIDER[value];
+    return static_cast<double>(OPACITY_SLIDER[value]) / static_cast<double>(100);
 }
 
 void PersonalizationWork::setDefault(const QJsonObject &value)
@@ -386,14 +386,14 @@ void PersonalizationWork::setOpacity(int opacity)
     m_dbus->setOpacity(sliderValutToOpacity(opacity));
 }
 
-template<typename T1, typename T2, typename T3>
-T3 PersonalizationWork::toSliderValue(T1 map,T2 value)
+template<typename T>
+T PersonalizationWork::toSliderValue(std::vector<T> list, T value)
 {
-    for (auto it = map.constBegin(); it != map.constEnd(); ++it) {
-        if (value < it.value()) {
-            return (--it).key();
+    for (auto it = list.cbegin(); it != list.cend(); ++it) {
+        if (value < *it) {
+            return (--it) - list.begin();
         }
     }
 
-    return map.lastKey();
+    return list.end() - list.begin();
 }
