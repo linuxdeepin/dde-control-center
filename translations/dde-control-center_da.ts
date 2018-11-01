@@ -49,34 +49,29 @@
     </message>
 </context>
 <context>
+    <name>NavigationBar</name>
+    <message>
+        <location filename="../frame/navigationbar.cpp" line="232"/>
+        <source>Navigation</source>
+        <translation>Navigation</translation>
+    </message>
+</context>
+<context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../frame/notify/notifydelegate.cpp" line="200"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="210"/>
         <source>Yesterday</source>
         <translation>I går</translation>
     </message>
     <message>
-        <location filename="../frame/notify/notifydelegate.cpp" line="203"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="213"/>
         <source>The day before yesterday</source>
         <translation>I går</translation>
     </message>
     <message numerus="yes">
-        <location filename="../frame/notify/notifydelegate.cpp" line="209"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="219"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>%n dag siden</numerusform><numerusform>%n dage siden</numerusform></translation>
-    </message>
-</context>
-<context>
-    <name>NotifyManager</name>
-    <message>
-        <location filename="../frame/notify/notifymanager.cpp" line="65"/>
-        <source>Clear all</source>
-        <translation>Ryd alle</translation>
-    </message>
-    <message>
-        <location filename="../frame/notify/notifymanager.cpp" line="150"/>
-        <source>No system notifications</source>
-        <translation>Ingen systemnotifikationer</translation>
     </message>
 </context>
 <context>
@@ -152,24 +147,6 @@
         <location filename="../frame/updatenotifier.cpp" line="38"/>
         <source>Updates detected, click to view</source>
         <translation>Opdateringer registreret, klik for at vise</translation>
-    </message>
-</context>
-<context>
-    <name>Viewer</name>
-    <message>
-        <location filename="../frame/notify/notifyviewer.cpp" line="138"/>
-        <source>Yesterday</source>
-        <translation>I går</translation>
-    </message>
-    <message>
-        <location filename="../frame/notify/notifyviewer.cpp" line="141"/>
-        <source>The day before yesterday</source>
-        <translation>I går</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../frame/notify/notifyviewer.cpp" line="147"/>
-        <source>%n day(s) ago</source>
-        <translation><numerusform>%n dag siden</numerusform><numerusform>%n dage siden</numerusform></translation>
     </message>
 </context>
 <context>
@@ -252,6 +229,7 @@
     <name>dcc::accounts::AccountsWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="124"/>
+        <location filename="../frame/navigationbar.cpp" line="193"/>
         <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
         <source>Accounts</source>
         <translation>Konti</translation>
@@ -539,6 +517,7 @@
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="129"/>
+        <location filename="../frame/navigationbar.cpp" line="199"/>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
@@ -628,6 +607,7 @@
     <name>dcc::datetime::Datetime</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="131"/>
+        <location filename="../frame/navigationbar.cpp" line="201"/>
         <location filename="../modules/datetime/datetime.cpp" line="58"/>
         <source>Time and Date</source>
         <translation>Klokkeslæt og dato</translation>
@@ -713,6 +693,7 @@
     <name>dcc::defapp::DefAppViewer</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="126"/>
+        <location filename="../frame/navigationbar.cpp" line="195"/>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
         <source>Default Applications</source>
         <translation>Standardprogrammer</translation>
@@ -838,6 +819,7 @@
     <name>dcc::display::DisplayWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../frame/navigationbar.cpp" line="194"/>
         <location filename="../modules/display/displaywidget.cpp" line="113"/>
         <source>Display</source>
         <translation>Skærm</translation>
@@ -930,32 +912,32 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="111"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="113"/>
         <source>Resolution</source>
         <translation>Opløsning</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="174"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="176"/>
         <source>Cancel</source>
         <translation>Annuller</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="176"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="178"/>
         <source>Apply</source>
         <translation>Anvend</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="178"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="180"/>
         <source>Save</source>
         <translation>Gem</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="186"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="188"/>
         <source>Primary</source>
         <translation>Primær</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="355"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="359"/>
         <source> (Recommended)</source>
         <translation> (anbefalet)</translation>
     </message>
@@ -997,22 +979,22 @@
         <translation>Kommando</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="83"/>
         <source>Cancel</source>
         <translation>Annuller</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="82"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="85"/>
         <source>Add</source>
         <translation>Tilføj</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="106"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="115"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Denne genvej er i konflikt med %1. Klik på Tilføj, for at bruge denne genvej med det samme</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="160"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="170"/>
         <source>Choose File</source>
         <translation>Vælg fil</translation>
     </message>
@@ -1020,43 +1002,43 @@
 <context>
     <name>dcc::keyboard::CustomEdit</name>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="47"/>
-        <location filename="../modules/keyboard/customedit.cpp" line="94"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="50"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="99"/>
         <source>Shortcuts</source>
         <translation>Genveje</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="57"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="60"/>
         <source>Required</source>
         <translation>Påkrævet</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="66"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="71"/>
         <source>Cancel</source>
         <translation>Annuller</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="67"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="72"/>
         <source>Save</source>
         <translation>Gem</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="97"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="102"/>
         <source>Name</source>
         <translation>Navn</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="98"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="103"/>
         <source>Command</source>
         <translation>Kommando</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="108"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="119"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Denne genvej er i konflikt med %1. Klik på Tilføj, for at bruge denne genvej med det samme</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="148"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="160"/>
         <source>Choose File</source>
         <translation>Vælg fil</translation>
     </message>
@@ -1105,6 +1087,7 @@
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="134"/>
+        <location filename="../frame/navigationbar.cpp" line="204"/>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
         <source>Keyboard and Language</source>
         <translation>Tastatur og sprog</translation>
@@ -1196,7 +1179,12 @@
         <translation>Erstat</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="84"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="60"/>
+        <source>Shortcuts</source>
+        <translation>Genveje</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="92"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
         <translation>Denne genvej er i konflikt med %1. Klik på Erstat, for at bruge denne genvej med det samme</translation>
     </message>
@@ -1254,6 +1242,7 @@
     <name>dcc::mouse::MouseWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="133"/>
+        <location filename="../frame/navigationbar.cpp" line="203"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <source>Mouse</source>
         <translation>Mus</translation>
@@ -1426,22 +1415,22 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="82"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="83"/>
         <source>Disconnect</source>
         <translation>Afbryd</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="84"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="85"/>
         <source>Delete</source>
         <translation>Slet</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="89"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="90"/>
         <source>Cancel</source>
         <translation>Annuller</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="90"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="91"/>
         <source>Save</source>
         <translation>Gem</translation>
     </message>
@@ -1466,38 +1455,43 @@
     <message>
         <location filename="../modules/network/connectionhotspoteditpage.cpp" line="48"/>
         <source>hotspot</source>
-        <translation type="unfinished"/>
+        <translation>hotspot</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::ConnectionVpnEditPage</name>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="141"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="146"/>
+        <source>Export</source>
+        <translation>Eksportér</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
         <source>VPN L2TP %1</source>
         <translation>VPN L2TP %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="145"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
         <source>VPN PPTP %1</source>
         <translation>VPN PPTP %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="149"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="165"/>
         <source>VPN VPNC %1</source>
         <translation>VPN VPNC %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="153"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="169"/>
         <source>VPN OpenVPN %1</source>
         <translation>VPN OpenVPN %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="173"/>
         <source>VPN StrongSwan %1</source>
         <translation>VPN StrongSwan %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="177"/>
         <source>VPN OpenConnect %1</source>
         <translation>VPN OpenConnect %1</translation>
     </message>
@@ -1724,6 +1718,7 @@
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="128"/>
+        <location filename="../frame/navigationbar.cpp" line="198"/>
         <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
         <source>Network</source>
         <translation>Netværk</translation>
@@ -2065,7 +2060,7 @@
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="218"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Valgmuligheder for adgangskode</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="31"/>
@@ -2104,58 +2099,58 @@
         <translation>Påkrævet</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="304"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="302"/>
         <source>Private Key</source>
         <translation>Privat nøgle</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="308"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="381"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="413"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="306"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="379"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="411"/>
         <source>CA Cert</source>
         <translation>CA-certifikat</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="312"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="310"/>
         <source>User Cert</source>
         <translation>Brugercertifikat</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="330"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="377"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="409"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="328"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="375"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="407"/>
         <source>Anonymous ID</source>
         <translation>Anonym ID</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="334"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="332"/>
         <source>Provisioning</source>
         <translation>Provisioning</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="346"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="344"/>
         <source>PAC file</source>
         <translation>PAC-fil</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="350"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="385"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="428"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="348"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="383"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="426"/>
         <source>Inner Auth</source>
         <translation>Indre godkendelse</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="417"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="415"/>
         <source>PEAP Version</source>
         <translation>PEAP-version</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="508"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="506"/>
         <source>Private Pwd</source>
         <translation>Privat adgangskode</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="510"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="508"/>
         <source>Password</source>
         <translation>Adgangskode</translation>
     </message>
@@ -2581,7 +2576,7 @@
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="230"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Valgmuligheder for adgangskode</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
@@ -2911,7 +2906,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Valgmuligheder for adgangskode</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="128"/>
@@ -3116,7 +3111,7 @@
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Valgmuligheder for adgangskode</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
@@ -3278,6 +3273,7 @@
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="127"/>
+        <location filename="../frame/navigationbar.cpp" line="196"/>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="79"/>
         <source>Personalization</source>
         <translation>Personlig tilpasning</translation>
@@ -3338,6 +3334,7 @@
     <name>dcc::power::PowerWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="132"/>
+        <location filename="../frame/navigationbar.cpp" line="202"/>
         <location filename="../modules/power/powerwidget.cpp" line="99"/>
         <source>Power Management</source>
         <translation>Strømstyring</translation>
@@ -3425,6 +3422,7 @@
     <name>dcc::sound::SoundWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="130"/>
+        <location filename="../frame/navigationbar.cpp" line="200"/>
         <location filename="../modules/sound/soundwidget.cpp" line="58"/>
         <source>Sound</source>
         <translation>Lyd</translation>
@@ -3489,8 +3487,8 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="76"/>
-        <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
-        <translation>Boot-aftrykket kan erstattes ved at trække et andet hen på det, og boot-rækkefølgen kan ændres ved at trække det fremhævede</translation>
+        <source>You can click the option in boot menu to set it as the first boot.Switch it on to view your theme in boot menu.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3505,6 +3503,7 @@
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="137"/>
+        <location filename="../frame/navigationbar.cpp" line="208"/>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>System Information</source>
         <translation>Systeminformation</translation>
@@ -3646,6 +3645,7 @@
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="136"/>
+        <location filename="../frame/navigationbar.cpp" line="207"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="59"/>
         <source>Update</source>
         <translation>Opdatering</translation>
@@ -3855,6 +3855,7 @@
     <name>dcc::wacom::WacomWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="135"/>
+        <location filename="../frame/navigationbar.cpp" line="206"/>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
         <source>Wacom</source>
         <translation>Wacom</translation>

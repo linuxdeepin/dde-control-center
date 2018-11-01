@@ -49,34 +49,29 @@
     </message>
 </context>
 <context>
+    <name>NavigationBar</name>
+    <message>
+        <location filename="../frame/navigationbar.cpp" line="232"/>
+        <source>Navigation</source>
+        <translation>导航</translation>
+    </message>
+</context>
+<context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../frame/notify/notifydelegate.cpp" line="200"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="210"/>
         <source>Yesterday</source>
         <translation>昨天</translation>
     </message>
     <message>
-        <location filename="../frame/notify/notifydelegate.cpp" line="203"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="213"/>
         <source>The day before yesterday</source>
         <translation>前天</translation>
     </message>
     <message numerus="yes">
-        <location filename="../frame/notify/notifydelegate.cpp" line="209"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="219"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>%n天前</numerusform></translation>
-    </message>
-</context>
-<context>
-    <name>NotifyManager</name>
-    <message>
-        <location filename="../frame/notify/notifymanager.cpp" line="65"/>
-        <source>Clear all</source>
-        <translation>全部清除</translation>
-    </message>
-    <message>
-        <location filename="../frame/notify/notifymanager.cpp" line="150"/>
-        <source>No system notifications</source>
-        <translation>无系统通知</translation>
     </message>
 </context>
 <context>
@@ -152,24 +147,6 @@
         <location filename="../frame/updatenotifier.cpp" line="38"/>
         <source>Updates detected, click to view</source>
         <translation>检测到系统有更新，点击查看</translation>
-    </message>
-</context>
-<context>
-    <name>Viewer</name>
-    <message>
-        <location filename="../frame/notify/notifyviewer.cpp" line="138"/>
-        <source>Yesterday</source>
-        <translation>昨天</translation>
-    </message>
-    <message>
-        <location filename="../frame/notify/notifyviewer.cpp" line="141"/>
-        <source>The day before yesterday</source>
-        <translation>前天</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../frame/notify/notifyviewer.cpp" line="147"/>
-        <source>%n day(s) ago</source>
-        <translation><numerusform>%n天前</numerusform></translation>
     </message>
 </context>
 <context>
@@ -252,6 +229,7 @@
     <name>dcc::accounts::AccountsWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="124"/>
+        <location filename="../frame/navigationbar.cpp" line="193"/>
         <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
         <source>Accounts</source>
         <translation>账户</translation>
@@ -539,6 +517,7 @@
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="129"/>
+        <location filename="../frame/navigationbar.cpp" line="199"/>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
@@ -628,6 +607,7 @@
     <name>dcc::datetime::Datetime</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="131"/>
+        <location filename="../frame/navigationbar.cpp" line="201"/>
         <location filename="../modules/datetime/datetime.cpp" line="58"/>
         <source>Time and Date</source>
         <translation>时间日期</translation>
@@ -713,6 +693,7 @@
     <name>dcc::defapp::DefAppViewer</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="126"/>
+        <location filename="../frame/navigationbar.cpp" line="195"/>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
@@ -838,6 +819,7 @@
     <name>dcc::display::DisplayWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../frame/navigationbar.cpp" line="194"/>
         <location filename="../modules/display/displaywidget.cpp" line="113"/>
         <source>Display</source>
         <translation>显示</translation>
@@ -930,32 +912,32 @@
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="111"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="113"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="174"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="176"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="176"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="178"/>
         <source>Apply</source>
         <translation>应用</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="178"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="180"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="186"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="188"/>
         <source>Primary</source>
         <translation>主屏幕</translation>
     </message>
     <message>
-        <location filename="../modules/display/monitorsettingdialog.cpp" line="355"/>
+        <location filename="../modules/display/monitorsettingdialog.cpp" line="359"/>
         <source> (Recommended)</source>
         <translation>（推荐）</translation>
     </message>
@@ -997,22 +979,22 @@
         <translation>命令</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="80"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="83"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="82"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="85"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="106"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="115"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="160"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="170"/>
         <source>Choose File</source>
         <translation>选择文件</translation>
     </message>
@@ -1020,43 +1002,43 @@
 <context>
     <name>dcc::keyboard::CustomEdit</name>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="47"/>
-        <location filename="../modules/keyboard/customedit.cpp" line="94"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="50"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="99"/>
         <source>Shortcuts</source>
         <translation>快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="57"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="60"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="66"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="71"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="67"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="72"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="97"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="102"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="98"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="103"/>
         <source>Command</source>
         <translation>命令</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="108"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="119"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="148"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="160"/>
         <source>Choose File</source>
         <translation>选择文件</translation>
     </message>
@@ -1105,6 +1087,7 @@
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="134"/>
+        <location filename="../frame/navigationbar.cpp" line="204"/>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
         <source>Keyboard and Language</source>
         <translation>键盘和语言</translation>
@@ -1196,7 +1179,12 @@
         <translation>替换</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="84"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="60"/>
+        <source>Shortcuts</source>
+        <translation>快捷键</translation>
+    </message>
+    <message>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="92"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
         <translation>此快捷键与%1冲突，点击替换使这个快捷键立即生效</translation>
     </message>
@@ -1254,6 +1242,7 @@
     <name>dcc::mouse::MouseWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="133"/>
+        <location filename="../frame/navigationbar.cpp" line="203"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
@@ -1426,22 +1415,22 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="82"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="83"/>
         <source>Disconnect</source>
         <translation>断开</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="84"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="85"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="89"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="90"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="90"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="91"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
@@ -1472,32 +1461,37 @@
 <context>
     <name>dcc::network::ConnectionVpnEditPage</name>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="141"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="146"/>
+        <source>Export</source>
+        <translation>导出</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
         <source>VPN L2TP %1</source>
         <translation>VPN L2TP %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="145"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
         <source>VPN PPTP %1</source>
         <translation>VPN PPTP %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="149"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="165"/>
         <source>VPN VPNC %1</source>
         <translation>VPN VPNC %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="153"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="169"/>
         <source>VPN OpenVPN %1</source>
         <translation>VPN OpenVPN %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="173"/>
         <source>VPN StrongSwan %1</source>
         <translation>VPN StrongSwan %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="177"/>
         <source>VPN OpenConnect %1</source>
         <translation>VPN OpenConnect %1</translation>
     </message>
@@ -1724,6 +1718,7 @@
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="128"/>
+        <location filename="../frame/navigationbar.cpp" line="198"/>
         <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
         <source>Network</source>
         <translation>网络</translation>
@@ -2104,58 +2099,58 @@
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="304"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="302"/>
         <source>Private Key</source>
         <translation>私钥</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="308"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="381"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="413"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="306"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="379"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="411"/>
         <source>CA Cert</source>
         <translation>CA证书</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="312"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="310"/>
         <source>User Cert</source>
         <translation>用户证书</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="330"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="377"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="409"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="328"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="375"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="407"/>
         <source>Anonymous ID</source>
         <translation>匿名身份</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="334"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="332"/>
         <source>Provisioning</source>
         <translation>自动PAC配置</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="346"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="344"/>
         <source>PAC file</source>
         <translation>PAC文件</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="350"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="385"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="428"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="348"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="383"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="426"/>
         <source>Inner Auth</source>
         <translation>内部认证</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="417"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="415"/>
         <source>PEAP Version</source>
         <translation>PEAP版本</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="508"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="506"/>
         <source>Private Pwd</source>
         <translation>私钥密码</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="510"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="508"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -3278,6 +3273,7 @@
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="127"/>
+        <location filename="../frame/navigationbar.cpp" line="196"/>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="79"/>
         <source>Personalization</source>
         <translation>个性化</translation>
@@ -3285,7 +3281,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="45"/>
         <source>Transparency</source>
-        <translation>透明度</translation>
+        <translation>透明度调节</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="70"/>
@@ -3338,6 +3334,7 @@
     <name>dcc::power::PowerWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="132"/>
+        <location filename="../frame/navigationbar.cpp" line="202"/>
         <location filename="../modules/power/powerwidget.cpp" line="99"/>
         <source>Power Management</source>
         <translation>电源管理</translation>
@@ -3425,6 +3422,7 @@
     <name>dcc::sound::SoundWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="130"/>
+        <location filename="../frame/navigationbar.cpp" line="200"/>
         <location filename="../modules/sound/soundwidget.cpp" line="58"/>
         <source>Sound</source>
         <translation>声音</translation>
@@ -3489,8 +3487,8 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="76"/>
-        <source>The boot image can be replaced by dragging one to it, and the boot order can be changed by dragging the highlight</source>
-        <translation>启动图片可以通过拖曳进行替换，启动顺序可以通过拖曳高亮项来更改</translation>
+        <source>You can click the option in boot menu to set it as the first boot.Switch it on to view your theme in boot menu.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3505,6 +3503,7 @@
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="137"/>
+        <location filename="../frame/navigationbar.cpp" line="208"/>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>System Information</source>
         <translation>系统信息</translation>
@@ -3646,6 +3645,7 @@
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="136"/>
+        <location filename="../frame/navigationbar.cpp" line="207"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="59"/>
         <source>Update</source>
         <translation>更新</translation>
@@ -3855,6 +3855,7 @@
     <name>dcc::wacom::WacomWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="135"/>
+        <location filename="../frame/navigationbar.cpp" line="206"/>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
         <source>Wacom</source>
         <translation>Wacom 数位板</translation>
