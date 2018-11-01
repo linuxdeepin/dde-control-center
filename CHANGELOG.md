@@ -1,3 +1,30 @@
+<a name="4.7.2"></a>
+### 4.7.2 (2018-11-01)
+
+
+#### Features
+
+* **grub:**  use new style for background ([22758a49](https://github.com/linuxdeepin/dde-control-center/commit/22758a4927762712606777d75a1357e991b28933))
+* **keyboard:**
+  *  support load file button svg ([670a86d4](https://github.com/linuxdeepin/dde-control-center/commit/670a86d4db8b639783c6f2b8318de86d420f028d))
+  *  add new conflit color ([04844a6d](https://github.com/linuxdeepin/dde-control-center/commit/04844a6d495f2c9ad622af7360217898243b5cf9))
+* **navbar:**  add module tip ([3a2ab7f3](https://github.com/linuxdeepin/dde-control-center/commit/3a2ab7f3b27e914791fbe2e0cb2facd59acb23f0))
+
+#### Bug Fixes
+
+*   float arithmetic error ([a7330801](https://github.com/linuxdeepin/dde-control-center/commit/a7330801bc51c106ab986fb4c308749001fb8c9c))
+*   immediate segfault when sys update is disabled ([f9474118](https://github.com/linuxdeepin/dde-control-center/commit/f947411871beb777c82ab151718147b57939dbf9))
+*   wired edit page ethernet section device address ([ef24ce50](https://github.com/linuxdeepin/dde-control-center/commit/ef24ce50fa1d4d0829a5e7a7118326cec4351ce9))
+*   connection edit page bugs ([4a160050](https://github.com/linuxdeepin/dde-control-center/commit/4a160050abe1c8cf980c754e36a74f4c0e39ce2f))
+* **display:**  monitor indicator not hide ([b9bb8da6](https://github.com/linuxdeepin/dde-control-center/commit/b9bb8da65bb8b2b0d671c05fde8dfa7db5bad417))
+* **frame:**  coordinate precision loss ([0e0d4547](https://github.com/linuxdeepin/dde-control-center/commit/0e0d4547a833aa1219f4ad192b22efc4dae84e14))
+* **gpl:**  not load zh_TW ([0a4c80ca](https://github.com/linuxdeepin/dde-control-center/commit/0a4c80ca37523293f6be5ff8f266a18447e1cd03))
+* **keyboard:**  missing title ([5ccb60de](https://github.com/linuxdeepin/dde-control-center/commit/5ccb60de9bde185777427efceaec01f0c882a2a2))
+* **nav:**  loss of precision ([6b5860b6](https://github.com/linuxdeepin/dde-control-center/commit/6b5860b6e2a593bd3cd6163919d7d1c5447927f5))
+* **notify:**  use an extra piece of data to update the hover ([fa239be4](https://github.com/linuxdeepin/dde-control-center/commit/fa239be4b71ad6dc5eda5ce1f1c1dd7fd3d74806))
+
+
+
 <a name="4.7.1"></a>
 ### 4.7.1 (2018-10-26)
 
