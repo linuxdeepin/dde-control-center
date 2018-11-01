@@ -73,7 +73,7 @@ BootWidget::BootWidget(QWidget *parent)
     m_theme = new SwitchWidget();
     m_theme->setTitle(tr("Theme"));
 
-    TipsLabel *label = new TipsLabel(tr("You can click the option in boot menu to set it as the first boot, "
+    TipsLabel *label = new TipsLabel(tr("You can click the option in boot menu to set it as the first boot. "
                                         "Switch it on to view your theme in boot menu"));
     label->setWordWrap(true);
     label->setContentsMargins(16, 0, 10, 0);
