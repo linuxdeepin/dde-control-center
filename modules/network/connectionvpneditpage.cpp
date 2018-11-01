@@ -30,10 +30,18 @@
 #include <networkmanagerqt/vpnsetting.h>
 
 #include <QDebug>
+#include <QFileDialog>
+#include <QProcess>
+#include <QRegularExpression>
 
 using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
+
+const QList<ConnectionVpnEditPage::VpnType> SupportedExportVpnList {
+    ConnectionVpnEditPage::VpnType::L2TP,
+    ConnectionVpnEditPage::VpnType::OPENVPN,
+};
 
 ConnectionVpnEditPage::ConnectionVpnEditPage(const QString &connUuid, QWidget *parent)
     : ConnectionEditPage(ConnectionEditPage::ConnectionType::VpnConnection, QString(), connUuid, parent)
@@ -131,6 +139,14 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
     connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionVpnEditPage::requestNextPage);
 
     m_settingsLayout->addWidget(m_settingsWidget);
+
+    // add export button
+    if (SupportedExportVpnList.contains(vpnType) && !connectionUuid().isEmpty()) {
+        QPushButton *exportButton = new QPushButton;
+        exportButton->setText(tr("Export"));
+        connect(exportButton, &QPushButton::clicked, this, &ConnectionVpnEditPage::exportConnConfig);
+        addHeaderButton(exportButton);
+    }
 }
 
 void ConnectionVpnEditPage::resetConnectionIdByType(ConnectionVpnEditPage::VpnType vpnType)
@@ -165,4 +181,79 @@ void ConnectionVpnEditPage::resetConnectionIdByType(ConnectionVpnEditPage::VpnTy
             break;
     }
     m_connectionSettings->setId(connName.arg(connectionSuffixNum(connName)));
+}
+
+void ConnectionVpnEditPage::exportConnConfig()
+{
+    const QString uuid = connectionUuid();
+
+//    emit requestFrameKeepAutoHide(false);
+    const QUrl u = QFileDialog::getSaveFileUrl(nullptr, QString(), QUrl(), "Config File (*.conf)");
+//    emit requestFrameKeepAutoHide(true);
+
+    if (u.isEmpty() || !u.isLocalFile())
+        return;
+
+    QString file = u.path();
+    if (!file.endsWith(".conf"))
+        file.append(".conf");
+
+    const auto args = QStringList() << "connection" << "export" << uuid << file;
+    qDebug() << Q_FUNC_INFO << args;
+
+    QProcess p;
+    p.start("nmcli", args);
+    p.waitForFinished();
+    qDebug() << p.readAllStandardOutput();
+    qDebug() << p.readAllStandardError();
+
+    // process ca
+    processConfigCA(file);
+}
+
+void ConnectionVpnEditPage::processConfigCA(const QString &file)
+{
+    QFile f(file);
+    f.open(QIODevice::ReadWrite);
+    const QString data = f.readAll();
+    f.seek(0);
+
+    const QRegularExpression regex("^(?:ca\\s'(.+)'\\s*)$");
+//    const QRegularExpression regex("^(?:ca\\s'(.+)'\\s*|CACert=(.+)|UserCertificate=(.+))$");
+    QStringList ca_list;
+    for (const auto &line : data.split('\n'))
+    {
+        const auto match = regex.match(line);
+        if (match.hasMatch())
+        {
+            for (int i(1); i != match.capturedLength(); ++i)
+            {
+                const auto cap = match.captured(i);
+                if (cap.isNull() || cap.isEmpty())
+                    continue;
+                ca_list << cap;
+            }
+        } else {
+            f.write(line.toStdString().c_str());
+            f.write("\n");
+        }
+    }
+    f.write("\n");
+
+    if (!ca_list.isEmpty())
+    {
+        // write ca
+        f.write("<ca>\n");
+        for (const auto ca : ca_list)
+        {
+            QFile caf(ca);
+            caf.open(QIODevice::ReadOnly);
+            f.write(caf.readAll());
+            f.write("\n");
+        }
+        f.write("</ca>\n");
+    }
+
+    f.flush();
+    f.close();
 }

@@ -1420,22 +1420,22 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="82"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="83"/>
         <source>Disconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="84"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="85"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="89"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="90"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="90"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="91"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1466,32 +1466,37 @@
 <context>
     <name>dcc::network::ConnectionVpnEditPage</name>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="141"/>
-        <source>VPN L2TP %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="145"/>
-        <source>VPN PPTP %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="149"/>
-        <source>VPN VPNC %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="153"/>
-        <source>VPN OpenVPN %1</source>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="146"/>
+        <source>Export</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
-        <source>VPN StrongSwan %1</source>
+        <source>VPN L2TP %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
+        <source>VPN PPTP %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="165"/>
+        <source>VPN VPNC %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="169"/>
+        <source>VPN OpenVPN %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="173"/>
+        <source>VPN StrongSwan %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="177"/>
         <source>VPN OpenConnect %1</source>
         <translation type="unfinished"></translation>
     </message>

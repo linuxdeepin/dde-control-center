@@ -55,6 +55,7 @@ public:
     virtual void initSettingsWidget();
 
     inline const QString associatedDevicePath() { return m_devPath; }
+    inline const QString connectionUuid() { return m_connectionUuid; }
 
     void onDeviceRemoved();
 
@@ -67,6 +68,7 @@ Q_SIGNALS:
 
 protected:
     int connectionSuffixNum(const QString &matchConnName);
+    void addHeaderButton(QPushButton *button);
 
 private:
     void initUI();
@@ -92,6 +94,7 @@ protected:
     dcc::network::AbstractSettings *m_settingsWidget;
 
 private:
+    QVBoxLayout *m_mainLayout;
     QPushButton *m_disconnectBtn;
     QPushButton *m_removeBtn;
     dcc::widgets::ButtonTuple *m_buttonTuple;

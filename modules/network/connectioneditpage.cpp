@@ -38,6 +38,7 @@ using namespace NetworkManager;
 
 ConnectionEditPage::ConnectionEditPage(ConnectionType connType, const QString &devPath,  const QString &connUuid, QWidget *parent)
     : ContentWidget(parent),
+      m_mainLayout(new QVBoxLayout),
       m_settingsLayout(new QVBoxLayout),
       m_connection(nullptr),
       m_connectionSettings(nullptr),
@@ -89,17 +90,16 @@ void ConnectionEditPage::initUI()
     cancelBtn->setText(tr("Cancel"));
     acceptBtn->setText(tr("Save"));
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addSpacing(10);
-    mainLayout->addWidget(m_disconnectBtn);
-    mainLayout->addWidget(m_removeBtn);
-    mainLayout->addLayout(m_settingsLayout);
-    mainLayout->addWidget(m_buttonTuple);
-    mainLayout->setSpacing(10);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    m_mainLayout->addSpacing(10);
+    m_mainLayout->addWidget(m_disconnectBtn);
+    m_mainLayout->addWidget(m_removeBtn);
+    m_mainLayout->addLayout(m_settingsLayout);
+    m_mainLayout->addWidget(m_buttonTuple);
+    m_mainLayout->setSpacing(10);
+    m_mainLayout->setContentsMargins(0, 0, 0, 0);
 
     QWidget *mainWidget = new TranslucentFrame;
-    mainWidget->setLayout(mainLayout);
+    mainWidget->setLayout(m_mainLayout);
 
     setContent(mainWidget);
 }
@@ -360,4 +360,9 @@ int ConnectionEditPage::connectionSuffixNum(const QString &matchConnName)
     }
 
     return connSuffixNum;
+}
+
+void ConnectionEditPage::addHeaderButton(QPushButton *button)
+{
+    m_mainLayout->insertWidget(m_mainLayout->indexOf(m_removeBtn) + 1, button);
 }

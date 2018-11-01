@@ -55,6 +55,8 @@ public:
 private:
     void initApSecretType(NetworkManager::AccessPoint::Ptr nmAp);
     void resetConnectionIdByType(ConnectionVpnEditPage::VpnType vpnType);
+    void exportConnConfig();
+    void processConfigCA(const QString &file);
 };
 
 } /* network */ 
