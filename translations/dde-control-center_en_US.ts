@@ -3487,7 +3487,7 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="76"/>
-        <source>You can click the option in boot menu to set it as the first boot, Switch it on to view your theme in boot menu</source>
+        <source>You can click the option in boot menu to set it as the first boot.Switch it on to view your theme in boot menu.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
