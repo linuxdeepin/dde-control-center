@@ -32,7 +32,7 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 EthernetSection::EthernetSection(NetworkManager::WiredSetting::Ptr wiredSetting, QFrame *parent)
-    : AbstractSection("Ethernet", parent),
+    : AbstractSection(tr("Ethernet"), parent),
       m_deviceMac(new ComboBoxWidget(this)),
       m_clonedMac(new LineEditWidget(this)),
       m_customMtuSwitch(new SwitchWidget(this)),
