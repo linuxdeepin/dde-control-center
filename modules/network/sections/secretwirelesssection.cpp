@@ -82,6 +82,12 @@ bool SecretWirelessSection::allInputValid()
 void SecretWirelessSection::saveSettings()
 {
     m_wsSetting->setKeyMgmt(m_currentKeyMgmt);
+
+    if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone
+            || m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown) {
+        return m_wsSetting->setInitialized(false);
+    }
+
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
         m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
         m_wsSetting->setWepKey0(m_passwdEdit->text());
