@@ -147,7 +147,9 @@ void PppoePage::onActivateConnectionChanged(const QSet<QString> &conns)
 
     for (const QString &uuid : conns) {
         NextPageWidget *w = m_connUuid.key(uuid);
-        if (w) {
+        // the State of Active Connection
+        // 0:Unknow, 1:Activating, 2:Activated, 3:Deactivating, 4:Deactivated
+        if (w && m_model->activeConnObjectByUuid(uuid).value("State").toInt(0) == 2) {
             w->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));
             return;
         }
