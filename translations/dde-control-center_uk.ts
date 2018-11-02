@@ -1499,6 +1499,11 @@
 <context>
     <name>dcc::network::EthernetSection</name>
     <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="35"/>
+        <source>Ethernet</source>
+        <translation>Ethernet</translation>
+    </message>
+    <message>
         <location filename="../modules/network/sections/ethernetsection.cpp" line="89"/>
         <source>Device MAC Addr</source>
         <translation>Пристрій MAC Addr</translation>
@@ -1807,23 +1812,23 @@
         <translation>PPPoE</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="76"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="78"/>
         <source>Username</source>
         <translation>Ім&apos;я користувача</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="77"/>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="84"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="79"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Required</source>
         <translation>Вимагається</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="80"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="82"/>
         <source>Service</source>
         <translation>Служба</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="83"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="85"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
@@ -1831,62 +1836,62 @@
 <context>
     <name>dcc::network::PPPSection</name>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="84"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
         <translation>Відмовитися від аутентифікації EAP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="85"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
         <translation>Відмовити у PAP Автентифікації</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="86"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
         <translation>Відмовитися від CHAP-аутентифікації</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="87"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation>Відмовитись від MSCHAP-аутентифікації</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="88"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation>Відхилити автентифікацію MSCHAPv2</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="89"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="91"/>
         <source>No BSD Data Compression</source>
         <translation>Немає стиснення даних BSD</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="90"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
         <translation>Стиснення даних під час завантаження не здійснюється</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="91"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="93"/>
         <source>No TCP Header Compression</source>
         <translation>Немає Скискання Заголовку TCP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="92"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
         <translation>Немає стиснення полів протоколу</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="93"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
         <translation>Без адреси/Стискання керування</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="94"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="96"/>
         <source>Send PPP Echo Packets</source>
         <translation>Надіслати Ехо Пакети PPP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="108"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="110"/>
         <source>Stateful MPPE</source>
         <translation>MPPE з контролем стану підключень</translation>
     </message>
@@ -1896,12 +1901,12 @@
         <translation>Протокол PPP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="102"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
         <translation>Використати MPPE</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="105"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="107"/>
         <source>128-bit MPPE</source>
         <translation>128-бітне MPPE-шифрування</translation>
     </message>
@@ -2204,42 +2209,42 @@
 <context>
     <name>dcc::network::SecretWirelessSection</name>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="100"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="106"/>
         <source>None</source>
         <translation>Нічого</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="101"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>WEP 40/128-bit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="102"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WPA/WPA2 Personal</source>
         <translation>Режим WPA/WPA2 Personal</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="103"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="109"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>Підприємство WPA/WPA2</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="109"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="115"/>
         <source>Security</source>
         <translation>Безпека</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="115"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="121"/>
         <source>Required</source>
         <translation>Вимагається</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="157"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="163"/>
         <source>Key</source>
         <translation>Клавіша</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="164"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="170"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>

@@ -1499,6 +1499,11 @@
 <context>
     <name>dcc::network::EthernetSection</name>
     <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="35"/>
+        <source>Ethernet</source>
+        <translation>이더넷</translation>
+    </message>
+    <message>
         <location filename="../modules/network/sections/ethernetsection.cpp" line="89"/>
         <source>Device MAC Addr</source>
         <translation>장치 MAC 주소</translation>
@@ -1807,23 +1812,23 @@
         <translation>PPPoE</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="76"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="78"/>
         <source>Username</source>
         <translation>사용자 이름</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="77"/>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="84"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="79"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Required</source>
         <translation>필요</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="80"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="82"/>
         <source>Service</source>
         <translation>서비스</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="83"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="85"/>
         <source>Password</source>
         <translation>비밀번호</translation>
     </message>
@@ -1831,62 +1836,62 @@
 <context>
     <name>dcc::network::PPPSection</name>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="84"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
         <translation>EAP 인증 거부</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="85"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
         <translation>PAP 인증 거부</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="86"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
         <translation>CHAP 인증 거부</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="87"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation>MSCHAP 인증 거부</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="88"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation>MSCHAPv2 인증 거부</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="89"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="91"/>
         <source>No BSD Data Compression</source>
         <translation>BSD​ 데이터 압축 안함</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="90"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
         <translation>무손실 데이터 압축 안함</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="91"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="93"/>
         <source>No TCP Header Compression</source>
         <translation>TCP 해더 압축 안함</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="92"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
         <translation>프로토콜 필드 압축 안함</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="93"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
         <translation>주소/컨트롤 압축 안함</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="94"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="96"/>
         <source>Send PPP Echo Packets</source>
         <translation>PPP 에코 패킷 보냄</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="108"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="110"/>
         <source>Stateful MPPE</source>
         <translation>상태유지 MPPE</translation>
     </message>
@@ -1896,12 +1901,12 @@
         <translation>PPP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="102"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
         <translation>MPPE 사용</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="105"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="107"/>
         <source>128-bit MPPE</source>
         <translation>128-bit MPPE</translation>
     </message>
@@ -2204,42 +2209,42 @@
 <context>
     <name>dcc::network::SecretWirelessSection</name>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="100"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="106"/>
         <source>None</source>
         <translation>없음</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="101"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>WEP 40/128-bit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="102"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WPA/WPA2 Personal</source>
         <translation>개인 WPA/WPA2</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="103"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="109"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 엔터프라이즈</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="109"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="115"/>
         <source>Security</source>
         <translation>보안</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="115"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="121"/>
         <source>Required</source>
         <translation>필요</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="157"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="163"/>
         <source>Key</source>
         <translation>키</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="164"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="170"/>
         <source>Password</source>
         <translation>비밀번호</translation>
     </message>

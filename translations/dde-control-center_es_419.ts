@@ -1499,6 +1499,11 @@
 <context>
     <name>dcc::network::EthernetSection</name>
     <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="35"/>
+        <source>Ethernet</source>
+        <translation>Ethernet</translation>
+    </message>
+    <message>
         <location filename="../modules/network/sections/ethernetsection.cpp" line="89"/>
         <source>Device MAC Addr</source>
         <translation>Dirección MAC del dispositivo</translation>
@@ -1807,23 +1812,23 @@
         <translation>PPPoE</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="76"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="78"/>
         <source>Username</source>
         <translation>Nombre de usuario</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="77"/>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="84"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="79"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Required</source>
         <translation>Requerido</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="80"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="82"/>
         <source>Service</source>
         <translation>Servicio</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="83"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="85"/>
         <source>Password</source>
         <translation>Contraseña</translation>
     </message>
@@ -1831,62 +1836,62 @@
 <context>
     <name>dcc::network::PPPSection</name>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="84"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
         <translation>Autenticación EAP rechazada</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="85"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
         <translation>Autenticación PAP rechazada</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="86"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
         <translation>Autenticación CHAP rechazada</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="87"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation>Negar autenticación MSCHAP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="88"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation>Negar autenticación MSCHAPv2</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="89"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="91"/>
         <source>No BSD Data Compression</source>
         <translation>Sin compresión de datos BSD</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="90"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
         <translation>No desinflar la compresión de datos</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="91"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="93"/>
         <source>No TCP Header Compression</source>
         <translation>Sin compresión de cabecera TCP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="92"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
         <translation>Sin compresión de protocolo de campo</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="93"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
         <translation>Sin compresión de dirección y control</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="94"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="96"/>
         <source>Send PPP Echo Packets</source>
         <translation>Enviar paquetes PPP Echo</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="108"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="110"/>
         <source>Stateful MPPE</source>
         <translation>MPPE Stateful</translation>
     </message>
@@ -1896,12 +1901,12 @@
         <translation>PPP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="102"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
         <translation>Utilice MPPE</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="105"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="107"/>
         <source>128-bit MPPE</source>
         <translation>128-bit MPPE</translation>
     </message>
@@ -2204,42 +2209,42 @@
 <context>
     <name>dcc::network::SecretWirelessSection</name>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="100"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="106"/>
         <source>None</source>
         <translation>Ninguno</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="101"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>WEP 40/128-bit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="102"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 Personal</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="103"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="109"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 Enterprise</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="109"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="115"/>
         <source>Security</source>
         <translation>Seguridad</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="115"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="121"/>
         <source>Required</source>
         <translation>Requerido</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="157"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="163"/>
         <source>Key</source>
         <translation>Clave</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="164"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="170"/>
         <source>Password</source>
         <translation>Contraseña</translation>
     </message>

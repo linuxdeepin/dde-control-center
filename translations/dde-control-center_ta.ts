@@ -1499,6 +1499,11 @@
 <context>
     <name>dcc::network::EthernetSection</name>
     <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="35"/>
+        <source>Ethernet</source>
+        <translation>ஈதர்நெட்</translation>
+    </message>
+    <message>
         <location filename="../modules/network/sections/ethernetsection.cpp" line="89"/>
         <source>Device MAC Addr</source>
         <translation>கருவியின் MAC முகவரி</translation>
@@ -1807,23 +1812,23 @@
         <translation>PPPoE</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="76"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="78"/>
         <source>Username</source>
         <translation>பயனர் </translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="77"/>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="84"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="79"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Required</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="80"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="82"/>
         <source>Service</source>
         <translation>சேவை</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="83"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="85"/>
         <source>Password</source>
         <translation>கடவுச்சொல்</translation>
     </message>
@@ -1831,62 +1836,62 @@
 <context>
     <name>dcc::network::PPPSection</name>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="84"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
         <translation>EAP அங்கீகாரம் மறுப்பு</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="85"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
         <translation>PAP அங்கீகாரம் மறுப்பு</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="86"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
         <translation>CHAP அங்கீகாரம் மறுப்பு</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="87"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation>MSCHAP அங்கீகாரம் மறுப்பு</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="88"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation>MSCHAPv2 அங்கீகாரம் மறுப்பு</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="89"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="91"/>
         <source>No BSD Data Compression</source>
         <translation>BSD தரவுச் சுருக்கம் இல்லை</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="90"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
         <translation>Deflate தரவுச் சுருக்கம் இல்லை</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="91"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="93"/>
         <source>No TCP Header Compression</source>
         <translation>TCP தலைப்புச் சுருக்கம் இல்லை</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="92"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
         <translation>கள சுருக்க வரைமுறை இல்லை</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="93"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
         <translation>முகவரி/கட்டுப்பாட்டு சுருக்கம் இல்லை</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="94"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="96"/>
         <source>Send PPP Echo Packets</source>
         <translation>PPP எதிரொலி பாக்கெட்டுகள் அனுப்பு</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="108"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="110"/>
         <source>Stateful MPPE</source>
         <translation>நிலைத்தன்மையுள்ள MPPE</translation>
     </message>
@@ -1896,12 +1901,12 @@
         <translation>PPP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="102"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
         <translation>MPPE பயன்படுத்து</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="105"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="107"/>
         <source>128-bit MPPE</source>
         <translation>128-பிட் MPPE</translation>
     </message>
@@ -2204,42 +2209,42 @@
 <context>
     <name>dcc::network::SecretWirelessSection</name>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="100"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="106"/>
         <source>None</source>
         <translation>ஏதுமில்லை</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="101"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>WEP 40/128-bit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="102"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 தனிப்பட்ட</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="103"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="109"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 நிறுவன</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="109"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="115"/>
         <source>Security</source>
         <translation>பாதுகாப்பு</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="115"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="121"/>
         <source>Required</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="157"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="163"/>
         <source>Key</source>
         <translation>திறவுகோல்</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="164"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="170"/>
         <source>Password</source>
         <translation>கடவுச்சொல்</translation>
     </message>

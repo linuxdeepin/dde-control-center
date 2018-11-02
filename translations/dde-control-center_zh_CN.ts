@@ -1499,6 +1499,11 @@
 <context>
     <name>dcc::network::EthernetSection</name>
     <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="35"/>
+        <source>Ethernet</source>
+        <translation>以太网</translation>
+    </message>
+    <message>
         <location filename="../modules/network/sections/ethernetsection.cpp" line="89"/>
         <source>Device MAC Addr</source>
         <translation>设备MAC地址</translation>
@@ -1807,23 +1812,23 @@
         <translation>拨号</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="76"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="78"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="77"/>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="84"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="79"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="80"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="82"/>
         <source>Service</source>
         <translation>服务</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppoesection.cpp" line="83"/>
+        <location filename="../modules/network/sections/pppoesection.cpp" line="85"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -1831,62 +1836,62 @@
 <context>
     <name>dcc::network::PPPSection</name>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="84"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
         <translation>拒绝EAP认证</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="85"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
         <translation>拒绝PAP认证</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="86"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
         <translation>拒绝CHAP认证</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="87"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation>拒绝MSCHAP认证</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="88"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation>拒绝MSCHAPv2认证</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="89"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="91"/>
         <source>No BSD Data Compression</source>
         <translation>无BSD数据压缩</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="90"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
         <translation>无Deflate数据压缩</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="91"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="93"/>
         <source>No TCP Header Compression</source>
         <translation>无TCP头压缩</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="92"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
         <translation>无协议字段压缩</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="93"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
         <translation>无地址/控制压缩</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="94"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="96"/>
         <source>Send PPP Echo Packets</source>
         <translation>发送PPP回响包</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="108"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="110"/>
         <source>Stateful MPPE</source>
         <translation>使用带状态的MPPE</translation>
     </message>
@@ -1896,12 +1901,12 @@
         <translation>PPP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="102"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
         <translation>使用MPPE点到点加密</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/pppsection.cpp" line="105"/>
+        <location filename="../modules/network/sections/pppsection.cpp" line="107"/>
         <source>128-bit MPPE</source>
         <translation>使用128位MPPE</translation>
     </message>
@@ -2204,42 +2209,42 @@
 <context>
     <name>dcc::network::SecretWirelessSection</name>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="100"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="106"/>
         <source>None</source>
         <translation>无</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="101"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>WEP 40/128-bit</source>
         <translation>WEP40/128位密钥</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="102"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2个人版</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="103"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="109"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2企业版</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="109"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="115"/>
         <source>Security</source>
         <translation>安全</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="115"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="121"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="157"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="163"/>
         <source>Key</source>
         <translation>密钥</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="164"/>
+        <location filename="../modules/network/sections/secretwirelesssection.cpp" line="170"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -3488,7 +3493,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="76"/>
         <source>You can click the option in boot menu to set it as the first boot.Switch it on to view your theme in boot menu.</source>
-        <translation>您可以点击菜单改变默认启动项.开启主题后您可以在开机时看到所选择的主题背景</translation>
+        <translation>您可以点击菜单改变默认启动项。开启主题后您可以在开机时看到所选择的主题背景。</translation>
     </message>
 </context>
 <context>
