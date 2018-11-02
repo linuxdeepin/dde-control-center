@@ -231,7 +231,7 @@ QStringList NavModel::validModuleList()
 #endif
 
 #ifndef DISABLE_BLUETOOTH
-    if (!m_bluetoothInter->isValid())
+    if (!m_bluetoothInter->isValid() || m_bluetoothInter->state() == 0)
 #endif
         moduleList.removeOne("bluetooth");
 
