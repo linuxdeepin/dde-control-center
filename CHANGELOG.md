@@ -1,3 +1,16 @@
+<a name="4.7.3"></a>
+### 4.7.3 (2018-11-02)
+
+
+#### Bug Fixes
+
+*   edit and connect to none secret wireless failed ([fdf42ea8](https://github.com/linuxdeepin/dde-control-center/commit/fdf42ea862573d4acf467e931063dc8f673c589d))
+*   can not save pppoe connection ([30506ff1](https://github.com/linuxdeepin/dde-control-center/commit/30506ff1f110c9ff28d7dc12fea06477019753c1))
+*   translation of Ethernet ([0d846acd](https://github.com/linuxdeepin/dde-control-center/commit/0d846acda98df62813635d33ca289a10018c7f2b))
+* **nav:**  check bluetooth is can be used ([5c6ed732](https://github.com/linuxdeepin/dde-control-center/commit/5c6ed7322eaf208fca22f7c54138486248b65f3e))
+
+
+
 <a name="4.7.2"></a>
 ### 4.7.2 (2018-11-01)
 
