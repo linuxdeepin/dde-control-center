@@ -76,6 +76,8 @@ void PPPSection::saveSettings()
 
     m_pppSetting->setLcpEchoInterval(m_lcpEchoInterval->checked() ? 30 : 0);
     m_pppSetting->setLcpEchoFailure(m_lcpEchoInterval->checked() ? 5 : 0);
+
+    m_pppSetting->setInitialized(true);
 }
 
 void PPPSection::initStrMaps()

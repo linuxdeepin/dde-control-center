@@ -69,6 +69,8 @@ void PPPOESection::saveSettings()
     m_pppoeSetting->setService(m_service->text());
     m_pppoeSetting->setPasswordFlags(NetworkManager::Setting::SecretFlagType::None);
     m_pppoeSetting->setPassword(m_password->text());
+
+    m_pppoeSetting->setInitialized(true);
 }
 
 void PPPOESection::initUI()
