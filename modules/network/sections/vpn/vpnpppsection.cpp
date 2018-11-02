@@ -39,12 +39,17 @@ VpnPPPSection::VpnPPPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame 
     initStrMaps();
 
     m_currentMppeMethod = "require-mppe";
-    bool mppeEnable = false;
-    for (auto mppeMethod : MppeMethodStrMap.values()) {
-        if (m_dataMap.contains(mppeMethod)) {
-            m_currentMppeMethod = mppeMethod;
-            mppeEnable = true;
-            break;
+    bool mppeEnable = true;
+    // means this is a exist connection
+    if (!m_dataMap.isEmpty()) {
+        for (auto mppeMethod : MppeMethodStrMap.values()) {
+            if (m_dataMap.contains(mppeMethod)) {
+                m_currentMppeMethod = mppeMethod;
+                mppeEnable = true;
+                break;
+            } else {
+                mppeEnable = false;
+            }
         }
     }
     m_mppeEnable->setChecked(mppeEnable);
