@@ -48,7 +48,7 @@ int NotifyModel::rowCount(const QModelIndex &parent) const
     // FIXME: Need to use an extra piece of data to update the hover
     const int size = m_dataJsonArray.size();
 
-    return size == 1 ? size + 1 : size;
+    return size + 1;
 }
 
 QVariant NotifyModel::data(const QModelIndex &index, int role) const
@@ -79,6 +79,9 @@ QVariant NotifyModel::data(const QModelIndex &index, int role) const
         return notifyObject.value("time").toString();
         break;
     case Qt::SizeHintRole:
+        if (index.row() == m_dataJsonArray.size()) {
+            return QSize(0, 10);
+        }
         return QSize(0, 80);
         break;
     case NotifyRemoveRole: {
