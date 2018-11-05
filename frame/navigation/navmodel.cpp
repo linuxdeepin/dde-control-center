@@ -21,20 +21,12 @@
 
 #include "navmodel.h"
 
+#include <QCoreApplication>
+
 NavModel::NavModel(QObject *parent) : QAbstractTableModel(parent)
 {
-    m_bluetoothInter = new BluetoothInter("com.deepin.daemon.Bluetooth",
-                                          "/com/deepin/daemon/Bluetooth",
-                                          QDBusConnection::sessionBus(), this);
-    m_wacomInter = new WacomInter("com.deepin.daemon.InputDevices",
-                                  "/com/deepin/daemon/InputDevice/Wacom",
-                                  QDBusConnection::sessionBus(), this);
-
     m_moduleList = validModuleList();
     m_hoverIndex = QModelIndex();
-
-    connect(m_bluetoothInter, &BluetoothInter::serviceValidChanged, this, &NavModel::onBTValidChanged);
-    connect(m_wacomInter, &WacomInter::ExistChanged, this, &NavModel::onWacomExistChanged);
 }
 
 int NavModel::rowCount(const QModelIndex &parent) const
@@ -80,42 +72,33 @@ QVariant NavModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-void NavModel::removeModule(const QModelIndex &index)
-{
-    removeModule(data(index, Qt::WhatsThisRole).toString());
-}
-
-void NavModel::removeModule(const QString &moduleName)
-{
-    if (!m_moduleList.contains(moduleName)) {
-        return;
-    }
-
-    m_moduleList.removeOne(moduleName);
-    Q_EMIT layoutChanged();
-}
-
-void NavModel::addModule(const QString &moduleName)
-{
-    if (m_moduleList.contains(moduleName) || !validModuleList().contains(moduleName)) {
-        return;
-    }
-
-    int mIndex = 0;
-    for (int i = 0; i < MODULES.size(); ++i) {
-        if (MODULES.at(i) == moduleName)
-            break;
-        if (m_moduleList.contains(MODULES.at(i)))
-            mIndex++;
-    }
-    m_moduleList.insert(mIndex, moduleName);
-    Q_EMIT layoutChanged();
-}
-
 void NavModel::setHoverIndex(const QModelIndex &index)
 {
     m_hoverIndex = index;
     Q_EMIT dataChanged(m_hoverIndex, m_hoverIndex);
+}
+
+void NavModel::setModuleVisible(const QString &module, bool visible)
+{
+    if (visible) {
+        m_hideModuleList.removeOne(module);
+    }
+    else {
+        m_hideModuleList << module;
+    }
+
+    m_moduleList = validModuleList();
+
+    for (auto it = m_moduleList.begin(); it != m_moduleList.end();) {
+        if (m_hideModuleList.contains(*it)) {
+            it = m_moduleList.erase(it);
+        }
+        else {
+            ++it;
+        }
+    }
+
+    Q_EMIT layoutChanged();
 }
 
 QString NavModel::transModuleName(const QString &moduleName) const
@@ -161,25 +144,6 @@ QString NavModel::transModuleName(const QString &moduleName) const
     else
         return QCoreApplication::translate(modules_scope[idx].toStdString().c_str(),
                                            modules_trans[idx].toStdString().c_str());
-}
-
-void NavModel::onBTValidChanged(const bool valid)
-{
-    if (valid) {
-        addModule("bluetooth");
-        return;
-    }
-
-    removeModule("bluetooth");
-}
-
-void NavModel::onWacomExistChanged(bool value)
-{
-    if (value) {
-        addModule("wacom");
-        return;
-    }
-    removeModule("wacom");
 }
 
 QStringList NavModel::validModuleList()
@@ -230,15 +194,5 @@ QStringList NavModel::validModuleList()
     moduleList.removeOne("update");
 #endif
 
-#ifndef DISABLE_BLUETOOTH
-    if (!m_bluetoothInter->isValid() || m_bluetoothInter->state() == 0)
-#endif
-        moduleList.removeOne("bluetooth");
-
-#ifndef DISABLE_WACOM
-    if (!m_wacomInter->exist())
-#endif
-        moduleList.removeOne("wacom");
-
-    return moduleList;
+    return std::move(moduleList);
 }

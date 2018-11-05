@@ -58,6 +58,7 @@ signals:
     void showSettingPage(const QString &module, const QString &page, bool animation);
     void appear() const;
     void disappear() const;
+    void requestModuleVisible(const QString &module, bool visible);
 
 protected:
     void resizeEvent(QResizeEvent *e);

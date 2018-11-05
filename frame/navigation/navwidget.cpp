@@ -59,6 +59,7 @@ NavWidget::NavWidget(QWidget *parent)
 
     connect(m_navView, &QTableView::entered, this, &NavWidget::onNavEnter);
     connect(m_navView, &QTableView::clicked, this, &NavWidget::onNavClicked);
+    connect(this, &NavWidget::requestModuleVisible, m_navModel, &NavModel::setModuleVisible);
 }
 
 void NavWidget::leaveEvent(QEvent *e)

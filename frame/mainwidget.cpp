@@ -174,6 +174,7 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     connect(m_navWidget, &NavWidget::requestModule, this, [=] (const QString &moduleName) {
         emit showSettingPage(moduleName, "", false);
     });
+    connect(this, &MainWidget::requestModuleVisible, m_navWidget, &NavWidget::requestModuleVisible);
 #ifndef DISABLE_SYS_UPDATE
     connect(m_updateNotifier, &UpdateNotifier::clicked, this, [this] {
         showSettingPage("update", "available-updates", false);

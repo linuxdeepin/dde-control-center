@@ -55,6 +55,7 @@ class FrameWidget;
 class FrameContentWrapper;
 class SettingsWidget;
 class NavigationBar;
+class MainWidget;
 
 namespace dcc
 {
@@ -119,6 +120,7 @@ private:
     QPointer<FrameContentWrapper> m_contentWrapper;
     QPointer<NavigationBar> m_navigationBar;
     QPointer<SettingsWidget> m_allSettingsPage;
+    QPointer<MainWidget> m_mainWidget;
     QTimer *m_delayKillerTimer;
 
     DRegionMonitor *m_mouseAreaInter;

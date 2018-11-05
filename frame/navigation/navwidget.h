@@ -41,6 +41,7 @@ public:
 
 Q_SIGNALS:
     void requestModule(const QString &module) const;
+    void requestModuleVisible(const QString &module, bool visible);
 
 protected:
     void leaveEvent(QEvent *e) Q_DECL_OVERRIDE;

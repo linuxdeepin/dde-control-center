@@ -166,10 +166,10 @@ void Frame::popWidget()
 void Frame::init()
 {
     // main page
-    MainWidget *w = new MainWidget(m_contentWrapper.data());
-    connect(w, &MainWidget::showAllSettings, this, &Frame::showAllSettings);
-    connect(w, &MainWidget::showSettingPage, this, &Frame::showSettingsPage);
-    m_frameWidgetStack.push(w);
+    m_mainWidget = new MainWidget(m_contentWrapper.data());
+    connect(m_mainWidget.data(), &MainWidget::showAllSettings, this, &Frame::showAllSettings);
+    connect(m_mainWidget.data(), &MainWidget::showSettingPage, this, &Frame::showSettingsPage);
+    m_frameWidgetStack.push(m_mainWidget.data());
 
     // frame position adjust
     onScreenRectChanged(m_primaryRect);
@@ -216,6 +216,7 @@ void Frame::prepareAllSettingsPage()
     m_allSettingsPage->setVisible(false);
 
     connect(m_allSettingsPage, &SettingsWidget::moduleVisibleChanged, m_navigationBar, &NavigationBar::setModuleVisible);
+    connect(m_allSettingsPage, &SettingsWidget::moduleVisibleChanged, m_mainWidget.data(), &MainWidget::requestModuleVisible);
     connect(m_allSettingsPage, &SettingsWidget::currentModuleChanged, m_navigationBar,
             static_cast<void (NavigationBar::*)(const QString &)>(&NavigationBar::setModuleChecked));
 }

@@ -23,11 +23,6 @@
 #define NAVMODEL_H
 
 #include <QAbstractTableModel>
-#include <com_deepin_daemon_bluetooth.h>
-#include <com_deepin_daemon_inputdevice_wacom.h>
-
-using BluetoothInter = com::deepin::daemon::Bluetooth;
-using WacomInter = com::deepin::daemon::inputdevice::Wacom;
 
 const QStringList MODULES = { "accounts", "display", "defapp", "personalization", "network",
                               "bluetooth", "sound", "datetime", "power", "mouse", "keyboard",
@@ -51,26 +46,18 @@ public:
     QVariant data(const QModelIndex &index, int role) const Q_DECL_OVERRIDE;
 
 public Q_SLOTS:
-    void removeModule(const QModelIndex &index);
-    void removeModule(const QString &moduleName);
-    void addModule(const QString &moduleName);
     void setHoverIndex(const QModelIndex &index);
+    void setModuleVisible(const QString &module, bool visible);
 
 public:
     QString transModuleName(const QString &moduleName) const;
-
-private Q_SLOTS:
-    void onBTValidChanged(const bool valid);
-    void onWacomExistChanged(bool value);
 
 private:
     QStringList validModuleList();
 
 private:
-    BluetoothInter *m_bluetoothInter;
-    WacomInter *m_wacomInter;
-
     QStringList m_moduleList;
+    QStringList m_hideModuleList;
     QModelIndex m_hoverIndex;
 };
 
