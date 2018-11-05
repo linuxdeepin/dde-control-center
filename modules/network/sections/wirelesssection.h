@@ -39,7 +39,7 @@ class WirelessSection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit WirelessSection(NetworkManager::WirelessSetting::Ptr wirelessSetting, QFrame *parent = 0);
+    explicit WirelessSection(NetworkManager::WirelessSetting::Ptr wirelessSetting, const QString &deviceInterface, QFrame *parent = 0);
     virtual ~WirelessSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;
@@ -69,6 +69,7 @@ private:
 
     NetworkManager::WirelessSetting::Ptr m_wirelessSetting;
 
+    QString m_deviceInterface;
     QRegExp m_macAddrRegExp;
     QMap<QString, QString> m_macStrMap;
 };

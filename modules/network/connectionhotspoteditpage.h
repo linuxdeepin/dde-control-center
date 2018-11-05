@@ -36,9 +36,6 @@ public:
     virtual ~ConnectionHotspotEditPage();
 
     void initSettingsWidget() Q_DECL_OVERRIDE;
-
-private:
-    QString m_devPath;
 };
 
 } /* network */ 

@@ -35,7 +35,6 @@ using namespace NetworkManager;
 ConnectionHotspotEditPage::ConnectionHotspotEditPage(const QString &devPath, const QString &connUuid, QWidget *parent)
     : ConnectionEditPage(ConnectionEditPage::ConnectionType::WirelessConnection, devPath, connUuid, parent)
 {
-    m_devPath = devPath;
 }
 
 ConnectionHotspotEditPage::~ConnectionHotspotEditPage()
@@ -46,10 +45,6 @@ void ConnectionHotspotEditPage::initSettingsWidget()
 {
     // some special configurations for hotspot
     m_connectionSettings->setId(tr("hotspot"));
-    NetworkManager::Device::Ptr device = findNetworkInterface(m_devPath);
-    if (device) {
-        m_connectionSettings->setInterfaceName(device->interfaceName());
-    }
     NetworkManager::Ipv4Setting::Ptr ipv4Setting =
         m_connectionSettings->setting(NetworkManager::Setting::SettingType::Ipv4)
         .staticCast<NetworkManager::Ipv4Setting>();

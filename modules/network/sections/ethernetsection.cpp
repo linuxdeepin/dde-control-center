@@ -31,14 +31,16 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-EthernetSection::EthernetSection(NetworkManager::WiredSetting::Ptr wiredSetting, QFrame *parent)
+EthernetSection::EthernetSection(NetworkManager::WiredSetting::Ptr wiredSetting, const QString &deviceInterface, QFrame *parent)
     : AbstractSection(tr("Ethernet"), parent),
       m_deviceMac(new ComboBoxWidget(this)),
       m_clonedMac(new LineEditWidget(this)),
       m_customMtuSwitch(new SwitchWidget(this)),
       m_customMtu(new SpinBoxWidget(this)),
-      m_wiredSetting(wiredSetting)
+      m_wiredSetting(wiredSetting),
+      m_deviceInterface(deviceInterface)
 {
+    // get the macAddress list from all wired devices
     for (auto device : NetworkManager::networkInterfaces()) {
         if (device->type() != NetworkManager::Device::Ethernet) {
             continue;
@@ -91,11 +93,22 @@ void EthernetSection::initUI()
         m_deviceMac->appendOption(key, m_macStrMap.value(key));
     }
 
+    // get the macAddress from existing Settings
     const QString &macAddr = QString(m_wiredSetting->macAddress().toHex()).toUpper();
+
     if (m_macStrMap.values().contains(macAddr)) {
         m_deviceMac->setCurrent(macAddr);
     } else {
-        m_deviceMac->setCurrent(m_macStrMap.first());
+        // set macAddress of the current device to be default value
+        auto it = m_macStrMap.constBegin();
+        for (; it != m_macStrMap.constEnd(); ++it) {
+            if (it.key().contains(m_deviceInterface)) {
+                m_deviceMac->setCurrent(it.value());
+                break;
+            }
+        }
+
+        Q_ASSERT(it != m_macStrMap.constEnd());
     }
 
     m_clonedMac->setTitle(tr("Cloned MAC Addr"));

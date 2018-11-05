@@ -68,6 +68,10 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType, const QString &d
         initConnectionSecrets();
     }
 
+    if (m_connectionSettings->interfaceName().isEmpty()) {
+        m_connectionSettings->setInterfaceName(NetworkManager::findNetworkInterface(m_devPath)->interfaceName());
+    }
+
     initHeaderButtons();
     initConnection();
 }

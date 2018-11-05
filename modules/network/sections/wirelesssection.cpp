@@ -31,23 +31,25 @@ using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-WirelessSection::WirelessSection(NetworkManager::WirelessSetting::Ptr wiredSetting, QFrame *parent)
+WirelessSection::WirelessSection(NetworkManager::WirelessSetting::Ptr wiredSetting, const QString &deviceInterface, QFrame *parent)
     : AbstractSection("Wi-Fi", parent),
       m_apSsid(new LineEditWidget(this)),
       m_deviceMac(new ComboBoxWidget(this)),
       //m_clonedMac(new LineEditWidget(this)),
       m_customMtuSwitch(new SwitchWidget(this)),
       m_customMtu(new SpinBoxWidget(this)),
-      m_wirelessSetting(wiredSetting)
+      m_wirelessSetting(wiredSetting),
+      m_deviceInterface(deviceInterface)
 {
+    // get the macAddress list from all wireless devices
     for (auto device : NetworkManager::networkInterfaces()) {
         if (device->type() != NetworkManager::Device::Type::Wifi) {
             continue;
         }
         NetworkManager::WirelessDevice::Ptr wDevice = device.staticCast<NetworkManager::WirelessDevice>();
         /* Alt:  permanentHardwareAddress to get real hardware address which is connot be changed */
-        const QString &macStr = wDevice->hardwareAddress() + " (" + wDevice->interfaceName() + ")";
-        m_macStrMap.insert(macStr, wDevice->hardwareAddress().remove(":"));
+        const QString &macStr = wDevice->permanentHardwareAddress() + " (" + wDevice->interfaceName() + ")";
+        m_macStrMap.insert(macStr, wDevice->permanentHardwareAddress().remove(":"));
     }
 
     // "^([0-9A-Fa-f]{2}[:-\\.]){5}([0-9A-Fa-f]{2})$"
@@ -109,13 +111,23 @@ void WirelessSection::initUI()
     for (const QString &key : m_macStrMap.keys()) {
         m_deviceMac->appendOption(key, m_macStrMap.value(key));
     }
-    /* TODO: set current device mac addr as default value */
 
+    // get the macAddress from Settings
     const QString &macAddr = QString(m_wirelessSetting->macAddress().toHex()).toUpper();
+
     if (m_macStrMap.values().contains(macAddr)) {
         m_deviceMac->setCurrent(macAddr);
     } else {
-        m_deviceMac->setCurrent(m_macStrMap.first());
+        // set macAddress of the current device to be default value
+        auto it = m_macStrMap.constBegin();
+        for (; it != m_macStrMap.constEnd(); ++it) {
+            if (it.key().contains(m_deviceInterface)) {
+                m_deviceMac->setCurrent(it.value());
+                break;
+            }
+        }
+
+        Q_ASSERT(it != m_macStrMap.constEnd());
     }
 
     //m_clonedMac->setTitle(tr("Cloned MAC Addr"));

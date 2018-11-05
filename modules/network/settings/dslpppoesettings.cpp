@@ -49,7 +49,7 @@ void DslPppoeSettings::initSections()
     //IpvxSection *ipv6Section = new IpvxSection(
             //m_connSettings->setting(Setting::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
     EthernetSection *etherNetSection = new EthernetSection(
-            m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>());
+            m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>(), m_connSettings->interfaceName());
     PPPSection *pppSection = new PPPSection(
             m_connSettings->setting(Setting::Ppp).staticCast<NetworkManager::PppSetting>());
 
