@@ -152,7 +152,7 @@ bool NavigationBar::eventFilter(QObject *watched, QEvent *event)
         m_arrowRectangle->show(p.x(), p.y() + btn->height() / 2);
     }
 
-    if (event->type() == QEvent::Leave) {
+    if (event->type() == QEvent::Leave || event->type() == QEvent::Hide) {
         m_arrowRectangle->hide();
     }
 
