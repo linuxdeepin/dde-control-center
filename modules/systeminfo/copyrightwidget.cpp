@@ -67,7 +67,7 @@ CopyrightWidget::CopyrightWidget(QWidget *parent)
 
     widget->setLayout(layout);
     setContent(widget);
-    setTitle(tr("License"));
+    setTitle(tr("Edition License"));
 
     QFutureWatcher<QPair<QString, QString>> *w = new QFutureWatcher<QPair<QString, QString>>(this);
     w->setFuture(QtConcurrent::run(loadLicenses));

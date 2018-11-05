@@ -93,6 +93,7 @@ BootWidget::BootWidget(QWidget *parent)
     widget->setLayout(layout);
 
     setContent(widget);
+    setTitle(tr("Boot Menu"));
 
     connect(m_theme, SIGNAL(checkedChanged(bool)), this, SIGNAL(enableTheme(bool)));
     connect(m_boot, SIGNAL(checkedChanged(bool)), this, SIGNAL(bootdelay(bool)));
