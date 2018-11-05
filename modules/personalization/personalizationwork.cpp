@@ -374,11 +374,6 @@ void PersonalizationWork::setFontSize(const int value)
 void PersonalizationWork::switchWM()
 {
     m_wmSwitcher->RequestSwitchWM();
-
-    QTimer::singleShot(1000, this, [=] {
-        emit m_model->wmChanged(m_wmSwitcher->CurrentWM() == "deepin wm");
-        refreshWMState();
-    });
 }
 
 void PersonalizationWork::setOpacity(int opacity)
