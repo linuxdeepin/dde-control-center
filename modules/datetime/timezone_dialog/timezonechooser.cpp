@@ -107,13 +107,15 @@ TimeZoneChooser::TimeZoneChooser()
     });
 
     connect(closeButton, &DWindowCloseButton::clicked, this, [this] {
-        hide();
         emit cancelled();
+
+        close();
     });
 
     connect(m_cancelBtn, &QPushButton::clicked, this, [this] {
-        hide();
         emit cancelled();
+
+        close();
     });
 
     connect(m_searchInput, &SearchInput::editingFinished, [this] {
@@ -190,8 +192,9 @@ void TimeZoneChooser::resizeEvent(QResizeEvent *event)
 void TimeZoneChooser::keyReleaseEvent(QKeyEvent *event)
 {
     if (event->matches(QKeySequence::Cancel)) {
-        hide();
         emit cancelled();
+
+        close();
     }
 }
 

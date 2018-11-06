@@ -51,8 +51,7 @@ Datetime::Datetime()
       m_addTimezoneButton(new QPushButton(tr("Add Timezone"))),
       m_timezoneItem(new NextPageWidget),
 #endif
-      m_addTimeZone(false),
-      m_dialog(new TimeZoneChooser)
+      m_addTimeZone(false)
 {
     setObjectName("Datetime");
     setTitle(tr("Time and Date"));
@@ -88,30 +87,24 @@ Datetime::Datetime()
     connect(m_timePageButton, &NextPageWidget::clicked, this, &Datetime::requestTimeSettings);
 
 #ifndef DCC_DISABLE_TIMEZONE
-    connect(m_dialog, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
-        if (m_dialog->isAddZone()) {
-            emit requestAddUserTimeZone(timezone);
-        } else {
-            emit requestSetTimeZone(timezone);
-        }
-
-        m_dialog->hide();
-        emit requestUnhold();
-    });
-    connect(m_dialog, &TimeZoneChooser::cancelled, this, &Datetime::requestUnhold);
-
     connect(m_addTimezoneButton, &QPushButton::clicked, this, [this] {
-        if (m_dialog->isVisible()) return;
+        if (m_dialog && m_dialog->isVisible()) return;
 
         emit requestHold();
+
+        ensureZoneChooserDialog();
+
         m_dialog->setIsAddZone(true);
         m_dialog->show();
     }, Qt::QueuedConnection);
 
     connect(m_timezoneItem, &NextPageWidget::clicked, this, [this] {
-        if (m_dialog->isVisible()) return;
+        if (m_dialog && m_dialog->isVisible()) return;
 
         emit requestHold();
+
+        ensureZoneChooserDialog();
+
         m_dialog->setIsAddZone(false);
         m_dialog->show();
         m_dialog->setMarkedTimeZone(installer::GetCurrentTimezone());
@@ -123,6 +116,8 @@ Datetime::Datetime()
 
 Datetime::~Datetime()
 {
+    if (m_dialog)
+        m_dialog->deleteLater();
 }
 
 void Datetime::setModel(const DatetimeModel *model)
@@ -239,7 +234,8 @@ void Datetime::updateSystemTimezone(const QString &timezone)
     const QString name = installer::GetLocalTimezoneName(timezone, locale);
     m_timezoneItem->setValue(name);
 
-    m_dialog->hide();
+    if (m_dialog)
+        m_dialog->close();
 
     m_timezoneGroup->clear();
     m_zoneList.clear();
@@ -258,6 +254,27 @@ void Datetime::onEditClicked(const bool &edit)
             item->toNormalMode();
         }
     }
+}
+
+void Datetime::ensureZoneChooserDialog()
+{
+    if (m_dialog)
+        return;
+
+    m_dialog = new TimeZoneChooser();
+    m_dialog->setAttribute(Qt::WA_DeleteOnClose);
+
+    connect(m_dialog, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
+        if (m_dialog->isAddZone()) {
+            emit requestAddUserTimeZone(timezone);
+        } else {
+            emit requestSetTimeZone(timezone);
+        }
+
+        m_dialog->close();
+        emit requestUnhold();
+    });
+    connect(m_dialog, &TimeZoneChooser::cancelled, this, &Datetime::requestUnhold);
 }
 #endif
 

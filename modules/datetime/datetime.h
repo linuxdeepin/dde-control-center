@@ -38,6 +38,7 @@
 #include "timezoneitem.h"
 
 #include <QSettings>
+#include <QPointer>
 
 #include <types/zoneinfo.h>
 
@@ -100,11 +101,13 @@ private:
     SettingsHead *m_headItem;
     QPushButton *m_addTimezoneButton;
     NextPageWidget *m_timezoneItem;
+
+    void ensureZoneChooserDialog();
 #endif
     ClockItem *m_clockItem;
     QList<TimezoneItem*> m_zoneList;
     bool m_addTimeZone;
-    TimeZoneChooser *m_dialog;
+    QPointer<TimeZoneChooser> m_dialog;
 };
 }
 }
