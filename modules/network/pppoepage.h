@@ -46,7 +46,7 @@ namespace dcc {
 namespace widgets {
     class SettingsGroup;
     class SwitchWidget;
-    class NextPageWidget;
+    class LoadingNextPageWidget;
 }
 
 namespace network {
@@ -77,7 +77,7 @@ private:
 
     widgets::SettingsGroup *m_settingsGrp;
     QPushButton *m_createBtn;
-    QMap<widgets::NextPageWidget *, QString> m_connUuid;
+    QMap<widgets::LoadingNextPageWidget *, QString> m_connUuid;
     QPointer<ConnectionEditPage> m_editPage;
 
     QString m_editingUuid;

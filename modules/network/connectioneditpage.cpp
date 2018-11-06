@@ -69,7 +69,10 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType, const QString &d
     }
 
     if (m_connectionSettings->interfaceName().isEmpty()) {
-        m_connectionSettings->setInterfaceName(NetworkManager::findNetworkInterface(m_devPath)->interfaceName());
+        Device::Ptr dev = NetworkManager::findNetworkInterface(m_devPath);
+        if (dev) {
+            m_connectionSettings->setInterfaceName(dev->interfaceName());
+        }
     }
 
     initHeaderButtons();

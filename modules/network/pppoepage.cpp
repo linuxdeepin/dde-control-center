@@ -28,7 +28,7 @@
 #include "settingsgroup.h"
 #include "settingsheaderitem.h"
 #include "translucentframe.h"
-#include "nextpagewidget.h"
+#include "loadingnextpagewidget.h"
 #include "switchwidget.h"
 
 #include <networkmodel.h>
@@ -104,11 +104,11 @@ void PppoePage::onConnectionListChanged()
         const auto name = pppoe.value("Id").toString();
         const auto uuid = pppoe.value("Uuid").toString();
 
-        NextPageWidget *w = new NextPageWidget;
+        LoadingNextPageWidget *w = new LoadingNextPageWidget;
         w->setTitle(name);
 
-        connect(w, &NextPageWidget::acceptNextPage,  this, &PppoePage::onConnectionDetailClicked);
-        connect(w, &NextPageWidget::selected, this, &PppoePage::onPPPoESelected);
+        connect(w, &LoadingNextPageWidget::acceptNextPage,  this, &PppoePage::onConnectionDetailClicked);
+        connect(w, &LoadingNextPageWidget::selected, this, &PppoePage::onPPPoESelected);
 
         m_settingsGrp->appendItem(w);
         m_connUuid[w] = uuid;
@@ -119,7 +119,7 @@ void PppoePage::onConnectionListChanged()
 
 void PppoePage::onConnectionDetailClicked()
 {
-    NextPageWidget *w = static_cast<NextPageWidget *>(sender());
+    LoadingNextPageWidget *w = static_cast<LoadingNextPageWidget *>(sender());
     Q_ASSERT(w && m_connUuid.contains(w));
 
     m_editingUuid = m_connUuid[w];
@@ -133,7 +133,7 @@ void PppoePage::onConnectionDetailClicked()
 
 void PppoePage::onPPPoESelected()
 {
-    NextPageWidget *w = static_cast<NextPageWidget *>(sender());
+    LoadingNextPageWidget *w = static_cast<LoadingNextPageWidget *>(sender());
     Q_ASSERT(w && m_connUuid.contains(w));
 
     m_editingUuid = m_connUuid[w];
@@ -142,16 +142,25 @@ void PppoePage::onPPPoESelected()
 
 void PppoePage::onActivateConnectionChanged(const QSet<QString> &conns)
 {
-    for (NextPageWidget *widget : m_connUuid.keys())
+    for (LoadingNextPageWidget *widget : m_connUuid.keys()) {
         widget->setIcon(QPixmap());
+        widget->setLoading(false);
+    }
 
     for (const QString &uuid : conns) {
-        NextPageWidget *w = m_connUuid.key(uuid);
+        LoadingNextPageWidget *w = m_connUuid.key(uuid);
         // the State of Active Connection
         // 0:Unknow, 1:Activating, 2:Activated, 3:Deactivating, 4:Deactivated
-        if (w && m_model->activeConnObjectByUuid(uuid).value("State").toInt(0) == 2) {
-            w->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));
-            return;
+        if (w) {
+            int state = m_model->activeConnObjectByUuid(uuid).value("State").toInt(0);
+            if(state == 2) {
+                w->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));
+                w->setLoading(false);
+            } else if(state == 1) {
+                w->setLoading(true);
+            } else {
+                w->setLoading(false);
+            }
         }
     }
 }
