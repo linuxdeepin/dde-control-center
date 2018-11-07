@@ -57,6 +57,8 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     m_myDevicesGroup->setHeaderVisible(true);
     m_otherDevicesGroup->setHeaderVisible(true);
 
+    m_myDevicesGroup->hide();
+
     m_refreshIndicator = new LoadingIndicator;
     m_refreshIndicator->setTheme("dark");
     m_otherDevicesGroup->headerItem()->setRightWidget(m_refreshIndicator);
@@ -119,7 +121,7 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
 
 void AdapterWidget::toggleSwitch(const bool &checked)
 {
-    m_myDevicesGroup->setVisible(checked);
+    m_myDevicesGroup->setVisible(checked && !m_myDevices.isEmpty());
     m_otherDevicesGroup->setVisible(checked);
 
     emit requestSetToggleAdapter(m_adapter, checked);
@@ -131,10 +133,13 @@ void AdapterWidget::addDevice(const Device *device)
 
     auto CategoryDevice = [this, w] (const bool paired) {
         if (paired) {
+            m_myDevices << w;
             m_myDevicesGroup->appendItem(w);
         } else {
             m_otherDevicesGroup->appendItem(w);
         }
+
+        m_myDevicesGroup->setVisible(!m_myDevices.isEmpty());
     };
     CategoryDevice(device->paired());
 
@@ -149,13 +154,20 @@ void AdapterWidget::addDevice(const Device *device)
 
 void AdapterWidget::removeDevice(const QString &deviceId)
 {
-    for (int i = 0; i != m_deviceLists.count(); ++i) {
-        DeviceSettingsItem *item = m_deviceLists[i];
-        if (item->device()->id() != deviceId) continue;
-        m_myDevicesGroup->removeItem(item);
-        m_deviceLists.removeAt(i);
-        item->deleteLater();
-        break;
+    for (auto it = m_deviceLists.begin(); it != m_deviceLists.end(); ++it) {
+        if ((*it)->device()->id() == deviceId) {
+            DeviceSettingsItem *item = *it;
+            m_myDevices.removeOne(item);
+            m_myDevicesGroup->removeItem(item);
+            m_otherDevicesGroup->removeItem(item);
+            m_deviceLists.erase(it);
+            item->deleteLater();
+            break;
+        }
+    }
+
+    if (m_myDevices.isEmpty()) {
+        m_myDevicesGroup->hide();
     }
 }
 

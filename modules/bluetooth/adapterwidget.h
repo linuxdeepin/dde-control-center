@@ -72,6 +72,7 @@ private:
     QLabel        *m_tip;
     widgets::LoadingIndicator *m_refreshIndicator;
     QList<DeviceSettingsItem*> m_deviceLists;
+    QList<DeviceSettingsItem*> m_myDevices;
 };
 
 }
