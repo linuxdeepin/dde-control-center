@@ -2631,72 +2631,72 @@
 <context>
     <name>dcc::network::VpnPPPSection</name>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="135"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
         <translation>Alle verfügbar (Standard)</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="136"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
         <source>40-bit (less secure)</source>
         <translation>40-Bit (weniger sicher)</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="137"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
         <source>128-bit (most secure)</source>
         <translation>128-Bit (am sichersten)</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
         <translation>EAP-Authentifizierung ablehnen</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
         <translation>PAP-Authentifizierung ablehnen</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="143"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
         <translation>CHAP-Authentifizierung ablehnen</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="144"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation>MSCHAP-Authentifizierung ablehnen</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="145"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation>MSCHAPv2-Authentifizierung ablehnen</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No BSD Data Compression</source>
         <translation>Keine BSD-Datenkomprimierung</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
         <translation>Keine Deflate-Datenkomprimierung</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No TCP Header Compression</source>
         <translation>Keine TCP-Kopfdatenkomprimierung</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
         <translation>Keine Protokollfeldkomprimierung</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
         <translation>Keine Adressen/Kontrollkomprimierung</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
         <translation>PPP-Echopakete senden</translation>
     </message>
@@ -2706,12 +2706,12 @@
         <translation>VPN PPP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="157"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
         <source>Use MPPE</source>
         <translation>MPPE verwenden</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="159"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="164"/>
         <source>Security</source>
         <translation>Sicherheit</translation>
     </message>
@@ -3493,15 +3493,20 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="76"/>
         <source>You can click the option in boot menu to set it as the first boot.Switch it on to view your theme in boot menu.</source>
-        <translation type="unfinished"/>
+        <translation>Sie können die Option im Boot-Menü anklicken, um sie als primäre Boot-Option festzulegen. Aktivieren sie diese Option, um Ihr Thema im Boot-Menü anzuzeigen.</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="96"/>
+        <source>Boot Menu</source>
+        <translation>Systemstartmenü</translation>
     </message>
 </context>
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
         <location filename="../modules/systeminfo/copyrightwidget.cpp" line="70"/>
-        <source>License</source>
-        <translation>Lizenz</translation>
+        <source>Edition License</source>
+        <translation>Version</translation>
     </message>
 </context>
 <context>

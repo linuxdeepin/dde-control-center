@@ -2631,72 +2631,72 @@
 <context>
     <name>dcc::network::VpnPPPSection</name>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="135"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
         <translation>Semua Tersedia (baku)</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="136"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
         <source>40-bit (less secure)</source>
         <translation>40-bit (kurang aman)</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="137"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
         <source>128-bit (most secure)</source>
         <translation>128-bit (lebih aman)</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
         <translation>Tolak Autentikasi EAP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
         <translation>Tolak Autentikasi PAP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="143"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
         <translation>Tolak Autentikasi CHAP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="144"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation>Tolak Autentikasi MSCHAP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="145"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation>Tolak Autentikasi MSCHAPv2</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No BSD Data Compression</source>
         <translation>Tidak ada kompresi data BSD</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
         <translation>Tidak ada penurunan data kompresi</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No TCP Header Compression</source>
         <translation>Tidak ada kompresi TCP Header</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
         <translation>Tidak ada kompresi Protokl Field</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
         <translation>Tidak ada Kompresi Alamat/Kontrol</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
         <translation>Kirim Paket PPP Echo</translation>
     </message>
@@ -2706,12 +2706,12 @@
         <translation>VPN PPP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="157"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
         <source>Use MPPE</source>
         <translation>Gunakan MPPE</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="159"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="164"/>
         <source>Security</source>
         <translation>Keamanan</translation>
     </message>
@@ -3495,13 +3495,18 @@
         <source>You can click the option in boot menu to set it as the first boot.Switch it on to view your theme in boot menu.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="96"/>
+        <source>Boot Menu</source>
+        <translation>Menu Boot</translation>
+    </message>
 </context>
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
         <location filename="../modules/systeminfo/copyrightwidget.cpp" line="70"/>
-        <source>License</source>
-        <translation>Lisensi</translation>
+        <source>Edition License</source>
+        <translation>Edisi lisensi</translation>
     </message>
 </context>
 <context>

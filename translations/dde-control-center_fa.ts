@@ -92,12 +92,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>به روز رسانی انجام شد. نیاز به شروع دوباره دارید؟ هم اکنون شروع دوباره کنید.</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>لطفاً ابتدا از ذخیره سازی تمام اطلاعات اطمینان حاصل کنید</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
@@ -112,7 +112,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>راه اندازی مجدد</translation>
     </message>
 </context>
 <context>
@@ -313,7 +313,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
+        <translation>تایید اثر انگشت موفقیت آمیز نبود. انگشت خود را بر روی سنسور قرار داده، از پایین به بالا حرکت دهید سپس بردارید</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
@@ -2631,72 +2631,72 @@
 <context>
     <name>dcc::network::VpnPPPSection</name>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="135"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="136"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
         <source>40-bit (less secure)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="137"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
         <source>128-bit (most secure)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="143"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="144"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="145"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No BSD Data Compression</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No TCP Header Compression</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
         <translation>بدون فیلد پروتوکل فشرده سازی</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
         <translation>بدون آدرس / کنترل فشرده سازی</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
         <translation type="unfinished"/>
     </message>
@@ -2706,12 +2706,12 @@
         <translation>VPN PPP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="157"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
         <source>Use MPPE</source>
         <translation>استفاده از MPPE</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="159"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="164"/>
         <source>Security</source>
         <translation>امنیتی</translation>
     </message>
@@ -3495,12 +3495,17 @@
         <source>You can click the option in boot menu to set it as the first boot.Switch it on to view your theme in boot menu.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="96"/>
+        <source>Boot Menu</source>
+        <translation>فهرست بوت</translation>
+    </message>
 </context>
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
         <location filename="../modules/systeminfo/copyrightwidget.cpp" line="70"/>
-        <source>License</source>
+        <source>Edition License</source>
         <translation type="unfinished"/>
     </message>
 </context>

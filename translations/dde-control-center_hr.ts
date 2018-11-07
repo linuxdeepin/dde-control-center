@@ -154,12 +154,12 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>Napusti domenu</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Pridruži se domeni</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="62"/>
@@ -169,7 +169,7 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>Poslužitelj domene</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="64"/>
@@ -192,7 +192,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>Izmjeni puno ime</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
@@ -217,12 +217,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>Nije moguće izbrisati, trenutni korisnik je prijavljen</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Lozinka otiskom prsta</translation>
     </message>
 </context>
 <context>
@@ -242,12 +242,12 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>Napusti domenu</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Pridruži se domeni</translation>
     </message>
 </context>
 <context>
@@ -318,7 +318,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>Uspješno dodano</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
@@ -386,7 +386,7 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Lozinka otiska prsta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="49"/>
@@ -414,7 +414,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>Puno ime:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -424,7 +424,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>Postavke punog imena</translation>
     </message>
 </context>
 <context>
@@ -432,7 +432,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
         <source>Current Password</source>
-        <translation type="unfinished"/>
+        <translation>Trenutna lozinka</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
@@ -766,7 +766,7 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="81"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Noćna smjena</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="86"/>
@@ -1437,17 +1437,17 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="316"/>
         <source>Wired Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Žičana veza %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="320"/>
         <source>Wireless Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Bežična veza: %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="324"/>
         <source>PPPoE Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>PPPoE veza %1</translation>
     </message>
 </context>
 <context>
@@ -1468,17 +1468,17 @@
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
         <source>VPN L2TP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN L2TP %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
         <source>VPN PPTP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN PPTP %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="165"/>
         <source>VPN VPNC %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN VPNC %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="169"/>
@@ -2170,7 +2170,7 @@
     <message>
         <location filename="../modules/network/sections/secrethotspotsection.cpp" line="100"/>
         <source>WEP 40/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/128-bit</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secrethotspotsection.cpp" line="101"/>
@@ -2216,7 +2216,7 @@
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>WEP 40/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/128-bit</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="108"/>
@@ -2631,72 +2631,72 @@
 <context>
     <name>dcc::network::VpnPPPSection</name>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="135"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
         <translation>Sve dostupno (uobičajeno)</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="136"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
         <source>40-bit (less secure)</source>
         <translation>40-bit (manje sigurno)</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="137"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
         <source>128-bit (most secure)</source>
         <translation>128-bit (najsigurnije)</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
         <translation>Odbaci EAP autentifikaciju</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
         <translation>Odbaci PAP autentifikaciju</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="143"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
         <translation>Odbaci CHAP autentifikaciju</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="144"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation>Odbaci MSCHAP autentifikaciju</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="145"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation>Odbaci MSCHAPv2 autentifikaciju</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No BSD Data Compression</source>
         <translation>Nema BSD kompresije podataka</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
         <translation>Nema umanjene kompresije podataka</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No TCP Header Compression</source>
         <translation>Nema TCP kompresije zaglavlja</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
         <translation>Nema protokola kompresije polja</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
         <translation>Nema kompresije Adrese/Kontrole</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
         <translation>Send PPP Echo Packets</translation>
     </message>
@@ -2706,12 +2706,12 @@
         <translation>VPN PPP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="157"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
         <source>Use MPPE</source>
         <translation>Koristi MPPE</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="159"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="164"/>
         <source>Security</source>
         <translation>Sigurnost</translation>
     </message>
@@ -3015,12 +3015,12 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
         <source>IKE</source>
-        <translation type="unfinished"/>
+        <translation>IKE</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="196"/>
         <source>ESP</source>
-        <translation type="unfinished"/>
+        <translation>ESP</translation>
     </message>
 </context>
 <context>
@@ -3495,13 +3495,18 @@
         <source>You can click the option in boot menu to set it as the first boot.Switch it on to view your theme in boot menu.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="96"/>
+        <source>Boot Menu</source>
+        <translation>Izbornik pokretanja sustava</translation>
+    </message>
 </context>
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
         <location filename="../modules/systeminfo/copyrightwidget.cpp" line="70"/>
-        <source>License</source>
-        <translation>Licenca</translation>
+        <source>Edition License</source>
+        <translation>Licenca izdanja</translation>
     </message>
 </context>
 <context>
@@ -3739,7 +3744,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="275"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>Veličina preuzimanja: %1</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="297"/>

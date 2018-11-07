@@ -1580,7 +1580,7 @@
         <location filename="../modules/network/sections/ipvxsection.cpp" line="195"/>
         <location filename="../modules/network/sections/ipvxsection.cpp" line="200"/>
         <source>Manual</source>
-        <translation>Руководство</translation>
+        <translation>Вручную</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/ipvxsection.cpp" line="201"/>
@@ -1944,7 +1944,7 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="62"/>
         <source>Manual</source>
-        <translation>Руководство</translation>
+        <translation>Вручную</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="63"/>
@@ -2631,72 +2631,72 @@
 <context>
     <name>dcc::network::VpnPPPSection</name>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="135"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
         <translation>Доступно Всё (по умолчанию)</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="136"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
         <source>40-bit (less secure)</source>
         <translation>40-bit (наименее безопасное)</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="137"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
         <source>128-bit (most secure)</source>
         <translation>128-bit (наиболее безопасное)</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
         <translation>Отказ EAP-аутентификации</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
         <translation>Отказ PAP-аутентификации</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="143"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
         <translation>Отказ CHAP-аутентификации</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="144"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation>Отказ MSCHAP-аутентификации</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="145"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation>Отказ MSCHAPv2-аутентификации</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No BSD Data Compression</source>
         <translation>Без Сжатия BSD-данных</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
         <translation>Без Сжатия Данных Deflate</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No TCP Header Compression</source>
         <translation>Без Сжатия TCP-заголовков</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
         <translation>Без Сжатия Полевого Протокола</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
         <translation>Без Адреса/Управление Сжатием</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
         <translation>Отправка Эхо-пакетов PPP</translation>
     </message>
@@ -2706,12 +2706,12 @@
         <translation>VPN PPP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="157"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
         <source>Use MPPE</source>
         <translation>Использовать MPPE</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="159"/>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="164"/>
         <source>Security</source>
         <translation>Безопасность</translation>
     </message>
@@ -3495,12 +3495,17 @@
         <source>You can click the option in boot menu to set it as the first boot.Switch it on to view your theme in boot menu.</source>
         <translation>Вы можете щелкнуть вариант в меню загрузки, чтобы задать его как первоначально загружаемым. Включите его, чтобы просмотреть свою тему в меню загрузки.</translation>
     </message>
+    <message>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="96"/>
+        <source>Boot Menu</source>
+        <translation>Меню Загрузки</translation>
+    </message>
 </context>
 <context>
     <name>dcc::systeminfo::CopyrightWidget</name>
     <message>
         <location filename="../modules/systeminfo/copyrightwidget.cpp" line="70"/>
-        <source>License</source>
+        <source>Edition License</source>
         <translation>Лицензия</translation>
     </message>
 </context>
