@@ -82,6 +82,7 @@ void Theme::onAddItem(const QJsonObject &json)
     const QString &title = json["Id"].toString();
     theme->setId(title);
     theme->setTitle(title == "deepin" ? "deepin ("+tr("Default") + ")" : title);
+    theme->setSelected(title == m_model->getDefault());
     m_mainGroup->appendItem(theme);
     m_valueMap.insert(theme, json);
     connect(theme, &ThemeItem::selectedChanged, this, &Theme::onItemClicked);

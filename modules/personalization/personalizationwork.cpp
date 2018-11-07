@@ -84,6 +84,12 @@ void PersonalizationWork::active()
 
     refreshWMState();
     refreshOpacity(m_dbus->opacity());
+
+    m_model->getWindowModel()->setDefault(m_dbus->gtkTheme());
+    m_model->getIconModel()->setDefault(m_dbus->iconTheme());
+    m_model->getMouseModel()->setDefault(m_dbus->cursorTheme());
+    m_model->getMonoFontModel()->setFontName(m_dbus->monospaceFont());
+    m_model->getStandFontModel()->setFontName(m_dbus->standardFont());
 }
 
 void PersonalizationWork::deactive()
@@ -268,14 +274,6 @@ void PersonalizationWork::refreshTheme()
     for (QMap<QString, ThemeModel*>::ConstIterator it = m_themeModels.begin(); it != m_themeModels.end(); it++) {
         refreshThemeByType(it.key());
     }
-
-    ThemeModel *cursorTheme      = m_model->getMouseModel();
-    ThemeModel *windowTheme      = m_model->getWindowModel();
-    ThemeModel *iconTheme        = m_model->getIconModel();
-
-    windowTheme->setDefault(m_dbus->gtkTheme());
-    iconTheme->setDefault(m_dbus->iconTheme());
-    cursorTheme->setDefault(m_dbus->cursorTheme());
 }
 
 void PersonalizationWork::refreshThemeByType(const QString &type)
@@ -291,9 +289,6 @@ void PersonalizationWork::refreshFont()
     for (QMap<QString, FontModel*>::const_iterator it = m_fontModels.begin(); it != m_fontModels.end(); it++) {
         refreshFontByType(it.key());
     }
-
-    m_model->getMonoFontModel()->setFontName(m_dbus->monospaceFont());
-    m_model->getStandFontModel()->setFontName(m_dbus->standardFont());
 
     FontSizeChanged(m_dbus->fontSize());
 }

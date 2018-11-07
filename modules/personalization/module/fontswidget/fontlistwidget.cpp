@@ -60,6 +60,12 @@ void FontListWidget::setModel(FontModel *const model)
 
 void FontListWidget::setList(const QList<QJsonObject> &list)
 {
+    for (auto it = m_valueMap.begin(); it != m_valueMap.end();) {
+        m_mainGroup->removeItem(it.key());
+        it.key()->deleteLater();
+        it = m_valueMap.erase(it);
+    }
+
     bool exist = false;
     for (QJsonObject item : list) {
         OptionItem *w = new OptionItem;
