@@ -42,6 +42,7 @@ public:
 
     bool allInputValid();
     void saveSettings();
+    bool isAutoConnect();
 
 Q_SIGNALS:
     void requestNextPage(ContentWidget * const page);

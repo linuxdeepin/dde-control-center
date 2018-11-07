@@ -46,6 +46,7 @@ public:
     inline void setConnectionNameEditable(const bool editable) { m_connIdItem->setEnabled(editable); }
     inline const QString connectionName() const { return m_connIdItem->text(); }
     inline void setConnectionName(const QString &name) { m_connIdItem->setText(name); }
+    inline bool autoConnectChecked() const { return m_autoConnItem->checked(); }
 
 private:
     void initUI();

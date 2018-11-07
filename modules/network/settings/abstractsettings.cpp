@@ -20,6 +20,7 @@
  */
 
 #include "abstractsettings.h"
+#include "../sections/genericsection.h"
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -63,4 +64,16 @@ void AbstractSettings::saveSettings()
             section->saveSettings();
         }
     }
+}
+
+bool AbstractSettings::isAutoConnect()
+{
+    GenericSection *genericSection = dynamic_cast<GenericSection *>(m_settingSections.first());
+
+    if (genericSection) {
+        return genericSection->autoConnectChecked();
+    }
+
+    // auto connect after save connection, like hotspot connection
+    return true;
 }

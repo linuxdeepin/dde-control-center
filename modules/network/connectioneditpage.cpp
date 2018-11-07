@@ -253,16 +253,17 @@ void ConnectionEditPage::saveConnSettings()
         return;
     }
 
-    QDBusPendingReply<> reply;
-
-    // deactivate this device's ActiveConnection
-    for (auto aConn : activeConnections()) {
-        for (auto devPath : aConn->devices()) {
-            if (devPath == m_devPath) {
-                reply = deactivateConnection(aConn->path());
-                reply.waitForFinished();
-                if (reply.isError()) {
-                    qDebug() << "error occurred while deactivate connection" << reply.error();
+    if (m_settingsWidget->isAutoConnect()) {
+        // deactivate this device's ActiveConnection
+        QDBusPendingReply<> reply;
+        for (auto aConn : activeConnections()) {
+            for (auto devPath : aConn->devices()) {
+                if (devPath == m_devPath) {
+                    reply = deactivateConnection(aConn->path());
+                    reply.waitForFinished();
+                    if (reply.isError()) {
+                        qDebug() << "error occurred while deactivate connection" << reply.error();
+                    }
                 }
             }
         }
@@ -302,10 +303,12 @@ void ConnectionEditPage::updateConnection()
         return;
     }
 
-    reply = activateConnection(m_connection->path(), m_devPath, "");
-    reply.waitForFinished();
-    if (reply.isError()) {
-        qDebug() << "error occurred while activate connection" << reply.error();
+    if (m_settingsWidget->isAutoConnect()) {
+        reply = activateConnection(m_connection->path(), m_devPath, "");
+        reply.waitForFinished();
+        if (reply.isError()) {
+            qDebug() << "error occurred while activate connection" << reply.error();
+        }
     }
 
     Q_EMIT back();
