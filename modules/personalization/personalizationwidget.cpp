@@ -31,6 +31,7 @@
 #include "settingsgroup.h"
 #include "switchwidget.h"
 #include "titledslideritem.h"
+#include "dwindowmanagerhelper.h"
 
 #include <QDebug>
 #include <QPushButton>
@@ -43,11 +44,11 @@ PersonalizationWidget::PersonalizationWidget()
     : ModuleWidget()
     , m_userGroup(new SettingsGroup)
     , m_transparentSlider(new TitledSliderItem(tr("Transparency")))
+    , m_trGrp(new SettingsGroup)
 {
     setObjectName("Personalization");
 
-    SettingsGroup *trGrp = new SettingsGroup;
-    trGrp->appendItem(m_transparentSlider);
+    m_trGrp->appendItem(m_transparentSlider);
 
     DCCSlider *slider = m_transparentSlider->slider();
     slider->setRange(1, 6);
@@ -61,7 +62,7 @@ PersonalizationWidget::PersonalizationWidget()
 
     m_transparentSlider->setAnnotations(list);
 
-    m_centralLayout->addWidget(trGrp);
+    m_centralLayout->addWidget(m_trGrp);
 
     m_centralLayout->addWidget(m_userGroup);
     NextPageWidget *theme = new NextPageWidget;
@@ -86,6 +87,11 @@ PersonalizationWidget::PersonalizationWidget()
 
     connect(m_transparentSlider->slider(), &DCCSlider::valueChanged, this,
             &PersonalizationWidget::requestSetOpacity);
+
+    connect(DWindowManagerHelper::instance(), &DWindowManagerHelper::hasBlurWindowChanged, this,
+            &PersonalizationWidget::onBlurWindowChanged);
+
+    onBlurWindowChanged();
 }
 
 void PersonalizationWidget::setModel(PersonalizationModel *const model)
@@ -107,4 +113,9 @@ void PersonalizationWidget::onOpacityChanged(std::pair<int, double> value)
     m_transparentSlider->slider()->blockSignals(true);
     m_transparentSlider->slider()->setValue(value.first);
     m_transparentSlider->slider()->blockSignals(false);
+}
+
+void PersonalizationWidget::onBlurWindowChanged()
+{
+    m_trGrp->setVisible(DWindowManagerHelper::instance()->hasBlurWindow());
 }

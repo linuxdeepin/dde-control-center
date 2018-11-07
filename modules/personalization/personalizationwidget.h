@@ -55,11 +55,13 @@ signals:
 
 private:
     void onOpacityChanged(std::pair<int, double> value);
+    void onBlurWindowChanged();
 
 private:
     dcc::widgets::SettingsGroup* m_userGroup;
     dcc::widgets::SwitchWidget*  m_wmSwitch;
     widgets::TitledSliderItem*   m_transparentSlider;
+    dcc::widgets::SettingsGroup *m_trGrp;
 };
 }
 }
