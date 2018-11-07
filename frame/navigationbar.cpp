@@ -103,7 +103,7 @@ NavigationBar::NavigationBar(QWidget *parent)
         b->setCheckedPic(QString(":/%1/themes/dark/icons/nav_%1.svg").arg(module));
         b->setNormalPic(QString(":/%1/themes/dark/icons/nav_%1_normal.svg").arg(module));
         b->setCheckable(true);
-        b->setVisible(false);
+        b->setVisible(true);
         b->installEventFilter(this);
 
         buttonsLayout->addWidget(b);
@@ -114,6 +114,9 @@ NavigationBar::NavigationBar(QWidget *parent)
 
     // init first button to checked
     m_navigationButtons[ModuleList.first()]->clicked();
+
+    setModuleVisible("bluetooth", false);
+    setModuleVisible("wacom", false);
 }
 
 QString NavigationBar::currentModuleName() const

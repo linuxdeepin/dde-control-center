@@ -27,6 +27,9 @@ NavModel::NavModel(QObject *parent) : QAbstractTableModel(parent)
 {
     m_moduleList = validModuleList();
     m_hoverIndex = QModelIndex();
+
+    setModuleVisible("bluetooth", false);
+    setModuleVisible("wacom", false);
 }
 
 int NavModel::rowCount(const QModelIndex &parent) const
@@ -84,7 +87,9 @@ void NavModel::setModuleVisible(const QString &module, bool visible)
         m_hideModuleList.removeOne(module);
     }
     else {
-        m_hideModuleList << module;
+        if (!m_hideModuleList.contains(module)) {
+            m_hideModuleList << module;
+        }
     }
 
     m_moduleList = validModuleList();

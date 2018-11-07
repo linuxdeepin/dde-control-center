@@ -224,9 +224,6 @@ void SettingsWidget::loadModule(ModuleInterface *const module)
     connect(thrd, &ModuleInitThread::moduleInitFinished, this, &SettingsWidget::onModuleInitFinished, Qt::QueuedConnection);
     connect(thrd, &ModuleInitThread::finished, thrd, &ModuleInitThread::deleteLater, Qt::QueuedConnection);
 
-    // Notify navigation bar show module icon
-    emit moduleVisibleChanged(module->name(), true);
-
     if (module->name() == m_ensureVisibleModule)
         return thrd->start(QThread::HighestPriority);
 
