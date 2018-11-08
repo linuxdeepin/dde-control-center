@@ -93,21 +93,23 @@ bool IpvxSection::allInputValid()
 
 void IpvxSection::saveSettings()
 {
+    bool initialized = true;
+
     switch (m_currentIpvx) {
         case Ipv4:
-            saveIpv4Settings();
+            initialized = saveIpv4Settings();
             break;
         case Ipv6:
-            saveIpv6Settings();
+            initialized = saveIpv6Settings();
             break;
         default:
             break;
     }
 
-    m_ipvxSetting->setInitialized(true);
+    m_ipvxSetting->setInitialized(initialized);
 }
 
-void IpvxSection::saveIpv4Settings()
+bool IpvxSection::saveIpv4Settings()
 {
     NetworkManager::Ipv4Setting::Ptr ipv4Setting = m_ipvxSetting.staticCast<NetworkManager::Ipv4Setting>();
 
@@ -122,14 +124,22 @@ void IpvxSection::saveIpv4Settings()
         ipv4Setting->setAddresses(QList<NetworkManager::IpAddress>() << ipAddress);
     }
 
-    ipv4Setting->setDns(dnsList());
+    const QList<QHostAddress> &mDnsList = dnsList();
+
+    ipv4Setting->setDns(mDnsList);
+
+    if (method == NetworkManager::Ipv4Setting::Automatic) {
+        ipv4Setting->setIgnoreAutoDns(!mDnsList.isEmpty());
+    }
 
     if (m_neverDefault->isVisible()) {
         ipv4Setting->setNeverDefault(m_neverDefault->checked());
     }
+
+    return true;
 }
 
-void IpvxSection::saveIpv6Settings()
+bool IpvxSection::saveIpv6Settings()
 {
     NetworkManager::Ipv6Setting::Ptr ipv6Setting = m_ipvxSetting.staticCast<NetworkManager::Ipv6Setting>();
 
@@ -137,7 +147,7 @@ void IpvxSection::saveIpv6Settings()
     ipv6Setting->setMethod(Ipv6ConfigMethodStrMap.value(m_methodChooser->value()));
 
     if (method == NetworkManager::Ipv6Setting::Ignored) {
-        return;
+        return false;
     }
 
     if (method == NetworkManager::Ipv6Setting::Manual) {
@@ -148,11 +158,19 @@ void IpvxSection::saveIpv6Settings()
         ipv6Setting->setAddresses(QList<NetworkManager::IpAddress>() << ipAddress);
     }
 
-    ipv6Setting->setDns(dnsList());
+    const QList<QHostAddress> &mDnsList = dnsList();
+
+    ipv6Setting->setDns(mDnsList);
+
+    if (method == NetworkManager::Ipv6Setting::Automatic) {
+        ipv6Setting->setIgnoreAutoDns(!mDnsList.isEmpty());
+    }
 
     if (m_neverDefault->isVisible()) {
         ipv6Setting->setNeverDefault(m_neverDefault->checked());
     }
+
+    return true;
 }
 
 void IpvxSection::setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod method, const bool enabled)

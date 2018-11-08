@@ -48,8 +48,8 @@ public:
     bool allInputValid() Q_DECL_OVERRIDE;
     void saveSettings() Q_DECL_OVERRIDE;
 
-    void saveIpv4Settings();
-    void saveIpv6Settings();
+    bool saveIpv4Settings();
+    bool saveIpv6Settings();
 
     void setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod method, const bool enabled);
     void setIpv6ConfigMethodEnable(NetworkManager::Ipv6Setting::ConfigMethod method, const bool enabled);
