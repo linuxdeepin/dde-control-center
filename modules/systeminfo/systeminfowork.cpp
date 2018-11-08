@@ -26,6 +26,9 @@
 #include "systeminfowork.h"
 #include "systeminfomodel.h"
 #include "basiclistdelegate.h"
+#include "dsysinfo.h"
+
+DCORE_USE_NAMESPACE
 
 namespace dcc{
 namespace systeminfo{
@@ -70,22 +73,38 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 
     connect(m_systemInfoInter, &__SystemInfo::DistroIDChanged, m_model, &SystemInfoModel::setDistroID);
     connect(m_systemInfoInter, &__SystemInfo::DistroVerChanged, m_model, &SystemInfoModel::setDistroVer);
-    connect(m_systemInfoInter, &__SystemInfo::VersionChanged, m_model, &SystemInfoModel::setVersion);
-    connect(m_systemInfoInter, &__SystemInfo::SystemTypeChanged, m_model, &SystemInfoModel::setType);
-    connect(m_systemInfoInter, &__SystemInfo::ProcessorChanged, m_model, &SystemInfoModel::setProcessor);
-    connect(m_systemInfoInter, &__SystemInfo::MemoryCapChanged, m_model, &SystemInfoModel::setMemory);
-    connect(m_systemInfoInter, &__SystemInfo::DiskCapChanged, m_model, &SystemInfoModel::setDisk);
+    // connect(m_systemInfoInter, &__SystemInfo::VersionChanged, m_model, &SystemInfoModel::setVersion);
+    // connect(m_systemInfoInter, &__SystemInfo::SystemTypeChanged, m_model, &SystemInfoModel::setType);
+    // connect(m_systemInfoInter, &__SystemInfo::ProcessorChanged, m_model, &SystemInfoModel::setProcessor);
+    // connect(m_systemInfoInter, &__SystemInfo::MemoryCapChanged, m_model, &SystemInfoModel::setMemory);
+    // connect(m_systemInfoInter, &__SystemInfo::DiskCapChanged, m_model, &SystemInfoModel::setDisk);
 }
 
 void SystemInfoWork::activate()
 {
     m_model->setDistroID(m_systemInfoInter->distroID());
     m_model->setDistroVer(m_systemInfoInter->distroVer());
-    m_model->setVersion(m_systemInfoInter->version());
-    m_model->setType(m_systemInfoInter->systemType());
-    m_model->setProcessor(m_systemInfoInter->processor());
-    m_model->setMemory(m_systemInfoInter->memoryCap());
-    m_model->setDisk(m_systemInfoInter->diskCap());
+    // m_model->setVersion(m_systemInfoInter->version());
+    // m_model->setType(m_systemInfoInter->systemType());
+    // m_model->setProcessor(m_systemInfoInter->processor());
+    // m_model->setMemory(m_systemInfoInter->memoryCap());
+    // m_model->setDisk(m_systemInfoInter->diskCap());
+
+    QString version;
+    if (DSysInfo::isDeepin()) {
+        version = QString("%1 %2").arg(DSysInfo::productVersion())
+                                  .arg(DSysInfo::deepinTypeDisplayName());
+    } else {
+        version = QString("%1 %2").arg(DSysInfo::productTypeString())
+                                  .arg(DSysInfo::productVersion());
+    }
+
+    m_model->setVersion(version);
+    m_model->setType(QSysInfo::WordSize);
+    m_model->setProcessor(QString("%1 x %2").arg(DSysInfo::cpuModelName())
+                                            .arg(QThread::idealThreadCount()));
+    m_model->setMemory(DSysInfo::memoryTotalSize());
+    m_model->setDisk(DSysInfo::systemDiskSize());
 }
 
 void SystemInfoWork::deactivate()
