@@ -1,3 +1,32 @@
+<a name="4.7.4"></a>
+### 4.7.4 (2018-11-09)
+
+
+#### Bug Fixes
+
+*   auto connect after save connections ([64ca4a9a](https://github.com/linuxdeepin/dde-control-center/commit/64ca4a9a359cd12a80f0576af119e89e099ab3b3))
+*   sysinfo description width. ([7fa69928](https://github.com/linuxdeepin/dde-control-center/commit/7fa699284166606bf12069e05ca60514f40dee97))
+*   does not support blur will not display transparency group. ([aa062f34](https://github.com/linuxdeepin/dde-control-center/commit/aa062f34908a2416ccca1597ac0bbe54aa3f6b35))
+*   can not create hotspot config when there are multiple wireless cards ([fbc41539](https://github.com/linuxdeepin/dde-control-center/commit/fbc41539057236b11d9bb06cd015d7603bffa17b))
+*   missing page title ([b56b700a](https://github.com/linuxdeepin/dde-control-center/commit/b56b700a8d2f19488ec630a347f133ed1c97c2f0))
+*   the state icon of dsl/pppoe connection ([e01bf903](https://github.com/linuxdeepin/dde-control-center/commit/e01bf90326c4919ac4cc33d4034a840435c9651e))
+* **bluetooth:**  list exception ([8c262c58](https://github.com/linuxdeepin/dde-control-center/commit/8c262c58071ecaf56e05f8335f43c785c8c1eaf4))
+* **display:**  rename config multiple times ([1d0945aa](https://github.com/linuxdeepin/dde-control-center/commit/1d0945aab8957c622fe165ae0aad3cd04d545784))
+* **nav:**
+  *  navigation flashing ([684dd402](https://github.com/linuxdeepin/dde-control-center/commit/684dd402dec3793f2a39073bb57b09bb9e3ff591))
+  *  not hide nav tip when frame hide ([05dbfc89](https://github.com/linuxdeepin/dde-control-center/commit/05dbfc8908539166f8dec713992e8e9da345f778))
+* **network:**  ignore auto dns if custom dns set in auto ipvx mode ([5bc245d9](https://github.com/linuxdeepin/dde-control-center/commit/5bc245d9f78906f19bfc9327cd5c525f9d874ca0))
+* **notify:**  missing hover check ([73db5278](https://github.com/linuxdeepin/dde-control-center/commit/73db527831d721eb2c1646bc8b2dfbe7de840b0f))
+* **personalization:**  multiple settings wm switch button ([2737256c](https://github.com/linuxdeepin/dde-control-center/commit/2737256c635bec01887fbc7919e615dee0a7dd4c))
+* **theme:**  missing default icon ([f638320e](https://github.com/linuxdeepin/dde-control-center/commit/f638320ea083ea360b2fcae8dd8232b6a656d569))
+
+#### Features
+
+*   loading state for pppoe connection ([45efb870](https://github.com/linuxdeepin/dde-control-center/commit/45efb87050b3503888a3f582653f39d3f3317c87))
+* **grub:**  disable drap photo ([47f1d328](https://github.com/linuxdeepin/dde-control-center/commit/47f1d328706e043a759ff1b5265dfa6e702d99b9))
+
+
+
 <a name="4.7.3"></a>
 ### 4.7.3 (2018-11-02)
 
