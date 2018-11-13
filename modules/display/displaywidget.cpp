@@ -120,7 +120,7 @@ DisplayWidget::DisplayWidget()
 #endif
     connect(m_createConfig, &QPushButton::clicked, this, [=] {
         if (m_model->config().startsWith("_dde_display")) {
-            emit requestModifyConfig(m_model->config(), false);
+            emit requestModifyConfig(m_model->config(), true);
         }
         else {
             emit requestNewConfig();
