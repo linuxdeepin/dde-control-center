@@ -115,6 +115,7 @@ void keyboard::CustomEdit::setBottomTip(keyboard::ShortcutInfo *conflict)
         accels = accels.replace(">", "+");
         accels = accels.replace("_L","");
         accels = accels.replace("_R", "");
+        accels = accels.replace("Control", "Ctrl");
 
         QString str = tr("This shortcut conflicts with %1, click on Add to make this shortcut effective immediately")
                 .arg(QString("<span style=\"color: rgba(255, 90, 90, 1);\">%1 %2</span>").arg(conflict->name).arg(QString("[%1]").arg(accels)));

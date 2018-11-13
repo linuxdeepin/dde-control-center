@@ -80,6 +80,9 @@ void CustomItem::setShortcut(const QString &shortcut)
     QString list = shortcut;
     list = list.replace("<", "");
     list = list.replace(">", "-");
+    list = list.replace("_L","");
+    list = list.replace("_R", "");
+    list = list.replace("Control", "Ctrl");
 
     m_shortKey->setTextList(list.split("-"));
     m_shortcutEdit->hide();

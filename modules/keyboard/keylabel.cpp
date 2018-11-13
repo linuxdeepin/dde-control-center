@@ -68,6 +68,7 @@ void KeyLabel::paintEvent(QPaintEvent *event)
     QLabel::paintEvent(event);
 
     QPainter painter(this);
+    painter.setRenderHint(QPainter::HighQualityAntialiasing);
 
     painter.setOpacity(m_isEnter ? 1.0 : 0.85);
 

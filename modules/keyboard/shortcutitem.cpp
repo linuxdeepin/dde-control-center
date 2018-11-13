@@ -121,6 +121,7 @@ void ShortcutItem::setShortcut(const QString &shortcut)
     accels = accels.replace(">", "-");
     accels = accels.replace("_L","");
     accels = accels.replace("_R", "");
+    accels = accels.replace("Control", "Ctrl");
 
     m_key->setTextList(accels.split("-"));
 }
