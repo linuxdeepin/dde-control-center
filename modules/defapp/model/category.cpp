@@ -33,12 +33,6 @@ Category::Category(QObject *parent)
 
 }
 
-void Category::setappList(const QList<App> &list)
-{
-    m_applist = list;
-    emit itemsChanged(list);
-}
-
 void Category::setDefault(const App &def)
 {
     if (m_default != def) {
@@ -61,10 +55,12 @@ void Category::addUserItem(const App &value)
     if (m_applist.contains(value)) return;
 
     m_applist << value;
-    emit AdduserItem(value);
+    emit addedUserItem(value);
 }
 
 void Category::delUserItem(const App &value)
 {
     m_applist.removeOne(value);
+
+    emit removedUserItem(value);
 }

@@ -42,11 +42,11 @@ struct App {
     bool isUser;
 
     bool operator ==(const App &app) const {
-        return app.Id == Id;
+        return app.Id == Id && app.isUser == isUser;
     }
 
     bool operator !=(const App &app) const {
-        return app.Id != Id;
+        return app.Id != Id && app.isUser != isUser;
     }
 };
 
@@ -57,8 +57,6 @@ class Category : public QObject
 public:
     explicit Category(QObject *parent = 0);
 
-    void setappList(const QList<App> &list);   //设置list到暂存区
-    void setuserList(const QList<App> &list);
     void setDefault(const App &def);
 
     const QString getName() const { return m_category;}
@@ -69,9 +67,9 @@ public:
     void delUserItem(const App &value);
 
 signals:
-    void itemsChanged(const QList<App> &list);
     void defaultChanged(const App &id);
-    void AdduserItem(const App &app);
+    void addedUserItem(const App &app);
+    void removedUserItem(const App &app);
     void categoryNameChanged(const QString &name);
 
 private:

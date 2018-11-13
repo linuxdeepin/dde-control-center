@@ -67,9 +67,9 @@ DefCategoryWidget::DefCategoryWidget(const QString &name, QWidget *parent)
 void DefCategoryWidget::setCategory(Category *const category)
 {
     m_category = category;
-    connect(category, &Category::itemsChanged, this, &DefCategoryWidget::AppsItemChanged);
     connect(category, &Category::defaultChanged, this, &DefCategoryWidget::onDefaultAppSet);
-    connect(category, &Category::AdduserItem, this, &DefCategoryWidget::addItem);
+    connect(category, &Category::addedUserItem, this, &DefCategoryWidget::addItem);
+    connect(category, &Category::removedUserItem, this, &DefCategoryWidget::removeItem);
     connect(category, &Category::categoryNameChanged, this, &DefCategoryWidget::setCategoryName);
 
     AppsItemChanged(category->getappItem());
