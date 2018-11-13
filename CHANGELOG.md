@@ -1,3 +1,14 @@
+<a name="4.7.6"></a>
+### 4.7.6 (2018-11-13)
+
+
+#### Bug Fixes
+
+* **display:**  save multiple screen config list failed ([951a101e](https://github.com/linuxdeepin/dde-control-center/commit/951a101e5df38eb157075a0bf124ff9d66dc11a3))
+* **keyboard:**  no abbreviation for modifier keys ([9699eeb9](https://github.com/linuxdeepin/dde-control-center/commit/9699eeb9279cd41f7a461171273488505fd2a5d9))
+
+
+
 <a name="4.7.5"></a>
 ### 4.7.5 (2018-11-13)
 
