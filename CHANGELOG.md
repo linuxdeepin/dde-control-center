@@ -1,3 +1,13 @@
+<a name="4.7.5"></a>
+### 4.7.5 (2018-11-13)
+
+
+#### Bug Fixes
+
+* **defapp:**  dbus data replacement is not complete ([1d22eb18](https://github.com/linuxdeepin/dde-control-center/commit/1d22eb182e80c85c23ad7f2f17e8706601963c99))
+
+
+
 <a name="4.7.4"></a>
 ### 4.7.4 (2018-11-09)
 
