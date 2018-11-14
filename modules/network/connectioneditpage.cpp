@@ -46,6 +46,7 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType, const QString &d
       m_disconnectBtn(new QPushButton),
       m_removeBtn(new QPushButton),
       m_buttonTuple(new ButtonTuple),
+      m_subPage(nullptr),
       m_connType(static_cast<NetworkManager::ConnectionSettings::ConnectionType>(connType)),
       m_isNewConnection(false),
       m_devPath(devPath),
@@ -151,14 +152,18 @@ void ConnectionEditPage::initSettingsWidget()
             break;
     }
 
-    connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionEditPage::requestNextPage);
+    connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionEditPage::onRequestNextPage);
 
     m_settingsLayout->addWidget(m_settingsWidget);
 }
 
 void ConnectionEditPage::onDeviceRemoved()
 {
-    // popup m_settingsWidget
+    if (m_subPage) {
+        Q_EMIT m_subPage->back();
+    }
+
+    Q_EMIT back();
 }
 
 void ConnectionEditPage::initConnection()
@@ -197,6 +202,13 @@ void ConnectionEditPage::setSecretsFromMapMap(NetworkManager::Setting::SettingTy
 {
     QSharedPointer<T> setting = m_connectionSettings->setting(settingType).staticCast<T>();
     setting->secretsFromMap(secretsMapMap.value(setting->name()));
+}
+
+void ConnectionEditPage::onRequestNextPage(dcc::ContentWidget * const page)
+{
+    m_subPage = page;
+
+    Q_EMIT requestNextPage(page);
 }
 
 void ConnectionEditPage::initConnectionSecrets()

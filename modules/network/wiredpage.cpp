@@ -214,9 +214,9 @@ void WiredPage::onDeviceStatusChanged(const NetworkDevice::DeviceStatus stat)
 
 void WiredPage::onDeviceRemoved()
 {
-    /* TODO: back all edit page's subpage */
-    if (!m_editPage.isNull())
-        Q_EMIT m_editPage->back();
+    if (!m_editPage.isNull()) {
+        m_editPage->onDeviceRemoved();
+    }
 
     Q_EMIT back();
 }

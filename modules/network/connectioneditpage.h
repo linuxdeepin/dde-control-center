@@ -27,6 +27,7 @@
 #include "settings/abstractsettings.h"
 #include "buttontuple.h"
 
+#include <QPointer>
 #include <QPushButton>
 #include <QVBoxLayout>
 
@@ -85,6 +86,9 @@ private:
     template <typename T>
     void setSecretsFromMapMap(NetworkManager::Setting::SettingType settingType, NMVariantMapMap secretsMapMap);
 
+protected Q_SLOTS:
+    void onRequestNextPage(ContentWidget * const page);
+
 protected:
     QVBoxLayout *m_settingsLayout;
 
@@ -98,6 +102,8 @@ private:
     QPushButton *m_disconnectBtn;
     QPushButton *m_removeBtn;
     dcc::widgets::ButtonTuple *m_buttonTuple;
+
+    QPointer<ContentWidget> m_subPage;
 
     NetworkManager::ConnectionSettings::ConnectionType m_connType;
 

@@ -205,10 +205,10 @@ void WirelessPage::onCloseHotspotClicked()
 
 void WirelessPage::onDeviceRemoved()
 {
-    /* TODO: back all edit page's subpage */
     // back if ap edit page exist
-    if (!m_apEditPage.isNull())
-        m_apEditPage->back();
+    if (!m_apEditPage.isNull()) {
+        m_apEditPage->onDeviceRemoved();
+    }
 
     // destroy self page
     emit back();

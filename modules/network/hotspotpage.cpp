@@ -75,6 +75,7 @@ HotspotPage::HotspotPage(WirelessDevice *wdev, QWidget *parent)
     setContent(centralWidget);
     setTitle(tr("Hotspot"));
 
+    connect(m_wdev, &WirelessDevice::removed, this, &HotspotPage::onDeviceRemoved);
     connect(m_hotspotSwitch, &SwitchWidget::checkedChanged, this, &HotspotPage::onSwitchToggled);
     connect(m_configureWidget, &NextPageWidget::clicked, this, &HotspotPage::onConfigWidgetClicked);
 }
@@ -112,6 +113,10 @@ void HotspotPage::onConfigWidgetClicked()
 
 void HotspotPage::onConnectionsChanged()
 {
+    if (!m_wdev || !m_wdev->enabled()) {
+        return;
+    }
+
     m_hotspotInfo = QJsonObject();
     for (const auto &hotspot : m_model->hotspots())
     {
@@ -166,6 +171,17 @@ void HotspotPage::openHotspot()
         Q_EMIT requestNextPage(m_editPage);
     } else
         requestActivateConnection(m_wdev->path(), uuid);
+}
+
+void HotspotPage::onDeviceRemoved()
+{
+    // back if ap edit page exist
+    if (!m_editPage.isNull()) {
+        m_editPage->onDeviceRemoved();
+    }
+
+    // destroy self page
+    emit back();
 }
 
 }

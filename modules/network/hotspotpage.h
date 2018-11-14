@@ -78,6 +78,9 @@ private:
     inline const QString hotspotUuid() const
     { return m_hotspotInfo.value("Uuid").toString(); }
 
+private Q_SLOTS:
+    void onDeviceRemoved();
+
 private:
     dde::network::WirelessDevice * const m_wdev;
     dde::network::NetworkModel *m_model;

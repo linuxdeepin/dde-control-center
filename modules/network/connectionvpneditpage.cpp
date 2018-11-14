@@ -136,7 +136,7 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
             break;
     }
 
-    connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionVpnEditPage::requestNextPage);
+    connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionVpnEditPage::onRequestNextPage);
 
     m_settingsLayout->addWidget(m_settingsWidget);
 
