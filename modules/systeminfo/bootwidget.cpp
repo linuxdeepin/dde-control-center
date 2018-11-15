@@ -26,6 +26,7 @@
 #include "bootwidget.h"
 
 #include <QVBoxLayout>
+#include <QScrollBar>
 
 #include "settingsgroup.h"
 #include "grubbackgrounditem.h"
@@ -56,6 +57,7 @@ BootWidget::BootWidget(QWidget *parent)
     m_bootList->setPalette(Qt::transparent);
     m_bootList->setWordWrap(true);
     m_bootList->setDragEnabled(false);
+    m_bootList->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
 
     m_updatingLabel = new TipsLabel(tr("Updating..."));
     m_updatingLabel->setVisible(false);
