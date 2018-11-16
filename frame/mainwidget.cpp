@@ -24,6 +24,7 @@
  */
 
 #include "mainwidget.h"
+#include "frame.h"
 
 #include "accounts/avatarwidget.h"
 #include "updatenotifier.h"
@@ -99,6 +100,7 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     m_currentTimeLbl->setFont(font);
     m_currentDateLbl->setObjectName("CurrentDateLabel");
     m_currentDateLbl->setWordWrap(true);
+    m_currentDateLbl->setMinimumWidth(FRAME_WIDTH - 150);
 
     m_notifyToggleBtn = new DImageButton(this);
     m_notifyToggleBtn->setFixedSize(32, 32);
