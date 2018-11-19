@@ -174,11 +174,11 @@ void VpnOpenVPNSection::initTLSItems()
     }
 
     FileChooseWidget *userCertFile = new FileChooseWidget(this);
-    userCertFile->setTitle("User Cert");
+    userCertFile->setTitle(tr("User Cert"));
     userCertFile->edit()->setText(m_dataMap.value("cert"));
 
     FileChooseWidget *priKeyFile = new FileChooseWidget(this);
-    priKeyFile->setTitle("Private Key");
+    priKeyFile->setTitle(tr("Private Key"));
     priKeyFile->edit()->setText(m_dataMap.value("key"));
 
     ComboBoxWidget *certPasswordFlagsChooser = new ComboBoxWidget(this);
@@ -222,7 +222,7 @@ void VpnOpenVPNSection::initPasswordItems()
     }
 
     LineEditWidget *userName = new LineEditWidget(this);
-    userName->setTitle("Username");
+    userName->setTitle(tr("Username"));
     userName->setText(m_dataMap.value("username"));
     userName->setPlaceholderText(tr("Required"));
 
@@ -238,7 +238,7 @@ void VpnOpenVPNSection::initPasswordItems()
     passwordFlagsChooser->setCurrent(m_currentPasswordType);
 
     PasswdEditWidget *password = new PasswdEditWidget(this);
-    password->setTitle("Password");
+    password->setTitle(tr("Password"));
     password->setText(m_secretMap.value("password"));
     password->setPlaceholderText(tr("Required"));
 
@@ -282,12 +282,12 @@ void VpnOpenVPNSection::initStaticKeyItems()
     keyDirectionChooser->setVisible(customizeKeyDirection->checked());
 
     LineEditWidget *remoteIp = new LineEditWidget(this);
-    remoteIp->setTitle("Remote IP");
+    remoteIp->setTitle(tr("Remote IP"));
     remoteIp->setPlaceholderText(tr("Required"));
     remoteIp->setText(m_dataMap.value("remote-ip"));
 
     LineEditWidget *localIp = new LineEditWidget(this);
-    localIp->setTitle("Local IP");
+    localIp->setTitle(tr("Local IP"));
     localIp->setPlaceholderText(tr("Required"));
     localIp->setText(m_dataMap.value("local-ip"));
 

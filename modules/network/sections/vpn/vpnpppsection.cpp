@@ -167,7 +167,7 @@ void VpnPPPSection::initUI()
     }
     m_mppeChooser->setCurrent(m_currentMppeMethod);
 
-    m_mppeStateful->setTitle("Stateful MPPE");
+    m_mppeStateful->setTitle(tr("Stateful MPPE"));
     m_mppeStateful->setChecked(m_dataMap.value("mppe-stateful") == "yes");
 
     appendItem(m_mppeEnable);

@@ -140,7 +140,7 @@ void VpnProxySection::initStrMaps()
 
 void VpnProxySection::initUI()
 {
-    m_proxyTypeChooser->setTitle("Proxy Type");
+    m_proxyTypeChooser->setTitle(tr("Proxy Type"));
     m_currentProxyType = "none";
     for (auto value : ProxyTypeStrMap.values()) {
         if (value == m_dataMap.value("proxy-type")) {
