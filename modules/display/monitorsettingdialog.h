@@ -35,6 +35,7 @@
 #include <QHBoxLayout>
 #include <ddialog.h>
 #include <dimagebutton.h>
+#include <memory>
 
 DWIDGET_USE_NAMESPACE
 
