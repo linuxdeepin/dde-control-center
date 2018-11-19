@@ -158,6 +158,16 @@
 
 
 <a name=""></a>
+##  4.6.4.11 (2018-10-26)
+
+
+#### Bug Fixes
+
+* **keyboard:**  null pointer exeception ([a9a41ee9](https://github.com/linuxdeepin/dde-control-center/commit/a9a41ee9500c29d4f95fc60fb3304f58360f1120))
+
+
+
+<a name=""></a>
 ##  4.6.4.10 (2018-10-24)
 
 
