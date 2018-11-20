@@ -41,7 +41,7 @@ class ModifyAvatarPage : public ContentWidget
 public:
     explicit ModifyAvatarPage(User *user, QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
     void requestAddNewAvatar(User *user) const;
     void requestSetAvatar(User *user, const QString &filePath) const;
     void requestDeleteAvatar(User *user, const QString &iconPath) const;
@@ -49,7 +49,7 @@ signals:
 private:
     void appendAvatar(const QString &avatar, const int index, const bool selected, const bool deletable = false);
 
-private slots:
+private Q_SLOTS:
     void updateAvatarList();
     void updateTitle();
 

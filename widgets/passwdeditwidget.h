@@ -35,7 +35,7 @@ public:
 
     void setSwitchBtnVisible(bool visible);
 
-private slots:
+private Q_SLOTS:
     void switchMode();
     void updateBtnPic();
 

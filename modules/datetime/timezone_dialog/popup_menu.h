@@ -48,14 +48,14 @@ class PopupMenu : public QFrame {
   // Returns the list used by menu_model to store menu items.
   QStringList stringList() const;
 
- signals:
-  // Emitted when window is hidden.
+ Q_SIGNALS:
+  // Q_EMITted when window is hidden.
   void onHide();
 
-  // Emitted when a menu item at |index| is activated.
+  // Q_EMITted when a menu item at |index| is activated.
   void menuActivated(int index);
 
- public slots:
+ public Q_SLOTS:
   // Show tooltip container at |pos| and grab keyboard focus.
   void popup(const QPoint& pos);
 
@@ -84,7 +84,7 @@ class PopupMenu : public QFrame {
   QListView* menu_view_ = nullptr;
   QStringListModel* menu_model_ = nullptr;
 
- private slots:
+ private Q_SLOTS:
   void onMenuViewActivated(const QModelIndex& index);
 };
 

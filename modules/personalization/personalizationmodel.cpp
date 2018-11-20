@@ -53,7 +53,7 @@ void PersonalizationModel::setIs3DWm(const bool is3d)
 {
     if (is3d != m_is3DWm) {
         m_is3DWm = is3d;
-        emit wmChanged(is3d);
+        Q_EMIT wmChanged(is3d);
     }
 }
 
@@ -68,5 +68,5 @@ void PersonalizationModel::setOpacity(std::pair<int, double> opacity)
 
     m_opacity = opacity;
 
-    emit onOpacityChanged(opacity);
+    Q_EMIT onOpacityChanged(opacity);
 }

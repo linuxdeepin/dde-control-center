@@ -47,7 +47,7 @@ public:
     void clear();
     bool isEmpty() const;
 
-public slots:
+public Q_SLOTS:
     void appearIfNotEmpty();
 
 private:
@@ -70,7 +70,7 @@ public:
     void showAlertMessage(const QString &message);
     void hideAlertMessage();
 
-public slots:
+public Q_SLOTS:
     void setTitle(const QString &title);
     void setText(const QString &text);
     void setPlaceholderText(const QString &text);

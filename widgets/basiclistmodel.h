@@ -54,7 +54,7 @@ public:
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
 
-public slots:
+public Q_SLOTS:
     void clear();
     void appendOption(const QString &text, const QVariant &data = QVariant());
     void setSelectedIndex(const QModelIndex &index);

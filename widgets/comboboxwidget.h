@@ -51,7 +51,7 @@ public:
     void setCurrent(const QVariant &value);
     void setEditable(const bool editable = true);
 
-signals:
+Q_SIGNALS:
     void requestPage(ContentWidget * const page) const;
     void dataChanged(const QVariant &data) const;
 
@@ -60,7 +60,7 @@ private:
     void acceptNextPage() const;
     void setValue(const QString &);
 
-private slots:
+private Q_SLOTS:
     void onNextPageClicked();
     void onContentDesktory();
     void onItemClicked();

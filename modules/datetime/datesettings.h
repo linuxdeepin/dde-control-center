@@ -61,10 +61,10 @@ class DateSettings : public ContentWidget
 public:
     explicit DateSettings(QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
     void requestSetTime(const QDateTime &time);
 
-private slots:
+private Q_SLOTS:
     void onCancelButtonClicked();
     void onConfirmButtonClicked();
 

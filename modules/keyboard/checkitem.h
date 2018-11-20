@@ -48,11 +48,11 @@ public:
     void setMultipleMode(bool multiple);
     bool checked() const;
 
-signals:
+Q_SIGNALS:
     void checkedChanged(const QString &title);
     void destroySelf(CheckItem* item);
 
-public slots:
+public Q_SLOTS:
     void onEditMode(bool value);
     void onClick();
 

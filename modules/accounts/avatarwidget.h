@@ -50,7 +50,7 @@ public:
     const QString avatarPath() const;
     void setAvatarPath(const QString &avatar);
 
-signals:
+Q_SIGNALS:
     void clicked(const QString &iconPath) const;
     void requestDelete(const QString &iconPath) const;
 

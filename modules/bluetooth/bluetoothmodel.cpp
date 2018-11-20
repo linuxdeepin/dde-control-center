@@ -37,8 +37,8 @@ void BluetoothModel::addAdapter(Adapter *adapter)
 {
     if (!adapterById(adapter->id())) {
         m_adapters[adapter->id()] = adapter;
-        emit adapterAdded(adapter);
-        emit adpaterListChanged();
+        Q_EMIT adapterAdded(adapter);
+        Q_EMIT adpaterListChanged();
         return;
     }
 
@@ -52,8 +52,8 @@ const Adapter *BluetoothModel::removeAdapater(const QString &adapterId)
     adapter = adapterById(adapterId);
     if (adapter) {
         m_adapters.remove(adapterId);
-        emit adapterRemoved(adapter);
-        emit adpaterListChanged();
+        Q_EMIT adapterRemoved(adapter);
+        Q_EMIT adpaterListChanged();
     }
 
     return adapter;

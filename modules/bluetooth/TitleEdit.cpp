@@ -57,7 +57,7 @@ void TitleEdit::setName()
         m_name->setText(m_lineEdit->text());
         m_lineEdit->setVisible(false);
         m_name->setVisible(true);
-        emit requestSetBluetoothName(m_lineEdit->text());
+        Q_EMIT requestSetBluetoothName(m_lineEdit->text());
     }
 }
 

@@ -89,8 +89,8 @@ void ChainsTypePage::onTypeChanged()
 
     for (OptionItem *w : m_list) {
         if (w == item) {
-            emit requestTypeChanged(w->title());
-            emit back();
+            Q_EMIT requestTypeChanged(w->title());
+            Q_EMIT back();
             break;
         }
     }

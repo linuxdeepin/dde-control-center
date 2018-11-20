@@ -49,14 +49,14 @@ public:
 
     const Device *device() const;
 
-signals:
+Q_SIGNALS:
     void requestConnectDevice(const Device *device) const;
     void requestShowDetail(const Device *device) const;
 
 protected:
     void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 
-private slots:
+private Q_SLOTS:
     void onDeviceStateChanged(const Device::State &state);
     void onDevicePairedChanged(const bool &paired);
     void onStopLoadingAnimation();

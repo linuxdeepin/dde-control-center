@@ -137,16 +137,16 @@ void UpdateCtrlWidget::onProgressBarClicked()
 {
     switch (m_status) {
     case UpdatesStatus::UpdatesAvailable:
-        emit requestDownloadUpdates();
+        Q_EMIT requestDownloadUpdates();
         break;
     case UpdatesStatus::Downloading:
-        emit requestPauseDownload();
+        Q_EMIT requestPauseDownload();
         break;
     case UpdatesStatus::DownloadPaused:
-        emit requestResumeDownload();
+        Q_EMIT requestResumeDownload();
         break;
     case UpdatesStatus::Downloaded:
-        emit requestInstallUpdates();
+        Q_EMIT requestInstallUpdates();
         break;
     default:
         qWarning() << "unhandled status " << m_status;

@@ -119,9 +119,9 @@ SoundWidget::SoundWidget(SoundModel *model) :
     connect(m_speakerSwitch, &SwitchWidget::checkedChanged, this, &SoundWidget::requestSwitchSpeaker);
     connect(m_microphoneSwitch, &SwitchWidget::checkedChanged, this, &SoundWidget::requestSiwtchMicrophone);
     connect(m_soundEffectSwitch, &SwitchWidget::checkedChanged, this, &SoundWidget::requestSwitchSoundEffect);
-    connect(m_outputBalanceSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetSpeakerBalance(value / 100.f); });
-    connect(m_inputVolumeSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetMicrophoneVolume(value / 100.f); });
-    connect(m_outputVolumeSlider, &DCCSlider::valueChanged, [this] (double value) { emit requestSetSpeakerVolume(value / 100.f);} );
+    connect(m_outputBalanceSlider, &DCCSlider::valueChanged, [this] (double value) { Q_EMIT requestSetSpeakerBalance(value / 100.f); });
+    connect(m_inputVolumeSlider, &DCCSlider::valueChanged, [this] (double value) { Q_EMIT requestSetMicrophoneVolume(value / 100.f); });
+    connect(m_outputVolumeSlider, &DCCSlider::valueChanged, [this] (double value) { Q_EMIT requestSetSpeakerVolume(value / 100.f);} );
     connect(m_advancedSettingsItem, &NextPageWidget::clicked, this, &SoundWidget::requestAdvancedPage);
     connect(m_gsettings, &QGSettings::changed, this, &SoundWidget::onGSettingsChanged);
 }

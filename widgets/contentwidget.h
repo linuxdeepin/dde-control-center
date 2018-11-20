@@ -56,13 +56,13 @@ public:
     QWidget *setContent(QWidget * const w);
     void stopScroll();
 
-signals:
+Q_SIGNALS:
     void back() const;
     void appear() const;
     void disappear() const;
     void wheelValueChanged() const;
 
-public slots:
+public Q_SLOTS:
     void scrollToWidget(QWidget * const w, bool animation);
 
 private:

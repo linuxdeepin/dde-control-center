@@ -46,7 +46,7 @@ public:
 
     void setModel(UpdateModel *model);
 
-signals:
+Q_SIGNALS:
     void requestShowMirrorsView();
     void requestSetAutoUpdate(const bool &autoUpdate);
     void requestSetAutoCleanCache(const bool autoClean);

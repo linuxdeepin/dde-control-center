@@ -60,12 +60,12 @@ public:
 
     void setModel(dde::network::NetworkModel *model);
 
-signals:
+Q_SIGNALS:
     void requestNextPage(ContentWidget * const w) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
     void requestActivateConnection(const QString &devPath, const QString &uuid) const;
 
-private slots:
+private Q_SLOTS:
     void createPPPoEConnection();
     void onConnectionListChanged();
     void onConnectionDetailClicked();

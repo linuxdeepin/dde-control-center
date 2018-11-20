@@ -187,9 +187,9 @@ void ConnectionVpnEditPage::exportConnConfig()
 {
     const QString uuid = connectionUuid();
 
-//    emit requestFrameKeepAutoHide(false);
+//    Q_EMIT requestFrameKeepAutoHide(false);
     const QUrl u = QFileDialog::getSaveFileUrl(nullptr, QString(), QUrl(), "Config File (*.conf)");
-//    emit requestFrameKeepAutoHide(true);
+//    Q_EMIT requestFrameKeepAutoHide(true);
 
     if (u.isEmpty() || !u.isLocalFile())
         return;

@@ -52,12 +52,12 @@ public:
     void setInfo(ShortcutInfo *info);
     void setShortcut(const QString &shortcut);
 
-signals:
+Q_SIGNALS:
     void requestUpdateKey(ShortcutInfo *conflict);
     void requestSaveShortcut(ShortcutInfo *info);
     void requestDisableShortcut(ShortcutInfo *info);
 
-public slots:
+public Q_SLOTS:
     void keyEvent(bool press, const QString &shortcut);
     void onReplace();
     void onUpdateKey();

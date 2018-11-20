@@ -108,7 +108,7 @@ void IndexFrame::mousePressEvent(QMouseEvent *e)
     Q_UNUSED(e);
 
     m_pressed = true;
-    emit click(m_letters[m_index]);
+    Q_EMIT click(m_letters[m_index]);
 
     update();
 }

@@ -55,13 +55,13 @@ public:
     void refreshTheme();
     void refreshFont();
 
-public slots:
+public Q_SLOTS:
     void setDefault(const QJsonObject &value);
     void setFontSize(const int value);
     void switchWM();
     void setOpacity(int opcaity);
 
-private slots:
+private Q_SLOTS:
     void FontSizeChanged(const double value) const;
     void onGetFontFinished(QDBusPendingCallWatcher *w);
     void onGetThemeFinished(QDBusPendingCallWatcher *w);

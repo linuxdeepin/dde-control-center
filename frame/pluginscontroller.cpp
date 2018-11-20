@@ -75,11 +75,11 @@ void PluginsController::loadPlugins()
         interface->initialize(this);
         QWidget *w = interface->centralWidget();
         w->setVisible(false);
-        emit pluginAdded(w);
+        Q_EMIT pluginAdded(w);
     }
 }
 
 void PluginsController::showModulePage(const QString &module, const QString &page, bool animation)
 {
-    emit requestModulePage(module, page, animation);
+    Q_EMIT requestModulePage(module, page, animation);
 }

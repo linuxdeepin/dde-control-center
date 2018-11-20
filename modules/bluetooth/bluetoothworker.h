@@ -51,12 +51,12 @@ public:
 
     void blockDBusSignals(bool block);
 
-signals:
+Q_SIGNALS:
     void deviceEnableChanged();
     void requestConfirmation(const QDBusObjectPath &path, const QString &code);
     void pinCodeCancel(const QDBusObjectPath &device);
 
-public slots:
+public Q_SLOTS:
     void setAdapterPowered(const Adapter *adapter, const bool &powered);
     void connectDevice(const Device *device);
     void disconnectDevice(const Device *device);
@@ -70,7 +70,7 @@ private:
     void inflateAdapter(Adapter *adapter, const QJsonObject &adapterObj);
     void inflateDevice(Device *device, const QJsonObject &deviceObj);
 
-private slots:
+private Q_SLOTS:
     void onAdapterPropertiesChanged(const QString &json);
     void onDevicePropertiesChanged(const QString &json);
 

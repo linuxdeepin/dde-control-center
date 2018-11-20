@@ -137,7 +137,7 @@ void PppoePage::onPPPoESelected()
     Q_ASSERT(w && m_connUuid.contains(w));
 
     m_editingUuid = m_connUuid[w];
-    emit requestActivateConnection("/", m_editingUuid);
+    Q_EMIT requestActivateConnection("/", m_editingUuid);
 }
 
 void PppoePage::onActivateConnectionChanged(const QSet<QString> &conns)

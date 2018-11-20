@@ -149,7 +149,7 @@ void SettingsWidget::mouseReleaseEvent(QMouseEvent *e)
     e->accept();
 
     if (e->button() == Qt::BackButton)
-        emit back();
+        Q_EMIT back();
 }
 
 void SettingsWidget::loadModules()
@@ -280,7 +280,7 @@ void SettingsWidget::ensureModuleVisible(const QString &moduleName, bool animati
     }
 
     if (inter) {
-        emit currentModuleChanged(moduleName);
+        Q_EMIT currentModuleChanged(moduleName);
         scrollToWidget(inter->moduleWidget(), animation);
     }
 }
@@ -331,7 +331,7 @@ void SettingsWidget::setModuleVisible(ModuleInterface * const inter, const bool 
     moduleWidget->setVisible(visible);
 
     // notify navigation items dynamic change
-    emit moduleVisibleChanged(name, visible);
+    Q_EMIT moduleVisibleChanged(name, visible);
 }
 
 void SettingsWidget::refershModuleActivable()
@@ -397,7 +397,7 @@ void SettingsWidget::refreshNavigationbar()
     }
 
     if (firstActiveModule)
-        emit currentModuleChanged(firstActiveModule->name());
+        Q_EMIT currentModuleChanged(firstActiveModule->name());
 }
 
 void SettingsWidget::resetAllSettings()

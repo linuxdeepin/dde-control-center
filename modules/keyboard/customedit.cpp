@@ -156,12 +156,12 @@ void keyboard::CustomEdit::keyEvent(bool press, const QString &shortcut)
 
 void keyboard::CustomEdit::onOpenFile()
 {
-    emit requestFrameAutoHide(false);
+    Q_EMIT requestFrameAutoHide(false);
 
     QString file = QFileDialog::getOpenFileName(this, tr("Choose File"), "/usr/bin");
     m_command->setText(file);
 
-    emit requestFrameAutoHide(true);
+    Q_EMIT requestFrameAutoHide(true);
 }
 
 void keyboard::CustomEdit::onSaveAccels()
@@ -179,12 +179,12 @@ void keyboard::CustomEdit::onSaveAccels()
         m_info->replace = m_conflict;
     }
 
-    emit requestSaveShortcut(m_info);
+    Q_EMIT requestSaveShortcut(m_info);
 
-    emit back();
+    Q_EMIT back();
 }
 
 void keyboard::CustomEdit::onUpdateKey()
 {
-    emit requestUpdateKey(nullptr);
+    Q_EMIT requestUpdateKey(nullptr);
 }

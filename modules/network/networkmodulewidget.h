@@ -53,7 +53,7 @@ public:
 
     void setModel(dde::network::NetworkModel *model);
 
-signals:
+Q_SIGNALS:
     void requestShowVpnPage() const;
     void requestShowPppPage() const;
     void requestShowProxyPage() const;
@@ -63,7 +63,7 @@ signals:
     void requestShowDeviceDetail(dde::network::NetworkDevice *device) const;
     void requestDeviceEnable(const QString &devPath, const bool enable) const;
 
-private slots:
+private Q_SLOTS:
     void onDeviceListChanged(const QList<dde::network::NetworkDevice *> &devices);
     void onDevStatusChanged();
     void onNextPageClicked();

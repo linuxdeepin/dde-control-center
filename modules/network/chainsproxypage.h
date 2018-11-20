@@ -53,11 +53,11 @@ public:
     explicit ChainsProxyPage(QWidget *parent = nullptr);
     void setModel(dde::network::NetworkModel *model);
 
-signals:
+Q_SIGNALS:
     void requestSet(const dde::network::ProxyConfig &config) const;
     void requestShowTypePage() const;
 
-private slots:
+private Q_SLOTS:
     void onCheckValue();
     bool isIPV4(const QString &ipv4);
 

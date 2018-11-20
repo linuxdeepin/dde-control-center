@@ -112,7 +112,7 @@ Frame::Frame(QWidget *parent)
     connect(m_launcherInter, &LauncherInter::Shown, this, &Frame::hideImmediately);
     connect(m_wmHelper, &DWindowManagerHelper::hasCompositeChanged, this, &Frame::adjustShadowMask);
     connect(&m_appearAnimation, &QPropertyAnimation::stateChanged, this, &Frame::adjustShadowMask, Qt::QueuedConnection);
-    connect(&m_appearAnimation, &QPropertyAnimation::finished, this, [=] { emit rectChanged(geometry()); });
+    connect(&m_appearAnimation, &QPropertyAnimation::finished, this, [=] { Q_EMIT rectChanged(geometry()); });
     connect(m_appearanceInter, &Appearance::OpacityChanged, this, setOpacity);
 
     setOpacity(m_appearanceInter->opacity());
@@ -353,14 +353,14 @@ void Frame::resizeEvent(QResizeEvent *e)
 {
     DBlurEffectWidget::resizeEvent(e);
 
-    emit rectChanged(geometry());
+    Q_EMIT rectChanged(geometry());
 }
 
 void Frame::moveEvent(QMoveEvent *e)
 {
     DBlurEffectWidget::moveEvent(e);
 
-    emit rectChanged(geometry());
+    Q_EMIT rectChanged(geometry());
 }
 
 void Frame::show()
@@ -397,9 +397,9 @@ void Frame::show()
     {
         QTimer::singleShot(m_frameWidgetStack.last()->animationDuration(), [=] {
             if (m_frameWidgetStack.last()->content())
-                emit m_frameWidgetStack.last()->content()->appear();
+                Q_EMIT m_frameWidgetStack.last()->content()->appear();
             else
-                emit static_cast<MainWidget*>(m_frameWidgetStack.first())->appear();
+                Q_EMIT static_cast<MainWidget*>(m_frameWidgetStack.first())->appear();
         });
     }
 
@@ -447,9 +447,9 @@ void Frame::hide()
     // notify top widget disappear
     if (m_frameWidgetStack.last()) {
         if ( m_frameWidgetStack.last()->content())
-            emit m_frameWidgetStack.last()->content()->disappear();
+            Q_EMIT m_frameWidgetStack.last()->content()->disappear();
         else
-            emit static_cast<MainWidget*>(m_frameWidgetStack.first())->disappear();
+            Q_EMIT static_cast<MainWidget*>(m_frameWidgetStack.first())->disappear();
     }
 
     m_mouseAreaInter->unregisterRegion();
@@ -502,7 +502,7 @@ void Frame::hideImmediately()
 
     // notify top widget disappear
     if (m_frameWidgetStack.last() && m_frameWidgetStack.last()->content())
-        emit m_frameWidgetStack.last()->content()->disappear();
+        Q_EMIT m_frameWidgetStack.last()->content()->disappear();
 
     m_mouseAreaInter->unregisterRegion();
 
@@ -532,7 +532,7 @@ const QScreen *Frame::screenForGeometry(const QRect &rect) const
 bool Frame::event(QEvent *event)
 {
     if (event->type() == QEvent::ApplicationFontChange) {
-        emit fontSizeChanged();
+        Q_EMIT fontSizeChanged();
     }
 
     return DBlurEffectWidget::event(event);

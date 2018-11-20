@@ -62,17 +62,17 @@ public:
     explicit VpnPage(QWidget *parent = 0);
     ~VpnPage();
 
-signals:
+Q_SIGNALS:
     void requestNextPage(ContentWidget * const w) const;
     void requestVpnEnabled(const bool enabled) const;
     void requestActivateConnection(const QString &devPath, const QString &uuid) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
 
-public slots:
+public Q_SLOTS:
     void setModel(dde::network::NetworkModel *model);
     void refreshVpnList(const QList<QJsonObject> &vpnList);
 
-private slots:
+private Q_SLOTS:
     void onVpnDetailClicked();
     void onVpnSelected();
     void onVpnEditFinished();

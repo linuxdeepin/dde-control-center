@@ -39,7 +39,7 @@ class OptionListPage : public ContentWidget
 public:
     explicit OptionListPage(const QStringList &options, QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
 
 private:
     const QStringList m_options;

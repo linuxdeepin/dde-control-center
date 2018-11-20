@@ -82,13 +82,13 @@ public:
     void onRefreshKBLayout();
 #endif
 
-signals:
+Q_SIGNALS:
     void KeyEvent(bool in0, const QString &in1);
     void searchChangd(ShortcutInfo* info, const QString& key);
     void removed(const QString &id, int type);
     void requestSetAutoHide(const bool visible);
 
-public slots:
+public Q_SLOTS:
 #ifndef DCC_DISABLE_LANGUAGE
     void setLang(const QString& value);
 #endif

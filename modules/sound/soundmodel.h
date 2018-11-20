@@ -61,7 +61,7 @@ public:
     inline uint cardId() const { return m_cardId; }
     void setCardId(const uint &cardId);
 
-signals:
+Q_SIGNALS:
     void idChanged(QString id) const;
     void nameChanged(QString name) const;
     void cardNameChanged(QString name) const;
@@ -114,7 +114,7 @@ public:
     inline double speakerVolume() const { return m_speakerVolume; }
     void setSpeakerVolume(double speakerVolume);
 
-signals:
+Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
     void soundEffectOnChanged(bool soundEffectOn) const;

@@ -77,7 +77,7 @@ void GrubBackgroundItem::paintEvent(QPaintEvent *e)
 void GrubBackgroundItem::dragEnterEvent(QDragEnterEvent *e)
 {
     QMimeDatabase b;
-    foreach (QUrl url, e->mimeData()->urls()) {
+    Q_FOREACH (QUrl url, e->mimeData()->urls()) {
         QString mime = b.mimeTypeForUrl(url).name();
 
         if(!mime.contains("image/"))
@@ -110,7 +110,7 @@ void GrubBackgroundItem::dropEvent(QDropEvent *e)
     if (!urls.isEmpty()) {
         QString path = urls[0].toLocalFile();
         if(!path.isEmpty()){
-            emit requestSetBackground(path);
+            Q_EMIT requestSetBackground(path);
             e->acceptProposedAction();
             m_isDrop = false;
             update();

@@ -46,7 +46,7 @@ public:
 
     void setUserModel(UserModel *model);
 
-signals:
+Q_SIGNALS:
     void requestInfos(const QString &server, const QString& account, const QString &password);
 
 private:

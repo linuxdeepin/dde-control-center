@@ -100,7 +100,7 @@ void Theme::onItemClicked(const bool selected)
     if (selected) {
         ThemeItem *item = qobject_cast<ThemeItem *>(sender());
         Q_ASSERT(m_valueMap.contains(item));
-        emit requestSetDefault(m_valueMap[item]);
+        Q_EMIT requestSetDefault(m_valueMap[item]);
     }
 }
 

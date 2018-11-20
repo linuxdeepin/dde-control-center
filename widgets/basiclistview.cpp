@@ -82,7 +82,7 @@ void BasicListView::leaveEvent(QEvent *e)
 {
     QListView::leaveEvent(e);
 
-    emit entered(QModelIndex());
+    Q_EMIT entered(QModelIndex());
 }
 
 void BasicListView::setAutoFitHeight(const bool fit)

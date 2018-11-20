@@ -67,13 +67,13 @@ public:
 
     int animationDuration() const;
 
-signals:
+Q_SIGNALS:
     void contentDetached(dcc::ContentWidget * const w) const;
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
 
-private slots:
+private Q_SLOTS:
     void destroySelf();
     void onCompositeChanged();
 

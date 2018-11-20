@@ -57,10 +57,10 @@ public:
 protected:
     bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 
-signals:
+Q_SIGNALS:
     void layoutSelected(const QString &value);
 
-public slots:
+public Q_SLOTS:
     void onSearch(const QString& text);
     void onItemClicked(const QModelIndex &index);
 

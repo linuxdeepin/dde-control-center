@@ -147,8 +147,8 @@ void HotspotPage::closeHotspot()
     const QString uuid = hotspotUuid();
     Q_ASSERT(!uuid.isEmpty());
 
-    emit requestDisconnectConnection(uuid);
-    emit requestDeviceRemanage(m_wdev->path());
+    Q_EMIT requestDisconnectConnection(uuid);
+    Q_EMIT requestDeviceRemanage(m_wdev->path());
 }
 
 void HotspotPage::openHotspot()

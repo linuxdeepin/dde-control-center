@@ -53,13 +53,13 @@ public:
     explicit DefCategoryWidget(const QString &name, QWidget *parent);
     void setCategory(Category * const category);
 
-signals:
+Q_SIGNALS:
     void requestSetDefaultApp(const QString &category, const App &item);
     void requestDelUserApp(const QString &name, const App &item);
     void requestFrameAutoHide(const bool autoHide) const;
     void requestCreateFile(const QString &category, const QFileInfo &info);
 
-public slots:
+public Q_SLOTS:
     void setDefault();
     void onDefaultAppSet(const App &app);
     void slotEditMode(bool edit);

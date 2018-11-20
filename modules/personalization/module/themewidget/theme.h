@@ -52,10 +52,10 @@ public:
     explicit Theme(const QString &title, QWidget *parent = 0);
     void setModel(ThemeModel *const model);
 
-signals:
+Q_SIGNALS:
     void requestSetDefault(const QJsonObject &value);
 
-public slots:
+public Q_SLOTS:
     void setDefault(const QString &name);
     void onItemClicked(const bool selected);
     void onSetPic(const QString &id, const QString &picPath);

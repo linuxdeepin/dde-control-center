@@ -68,7 +68,7 @@ FingerWidget::FingerWidget(QWidget *parent)
         if (m_isFinished)
             m_view->setPictureSequence(QStringList() << ":/accounts/themes/dark/icons/finger/finished/success_30.png");
         else
-            emit playEnd();
+            Q_EMIT playEnd();
     });
 }
 

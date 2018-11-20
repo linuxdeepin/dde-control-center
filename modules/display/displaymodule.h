@@ -51,7 +51,7 @@ public:
     explicit DisplayModule(FrameProxyInterface *frame, QObject *parent = 0);
     ~DisplayModule();
 
-private slots:
+private Q_SLOTS:
     void showBrightnessPage();
     void showResolutionDetailPage();
     void showCustomSettings(const QString &config, bool isNewConfig = false);

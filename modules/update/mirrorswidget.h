@@ -48,11 +48,11 @@ public:
 
     void setModel(UpdateModel *model);
 
-signals:
+Q_SIGNALS:
     void requestSetDefaultMirror(const MirrorInfo &mirror);
     void requestTestMirrorSpeed();
 
-private slots:
+private Q_SLOTS:
     void setCurItem(MirrorItem* item);
     void onSpeedInfoAvailable(const QMap<QString, int> &info);
     void testButtonClicked();

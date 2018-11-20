@@ -49,16 +49,16 @@ public:
     void setAdapter(const Adapter *adapter);
     const Adapter *adapter() const;
 
-public slots:
+public Q_SLOTS:
     void toggleSwitch(const bool &checked);
 
-signals:
+Q_SIGNALS:
     void requestSetToggleAdapter(const Adapter *adapter, const bool &toggled);
     void requestConnectDevice(const Device *device);
     void requestShowDetail(const Adapter *adapter, const Device *device);
     void requestSetAlias(const Adapter *adapter, const QString &alias);
 
-private slots:
+private Q_SLOTS:
     void addDevice(const Device *device);
     void removeDevice(const QString &deviceId);
 

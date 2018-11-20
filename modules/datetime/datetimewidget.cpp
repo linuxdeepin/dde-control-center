@@ -95,7 +95,7 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
 
     connect(m_lineEdit, &QLineEdit::editingFinished, [this] {
         fixup();
-        emit editingFinished();
+        Q_EMIT editingFinished();
     });
 }
 
@@ -164,7 +164,7 @@ bool DateWidget::eventFilter(QObject *watched, QEvent *event)
 {
     if (watched == m_lineEdit && event->type() == QEvent::FocusOut) {
         fixup();
-        emit editingFinished();
+        Q_EMIT editingFinished();
     }
 
     return false;

@@ -40,7 +40,7 @@ public:
     void setFontSize(const int size);
     inline int getFontSize() const {return m_size;}
 
-signals:
+Q_SIGNALS:
     void sizeChanged(int size);
 
 private:

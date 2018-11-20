@@ -41,7 +41,7 @@ public:
     void setPageCount(const int count) { m_pluginsIndicator->setPageCount(count); }
     void setCurrentPage(const int page) { m_pluginsIndicator->setCurrentPage(page); }
 
-signals:
+Q_SIGNALS:
     void requestPrevious();
     void requestNext();
 

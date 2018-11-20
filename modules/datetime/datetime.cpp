@@ -90,7 +90,7 @@ Datetime::Datetime()
     connect(m_addTimezoneButton, &QPushButton::clicked, this, [this] {
         if (m_dialog && m_dialog->isVisible()) return;
 
-        emit requestHold();
+        Q_EMIT requestHold();
 
         ensureZoneChooserDialog();
 
@@ -101,7 +101,7 @@ Datetime::Datetime()
     connect(m_timezoneItem, &NextPageWidget::clicked, this, [this] {
         if (m_dialog && m_dialog->isVisible()) return;
 
-        emit requestHold();
+        Q_EMIT requestHold();
 
         ensureZoneChooserDialog();
 
@@ -164,7 +164,7 @@ void Datetime::addTimezone(const ZoneInfo &zone)
     connect(item, &TimezoneItem::removeClicked, [this, item] {
         item->setVisible(false);
         m_headItem->setEditEnable(false);
-        emit requestRemoveUserTimeZone(item->timeZone());
+        Q_EMIT requestRemoveUserTimeZone(item->timeZone());
     });
 
     item->setTimeZone(zone);
@@ -266,13 +266,13 @@ void Datetime::ensureZoneChooserDialog()
 
     connect(m_dialog, &TimeZoneChooser::confirmed, this, [this] (const QString &timezone) {
         if (m_dialog->isAddZone()) {
-            emit requestAddUserTimeZone(timezone);
+            Q_EMIT requestAddUserTimeZone(timezone);
         } else {
-            emit requestSetTimeZone(timezone);
+            Q_EMIT requestSetTimeZone(timezone);
         }
 
         m_dialog->close();
-        emit requestUnhold();
+        Q_EMIT requestUnhold();
     });
     connect(m_dialog, &TimeZoneChooser::cancelled, this, &Datetime::requestUnhold);
 }

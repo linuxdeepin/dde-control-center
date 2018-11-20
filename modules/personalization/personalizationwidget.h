@@ -44,10 +44,10 @@ class PersonalizationWidget : public dcc::ModuleWidget {
 public:
     explicit PersonalizationWidget();
 
-public slots:
+public Q_SLOTS:
     void setModel(PersonalizationModel* const model);
 
-signals:
+Q_SIGNALS:
     void showThemeWidget();
     void showFontsWidget();
     void requestSwitchWM();

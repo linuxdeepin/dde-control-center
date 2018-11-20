@@ -47,10 +47,10 @@ class ThemeWidget : public ContentWidget
 public:
     explicit ThemeWidget(QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
     void requestSetDefault(const QJsonObject &value);
 
-public slots:
+public Q_SLOTS:
     void setModel(PersonalizationModel *const model);
 
 private:

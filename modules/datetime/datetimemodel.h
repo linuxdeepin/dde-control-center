@@ -53,7 +53,7 @@ public:
     inline ZoneInfo currentTimeZone() const { return m_currentTimeZone; }
     void setCurrentTimeZone(const ZoneInfo &currentTimeZone);
 
-signals:
+Q_SIGNALS:
     void NTPChanged(bool value);
     void userTimeZoneAdded(const ZoneInfo &zone);
     void userTimeZoneRemoved(const ZoneInfo &zone);

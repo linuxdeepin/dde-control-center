@@ -89,7 +89,7 @@ void DisplayModel::setScreenHeight(const int h)
     if (m_screenHeight != h)
     {
         m_screenHeight = h;
-        emit screenHeightChanged(m_screenHeight);
+        Q_EMIT screenHeightChanged(m_screenHeight);
     }
 }
 
@@ -98,7 +98,7 @@ void DisplayModel::setScreenWidth(const int w)
     if (m_screenWidth != w)
     {
         m_screenWidth = w;
-        emit screenWidthChanged(m_screenWidth);
+        Q_EMIT screenWidthChanged(m_screenWidth);
     }
 }
 
@@ -108,7 +108,7 @@ void DisplayModel::setDisplayMode(const int mode)
     {
         m_lastConfig.first = m_mode;
         m_mode = mode;
-        emit displayModeChanged(m_mode);
+        Q_EMIT displayModeChanged(m_mode);
     }
 }
 
@@ -117,7 +117,7 @@ void DisplayModel::setUIScale(const double scale)
     if (m_uiScale != scale)
     {
         m_uiScale = scale;
-        emit uiScaleChanged(m_uiScale);
+        Q_EMIT uiScaleChanged(m_uiScale);
     }
 }
 
@@ -126,7 +126,7 @@ void DisplayModel::setMinimumBrightnessScale(const double scale)
     if (m_minimumBrightnessScale != scale)
     {
         m_minimumBrightnessScale = scale;
-        emit minimumBrightnessScaleChanged(m_minimumBrightnessScale);
+        Q_EMIT minimumBrightnessScaleChanged(m_minimumBrightnessScale);
     }
 }
 
@@ -135,7 +135,7 @@ void DisplayModel::setPrimary(const QString &primary)
     if (m_primary != primary)
     {
         m_primary = primary;
-        emit primaryScreenChanged(m_primary);
+        Q_EMIT primaryScreenChanged(m_primary);
     }
 }
 
@@ -145,7 +145,7 @@ void DisplayModel::setCurrentConfig(const QString &config)
     {
         m_lastConfig.second = m_currentConfig;
         m_currentConfig = config;
-        emit currentConfigChanged(m_currentConfig);
+        Q_EMIT currentConfigChanged(m_currentConfig);
     }
 }
 
@@ -154,7 +154,7 @@ void DisplayModel::setConfigList(const QStringList &configList)
     if (m_configList != configList)
     {
         m_configList = configList;
-        emit configListChanged(m_configList);
+        Q_EMIT configListChanged(m_configList);
     }
 }
 
@@ -162,14 +162,14 @@ void DisplayModel::monitorAdded(Monitor *mon)
 {
     m_monitors.append(mon);
 
-    emit monitorListChanged();
+    Q_EMIT monitorListChanged();
 }
 
 void DisplayModel::monitorRemoved(Monitor *mon)
 {
     m_monitors.removeOne(mon);
 
-    emit monitorListChanged();
+    Q_EMIT monitorListChanged();
 }
 
 void DisplayModel::setLastConfig(const std::pair<int, QString> &lastConfig)
@@ -190,7 +190,7 @@ void DisplayModel::setRedshiftSetting(bool redshiftSetting)
 
     m_redshiftSetting = redshiftSetting;
 
-    emit redshiftSettingChanged(redshiftSetting);
+    Q_EMIT redshiftSettingChanged(redshiftSetting);
 }
 
 bool DisplayModel::redshiftIsValid() const
@@ -205,7 +205,7 @@ void DisplayModel::setRedshiftIsValid(bool redshiftIsValid)
 
     m_redshiftIsValid = redshiftIsValid;
 
-    emit redshiftVaildChanged(redshiftIsValid);
+    Q_EMIT redshiftVaildChanged(redshiftIsValid);
 }
 
 bool DisplayModel::isNightMode() const
@@ -220,5 +220,5 @@ void DisplayModel::setIsNightMode(bool isNightMode)
 
     m_isNightMode = isNightMode;
 
-    emit nightModeChanged(isNightMode);
+    Q_EMIT nightModeChanged(isNightMode);
 }

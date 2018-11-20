@@ -47,7 +47,7 @@ public:
     void setDisplayModel(DisplayModel *model);
     void setScreensMerged(const bool merged);
 
-signals:
+Q_SIGNALS:
     void requestRecognize() const;
     void requestMerge() const;
     void requestSplit() const;

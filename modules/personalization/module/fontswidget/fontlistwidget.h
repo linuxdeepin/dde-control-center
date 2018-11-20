@@ -54,10 +54,10 @@ class FontListWidget : public ContentWidget
 public:
     explicit FontListWidget(const QString &title, QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
     void requestSetDefault(const QJsonObject &value);
 
-public slots:
+public Q_SLOTS:
     void setModel(FontModel *const model);
     void setList(const QList<QJsonObject> &list);
     void setDefault(const QString &name);

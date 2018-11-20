@@ -59,7 +59,7 @@ public:
     QString valueLiteral() const;
     void setValueLiteral(const QString &valueLiteral);
 
-signals:
+Q_SIGNALS:
     void leftIconChanged();
     void rightIconChanged();
 

@@ -42,14 +42,14 @@ class CustomConfigPage : public ContentWidget
 public:
     explicit CustomConfigPage(const QString &config, QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
     void requestModifyConfig(const QString &config) const;
     void requestDeleteConfig(const QString &config) const;
 
-public slots:
+public Q_SLOTS:
     void onCurrentConfigChanged(const bool custom, const QString config);
 
-private slots:
+private Q_SLOTS:
     void onDeleteBtnClicked();
     void onModifyBtnClicked();
 

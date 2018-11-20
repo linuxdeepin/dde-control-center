@@ -41,7 +41,7 @@ class NextButton : public TranslucentFrame
 public:
     explicit NextButton(QWidget * parent = 0);
 
-signals:
+Q_SIGNALS:
     void clicked();
 };
 

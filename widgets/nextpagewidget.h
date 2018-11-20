@@ -54,7 +54,7 @@ public:
 protected:
     void mouseReleaseEvent(QMouseEvent *e);
 
-signals:
+Q_SIGNALS:
     void clicked() const;
     void selected() const;
     void acceptNextPage() const;

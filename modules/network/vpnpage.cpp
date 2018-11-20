@@ -172,13 +172,13 @@ void VpnPage::onVpnSelected()
     const auto info = m_vpns[w];
     const QString uuid = info.value("Uuid").toString();
 
-    emit requestActivateConnection("/", uuid);
+    Q_EMIT requestActivateConnection("/", uuid);
 }
 
 void VpnPage::onVpnEditFinished()
 {
     if (m_vpnTypePage)
-        emit m_vpnTypePage->back();
+        Q_EMIT m_vpnTypePage->back();
 }
 
 void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
@@ -213,9 +213,9 @@ void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
 
 void VpnPage::importVPN()
 {
-    emit requestFrameKeepAutoHide(false);
+    Q_EMIT requestFrameKeepAutoHide(false);
     const auto file = QFileDialog::getOpenFileUrl(nullptr, "", QUrl(), "*.conf");
-    emit requestFrameKeepAutoHide(true);
+    Q_EMIT requestFrameKeepAutoHide(true);
     if (file.isEmpty())
         return;
 
@@ -308,7 +308,7 @@ void VpnPage::createVPNSession()
         connect(m_vpnTypePage, &ContentWidget::back, [=] {m_vpnTypePage = nullptr; });
     }
 
-    emit requestNextPage(m_vpnTypePage);
+    Q_EMIT requestNextPage(m_vpnTypePage);
 }
 
 void VpnPage::createVPN(ConnectionVpnEditPage::VpnType vpnType)

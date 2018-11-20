@@ -49,10 +49,10 @@ public:
         Refreshed
     };
 
-signals:
+Q_SIGNALS:
     void requestRefreshed() const;
 
-public slots:
+public Q_SLOTS:
     void setState(DeviceListState state);
 
 protected:

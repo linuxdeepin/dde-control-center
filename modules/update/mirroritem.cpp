@@ -69,7 +69,7 @@ void MirrorItem::setSelected(bool state)
     m_selected = state;
     m_selectedBtn->setVisible(state);
 
-    emit selectStateChanged(state);
+    Q_EMIT selectStateChanged(state);
 }
 
 void MirrorItem::setSpeed(const int time)
@@ -112,7 +112,7 @@ void MirrorItem::resizeEvent(QResizeEvent *event)
 
 void MirrorItem::mouseReleaseEvent(QMouseEvent *e)
 {
-    emit clicked(this);
+    Q_EMIT clicked(this);
 
     QFrame::mouseReleaseEvent(e);
 }

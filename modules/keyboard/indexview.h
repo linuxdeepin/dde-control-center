@@ -38,7 +38,7 @@ class IndexView : public QListView
 public:
     explicit IndexView(QWidget* parent = 0);
 
-public slots:
+public Q_SLOTS:
     void onClick(const QString& ch);
 
 protected:

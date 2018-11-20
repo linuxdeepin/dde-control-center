@@ -57,7 +57,7 @@ public:
     bool userCheck() const;
     QHBoxLayout *layout();
 
-public slots:
+public Q_SLOTS:
     void setChecked(const bool checked);
     void setDelete(const bool delchecked);
     void setMime(const QString &mime);

@@ -55,7 +55,7 @@ public:
     MiracastDeviceModel* deviceModelByPath(const QString &path);
     LinkInfo &linkByPath(const QDBusObjectPath &path);
 
-signals:
+Q_SIGNALS:
     void linkAdded(const LinkInfo &link) const;
     void linkRemoved(const QDBusObjectPath &path) const;
     void requestLinkScanning(const QDBusObjectPath &path, const bool scanning) const;

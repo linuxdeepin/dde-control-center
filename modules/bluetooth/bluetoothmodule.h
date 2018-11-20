@@ -46,7 +46,7 @@ class BluetoothModule : public QObject, public ModuleInterface
 public:
     explicit BluetoothModule(FrameProxyInterface *frame, QObject *parent = 0);
 
-public slots:
+public Q_SLOTS:
     void showDeviceDetail(const Adapter *adapter, const Device *device);
     void showBluetoothDetail(const Adapter *adapter);
 

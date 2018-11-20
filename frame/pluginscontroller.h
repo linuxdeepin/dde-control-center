@@ -39,11 +39,11 @@ class PluginsController : public QObject, public FrameProxyInterface
 public:
     explicit PluginsController(QObject *parent = 0);
 
-signals:
+Q_SIGNALS:
     void pluginAdded(QWidget * const w);
     void requestModulePage(const QString &module, const QString &page, bool animation);
 
-public slots:
+public Q_SLOTS:
     void loadPlugins();
 
 private:

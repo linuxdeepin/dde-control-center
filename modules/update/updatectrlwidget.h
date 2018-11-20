@@ -57,13 +57,13 @@ public:
 
     void setModel(UpdateModel *model);
 
-signals:
+Q_SIGNALS:
     void requestDownloadUpdates();
     void requestPauseDownload();
     void requestResumeDownload();
     void requestInstallUpdates();
 
-private slots:
+private Q_SLOTS:
     void onProgressBarClicked();
     void loadAppList(const QList<AppUpdateInfo> &infos);
 

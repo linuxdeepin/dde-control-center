@@ -64,12 +64,12 @@ public:
 
     void active();
 
-signals:
+Q_SIGNALS:
     void requestFrameAutoHide(const bool autoHide) const;
     void accountCreationFinished(CreationResult *result) const;
     void accountFullNameChangeFinished() const;
 
-public slots:
+public Q_SLOTS:
     void randomUserIcon(User *user);
     void createAccount(const User *user);
 
@@ -90,7 +90,7 @@ public slots:
     void addUser(const QString &userPath);
     void removeUser(const QString &userPath);
 
-private slots:
+private Q_SLOTS:
     void updateUserOnlineStatus(const QList<QDBusObjectPath> paths);
 
 #ifdef DCC_ENABLE_ADDOMAIN

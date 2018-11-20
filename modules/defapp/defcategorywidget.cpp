@@ -83,7 +83,7 @@ void DefCategoryWidget::setCategory(Category *const category)
 void DefCategoryWidget::setDefault()
 {
     OptionWidget *item = qobject_cast<OptionWidget *>(sender());
-    emit requestSetDefaultApp(m_category->getName(), m_valueMap.value(item));
+    Q_EMIT requestSetDefaultApp(m_category->getName(), m_valueMap.value(item));
     onDefaultAppSet(m_valueMap.value(item));
 }
 
@@ -112,7 +112,7 @@ void DefCategoryWidget::removeItem(const App &item)
     m_userGroup->removeItem(w);
     m_userMap.removeOne(w->getItem());
     m_valueMap.remove(m_valueMap.key(item));
-    emit requestDelUserApp(m_categoryName, item);
+    Q_EMIT requestDelUserApp(m_categoryName, item);
 
     if(m_userMap.empty()) {
         m_headWidget->setEditEnable(false);

@@ -60,7 +60,7 @@ public:
     inline const QList<quint16> rotateList() const { return m_rotateList; }
     inline const QList<Resolution> modeList() const { return m_modeList; }
 
-signals:
+Q_SIGNALS:
     void geometryChanged() const;
     void xChanged(const int x) const;
     void yChanged(const int y) const;
@@ -70,7 +70,7 @@ signals:
     void brightnessChanged(const double brightness) const;
     void currentModeChanged(const Resolution &resolution) const;
 
-private slots:
+private Q_SLOTS:
     void setX(const int x);
     void setY(const int y);
     void setW(const int w);

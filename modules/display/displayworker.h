@@ -58,7 +58,7 @@ public:
 
     void active();
 
-public slots:
+public Q_SLOTS:
     void saveChanges();
     void discardChanges();
     void mergeScreens();
@@ -86,7 +86,7 @@ public slots:
     void setNightMode(const bool nightmode);
     void updateNightModeStatus();
 
-private slots:
+private Q_SLOTS:
     void onGSettingsChanged(const QString &key);
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
     void onMonitorsBrightnessChanged(const BrightnessMap &brightness);

@@ -55,7 +55,7 @@ public:
     inline std::pair<int, double> opacity() const { return m_opacity; }
     void setOpacity(std::pair<int, double> opacity);
 
-signals:
+Q_SIGNALS:
     void wmChanged(const bool is3d);
     void onOpacityChanged(std::pair<int, double> opacity);
 

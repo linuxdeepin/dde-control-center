@@ -46,7 +46,7 @@ public:
 
     Port::Direction direction();
 
-private slots:
+private Q_SLOTS:
     void setPortItemSelected(bool state);
 
 private:

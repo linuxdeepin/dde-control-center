@@ -43,7 +43,7 @@ public:
     void setTitle(const QString &title);
     void setSelected(const bool checked);
 
-signals:
+Q_SIGNALS:
     void clicked();
 
 protected:

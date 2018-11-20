@@ -50,7 +50,7 @@ public:
 
     void setModel(dde::network::NetworkModel *model);
 
-private slots:
+private Q_SLOTS:
     void onActiveInfoChanged(const QList<QJsonObject> &infos);
 
 private:

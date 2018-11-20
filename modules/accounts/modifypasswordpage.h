@@ -42,10 +42,10 @@ class ModifyPasswordPage : public ContentWidget
 public:
     explicit ModifyPasswordPage(User *user, QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
     void requestChangePassword(User *userInter, const QString &oldPassword, const QString &password) const;
 
-private slots:
+private Q_SLOTS:
     void passwordSubmit();
     void checkPwd();
     void onPasswordChangeFinished(const int exitCode);

@@ -76,7 +76,7 @@ void AdvancedPage::addPort(const Port *port)
     PortItem *item = new PortItem(port);
     item->setContentsMargins(20, 0, 10, 0);
     connect(item, &PortItem::selectedChanged, [this, port] {
-        emit requestSetPort(port);
+        Q_EMIT requestSetPort(port);
     });
 
     if (port->direction() == Port::Out) {

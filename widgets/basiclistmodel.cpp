@@ -76,7 +76,7 @@ void BasicListModel::appendOption(const QString &text, const QVariant &data)
     m_values.append(data);
     endInsertRows();
 
-    //    emit layoutChanged();
+    //    Q_EMIT layoutChanged();
 }
 
 void BasicListModel::setSelectedIndex(const QModelIndex &index)
@@ -85,15 +85,15 @@ void BasicListModel::setSelectedIndex(const QModelIndex &index)
 
     m_selectedIndex = index;
 
-    emit dataChanged(oldIndex, oldIndex);
-    emit dataChanged(index, index);
+    Q_EMIT dataChanged(oldIndex, oldIndex);
+    Q_EMIT dataChanged(index, index);
 }
 
 void BasicListModel::setHoveredIndex(const QModelIndex &index)
 {
     m_hoveredIndex = index;
 
-    emit dataChanged(index, index);
+    Q_EMIT dataChanged(index, index);
 }
 
 }

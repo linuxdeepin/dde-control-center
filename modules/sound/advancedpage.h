@@ -43,10 +43,10 @@ public:
 
     void setModel(SoundModel *model);
 
-signals:
+Q_SIGNALS:
     void requestSetPort(const Port *port);
 
-private slots:
+private Q_SLOTS:
     void addPort(const Port *port);
     void removePort(const QString &portId, const uint &cardId);
 

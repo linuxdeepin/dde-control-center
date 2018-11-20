@@ -45,7 +45,7 @@ class UpdateNotifier : public QFrame
 public:
     explicit UpdateNotifier(QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
     void clicked();
     void notifierVisibleChanged(const bool visible);
 

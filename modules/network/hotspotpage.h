@@ -59,7 +59,7 @@ public:
 
     void setModel(dde::network::NetworkModel *model);
 
-signals:
+Q_SIGNALS:
     void requestNextPage(ContentWidget * const w) const;
     void requestDeviceRemanage(const QString &devPath) const;
     void requestDisconnectConnection(const QString &uuid) const;

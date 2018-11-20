@@ -42,7 +42,7 @@ class LoadingNextPageWidget : public NextPageWidget
 public:
     explicit LoadingNextPageWidget(QFrame *parent = nullptr);
 
-public slots:
+public Q_SLOTS:
     void setLoading(const bool loading);
 
 private:

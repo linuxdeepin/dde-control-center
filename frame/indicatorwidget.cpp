@@ -103,11 +103,11 @@ void IndicatorWidget::wheelEvent(QWheelEvent *e)
     if (e->delta() < 0)
     {
         m_pluginsIndicator->nextPage();
-        emit requestNext();
+        Q_EMIT requestNext();
     }
     else
     {
         m_pluginsIndicator->previousPage();
-        emit requestPrevious();
+        Q_EMIT requestPrevious();
     }
 }

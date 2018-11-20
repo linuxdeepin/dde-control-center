@@ -63,7 +63,7 @@ ModifyFullNamePage::ModifyFullNamePage(User *u, QWidget *parent)
     setTitle(tr("Fullname Settings"));
 
     connect(m_user, &User::fullnameChanged, this, &ModifyFullNamePage::onFullnameChanged);
-    connect(confirmBtn, &QPushButton::clicked, this, [=] { emit requestSetFullname(m_user, m_fullnameWidget->textEdit()->text()); });
+    connect(confirmBtn, &QPushButton::clicked, this, [=] { Q_EMIT requestSetFullname(m_user, m_fullnameWidget->textEdit()->text()); });
 }
 
 void ModifyFullNamePage::onFullnameChanged(const QString &fn)

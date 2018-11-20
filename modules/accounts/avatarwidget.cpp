@@ -56,7 +56,7 @@ AvatarWidget::AvatarWidget(QWidget *parent)
     setFixedSize(PIX_SIZE, PIX_SIZE);
     setObjectName("AvatarWidget");
 
-    connect(m_delBtn, &AvatarDel::click, [=] { emit requestDelete(m_avatarPath); });
+    connect(m_delBtn, &AvatarDel::click, [=] { Q_EMIT requestDelete(m_avatarPath); });
 }
 
 AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
@@ -111,7 +111,7 @@ void AvatarWidget::setAvatarPath(const QString &avatar)
 void AvatarWidget::mouseReleaseEvent(QMouseEvent *e)
 {
     if (rect().contains(e->pos()))
-        emit clicked(avatarPath());
+        Q_EMIT clicked(avatarPath());
 
     QWidget::mouseReleaseEvent(e);
 }

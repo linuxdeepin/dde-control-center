@@ -174,7 +174,7 @@ void BootWidget::onCurrentItem(QListWidgetItem *cur, QListWidgetItem *pre)
 
         // m_defaultEntry is empty means the data is being initialized.
         if (!m_defaultEntry.isEmpty()) {
-            emit defaultEntry(cur->text());
+            Q_EMIT defaultEntry(cur->text());
         }
     }
 }

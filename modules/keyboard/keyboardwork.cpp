@@ -304,7 +304,7 @@ void KeyboardWorker::onRequestShortcut(QDBusPendingCallWatcher *watch)
 
     QMap<QStringList,int> map;
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
-    foreach(QJsonValue value, array) {
+    Q_FOREACH(QJsonValue value, array) {
         QJsonObject obj = value.toObject();
         if (obj.isEmpty())
             continue;
@@ -448,7 +448,7 @@ void KeyboardWorker::onPinyin()
     QDBusInterface dbus_pinyin("com.deepin.api.Pinyin", "/com/deepin/api/Pinyin",
                                "com.deepin.api.Pinyin");
 
-    foreach(const QString & str, m_model->kbLayout().keys()) {
+    Q_FOREACH(const QString & str, m_model->kbLayout().keys()) {
         MetaData md;
         QString title = m_model->kbLayout()[str];
         md.setText(title);
@@ -688,7 +688,7 @@ void KeyboardWorker::setLayout(const QString &value)
 #ifndef DCC_DISABLE_LANGUAGE
 void KeyboardWorker::setLang(const QString &value)
 {
-    emit requestSetAutoHide(false);
+    Q_EMIT requestSetAutoHide(false);
 
     QDBusPendingCall call = m_langSelector->SetLocale(value);
 
@@ -697,7 +697,7 @@ void KeyboardWorker::setLang(const QString &value)
         if (call.isError())
             m_model->setLang(m_langSelector->currentLocale());
 
-        emit requestSetAutoHide(true);
+        Q_EMIT requestSetAutoHide(true);
         watcher->deleteLater();
     });
 }

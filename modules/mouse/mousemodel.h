@@ -93,7 +93,7 @@ public:
     int scrollSpeed() const { return m_scrollSpeed; }
     void setScrollSpeed(int speed);
 
-signals:
+Q_SIGNALS:
     void leftHandStateChanged(bool state);
     void disIfTypingStateChanged(bool state);
     void tpadExistChanged(bool tpadExist);

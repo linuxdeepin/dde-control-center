@@ -45,11 +45,11 @@ public:
     const SinkInfo info() const;
     void onConnectState(bool state);
 
-signals:
+Q_SIGNALS:
     void requestSinkConnect(const QDBusObjectPath &path, const QRect &rect);
     void requestSinkDisConnect(const QDBusObjectPath &path);
 
-private slots:
+private Q_SLOTS:
     void onDisConnect();
 
 protected:

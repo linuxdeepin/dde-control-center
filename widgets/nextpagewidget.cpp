@@ -82,8 +82,8 @@ void NextPageWidget::mouseReleaseEvent(QMouseEvent *e)
         return;
     }
 
-    emit selected();
-    emit clicked();
+    Q_EMIT selected();
+    Q_EMIT clicked();
 }
 
 }

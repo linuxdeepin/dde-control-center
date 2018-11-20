@@ -45,7 +45,7 @@ void FingerModel::setIsVaild(bool isVaild)
 
     m_isVaild = isVaild;
 
-    emit vaildChanged(isVaild);
+    Q_EMIT vaildChanged(isVaild);
 }
 
 FingerModel::EnrollStatus FingerModel::enrollStatus() const
@@ -57,7 +57,7 @@ void FingerModel::setEnrollStatus(const EnrollStatus &enrollStatus)
 {
     m_enrollStatus = enrollStatus;
 
-    emit enrollStatusChanged(enrollStatus);
+    Q_EMIT enrollStatusChanged(enrollStatus);
 }
 
 void FingerModel::addUserThumbs(const FingerModel::UserThumbs &thumbs)
@@ -71,7 +71,7 @@ void FingerModel::addUserThumbs(const FingerModel::UserThumbs &thumbs)
 
     m_thumbsList << thumbs;
 
-    emit thumbsListChanged(m_thumbsList);
+    Q_EMIT thumbsListChanged(m_thumbsList);
 }
 
 void FingerModel::cleanUserThumbs(const QString &user)
@@ -79,7 +79,7 @@ void FingerModel::cleanUserThumbs(const QString &user)
     for (int i(0); i != m_thumbsList.size(); ++i) {
         if (m_thumbsList[i].username == user) {
             m_thumbsList.removeAt(i);
-            emit thumbsListChanged(m_thumbsList);
+            Q_EMIT thumbsListChanged(m_thumbsList);
             return;
         }
     }

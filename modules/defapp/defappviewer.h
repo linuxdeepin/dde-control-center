@@ -56,7 +56,7 @@ public:
     QWidget *defappDetail();
     void setModel(DefAppModel * const model);
 
-signals:
+Q_SIGNALS:
     void requestSetDefaultApp(const QString &category, const App &item);
     void requestDelUserApp(const QString &name, const App &item);
     void autoOpenChanged(const bool state);

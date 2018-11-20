@@ -46,7 +46,7 @@ ComboBoxWidget::ComboBoxWidget(QFrame *parent)
     connect(m_custom->textEdit(), &QLineEdit::editingFinished, [=] {
         const QString txt = m_custom->textEdit()->text();
         NextPageWidget::setValue(txt);
-        emit dataChanged(txt);
+        Q_EMIT dataChanged(txt);
     });
 }
 
@@ -76,7 +76,7 @@ void ComboBoxWidget::removeOption(const QVariant &value)
         m_lastSelectedItem->setSelected(true);
         m_lastSelectedItem->blockSignals(false);
         NextPageWidget::setValue(m_lastSelectedItem->title());
-        emit dataChanged(m_options.first());
+        Q_EMIT dataChanged(m_options.first());
     }
     item->deleteLater();
 }
@@ -122,7 +122,7 @@ void ComboBoxWidget::onNextPageClicked()
 
     connect(m_contentPage, &ContentWidget::destroyed, this, &ComboBoxWidget::onContentDesktory);
 
-    emit requestPage(m_contentPage.data());
+    Q_EMIT requestPage(m_contentPage.data());
 }
 
 void ComboBoxWidget::onContentDesktory()
@@ -138,15 +138,15 @@ void ComboBoxWidget::onItemClicked()
 
     if (item == m_lastSelectedItem)
     {
-        emit m_contentPage->back();
+        Q_EMIT m_contentPage->back();
         return;
     }
 
     NextPageWidget::setValue(item->title());
 
     if (m_options.contains(item))
-        emit dataChanged(m_options.value(item));
-    emit m_contentPage->back();
+        Q_EMIT dataChanged(m_options.value(item));
+    Q_EMIT m_contentPage->back();
 
     if (m_lastSelectedItem)
     {

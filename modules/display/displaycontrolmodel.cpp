@@ -37,8 +37,8 @@ DisplayControlModel::DisplayControlModel(DisplayModel *model, QObject *parent)
       m_displayModel(model)
 {
     connect(m_displayModel, &DisplayModel::displayModeChanged, this, &DisplayControlModel::onDisplayModeChanged, Qt::QueuedConnection);
-    connect(m_displayModel, &DisplayModel::monitorListChanged, this, [=] { emit layoutChanged(); }, Qt::QueuedConnection);
-    connect(m_displayModel, &DisplayModel::configListChanged, this, [=] { emit layoutChanged(); }, Qt::QueuedConnection);
+    connect(m_displayModel, &DisplayModel::monitorListChanged, this, [=] { Q_EMIT layoutChanged(); }, Qt::QueuedConnection);
+    connect(m_displayModel, &DisplayModel::configListChanged, this, [=] { Q_EMIT layoutChanged(); }, Qt::QueuedConnection);
     connect(m_displayModel, &DisplayModel::primaryScreenChanged, this, [=] { onDisplayModeChanged(m_displayModel->displayMode()); }, Qt::QueuedConnection);
     connect(m_displayModel, &DisplayModel::currentConfigChanged, this, [=] { onDisplayModeChanged(m_displayModel->displayMode()); }, Qt::QueuedConnection);
     connect(this, &DisplayControlModel::layoutChanged, this, [=] { onDisplayModeChanged(m_displayModel->displayMode()); }, Qt::QueuedConnection);
@@ -130,8 +130,8 @@ void DisplayControlModel::onDisplayModeChanged(const int mode)
         m_selectedIndex = index(idx);
     }
 
-    emit dataChanged(oldIndex, oldIndex);
-    emit dataChanged(m_selectedIndex, m_selectedIndex);
+    Q_EMIT dataChanged(oldIndex, oldIndex);
+    Q_EMIT dataChanged(m_selectedIndex, m_selectedIndex);
 }
 
 DisplayControlModel::ItemType DisplayControlModel::optionType(const int index) const

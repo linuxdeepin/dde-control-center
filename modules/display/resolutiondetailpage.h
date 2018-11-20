@@ -50,10 +50,10 @@ public:
 
     void setModel(DisplayModel *model);
 
-signals:
+Q_SIGNALS:
     void requestSetResolution(Monitor *mon, const int mode) const;
 
-private slots:
+private Q_SLOTS:
     void onItemClicked();
 
 private:

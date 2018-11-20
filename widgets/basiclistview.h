@@ -48,7 +48,7 @@ public:
 
     void leaveEvent(QEvent *e);
 
-public slots:
+public Q_SLOTS:
     void setAutoFitHeight(const bool fit);
 
 private:

@@ -113,7 +113,7 @@ void CreatePage::setCreationResult(CreationResult *result)
 {
     switch (result->type()) {
     case CreationResult::NoError:
-        emit back();
+        Q_EMIT back();
         break;
     case CreationResult::UserNameError:
         showUsernameErrorTip(result->message());
@@ -125,7 +125,7 @@ void CreatePage::setCreationResult(CreationResult *result)
         break; // reserved for future server edition feature.
     case CreationResult::UnknownError:
         qWarning() << "error encountered creating user: " << result->message();
-        emit back();
+        Q_EMIT back();
         break;
     default:
         break;
@@ -146,14 +146,14 @@ void CreatePage::createUser()
     m_user->setPassword(m_password->text());
     m_user->setRepeatPassword(m_repeatpass->text());
 
-    emit requestCreateUser(m_user);
+    Q_EMIT requestCreateUser(m_user);
 }
 
 void CreatePage::cancelCreation() const
 {
     m_errorTip->hide();
 
-    emit back();
+    Q_EMIT back();
 }
 
 void CreatePage::showUsernameErrorTip(QString error)

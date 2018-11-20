@@ -51,10 +51,10 @@ public:
 
     void setModel(User *user);
 
-signals:
+Q_SIGNALS:
     void requestCreateUser(const User *user) const;
 
-public slots:
+public Q_SLOTS:
     void setCreationResult(CreationResult *result);
 
 private:

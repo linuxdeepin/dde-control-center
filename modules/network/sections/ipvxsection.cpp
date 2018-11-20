@@ -518,7 +518,7 @@ bool IpvxSection::ipv6InputIsValid()
 bool IpvxSection::isIpv4Address(const QString &ip)
 {
     QHostAddress ipAddr(ip);
-    if (ipAddr.isEqual(QHostAddress(QHostAddress::Null)) || ipAddr.isEqual(QHostAddress(QHostAddress::AnyIPv4))
+    if (ipAddr == QHostAddress(QHostAddress::Null) || ipAddr == QHostAddress(QHostAddress::AnyIPv4)
             || ipAddr.protocol() != QAbstractSocket::NetworkLayerProtocol::IPv4Protocol) {
         return false;
     }
@@ -528,7 +528,7 @@ bool IpvxSection::isIpv4Address(const QString &ip)
 bool IpvxSection::isIpv6Address(const QString &ip)
 {
     QHostAddress ipAddr(ip);
-    if (ipAddr.isEqual(QHostAddress(QHostAddress::Null)) || ipAddr.isEqual(QHostAddress(QHostAddress::AnyIPv6))
+    if (ipAddr == QHostAddress(QHostAddress::Null) || ipAddr == QHostAddress(QHostAddress::AnyIPv6)
             || ipAddr.protocol() != QAbstractSocket::NetworkLayerProtocol::IPv6Protocol) {
         return false;
     }

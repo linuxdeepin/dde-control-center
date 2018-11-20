@@ -59,7 +59,7 @@ void SystemInfoModel::setEntryLists(const QStringList &list)
 {
     if (list != m_entryLists) {
         m_entryLists = list;
-        emit entryListsChanged(list);
+        Q_EMIT entryListsChanged(list);
     }
 }
 
@@ -67,7 +67,7 @@ void SystemInfoModel::setThemeEnabled(const bool enabled)
 {
     if (m_themeEnabled != enabled) {
         m_themeEnabled = enabled;
-        emit themeEnabledChanged(m_themeEnabled);
+        Q_EMIT themeEnabledChanged(m_themeEnabled);
     }
 }
 
@@ -75,7 +75,7 @@ void SystemInfoModel::setDefaultEntry(const QString &entry)
 {
     if (m_defaultEntry != entry) {
         m_defaultEntry = entry;
-        emit defaultEntryChanged(entry);
+        Q_EMIT defaultEntryChanged(entry);
     }
 }
 
@@ -83,7 +83,7 @@ void SystemInfoModel::setUpdating(bool updating)
 {
     if (updating != m_updating) {
         m_updating = updating;
-        emit updatingChanged(updating);
+        Q_EMIT updatingChanged(updating);
     }
 }
 
@@ -96,7 +96,7 @@ void SystemInfoModel::setBootDelay(bool bootDelay)
 {
     if (m_bootDelay != bootDelay) {
         m_bootDelay = bootDelay;
-        emit bootDelayChanged(bootDelay);
+        Q_EMIT bootDelayChanged(bootDelay);
     }
 }
 
@@ -110,7 +110,7 @@ void SystemInfoModel::setBackground(const QPixmap &background)
 {
     m_background = background;
 
-    emit backgroundChanged(background);
+    Q_EMIT backgroundChanged(background);
 }
 
 #endif
@@ -121,7 +121,7 @@ void SystemInfoModel::setDistroID(const QString &distroid)
         return;
 
     m_distroid = distroid;
-    emit distroidChanged(m_distroid);
+    Q_EMIT distroidChanged(m_distroid);
 }
 
 void SystemInfoModel::setDistroVer(const QString &distrover)
@@ -130,7 +130,7 @@ void SystemInfoModel::setDistroVer(const QString &distrover)
         return;
 
     m_distrover = distrover;
-    emit distroverChanged(m_distrover);
+    Q_EMIT distroverChanged(m_distrover);
 }
 
 void SystemInfoModel::setVersion(const QString &version)
@@ -139,7 +139,7 @@ void SystemInfoModel::setVersion(const QString &version)
         return;
 
     m_version = version;
-    emit versionChanged(m_version);
+    Q_EMIT versionChanged(m_version);
 }
 
 void SystemInfoModel::setType(qlonglong type)

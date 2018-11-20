@@ -44,11 +44,11 @@ public:
     void setFingerModel(FingerModel *model);
     void setUsername(const QString &name);
 
-signals:
+Q_SIGNALS:
     void requestSaveThumb(const QString &name);
     void requestReEnrollStart(const QString &thumb);
 
-private slots:
+private Q_SLOTS:
     void saveThumb();
     void reEnrollStart();
     void onEnrollStatusChanged(FingerModel::EnrollStatus status);

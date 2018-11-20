@@ -134,8 +134,8 @@ void ChainsProxyPage::onCheckValue()
         config.port = 0;
         config.url.clear();
 
-        emit requestSet(config);
-        emit back();
+        Q_EMIT requestSet(config);
+        Q_EMIT back();
         return;
     }
 
@@ -168,8 +168,8 @@ void ChainsProxyPage::onCheckValue()
     config.username = username;
     config.password = password;
 
-    emit requestSet(config);
-    emit back();
+    Q_EMIT requestSet(config);
+    Q_EMIT back();
 }
 
 bool ChainsProxyPage::isIPV4(const QString &ipv4)

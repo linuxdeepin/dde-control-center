@@ -119,12 +119,12 @@ void CheckItem::onClick()
 {
     if(!m_checked)
     {
-        emit destroySelf(this);
+        Q_EMIT destroySelf(this);
     }
 
     if (m_multiple) {
         setChecked(!m_checked);
-        emit checkedChanged(m_title->text());
+        Q_EMIT checkedChanged(m_title->text());
         return;
     }
 }
@@ -143,7 +143,7 @@ void CheckItem::mouseReleaseEvent(QMouseEvent *)
 
     if (m_multiple) {
         setChecked(!m_checked);
-        emit checkedChanged(m_title->text());
+        Q_EMIT checkedChanged(m_title->text());
         return;
     }
 
@@ -156,7 +156,7 @@ void CheckItem::mouseReleaseEvent(QMouseEvent *)
     setChecked(true);
     m_circle = 0;
 
-    emit checkedChanged(m_title->text());
+    Q_EMIT checkedChanged(m_title->text());
 }
 }
 }

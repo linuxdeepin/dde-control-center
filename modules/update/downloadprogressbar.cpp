@@ -57,7 +57,7 @@ void DownloadProgressBar::setValue(const int progress)
 void DownloadProgressBar::mouseReleaseEvent(QMouseEvent *e)
 {
     e->accept();
-    emit clicked();
+    Q_EMIT clicked();
 
     QFrame::mouseReleaseEvent(e);
 }

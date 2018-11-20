@@ -50,7 +50,7 @@ public:
 
     const QString name() const;
 
-signals:
+Q_SIGNALS:
     void requestApplyMove(MonitorProxyWidget *self) const;
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);

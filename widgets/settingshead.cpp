@@ -88,7 +88,7 @@ void SettingsHead::toEdit()
     m_state = Edit;
     refershButton();
 
-    emit editChanged(true);
+    Q_EMIT editChanged(true);
 }
 
 void SettingsHead::toCancel()
@@ -96,7 +96,7 @@ void SettingsHead::toCancel()
     m_state = Cancel;
     refershButton();
 
-    emit editChanged(false);
+    Q_EMIT editChanged(false);
 }
 
 void SettingsHead::refershButton()

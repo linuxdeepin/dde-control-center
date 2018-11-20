@@ -103,12 +103,12 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     connect(user, &User::isCurrentUserChanged, m_nopasswdLogin, &SwitchWidget::setEnabled);
 
     connect(m_deleteAccount, &QPushButton::clicked, this, &AccountsDetailWidget::deleteUserClicked);
-    connect(m_autoLogin, &SwitchWidget::checkedChanged, [=] (const bool autoLogin) { emit requestSetAutoLogin(user, autoLogin); });
-    connect(m_modifyPassword, &NextPageWidget::clicked, [=] { emit showPwdSettings(user); });
-    connect(m_modifyAvatar, &NextPageWidget::clicked, [=] { emit showAvatarSettings(user); });
-    connect(m_modifyFullname, &NextPageWidget::clicked, [=] { emit showFullnameSettings(user); });
-    connect(m_nopasswdLogin, &SwitchWidget::checkedChanged, [=] (const bool nopasswdLogin) { emit requestNopasswdLogin(user, nopasswdLogin);});
-    connect(m_finger, &NextPageWidget::clicked, this, [=] { emit showFingerSettings(user);});
+    connect(m_autoLogin, &SwitchWidget::checkedChanged, [=] (const bool autoLogin) { Q_EMIT requestSetAutoLogin(user, autoLogin); });
+    connect(m_modifyPassword, &NextPageWidget::clicked, [=] { Q_EMIT showPwdSettings(user); });
+    connect(m_modifyAvatar, &NextPageWidget::clicked, [=] { Q_EMIT showAvatarSettings(user); });
+    connect(m_modifyFullname, &NextPageWidget::clicked, [=] { Q_EMIT showFullnameSettings(user); });
+    connect(m_nopasswdLogin, &SwitchWidget::checkedChanged, [=] (const bool nopasswdLogin) { Q_EMIT requestNopasswdLogin(user, nopasswdLogin);});
+    connect(m_finger, &NextPageWidget::clicked, this, [=] { Q_EMIT showFingerSettings(user);});
 
     setContent(mainWidget);
     setTitle(user->displayName());
@@ -133,17 +133,17 @@ void AccountsDetailWidget::setFingerModel(FingerModel *model)
 
 void AccountsDetailWidget::deleteUserClicked()
 {
-    emit requestChangeFrameAutoHide(false);
+    Q_EMIT requestChangeFrameAutoHide(false);
 
     RemoveUserDialog d(m_user);
     int ret = d.exec();
 
     QTimer::singleShot(300, [this] {
-        emit requestChangeFrameAutoHide(true);
+        Q_EMIT requestChangeFrameAutoHide(true);
     });
 
     if (ret) {
-        emit requestDeleteAccount(m_user, d.deleteHome());
-        emit back();
+        Q_EMIT requestDeleteAccount(m_user, d.deleteHome());
+        Q_EMIT back();
     }
 }

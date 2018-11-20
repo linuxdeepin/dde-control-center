@@ -62,16 +62,16 @@ void DisplayControlPage::onItemClicked(const QModelIndex &index) const
         index.data(DisplayControlModel::ItemTypeRole).value<DisplayControlModel::ItemType>();
 
     switch (type) {
-        case DisplayControlModel::Duplicate: emit requestDuplicateMode(); return;
-        case DisplayControlModel::Extend: emit    requestExtendMode(); return;
+        case DisplayControlModel::Duplicate: Q_EMIT requestDuplicateMode(); return;
+        case DisplayControlModel::Extend: Q_EMIT    requestExtendMode(); return;
         case DisplayControlModel::Custom:
-            emit requestConfig(index.data(DisplayControlModel::ItemConfigNameRole).toString());
+            Q_EMIT requestConfig(index.data(DisplayControlModel::ItemConfigNameRole).toString());
             return;
-        case DisplayControlModel::NewConfig: emit requestCustom(); return;
+        case DisplayControlModel::NewConfig: Q_EMIT requestCustom(); return;
         default:;
     }
 
     Q_ASSERT(type == DisplayControlModel::Specified);
 
-    emit requestOnlyMonitor(index.data(DisplayControlModel::ItemNameRole).toString());
+    Q_EMIT requestOnlyMonitor(index.data(DisplayControlModel::ItemNameRole).toString());
 }

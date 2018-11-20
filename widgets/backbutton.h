@@ -41,7 +41,7 @@ class BackButton : public TranslucentFrame
 public:
     explicit BackButton(QWidget * parent = 0);
 
-signals:
+Q_SIGNALS:
     void clicked();
 };
 

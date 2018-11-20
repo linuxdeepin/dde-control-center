@@ -44,13 +44,13 @@ public:
     const LinkInfo linkInfo() const;
     bool isConnected() const;
 
-signals:
+Q_SIGNALS:
     void addSink(const SinkInfo &info);
     void removeSink(const SinkInfo &info);
     void linkManageChanged(const bool state);
     void connectStateChanged(const QDBusObjectPath &sinkPath, const bool state);
 
-public slots:
+public Q_SLOTS:
     void onSinkAdded(const SinkInfo &sinkinfo);
     void onSinkRemoved(const SinkInfo &sinkinfo);
     void onSinkConnect(const QDBusObjectPath &sinkPath, bool connected);

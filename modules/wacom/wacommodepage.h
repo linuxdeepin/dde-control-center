@@ -43,10 +43,10 @@ public:
 
     void setMode(const bool mode);
 
-signals:
+Q_SIGNALS:
     void requestSetMode(const bool mode);
 
-private slots:
+private Q_SLOTS:
     void modeSelected();
 
 private:

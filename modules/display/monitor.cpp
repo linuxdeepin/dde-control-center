@@ -41,8 +41,8 @@ void Monitor::setX(const int x)
 
     m_x = x;
 
-    emit xChanged(m_x);
-    emit geometryChanged();
+    Q_EMIT xChanged(m_x);
+    Q_EMIT geometryChanged();
 }
 
 void Monitor::setY(const int y)
@@ -52,8 +52,8 @@ void Monitor::setY(const int y)
 
     m_y = y;
 
-    emit yChanged(m_y);
-    emit geometryChanged();
+    Q_EMIT yChanged(m_y);
+    Q_EMIT geometryChanged();
 }
 
 void Monitor::setW(const int w)
@@ -63,8 +63,8 @@ void Monitor::setW(const int w)
 
     m_w = w;
 
-    emit wChanged(m_w);
-    emit geometryChanged();
+    Q_EMIT wChanged(m_w);
+    Q_EMIT geometryChanged();
 }
 
 void Monitor::setH(const int h)
@@ -74,8 +74,8 @@ void Monitor::setH(const int h)
 
     m_h = h;
 
-    emit hChanged(m_h);
-    emit geometryChanged();
+    Q_EMIT hChanged(m_h);
+    Q_EMIT geometryChanged();
 }
 
 void Monitor::setPrimary(const QString &primaryName)
@@ -90,7 +90,7 @@ void Monitor::setRotate(const quint16 rotate)
 
     m_rotate = rotate;
 
-    emit rotateChanged(m_rotate);
+    Q_EMIT rotateChanged(m_rotate);
 }
 
 void Monitor::setBrightness(const double brightness)
@@ -100,7 +100,7 @@ void Monitor::setBrightness(const double brightness)
 
     m_brightness = brightness;
 
-    emit brightnessChanged(m_brightness);
+    Q_EMIT brightnessChanged(m_brightness);
 }
 
 void Monitor::setName(const QString &name)
@@ -125,7 +125,7 @@ void Monitor::setCurrentMode(const Resolution &resolution)
 
     m_currentMode = resolution;
 
-    emit currentModeChanged(m_currentMode);
+    Q_EMIT currentModeChanged(m_currentMode);
 }
 
 void Monitor::setModeList(const ResolutionList &modeList)

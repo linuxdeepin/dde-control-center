@@ -42,11 +42,11 @@ public:
     QMap<QString, const Adapter *> adapters() const;
     const Adapter *adapterById(const QString &id);
 
-public slots:
+public Q_SLOTS:
     void addAdapter(Adapter *adapter);
     const Adapter *removeAdapater(const QString &adapterId);
 
-signals:
+Q_SIGNALS:
     void adapterAdded(const Adapter *adapter) const;
     void adapterRemoved(const Adapter *adapter) const;
     void adpaterListChanged();

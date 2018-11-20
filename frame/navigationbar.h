@@ -45,17 +45,17 @@ public:
 
     QString currentModuleName() const;
 
-public slots:
+public Q_SLOTS:
     void setModuleVisible(const QString &module, bool visible);
     void setModuleChecked(const QString &module);
 
-signals:
+Q_SIGNALS:
     void requestModule(const QString &name) const;
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 
-private slots:
+private Q_SLOTS:
     void onNavigationButtonClicked();
     void setModuleChecked(DImageButton *button);
     QString transModuleName(const QString &moduleName) const;

@@ -75,7 +75,7 @@ public:
     inline bool isCurrentUser() const { return m_isCurrentUser; }
     void setIsCurrentUser(bool isCurrentUser);
 
-signals:
+Q_SIGNALS:
     void passwordModifyFinished(const int exitCode) const;
     void nameChanged(const QString &name) const;
     void fullnameChanged(const QString &name) const;

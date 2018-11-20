@@ -82,6 +82,6 @@ void WacomModePage::modeSelected()
 
     setMode(mode);
 
-    emit requestSetMode(mode);
-    emit back();
+    Q_EMIT requestSetMode(mode);
+    Q_EMIT back();
 }

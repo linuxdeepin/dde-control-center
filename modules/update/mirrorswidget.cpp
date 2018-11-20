@@ -128,7 +128,7 @@ void MirrorsWidget::setCurItem(MirrorItem *item)
         m_curItem = item;
 
         MirrorInfo info = item->mirrorInfo();
-        emit requestSetDefaultMirror(info);
+        Q_EMIT requestSetDefaultMirror(info);
     }
 }
 
@@ -155,7 +155,7 @@ void MirrorsWidget::testButtonClicked()
     if (m_testProgress == Running)
         return;
 
-    emit requestTestMirrorSpeed();
+    Q_EMIT requestTestMirrorSpeed();
 
     m_testProgress = Running;
 

@@ -46,7 +46,7 @@ public:
     void setTitle(const QString& title);
     bool checked() const;
 
-signals:
+Q_SIGNALS:
     void checkedChanged(const bool checked) const;
 
 private:

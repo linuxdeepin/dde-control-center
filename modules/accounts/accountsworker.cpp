@@ -98,13 +98,13 @@ void AccountsWorker::randomUserIcon(User *user)
 void AccountsWorker::createAccount(const User *user)
 {
     qDebug() << "create account " << user;
-    emit requestFrameAutoHide(false);
+    Q_EMIT requestFrameAutoHide(false);
 
     QFutureWatcher<CreationResult*> *watcher = new QFutureWatcher<CreationResult*>(this);
     connect(watcher, &QFutureWatcher<CreationResult*>::finished, [this, watcher] {
         CreationResult *result = watcher->result();
-        emit accountCreationFinished(result);
-        emit requestFrameAutoHide(true);
+        Q_EMIT accountCreationFinished(result);
+        Q_EMIT requestFrameAutoHide(true);
         watcher->deleteLater();
     });
 
@@ -117,7 +117,7 @@ void AccountsWorker::addNewAvatar(User *user)
     AccountsUser *userInter = m_userInters[user];
     Q_ASSERT(userInter);
 
-    emit requestFrameAutoHide(false);
+    Q_EMIT requestFrameAutoHide(false);
     QFileDialog fd;
     fd.setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
 
@@ -133,7 +133,7 @@ void AccountsWorker::addNewAvatar(User *user)
         userInter->SetIconFile(file).waitForFinished();
     } while (false);
 
-    QTimer::singleShot(100, this, [=] { emit requestFrameAutoHide(true); });
+    QTimer::singleShot(100, this, [=] { Q_EMIT requestFrameAutoHide(true); });
 }
 
 void AccountsWorker::setAvatar(User *user, const QString &iconPath)
@@ -149,25 +149,25 @@ void AccountsWorker::setFullname(User *user, const QString &fullname)
     AccountsUser *ui = m_userInters[user];
     Q_ASSERT(ui);
 
-    emit requestFrameAutoHide(false);
+    Q_EMIT requestFrameAutoHide(false);
 
     QDBusPendingCall call = ui->SetFullName(fullname);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (!call.isError()) {
-            emit accountFullNameChangeFinished();
+            Q_EMIT accountFullNameChangeFinished();
         }
 
-        emit requestFrameAutoHide(true);
+        Q_EMIT requestFrameAutoHide(true);
         watcher->deleteLater();
     });
 }
 
 void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
 {
-    emit requestFrameAutoHide(false);
+    Q_EMIT requestFrameAutoHide(false);
     m_accountsInter->DeleteUser(user->name(), deleteHome).waitForFinished();
-    QTimer::singleShot(100, this, [=] { emit requestFrameAutoHide(true); });
+    QTimer::singleShot(100, this, [=] { Q_EMIT requestFrameAutoHide(true); });
 }
 
 void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
@@ -176,16 +176,16 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
     Q_ASSERT(ui);
 
     // because this operate need root permission, we must wait for finished and refersh result
-    emit requestFrameAutoHide(false);
+    Q_EMIT requestFrameAutoHide(false);
 
     QDBusPendingCall call = ui->SetAutomaticLogin(autoLogin);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError()) {
-            emit user->autoLoginChanged(user->autoLogin());
+            Q_EMIT user->autoLoginChanged(user->autoLogin());
         }
 
-        emit requestFrameAutoHide(true);
+        Q_EMIT requestFrameAutoHide(true);
         watcher->deleteLater();
     });
 }
@@ -209,7 +209,7 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
 
     qDebug() << Q_FUNC_INFO << process.readAllStandardError() << process.readAllStandardOutput();
 
-    emit user->passwordModifyFinished(process.exitCode());
+    Q_EMIT user->passwordModifyFinished(process.exitCode());
 }
 
 void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)
@@ -275,16 +275,16 @@ void AccountsWorker::setNopasswdLogin(User *user, const bool nopasswdLogin)
     AccountsUser *userInter = m_userInters[user];
     Q_ASSERT(userInter);
 
-    emit requestFrameAutoHide(false);
+    Q_EMIT requestFrameAutoHide(false);
 
     QDBusPendingCall call = userInter->EnableNoPasswdLogin(nopasswdLogin);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError()) {
-            emit user->nopasswdLoginChanged(user->nopasswdLogin());
+            Q_EMIT user->nopasswdLoginChanged(user->nopasswdLogin());
         }
 
-        emit requestFrameAutoHide(true);
+        Q_EMIT requestFrameAutoHide(true);
         watcher->deleteLater();
     });
 }

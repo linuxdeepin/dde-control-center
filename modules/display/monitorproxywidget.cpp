@@ -104,7 +104,7 @@ void MonitorProxyWidget::mousePressEvent(QMouseEvent *e)
 
     m_underMouseMove = true;
 
-    emit requestMonitorPress(m_monitor);
+    Q_EMIT requestMonitorPress(m_monitor);
 
     update();
 }
@@ -120,11 +120,11 @@ void MonitorProxyWidget::mouseMoveEvent(QMouseEvent *e)
 
 void MonitorProxyWidget::mouseReleaseEvent(QMouseEvent *e)
 {
-    emit requestApplyMove(this);
+    Q_EMIT requestApplyMove(this);
 
     m_underMouseMove = false;
 
-    emit requestMonitorRelease(m_monitor);
+    Q_EMIT requestMonitorRelease(m_monitor);
 
     update();
 

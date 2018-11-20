@@ -71,7 +71,7 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device) :
 
     setDevice(device);
 
-    connect(m_nextButton, &widgets::NextButton::clicked, [this] { emit requestShowDetail(m_device); });
+    connect(m_nextButton, &widgets::NextButton::clicked, [this] { Q_EMIT requestShowDetail(m_device); });
 }
 
 void DeviceSettingsItem::setDevice(const Device *device)
@@ -99,7 +99,7 @@ void DeviceSettingsItem::mouseReleaseEvent(QMouseEvent *event)
     if (m_device->state() != Device::StateConnected) {
         event->accept();
 
-        emit requestConnectDevice(m_device);
+        Q_EMIT requestConnectDevice(m_device);
     }
 
     if (m_device->state() == Device::StateConnected) {

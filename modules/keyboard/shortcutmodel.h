@@ -96,13 +96,13 @@ public:
 
     ShortcutInfo * getInfo(const QString &shortcut);
 
-signals:
+Q_SIGNALS:
     void listChanged(QList<ShortcutInfo *>, InfoType);
     void addCustomInfo(ShortcutInfo* info);
     void shortcutChanged(ShortcutInfo *info);
     void keyEvent(bool press, const QString &shortcut);
 
-public slots:
+public Q_SLOTS:
     void onParseInfo(const QString& info);
     void onCustomInfo(const QString& json);
     void onKeyBindingChanged(const QString &value);

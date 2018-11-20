@@ -225,9 +225,9 @@ void RotateDialog::rotate()
             : rotates[(rotates.indexOf(rotate) + 1) % s];
 
     if (m_mon)
-        emit requestRotate(m_mon, nextValue);
+        Q_EMIT requestRotate(m_mon, nextValue);
     else
-        emit requestRotateAll(nextValue);
+        Q_EMIT requestRotateAll(nextValue);
 }
 
 void RotateDialog::adjustGemotry()

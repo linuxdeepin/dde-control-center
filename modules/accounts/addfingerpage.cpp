@@ -82,16 +82,16 @@ void AddFingerPage::setUsername(const QString &name)
 
 void AddFingerPage::saveThumb()
 {
-    emit requestSaveThumb(m_username);
+    Q_EMIT requestSaveThumb(m_username);
 
-    emit back();
+    Q_EMIT back();
 }
 
 void AddFingerPage::reEnrollStart()
 {
     m_buttonTuple->setVisible(false);
 
-    emit requestReEnrollStart(m_thumb);
+    Q_EMIT requestReEnrollStart(m_thumb);
 
     m_fingerWidget->reEnter();
 }

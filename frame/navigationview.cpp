@@ -47,7 +47,7 @@ void NavigationView::leaveEvent(QEvent *e)
 {
     QListView::leaveEvent(e);
 
-    emit entered(QModelIndex());
+    Q_EMIT entered(QModelIndex());
 }
 
 }

@@ -79,7 +79,7 @@ public:
     void setDebugAutoHide(const bool autoHide);
     QString currentModuleName() const;
 
-public slots:
+public Q_SLOTS:
     void startup();
 
     void pushWidget(ContentWidget * const w);
@@ -87,12 +87,12 @@ public slots:
     void showSettingsPage(const QString &moduleName, const QString &pageName, bool animation = false);
     void setAutoHide(const bool autoHide);
 
-signals:
+Q_SIGNALS:
     void rectChanged(const QRect &rect);
     void fontSizeChanged();
     void destRectChanged(const QRect &rect);
 
-private slots:
+private Q_SLOTS:
     void init();
     void adjustShadowMask();
 

@@ -56,11 +56,11 @@ public:
     bool connected() const { return m_connected; }
     const QString path() const { return m_path; }
 
-signals:
+Q_SIGNALS:
     void requestEdit(const QString &path, const QString &ssid) const;
     void requestConnect(const QString &path, const QString &ssid) const;
 
-public slots:
+public Q_SLOTS:
     void setStrength(const int strength);
     void setEncyrpt(const bool encyrpt);
     void setConnected(const bool connected);

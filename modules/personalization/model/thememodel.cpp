@@ -38,13 +38,13 @@ void ThemeModel::addItem(const QString &id, const QJsonObject &json)
         return;
 
     m_list.insert(id, json);
-    emit itemAdded(json);
+    Q_EMIT itemAdded(json);
 }
 
 void ThemeModel::setDefault(const QString &value)
 {
     m_default = value;
-    emit defaultChanged(value);
+    Q_EMIT defaultChanged(value);
 }
 
 QMap<QString, QString> ThemeModel::getPicList() const
@@ -55,11 +55,11 @@ QMap<QString, QString> ThemeModel::getPicList() const
 void ThemeModel::addPic(const QString &id, const QString &picPath)
 {
     m_picList.insert(id, picPath);
-    emit picAdded(id, picPath);
+    Q_EMIT picAdded(id, picPath);
 }
 
 void ThemeModel::removeItem(const QString &id)
 {
     m_list.remove(id);
-    emit itemRemoved(id);
+    Q_EMIT itemRemoved(id);
 }

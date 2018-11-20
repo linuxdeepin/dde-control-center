@@ -57,7 +57,7 @@ public:
 
     void contentPopped(ContentWidget * const w);
 
-public slots:
+public Q_SLOTS:
     void onPushCopyright();
 #ifndef DCC_DISABLE_GRUB
     void onPushBoot();

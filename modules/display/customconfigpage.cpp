@@ -80,12 +80,12 @@ void CustomConfigPage::onCurrentConfigChanged(const bool custom, const QString c
 
 void CustomConfigPage::onDeleteBtnClicked()
 {
-    emit requestDeleteConfig(m_configName);
+    Q_EMIT requestDeleteConfig(m_configName);
 }
 
 void CustomConfigPage::onModifyBtnClicked()
 {
-    emit requestModifyConfig(m_configName);
+    Q_EMIT requestModifyConfig(m_configName);
 }
 
 }

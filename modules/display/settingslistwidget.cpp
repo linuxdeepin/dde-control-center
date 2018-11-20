@@ -103,7 +103,7 @@ void SettingsListWidget::onItemClicked()
     {
         if (m_listLayout->itemAt(i)->widget() == item)
         {
-            emit clicked(i);
+            Q_EMIT clicked(i);
             return;
         }
     }

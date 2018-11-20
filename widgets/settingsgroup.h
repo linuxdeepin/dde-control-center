@@ -65,7 +65,7 @@ private:
     bool eventFilter(QObject *, QEvent *event);
     void updateHeadTail();
 
-private slots:
+private Q_SLOTS:
     void updateHeight();
 
 private:

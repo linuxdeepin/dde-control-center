@@ -145,12 +145,12 @@ void ShortcutItem::onEditMode(bool value)
 
 void ShortcutItem::onRemoveClick()
 {
-    emit requestRemove(m_info);
+    Q_EMIT requestRemove(m_info);
 }
 
 void ShortcutItem::onShortcutEdit()
 {
-    emit shortcutEditChanged(m_info);
+    Q_EMIT shortcutEditChanged(m_info);
 }
 
 void ShortcutItem::updateTitleSize()
@@ -171,7 +171,7 @@ void ShortcutItem::mouseReleaseEvent(QMouseEvent *e)
         m_shortcutEdit->show();
         m_info->item = this;
 
-        emit requestUpdateKey(m_info);
+        Q_EMIT requestUpdateKey(m_info);
     }
     else
     {

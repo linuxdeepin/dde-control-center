@@ -133,7 +133,7 @@ void ContentWidget::setTitle(const QString &title)
 
 void ContentWidget::sendBackSignal()
 {
-    emit back();
+    Q_EMIT back();
 }
 
 QWidget *ContentWidget::setContent(QWidget * const w)
@@ -179,7 +179,7 @@ void ContentWidget::mouseReleaseEvent(QMouseEvent *e)
     QWidget::mouseReleaseEvent(e);
 
     if (e->button() == Qt::BackButton)
-        emit back();
+        Q_EMIT back();
 }
 
 bool ContentWidget::eventFilter(QObject *watched, QEvent *event)

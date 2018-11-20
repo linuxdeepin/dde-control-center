@@ -51,7 +51,7 @@ public:
 
     const QString name() const;
 
-signals:
+Q_SIGNALS:
     void requestReset();
 
 private:

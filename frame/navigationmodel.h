@@ -54,7 +54,7 @@ public:
     };
     Q_DECLARE_FLAGS(EdgeFlags, EdgeFlag)
 
-public slots:
+public Q_SLOTS:
     void insertItem(const QString &item);
     void removeItem(const QString &item);
     void appendAvailableItem(const QString &item);

@@ -42,7 +42,7 @@ class TooltipPin : public QLabel {
  public:
   explicit TooltipPin(QWidget* parent = nullptr);
 
- public slots:
+ public Q_SLOTS:
   // Show tooltip and set position of pin at |point|.
   void popup(const QPoint& point);
 

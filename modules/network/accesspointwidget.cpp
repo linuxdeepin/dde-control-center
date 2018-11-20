@@ -76,7 +76,7 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
     setLayout(m_mainLayout);
     setObjectName("AccessPointWidget");
 
-    connect(m_detailBtn, &DImageButton::clicked, [=] { emit requestEdit(m_path, m_apName->text()); });
+    connect(m_detailBtn, &DImageButton::clicked, [=] { Q_EMIT requestEdit(m_path, m_apName->text()); });
 }
 
 void AccessPointWidget::setEncyrpt(const bool encyrpt)
@@ -102,7 +102,7 @@ void AccessPointWidget::mouseReleaseEvent(QMouseEvent *e)
     SettingsItem::mouseReleaseEvent(e);
 
     if (!m_connected)
-        emit requestConnect(m_path, m_apName->text());
+        Q_EMIT requestConnect(m_path, m_apName->text());
 }
 
 void AccessPointWidget::setStrength(const int strength)

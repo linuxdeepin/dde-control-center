@@ -49,11 +49,11 @@ public:
     explicit FontSettingsWidget(QWidget *parent = 0);
     void setModel(PersonalizationModel *const model);
 
-signals:
+Q_SIGNALS:
     void showStandardFont();
     void showMonoFont();
 
-private slots:
+private Q_SLOTS:
     void onStandFontChanged(const QString &name);
     void onMonoFontChanged(const QString &name);
 

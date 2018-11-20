@@ -46,10 +46,10 @@ public:
     void activate();
     void deactivate();
 
-signals:
+Q_SIGNALS:
     void requestSetAutoHide(const bool visible) const;
 
-public slots:
+public Q_SLOTS:
     void setNTP(bool ntp);
     void setDatetime(const QDateTime &time);
 #ifndef DCC_DISABLE_TIMEZONE
@@ -58,7 +58,7 @@ public slots:
     void addUserTimeZone(const QString &zone);
 #endif
 
-private slots:
+private Q_SLOTS:
 #ifndef DCC_DISABLE_TIMEZONE
     void onTimezoneListChanged(const QStringList &timezones);
 #endif

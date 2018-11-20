@@ -45,11 +45,11 @@ public:
     explicit DefCategoryAddWidget(QWidget *parent = 0);
     inline void setCategory(const QString &category){ m_category = category;}
 
-signals:
+Q_SIGNALS:
     void requestFrameAutoHide(const bool autoHide) const;
     void requestCreateFile(const QString &category, const QFileInfo &info);
 
-public slots:
+public Q_SLOTS:
     void clicked();
 
 private:

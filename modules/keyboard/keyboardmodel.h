@@ -81,7 +81,7 @@ public:
     int kbSwitch() const;
     void setKbSwitch(int kbSwitch);
 
-signals:
+Q_SIGNALS:
 #ifndef DCC_DISABLE_KBLAYOUT
     void curLayoutChanged(const QString& layout);
 #endif
@@ -94,7 +94,7 @@ signals:
     void langChanged(const QList<MetaData> &data);
     void kbSwitchChanged(int kbSwitch);
 
-public slots:
+public Q_SLOTS:
 #ifndef DCC_DISABLE_KBLAYOUT
     void setLayout(const QString& value);
 #endif

@@ -36,12 +36,12 @@ public:
 
     void setModel(MouseModel * const model);
 
-signals:
+Q_SIGNALS:
     void requestDetectState(bool enable);
     void requestContact(int value);
     void requestPressure(int value);
 
-private slots:
+private Q_SLOTS:
     void setDetectState(bool enable);
     void setContactValue(int value);
     void setPressureValue(int value);

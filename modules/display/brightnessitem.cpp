@@ -63,7 +63,7 @@ BrightnessItem::BrightnessItem(QWidget *parent)
 
     setLayout(centralLayout);
 
-    connect(m_brightnessSlider, &QSlider::valueChanged, [this](const double value) { emit requestSetMonitorBrightness(m_monitor, double(value) / BRIGHTNESS_MUL); });
+    connect(m_brightnessSlider, &QSlider::valueChanged, [this](const double value) { Q_EMIT requestSetMonitorBrightness(m_monitor, double(value) / BRIGHTNESS_MUL); });
 }
 
 void BrightnessItem::setMinimumBrightnessScale(const double scale)

@@ -58,7 +58,7 @@ public:
 
     void setModel(dde::network::NetworkModel *model);
 
-signals:
+Q_SIGNALS:
     void requestQueryProxyData() const;
     void requestSetProxy(const QString &type, const QString &addr, const QString &port) const;
     void requestSetProxyMethod(const QString &pm) const;
@@ -66,7 +66,7 @@ signals:
     void requestSetIgnoreHosts(const QString &list) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
 
-private slots:
+private Q_SLOTS:
     void onProxyMethodChanged(const QString &proxyMethod);
     void onIgnoreHostsChanged(const QString &hosts);
     void onProxyChanged(const QString &type, const dde::network::ProxyConfig &config);

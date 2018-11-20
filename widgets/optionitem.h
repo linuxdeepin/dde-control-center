@@ -53,7 +53,7 @@ public:
     inline bool selected() const { return m_selected; }
     void setSelected(bool selected);
 
-signals:
+Q_SIGNALS:
     void selectedChanged() const;
 
 protected:

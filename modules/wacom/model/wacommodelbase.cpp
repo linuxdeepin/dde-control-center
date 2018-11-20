@@ -36,5 +36,5 @@ WacomModelBase::WacomModelBase(QObject *parent)
 void WacomModelBase::setPressureValue(const int &value)
 {
     m_pressureValue = value;
-    emit pressureValueChanged(value);
+    Q_EMIT pressureValueChanged(value);
 }

@@ -114,5 +114,5 @@ void ResolutionDetailPage::onItemClicked()
 
     m_currentItem = item;
 
-    emit requestSetResolution(m_model->monitorList().first(), m_options[item]);
+    Q_EMIT requestSetResolution(m_model->monitorList().first(), m_options[item]);
 }

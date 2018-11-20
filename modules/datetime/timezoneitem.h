@@ -56,7 +56,7 @@ public:
 
     void updateInfo();
 
-signals:
+Q_SIGNALS:
     void removeClicked();
 
 private:

@@ -52,7 +52,7 @@ public:
     void deactive();
     void init();
 
-public slots:
+public Q_SLOTS:
     void setLeftHandState(const bool state);
     void setMouseNaturalScrollState(const bool state);
     void setTouchNaturalScrollState(const bool state);

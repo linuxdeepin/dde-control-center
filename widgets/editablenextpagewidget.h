@@ -50,7 +50,7 @@ public:
     void setTitle(const QString &title);
     void setIcon(const QPixmap &icon);
 
-signals:
+Q_SIGNALS:
     void acceptNextPage() const;
     void selected() const;
     void textChanged(const QString &oldText, const QString &newText) const;
@@ -59,7 +59,7 @@ private:
     void mousePressEvent(QMouseEvent *e);
     void keyPressEvent(QKeyEvent *e);
 
-private slots:
+private Q_SLOTS:
     void toEditMode();
     void toEchoMode();
 

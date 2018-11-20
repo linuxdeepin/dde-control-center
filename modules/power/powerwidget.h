@@ -49,7 +49,7 @@ public:
 
     void setModel(PowerModel * const model);
 
-signals:
+Q_SIGNALS:
     void requestSetScreenBlackLock(const bool lock) const;
     void requestSetSleepLock(const bool lock) const;
     void requestSetSleepOnLidClosed(const bool sleep) const;
@@ -63,7 +63,7 @@ signals:
 private:
     QString delayToLiteralString(const int delay) const;
 
-private slots:
+private Q_SLOTS:
     void setScreenBlackDelay(const int delay);
     void setSleepDelay(const int delay);
 

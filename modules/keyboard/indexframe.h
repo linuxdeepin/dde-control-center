@@ -49,7 +49,7 @@ protected:
     void resizeEvent(QResizeEvent *);
     void leaveEvent(QEvent *event);
 
-signals:
+Q_SIGNALS:
     void click(const QString& ch);
 
 private:

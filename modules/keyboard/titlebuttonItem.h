@@ -42,7 +42,7 @@ public:
     void setTitle(const QString& title);
     void setValue(const QString& value);
 
-signals:
+Q_SIGNALS:
     void click();
 
 private:

@@ -44,7 +44,7 @@ public:
 protected:
     void paintEvent(QPaintEvent *);
 
-private slots:
+private Q_SLOTS:
     void onScreenRectChanged();
 
 private:

@@ -46,10 +46,10 @@ public:
         ConnectFaild
     };
 
-signals:
+Q_SIGNALS:
     void clicked();
 
-public slots:
+public Q_SLOTS:
     void onConnectChanged(ConnectState state);
     void setMouseEnter(const bool state);
 

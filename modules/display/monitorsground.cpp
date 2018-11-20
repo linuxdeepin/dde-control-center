@@ -189,7 +189,7 @@ void MonitorsGround::reloadViewPortSize()
 void MonitorsGround::applySettings()
 {
     for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it)
-        emit requestApplySettings(it.value(), it.key()->x(), it.key()->y());
+        Q_EMIT requestApplySettings(it.value(), it.key()->x(), it.key()->y());
 }
 
 bool MonitorsGround::isScreenPerfect() const

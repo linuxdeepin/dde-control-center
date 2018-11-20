@@ -58,7 +58,7 @@ void SoundModel::setSpeakerOn(bool speakerOn)
     if (speakerOn != m_speakerOn) {
         m_speakerOn = speakerOn;
 
-        emit speakerOnChanged(speakerOn);
+        Q_EMIT speakerOnChanged(speakerOn);
     }
 }
 
@@ -67,7 +67,7 @@ void SoundModel::setMicrophoneOn(bool microphoneOn)
     if (microphoneOn != m_microphoneOn) {
         m_microphoneOn = microphoneOn;
 
-        emit microphoneOnChanged(microphoneOn);
+        Q_EMIT microphoneOnChanged(microphoneOn);
     }
 }
 
@@ -76,7 +76,7 @@ void SoundModel::setSoundEffectOn(bool soundEffectOn)
     if (soundEffectOn != m_soundEffectOn) {
         m_soundEffectOn = soundEffectOn;
 
-        emit soundEffectOnChanged(soundEffectOn);
+        Q_EMIT soundEffectOnChanged(soundEffectOn);
     }
 }
 
@@ -85,7 +85,7 @@ void SoundModel::setSpeakerBalance(double speakerBalance)
     if (speakerBalance != m_speakerBalance) {
         m_speakerBalance = speakerBalance;
 
-        emit speakerBalanceChanged(speakerBalance);
+        Q_EMIT speakerBalanceChanged(speakerBalance);
     }
 }
 
@@ -94,7 +94,7 @@ void SoundModel::setMicrophoneVolume(double microphoneVolume)
     if (microphoneVolume != m_microphoneVolume) {
         m_microphoneVolume = microphoneVolume;
 
-        emit microphoneVolumeChanged(microphoneVolume);
+        Q_EMIT microphoneVolumeChanged(microphoneVolume);
     }
 }
 #ifndef DCC_DISABLE_FEEDBACK
@@ -103,7 +103,7 @@ void SoundModel::setMicrophoneFeedback(double microphoneFeedback)
     if (microphoneFeedback != m_microphoneFeedback) {
         m_microphoneFeedback = microphoneFeedback;
 
-        emit microphoneFeedbackChanged(microphoneFeedback);
+        Q_EMIT microphoneFeedbackChanged(microphoneFeedback);
     }
 }
 #endif
@@ -112,7 +112,7 @@ void SoundModel::addPort(Port *port)
 {
     if (!containsPort(port)) {
         m_ports.append(port);
-        emit portAdded(port);
+        Q_EMIT portAdded(port);
     }
 }
 
@@ -122,7 +122,7 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
     if (port) {
         m_ports.removeOne(port);
         port->deleteLater();
-        emit portRemoved(portId, cardId);
+        Q_EMIT portRemoved(portId, cardId);
     }
 }
 
@@ -151,7 +151,7 @@ void SoundModel::setSpeakerVolume(double speakerVolume)
 {
     if (m_speakerVolume != speakerVolume)  {
         m_speakerVolume = speakerVolume;
-        emit speakerVolumeChanged(speakerVolume);
+        Q_EMIT speakerVolumeChanged(speakerVolume);
     }
 }
 
@@ -159,7 +159,7 @@ void Port::setId(const QString &id)
 {
     if (id != m_id) {
         m_id = id;
-        emit idChanged(id);
+        Q_EMIT idChanged(id);
     }
 }
 
@@ -167,7 +167,7 @@ void Port::setName(const QString &name)
 {
     if (name != m_name) {
         m_name = name;
-        emit nameChanged(name);
+        Q_EMIT nameChanged(name);
     }
 }
 
@@ -175,7 +175,7 @@ void Port::setCardName(const QString &cardName)
 {
     if (cardName != m_cardName) {
         m_cardName = cardName;
-        emit cardNameChanged(cardName);
+        Q_EMIT cardNameChanged(cardName);
     }
 }
 
@@ -183,7 +183,7 @@ void Port::setIsActive(bool isActive)
 {
     if (isActive != m_isActive) {
         m_isActive = isActive;
-        emit isActiveChanged(isActive);
+        Q_EMIT isActiveChanged(isActive);
     }
 }
 
@@ -191,7 +191,7 @@ void Port::setDirection(const Direction &direction)
 {
     if (direction != m_direction) {
         m_direction = direction;
-        emit directionChanged(direction);
+        Q_EMIT directionChanged(direction);
     }
 }
 
@@ -199,7 +199,7 @@ void Port::setCardId(const uint &cardId)
 {
     if (cardId != m_cardId) {
         m_cardId = cardId;
-        emit cardIdChanged(cardId);
+        Q_EMIT cardIdChanged(cardId);
     }
 }
 

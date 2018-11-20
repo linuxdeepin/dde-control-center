@@ -52,7 +52,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
-signals:
+Q_SIGNALS:
     void clicked();
 
 private:

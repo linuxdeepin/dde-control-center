@@ -39,7 +39,7 @@ class UpdateView : public ModuleWidget
 public:
     explicit UpdateView();
 
-signals:
+Q_SIGNALS:
     void pushUpdate();
     void pushMirrors();
 

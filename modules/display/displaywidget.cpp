@@ -120,15 +120,15 @@ DisplayWidget::DisplayWidget()
 #endif
     connect(m_createConfig, &QPushButton::clicked, this, [=] {
         if (m_model->config().startsWith("_dde_display")) {
-            emit requestModifyConfig(m_model->config(), true);
+            Q_EMIT requestModifyConfig(m_model->config(), true);
         }
         else {
-            emit requestNewConfig();
+            Q_EMIT requestNewConfig();
         }
     });
     connect(m_configListRefershTimer, &QTimer::timeout, this, &DisplayWidget::onConfigListChanged);
     connect(slider, &DCCSlider::valueChanged, this, [=](const int value) {
-        emit requestUiScaleChanged(converToScale(value));
+        Q_EMIT requestUiScaleChanged(converToScale(value));
 
         m_scaleWidget->setValueLiteral(QString::number(converToScale(value)));
     });
@@ -243,9 +243,9 @@ void DisplayWidget::onConfigListChanged()
         connect(w, &EditableNextPageWidget::textChanged, this,
                 &DisplayWidget::requestModifyConfigName);
         connect(w, &EditableNextPageWidget::acceptNextPage, this,
-                [=] { emit requestConfigPage(config); });
+                [=] { Q_EMIT requestConfigPage(config); });
         connect(w, &EditableNextPageWidget::selected, this,
-                [=] { emit requestSwitchConfig(config); });
+                [=] { Q_EMIT requestSwitchConfig(config); });
 
         m_customSettingsGrp->appendItem(w);
     }
@@ -253,8 +253,8 @@ void DisplayWidget::onConfigListChanged()
 
 void DisplayWidget::onFirstConfigCreated(const QString &config)
 {
-//    emit requestConfigPage(config);
-    emit requestModifyConfig(config, true);
+//    Q_EMIT requestConfigPage(config);
+    Q_EMIT requestModifyConfig(config, true);
 }
 
 #ifndef DCC_DISABLE_MIRACAST
@@ -267,7 +267,7 @@ void DisplayWidget::onMiracastLinkAdded(const LinkInfo &link)
     m_miracastGrp->appendItem(miracast);
     m_miracastList.insert(link.m_dbusPath, miracast);
     connect(miracast, &NextPageWidget::clicked, this,
-            [=] { emit requestMiracastConfigPage(link.m_dbusPath); });
+            [=] { Q_EMIT requestMiracastConfigPage(link.m_dbusPath); });
 
     m_miracastGrp->setVisible(!m_miracastList.isEmpty());
 }

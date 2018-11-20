@@ -62,7 +62,7 @@ void MouseModel::setLeftHandState(const bool state)
 
     m_leftHandState = state;
 
-    emit leftHandStateChanged(state);
+    Q_EMIT leftHandStateChanged(state);
 }
 
 void MouseModel::setDisIfTyping(const bool state)
@@ -72,7 +72,7 @@ void MouseModel::setDisIfTyping(const bool state)
 
     m_disIfTyping = state;
 
-    emit disIfTypingStateChanged(state);
+    Q_EMIT disIfTypingStateChanged(state);
 }
 
 void MouseModel::setTpadExist(bool tpadExist)
@@ -82,7 +82,7 @@ void MouseModel::setTpadExist(bool tpadExist)
 
     m_tpadExist = tpadExist;
 
-    emit tpadExistChanged(tpadExist);
+    Q_EMIT tpadExistChanged(tpadExist);
 }
 
 void MouseModel::setMouseExist(bool mouseExist)
@@ -92,7 +92,7 @@ void MouseModel::setMouseExist(bool mouseExist)
 
     m_mouseExist = mouseExist;
 
-    emit mouseExistChanged(mouseExist);
+    Q_EMIT mouseExistChanged(mouseExist);
 }
 
 void MouseModel::setRedPointExist(bool redPointExist)
@@ -102,7 +102,7 @@ void MouseModel::setRedPointExist(bool redPointExist)
 
     m_redPointExist = redPointExist;
 
-    emit redPointExistChanged(redPointExist);
+    Q_EMIT redPointExistChanged(redPointExist);
 }
 
 void MouseModel::setDoubleSpeed(int doubleSpeed)
@@ -112,7 +112,7 @@ void MouseModel::setDoubleSpeed(int doubleSpeed)
 
     m_doubleSpeed = doubleSpeed;
 
-    emit doubleSpeedChanged(doubleSpeed);
+    Q_EMIT doubleSpeedChanged(doubleSpeed);
 }
 
 void MouseModel::setMouseNaturalScroll(bool mouseNaturalScroll)
@@ -122,7 +122,7 @@ void MouseModel::setMouseNaturalScroll(bool mouseNaturalScroll)
 
     m_mouseNaturalScroll = mouseNaturalScroll;
 
-    emit mouseNaturalScrollChanged(mouseNaturalScroll);
+    Q_EMIT mouseNaturalScrollChanged(mouseNaturalScroll);
 }
 
 void MouseModel::setTpadNaturalScroll(bool tpadNaturalScroll)
@@ -132,7 +132,7 @@ void MouseModel::setTpadNaturalScroll(bool tpadNaturalScroll)
 
     m_tpadNaturalScroll = tpadNaturalScroll;
 
-    emit tpadNaturalScrollChanged(tpadNaturalScroll);
+    Q_EMIT tpadNaturalScrollChanged(tpadNaturalScroll);
 }
 
 void MouseModel::setMouseMoveSpeed(int mouseMoveSpeed)
@@ -142,7 +142,7 @@ void MouseModel::setMouseMoveSpeed(int mouseMoveSpeed)
 
     m_mouseMoveSpeed = mouseMoveSpeed;
 
-    emit mouseMoveSpeedChanged(mouseMoveSpeed);
+    Q_EMIT mouseMoveSpeedChanged(mouseMoveSpeed);
 }
 
 void MouseModel::setTpadMoveSpeed(int tpadMoveSpeed)
@@ -152,7 +152,7 @@ void MouseModel::setTpadMoveSpeed(int tpadMoveSpeed)
 
     m_tpadMoveSpeed = tpadMoveSpeed;
 
-    emit tpadMoveSpeedChanged(tpadMoveSpeed);
+    Q_EMIT tpadMoveSpeedChanged(tpadMoveSpeed);
 }
 
 void MouseModel::setAccelProfile(bool useAdaptiveProfile)
@@ -162,7 +162,7 @@ void MouseModel::setAccelProfile(bool useAdaptiveProfile)
 
     m_accelProfile = useAdaptiveProfile;
 
-    emit accelProfileChanged(useAdaptiveProfile);
+    Q_EMIT accelProfileChanged(useAdaptiveProfile);
 }
 
 void MouseModel::setDisTpad(bool disTpad)
@@ -172,7 +172,7 @@ void MouseModel::setDisTpad(bool disTpad)
 
     m_disTpad = disTpad;
 
-    emit disTpadChanged(disTpad);
+    Q_EMIT disTpadChanged(disTpad);
 }
 
 void MouseModel::setRedPointMoveSpeed(int redPointMoveSpeed)
@@ -182,7 +182,7 @@ void MouseModel::setRedPointMoveSpeed(int redPointMoveSpeed)
 
     m_redPointMoveSpeed = redPointMoveSpeed;
 
-    emit redPointMoveSpeedChanged(redPointMoveSpeed);
+    Q_EMIT redPointMoveSpeedChanged(redPointMoveSpeed);
 }
 
 void MouseModel::setPalmDetect(bool palmDetect)
@@ -192,7 +192,7 @@ void MouseModel::setPalmDetect(bool palmDetect)
 
     m_palmDetect = palmDetect;
 
-    emit palmDetectChanged(palmDetect);
+    Q_EMIT palmDetectChanged(palmDetect);
 }
 
 void MouseModel::setPalmMinWidth(int palmMinWidth)
@@ -202,7 +202,7 @@ void MouseModel::setPalmMinWidth(int palmMinWidth)
 
     m_palmMinWidth = palmMinWidth;
 
-    emit palmMinWidthChanged(palmMinWidth);
+    Q_EMIT palmMinWidthChanged(palmMinWidth);
 }
 
 void MouseModel::setPalmMinz(int palmMinz)
@@ -212,7 +212,7 @@ void MouseModel::setPalmMinz(int palmMinz)
 
     m_palmMinz = palmMinz;
 
-    emit palmMinzChanged(palmMinz);
+    Q_EMIT palmMinzChanged(palmMinz);
 }
 
 void MouseModel::setTapClick(bool tapclick)
@@ -222,7 +222,7 @@ void MouseModel::setTapClick(bool tapclick)
 
     m_tapclick = tapclick;
 
-    emit tapClickChanged(tapclick);
+    Q_EMIT tapClickChanged(tapclick);
 }
 
 void MouseModel::setScrollSpeed(int speed)
@@ -232,5 +232,5 @@ void MouseModel::setScrollSpeed(int speed)
 
     m_scrollSpeed = speed;
 
-    emit scrollSpeedChanged(speed);
+    Q_EMIT scrollSpeedChanged(speed);
 }

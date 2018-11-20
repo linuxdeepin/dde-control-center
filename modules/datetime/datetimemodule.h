@@ -49,7 +49,7 @@ public:
     const QString name() const;
     void contentPopped(ContentWidget * const w);
 
-public slots:
+public Q_SLOTS:
     void showTimeSettingsPage();
     void setFrameAutoHide(const bool visible);
 

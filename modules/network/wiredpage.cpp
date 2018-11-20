@@ -102,7 +102,7 @@ void WiredPage::setModel(NetworkModel *model)
 
 void WiredPage::initUI()
 {
-    emit requestConnectionsList(m_device->path());
+    Q_EMIT requestConnectionsList(m_device->path());
 }
 
 void WiredPage::refreshConnectionList()
@@ -172,7 +172,7 @@ void WiredPage::editConnection()
             m_device->path(), m_model->connectionUuidByPath(connPath));
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
-    emit requestNextPage(m_editPage);
+    Q_EMIT requestNextPage(m_editPage);
 }
 
 void WiredPage::createNewConnection()
@@ -180,7 +180,7 @@ void WiredPage::createNewConnection()
     m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection, m_device->path());
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
-    emit requestNextPage(m_editPage);
+    Q_EMIT requestNextPage(m_editPage);
 }
 
 void WiredPage::activeConnection()
@@ -190,7 +190,7 @@ void WiredPage::activeConnection()
 
     const QString connPath = m_connectionPath[w];
 
-    emit requestActiveConnection(m_device->path(), m_model->connectionUuidByPath(connPath));
+    Q_EMIT requestActiveConnection(m_device->path(), m_model->connectionUuidByPath(connPath));
 }
 
 void WiredPage::checkActivatedConnection()

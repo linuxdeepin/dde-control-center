@@ -124,48 +124,48 @@ void SystemInfoWork::loadGrubSettings()
 
 void SystemInfoWork::setBootDelay(bool value)
 {
-    emit requestSetAutoHideDCC(false);
+    Q_EMIT requestSetAutoHideDCC(false);
 
     QDBusPendingCall call = m_dbusGrub->SetTimeout(value ? 5 : 1);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
         if (w->isError()) {
-            emit m_model->bootDelayChanged(m_model->bootDelay());
+            Q_EMIT m_model->bootDelayChanged(m_model->bootDelay());
         }
 
-        emit requestSetAutoHideDCC(true);
+        Q_EMIT requestSetAutoHideDCC(true);
         w->deleteLater();
     });
 }
 
 void SystemInfoWork::setEnableTheme(bool value)
 {
-    emit requestSetAutoHideDCC(false);
+    Q_EMIT requestSetAutoHideDCC(false);
 
     QDBusPendingCall call = m_dbusGrub->SetEnableTheme(value);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
         if (w->isError()) {
-            emit m_model->themeEnabledChanged(m_model->themeEnabled());
+            Q_EMIT m_model->themeEnabledChanged(m_model->themeEnabled());
         }
 
-        emit requestSetAutoHideDCC(true);
+        Q_EMIT requestSetAutoHideDCC(true);
         w->deleteLater();
     });
 }
 
 void SystemInfoWork::setDefaultEntry(const QString &entry)
 {
-    emit requestSetAutoHideDCC(false);
+    Q_EMIT requestSetAutoHideDCC(false);
 
     QDBusPendingCall call = m_dbusGrub->SetDefaultEntry(entry);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
         if (w->isError()) {
-            emit m_model->defaultEntryChanged(m_model->defaultEntry());
+            Q_EMIT m_model->defaultEntryChanged(m_model->defaultEntry());
         }
 
-        emit requestSetAutoHideDCC(true);
+        Q_EMIT requestSetAutoHideDCC(true);
         w->deleteLater();
     });
 }
@@ -190,12 +190,12 @@ void SystemInfoWork::onBackgroundChanged()
 
 void SystemInfoWork::setBackground(const QString &path)
 {
-    emit requestSetAutoHideDCC(false);
+    Q_EMIT requestSetAutoHideDCC(false);
 
     QDBusPendingCall call = m_dbusGrubTheme->SetBackgroundSourceFile(path);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
-        emit requestSetAutoHideDCC(true);
+        Q_EMIT requestSetAutoHideDCC(true);
 
         if (w->isError()) {
             onBackgroundChanged();

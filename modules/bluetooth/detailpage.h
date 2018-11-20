@@ -42,7 +42,7 @@ class DetailPage : public ContentWidget
 public:
     explicit DetailPage(const Adapter *adapter, const Device *device);
 
-signals:
+Q_SIGNALS:
     void requestIgnoreDevice(const Adapter *adapter, const Device *device);
     void requestDisconnectDevice(const Device *device);
 

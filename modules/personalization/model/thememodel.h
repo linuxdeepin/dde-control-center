@@ -52,7 +52,7 @@ public:
 
     void removeItem(const QString &id);
 
-signals:
+Q_SIGNALS:
     void itemAdded(const QJsonObject &json);
     void defaultChanged(const QString &value);
     void picAdded(const QString &id, const QString &picPath);

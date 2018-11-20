@@ -169,7 +169,7 @@ void NavigationBar::onNavigationButtonClicked()
 
     setModuleChecked(b);
 
-    emit requestModule(m_navigationButtons.key(b));
+    Q_EMIT requestModule(m_navigationButtons.key(b));
 }
 
 void NavigationBar::setModuleChecked(DImageButton *button)
