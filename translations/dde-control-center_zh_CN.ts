@@ -43,7 +43,7 @@
 <context>
     <name>NavModel</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="160"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="148"/>
         <source>Navigation</source>
         <translation>导航</translation>
     </message>
@@ -51,7 +51,7 @@
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../frame/navigationbar.cpp" line="232"/>
+        <location filename="../frame/navigationbar.cpp" line="235"/>
         <source>Navigation</source>
         <translation>导航</translation>
     </message>
@@ -228,8 +228,8 @@
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="124"/>
-        <location filename="../frame/navigationbar.cpp" line="193"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="112"/>
+        <location filename="../frame/navigationbar.cpp" line="196"/>
         <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
         <source>Accounts</source>
         <translation>账户</translation>
@@ -508,7 +508,7 @@
         <translation>其它设备</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/adapterwidget.cpp" line="65"/>
+        <location filename="../modules/bluetooth/adapterwidget.cpp" line="67"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
         <translation>启用蓝牙寻找附近设备(扬声器、键盘、鼠标)</translation>
     </message>
@@ -516,8 +516,8 @@
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="129"/>
-        <location filename="../frame/navigationbar.cpp" line="199"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="117"/>
+        <location filename="../frame/navigationbar.cpp" line="202"/>
         <location filename="../modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
@@ -606,9 +606,9 @@
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="131"/>
-        <location filename="../frame/navigationbar.cpp" line="201"/>
-        <location filename="../modules/datetime/datetime.cpp" line="58"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="119"/>
+        <location filename="../frame/navigationbar.cpp" line="204"/>
+        <location filename="../modules/datetime/datetime.cpp" line="57"/>
         <source>Time and Date</source>
         <translation>时间日期</translation>
     </message>
@@ -623,17 +623,17 @@
         <translation>添加时区</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="62"/>
+        <location filename="../modules/datetime/datetime.cpp" line="61"/>
         <source>Change System Timezone</source>
         <translation>修改系统时区</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="70"/>
+        <location filename="../modules/datetime/datetime.cpp" line="69"/>
         <source>Time Settings</source>
         <translation>时间设置</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/datetime.cpp" line="75"/>
+        <location filename="../modules/datetime/datetime.cpp" line="74"/>
         <source>Timezone List</source>
         <translation>时区列表</translation>
     </message>
@@ -651,12 +651,12 @@
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="174"/>
+        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="176"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
     </message>
     <message>
-        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="174"/>
+        <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="176"/>
         <source>Change Timezone</source>
         <translation>修改系统时区</translation>
     </message>
@@ -692,8 +692,8 @@
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="126"/>
-        <location filename="../frame/navigationbar.cpp" line="195"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="114"/>
+        <location filename="../frame/navigationbar.cpp" line="198"/>
         <location filename="../modules/defapp/defappviewer.cpp" line="41"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
@@ -805,12 +805,12 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="224"/>
+        <location filename="../modules/display/displaymodule.cpp" line="225"/>
         <source>My Settings %1</source>
         <translation>我的设置%1</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="277"/>
+        <location filename="../modules/display/displaymodule.cpp" line="279"/>
         <source>Wireless Screen Projection</source>
         <translation>无线投屏</translation>
     </message>
@@ -818,8 +818,8 @@
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="125"/>
-        <location filename="../frame/navigationbar.cpp" line="194"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="113"/>
+        <location filename="../frame/navigationbar.cpp" line="197"/>
         <location filename="../modules/display/displaywidget.cpp" line="113"/>
         <source>Display</source>
         <translation>显示</translation>
@@ -989,12 +989,12 @@
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="115"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="116"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customcontent.cpp" line="170"/>
+        <location filename="../modules/keyboard/customcontent.cpp" line="171"/>
         <source>Choose File</source>
         <translation>选择文件</translation>
     </message>
@@ -1033,12 +1033,12 @@
         <translation>命令</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="119"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="120"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="160"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="161"/>
         <source>Choose File</source>
         <translation>选择文件</translation>
     </message>
@@ -1051,7 +1051,7 @@
         <translation>快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customitem.cpp" line="102"/>
+        <location filename="../modules/keyboard/customitem.cpp" line="105"/>
         <source>Please enter a shortcut</source>
         <translation>请输入快捷键</translation>
     </message>
@@ -1086,8 +1086,8 @@
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="134"/>
-        <location filename="../frame/navigationbar.cpp" line="204"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="122"/>
+        <location filename="../frame/navigationbar.cpp" line="207"/>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="49"/>
         <source>Keyboard and Language</source>
         <translation>键盘和语言</translation>
@@ -1184,7 +1184,7 @@
         <translation>快捷键</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/shortcutcontent.cpp" line="92"/>
+        <location filename="../modules/keyboard/shortcutcontent.cpp" line="93"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
         <translation>此快捷键与%1冲突，点击替换使这个快捷键立即生效</translation>
     </message>
@@ -1241,8 +1241,8 @@
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="133"/>
-        <location filename="../frame/navigationbar.cpp" line="203"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="121"/>
+        <location filename="../frame/navigationbar.cpp" line="206"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
@@ -1415,37 +1415,37 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="83"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="91"/>
         <source>Disconnect</source>
         <translation>断开</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="85"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="93"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="90"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="98"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="91"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="99"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="316"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="338"/>
         <source>Wired Connection %1</source>
         <translation>有线连接 %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="320"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="342"/>
         <source>Wireless Connection %1</source>
         <translation>无线连接 %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="324"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="346"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE连接 %1</translation>
     </message>
@@ -1453,7 +1453,7 @@
 <context>
     <name>dcc::network::ConnectionHotspotEditPage</name>
     <message>
-        <location filename="../modules/network/connectionhotspoteditpage.cpp" line="48"/>
+        <location filename="../modules/network/connectionhotspoteditpage.cpp" line="47"/>
         <source>hotspot</source>
         <translation>热点</translation>
     </message>
@@ -1504,22 +1504,22 @@
         <translation>以太网</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ethernetsection.cpp" line="89"/>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="91"/>
         <source>Device MAC Addr</source>
         <translation>设备MAC地址</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ethernetsection.cpp" line="101"/>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="114"/>
         <source>Cloned MAC Addr</source>
         <translation>克隆MAC地址</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ethernetsection.cpp" line="114"/>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="127"/>
         <source>Customize MTU</source>
         <translation>自定义MTU</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ethernetsection.cpp" line="117"/>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="130"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -1571,19 +1571,19 @@
 <context>
     <name>dcc::network::IpvxSection</name>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="194"/>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="199"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="212"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="217"/>
         <source>Auto</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="195"/>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="200"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="213"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="218"/>
         <source>Manual</source>
         <translation>手动</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="201"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="219"/>
         <source>Ignore</source>
         <translation>忽略</translation>
     </message>
@@ -1598,48 +1598,48 @@
         <translation>IPv6</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="207"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="225"/>
         <source>Method</source>
         <translation>方法</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="208"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="226"/>
         <source>IP Address</source>
         <translation>IP 地址</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="209"/>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="274"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="227"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="292"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="210"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="228"/>
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="211"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="229"/>
         <source>Primary DNS</source>
         <translation>首选DNS</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="212"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="230"/>
         <source>Secondary DNS</source>
         <translation>备用DNS</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="213"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="231"/>
         <source>Only applied in corresponding resources</source>
         <translation>仅用于相对应的网络上的资源</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="273"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="291"/>
         <source>Netmask</source>
         <translation>子网掩码</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="316"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="334"/>
         <source>Prefix</source>
         <translation>前缀</translation>
     </message>
@@ -1722,8 +1722,8 @@
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="128"/>
-        <location filename="../frame/navigationbar.cpp" line="198"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="116"/>
+        <location filename="../frame/navigationbar.cpp" line="201"/>
         <location filename="../modules/network/networkmodulewidget.cpp" line="97"/>
         <source>Network</source>
         <translation>网络</translation>
@@ -2548,6 +2548,7 @@
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="241"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -2578,10 +2579,30 @@
         <translation>不要求</translation>
     </message>
     <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="177"/>
+        <source>User Cert</source>
+        <translation>用户证书</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
+        <source>Private Key</source>
+        <translation>私钥</translation>
+    </message>
+    <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="230"/>
         <source>Pwd Options</source>
         <translation>密码选项</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="285"/>
+        <source>Remote IP</source>
+        <translation>远程IP</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="290"/>
+        <source>Local IP</source>
+        <translation>本地IP</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
@@ -2616,6 +2637,11 @@
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
         <source>Private Pwd</source>
         <translation>私钥密码</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="225"/>
+        <source>Username</source>
+        <translation>用户名</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="274"/>
@@ -2699,6 +2725,11 @@
         <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
         <translation>发送PPP回响包</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="170"/>
+        <source>Stateful MPPE</source>
+        <translation>使用带状态的MPPE</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
@@ -2805,6 +2836,11 @@
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
         <source>VPN Proxies</source>
         <translation>VPN代理</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
+        <source>Proxy Type</source>
+        <translation>代理类型</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
@@ -3193,27 +3229,27 @@
 <context>
     <name>dcc::network::WirelessSection</name>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="104"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="106"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="105"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="107"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="108"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="110"/>
         <source>Device MAC Addr</source>
         <translation>设备MAC地址</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="134"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="146"/>
         <source>Customize MTU</source>
         <translation>自定义MTU</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="137"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="149"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -3221,7 +3257,7 @@
 <context>
     <name>dcc::personalization::FontListWidget</name>
     <message>
-        <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="83"/>
+        <location filename="../modules/personalization/module/fontswidget/fontlistwidget.cpp" line="89"/>
         <source> (Unsupported font)</source>
         <translation>(不支持的字体)</translation>
     </message>
@@ -3277,29 +3313,29 @@
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="127"/>
-        <location filename="../frame/navigationbar.cpp" line="196"/>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="79"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="115"/>
+        <location filename="../frame/navigationbar.cpp" line="199"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="75"/>
         <source>Personalization</source>
         <translation>个性化</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="45"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="46"/>
         <source>Transparency</source>
         <translation>透明度调节</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="70"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="66"/>
         <source>Enable window effect</source>
         <translation>开启窗口特效</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="72"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="73"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="69"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
@@ -3338,69 +3374,81 @@
 <context>
     <name>dcc::power::PowerWidget</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="132"/>
-        <location filename="../frame/navigationbar.cpp" line="202"/>
-        <location filename="../modules/power/powerwidget.cpp" line="99"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="120"/>
+        <location filename="../frame/navigationbar.cpp" line="205"/>
+        <location filename="../modules/power/powerwidget.cpp" line="120"/>
         <source>Power Management</source>
         <translation>电源管理</translation>
     </message>
     <message>
+        <location filename="../modules/power/powerwidget.cpp" line="46"/>
+        <source>Plugged in</source>
+        <translation>使用电源</translation>
+    </message>
+    <message>
         <location filename="../modules/power/powerwidget.cpp" line="47"/>
+        <source>On battery</source>
+        <translation>使用电池</translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="48"/>
+        <location filename="../modules/power/powerwidget.cpp" line="50"/>
         <source>Monitor will suspend after</source>
         <translation>关闭显示器于</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="48"/>
+        <location filename="../modules/power/powerwidget.cpp" line="49"/>
+        <location filename="../modules/power/powerwidget.cpp" line="51"/>
         <source>Computer will suspend after</source>
         <translation>电脑进入待机模式</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="58"/>
-        <location filename="../modules/power/powerwidget.cpp" line="166"/>
+        <location filename="../modules/power/powerwidget.cpp" line="61"/>
+        <location filename="../modules/power/powerwidget.cpp" line="193"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="77"/>
+        <location filename="../modules/power/powerwidget.cpp" line="97"/>
         <source>Password required to wake up the monitor</source>
         <translation>唤醒显示器时需要密码</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="80"/>
+        <location filename="../modules/power/powerwidget.cpp" line="100"/>
         <source>Password required to wake up the computer</source>
         <translation>唤醒计算机时需要密码</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="83"/>
+        <location filename="../modules/power/powerwidget.cpp" line="103"/>
         <source>Suspend on lid close</source>
         <translation>合上盖子时待机</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="87"/>
+        <location filename="../modules/power/powerwidget.cpp" line="107"/>
         <source>Power Saving Mode</source>
         <translation>节能模式</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="88"/>
+        <location filename="../modules/power/powerwidget.cpp" line="108"/>
         <source>Auto Mode Switch</source>
         <translation>自动切换节能模式</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="154"/>
+        <location filename="../modules/power/powerwidget.cpp" line="181"/>
         <source>1 Minute</source>
         <translation>1 分钟</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="156"/>
-        <location filename="../modules/power/powerwidget.cpp" line="158"/>
-        <location filename="../modules/power/powerwidget.cpp" line="160"/>
-        <location filename="../modules/power/powerwidget.cpp" line="162"/>
-        <location filename="../modules/power/powerwidget.cpp" line="168"/>
+        <location filename="../modules/power/powerwidget.cpp" line="183"/>
+        <location filename="../modules/power/powerwidget.cpp" line="185"/>
+        <location filename="../modules/power/powerwidget.cpp" line="187"/>
+        <location filename="../modules/power/powerwidget.cpp" line="189"/>
+        <location filename="../modules/power/powerwidget.cpp" line="195"/>
         <source>%1 Minutes</source>
         <translation>%1分钟</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="164"/>
+        <location filename="../modules/power/powerwidget.cpp" line="191"/>
         <source>1 Hour</source>
         <translation>1 小时</translation>
     </message>
@@ -3426,8 +3474,8 @@
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="130"/>
-        <location filename="../frame/navigationbar.cpp" line="200"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="118"/>
+        <location filename="../frame/navigationbar.cpp" line="203"/>
         <location filename="../modules/sound/soundwidget.cpp" line="58"/>
         <source>Sound</source>
         <translation>声音</translation>
@@ -3476,27 +3524,32 @@
 <context>
     <name>dcc::systeminfo::BootWidget</name>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="60"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="62"/>
         <source>Updating...</source>
         <translation>正在更新...</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="71"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="73"/>
         <source>Startup Delay</source>
         <translation>启动延时</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="74"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="76"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="76"/>
-        <source>You can click the option in boot menu to set it as the first boot.Switch it on to view your theme in boot menu.</source>
-        <translation>您可以点击菜单改变默认启动项。开启主题后您可以在开机时看到所选择的主题背景。</translation>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="78"/>
+        <source>You can click the option in boot menu to set it as the first boot, and drag and drop a picture to replace the background.</source>
+        <translation>您可以点击菜单改变默认启动项，也可以拖拽图片到窗口改变背景图片。</translation>
     </message>
     <message>
-        <location filename="../modules/systeminfo/bootwidget.cpp" line="96"/>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="82"/>
+        <source>Switch theme on to view it in boot menu.</source>
+        <translation>开启主题后您可以在开机时看到主题背景。</translation>
+    </message>
+    <message>
+        <location filename="../modules/systeminfo/bootwidget.cpp" line="102"/>
         <source>Boot Menu</source>
         <translation>启动菜单</translation>
     </message>
@@ -3512,8 +3565,8 @@
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="137"/>
-        <location filename="../frame/navigationbar.cpp" line="208"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../frame/navigationbar.cpp" line="211"/>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <source>System Information</source>
         <translation>系统信息</translation>
@@ -3654,8 +3707,8 @@
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="136"/>
-        <location filename="../frame/navigationbar.cpp" line="207"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="124"/>
+        <location filename="../frame/navigationbar.cpp" line="210"/>
         <location filename="../modules/update/updatectrlwidget.cpp" line="59"/>
         <source>Update</source>
         <translation>更新</translation>
@@ -3864,8 +3917,8 @@
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
-        <location filename="../frame/navigation/navmodel.cpp" line="135"/>
-        <location filename="../frame/navigationbar.cpp" line="206"/>
+        <location filename="../frame/navigation/navmodel.cpp" line="123"/>
+        <location filename="../frame/navigationbar.cpp" line="209"/>
         <location filename="../modules/wacom/wacomwidget.cpp" line="57"/>
         <source>Wacom</source>
         <translation>Wacom 数位板</translation>
