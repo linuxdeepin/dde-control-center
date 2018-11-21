@@ -58,25 +58,27 @@ static int TestMirrorSpeedInternal(const QString &url)
 }
 
 UpdateWorker::UpdateWorker(UpdateModel* model, QObject *parent)
-    : QObject(parent),
-      m_model(model),
-      m_downloadJob(nullptr),
-      m_checkUpdateJob(nullptr),
-      m_distUpgradeJob(nullptr),
-      m_otherUpdateJob(nullptr),
-      m_lastoresessionHelper(new LastoressionHelper("com.deepin.LastoreSessionHelper", "/com/deepin/LastoreSessionHelper", QDBusConnection::sessionBus(), this)),
-      m_updateInter(new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
-      m_managerInter(new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this)),
-      m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this)),
-      m_networkInter(new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this)),
-      m_onBattery(true),
-      m_batteryPercentage(0),
-      m_baseProgress(0)
+    : QObject(parent)
+    , m_model(model)
+    , m_downloadJob(nullptr)
+    , m_checkUpdateJob(nullptr)
+    , m_distUpgradeJob(nullptr)
+    , m_otherUpdateJob(nullptr)
+    , m_lastoresessionHelper(new LastoressionHelper("com.deepin.LastoreSessionHelper", "/com/deepin/LastoreSessionHelper", QDBusConnection::sessionBus(), this))
+    , m_updateInter(new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this))
+    , m_managerInter(new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this))
+    , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
+    , m_networkInter(new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this))
+    , m_smartMirrorInter(new SmartMirrorInter("com.deepin.lastore.Smartmirror", "/com/deepin/lastore.Smartmirror", QDBusConnection::systemBus(), this))
+    , m_onBattery(true)
+    , m_batteryPercentage(0)
+    , m_baseProgress(0)
 {
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
     m_powerInter->setSync(false);
     m_lastoresessionHelper->setSync(false);
+    m_smartMirrorInter->setSync(true, false);
 
     connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWorker::onJobListChanged);
     connect(m_managerInter, &ManagerInter::AutoCleanChanged, m_model, &UpdateModel::setAutoCleanCache);
@@ -87,6 +89,13 @@ UpdateWorker::UpdateWorker(UpdateModel* model, QObject *parent)
 
     connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWorker::setOnBattery);
     connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWorker::setBatteryPercentage);
+    connect(m_smartMirrorInter, &SmartMirrorInter::EnableChanged, m_model, &UpdateModel::setSmartMirrorSwitch);
+    connect(m_smartMirrorInter, &SmartMirrorInter::serviceValidChanged, this, &UpdateWorker::onSmartMirrorServiceIsValid);
+    connect(m_smartMirrorInter, &SmartMirrorInter::serviceStartFinished, this, [=] {
+        QTimer::singleShot(100, this, [=] {
+            m_model->setSmartMirrorSwitch(m_smartMirrorInter->enable());
+        });
+    }, Qt::UniqueConnection);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     connect(m_lastoresessionHelper, &LastoressionHelper::SourceCheckEnabledChanged, m_model, &UpdateModel::setSourceCheck);
@@ -120,6 +129,7 @@ void UpdateWorker::activate()
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     m_model->setSourceCheck(m_lastoresessionHelper->sourceCheckEnabled());
 #endif
+    onSmartMirrorServiceIsValid(m_smartMirrorInter->isValid());
 }
 
 void UpdateWorker::deactivate()
@@ -298,6 +308,16 @@ bool UpdateWorker::checkDbusIsValid()
     return false;
 }
 
+void UpdateWorker::onSmartMirrorServiceIsValid(bool isvalid)
+{
+    if (isvalid) {
+        m_model->setSmartMirrorSwitch(m_smartMirrorInter->enable());
+    }
+    else {
+        m_smartMirrorInter->startServiceProcess();
+    }
+}
+
 void UpdateWorker::pauseDownload()
 {
     if (!m_downloadJob.isNull()) {
@@ -388,6 +408,12 @@ void UpdateWorker::checkNetselect()
     m_model->setNetselectExist(isNetselectExist);
 
     process->deleteLater();
+}
+
+void UpdateWorker::setSmartMirror(bool enable)
+{
+    m_smartMirrorInter->SetEnable(enable);
+    m_model->setSmartMirrorSwitch(enable);
 }
 
 void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)

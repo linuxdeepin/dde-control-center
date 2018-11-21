@@ -33,10 +33,13 @@
 using namespace dcc::widgets;
 
 namespace dcc{
+namespace widgets {
+class SettingsGroup;
+}
+
 namespace update{
 
 class UpdateModel;
-
 class UpdateSettings : public ContentWidget
 {
     Q_OBJECT
@@ -54,6 +57,7 @@ Q_SIGNALS:
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     void requestSetSourceCheck(const bool check);
 #endif
+    void requestEnableSmartMirror(bool enable);
 
 private:
     UpdateModel* m_model;
@@ -63,8 +67,10 @@ private:
     SwitchWidget *m_autoCleanCache;
     SwitchWidget *m_autoCheckUpdate;
     SwitchWidget* m_autoDownloadSwitch;
+    SwitchWidget *m_smartMirrorBtn;
     NextPageWidget* m_updateMirrors;
     TipsLabel *m_updateLbl;
+    SettingsGroup *m_mirrorGrp;
     bool m_isProfessional;
 };
 

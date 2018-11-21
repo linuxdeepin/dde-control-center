@@ -95,11 +95,27 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     layout->addSpacing(15);
 
     if (!m_isProfessional) {
+        m_smartMirrorBtn = new SwitchWidget;
+        m_smartMirrorBtn->setTitle(tr("Smart Mirror Switch"));
+
+        SettingsGroup *smartMirrorGrp = new SettingsGroup;
+        smartMirrorGrp->appendItem(m_smartMirrorBtn);
+
+        TipsLabel* smartTips = new TipsLabel;
+        smartTips->setText(tr("Switch it on to connect to the quickest mirror site automatically."));
+
+        layout->addWidget(smartMirrorGrp);
+        layout->addWidget(smartTips);
+        layout->addSpacing(15);
+
         m_updateMirrors = new NextPageWidget;
         m_updateMirrors->setTitle(tr("Switch Mirror"));
-        SettingsGroup* mg = new SettingsGroup;
-        mg->appendItem(m_updateMirrors);
-        layout->addWidget(mg);
+        m_mirrorGrp = new SettingsGroup;
+        m_mirrorGrp->appendItem(m_updateMirrors);
+        layout->addWidget(m_mirrorGrp);
+
+        connect(m_updateMirrors, &NextPageWidget::clicked, this, &UpdateSettings::requestShowMirrorsView);
+        connect(m_smartMirrorBtn, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestEnableSmartMirror);
     }
 
     layout->addStretch();
@@ -107,10 +123,6 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     widget->setLayout(layout);
 
     setContent(widget);
-
-    if (!m_isProfessional) {
-        connect(m_updateMirrors, &NextPageWidget::clicked, this, &UpdateSettings::requestShowMirrorsView);
-    }
 
     connect(m_autoCleanCache, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCleanCache);
     connect(m_autoCheckUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCheckUpdates);
@@ -138,6 +150,15 @@ void UpdateSettings::setModel(UpdateModel *model)
             };
             setDefaultMirror(model->defaultMirror());
             connect(model, &UpdateModel::defaultMirrorChanged, this, setDefaultMirror);
+            connect(model, &UpdateModel::smartMirrorSwitchChanged, m_smartMirrorBtn, &SwitchWidget::setChecked);
+            m_smartMirrorBtn->setChecked(m_model->smartMirrorSwitch());
+
+            auto setMirrorListVisible = [=] (bool visible) {
+                m_mirrorGrp->setVisible(!visible);
+            };
+
+            connect(model, &UpdateModel::smartMirrorSwitchChanged, this, setMirrorListVisible);
+            setMirrorListVisible(model->smartMirrorSwitch());
         }
 
         setAutoDownload(model->autoDownloadUpdates());

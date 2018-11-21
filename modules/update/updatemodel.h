@@ -102,10 +102,14 @@ public:
 
     inline bool autoCheckUpdates() { return m_autoCheckUpdates; }
     void setAutoCheckUpdates(bool autoCheckUpdates);
+    bool smartMirrorSwitch() const { return m_smartMirrorSwitch; }
+    void setSmartMirrorSwitch(bool smartMirrorSwitch);
 
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
+
+    void smartMirrorSwitchChanged(bool smartMirrorSwitch);
 
     void lowBatteryChanged(const bool &lowBattery);
     void statusChanged(const UpdatesStatus &status);
@@ -138,6 +142,7 @@ private:
     bool m_autoCleanCache;
     bool m_autoDownloadUpdates;
     bool m_autoCheckUpdates;
+    bool m_smartMirrorSwitch;
     QString m_mirrorId;
     MirrorInfoList m_mirrorList;
     QMap<QString, int> m_mirrorSpeedInfo;

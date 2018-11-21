@@ -216,6 +216,7 @@ void UpdateModel::setNetselectExist(bool netselectExist)
     Q_EMIT netselectExistChanged(netselectExist);
 }
 
+
 void UpdateModel::setAutoCheckUpdates(bool autoCheckUpdates)
 {
     if (autoCheckUpdates == m_autoCheckUpdates) return;
@@ -223,6 +224,15 @@ void UpdateModel::setAutoCheckUpdates(bool autoCheckUpdates)
     m_autoCheckUpdates = autoCheckUpdates;
 
     Q_EMIT autoCheckUpdatesChanged(autoCheckUpdates);
+}
+
+void UpdateModel::setSmartMirrorSwitch(bool smartMirrorSwitch)
+{
+    if (m_smartMirrorSwitch == smartMirrorSwitch) return;
+
+    m_smartMirrorSwitch = smartMirrorSwitch;
+
+    Q_EMIT smartMirrorSwitchChanged(smartMirrorSwitch);
 }
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK

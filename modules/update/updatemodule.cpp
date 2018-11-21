@@ -155,6 +155,7 @@ void UpdateModule::onPushSettings()
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
         connect(m_settingsPage, &UpdateSettings::requestSetSourceCheck, m_work, &UpdateWorker::setSourceCheck);
 #endif
+        connect(m_settingsPage, &UpdateSettings::requestEnableSmartMirror, m_work, &UpdateWorker::setSmartMirror);
     }
 
     m_frameProxy->pushWidget(this, m_settingsPage);

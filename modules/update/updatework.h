@@ -35,6 +35,7 @@
 #include <com_deepin_daemon_power.h>
 #include <com_deepin_daemon_network.h>
 #include <com_deepin_lastoresessionhelper.h>
+#include <com_deepin_lastore_smartmirror.h>
 
 #include "common.h"
 
@@ -44,6 +45,7 @@ using ManagerInter=com::deepin::lastore::Manager;
 using PowerInter=com::deepin::daemon::Power;
 using Network=com::deepin::daemon::Network;
 using LastoressionHelper=com::deepin::LastoreSessionHelper;
+using SmartMirrorInter = com::deepin::lastore::Smartmirror;
 
 namespace dcc{
 namespace update{
@@ -75,6 +77,7 @@ public Q_SLOTS:
 #endif
     void testMirrorSpeed();
     void checkNetselect();
+    void setSmartMirror(bool enable);
 
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
@@ -98,6 +101,7 @@ private:
     void distUpgradeInstallUpdates();
     void setAppUpdateInfo(const AppUpdateInfoList &list);
     inline bool checkDbusIsValid();
+    void onSmartMirrorServiceIsValid(bool isvalid);
 
 private:
     UpdateModel* m_model;
@@ -110,6 +114,8 @@ private:
     ManagerInter* m_managerInter;
     PowerInter *m_powerInter;
     Network *m_networkInter;
+    SmartMirrorInter *m_smartMirrorInter;
+
     bool m_onBattery;
     double m_batteryPercentage;
 
