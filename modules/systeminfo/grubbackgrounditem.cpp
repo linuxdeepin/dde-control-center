@@ -41,7 +41,7 @@ GrubBackgroundItem::GrubBackgroundItem(QFrame *parent)
 {
     setFixedHeight(187);
 
-    setAcceptDrops(false);
+    setAcceptDrops(true);
 }
 
 void GrubBackgroundItem::setThemeEnable(const bool state)
