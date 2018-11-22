@@ -1,4 +1,14 @@
 <a name=""></a>
+##  4.7.6.2 (2018-11-22)
+
+
+#### Bug Fixes
+
+*   build faild ([0dcc343c](https://github.com/linuxdeepin/dde-control-center/commit/0dcc343c1643259b0fed85b8fd45691042361ee0))
+
+
+
+<a name=""></a>
 ##  4.7.6.1 (2018-11-19)
 
 
