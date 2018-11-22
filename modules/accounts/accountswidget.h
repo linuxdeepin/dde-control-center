@@ -50,7 +50,7 @@ public:
     void setModel(UserModel * const model);
 #endif
 
-signals:
+Q_SIGNALS:
     void showAccountsDetail(User *account) const;
     void requestCreateAccount() const;
 #ifdef DCC_ENABLE_ADDOMAIN
@@ -58,7 +58,7 @@ signals:
     void requestRefreshADState() const;
 #endif
 
-public slots:
+public Q_SLOTS:
     void addUser(User *user);
 #ifdef DCC_ENABLE_ADDOMAIN
     void setADState(bool isJoin);

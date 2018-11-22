@@ -79,7 +79,7 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
             m_userAvatarBtn->setAccessibleDescription("UserAvatarButton");
 
             connect(inter, &UserInter::IconFileChanged, m_userAvatarBtn, &AvatarWidget::setAvatarPath);
-            connect(m_userAvatarBtn, &AvatarWidget::clicked, this, [=] { emit showSettingPage("accounts", inter->userName(), false); });
+            connect(m_userAvatarBtn, &AvatarWidget::clicked, this, [=] { Q_EMIT showSettingPage("accounts", inter->userName(), false); });
 
             // keep pointer
             break;
@@ -174,7 +174,7 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     connect(m_timeRefersh, &QTimer::timeout, this, &MainWidget::refershTimedate);
     connect(m_notifyToggleBtn, &DImageButton::clicked, this, &MainWidget::toggleNotify, Qt::QueuedConnection);
     connect(m_navWidget, &NavWidget::requestModule, this, [=] (const QString &moduleName) {
-        emit showSettingPage(moduleName, "", false);
+        Q_EMIT showSettingPage(moduleName, "", false);
     });
     connect(this, &MainWidget::requestModuleVisible, m_navWidget, &NavWidget::requestModuleVisible);
 #ifndef DISABLE_SYS_UPDATE

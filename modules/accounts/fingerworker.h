@@ -46,10 +46,10 @@ class FingerWorker : public QObject
 public:
     explicit FingerWorker(FingerModel *model, QObject *parent = nullptr);
 
-signals:
+Q_SIGNALS:
     void requestShowAddThumb(const QString &name, const QString &thumb);
 
-public slots:
+public Q_SLOTS:
     void refreshUserEnrollList(const QString &name);
     void enrollStart(const QString &name, const QString &thumb);
     void reEnrollStart(const QString &thumb);
@@ -57,7 +57,7 @@ public slots:
     void saveEnroll(const QString &name);
     void stopEnroll();
 
-private slots:
+private Q_SLOTS:
     void onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w);
     void onGetListEnrolledFinished(QDBusPendingCallWatcher *w);
     void onEnrollStatus(const QString &value, const bool status);

@@ -97,7 +97,7 @@ void UpdateNotifier::mouseReleaseEvent(QMouseEvent *event)
 
     ignoreUpdates();
 
-    emit clicked();
+    Q_EMIT clicked();
 }
 
 void UpdateNotifier::enterEvent(QEvent *event)
@@ -118,7 +118,7 @@ void UpdateNotifier::leaveEvent(QEvent *event)
 void UpdateNotifier::ignoreUpdates()
 {
     setVisible(false);
-    emit notifierVisibleChanged(false);
+    Q_EMIT notifierVisibleChanged(false);
     m_settings->setValue(IgnoredPkgsKey, m_updatablePkgs);
 }
 
@@ -133,7 +133,7 @@ void UpdateNotifier::updatablePkgsChanged(const QStringList &value)
     QStringList pkgs = m_settings->value(IgnoredPkgsKey).toStringList();
     const bool visible = !comparePkgLists(pkgs, value);
     setVisible(visible);
-    emit notifierVisibleChanged(visible);
+    Q_EMIT notifierVisibleChanged(visible);
 
     qDebug() << Q_FUNC_INFO << "setVisible: " << visible;
 }

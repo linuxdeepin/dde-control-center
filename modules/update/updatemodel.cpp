@@ -41,7 +41,7 @@ void DownloadInfo::setDownloadProgress(double downloadProgress)
 {
     if (m_downloadProgress != downloadProgress) {
         m_downloadProgress = downloadProgress;
-        emit downloadProgressChanged(downloadProgress);
+        Q_EMIT downloadProgressChanged(downloadProgress);
     }
 }
 
@@ -73,7 +73,7 @@ void UpdateModel::setDefaultMirror(const QString &mirror)
     {
         if((*it).m_id == mirror)
         {
-            emit defaultMirrorChanged(*it);
+            Q_EMIT defaultMirrorChanged(*it);
         }
     }
 }
@@ -91,7 +91,7 @@ void UpdateModel::setDownloadInfo(DownloadInfo *downloadInfo)
     }
 
     m_downloadInfo = downloadInfo;
-    emit downloadInfoChanged(downloadInfo);
+    Q_EMIT downloadInfoChanged(downloadInfo);
 }
 
 QMap<QString, int> UpdateModel::mirrorSpeedInfo() const
@@ -104,7 +104,7 @@ void UpdateModel::setMirrorSpeedInfo(const QMap<QString, int> &mirrorSpeedInfo)
     m_mirrorSpeedInfo = mirrorSpeedInfo;
 
     if (mirrorSpeedInfo.keys().length())
-        emit mirrorSpeedInfoAvaiable(mirrorSpeedInfo);
+        Q_EMIT mirrorSpeedInfoAvaiable(mirrorSpeedInfo);
 }
 
 bool UpdateModel::lowBattery() const
@@ -116,7 +116,7 @@ void UpdateModel::setLowBattery(bool lowBattery)
 {
     if (lowBattery != m_lowBattery) {
         m_lowBattery = lowBattery;
-        emit lowBatteryChanged(lowBattery);
+        Q_EMIT lowBatteryChanged(lowBattery);
     }
 }
 
@@ -129,7 +129,7 @@ void UpdateModel::setAutoDownloadUpdates(bool autoDownloadUpdates)
 {
     if (m_autoDownloadUpdates != autoDownloadUpdates) {
         m_autoDownloadUpdates = autoDownloadUpdates;
-        emit autoDownloadUpdatesChanged(autoDownloadUpdates);
+        Q_EMIT autoDownloadUpdatesChanged(autoDownloadUpdates);
     }
 }
 
@@ -156,7 +156,7 @@ void UpdateModel::setStatus(const UpdatesStatus &status)
 {
     if (m_status != status) {
         m_status = status;
-        emit statusChanged(status);
+        Q_EMIT statusChanged(status);
     }
 }
 
@@ -169,7 +169,7 @@ void UpdateModel::setUpgradeProgress(double upgradeProgress)
 {
     if (m_upgradeProgress != upgradeProgress) {
         m_upgradeProgress = upgradeProgress;
-        emit upgradeProgressChanged(upgradeProgress);
+        Q_EMIT upgradeProgressChanged(upgradeProgress);
     }
 }
 
@@ -184,7 +184,7 @@ void UpdateModel::setAutoCleanCache(bool autoCleanCache)
         return;
 
     m_autoCleanCache = autoCleanCache;
-    emit autoCleanCacheChanged(autoCleanCache);
+    Q_EMIT autoCleanCacheChanged(autoCleanCache);
 }
 
 double UpdateModel::updateProgress() const
@@ -196,7 +196,7 @@ void UpdateModel::setUpdateProgress(double updateProgress)
 {
     if (m_updateProgress != updateProgress) {
         m_updateProgress = updateProgress;
-        emit updateProgressChanged(updateProgress);
+        Q_EMIT updateProgressChanged(updateProgress);
     }
 }
 
@@ -213,7 +213,7 @@ void UpdateModel::setNetselectExist(bool netselectExist)
 
     m_netselectExist = netselectExist;
 
-    emit netselectExistChanged(netselectExist);
+    Q_EMIT netselectExistChanged(netselectExist);
 }
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
@@ -229,7 +229,7 @@ void UpdateModel::setSourceCheck(bool sourceCheck)
 
     m_sourceCheck = sourceCheck;
 
-    emit sourceCheckChanged(sourceCheck);
+    Q_EMIT sourceCheckChanged(sourceCheck);
 }
 #endif
 

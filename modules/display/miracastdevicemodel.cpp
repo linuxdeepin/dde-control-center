@@ -67,13 +67,13 @@ void dcc::display::MiracastDeviceModel::onSinkAdded(const SinkInfo &sinkinfo)
 
     m_sinkList.append(sinkinfo);
 
-    emit addSink(sinkinfo);
+    Q_EMIT addSink(sinkinfo);
 }
 
 void dcc::display::MiracastDeviceModel::onSinkRemoved(const SinkInfo &sinkinfo)
 {
     m_sinkList.removeOne(sinkinfo);
-    emit removeSink(sinkinfo);
+    Q_EMIT removeSink(sinkinfo);
 }
 
 void MiracastDeviceModel::onSinkConnect(const QDBusObjectPath &sinkPath, bool connected)
@@ -82,7 +82,7 @@ void MiracastDeviceModel::onSinkConnect(const QDBusObjectPath &sinkPath, bool co
         if (info.m_sinkPath == sinkPath)
             info.m_connected = connected;
 
-    emit connectStateChanged(sinkPath, connected);
+    Q_EMIT connectStateChanged(sinkPath, connected);
 }
 
 void MiracastDeviceModel::onLinkManageChanged(const bool state)
@@ -91,5 +91,5 @@ void MiracastDeviceModel::onLinkManageChanged(const bool state)
         return;
 
     m_linkInfo.m_managed = state;
-    emit linkManageChanged(state);
+    Q_EMIT linkManageChanged(state);
 }

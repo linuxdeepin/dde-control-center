@@ -69,7 +69,7 @@ void SettingsOptionItem::setSelected(const bool checked)
 
 void SettingsOptionItem::mouseReleaseEvent(QMouseEvent *e)
 {
-    emit clicked();
+    Q_EMIT clicked();
 
     QFrame::mouseReleaseEvent(e);
 }

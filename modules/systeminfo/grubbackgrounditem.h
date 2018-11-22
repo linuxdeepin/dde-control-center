@@ -40,11 +40,11 @@ class GrubBackgroundItem : public SettingsItem
 public:
     explicit GrubBackgroundItem(QFrame* parent = 0);
 
-signals:
+Q_SIGNALS:
     void requestEnableTheme(const bool state);
     void requestSetBackground(const QString &path);
 
-public slots:
+public Q_SLOTS:
     void setThemeEnable(const bool state);
     void updateBackground(const QPixmap &pixmap);
 

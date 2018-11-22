@@ -49,7 +49,7 @@ public:
 
     const QString name() const;
 
-private slots:
+private Q_SLOTS:
     void showModePage();
 
 private:

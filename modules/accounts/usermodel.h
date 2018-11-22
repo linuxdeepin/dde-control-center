@@ -55,7 +55,7 @@ public:
     void setADUserLogind(bool isADUserLogind);
 #endif
 
-signals:
+Q_SIGNALS:
     void userAdded(User *user);
     void userRemoved(User *user);
 #ifdef DCC_ENABLE_ADDOMAIN

@@ -43,10 +43,10 @@ class TitleEdit : public QWidget
 public:
     explicit TitleEdit(QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
     void requestSetBluetoothName(const QString &name);
 
-public slots:
+public Q_SLOTS:
     void setName();
     void setEdit();
     void setTitle(const QString &title);

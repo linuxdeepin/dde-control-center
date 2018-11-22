@@ -208,7 +208,7 @@ void NetworkModuleWidget::onNextPageClicked()
     NetworkDevice *dev = m_devicesWidgets[w];
     Q_ASSERT(dev);
 
-    emit requestShowDeviceDetail(dev);
+    Q_EMIT requestShowDeviceDetail(dev);
 }
 
 void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number, const bool multiple)
@@ -219,7 +219,7 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
     g->appendItem(s);
     g->appendItem(w);
 
-    connect(s, &SwitchWidget::checkedChanged, [=](const bool checked) { emit requestDeviceEnable(dev->path(), checked); });
+    connect(s, &SwitchWidget::checkedChanged, [=](const bool checked) { Q_EMIT requestDeviceEnable(dev->path(), checked); });
     connect(w, &NextPageWidget::clicked, this, &NetworkModuleWidget::onNextPageClicked);
     connect(dev, &NetworkDevice::enableChanged, s, &SwitchWidget::setChecked);
     connect(dev, &NetworkDevice::enableChanged, w, &NextPageWidget::setVisible);
@@ -228,7 +228,7 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
     const bool devEnabled = dev->enabled();
     s->setChecked(devEnabled);
     w->setVisible(devEnabled);
-    emit dev->statusChanged(dev->statusString());
+    Q_EMIT dev->statusChanged(dev->statusString());
 
     if (dev->type() == NetworkDevice::Wired)
     {
@@ -255,10 +255,10 @@ void NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number
             connect(dev, &NetworkDevice::enableChanged, hotspot, &NextPageWidget::setVisible);
             connect(wdev, &WirelessDevice::hotspotEnabledChanged, this, &NetworkModuleWidget::onDevStatusChanged, Qt::QueuedConnection);
             connect(wdev, &WirelessDevice::hotspotEnabledChanged, hotspot, [=] (const bool enabled) { hotspot->setValue(enabled ? tr("Shared") : QString()); });
-            connect(hotspot, &NextPageWidget::clicked, this, [=] { emit requestHotspotPage(wdev); });
+            connect(hotspot, &NextPageWidget::clicked, this, [=] { Q_EMIT requestHotspotPage(wdev); });
 
             hotspot->setVisible(devEnabled);
-            emit wdev->hotspotEnabledChanged(wdev->hotspotEnabled());
+            Q_EMIT wdev->hotspotEnabledChanged(wdev->hotspotEnabled());
         }
 
         if (multiple)

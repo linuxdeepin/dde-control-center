@@ -60,7 +60,7 @@ public:
 
     void setModel(const DatetimeModel *model);
 
-signals:
+Q_SIGNALS:
     void editChanged(bool edit);
     void editDatetime();
     void addClick();
@@ -75,7 +75,7 @@ signals:
     void requestUnhold();
 #endif
 
-public slots:
+public Q_SLOTS:
 #ifndef DCC_DISABLE_TIMEZONE
     void addTimezone(const ZoneInfo &zone);
     void addTimezones(const QList<ZoneInfo> &zones);
@@ -84,7 +84,7 @@ public slots:
 #endif
     void updateTimezoneItems();
 
-private slots:
+private Q_SLOTS:
 #ifndef DCC_DISABLE_TIMEZONE
     void onEditClicked(const bool &edit);
 #endif

@@ -46,7 +46,7 @@ public:
     void next();
     void finished();
 
-signals:
+Q_SIGNALS:
     void playEnd();
 
 protected:

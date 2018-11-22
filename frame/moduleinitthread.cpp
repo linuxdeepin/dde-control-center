@@ -40,5 +40,5 @@ void ModuleInitThread::run()
 
     qApp->processEvents();
 
-    emit moduleInitFinished(m_module);
+    Q_EMIT moduleInitFinished(m_module);
 }

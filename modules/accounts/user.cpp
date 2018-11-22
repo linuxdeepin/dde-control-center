@@ -43,7 +43,7 @@ void User::setName(const QString &name)
     {
         m_name = name;
 
-        emit nameChanged(m_name);
+        Q_EMIT nameChanged(m_name);
     }
 }
 
@@ -53,7 +53,7 @@ void User::setFullname(const QString &fullname)
     {
         m_fullname = fullname;
 
-        emit fullnameChanged(m_fullname);
+        Q_EMIT fullnameChanged(m_fullname);
     }
 }
 
@@ -61,14 +61,14 @@ void User::setAutoLogin(const bool autoLogin)
 {
     m_autoLogin = autoLogin;
 
-    emit autoLoginChanged(m_autoLogin);
+    Q_EMIT autoLoginChanged(m_autoLogin);
 }
 
 void User::setAvatars(const QList<QString> &avatars)
 {
     m_avatars = avatars;
 
-    emit avatarListChanged(m_avatars);
+    Q_EMIT avatarListChanged(m_avatars);
 }
 
 void User::setCurrentAvatar(const QString &avatar)
@@ -77,7 +77,7 @@ void User::setCurrentAvatar(const QString &avatar)
     {
         m_currentAvatar = avatar;
 
-        emit currentAvatarChanged(m_currentAvatar);
+        Q_EMIT currentAvatarChanged(m_currentAvatar);
     }
 }
 
@@ -95,7 +95,7 @@ void User::setOnline(bool online)
 {
     m_online = online;
 
-    emit onlineChanged(online);
+    Q_EMIT onlineChanged(online);
 }
 
 bool User::nopasswdLogin() const
@@ -110,7 +110,7 @@ void User::setNopasswdLogin(bool nopasswdLogin)
 
     m_nopasswdLogin = nopasswdLogin;
 
-    emit nopasswdLoginChanged(nopasswdLogin);
+    Q_EMIT nopasswdLoginChanged(nopasswdLogin);
 }
 
 const QString User::displayName() const
@@ -125,5 +125,5 @@ void User::setIsCurrentUser(bool isCurrentUser)
 
     m_isCurrentUser = isCurrentUser;
 
-    emit isCurrentUserChanged(isCurrentUser);
+    Q_EMIT isCurrentUserChanged(isCurrentUser);
 }

@@ -37,7 +37,7 @@ void Category::setDefault(const App &def)
 {
     if (m_default != def) {
         m_default = def;
-        emit defaultChanged(def);
+        Q_EMIT defaultChanged(def);
     }
 }
 
@@ -47,7 +47,7 @@ void Category::setCategory(const QString &category)
         return;
 
     m_category = category;
-    emit categoryNameChanged(category);
+    Q_EMIT categoryNameChanged(category);
 }
 
 void Category::addUserItem(const App &value)
@@ -55,12 +55,12 @@ void Category::addUserItem(const App &value)
     if (m_applist.contains(value)) return;
 
     m_applist << value;
-    emit addedUserItem(value);
+    Q_EMIT addedUserItem(value);
 }
 
 void Category::delUserItem(const App &value)
 {
     m_applist.removeOne(value);
 
-    emit removedUserItem(value);
+    Q_EMIT removedUserItem(value);
 }

@@ -51,11 +51,11 @@ public:
     inline bool powered() const { return m_powered; }
     void setPowered(bool powered);
 
-public slots:
+public Q_SLOTS:
     void addDevice(const Device *device);
     void removeDevice(const QString &deviceId);
 
-signals:
+Q_SIGNALS:
     void nameChanged(const QString &name) const;
     void deviceAdded(const Device *device) const;
     void deviceRemoved(const QString &deviceId) const;

@@ -43,7 +43,7 @@ public:
     void active();
     void deactive();
 
-public slots:
+public Q_SLOTS:
     void setPressureSensitive(const int value);
     void setCursorMode(const bool value);
     void onPressureSensitiveChanged(const int value);

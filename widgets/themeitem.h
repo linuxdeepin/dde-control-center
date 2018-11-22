@@ -52,7 +52,7 @@ public:
 protected:
     void mouseReleaseEvent(QMouseEvent *e);
 
-signals:
+Q_SIGNALS:
     void selectedChanged(const bool selected) const;
 
 private:

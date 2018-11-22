@@ -68,7 +68,7 @@ private:
     const QString optionName(const int index) const;
     const QString optionDescription(const int index) const;
 
-private slots:
+private Q_SLOTS:
     void onDisplayModeChanged(const int mode);
 
 private:

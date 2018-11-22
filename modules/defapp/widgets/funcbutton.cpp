@@ -58,5 +58,5 @@ void FuncButton::mouseReleaseEvent(QMouseEvent *event)
     event->accept();
 
     if (event->button() == Qt::LeftButton)
-        emit clicked();
+        Q_EMIT clicked();
 }

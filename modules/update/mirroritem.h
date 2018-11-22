@@ -66,7 +66,7 @@ public:
     inline QString mirrorName() const { return m_mirrorName->text(); }
 
 
-signals:
+Q_SIGNALS:
     void selectStateChanged(bool state) const;
     void clicked(MirrorItem* item) const;
 

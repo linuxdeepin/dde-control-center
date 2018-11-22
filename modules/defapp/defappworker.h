@@ -46,14 +46,14 @@ public:
     void active();
     void deactive();
 
-public slots:
+public Q_SLOTS:
     void onSetDefaultApp(const QString &category, const App &item);
     void onGetListApps();
     void onResetTriggered();
     void onDelUserApp(const QString &mine, const App &item);
     void onCreateFile(const QString &mime, const QFileInfo &info);
 
-private slots:
+private Q_SLOTS:
     void getListAppFinished(QDBusPendingCallWatcher *w);
     void getDefaultAppFinished(QDBusPendingCallWatcher *w);
     void saveListApp(const QString &mime, const QJsonArray &json, const bool isUser);

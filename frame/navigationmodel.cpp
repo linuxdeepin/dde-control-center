@@ -52,7 +52,7 @@ void NavigationModel::insertItem(const QString &item)
 
     m_items.insert(idx, item);
 
-    emit layoutChanged();
+    Q_EMIT layoutChanged();
 }
 
 void NavigationModel::removeItem(const QString &item)
@@ -64,7 +64,7 @@ void NavigationModel::removeItem(const QString &item)
 
     m_items.removeAt(idx);
 
-    emit layoutChanged();
+    Q_EMIT layoutChanged();
 }
 
 void NavigationModel::appendAvailableItem(const QString &item)
@@ -78,8 +78,8 @@ void NavigationModel::setCurrentItem(const QModelIndex &index)
 
     m_currentIndex = index;
 
-    emit dataChanged(oldIndex, oldIndex);
-    emit dataChanged(m_currentIndex, m_currentIndex);
+    Q_EMIT dataChanged(oldIndex, oldIndex);
+    Q_EMIT dataChanged(m_currentIndex, m_currentIndex);
 }
 
 int NavigationModel::rowCount(const QModelIndex &parent) const

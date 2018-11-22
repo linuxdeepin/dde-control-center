@@ -153,8 +153,8 @@ void KeyboardLayoutWidget::onItemClicked(const QModelIndex &index)
     if (m_model->letters().contains(md.text()))
         return;
 
-    emit layoutSelected(md.text());
-    emit back();
+    Q_EMIT layoutSelected(md.text());
+    Q_EMIT back();
 }
 
 bool KeyboardLayoutWidget::eventFilter(QObject *watched, QEvent *event)

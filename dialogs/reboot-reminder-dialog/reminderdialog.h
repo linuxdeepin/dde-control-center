@@ -61,10 +61,10 @@ public:
 
     void start();
 
-public slots:
+public Q_SLOTS:
     void Show();
 
-private slots:
+private Q_SLOTS:
     void setupDialog();
     void showDialog();
 

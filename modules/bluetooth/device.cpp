@@ -49,7 +49,7 @@ void Device::setName(const QString &name)
 {
     if (name != m_name) {
         m_name = name;
-        emit nameChanged(name);
+        Q_EMIT nameChanged(name);
     }
 }
 
@@ -57,7 +57,7 @@ void Device::setPaired(bool paired)
 {
     if (paired != m_paired) {
         m_paired = paired;
-        emit pairedChanged(paired);
+        Q_EMIT pairedChanged(paired);
     }
 }
 
@@ -65,7 +65,7 @@ void Device::setState(const State &state)
 {
     if (state != m_state) {
         m_state = state;
-        emit stateChanged(state);
+        Q_EMIT stateChanged(state);
     }
 }
 
@@ -73,7 +73,7 @@ void Device::setTrusted(bool trusted)
 {
     if (trusted != m_trusted) {
         m_trusted = trusted;
-        emit trustedChanged(trusted);
+        Q_EMIT trustedChanged(trusted);
     }
 }
 
@@ -81,7 +81,7 @@ void Device::setConnecting(bool connecting)
 {
     if (connecting != m_connecting) {
         m_connecting = connecting;
-        emit connectingChanged(connecting);
+        Q_EMIT connectingChanged(connecting);
     }
 }
 

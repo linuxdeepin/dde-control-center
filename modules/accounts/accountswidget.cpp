@@ -87,7 +87,7 @@ void AccountsWidget::addUser(User *user)
     connect(user, &User::fullnameChanged, this, setName);
     connect(user, &User::currentAvatarChanged, w, &UserOptionItem::setAvatar);
     connect(user, &User::destroyed, this, [=] { m_userGroup->removeItem(w); w->deleteLater(); });
-    connect(w, &NextPageWidget::clicked, [=] { emit showAccountsDetail(user); });
+    connect(w, &NextPageWidget::clicked, [=] { Q_EMIT showAccountsDetail(user); });
 
     setName();
     w->setAvatar(user->currentAvatar());
@@ -103,6 +103,6 @@ void AccountsWidget::showEvent(QShowEvent *event)
 {
     ModuleWidget::showEvent(event);
 
-    emit requestRefreshADState();
+    Q_EMIT requestRefreshADState();
 }
 #endif

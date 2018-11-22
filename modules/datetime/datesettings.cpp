@@ -111,7 +111,7 @@ void DateSettings::onConfirmButtonClicked()
     QTime time; time.setHMS(m_timeWidget->hour(), m_timeWidget->minute(), 0);
 
     QDateTime datetime(date, time);
-    emit requestSetTime(datetime);
+    Q_EMIT requestSetTime(datetime);
 
     back();
 }
@@ -163,7 +163,7 @@ void DateSettings::updateDayRange()
 //    int hour = m_timeWidget->hour();
 //    int minute = m_timeWidget->minute();
 
-//    emit dateChanged(year, month, day, hour, minute);
+//    Q_EMIT dateChanged(year, month, day, hour, minute);
 //}
 
 //void DateSettings::slotCancel()

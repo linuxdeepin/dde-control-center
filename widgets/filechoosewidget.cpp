@@ -72,7 +72,7 @@ void FileChooseWidget::setTitle(const QString &title)
 
 void FileChooseWidget::chooseFile()
 {
-    emit requestFrameKeepAutoHide(false);
+    Q_EMIT requestFrameKeepAutoHide(false);
 
     QFileDialog fd;
     fd.setModal(true);
@@ -81,7 +81,7 @@ void FileChooseWidget::chooseFile()
         m_edit->setText(fd.selectedFiles().first());
     }
 
-    emit requestFrameKeepAutoHide(true);
+    Q_EMIT requestFrameKeepAutoHide(true);
 }
 
 }

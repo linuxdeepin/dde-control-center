@@ -68,9 +68,9 @@ void ModifyAvatarPage::appendAvatar(const QString &avatar, const int index, cons
     w->setSelected(selected);
     w->setDeletable(deletable);
 
-    connect(w, &AvatarWidget::clicked, [=] (const QString &iconPath) { emit requestSetAvatar(m_userModel, iconPath); });
+    connect(w, &AvatarWidget::clicked, [=] (const QString &iconPath) { Q_EMIT requestSetAvatar(m_userModel, iconPath); });
     if (deletable)
-        connect(w, &AvatarWidget::requestDelete, [=](const QString &iconPath) { emit requestDeleteAvatar(m_userModel, iconPath); });
+        connect(w, &AvatarWidget::requestDelete, [=](const QString &iconPath) { Q_EMIT requestDeleteAvatar(m_userModel, iconPath); });
 
     m_avatarsLayout->addWidget(w, index / 4, index % 4, Qt::AlignCenter);
 }
@@ -115,7 +115,7 @@ void ModifyAvatarPage::updateAvatarList()
     btn->setHoverPic(":/accounts/themes/common/icons/add_avatar_hover.svg");
     btn->setPressPic(":/accounts/themes/common/icons/add_avatar_press.svg");
 
-    connect(btn, &DImageButton::clicked, [=] { emit requestAddNewAvatar(m_userModel); });
+    connect(btn, &DImageButton::clicked, [=] { Q_EMIT requestAddNewAvatar(m_userModel); });
 
     m_avatarsLayout->addWidget(btn, count / 4, count % 4, Qt::AlignCenter);
 }

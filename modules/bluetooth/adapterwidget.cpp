@@ -81,7 +81,7 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
         m_tip->setVisible(!state);
     });
     connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, [=](const QString &alias) {
-        emit requestSetAlias(adapter, alias);
+        Q_EMIT requestSetAlias(adapter, alias);
     });
 
     connect(this, &AdapterWidget::disappear, m_refreshIndicator, &DPictureSequenceView::stop);
@@ -124,7 +124,7 @@ void AdapterWidget::toggleSwitch(const bool &checked)
     m_myDevicesGroup->setVisible(checked && !m_myDevices.isEmpty());
     m_otherDevicesGroup->setVisible(checked);
 
-    emit requestSetToggleAdapter(m_adapter, checked);
+    Q_EMIT requestSetToggleAdapter(m_adapter, checked);
 }
 
 void AdapterWidget::addDevice(const Device *device)
@@ -146,7 +146,7 @@ void AdapterWidget::addDevice(const Device *device)
     connect(w, &DeviceSettingsItem::requestConnectDevice, this, &AdapterWidget::requestConnectDevice);
     connect(device, &Device::pairedChanged, CategoryDevice);
     connect(w, &DeviceSettingsItem::requestShowDetail, [this] (const Device *device) {
-        emit requestShowDetail(m_adapter, device);
+        Q_EMIT requestShowDetail(m_adapter, device);
     });
 
     m_deviceLists << w;

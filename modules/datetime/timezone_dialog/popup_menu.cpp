@@ -121,7 +121,7 @@ void PopupMenu::hideEvent(QHideEvent* event) {
 
   this->releaseKeyboard();
   QWidget::hideEvent(event);
-  emit this->onHide();
+  Q_EMIT this->onHide();
 }
 
 void PopupMenu::keyPressEvent(QKeyEvent* event) {
@@ -207,7 +207,7 @@ void PopupMenu::initUI() {
 void PopupMenu::onMenuViewActivated(const QModelIndex& index) {
   Q_ASSERT(index.isValid());
   if (index.isValid()) {
-    emit this->menuActivated(index.row());
+    Q_EMIT this->menuActivated(index.row());
   }
 }
 

@@ -48,7 +48,7 @@ OptionWidget::OptionWidget(const bool state, QWidget *parent)
     m_delete->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     //send delete dbus
     connect(m_delete, &DImageButton::clicked, [ = ] {
-        emit removeItem(m_CategoryItem);
+        Q_EMIT removeItem(m_CategoryItem);
     });
 
     m_delete->setFixedSize(17, 17);
@@ -140,7 +140,7 @@ void OptionWidget::setChecked(const bool checked)      //判断是否显示设�
     m_delete->setVisible(false);
     setCheckedIcon(loadPixmap(":/defapp/icons/select.png"));
     m_checked = checked;
-    emit checkedChanged(m_checked);
+    Q_EMIT checkedChanged(m_checked);
 }
 
 void OptionWidget::setCheckedIcon(const QPixmap &icon)
@@ -164,6 +164,6 @@ void OptionWidget::mouseReleaseEvent(QMouseEvent *)
     if (QMouseEvent::MouseButtonRelease) {
         //do someting
         setChecked(true);
-        emit setDefault();
+        Q_EMIT setDefault();
     }
 }

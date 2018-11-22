@@ -70,7 +70,7 @@ public:
     inline bool haveBettary() const { return m_haveBettary; }
     void setHaveBettary(bool haveBettary);
 
-signals:
+Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
     void screenBlackLockChanged(const bool screenBlackLock);
     void lidPresentChanged(const bool lidPresent);

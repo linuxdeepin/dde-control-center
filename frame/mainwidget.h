@@ -53,7 +53,7 @@ class MainWidget : public FrameWidget
 public:
     explicit MainWidget(FrameContentWrapper *parent = 0);
 
-signals:
+Q_SIGNALS:
     void showAllSettings() const;
     void showSettingPage(const QString &module, const QString &page, bool animation);
     void appear() const;
@@ -67,7 +67,7 @@ private:
     int getPluginsHeight();
     void updatePluginsHeight();
 
-private slots:
+private Q_SLOTS:
     void pluginAdded(QWidget * const w);
     void showNextPlugin();
     void showPrevPlugin();

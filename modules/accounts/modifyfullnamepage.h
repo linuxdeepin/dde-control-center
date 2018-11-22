@@ -46,10 +46,10 @@ class ModifyFullNamePage : public ContentWidget
 public:
     explicit ModifyFullNamePage(User *u, QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
     void requestSetFullname(User *u, const QString &n) const;
 
-private slots:
+private Q_SLOTS:
     void onFullnameChanged(const QString &fn);
 
 private:

@@ -43,11 +43,11 @@ public:
     void setModel(BluetoothModel *model);
 //    AdapterWidget *widgetByAdapterId(const QString &adapterId);
 
-signals:
+Q_SIGNALS:
     void showBluetoothDetail(const Adapter *adapter) const;
     void requestModuleVisible(const bool visible) const;
 
-public slots:
+public Q_SLOTS:
     void addAdapter(const Adapter *adapter);
     void removeAdapter(const Adapter *adapter);
 

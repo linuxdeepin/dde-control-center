@@ -48,7 +48,7 @@ public:
     explicit AccountsDetailWidget(User *user, QWidget *parent = 0);
     void setFingerModel(FingerModel *model);
 
-signals:
+Q_SIGNALS:
     void showPwdSettings(User *user) const;
     void showAvatarSettings(User *user) const;
     void showFullnameSettings(User *user) const;
@@ -60,7 +60,7 @@ signals:
     void requestChangeFrameAutoHide(const bool autoHide) const;
     void requestNopasswdLogin(User *user, const bool nopasswdLogin) const;
 
-private slots:
+private Q_SLOTS:
     void deleteUserClicked();
 
 private:

@@ -50,11 +50,11 @@ public:
 
     void setFingerModel(FingerModel *model);
 
-signals:
+Q_SIGNALS:
     void requestAddThumbs(const QString &name, const QString &thumb);
     void requestCleanThumbs(User *user);
 
-private slots:
+private Q_SLOTS:
     void onThumbsListChanged(const QList<FingerModel::UserThumbs> &thumbs);
     void addThumb();
     void cleanThumbs();

@@ -1,3 +1,24 @@
+<a name=""></a>
+##  4.7.6.2 (2018-11-22)
+
+
+#### Bug Fixes
+
+*   build faild ([0dcc343c](https://github.com/linuxdeepin/dde-control-center/commit/0dcc343c1643259b0fed85b8fd45691042361ee0))
+
+
+
+<a name=""></a>
+##  4.7.6.1 (2018-11-19)
+
+
+#### Bug Fixes
+
+* **display:**  missing memory header ([24f8cf6e](https://github.com/linuxdeepin/dde-control-center/commit/24f8cf6ea299f73ee7a0e7f64fd3503bf1eb0b2c))
+* **keyboard:**  null pointer exeception ([f06d35b8](https://github.com/linuxdeepin/dde-control-center/commit/f06d35b8ce0fd50a724b80455b56e5285747b5a2))
+
+
+
 <a name="4.7.6"></a>
 ### 4.7.6 (2018-11-13)
 

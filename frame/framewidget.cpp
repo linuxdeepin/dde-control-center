@@ -161,7 +161,7 @@ void FrameWidget::destroySelf()
     if (m_content)
     {
         m_content->setParent(nullptr);
-        emit contentDetached(m_content);
+        Q_EMIT contentDetached(m_content);
     }
 
     deleteLater();

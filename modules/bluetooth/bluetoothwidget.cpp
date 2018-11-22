@@ -63,7 +63,7 @@ void BluetoothWidget::addAdapter(const Adapter *adapter)
         m_mainGroup->appendItem(showBluetoothDetailWidget);
 
         connect(showBluetoothDetailWidget, &NextPageWidget::clicked, [=]{
-            emit showBluetoothDetail(adapter);
+            Q_EMIT showBluetoothDetail(adapter);
         });
 
         connect(adapter, &Adapter::nameChanged, showBluetoothDetailWidget, &NextPageWidget::setTitle);
@@ -87,5 +87,5 @@ void BluetoothWidget::removeAdapter(const Adapter *adapter)
 
 void BluetoothWidget::setVisibleState()
 {
-    emit requestModuleVisible(m_valueMap.size());
+    Q_EMIT requestModuleVisible(m_valueMap.size());
 }

@@ -40,7 +40,7 @@ class FuncButton : public QLabel
 public:
     explicit FuncButton(QWidget *parent =0);
 
-signals:
+Q_SIGNALS:
     void clicked();
 
 protected:

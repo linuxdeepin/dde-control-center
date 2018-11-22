@@ -58,7 +58,7 @@ public:
     QPushButton *leftButton();
     QPushButton *rightButton();
 
-signals:
+Q_SIGNALS:
     void leftButtonClicked();
     void rightButtonClicked();
 

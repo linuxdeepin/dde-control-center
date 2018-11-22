@@ -60,7 +60,7 @@ public:
     void setBackground(const QPixmap &background);
 #endif
 
-signals:
+Q_SIGNALS:
 #ifndef DCC_DISABLE_GRUB
     void bootDelayChanged(const int timeout) const;
     void themeEnabledChanged(const bool enabled) const;
@@ -77,7 +77,7 @@ signals:
     void memoryChanged(const QString& memory);
     void diskChanged(const QString& disk);
 
-public slots:
+public Q_SLOTS:
 #ifndef DCC_DISABLE_GRUB
     void setBootDelay(bool bootDelay);
     void setThemeEnabled(const bool enabled);

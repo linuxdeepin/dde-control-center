@@ -123,7 +123,7 @@ void OptionItem::mouseReleaseEvent(QMouseEvent *e)
         return;
     }
 
-    emit selectedChanged();
+    Q_EMIT selectedChanged();
 }
 
 void OptionItem::setSelected(bool selected)

@@ -58,7 +58,7 @@ private:
     const QString name() const;
     void showPage(const QString &pageName);
 
-private slots:
+private Q_SLOTS:
     void onPushUpdate();
     void onPushMirrorsView();
     void onPushSettings();

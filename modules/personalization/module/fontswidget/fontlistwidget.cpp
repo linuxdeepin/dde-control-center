@@ -114,6 +114,6 @@ void FontListWidget::onItemClicked()
     OptionItem *item = qobject_cast<OptionItem *>(sender());
     Q_ASSERT(m_valueMap.contains(item));
 
-    emit requestSetDefault(m_valueMap[item]);
+    Q_EMIT requestSetDefault(m_valueMap[item]);
 }
 

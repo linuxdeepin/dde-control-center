@@ -50,7 +50,7 @@ public:
     void setShortcut(const QString &shortcut);
     QString text() const;
 
-signals:
+Q_SIGNALS:
     void requestUpdateKey();
 
 protected:

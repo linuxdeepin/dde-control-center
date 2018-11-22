@@ -52,18 +52,18 @@ public:
 
     void setBottomTip(ShortcutInfo *conflict);
 
-signals:
+Q_SIGNALS:
     void requestAddKey(const QString& name, const QString& command, const QString& accels);
     void requestUpdateKey(ShortcutInfo *info);
     void requestForceSubs(ShortcutInfo *info);
     void requestFrameAutoHide(const bool autoHide) const;
 
-public slots:
+public Q_SLOTS:
     void onShortcut();
     void keyEvent(bool press, const QString &shortcut);
     void updateKey();
 
-private slots:
+private Q_SLOTS:
     void onOpenFile();
 
 private:

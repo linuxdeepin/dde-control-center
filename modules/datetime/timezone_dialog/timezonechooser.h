@@ -59,11 +59,11 @@ public:
     void setIsAddZone(const bool isAdd);
     inline bool isAddZone() { return m_isAddZone; }
 
-signals:
+Q_SIGNALS:
     void confirmed(const QString &zone);
     void cancelled();
 
-public slots:
+public Q_SLOTS:
     void setMarkedTimeZone(const QString &timezone);
 
 protected:

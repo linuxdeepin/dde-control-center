@@ -41,7 +41,7 @@ void Adapter::setName(const QString &name)
 {
     if (name != m_name) {
         m_name = name;
-        emit nameChanged(name);
+        Q_EMIT nameChanged(name);
     }
 }
 
@@ -49,7 +49,7 @@ void Adapter::addDevice(const Device *device)
 {
     if (!deviceById(device->id())) {
         m_devices[device->id()] = device;
-        emit deviceAdded(device);
+        Q_EMIT deviceAdded(device);
     }
 }
 
@@ -60,7 +60,7 @@ void Adapter::removeDevice(const QString &deviceId)
     device = deviceById(deviceId);
     if (device) {
         m_devices.remove(deviceId);
-        emit deviceRemoved(deviceId);
+        Q_EMIT deviceRemoved(deviceId);
     }
 }
 
@@ -68,7 +68,7 @@ void Adapter::setPowered(bool powered)
 {
     if (powered != m_powered) {
         m_powered = powered;
-        emit poweredChanged(powered);
+        Q_EMIT poweredChanged(powered);
     }
 }
 

@@ -50,12 +50,12 @@ class FontsWidget : public ContentWidget
 public:
     explicit FontsWidget(QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
     void showStandardFont();
     void showMonoFont();
     void requestSetFontSize(const int value);
 
-public slots:
+public Q_SLOTS:
     void setModel(PersonalizationModel *const model);
 
 private:

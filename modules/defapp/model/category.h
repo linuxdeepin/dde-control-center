@@ -66,7 +66,7 @@ public:
     void addUserItem(const App &value);
     void delUserItem(const App &value);
 
-signals:
+Q_SIGNALS:
     void defaultChanged(const App &id);
     void addedUserItem(const App &app);
     void removedUserItem(const App &app);

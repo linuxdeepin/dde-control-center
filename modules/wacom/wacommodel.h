@@ -48,7 +48,7 @@ public:
     bool getCursorMode() const;
     void setCursorMode(bool cursorMode);
 
-signals:
+Q_SIGNALS:
     void existChanged(bool exist);
     void cursorModeChanged(const bool cursorMode);
 

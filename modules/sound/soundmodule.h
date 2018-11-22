@@ -51,7 +51,7 @@ public:
     ModuleWidget *moduleWidget() Q_DECL_OVERRIDE;
     void contentPopped(ContentWidget * const w) Q_DECL_OVERRIDE;
 
-public slots:
+public Q_SLOTS:
     void showAdvancedPage();
 
 private:

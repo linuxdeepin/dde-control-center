@@ -49,7 +49,7 @@ public:
     const QString title() const;
     void setTitle(const QString &title);
 
-signals:
+Q_SIGNALS:
     void headerClicked() const;
 
 private:

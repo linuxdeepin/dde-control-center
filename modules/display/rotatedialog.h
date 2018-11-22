@@ -46,7 +46,7 @@ public:
     explicit RotateDialog(DisplayModel *model, QWidget *parent = 0);
     ~RotateDialog();
 
-signals:
+Q_SIGNALS:
     void requestRotateAll(const quint16 rotate) const;
     void requestRotate(Monitor *mon, const quint16 rotate) const;
 
@@ -57,7 +57,7 @@ protected:
     void paintEvent(QPaintEvent *e);
     void showEvent(QShowEvent *e);
 
-private slots:
+private Q_SLOTS:
     void adjustGemotry();
 
 private:

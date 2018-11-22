@@ -37,6 +37,6 @@ void FontSizeModel::setFontSize(const int size)
 {
     if (m_size!=size) {
         m_size = size;
-        emit sizeChanged(size);
+        Q_EMIT sizeChanged(size);
     }
 }

@@ -56,10 +56,10 @@ public:
 #ifndef DCC_DISABLE_GRUB
     void loadGrubSettings();
 
-signals:
+Q_SIGNALS:
     void requestSetAutoHideDCC(const bool visible) const;
 
-public slots:
+public Q_SLOTS:
     void setBootDelay(bool value);
     void setEnableTheme(bool value);
     void setDefaultEntry(const QString& entry);

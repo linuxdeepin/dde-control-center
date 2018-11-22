@@ -48,13 +48,13 @@ public:
     void appendOption(const QString &option);
     void setSelectedIndex(const int selected);
 
-public slots:
+public Q_SLOTS:
     void clear();
 
-signals:
+Q_SIGNALS:
     void clicked(const int index) const;
 
-private slots:
+private Q_SLOTS:
     void onItemClicked();
 
 private:

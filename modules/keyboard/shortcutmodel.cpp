@@ -129,7 +129,7 @@ void ShortcutModel::onParseInfo(const QString &info)
 
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
 
-    foreach (QJsonValue value, array) {
+    Q_FOREACH (QJsonValue value, array) {
         QJsonObject obj  = value.toObject();
         int         type = obj["Type"].toInt();
 
@@ -176,10 +176,10 @@ void ShortcutModel::onParseInfo(const QString &info)
               return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
           });
 
-    emit listChanged(m_systemInfos, InfoType::System);
-    emit listChanged(m_windowInfos, InfoType::Window);
-    emit listChanged(m_workspaceInfos, InfoType::Workspace);
-    emit listChanged(m_customInfos, InfoType::Custom);
+    Q_EMIT listChanged(m_systemInfos, InfoType::System);
+    Q_EMIT listChanged(m_windowInfos, InfoType::Window);
+    Q_EMIT listChanged(m_workspaceInfos, InfoType::Workspace);
+    Q_EMIT listChanged(m_customInfos, InfoType::Custom);
 }
 
 void ShortcutModel::onCustomInfo(const QString &json)
@@ -196,7 +196,7 @@ void ShortcutModel::onCustomInfo(const QString &json)
     info->command = obj["Exec"].toString();
     m_infos.append(info);
     m_customInfos.append(info);
-    emit addCustomInfo(info);
+    Q_EMIT addCustomInfo(info);
 }
 
 void ShortcutModel::onKeyBindingChanged(const QString &value)
@@ -212,7 +212,7 @@ void ShortcutModel::onKeyBindingChanged(const QString &value)
             info->name    = obj["Name"].toString();
             info->command = obj["Exec"].toString();
 
-            emit shortcutChanged(info);
+            Q_EMIT shortcutChanged(info);
             break;
         }
     }

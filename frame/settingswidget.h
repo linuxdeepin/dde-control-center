@@ -49,7 +49,7 @@ public:
     explicit SettingsWidget(Frame *frame);
     ~SettingsWidget();
 
-public slots:
+public Q_SLOTS:
     void contentPopuped(ContentWidget * const w);
     void showModulePage(const QString &moduleName, const QString &pageName, bool animation);
 
@@ -57,14 +57,14 @@ public slots:
     void setFrameAutoHide(ModuleInterface * const inter, const bool autoHide);
     void pushWidget(ModuleInterface * const inter, ContentWidget * const w);
 
-signals:
+Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);
     void currentModuleChanged(const QString &module);
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e);
 
-private slots:
+private Q_SLOTS:
     void loadModules();
     void loadModule(ModuleInterface * const module);
     void onModuleInitFinished(ModuleInterface * const inter);

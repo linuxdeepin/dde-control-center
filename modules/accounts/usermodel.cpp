@@ -60,7 +60,7 @@ void UserModel::addUser(const QString &id, User *user)
 
     m_userList[id] = user;
 
-    emit userAdded(user);
+    Q_EMIT userAdded(user);
 }
 
 void UserModel::removeUser(const QString &id)
@@ -70,7 +70,7 @@ void UserModel::removeUser(const QString &id)
     User *user = m_userList[id];
     m_userList.remove(id);
 
-    emit userRemoved(user);
+    Q_EMIT userRemoved(user);
 }
 
 bool UserModel::contains(const QString &id)
@@ -85,7 +85,7 @@ void UserModel::setIsJoinADDomain(bool isJoinADDomain)
 
     m_isJoinADDomain = isJoinADDomain;
 
-    emit isJoinADDomainChanged(isJoinADDomain);
+    Q_EMIT isJoinADDomainChanged(isJoinADDomain);
 }
 
 void UserModel::setADUserLogind(bool isADUserLogind)
@@ -96,6 +96,6 @@ void UserModel::setADUserLogind(bool isADUserLogind)
 
     m_isADUserLogind = isADUserLogind;
 
-    emit isADUserLoginChanged(isADUserLogind);
+    Q_EMIT isADUserLoginChanged(isADUserLogind);
 }
 #endif

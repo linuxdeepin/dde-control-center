@@ -47,7 +47,7 @@ public:
 
     void setDownloadProgress(double downloadProgress);
 
-signals:
+Q_SIGNALS:
     void downloadProgressChanged(const double &progress);
 
 private:
@@ -100,7 +100,7 @@ public:
     bool netselectExist() const;
     void setNetselectExist(bool netselectExist);
 
-signals:
+Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
 

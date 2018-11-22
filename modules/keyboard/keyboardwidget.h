@@ -46,7 +46,7 @@ class KeyboardWidget : public ModuleWidget
 public:
     explicit KeyboardWidget(KeyboardModel *model);
 
-signals:
+Q_SIGNALS:
     void keyoard();
     void language();
     void shortcut();
@@ -55,7 +55,7 @@ signals:
     void capsLockChanged(bool value);
     void numLockChanged(bool value);
 
-public slots:
+public Q_SLOTS:
     void setDelayValue(uint value);
     void setSpeedValue(uint value);
 

@@ -72,7 +72,7 @@ private:
     void showADDialog();
 #endif
 
-private slots:
+private Q_SLOTS:
     void setFrameAutoHide(const bool autoHide);
 
 private:

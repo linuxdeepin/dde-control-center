@@ -293,7 +293,7 @@ void DisplayWorker::onCreateConfigFinshed(QDBusPendingCallWatcher *w)
 {
     const QString name = w->property("Name").toString();
 
-    emit m_model->firstConfigCreated(name);
+    Q_EMIT m_model->firstConfigCreated(name);
 
     w->deleteLater();
 }
@@ -366,7 +366,7 @@ void DisplayWorker::setUiScale(const double value)
    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
        if (call.isError())
-           emit m_model->setUIScale(value);
+           Q_EMIT m_model->setUIScale(value);
        watcher->deleteLater();
    });
 }

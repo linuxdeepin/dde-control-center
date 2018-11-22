@@ -93,23 +93,23 @@ void DatetimeWork::deactivate()
 
 void DatetimeWork::setNTP(bool ntp)
 {
-    emit requestSetAutoHide(false);
+    Q_EMIT requestSetAutoHide(false);
 
     QDBusPendingCall call = m_timedateInter->SetNTP(ntp);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         // If the call failed, revert the UI change.
         if (call.isError()) {
-            emit m_model->NTPChanged(m_model->nTP());
+            Q_EMIT m_model->NTPChanged(m_model->nTP());
         }
-        emit requestSetAutoHide(true);
+        Q_EMIT requestSetAutoHide(true);
         watcher->deleteLater();
     });
 }
 
 void DatetimeWork::setDatetime(const QDateTime &datetime)
 {
-    emit requestSetAutoHide(false);
+    Q_EMIT requestSetAutoHide(false);
 
     QDBusPendingCall call = m_timedateInter->SetNTP(false);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
@@ -122,7 +122,7 @@ void DatetimeWork::setDatetime(const QDateTime &datetime)
             QDBusPendingCallWatcher *watcher1 = new QDBusPendingCallWatcher(call1, this);
             connect(watcher1, &QDBusPendingCallWatcher::finished, this, [=] {
                 if (!call1.isError()) {
-                    emit m_model->systemTimeChanged();
+                    Q_EMIT m_model->systemTimeChanged();
                 }
                 watcher1->deleteLater();
             });
@@ -130,7 +130,7 @@ void DatetimeWork::setDatetime(const QDateTime &datetime)
             qWarning() << "disable ntp failed : " << call.error().message();
         }
 
-        emit requestSetAutoHide(true);
+        Q_EMIT requestSetAutoHide(true);
         watcher->deleteLater();
     });
 }

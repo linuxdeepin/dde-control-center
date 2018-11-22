@@ -78,7 +78,7 @@ void DefaultAppsModule::moduleDeactive()
 
 void DefaultAppsModule::reset()
 {
-    emit requestReset();
+    Q_EMIT requestReset();
 }
 
 ModuleWidget *DefaultAppsModule::moduleWidget()

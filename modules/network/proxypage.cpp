@@ -181,8 +181,8 @@ ProxyPage::ProxyPage(QWidget *parent)
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::back, Qt::QueuedConnection);
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::applySettings);
     connect(m_proxyType, &DSegmentedControl::currentChanged, this, &ProxyPage::onProxyToggled);
-//    connect(m_proxyType, &DSegmentedControl::currentChanged, [=](const int index) { emit requestSetProxyMethod(ProxyMethodList[index]); });
-//    connect(m_ignoreList->plainEdit(), &QPlainTextEdit::textChanged, [=] { emit requestSetIgnoreHosts(m_ignoreList->plainEdit()->toPlainText()); });
+//    connect(m_proxyType, &DSegmentedControl::currentChanged, [=](const int index) { Q_EMIT requestSetProxyMethod(ProxyMethodList[index]); });
+//    connect(m_ignoreList->plainEdit(), &QPlainTextEdit::textChanged, [=] { Q_EMIT requestSetIgnoreHosts(m_ignoreList->plainEdit()->toPlainText()); });
 //    connect(m_httpAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("http"); });
 //    connect(m_httpPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("http"); });
 //    connect(m_httpsAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("https"); });
@@ -191,9 +191,9 @@ ProxyPage::ProxyPage(QWidget *parent)
 //    connect(m_ftpPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("ftp"); });
 //    connect(m_socksAddr->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("socks"); });
 //    connect(m_socksPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("socks"); });
-//    connect(m_autoUrl->textEdit(), &QLineEdit::editingFinished, [=] { emit requestSetAutoProxy(m_autoUrl->text()); });
+//    connect(m_autoUrl->textEdit(), &QLineEdit::editingFinished, [=] { Q_EMIT requestSetAutoProxy(m_autoUrl->text()); });
 
-    QTimer::singleShot(1, this, [=] { emit requestQueryProxyData(); });
+    QTimer::singleShot(1, this, [=] { Q_EMIT requestQueryProxyData(); });
 }
 
 void ProxyPage::setModel(NetworkModel *model)
@@ -235,16 +235,16 @@ void ProxyPage::onProxyToggled(const int index)
 
 void ProxyPage::applySettings() const
 {
-    emit requestSetProxy("http", m_httpAddr->text(), m_httpPort->text());
-    emit requestSetProxy("https", m_httpsAddr->text(), m_httpsPort->text());
-    emit requestSetProxy("ftp", m_ftpAddr->text(), m_ftpPort->text());
-    emit requestSetProxy("socks", m_socksAddr->text(), m_socksPort->text());
+    Q_EMIT requestSetProxy("http", m_httpAddr->text(), m_httpPort->text());
+    Q_EMIT requestSetProxy("https", m_httpsAddr->text(), m_httpsPort->text());
+    Q_EMIT requestSetProxy("ftp", m_ftpAddr->text(), m_ftpPort->text());
+    Q_EMIT requestSetProxy("socks", m_socksAddr->text(), m_socksPort->text());
 
-    emit requestSetIgnoreHosts(m_ignoreList->plainEdit()->toPlainText());
+    Q_EMIT requestSetIgnoreHosts(m_ignoreList->plainEdit()->toPlainText());
 
-    emit requestSetAutoProxy(m_autoUrl->text());
+    Q_EMIT requestSetAutoProxy(m_autoUrl->text());
 
-    emit requestSetProxyMethod(ProxyMethodList[m_proxyType->currentIndex()]);
+    Q_EMIT requestSetProxyMethod(ProxyMethodList[m_proxyType->currentIndex()]);
 }
 
 void ProxyPage::onIgnoreHostsChanged(const QString &hosts)
@@ -260,13 +260,13 @@ void ProxyPage::onIgnoreHostsChanged(const QString &hosts)
 void ProxyPage::applyProxy(const QString &type)
 {
     if (type == "http")
-        emit requestSetProxy("http", m_httpAddr->text(), m_httpPort->text());
+        Q_EMIT requestSetProxy("http", m_httpAddr->text(), m_httpPort->text());
     else if (type == "https")
-        emit requestSetProxy("https", m_httpsAddr->text(), m_httpsPort->text());
+        Q_EMIT requestSetProxy("https", m_httpsAddr->text(), m_httpsPort->text());
     else if (type == "ftp")
-        emit requestSetProxy("ftp", m_ftpAddr->text(), m_ftpPort->text());
+        Q_EMIT requestSetProxy("ftp", m_ftpAddr->text(), m_ftpPort->text());
     else if (type == "socks")
-        emit requestSetProxy("socks", m_socksAddr->text(), m_socksPort->text());
+        Q_EMIT requestSetProxy("socks", m_socksAddr->text(), m_socksPort->text());
 }
 
 void ProxyPage::onProxyChanged(const QString &type, const ProxyConfig &config)

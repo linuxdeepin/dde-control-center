@@ -55,7 +55,7 @@ protected:
     virtual bool eventFilter(QObject *watched, QEvent *event);
 #endif
 
-signals:
+Q_SIGNALS:
     void requestSwitchSpeaker(bool on) const;
     void requestSiwtchMicrophone(bool on) const;
     void requestSwitchSoundEffect(bool on) const;
@@ -64,7 +64,7 @@ signals:
     void requestSetSpeakerVolume(double volume);
     void requestAdvancedPage() const;
 
-private slots:
+private Q_SLOTS:
     void onGSettingsChanged(const QString &name);
 
 private:

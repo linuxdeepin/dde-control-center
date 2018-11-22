@@ -46,7 +46,7 @@ public:
     void active();
     void deactive();
 
-public slots:
+public Q_SLOTS:
     void setScreenBlackLock(const bool lock);
     void setSleepLock(const bool lock);
     void setSleepOnLidClosed(const bool sleep);

@@ -43,10 +43,10 @@ public:
     explicit ChainsTypePage(QWidget *parent = nullptr);
     void setDefault(const QString &title);
 
-signals:
+Q_SIGNALS:
     void requestTypeChanged(const QString &type) const;
 
-private slots:
+private Q_SLOTS:
     void onTypeChanged();
 
 private:

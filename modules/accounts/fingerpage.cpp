@@ -93,7 +93,7 @@ void FingerPage::onThumbsListChanged(const QList<FingerModel::UserThumbs> &thumb
     for (const FingerModel::UserThumbs &u : thumbs) {
         if (u.username == m_user->name()) {
             int i = 1;
-            foreach (const QString &title, u.userThumbs) {
+            Q_FOREACH (const QString &title, u.userThumbs) {
                 FingerItem *item = new FingerItem;
                 item->setTitle(tr("Fingerprint") + QString::number(i++));
 
@@ -120,10 +120,10 @@ void FingerPage::onThumbsListChanged(const QList<FingerModel::UserThumbs> &thumb
 
 void FingerPage::addThumb()
 {
-    emit requestAddThumbs(m_user->name(), m_notUseThumb);
+    Q_EMIT requestAddThumbs(m_user->name(), m_notUseThumb);
 }
 
 void FingerPage::cleanThumbs()
 {
-    emit requestCleanThumbs(m_user);
+    Q_EMIT requestCleanThumbs(m_user);
 }

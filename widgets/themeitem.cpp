@@ -87,5 +87,5 @@ void ThemeItem::setId(const QVariant &id)
 void ThemeItem::mouseReleaseEvent(QMouseEvent *e)
 {
     if (e->button() == Qt::LeftButton)
-        emit selectedChanged(true);
+        Q_EMIT selectedChanged(true);
 }

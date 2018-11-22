@@ -107,7 +107,7 @@ void TitledSliderItem::setLeftIcon(const QString &leftIcon)
         m_leftIconLabel->setPixmap(pix);
         m_leftIconLabel->setVisible(!pix.isNull());
 
-        emit leftIconChanged();
+        Q_EMIT leftIconChanged();
     }
 }
 
@@ -125,7 +125,7 @@ void TitledSliderItem::setRightIcon(const QString &rightIcon)
         m_rightIconLabel->setPixmap(pix);
         m_rightIconLabel->setVisible(!pix.isNull());
 
-        emit rightIconChanged();
+        Q_EMIT rightIconChanged();
     }
 }
 

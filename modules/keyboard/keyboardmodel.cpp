@@ -64,7 +64,7 @@ void KeyboardModel::setLayout(const QString &key)
 
     m_layout = key;
 
-    emit curLayoutChanged(m_layout);
+    Q_EMIT curLayoutChanged(m_layout);
 }
 #endif
 
@@ -81,7 +81,7 @@ void KeyboardModel::setLang(const QString &value)
 
         const QString &langName = langByKey(value);
         if (!langName.isEmpty())
-            emit curLangChanged(langName);
+            Q_EMIT curLangChanged(langName);
     }
 }
 
@@ -91,18 +91,18 @@ void KeyboardModel::setLocaleList(const QList<MetaData> &langList)
         return;
 
     m_langList = langList;
-    emit langChanged(langList);
+    Q_EMIT langChanged(langList);
 
     const QString &currentLang = langByKey(m_currentLangKey);
     if (!currentLang.isEmpty())
-        emit curLangChanged(currentLang);
+        Q_EMIT curLangChanged(currentLang);
 }
 
 void KeyboardModel::setCapsLock(bool value)
 {
     if (m_capsLock != value) {
         m_capsLock = value;
-        emit capsLockChanged(value);
+        Q_EMIT capsLockChanged(value);
     }
 }
 
@@ -115,7 +115,7 @@ void KeyboardModel::setRepeatDelay(const uint &repeatDelay)
 {
     if (m_repeatDelay != repeatDelay) {
         m_repeatDelay = repeatDelay;
-        emit repeatDelayChanged(repeatDelay);
+        Q_EMIT repeatDelayChanged(repeatDelay);
     }
 }
 
@@ -128,7 +128,7 @@ void KeyboardModel::setRepeatInterval(const uint &repeatInterval)
 {
     if (m_repeatInterval != repeatInterval) {
         m_repeatInterval = repeatInterval;
-        emit repeatIntervalChanged(repeatInterval);
+        Q_EMIT repeatIntervalChanged(repeatInterval);
     }
 }
 
@@ -146,7 +146,7 @@ void KeyboardModel::setKbSwitch(int kbSwitch)
 {
     if (m_kbSwitch != kbSwitch) {
         m_kbSwitch = kbSwitch;
-        emit kbSwitchChanged(kbSwitch);
+        Q_EMIT kbSwitchChanged(kbSwitch);
     }
 }
 
@@ -159,7 +159,7 @@ void KeyboardModel::setNumLock(bool numLock)
 {
     if (m_numLock != numLock) {
         m_numLock = numLock;
-        emit numLockChanged(m_numLock);
+        Q_EMIT numLockChanged(m_numLock);
     }
 }
 
@@ -187,7 +187,7 @@ void KeyboardModel::addUserLayout(const QString &id, const QString &value)
 {
     if (!m_userLayout.contains(id)) {
         m_userLayout.insert(id, value);
-        emit userLayoutChanged(id, value);
+        Q_EMIT userLayoutChanged(id, value);
     }
 }
 

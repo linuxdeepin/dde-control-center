@@ -54,10 +54,10 @@ class TimezoneMap : public QFrame {
   // Get current selected timezone, might be empty.
   const QString getTimezone() const;
 
- signals:
+ Q_SIGNALS:
   void timezoneUpdated(const QString& timezone);
 
- public slots:
+ public Q_SLOTS:
   // Remark |timezone| on map.
   void setTimezone(const QString& timezone);
 
@@ -95,7 +95,7 @@ class TimezoneMap : public QFrame {
   // To display a list of zones on map.
   PopupMenu* popup_window_ = nullptr;
 
- private slots:
+ private Q_SLOTS:
   void onPopupWindowActivated(int index);
 };
 

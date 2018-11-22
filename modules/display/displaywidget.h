@@ -53,7 +53,7 @@ public:
     void setMiracastModel(MiracastModel *miracastModel);
 #endif
 
-signals:
+Q_SIGNALS:
     void showResolutionPage() const;
     void showBrightnessPage() const;
 #ifndef DCC_DISABLE_ROTATE
@@ -76,7 +76,7 @@ private:
     int converToSlider(const float value);
     float converToScale(const int value);
 
-private slots:
+private Q_SLOTS:
     void onScreenListChanged() const;
     void onScreenSizeChanged() const;
     void onConfigListChanged();

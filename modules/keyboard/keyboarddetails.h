@@ -45,14 +45,14 @@ public:
     explicit KeyboardDetails(QWidget* parent = 0);
     void setModel(KeyboardModel * model);
 
-signals:
+Q_SIGNALS:
     void layoutAdded(const QStringList &kblist);
     void requestCurLayoutAdded(const QString& value);
     void curLang(const QString& value);
     void delUserLayout(const QString& value);
     void requestSwitchKBLayout(int value);
 
-public slots:
+public Q_SLOTS:
     void onAddKeyboard(const QString &id, const QString &value);
     void onEdit(bool value);
     void onRemoveLayout(CheckItem* item);

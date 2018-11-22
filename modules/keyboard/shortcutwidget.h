@@ -56,7 +56,7 @@ public:
 protected:
     void modifyStatus(bool status);
 
-signals:
+Q_SIGNALS:
     void customShortcut();
     void delShortcutInfo(ShortcutInfo* info);
     void requestDisableShortcut(ShortcutInfo* info);
@@ -65,7 +65,7 @@ signals:
     void requestShowConflict(ShortcutInfo *info, const QString &shortcut);
     void requestSaveShortcut(ShortcutInfo *info);
 
-public slots:
+public Q_SLOTS:
     void onSearchTextChanged(const QString &text);
     void onCustomAdded(ShortcutInfo* info);
     void onDestroyItem(ShortcutInfo *info);

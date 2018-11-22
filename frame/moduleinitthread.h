@@ -37,7 +37,7 @@ class ModuleInitThread : public QThread
 public:
     explicit ModuleInitThread(dcc::ModuleInterface *inter, QObject *parent = 0);
 
-signals:
+Q_SIGNALS:
     void moduleInitFinished(dcc::ModuleInterface *inter) const;
 
 protected:

@@ -48,10 +48,10 @@ class FontSizeWidget : public widgets::TranslucentFrame
 public:
     explicit FontSizeWidget(QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
     void requestSetFontSize(const int value);
 
-public slots:
+public Q_SLOTS:
     void setModel(FontSizeModel *const model);
     void setFontSize(int size);
 

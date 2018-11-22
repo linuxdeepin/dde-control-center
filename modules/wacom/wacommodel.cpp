@@ -57,7 +57,7 @@ void WacomModel::setExist(bool exist)
 {
     if (m_exist != exist) {
         m_exist = exist;
-        emit existChanged(exist);
+        Q_EMIT existChanged(exist);
     }
 }
 
@@ -73,5 +73,5 @@ void WacomModel::setCursorMode(bool cursorMode)
 
     m_cursorMode = cursorMode;
 
-    emit cursorModeChanged(cursorMode);
+    Q_EMIT cursorModeChanged(cursorMode);
 }

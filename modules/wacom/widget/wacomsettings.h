@@ -46,10 +46,10 @@ public:
     explicit WacomSettings(QWidget *parent = 0);
     void setModel(WacomModelBase *const baseSettings);
 
-signals:
+Q_SIGNALS:
     void requestSetPressureValue(const int &value);
 
-public slots:
+public Q_SLOTS:
     void setPressureValue(const int &value);
 
 private:

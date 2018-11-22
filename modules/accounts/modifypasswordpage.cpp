@@ -112,7 +112,7 @@ void ModifyPasswordPage::passwordSubmit()
     if (pwd0 != pwd1)
         return;
 
-    emit requestChangePassword(m_userInter, pwdOld, pwd0);
+    Q_EMIT requestChangePassword(m_userInter, pwdOld, pwd0);
 }
 
 void ModifyPasswordPage::checkPwd()
@@ -126,7 +126,7 @@ void ModifyPasswordPage::onPasswordChangeFinished(const int exitCode)
 {
     if (exitCode == 0)
     {
-        emit back();
+        Q_EMIT back();
         return;
     } else {
         qWarning() << Q_FUNC_INFO << "exit =" << exitCode;

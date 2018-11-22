@@ -63,7 +63,7 @@ public:
 
     void setModel(dde::network::NetworkModel *model);
 
-signals:
+Q_SIGNALS:
     void requestConnectAp(const QString &devPath, const QString &apPath, const QString &uuid) const;
     void requestDisconnectConnection(const QString &uuid);
     void requestNextPage(ContentWidget * const w) const;
@@ -75,14 +75,14 @@ signals:
     void requestShowAPEditPage(dde::network::NetworkDevice *device, const QString &session) const;
     void requestRemoveAPEditPage(dde::network::NetworkDevice *device) const;
 
-public slots:
+public Q_SLOTS:
     void onAPAdded(const QJsonObject &apInfo);
     void onAPChanged(const QJsonObject &apInfo);
     void onAPRemoved(const QJsonObject &apInfo);
     void onHotspotEnableChanged(const bool enabled);
     void onCloseHotspotClicked();
 
-private slots:
+private Q_SLOTS:
     void sortAPList();
     void onApWidgetEditRequested(const QString &apPath, const QString &ssid);
     void onApWidgetConnectRequested(const QString &path, const QString &ssid);

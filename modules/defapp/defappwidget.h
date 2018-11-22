@@ -42,7 +42,7 @@ class DefaultAppsWidget : public dcc::ModuleWidget
 public:
     explicit DefaultAppsWidget();
 
-signals:
+Q_SIGNALS:
     void showDefaultAppsDetail() const;
 
 private:

@@ -60,7 +60,7 @@ public:
     void setOnBattery(bool onBattery);
     void setBatteryPercentage(const BatteryPercentageInfo &info);
 
-public slots:
+public Q_SLOTS:
     void checkForUpdates();
     void pauseDownload();
     void resumeDownload();
@@ -76,7 +76,7 @@ public slots:
     void testMirrorSpeed();
     void checkNetselect();
 
-private slots:
+private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
     void setDownloadJob(const QString &jobPath);
     void setDistUpgradeJob(const QString &jobPath);

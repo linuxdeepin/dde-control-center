@@ -61,7 +61,7 @@ private:
     const QString name() const;
     ModuleWidget *moduleWidget();
 
-private slots:
+private Q_SLOTS:
     void showVpnPage();
     void showPppPage();
     void showChainsProxyPage();

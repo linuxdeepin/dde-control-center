@@ -104,7 +104,7 @@ void CustomItem::mouseReleaseEvent(QMouseEvent *e)
         m_shortcutEdit->show();
         m_shortcutEdit->setPlaceholderText(tr("Please enter a shortcut"));
 
-        emit requestUpdateKey();
+        Q_EMIT requestUpdateKey();
     }
     else
     {

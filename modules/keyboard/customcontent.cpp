@@ -135,11 +135,11 @@ void CustomContent::onShortcut()
         return;
 
     if (m_conflict)
-        emit requestForceSubs(m_conflict);
+        Q_EMIT requestForceSubs(m_conflict);
 
-    emit requestAddKey(m_name->text(), m_command->text(), m_shortcut->text());
+    Q_EMIT requestAddKey(m_name->text(), m_command->text(), m_shortcut->text());
 
-    emit back();
+    Q_EMIT back();
 }
 
 void CustomContent::keyEvent(bool press, const QString &shortcut)
@@ -161,17 +161,17 @@ void CustomContent::keyEvent(bool press, const QString &shortcut)
 
 void CustomContent::updateKey()
 {
-    emit requestUpdateKey(nullptr);
+    Q_EMIT requestUpdateKey(nullptr);
 }
 
 void CustomContent::onOpenFile()
 {
-    emit requestFrameAutoHide(false);
+    Q_EMIT requestFrameAutoHide(false);
 
     QString file = QFileDialog::getOpenFileName(this, tr("Choose File"), "/usr/bin");
     m_command->setText(file);
 
-    emit requestFrameAutoHide(true);
+    Q_EMIT requestFrameAutoHide(true);
 }
 
 }

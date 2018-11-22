@@ -147,19 +147,19 @@ void ShortcutContent::onReplace()
 {
     if (m_info->accels != m_shortcut) {
         if (m_shortcut.isEmpty()) {
-            emit requestDisableShortcut(m_info);
+            Q_EMIT requestDisableShortcut(m_info);
         } else {
             m_info->accels = m_shortcut;
-            emit requestSaveShortcut(m_info);
+            Q_EMIT requestSaveShortcut(m_info);
         }
     }
 
-    emit back();
+    Q_EMIT back();
 }
 
 void ShortcutContent::onUpdateKey()
 {
-    emit requestUpdateKey(nullptr);
+    Q_EMIT requestUpdateKey(nullptr);
 }
 
 }

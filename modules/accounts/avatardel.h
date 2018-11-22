@@ -38,10 +38,10 @@ class AvatarDel : public DBlurEffectWidget
 public:
     explicit AvatarDel(QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
     void click();
 
-public slots:
+public Q_SLOTS:
 };
 
 #endif // AVATARDEL_H

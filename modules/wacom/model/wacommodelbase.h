@@ -40,7 +40,7 @@ public:
     void setPressureValue(const int &value);
     inline bool getPressureValue() {return m_pressureValue;}
 
-signals:
+Q_SIGNALS:
     void pressureValueChanged(const int &value);
 
 private:

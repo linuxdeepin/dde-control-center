@@ -35,6 +35,7 @@
 #include <QHBoxLayout>
 #include <ddialog.h>
 #include <dimagebutton.h>
+#include <memory>
 
 DWIDGET_USE_NAMESPACE
 
@@ -61,7 +62,7 @@ public:
     explicit MonitorSettingDialog(Monitor *monitor, QWidget *parent = nullptr);
     ~MonitorSettingDialog();
 
-signals:
+Q_SIGNALS:
     void requestMerge() const;
     void requestSplit() const;
     void requestRecognize() const;
@@ -85,7 +86,7 @@ private:
 
     void updateModeList(const QList<Resolution> &modeList);
 
-private slots:
+private Q_SLOTS:
     void updateScreensRelation();
     void onPrimaryChanged();
     void onMonitorRectChanged();

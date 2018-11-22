@@ -265,7 +265,7 @@ void ShortcutWidget::onDestroyItem(ShortcutInfo *info)
     m_customList.removeOne(item);
     m_allList.removeOne(item);
 
-    emit delShortcutInfo(item->curInfo());
+    Q_EMIT delShortcutInfo(item->curInfo());
     item->deleteLater();
 }
 
@@ -371,16 +371,16 @@ void ShortcutWidget::onKeyEvent(bool press, const QString &shortcut)
 
         if(shortcut == "BackSpace" || shortcut == "Delete"){
             current->item->setShortcut("");
-            emit requestDisableShortcut(current);
+            Q_EMIT requestDisableShortcut(current);
         } else {
             if (conflict) {
                 // have conflict
-                emit requestShowConflict(current, shortcut);
+                Q_EMIT requestShowConflict(current, shortcut);
                 current->item->setShortcut(current->accels);
             } else {
                 // save
                 current->accels = shortcut;
-                emit requestSaveShortcut(current);
+                Q_EMIT requestSaveShortcut(current);
             }
         }
         return;

@@ -76,7 +76,7 @@ void MiracastItem::onConnectState(bool state)
 
 void MiracastItem::onDisConnect()
 {
-    emit requestSinkDisConnect(m_info.m_sinkPath);
+    Q_EMIT requestSinkDisConnect(m_info.m_sinkPath);
 }
 
 void MiracastItem::mouseReleaseEvent(QMouseEvent *e)
@@ -85,7 +85,7 @@ void MiracastItem::mouseReleaseEvent(QMouseEvent *e)
 
     if (!m_info.m_connected) {
         m_connectWidget->onConnectChanged(ConnectWidget::Connecting);
-        emit requestSinkConnect(m_info.m_sinkPath, QApplication::primaryScreen()->availableGeometry());
+        Q_EMIT requestSinkConnect(m_info.m_sinkPath, QApplication::primaryScreen()->availableGeometry());
     }
 }
 

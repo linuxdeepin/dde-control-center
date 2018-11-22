@@ -41,7 +41,7 @@ class UserOptionItem : public widgets::NextPageWidget
 public:
     explicit UserOptionItem(QFrame *parent = 0);
 
-public slots:
+public Q_SLOTS:
     void setAvatar(const QString &avatar);
 
 private:

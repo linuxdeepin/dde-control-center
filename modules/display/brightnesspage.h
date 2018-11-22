@@ -55,7 +55,7 @@ public:
 
     void setModel(DisplayModel *model);
 
-signals:
+Q_SIGNALS:
     void requestSetMonitorBrightness(Monitor *mon, const double brightness) const;
     void requestSetNightMode(const bool nightmode);
 

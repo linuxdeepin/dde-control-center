@@ -47,14 +47,14 @@ public:
     explicit WacomWidget();
     void setModel(WacomModel *const model);
 
-signals:
+Q_SIGNALS:
     void requestSetPressureValue(const int value);
     void requestShowMode();
 
 private:
     const QString getValue(const bool mode);
 
-private slots:
+private Q_SLOTS:
     void onCursorModeChanged(const bool modeChanged);
 
 private:

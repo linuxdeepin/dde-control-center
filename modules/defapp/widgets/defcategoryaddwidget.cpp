@@ -60,7 +60,7 @@ void DefCategoryAddWidget::clicked()
         if (!isEnabled())
             break;
 
-        emit requestFrameAutoHide(false);
+        Q_EMIT requestFrameAutoHide(false);
         QFileDialog dialog;
         dialog.setWindowTitle(tr("Open Desktop file"));
 
@@ -77,10 +77,10 @@ void DefCategoryAddWidget::clicked()
             break;
 
         QFileInfo info(path);
-        emit requestCreateFile(m_category, info);
+        Q_EMIT requestCreateFile(m_category, info);
     } while(false);
 
-    emit requestFrameAutoHide(true);
+    Q_EMIT requestFrameAutoHide(true);
 }
 
 

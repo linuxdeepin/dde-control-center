@@ -57,8 +57,8 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device) :
 
     device->state() == Device::StateConnected ? m_disconnectButton->show() : m_disconnectButton->hide();
 
-    connect(m_ignoreButton, &QPushButton::clicked, [this] { emit requestIgnoreDevice(m_adapter, m_device); emit back(); });
-    connect(m_disconnectButton, &QPushButton::clicked, [this] { emit requestDisconnectDevice(m_device); emit back(); });
+    connect(m_ignoreButton, &QPushButton::clicked, [this] { Q_EMIT requestIgnoreDevice(m_adapter, m_device); Q_EMIT back(); });
+    connect(m_disconnectButton, &QPushButton::clicked, [this] { Q_EMIT requestDisconnectDevice(m_device); Q_EMIT back(); });
 }
 
 } // namespace bluetooth

@@ -107,8 +107,8 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
         }
     }
     QTimer::singleShot(100, this, [=] {
-        emit requestDeviceAPList(m_device->path());
-        emit requestWirelessScan();
+        Q_EMIT requestDeviceAPList(m_device->path());
+        Q_EMIT requestWirelessScan();
     });
 }
 
@@ -199,8 +199,8 @@ void WirelessPage::onHotspotEnableChanged(const bool enabled)
 
 void WirelessPage::onCloseHotspotClicked()
 {
-    emit requestDisconnectConnection(m_device->hotspotUuid());
-    emit requestDeviceRemanage(m_device->path());
+    Q_EMIT requestDisconnectConnection(m_device->hotspotUuid());
+    Q_EMIT requestDeviceRemanage(m_device->path());
 }
 
 void WirelessPage::onDeviceRemoved()
@@ -211,7 +211,7 @@ void WirelessPage::onDeviceRemoved()
     }
 
     // destroy self page
-    emit back();
+    Q_EMIT back();
 }
 
 void WirelessPage::sortAPList()
@@ -252,7 +252,7 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
 
     connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
 
-    emit requestNextPage(m_apEditPage);
+    Q_EMIT requestNextPage(m_apEditPage);
 }
 
 void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString &ssid)
@@ -261,7 +261,7 @@ void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString
 
     Q_ASSERT(!uuid.isEmpty());
 
-    emit requestConnectAp(m_device->path(), path, uuid);
+    Q_EMIT requestConnectAp(m_device->path(), path, uuid);
 }
 
 void WirelessPage::showConnectHidePage()
@@ -269,7 +269,7 @@ void WirelessPage::showConnectHidePage()
     m_apEditPage = new ConnectionWirelessEditPage(m_device->path());
     m_apEditPage->initSettingsWidget();
     connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
-    emit requestNextPage(m_apEditPage);
+    Q_EMIT requestNextPage(m_apEditPage);
 }
 
 void WirelessPage::updateActiveAp()

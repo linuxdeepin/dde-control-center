@@ -73,7 +73,7 @@ public:
     inline std::pair<int, QString> lastConfig() const { return m_lastConfig; }
     void setLastConfig(const std::pair<int, QString> &lastConfig);
 
-signals:
+Q_SIGNALS:
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;
     void displayModeChanged(const int mode) const;
@@ -88,7 +88,7 @@ signals:
     void redshiftVaildChanged(const bool isvalid) const;
     void redshiftSettingChanged(const bool setting) const;
 
-private slots:
+private Q_SLOTS:
     void setScreenHeight(const int h);
     void setScreenWidth(const int w);
     void setDisplayMode(const int mode);

@@ -58,7 +58,7 @@ public:
 
     void setModel(dde::network::NetworkModel *model);
 
-signals:
+Q_SIGNALS:
     void requestConnectionsList(const QString &devPath);
     void requestActiveConnection(const QString &devPath, const QString &uuid) const;
     void requestNextPage(ContentWidget * const w) const;
@@ -66,7 +66,7 @@ signals:
     void requestShowConnEditPage(dde::network::NetworkDevice *device, const QString &session) const;
     void requestRemoveConnEditPage(dde::network::NetworkDevice *device) const;
 
-private slots:
+private Q_SLOTS:
     void initUI();
 
     void refreshConnectionList();

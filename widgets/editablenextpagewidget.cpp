@@ -87,7 +87,7 @@ void EditableNextPageWidget::mousePressEvent(QMouseEvent *e)
 
     // ensure is echo mode
     if (m_name->isVisible())
-        emit selected();
+        Q_EMIT selected();
 }
 
 void EditableNextPageWidget::keyPressEvent(QKeyEvent *e)
@@ -119,7 +119,7 @@ void EditableNextPageWidget::toEchoMode()
     m_editButton->setVisible(true);
     m_edit->setVisible(false);
 
-    emit textChanged(oldText, m_edit->text());
+    Q_EMIT textChanged(oldText, m_edit->text());
 }
 
 }

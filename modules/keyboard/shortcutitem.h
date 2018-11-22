@@ -59,12 +59,12 @@ public:
     void setTitle(const QString &title);
     void setShortcut(const QString &shortcut);
 
-signals:
+Q_SIGNALS:
     void shortcutEditChanged(ShortcutInfo* info);
     void requestUpdateKey(ShortcutInfo *info);
     void requestRemove(ShortcutInfo *info);
 
-public slots:
+public Q_SLOTS:
     void onEditMode(bool value);
     void onRemoveClick();
 

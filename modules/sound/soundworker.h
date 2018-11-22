@@ -55,7 +55,7 @@ public:
     void activate() Q_DECL_OVERRIDE;
     void deactivate() Q_DECL_OVERRIDE;
 
-public slots:
+public Q_SLOTS:
     void switchSpeaker(bool on);
     void switchMicrophone(bool on);
     void switchSoundEffect(bool on);
@@ -66,7 +66,7 @@ public slots:
 
     void setPort(const Port *port);
 
-private slots:
+private Q_SLOTS:
     void defaultSinkChanged(const QDBusObjectPath &path);
     void defaultSourceChanged(const QDBusObjectPath &path);
 //    void sinksChanged(const QList<QDBusObjectPath> & value);

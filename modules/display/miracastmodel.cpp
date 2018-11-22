@@ -57,10 +57,10 @@ void MiracastModel::addLink(const LinkInfo &link)
 
     m_links.append(link);
     m_deviceModelList.insert(link.m_dbusPath.path(), new MiracastDeviceModel(link));
-    emit linkAdded(link);
+    Q_EMIT linkAdded(link);
 
     if (link.m_managed && !link.m_p2pScanning)
-        emit requestLinkScanning(link.m_dbusPath, true);
+        Q_EMIT requestLinkScanning(link.m_dbusPath, true);
 }
 
 void MiracastModel::removeLink(const QDBusObjectPath &path)
@@ -72,7 +72,7 @@ void MiracastModel::removeLink(const QDBusObjectPath &path)
             m_links.removeAt(i);
             m_deviceModelList.value(path.path())->deleteLater();
             m_deviceModelList.remove(path.path());
-            emit linkRemoved(path);
+            Q_EMIT linkRemoved(path);
 
             return;
         }
@@ -136,7 +136,7 @@ void MiracastModel::onMiracastEvent(const uchar type, const QDBusObjectPath &pat
     case LinkManaged:
         linkByPath(path).m_managed = true;
         deviceModelByPath(path.path())->onLinkManageChanged(true);
-        emit requestLinkScanning(path, true);
+        Q_EMIT requestLinkScanning(path, true);
         break;
     case LinkUnmanaged:
         linkByPath(path).m_managed = false;
@@ -144,7 +144,7 @@ void MiracastModel::onMiracastEvent(const uchar type, const QDBusObjectPath &pat
         break;
     case SinkConnected:
         sinkStateChanged(path, true);
-        emit sinkConnected();
+        Q_EMIT sinkConnected();
         break;
     case SinkConnectFailed:
     case SinkDisconnected:
@@ -161,7 +161,7 @@ void MiracastModel::scanAllLinks()
     for (const auto &link : m_links)
     {
         if (link.m_managed && !link.m_p2pScanning)
-            emit requestLinkScanning(link.m_dbusPath, true);
+            Q_EMIT requestLinkScanning(link.m_dbusPath, true);
     }
 }
 

@@ -66,7 +66,7 @@ public:
     ShortcutInfo* checkConflict(const QString& shortcut, QStringList &list);
     QString converKey(const QString &key);
 
-public slots:
+public Q_SLOTS:
 #ifndef DCC_DISABLE_KBLAYOUT
     void onPushKeyboard(const QStringList &kblist);
     void onPushKBDetails();
@@ -86,7 +86,7 @@ public slots:
 
     void onShortcutEdit(ShortcutInfo* info);
 
-private slots:
+private Q_SLOTS:
     void onSetFrameAutoHide(const bool autoHide);
 
 private:

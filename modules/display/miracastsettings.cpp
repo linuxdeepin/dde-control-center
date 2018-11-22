@@ -153,12 +153,12 @@ void MiracastPage::onItemRemoved(const SinkInfo &info)
 
 void MiracastPage::onDeviceEnableChanged(const bool enable)
 {
-    emit requestDeviceEnable(m_model->linkInfo().m_dbusPath, enable);
+    Q_EMIT requestDeviceEnable(m_model->linkInfo().m_dbusPath, enable);
 }
 
 void MiracastPage::onRefreshed()
 {
-    emit requestDeviceRefreshed(m_model->linkInfo().m_dbusPath, true);
+    Q_EMIT requestDeviceRefreshed(m_model->linkInfo().m_dbusPath, true);
     m_deviceGrp->setVisible(false);
     m_nodevice->setVisible(true);
     m_nodevice->setState(MiracastNoDeviceWidget::Refreshed);
@@ -190,7 +190,7 @@ void MiracastPage::onDeviceManaged(const bool managed)
 
 void MiracastPage::onRefreshTimeout()
 {
-    emit requestDeviceRefreshed(m_model->linkInfo().m_dbusPath, false);
+    Q_EMIT requestDeviceRefreshed(m_model->linkInfo().m_dbusPath, false);
     m_deviceGrp->setVisible(!m_model->sinkList().isEmpty() && m_deviceSwBtn->checked());
     m_nodevice->setVisible(m_model->sinkList().isEmpty() && m_deviceSwBtn->checked());
     m_nodevice->setState(MiracastNoDeviceWidget::NoDevice);

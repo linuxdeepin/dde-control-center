@@ -51,11 +51,11 @@ class SystemInfoWidget : public ModuleWidget
 public:
     explicit SystemInfoWidget(SystemInfoModel* model);
 
-signals:
+Q_SIGNALS:
     void copyright();
     void boot();
 
-public slots:
+public Q_SLOTS:
     void setEdition(const QString& edition);
     void setType(const QString& type);
     void setProcessor(const QString& processor);

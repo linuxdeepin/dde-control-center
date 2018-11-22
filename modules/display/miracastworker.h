@@ -47,13 +47,13 @@ public:
     void queryLinks();
     void querySinks();
 
-public slots:
+public Q_SLOTS:
     void disconnectSink(const QDBusObjectPath &sink);
     void connectSink(const QDBusObjectPath &peer, const QRect area);
     void setLinkEnable(const QDBusObjectPath &path, const bool enable);
     void setLinkScannning(const QDBusObjectPath &path, const bool scanning);
 
-private slots:
+private Q_SLOTS:
     void queryLinks_CB(QDBusPendingCallWatcher *w);
     void querySinks_CB(QDBusPendingCallWatcher *w);
     void onPowerOff();

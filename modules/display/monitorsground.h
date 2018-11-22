@@ -46,12 +46,12 @@ public:
 
     void setDisplayModel(DisplayModel *model);
 
-signals:
+Q_SIGNALS:
     void requestApplySettings(Monitor *mon, const int x, const int y);
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
 
-private slots:
+private Q_SLOTS:
     void resetMonitorsView();
     void monitorMoved(MonitorProxyWidget *pw);
     void adjust(MonitorProxyWidget *pw);

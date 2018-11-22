@@ -51,7 +51,7 @@ public:
     explicit MouseWidget();
     void setModel(MouseModel *const model);
 
-signals:
+Q_SIGNALS:
     void setDefault();
     void requestSetLeftHand(const bool state);
     void requestSetMouseNaturalScroll(const bool state);
@@ -69,7 +69,7 @@ signals:
     void requestPressure(int value);
     void requestScrollSpeed(int speed);
 
-private slots:
+private Q_SLOTS:
     void onTouchpadHideChanged(const bool visible);
     void onMouseMoveSpeedChanged(int speed);
     void onTouchMoveSpeedChanged(int speed);

@@ -49,13 +49,13 @@ public:
     explicit MiracastPage(const QString &title, QWidget *parent = 0);
     void setModel(MiracastDeviceModel *model);
 
-signals:
+Q_SIGNALS:
     void requestDeviceEnable(const QDBusObjectPath &path, const bool enable);
     void requestDeviceConnect(const QDBusObjectPath &path, const QRect &rect);
     void requestDeviceDisConnect(const QDBusObjectPath &path);
     void requestDeviceRefreshed(const QDBusObjectPath &path, const bool enable);
 
-private slots:
+private Q_SLOTS:
     void onItemAdded(const SinkInfo &info);
     void onItemRemoved(const SinkInfo &info);
     void onDeviceEnableChanged(const bool enable);

@@ -50,14 +50,14 @@ public:
     void setTitle(const QString& title);
     void setEditEnable(bool state = true);
 
-public slots:
+public Q_SLOTS:
     void toEdit();
     void toCancel();
 
-signals:
+Q_SIGNALS:
     void editChanged(bool edit);
 
-private slots:
+private Q_SLOTS:
     void refershButton();
 
 private:

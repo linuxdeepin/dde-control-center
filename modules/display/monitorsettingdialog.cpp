@@ -362,7 +362,7 @@ void MonitorSettingDialog::updateModeList(const QList<Resolution> &modeList)
         }
     }
 
-    emit m_resolutionsModel->layoutChanged();
+    Q_EMIT m_resolutionsModel->layoutChanged();
 }
 
 void MonitorSettingDialog::onMonitorModeSelected(const int index)
@@ -381,14 +381,14 @@ void MonitorSettingDialog::onMonitorModeSelected(const int index)
             for (int i(0); i != list.size(); ++i)
             {
                 if (list[i].width() == mode.width() && list[i].height() == mode.height())
-                    emit requestSetMonitorMode(mon, list[i].id());
+                    Q_EMIT requestSetMonitorMode(mon, list[i].id());
             }
         }
     } else {
         const auto modeList = m_monitor->modeList();
         Q_ASSERT(modeList.size() > index);
 
-        emit requestSetMonitorMode(m_monitor, modeList[index].id());
+        Q_EMIT requestSetMonitorMode(m_monitor, modeList[index].id());
     }
 }
 
@@ -398,9 +398,9 @@ void MonitorSettingDialog::onRotateBtnClicked()
     const bool intersect = m_primary && m_model->monitorsIsIntersect();
 
     if (intersect)
-        emit requestMonitorRotate(nullptr);
+        Q_EMIT requestMonitorRotate(nullptr);
     else
-        emit requestMonitorRotate(m_monitor);
+        Q_EMIT requestMonitorRotate(m_monitor);
 }
 #endif
 

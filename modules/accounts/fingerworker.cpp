@@ -58,7 +58,7 @@ void FingerWorker::enrollStart(const QString &name, const QString &thumb)
     connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher, name, thumb] {
         if (watcher->result()) {
             m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
-            emit requestShowAddThumb(name, thumb);
+            Q_EMIT requestShowAddThumb(name, thumb);
         }
 
         watcher->deleteLater();

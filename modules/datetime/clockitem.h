@@ -50,7 +50,7 @@ public:
 
     void setTimeZone(const ZoneInfo &zone);
 
-private slots:
+private Q_SLOTS:
     void updateDateTime();
 
 private:

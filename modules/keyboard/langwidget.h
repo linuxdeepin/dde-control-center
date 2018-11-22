@@ -50,10 +50,10 @@ class LangWidget : public ContentWidget
 public:
     explicit LangWidget(KeyboardModel *model, QWidget *parent = 0);
 
-signals:
+Q_SIGNALS:
     void click(const QModelIndex& index);
 
-public slots:
+public Q_SLOTS:
     void onSearch(const QString& text);
     void setCurLang(const QString& lang);
     void setModelData(const QList<MetaData>& datas);

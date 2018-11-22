@@ -64,10 +64,10 @@ public:
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
 
-signals:
+Q_SIGNALS:
     void editingFinished();
 
-public slots:
+public Q_SLOTS:
     void slotAdd();
     void slotReduced();
 

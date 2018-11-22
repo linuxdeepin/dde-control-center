@@ -152,7 +152,7 @@ void KeyboardDetails::onRemoveLayout(CheckItem *item)
     if(item)
     {
         m_group->removeItem(item);
-        emit delUserLayout(item->title());
+        Q_EMIT delUserLayout(item->title());
         m_maps.remove(m_model->userLayout().key(item->title()));
         item->deleteLater();
     }
@@ -187,7 +187,7 @@ void KeyboardDetails::onSwitchKBChanged()
     for (int v : i) {
         median = v|median;
     }
-    emit requestSwitchKBLayout(median);
+    Q_EMIT requestSwitchKBLayout(median);
 }
 
 void KeyboardDetails::onSwitchKB(int kbSwitch)
@@ -199,7 +199,7 @@ void KeyboardDetails::onSwitchKB(int kbSwitch)
 
 void KeyboardDetails::onLayoutAdded()
 {
-    emit layoutAdded(m_maps.keys());
+    Q_EMIT layoutAdded(m_maps.keys());
 }
 
 }

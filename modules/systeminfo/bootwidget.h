@@ -49,13 +49,13 @@ public:
     void setDefaultEntry(const QString& value);
     void setModel(SystemInfoModel *model);
 
-signals:
+Q_SIGNALS:
     void enableTheme(bool value);
     void bootdelay(bool value);
     void defaultEntry(const QString& item);
     void requestSetBackground(const QString &path);
 
-public slots:
+public Q_SLOTS:
     void setEntryList(const QStringList& list);
     void onCurrentItem(QListWidgetItem* cur, QListWidgetItem* pre);
 

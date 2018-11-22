@@ -45,14 +45,14 @@ public:
     explicit DisplayControlPage(QWidget *parent = 0);
     void setModel(dcc::display::DisplayModel *model);
 
-signals:
+Q_SIGNALS:
     void requestDuplicateMode() const;
     void requestExtendMode() const;
     void requestOnlyMonitor(const QString &monName) const;
     void requestConfig(const QString &config) const;
     void requestCustom() const;
 
-private slots:
+private Q_SLOTS:
     void onItemClicked(const QModelIndex &index) const;
 
 private:

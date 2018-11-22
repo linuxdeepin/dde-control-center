@@ -48,16 +48,16 @@ public:
     explicit CustomEdit(ShortcutModel *model, QWidget *parent = 0);
     void setShortcut(ShortcutInfo* info);
 
-signals:
+Q_SIGNALS:
     void requestUpdateKey(ShortcutInfo *info);
     void requestSaveShortcut(ShortcutInfo *info);
     void requestFrameAutoHide(const bool autoHide) const;
 
-public slots:
+public Q_SLOTS:
     void setBottomTip(ShortcutInfo *conflict);
     void keyEvent(bool press, const QString &shortcut);
 
-private slots:
+private Q_SLOTS:
     void onOpenFile();
     void onSaveAccels();
     void onUpdateKey();

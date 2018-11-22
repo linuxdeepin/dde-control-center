@@ -65,7 +65,7 @@ public:
     inline bool connecting() const { return m_connecting; }
     void setConnecting(bool connecting);
 
-signals:
+Q_SIGNALS:
     void nameChanged(const QString &name) const;
     void pairedChanged(const bool &paired) const;
     void stateChanged(const State &state) const;

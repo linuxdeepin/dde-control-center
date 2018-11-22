@@ -45,10 +45,10 @@ public:
 
     void setMinimumBrightnessScale(const double scale);
 
-signals:
+Q_SIGNALS:
     void requestSetMonitorBrightness(Monitor *mon, const double brightness) const;
 
-public slots:
+public Q_SLOTS:
     void setValue(const double value);
     void setMonitor(Monitor * const mon);
 

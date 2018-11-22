@@ -61,7 +61,7 @@ MiracastNoDeviceWidget::MiracastNoDeviceWidget(QWidget *parent) : TranslucentFra
 
     connect(m_refreshBtn, &DImageButton::clicked, this, [=]{
         setState(DeviceListState::Refreshed);
-        emit requestRefreshed();
+        Q_EMIT requestRefreshed();
     });
 
     setState(NoDevice);

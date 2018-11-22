@@ -103,17 +103,17 @@ TimeZoneChooser::TimeZoneChooser()
 
     connect(m_confirmBtn, &QPushButton::clicked, [this] {
         QString zone = m_map->getTimezone();
-        emit confirmed(zone);
+        Q_EMIT confirmed(zone);
     });
 
     connect(closeButton, &DWindowCloseButton::clicked, this, [this] {
-        emit cancelled();
+        Q_EMIT cancelled();
 
         close();
     });
 
     connect(m_cancelBtn, &QPushButton::clicked, this, [this] {
-        emit cancelled();
+        Q_EMIT cancelled();
 
         close();
     });
@@ -192,7 +192,7 @@ void TimeZoneChooser::resizeEvent(QResizeEvent *event)
 void TimeZoneChooser::keyReleaseEvent(QKeyEvent *event)
 {
     if (event->matches(QKeySequence::Cancel)) {
-        emit cancelled();
+        Q_EMIT cancelled();
 
         close();
     }
