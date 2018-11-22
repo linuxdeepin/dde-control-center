@@ -181,7 +181,7 @@ void HotspotPage::onDeviceRemoved()
     }
 
     // destroy self page
-    emit back();
+    Q_EMIT back();
 }
 
 }
