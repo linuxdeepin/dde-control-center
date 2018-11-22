@@ -18,8 +18,12 @@ build*/
 dde-control-center
 *.core
 *.autosave
+*.user
+
 # qm file is auto generate from .ts file
 *.qm
 
 # vim tmp file
 *.swp
+
+*.vscode
