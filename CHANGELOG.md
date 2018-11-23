@@ -1,4 +1,23 @@
 <a name=""></a>
+##  4.7.7 (2018-11-23)
+
+
+#### Bug Fixes
+
+*   replace emit to Q_EMIT ([0f26b936](https://github.com/linuxdeepin/dde-control-center/commit/0f26b93636b74a17463c9da792e7b19534b56e36))
+*   pop up all pages about edit connection after device is removed ([c28e3460](https://github.com/linuxdeepin/dde-control-center/commit/c28e34607d6c6a14a186e9fccd404ff4ac70397f))
+* **grub:**  disable scrollbar content menu ([f801d949](https://github.com/linuxdeepin/dde-control-center/commit/f801d949a69f9855157b535a9c6f040b18426d16))
+* **keyboard:**  null pointer exeception ([787ff86b](https://github.com/linuxdeepin/dde-control-center/commit/787ff86b35914bb05a3e45d4ccd3dab1083ee970))
+* **mainwidget:**  datetime label wrap. ([71d55596](https://github.com/linuxdeepin/dde-control-center/commit/71d5559642d76adf893f4cb39bc3f7ee9f65e93b))
+
+#### Features
+
+* **Personalization:**  remove opacity slider number ([2269b923](https://github.com/linuxdeepin/dde-control-center/commit/2269b923e8bf47320dc5c2d18eece11dc4ef9a2d))
+* **grub:**  allow drop ([1eb52ab5](https://github.com/linuxdeepin/dde-control-center/commit/1eb52ab58af7f2b9f9fbc0898b6a63ce31a1e7c3))
+
+
+
+<a name=""></a>
 ##  4.7.6.2 (2018-11-22)
 
 
