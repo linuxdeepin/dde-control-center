@@ -57,11 +57,6 @@ PersonalizationWidget::PersonalizationWidget()
     slider->setTickInterval(1);
     slider->setPageStep(1);
 
-    const QStringList list{ QString("0.25"), QString("0.4"),  QString("0.55"),
-                            QString("0.7"),  QString("0.85"), QString("1") };
-
-    m_transparentSlider->setAnnotations(list);
-
     m_centralLayout->addWidget(m_trGrp);
 
     m_centralLayout->addWidget(m_userGroup);
@@ -108,8 +103,6 @@ void PersonalizationWidget::setModel(PersonalizationModel *const model)
 
 void PersonalizationWidget::onOpacityChanged(std::pair<int, double> value)
 {
-    m_transparentSlider->setValueLiteral(QString::number(value.second));
-
     m_transparentSlider->slider()->blockSignals(true);
     m_transparentSlider->slider()->setValue(value.first);
     m_transparentSlider->slider()->blockSignals(false);
