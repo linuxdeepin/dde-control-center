@@ -220,7 +220,17 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
         // If there's no actual package dde update, but there're system patches available,
         // then fake one dde update item.
 
-        AppUpdateInfo dde = getDDEInfo();
+        auto it = std::find_if(infos.constBegin(), infos.constEnd(), [=] (const AppUpdateInfo &info) {
+            return info.m_packageId == "dde";
+        });
+
+        AppUpdateInfo dde;
+        if (it == infos.constEnd()) {
+            dde = getDDEInfo();
+        }
+        else {
+            dde = *it;
+        }
 
         AppUpdateInfo ddeUpdateInfo = getInfo(dde, dde.m_currentVersion, dde.m_avilableVersion);
         if(ddeUpdateInfo.m_changelog.isEmpty()) {
