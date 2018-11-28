@@ -75,10 +75,13 @@ BootWidget::BootWidget(QWidget *parent)
     m_theme = new SwitchWidget();
     m_theme->setTitle(tr("Theme"));
 
-    TipsLabel *label = new TipsLabel(tr("You can click the option in boot menu to set it as the first boot."
-                                        "Switch it on to view your theme in boot menu."));
+    TipsLabel *label = new TipsLabel(tr("You can click the option in boot menu to set it as the first boot, and drag and drop a picture to replace the background."));
     label->setWordWrap(true);
     label->setContentsMargins(16, 0, 10, 0);
+
+    TipsLabel *themeLbl = new TipsLabel(tr("Switch theme on to view it in boot menu."));
+    themeLbl->setWordWrap(true);
+    themeLbl->setContentsMargins(16, 0, 10, 0);
 
     group->appendItem(m_background);
     group->appendItem(m_boot);
@@ -90,6 +93,7 @@ BootWidget::BootWidget(QWidget *parent)
     layout->addWidget(group);
     layout->addSpacing(8);
     layout->addWidget(label);
+    layout->addWidget(themeLbl);
     layout->addStretch();
 
     widget->setLayout(layout);
