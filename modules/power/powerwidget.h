@@ -53,8 +53,10 @@ Q_SIGNALS:
     void requestSetScreenBlackLock(const bool lock) const;
     void requestSetSleepLock(const bool lock) const;
     void requestSetSleepOnLidClosed(const bool sleep) const;
-    void requestSetScreenBlackDelay(const int delay) const;
-    void requestSetSleepDelay(const int delay) const;
+    void requestSetScreenBlackDelayOnPower(const int delay) const;
+    void requestSetScreenBlackDelayOnBattery(const int delay) const;
+    void requestSetSleepDelayOnPoewr(const int delay) const;
+    void requestSetSleepDelayOnBattery(const int delay) const;
 #ifndef DCC_DISABLE_POWERSAVE
     void requestSetPowerSaveMode(const bool enablePowerSave) const;
     void requestSetEnableAutoPSM(const bool enableAuto) const;
@@ -64,8 +66,10 @@ private:
     QString delayToLiteralString(const int delay) const;
 
 private Q_SLOTS:
-    void setScreenBlackDelay(const int delay);
-    void setSleepDelay(const int delay);
+    void setScreenBlackDelayOnPower(const int delay);
+    void setScreenBlackDelayOnBattery(const int delay);
+    void setSleepDelayOnPower(const int delay);
+    void setSleepDelayOnBattery(const int delay);
 
 private:
 #ifndef DCC_DISABLE_POWERSAVE
@@ -74,16 +78,17 @@ private:
     widgets::SwitchWidget *m_autoPowerSave;
 #endif
 
-    widgets::SettingsGroup *m_sleepTimeoutSettings;
-    widgets::TitledSliderItem *m_monitorSleep;
-    widgets::TitledSliderItem *m_computerSleep;
+    widgets::SettingsGroup *m_sleepTimeoutSettingsOnPower;
+    widgets::SettingsGroup *m_sleepTimeoutSettingsOnBattery;
+    widgets::TitledSliderItem *m_monitorSleepOnPower;
+    widgets::TitledSliderItem *m_computerSleepOnPower;
+    widgets::TitledSliderItem *m_monitorSleepOnBattery;
+    widgets::TitledSliderItem *m_computerSleepOnBattery;
     widgets::SettingsGroup *m_passwordSettings;
     widgets::SwitchWidget *m_displayNeedPassword;
     widgets::SwitchWidget *m_wakeNeedPassword;
     widgets::SettingsGroup *m_notebookSettings;
     widgets::SwitchWidget *m_sleepOnLidOff;
-    QSlider *m_monitorSlider;
-    QSlider *m_sleepSlider;
 };
 }
 

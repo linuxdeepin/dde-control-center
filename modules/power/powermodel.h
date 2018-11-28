@@ -50,11 +50,17 @@ public:
     inline bool lidPresent() const { return m_lidPresent; }
     void setLidPresent(bool lidPresent);
 
-    inline int screenBlackDelay() const { return m_screenBlackDelay; }
-    void setScreenBlackDelay(const int screenBlackDelay);
+    inline int screenBlackDelayOnPower() const { return m_screenBlackDelayOnPower; }
+    void setScreenBlackDelayOnPower(const int screenBlackDelayOnPower);
 
-    inline int sleepDelay() const { return m_sleepDelay; }
-    void setSleepDelay(const int sleepDelay);
+    inline int sleepDelayOnPower() const { return m_sleepDelayOnPower; }
+    void setSleepDelayOnPower(const int sleepDelayOnPower);
+
+    inline int screenBlackDelayOnBattery() const { return m_screenBlackDelayOnBattery; }
+    void setScreenBlackDelayOnBattery(const int screenBlackDelayOnBattery);
+
+    inline int sleepDelayOnBattery() const { return m_sleepDelayOnBattery; }
+    void setSleepDelayOnBattery(const int sleepDelayOnBattery);
 
     inline bool sleepOnLidClose() const { return m_sleepOnLidClose; }
     void setSleepOnLidClose(bool sleepOnLidClose);
@@ -75,8 +81,10 @@ Q_SIGNALS:
     void screenBlackLockChanged(const bool screenBlackLock);
     void lidPresentChanged(const bool lidPresent);
     void sleepOnLidCloseChanged(const bool sleepOnLidClose);
-    void screenBlackDelayChanged(const int screenBlackDelay);
-    void sleepDelayChanged(const int sleepDelay);
+    void screenBlackDelayChangedOnPower(const int screenBlackDelay);
+    void sleepDelayChangedOnPower(const int sleepDelay);
+    void screenBlackDelayChangedOnBattery(const int screenBlackDelay);
+    void sleepDelayChangedOnBattery(const int sleepDelay);
 #ifndef DCC_DISABLE_POWERSAVE
     void autoPowerSavingModeChanged(bool autoPowerSaveMode);
     void powerSaveModeChanged(bool powerSaveMode);
@@ -88,8 +96,10 @@ private:
     bool m_sleepOnLidClose;
     bool m_screenBlackLock;
     bool m_sleepLock;
-    int m_screenBlackDelay;
-    int m_sleepDelay;
+    int m_screenBlackDelayOnPower;
+    int m_sleepDelayOnPower;
+    int m_screenBlackDelayOnBattery;
+    int m_sleepDelayOnBattery;
 #ifndef DCC_DISABLE_POWERSAVE
     bool m_autoPowerSaveMode;
     bool m_powerSaveMode;

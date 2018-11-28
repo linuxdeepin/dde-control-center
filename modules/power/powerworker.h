@@ -50,10 +50,14 @@ public Q_SLOTS:
     void setScreenBlackLock(const bool lock);
     void setSleepLock(const bool lock);
     void setSleepOnLidClosed(const bool sleep);
-    void setSleepDelay(const int delay);
-    void setScreenBlackDelay(const int delay);
-    void setSleepDelayToModel(const int delay);
-    void setScreenBlackDelayToModel(const int delay);
+    void setSleepDelayOnPower(const int delay);
+    void setSleepDelayOnBattery(const int delay);
+    void setScreenBlackDelayOnPower(const int delay);
+    void setScreenBlackDelayOnBattery(const int delay);
+    void setSleepDelayToModelOnPower(const int delay);
+    void setScreenBlackDelayToModelOnPower(const int delay);
+    void setSleepDelayToModelOnBattery(const int delay);
+    void setScreenBlackDelayToModelOnBattery(const int delay);
 
 #ifndef DCC_DISABLE_POWERSAVE
     void setEnablePowerSave(const bool isEnable);

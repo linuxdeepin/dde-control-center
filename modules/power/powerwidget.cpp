@@ -43,9 +43,12 @@ PowerWidget::PowerWidget()
     , m_powerSaveMode(new SwitchWidget)
     , m_autoPowerSave(new SwitchWidget)
 #endif
-    , m_sleepTimeoutSettings(new SettingsGroup)
-    , m_monitorSleep(new TitledSliderItem(tr("Monitor will suspend after")))
-    , m_computerSleep(new TitledSliderItem(tr("Computer will suspend after")))
+    , m_sleepTimeoutSettingsOnPower(new SettingsGroup(tr("Plugged in")))
+    , m_sleepTimeoutSettingsOnBattery(new SettingsGroup(tr("On battery")))
+    , m_monitorSleepOnPower(new TitledSliderItem(tr("Monitor will suspend after")))
+    , m_computerSleepOnPower(new TitledSliderItem(tr("Computer will suspend after")))
+    , m_monitorSleepOnBattery(new TitledSliderItem(tr("Monitor will suspend after")))
+    , m_computerSleepOnBattery(new TitledSliderItem(tr("Computer will suspend after")))
     , m_passwordSettings(new SettingsGroup)
     , m_displayNeedPassword(new SwitchWidget)
     , m_wakeNeedPassword(new SwitchWidget)
@@ -57,22 +60,39 @@ PowerWidget::PowerWidget()
     QStringList annos;
     annos << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
 
-    m_monitorSleep->slider()->setType(DCCSlider::Vernier);
-    m_monitorSleep->slider()->setRange(1, 7);
-    m_monitorSleep->slider()->setTickPosition(QSlider::TicksBelow);
-    m_monitorSleep->slider()->setTickInterval(1);
-    m_monitorSleep->slider()->setPageStep(1);
-    m_monitorSleep->setAnnotations(annos);
+    m_monitorSleepOnPower->slider()->setType(DCCSlider::Vernier);
+    m_monitorSleepOnPower->slider()->setRange(1, 7);
+    m_monitorSleepOnPower->slider()->setTickPosition(QSlider::TicksBelow);
+    m_monitorSleepOnPower->slider()->setTickInterval(1);
+    m_monitorSleepOnPower->slider()->setPageStep(1);
+    m_monitorSleepOnPower->setAnnotations(annos);
 
-    m_computerSleep->slider()->setType(DCCSlider::Vernier);
-    m_computerSleep->slider()->setRange(1, 7);
-    m_computerSleep->slider()->setTickPosition(QSlider::TicksBelow);
-    m_computerSleep->slider()->setTickInterval(1);
-    m_computerSleep->slider()->setPageStep(1);
-    m_computerSleep->setAnnotations(annos);
+    m_monitorSleepOnBattery->slider()->setType(DCCSlider::Vernier);
+    m_monitorSleepOnBattery->slider()->setRange(1, 7);
+    m_monitorSleepOnBattery->slider()->setTickPosition(QSlider::TicksBelow);
+    m_monitorSleepOnBattery->slider()->setTickInterval(1);
+    m_monitorSleepOnBattery->slider()->setPageStep(1);
+    m_monitorSleepOnBattery->setAnnotations(annos);
 
-    m_sleepTimeoutSettings->appendItem(m_monitorSleep);
-    m_sleepTimeoutSettings->appendItem(m_computerSleep);
+    m_computerSleepOnPower->slider()->setType(DCCSlider::Vernier);
+    m_computerSleepOnPower->slider()->setRange(1, 7);
+    m_computerSleepOnPower->slider()->setTickPosition(QSlider::TicksBelow);
+    m_computerSleepOnPower->slider()->setTickInterval(1);
+    m_computerSleepOnPower->slider()->setPageStep(1);
+    m_computerSleepOnPower->setAnnotations(annos);
+
+    m_computerSleepOnBattery->slider()->setType(DCCSlider::Vernier);
+    m_computerSleepOnBattery->slider()->setRange(1, 7);
+    m_computerSleepOnBattery->slider()->setTickPosition(QSlider::TicksBelow);
+    m_computerSleepOnBattery->slider()->setTickInterval(1);
+    m_computerSleepOnBattery->slider()->setPageStep(1);
+    m_computerSleepOnBattery->setAnnotations(annos);
+
+    m_sleepTimeoutSettingsOnPower->appendItem(m_monitorSleepOnPower);
+    m_sleepTimeoutSettingsOnPower->appendItem(m_computerSleepOnPower);
+
+    m_sleepTimeoutSettingsOnBattery->appendItem(m_monitorSleepOnBattery);
+    m_sleepTimeoutSettingsOnBattery->appendItem(m_computerSleepOnBattery);
 
     m_displayNeedPassword->setTitle(tr("Password required to wake up the monitor"));
     m_passwordSettings->appendItem(m_displayNeedPassword);
@@ -92,7 +112,8 @@ PowerWidget::PowerWidget()
     m_centralLayout->addWidget(m_powerSaveGrp);
 #endif
 
-    m_centralLayout->addWidget(m_sleepTimeoutSettings);
+    m_centralLayout->addWidget(m_sleepTimeoutSettingsOnPower);
+    m_centralLayout->addWidget(m_sleepTimeoutSettingsOnBattery);
     m_centralLayout->addWidget(m_passwordSettings);
     m_centralLayout->addWidget(m_notebookSettings);
 
@@ -102,11 +123,11 @@ PowerWidget::PowerWidget()
     connect(m_wakeNeedPassword, &SwitchWidget::checkedChanged, this, &PowerWidget::requestSetSleepLock);
     connect(m_sleepOnLidOff, &SwitchWidget::checkedChanged, this, &PowerWidget::requestSetSleepOnLidClosed);
 
-    m_monitorSlider = m_monitorSleep->slider();
-    m_sleepSlider = m_computerSleep->slider();
+    connect(m_monitorSleepOnPower->slider(), &DCCSlider::valueChanged, this, &PowerWidget::requestSetScreenBlackDelayOnPower);
+    connect(m_monitorSleepOnBattery->slider(), &DCCSlider::valueChanged, this, &PowerWidget::requestSetScreenBlackDelayOnBattery);
 
-    connect(m_monitorSlider, &QSlider::valueChanged, this, &PowerWidget::requestSetScreenBlackDelay);
-    connect(m_sleepSlider, &QSlider::valueChanged, this, &PowerWidget::requestSetSleepDelay);
+    connect(m_computerSleepOnPower->slider(), &DCCSlider::valueChanged, this, &PowerWidget::requestSetSleepDelayOnPoewr);
+    connect(m_computerSleepOnBattery->slider(), &DCCSlider::valueChanged, this, &PowerWidget::requestSetSleepDelayOnBattery);
 
 #ifndef DCC_DISABLE_POWERSAVE
     connect(m_powerSaveMode, &SwitchWidget::checkedChanged, this, &PowerWidget::requestSetPowerSaveMode);
@@ -120,8 +141,11 @@ void PowerWidget::setModel(PowerModel *const model)
     connect(model, &PowerModel::sleepLockChanged, m_wakeNeedPassword, &SwitchWidget::setChecked);
     connect(model, &PowerModel::lidPresentChanged, m_notebookSettings, &SettingsGroup::setVisible);
     connect(model, &PowerModel::sleepOnLidCloseChanged, m_sleepOnLidOff, &SwitchWidget::setChecked);
-    connect(model, &PowerModel::screenBlackDelayChanged, this, &PowerWidget::setScreenBlackDelay);
-    connect(model, &PowerModel::sleepDelayChanged, this, &PowerWidget::setSleepDelay);
+
+    connect(model, &PowerModel::sleepDelayChangedOnPower, this, &PowerWidget::setSleepDelayOnPower);
+    connect(model, &PowerModel::sleepDelayChangedOnBattery, this, &PowerWidget::setSleepDelayOnBattery);
+    connect(model, &PowerModel::screenBlackDelayChangedOnPower, this, &PowerWidget::setScreenBlackDelayOnPower);
+    connect(model, &PowerModel::screenBlackDelayChangedOnBattery, this, &PowerWidget::setScreenBlackDelayOnBattery);
 
 #ifndef DCC_DISABLE_POWERSAVE
     connect(model, &PowerModel::autoPowerSavingModeChanged, m_autoPowerSave, &SwitchWidget::setChecked);
@@ -137,8 +161,11 @@ void PowerWidget::setModel(PowerModel *const model)
     m_sleepOnLidOff->setChecked(model->sleepOnLidClose());
     blockSignals(false);
 
-    setScreenBlackDelay(model->screenBlackDelay());
-    setSleepDelay(model->sleepDelay());
+    setScreenBlackDelayOnPower(model->screenBlackDelayOnPower());
+    setScreenBlackDelayOnBattery(model->screenBlackDelayOnBattery());
+
+    setSleepDelayOnPower(model->sleepDelayOnPower());
+    setSleepDelayOnBattery(model->sleepDelayOnBattery());
 
 #ifndef DCC_DISABLE_POWERSAVE
     m_autoPowerSave->setChecked(model->autoPowerSaveMode());
@@ -169,18 +196,34 @@ QString PowerWidget::delayToLiteralString(const int delay) const
     }
 }
 
-void PowerWidget::setScreenBlackDelay(const int delay)
+void PowerWidget::setScreenBlackDelayOnPower(const int delay)
 {
-    m_monitorSlider->blockSignals(true);
-    m_monitorSlider->setValue(delay);
-    m_monitorSleep->setValueLiteral(delayToLiteralString(delay));
-    m_monitorSlider->blockSignals(false);
+    m_monitorSleepOnPower->slider()->blockSignals(true);
+    m_monitorSleepOnPower->slider()->setValue(delay);
+    m_monitorSleepOnPower->setValueLiteral(delayToLiteralString(delay));
+    m_monitorSleepOnPower->slider()->blockSignals(false);
 }
 
-void PowerWidget::setSleepDelay(const int delay)
+void PowerWidget::setScreenBlackDelayOnBattery(const int delay)
 {
-    m_sleepSlider->blockSignals(true);
-    m_sleepSlider->setValue(delay);
-    m_computerSleep->setValueLiteral(delayToLiteralString(delay));
-    m_sleepSlider->blockSignals(false);
+    m_monitorSleepOnBattery->slider()->blockSignals(true);
+    m_monitorSleepOnBattery->slider()->setValue(delay);
+    m_monitorSleepOnBattery->setValueLiteral(delayToLiteralString(delay));
+    m_monitorSleepOnBattery->slider()->blockSignals(false);
+}
+
+void PowerWidget::setSleepDelayOnPower(const int delay)
+{
+    m_computerSleepOnPower->slider()->blockSignals(true);
+    m_computerSleepOnPower->slider()->setValue(delay);
+    m_computerSleepOnPower->setValueLiteral(delayToLiteralString(delay));
+    m_computerSleepOnPower->slider()->blockSignals(false);
+}
+
+void PowerWidget::setSleepDelayOnBattery(const int delay)
+{
+    m_computerSleepOnBattery->slider()->blockSignals(true);
+    m_computerSleepOnBattery->slider()->setValue(delay);
+    m_computerSleepOnBattery->setValueLiteral(delayToLiteralString(delay));
+    m_computerSleepOnBattery->slider()->blockSignals(false);
 }

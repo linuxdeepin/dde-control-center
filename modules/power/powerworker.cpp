@@ -41,8 +41,10 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerInter, &PowerInter::SleepLockChanged, m_powerModel, &PowerModel::setSleepLock);
     connect(m_powerInter, &PowerInter::LidIsPresentChanged, m_powerModel, &PowerModel::setLidPresent);
     connect(m_powerInter, &PowerInter::LidClosedSleepChanged, m_powerModel, &PowerModel::setSleepOnLidClose);
-    connect(m_powerInter, &PowerInter::LinePowerScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModel);
-    connect(m_powerInter, &PowerInter::LinePowerSleepDelayChanged, this, &PowerWorker::setSleepDelayToModel);
+    connect(m_powerInter, &PowerInter::LinePowerScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModelOnPower);
+    connect(m_powerInter, &PowerInter::LinePowerSleepDelayChanged, this, &PowerWorker::setSleepDelayToModelOnPower);
+    connect(m_powerInter, &PowerInter::BatteryScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModelOnBattery);
+    connect(m_powerInter, &PowerInter::BatterySleepDelayChanged, this, &PowerWorker::setSleepDelayToModelOnBattery);
 #ifndef DCC_DISABLE_POWERSAVE
     connect(m_sysPowerInter, &SysPowerInter::PowerSavingModeAutoChanged, m_powerModel, &PowerModel::setAutoPowerSaveMode);
     connect(m_sysPowerInter, &SysPowerInter::PowerSavingModeEnabledChanged, m_powerModel, &PowerModel::setPowerSaveMode);
@@ -60,8 +62,11 @@ void PowerWorker::active()
     m_powerModel->setLidPresent(m_powerInter->lidIsPresent());
     m_powerModel->setSleepOnLidClose(m_powerInter->lidClosedSleep());
 
-    setScreenBlackDelayToModel(m_powerInter->linePowerScreenBlackDelay());
-    setSleepDelayToModel(m_powerInter->linePowerSleepDelay());
+    setScreenBlackDelayToModelOnPower(m_powerInter->linePowerScreenBlackDelay());
+    setSleepDelayToModelOnPower(m_powerInter->linePowerSleepDelay());
+
+    setScreenBlackDelayToModelOnBattery(m_powerInter->batteryScreenBlackDelay());
+    setSleepDelayToModelOnBattery(m_powerInter->batterySleepDelay());
 
 #ifndef DCC_DISABLE_POWERSAVE
     m_powerModel->setAutoPowerSaveMode(m_sysPowerInter->powerSavingModeAuto());
@@ -90,26 +95,44 @@ void PowerWorker::setSleepOnLidClosed(const bool sleep)
     m_powerInter->setLidClosedSleep(sleep);
 }
 
-void PowerWorker::setSleepDelay(const int delay)
+void PowerWorker::setSleepDelayOnPower(const int delay)
 {
     m_powerInter->setLinePowerSleepDelay(converToDelayDBus(delay));
+}
+
+void PowerWorker::setSleepDelayOnBattery(const int delay)
+{
     m_powerInter->setBatterySleepDelay(converToDelayDBus(delay));
 }
 
-void PowerWorker::setScreenBlackDelay(const int delay)
+void PowerWorker::setScreenBlackDelayOnPower(const int delay)
 {
     m_powerInter->setLinePowerScreenBlackDelay(converToDelayDBus(delay));
+}
+
+void PowerWorker::setScreenBlackDelayOnBattery(const int delay)
+{
     m_powerInter->setBatteryScreenBlackDelay(converToDelayDBus(delay));
 }
 
-void PowerWorker::setSleepDelayToModel(const int delay)
+void PowerWorker::setSleepDelayToModelOnPower(const int delay)
 {
-    m_powerModel->setSleepDelay(converToDelayModel(delay));
+    m_powerModel->setSleepDelayOnPower(converToDelayModel(delay));
 }
 
-void PowerWorker::setScreenBlackDelayToModel(const int delay)
+void PowerWorker::setScreenBlackDelayToModelOnPower(const int delay)
 {
-    m_powerModel->setScreenBlackDelay(converToDelayModel(delay));
+    m_powerModel->setScreenBlackDelayOnPower(converToDelayModel(delay));
+}
+
+void PowerWorker::setSleepDelayToModelOnBattery(const int delay)
+{
+    m_powerModel->setSleepDelayOnBattery(converToDelayModel(delay));
+}
+
+void PowerWorker::setScreenBlackDelayToModelOnBattery(const int delay)
+{
+    m_powerModel->setScreenBlackDelayOnBattery(converToDelayModel(delay));
 }
 
 #ifndef DCC_DISABLE_POWERSAVE

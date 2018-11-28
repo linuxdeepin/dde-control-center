@@ -3381,67 +3381,79 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="120"/>
         <location filename="../frame/navigationbar.cpp" line="205"/>
-        <location filename="../modules/power/powerwidget.cpp" line="99"/>
+        <location filename="../modules/power/powerwidget.cpp" line="120"/>
         <source>Power Management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../modules/power/powerwidget.cpp" line="46"/>
+        <source>Plugged in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../modules/power/powerwidget.cpp" line="47"/>
-        <source>Monitor will suspend after</source>
+        <source>On battery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="48"/>
+        <location filename="../modules/power/powerwidget.cpp" line="50"/>
+        <source>Monitor will suspend after</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/power/powerwidget.cpp" line="49"/>
+        <location filename="../modules/power/powerwidget.cpp" line="51"/>
         <source>Computer will suspend after</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="58"/>
-        <location filename="../modules/power/powerwidget.cpp" line="166"/>
+        <location filename="../modules/power/powerwidget.cpp" line="61"/>
+        <location filename="../modules/power/powerwidget.cpp" line="193"/>
         <source>Never</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="77"/>
+        <location filename="../modules/power/powerwidget.cpp" line="97"/>
         <source>Password required to wake up the monitor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="80"/>
+        <location filename="../modules/power/powerwidget.cpp" line="100"/>
         <source>Password required to wake up the computer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="83"/>
+        <location filename="../modules/power/powerwidget.cpp" line="103"/>
         <source>Suspend on lid close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="87"/>
+        <location filename="../modules/power/powerwidget.cpp" line="107"/>
         <source>Power Saving Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="88"/>
+        <location filename="../modules/power/powerwidget.cpp" line="108"/>
         <source>Auto Mode Switch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="154"/>
+        <location filename="../modules/power/powerwidget.cpp" line="181"/>
         <source>1 Minute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="156"/>
-        <location filename="../modules/power/powerwidget.cpp" line="158"/>
-        <location filename="../modules/power/powerwidget.cpp" line="160"/>
-        <location filename="../modules/power/powerwidget.cpp" line="162"/>
-        <location filename="../modules/power/powerwidget.cpp" line="168"/>
+        <location filename="../modules/power/powerwidget.cpp" line="183"/>
+        <location filename="../modules/power/powerwidget.cpp" line="185"/>
+        <location filename="../modules/power/powerwidget.cpp" line="187"/>
+        <location filename="../modules/power/powerwidget.cpp" line="189"/>
+        <location filename="../modules/power/powerwidget.cpp" line="195"/>
         <source>%1 Minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="164"/>
+        <location filename="../modules/power/powerwidget.cpp" line="191"/>
         <source>1 Hour</source>
         <translation type="unfinished"></translation>
     </message>

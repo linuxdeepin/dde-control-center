@@ -85,8 +85,10 @@ ModuleWidget *PowerModule::moduleWidget()
         connect(m_powerWidget, &PowerWidget::requestSetScreenBlackLock, m_powerWorker, &PowerWorker::setScreenBlackLock);
         connect(m_powerWidget, &PowerWidget::requestSetSleepLock, m_powerWorker, &PowerWorker::setSleepLock);
         connect(m_powerWidget, &PowerWidget::requestSetSleepOnLidClosed, m_powerWorker, &PowerWorker::setSleepOnLidClosed);
-        connect(m_powerWidget, &PowerWidget::requestSetScreenBlackDelay, m_powerWorker, &PowerWorker::setScreenBlackDelay);
-        connect(m_powerWidget, &PowerWidget::requestSetSleepDelay, m_powerWorker, &PowerWorker::setSleepDelay);
+        connect(m_powerWidget, &PowerWidget::requestSetScreenBlackDelayOnPower, m_powerWorker, &PowerWorker::setScreenBlackDelayOnPower);
+        connect(m_powerWidget, &PowerWidget::requestSetScreenBlackDelayOnBattery, m_powerWorker, &PowerWorker::setScreenBlackDelayOnBattery);
+        connect(m_powerWidget, &PowerWidget::requestSetSleepDelayOnPoewr, m_powerWorker, &PowerWorker::setSleepDelayOnPower);
+        connect(m_powerWidget, &PowerWidget::requestSetSleepDelayOnBattery, m_powerWorker, &PowerWorker::setSleepDelayOnBattery);
 #ifndef DCC_DISABLE_POWERSAVE
         connect(m_powerWidget, &PowerWidget::requestSetEnableAutoPSM, m_powerWorker, &PowerWorker::setAutoEnablePowerSave);
         connect(m_powerWidget, &PowerWidget::requestSetPowerSaveMode, m_powerWorker, &PowerWorker::setEnablePowerSave);

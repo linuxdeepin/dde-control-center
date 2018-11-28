@@ -53,21 +53,39 @@ void PowerModel::setLidPresent(bool lidPresent)
     }
 }
 
-void PowerModel::setScreenBlackDelay(const int screenBlackDelay)
+void PowerModel::setScreenBlackDelayOnPower(const int screenBlackDelayOnPower)
 {
-    if (screenBlackDelay != m_screenBlackDelay) {
-        m_screenBlackDelay = screenBlackDelay;
+    if (screenBlackDelayOnPower != m_screenBlackDelayOnPower) {
+        m_screenBlackDelayOnPower = screenBlackDelayOnPower;
 
-        Q_EMIT screenBlackDelayChanged(screenBlackDelay);
+        Q_EMIT screenBlackDelayChangedOnPower(screenBlackDelayOnPower);
     }
 }
 
-void PowerModel::setSleepDelay(const int sleepDelay)
+void PowerModel::setSleepDelayOnPower(const int sleepDelayOnPower)
 {
-    if (sleepDelay != m_sleepDelay) {
-        m_sleepDelay = sleepDelay;
+    if (sleepDelayOnPower != m_sleepDelayOnPower) {
+        m_sleepDelayOnPower = sleepDelayOnPower;
 
-        Q_EMIT sleepDelayChanged(sleepDelay);
+        Q_EMIT sleepDelayChangedOnPower(sleepDelayOnPower);
+    }
+}
+
+void PowerModel::setScreenBlackDelayOnBattery(const int screenBlackDelayOnBattery)
+{
+    if (screenBlackDelayOnBattery != m_screenBlackDelayOnBattery) {
+        m_screenBlackDelayOnBattery = screenBlackDelayOnBattery;
+
+        Q_EMIT screenBlackDelayChangedOnBattery(screenBlackDelayOnBattery);
+    }
+}
+
+void PowerModel::setSleepDelayOnBattery(const int sleepDelayOnBattery)
+{
+    if (sleepDelayOnBattery != m_sleepDelayOnBattery) {
+        m_sleepDelayOnBattery = sleepDelayOnBattery;
+
+        Q_EMIT sleepDelayChangedOnBattery(sleepDelayOnBattery);
     }
 }
 
