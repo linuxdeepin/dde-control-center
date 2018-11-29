@@ -546,8 +546,17 @@ void UpdateWorker::onDownloadStatusChanged(const QString &status)
         // install the updates immediately.
         if (!m_model->autoDownloadUpdates())
             distUpgradeInstallUpdates();
-        else
-            m_model->setStatus(UpdatesStatus::Downloaded);
+        else {
+            // lastore not have download dbus
+            QTimer::singleShot(0, this, [=] {
+                if (m_model->downloadInfo()->downloadSize()) {
+                    checkForUpdates();
+                }
+                else {
+                    m_model->setStatus(UpdatesStatus::Downloaded);
+                }
+            });
+        }
     } else if (status == "paused") {
         m_model->setStatus(UpdatesStatus::DownloadPaused);
     } else if (status == "running") {
