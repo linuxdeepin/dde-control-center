@@ -64,10 +64,14 @@ DisplayWidget::DisplayWidget()
               << "1.25"
               << "1.5"
               << "1.75"
-              << "2.0";
+              << "2.0"
+              << "2.25"
+              << "2.5"
+              << "2.75"
+              << "3.0";
 
     DCCSlider *slider = m_scaleWidget->slider();
-    slider->setRange(1, 5);
+    slider->setRange(1, 9);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::TicksBelow);
     slider->setTickInterval(1);
@@ -314,12 +318,10 @@ int DisplayWidget::converToSlider(const float value)
 
 float DisplayWidget::converToScale(const int value)
 {
-    switch (value) {
-        case 1: return 1.0; break;
-        case 2: return 1.25; break;
-        case 3: return 1.5; break;
-        case 4: return 1.75; break;
-        case 5: return 2.0; break;
-        default: return 1.0; break;
+    float number = 1;
+    for (int i = 1; i != value; i++) {
+        number += 0.25;
     }
+
+    return number;
 }
