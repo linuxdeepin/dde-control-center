@@ -50,6 +50,8 @@ PersonalizationWidget::PersonalizationWidget()
 
     m_trGrp->appendItem(m_transparentSlider);
 
+    m_transparentSlider->setObjectName("Transparency");
+
     DCCSlider *slider = m_transparentSlider->slider();
     slider->setRange(1, 6);
     slider->setType(DCCSlider::Vernier);

@@ -8,6 +8,10 @@ dcc--widgets--TitledSliderItem#FontSizeWidget {
     qproperty-rightIcon: url(":/personalization/themes/dark/icons/fontsize_increase.png");
 }
 
+dcc--widgets--TitledSliderItem#Transparency {
+    qproperty-leftIcon: url(":/personalization/themes/dark/icons/transparency_low.svg");
+    qproperty-rightIcon: url(":/personalization/themes/dark/icons/transparency_high.svg");
+}
 
 #FontList QLabel {
     color: white;
