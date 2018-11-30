@@ -114,6 +114,7 @@ private:
     void toggle();
     void hideImmediately();
     const QScreen *screenForGeometry(const QRect &rect) const;
+    bool checkOnBoard(const QPoint &point);
 
 private:
     QPointer<QWidget> m_frameWrapper;

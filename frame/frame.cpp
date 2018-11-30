@@ -37,6 +37,10 @@
 #include <QScreen>
 #include <QGSettings>
 #include <qpa/qplatformwindow.h>
+#include <DPlatformWindowHandle>
+#include <DForeignWindow>
+
+DWIDGET_USE_NAMESPACE
 
 Frame::Frame(QWidget *parent)
     : DBlurEffectWidget(parent),
@@ -329,7 +333,7 @@ void Frame::onMouseButtonReleased(const QPoint &p, const int flag)
         return;
     }
 
-    if (isVisible() && windowHandle()->handle()->geometry().contains(p))
+    if (isVisible() && (windowHandle()->handle()->geometry().contains(p) || checkOnBoard(p)))
         return;
 
     // ready to hide frame
@@ -527,6 +531,19 @@ const QScreen *Frame::screenForGeometry(const QRect &rect) const
     }
 
     return nullptr;
+}
+
+bool Frame::checkOnBoard(const QPoint &point)
+{
+    QList<DForeignWindow*> windowList = DWindowManagerHelper::instance()->currentWorkspaceWindows();
+
+    for (auto it = windowList.crbegin(); it != windowList.crend(); ++it) {
+        if ((*it)->handle()->geometry().contains(point)) {
+            return (*it)->wmClass() == "onboard";
+        }
+    }
+
+    return false;
 }
 
 bool Frame::event(QEvent *event)
