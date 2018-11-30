@@ -1,3 +1,21 @@
+<a name="4.7.8"></a>
+### 4.7.8 (2018-11-30)
+
+
+#### Features
+
+* **Display:**  support uiScale to 3x ([89163013](https://github.com/linuxdeepin/dde-control-center/commit/89163013e6a6f98387c76dbb36fbd0f6146f99e0))
+* **Personalization:**  add two ends icon for opacity ([2138e4ef](https://github.com/linuxdeepin/dde-control-center/commit/2138e4ef32531120d2a8a4bc232238b95790417e))
+* **Power:**  separate power settings ([20e23b2d](https://github.com/linuxdeepin/dde-control-center/commit/20e23b2d511f7255d1e73672a5488379bc5de49f))
+
+#### Bug Fixes
+
+* **update:**
+  *  Refresh list after automatic download ([a52adc90](https://github.com/linuxdeepin/dde-control-center/commit/a52adc90ba1d554ab19416b9c0eb87d780727458))
+  *  repeated system patch info item ([e32f3ff6](https://github.com/linuxdeepin/dde-control-center/commit/e32f3ff60bc40a56a8f2044042d511cb3fb2c4e8))
+
+
+
 <a name=""></a>
 ##  4.7.7 (2018-11-23)
 
