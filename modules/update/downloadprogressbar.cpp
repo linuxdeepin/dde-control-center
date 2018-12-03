@@ -33,7 +33,7 @@ namespace dcc{
 namespace update{
 
 DownloadProgressBar::DownloadProgressBar(QWidget* parent)
-    : QFrame(parent)
+    : QWidget(parent)
 {
     setFixedHeight(36);
 }
@@ -56,15 +56,19 @@ void DownloadProgressBar::setValue(const int progress)
 
 void DownloadProgressBar::mouseReleaseEvent(QMouseEvent *e)
 {
+    if (!isEnabled()) {
+        return;
+    }
+
     e->accept();
     Q_EMIT clicked();
 
-    QFrame::mouseReleaseEvent(e);
+    QWidget::mouseReleaseEvent(e);
 }
 
 void DownloadProgressBar::paintEvent(QPaintEvent *event)
 {
-    QFrame::paintEvent(event);
+    QWidget::paintEvent(event);
 
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing, true);
@@ -91,6 +95,9 @@ void DownloadProgressBar::paintEvent(QPaintEvent *event)
     painter.drawPath(content_path);
 
     // draw text
+    if (!isEnabled()) {
+        painter.setOpacity(0.4);
+    }
     painter.setPen(Qt::white);
     painter.drawText(rect(), Qt::AlignCenter, m_message);
 }

@@ -26,14 +26,14 @@
 #ifndef DOWNLOADPROGRESSBAR_H
 #define DOWNLOADPROGRESSBAR_H
 
-#include <QFrame>
+#include <QWidget>
 
 #include "common.h"
 
 namespace dcc{
 namespace update{
 
-class DownloadProgressBar : public QFrame
+class DownloadProgressBar : public QWidget
 {
     Q_OBJECT
 
