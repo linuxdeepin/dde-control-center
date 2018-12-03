@@ -351,8 +351,10 @@ void Secret8021xSection::initEapMethodFastItems(QList<SettingsItem *> *itemList)
     }
     if (m_secretSetting->phase2AuthMethod() == NetworkManager::Security8021xSetting::AuthMethod::AuthMethodUnknown) {
         authMethod->setCurrent(AuthMethodStrMapFast.first());
-    } else {
+    } else if (AuthMethodStrMapFast.values().contains(m_secretSetting->phase2AuthMethod())) {
         authMethod->setCurrent(m_secretSetting->phase2AuthMethod());
+    } else {
+        authMethod->setCurrent(AuthMethodStrMapFast.first());
     }
 
     connect(provisioning, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestPage);
@@ -386,8 +388,11 @@ void Secret8021xSection::initEapMethodTtlsItems(QList<SettingsItem *> *itemList)
     }
     if (m_secretSetting->phase2AuthMethod() == NetworkManager::Security8021xSetting::AuthMethod::AuthMethodUnknown) {
         authMethod->setCurrent(AuthMethodStrMapTtls.first());
-    } else {
+    } else if (AuthMethodStrMapTtls.values().contains(m_secretSetting->phase2AuthMethod())) {
         authMethod->setCurrent(m_secretSetting->phase2AuthMethod());
+    }
+    else {
+        authMethod->setCurrent(AuthMethodStrMapTtls.first());
     }
 
     connect(authMethod, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestPage);
@@ -429,8 +434,11 @@ void Secret8021xSection::initEapMethodPeapItems(QList<SettingsItem *> *itemList)
     }
     if (m_secretSetting->phase2AuthMethod() == NetworkManager::Security8021xSetting::AuthMethod::AuthMethodUnknown) {
         authMethod->setCurrent(AuthMethodStrMapPeap.first());
-    } else {
+    } else if (AuthMethodStrMapPeap.values().contains(m_secretSetting->phase2AuthMethod())) {
         authMethod->setCurrent(m_secretSetting->phase2AuthMethod());
+    }
+    else {
+        authMethod->setCurrent(AuthMethodStrMapPeap.first());
     }
 
     connect(peapVersion, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestPage);
