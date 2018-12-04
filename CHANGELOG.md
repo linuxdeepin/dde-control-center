@@ -1,3 +1,18 @@
+<a name="4.7.9"></a>
+### 4.7.9 (2018-12-04)
+
+
+#### Bug Fixes
+
+* **Display:**  scale set failed ([e70ba3f3](https://github.com/linuxdeepin/dde-control-center/commit/e70ba3f3abafae9499e377a11aee5bb555858a3a))
+* **Power:**  disable power setting for not have battery ([3ebe3b14](https://github.com/linuxdeepin/dde-control-center/commit/3ebe3b146c59474d1029eb11107f685d3d5a1382))
+
+#### Features
+
+*   do not hide when clicking on the virtual keyboard ([d16d4ddf](https://github.com/linuxdeepin/dde-control-center/commit/d16d4ddf50a41321da9944220a3426da61bb693a))
+
+
+
 <a name="4.7.8"></a>
 ### 4.7.8 (2018-11-30)
 
