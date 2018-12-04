@@ -299,6 +299,9 @@ void IpvxSection::initForIpv4()
 
 void IpvxSection::initForIpv6()
 {
+    m_prefixIpv6->setTitle(tr("Prefix"));
+    m_prefixIpv6->spinBox()->setRange(0, 128);
+
     NetworkManager::Ipv6Setting::Ptr ipv6Setting = m_ipvxSetting.staticCast<NetworkManager::Ipv6Setting>();
 
     for (const QString &key : Ipv6ConfigMethodStrMap.keys()) {
@@ -331,8 +334,6 @@ void IpvxSection::initForIpv6()
         }
     }
 
-    m_prefixIpv6->setTitle(tr("Prefix"));
-    m_prefixIpv6->spinBox()->setRange(0, 128);
     appendItem(m_prefixIpv6);
 
     m_neverDefault->setChecked(ipv6Setting->neverDefault());
