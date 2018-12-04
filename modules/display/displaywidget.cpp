@@ -302,18 +302,16 @@ void DisplayWidget::onUiScaleChanged(const double scale)
 
 int DisplayWidget::converToSlider(const float value)
 {
-    if (value <= 1.0)
-        return 1;
-    else if (value <= 1.25)
-        return 2;
-    else if (value <= 1.5)
-        return 3;
-    else if (value <= 1.75)
-        return 4;
-    else if (value > 1.75)
-        return 5;
-    else
-        return 1;
+    int number = 1;
+    int value_int = (value * 100);
+    int number_int = 100;
+
+    do {
+        number_int += 25;
+        number++;
+    } while(number_int < value_int);
+
+    return number;
 }
 
 float DisplayWidget::converToScale(const int value)
