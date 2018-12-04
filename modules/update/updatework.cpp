@@ -83,6 +83,7 @@ UpdateWorker::UpdateWorker(UpdateModel* model, QObject *parent)
 
     connect(m_updateInter, &__Updater::AutoDownloadUpdatesChanged, m_model, &UpdateModel::setAutoDownloadUpdates);
     connect(m_updateInter, &__Updater::MirrorSourceChanged, m_model, &UpdateModel::setDefaultMirror);
+    connect(m_updateInter, &UpdateInter::AutoCheckUpdatesChanged, m_model, &UpdateModel::setAutoCheckUpdates);
 
     connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWorker::setOnBattery);
     connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWorker::setBatteryPercentage);
@@ -115,6 +116,7 @@ void UpdateWorker::activate()
 
     m_model->setAutoCleanCache(m_managerInter->autoClean());
     m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
+    m_model->setAutoCheckUpdates(m_updateInter->autoCheckUpdates());
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     m_model->setSourceCheck(m_lastoresessionHelper->sourceCheckEnabled());
 #endif
@@ -321,6 +323,11 @@ void UpdateWorker::downloadAndDistUpgrade()
 {
     m_baseProgress = 0.5;
     distUpgradeDownloadUpdates();
+}
+
+void UpdateWorker::setAutoCheckUpdates(const bool autocheckUpdates)
+{
+    m_updateInter->SetAutoCheckUpdates(autocheckUpdates);
 }
 
 void UpdateWorker::setAutoDownloadUpdates(const bool &autoDownload)

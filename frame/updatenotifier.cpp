@@ -44,6 +44,7 @@ UpdateNotifier::UpdateNotifier(QWidget *parent)
 {
     setFixedHeight(80);
     setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+    setVisible(false);
 
     m_content->setWordWrap(true);
     m_content->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
@@ -83,12 +84,18 @@ UpdateNotifier::UpdateNotifier(QWidget *parent)
 
     setLayout(mainLayout);
 
-    m_updaterInter->setSync(false);
-    updatablePkgsChanged(m_updaterInter->updatablePackages());
+    m_updaterInter->setSync(true);
+
     connect(m_updaterInter, &com::deepin::lastore::Updater::UpdatablePackagesChanged,
             this, &UpdateNotifier::updatablePkgsChanged);
 
+    connect(m_updaterInter, &com::deepin::lastore::Updater::AutoCheckUpdatesChanged, this, [=] {
+        updatablePkgsChanged(m_updaterInter->updatablePackages());
+    }, Qt::QueuedConnection);
+
     connect(m_closeButton, &DImageButton::clicked, this, &UpdateNotifier::ignoreUpdates);
+
+    updatablePkgsChanged(m_updaterInter->updatablePackages());
 }
 
 void UpdateNotifier::mouseReleaseEvent(QMouseEvent *event)
@@ -124,10 +131,11 @@ void UpdateNotifier::ignoreUpdates()
 
 void UpdateNotifier::updatablePkgsChanged(const QStringList &value)
 {
-    if (value.length() == 0) {
+    if (!m_updaterInter->autoCheckUpdates() || value.length() == 0) {
         setVisible(false);
         return;
-    }
+    };
+
     m_updatablePkgs = value;
 
     QStringList pkgs = m_settings->value(IgnoredPkgsKey).toStringList();

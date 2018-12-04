@@ -100,6 +100,9 @@ public:
     bool netselectExist() const;
     void setNetselectExist(bool netselectExist);
 
+    inline bool autoCheckUpdates() { return m_autoCheckUpdates; }
+    void setAutoCheckUpdates(bool autoCheckUpdates);
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
@@ -117,6 +120,7 @@ Q_SIGNALS:
     void upgradeProgressChanged(const double &upgradeProgress);
     void autoCleanCacheChanged(const bool autoCleanCache);
     void netselectExistChanged(const bool netselectExist);
+    void autoCheckUpdatesChanged(const bool autoCheckUpdates);
 
 private:
     UpdatesStatus m_status;
@@ -133,6 +137,7 @@ private:
     bool m_netselectExist;
     bool m_autoCleanCache;
     bool m_autoDownloadUpdates;
+    bool m_autoCheckUpdates;
     QString m_mirrorId;
     MirrorInfoList m_mirrorList;
     QMap<QString, int> m_mirrorSpeedInfo;

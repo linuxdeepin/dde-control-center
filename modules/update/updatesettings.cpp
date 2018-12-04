@@ -61,6 +61,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_autoCleanCache = new SwitchWidget;
     m_autoCleanCache->setTitle(tr("Auto clear package cache"));
 
+    m_autoCheckUpdate = new SwitchWidget;
+    m_autoCheckUpdate->setTitle(tr("Updates Notification"));
+
     m_autoDownloadSwitch = new SwitchWidget;
     m_autoDownloadSwitch->setTitle(tr("Auto-download Updates"));
 
@@ -83,6 +86,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 #endif
 
     ug->appendItem(m_autoCleanCache);
+    ug->appendItem(m_autoCheckUpdate);
     ug->appendItem(m_autoDownloadSwitch);
 
     layout->addWidget(ug);
@@ -109,6 +113,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     }
 
     connect(m_autoCleanCache, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCleanCache);
+    connect(m_autoCheckUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCheckUpdates);
     connect(m_autoDownloadSwitch, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoUpdate);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
@@ -139,7 +144,11 @@ void UpdateSettings::setModel(UpdateModel *model)
 
         connect(model, &UpdateModel::autoDownloadUpdatesChanged, this, setAutoDownload);
         connect(model, &UpdateModel::autoCleanCacheChanged, m_autoCleanCache, &SwitchWidget::setChecked);
+        connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckUpdate, &SwitchWidget::setChecked);
+        connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoDownloadSwitch, &SwitchWidget::setVisible);
 
+        m_autoDownloadSwitch->setVisible(model->autoCheckUpdates());
+        m_autoCheckUpdate->setChecked(model->autoCheckUpdates());
         m_autoCleanCache->setChecked(m_model->autoCleanCache());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK

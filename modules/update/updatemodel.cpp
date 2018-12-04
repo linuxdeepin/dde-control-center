@@ -216,6 +216,15 @@ void UpdateModel::setNetselectExist(bool netselectExist)
     Q_EMIT netselectExistChanged(netselectExist);
 }
 
+void UpdateModel::setAutoCheckUpdates(bool autoCheckUpdates)
+{
+    if (autoCheckUpdates == m_autoCheckUpdates) return;
+
+    m_autoCheckUpdates = autoCheckUpdates;
+
+    Q_EMIT autoCheckUpdatesChanged(autoCheckUpdates);
+}
+
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
 bool UpdateModel::sourceCheck() const
 {

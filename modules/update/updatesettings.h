@@ -50,6 +50,7 @@ Q_SIGNALS:
     void requestShowMirrorsView();
     void requestSetAutoUpdate(const bool &autoUpdate);
     void requestSetAutoCleanCache(const bool autoClean);
+    void requestSetAutoCheckUpdates(const bool autocheckUpdate);
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     void requestSetSourceCheck(const bool check);
 #endif
@@ -60,6 +61,7 @@ private:
     SwitchWidget *m_sourceCheck;
 #endif
     SwitchWidget *m_autoCleanCache;
+    SwitchWidget *m_autoCheckUpdate;
     SwitchWidget* m_autoDownloadSwitch;
     NextPageWidget* m_updateMirrors;
     bool m_isProfessional;

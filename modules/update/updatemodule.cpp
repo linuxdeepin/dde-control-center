@@ -151,6 +151,7 @@ void UpdateModule::onPushSettings()
         connect(m_settingsPage, &UpdateSettings::requestSetAutoUpdate, m_work, &UpdateWorker::setAutoDownloadUpdates);
         connect(m_settingsPage, &UpdateSettings::requestShowMirrorsView, this, &UpdateModule::onPushMirrorsView);
         connect(m_settingsPage, &UpdateSettings::requestSetAutoCleanCache, m_work, &UpdateWorker::setAutoCleanCache);
+        connect(m_settingsPage, &UpdateSettings::requestSetAutoCheckUpdates, m_work, &UpdateWorker::setAutoCheckUpdates);
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
         connect(m_settingsPage, &UpdateSettings::requestSetSourceCheck, m_work, &UpdateWorker::setSourceCheck);
 #endif
