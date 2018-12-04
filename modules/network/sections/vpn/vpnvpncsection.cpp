@@ -130,7 +130,7 @@ void VpnVPNCSection::saveSettings()
     m_dataMap.insert("IPSec secret-flags", QString::number(m_currentGroupPasswordType));
     if (m_currentGroupPasswordType == NetworkManager::Setting::SecretFlagType::None) {
         m_dataMap.insert("ipsec-secret-type", "save");
-        m_secretMap.insert("IPSec secret", m_password->text());
+        m_secretMap.insert("IPSec secret", m_groupPassword->text());
     } else if (m_currentGroupPasswordType == NetworkManager::Setting::SecretFlagType::NotSaved) {
         m_dataMap.insert("ipsec-secret-type", "ask");
         m_secretMap.remove("IPSec secret");
