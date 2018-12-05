@@ -129,6 +129,7 @@ bool IpvxSection::saveIpv4Settings()
     ipv4Setting->setDns(mDnsList);
 
     if (method == NetworkManager::Ipv4Setting::Automatic) {
+        ipv4Setting->setAddresses(QList<NetworkManager::IpAddress>());
         ipv4Setting->setIgnoreAutoDns(!mDnsList.isEmpty());
     }
 
@@ -163,6 +164,7 @@ bool IpvxSection::saveIpv6Settings()
     ipv6Setting->setDns(mDnsList);
 
     if (method == NetworkManager::Ipv6Setting::Automatic) {
+        ipv6Setting->setAddresses(QList<NetworkManager::IpAddress>());
         ipv6Setting->setIgnoreAutoDns(!mDnsList.isEmpty());
     }
 
