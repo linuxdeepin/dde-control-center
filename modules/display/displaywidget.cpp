@@ -306,10 +306,10 @@ int DisplayWidget::converToSlider(const float value)
     int value_int = (value * 100);
     int number_int = 100;
 
-    do {
+    while(number_int < value_int) {
         number_int += 25;
         number++;
-    } while(number_int < value_int);
+    };
 
     return number;
 }
