@@ -40,7 +40,6 @@ using namespace dcc::widgets;
 
 namespace dcc{
 namespace update{
-
 static QRegularExpression AnchorReg("<a href='(?<href>.*?)'>(?<content>.*?)</a>");
 
 bool UpdateItem::isAnchor(const QString &input)
@@ -59,6 +58,11 @@ QPair<QString, QString> UpdateItem::parseAnchor(const QString &input)
     }
 
     return ret;
+}
+
+QSize UpdateItem::sizeHint() const
+{
+    return QSize(width(), heightForWidth(width()));
 }
 
 const QString clearHTMLTags(const QString &text)
@@ -114,6 +118,7 @@ UpdateItem::UpdateItem(QFrame *parent)
     m_appChangelog->setOpenExternalLinks(true);
     m_appChangelog->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     m_appChangelog->setFocusPolicy(Qt::NoFocus);
+    m_appChangelog->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_details->setFlat(true);
     m_details->setText(tr("Details"));
@@ -161,6 +166,7 @@ UpdateItem::UpdateItem(QFrame *parent)
 //        qDebug() << QString("open website %1 to see release notes of %2").arg(m_anchorAddress).arg(m_anchorName);
 //        QDesktopServices::openUrl(m_anchorAddress);
 //    });
+    setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Expanding);
 }
 
 void UpdateItem::setAppInfo(const AppUpdateInfo &info)
@@ -193,11 +199,10 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 
     if (changelog != elidedText)
     {
-        setFixedHeight(80);
         m_iconLayout->setContentsMargins(0, 10, 0, 0);
         m_appChangelog->setText(elidedText);
     } else {
-        setFixedHeight(60);
+        setMinimumHeight(60);
         m_iconLayout->setContentsMargins(0, 0, 0, 0);
         m_appChangelog->setText(changelog);
         m_details->setVisible(false);
@@ -206,10 +211,10 @@ void UpdateItem::setAppInfo(const AppUpdateInfo &info)
 
 QString UpdateItem::elidedChangelog() const
 {
-    const QString text = QString(clearHTMLTags(m_info.m_changelog)).replace("\n", "<br>");
+    const QString text = QString(clearHTMLTags(m_info.m_changelog)).replace("\n", "");
 
     const QFontMetrics fm(m_appChangelog->font());
-    const QRect rect(0, 0, 200, fm.height() * 2);
+    const QRect rect(0, 0, 200, fontMetrics().height() * 2);
     const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
 
     if (rect.contains(fm.boundingRect(rect, textFlag, text)))
@@ -234,20 +239,11 @@ QString UpdateItem::elidedChangelog() const
 
 void UpdateItem::expandChangelog()
 {
-    const int textFlag = Qt::AlignTop | Qt::AlignLeft | Qt::TextWordWrap;
-
-    QFontMetrics fm = m_appChangelog->fontMetrics();
-    const QRect rect = fm.boundingRect(m_appChangelog->rect(), textFlag, clearHTMLTags(m_info.m_changelog));
-    const int heightDelta = rect.height() - m_appChangelog->height();
-
     const QString stylesheet = "<style type=\"text/css\">"
                                "a { color: #0082FA; }"
                                "</style> ";
 
     m_appChangelog->setText(stylesheet + m_info.m_changelog.replace('\n', "<br>"));
-    m_appChangelog->setFixedHeight(rect.height() + 1);
-
-    setFixedHeight(height() + heightDelta + 1);
 }
 
 }

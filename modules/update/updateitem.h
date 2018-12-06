@@ -56,6 +56,8 @@ public:
     static bool isAnchor(const QString &input);
     static QPair<QString, QString> parseAnchor(const QString &input);
 
+    QSize sizeHint() const override;
+
 private:
     AppUpdateInfo m_info;
 
