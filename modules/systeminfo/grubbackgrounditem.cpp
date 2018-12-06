@@ -36,6 +36,8 @@
 namespace dcc{
 namespace systeminfo{
 
+static const QStringList mimeTypeList { "image/jpg", "image/jpeg", "image/png", "image/tiff", "image/gif", "image/bmp" };
+
 GrubBackgroundItem::GrubBackgroundItem(QFrame *parent)
     :SettingsItem(parent)
 {
@@ -80,7 +82,7 @@ void GrubBackgroundItem::dragEnterEvent(QDragEnterEvent *e)
     Q_FOREACH (QUrl url, e->mimeData()->urls()) {
         QString mime = b.mimeTypeForUrl(url).name();
 
-        if(!mime.contains("image/"))
+        if(!mimeTypeList.contains(mime))
             continue;
 
         if(e->mimeData()->hasUrls()){
