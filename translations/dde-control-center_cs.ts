@@ -820,7 +820,7 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="113"/>
         <location filename="../frame/navigationbar.cpp" line="197"/>
-        <location filename="../modules/display/displaywidget.cpp" line="113"/>
+        <location filename="../modules/display/displaywidget.cpp" line="117"/>
         <source>Display</source>
         <translation>Zobrazení</translation>
     </message>
@@ -850,7 +850,7 @@
         <translation>Jas</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="266"/>
+        <location filename="../modules/display/displaywidget.cpp" line="270"/>
         <source>Wireless Screen Projection</source>
         <translation>Bezdrátové promítání na plátno</translation>
     </message>
@@ -3315,7 +3315,7 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="115"/>
         <location filename="../frame/navigationbar.cpp" line="199"/>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="75"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="77"/>
         <source>Personalization</source>
         <translation>Přizpůsobení</translation>
     </message>
@@ -3325,17 +3325,17 @@
         <translation>Průhlednost</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="66"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Enable window effect</source>
         <translation>Povolit okenní efekt</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="70"/>
         <source>Theme</source>
         <translation>Vzhled</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="69"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="71"/>
         <source>Font</source>
         <translation>Písmo</translation>
     </message>
@@ -3832,26 +3832,31 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="65"/>
+        <source>Updates Notification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="68"/>
         <source>Auto-download Updates</source>
         <translation>Automaticky stáhnout aktualizace</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="67"/>
+        <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>Aktualizace budou automaticky staženy v bezdrátové nebo drátové síti</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="74"/>
+        <location filename="../modules/update/updatesettings.cpp" line="77"/>
         <source>System source detection</source>
         <translation>Rozpoznání systémového zdroje</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="78"/>
+        <location filename="../modules/update/updatesettings.cpp" line="81"/>
         <source>Prompt the notification if system update mirror has been modified</source>
         <translation>Vyvolat upozornění, pokud bylo zrcadlo pro aktualizaci systému změněno</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="95"/>
+        <location filename="../modules/update/updatesettings.cpp" line="99"/>
         <source>Switch Mirror</source>
         <translation>Přepnout obrazovku</translation>
     </message>
@@ -3873,12 +3878,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="227"/>
+        <location filename="../modules/update/updatework.cpp" line="239"/>
         <source>Patches</source>
         <translation>Opravy</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="228"/>
+        <location filename="../modules/update/updatework.cpp" line="240"/>
         <source>System patches.</source>
         <translation>Opravy pro systém.</translation>
     </message>

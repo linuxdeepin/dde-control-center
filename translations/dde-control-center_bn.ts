@@ -820,7 +820,7 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="113"/>
         <location filename="../frame/navigationbar.cpp" line="197"/>
-        <location filename="../modules/display/displaywidget.cpp" line="113"/>
+        <location filename="../modules/display/displaywidget.cpp" line="117"/>
         <source>Display</source>
         <translation>ডিসপ্লে</translation>
     </message>
@@ -850,7 +850,7 @@
         <translation>উজ্জ্বলতা</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="266"/>
+        <location filename="../modules/display/displaywidget.cpp" line="270"/>
         <source>Wireless Screen Projection</source>
         <translation>তারবিহীন পর্দা প্রক্ষেপণ</translation>
     </message>
@@ -3318,7 +3318,7 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="115"/>
         <location filename="../frame/navigationbar.cpp" line="199"/>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="75"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="77"/>
         <source>Personalization</source>
         <translation>নিজস্বকরণ</translation>
     </message>
@@ -3328,17 +3328,17 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="66"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Enable window effect</source>
         <translation>উইন্ডো ইফেক্ট চালু করুন</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="70"/>
         <source>Theme</source>
         <translation>থিম</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="69"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="71"/>
         <source>Font</source>
         <translation>ফন্ট</translation>
     </message>
@@ -3835,26 +3835,31 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="65"/>
+        <source>Updates Notification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="68"/>
         <source>Auto-download Updates</source>
         <translation>আপডেট গুলো স্বয়ংক্রিয়ভাবে ডাউনলোড করুন</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="67"/>
+        <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>আপডেটগুলি ওয়ারলেস বা ওয়্যার্ড নেটওয়ার্কের মধ্যে স্বয়ংক্রিয়ভাবে ডাউনলোড হবে</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="74"/>
+        <location filename="../modules/update/updatesettings.cpp" line="77"/>
         <source>System source detection</source>
         <translation>সিস্টেমের উত্স সনাক্তকরণ</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="78"/>
+        <location filename="../modules/update/updatesettings.cpp" line="81"/>
         <source>Prompt the notification if system update mirror has been modified</source>
         <translation>যদি সিস্টেম আপডেটের মিরর পরিবর্তন করা হয়ে থাকে তবে বিজ্ঞপ্তিটি দেখান</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="95"/>
+        <location filename="../modules/update/updatesettings.cpp" line="99"/>
         <source>Switch Mirror</source>
         <translation>মিরর পরিবর্তন করুন</translation>
     </message>
@@ -3876,12 +3881,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="227"/>
+        <location filename="../modules/update/updatework.cpp" line="239"/>
         <source>Patches</source>
         <translation>প্যাচ সমূহ</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="228"/>
+        <location filename="../modules/update/updatework.cpp" line="240"/>
         <source>System patches.</source>
         <translation>সিস্টেমের প্যাচ সমূহ</translation>
     </message>

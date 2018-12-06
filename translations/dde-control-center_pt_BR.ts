@@ -820,7 +820,7 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="113"/>
         <location filename="../frame/navigationbar.cpp" line="197"/>
-        <location filename="../modules/display/displaywidget.cpp" line="113"/>
+        <location filename="../modules/display/displaywidget.cpp" line="117"/>
         <source>Display</source>
         <translation>Tela</translation>
     </message>
@@ -850,7 +850,7 @@
         <translation>Brilho</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="266"/>
+        <location filename="../modules/display/displaywidget.cpp" line="270"/>
         <source>Wireless Screen Projection</source>
         <translation>Projeção de tela wireless</translation>
     </message>
@@ -3315,7 +3315,7 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="115"/>
         <location filename="../frame/navigationbar.cpp" line="199"/>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="75"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="77"/>
         <source>Personalization</source>
         <translation>Personalização</translation>
     </message>
@@ -3325,17 +3325,17 @@
         <translation>Transparência</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="66"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Enable window effect</source>
         <translation>Ativar efeito na janela</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="70"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="69"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="71"/>
         <source>Font</source>
         <translation>Fonte</translation>
     </message>
@@ -3832,26 +3832,31 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="65"/>
+        <source>Updates Notification</source>
+        <translation>Notificação de Atualizações</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="68"/>
         <source>Auto-download Updates</source>
         <translation>Baixar atualizações automaticamente</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="67"/>
+        <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>As atualizações serão baixadas automaticamente em redes cabeadas ou wireless</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="74"/>
+        <location filename="../modules/update/updatesettings.cpp" line="77"/>
         <source>System source detection</source>
         <translation>Detecção da fonte do sistema</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="78"/>
+        <location filename="../modules/update/updatesettings.cpp" line="81"/>
         <source>Prompt the notification if system update mirror has been modified</source>
         <translation>Mostrar notificação se o espelho de atualização do sistema tiver sido modificado</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="95"/>
+        <location filename="../modules/update/updatesettings.cpp" line="99"/>
         <source>Switch Mirror</source>
         <translation>Alterar mirror</translation>
     </message>
@@ -3873,12 +3878,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="227"/>
+        <location filename="../modules/update/updatework.cpp" line="239"/>
         <source>Patches</source>
         <translation>Correções</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="228"/>
+        <location filename="../modules/update/updatework.cpp" line="240"/>
         <source>System patches.</source>
         <translation>Correções do sistema.</translation>
     </message>

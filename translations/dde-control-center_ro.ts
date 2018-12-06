@@ -19,17 +19,17 @@
     <message>
         <location filename="../modules/display/displaycontrolmodel.cpp" line="99"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation type="unfinished"/>
+        <translation>Copiați conținutul ecranului pe unul sau mai multe ecrane</translation>
     </message>
     <message>
         <location filename="../modules/display/displaycontrolmodel.cpp" line="101"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>Extindeți conținutul ecranului pentru a afișa conținuturi diferite pe ecrane diferite</translation>
     </message>
     <message>
         <location filename="../modules/display/displaycontrolmodel.cpp" line="103"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Conținutul ecranului este afișat doar pe 1%</translation>
     </message>
 </context>
 <context>
@@ -45,7 +45,7 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="148"/>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Navigare</translation>
     </message>
 </context>
 <context>
@@ -53,7 +53,7 @@
     <message>
         <location filename="../frame/navigationbar.cpp" line="235"/>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Navigare</translation>
     </message>
 </context>
 <context>
@@ -66,7 +66,7 @@
     <message>
         <location filename="../frame/notify/notifydelegate.cpp" line="213"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Alaltăieri</translation>
     </message>
     <message numerus="yes">
         <location filename="../frame/notify/notifydelegate.cpp" line="219"/>
@@ -79,12 +79,12 @@
     <message>
         <location filename="../frame/notify/notifywidget.cpp" line="33"/>
         <source>No system notifications</source>
-        <translation type="unfinished"/>
+        <translation>Nicio notificare de sistem</translation>
     </message>
     <message>
         <location filename="../frame/notify/notifywidget.cpp" line="35"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>Ștergeți tot</translation>
     </message>
 </context>
 <context>
@@ -92,12 +92,12 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Actualizările s-au instalat și trebuie să repornim sistemul, doriți să repornim acum?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>Vă rugăm să vă asigurați că ați salvat toate datele mai întâi</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
@@ -112,7 +112,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Repornire</translation>
     </message>
 </context>
 <context>
@@ -120,7 +120,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation type="unfinished"/>
+        <translation>Click stânga pentru a roti și click dreapta pentru a ieși</translation>
     </message>
 </context>
 <context>
@@ -128,12 +128,12 @@
     <message>
         <location filename="../frame/settingswidget.cpp" line="79"/>
         <source>Reset all settings</source>
-        <translation type="unfinished"/>
+        <translation>Resetați toate setările</translation>
     </message>
     <message>
         <location filename="../frame/settingswidget.cpp" line="89"/>
         <source>All Settings</source>
-        <translation type="unfinished"/>
+        <translation>Toate setările</translation>
     </message>
 </context>
 <context>
@@ -141,12 +141,12 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Actualizări</translation>
     </message>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="38"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Actualizări detectate, apăsați pentru a le vizualiza</translation>
     </message>
 </context>
 <context>
@@ -154,12 +154,12 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>Părăsiți domeniul</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Alăturați-vă domeniului</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="62"/>
@@ -187,27 +187,27 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
-        <translation type="unfinished"/>
+        <translation>Modificați avatarul</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>Modificați numele</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
-        <translation type="unfinished"/>
+        <translation>Modificați parola</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>Autentificare automată</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Autentificare fără parolă</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -217,12 +217,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>Nu se poate șterge, utilizatorul actual este autentificat</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Parolă cu amprentă</translation>
     </message>
 </context>
 <context>
@@ -232,22 +232,22 @@
         <location filename="../frame/navigationbar.cpp" line="196"/>
         <location filename="../modules/accounts/accountswidget.cpp" line="57"/>
         <source>Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Conturi</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
-        <translation type="unfinished"/>
+        <translation>Creați un cont</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>Părăsiți domeniul</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Alăturați-vă domeniului</translation>
     </message>
 </context>
 <context>
@@ -285,7 +285,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="406"/>
         <source>Password not match.</source>
-        <translation type="unfinished"/>
+        <translation>Parolele nu se potrivesc</translation>
     </message>
 </context>
 <context>
@@ -293,12 +293,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Adăugați o amprentă</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>Reintroduceți</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="56"/>
@@ -308,22 +308,22 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Se identifică amprenta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
+        <translation>Nu s-a reușit identificarea amprentei, poziționați-vă degetul pe senzorul de amprente, trageți-l de sus până jos, apoi retrageți degetul</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>Adăugat cu succes</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation type="unfinished"/>
+        <translation>Poziționați-vă degetul pe senzorul de amprente, trageți-l de sus până jos, retrageți degetul apoi repetați pașii</translation>
     </message>
 </context>
 <context>
@@ -338,7 +338,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="54"/>
         <location filename="../modules/accounts/createpage.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="53"/>
@@ -348,7 +348,7 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="56"/>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation>Reintroduceți parola</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="65"/>
@@ -358,22 +358,22 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="66"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Creați</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="85"/>
         <source>New Account</source>
-        <translation type="unfinished"/>
+        <translation>Cont nou</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="140"/>
         <source>Username can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>Numele de utilizator nu poate fi lăsat gol</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="143"/>
         <source>Password can&apos;t be empty.</source>
-        <translation type="unfinished"/>
+        <translation>Parola nu poate fi lăsată goală</translation>
     </message>
 </context>
 <context>
@@ -381,32 +381,32 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>Listă de amprente</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Parolă cu amprentă</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Adăugați o amprentă</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Ștergeți amprenta</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="56"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation type="unfinished"/>
+        <translation>Parola prin amprentă este utilizată în autentificarea în sistem, autorizarea aplicațiilor și alte procese. Scanați-vă amprenta atunci când vi se cere parola.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Amprentă</translation>
     </message>
 </context>
 <context>
@@ -414,7 +414,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>Nume complet:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -424,7 +424,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>Setări pentru nume</translation>
     </message>
 </context>
 <context>
@@ -432,7 +432,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
         <source>Current Password</source>
-        <translation type="unfinished"/>
+        <translation>Parola actuală</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
@@ -449,7 +449,7 @@
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="56"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
@@ -459,7 +459,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
         <source>Accept</source>
-        <translation type="unfinished"/>
+        <translation>Acceptă</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="105"/>
@@ -477,12 +477,12 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>Permisiunea administratorului este necesară pentru a elimina un cont</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>Ștergeți directorul contului</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="73"/>
@@ -510,7 +510,7 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="67"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>Activați bluetooth pentru a descoperi dispozitive din apropiere (boxă, tastatură, mouse)</translation>
     </message>
 </context>
 <context>
@@ -546,7 +546,7 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Neconectat</translation>
     </message>
 </context>
 <context>
@@ -554,7 +554,7 @@
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation type="unfinished"/>
+        <translation>PIN-ul pentru conectarea la dispozitivul bluetooth este:</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/pincodedialog.cpp" line="49"/>
@@ -572,7 +572,7 @@
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="63"/>
         <source>Change Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Modificați configurările pentru timp</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datesettings.cpp" line="68"/>
@@ -590,17 +590,17 @@
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="56"/>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>An</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="59"/>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Lună</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Zi</translation>
     </message>
 </context>
 <context>
@@ -610,12 +610,12 @@
         <location filename="../frame/navigationbar.cpp" line="204"/>
         <location filename="../modules/datetime/datetime.cpp" line="57"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Ora și data</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
-        <translation type="unfinished"/>
+        <translation>Sincronizare automată</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="51"/>
@@ -625,17 +625,17 @@
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="61"/>
         <source>Change System Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Modifică fusul orar al sistemului</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="69"/>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurări pentru timp</translation>
     </message>
     <message>
         <location filename="../modules/datetime/datetime.cpp" line="74"/>
         <source>Timezone List</source>
-        <translation type="unfinished"/>
+        <translation>Lista fusurilor orare</translation>
     </message>
 </context>
 <context>
@@ -658,7 +658,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="176"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Schimbă fusul orar</translation>
     </message>
 </context>
 <context>
@@ -666,7 +666,7 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="107"/>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>Mâine</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="109"/>
@@ -681,12 +681,12 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="116"/>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 ore mai devreme decât ora locală</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="118"/>
         <source>%1 hours late than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 ore mai târziu decât ora locală</translation>
     </message>
 </context>
 <context>
@@ -701,7 +701,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="55"/>
         <source>Browser</source>
-        <translation>Browser-ul</translation>
+        <translation>Browser</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="56"/>
@@ -731,7 +731,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="61"/>
         <source>Terminal</source>
-        <translation>Terminalul</translation>
+        <translation>Terminal</translation>
     </message>
 </context>
 <context>
@@ -744,7 +744,7 @@
     <message>
         <location filename="../modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>Deschide un fișier de pe Desktop</translation>
     </message>
 </context>
 <context>
@@ -766,17 +766,17 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="81"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Mod de noapte</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="86"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation type="unfinished"/>
+        <translation>Culoarea ecranului va fi ajustată automat, cu ajutorul locației dumneavoastră, pentru a vă proteja ochii</translation>
     </message>
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="95"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Luminozitate automată</translation>
     </message>
 </context>
 <context>
@@ -784,22 +784,22 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="43"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Modificați</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="45"/>
         <source>Delete</source>
-        <translation>Șterge</translation>
+        <translation>Ștergeți</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="48"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation type="unfinished"/>
+        <translation>Vă rugăm să treceți la modul actual înainte de a modifica setările</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="50"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation type="unfinished"/>
+        <translation>Vă rugăm să treceți la alt mod înainte de a șterge setările</translation>
     </message>
 </context>
 <context>
@@ -807,12 +807,12 @@
     <message>
         <location filename="../modules/display/displaymodule.cpp" line="225"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>Setările mele %1</translation>
     </message>
     <message>
         <location filename="../modules/display/displaymodule.cpp" line="279"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Proiectarea ecranului prin conexiune fără fir</translation>
     </message>
 </context>
 <context>
@@ -820,19 +820,19 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="113"/>
         <location filename="../frame/navigationbar.cpp" line="197"/>
-        <location filename="../modules/display/displaywidget.cpp" line="113"/>
+        <location filename="../modules/display/displaywidget.cpp" line="117"/>
         <source>Display</source>
         <translation>Afişaj</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="47"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Redimensionați afișajul</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
         <source>Rotate</source>
-        <translation type="unfinished"/>
+        <translation>Rotiți imaginea</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="58"/>
@@ -850,9 +850,9 @@
         <translation>Luminozitate</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="266"/>
+        <location filename="../modules/display/displaywidget.cpp" line="270"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Proiectarea ecranului prin conexiune fără fir</translation>
     </message>
 </context>
 <context>
@@ -860,12 +860,12 @@
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="43"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Se scanează dispozitivele, vă rugăm așteptați...</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="44"/>
         <source>No available device found</source>
-        <translation type="unfinished"/>
+        <translation>Nu s-a descoperit niciun dispozitiv valabil</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastnodevicewidget.cpp" line="47"/>
@@ -878,7 +878,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="51"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation type="unfinished"/>
+        <translation>Conexiunea WiFi va fi dezactivată când proiectarea ecranului va începe</translation>
     </message>
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="55"/>
@@ -888,7 +888,7 @@
     <message>
         <location filename="../modules/display/miracastsettings.cpp" line="69"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>Lista dispozitivelor</translation>
     </message>
 </context>
 <context>
@@ -939,7 +939,7 @@
     <message>
         <location filename="../modules/display/monitorsettingdialog.cpp" line="359"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>(Recomandat)</translation>
     </message>
 </context>
 <context>
@@ -952,7 +952,7 @@
     <message>
         <location filename="../modules/display/resolutiondetailpage.cpp" line="80"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>(Recomandat)</translation>
     </message>
 </context>
 <context>
@@ -971,7 +971,7 @@
         <location filename="../modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="64"/>
@@ -991,12 +991,12 @@
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="116"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Această scurtătură este în conflict cu %1, apăsați pe Adaugă pentru a face această scurtătură valabilă imediat</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customcontent.cpp" line="171"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>Alege un fișier</translation>
     </message>
 </context>
 <context>
@@ -1010,7 +1010,7 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="60"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="71"/>
@@ -1035,12 +1035,12 @@
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="120"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Această scurtătură este în conflict cu %1, apăsați pe Adaugă pentru a face această scurtătură valabilă imediat</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customedit.cpp" line="161"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>Alege un fișier</translation>
     </message>
 </context>
 <context>
@@ -1048,12 +1048,12 @@
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Scurtătură</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="105"/>
         <source>Please enter a shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Vă rugăm, introduceți o scurtătură</translation>
     </message>
 </context>
 <context>
@@ -1067,7 +1067,7 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>Comutați între (mai multe) aspecte de tastatură</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="88"/>
@@ -1100,27 +1100,27 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>Scurt</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Lung</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="65"/>
         <source>Repeat Rate</source>
-        <translation>Rată repetare</translation>
+        <translation>Rată de repetare</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Încet</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Repede</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="79"/>
@@ -1150,7 +1150,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Scurtătură</translation>
     </message>
 </context>
 <context>
@@ -1313,12 +1313,12 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Încet</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Repede</translation>
     </message>
 </context>
 <context>
@@ -1365,7 +1365,7 @@
         <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
         <location filename="../modules/network/chainsproxypage.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="56"/>
@@ -1611,7 +1611,7 @@
         <location filename="../modules/network/sections/ipvxsection.cpp" line="227"/>
         <location filename="../modules/network/sections/ipvxsection.cpp" line="292"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/ipvxsection.cpp" line="228"/>
@@ -1820,7 +1820,7 @@
         <location filename="../modules/network/sections/pppoesection.cpp" line="79"/>
         <location filename="../modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/pppoesection.cpp" line="82"/>
@@ -2101,7 +2101,7 @@
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="216"/>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="224"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="302"/>
@@ -2185,7 +2185,7 @@
     <message>
         <location filename="../modules/network/sections/secrethotspotsection.cpp" line="113"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secrethotspotsection.cpp" line="143"/>
@@ -2236,7 +2236,7 @@
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="121"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="163"/>
@@ -2501,7 +2501,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="85"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
@@ -2621,7 +2621,7 @@
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="286"/>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="291"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="142"/>
@@ -2852,7 +2852,7 @@
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="170"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="157"/>
@@ -2937,7 +2937,7 @@
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="119"/>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="129"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="118"/>
@@ -3001,7 +3001,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="153"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
@@ -3141,7 +3141,7 @@
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="186"/>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="196"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
@@ -3236,7 +3236,7 @@
     <message>
         <location filename="../modules/network/sections/wirelesssection.cpp" line="107"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Necesar</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/wirelesssection.cpp" line="110"/>
@@ -3315,7 +3315,7 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="115"/>
         <location filename="../frame/navigationbar.cpp" line="199"/>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="75"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="77"/>
         <source>Personalization</source>
         <translation>Personalizare</translation>
     </message>
@@ -3325,17 +3325,17 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="66"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Enable window effect</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="70"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="69"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="71"/>
         <source>Font</source>
         <translation>Fontul</translation>
     </message>
@@ -3658,7 +3658,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="82"/>
         <location filename="../modules/update/mirroritem.cpp" line="129"/>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Încet</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="84"/>
@@ -3670,7 +3670,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="86"/>
         <location filename="../modules/update/mirroritem.cpp" line="131"/>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Repede</translation>
     </message>
 </context>
 <context>
@@ -3832,26 +3832,31 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="65"/>
+        <source>Updates Notification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="68"/>
         <source>Auto-download Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="67"/>
+        <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="74"/>
+        <location filename="../modules/update/updatesettings.cpp" line="77"/>
         <source>System source detection</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="78"/>
+        <location filename="../modules/update/updatesettings.cpp" line="81"/>
         <source>Prompt the notification if system update mirror has been modified</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="95"/>
+        <location filename="../modules/update/updatesettings.cpp" line="99"/>
         <source>Switch Mirror</source>
         <translation type="unfinished"/>
     </message>
@@ -3873,12 +3878,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="227"/>
+        <location filename="../modules/update/updatework.cpp" line="239"/>
         <source>Patches</source>
         <translation>Corecţii</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="228"/>
+        <location filename="../modules/update/updatework.cpp" line="240"/>
         <source>System patches.</source>
         <translation type="unfinished"/>
     </message>

@@ -71,7 +71,7 @@
     <message numerus="yes">
         <location filename="../frame/notify/notifydelegate.cpp" line="219"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n hari(s) yang lalu</numerusform></translation>
     </message>
 </context>
 <context>
@@ -776,7 +776,7 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="95"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Auto-Cerah</translation>
     </message>
 </context>
 <context>
@@ -820,7 +820,7 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="113"/>
         <location filename="../frame/navigationbar.cpp" line="197"/>
-        <location filename="../modules/display/displaywidget.cpp" line="113"/>
+        <location filename="../modules/display/displaywidget.cpp" line="117"/>
         <source>Display</source>
         <translation>Paparan</translation>
     </message>
@@ -850,7 +850,7 @@
         <translation>Kecerahan</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="266"/>
+        <location filename="../modules/display/displaywidget.cpp" line="270"/>
         <source>Wireless Screen Projection</source>
         <translation>Unjuran Skrin Tanpa Wayar</translation>
     </message>
@@ -1437,17 +1437,17 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="338"/>
         <source>Wired Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Sambungan Berwayar %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="342"/>
         <source>Wireless Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Sambungan Tanpa Wayar %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="346"/>
         <source>PPPoE Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Sambungan PPPoE %1</translation>
     </message>
 </context>
 <context>
@@ -1455,7 +1455,7 @@
     <message>
         <location filename="../modules/network/connectionhotspoteditpage.cpp" line="47"/>
         <source>hotspot</source>
-        <translation type="unfinished"/>
+        <translation>kawasan khas</translation>
     </message>
 </context>
 <context>
@@ -1468,32 +1468,32 @@
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
         <source>VPN L2TP %1</source>
-        <translation type="unfinished"/>
+        <translation>L2TP VPN %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
         <source>VPN PPTP %1</source>
-        <translation type="unfinished"/>
+        <translation>PPTP VPN %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="165"/>
         <source>VPN VPNC %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN VPNC %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="169"/>
         <source>VPN OpenVPN %1</source>
-        <translation type="unfinished"/>
+        <translation>OpenVPN VPN %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="173"/>
         <source>VPN StrongSwan %1</source>
-        <translation type="unfinished"/>
+        <translation>StrongSwan VPN %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="177"/>
         <source>VPN OpenConnect %1</source>
-        <translation type="unfinished"/>
+        <translation>OpenConnect VPN %1</translation>
     </message>
 </context>
 <context>
@@ -1560,12 +1560,12 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation>Tetapan Hotspot</translation>
+        <translation>Tetapan Kawasan Khas</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>Kawasan Khas</translation>
     </message>
 </context>
 <context>
@@ -1654,7 +1654,7 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="136"/>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>Kawasan Khas</translation>
     </message>
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="141"/>
@@ -1776,7 +1776,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="252"/>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>Kawasan Khas</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="257"/>
@@ -2065,7 +2065,7 @@
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="218"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Pilihan Pwd</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="31"/>
@@ -2170,7 +2170,7 @@
     <message>
         <location filename="../modules/network/sections/secrethotspotsection.cpp" line="100"/>
         <source>WEP 40/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/128-bit</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secrethotspotsection.cpp" line="101"/>
@@ -2216,7 +2216,7 @@
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>WEP 40/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/128-bit</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="108"/>
@@ -2425,7 +2425,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
         <source>NAT Traversal Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mod Penyusuran NAT</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="194"/>
@@ -2592,7 +2592,7 @@
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="230"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Pilihan Pwd</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="285"/>
@@ -2947,7 +2947,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Pilihan Pwd</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="128"/>
@@ -3046,17 +3046,17 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable custom cipher proposals</source>
-        <translation type="unfinished"/>
+        <translation>Benarkan saranan sifer suai</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
         <source>IKE</source>
-        <translation type="unfinished"/>
+        <translation>IKE</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="196"/>
         <source>ESP</source>
-        <translation type="unfinished"/>
+        <translation>ESP</translation>
     </message>
 </context>
 <context>
@@ -3152,7 +3152,7 @@
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Pilihan Pwd</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
@@ -3213,7 +3213,7 @@
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="63"/>
         <source>Close hotspot</source>
-        <translation>Tutup Hotspot</translation>
+        <translation>Tutup Kawasan Khas</translation>
     </message>
     <message>
         <location filename="../modules/network/wirelesspage.cpp" line="66"/>
@@ -3315,27 +3315,27 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="115"/>
         <location filename="../frame/navigationbar.cpp" line="199"/>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="75"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="77"/>
         <source>Personalization</source>
         <translation>Penampilan</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="46"/>
         <source>Transparency</source>
-        <translation type="unfinished"/>
+        <translation>Kelutsinaran</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="66"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Enable window effect</source>
         <translation>Benarkan kesan tetingkap</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="70"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="69"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="71"/>
         <source>Font</source>
         <translation>Fon</translation>
     </message>
@@ -3541,12 +3541,12 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="78"/>
         <source>You can click the option in boot menu to set it as the first boot, and drag and drop a picture to replace the background.</source>
-        <translation type="unfinished"/>
+        <translation>Anda boleh klik pilihan dalam menu but untuk tetapkannya sebagai but pertama, kemudian seret dan lepas satu gambar untuk gantikan latar belakang.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="82"/>
         <source>Switch theme on to view it in boot menu.</source>
-        <translation type="unfinished"/>
+        <translation>Tukar tema untuk melihatnya di dalam menu but.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="102"/>
@@ -3619,7 +3619,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Perjanjian Lesen Pengguna Akhir</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="128"/>
@@ -3637,7 +3637,7 @@
     <message>
         <location filename="../modules/systeminfo/userlicense.cpp" line="15"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Perjanjian Lesen Pengguna Akhir</translation>
     </message>
 </context>
 <context>
@@ -3777,7 +3777,7 @@
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%s kemaskini(s) aplikasi dikesan</numerusform></translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
@@ -3787,7 +3787,7 @@
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="266"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>Edisi sistem baharu dan %n kemaskini aplikasi(s) dikesan</numerusform></translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="273"/>
@@ -3832,26 +3832,31 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="65"/>
+        <source>Updates Notification</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="68"/>
         <source>Auto-download Updates</source>
         <translation>Auto-muat turun Kemaskini</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="67"/>
+        <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>Kemaskini akan diauto-muat turun dengan rangkaian tanpa wayar atau berwayar</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="74"/>
+        <location filename="../modules/update/updatesettings.cpp" line="77"/>
         <source>System source detection</source>
         <translation>Pengesanan sumber sistem</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="78"/>
+        <location filename="../modules/update/updatesettings.cpp" line="81"/>
         <source>Prompt the notification if system update mirror has been modified</source>
         <translation>Maklumkan pemberitahuan jika cermin kemaskini sistem telah diubahsuai</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="95"/>
+        <location filename="../modules/update/updatesettings.cpp" line="99"/>
         <source>Switch Mirror</source>
         <translation>Tukar Cermin</translation>
     </message>
@@ -3873,12 +3878,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="227"/>
+        <location filename="../modules/update/updatework.cpp" line="239"/>
         <source>Patches</source>
         <translation>Tampalan</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="228"/>
+        <location filename="../modules/update/updatework.cpp" line="240"/>
         <source>System patches.</source>
         <translation>Tampakan sistem.</translation>
     </message>

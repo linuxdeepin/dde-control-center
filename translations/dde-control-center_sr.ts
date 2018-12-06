@@ -477,7 +477,7 @@
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Administrator permission required to delete account</source>
-        <translation>Администраторска права неопходна за брисање налога</translation>
+        <translation>Администраторска дозвола неопходна за брисање налога</translation>
     </message>
     <message>
         <location filename="../modules/accounts/removeuserdialog.cpp" line="67"/>
@@ -541,12 +541,12 @@
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
-        <translation>Повезано</translation>
+        <translation>Повезани сте</translation>
     </message>
     <message>
         <location filename="../modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
-        <translation>Није повезано</translation>
+        <translation>Нисте повезани</translation>
     </message>
 </context>
 <context>
@@ -820,7 +820,7 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="113"/>
         <location filename="../frame/navigationbar.cpp" line="197"/>
-        <location filename="../modules/display/displaywidget.cpp" line="113"/>
+        <location filename="../modules/display/displaywidget.cpp" line="117"/>
         <source>Display</source>
         <translation>Екран</translation>
     </message>
@@ -850,7 +850,7 @@
         <translation>Осветљење</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaywidget.cpp" line="266"/>
+        <location filename="../modules/display/displaywidget.cpp" line="270"/>
         <source>Wireless Screen Projection</source>
         <translation>Бежична пројекција екрана</translation>
     </message>
@@ -896,7 +896,7 @@
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="48"/>
         <source>Recognize</source>
-        <translation>препознај</translation>
+        <translation>Препознај</translation>
     </message>
     <message>
         <location filename="../modules/display/monitorcontrolwidget.cpp" line="55"/>
@@ -1048,7 +1048,7 @@
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcut</source>
-        <translation>Пречице</translation>
+        <translation>Пречица</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/customitem.cpp" line="105"/>
@@ -1150,7 +1150,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcut</source>
-        <translation>Пречица</translation>
+        <translation>Пречице</translation>
     </message>
 </context>
 <context>
@@ -1166,7 +1166,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="50"/>
         <source>Please Reset Shortcut</source>
-        <translation>Ресетујте пречицу</translation>
+        <translation>Поново постави пречицу</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="57"/>
@@ -1391,7 +1391,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>У падајућем изборнику програма у Полетнику обележи опцију &quot;Покрени уз посредника&quot; за коришћење након поставке</translation>
+        <translation>У падајућем изборнику програма у Покретачу Програма обележи опцију &quot;Покрени уз посредника&quot; за коришћење након поставке</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="88"/>
@@ -3315,7 +3315,7 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="115"/>
         <location filename="../frame/navigationbar.cpp" line="199"/>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="75"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="77"/>
         <source>Personalization</source>
         <translation>Личне промене</translation>
     </message>
@@ -3325,17 +3325,17 @@
         <translation>Прозирност</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="66"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Enable window effect</source>
         <translation>Укључи ефекте прозора</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="70"/>
         <source>Theme</source>
         <translation>Теме</translation>
     </message>
     <message>
-        <location filename="../modules/personalization/personalizationwidget.cpp" line="69"/>
+        <location filename="../modules/personalization/personalizationwidget.cpp" line="71"/>
         <source>Font</source>
         <translation>Фонт</translation>
     </message>
@@ -3832,26 +3832,31 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="65"/>
+        <source>Updates Notification</source>
+        <translation>Обавештење о ажурирању</translation>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="68"/>
         <source>Auto-download Updates</source>
         <translation>Аутоматски преузми ажурирања</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="67"/>
+        <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Updates will be auto-downloaded in wireless or wired network</source>
         <translation>Ажурирања ће бити аутоматски преузета на жичаној или бежичној мрежи</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="74"/>
+        <location filename="../modules/update/updatesettings.cpp" line="77"/>
         <source>System source detection</source>
         <translation>Откривање извора система</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="78"/>
+        <location filename="../modules/update/updatesettings.cpp" line="81"/>
         <source>Prompt the notification if system update mirror has been modified</source>
         <translation>Прикажи обавештење ако је сервер за ажурирање система промењен</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="95"/>
+        <location filename="../modules/update/updatesettings.cpp" line="99"/>
         <source>Switch Mirror</source>
         <translation>Промени сервер</translation>
     </message>
@@ -3873,12 +3878,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="227"/>
+        <location filename="../modules/update/updatework.cpp" line="239"/>
         <source>Patches</source>
         <translation>Закрпе</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="228"/>
+        <location filename="../modules/update/updatework.cpp" line="240"/>
         <source>System patches.</source>
         <translation>Системске закрпе.</translation>
     </message>
