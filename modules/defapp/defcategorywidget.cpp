@@ -98,8 +98,12 @@ void DefCategoryWidget::addItem(const App &item)
     m_userGroup->insertItem(1, widget);
     m_valueMap.insert(widget, item);
 
+    widget->setChecked(item.Id ==  m_category->getDefault().Id);
+
     connect(widget, &OptionWidget::setDefault, this, &DefCategoryWidget::setDefault);
-    connect(widget, &OptionWidget::removeItem, this, &DefCategoryWidget::removeItem);
+    connect(widget, &OptionWidget::removeItem, this, [=] (const App &app) {
+        Q_EMIT requestDelUserApp(m_categoryName, app);
+    });
 
     if(!m_userMap.empty()) {
         m_headWidget->setEditEnable(true);
@@ -112,7 +116,6 @@ void DefCategoryWidget::removeItem(const App &item)
     m_userGroup->removeItem(w);
     m_userMap.removeOne(w->getItem());
     m_valueMap.remove(m_valueMap.key(item));
-    Q_EMIT requestDelUserApp(m_categoryName, item);
 
     if(m_userMap.empty()) {
         m_headWidget->setEditEnable(false);
@@ -124,7 +127,7 @@ void DefCategoryWidget::removeItem(const App &item)
 void DefCategoryWidget::onDefaultAppSet(const App &app)
 {
     for (OptionWidget *item : m_valueMap.keys()) {
-        item->setChecked(item->getItem() == app);
+        item->setChecked(item->getItem().Id == app.Id);
     }
 }
 
