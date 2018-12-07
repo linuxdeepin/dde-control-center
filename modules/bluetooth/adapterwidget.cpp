@@ -88,7 +88,9 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     connect(this, &AdapterWidget::appear, m_refreshIndicator, &DPictureSequenceView::play);
 
     connect(adapter, &Adapter::nameChanged, this, &AdapterWidget::setTitle);
-    connect(adapter, &Adapter::destroyed, this, &AdapterWidget::back);
+    connect(adapter, &Adapter::destroyed, this, [=] {
+        QTimer::singleShot(100, this, &AdapterWidget::back); // because maybe device detail page exist
+    });
 
     TranslucentFrame *w = new TranslucentFrame;
     w->setLayout(layout);
@@ -139,7 +141,7 @@ void AdapterWidget::addDevice(const Device *device)
             m_otherDevicesGroup->appendItem(w);
         }
 
-        m_myDevicesGroup->setVisible(!m_myDevices.isEmpty());
+        m_myDevicesGroup->setVisible(!m_myDevices.isEmpty() && m_switch->checked());
     };
     CategoryDevice(device->paired());
 

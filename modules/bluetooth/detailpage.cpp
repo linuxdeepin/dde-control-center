@@ -29,6 +29,7 @@
 #include <QPushButton>
 
 #include "device.h"
+#include "adapter.h"
 
 #include "translucentframe.h"
 
@@ -59,6 +60,8 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device) :
 
     connect(m_ignoreButton, &QPushButton::clicked, [this] { Q_EMIT requestIgnoreDevice(m_adapter, m_device); Q_EMIT back(); });
     connect(m_disconnectButton, &QPushButton::clicked, [this] { Q_EMIT requestDisconnectDevice(m_device); Q_EMIT back(); });
+
+    connect(adapter, &Adapter::destroyed, this, &DetailPage::back);
 }
 
 } // namespace bluetooth
