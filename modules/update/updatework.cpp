@@ -232,6 +232,7 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
         }
         else {
             dde = *it;
+            infos.removeAt(it - infos.constBegin());
         }
 
         AppUpdateInfo ddeUpdateInfo = getInfo(dde, dde.m_currentVersion, dde.m_avilableVersion);
