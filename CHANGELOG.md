@@ -1,3 +1,30 @@
+<a name=""></a>
+##  4.8.0 (2018-12-07)
+
+
+#### Bug Fixes
+
+*   can not save ipv6 method if set method as Ignore ([8420a862](https://github.com/linuxdeepin/dde-control-center/commit/8420a862dfb0b30ef871e90eb53135fb76f3fa36))
+*   save user password as group password ([7b7f59bf](https://github.com/linuxdeepin/dde-control-center/commit/7b7f59bf6f5049f24bcfcdf69e35c5eb22cd9eb4))
+* **Bluetooth:**  do not show device list when re-enter after turning off the device ([4c041bc2](https://github.com/linuxdeepin/dde-control-center/commit/4c041bc24424c7aa42f0df6e8fa7cc028e248b84))
+* **Defapp:**  crash because repeated signal ([be5197c7](https://github.com/linuxdeepin/dde-control-center/commit/be5197c775a0aeb3e8e212ee29bb703983357133))
+* **Display:**  ui scale value error when init ([efd22ea4](https://github.com/linuxdeepin/dde-control-center/commit/efd22ea4a23231c40086938818d83b4178d6823c))
+* **Grub:**  limited for mime type ([11699b01](https://github.com/linuxdeepin/dde-control-center/commit/11699b0169d1aa704783b5afbaad8baa589a45a3))
+* **Update:**
+  *  changelog draw exception ([a801728d](https://github.com/linuxdeepin/dde-control-center/commit/a801728d44765837b5980e3df77a2af25c3e9c83))
+  *  two dde package ([267d9a81](https://github.com/linuxdeepin/dde-control-center/commit/267d9a8128b228bfba84ce9b8fe7ce2b23d1b785))
+* **network:**
+  *  ip address(gateway) not be reset when methon is set to automatic ([38468490](https://github.com/linuxdeepin/dde-control-center/commit/384684900b9df5ccd68cfb65a12a91cdbb1298b8))
+  *  prefix of ipv6 init invalid ([3819aafc](https://github.com/linuxdeepin/dde-control-center/commit/3819aafcde5e4596afe718406077b2fba8de6ec5))
+  *  reset default auth methon in FASH,TTLS,PEAP ([98ace548](https://github.com/linuxdeepin/dde-control-center/commit/98ace548b5ad8acca5b3a8d9ab1a6dcff6d0d8ba))
+* **update:**  update button is not disabled when low power ([4c92a5ab](https://github.com/linuxdeepin/dde-control-center/commit/4c92a5ab20de6d86b6fdc9d8203c7cac4a7ebb86))
+
+#### Features
+
+* **Update:**  add update notify switch button ([96cdfe2a](https://github.com/linuxdeepin/dde-control-center/commit/96cdfe2a16b24f9abaf798976a11a59d29c8b554))
+
+
+
 <a name="4.7.9"></a>
 ### 4.7.9 (2018-12-04)
 
