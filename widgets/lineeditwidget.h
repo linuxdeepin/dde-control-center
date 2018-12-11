@@ -67,6 +67,7 @@ public:
     void addRightWidget(QWidget *widget);
     void setReadOnly(const bool state);
 
+    bool isShowAlert() { return m_errTip->isVisible(); }
     void showAlertMessage(const QString &message);
     void hideAlertMessage();
 

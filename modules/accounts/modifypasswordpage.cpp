@@ -30,6 +30,7 @@
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QPushButton>
+#include <QSettings>
 
 using namespace dcc::widgets;
 using namespace dcc::accounts;
@@ -86,9 +87,15 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
     connect(user, &User::passwordModifyFinished, this, &ModifyPasswordPage::onPasswordChangeFinished);
     connect(user, &User::fullnameChanged, this, &ModifyPasswordPage::updateTitle);
     connect(this, &ModifyPasswordPage::disappear, this, &ModifyPasswordPage::hideAlert);
-    connect(m_pwdEdit->textEdit(), &QLineEdit::editingFinished, this, &ModifyPasswordPage::hideAlert);
     connect(m_oldpwdEdit->textEdit(), &QLineEdit::editingFinished, this, &ModifyPasswordPage::hideAlert);
-    connect(m_pwdEditRepeat->textEdit(), &QLineEdit::editingFinished, this, &ModifyPasswordPage::hideAlert);
+    connect(m_pwdEdit->textEdit(), &QLineEdit::editingFinished, this, [=] {
+        onEditFinished<LineEditWidget*>(m_pwdEdit);
+    });
+    connect(m_pwdEditRepeat->textEdit(), &QLineEdit::editingFinished, this, [=] {
+        if (!m_pwdEdit->isShowAlert()) {
+            onEditFinished<LineEditWidget*>(m_pwdEditRepeat);
+        }
+    });
 
     updateTitle();
 }
@@ -146,4 +153,56 @@ void ModifyPasswordPage::hideAlert()
     m_oldpwdEdit->hideAlertMessage();
     m_pwdEdit->hideAlertMessage();
     m_pwdEditRepeat->hideAlertMessage();
+}
+
+bool ModifyPasswordPage::validatePassword(const QString &password)
+{
+    QSettings setting("/etc/deepin/dde-control-center.conf", QSettings::IniFormat);
+    setting.beginGroup("Password");
+    bool strong_password_check = setting.value("STRONG_PASSWORD", true).toBool();
+
+    if (!strong_password_check) return true;
+
+    uint success_num = 0;
+
+    const QStringList strong_policy_list {
+        "1234567890",
+        "abcdefghijklmnopqrstuvwxyz",
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        "~!@#$%^&*()[]{}\\|/?,.<>"
+    };
+
+    for (const QString &policy : strong_policy_list) {
+        if (ContainsChar(password, policy)) {
+            ++success_num;
+        }
+    }
+
+    return success_num > 1;
+}
+
+bool ModifyPasswordPage::ContainsChar(const QString &password, const QString &validate)
+{
+    for (const QString &p : password) {
+        if (validate.contains(p)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+template <typename T>
+void ModifyPasswordPage::onEditFinished(T t)
+{
+    const QString &password = t->text();
+    if (!validatePassword(password)) {
+        m_oldpwdEdit->hideAlertMessage();
+        m_pwdEdit->hideAlertMessage();
+        m_pwdEditRepeat->hideAlertMessage();
+        t->showAlertMessage(tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"));
+    }
+    else {
+        t->hideAlertMessage();
+    }
 }

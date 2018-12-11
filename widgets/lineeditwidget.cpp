@@ -37,6 +37,7 @@ ErrorTip::ErrorTip(QWidget *parent) :
     m_label->setObjectName("New_Account_errorTip");
     m_label->setAccessibleName(m_label->objectName());
     m_label->setStyleSheet("padding: 5px 10px; color: #f9704f");
+    m_label->setWordWrap(true);
     setContent(m_label);
 }
 

@@ -51,6 +51,12 @@ private Q_SLOTS:
     void onPasswordChangeFinished(const int exitCode);
     void updateTitle();
     void hideAlert();
+    bool validatePassword(const QString &password);
+    bool ContainsChar(const QString &password, const QString &validate);
+
+private:
+    template <typename T>
+    void onEditFinished(T t);
 
 private:
     User *m_userInter;
