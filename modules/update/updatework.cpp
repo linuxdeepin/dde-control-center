@@ -329,6 +329,10 @@ void UpdateWorker::downloadAndDistUpgrade()
 void UpdateWorker::setAutoCheckUpdates(const bool autocheckUpdates)
 {
     m_updateInter->SetAutoCheckUpdates(autocheckUpdates);
+
+    if (!autocheckUpdates) {
+        setAutoDownloadUpdates(false);
+    }
 }
 
 void UpdateWorker::setAutoDownloadUpdates(const bool &autoDownload)
