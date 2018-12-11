@@ -64,6 +64,7 @@ private:
     SwitchWidget *m_autoCheckUpdate;
     SwitchWidget* m_autoDownloadSwitch;
     NextPageWidget* m_updateMirrors;
+    TipsLabel *m_updateLbl;
     bool m_isProfessional;
 };
 

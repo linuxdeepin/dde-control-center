@@ -67,9 +67,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_autoDownloadSwitch = new SwitchWidget;
     m_autoDownloadSwitch->setTitle(tr("Auto-download Updates"));
 
-    TipsLabel* label = new TipsLabel(tr("Updates will be auto-downloaded in wireless or wired network"));
-    label->setWordWrap(true);
-    label->setContentsMargins(20, 0, 20, 0);
+    m_updateLbl = new TipsLabel(tr("Updates will be auto-downloaded in wireless or wired network"));
+    m_updateLbl->setWordWrap(true);
+    m_updateLbl->setContentsMargins(20, 0, 20, 0);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     SettingsGroup* sourceCheckGrp = new SettingsGroup;
@@ -91,7 +91,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 
     layout->addWidget(ug);
     layout->addSpacing(8);
-    layout->addWidget(label);
+    layout->addWidget(m_updateLbl);
     layout->addSpacing(15);
 
     if (!m_isProfessional) {
@@ -146,10 +146,12 @@ void UpdateSettings::setModel(UpdateModel *model)
         connect(model, &UpdateModel::autoCleanCacheChanged, m_autoCleanCache, &SwitchWidget::setChecked);
         connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckUpdate, &SwitchWidget::setChecked);
         connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoDownloadSwitch, &SwitchWidget::setVisible);
+        connect(model, &UpdateModel::autoCheckUpdatesChanged, m_updateLbl, &TipsLabel::setVisible);
 
         m_autoDownloadSwitch->setVisible(model->autoCheckUpdates());
         m_autoCheckUpdate->setChecked(model->autoCheckUpdates());
         m_autoCleanCache->setChecked(m_model->autoCleanCache());
+        m_updateLbl->setVisible(model->autoCheckUpdates());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
         connect(model, &UpdateModel::sourceCheckChanged, m_sourceCheck, &SwitchWidget::setChecked);
