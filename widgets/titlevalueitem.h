@@ -44,6 +44,7 @@ public:
     explicit TitleValueItem(QFrame *parent = 0);
     void setTitle(const QString& title);
     void setValue(const QString& value);
+    void setWordWrap(const bool enable);
 
 private:
     TipsLabel* m_title;

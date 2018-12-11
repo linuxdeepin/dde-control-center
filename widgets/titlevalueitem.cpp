@@ -63,6 +63,11 @@ void TitleValueItem::setValue(const QString &value)
     m_value->setText(value);
 }
 
+void TitleValueItem::setWordWrap(const bool enable)
+{
+    m_value->setWordWrap(enable);
+}
+
 }
 
 }

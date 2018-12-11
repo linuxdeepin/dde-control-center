@@ -110,6 +110,9 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         i->setTitle(t);
         i->setValue(v);
         g->appendItem(i);
+        if (t == "IPv6") {
+            i->setWordWrap(false);
+        }
     };
 
 
@@ -174,7 +177,7 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
                 // ipv4 address
                 const auto ip4Addr = ipv4.value("Address").toString();
                 if (!ip4Addr.isEmpty())
-                    appendInfo(grp, tr("IPv4 Address"), ip4Addr);
+                    appendInfo(grp, tr("IPv4"), ip4Addr);
 
                 // ipv4 gateway
                 const auto gateway = ipv4.value("Gateways").toArray();
@@ -199,7 +202,7 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
                 // ipv6 address
                 const auto ip6Addr = ipv6.value("Address").toString();
                 if (!ip6Addr.isEmpty())
-                    appendInfo(grp, tr("IPv6 Address"), compressedIpv6Addr(ip6Addr));
+                    appendInfo(grp, tr("IPv6"), compressedIpv6Addr(ip6Addr));
 
                 // ipv6 gateway
                 const auto gateway = ipv6.value("Gateways").toArray();
