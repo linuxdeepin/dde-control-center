@@ -1,3 +1,21 @@
+<a name="4.8.1"></a>
+### 4.8.1 (2018-12-12)
+
+
+#### Bug Fixes
+
+* **Update:**
+  *  hide autodownload tip when update notify switched ([dd309ff2](https://github.com/linuxdeepin/dde-control-center/commit/dd309ff22078b98c91c1cfa0afa96100055ff4c5))
+  *  turn off autodownload when hide update notify ([ce6b332c](https://github.com/linuxdeepin/dde-control-center/commit/ce6b332c2c9827670aebd05e159c078c4c65dd08))
+* **notify:**  update close button svg ([bf13bb76](https://github.com/linuxdeepin/dde-control-center/commit/bf13bb761b8ef1e0ea9b6f5f59f4dcf97e43b473))
+
+#### Features
+
+* **Keyboard:**  add touch scroll ([c3ffda71](https://github.com/linuxdeepin/dde-control-center/commit/c3ffda718d29b1b08af102ee2bb3f8ece047e5a4))
+* **Notify:**  optimation list view ([c825cc73](https://github.com/linuxdeepin/dde-control-center/commit/c825cc73247e5537aabf65dbef9d1cb521b4e0e6))
+
+
+
 <a name=""></a>
 ##  4.8.0 (2018-12-07)
 
