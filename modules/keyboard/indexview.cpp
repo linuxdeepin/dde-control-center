@@ -28,6 +28,7 @@
 #include <QPainter>
 #include <QHBoxLayout>
 #include <QDebug>
+#include <QScroller>
 
 namespace dcc {
 namespace keyboard{
@@ -39,6 +40,7 @@ IndexView::IndexView(QWidget *parent)
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollMode(ScrollPerPixel);
     setStyleSheet("border: 0px; background: transparent");
+    QScroller::grabGesture(this, QScroller::LeftMouseButtonGesture);
 }
 
 void IndexView::onClick(const QString &ch)
