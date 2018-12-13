@@ -1,3 +1,18 @@
+<a name="4.8.2"></a>
+### 4.8.2 (2018-12-13)
+
+
+#### Features
+
+*   update end user license agreement ([e481a5d9](https://github.com/linuxdeepin/dde-control-center/commit/e481a5d968c51b83a567f974d1c2e1a6670e24ee))
+
+#### Bug Fixes
+
+*   ipv6 address can not be displayed completely ([38b5f489](https://github.com/linuxdeepin/dde-control-center/commit/38b5f489e639e35a3f3f09275639a78f83f9ee01))
+* **systeminfo:**  error version function ([bacb3465](https://github.com/linuxdeepin/dde-control-center/commit/bacb3465a38565e06341673cf251fc4d4f3feee0))
+
+
+
 <a name="4.8.1"></a>
 ### 4.8.1 (2018-12-12)
 
