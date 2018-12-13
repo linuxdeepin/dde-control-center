@@ -189,6 +189,7 @@ deepin_professional {
         DEFINES += DISABLE_SYS_UPDATE_MIRRORS
         DEFINES += DCC_DISABLE_MIRACAST
     }
+    DEFINES += DCC_ENABLE_END_USER_LICENSE
 }
 
 host_mips64: {
