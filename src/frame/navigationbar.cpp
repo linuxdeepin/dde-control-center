@@ -34,6 +34,9 @@ static const QStringList ModuleList = {
 #ifndef DISABLE_ACCOUNT
     "accounts",
 #endif
+#ifndef DISABLE_SYNC
+    "deepin ID",
+#endif
 #ifndef DISABLE_DISPALY
     "display",
 #endif
@@ -108,6 +111,8 @@ NavigationBar::NavigationBar(QWidget *parent)
 
         buttonsLayout->addWidget(b);
         m_navigationButtons.insert(module, b);
+
+        qDebug() << module;
 
         connect(b, &DImageButton::clicked, this, &NavigationBar::onNavigationButtonClicked);
     }
@@ -186,34 +191,34 @@ void NavigationBar::setModuleChecked(DImageButton *button)
 
 QString NavigationBar::transModuleName(const QString &moduleName) const
 {
-    const QStringList MODULES = { "accounts",        "display",   "defapp",
-                                  "personalization", "network",   "bluetooth",
-                                  "sound",           "datetime",  "power",
-                                  "mouse",           "keyboard",  "wacom",
-                                  "update",          "systeminfo" };
+    const QStringList MODULES = { "accounts", "deepin ID",  "display",
+                                  "defapp",   "personalization",
+                                  "network", "bluetooth", "sound",
+                                  "datetime", "power", "mouse",
+                                  "keyboard", "wacom",
+                                  "update",  "systeminfo" };
 
     static const QStringList modules_trans = {
         QT_TRANSLATE_NOOP("dcc::accounts::AccountsWidget", "Accounts"),
+        QT_TRANSLATE_NOOP("dcc::sync::SyncWidget", "deepin ID"),
         QT_TRANSLATE_NOOP("dcc::display::DisplayWidget", "Display"),
         QT_TRANSLATE_NOOP("dcc::defapp::DefAppViewer", "Default Applications"),
-        QT_TRANSLATE_NOOP("dcc::personalization::PersonalizationWidget",
-                          "Personalization"),
+        QT_TRANSLATE_NOOP("dcc::personalization::PersonalizationWidget", "Personalization"),
         QT_TRANSLATE_NOOP("dcc::network::NetworkModuleWidget", "Network"),
         QT_TRANSLATE_NOOP("dcc::bluetooth::BluetoothModule", "Bluetooth"),
         QT_TRANSLATE_NOOP("dcc::sound::SoundWidget", "Sound"),
         QT_TRANSLATE_NOOP("dcc::datetime::Datetime", "Time and Date"),
         QT_TRANSLATE_NOOP("dcc::power::PowerWidget", "Power Management"),
         QT_TRANSLATE_NOOP("dcc::mouse::MouseWidget", "Mouse"),
-        QT_TRANSLATE_NOOP("dcc::keyboard::KeyboardWidget",
-                          "Keyboard and Language"),
+        QT_TRANSLATE_NOOP("dcc::keyboard::KeyboardWidget", "Keyboard and Language"),
         QT_TRANSLATE_NOOP("dcc::wacom::WacomWidget", "Wacom"),
         QT_TRANSLATE_NOOP("dcc::update::UpdateCtrlWidget", "Update"),
-        QT_TRANSLATE_NOOP("dcc::systeminfo::SystemInfoWidget",
-                          "System Information"),
+        QT_TRANSLATE_NOOP("dcc::systeminfo::SystemInfoWidget", "System Information"),
     };
 
     static const QStringList modules_scope = {
         "dcc::accounts::AccountsWidget",
+        "dcc::sync::SyncWidget",
         "dcc::display::DisplayWidget",
         "dcc::defapp::DefAppViewer",
         "dcc::personalization::PersonalizationWidget",

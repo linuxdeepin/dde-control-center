@@ -42,6 +42,7 @@
 #include "modules/wacom/wacommodule.h"
 #include "modules/display/displaymodule.h"
 #include "modules/personalization/personalizationmodule.h"
+#include "modules/sync/syncmodule.h"
 #include "modules/systeminfo/systeminfomodule.h"
 #include "modules/network/networkmodule.h"
 
@@ -156,6 +157,10 @@ void SettingsWidget::loadModules()
 {
 #ifndef DISABLE_ACCOUNT
     loadModule(new accounts::AccountsModule(this));
+#endif
+
+#ifndef DISABLE_SYNC
+    loadModule(new sync::SyncModule(this));
 #endif
 
 #ifndef DISABLE_DISPALY

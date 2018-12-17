@@ -663,6 +663,18 @@ set(SOUND_FILES
                 modules/sound/soundeffectpage.cpp
 )
 
+# load sync
+set(SYNC_FILES
+    modules/sync/syncmodel.cpp
+    modules/sync/syncmodel.h
+    modules/sync/syncmodule.cpp
+    modules/sync/syncmodule.h
+    modules/sync/syncwidget.cpp
+    modules/sync/syncwidget.h
+    modules/sync/syncworker.cpp
+    modules/sync/syncworker.h
+)
+
 # load systeminfo
 set(SYSTEMINFO_FILES
                 modules/systeminfo/copyrightwidget.h
@@ -776,6 +788,7 @@ set(SRCS
         ${POWER_FILES}
         ${WACOM_FILES}
         ${UPDATE_FILES}
+        ${SYNC_FILES}
         ${SYSTEMINFO_FILES}
         ${PERSONALIZATION_FILES}
 )
@@ -800,6 +813,7 @@ set(QRC
         modules/mouse/mouse.qrc
         widgets/widgets.qrc
         navigation/navigation.qrc
+        modules/sync/sync.qrc
 )
 
 # Find the library
