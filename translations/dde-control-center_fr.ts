@@ -526,12 +526,12 @@
 <context>
     <name>dcc::bluetooth::DetailPage</name>
     <message>
-        <location filename="../modules/bluetooth/detailpage.cpp" line="42"/>
+        <location filename="../modules/bluetooth/detailpage.cpp" line="43"/>
         <source>Ignore</source>
         <translation>Ignorer</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/detailpage.cpp" line="43"/>
+        <location filename="../modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Disconnect</source>
         <translation>Déconnecter</translation>
     </message>
@@ -1571,19 +1571,19 @@
 <context>
     <name>dcc::network::IpvxSection</name>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="212"/>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="217"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="214"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="219"/>
         <source>Auto</source>
         <translation>Automatique</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="213"/>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="218"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="215"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="220"/>
         <source>Manual</source>
         <translation>Manuel</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="219"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="221"/>
         <source>Ignore</source>
         <translation>Ignorer</translation>
     </message>
@@ -1598,48 +1598,48 @@
         <translation>IPv6</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="225"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="227"/>
         <source>Method</source>
         <translation>Méthode</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="226"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="228"/>
         <source>IP Address</source>
         <translation>Adresse IP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="227"/>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="292"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="229"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="294"/>
         <source>Required</source>
         <translation>Requis</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="228"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="230"/>
         <source>Gateway</source>
         <translation>Passerelle</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="229"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="231"/>
         <source>Primary DNS</source>
         <translation>DNS primaire</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="230"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="232"/>
         <source>Secondary DNS</source>
         <translation>DNS secondaire</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="231"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="233"/>
         <source>Only applied in corresponding resources</source>
         <translation>Appliqué uniquement dans les ressources correspondantes</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="291"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="293"/>
         <source>Netmask</source>
         <translation>Masque de sous-réseau</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="334"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="304"/>
         <source>Prefix</source>
         <translation>Préfixe</translation>
     </message>
@@ -1652,69 +1652,69 @@
         <translation>Détails du réseau</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="136"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
         <source>Hotspot</source>
         <translation>Points d&apos;accès</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="141"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="144"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="154"/>
         <source>Security</source>
         <translation>Sécurité</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
         <source>Interface</source>
         <translation>Interface</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="162"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="165"/>
         <source>MAC</source>
         <translation>MAC</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="168"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="171"/>
         <source>Band</source>
         <translation>Bande</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="177"/>
-        <source>IPv4 Address</source>
-        <translation>Adresse IPv4</translation>
+        <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="182"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="207"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="205"/>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="185"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="210"/>
         <source>Gateway</source>
         <translation>Passerelle</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="187"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="212"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="190"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
         <source>Primary DNS</source>
         <translation>DNS primaire</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="192"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="195"/>
         <source>Netmask</source>
         <translation>Masque de sous-réseau</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="202"/>
-        <source>IPv6 Address</source>
-        <translation>Adresse IPv6</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="217"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="220"/>
         <source>Prefix</source>
         <translation>Préfixe</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="223"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="226"/>
         <source>Speed</source>
         <translation>Vitesse</translation>
     </message>
@@ -2110,8 +2110,8 @@
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="306"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="379"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="411"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="381"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="416"/>
         <source>CA Cert</source>
         <translation>CA Cert</translation>
     </message>
@@ -2122,8 +2122,8 @@
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="328"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="375"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="407"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="377"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="412"/>
         <source>Anonymous ID</source>
         <translation>Identifiant anonyme</translation>
     </message>
@@ -2139,23 +2139,23 @@
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="348"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="383"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="426"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="385"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="431"/>
         <source>Inner Auth</source>
         <translation>Authentification Interne</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="415"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="420"/>
         <source>PEAP Version</source>
         <translation>Version PEAP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="506"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="514"/>
         <source>Private Pwd</source>
         <translation>Mdp privé</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="508"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="516"/>
         <source>Password</source>
         <translation>Mot de passe</translation>
     </message>
@@ -3404,7 +3404,7 @@
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="61"/>
-        <location filename="../modules/power/powerwidget.cpp" line="193"/>
+        <location filename="../modules/power/powerwidget.cpp" line="196"/>
         <source>Never</source>
         <translation>Jamais</translation>
     </message>
@@ -3434,21 +3434,21 @@
         <translation>Commutateur de mode automatique</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="181"/>
+        <location filename="../modules/power/powerwidget.cpp" line="184"/>
         <source>1 Minute</source>
         <translation>1 Minute</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="183"/>
-        <location filename="../modules/power/powerwidget.cpp" line="185"/>
-        <location filename="../modules/power/powerwidget.cpp" line="187"/>
-        <location filename="../modules/power/powerwidget.cpp" line="189"/>
-        <location filename="../modules/power/powerwidget.cpp" line="195"/>
+        <location filename="../modules/power/powerwidget.cpp" line="186"/>
+        <location filename="../modules/power/powerwidget.cpp" line="188"/>
+        <location filename="../modules/power/powerwidget.cpp" line="190"/>
+        <location filename="../modules/power/powerwidget.cpp" line="192"/>
+        <location filename="../modules/power/powerwidget.cpp" line="198"/>
         <source>%1 Minutes</source>
         <translation>%1 Minutes </translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="191"/>
+        <location filename="../modules/power/powerwidget.cpp" line="194"/>
         <source>1 Hour</source>
         <translation>1 Heure</translation>
     </message>
@@ -3813,7 +3813,7 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../modules/update/updateitem.cpp" line="119"/>
+        <location filename="../modules/update/updateitem.cpp" line="124"/>
         <source>Details</source>
         <translation>Détails</translation>
     </message>
@@ -3857,6 +3857,16 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="99"/>
+        <source>Smart Mirror Switch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="105"/>
+        <source>Switch it on to connect to the quickest mirror site automatically.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="112"/>
         <source>Switch Mirror</source>
         <translation>Changer de source </translation>
     </message>
@@ -3878,12 +3888,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="239"/>
+        <location filename="../modules/update/updatework.cpp" line="250"/>
         <source>Patches</source>
         <translation>Correctifs</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="240"/>
+        <location filename="../modules/update/updatework.cpp" line="251"/>
         <source>System patches.</source>
         <translation>Correctifs du système.</translation>
     </message>

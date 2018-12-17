@@ -24,7 +24,7 @@
     <message>
         <location filename="../modules/display/displaycontrolmodel.cpp" line="101"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation>Прошири садржај екрана да се различити садржај приказује на различитим екранима</translation>
+        <translation>Прошири да се различити садржај приказује на различитим екранима</translation>
     </message>
     <message>
         <location filename="../modules/display/displaycontrolmodel.cpp" line="103"/>
@@ -526,12 +526,12 @@
 <context>
     <name>dcc::bluetooth::DetailPage</name>
     <message>
-        <location filename="../modules/bluetooth/detailpage.cpp" line="42"/>
+        <location filename="../modules/bluetooth/detailpage.cpp" line="43"/>
         <source>Ignore</source>
         <translation>Занемари</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/detailpage.cpp" line="43"/>
+        <location filename="../modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Disconnect</source>
         <translation>Прекини везу</translation>
     </message>
@@ -837,7 +837,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="58"/>
         <source>Custom Settings</source>
-        <translation>Прилагођене Поставке</translation>
+        <translation>Прилагођене поставке</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="59"/>
@@ -1571,19 +1571,19 @@
 <context>
     <name>dcc::network::IpvxSection</name>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="212"/>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="217"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="214"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="219"/>
         <source>Auto</source>
         <translation>Аутоматски</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="213"/>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="218"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="215"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="220"/>
         <source>Manual</source>
         <translation>Ручно</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="219"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="221"/>
         <source>Ignore</source>
         <translation>Занемари</translation>
     </message>
@@ -1598,48 +1598,48 @@
         <translation>ИПв6</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="225"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="227"/>
         <source>Method</source>
         <translation>Метод</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="226"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="228"/>
         <source>IP Address</source>
         <translation>ИП адреса</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="227"/>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="292"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="229"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="294"/>
         <source>Required</source>
         <translation>Неопходно</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="228"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="230"/>
         <source>Gateway</source>
         <translation>Везни чвор</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="229"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="231"/>
         <source>Primary DNS</source>
         <translation>Основни ДНС</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="230"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="232"/>
         <source>Secondary DNS</source>
         <translation>Други ДНС</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="231"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="233"/>
         <source>Only applied in corresponding resources</source>
         <translation>Примењује се само у одговарајућим ресурсима</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="291"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="293"/>
         <source>Netmask</source>
         <translation>Мрежна маска</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="334"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="304"/>
         <source>Prefix</source>
         <translation>Префикс</translation>
     </message>
@@ -1652,69 +1652,69 @@
         <translation>Детаљи мреже</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="136"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
         <source>Hotspot</source>
         <translation>Врућа тачка</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="141"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="144"/>
         <source>SSID</source>
         <translation>Место повезивања ССИД</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="154"/>
         <source>Security</source>
         <translation>Безбедност</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
         <source>Interface</source>
         <translation>Сучеље</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="162"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="165"/>
         <source>MAC</source>
         <translation>МАК</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="168"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="171"/>
         <source>Band</source>
         <translation>Опсег</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="177"/>
-        <source>IPv4 Address</source>
-        <translation>ИПв4 Адреса</translation>
+        <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
+        <source>IPv4</source>
+        <translation>ИПв4</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="182"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="207"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="205"/>
+        <source>IPv6</source>
+        <translation>ИПв6</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="185"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="210"/>
         <source>Gateway</source>
         <translation>Везни чвор</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="187"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="212"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="190"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
         <source>Primary DNS</source>
         <translation>Основни ДНС</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="192"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="195"/>
         <source>Netmask</source>
         <translation>Мрежна маска</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="202"/>
-        <source>IPv6 Address</source>
-        <translation>ИПв6 Адреса</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="217"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="220"/>
         <source>Prefix</source>
         <translation>Префикс</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="223"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="226"/>
         <source>Speed</source>
         <translation>Брзина</translation>
     </message>
@@ -2110,8 +2110,8 @@
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="306"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="379"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="411"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="381"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="416"/>
         <source>CA Cert</source>
         <translation>CA дозвола</translation>
     </message>
@@ -2122,8 +2122,8 @@
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="328"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="375"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="407"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="377"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="412"/>
         <source>Anonymous ID</source>
         <translation>Анонимни ИД</translation>
     </message>
@@ -2139,23 +2139,23 @@
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="348"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="383"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="426"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="385"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="431"/>
         <source>Inner Auth</source>
         <translation>Унутрашња дозвола</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="415"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="420"/>
         <source>PEAP Version</source>
         <translation>Верзија заштиђеног раширеног протокола потврдних идентитета - &quot;ПЕАП&quot;</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="506"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="514"/>
         <source>Private Pwd</source>
         <translation>Лична лозинка</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="508"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="516"/>
         <source>Password</source>
         <translation>Лозинка</translation>
     </message>
@@ -3383,12 +3383,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="46"/>
         <source>Plugged in</source>
-        <translation>Укључен</translation>
+        <translation>Прикључен</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="47"/>
         <source>On battery</source>
-        <translation>На батерију</translation>
+        <translation>На батерији</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="48"/>
@@ -3404,7 +3404,7 @@
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="61"/>
-        <location filename="../modules/power/powerwidget.cpp" line="193"/>
+        <location filename="../modules/power/powerwidget.cpp" line="196"/>
         <source>Never</source>
         <translation>Никад</translation>
     </message>
@@ -3434,21 +3434,21 @@
         <translation>Самостална промена режима</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="181"/>
+        <location filename="../modules/power/powerwidget.cpp" line="184"/>
         <source>1 Minute</source>
         <translation>1 Минут</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="183"/>
-        <location filename="../modules/power/powerwidget.cpp" line="185"/>
-        <location filename="../modules/power/powerwidget.cpp" line="187"/>
-        <location filename="../modules/power/powerwidget.cpp" line="189"/>
-        <location filename="../modules/power/powerwidget.cpp" line="195"/>
+        <location filename="../modules/power/powerwidget.cpp" line="186"/>
+        <location filename="../modules/power/powerwidget.cpp" line="188"/>
+        <location filename="../modules/power/powerwidget.cpp" line="190"/>
+        <location filename="../modules/power/powerwidget.cpp" line="192"/>
+        <location filename="../modules/power/powerwidget.cpp" line="198"/>
         <source>%1 Minutes</source>
         <translation>%1 Минута</translation>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="191"/>
+        <location filename="../modules/power/powerwidget.cpp" line="194"/>
         <source>1 Hour</source>
         <translation>1 Сат</translation>
     </message>
@@ -3546,7 +3546,7 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="82"/>
         <source>Switch theme on to view it in boot menu.</source>
-        <translation>Укључите тему да се приказује у покретачу.</translation>
+        <translation>Укључите тему да се приказује при покретању.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="102"/>
@@ -3646,7 +3646,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="37"/>
         <location filename="../modules/update/mirroritem.cpp" line="132"/>
         <source>Untested</source>
-        <translation>Не тестирано</translation>
+        <translation>Нетестиран</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="80"/>
@@ -3813,7 +3813,7 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../modules/update/updateitem.cpp" line="119"/>
+        <location filename="../modules/update/updateitem.cpp" line="124"/>
         <source>Details</source>
         <translation>Детаљи</translation>
     </message>
@@ -3857,6 +3857,16 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="99"/>
+        <source>Smart Mirror Switch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="105"/>
+        <source>Switch it on to connect to the quickest mirror site automatically.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="112"/>
         <source>Switch Mirror</source>
         <translation>Промени сервер</translation>
     </message>
@@ -3878,12 +3888,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="239"/>
+        <location filename="../modules/update/updatework.cpp" line="250"/>
         <source>Patches</source>
         <translation>Закрпе</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="240"/>
+        <location filename="../modules/update/updatework.cpp" line="251"/>
         <source>System patches.</source>
         <translation>Системске закрпе.</translation>
     </message>

@@ -169,7 +169,7 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>Cont de administrator</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="64"/>
@@ -255,7 +255,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="122"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Imagini</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
@@ -526,12 +526,12 @@
 <context>
     <name>dcc::bluetooth::DetailPage</name>
     <message>
-        <location filename="../modules/bluetooth/detailpage.cpp" line="42"/>
+        <location filename="../modules/bluetooth/detailpage.cpp" line="43"/>
         <source>Ignore</source>
         <translation>Ignorare</translation>
     </message>
     <message>
-        <location filename="../modules/bluetooth/detailpage.cpp" line="43"/>
+        <location filename="../modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Disconnect</source>
         <translation>Deconectare</translation>
     </message>
@@ -1072,7 +1072,7 @@
     <message>
         <location filename="../modules/keyboard/keyboarddetails.cpp" line="88"/>
         <source>Add Keyboard Layout</source>
-        <translation>Adaugare aspect  tastatură</translation>
+        <translation>Adăugare aspect  tastatură</translation>
     </message>
 </context>
 <context>
@@ -1080,7 +1080,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardlayoutwidget.cpp" line="50"/>
         <source>Add Keyboard Layout</source>
-        <translation>Adaugare aspect  tastatură</translation>
+        <translation>Adăugare aspect  tastatură</translation>
     </message>
 </context>
 <context>
@@ -1125,12 +1125,12 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="79"/>
         <source>Please Test Here</source>
-        <translation type="unfinished"/>
+        <translation>Vă rugăm să testați aici</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="93"/>
         <source>Enable Numeric Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Activați tastatura numerică</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="97"/>
@@ -1145,7 +1145,7 @@
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="111"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Limba sistemului</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/keyboardwidget.cpp" line="117"/>
@@ -1158,7 +1158,7 @@
     <message>
         <location filename="../modules/keyboard/langwidget.cpp" line="48"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Limba sistemului</translation>
     </message>
 </context>
 <context>
@@ -1166,7 +1166,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="50"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Vă rugăm să resetați scurtătura</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="57"/>
@@ -1186,7 +1186,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutcontent.cpp" line="93"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Această scurtătură este în conflict cu %1, apăsați pe Înlocuiește pentru a face această scurtătură valabilă imediat</translation>
     </message>
 </context>
 <context>
@@ -1194,7 +1194,7 @@
     <message>
         <location filename="../modules/keyboard/shortcutitem.cpp" line="85"/>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Vă rugăm să introduceți o nouă scurtătură</translation>
     </message>
 </context>
 <context>
@@ -1212,17 +1212,17 @@
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="57"/>
         <source>WorkSpace</source>
-        <translation type="unfinished"/>
+        <translation>Spațiu de lucru</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="65"/>
         <source>Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Scurtătură personalizată</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Adaugă o scurtătură personalizată</translation>
     </message>
     <message>
         <location filename="../modules/keyboard/shortcutwidget.cpp" line="88"/>
@@ -1235,7 +1235,7 @@
     <message>
         <location filename="../modules/mouse/widget/doutestwidget.cpp" line="44"/>
         <source>Double-click Test</source>
-        <translation type="unfinished"/>
+        <translation>Test de dublu click</translation>
     </message>
 </context>
 <context>
@@ -1245,7 +1245,7 @@
         <location filename="../frame/navigationbar.cpp" line="206"/>
         <location filename="../modules/mouse/mousewidget.cpp" line="49"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Maus</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="46"/>
@@ -1255,12 +1255,12 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>Panou tactil</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="51"/>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>Instrument Indicator</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="53"/>
@@ -1270,7 +1270,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="54"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Dezactivați panoul tactil în timp ce se tastează</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="55"/>
@@ -1287,12 +1287,12 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Accelerația mausului</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
-        <translation type="unfinished"/>
+        <translation>Viteză de derulare</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="61"/>
@@ -1308,7 +1308,7 @@
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="65"/>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Atingeți pentru a apăsa</translation>
     </message>
     <message>
         <location filename="../modules/mouse/mousewidget.cpp" line="73"/>
@@ -1326,22 +1326,22 @@
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detect</source>
-        <translation type="unfinished"/>
+        <translation>Detectarea palmei</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <source>Minimum contact surface</source>
-        <translation type="unfinished"/>
+        <translation>Suprafață de contact minimă</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <source>Minimum pressure value</source>
-        <translation type="unfinished"/>
+        <translation>Valoare minimă a presiunii</translation>
     </message>
     <message>
         <location filename="../modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>Vă rugăm să dezactivați această opțiune dacă panoul tactil nu mai funcționează după ce ați activat-o</translation>
     </message>
 </context>
 <context>
@@ -1359,7 +1359,7 @@
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="52"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>Adresă IP</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="53"/>
@@ -1381,7 +1381,7 @@
         <location filename="../modules/network/chainsproxypage.cpp" line="61"/>
         <location filename="../modules/network/chainsproxypage.cpp" line="65"/>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Opțional</translation>
     </message>
     <message>
         <location filename="../modules/network/chainsproxypage.cpp" line="64"/>
@@ -1437,17 +1437,17 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="338"/>
         <source>Wired Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Conexiune prin cablu %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="342"/>
         <source>Wireless Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Conexiune fără fir %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="346"/>
         <source>PPPoE Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Conexiune PPPoE %1</translation>
     </message>
 </context>
 <context>
@@ -1455,7 +1455,7 @@
     <message>
         <location filename="../modules/network/connectionhotspoteditpage.cpp" line="47"/>
         <source>hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
 </context>
 <context>
@@ -1468,32 +1468,32 @@
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
         <source>VPN L2TP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN L2TP %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
         <source>VPN PPTP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN PPTP %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="165"/>
         <source>VPN VPNC %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN VPNC %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="169"/>
         <source>VPN OpenVPN %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN OpenVPN %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="173"/>
         <source>VPN StrongSwan %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN StrongSwan %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="177"/>
         <source>VPN OpenConnect %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN OpenConnect %1</translation>
     </message>
 </context>
 <context>
@@ -1560,30 +1560,30 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
         <source>Hotspot Settings</source>
-        <translation type="unfinished"/>
+        <translation>Setări hotspot</translation>
     </message>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="76"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::IpvxSection</name>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="212"/>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="217"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="214"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="219"/>
         <source>Auto</source>
         <translation>Auto</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="213"/>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="218"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="215"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="220"/>
         <source>Manual</source>
         <translation>Manual</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="219"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="221"/>
         <source>Ignore</source>
         <translation>Ignorare</translation>
     </message>
@@ -1598,48 +1598,48 @@
         <translation>IPv6</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="225"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="227"/>
         <source>Method</source>
         <translation>Modalitate</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="226"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="228"/>
         <source>IP Address</source>
         <translation>Adresa IP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="227"/>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="292"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="229"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="294"/>
         <source>Required</source>
         <translation>Necesar</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="228"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="230"/>
         <source>Gateway</source>
         <translation>Portalul</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="229"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="231"/>
         <source>Primary DNS</source>
         <translation>DNS primar</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="230"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="232"/>
         <source>Secondary DNS</source>
         <translation>DNS secundar</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="231"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="233"/>
         <source>Only applied in corresponding resources</source>
-        <translation type="unfinished"/>
+        <translation>Aplicat doar în resursele corespunzătoare</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="291"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="293"/>
         <source>Netmask</source>
         <translation>Mască de rețea</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ipvxsection.cpp" line="334"/>
+        <location filename="../modules/network/sections/ipvxsection.cpp" line="304"/>
         <source>Prefix</source>
         <translation>Prefix</translation>
     </message>
@@ -1649,74 +1649,74 @@
     <message>
         <location filename="../modules/network/networkdetailpage.cpp" line="94"/>
         <source>Network Details</source>
-        <translation type="unfinished"/>
+        <translation>Detaliile rețelei</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="136"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="139"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="141"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="144"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="151"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="154"/>
         <source>Security</source>
         <translation>Securizare</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="157"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="160"/>
         <source>Interface</source>
         <translation>Interfață</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="162"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="165"/>
         <source>MAC</source>
-        <translation type="unfinished"/>
+        <translation>MAC</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="168"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="171"/>
         <source>Band</source>
         <translation>Bandă</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="177"/>
-        <source>IPv4 Address</source>
-        <translation type="unfinished"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="180"/>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="182"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="207"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="205"/>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/networkdetailpage.cpp" line="185"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="210"/>
         <source>Gateway</source>
         <translation>Portalul</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="187"/>
-        <location filename="../modules/network/networkdetailpage.cpp" line="212"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="190"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="215"/>
         <source>Primary DNS</source>
         <translation>DNS primar</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="192"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="195"/>
         <source>Netmask</source>
         <translation>Mască de rețea</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="202"/>
-        <source>IPv6 Address</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="217"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="220"/>
         <source>Prefix</source>
         <translation>Prefix</translation>
     </message>
     <message>
-        <location filename="../modules/network/networkdetailpage.cpp" line="223"/>
+        <location filename="../modules/network/networkdetailpage.cpp" line="226"/>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>Viteză</translation>
     </message>
 </context>
 <context>
@@ -1731,7 +1731,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="57"/>
         <source>DSL</source>
-        <translation type="unfinished"/>
+        <translation>DSL</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="61"/>
@@ -1751,22 +1751,22 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="70"/>
         <source>Network Details</source>
-        <translation type="unfinished"/>
+        <translation>Detaliile rețelei</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="237"/>
         <source>Wired Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Placă de rețea prin cablu%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="238"/>
         <source>Wired Network%1</source>
-        <translation type="unfinished"/>
+        <translation>Rețea prin cablu%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="242"/>
         <source>Wired Network Card</source>
-        <translation type="unfinished"/>
+        <translation>Placă de rețea prin cablu</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="243"/>
@@ -1776,7 +1776,7 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="252"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="257"/>
@@ -1786,17 +1786,17 @@
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="266"/>
         <source>Wireless Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Placă de rețea fără fir%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="267"/>
         <source>Wireless Network%1</source>
-        <translation type="unfinished"/>
+        <translation>Rețea fără fir%1</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network Card</source>
-        <translation type="unfinished"/>
+        <translation>Placă de rețea fără fir</translation>
     </message>
     <message>
         <location filename="../modules/network/networkmodulewidget.cpp" line="272"/>
@@ -1916,7 +1916,7 @@
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="52"/>
         <source>Create PPPoE Connection</source>
-        <translation type="unfinished"/>
+        <translation>Creează o conexiune PPPoE</translation>
     </message>
     <message>
         <location filename="../modules/network/pppoepage.cpp" line="66"/>
@@ -2110,8 +2110,8 @@
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="306"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="379"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="411"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="381"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="416"/>
         <source>CA Cert</source>
         <translation>Certificat CA</translation>
     </message>
@@ -2122,8 +2122,8 @@
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="328"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="375"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="407"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="377"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="412"/>
         <source>Anonymous ID</source>
         <translation>ID Anonim</translation>
     </message>
@@ -2139,23 +2139,23 @@
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="348"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="383"/>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="426"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="385"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="431"/>
         <source>Inner Auth</source>
         <translation>Autentificare internă</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="415"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="420"/>
         <source>PEAP Version</source>
         <translation>Versiune PEAP</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="506"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="514"/>
         <source>Private Pwd</source>
         <translation>Parolă privată</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secret8021xsection.cpp" line="508"/>
+        <location filename="../modules/network/sections/secret8021xsection.cpp" line="516"/>
         <source>Password</source>
         <translation>Parola</translation>
     </message>
@@ -2752,17 +2752,17 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="76"/>
         <source>VPN Status</source>
-        <translation type="unfinished"/>
+        <translation>Stare VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="79"/>
         <source>Create VPN</source>
-        <translation type="unfinished"/>
+        <translation>Creează VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="82"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>Importă VPN</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="101"/>
@@ -2772,7 +2772,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="241"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>Eroare la importare</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="243"/>
@@ -2802,7 +2802,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="277"/>
         <source>StrongSwan</source>
-        <translation type="unfinished"/>
+        <translation>StrongSwan</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="280"/>
@@ -2812,7 +2812,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="305"/>
         <source>New VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPN nou</translation>
     </message>
 </context>
 <context>
@@ -3404,7 +3404,7 @@
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="61"/>
-        <location filename="../modules/power/powerwidget.cpp" line="193"/>
+        <location filename="../modules/power/powerwidget.cpp" line="196"/>
         <source>Never</source>
         <translation>Niciodată</translation>
     </message>
@@ -3434,21 +3434,21 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="181"/>
+        <location filename="../modules/power/powerwidget.cpp" line="184"/>
         <source>1 Minute</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="183"/>
-        <location filename="../modules/power/powerwidget.cpp" line="185"/>
-        <location filename="../modules/power/powerwidget.cpp" line="187"/>
-        <location filename="../modules/power/powerwidget.cpp" line="189"/>
-        <location filename="../modules/power/powerwidget.cpp" line="195"/>
+        <location filename="../modules/power/powerwidget.cpp" line="186"/>
+        <location filename="../modules/power/powerwidget.cpp" line="188"/>
+        <location filename="../modules/power/powerwidget.cpp" line="190"/>
+        <location filename="../modules/power/powerwidget.cpp" line="192"/>
+        <location filename="../modules/power/powerwidget.cpp" line="198"/>
         <source>%1 Minutes</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/power/powerwidget.cpp" line="191"/>
+        <location filename="../modules/power/powerwidget.cpp" line="194"/>
         <source>1 Hour</source>
         <translation type="unfinished"/>
     </message>
@@ -3664,7 +3664,7 @@
         <location filename="../modules/update/mirroritem.cpp" line="84"/>
         <location filename="../modules/update/mirroritem.cpp" line="130"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Mediu</translation>
     </message>
     <message>
         <location filename="../modules/update/mirroritem.cpp" line="86"/>
@@ -3813,7 +3813,7 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../modules/update/updateitem.cpp" line="119"/>
+        <location filename="../modules/update/updateitem.cpp" line="124"/>
         <source>Details</source>
         <translation type="unfinished"/>
     </message>
@@ -3857,6 +3857,16 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="99"/>
+        <source>Smart Mirror Switch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="105"/>
+        <source>Switch it on to connect to the quickest mirror site automatically.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/update/updatesettings.cpp" line="112"/>
         <source>Switch Mirror</source>
         <translation type="unfinished"/>
     </message>
@@ -3878,12 +3888,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="239"/>
+        <location filename="../modules/update/updatework.cpp" line="250"/>
         <source>Patches</source>
         <translation>Corecţii</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="240"/>
+        <location filename="../modules/update/updatework.cpp" line="251"/>
         <source>System patches.</source>
         <translation type="unfinished"/>
     </message>
@@ -3898,7 +3908,7 @@
     <message>
         <location filename="../modules/wacom/wacommodepage.cpp" line="38"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Maus</translation>
     </message>
 </context>
 <context>
@@ -3936,7 +3946,7 @@
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Maus</translation>
     </message>
     <message>
         <location filename="../modules/wacom/wacomwidget.cpp" line="72"/>
