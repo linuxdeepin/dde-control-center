@@ -1,3 +1,13 @@
+<a name="4.8.3"></a>
+### 4.8.3 (2018-12-17)
+
+
+#### Features
+
+* **Update:**  add smart mirror switch ([8be4978f](https://github.com/linuxdeepin/dde-control-center/commit/8be4978f4969a18d017e085f6aa09f7691dfd5e6))
+
+
+
 <a name="4.8.2"></a>
 ### 4.8.2 (2018-12-13)
 
