@@ -1,3 +1,21 @@
+<a name="4.8.4"></a>
+### 4.8.4 (2018-12-18)
+
+
+#### Bug Fixes
+
+* **Keyboard:**  not save custom shortcut ([48e3d49e](https://github.com/linuxdeepin/dde-control-center/commit/48e3d49e77a7fc9ed94c25fee78db08ac51c1199))
+* **Touch:**  use DWindowManagerHelper::currentWorkspcaeWindowIdList ([68310493](https://github.com/linuxdeepin/dde-control-center/commit/68310493b92af1ebdf4b078b09669b2371b99b66))
+* **Update:**  smart mirror dbus wrong path ([317b0888](https://github.com/linuxdeepin/dde-control-center/commit/317b0888edd14d462e260895aef528d529f5b87c))
+
+#### Features
+
+*   add dtk version for virtualkeyboard geometry check ([3b9c8c0c](https://github.com/linuxdeepin/dde-control-center/commit/3b9c8c0c44cfecc0c5acb355628a536b806d816e))
+*   edit directly a wireless after it activate failed (need more config) ([44f7e3ba](https://github.com/linuxdeepin/dde-control-center/commit/44f7e3ba4c4a13c728260b5442c3599ff515b8cd))
+*   strong password ([877a8542](https://github.com/linuxdeepin/dde-control-center/commit/877a85425aa50335981c277e97ee521ff705a6ab))
+
+
+
 <a name="4.8.3"></a>
 ### 4.8.3 (2018-12-17)
 
