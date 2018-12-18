@@ -21,11 +21,15 @@
 
 #include "abstractsettings.h"
 #include "../sections/genericsection.h"
+#include "../connectioneditpage.h"
+
+#include <networkmanagerqt/settings.h>
 
 #include <QVBoxLayout>
 #include <QDebug>
 
 using namespace dcc::network;
+using namespace NetworkManager;
 
 AbstractSettings::AbstractSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent)
     : QWidget(parent),
@@ -64,6 +68,8 @@ void AbstractSettings::saveSettings()
             section->saveSettings();
         }
     }
+
+    resetConnectionInterfaceName();
 }
 
 bool AbstractSettings::isAutoConnect()
@@ -76,4 +82,18 @@ bool AbstractSettings::isAutoConnect()
 
     // auto connect after save connection, like hotspot connection
     return true;
+}
+
+void AbstractSettings::resetConnectionInterfaceName()
+{
+    if (ConnectionEditPage::devicePath().isEmpty() || clearInterfaceName()) {
+        qDebug() << "clear interface name of connection";
+        m_connSettings->setInterfaceName(QString());
+        return;
+    }
+
+    Device::Ptr dev = NetworkManager::findNetworkInterface(ConnectionEditPage::devicePath());
+    if (dev) {
+        m_connSettings->setInterfaceName(dev->interfaceName());
+    }
 }

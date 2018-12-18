@@ -54,7 +54,7 @@ class WiredPage : public ContentWidget
 {
     Q_OBJECT
 public:
-    explicit WiredPage(dde::network::WiredDevice *dev, QWidget *parent = 0);
+    explicit WiredPage(dde::network::WiredDevice *dev, QWidget *parent = nullptr);
 
     void setModel(dde::network::NetworkModel *model);
 

@@ -54,7 +54,7 @@ void WirelessSettings::initSections()
             m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
     
     WirelessSection *wirelessSection = new WirelessSection(
-            m_connSettings->setting(Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>(), m_connSettings->interfaceName());
+            m_connSettings->setting(Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>());
     // we need enable ssid text edit since it is a hidden wifi edit page if ssid is empty
     if (!wirelessSection->ssid().isEmpty()) {
         wirelessSection->setSsidEditable(false);
@@ -78,4 +78,10 @@ void WirelessSettings::initSections()
     m_settingSections.append(ipv4Section);
     m_settingSections.append(ipv6Section);
     m_settingSections.append(wirelessSection);
+}
+
+bool WirelessSettings::clearInterfaceName()
+{
+    NetworkManager::WirelessSetting::Ptr wirelessSetting = m_connSettings->setting(Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>();
+    return wirelessSetting->macAddress().isEmpty();
 }

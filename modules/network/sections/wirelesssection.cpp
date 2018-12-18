@@ -27,19 +27,20 @@
 #include <networkmanagerqt/manager.h>
 #include <networkmanagerqt/wireddevice.h>
 
+#define NotBindValue "NotBind"
+
 using namespace dcc::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-WirelessSection::WirelessSection(NetworkManager::WirelessSetting::Ptr wiredSetting, const QString &deviceInterface, QFrame *parent)
+WirelessSection::WirelessSection(NetworkManager::WirelessSetting::Ptr wiredSetting, QFrame *parent)
     : AbstractSection("Wi-Fi", parent),
       m_apSsid(new LineEditWidget(this)),
       m_deviceMac(new ComboBoxWidget(this)),
       //m_clonedMac(new LineEditWidget(this)),
       m_customMtuSwitch(new SwitchWidget(this)),
       m_customMtu(new SpinBoxWidget(this)),
-      m_wirelessSetting(wiredSetting),
-      m_deviceInterface(deviceInterface)
+      m_wirelessSetting(wiredSetting)
 {
     // get the macAddress list from all wireless devices
     for (auto device : NetworkManager::networkInterfaces()) {
@@ -51,6 +52,7 @@ WirelessSection::WirelessSection(NetworkManager::WirelessSetting::Ptr wiredSetti
         const QString &macStr = wDevice->permanentHardwareAddress() + " (" + wDevice->interfaceName() + ")";
         m_macStrMap.insert(macStr, wDevice->permanentHardwareAddress().remove(":"));
     }
+    m_macStrMap.insert(tr("Not Bind"), NotBindValue);
 
     // "^([0-9A-Fa-f]{2}[:-\\.]){5}([0-9A-Fa-f]{2})$"
     m_macAddrRegExp = QRegExp("^([0-9A-Fa-f]{2}[:]){5}([0-9A-Fa-f]{2})$");
@@ -91,6 +93,9 @@ void WirelessSection::saveSettings()
     m_wirelessSetting->setSsid(m_apSsid->text().toUtf8());
 
     QString hwAddr = m_macStrMap.value(m_deviceMac->value());
+    if (hwAddr == NotBindValue) {
+        hwAddr.clear();
+    }
     m_wirelessSetting->setMacAddress(QByteArray::fromHex(hwAddr.toUtf8()));
 
     //QString clonedAddr = m_clonedMac->text().remove(":");
@@ -119,15 +124,7 @@ void WirelessSection::initUI()
         m_deviceMac->setCurrent(macAddr);
     } else {
         // set macAddress of the current device to be default value
-        auto it = m_macStrMap.constBegin();
-        for (; it != m_macStrMap.constEnd(); ++it) {
-            if (it.key().contains(m_deviceInterface)) {
-                m_deviceMac->setCurrent(it.value());
-                break;
-            }
-        }
-
-        Q_ASSERT(it != m_macStrMap.constEnd());
+        m_deviceMac->setCurrent(NotBindValue);
     }
 
     //m_clonedMac->setTitle(tr("Cloned MAC Addr"));

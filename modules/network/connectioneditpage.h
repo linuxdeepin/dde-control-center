@@ -49,13 +49,13 @@ public:
 
     // Connection will NOT be activated if "devPath" is empty
     // A NEW connection will be created if "connUuid" is empty
-    explicit ConnectionEditPage(ConnectionType connType, const QString &devPath, const QString &connUuid = QString(), QWidget *parent = 0);
+    explicit ConnectionEditPage(ConnectionType connType, const QString &devPath, const QString &connUuid = QString(), QWidget *parent = nullptr);
     virtual ~ConnectionEditPage();
 
     // This method or some similar method of Subclass must be called after initialization
     virtual void initSettingsWidget();
 
-    inline const QString associatedDevicePath() { return m_devPath; }
+    static const QString devicePath();
     inline const QString connectionUuid() { return m_connectionUuid; }
 
     void onDeviceRemoved();
@@ -108,7 +108,6 @@ private:
     NetworkManager::ConnectionSettings::ConnectionType m_connType;
 
     bool m_isNewConnection;
-    QString m_devPath;
     QString m_connectionUuid;
 };
 

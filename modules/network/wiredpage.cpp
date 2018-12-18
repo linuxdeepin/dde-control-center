@@ -124,10 +124,10 @@ void WiredPage::refreshConnectionList()
             availableWiredConns << path;
     }
 
-    const auto conns = m_device->connections();
+    const auto connObjList = m_device->connections();
     QSet<QString> connPaths;
-    for (const auto &path : conns)
-    {
+    for (const auto &connObj : connObjList) {
+        const QString &path = connObj.value("Path").toString();
         // pass unavailable wired conns, like 'PPPoE'
         if (!availableWiredConns.contains(path))
             continue;
