@@ -69,7 +69,7 @@ UpdateWorker::UpdateWorker(UpdateModel* model, QObject *parent)
     , m_managerInter(new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this))
     , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
     , m_networkInter(new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this))
-    , m_smartMirrorInter(new SmartMirrorInter("com.deepin.lastore.Smartmirror", "/com/deepin/lastore.Smartmirror", QDBusConnection::systemBus(), this))
+    , m_smartMirrorInter(new SmartMirrorInter("com.deepin.lastore.Smartmirror", "/com/deepin/lastore/Smartmirror", QDBusConnection::systemBus(), this))
     , m_onBattery(true)
     , m_batteryPercentage(0)
     , m_baseProgress(0)
@@ -413,7 +413,10 @@ void UpdateWorker::checkNetselect()
 void UpdateWorker::setSmartMirror(bool enable)
 {
     m_smartMirrorInter->SetEnable(enable);
-    m_model->setSmartMirrorSwitch(enable);
+
+    QTimer::singleShot(100, this, [=] {
+        Q_EMIT m_smartMirrorInter->serviceValidChanged(m_smartMirrorInter->isValid());
+    });
 }
 
 void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)

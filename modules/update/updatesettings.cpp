@@ -103,7 +103,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 
         TipsLabel* smartTips = new TipsLabel;
         smartTips->setText(tr("Switch it on to connect to the quickest mirror site automatically."));
-
+        smartTips->setContentsMargins(20, 0, 20, 0);
         layout->addWidget(smartMirrorGrp);
         layout->addWidget(smartTips);
         layout->addSpacing(15);
