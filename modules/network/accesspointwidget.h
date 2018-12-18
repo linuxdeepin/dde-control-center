@@ -28,6 +28,8 @@
 
 #include "settingsitem.h"
 
+#include <QLabel>
+
 class QVBoxLayout;
 class QLabel;
 
@@ -53,8 +55,10 @@ public:
     explicit AccessPointWidget(QWidget *parent = 0);
 
     int strength() const { return m_strength; }
+    bool encrypt() const { return m_encrypt; }
     bool connected() const { return m_connected; }
     const QString path() const { return m_path; }
+    const QString ssid() const { return m_apName->text(); }
 
 Q_SIGNALS:
     void requestEdit(const QString &path, const QString &ssid) const;
@@ -62,7 +66,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void setStrength(const int strength);
-    void setEncyrpt(const bool encyrpt);
+    void setEncrypt(const bool encrypt);
     void setConnected(const bool connected);
     void setEditable(const bool editable);
     void setAPName(const QString &name);
@@ -80,6 +84,7 @@ private:
     QVBoxLayout *m_mainLayout;
 
     int m_strength;
+    bool m_encrypt;
     bool m_connected;
     QString m_path;
 };

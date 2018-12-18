@@ -88,6 +88,7 @@ private Q_SLOTS:
     void onApWidgetConnectRequested(const QString &path, const QString &ssid);
     void showConnectHidePage();
     void onDeviceRemoved();
+    void onActivateApFailed(const QString &apPath, const QString &uuid);
 
 private:
     void updateActiveAp();
@@ -101,6 +102,7 @@ private:
     dcc::widgets::SettingsGroup *m_tipsGroup;
     AccessPointWidget *m_connectHideSSID;
     QPushButton *m_closeHotspotBtn;
+    AccessPointWidget *m_currentClickApw;
 
     QPointer<ConnectionWirelessEditPage> m_apEditPage;
 

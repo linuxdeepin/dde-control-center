@@ -37,6 +37,8 @@
 #include <QDebug>
 #include <QVBoxLayout>
 #include <QPushButton>
+#include <DDBusSender>
+#include <QJsonDocument>
 
 using namespace dcc::widgets;
 using namespace dcc::network;
@@ -44,15 +46,12 @@ using namespace dde::network;
 
 WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     : ContentWidget(parent),
-
       m_device(dev),
-
       m_listGroup(new SettingsGroup),
       m_tipsGroup(new SettingsGroup),
-
       m_connectHideSSID(new AccessPointWidget(this)),
-
-      m_closeHotspotBtn(new QPushButton)
+      m_closeHotspotBtn(new QPushButton),
+      m_currentClickApw(nullptr)
 {
     m_sortDelayTimer.setInterval(100);
     m_sortDelayTimer.setSingleShot(true);
@@ -98,6 +97,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(dev, &WirelessDevice::activeConnectionChanged, this, &WirelessPage::updateActiveAp);
     connect(dev, &WirelessDevice::hotspotEnabledChanged, this, &WirelessPage::onHotspotEnableChanged);
     connect(dev, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
+    connect(dev, &WirelessDevice::activateAccessPointFailed, this, &WirelessPage::onActivateApFailed);
 
     // init data
     const QJsonArray mApList = m_device->apList();
@@ -168,7 +168,7 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
         w->setPath(path);
     }
 
-    w->setEncyrpt(apInfo.value("Secured").toBool());
+    w->setEncrypt(apInfo.value("Secured").toBool());
 
     m_sortDelayTimer.start();
 }
@@ -214,6 +214,19 @@ void WirelessPage::onDeviceRemoved()
     Q_EMIT back();
 }
 
+void WirelessPage::onActivateApFailed(const QString &apPath, const QString &uuid)
+{
+    Q_UNUSED(uuid);
+
+    if (m_currentClickApw && m_currentClickApw->path() == apPath) {
+        qDebug() << "wireless connect failed and may require more configuration,"
+            << "path:" << m_currentClickApw->path() << "ssid" << m_currentClickApw->ssid()
+            << "secret:" << m_currentClickApw->encrypt() << "strength" << m_currentClickApw->strength();
+
+        onApWidgetEditRequested(m_currentClickApw->path(), m_currentClickApw->ssid());
+    }
+}
+
 void WirelessPage::sortAPList()
 {
     auto cmpFunc = [=](const AccessPointWidget *a, const AccessPointWidget *b) {
@@ -257,9 +270,15 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
 
 void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString &ssid)
 {
+    m_currentClickApw = dynamic_cast<AccessPointWidget *>(sender());
+    if (!m_currentClickApw) {
+        qDebug() << "warning: init current clicked ap widget failed!";
+    }
+
     const QString uuid = connectionUuid(ssid);
 
-    Q_ASSERT(!uuid.isEmpty());
+    // uuid could be empty
+//    Q_ASSERT(!uuid.isEmpty());
 
     Q_EMIT requestConnectAp(m_device->path(), path, uuid);
 }

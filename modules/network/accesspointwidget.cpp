@@ -27,7 +27,6 @@
 #include "labels/normallabel.h"
 
 #include <QVBoxLayout>
-#include <QLabel>
 #include <QDebug>
 
 #include <dimagebutton.h>
@@ -50,6 +49,7 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
       m_mainLayout(new QVBoxLayout),
 
       m_strength(-1),
+      m_encrypt(false),
       m_connected(false)
 {
     m_lockIcon->setFixedSize(16, 16);
@@ -79,9 +79,11 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
     connect(m_detailBtn, &DImageButton::clicked, [=] { Q_EMIT requestEdit(m_path, m_apName->text()); });
 }
 
-void AccessPointWidget::setEncyrpt(const bool encyrpt)
+void AccessPointWidget::setEncrypt(const bool encrypt)
 {
-    if (!encyrpt)
+    m_encrypt = encrypt;
+
+    if (!encrypt)
         m_lockIcon->clear();
     else
         m_lockIcon->setPixmap(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/wireless/security.svg"));
