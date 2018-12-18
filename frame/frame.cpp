@@ -535,12 +535,20 @@ const QScreen *Frame::screenForGeometry(const QRect &rect) const
 
 bool Frame::checkOnBoard(const QPoint &point)
 {
-    QList<DForeignWindow*> windowList = DWindowManagerHelper::instance()->currentWorkspaceWindows();
+    QVector<quint32> windowList = DWindowManagerHelper::instance()->currentWorkspaceWindowIdList();
 
-    for (auto it = windowList.crbegin(); it != windowList.crend(); ++it) {
-        if ((*it)->handle()->geometry().contains(point)) {
-            return (*it)->wmClass() == "onboard";
+    for (quint32 wid : windowList) {
+        if (wid == window()->windowHandle()->winId()) continue;
+
+        DForeignWindow *w = DForeignWindow::fromWinId(wid);
+
+        if (w->handle()->geometry().contains(point)) {
+            if (w->wmClass() == "onboard") {
+                w->deleteLater();
+                return true;
+            }
         }
+        w->deleteLater();
     }
 
     return false;
