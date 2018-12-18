@@ -430,46 +430,51 @@
 <context>
     <name>dcc::accounts::ModifyPasswordPage</name>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="50"/>
         <source>Current Password</source>
         <translation>বর্তমান পাসওয়ার্ড</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
         <source>New Password</source>
         <translation>নতুন পাসওয়ার্ড</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="54"/>
         <source>Repeat Password</source>
         <translation>পুনরায় পাসওয়ার্ড দিন</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="55"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="56"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="58"/>
         <source>Required</source>
         <translation>আবশ্যক</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="62"/>
         <source>Cancel</source>
         <translation>বাতিল</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="64"/>
         <source>Accept</source>
         <translation>গ্রহণ করুন</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="105"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="112"/>
         <source>New password should differ from the current one</source>
         <translation>নতুন পাসওয়ার্ডটি বর্তমান পাসওয়ার্ড হতে পৃথক হওয়া উচিত</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="148"/>
         <source>Password</source>
         <translation>পাসওয়ার্ড</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
+        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1040,7 +1045,7 @@
         <translation>এই শর্টকাটির %1 এর সাথে সংঘাত ঘটে, এই শর্টকাটটি তাৎক্ষনিকভাবে কার্যকর করার জন্য &quot;যোগ করুন&quot; এ ক্লিক করুন</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="161"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="162"/>
         <source>Choose File</source>
         <translation>ফাইল পছন্দ করুন</translation>
     </message>

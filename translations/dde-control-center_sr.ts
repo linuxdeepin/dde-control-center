@@ -430,46 +430,51 @@
 <context>
     <name>dcc::accounts::ModifyPasswordPage</name>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="50"/>
         <source>Current Password</source>
         <translation>Тренутна лозинка</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
         <source>New Password</source>
         <translation>Нова лозинка</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="54"/>
         <source>Repeat Password</source>
         <translation>Поново унеси</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="55"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="56"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="58"/>
         <source>Required</source>
         <translation>Неопходно</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="62"/>
         <source>Cancel</source>
         <translation>Откажи</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="64"/>
         <source>Accept</source>
         <translation>Прихвати</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="105"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="112"/>
         <source>New password should differ from the current one</source>
         <translation>Нова лозинка треба да се разликује од тренутне</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="148"/>
         <source>Password</source>
         <translation>Лозинка</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
+        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -794,12 +799,12 @@
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="48"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation>Молим вас промените тренутни режим пре промене подешавања</translation>
+        <translation>Молимо промените тренутни режим пре промене подешавања</translation>
     </message>
     <message>
         <location filename="../modules/display/customconfigpage.cpp" line="50"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation>Молим вас поставите други режим пре измена подешавања</translation>
+        <translation>Молимо поставите други режим пре измена подешавања</translation>
     </message>
 </context>
 <context>
@@ -1038,7 +1043,7 @@
         <translation>Ова пречица је у сукобу са %1, кликните на „Додај“ да бисте могли да користите ову пречицу</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="161"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="162"/>
         <source>Choose File</source>
         <translation>Одабери датотеку</translation>
     </message>
@@ -3858,12 +3863,12 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="99"/>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>Паметна промена сервера</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="105"/>
         <source>Switch it on to connect to the quickest mirror site automatically.</source>
-        <translation type="unfinished"/>
+        <translation>Укључите да се аутоматски повежете на најбржи пресликани сервер за ажурирања.</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="112"/>

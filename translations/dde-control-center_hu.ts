@@ -430,46 +430,51 @@
 <context>
     <name>dcc::accounts::ModifyPasswordPage</name>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="50"/>
         <source>Current Password</source>
         <translation>Jelenlegi Jelszó</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
         <source>New Password</source>
         <translation>Új jelszó</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="54"/>
         <source>Repeat Password</source>
         <translation>Jelszó ismét</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="55"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="56"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="58"/>
         <source>Required</source>
         <translation>Szükséges</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="62"/>
         <source>Cancel</source>
         <translation>Mégse</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="64"/>
         <source>Accept</source>
         <translation>Elfogadás</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="105"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="112"/>
         <source>New password should differ from the current one</source>
         <translation>Az új jelszónak különböznie kell a jelenlegitől </translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="148"/>
         <source>Password</source>
         <translation>Jelszó</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
+        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1038,7 +1043,7 @@
         <translation>A parancsikon ütközik ezzel: %1. Hozzunk létre egy másik parancsikont.</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="161"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="162"/>
         <source>Choose File</source>
         <translation>Fájl választás</translation>
     </message>

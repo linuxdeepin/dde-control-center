@@ -430,46 +430,51 @@
 <context>
     <name>dcc::accounts::ModifyPasswordPage</name>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="49"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="50"/>
         <source>Current Password</source>
         <translation>Palavra-passe Atual</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="51"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="52"/>
         <source>New Password</source>
         <translation>Nova Palavra-passe</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="53"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="54"/>
         <source>Repeat Password</source>
         <translation>Repita Palavra-passe</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="55"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="56"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="58"/>
         <source>Required</source>
         <translation>Obrigatório</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="61"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="62"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="63"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="64"/>
         <source>Accept</source>
         <translation>Aceitar</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="105"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="112"/>
         <source>New password should differ from the current one</source>
         <translation>A nova palavra-passe deverá ser diferente da atual</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="141"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="148"/>
         <source>Password</source>
         <translation>Palavra-passe</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
+        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1038,7 +1043,7 @@
         <translation>Este atalho está em conflito com %1, clique em Adicionar para tornar este atalho imediatamente efetivo</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="161"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="162"/>
         <source>Choose File</source>
         <translation>Escolher Ficheiro</translation>
     </message>
