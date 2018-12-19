@@ -7,7 +7,9 @@
 
 static const QMap<QString, QString> SYSTEM_LOCAL_MAP {
     {"zh_CN", "zh_CN"},
+#ifndef DCC_ENABLE_END_USER_LICENSE
     {"zh_TW", "zh_TW"},
+#endif
 };
 
 static const QString getLicense(const QString &filePath, const QString &type)
