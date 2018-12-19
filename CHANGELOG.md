@@ -1,3 +1,19 @@
+<a name="4.8.5"></a>
+### 4.8.5 (2018-12-19)
+
+
+#### Bug Fixes
+
+* **Systeminfo:**  end user license empty when zh_TW ([fb944704](https://github.com/linuxdeepin/dde-control-center/commit/fb944704261274b0ac1c0e692c190955e3bef3a0))
+* **Update:**  crash when enter setting page after not stop scroll ([d6648890](https://github.com/linuxdeepin/dde-control-center/commit/d6648890e655c411aa144d51e3d82232169b4206))
+
+#### Features
+
+*   update ad domain config ([35ab375e](https://github.com/linuxdeepin/dde-control-center/commit/35ab375e63fc04a3fc744d55f86c6360de7b1d70))
+* **accounts:**  create user use strong password ([a424d81e](https://github.com/linuxdeepin/dde-control-center/commit/a424d81e79ce7326b393d15529f3328c09e4b987))
+
+
+
 <a name="4.8.4"></a>
 ### 4.8.4 (2018-12-18)
 
