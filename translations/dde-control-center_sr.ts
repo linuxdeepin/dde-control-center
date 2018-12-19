@@ -329,51 +329,57 @@
 <context>
     <name>dcc::accounts::CreatePage</name>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="51"/>
+        <location filename="../modules/accounts/createpage.cpp" line="52"/>
         <source>Username</source>
         <translation>Корисничко име</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="52"/>
-        <location filename="../modules/accounts/createpage.cpp" line="54"/>
-        <location filename="../modules/accounts/createpage.cpp" line="57"/>
+        <location filename="../modules/accounts/createpage.cpp" line="53"/>
+        <location filename="../modules/accounts/createpage.cpp" line="55"/>
+        <location filename="../modules/accounts/createpage.cpp" line="58"/>
         <source>Required</source>
         <translation>Неопходно</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="53"/>
+        <location filename="../modules/accounts/createpage.cpp" line="54"/>
         <source>Password</source>
         <translation>Лозинка</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="56"/>
+        <location filename="../modules/accounts/createpage.cpp" line="57"/>
         <source>Repeat password</source>
         <translation>Поновите лозинку</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="65"/>
+        <location filename="../modules/accounts/createpage.cpp" line="66"/>
         <source>Cancel</source>
         <translation>Откажи</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="66"/>
+        <location filename="../modules/accounts/createpage.cpp" line="67"/>
         <source>Create</source>
         <translation>Направи</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="85"/>
+        <location filename="../modules/accounts/createpage.cpp" line="86"/>
         <source>New Account</source>
         <translation>Нови налог</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="140"/>
+        <location filename="../modules/accounts/createpage.cpp" line="148"/>
         <source>Username can&apos;t be empty.</source>
         <translation>Корисничко име не може остати празно</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="143"/>
+        <location filename="../modules/accounts/createpage.cpp" line="151"/>
         <source>Password can&apos;t be empty.</source>
         <translation>Лозинка не може остати празна.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="234"/>
+        <location filename="../modules/accounts/createpage.cpp" line="237"/>
+        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -474,7 +480,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Лозинка мора садржати слова алфабета (осетљиво на мала и велика слова), бројеве или специјалне карактере (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -3211,22 +3217,22 @@
 <context>
     <name>dcc::network::WirelessPage</name>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="60"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="59"/>
         <source>Connect to hidden network</source>
         <translation>Повежи се на скривену мрежу</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="63"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="62"/>
         <source>Close hotspot</source>
         <translation>Затвори врућу тачку</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="66"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="65"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
         <translation>Прво онемогућите дељење вруће тачке ако желите да се повежете и користите функцију бежичне мреже</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="89"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="88"/>
         <source>WLAN</source>
         <translation>ВЛАН</translation>
     </message>

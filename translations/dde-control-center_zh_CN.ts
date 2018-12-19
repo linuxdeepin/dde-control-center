@@ -285,7 +285,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="406"/>
         <source>Password not match.</source>
-        <translation>密码不一致。</translation>
+        <translation>密码不一致</translation>
     </message>
 </context>
 <context>
@@ -329,51 +329,57 @@
 <context>
     <name>dcc::accounts::CreatePage</name>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="51"/>
+        <location filename="../modules/accounts/createpage.cpp" line="52"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="52"/>
-        <location filename="../modules/accounts/createpage.cpp" line="54"/>
-        <location filename="../modules/accounts/createpage.cpp" line="57"/>
+        <location filename="../modules/accounts/createpage.cpp" line="53"/>
+        <location filename="../modules/accounts/createpage.cpp" line="55"/>
+        <location filename="../modules/accounts/createpage.cpp" line="58"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="53"/>
+        <location filename="../modules/accounts/createpage.cpp" line="54"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="56"/>
+        <location filename="../modules/accounts/createpage.cpp" line="57"/>
         <source>Repeat password</source>
         <translation>重复密码</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="65"/>
+        <location filename="../modules/accounts/createpage.cpp" line="66"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="66"/>
+        <location filename="../modules/accounts/createpage.cpp" line="67"/>
         <source>Create</source>
         <translation>创建</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="85"/>
+        <location filename="../modules/accounts/createpage.cpp" line="86"/>
         <source>New Account</source>
         <translation>新账户</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="140"/>
+        <location filename="../modules/accounts/createpage.cpp" line="148"/>
         <source>Username can&apos;t be empty.</source>
         <translation>用户名不能为空</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="143"/>
+        <location filename="../modules/accounts/createpage.cpp" line="151"/>
         <source>Password can&apos;t be empty.</source>
         <translation>密码不能为空</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="234"/>
+        <location filename="../modules/accounts/createpage.cpp" line="237"/>
+        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>密码必须包含英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）</translation>
     </message>
 </context>
 <context>
@@ -3211,22 +3217,22 @@
 <context>
     <name>dcc::network::WirelessPage</name>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="60"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="59"/>
         <source>Connect to hidden network</source>
         <translation>连接到隐藏网络</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="63"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="62"/>
         <source>Close hotspot</source>
         <translation>关闭热点</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="66"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="65"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
         <translation>若要连接并使用无线网络功能，请先关闭热点分享</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="89"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="88"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>

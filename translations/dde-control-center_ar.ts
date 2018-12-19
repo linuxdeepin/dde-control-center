@@ -329,51 +329,57 @@
 <context>
     <name>dcc::accounts::CreatePage</name>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="51"/>
+        <location filename="../modules/accounts/createpage.cpp" line="52"/>
         <source>Username</source>
         <translation>اسم المستخدم</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="52"/>
-        <location filename="../modules/accounts/createpage.cpp" line="54"/>
-        <location filename="../modules/accounts/createpage.cpp" line="57"/>
+        <location filename="../modules/accounts/createpage.cpp" line="53"/>
+        <location filename="../modules/accounts/createpage.cpp" line="55"/>
+        <location filename="../modules/accounts/createpage.cpp" line="58"/>
         <source>Required</source>
         <translation>مطلوب</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="53"/>
+        <location filename="../modules/accounts/createpage.cpp" line="54"/>
         <source>Password</source>
         <translation>كلمة المرور</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="56"/>
+        <location filename="../modules/accounts/createpage.cpp" line="57"/>
         <source>Repeat password</source>
         <translation>كرر كلمة المرور</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="65"/>
+        <location filename="../modules/accounts/createpage.cpp" line="66"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="66"/>
+        <location filename="../modules/accounts/createpage.cpp" line="67"/>
         <source>Create</source>
         <translation>إنشاء</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="85"/>
+        <location filename="../modules/accounts/createpage.cpp" line="86"/>
         <source>New Account</source>
         <translation>حساب جديد</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="140"/>
+        <location filename="../modules/accounts/createpage.cpp" line="148"/>
         <source>Username can&apos;t be empty.</source>
         <translation>اسم المستخدم لا يمكن أن يكون فارغا.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="143"/>
+        <location filename="../modules/accounts/createpage.cpp" line="151"/>
         <source>Password can&apos;t be empty.</source>
         <translation>كلمة المرور لا يمكن أن تكون فارغة.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="234"/>
+        <location filename="../modules/accounts/createpage.cpp" line="237"/>
+        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3211,22 +3217,22 @@
 <context>
     <name>dcc::network::WirelessPage</name>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="60"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="59"/>
         <source>Connect to hidden network</source>
         <translation>الإتصال بشبكة مخفية</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="63"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="62"/>
         <source>Close hotspot</source>
         <translation>أغلق نقطة الاتصال</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="66"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="65"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
         <translation>يرجى أولا تعطيل مشاركة &quot;نقطة الاتصال&quot; إذا كنت ترغب في الاتصال واستخدام وظيفة الشبكة اللاسلكية</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="89"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="88"/>
         <source>WLAN</source>
         <translation>الشبكة المحلية اللاسلكية</translation>
     </message>

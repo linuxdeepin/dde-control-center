@@ -329,51 +329,57 @@
 <context>
     <name>dcc::accounts::CreatePage</name>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="51"/>
+        <location filename="../modules/accounts/createpage.cpp" line="52"/>
         <source>Username</source>
         <translation>Nom d&apos;usuari</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="52"/>
-        <location filename="../modules/accounts/createpage.cpp" line="54"/>
-        <location filename="../modules/accounts/createpage.cpp" line="57"/>
+        <location filename="../modules/accounts/createpage.cpp" line="53"/>
+        <location filename="../modules/accounts/createpage.cpp" line="55"/>
+        <location filename="../modules/accounts/createpage.cpp" line="58"/>
         <source>Required</source>
         <translation>Necessari</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="53"/>
+        <location filename="../modules/accounts/createpage.cpp" line="54"/>
         <source>Password</source>
         <translation>Contrasenya</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="56"/>
+        <location filename="../modules/accounts/createpage.cpp" line="57"/>
         <source>Repeat password</source>
         <translation>Repetiu la contrasenya.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="65"/>
+        <location filename="../modules/accounts/createpage.cpp" line="66"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="66"/>
+        <location filename="../modules/accounts/createpage.cpp" line="67"/>
         <source>Create</source>
         <translation>Crea</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="85"/>
+        <location filename="../modules/accounts/createpage.cpp" line="86"/>
         <source>New Account</source>
         <translation>Compte nou</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="140"/>
+        <location filename="../modules/accounts/createpage.cpp" line="148"/>
         <source>Username can&apos;t be empty.</source>
         <translation>El nom d&apos;usuari no pot estar en blanc.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="143"/>
+        <location filename="../modules/accounts/createpage.cpp" line="151"/>
         <source>Password can&apos;t be empty.</source>
         <translation>La contrasenya no pot estar en blanc.</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="234"/>
+        <location filename="../modules/accounts/createpage.cpp" line="237"/>
+        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -474,7 +480,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>La contrasenya ha de contenir lletres angleses (majúscules o minúscules), números o símbols especials (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;).</translation>
     </message>
 </context>
 <context>
@@ -3211,22 +3217,22 @@
 <context>
     <name>dcc::network::WirelessPage</name>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="60"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="59"/>
         <source>Connect to hidden network</source>
         <translation>Connecta amb una xarxa oculta</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="63"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="62"/>
         <source>Close hotspot</source>
         <translation>Tanca el punt d&apos;accés</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="66"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="65"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
         <translation>Si us plau, primer inhabiliteu la compartició del punt d&apos;accés si voleu connectar i usar la funció de xarxa sense fil.</translation>
     </message>
     <message>
-        <location filename="../modules/network/wirelesspage.cpp" line="89"/>
+        <location filename="../modules/network/wirelesspage.cpp" line="88"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -3863,12 +3869,12 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="99"/>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>Canvi de rèplica intel·ligent</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="105"/>
         <source>Switch it on to connect to the quickest mirror site automatically.</source>
-        <translation type="unfinished"/>
+        <translation>Activeu-ho per connectar amb la rèplica més ràpida automàticament.</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="112"/>
