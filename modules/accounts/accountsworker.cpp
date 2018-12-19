@@ -311,11 +311,11 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
     const bool isJoin = m_userModel->isJoinADDomain();
     int exitCode = 0;
     if (isJoin) {
-        exitCode = QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "leave");
+        exitCode = QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "leave" << "--disable" << "ssh");
     } else {
         // for safety, restart lwsmd service before join AD Domain
         QProcess::execute("pkexec", QStringList() << "/bin/systemctl" << "restart" << "lwsmd");
-        exitCode = QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "join" << server << admin << password);
+        exitCode = QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "join" << "--disable" << "ssh" << server << admin << password);
     }
 
     QString message;
@@ -328,6 +328,20 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
         if (!isJoin) {
             QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/config" << "UserDomainPrefix" << "ADS");
             QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/config" << "LoginShellTemplate" << "/bin/bash");
+        }
+        // save config
+        QFile file("/etc/deepin/dde-session-ui.conf");
+        if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+            qDebug() << file.copy("/tmp/.dde-session-ui.conf");
+            QFile tmpFile("/tmp/.dde-session-ui.conf");
+            if (tmpFile.open(QIODevice::Text | QIODevice::ReadWrite)) {
+                QSettings setting("/tmp/.dde-session-ui.conf", QSettings::IniFormat);
+                setting.beginGroup("ADDOMAIN");
+                setting.setValue("JOIN", !isJoin);
+                setting.sync();
+                QProcess::execute("pkexec", QStringList() << "cp" << "/tmp/.dde-session-ui.conf" << "/etc/deepin/dde-session-ui.conf");
+                tmpFile.remove();
+            }
         }
     } else {
         message = isJoin ? tr("Your host failed to leave the domain server.")
