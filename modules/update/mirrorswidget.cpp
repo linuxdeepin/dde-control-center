@@ -71,7 +71,10 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
 
 void MirrorsWidget::setModel(UpdateModel *model)
 {
-    setDefaultMirror(model->defaultMirror());
+    if (!model->mirrorInfos().isEmpty()) {
+        setDefaultMirror(model->defaultMirror());
+    }
+
     setMirrorInfoList(model->mirrorInfos());
     m_testButton->setVisible(model->netselectExist());
 

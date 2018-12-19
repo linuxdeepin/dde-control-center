@@ -108,19 +108,7 @@ UpdateWorker::UpdateWorker(UpdateModel* model, QObject *parent)
 void UpdateWorker::activate()
 {
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
-    QDBusPendingCall call = m_updateInter->ListMirrorSources(QLocale::system().name());
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
-        if (!call.isError()) {
-            QDBusReply<MirrorInfoList> reply = call.reply();
-            MirrorInfoList list  = reply.value();
-            m_model->setMirrorInfos(list);
-        } else {
-            qWarning() << "list mirror sources error: " << call.error().message();
-        }
-    });
-
-    m_model->setDefaultMirror(m_updateInter->mirrorSource());
+    refreshMirrors();
 #endif
 
     m_model->setAutoCleanCache(m_managerInter->autoClean());
@@ -418,6 +406,25 @@ void UpdateWorker::setSmartMirror(bool enable)
         Q_EMIT m_smartMirrorInter->serviceValidChanged(m_smartMirrorInter->isValid());
     });
 }
+
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
+void UpdateWorker::refreshMirrors()
+{
+    QDBusPendingCall call = m_updateInter->ListMirrorSources(QLocale::system().name());
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+        if (!call.isError()) {
+            QDBusReply<MirrorInfoList> reply = call.reply();
+            MirrorInfoList list  = reply.value();
+            m_model->setMirrorInfos(list);
+        } else {
+            qWarning() << "list mirror sources error: " << call.error().message();
+        }
+    });
+
+    m_model->setDefaultMirror(m_updateInter->mirrorSource());
+}
+#endif
 
 void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
 {

@@ -79,6 +79,10 @@ public Q_SLOTS:
     void checkNetselect();
     void setSmartMirror(bool enable);
 
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
+    void refreshMirrors();
+#endif
+
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
     void setDownloadJob(const QString &jobPath);

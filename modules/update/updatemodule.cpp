@@ -146,6 +146,8 @@ void UpdateModule::onPushMirrorsView()
 void UpdateModule::onPushSettings()
 {
     if (!m_settingsPage) {
+        m_work->refreshMirrors();
+
         m_settingsPage = new UpdateSettings(m_model);
 
         connect(m_settingsPage, &UpdateSettings::requestSetAutoUpdate, m_work, &UpdateWorker::setAutoDownloadUpdates);

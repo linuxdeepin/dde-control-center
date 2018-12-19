@@ -148,7 +148,11 @@ void UpdateSettings::setModel(UpdateModel *model)
             auto setDefaultMirror = [this] (const MirrorInfo &mirror) {
                 m_updateMirrors->setValue(mirror.m_name);
             };
-            setDefaultMirror(model->defaultMirror());
+
+            if (!model->mirrorInfos().isEmpty()) {
+                setDefaultMirror(model->defaultMirror());
+            }
+
             connect(model, &UpdateModel::defaultMirrorChanged, this, setDefaultMirror);
             connect(model, &UpdateModel::smartMirrorSwitchChanged, m_smartMirrorBtn, &SwitchWidget::setChecked);
             m_smartMirrorBtn->setChecked(m_model->smartMirrorSwitch());
