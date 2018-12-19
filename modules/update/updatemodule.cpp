@@ -146,7 +146,9 @@ void UpdateModule::onPushMirrorsView()
 void UpdateModule::onPushSettings()
 {
     if (!m_settingsPage) {
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
         m_work->refreshMirrors();
+#endif
 
         m_settingsPage = new UpdateSettings(m_model);
 
