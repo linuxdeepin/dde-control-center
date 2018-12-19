@@ -28,6 +28,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QDebug>
+#include <QSettings>
 
 #include "translucentframe.h"
 
@@ -93,8 +94,15 @@ CreatePage::CreatePage(QWidget *parent) :
 
     connect(m_username->textEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
     connect(m_username->textEdit(), &QLineEdit::textEdited, [=] { m_username->textEdit()->setText(m_username->textEdit()->text().toLower()); });
-    connect(m_repeatpass->textEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
-    connect(m_password->textEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
+    connect(m_password->textEdit(), &QLineEdit::editingFinished, this, [=] {
+        onEditFinished<LineEditWidget*>(m_password);
+    });
+    connect(m_repeatpass->textEdit(), &QLineEdit::editingFinished, this, [=] {
+        if (!m_errorTip->isVisible()) {
+            onEditFinished<LineEditWidget*>(m_repeatpass);
+        }
+    });
+
 }
 
 CreatePage::~CreatePage()
@@ -178,6 +186,60 @@ void CreatePage::showPasswordMatchErrorTip(QString error)
     m_errorTip->setText(error);
     m_errorTip->show(globalStart.x() + m_repeatpass->width() / 2,
                      globalStart.y() + m_repeatpass->height() / 2 + 10);
+}
+
+bool CreatePage::ContainsChar(const QString &password, const QString &validate)
+{
+    for (const QString &p : password) {
+        if (validate.contains(p)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool CreatePage::validatePassword(const QString &password)
+{
+    QSettings setting("/etc/deepin/dde-control-center.conf", QSettings::IniFormat);
+    setting.beginGroup("Password");
+    bool strong_password_check = setting.value("STRONG_PASSWORD", true).toBool();
+
+    if (!strong_password_check) return true;
+
+    uint success_num = 0;
+
+    const QStringList strong_policy_list {
+        "1234567890",
+        "abcdefghijklmnopqrstuvwxyz",
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+        "~!@#$%^&*()[]{}\\|/?,.<>"
+    };
+
+    for (const QString &policy : strong_policy_list) {
+        if (ContainsChar(password, policy)) {
+            ++success_num;
+        }
+    }
+
+    return success_num > 1;
+}
+
+template <typename T>
+void CreatePage::onEditFinished(T t)
+{
+    const QString &password = t->text();
+    if (!validatePassword(password)) {
+        if (t == m_password) {
+            showPasswordEmptyErrorTip(tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"));
+        }
+        else {
+            showPasswordMatchErrorTip(tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"));
+        }
+    }
+    else {
+        m_errorTip->hide();
+    }
 }
 
 } // namespace accounts

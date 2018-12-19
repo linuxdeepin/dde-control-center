@@ -65,6 +65,11 @@ private:
     void showPasswordEmptyErrorTip(const QString &error);
     void showPasswordMatchErrorTip(QString error);
 
+    template <typename T>
+    void onEditFinished(T t);
+    bool validatePassword(const QString &password);
+    bool ContainsChar(const QString &password, const QString &validate);
+
 private:
     AvatarWidget *m_avatar;
     dcc::widgets::SettingsGroup *m_group;
