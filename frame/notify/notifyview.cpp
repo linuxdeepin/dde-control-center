@@ -22,6 +22,8 @@
 #include "notifyview.h"
 #include "notifymodel.h"
 
+#include <QScroller>
+
 NotifyView::NotifyView(QWidget *parent) : QListView(parent)
 {
     setFrameStyle(QFrame::NoFrame);
@@ -36,6 +38,12 @@ NotifyView::NotifyView(QWidget *parent) : QListView(parent)
 
     connect(this, &NotifyView::currentHoverChanged, this, &NotifyView::onCurrentHoverChanged);
     connect(this, &NotifyView::entered, this, &NotifyView::onItemEntered);
+
+    QScroller::grabGesture(this, QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(this);
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
 }
 
 const QModelIndex &NotifyView::currentHoverIndex() const
