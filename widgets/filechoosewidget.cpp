@@ -54,7 +54,7 @@ FileChooseWidget::FileChooseWidget(QWidget *parent)
     mainLayout->addWidget(m_edit);
     mainLayout->addWidget(m_btn);
     mainLayout->setSpacing(5);
-    mainLayout->setContentsMargins(20, 0, 10, 0);
+    mainLayout->setContentsMargins(20, 0, 0, 0);
 
     setLayout(mainLayout);
     setFixedHeight(36);
