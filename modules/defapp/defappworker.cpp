@@ -207,6 +207,8 @@ void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json, cons
         return;
     }
 
+    QList<App> list;
+
     for (const QJsonValue &value : json) {
         QJsonObject obj = value.toObject();
         App app;
@@ -217,7 +219,24 @@ void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json, cons
         app.Description = obj["Description"].toString();
         app.Exec = obj["Exec"].toString();
         app.isUser = isUser;
-        category->addUserItem(app);
+
+        list << app;
+    }
+
+    QList<App> systemList = category->systemAppList();
+    QList<App> userList = category->userAppList();
+
+    for (App app : list) {
+        if (!systemList.contains(app) || !userList.contains(app)) {
+            category->addUserItem(app);
+        }
+    }
+
+    QList<App> allList = category->getappItem();
+    for (App app : allList) {
+        if (!list.contains(app)) {
+            category->delUserItem(app);
+        }
     }
 
     category->setCategory(mime);

@@ -52,7 +52,14 @@ void Category::setCategory(const QString &category)
 
 void Category::addUserItem(const App &value)
 {
-    if (m_applist.contains(value)) return;
+    if (value.isUser) {
+        if (m_userAppList.contains(value)) return;
+        m_userAppList << value;
+    }
+    else {
+        if (m_systemAppList.contains(value)) return;
+        m_systemAppList << value;
+    }
 
     m_applist << value;
     Q_EMIT addedUserItem(value);
@@ -61,6 +68,8 @@ void Category::addUserItem(const App &value)
 void Category::delUserItem(const App &value)
 {
     m_applist.removeOne(value);
+    m_systemAppList.removeOne(value);
+    m_userAppList.removeOne(value);
 
     Q_EMIT removedUserItem(value);
 }
