@@ -67,7 +67,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_autoDownloadSwitch = new SwitchWidget;
     m_autoDownloadSwitch->setTitle(tr("Auto-download Updates"));
 
-    m_updateLbl = new TipsLabel(tr("Updates will be auto-downloaded in wireless or wired network"));
+    m_updateLbl = new TipsLabel(tr("Switch it on to automatically download the updates in wireless or wired network"));
     m_updateLbl->setWordWrap(true);
     m_updateLbl->setContentsMargins(20, 0, 20, 0);
 
