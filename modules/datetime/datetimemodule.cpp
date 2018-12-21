@@ -109,6 +109,7 @@ void DatetimeModule::showTimeSettingsPage()
 {
     if (!m_dateSettings) {
         m_dateSettings = new DateSettings;
+        m_dateSettings->setCurrentTimeZone(m_model->currentTimeZone());
 
         connect(m_dateSettings, &DateSettings::requestSetTime, m_work, &DatetimeWork::setDatetime);
     }

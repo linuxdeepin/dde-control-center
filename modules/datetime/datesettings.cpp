@@ -100,6 +100,11 @@ DateSettings::DateSettings(QWidget *parent)
     connect(m_monthWidget, &DateWidget::editingFinished, this, &DateSettings::updateDayRange);
 }
 
+void DateSettings::setCurrentTimeZone(const ZoneInfo &info)
+{
+    m_clock->setTimeZone(info);
+}
+
 void DateSettings::onCancelButtonClicked()
 {
     back();

@@ -60,6 +60,7 @@ class DateSettings : public ContentWidget
 
 public:
     explicit DateSettings(QWidget *parent = 0);
+    void setCurrentTimeZone(const ZoneInfo &info);
 
 Q_SIGNALS:
     void requestSetTime(const QDateTime &time);
