@@ -535,23 +535,6 @@ const QScreen *Frame::screenForGeometry(const QRect &rect) const
 
 bool Frame::checkOnBoard(const QPoint &point)
 {
-#if (DTK_VERSION >= DTK_VERSION_CHECK(2, 0, 9, 11))
-    QVector<quint32> windowList = DWindowManagerHelper::instance()->currentWorkspaceWindowIdList();
-
-    for (quint32 wid : windowList) {
-        if (wid == window()->windowHandle()->winId()) continue;
-
-        DForeignWindow *w = DForeignWindow::fromWinId(wid);
-
-        if (w->handle()->geometry().contains(point)) {
-            if (w->wmClass() == "onboard") {
-                w->deleteLater();
-                return true;
-            }
-        }
-        w->deleteLater();
-    }
-#else
     QList<DForeignWindow*> windowList = DWindowManagerHelper::instance()->currentWorkspaceWindows();
 
     for (auto it = windowList.crbegin(); it != windowList.crend(); ++it) {
@@ -559,7 +542,6 @@ bool Frame::checkOnBoard(const QPoint &point)
             return (*it)->wmClass() == "onboard";
         }
     }
-#endif
 
     return false;
 }
