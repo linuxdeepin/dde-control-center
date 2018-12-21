@@ -142,17 +142,22 @@ void KeyboardModule::onPushKeyboard(const QStringList &kblist)
         m_work->onPinyin();
         m_kbLayoutWidget = new KeyboardLayoutWidget();
 
-        QList<MetaData> datas = m_work->getDatas();
+        auto dataControll = [=] (QList<MetaData> datas) {
+            for (auto it(datas.begin()); it != datas.end();) {
+                const MetaData &data = *it;
+                if (kblist.contains(data.key()))
+                    it = datas.erase(it);
+                else
+                    ++it;
+            }
 
-        for (auto it(datas.begin()); it != datas.end();) {
-            const MetaData &data = *it;
-            if (kblist.contains(data.key()))
-                it = datas.erase(it);
-            else
-                ++it;
-        }
+            m_kbLayoutWidget->setMetaData(datas);
+        };
 
-        m_kbLayoutWidget->setMetaData(datas);
+        connect(m_work, &KeyboardWorker::onDatasChanged, this, dataControll);
+        connect(m_work, &KeyboardWorker::onLettersChanged, m_kbLayoutWidget, &KeyboardLayoutWidget::setLetters);
+
+        dataControll(m_work->getDatas());
         m_kbLayoutWidget->setLetters(m_work->getLetters());
 
         connect(m_kbLayoutWidget, &KeyboardLayoutWidget::layoutSelected, m_work, &KeyboardWorker::addUserLayout);
@@ -162,7 +167,6 @@ void KeyboardModule::onPushKeyboard(const QStringList &kblist)
 
 void KeyboardModule::onPushKBDetails()
 {
-
     if(!m_kbDetails)
     {
         m_work->onRefreshKBLayout();
@@ -183,6 +187,7 @@ void KeyboardModule::onPushLanguage()
 {
     if(!m_langWidget)
     {
+        m_work->refreshLang();
         m_langWidget = new LangWidget(m_model);
         connect(m_langWidget, SIGNAL(click(QModelIndex)), this, SLOT(onSetLocale(QModelIndex)));
     }
@@ -203,6 +208,7 @@ void KeyboardModule::onPushShortcut()
 {
     if(!m_shortcutWidget)
     {
+        m_work->refreshShortcut();
         m_shortcutWidget = new ShortcutWidget(m_shortcutModel);
         connect(m_shortcutWidget, &ShortcutWidget::customShortcut, this, &KeyboardModule::onPushCustomShortcut);
         connect(m_shortcutWidget, &ShortcutWidget::delShortcutInfo, m_work, &KeyboardWorker::delShortcut);

@@ -87,16 +87,27 @@ void KeyboardWorker::setShortcutModel(ShortcutModel *model)
     connect(m_keybindInter, &KeybingdingInter::KeyEvent, model, &ShortcutModel::keyEvent);
 }
 
-void KeyboardWorker::active()
+void KeyboardWorker::refreshShortcut()
 {
-    m_keyboardInter->blockSignals(false);
+    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keybindInter->ListAllShortcuts(), this);
+    connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
+            SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
+}
+
 #ifndef DCC_DISABLE_LANGUAGE
+void KeyboardWorker::refreshLang()
+{
     m_langSelector->blockSignals(false);
     if (!m_langSelector->isValid())
         m_langSelector->startServiceProcess();
     else
         onLangSelectorServiceFinished();
+}
 #endif
+
+void KeyboardWorker::active()
+{
+    m_keyboardInter->blockSignals(false);
     m_keybindInter->blockSignals(false);
 
     setModelRepeatDelay(m_keyboardInter->repeatDelay());
@@ -105,15 +116,11 @@ void KeyboardWorker::active()
     m_metaDatas.clear();
     m_letters.clear();
 
-    QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keybindInter->ListAllShortcuts(), this);
-    connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
-            SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
+    Q_EMIT onDatasChanged(m_metaDatas);
+    Q_EMIT onLettersChanged(m_letters);
 
     m_model->setCapsLock(m_keyboardInter->capslockToggle());
     m_model->setNumLock(m_keybindInter->numLockState());
-    m_keyboardInter->currentLayout();
-
-    m_keyboardInter->userLayoutList();
 }
 
 void KeyboardWorker::deactive()
@@ -159,6 +166,9 @@ void KeyboardWorker::onRefreshKBLayout()
 
     QDBusPendingCallWatcher *layoutResult = new QDBusPendingCallWatcher(m_keyboardInter->LayoutList(), this);
     connect(layoutResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onLayoutListsFinished);
+
+    onCurrentLayout(m_keyboardInter->currentLayout());
+    onUserLayout(m_keyboardInter->userLayoutList());
 }
 #endif
 
@@ -300,8 +310,6 @@ void KeyboardWorker::onRequestShortcut(QDBusPendingCallWatcher *watch)
 
     QString info = reply.value();
 
-    m_shortcutModel->onParseInfo(info);
-
     QMap<QStringList,int> map;
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
     Q_FOREACH(QJsonValue value, array) {
@@ -339,6 +347,7 @@ void KeyboardWorker::onRequestShortcut(QDBusPendingCallWatcher *watch)
         map.insert(key, bit);
     }
     m_model->setAllShortcut(map);
+    m_shortcutModel->onParseInfo(info);
     watch->deleteLater();
 }
 
@@ -484,6 +493,9 @@ void KeyboardWorker::onPinyin()
     } else {
         qSort(m_metaDatas.begin(), m_metaDatas.end(), caseInsensitiveLessThan);
     }
+
+    Q_EMIT onDatasChanged(m_metaDatas);
+    Q_EMIT onLettersChanged(m_letters);
 }
 
 void KeyboardWorker::append(const MetaData &md)

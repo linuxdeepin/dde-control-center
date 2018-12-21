@@ -56,6 +56,12 @@ public:
 
     void setShortcutModel(ShortcutModel * model);
 
+    void refreshShortcut();
+
+#ifndef DCC_DISABLE_LANGUAGE
+    void refreshLang();
+#endif
+
     inline QList<MetaData> getDatas() {return m_metaDatas;}
     inline QList<QString> getLetters() {return m_letters;}
 
@@ -87,6 +93,8 @@ Q_SIGNALS:
     void searchChangd(ShortcutInfo* info, const QString& key);
     void removed(const QString &id, int type);
     void requestSetAutoHide(const bool visible);
+    void onDatasChanged(QList<MetaData> datas);
+    void onLettersChanged(QList<QString> letters);
 
 public Q_SLOTS:
 #ifndef DCC_DISABLE_LANGUAGE

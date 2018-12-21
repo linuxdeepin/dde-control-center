@@ -54,6 +54,8 @@ void ShortcutKey::setTextList(const QStringList &list)
         m_list << label;
         m_mainLayout->addWidget(label);
     }
+
+    adjustSize();
 }
 
 void ShortcutKey::enterEvent(QEvent *event)
