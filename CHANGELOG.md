@@ -1,3 +1,23 @@
+<a name="4.8.7"></a>
+### 4.8.7 (2018-12-24)
+
+
+#### Features
+
+*   update description for auto-download of update ([35f374cf](https://github.com/linuxdeepin/dde-control-center/commit/35f374cf7c62edc399dc1ecd160960e35779b0db))
+* **notify:**  notify add touch scroll ([50af4824](https://github.com/linuxdeepin/dde-control-center/commit/50af482410a0b8849b380562d0017a38d660c229))
+
+#### Bug Fixes
+
+*   current language not display after search ([0a8f9f0f](https://github.com/linuxdeepin/dde-control-center/commit/0a8f9f0f23bc9c781f4b08d913a4cc713e8c3c6e))
+*   file choose button style ([64a4e1ef](https://github.com/linuxdeepin/dde-control-center/commit/64a4e1ef1c8fad14d5b785e470cac41b45aee64f))
+* **Datetime:**  time setting has not default value ([e9d415c5](https://github.com/linuxdeepin/dde-control-center/commit/e9d415c522c56a3c3be4addbdc1d583001e1d524))
+* **Keyboard:**  refresh data when enter next page ([30ef5439](https://github.com/linuxdeepin/dde-control-center/commit/30ef54394490b4eae043e7f1f45f36944dd2fac8))
+* **defapp:**  not remove app when uninstall ([6b3c7c73](https://github.com/linuxdeepin/dde-control-center/commit/6b3c7c73af211b0b8e56037cd3cc2596b055c04c))
+* **update:**  null pointer exception ([701cdd24](https://github.com/linuxdeepin/dde-control-center/commit/701cdd248d4aab5af3a0e9706d48459e48cfaf7d))
+
+
+
 <a name="4.8.6"></a>
 ### 4.8.6 (2018-12-19)
 
