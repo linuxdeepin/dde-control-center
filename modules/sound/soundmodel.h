@@ -27,6 +27,8 @@
 #define DCC_SOUND_SOUNDMODEL_H
 
 #include <QObject>
+#include <QMap>
+#include <QString>
 
 namespace dcc {
 namespace sound {
@@ -114,6 +116,11 @@ public:
     inline double speakerVolume() const { return m_speakerVolume; }
     void setSpeakerVolume(double speakerVolume);
 
+    inline QMap<QString, QString> soundEffectMap() const { return m_soundEffectMap; }
+
+    void setEffectData(const QString &name, const bool enable);
+    bool queryEffectData(const QString &name);
+
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
@@ -127,6 +134,7 @@ Q_SIGNALS:
 #endif
     void portAdded(const Port *port);
     void portRemoved(const QString & portId, const uint &cardId);
+    void soundEffectDataChanged(const QString &name, const bool enable);
 
 private:
     bool m_speakerOn;
@@ -140,6 +148,8 @@ private:
     double m_microphoneFeedback;
 #endif
     QList<Port *> m_ports;
+    QMap<QString, QString> m_soundEffectMap;
+    QMap<QString, bool> m_soundEffectData;
 };
 
 } // namespace sound

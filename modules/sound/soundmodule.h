@@ -53,6 +53,7 @@ public:
 
 public Q_SLOTS:
     void showAdvancedPage();
+    void showEffectPage();
 
 private:
     SoundWidget *m_soundWidget;

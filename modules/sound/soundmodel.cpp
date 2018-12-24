@@ -42,7 +42,22 @@ SoundModel::SoundModel(QObject *parent)
     , m_microphoneFeedback(50)
 #endif
 {
-
+    m_soundEffectMap = {
+        { "Boot up", "desktopLogin" },
+        { "Shut down", "systemShutdown" },
+        { "Logout", "desktopLogout" },
+        { "Wake up", "suspendResume" },
+        { "Volume +/-", "audioVolumeChange" },
+        { "Notification", "message" },
+        { "Low battery", "powerUnplugBatteryLow" },
+        { "Send icon in Launcher to Desktop", "xDeepinAppSentToDesktop" },
+        { "Empty Trash", "trashEmpty" },
+        { "Plug in", "powerPlug" },
+        { "Plug out", "powerUnplug" },
+        { "Removable device connected", "deviceAdded" },
+        { "Removable device removed", "deviceRemoved" },
+        { "Error", "dialogError" },
+    };
 }
 
 SoundModel::~SoundModel()
@@ -153,6 +168,18 @@ void SoundModel::setSpeakerVolume(double speakerVolume)
         m_speakerVolume = speakerVolume;
         Q_EMIT speakerVolumeChanged(speakerVolume);
     }
+}
+
+void SoundModel::setEffectData(const QString &name, const bool enable)
+{
+    m_soundEffectData[name] = enable;
+
+    Q_EMIT soundEffectDataChanged(name, enable);
+}
+
+bool SoundModel::queryEffectData(const QString &name)
+{
+    return m_soundEffectData[name];
 }
 
 void Port::setId(const QString &id)

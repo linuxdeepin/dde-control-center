@@ -51,7 +51,7 @@ SoundWidget::SoundWidget(SoundModel *model) :
     m_advancedSettingsGroup(new SettingsGroup),
     m_advancedSettingsItem(new NextPageWidget),
     m_soundEffectGroup(new SettingsGroup),
-    m_soundEffectSwitch(new SwitchWidget)
+    m_soundEffectBtn(new NextPageWidget)
 {
     setObjectName("Sound");
 
@@ -106,8 +106,8 @@ SoundWidget::SoundWidget(SoundModel *model) :
     m_advancedSettingsItem->setTitle(tr("Advanced"));
     m_advancedSettingsGroup->appendItem(m_advancedSettingsItem);
 
-    m_soundEffectSwitch->setTitle(tr("Sound Effects"));
-    m_soundEffectGroup->appendItem(m_soundEffectSwitch);
+    m_soundEffectBtn->setTitle(tr("Sound Effects"));
+    m_soundEffectGroup->appendItem(m_soundEffectBtn);
 
     m_centralLayout->addWidget(m_speakerGroup);
     m_centralLayout->addWidget(m_microphoneGroup);
@@ -118,7 +118,7 @@ SoundWidget::SoundWidget(SoundModel *model) :
 
     connect(m_speakerSwitch, &SwitchWidget::checkedChanged, this, &SoundWidget::requestSwitchSpeaker);
     connect(m_microphoneSwitch, &SwitchWidget::checkedChanged, this, &SoundWidget::requestSiwtchMicrophone);
-    connect(m_soundEffectSwitch, &SwitchWidget::checkedChanged, this, &SoundWidget::requestSwitchSoundEffect);
+    connect(m_soundEffectBtn, &NextPageWidget::clicked, this, &SoundWidget::requestEffectPage);
     connect(m_outputBalanceSlider, &DCCSlider::valueChanged, [this] (double value) { Q_EMIT requestSetSpeakerBalance(value / 100.f); });
     connect(m_inputVolumeSlider, &DCCSlider::valueChanged, [this] (double value) { Q_EMIT requestSetMicrophoneVolume(value / 100.f); });
     connect(m_outputVolumeSlider, &DCCSlider::valueChanged, [this] (double value) { Q_EMIT requestSetSpeakerVolume(value / 100.f);} );
@@ -145,7 +145,6 @@ void SoundWidget::setModel(SoundModel *model)
         m_inputFeedbackSliderItem->setVisible(on);
 #endif
     });
-    connect(model, &SoundModel::soundEffectOnChanged, m_soundEffectSwitch, &SwitchWidget::setChecked);
     connect(model, &SoundModel::speakerVolumeChanged, this, [this] (double value) {
         m_outputVolumeSlider->blockSignals(true);
         m_outputVolumeSlider->setValue(value * 100);
@@ -171,7 +170,6 @@ void SoundWidget::setModel(SoundModel *model)
     blockSignals(true);
     m_speakerSwitch->setChecked(model->speakerOn());
     m_microphoneSwitch->setChecked(model->microphoneOn());
-    m_soundEffectSwitch->setChecked(model->soundEffectOn());
     m_outputVolumeSlider->setValue(model->speakerVolume());
     m_outputBalanceSlider->setValue(model->speakerBalance());
     m_inputVolumeSlider->setValue(model->microphoneVolume());

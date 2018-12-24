@@ -25,6 +25,7 @@
 
 #include "soundmodule.h"
 #include "advancedpage.h"
+#include "soundeffectpage.h"
 
 namespace dcc {
 namespace sound {
@@ -84,6 +85,7 @@ ModuleWidget *SoundModule::moduleWidget()
         connect(m_soundWidget, &SoundWidget::requestSetSpeakerBalance, m_soundWorker, &SoundWorker::setSinkBalance);
         connect(m_soundWidget, &SoundWidget::requestSetMicrophoneVolume, m_soundWorker, &SoundWorker::setSourceVolume);
         connect(m_soundWidget, &SoundWidget::requestSetSpeakerVolume, m_soundWorker, &SoundWorker::setSinkVolume);
+        connect(m_soundWidget, &SoundWidget::requestEffectPage, this, &SoundModule::showEffectPage);
 
         connect(m_soundWidget, &SoundWidget::requestAdvancedPage, this, &SoundModule::showAdvancedPage);
     }
@@ -103,6 +105,16 @@ void SoundModule::showAdvancedPage()
     connect(page, &AdvancedPage::requestSetPort, m_soundWorker, &SoundWorker::setPort);
 
     m_frameProxy->pushWidget(this, page);
+}
+
+void SoundModule::showEffectPage()
+{
+    SoundEffectPage *effectPage = new SoundEffectPage(m_soundModel);
+
+    connect(effectPage, &SoundEffectPage::requestQueryData, m_soundWorker, &SoundWorker::querySoundEffectData);
+    connect(effectPage, &SoundEffectPage::requestSetEffectEnable, m_soundWorker, &SoundWorker::setEffectEnable);
+
+    m_frameProxy->pushWidget(this, effectPage);
 }
 
 }

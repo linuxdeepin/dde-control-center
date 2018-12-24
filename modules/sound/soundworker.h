@@ -43,6 +43,8 @@ using com::deepin::daemon::audio::Source;
 using com::deepin::daemon::audio::Meter;
 using com::deepin::daemon::SoundEffect;
 
+class QGSettings;
+
 namespace dcc {
 namespace sound {
 
@@ -65,6 +67,8 @@ public Q_SLOTS:
     void setSinkVolume(double volume);
 
     void setPort(const Port *port);
+    void querySoundEffectData(const QString &name);
+    void setEffectEnable(const QString &name, bool enable);
 
 private Q_SLOTS:
     void defaultSinkChanged(const QDBusObjectPath &path);
@@ -96,6 +100,7 @@ private:
     QPointer<Meter> m_sourceMeter;
     QList<Sink*> m_sinks;
     QList<Source*> m_sources;
+    QGSettings *m_effectGsettings;
 
     QTimer *m_pingTimer;
     QTimer *m_activeTimer;

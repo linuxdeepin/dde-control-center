@@ -29,6 +29,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QDebug>
+#include <QGSettings>
 
 namespace dcc {
 namespace sound {
@@ -43,6 +44,7 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
     , m_defaultSink(nullptr)
     , m_defaultSource(nullptr)
     , m_sourceMeter(nullptr)
+    , m_effectGsettings(new QGSettings("com.deepin.dde.sound-effect", "", this))
     , m_pingTimer(new QTimer(this))
     , m_activeTimer(new QTimer(this))
 {
@@ -142,6 +144,21 @@ void SoundWorker::setSinkVolume(double volume)
 void SoundWorker::setPort(const Port *port)
 {
     m_audioInter->SetPort(port->cardId(), port->id(), int(port->direction()));
+}
+
+void SoundWorker::querySoundEffectData(const QString &name)
+{
+    m_model->setEffectData(name, m_effectGsettings->get(name).toBool());
+}
+
+void SoundWorker::setEffectEnable(const QString &name, bool enable)
+{
+    if (name.isEmpty()) {
+        m_effectGsettings->set("enabled", enable);
+        return;
+    }
+
+    m_effectGsettings->set(name, enable);
 }
 
 void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
