@@ -94,18 +94,13 @@ void LangWidget::setModelData(const QList<MetaData> &datas)
 
 void LangWidget::setCurLang(const QString &lang)
 {
-    QList<MetaData>::const_iterator it = m_datas.begin();
-    int index = 0;
-    for(; it != m_datas.end(); ++it)
-    {
-        if((*it).text() == lang)
-        {
+    for (int i = 0; i < m_view->model()->rowCount(); ++i) {
+        MetaData md = m_view->model()->index(i, 0).data().value<MetaData>();
+        if (md.text() == lang) {
+            m_view->setCurrentIndex(m_view->model()->index(i, 0));
             break;
         }
-        index++;
     }
-
-    m_view->setCurrentIndex(m_model->index(index));
 }
 
 void LangWidget::onSearch(const QString &text)
@@ -129,6 +124,8 @@ void LangWidget::onSearch(const QString &text)
         m_searchModel->setMetaData(sdatas);
         m_view->setModel(m_searchModel);
     }
+
+    setCurLang(m_keyboardModel->curLang());
 }
 
 bool LangWidget::eventFilter(QObject *watched, QEvent *event)
