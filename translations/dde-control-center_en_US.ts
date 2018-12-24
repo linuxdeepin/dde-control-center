@@ -142,6 +142,79 @@
     </message>
 </context>
 <context>
+    <name>SoundEffectPage</name>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="11"/>
+        <source>Boot up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="12"/>
+        <source>Shut down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="13"/>
+        <source>Logout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="14"/>
+        <source>Wake up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="15"/>
+        <source>Volume +/-</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="16"/>
+        <source>Notification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="17"/>
+        <source>Low battery</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="18"/>
+        <source>Send icon in Launcher to Desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="19"/>
+        <source>Empty Trash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="20"/>
+        <source>Plug in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="21"/>
+        <source>Plug out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="22"/>
+        <source>Removable device connected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="23"/>
+        <source>Removable device removed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="24"/>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UpdateNotifier</name>
     <message>
         <location filename="../frame/updatenotifier.cpp" line="37"/>
@@ -3488,6 +3561,14 @@
     </message>
 </context>
 <context>
+    <name>dcc::sound::SoundEffectPage</name>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="38"/>
+        <source>System Sound Effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>dcc::sound::SoundWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="118"/>
@@ -3910,12 +3991,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="238"/>
+        <location filename="../modules/update/updatework.cpp" line="244"/>
         <source>Patches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="239"/>
+        <location filename="../modules/update/updatework.cpp" line="245"/>
         <source>System patches.</source>
         <translation type="unfinished"></translation>
     </message>
