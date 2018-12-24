@@ -67,9 +67,9 @@ public Q_SLOTS:
     void setMarkedTimeZone(const QString &timezone);
 
 protected:
-    void resizeEvent(QResizeEvent *event);
-    void keyReleaseEvent(QKeyEvent *event);
-    bool eventFilter(QObject *watched, QEvent *event);
+    void resizeEvent(QResizeEvent *event) override;
+    void keyReleaseEvent(QKeyEvent *event) override;
+    bool eventFilter(QObject *watched, QEvent *event) override;
     void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
 
 private:
