@@ -268,22 +268,22 @@
         <translation>Вашият хост влезе в домейн сървъра успешно.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="333"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>Вашият хост не успя да напусне домейн сървъра.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="348"/>
         <source>Your host failed to join the domain server.</source>
         <translation>Вашият хост не успя да влезе в домейн сървъра.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="351"/>
         <source>AD domain settings</source>
         <translation>AD настройки на домейн</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="406"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
         <source>Password not match.</source>
         <translation>Паролата на съвпада</translation>
     </message>
@@ -379,7 +379,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="234"/>
         <location filename="../modules/accounts/createpage.cpp" line="237"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Паролата трябва да е от английски букви (големината е от значение), числа и специални символи (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -3697,7 +3697,7 @@
         <translation>Смяна на огледалото</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="138"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="141"/>
         <source>Retest</source>
         <translation>Повторен тест</translation>
     </message>
@@ -3853,8 +3853,8 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="70"/>
-        <source>Updates will be auto-downloaded in wireless or wired network</source>
-        <translation>Обновленията ще бъдат сваляни автоматично през безжична или кабелна мрежа</translation>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="77"/>
@@ -3899,12 +3899,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="250"/>
+        <location filename="../modules/update/updatework.cpp" line="238"/>
         <source>Patches</source>
         <translation>Корекции</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="251"/>
+        <location filename="../modules/update/updatework.cpp" line="239"/>
         <source>System patches.</source>
         <translation>Обновления по сигурността</translation>
     </message>

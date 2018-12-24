@@ -268,22 +268,22 @@
         <translation>Din vært deltager i domæneserveren.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="333"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>Din vært kunne ikke forlade domæneserveren.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="348"/>
         <source>Your host failed to join the domain server.</source>
         <translation>Din værk kunne ikke deltage i domæneserveren.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="351"/>
         <source>AD domain settings</source>
         <translation>AD-domæneindstillinger</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="406"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
         <source>Password not match.</source>
         <translation>Adgangskode passer ikke.</translation>
     </message>
@@ -379,7 +379,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="234"/>
         <location filename="../modules/accounts/createpage.cpp" line="237"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Adgangskoden skal indeholde engelske bogstaver (der skelnes mellem store og små bogstaver), tal eller specialtegn (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -480,7 +480,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Adgangskoden skal indeholde engelske bogstaver (forskel på store og små bogstaver), tal eller specialtegn (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -3697,7 +3697,7 @@
         <translation>Skift spejlserver</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="138"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="141"/>
         <source>Retest</source>
         <translation>Test igen</translation>
     </message>
@@ -3853,8 +3853,8 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="70"/>
-        <source>Updates will be auto-downloaded in wireless or wired network</source>
-        <translation>Opdateringer vil automatisk blive downloadet i trådløst og kablet netværk</translation>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="77"/>
@@ -3899,12 +3899,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="250"/>
+        <location filename="../modules/update/updatework.cpp" line="238"/>
         <source>Patches</source>
         <translation>Rettelser</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="251"/>
+        <location filename="../modules/update/updatework.cpp" line="239"/>
         <source>System patches.</source>
         <translation>Systemrettelser.</translation>
     </message>

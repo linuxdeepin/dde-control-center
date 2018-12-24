@@ -268,22 +268,22 @@
         <translation>Váš počítač se k doménovému serveru připojuje úspěšně.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="333"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>Vašemu počítači se doménový server nepodařilo opustit.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="348"/>
         <source>Your host failed to join the domain server.</source>
         <translation>Vašemu počítači se k doménovému serveru nepodařilo připojit.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="351"/>
         <source>AD domain settings</source>
         <translation>Nastavení domény AD</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="406"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
         <source>Password not match.</source>
         <translation>Heslo neodpovídá.</translation>
     </message>
@@ -379,7 +379,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="234"/>
         <location filename="../modules/accounts/createpage.cpp" line="237"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Heslo musí obsahovat anglická písmena (rozlišuje se velikost písmen), čísla nebo zvláštní symboly (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -480,7 +480,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Heslo musí obsahovat anglická písmena (rozlišuje se velikost písmen), čísla nebo zvláštní symboly (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -1466,7 +1466,7 @@
     <message>
         <location filename="../modules/network/connectionhotspoteditpage.cpp" line="47"/>
         <source>hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Činný bod</translation>
     </message>
 </context>
 <context>
@@ -3697,7 +3697,7 @@
         <translation>Přepnout obrazovku</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="138"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="141"/>
         <source>Retest</source>
         <translation>Vyzkoušet znovu</translation>
     </message>
@@ -3853,8 +3853,8 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="70"/>
-        <source>Updates will be auto-downloaded in wireless or wired network</source>
-        <translation>Aktualizace budou automaticky staženy v bezdrátové nebo drátové síti</translation>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="77"/>
@@ -3899,12 +3899,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="250"/>
+        <location filename="../modules/update/updatework.cpp" line="238"/>
         <source>Patches</source>
         <translation>Opravy</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="251"/>
+        <location filename="../modules/update/updatework.cpp" line="239"/>
         <source>System patches.</source>
         <translation>Opravy pro systém.</translation>
     </message>

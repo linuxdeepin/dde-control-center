@@ -268,22 +268,22 @@
         <translation>你的主机成功加入了域服务器。</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="333"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>你的主机退出域服务器失败</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="348"/>
         <source>Your host failed to join the domain server.</source>
         <translation>你的主机加入域服务器失败。</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="351"/>
         <source>AD domain settings</source>
         <translation>AD域设置</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="406"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
         <source>Password not match.</source>
         <translation>密码不一致</translation>
     </message>
@@ -3697,7 +3697,7 @@
         <translation>切换镜像源</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="138"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="141"/>
         <source>Retest</source>
         <translation>重新测速</translation>
     </message>
@@ -3853,8 +3853,8 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="70"/>
-        <source>Updates will be auto-downloaded in wireless or wired network</source>
-        <translation>更新会在有无线网络或者有线网络的情况下自动下载</translation>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation>开启“自动下载更新”，会在有无线网络和有线网络的情况下自动下载</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="77"/>
@@ -3899,12 +3899,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="250"/>
+        <location filename="../modules/update/updatework.cpp" line="238"/>
         <source>Patches</source>
         <translation>补丁</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="251"/>
+        <location filename="../modules/update/updatework.cpp" line="239"/>
         <source>System patches.</source>
         <translation>系统补丁。</translation>
     </message>

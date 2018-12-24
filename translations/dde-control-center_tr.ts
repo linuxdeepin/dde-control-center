@@ -268,22 +268,22 @@
         <translation>Bilgisayarınız etki alanı sunucusuna katıldı.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="333"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to leave the domain server.</source>
         <translation>Bilgisayarınız etki alanı sunucusundan ayrılamadı.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="334"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="348"/>
         <source>Your host failed to join the domain server.</source>
         <translation>Bilgisayarınız etki alanı sunucusuna katılamadı.</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="337"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="351"/>
         <source>AD domain settings</source>
         <translation>Aktif Dizin Etki Alanı Ayarları</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="406"/>
+        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
         <source>Password not match.</source>
         <translation>Parola ile onayı aynı değil.</translation>
     </message>
@@ -379,7 +379,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="234"/>
         <location filename="../modules/accounts/createpage.cpp" line="237"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Parolada, İngiliz alfabesi harfleri (büyük-küçük harfe duyarlı), rakamlar ya da özel simgeler (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) bulunmalıdır</translation>
     </message>
 </context>
 <context>
@@ -3697,7 +3697,7 @@
         <translation>Yansı Değiştir</translation>
     </message>
     <message>
-        <location filename="../modules/update/mirrorswidget.cpp" line="138"/>
+        <location filename="../modules/update/mirrorswidget.cpp" line="141"/>
         <source>Retest</source>
         <translation>Yeniden Dene</translation>
     </message>
@@ -3853,8 +3853,8 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="70"/>
-        <source>Updates will be auto-downloaded in wireless or wired network</source>
-        <translation>Güncellemeler kablosuz ya da kablolu ağdan otomatik olarak indirilir</translation>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation>Bu seçenek etkinleştirildiğinde, güncellemeler kablosuz ya da kablolu ağdan otomatik olarak indirilir</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="77"/>
@@ -3899,12 +3899,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="250"/>
+        <location filename="../modules/update/updatework.cpp" line="238"/>
         <source>Patches</source>
         <translation>Yamalar</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="251"/>
+        <location filename="../modules/update/updatework.cpp" line="239"/>
         <source>System patches.</source>
         <translation>Sistem yamaları.</translation>
     </message>
