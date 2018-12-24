@@ -146,7 +146,9 @@ void UpdateWorker::checkForUpdates()
             setCheckUpdatesJob(jobPath);
         } else {
             m_model->setStatus(UpdatesStatus::UpdateFailed);
-            m_managerInter->CleanJob(m_checkUpdateJob->id());
+            if (!m_checkUpdateJob.isNull()) {
+                m_managerInter->CleanJob(m_checkUpdateJob->id());
+            }
             qWarning() << "check for updates error: " << call.error().message();
         }
     });
@@ -161,7 +163,9 @@ void UpdateWorker::distUpgradeDownloadUpdates()
             setDownloadJob(reply.value().path());
         } else {
             m_model->setStatus(UpdatesStatus::UpdateFailed);
-            m_managerInter->CleanJob(m_distUpgradeJob->id());
+            if (!m_distUpgradeJob.isNull()) {
+                m_managerInter->CleanJob(m_distUpgradeJob->id());
+            }
             qWarning() << "download updates error: " << watcher->error().message();
         }
     });
@@ -176,7 +180,9 @@ void UpdateWorker::distUpgradeInstallUpdates()
             setDistUpgradeJob(reply.value().path());
         } else {
             m_model->setStatus(UpdatesStatus::UpdateFailed);
-            m_managerInter->CleanJob(m_distUpgradeJob->id());
+            if (!m_distUpgradeJob.isNull()) {
+                m_managerInter->CleanJob(m_distUpgradeJob->id());
+            }
             qWarning() << "install updates error: " << watcher->error().message();
         }
     });
