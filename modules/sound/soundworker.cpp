@@ -40,7 +40,6 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
     , m_activeOutputCard(UINT_MAX)
     , m_activeInputCard(UINT_MAX)
     , m_audioInter(new Audio("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", QDBusConnection::sessionBus(), this))
-    , m_soundEffectInter(new SoundEffect("com.deepin.daemon.SoundEffect", "/com/deepin/daemon/SoundEffect", QDBusConnection::sessionBus(), this))
     , m_defaultSink(nullptr)
     , m_defaultSource(nullptr)
     , m_sourceMeter(nullptr)
@@ -49,7 +48,6 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
     , m_activeTimer(new QTimer(this))
 {
     m_audioInter->setSync(false);
-    //    m_soundEffectInter->setSync(false);
 
     m_pingTimer->setInterval(5000);
     m_pingTimer->setSingleShot(false);
@@ -72,7 +70,6 @@ void SoundWorker::activate()
     m_pingTimer->start();
 
     m_audioInter->blockSignals(false);
-    m_soundEffectInter->blockSignals(false);
     if (m_defaultSink) m_defaultSink->blockSignals(false);
     if (m_defaultSource) m_defaultSource->blockSignals(false);
     if (m_sourceMeter) m_sourceMeter->blockSignals(false);
@@ -82,9 +79,6 @@ void SoundWorker::activate()
     defaultSinkChanged(m_audioInter->defaultSink());
     defaultSourceChanged(m_audioInter->defaultSource());
     cardsChanged(m_audioInter->cards());
-
-    m_model->setSoundEffectOn(m_soundEffectInter->enabled());
-    connect(m_soundEffectInter, &SoundEffect::EnabledChanged, m_model, &SoundModel::setSoundEffectOn);
 }
 
 void SoundWorker::deactivate()
@@ -92,7 +86,6 @@ void SoundWorker::deactivate()
     m_pingTimer->stop();
 
     m_audioInter->blockSignals(true);
-    m_soundEffectInter->blockSignals(true);
     if (m_defaultSink) m_defaultSink->blockSignals(true);
     if (m_defaultSource) m_defaultSource->blockSignals(true);
     if (m_sourceMeter) m_sourceMeter->blockSignals(true);
@@ -110,11 +103,6 @@ void SoundWorker::switchMicrophone(bool on)
     if (m_defaultSource) {
         m_defaultSource->SetMute(!on);
     }
-}
-
-void SoundWorker::switchSoundEffect(bool on)
-{
-    m_soundEffectInter->setEnabled(on);
 }
 
 void SoundWorker::setSinkBalance(double balance)

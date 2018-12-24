@@ -34,7 +34,6 @@ SoundModel::SoundModel(QObject *parent)
     : QObject(parent)
     , m_speakerOn(true)
     , m_microphoneOn(true)
-    , m_soundEffectOn(true)
     , m_speakerVolume(75)
     , m_speakerBalance(0)
     , m_microphoneVolume(75)
@@ -54,7 +53,7 @@ SoundModel::SoundModel(QObject *parent)
         { "Empty Trash", "trashEmpty" },
         { "Plug in", "powerPlug" },
         { "Plug out", "powerUnplug" },
-        { "Removable device connected", "deviceAdded" },
+        { "Removable device5 connected", "deviceAdded" },
         { "Removable device removed", "deviceRemoved" },
         { "Error", "dialogError" },
     };
@@ -83,15 +82,6 @@ void SoundModel::setMicrophoneOn(bool microphoneOn)
         m_microphoneOn = microphoneOn;
 
         Q_EMIT microphoneOnChanged(microphoneOn);
-    }
-}
-
-void SoundModel::setSoundEffectOn(bool soundEffectOn)
-{
-    if (soundEffectOn != m_soundEffectOn) {
-        m_soundEffectOn = soundEffectOn;
-
-        Q_EMIT soundEffectOnChanged(soundEffectOn);
     }
 }
 

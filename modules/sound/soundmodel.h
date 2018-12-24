@@ -93,9 +93,6 @@ public:
     inline bool microphoneOn() const { return m_microphoneOn; }
     void setMicrophoneOn(bool microphoneOn);
 
-    inline bool soundEffectOn() const { return m_soundEffectOn; }
-    void setSoundEffectOn(bool soundEffectOn);
-
     inline double speakerBalance() const { return m_speakerBalance; }
     void setSpeakerBalance(double speakerBalance);
 
@@ -139,7 +136,6 @@ Q_SIGNALS:
 private:
     bool m_speakerOn;
     bool m_microphoneOn;
-    bool m_soundEffectOn;
     double m_speakerVolume;
     double m_speakerBalance;
     double m_microphoneVolume;

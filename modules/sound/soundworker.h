@@ -60,7 +60,6 @@ public:
 public Q_SLOTS:
     void switchSpeaker(bool on);
     void switchMicrophone(bool on);
-    void switchSoundEffect(bool on);
 
     void setSinkBalance(double balance);
     void setSourceVolume(double volume);
@@ -94,7 +93,6 @@ private:
     uint m_activeInputCard;
 
     Audio *m_audioInter;
-    SoundEffect *m_soundEffectInter;
     QPointer<Sink> m_defaultSink;
     QPointer<Source> m_defaultSource;
     QPointer<Meter> m_sourceMeter;
