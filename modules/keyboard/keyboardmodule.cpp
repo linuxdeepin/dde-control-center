@@ -154,7 +154,7 @@ void KeyboardModule::onPushKeyboard(const QStringList &kblist)
             m_kbLayoutWidget->setMetaData(datas);
         };
 
-        connect(m_work, &KeyboardWorker::onDatasChanged, this, dataControll);
+        connect(m_work, &KeyboardWorker::onDatasChanged, m_kbLayoutWidget, dataControll);
         connect(m_work, &KeyboardWorker::onLettersChanged, m_kbLayoutWidget, &KeyboardLayoutWidget::setLetters);
 
         dataControll(m_work->getDatas());
