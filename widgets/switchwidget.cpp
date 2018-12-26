@@ -90,5 +90,12 @@ bool SwitchWidget::checked() const
     return m_switchBtn->checked();
 }
 
+void SwitchWidget::mouseReleaseEvent(QMouseEvent *event)
+{
+    Q_EMIT clicked();
+
+    return SettingsItem::mouseReleaseEvent(event);
+}
+
 }
 }

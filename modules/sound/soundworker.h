@@ -68,6 +68,7 @@ public Q_SLOTS:
     void setPort(const Port *port);
     void querySoundEffectData(const QString &name);
     void setEffectEnable(const QString &name, bool enable);
+    void playSoundEffect(const QString &name);
 
 private Q_SLOTS:
     void defaultSinkChanged(const QDBusObjectPath &path);

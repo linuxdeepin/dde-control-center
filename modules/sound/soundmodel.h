@@ -125,6 +125,7 @@ Q_SIGNALS:
     void speakerVolumeChanged(double speakerVolume) const;
     void speakerBalanceChanged(double speakerBalance) const;
     void microphoneVolumeChanged(double microphoneVolume) const;
+    void playPathChanged(const QString &name, const QString &path) const;
 
 #ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;

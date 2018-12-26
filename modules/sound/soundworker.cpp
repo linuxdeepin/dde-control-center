@@ -149,6 +149,11 @@ void SoundWorker::setEffectEnable(const QString &name, bool enable)
     m_effectGsettings->set(name, enable);
 }
 
+void SoundWorker::playSoundEffect(const QString &name)
+{
+
+}
+
 void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 {
     if (path.path().isEmpty()) return;

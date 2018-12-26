@@ -16,5 +16,9 @@
         <file>themes/dark/balance-left@2x.png</file>
         <file>themes/dark/icons/nav_sound_normal.svg</file>
         <file>themes/dark/icons/nav_sound.svg</file>
+        <file>themes/dark/sound_preview_4.svg</file>
+        <file>themes/dark/sound_preview_3.svg</file>
+        <file>themes/dark/sound_preview_2.svg</file>
+        <file>themes/dark/sound_preview_1.svg</file>
     </qresource>
 </RCC>
