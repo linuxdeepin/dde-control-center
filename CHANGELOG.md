@@ -1,3 +1,17 @@
+<a name="4.8.7.1"></a>
+## 4.8.7.1 (2018-12-28)
+
+
+#### Bug Fixes
+
+* **Keyboard:**  crash cause lambda ([fad7c02c](https://github.com/linuxdeepin/dde-control-center/commit/fad7c02c9bd04d903595a89024bd73e14475f593))
+
+#### Features
+
+*   set disable check strong password to default ([dd669de3](https://github.com/linuxdeepin/dde-control-center/commit/dd669de37fb146821df3578c53e7202c7c36fb24))
+
+
+
 <a name="4.8.7"></a>
 ### 4.8.7 (2018-12-24)
 
