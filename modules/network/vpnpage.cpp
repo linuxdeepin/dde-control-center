@@ -214,7 +214,7 @@ void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
 void VpnPage::importVPN()
 {
     Q_EMIT requestFrameKeepAutoHide(false);
-    const auto file = QFileDialog::getOpenFileUrl(nullptr, "", QUrl(), "*.conf");
+    const auto file = QFileDialog::getOpenFileUrl(nullptr, "", QUrl::fromLocalFile(QDir::homePath()), "*.conf");
     Q_EMIT requestFrameKeepAutoHide(true);
     if (file.isEmpty())
         return;
