@@ -195,13 +195,19 @@ void WiredPage::activeConnection()
 
 void WiredPage::checkActivatedConnection()
 {
-    const auto activeConnPath = m_device->activeConnSettingPath();
-    for (auto it(m_connectionPath.cbegin()); it != m_connectionPath.cend(); ++it)
-    {
-        if (it.value() == activeConnPath)
+    // get all active connections SettingPath from model
+    const QList<QJsonObject> activeConnInfos = m_model->activeConnInfos();
+    QStringList activeConnInfoList;
+    for (auto jsonObj : activeConnInfos) {
+        activeConnInfoList.append(jsonObj.value("SettingPath").toString());
+    }
+
+    for (auto it(m_connectionPath.cbegin()); it != m_connectionPath.cend(); ++it) {
+        if (activeConnInfoList.contains(it.value())) {
             it.key()->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));
-        else
+        } else {
             it.key()->clearValue();
+        }
     }
 }
 
