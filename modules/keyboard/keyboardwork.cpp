@@ -121,6 +121,13 @@ void KeyboardWorker::active()
 
     m_model->setCapsLock(m_keyboardInter->capslockToggle());
     m_model->setNumLock(m_keybindInter->numLockState());
+
+#ifndef DCC_DISABLE_KBLAYOUT
+    onRefreshKBLayout();
+#endif
+#ifndef DCC_DISABLE_LANGUAGE
+    refreshLang();
+#endif
 }
 
 void KeyboardWorker::deactive()
