@@ -123,7 +123,7 @@ DisplayWidget::DisplayWidget()
     connect(m_rotate, &QPushButton::clicked, this, &DisplayWidget::requestRotate);
 #endif
     connect(m_createConfig, &QPushButton::clicked, this, [=] {
-        if (m_model->config().startsWith("_dde_display")) {
+        if (m_model->displayMode() == CUSTOM_MODE && m_model->config().startsWith("_dde_display")) {
             Q_EMIT requestModifyConfig(m_model->config(), true);
         }
         else {

@@ -238,11 +238,26 @@ void DisplayModule::showCustomSettings(const QString &config, bool isNewConfig)
 
         m_displayWorker->discardChanges();
 
-        if (isNewConfig && config != lastConfig.second) {
-            m_displayWorker->switchMode(lastConfig.first, lastConfig.second);
-            m_displayWorker->saveChanges();
-            m_displayWorker->deleteConfig(config);
+        if (isNewConfig) {
+            if (lastConfig.first == CUSTOM_MODE) {
+                if (config != lastConfig.second) {
+                    m_displayWorker->switchMode(lastConfig.first, lastConfig.second);
+                    m_displayWorker->saveChanges();
+                    m_displayWorker->deleteConfig(config);
+                }
+            }
+            else if (lastConfig.first == SINGLE_MODE) {
+                QString primary = m_displayModel->lastPrimary();
+                if (primary.isEmpty()) {
+                    primary = m_displayModel->primary();
+                }
+                m_displayWorker->switchMode(lastConfig.first, primary);
+            }
+            else {
+               m_displayWorker->switchMode(lastConfig.first);
+            }
         }
+
     }
 
     m_frameProxy->setFrameAutoHide(this, true);

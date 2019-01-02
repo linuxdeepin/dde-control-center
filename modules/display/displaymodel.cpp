@@ -134,6 +134,7 @@ void DisplayModel::setPrimary(const QString &primary)
 {
     if (m_primary != primary)
     {
+        m_lastPrimary = m_primary;
         m_primary = primary;
         Q_EMIT primaryScreenChanged(m_primary);
     }
