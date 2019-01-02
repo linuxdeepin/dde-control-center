@@ -53,9 +53,9 @@ PalmDetectSetting::PalmDetectSetting(QWidget *parent)
     DCCSlider *pressureSlider = m_pressureSlider->slider();
     pressureSlider->setType(DCCSlider::Vernier);
     pressureSlider->setTickPosition(QSlider::TicksBelow);
-    pressureSlider->setRange(100, 200);
-    pressureSlider->setTickInterval(20);
-    pressureSlider->setPageStep(20);
+    pressureSlider->setRange(0, 5);
+    pressureSlider->setTickInterval(1);
+    pressureSlider->setPageStep(1);
 
     QStringList pressureList;
 
@@ -91,7 +91,10 @@ PalmDetectSetting::PalmDetectSetting(QWidget *parent)
 
     connect(m_detectSwitchBtn, &SwitchWidget::checkedChanged, this, &PalmDetectSetting::requestDetectState);
     connect(contactSlider, &DCCSlider::valueChanged, this, &PalmDetectSetting::requestContact);
-    connect(pressureSlider, &DCCSlider::valueChanged, this, &PalmDetectSetting::requestPressure);
+    connect(pressureSlider, &DCCSlider::valueChanged, this, [=](int value) {
+        // the valid value is 100-200 and step should be 20
+        requestPressure(value * 20 + 100);
+    });
 }
 
 void PalmDetectSetting::setModel(MouseModel * const model)
@@ -124,6 +127,6 @@ void PalmDetectSetting::setPressureValue(int value)
 {
     DCCSlider *pressureSlider = m_pressureSlider->slider();
     pressureSlider->blockSignals(true);
-    pressureSlider->setValue(value);
+    pressureSlider->setValue((value - 100) / 20);
     pressureSlider->blockSignals(false);
 }
