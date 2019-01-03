@@ -33,5 +33,7 @@ override_dh_auto_configure:
 		DISABLE_SYS_UPDATE_MIRRORS=YES
 endif
 
+ifeq ($(DEB_BUILD_ARCH), amd64)
 override_dh_auto_configure:
 	dh_auto_configure -- QMAKE_CC=clang QMAKE_CXX=clang++
+endif
