@@ -203,7 +203,7 @@ bool CreatePage::validatePassword(const QString &password)
 {
     QSettings setting("/etc/deepin/dde-control-center.conf", QSettings::IniFormat);
     setting.beginGroup("Password");
-    bool strong_password_check = setting.value("STRONG_PASSWORD", true).toBool();
+    bool strong_password_check = setting.value("STRONG_PASSWORD", false).toBool();
 
     if (!strong_password_check) return true;
 
