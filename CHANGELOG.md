@@ -1,3 +1,18 @@
+<a name="4.8.7.2"></a>
+## 4.8.7.2 (2019-01-04)
+
+
+#### Bug Fixes
+
+*   can not identify the active connection of wired ([a045f36e](https://github.com/linuxdeepin/dde-control-center/commit/a045f36ecbbe471ef5bb06481b1e13efa3cb5012))
+*   palmdetect slider step ([04cd72ce](https://github.com/linuxdeepin/dde-control-center/commit/04cd72ceb3fad899fbb5e44c0f7bad14f374ddb6))
+*   current keyboard layout and language not initialize ([b080a33c](https://github.com/linuxdeepin/dde-control-center/commit/b080a33c54663b5deb57f73ba377c19777436a74))
+*   default directory for export/import vpn ([612f014e](https://github.com/linuxdeepin/dde-control-center/commit/612f014eb5e3f9f0a3567d6a6566f04883f65ce9))
+* **Accounts:**  disable strong password for default ([201b3d17](https://github.com/linuxdeepin/dde-control-center/commit/201b3d17ef2ea969daff0c3e0816907ff5b106a4))
+* **Display:**  cannot restore single screen ([1fae0a06](https://github.com/linuxdeepin/dde-control-center/commit/1fae0a06ad8da74b586e9b652144a2e503366f29))
+
+
+
 <a name="4.8.7.1"></a>
 ## 4.8.7.1 (2018-12-28)
 
