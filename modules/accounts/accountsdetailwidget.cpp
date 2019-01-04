@@ -142,7 +142,7 @@ void AccountsDetailWidget::deleteUserClicked()
         Q_EMIT requestChangeFrameAutoHide(true);
     });
 
-    if (ret) {
+    if (ret == 1) {
         Q_EMIT requestDeleteAccount(m_user, d.deleteHome());
         Q_EMIT back();
     }
