@@ -128,6 +128,8 @@ void keyboard::CustomEdit::setBottomTip(keyboard::ShortcutInfo *conflict)
 
 void keyboard::CustomEdit::keyEvent(bool press, const QString &shortcut)
 {
+    m_short->setShortcut(shortcut);
+
     if (!press) {
 
         if (shortcut.isEmpty()) {
@@ -150,9 +152,6 @@ void keyboard::CustomEdit::keyEvent(bool press, const QString &shortcut)
         }
         setBottomTip(nullptr);
     }
-
-    m_info->accels = shortcut;
-    m_short->setShortcut(shortcut);
 }
 
 void keyboard::CustomEdit::onOpenFile()
@@ -182,6 +181,7 @@ void keyboard::CustomEdit::onSaveAccels()
 
     m_info->name = m_name->text();
     m_info->command = m_command->text();
+    m_info->accels = m_short->text();
 
     Q_EMIT requestSaveShortcut(m_info);
 
