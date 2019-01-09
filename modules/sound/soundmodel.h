@@ -26,6 +26,7 @@
 #ifndef DCC_SOUND_SOUNDMODEL_H
 #define DCC_SOUND_SOUNDMODEL_H
 
+#include <QDBusObjectPath>
 #include <QObject>
 
 namespace dcc {
@@ -114,6 +115,15 @@ public:
     inline double speakerVolume() const { return m_speakerVolume; }
     void setSpeakerVolume(double speakerVolume);
 
+    QDBusObjectPath defaultSource() const;
+    void setDefaultSource(const QDBusObjectPath &defaultSource);
+
+    QDBusObjectPath defaultSink() const;
+    void setDefaultSink(const QDBusObjectPath &defaultSink);
+
+    QString audioCards() const;
+    void setAudioCards(const QString &audioCards);
+
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
@@ -121,6 +131,9 @@ Q_SIGNALS:
     void speakerVolumeChanged(double speakerVolume) const;
     void speakerBalanceChanged(double speakerBalance) const;
     void microphoneVolumeChanged(double microphoneVolume) const;
+    void defaultSourceChanged(const QDBusObjectPath &defaultSource) const;
+    void defaultSinkChanged(const QDBusObjectPath &defaultSink) const;
+    void audioCardsChanged(const QString &audioCards) const;
 
 #ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
@@ -140,6 +153,11 @@ private:
     double m_microphoneFeedback;
 #endif
     QList<Port *> m_ports;
+
+    QDBusObjectPath m_defaultSource;
+    QDBusObjectPath m_defaultSink;
+    QString m_audioCards;
+
 };
 
 } // namespace sound

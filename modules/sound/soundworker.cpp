@@ -55,14 +55,20 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
     m_activeTimer->setInterval(100);
     m_activeTimer->setSingleShot(true);
 
-    connect(m_audioInter, &Audio::DefaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
-    connect(m_audioInter, &Audio::DefaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
-//    connect(m_audioInter, &Audio::SinksChanged, this, &SoundWorker::sinksChanged);
-//    connect(m_audioInter, &Audio::SourcesChanged, this, &SoundWorker::sourcesChanged);
-    connect(m_audioInter, &Audio::CardsChanged, this, &SoundWorker::cardsChanged);
+    connect(m_model, &SoundModel::defaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
+    connect(m_model, &SoundModel::defaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
+    connect(m_model, &SoundModel::audioCardsChanged, this, &SoundWorker::cardsChanged);
+
+    connect(m_audioInter, &Audio::DefaultSinkChanged, m_model, &SoundModel::setDefaultSink);
+    connect(m_audioInter, &Audio::DefaultSourceChanged, m_model, &SoundModel::setDefaultSource);
+    connect(m_audioInter, &Audio::CardsChanged, m_model, &SoundModel::setAudioCards);
 
     connect(m_pingTimer, &QTimer::timeout, [this] { if (m_sourceMeter) m_sourceMeter->Tick(); });
     connect(m_activeTimer, &QTimer::timeout, this, &SoundWorker::updatePortActivity);
+
+    m_model->setDefaultSink(m_audioInter->defaultSink());
+    m_model->setDefaultSource(m_audioInter->defaultSource());
+    m_model->setAudioCards(m_audioInter->cards());
 }
 
 void SoundWorker::activate()
@@ -75,11 +81,9 @@ void SoundWorker::activate()
     if (m_defaultSource) m_defaultSource->blockSignals(false);
     if (m_sourceMeter) m_sourceMeter->blockSignals(false);
 
-//    sinksChanged(m_audioInter->sinks());
-//    sourcesChanged(m_audioInter->sources());
-    defaultSinkChanged(m_audioInter->defaultSink());
-    defaultSourceChanged(m_audioInter->defaultSource());
-    cardsChanged(m_audioInter->cards());
+    defaultSinkChanged(m_model->defaultSink());
+    defaultSourceChanged(m_model->defaultSource());
+    cardsChanged(m_model->audioCards());
 
     m_model->setSoundEffectOn(m_soundEffectInter->enabled());
     connect(m_soundEffectInter, &SoundEffect::EnabledChanged, m_model, &SoundModel::setSoundEffectOn);
@@ -203,28 +207,6 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
     });
 #endif
 }
-
-//void SoundWorker::sinksChanged(const QList<QDBusObjectPath> &value)
-//{
-//    // TODO: reuse all the sink objects.
-//    for (QDBusObjectPath path : value) {
-//        Sink *sink = new Sink("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
-//        if (sink->isValid()) {
-//            m_sinks << sink;
-//        }
-//    }
-//}
-
-//void SoundWorker::sourcesChanged(const QList<QDBusObjectPath> &value)
-//{
-//    // TODO: reuse all the source objects.
-//    for (QDBusObjectPath path : value) {
-//        Source *source = new Source("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
-//        if (source->isValid()) {
-//            m_sources << source;
-//        }
-//    }
-//}
 
 void SoundWorker::cardsChanged(const QString &cards)
 {

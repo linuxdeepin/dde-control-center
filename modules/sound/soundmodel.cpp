@@ -155,6 +155,42 @@ void SoundModel::setSpeakerVolume(double speakerVolume)
     }
 }
 
+QDBusObjectPath SoundModel::defaultSource() const
+{
+    return m_defaultSource;
+}
+
+void SoundModel::setDefaultSource(const QDBusObjectPath &defaultSource)
+{
+    m_defaultSource = defaultSource;
+
+    Q_EMIT defaultSourceChanged(m_defaultSource);
+}
+
+QDBusObjectPath SoundModel::defaultSink() const
+{
+    return m_defaultSink;
+}
+
+void SoundModel::setDefaultSink(const QDBusObjectPath &defaultSink)
+{
+    m_defaultSink = defaultSink;
+
+    Q_EMIT defaultSinkChanged(m_defaultSink);
+}
+
+QString SoundModel::audioCards() const
+{
+    return m_audioCards;
+}
+
+void SoundModel::setAudioCards(const QString &audioCards)
+{
+    m_audioCards = audioCards;
+
+    Q_EMIT audioCardsChanged(m_audioCards);
+}
+
 void Port::setId(const QString &id)
 {
     if (id != m_id) {

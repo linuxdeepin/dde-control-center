@@ -69,8 +69,6 @@ public Q_SLOTS:
 private Q_SLOTS:
     void defaultSinkChanged(const QDBusObjectPath &path);
     void defaultSourceChanged(const QDBusObjectPath &path);
-//    void sinksChanged(const QList<QDBusObjectPath> & value);
-//    void sourcesChanged(const QList<QDBusObjectPath> & value);
     void cardsChanged(const QString &cards);
 
     void activeSinkPortChanged(const AudioPort &activeSinkPort);
