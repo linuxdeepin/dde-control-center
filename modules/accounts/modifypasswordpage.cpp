@@ -163,6 +163,8 @@ bool ModifyPasswordPage::validatePassword(const QString &password)
 
     if (!strong_password_check) return true;
 
+    if (password == m_userInter->name()) return false;
+
     uint success_num = 0;
 
     const QStringList strong_policy_list {
@@ -196,6 +198,12 @@ template <typename T>
 void ModifyPasswordPage::onEditFinished(T t)
 {
     const QString &password = t->text();
+
+    if (m_userInter->name().toLower() == password.toLower()) {
+        t->showAlertMessage(tr("The password should be different from the username"));
+        return;
+    }
+
     if (!validatePassword(password)) {
         m_oldpwdEdit->hideAlertMessage();
         m_pwdEdit->hideAlertMessage();

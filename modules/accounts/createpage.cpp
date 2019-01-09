@@ -207,6 +207,8 @@ bool CreatePage::validatePassword(const QString &password)
 
     if (!strong_password_check) return true;
 
+    if (password == m_username->text()) return false;
+
     uint success_num = 0;
 
     const QStringList strong_policy_list {
@@ -229,6 +231,11 @@ template <typename T>
 void CreatePage::onEditFinished(T t)
 {
     const QString &password = t->text();
+    if (m_username->text().toLower() == password.toLower()) {
+        showPasswordEmptyErrorTip(tr("The password should be different from the username"));
+        return;
+    }
+
     if (!validatePassword(password)) {
         if (t == m_password) {
             showPasswordEmptyErrorTip(tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"));
