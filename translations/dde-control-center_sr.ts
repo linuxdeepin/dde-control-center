@@ -821,7 +821,7 @@
         <translation>Моја подешавања %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="279"/>
+        <location filename="../modules/display/displaymodule.cpp" line="294"/>
         <source>Wireless Screen Projection</source>
         <translation>Бежична пројекција екрана</translation>
     </message>
@@ -1963,45 +1963,45 @@
         <translation>Аутоматски</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="93"/>
+        <location filename="../modules/network/proxypage.cpp" line="68"/>
         <source>Http Proxy</source>
         <translation>Хттп посредник</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="95"/>
-        <location filename="../modules/network/proxypage.cpp" line="100"/>
-        <location filename="../modules/network/proxypage.cpp" line="105"/>
-        <location filename="../modules/network/proxypage.cpp" line="110"/>
+        <location filename="../modules/network/proxypage.cpp" line="70"/>
+        <location filename="../modules/network/proxypage.cpp" line="75"/>
+        <location filename="../modules/network/proxypage.cpp" line="80"/>
+        <location filename="../modules/network/proxypage.cpp" line="85"/>
         <source>Port</source>
         <translation>Прикључaк</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="98"/>
+        <location filename="../modules/network/proxypage.cpp" line="73"/>
         <source>Https Proxy</source>
         <translation>Хттпс посредник</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="103"/>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
         <source>Ftp Proxy</source>
         <translation>Фтп посредник</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="108"/>
+        <location filename="../modules/network/proxypage.cpp" line="83"/>
         <source>Socks Proxy</source>
         <translation>СОКС посредник</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="117"/>
+        <location filename="../modules/network/proxypage.cpp" line="92"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>Игнориши поставке посредника за изнад наведене домаћине и домене</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="120"/>
+        <location filename="../modules/network/proxypage.cpp" line="95"/>
         <source>Configuration URL</source>
         <translation>Прилагоди УРЛ</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="177"/>
+        <location filename="../modules/network/proxypage.cpp" line="152"/>
         <source>System Proxy</source>
         <translation>Системски посредник</translation>
     </message>
@@ -3411,7 +3411,7 @@
         <location filename="../modules/power/powerwidget.cpp" line="49"/>
         <location filename="../modules/power/powerwidget.cpp" line="51"/>
         <source>Computer will suspend after</source>
-        <translation>Рачунар у приправности након</translation>
+        <translation>Рачунар у обустави након</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="61"/>
@@ -3584,8 +3584,8 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Ауторска права © 2011-2017 Wuhan Deepin Technology Co., Ltd.</translation>
+        <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -3854,7 +3854,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="unfinished"/>
+        <translation>Укључите за аутоматско преузимање ажурирања на бежичној или жичаној мрежи</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="77"/>
@@ -3899,12 +3899,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="238"/>
+        <location filename="../modules/update/updatework.cpp" line="244"/>
         <source>Patches</source>
         <translation>Закрпе</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="239"/>
+        <location filename="../modules/update/updatework.cpp" line="245"/>
         <source>System patches.</source>
         <translation>Системске закрпе.</translation>
     </message>

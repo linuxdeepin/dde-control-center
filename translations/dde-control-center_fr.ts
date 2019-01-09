@@ -379,7 +379,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="234"/>
         <location filename="../modules/accounts/createpage.cpp" line="237"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Le mot de passe doit contenir des lettres (sensibles à la casse), des chiffres ou des symboles spéciaux (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -480,7 +480,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Le mot de passe doit contenir des lettres (sensibles à la casse), des chiffres ou des symboles spéciaux (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -821,7 +821,7 @@
         <translation>Mes paramètres %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="279"/>
+        <location filename="../modules/display/displaymodule.cpp" line="294"/>
         <source>Wireless Screen Projection</source>
         <translation>Projection d&apos;écran sans fil</translation>
     </message>
@@ -1448,17 +1448,17 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="338"/>
         <source>Wired Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Connexion filaire %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="342"/>
         <source>Wireless Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Connexion sans fil %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="346"/>
         <source>PPPoE Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Connexion PPPoE %1</translation>
     </message>
 </context>
 <context>
@@ -1466,7 +1466,7 @@
     <message>
         <location filename="../modules/network/connectionhotspoteditpage.cpp" line="47"/>
         <source>hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Points d&apos;accès</translation>
     </message>
 </context>
 <context>
@@ -1479,32 +1479,32 @@
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
         <source>VPN L2TP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN L2TP %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
         <source>VPN PPTP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN PPTP %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="165"/>
         <source>VPN VPNC %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN VPNC %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="169"/>
         <source>VPN OpenVPN %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN OpenVPN %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="173"/>
         <source>VPN StrongSwan %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN StrongSwan %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="177"/>
         <source>VPN OpenConnect %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN OpenConnect %1</translation>
     </message>
 </context>
 <context>
@@ -1963,45 +1963,45 @@
         <translation>Automatique</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="93"/>
+        <location filename="../modules/network/proxypage.cpp" line="68"/>
         <source>Http Proxy</source>
         <translation>Proxy http</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="95"/>
-        <location filename="../modules/network/proxypage.cpp" line="100"/>
-        <location filename="../modules/network/proxypage.cpp" line="105"/>
-        <location filename="../modules/network/proxypage.cpp" line="110"/>
+        <location filename="../modules/network/proxypage.cpp" line="70"/>
+        <location filename="../modules/network/proxypage.cpp" line="75"/>
+        <location filename="../modules/network/proxypage.cpp" line="80"/>
+        <location filename="../modules/network/proxypage.cpp" line="85"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="98"/>
+        <location filename="../modules/network/proxypage.cpp" line="73"/>
         <source>Https Proxy</source>
         <translation>Proxy https</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="103"/>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
         <source>Ftp Proxy</source>
         <translation>Proxy ftp</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="108"/>
+        <location filename="../modules/network/proxypage.cpp" line="83"/>
         <source>Socks Proxy</source>
         <translation>Socks Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="117"/>
+        <location filename="../modules/network/proxypage.cpp" line="92"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>Ignorer la configuration de proxy pour les hôtes et les domaines</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="120"/>
+        <location filename="../modules/network/proxypage.cpp" line="95"/>
         <source>Configuration URL</source>
         <translation>URL de configuration</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="177"/>
+        <location filename="../modules/network/proxypage.cpp" line="152"/>
         <source>System Proxy</source>
         <translation>Proxy système</translation>
     </message>
@@ -2051,7 +2051,7 @@
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="169"/>
         <source>Disabled</source>
-        <translation>Désactivé </translation>
+        <translation>Désactivé</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="170"/>
@@ -2076,7 +2076,7 @@
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="218"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Pwd Options</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="31"/>
@@ -2181,7 +2181,7 @@
     <message>
         <location filename="../modules/network/sections/secrethotspotsection.cpp" line="100"/>
         <source>WEP 40/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/128-bit</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secrethotspotsection.cpp" line="101"/>
@@ -2227,7 +2227,7 @@
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>WEP 40/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/128-bit</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="108"/>
@@ -2379,7 +2379,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
         <source>Disabled</source>
-        <translation>Désactivé </translation>
+        <translation>Désactivé</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="155"/>
@@ -2436,7 +2436,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
         <source>NAT Traversal Mode</source>
-        <translation type="unfinished"/>
+        <translation>NAT Traversal Mode</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="194"/>
@@ -2603,7 +2603,7 @@
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="230"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Pwd Options</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="285"/>
@@ -2908,7 +2908,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="111"/>
         <source>Cipher</source>
-        <translation>Code secret</translation>
+        <translation>Chiffrer</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="121"/>
@@ -2958,7 +2958,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Pwd Options</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="128"/>
@@ -3057,17 +3057,17 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable custom cipher proposals</source>
-        <translation type="unfinished"/>
+        <translation>Activer les chiffrement personnalisées</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
         <source>IKE</source>
-        <translation type="unfinished"/>
+        <translation>IKE</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="196"/>
         <source>ESP</source>
-        <translation type="unfinished"/>
+        <translation>ESP</translation>
     </message>
 </context>
 <context>
@@ -3163,7 +3163,7 @@
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Pwd Options</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
@@ -3333,7 +3333,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="46"/>
         <source>Transparency</source>
-        <translation type="unfinished"/>
+        <translation>Transparence</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
@@ -3552,12 +3552,12 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="78"/>
         <source>You can click the option in boot menu to set it as the first boot, and drag and drop a picture to replace the background.</source>
-        <translation type="unfinished"/>
+        <translation>Vous pouvez cliquer sur l&apos;option du menu de démarrage pour le définir comme démarrage principal, puis faire glisser une image pour remplacer l&apos;arrière-plan.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="82"/>
         <source>Switch theme on to view it in boot menu.</source>
-        <translation type="unfinished"/>
+        <translation>Activez le thème pour l&apos;afficher dans le menu de démarrage.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="102"/>
@@ -3584,8 +3584,8 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</translation>
+        <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -3630,7 +3630,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Contrat de licence de l&apos;utilisateur final</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="128"/>
@@ -3648,7 +3648,7 @@
     <message>
         <location filename="../modules/systeminfo/userlicense.cpp" line="15"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Contrat de licence de l&apos;utilisateur final</translation>
     </message>
 </context>
 <context>
@@ -3844,7 +3844,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="65"/>
         <source>Updates Notification</source>
-        <translation type="unfinished"/>
+        <translation>Notification de mises à jour</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="68"/>
@@ -3854,7 +3854,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="unfinished"/>
+        <translation>Activez-le pour télécharger automatiquement les mises à jour en réseau sans fil ou câblé</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="77"/>
@@ -3869,12 +3869,12 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="99"/>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>Commutateur de serveur</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="105"/>
         <source>Switch it on to connect to the quickest mirror site automatically.</source>
-        <translation type="unfinished"/>
+        <translation>Activez-le pour la connexion automatique au serveur le plus rapide.</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="112"/>
@@ -3899,12 +3899,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="238"/>
+        <location filename="../modules/update/updatework.cpp" line="244"/>
         <source>Patches</source>
         <translation>Correctifs</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="239"/>
+        <location filename="../modules/update/updatework.cpp" line="245"/>
         <source>System patches.</source>
         <translation>Correctifs du système.</translation>
     </message>

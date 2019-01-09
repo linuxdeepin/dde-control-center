@@ -45,7 +45,7 @@
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="148"/>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>네비게이션</translation>
     </message>
 </context>
 <context>
@@ -53,7 +53,7 @@
     <message>
         <location filename="../frame/navigationbar.cpp" line="235"/>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>네비게이션</translation>
     </message>
 </context>
 <context>
@@ -71,7 +71,7 @@
     <message numerus="yes">
         <location filename="../frame/notify/notifydelegate.cpp" line="219"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n일 전</numerusform></translation>
     </message>
 </context>
 <context>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../frame/notify/notifywidget.cpp" line="35"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>모두 지우기</translation>
     </message>
 </context>
 <context>
@@ -92,7 +92,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation>업데이트　설치　완료되었습니다．재시동이　필요합니다，　지금　재시동합니까？</translation>
+        <translation>업데이트 설치가 완료되었습니다. 재부팅이 필요합니다. 지금 재부팅하시겠습니까?</translation>
     </message>
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
@@ -120,7 +120,7 @@
     <message>
         <location filename="../modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate and right click to exit</source>
-        <translation>왼쪽 버튼을 클릭해서　회전하며 오른쪽 버튼을 클릭해서　종료합니다．</translation>
+        <translation>회전하려면 왼쪽 마우스 버튼을 클릭하시고, 종료하시려면 오른쪽 마우스 버튼을 클릭하십시오.</translation>
     </message>
 </context>
 <context>
@@ -146,7 +146,7 @@
     <message>
         <location filename="../frame/updatenotifier.cpp" line="38"/>
         <source>Updates detected, click to view</source>
-        <translation>업데이트가　발견되었습니다．클릭해서　보기　</translation>
+        <translation>새로운 업데이트가 있습니다. 클릭하여 확인하십시오.</translation>
     </message>
 </context>
 <context>
@@ -154,22 +154,22 @@
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>도메인 나가기</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>도메인 참가하기</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="62"/>
         <source>Domain Server</source>
-        <translation type="unfinished"/>
+        <translation>도메인 서버</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Admin account</source>
-        <translation>관리자　계정　</translation>
+        <translation>관리자 계정</translation>
     </message>
     <message>
         <location filename="../modules/accounts/widgets/addialog.cpp" line="64"/>
@@ -187,12 +187,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
-        <translation>아바타 편집</translation>
+        <translation>아바타 변경</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>이름 변경</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="58"/>
@@ -207,7 +207,7 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation>비밀번호없이 로그인하기　</translation>
+        <translation>비밀번호 없이 로그인하기　</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -217,12 +217,12 @@
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>현재 사용자가 로그인되어 있어 제거할 수 없습니다</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
-        <translation>지문　암호　</translation>
+        <translation>지문 암호</translation>
     </message>
 </context>
 <context>
@@ -242,12 +242,12 @@
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>도메인 나가기</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>도메인 참가하기</translation>
     </message>
 </context>
 <context>
@@ -260,7 +260,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host was removed from the domain server successfully.</source>
-        <translation type="unfinished"/>
+        <translation>당신의 호스트는 도메인 서버에서 성공적으로 제거되었습니다</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
@@ -280,7 +280,7 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="351"/>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>광고 도메인 설정</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
@@ -293,12 +293,12 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation>지문을　추가하기　</translation>
+        <translation>지문 추가</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>다시 입력</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="56"/>
@@ -308,7 +308,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
-        <translation>지문을　식별하고　있습니다　</translation>
+        <translation>지문을 식별하고 있습니다. </translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="114"/>
@@ -318,7 +318,7 @@
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
-        <translation>성공적으로　추가했습니다　</translation>
+        <translation>성공적으로 추가했습니다.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/addfingerpage.cpp" line="130"/>
@@ -338,7 +338,7 @@
         <location filename="../modules/accounts/createpage.cpp" line="55"/>
         <location filename="../modules/accounts/createpage.cpp" line="58"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="54"/>
@@ -373,13 +373,13 @@
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="151"/>
         <source>Password can&apos;t be empty.</source>
-        <translation>비밀번호는 비워둘 수 없습니다</translation>
+        <translation>비밀번호는 비워둘 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="234"/>
         <location filename="../modules/accounts/createpage.cpp" line="237"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>비밀 번호는 영어 알파벳 (대소문자 구분 주의), 숫자, 또는 특수기호 (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) 를 반드시 포함하여야 합니다.</translation>
     </message>
 </context>
 <context>
@@ -387,22 +387,22 @@
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
-        <translation>지문　리스트　</translation>
+        <translation>지문 리스트</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
-        <translation>지문　암호　</translation>
+        <translation>지문 암호</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation>지문을　추가하기　</translation>
+        <translation>지문 추가</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
-        <translation>지문을　삭제하기　</translation>
+        <translation>지문 제거</translation>
     </message>
     <message>
         <location filename="../modules/accounts/fingerpage.cpp" line="56"/>
@@ -420,7 +420,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>이름:</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -430,7 +430,7 @@
     <message>
         <location filename="../modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>이름 설정</translation>
     </message>
 </context>
 <context>
@@ -448,14 +448,14 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="54"/>
         <source>Repeat Password</source>
-        <translation>패스워드 반복</translation>
+        <translation>패스워드 다시 입력</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="56"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="57"/>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="58"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="62"/>
@@ -465,7 +465,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="64"/>
         <source>Accept</source>
-        <translation>수락</translation>
+        <translation>허용</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="112"/>
@@ -480,7 +480,7 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>비밀 번호는 영어 알파벳 (대소문자 구분 주의), 숫자, 또는 특수기호 (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) 를 반드시 포함하여야 합니다.</translation>
     </message>
 </context>
 <context>
@@ -521,7 +521,7 @@
     <message>
         <location filename="../modules/bluetooth/adapterwidget.cpp" line="67"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>주변의 장치를 찾기 위해 블루투스 켜기(스피커, 키보드, 마우스)</translation>
+        <translation>주변의 장치를 찾기 위해 블루투스 켜기 (스피커, 키보드, 마우스)</translation>
     </message>
 </context>
 <context>
@@ -669,7 +669,7 @@
     <message>
         <location filename="../modules/datetime/timezone_dialog/timezonechooser.cpp" line="176"/>
         <source>Change Timezone</source>
-        <translation>시간대　변경　</translation>
+        <translation>시간대 변경</translation>
     </message>
 </context>
 <context>
@@ -682,7 +682,7 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="109"/>
         <source>Yesterday</source>
-        <translation>제</translation>
+        <translation>어제</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="111"/>
@@ -692,12 +692,12 @@
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="116"/>
         <source>%1 hours earlier than local</source>
-        <translation>지역보다 %1 시간 빠름</translation>
+        <translation>현재 지역보다 %1 시간 빠름</translation>
     </message>
     <message>
         <location filename="../modules/datetime/timezoneitem.cpp" line="118"/>
         <source>%1 hours late than local</source>
-        <translation>지역보다 %1 시간 느림</translation>
+        <translation>현재 지역보다 %1 시간 느림</translation>
     </message>
 </context>
 <context>
@@ -787,7 +787,7 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="95"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>자동 밝기</translation>
     </message>
 </context>
 <context>
@@ -818,10 +818,10 @@
     <message>
         <location filename="../modules/display/displaymodule.cpp" line="225"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>사용자 설정 %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="279"/>
+        <location filename="../modules/display/displaymodule.cpp" line="294"/>
         <source>Wireless Screen Projection</source>
         <translation type="unfinished"/>
     </message>
@@ -838,7 +838,7 @@
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="47"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>디스플레이 크기 조정</translation>
     </message>
     <message>
         <location filename="../modules/display/displaywidget.cpp" line="56"/>
@@ -1963,45 +1963,45 @@
         <translation>자동</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="93"/>
+        <location filename="../modules/network/proxypage.cpp" line="68"/>
         <source>Http Proxy</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="95"/>
-        <location filename="../modules/network/proxypage.cpp" line="100"/>
-        <location filename="../modules/network/proxypage.cpp" line="105"/>
-        <location filename="../modules/network/proxypage.cpp" line="110"/>
+        <location filename="../modules/network/proxypage.cpp" line="70"/>
+        <location filename="../modules/network/proxypage.cpp" line="75"/>
+        <location filename="../modules/network/proxypage.cpp" line="80"/>
+        <location filename="../modules/network/proxypage.cpp" line="85"/>
         <source>Port</source>
         <translation>포트</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="98"/>
+        <location filename="../modules/network/proxypage.cpp" line="73"/>
         <source>Https Proxy</source>
         <translation>HTTPS 프록시</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="103"/>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
         <source>Ftp Proxy</source>
         <translation>FTP 프록시</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="108"/>
+        <location filename="../modules/network/proxypage.cpp" line="83"/>
         <source>Socks Proxy</source>
         <translation>소켓 프로시</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="117"/>
+        <location filename="../modules/network/proxypage.cpp" line="92"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="120"/>
+        <location filename="../modules/network/proxypage.cpp" line="95"/>
         <source>Configuration URL</source>
         <translation>URL 구성</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="177"/>
+        <location filename="../modules/network/proxypage.cpp" line="152"/>
         <source>System Proxy</source>
         <translation>시스템 프록시</translation>
     </message>
@@ -3584,8 +3584,8 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</translation>
+        <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -3899,12 +3899,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="238"/>
+        <location filename="../modules/update/updatework.cpp" line="244"/>
         <source>Patches</source>
         <translation>패치</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="239"/>
+        <location filename="../modules/update/updatework.cpp" line="245"/>
         <source>System patches.</source>
         <translation>시스템 패치</translation>
     </message>

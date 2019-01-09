@@ -821,7 +821,7 @@
         <translation>Moje nastavitve %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="279"/>
+        <location filename="../modules/display/displaymodule.cpp" line="294"/>
         <source>Wireless Screen Projection</source>
         <translation>Brezžična projekcija zaslona</translation>
     </message>
@@ -1963,45 +1963,45 @@
         <translation>Samodejno</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="93"/>
+        <location filename="../modules/network/proxypage.cpp" line="68"/>
         <source>Http Proxy</source>
         <translation>Http Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="95"/>
-        <location filename="../modules/network/proxypage.cpp" line="100"/>
-        <location filename="../modules/network/proxypage.cpp" line="105"/>
-        <location filename="../modules/network/proxypage.cpp" line="110"/>
+        <location filename="../modules/network/proxypage.cpp" line="70"/>
+        <location filename="../modules/network/proxypage.cpp" line="75"/>
+        <location filename="../modules/network/proxypage.cpp" line="80"/>
+        <location filename="../modules/network/proxypage.cpp" line="85"/>
         <source>Port</source>
         <translation>Vrata</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="98"/>
+        <location filename="../modules/network/proxypage.cpp" line="73"/>
         <source>Https Proxy</source>
         <translation>Https Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="103"/>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
         <source>Ftp Proxy</source>
         <translation>Ftp Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="108"/>
+        <location filename="../modules/network/proxypage.cpp" line="83"/>
         <source>Socks Proxy</source>
         <translation>Proxy vodila</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="117"/>
+        <location filename="../modules/network/proxypage.cpp" line="92"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>Prezri proxy nastavitve za zgornje gostitelje in domene</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="120"/>
+        <location filename="../modules/network/proxypage.cpp" line="95"/>
         <source>Configuration URL</source>
         <translation>Konfiguracija URL-ja</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="177"/>
+        <location filename="../modules/network/proxypage.cpp" line="152"/>
         <source>System Proxy</source>
         <translation>Sistemski proxy</translation>
     </message>
@@ -3584,8 +3584,8 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</translation>
+        <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -3899,12 +3899,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="238"/>
+        <location filename="../modules/update/updatework.cpp" line="244"/>
         <source>Patches</source>
         <translation>Paketi popravkov</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="239"/>
+        <location filename="../modules/update/updatework.cpp" line="245"/>
         <source>System patches.</source>
         <translation>Sistemski patchi.</translation>
     </message>

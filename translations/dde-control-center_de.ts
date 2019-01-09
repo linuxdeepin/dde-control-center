@@ -821,7 +821,7 @@
         <translation>Meine Einstellungen %1</translation>
     </message>
     <message>
-        <location filename="../modules/display/displaymodule.cpp" line="279"/>
+        <location filename="../modules/display/displaymodule.cpp" line="294"/>
         <source>Wireless Screen Projection</source>
         <translation>Drahtlose Bildschirmprojektion</translation>
     </message>
@@ -1963,45 +1963,45 @@
         <translation>Automatisch</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="93"/>
+        <location filename="../modules/network/proxypage.cpp" line="68"/>
         <source>Http Proxy</source>
         <translation>Http-Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="95"/>
-        <location filename="../modules/network/proxypage.cpp" line="100"/>
-        <location filename="../modules/network/proxypage.cpp" line="105"/>
-        <location filename="../modules/network/proxypage.cpp" line="110"/>
+        <location filename="../modules/network/proxypage.cpp" line="70"/>
+        <location filename="../modules/network/proxypage.cpp" line="75"/>
+        <location filename="../modules/network/proxypage.cpp" line="80"/>
+        <location filename="../modules/network/proxypage.cpp" line="85"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="98"/>
+        <location filename="../modules/network/proxypage.cpp" line="73"/>
         <source>Https Proxy</source>
         <translation>Https-Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="103"/>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
         <source>Ftp Proxy</source>
         <translation>Ftp-Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="108"/>
+        <location filename="../modules/network/proxypage.cpp" line="83"/>
         <source>Socks Proxy</source>
         <translation>Socks-Proxy</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="117"/>
+        <location filename="../modules/network/proxypage.cpp" line="92"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>Proxy-Konfigurationen für die obigen Hosts und Domains ignorieren</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="120"/>
+        <location filename="../modules/network/proxypage.cpp" line="95"/>
         <source>Configuration URL</source>
         <translation>Konfigurations-URL</translation>
     </message>
     <message>
-        <location filename="../modules/network/proxypage.cpp" line="177"/>
+        <location filename="../modules/network/proxypage.cpp" line="152"/>
         <source>System Proxy</source>
         <translation>System-Proxy</translation>
     </message>
@@ -3584,8 +3584,8 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <source>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Copyright © 2011-2018 Wuhan Deepin Technology Co., Ltd.</translation>
+        <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -3737,7 +3737,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
-        <translation>Dieses Update kann sehr lange dauern, bitte währenddessen nicht Herunterfahren oder Neustarten.</translation>
+        <translation>Diese Systemaktualisierung kann sehr lange dauern. Bitte schalten Sie Ihren Rechner während der Systemaktualisierung nicht aus oder fahren diesen herunter.</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="176"/>
@@ -3854,7 +3854,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="unfinished"/>
+        <translation>Diese Funktion aktivieren, um Aktualisierungen in Drahtlosnetzwerken und Netzwerken automatisch herunterzuladen. </translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="77"/>
@@ -3899,12 +3899,12 @@
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="238"/>
+        <location filename="../modules/update/updatework.cpp" line="244"/>
         <source>Patches</source>
         <translation>Korrekturen</translation>
     </message>
     <message>
-        <location filename="../modules/update/updatework.cpp" line="239"/>
+        <location filename="../modules/update/updatework.cpp" line="245"/>
         <source>System patches.</source>
         <translation>Systemkorrekturen.</translation>
     </message>
