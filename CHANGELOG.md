@@ -1,3 +1,23 @@
+<a name=""></a>
+##  4.9.0 (2019-01-10)
+
+
+#### Bug Fixes
+
+*   notify body display problem in english ([f9e87258](https://github.com/linuxdeepin/dde-control-center/commit/f9e872589f62d3f2a20a867f96ce3887d22b4bd3))
+*   get audio info failed from dbus ([a740b428](https://github.com/linuxdeepin/dde-control-center/commit/a740b428bf3296bbda58504dff0e4a5a95f2ad23))
+*   shortcut edit page detect conflict ([39db1205](https://github.com/linuxdeepin/dde-control-center/commit/39db12056211924b6937df7de74014e5a2df380c))
+*   checkout the dialog return value for delete user ([3caa899a](https://github.com/linuxdeepin/dde-control-center/commit/3caa899a4648d3ace601cbff55b556706b153e61))
+* **Accounts:**  check password same as username ([4b503d71](https://github.com/linuxdeepin/dde-control-center/commit/4b503d71bd787921e447a9a3ed62aee632cc3d98))
+* **Update:**  smart mirror tips not wordwrap ([c2ce0947](https://github.com/linuxdeepin/dde-control-center/commit/c2ce09478822119a241cbb653abd083865047118))
+
+#### Features
+
+*   update copyright to 2019 ([407c2003](https://github.com/linuxdeepin/dde-control-center/commit/407c200328ad159ec39b8718fccde04984c7897d))
+*   only amd64 use clang ([54744865](https://github.com/linuxdeepin/dde-control-center/commit/54744865409f634c95be8266939e730910029fc5))
+
+
+
 <a name="4.8.7.2"></a>
 ## 4.8.7.2 (2019-01-04)
 
