@@ -259,33 +259,33 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
-        <source>Your host was removed from the domain server successfully.</source>
-        <translation>Váš počítač byl z doménového serveru odstraněn úspěšně.</translation>
+        <source>Your host was removed from the domain server successfully</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
-        <source>Your host joins the domain server successfully.</source>
-        <translation>Váš počítač se k doménovému serveru připojuje úspěšně.</translation>
+        <source>Your host joins the domain server successfully</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
-        <source>Your host failed to leave the domain server.</source>
-        <translation>Vašemu počítači se doménový server nepodařilo opustit.</translation>
+        <source>Your host failed to leave the domain server</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="348"/>
-        <source>Your host failed to join the domain server.</source>
-        <translation>Vašemu počítači se k doménovému serveru nepodařilo připojit.</translation>
+        <source>Your host failed to join the domain server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
+        <source>Password not match</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="351"/>
         <source>AD domain settings</source>
         <translation>Nastavení domény AD</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
-        <source>Password not match.</source>
-        <translation>Heslo neodpovídá.</translation>
     </message>
 </context>
 <context>
@@ -367,17 +367,22 @@
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="148"/>
-        <source>Username can&apos;t be empty.</source>
-        <translation>Uživatelské jméno nesmí být prázdné</translation>
+        <source>Username can&apos;t be empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="151"/>
-        <source>Password can&apos;t be empty.</source>
-        <translation>Heslo nemůže být prázdné.</translation>
+        <source>Password can&apos;t be empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="234"/>
-        <location filename="../modules/accounts/createpage.cpp" line="237"/>
+        <location filename="../modules/accounts/createpage.cpp" line="235"/>
+        <source>The password should be different from the username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="241"/>
+        <location filename="../modules/accounts/createpage.cpp" line="244"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Heslo musí obsahovat anglická písmena (rozlišuje se velikost písmen), čísla nebo zvláštní symboly (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
@@ -479,6 +484,11 @@
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
+        <source>The password should be different from the username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="211"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Heslo musí obsahovat anglická písmena (rozlišuje se velikost písmen), čísla nebo zvláštní symboly (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
@@ -1049,7 +1059,7 @@
         <translation>Tato klávesová zkratka se střetává s %1. Klepněte na Přidat, aby tato klávesová zkratka začala okamžitě pracovat</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="162"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="161"/>
         <source>Choose File</source>
         <translation>Vybrat soubor</translation>
     </message>
@@ -3556,7 +3566,7 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="82"/>
-        <source>Switch theme on to view it in boot menu.</source>
+        <source>Switch theme on to view it in boot menu</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3873,11 +3883,11 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="105"/>
-        <source>Switch it on to connect to the quickest mirror site automatically.</source>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="112"/>
+        <location filename="../modules/update/updatesettings.cpp" line="113"/>
         <source>Switch Mirror</source>
         <translation>Přepnout obrazovku</translation>
     </message>
@@ -3905,8 +3915,8 @@
     </message>
     <message>
         <location filename="../modules/update/updatework.cpp" line="245"/>
-        <source>System patches.</source>
-        <translation>Opravy pro systém.</translation>
+        <source>System patches</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

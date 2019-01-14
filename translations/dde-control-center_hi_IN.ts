@@ -259,33 +259,33 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
-        <source>Your host was removed from the domain server successfully.</source>
-        <translation>आपका होस्ट डोमेन सर्वर से सफलतापूर्वक हटा दिया गया है।</translation>
+        <source>Your host was removed from the domain server successfully</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
-        <source>Your host joins the domain server successfully.</source>
-        <translation>आपका होस्ट डोमेन सर्वर से सफलतापूर्वक जुड़ गया है।</translation>
+        <source>Your host joins the domain server successfully</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
-        <source>Your host failed to leave the domain server.</source>
-        <translation>आपका होस्ट डोमेन सर्वर छोड़ने में विफल रहा।</translation>
+        <source>Your host failed to leave the domain server</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="348"/>
-        <source>Your host failed to join the domain server.</source>
-        <translation>आपका होस्ट डोमेन सर्वर से जुड़ने में विफल रहा।</translation>
+        <source>Your host failed to join the domain server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
+        <source>Password not match</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="351"/>
         <source>AD domain settings</source>
         <translation>सक्रिय डायरेक्टरी डोमेन सेटिंग्स</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
-        <source>Password not match.</source>
-        <translation>कूटशब्द मेल नहीं खाते।</translation>
     </message>
 </context>
 <context>
@@ -367,19 +367,24 @@
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="148"/>
-        <source>Username can&apos;t be empty.</source>
-        <translation>उपयोक्ता नाम रिक्त नहीं हो सकता है।</translation>
+        <source>Username can&apos;t be empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="151"/>
-        <source>Password can&apos;t be empty.</source>
-        <translation>कूटशब्द रिक्त नहीं हो सकता है।</translation>
+        <source>Password can&apos;t be empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="234"/>
-        <location filename="../modules/accounts/createpage.cpp" line="237"/>
+        <location filename="../modules/accounts/createpage.cpp" line="235"/>
+        <source>The password should be different from the username</source>
+        <translation>पासवर्ड आपके यूज़रनेम से अलग होना चाईए </translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="241"/>
+        <location filename="../modules/accounts/createpage.cpp" line="244"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>पासवर्ड में अँग्रेज़ी अक्षर (केस सेन्सिटिव), अंक अथवा विशेष चिन्ह (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) होने चाईए</translation>
     </message>
 </context>
 <context>
@@ -479,8 +484,13 @@
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
+        <source>The password should be different from the username</source>
+        <translation>पासवर्ड आपके यूज़रनेम से अलग होना चाईए </translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="211"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>पासवर्ड में अँग्रेज़ी अक्षर (केस सेन्सिटिव), अंक अथवा विशेष चिन्ह (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) होने चाईए</translation>
     </message>
 </context>
 <context>
@@ -787,7 +797,7 @@
     <message>
         <location filename="../modules/display/brightnesspage.cpp" line="95"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>ऑटो ब्राइटनेस</translation>
     </message>
 </context>
 <context>
@@ -1049,7 +1059,7 @@
         <translation>इस शॉर्टकट का %1 के साथ विरोधाभास है, &apos;में जोड़ें&apos; पर क्लिक कर इसे तुरंत प्रभाव से लागू करें</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="162"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="161"/>
         <source>Choose File</source>
         <translation>फ़ाइल चुनें</translation>
     </message>
@@ -1448,17 +1458,17 @@
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="338"/>
         <source>Wired Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Wired Connection %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="342"/>
         <source>Wireless Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Wireless Connection %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectioneditpage.cpp" line="346"/>
         <source>PPPoE Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>PPPoE Connection %1</translation>
     </message>
 </context>
 <context>
@@ -1466,7 +1476,7 @@
     <message>
         <location filename="../modules/network/connectionhotspoteditpage.cpp" line="47"/>
         <source>hotspot</source>
-        <translation type="unfinished"/>
+        <translation>hotspot</translation>
     </message>
 </context>
 <context>
@@ -1479,32 +1489,32 @@
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
         <source>VPN L2TP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN L2TP %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
         <source>VPN PPTP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN PPTP %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="165"/>
         <source>VPN VPNC %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN VPNC %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="169"/>
         <source>VPN OpenVPN %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN OpenVPN %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="173"/>
         <source>VPN StrongSwan %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN StrongSwan %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="177"/>
         <source>VPN OpenConnect %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN OpenConnect %1</translation>
     </message>
 </context>
 <context>
@@ -1642,7 +1652,7 @@
     <message>
         <location filename="../modules/network/sections/ipvxsection.cpp" line="233"/>
         <source>Only applied in corresponding resources</source>
-        <translation type="unfinished"/>
+        <translation>केवल अनुकूल साधानो पर लागू किया जाएगा</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/ipvxsection.cpp" line="293"/>
@@ -2076,7 +2086,7 @@
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="218"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>पासवर्ड ओप्शन्स</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secret8021xsection.cpp" line="31"/>
@@ -2181,7 +2191,7 @@
     <message>
         <location filename="../modules/network/sections/secrethotspotsection.cpp" line="100"/>
         <source>WEP 40/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/128-bit</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secrethotspotsection.cpp" line="101"/>
@@ -2227,7 +2237,7 @@
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>WEP 40/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/128-bit</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="108"/>
@@ -2436,7 +2446,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
         <source>NAT Traversal Mode</source>
-        <translation type="unfinished"/>
+        <translation>NAT Traversal Mode</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnadvvpncsection.cpp" line="194"/>
@@ -2489,12 +2499,12 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
         <source>Phase1 Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>फेज़1 एल्गोरिथ्म्स</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
         <source>Phase2 Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>फेज़2 एल्गोरिथ्म्स</translation>
     </message>
 </context>
 <context>
@@ -2603,7 +2613,7 @@
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="230"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>पासवर्ड ओप्शन्स</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnopenvpnsection.cpp" line="285"/>
@@ -2958,7 +2968,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>पासवर्ड ओप्शन्स</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="128"/>
@@ -2982,12 +2992,12 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
         <source>SSH Agent</source>
-        <translation type="unfinished"/>
+        <translation>SSH Agent</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
         <source>Smartcard</source>
-        <translation type="unfinished"/>
+        <translation>स्मार्टकार्ड</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
@@ -3042,32 +3052,32 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="181"/>
         <source>Request an Inner IP Address</source>
-        <translation type="unfinished"/>
+        <translation>Request an Inner IP Address</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="184"/>
         <source>Enforce UDP Encapsulation</source>
-        <translation type="unfinished"/>
+        <translation>Enforce UDP Encapsulation</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="187"/>
         <source>Use IP Compression</source>
-        <translation type="unfinished"/>
+        <translation>IP Compression इस्तेमाल करें</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable custom cipher proposals</source>
-        <translation type="unfinished"/>
+        <translation>Enable custom cipher proposals</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
         <source>IKE</source>
-        <translation type="unfinished"/>
+        <translation>IKE</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="196"/>
         <source>ESP</source>
-        <translation type="unfinished"/>
+        <translation>ESP</translation>
     </message>
 </context>
 <context>
@@ -3163,7 +3173,7 @@
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>पासवर्ड ओप्शन्स</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
@@ -3333,7 +3343,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="46"/>
         <source>Transparency</source>
-        <translation type="unfinished"/>
+        <translation>Transparency</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
@@ -3556,7 +3566,7 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="82"/>
-        <source>Switch theme on to view it in boot menu.</source>
+        <source>Switch theme on to view it in boot menu</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3585,7 +3595,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -3630,7 +3640,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>End User License Agreement</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="128"/>
@@ -3648,7 +3658,7 @@
     <message>
         <location filename="../modules/systeminfo/userlicense.cpp" line="15"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>End User License Agreement</translation>
     </message>
 </context>
 <context>
@@ -3869,15 +3879,15 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="99"/>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>स्मार्ट मिरर स्विच</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="105"/>
-        <source>Switch it on to connect to the quickest mirror site automatically.</source>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="112"/>
+        <location filename="../modules/update/updatesettings.cpp" line="113"/>
         <source>Switch Mirror</source>
         <translation>मिरर-सर्वर बदलें</translation>
     </message>
@@ -3905,8 +3915,8 @@
     </message>
     <message>
         <location filename="../modules/update/updatework.cpp" line="245"/>
-        <source>System patches.</source>
-        <translation>सिस्टम पैच</translation>
+        <source>System patches</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

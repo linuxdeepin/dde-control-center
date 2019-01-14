@@ -259,33 +259,33 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
-        <source>Your host was removed from the domain server successfully.</source>
+        <source>Your host was removed from the domain server successfully</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
-        <source>Your host joins the domain server successfully.</source>
+        <source>Your host joins the domain server successfully</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
-        <source>Your host failed to leave the domain server.</source>
+        <source>Your host failed to leave the domain server</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="348"/>
-        <source>Your host failed to join the domain server.</source>
+        <source>Your host failed to join the domain server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
+        <source>Password not match</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="351"/>
         <source>AD domain settings</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
-        <source>Password not match.</source>
-        <translation>Slaptažodžiai nesutampa.</translation>
     </message>
 </context>
 <context>
@@ -367,19 +367,24 @@
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="148"/>
-        <source>Username can&apos;t be empty.</source>
-        <translation>Naudotojo vardas negali būti tuščias.</translation>
+        <source>Username can&apos;t be empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="151"/>
-        <source>Password can&apos;t be empty.</source>
-        <translation>Slaptažodis negali būti tuščias.</translation>
+        <source>Password can&apos;t be empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="234"/>
-        <location filename="../modules/accounts/createpage.cpp" line="237"/>
-        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <location filename="../modules/accounts/createpage.cpp" line="235"/>
+        <source>The password should be different from the username</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="241"/>
+        <location filename="../modules/accounts/createpage.cpp" line="244"/>
+        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>Slaptažodyje privalo būti anglų kalbos raidės (skiriant raidžių dydį), skaičiai ar specialūs simboliai (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -479,8 +484,13 @@
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
-        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <source>The password should be different from the username</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="211"/>
+        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>Slaptažodyje privalo būti anglų kalbos raidės (skiriant raidžių dydį), skaičiai ar specialūs simboliai (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -1049,7 +1059,7 @@
         <translation>Šis trumpinys konfliktuoja su trumpiniu %1, spustelėkite Pridėti, norėdami, kad šis trumpinys nedelsiant įsigaliotų</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="162"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="161"/>
         <source>Choose File</source>
         <translation>Pasirinkti failą</translation>
     </message>
@@ -1504,7 +1514,7 @@
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="177"/>
         <source>VPN OpenConnect %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN OpenConnect %1</translation>
     </message>
 </context>
 <context>
@@ -3062,12 +3072,12 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
         <source>IKE</source>
-        <translation type="unfinished"/>
+        <translation>IKE</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnstrongswansection.cpp" line="196"/>
         <source>ESP</source>
-        <translation type="unfinished"/>
+        <translation>ESP</translation>
     </message>
 </context>
 <context>
@@ -3333,7 +3343,7 @@
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="46"/>
         <source>Transparency</source>
-        <translation type="unfinished"/>
+        <translation>Permatomumas</translation>
     </message>
     <message>
         <location filename="../modules/personalization/personalizationwidget.cpp" line="68"/>
@@ -3556,7 +3566,7 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="82"/>
-        <source>Switch theme on to view it in boot menu.</source>
+        <source>Switch theme on to view it in boot menu</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3585,7 +3595,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Autorių teisės © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -3732,7 +3742,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="56"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
+        <translation>Tinklas atjungtas, prisijungę prie tinklo bandykite dar kartą</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="89"/>
@@ -3854,7 +3864,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="unfinished"/>
+        <translation>Įjunkite, norėdami automatiškai atsisiųsti atnaujinimus, kai naudojamas laidinis ar belaidis tinklas</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="77"/>
@@ -3869,15 +3879,15 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="99"/>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>Išmanusis tinklavietės perjungimas</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="105"/>
-        <source>Switch it on to connect to the quickest mirror site automatically.</source>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="112"/>
+        <location filename="../modules/update/updatesettings.cpp" line="113"/>
         <source>Switch Mirror</source>
         <translation>Perjungti tinklavietę</translation>
     </message>
@@ -3905,8 +3915,8 @@
     </message>
     <message>
         <location filename="../modules/update/updatework.cpp" line="245"/>
-        <source>System patches.</source>
-        <translation>Sistemos pataisos.</translation>
+        <source>System patches</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

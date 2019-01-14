@@ -259,33 +259,33 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
-        <source>Your host was removed from the domain server successfully.</source>
-        <translation>Su host se removió del servidor de dominio exitosamente.</translation>
+        <source>Your host was removed from the domain server successfully</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
-        <source>Your host joins the domain server successfully.</source>
-        <translation>Su host se unio al servidor de dominio con éxito.</translation>
+        <source>Your host joins the domain server successfully</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
-        <source>Your host failed to leave the domain server.</source>
-        <translation>Su host falló al abandonar el servidor de dominio.</translation>
+        <source>Your host failed to leave the domain server</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="348"/>
-        <source>Your host failed to join the domain server.</source>
-        <translation>Su host falló al unirse al servidor de dominio.</translation>
+        <source>Your host failed to join the domain server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
+        <source>Password not match</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="351"/>
         <source>AD domain settings</source>
         <translation>Ajustes de dominio AD</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
-        <source>Password not match.</source>
-        <translation>Contraseña no emparejada.</translation>
     </message>
 </context>
 <context>
@@ -367,17 +367,22 @@
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="148"/>
-        <source>Username can&apos;t be empty.</source>
-        <translation>El nombre de usuario no puede estar vacío.</translation>
+        <source>Username can&apos;t be empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="151"/>
-        <source>Password can&apos;t be empty.</source>
-        <translation>La contraseña no puede estar vacía.</translation>
+        <source>Password can&apos;t be empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="234"/>
-        <location filename="../modules/accounts/createpage.cpp" line="237"/>
+        <location filename="../modules/accounts/createpage.cpp" line="235"/>
+        <source>The password should be different from the username</source>
+        <translation>La contraseña debe ser diferente del nombre de usuario</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="241"/>
+        <location filename="../modules/accounts/createpage.cpp" line="244"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>La contraseña debe contener letras (mayúsculas y minúsculas), números o símbolos especiales  (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
@@ -479,6 +484,11 @@
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
+        <source>The password should be different from the username</source>
+        <translation>La contraseña debe ser diferente del nombre de usuario</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="211"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>La contraseña debe contener letras (mayúsculas y minúsculas), números o símbolos especiales  (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
@@ -1049,7 +1059,7 @@
         <translation>Este atajo de teclado está en conflicto con %1, haga clic en Añadir para aplicar inmediatamente</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="162"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="161"/>
         <source>Choose File</source>
         <translation>Elegir Archivo</translation>
     </message>
@@ -3556,8 +3566,8 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="82"/>
-        <source>Switch theme on to view it in boot menu.</source>
-        <translation>Cambie el tema para visualizarlo en el menú de arranque</translation>
+        <source>Switch theme on to view it in boot menu</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="102"/>
@@ -3585,7 +3595,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -3873,11 +3883,11 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="105"/>
-        <source>Switch it on to connect to the quickest mirror site automatically.</source>
-        <translation>Activarlo para conectarse automáticamente al espejo más veloz.</translation>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="112"/>
+        <location filename="../modules/update/updatesettings.cpp" line="113"/>
         <source>Switch Mirror</source>
         <translation>Cambiar espejo</translation>
     </message>
@@ -3905,8 +3915,8 @@
     </message>
     <message>
         <location filename="../modules/update/updatework.cpp" line="245"/>
-        <source>System patches.</source>
-        <translation>Parches del sistema.</translation>
+        <source>System patches</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -259,33 +259,33 @@
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
-        <source>Your host was removed from the domain server successfully.</source>
-        <translation>Host anda sudah berhasil dihapus dari server domain.</translation>
+        <source>Your host was removed from the domain server successfully</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
-        <source>Your host joins the domain server successfully.</source>
-        <translation>Host anda telah berhasil gabung dengan peladen domain.</translation>
+        <source>Your host joins the domain server successfully</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
-        <source>Your host failed to leave the domain server.</source>
-        <translation>Host anda telah gagal meninggalkan domain peladen.</translation>
+        <source>Your host failed to leave the domain server</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="348"/>
-        <source>Your host failed to join the domain server.</source>
-        <translation>Host anda gagal gabung dengan domain peladen.</translation>
+        <source>Your host failed to join the domain server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
+        <source>Password not match</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="351"/>
         <source>AD domain settings</source>
         <translation>Pengaturan domain AD</translation>
-    </message>
-    <message>
-        <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
-        <source>Password not match.</source>
-        <translation>Sandi lewat tidak cocok.</translation>
     </message>
 </context>
 <context>
@@ -367,17 +367,22 @@
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="148"/>
-        <source>Username can&apos;t be empty.</source>
-        <translation>Nama akun tidak boleh kosong.</translation>
+        <source>Username can&apos;t be empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/accounts/createpage.cpp" line="151"/>
-        <source>Password can&apos;t be empty.</source>
-        <translation>Sandi lewat tidak boleh kosong.</translation>
+        <source>Password can&apos;t be empty</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="234"/>
-        <location filename="../modules/accounts/createpage.cpp" line="237"/>
+        <location filename="../modules/accounts/createpage.cpp" line="235"/>
+        <source>The password should be different from the username</source>
+        <translation>Sandi lewat harus berbeda dari nama pengguna</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="241"/>
+        <location filename="../modules/accounts/createpage.cpp" line="244"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Kata sandi harus mengandung huruf Inggris (peka huruf besar kecil), angka atau simbol khusus (~! @ # $% ^ &amp; * () [] {} \ | /?,. &lt;&gt;)</translation>
     </message>
@@ -479,6 +484,11 @@
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
+        <source>The password should be different from the username</source>
+        <translation>Sandi lewat harus berbeda dari nama pengguna</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="211"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Sandi lewat harus mengandung huruf Inggris (peka huruf besar kecil), angka atau simbol khusus (~! @ # $% ^ &amp; * () [] {} \ | /?,. &lt;&gt;)</translation>
     </message>
@@ -1049,7 +1059,7 @@
         <translation>Pintasan ini bermasalah dengan  %1, klik &quot;Tambahkan&quot; untuk membuat pintasan ini efektif secara langsung</translation>
     </message>
     <message>
-        <location filename="../modules/keyboard/customedit.cpp" line="162"/>
+        <location filename="../modules/keyboard/customedit.cpp" line="161"/>
         <source>Choose File</source>
         <translation>Pilih Berkas</translation>
     </message>
@@ -3557,8 +3567,8 @@
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="82"/>
-        <source>Switch theme on to view it in boot menu.</source>
-        <translation>Aktifkan tema untuk melihatnya di menu muat ulang.</translation>
+        <source>Switch theme on to view it in boot menu</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="102"/>
@@ -3586,7 +3596,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Hak Cipta © 2011-% 1 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -3874,11 +3884,11 @@
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="105"/>
-        <source>Switch it on to connect to the quickest mirror site automatically.</source>
-        <translation>Aktifkan untuk terhubung ke situs mirror tercepat secara otomatis.</translation>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/update/updatesettings.cpp" line="112"/>
+        <location filename="../modules/update/updatesettings.cpp" line="113"/>
         <source>Switch Mirror</source>
         <translation>Alih Mirror</translation>
     </message>
@@ -3906,8 +3916,8 @@
     </message>
     <message>
         <location filename="../modules/update/updatework.cpp" line="245"/>
-        <source>System patches.</source>
-        <translation>Patch sistem.</translation>
+        <source>System patches</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
