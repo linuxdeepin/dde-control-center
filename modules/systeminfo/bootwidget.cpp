@@ -79,7 +79,7 @@ BootWidget::BootWidget(QWidget *parent)
     label->setWordWrap(true);
     label->setContentsMargins(16, 0, 10, 0);
 
-    TipsLabel *themeLbl = new TipsLabel(tr("Switch theme on to view it in boot menu."));
+    TipsLabel *themeLbl = new TipsLabel(tr("Switch theme on to view it in boot menu"));
     themeLbl->setWordWrap(true);
     themeLbl->setContentsMargins(16, 0, 10, 0);
 

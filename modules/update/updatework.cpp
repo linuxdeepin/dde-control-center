@@ -242,7 +242,7 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
         AppUpdateInfo ddeUpdateInfo = getInfo(dde, dde.m_currentVersion, dde.m_avilableVersion);
         if(ddeUpdateInfo.m_changelog.isEmpty()) {
             ddeUpdateInfo.m_avilableVersion = tr("Patches");
-            ddeUpdateInfo.m_changelog = tr("System patches.");
+            ddeUpdateInfo.m_changelog = tr("System patches");
         }
         infos.prepend(ddeUpdateInfo);
     }

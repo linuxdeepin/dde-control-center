@@ -321,8 +321,8 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
     QString message;
 
     if (!exitCode) {
-        message = isJoin ? tr("Your host was removed from the domain server successfully.")
-                         : tr("Your host joins the domain server successfully.");
+        message = isJoin ? tr("Your host was removed from the domain server successfully")
+                         : tr("Your host joins the domain server successfully");
 
         // Additional operation, need to initialize the user's settings
         if (!isJoin) {
@@ -344,8 +344,8 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
             }
         }
     } else {
-        message = isJoin ? tr("Your host failed to leave the domain server.")
-                         : tr("Your host failed to join the domain server.");
+        message = isJoin ? tr("Your host failed to leave the domain server")
+                         : tr("Your host failed to join the domain server");
     }
 
     m_notifyInter->Notify("", QDateTime::currentMSecsSinceEpoch(), exitCode ? "dialog-warning" : "dialog-ok", tr("AD domain settings"), message, QStringList(), QVariantMap(), 0);
@@ -417,7 +417,7 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     // validate password
     if (user->password() != user->repeatPassword()) {
         result->setType(CreationResult::PasswordMatchError);
-        result->setMessage(tr("Password not match."));
+        result->setMessage(tr("Password not match"));
         return result;
     }
 

@@ -102,7 +102,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
         smartMirrorGrp->appendItem(m_smartMirrorBtn);
 
         TipsLabel* smartTips = new TipsLabel;
-        smartTips->setText(tr("Switch it on to connect to the quickest mirror site automatically."));
+        smartTips->setText(tr("Switch it on to connect to the quickest mirror site automatically"));
         smartTips->setWordWrap(true);
         smartTips->setContentsMargins(20, 0, 20, 0);
         layout->addWidget(smartMirrorGrp);
