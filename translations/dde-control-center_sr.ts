@@ -59,17 +59,17 @@
 <context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../frame/notify/notifydelegate.cpp" line="210"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="209"/>
         <source>Yesterday</source>
         <translation>Јуче</translation>
     </message>
     <message>
-        <location filename="../frame/notify/notifydelegate.cpp" line="213"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="212"/>
         <source>The day before yesterday</source>
         <translation>Прекључе</translation>
     </message>
     <message numerus="yes">
-        <location filename="../frame/notify/notifydelegate.cpp" line="219"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="218"/>
         <source>%n day(s) ago</source>
         <translation><numerusform>%n дан раније</numerusform><numerusform>%n дана раније</numerusform><numerusform>%n дана раније</numerusform></translation>
     </message>
@@ -134,6 +134,79 @@
         <location filename="../frame/settingswidget.cpp" line="89"/>
         <source>All Settings</source>
         <translation>Сва подешавања</translation>
+    </message>
+</context>
+<context>
+    <name>SoundEffectPage</name>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="15"/>
+        <source>Boot up</source>
+        <translation>Покретање</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="16"/>
+        <source>Shut down</source>
+        <translation>Искључивање</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="17"/>
+        <source>Logout</source>
+        <translation>Одјављивање</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="18"/>
+        <source>Wake up</source>
+        <translation>Буђење</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="19"/>
+        <source>Volume +/-</source>
+        <translation>Гласноћа +/-</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="20"/>
+        <source>Notification</source>
+        <translation>Обавештења</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="21"/>
+        <source>Low battery</source>
+        <translation>Батерија при крају</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="22"/>
+        <source>Send icon in Launcher to Desktop</source>
+        <translation>Слање иконице из Покретача Програма на Радну површину</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="23"/>
+        <source>Empty Trash</source>
+        <translation>Пражњење смећа</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="24"/>
+        <source>Plug in</source>
+        <translation>Прикључење</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="25"/>
+        <source>Plug out</source>
+        <translation>Ископчавање</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="26"/>
+        <source>Removable device connected</source>
+        <translation>Уклоњиви уређај прикључен</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="27"/>
+        <source>Removable device removed</source>
+        <translation>Уклоњиви уређај уклоњен</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="28"/>
+        <source>Error</source>
+        <translation>Грешка</translation>
     </message>
 </context>
 <context>
@@ -376,13 +449,13 @@
         <translation>Лозинка не може остати празна</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="235"/>
+        <location filename="../modules/accounts/createpage.cpp" line="239"/>
         <source>The password should be different from the username</source>
         <translation>Лозинка треба да се разликује од корисничког имена</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="241"/>
-        <location filename="../modules/accounts/createpage.cpp" line="244"/>
+        <location filename="../modules/accounts/createpage.cpp" line="245"/>
+        <location filename="../modules/accounts/createpage.cpp" line="248"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Лозинка мора садржати слова алфабета (осетљиво на мала и велика слова), бројеве или специјалне карактере (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
@@ -483,12 +556,12 @@
         <translation>Лозинка</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="207"/>
         <source>The password should be different from the username</source>
         <translation>Лозинка треба да се разликује од корисничког имена</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="211"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="215"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Лозинка мора садржати слова алфабета (осетљиво на мала и велика слова), бројеве или специјалне карактере (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
@@ -1436,37 +1509,37 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="91"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="87"/>
         <source>Disconnect</source>
         <translation>Прекини везу</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="93"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="89"/>
         <source>Delete</source>
         <translation>Обриши</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="98"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="94"/>
         <source>Cancel</source>
         <translation>Откажи</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="99"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="95"/>
         <source>Save</source>
         <translation>Сачувај</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="338"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="339"/>
         <source>Wired Connection %1</source>
         <translation>Жичана веза %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="342"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="343"/>
         <source>Wireless Connection %1</source>
         <translation>Бежична веза %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="346"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="347"/>
         <source>PPPoE Connection %1</source>
         <translation>ПППоЕ Веза %1</translation>
     </message>
@@ -1482,65 +1555,75 @@
 <context>
     <name>dcc::network::ConnectionVpnEditPage</name>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="146"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="154"/>
         <source>Export</source>
         <translation>Извези</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="165"/>
         <source>VPN L2TP %1</source>
         <translation>ВПН L2TP %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="169"/>
         <source>VPN PPTP %1</source>
         <translation>ВПН ППТП %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="165"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="173"/>
         <source>VPN VPNC %1</source>
         <translation>ВПН VPNC %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="169"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="177"/>
         <source>VPN OpenVPN %1</source>
         <translation>ВПН OpenVPN %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="173"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="181"/>
         <source>VPN StrongSwan %1</source>
         <translation>ВПН StrongSwan %1</translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="177"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="185"/>
         <source>VPN OpenConnect %1</source>
         <translation>ВПН OpenConnect %1</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="189"/>
+        <source>VPN SSTP %1</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dcc::network::EthernetSection</name>
     <message>
-        <location filename="../modules/network/sections/ethernetsection.cpp" line="35"/>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="37"/>
         <source>Ethernet</source>
         <translation>Унутрашња мрежа</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ethernetsection.cpp" line="91"/>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="54"/>
+        <source>Not Bind</source>
+        <translation>Није везан</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="96"/>
         <source>Device MAC Addr</source>
         <translation>МАК адр. уређаја</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ethernetsection.cpp" line="114"/>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="111"/>
         <source>Cloned MAC Addr</source>
         <translation>Клонирана МАК адр.</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ethernetsection.cpp" line="127"/>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="124"/>
         <source>Customize MTU</source>
         <translation>Прилагоди МТУ</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ethernetsection.cpp" line="130"/>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="127"/>
         <source>MTU</source>
         <translation>МТУ</translation>
     </message>
@@ -1580,13 +1663,14 @@
     <name>dcc::network::HotspotPage</name>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
-        <source>Hotspot Settings</source>
-        <translation>Поставке вруће тачке</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/hotspotpage.cpp" line="76"/>
+        <location filename="../modules/network/hotspotpage.cpp" line="82"/>
         <source>Hotspot</source>
         <translation>Врућа тачка</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/hotspotpage.cpp" line="62"/>
+        <source>Add Settings</source>
+        <translation>Додај подешавања</translation>
     </message>
 </context>
 <context>
@@ -2831,7 +2915,12 @@
         <translation>ОпенКонект</translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="305"/>
+        <location filename="../modules/network/vpnpage.cpp" line="283"/>
+        <source>SSTP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/vpnpage.cpp" line="310"/>
         <source>New VPN</source>
         <translation>Нови ВПН</translation>
     </message>
@@ -2894,6 +2983,24 @@
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="169"/>
         <source>Password</source>
         <translation>Лозинка</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnSSTPSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="77"/>
+        <source>CA File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
+        <source>Ignore certificate warnings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
+        <source>Use TLS hostname extensions</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3250,27 +3357,32 @@
 <context>
     <name>dcc::network::WirelessSection</name>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="106"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="55"/>
+        <source>Not Bind</source>
+        <translation>Није везан</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="111"/>
         <source>SSID</source>
         <translation>ССИД</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="107"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="112"/>
         <source>Required</source>
         <translation>Неопходно</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="110"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="115"/>
         <source>Device MAC Addr</source>
         <translation>МАК адр. уређаја</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="146"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="143"/>
         <source>Customize MTU</source>
         <translation>Прилагоди МТУ</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="149"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="146"/>
         <source>MTU</source>
         <translation>МТУ</translation>
     </message>
@@ -3493,6 +3605,14 @@
     </message>
 </context>
 <context>
+    <name>dcc::sound::SoundEffectPage</name>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="59"/>
+        <source>System Sound Effect</source>
+        <translation>Системски звучни ефекти</translation>
+    </message>
+</context>
+<context>
     <name>dcc::sound::SoundWidget</name>
     <message>
         <location filename="../frame/navigation/navmodel.cpp" line="118"/>
@@ -3504,7 +3624,7 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="43"/>
         <source>Output Volume</source>
-        <translation>Излазна јачина</translation>
+        <translation>Излазна гласноћа</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="44"/>
@@ -3519,7 +3639,7 @@
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="49"/>
         <source>Feedback Volume</source>
-        <translation>Повратна јачина</translation>
+        <translation>Повратна гласноћа</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundwidget.cpp" line="60"/>
