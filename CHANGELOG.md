@@ -1,3 +1,13 @@
+<a name="4.9.1"></a>
+### 4.9.1 (2019-01-15)
+
+
+#### Bug Fixes
+
+*   shortcut title wordwrap ([5267e194](https://github.com/linuxdeepin/dde-control-center/commit/5267e1945d12acf02f8653a9d7972451b47b1fb1))
+
+
+
 <a name=""></a>
 ##  4.9.0 (2019-01-10)
 
