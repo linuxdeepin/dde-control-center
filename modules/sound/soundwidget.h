@@ -63,6 +63,7 @@ Q_SIGNALS:
     void requestSetMicrophoneVolume(double volume) const;
     void requestSetSpeakerVolume(double volume);
     void requestAdvancedPage() const;
+    void requestEffectPage() const;
 
 private Q_SLOTS:
     void onGSettingsChanged(const QString &name);
@@ -89,7 +90,7 @@ private:
     NextPageWidget *m_advancedSettingsItem;
 
     SettingsGroup *m_soundEffectGroup;
-    SwitchWidget *m_soundEffectSwitch;
+    NextPageWidget *m_soundEffectBtn;
 
     QGSettings *m_gsettings;
 };

@@ -48,6 +48,10 @@ public:
 
 Q_SIGNALS:
     void checkedChanged(const bool checked) const;
+    void clicked();
+
+protected:
+    void mouseReleaseEvent(QMouseEvent *event) override;
 
 private:
     QWidget *m_leftWidget;

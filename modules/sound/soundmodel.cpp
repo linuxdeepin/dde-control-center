@@ -34,7 +34,6 @@ SoundModel::SoundModel(QObject *parent)
     : QObject(parent)
     , m_speakerOn(true)
     , m_microphoneOn(true)
-    , m_soundEffectOn(true)
     , m_speakerVolume(75)
     , m_speakerBalance(0)
     , m_microphoneVolume(75)
@@ -42,7 +41,22 @@ SoundModel::SoundModel(QObject *parent)
     , m_microphoneFeedback(50)
 #endif
 {
-
+    m_soundEffectMap = {
+        { "Boot up", "desktopLogin" },
+        { "Shut down", "systemShutdown" },
+        { "Logout", "desktopLogout" },
+        { "Wake up", "suspendResume" },
+        { "Volume +/-", "audioVolumeChange" },
+        { "Notification", "message" },
+        { "Low battery", "powerUnplugBatteryLow" },
+        { "Send icon in Launcher to Desktop", "xDeepinAppSentToDesktop" },
+        { "Empty Trash", "trashEmpty" },
+        { "Plug in", "powerPlug" },
+        { "Plug out", "powerUnplug" },
+        { "Removable device5 connected", "deviceAdded" },
+        { "Removable device removed", "deviceRemoved" },
+        { "Error", "dialogError" },
+    };
 }
 
 SoundModel::~SoundModel()
@@ -68,15 +82,6 @@ void SoundModel::setMicrophoneOn(bool microphoneOn)
         m_microphoneOn = microphoneOn;
 
         Q_EMIT microphoneOnChanged(microphoneOn);
-    }
-}
-
-void SoundModel::setSoundEffectOn(bool soundEffectOn)
-{
-    if (soundEffectOn != m_soundEffectOn) {
-        m_soundEffectOn = soundEffectOn;
-
-        Q_EMIT soundEffectOnChanged(soundEffectOn);
     }
 }
 
@@ -189,6 +194,18 @@ void SoundModel::setAudioCards(const QString &audioCards)
     m_audioCards = audioCards;
 
     Q_EMIT audioCardsChanged(m_audioCards);
+}
+
+void SoundModel::setEffectData(const QString &name, const bool enable)
+{
+    m_soundEffectData[name] = enable;
+
+    Q_EMIT soundEffectDataChanged(name, enable);
+}
+
+bool SoundModel::queryEffectData(const QString &name)
+{
+    return m_soundEffectData[name];
 }
 
 void Port::setId(const QString &id)

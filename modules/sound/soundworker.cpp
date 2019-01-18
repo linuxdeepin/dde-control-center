@@ -29,6 +29,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QDebug>
+#include <QGSettings>
 
 namespace dcc {
 namespace sound {
@@ -43,11 +44,11 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
     , m_defaultSink(nullptr)
     , m_defaultSource(nullptr)
     , m_sourceMeter(nullptr)
+    , m_effectGsettings(new QGSettings("com.deepin.dde.sound-effect", "", this))
     , m_pingTimer(new QTimer(this))
     , m_activeTimer(new QTimer(this))
 {
     m_audioInter->setSync(false);
-    //    m_soundEffectInter->setSync(false);
 
     m_pingTimer->setInterval(5000);
     m_pingTimer->setSingleShot(false);
@@ -76,17 +77,15 @@ void SoundWorker::activate()
     m_pingTimer->start();
 
     m_audioInter->blockSignals(false);
-    m_soundEffectInter->blockSignals(false);
     if (m_defaultSink) m_defaultSink->blockSignals(false);
     if (m_defaultSource) m_defaultSource->blockSignals(false);
     if (m_sourceMeter) m_sourceMeter->blockSignals(false);
 
-    defaultSinkChanged(m_model->defaultSink());
-    defaultSourceChanged(m_model->defaultSource());
-    cardsChanged(m_model->audioCards());
-
-    m_model->setSoundEffectOn(m_soundEffectInter->enabled());
-    connect(m_soundEffectInter, &SoundEffect::EnabledChanged, m_model, &SoundModel::setSoundEffectOn);
+//    sinksChanged(m_audioInter->sinks());
+//    sourcesChanged(m_audioInter->sources());
+    defaultSinkChanged(m_audioInter->defaultSink());
+    defaultSourceChanged(m_audioInter->defaultSource());
+    cardsChanged(m_audioInter->cards());
 }
 
 void SoundWorker::deactivate()
@@ -94,7 +93,6 @@ void SoundWorker::deactivate()
     m_pingTimer->stop();
 
     m_audioInter->blockSignals(true);
-    m_soundEffectInter->blockSignals(true);
     if (m_defaultSink) m_defaultSink->blockSignals(true);
     if (m_defaultSource) m_defaultSource->blockSignals(true);
     if (m_sourceMeter) m_sourceMeter->blockSignals(true);
@@ -112,11 +110,6 @@ void SoundWorker::switchMicrophone(bool on)
     if (m_defaultSource) {
         m_defaultSource->SetMute(!on);
     }
-}
-
-void SoundWorker::switchSoundEffect(bool on)
-{
-    m_soundEffectInter->setEnabled(on);
 }
 
 void SoundWorker::setSinkBalance(double balance)
@@ -146,6 +139,26 @@ void SoundWorker::setSinkVolume(double volume)
 void SoundWorker::setPort(const Port *port)
 {
     m_audioInter->SetPort(port->cardId(), port->id(), int(port->direction()));
+}
+
+void SoundWorker::querySoundEffectData(const QString &name)
+{
+    m_model->setEffectData(name, m_effectGsettings->get(name).toBool());
+}
+
+void SoundWorker::setEffectEnable(const QString &name, bool enable)
+{
+    if (name.isEmpty()) {
+        m_effectGsettings->set("enabled", enable);
+        return;
+    }
+
+    m_effectGsettings->set(name, enable);
+}
+
+void SoundWorker::playSoundEffect(const QString &name)
+{
+    Q_EMIT m_model->playPathChanged(name, m_soundEffectInter->GetSystemSoundFile(name));
 }
 
 void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)

@@ -28,6 +28,7 @@
 #include <QHBoxLayout>
 
 #include <QDebug>
+#include <QMouseEvent>
 
 #include "labels/normallabel.h"
 
@@ -88,6 +89,15 @@ void SwitchWidget::setTitle(const QString &title)
 bool SwitchWidget::checked() const
 {
     return m_switchBtn->checked();
+}
+
+void SwitchWidget::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (!m_switchBtn->geometry().contains(event->pos())) {
+        Q_EMIT clicked();
+    }
+
+    return SettingsItem::mouseReleaseEvent(event);
 }
 
 }

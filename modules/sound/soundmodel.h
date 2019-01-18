@@ -28,6 +28,8 @@
 
 #include <QDBusObjectPath>
 #include <QObject>
+#include <QMap>
+#include <QString>
 
 namespace dcc {
 namespace sound {
@@ -92,9 +94,6 @@ public:
     inline bool microphoneOn() const { return m_microphoneOn; }
     void setMicrophoneOn(bool microphoneOn);
 
-    inline bool soundEffectOn() const { return m_soundEffectOn; }
-    void setSoundEffectOn(bool soundEffectOn);
-
     inline double speakerBalance() const { return m_speakerBalance; }
     void setSpeakerBalance(double speakerBalance);
 
@@ -123,6 +122,10 @@ public:
 
     QString audioCards() const;
     void setAudioCards(const QString &audioCards);
+    inline QMap<QString, QString> soundEffectMap() const { return m_soundEffectMap; }
+
+    void setEffectData(const QString &name, const bool enable);
+    bool queryEffectData(const QString &name);
 
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
@@ -134,17 +137,18 @@ Q_SIGNALS:
     void defaultSourceChanged(const QDBusObjectPath &defaultSource) const;
     void defaultSinkChanged(const QDBusObjectPath &defaultSink) const;
     void audioCardsChanged(const QString &audioCards) const;
+    void playPathChanged(const QString &name, const QString &path) const;
 
 #ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
 #endif
     void portAdded(const Port *port);
     void portRemoved(const QString & portId, const uint &cardId);
+    void soundEffectDataChanged(const QString &name, const bool enable);
 
 private:
     bool m_speakerOn;
     bool m_microphoneOn;
-    bool m_soundEffectOn;
     double m_speakerVolume;
     double m_speakerBalance;
     double m_microphoneVolume;
@@ -158,6 +162,8 @@ private:
     QDBusObjectPath m_defaultSink;
     QString m_audioCards;
 
+    QMap<QString, QString> m_soundEffectMap;
+    QMap<QString, bool> m_soundEffectData;
 };
 
 } // namespace sound

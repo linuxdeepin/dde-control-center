@@ -4,7 +4,8 @@ HEADERS += \
     $$PWD/soundworker.h \
     $$PWD/soundmodel.h \
     $$PWD/advancedpage.h \
-    $$PWD/portitem.h
+    $$PWD/portitem.h \
+    $$PWD/soundeffectpage.h
 
 SOURCES += \
     $$PWD/soundmodule.cpp \
@@ -12,7 +13,8 @@ SOURCES += \
     $$PWD/soundworker.cpp \
     $$PWD/soundmodel.cpp \
     $$PWD/advancedpage.cpp \
-    $$PWD/portitem.cpp
+    $$PWD/portitem.cpp \
+    $$PWD/soundeffectpage.cpp
 
 RESOURCES += \
     $$PWD/sound.qrc

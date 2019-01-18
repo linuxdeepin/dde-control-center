@@ -7,7 +7,7 @@ include(../widgets/widgets.pri)
 # modules
 include(../modules/modules.pri)
 
-QT += widgets dbus svg sql x11extras concurrent
+QT += widgets dbus svg sql x11extras concurrent multimedia
 
 CONFIG += no_keywords
 
