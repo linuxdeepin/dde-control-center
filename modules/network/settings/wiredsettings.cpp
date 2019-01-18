@@ -48,7 +48,7 @@ void WiredSettings::initSections()
     IpvxSection *ipv6Section = new IpvxSection(
             m_connSettings->setting(Setting::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
     EthernetSection *etherNetSection = new EthernetSection(
-            m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>(), m_connSettings->interfaceName());
+            m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>());
 
     connect(secretSection, &Secret8021xSection::requestPage, this, &WiredSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestPage, this, &WiredSettings::requestNextPage);
@@ -66,4 +66,10 @@ void WiredSettings::initSections()
     m_settingSections.append(ipv4Section);
     m_settingSections.append(ipv6Section);
     m_settingSections.append(etherNetSection);
+}
+
+bool WiredSettings::clearInterfaceName()
+{
+    NetworkManager::WiredSetting::Ptr wiredSetting = m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>();
+    return wiredSetting->macAddress().isEmpty();
 }

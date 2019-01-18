@@ -49,7 +49,7 @@ void HotspotSettings::initSections()
         m_connSettings->setting(Setting::SettingType::WirelessSecurity)
         .staticCast<NetworkManager::WirelessSecuritySetting>());
     
-    WirelessSection *wirelessSection = new WirelessSection(wirelessSetting, m_connSettings->interfaceName());
+    WirelessSection *wirelessSection = new WirelessSection(wirelessSetting);
 
     connect(secretHotspotSection, &SecretHotspotSection::requestPage, this, &HotspotSettings::requestNextPage);
     connect(wirelessSection, &WirelessSection::requestPage, this, &HotspotSettings::requestNextPage);
@@ -61,4 +61,10 @@ void HotspotSettings::initSections()
     m_settingSections.append(genericSection);
     m_settingSections.append(secretHotspotSection);
     m_settingSections.append(wirelessSection);
+}
+
+bool HotspotSettings::clearInterfaceName()
+{
+    NetworkManager::WirelessSetting::Ptr wirelessSetting = m_connSettings->setting(Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>();
+    return wirelessSetting->macAddress().isEmpty();
 }

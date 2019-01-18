@@ -34,11 +34,12 @@ class VpnL2tpSettings : public AbstractSettings
     Q_OBJECT
 
 public:
-    explicit VpnL2tpSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent = 0);
-    virtual ~VpnL2tpSettings();
+    explicit VpnL2tpSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent = nullptr);
+    virtual ~VpnL2tpSettings() override;
 
 protected:
     void initSections() Q_DECL_OVERRIDE;
+    bool clearInterfaceName() Q_DECL_OVERRIDE { return true; }
 };
 
 } /* network */

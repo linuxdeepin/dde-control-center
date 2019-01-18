@@ -67,28 +67,32 @@ Q_SIGNALS:
     void requestFrameKeepAutoHide(const bool autoHide) const;
 
 private:
-    void onSwitchToggled(const bool checked);
-    void onConfigWidgetClicked();
-    void onConnectionsChanged();
-    void onActiveConnsChanged();
-
     void closeHotspot();
     void openHotspot();
-
-    inline const QString hotspotUuid() const
-    { return m_hotspotInfo.value("Uuid").toString(); }
+    void openEditPage(const QString &uuid = QString());
+    QString uuidByConnWidget(QObject *connWidget);
 
 private Q_SLOTS:
     void onDeviceRemoved();
+    void onSwitchToggled(const bool checked);
+    void onConnWidgetSelected();
+    void onConnWidgetNextPage();
+    void onHotsportEnabledChanged();
+    void refreshHotspotConnectionList();
+    void refreshActiveConnection();
 
 private:
     dde::network::WirelessDevice * const m_wdev;
     dde::network::NetworkModel *m_model;
     widgets::SwitchWidget *m_hotspotSwitch;
-    widgets::NextPageWidget *m_configureWidget;
+    widgets::SettingsGroup *m_connectionsGroup;
 
-    QJsonObject m_hotspotInfo;
+    QPushButton *m_createBtn;
     QPointer<ConnectionHotspotEditPage> m_editPage;
+
+    QTimer *m_refreshActiveTimer;
+
+    QMap<widgets::NextPageWidget *, QString> m_connWidgetUuidMap;
 };
 
 }

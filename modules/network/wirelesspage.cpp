@@ -199,7 +199,7 @@ void WirelessPage::onHotspotEnableChanged(const bool enabled)
 
 void WirelessPage::onCloseHotspotClicked()
 {
-    Q_EMIT requestDisconnectConnection(m_device->hotspotUuid());
+    Q_EMIT requestDisconnectConnection(m_device->activeHotspotUuid());
     Q_EMIT requestDeviceRemanage(m_device->path());
 }
 
@@ -306,8 +306,6 @@ QString WirelessPage::connectionUuid(const QString &ssid)
     QList<QJsonObject> connections = m_device->connections();
     for (auto item : connections) {
         if (item.value("Ssid").toString() != ssid)
-            continue;
-        if (item.value("HwAddress").toString() != m_device->usingHwAdr())
             continue;
 
         uuid = item.value("Uuid").toString();

@@ -362,7 +362,7 @@ void NetworkModule::showWirelessEditPage(dde::network::NetworkDevice *dev, const
 
 void NetworkModule::removeConnEditPageByDevice(dde::network::NetworkDevice *dev)
 {
-    if (m_connEditPage && dev->path() == m_connEditPage->associatedDevicePath()) {
+    if (m_connEditPage && dev->path() == m_connEditPage->devicePath()) {
         m_connEditPage->onDeviceRemoved();
         m_connEditPage = nullptr;
     }

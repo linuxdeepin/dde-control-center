@@ -58,7 +58,7 @@ class WirelessPage : public ContentWidget
     Q_OBJECT
 
 public:
-    explicit WirelessPage(dde::network::WirelessDevice *dev, QWidget *parent = 0);
+    explicit WirelessPage(dde::network::WirelessDevice *dev, QWidget *parent = nullptr);
     ~WirelessPage();
 
     void setModel(dde::network::NetworkModel *model);

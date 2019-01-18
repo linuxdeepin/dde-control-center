@@ -34,11 +34,12 @@ class HotspotSettings : public AbstractSettings
     Q_OBJECT
 
 public:
-    explicit HotspotSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent = 0);
-    virtual ~HotspotSettings();
+    explicit HotspotSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent = nullptr);
+    virtual ~HotspotSettings() override;
 
 protected:
     void initSections() Q_DECL_OVERRIDE;
+    bool clearInterfaceName() Q_DECL_OVERRIDE;
 };
 
 } /* network */

@@ -34,11 +34,12 @@ class VpnOpenConnectSettings : public AbstractSettings
     Q_OBJECT
 
 public:
-    explicit VpnOpenConnectSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent = 0);
-    virtual ~VpnOpenConnectSettings();
+    explicit VpnOpenConnectSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent = nullptr);
+    virtual ~VpnOpenConnectSettings() override;
 
 protected:
     void initSections() Q_DECL_OVERRIDE;
+    bool clearInterfaceName() Q_DECL_OVERRIDE { return true; }
 };
 
 } /* network */

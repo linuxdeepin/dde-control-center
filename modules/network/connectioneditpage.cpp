@@ -36,6 +36,8 @@ using namespace dcc::widgets;
 using namespace dcc::network;
 using namespace NetworkManager;
 
+static QString DevicePath = "";
+
 ConnectionEditPage::ConnectionEditPage(ConnectionType connType, const QString &devPath,  const QString &connUuid, QWidget *parent)
     : ContentWidget(parent),
       m_mainLayout(new QVBoxLayout),
@@ -49,9 +51,10 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType, const QString &d
       m_subPage(nullptr),
       m_connType(static_cast<NetworkManager::ConnectionSettings::ConnectionType>(connType)),
       m_isNewConnection(false),
-      m_devPath(devPath),
       m_connectionUuid(connUuid)
 {
+    DevicePath = devPath;
+
     initUI();
 
     if (m_connectionUuid.isEmpty()) {
@@ -67,13 +70,6 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType, const QString &d
         m_connectionSettings = m_connection->settings();
         m_isNewConnection = false;
         initConnectionSecrets();
-    }
-
-    if (m_connectionSettings->interfaceName().isEmpty()) {
-        Device::Ptr dev = NetworkManager::findNetworkInterface(m_devPath);
-        if (dev) {
-            m_connectionSettings->setInterfaceName(dev->interfaceName());
-        }
     }
 
     initHeaderButtons();
@@ -155,6 +151,11 @@ void ConnectionEditPage::initSettingsWidget()
     connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionEditPage::onRequestNextPage);
 
     m_settingsLayout->addWidget(m_settingsWidget);
+}
+
+const QString ConnectionEditPage::devicePath()
+{
+    return DevicePath;
 }
 
 void ConnectionEditPage::onDeviceRemoved()
@@ -270,7 +271,7 @@ void ConnectionEditPage::saveConnSettings()
         QDBusPendingReply<> reply;
         for (auto aConn : activeConnections()) {
             for (auto devPath : aConn->devices()) {
-                if (devPath == m_devPath) {
+                if (devPath == DevicePath) {
                     reply = deactivateConnection(aConn->path());
                     reply.waitForFinished();
                     if (reply.isError()) {
@@ -316,7 +317,7 @@ void ConnectionEditPage::updateConnection()
     }
 
     if (m_settingsWidget->isAutoConnect()) {
-        reply = activateConnection(m_connection->path(), m_devPath, "");
+        reply = activateConnection(m_connection->path(), DevicePath, "");
         reply.waitForFinished();
         if (reply.isError()) {
             qDebug() << "error occurred while activate connection" << reply.error();

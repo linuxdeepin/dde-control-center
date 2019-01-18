@@ -34,11 +34,12 @@ class WirelessSettings : public AbstractSettings
     Q_OBJECT
 
 public:
-    explicit WirelessSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent = 0);
-    virtual ~WirelessSettings();
+    explicit WirelessSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent = nullptr);
+    virtual ~WirelessSettings() override;
 
 protected:
     void initSections() Q_DECL_OVERRIDE;
+    bool clearInterfaceName() Q_DECL_OVERRIDE;
 };
 
 } /* network */

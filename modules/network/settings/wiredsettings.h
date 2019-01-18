@@ -34,11 +34,12 @@ class WiredSettings : public AbstractSettings
     Q_OBJECT
 
 public:
-    explicit WiredSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent = 0);
-    virtual ~WiredSettings();
+    explicit WiredSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent = nullptr);
+    virtual ~WiredSettings() override;
 
 protected:
     void initSections() Q_DECL_OVERRIDE;
+    bool clearInterfaceName() Q_DECL_OVERRIDE;
 };
 
 } /* network */
