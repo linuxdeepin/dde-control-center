@@ -85,7 +85,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
     connect(m_device, &WiredDevice::connectionsChanged, this, &WiredPage::refreshConnectionList);
-    connect(m_device, &WiredDevice::activeConnectionChanged, this, &WiredPage::checkActivatedConnection);
+    connect(m_device, &WiredDevice::activeWiredConnectionChanged, this, &WiredPage::checkActivatedConnection);
     connect(m_device, static_cast<void (WiredDevice::*)(WiredDevice::DeviceStatus) const>(&WiredDevice::statusChanged), this, &WiredPage::onDeviceStatusChanged);
     connect(m_device, &WiredDevice::removed, this, &WiredPage::onDeviceRemoved);
 
