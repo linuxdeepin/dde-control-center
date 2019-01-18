@@ -39,6 +39,7 @@ private:
     QLabel *m_playIcon;
     QTimer *m_hideIconTimer;
     QVariantAnimation *m_iconAni;
+    widgets::SwitchWidget *m_currentPlayItem;
     QMap<widgets::SwitchWidget*, QString> m_effectSwitchList;
 };
 }

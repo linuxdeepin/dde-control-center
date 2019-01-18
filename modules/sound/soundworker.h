@@ -94,6 +94,7 @@ private:
     uint m_activeInputCard;
 
     Audio *m_audioInter;
+    SoundEffect *m_soundEffectInter;
     QPointer<Sink> m_defaultSink;
     QPointer<Source> m_defaultSource;
     QPointer<Meter> m_sourceMeter;

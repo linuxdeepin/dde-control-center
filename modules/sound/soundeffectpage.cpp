@@ -36,8 +36,9 @@ SoundEffectPage::SoundEffectPage(SoundModel *model, QWidget *parent)
     , m_playIcon(new QLabel(this))
     , m_hideIconTimer(new QTimer(this))
     , m_iconAni(new QVariantAnimation(this))
+    , m_currentPlayItem(nullptr)
 {
-    m_hideIconTimer->setInterval(5000);
+    m_hideIconTimer->setInterval(3000);
     m_hideIconTimer->setSingleShot(true);
 
     m_playIcon->setFixedSize(20, 20);
@@ -97,11 +98,11 @@ SoundEffectPage::SoundEffectPage(SoundModel *model, QWidget *parent)
     connect(m_hideIconTimer, &QTimer::timeout, this, [=] {
         m_playIcon->hide();
         m_iconAni->stop();
+        m_currentPlayItem = nullptr;
     });
 
     connect(m_iconAni, &QVariantAnimation::valueChanged, this, [=] (const QVariant &value) {
         m_playIcon->setPixmap(DHiDPIHelper::loadNxPixmap(QString(":/sound/themes/dark/sound_preview_%1.svg").arg(value.toInt())));
-    qDebug() << value.toInt();
     });
 }
 
@@ -134,17 +135,20 @@ void SoundEffectPage::onAllEffectSwitchBtnChanged(const bool enable)
 
 void SoundEffectPage::onPlayPathChanged(const QString &name, const QString &path)
 {
-    QSound sound(path);
-    sound.setLoops(1);
-    sound.play();
-
     SwitchWidget *widget = m_effectSwitchList.key(convert(name, true));
-    m_playIcon->move(QPoint(widget->width() - m_playIcon->width() - 60,
-                            widget->mapToGlobal(QPoint(0, 0)).y() + (widget->height() - m_playIcon->height()) / 2));
 
-    m_playIcon->show();
-    m_hideIconTimer->start();
-    m_iconAni->start();
+    if (widget != m_currentPlayItem) {
+        QSound::play(path);
+        m_currentPlayItem = widget;
+        m_playIcon->move(QPoint(widget->width() - m_playIcon->width() - 60,
+                                widget->mapToGlobal(QPoint(0, 0)).y() + (widget->height() - m_playIcon->height()) / 2));
+
+        m_playIcon->show();
+        m_hideIconTimer->start();
+        m_iconAni->stop();
+        m_iconAni->start();
+    }
+
 }
 
 void SoundEffectPage::readyPlay()

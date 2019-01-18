@@ -40,6 +40,7 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
     , m_activeOutputCard(UINT_MAX)
     , m_activeInputCard(UINT_MAX)
     , m_audioInter(new Audio("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", QDBusConnection::sessionBus(), this))
+    , m_soundEffectInter(new SoundEffect("com.deepin.daemon.SoundEffect", "/com/deepin/daemon/SoundEffect", QDBusConnection::sessionBus(), this))
     , m_defaultSink(nullptr)
     , m_defaultSource(nullptr)
     , m_sourceMeter(nullptr)
@@ -151,7 +152,7 @@ void SoundWorker::setEffectEnable(const QString &name, bool enable)
 
 void SoundWorker::playSoundEffect(const QString &name)
 {
-
+    Q_EMIT m_model->playPathChanged(name, m_soundEffectInter->GetSystemSoundFile(name));
 }
 
 void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)

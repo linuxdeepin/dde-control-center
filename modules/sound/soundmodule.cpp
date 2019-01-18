@@ -112,6 +112,7 @@ void SoundModule::showEffectPage()
 
     connect(effectPage, &SoundEffectPage::requestQueryData, m_soundWorker, &SoundWorker::querySoundEffectData);
     connect(effectPage, &SoundEffectPage::requestSetEffectEnable, m_soundWorker, &SoundWorker::setEffectEnable);
+    connect(effectPage, &SoundEffectPage::requestPlay, m_soundWorker, &SoundWorker::playSoundEffect);
 
     m_frameProxy->pushWidget(this, effectPage);
 }
