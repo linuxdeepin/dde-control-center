@@ -508,34 +508,6 @@ void UpdateWorker::setDistUpgradeJob(const QString &jobPath)
     m_distUpgradeJob->StatusChanged(m_distUpgradeJob->status());
 }
 
-void UpdateWorker::setOtherUpdate(const QString &jobPath)
-{
-    if (!m_otherUpdateJob.isNull())
-        return;
-
-    m_otherUpdateJob = new JobInter("com.deepin.lastore",
-                                 jobPath,
-                                 QDBusConnection::systemBus(), this);
-
-    connect(m_otherUpdateJob, &JobInter::StatusChanged, this, [=] (const QString &status) {
-        if (status == "succeed") {
-            checkForUpdates();
-            m_otherUpdateJob->deleteLater();
-        }
-        else if (status == "failed")  {
-            // cleanup failed job
-            m_managerInter->CleanJob(m_otherUpdateJob->id());
-
-            checkDiskSpace(m_otherUpdateJob);
-
-            qWarning() << "other install job failed";
-            m_otherUpdateJob->deleteLater();
-        }
-    });
-
-    m_otherUpdateJob->StatusChanged(m_otherUpdateJob->status());
-}
-
 void UpdateWorker::setAutoCleanCache(const bool autoCleanCache)
 {
     m_managerInter->SetAutoClean(autoCleanCache);
@@ -562,9 +534,6 @@ void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> & jobs)
             setDownloadJob(path);
         else if (id == "dist_upgrade")
             setDistUpgradeJob(path);
-        else
-            setOtherUpdate(path);
-
     }
 }
 
