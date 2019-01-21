@@ -37,6 +37,7 @@ SoundEffectPage::SoundEffectPage(SoundModel *model, QWidget *parent)
     , m_hideIconTimer(new QTimer(this))
     , m_iconAni(new QVariantAnimation(this))
     , m_currentPlayItem(nullptr)
+    , m_sound(nullptr)
 {
     m_hideIconTimer->setInterval(3000);
     m_hideIconTimer->setSingleShot(true);
@@ -58,27 +59,26 @@ SoundEffectPage::SoundEffectPage(SoundModel *model, QWidget *parent)
     m_allEffectSwitch = new SwitchWidget(tr("System Sound Effect"));
     m_effectGrp = new SettingsGroup;
 
-    connect(m_allEffectSwitch, &SwitchWidget::checkedChanged, this, &SoundEffectPage::onSwitchClicked);
-    connect(m_allEffectSwitch, &SwitchWidget::checkedChanged, this, &SoundEffectPage::onAllEffectSwitchBtnChanged);
+    connect(m_allEffectSwitch, &SwitchWidget::checkedChanged, this, &SoundEffectPage::requestEnableAllEffect);
+    connect(m_model, &SoundModel::enableSoundEffectChanged, m_allEffectSwitch, &SwitchWidget::setChecked);
+    connect(m_model, &SoundModel::enableSoundEffectChanged, this, &SoundEffectPage::onAllEffectSwitchBtnChanged);
 
-    QTimer::singleShot(0, this, [=] {
-        Q_EMIT requestQueryData("enabled");
-    });
-    m_allEffectSwitch->setChecked(model->queryEffectData("enabled"));
+    m_allEffectSwitch->setChecked(m_model->enableSoundEffect());
+    onAllEffectSwitchBtnChanged(m_model->enableSoundEffect());
 
     auto effect_map = model->soundEffectMap();
 
-    for (auto it = effect_map.constBegin(); it != effect_map.constEnd(); ++it) {
-        SwitchWidget * widget = new SwitchWidget(tr(it.key().toUtf8()));
+    for (auto it : effect_map) {
+        SwitchWidget * widget = new SwitchWidget(tr(it.first.toUtf8()));
         widget->installEventFilter(this);
         connect(widget, &SwitchWidget::checkedChanged, this, &SoundEffectPage::onSwitchClicked);
         connect(widget, &SwitchWidget::clicked, this, &SoundEffectPage::readyPlay);
         m_effectGrp->appendItem(widget);
-        m_effectSwitchList[widget] = it.value();
+        m_effectSwitchList[widget] = it.second;
         QTimer::singleShot(0, this, [=] {
-            Q_EMIT requestQueryData(it.value());
+            Q_EMIT requestQueryData(it.second);
         });
-        widget->setChecked(model->queryEffectData(it.value()));
+        widget->setChecked(model->queryEffectData(it.second));
     }
 
     m_playIcon->hide();
@@ -94,7 +94,6 @@ SoundEffectPage::SoundEffectPage(SoundModel *model, QWidget *parent)
 
     setContent(w);
     connect(model, &SoundModel::soundEffectDataChanged, this, &SoundEffectPage::onEffectSwitchChanged);
-    connect(model, &SoundModel::playPathChanged, this, &SoundEffectPage::onPlayPathChanged);
     connect(m_hideIconTimer, &QTimer::timeout, this, [=] {
         m_playIcon->hide();
         m_iconAni->stop();
@@ -112,16 +111,10 @@ void SoundEffectPage::onSwitchClicked(const bool enable)
     Q_EMIT requestSetEffectEnable(m_effectSwitchList[widget], enable);
 }
 
-void SoundEffectPage::onEffectSwitchChanged(const QString &name, const bool enable)
+void SoundEffectPage::onEffectSwitchChanged(DDesktopServices::SystemSoundEffect effect, const bool enable)
 {
-    if (name == "enabled") {
-        m_allEffectSwitch->setChecked(enable);
-        onAllEffectSwitchBtnChanged(enable);
-        return;
-    }
-
     for (auto it = m_effectSwitchList.constBegin(); it != m_effectSwitchList.constEnd(); ++it) {
-        if (it.value() == name) {
+        if (it.value() == effect) {
             it.key()->setChecked(enable);
             return;
         }
@@ -131,14 +124,18 @@ void SoundEffectPage::onEffectSwitchChanged(const QString &name, const bool enab
 void SoundEffectPage::onAllEffectSwitchBtnChanged(const bool enable)
 {
     m_effectGrp->setVisible(enable);
+    m_playIcon->setVisible(enable && m_hideIconTimer->isActive());
 }
 
-void SoundEffectPage::onPlayPathChanged(const QString &name, const QString &path)
+void SoundEffectPage::readyPlay()
 {
-    SwitchWidget *widget = m_effectSwitchList.key(convert(name, true));
-
+    SwitchWidget *widget = static_cast<SwitchWidget*>(sender());
     if (widget != m_currentPlayItem) {
-        QSound::play(path);
+        m_sound.reset(new QSound(m_model->soundEffectPathByType(m_effectSwitchList[widget])));
+
+        m_sound->stop();
+        m_sound->play();
+
         m_currentPlayItem = widget;
         m_playIcon->move(QPoint(widget->width() - m_playIcon->width() - 60,
                                 widget->mapToGlobal(QPoint(0, 0)).y() + (widget->height() - m_playIcon->height()) / 2));
@@ -148,36 +145,4 @@ void SoundEffectPage::onPlayPathChanged(const QString &name, const QString &path
         m_iconAni->stop();
         m_iconAni->start();
     }
-
-}
-
-void SoundEffectPage::readyPlay()
-{
-    SwitchWidget *widget = static_cast<SwitchWidget*>(sender());
-
-    Q_EMIT requestPlay(convert(m_effectSwitchList[widget], false));
-}
-
-const QString SoundEffectPage::convert(const QString &source, bool toHump) const
-{
-    QString result;
-
-    if (toHump) {
-        for (auto it = source.constBegin(); it != source.constEnd(); ++it) {
-            if ((*it) == "-") {
-                ++it;
-                result.append(it->toUpper());
-            }
-            else {
-                result.append((*it));
-            }
-        }
-    }
-    else {
-        for (auto it = source.constBegin(); it != source.constEnd(); ++it) {
-            result.append(QString(it->isLower() ? (*it) : QString("-%1").arg(it->toLower())));
-        }
-    }
-
-    return result;
 }

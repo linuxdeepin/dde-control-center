@@ -108,11 +108,13 @@ void SoundModule::showAdvancedPage()
 
 void SoundModule::showEffectPage()
 {
+    m_soundWorker->refreshSoundEffect();
+
     SoundEffectPage *effectPage = new SoundEffectPage(m_soundModel);
 
     connect(effectPage, &SoundEffectPage::requestQueryData, m_soundWorker, &SoundWorker::querySoundEffectData);
     connect(effectPage, &SoundEffectPage::requestSetEffectEnable, m_soundWorker, &SoundWorker::setEffectEnable);
-    connect(effectPage, &SoundEffectPage::requestPlay, m_soundWorker, &SoundWorker::playSoundEffect);
+    connect(effectPage, &SoundEffectPage::requestEnableAllEffect, m_soundWorker, &SoundWorker::enableAllSoundEffect);
 
     m_frameProxy->pushWidget(this, effectPage);
 }

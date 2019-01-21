@@ -42,20 +42,20 @@ SoundModel::SoundModel(QObject *parent)
 #endif
 {
     m_soundEffectMap = {
-        { "Boot up", "desktopLogin" },
-        { "Shut down", "systemShutdown" },
-        { "Logout", "desktopLogout" },
-        { "Wake up", "suspendResume" },
-        { "Volume +/-", "audioVolumeChange" },
-        { "Notification", "message" },
-        { "Low battery", "powerUnplugBatteryLow" },
-        { "Send icon in Launcher to Desktop", "xDeepinAppSentToDesktop" },
-        { "Empty Trash", "trashEmpty" },
-        { "Plug in", "powerPlug" },
-        { "Plug out", "powerUnplug" },
-        { "Removable device5 connected", "deviceAdded" },
-        { "Removable device removed", "deviceRemoved" },
-        { "Error", "dialogError" },
+        { "Boot up", DDesktopServices::SSE_BootUp },
+        { "Shut down", DDesktopServices::SSE_Shutdown },
+        { "Logout", DDesktopServices::SSE_Logout },
+        { "Wake up", DDesktopServices::SSE_WakeUp },
+        { "Volume +/-", DDesktopServices::SSE_VolumeChange },
+        { "Notification", DDesktopServices::SSE_Notifications },
+        { "Low battery", DDesktopServices::SSE_LowBattery },
+        { "Send icon in Launcher to Desktop", DDesktopServices::SSE_SendFileComplete },
+        { "Empty Trash", DDesktopServices::SSE_EmptyTrash },
+        { "Plug in", DDesktopServices::SSE_PlugIn },
+        { "Plug out", DDesktopServices::SSE_PlugOut },
+        { "Removable device connected", DDesktopServices::SSE_DeviceAdded },
+        { "Removable device removed", DDesktopServices::SSE_DeviceRemoved },
+        { "Error", DDesktopServices::SSE_Error },
     };
 }
 
@@ -196,16 +196,35 @@ void SoundModel::setAudioCards(const QString &audioCards)
     Q_EMIT audioCardsChanged(m_audioCards);
 }
 
-void SoundModel::setEffectData(const QString &name, const bool enable)
+void SoundModel::setEffectData(DDesktopServices::SystemSoundEffect effect, const bool enable)
 {
-    m_soundEffectData[name] = enable;
+    m_soundEffectData[effect] = enable;
 
-    Q_EMIT soundEffectDataChanged(name, enable);
+    Q_EMIT soundEffectDataChanged(effect, enable);
 }
 
-bool SoundModel::queryEffectData(const QString &name)
+bool SoundModel::queryEffectData(DDesktopServices::SystemSoundEffect effect)
 {
-    return m_soundEffectData[name];
+    return m_soundEffectData[effect];
+}
+
+void SoundModel::setEnableSoundEffect(bool enableSoundEffect)
+{
+    if (m_enableSoundEffect == enableSoundEffect) return;
+
+    m_enableSoundEffect = enableSoundEffect;
+
+    Q_EMIT enableSoundEffectChanged(enableSoundEffect);
+}
+
+void SoundModel::updateSoundEffectPath(DDesktopServices::SystemSoundEffect effect, const QString &path)
+{
+    m_soundEffectPaths[effect] = path;
+}
+
+const QString SoundModel::soundEffectPathByType(DDesktopServices::SystemSoundEffect effect)
+{
+    return m_soundEffectPaths[effect];
 }
 
 void Port::setId(const QString &id)

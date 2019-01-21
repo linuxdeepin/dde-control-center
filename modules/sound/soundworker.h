@@ -37,6 +37,10 @@
 #include "moduleworker.h"
 #include "soundmodel.h"
 
+#include <DDesktopServices>
+
+DWIDGET_USE_NAMESPACE
+
 using com::deepin::daemon::Audio;
 using com::deepin::daemon::audio::Sink;
 using com::deepin::daemon::audio::Source;
@@ -57,6 +61,8 @@ public:
     void activate() Q_DECL_OVERRIDE;
     void deactivate() Q_DECL_OVERRIDE;
 
+    void refreshSoundEffect();
+
 public Q_SLOTS:
     void switchSpeaker(bool on);
     void switchMicrophone(bool on);
@@ -66,9 +72,9 @@ public Q_SLOTS:
     void setSinkVolume(double volume);
 
     void setPort(const Port *port);
-    void querySoundEffectData(const QString &name);
-    void setEffectEnable(const QString &name, bool enable);
-    void playSoundEffect(const QString &name);
+    void querySoundEffectData(DDesktopServices::SystemSoundEffect effect);
+    void setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable);
+    void enableAllSoundEffect(bool enable);
 
 private Q_SLOTS:
     void defaultSinkChanged(const QDBusObjectPath &path);

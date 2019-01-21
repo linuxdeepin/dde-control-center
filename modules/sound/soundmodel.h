@@ -30,6 +30,9 @@
 #include <QObject>
 #include <QMap>
 #include <QString>
+#include <DDesktopServices>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace sound {
@@ -122,10 +125,17 @@ public:
 
     QString audioCards() const;
     void setAudioCards(const QString &audioCards);
-    inline QMap<QString, QString> soundEffectMap() const { return m_soundEffectMap; }
+    inline QList<std::pair<QString, DDesktopServices::SystemSoundEffect>> soundEffectMap() const { return m_soundEffectMap; }
 
-    void setEffectData(const QString &name, const bool enable);
-    bool queryEffectData(const QString &name);
+    void setEffectData(DDesktopServices::SystemSoundEffect effect, const bool enable);
+    bool queryEffectData(DDesktopServices::SystemSoundEffect effect);
+
+    bool enableSoundEffect() const { return m_enableSoundEffect; }
+    void setEnableSoundEffect(bool enableSoundEffect);
+
+    void updateSoundEffectPath(DDesktopServices::SystemSoundEffect effect, const QString &path);
+    inline QMap<DDesktopServices::SystemSoundEffect, QString> soundEffectPaths() { return m_soundEffectPaths; }
+    const QString soundEffectPathByType(DDesktopServices::SystemSoundEffect effect);
 
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
@@ -137,18 +147,19 @@ Q_SIGNALS:
     void defaultSourceChanged(const QDBusObjectPath &defaultSource) const;
     void defaultSinkChanged(const QDBusObjectPath &defaultSink) const;
     void audioCardsChanged(const QString &audioCards) const;
-    void playPathChanged(const QString &name, const QString &path) const;
 
 #ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
 #endif
     void portAdded(const Port *port);
     void portRemoved(const QString & portId, const uint &cardId);
-    void soundEffectDataChanged(const QString &name, const bool enable);
+    void soundEffectDataChanged(DDesktopServices::SystemSoundEffect effect, const bool enable);
+    void enableSoundEffectChanged(bool enableSoundEffect);
 
 private:
     bool m_speakerOn;
     bool m_microphoneOn;
+    bool m_enableSoundEffect;
     double m_speakerVolume;
     double m_speakerBalance;
     double m_microphoneVolume;
@@ -162,8 +173,9 @@ private:
     QDBusObjectPath m_defaultSink;
     QString m_audioCards;
 
-    QMap<QString, QString> m_soundEffectMap;
-    QMap<QString, bool> m_soundEffectData;
+    QList<std::pair<QString, DDesktopServices::SystemSoundEffect>> m_soundEffectMap;
+    QMap<DDesktopServices::SystemSoundEffect, bool> m_soundEffectData;
+    QMap<DDesktopServices::SystemSoundEffect, QString> m_soundEffectPaths;
 };
 
 } // namespace sound

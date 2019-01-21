@@ -64,6 +64,8 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
     connect(m_audioInter, &Audio::DefaultSourceChanged, m_model, &SoundModel::setDefaultSource);
     connect(m_audioInter, &Audio::CardsChanged, m_model, &SoundModel::setAudioCards);
 
+    connect(m_soundEffectInter, &SoundEffect::EnabledChanged, m_model, &SoundModel::setEnableSoundEffect);
+
     connect(m_pingTimer, &QTimer::timeout, [this] { if (m_sourceMeter) m_sourceMeter->Tick(); });
     connect(m_activeTimer, &QTimer::timeout, this, &SoundWorker::updatePortActivity);
 
@@ -81,11 +83,9 @@ void SoundWorker::activate()
     if (m_defaultSource) m_defaultSource->blockSignals(false);
     if (m_sourceMeter) m_sourceMeter->blockSignals(false);
 
-//    sinksChanged(m_audioInter->sinks());
-//    sourcesChanged(m_audioInter->sources());
-    defaultSinkChanged(m_audioInter->defaultSink());
-    defaultSourceChanged(m_audioInter->defaultSource());
-    cardsChanged(m_audioInter->cards());
+    defaultSinkChanged(m_model->defaultSink());
+    defaultSourceChanged(m_model->defaultSource());
+    cardsChanged(m_model->audioCards());
 }
 
 void SoundWorker::deactivate()
@@ -96,6 +96,18 @@ void SoundWorker::deactivate()
     if (m_defaultSink) m_defaultSink->blockSignals(true);
     if (m_defaultSource) m_defaultSource->blockSignals(true);
     if (m_sourceMeter) m_sourceMeter->blockSignals(true);
+}
+
+void SoundWorker::refreshSoundEffect()
+{
+    m_model->setEnableSoundEffect(m_soundEffectInter->enabled());
+
+    auto map = m_model->soundEffectMap();
+
+    for (auto it : map) {
+        m_model->updateSoundEffectPath(it.second,
+                                       m_soundEffectInter->GetSystemSoundFile(DDesktopServices::getNameByEffectType(it.second)));
+    }
 }
 
 void SoundWorker::switchSpeaker(bool on)
@@ -141,24 +153,20 @@ void SoundWorker::setPort(const Port *port)
     m_audioInter->SetPort(port->cardId(), port->id(), int(port->direction()));
 }
 
-void SoundWorker::querySoundEffectData(const QString &name)
+void SoundWorker::querySoundEffectData(DDesktopServices::SystemSoundEffect effect)
 {
-    m_model->setEffectData(name, m_effectGsettings->get(name).toBool());
+    const QString name = DDesktopServices::getNameByEffectType(effect);
+    m_model->setEffectData(effect, m_effectGsettings->get(name).toBool());
 }
 
-void SoundWorker::setEffectEnable(const QString &name, bool enable)
+void SoundWorker::setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable)
 {
-    if (name.isEmpty()) {
-        m_effectGsettings->set("enabled", enable);
-        return;
-    }
-
-    m_effectGsettings->set(name, enable);
+    m_effectGsettings->set(DDesktopServices::getNameByEffectType(effect), enable);
 }
 
-void SoundWorker::playSoundEffect(const QString &name)
+void SoundWorker::enableAllSoundEffect(bool enable)
 {
-    Q_EMIT m_model->playPathChanged(name, m_soundEffectInter->GetSystemSoundFile(name));
+    m_soundEffectInter->setEnabled(enable);
 }
 
 void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)

@@ -8,6 +8,11 @@
 
 #include <QLabel>
 #include <QVariantAnimation>
+#include <DDesktopServices>
+#include <QSound>
+#include <QScopedPointer>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace sound {
@@ -18,19 +23,15 @@ public:
     explicit SoundEffectPage(SoundModel *model, QWidget *parent = nullptr);
 
 Q_SIGNALS:
-    void requestQueryData(const QString &name);
-    void requestSetEffectEnable(const QString &name, bool enable);
-    void requestPlay(const QString &name);
+    void requestEnableAllEffect(bool enable);
+    void requestQueryData(DDesktopServices::SystemSoundEffect effect);
+    void requestSetEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable);
 
 public Q_SLOTS:
     void onSwitchClicked(const bool enable);
-    void onEffectSwitchChanged(const QString &name, const bool enable);
+    void onEffectSwitchChanged(DDesktopServices::SystemSoundEffect effect, const bool enable);
     void onAllEffectSwitchBtnChanged(const bool enable);
-    void onPlayPathChanged(const QString &name, const QString &path);
     void readyPlay();
-
-private:
-    const QString convert(const QString &source, bool toHump) const;
 
 private:
     SoundModel *m_model;
@@ -40,7 +41,8 @@ private:
     QTimer *m_hideIconTimer;
     QVariantAnimation *m_iconAni;
     widgets::SwitchWidget *m_currentPlayItem;
-    QMap<widgets::SwitchWidget*, QString> m_effectSwitchList;
+    QMap<widgets::SwitchWidget*, DDesktopServices::SystemSoundEffect> m_effectSwitchList;
+    QScopedPointer<QSound> m_sound;
 };
 }
 }
