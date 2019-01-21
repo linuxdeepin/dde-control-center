@@ -195,15 +195,8 @@ void WiredPage::activeConnection()
 
 void WiredPage::checkActivatedConnection()
 {
-    // get all active connections SettingPath from model
-    const QList<QJsonObject> activeConnInfos = m_model->activeConnInfos();
-    QStringList activeConnInfoList;
-    for (auto jsonObj : activeConnInfos) {
-        activeConnInfoList.append(jsonObj.value("SettingPath").toString());
-    }
-
     for (auto it(m_connectionPath.cbegin()); it != m_connectionPath.cend(); ++it) {
-        if (activeConnInfoList.contains(it.value())) {
+        if (it.value() == m_device->activeWiredConnSettingPath()) {
             it.key()->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));
         } else {
             it.key()->clearValue();
