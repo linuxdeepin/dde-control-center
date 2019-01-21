@@ -26,6 +26,7 @@
 #include "settings/vpn/vpnopenvpnsettings.h"
 #include "settings/vpn/vpnstrongswansettings.h"
 #include "settings/vpn/vpnopenconnectsettings.h"
+#include "settings/vpn/vpnsstpsettings.h"
 
 #include <networkmanagerqt/vpnsetting.h>
 
@@ -81,6 +82,8 @@ void ConnectionVpnEditPage::initSettingsWidget()
         initSettingsWidgetByType(ConnectionVpnEditPage::VpnType::STRONGSWAN);
     } else if (serviceType == ServiceTypeOpenConnect) {
         initSettingsWidgetByType(ConnectionVpnEditPage::VpnType::OPENCONNECT);
+    } else if (serviceType == ServiceTypeSSTP) {
+        initSettingsWidgetByType(ConnectionVpnEditPage::VpnType::SSTP);
     } else {
         qDebug() << "Unsupport vpn service type...";
         return;
@@ -132,6 +135,11 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
             m_settingsWidget = new VpnOpenConnectSettings(m_connectionSettings, this);
             break;
         }
+        case VpnType::SSTP: {
+            vpnSetting->setServiceType(ServiceTypeSSTP);
+            m_settingsWidget = new VpnSSTPSettings(m_connectionSettings, this);
+            break;
+        }
         default:
             break;
     }
@@ -175,6 +183,10 @@ void ConnectionVpnEditPage::resetConnectionIdByType(ConnectionVpnEditPage::VpnTy
         }
         case VpnType::OPENCONNECT: {
             connName = tr("VPN OpenConnect %1");
+            break;
+        }
+        case VpnType::SSTP: {
+            connName = tr("VPN SSTP %1");
             break;
         }
         default:

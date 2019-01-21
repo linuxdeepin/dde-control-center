@@ -7,6 +7,7 @@ HEADERS += \
     $$PWD/hotspotsettings.h \
     $$PWD/vpn/vpnl2tpsettings.h \
     $$PWD/vpn/vpnpptpsettings.h \
+    $$PWD/vpn/vpnsstpsettings.h \
     $$PWD/vpn/vpnvpncsettings.h \
     $$PWD/vpn/vpnopenvpnsettings.h \
     $$PWD/vpn/vpnstrongswansettings.h \
@@ -20,6 +21,7 @@ SOURCES += \
     $$PWD/hotspotsettings.cpp \
     $$PWD/vpn/vpnl2tpsettings.cpp \
     $$PWD/vpn/vpnpptpsettings.cpp \
+    $$PWD/vpn/vpnsstpsettings.cpp \
     $$PWD/vpn/vpnvpncsettings.cpp \
     $$PWD/vpn/vpnopenvpnsettings.cpp \
     $$PWD/vpn/vpnstrongswansettings.cpp \

@@ -278,6 +278,9 @@ void VpnPage::createVPNSession()
         OptionItem *openconnect = new OptionItem;
         openconnect->setContentsMargins(20, 0, 10, 0);
         openconnect->setTitle(tr("OpenConnect"));
+        OptionItem *sstp = new OptionItem;
+        sstp->setContentsMargins(20, 0, 10, 0);
+        sstp->setTitle(tr("SSTP"));
 
         connect(l2tp, &OptionItem::selectedChanged, [=] { createVPN(ConnectionVpnEditPage::VpnType::L2TP); });
         connect(pptp, &OptionItem::selectedChanged, [=] { createVPN(ConnectionVpnEditPage::VpnType::PPTP); });
@@ -285,6 +288,7 @@ void VpnPage::createVPNSession()
         connect(openvpn, &OptionItem::selectedChanged, [=] { createVPN(ConnectionVpnEditPage::VpnType::OPENVPN); });
         connect(strongswan, &OptionItem::selectedChanged, [=] { createVPN(ConnectionVpnEditPage::VpnType::STRONGSWAN); });
         connect(openconnect, &OptionItem::selectedChanged, [=] { createVPN(ConnectionVpnEditPage::VpnType::OPENCONNECT); });
+        connect(sstp, &OptionItem::selectedChanged, [=] { createVPN(ConnectionVpnEditPage::VpnType::SSTP); });
 
         TranslucentFrame *widget = new TranslucentFrame;
         QVBoxLayout *mainLayout = new QVBoxLayout(widget);
@@ -297,6 +301,7 @@ void VpnPage::createVPNSession()
         grp->appendItem(openvpn);
         grp->appendItem(strongswan);
         grp->appendItem(openconnect);
+        grp->appendItem(sstp);
 
         mainLayout->addSpacing(10);
         mainLayout->addWidget(grp);

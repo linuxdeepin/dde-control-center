@@ -32,6 +32,7 @@
 #define ServiceTypeOpenVPN "org.freedesktop.NetworkManager.openvpn"
 #define ServiceTypeStrongSwan "org.freedesktop.NetworkManager.strongswan"
 #define ServiceTypeOpenConnect "org.freedesktop.NetworkManager.openconnect"
+#define ServiceTypeSSTP "org.freedesktop.NetworkManager.sstp"
 
 namespace dcc {
 namespace network {
@@ -41,7 +42,7 @@ class ConnectionVpnEditPage : public ConnectionEditPage
     Q_OBJECT
 
 public:
-    enum VpnType {L2TP, PPTP, VPNC, OPENVPN, STRONGSWAN, OPENCONNECT};
+    enum VpnType {L2TP, PPTP, VPNC, OPENVPN, STRONGSWAN, OPENCONNECT, SSTP};
 
     explicit ConnectionVpnEditPage(const QString &connUuid = QString(), QWidget *parent = 0);
     virtual ~ConnectionVpnEditPage();
