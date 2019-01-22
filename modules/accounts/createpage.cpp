@@ -207,7 +207,7 @@ bool CreatePage::validatePassword(const QString &password)
 
     if (!strong_password_check) return true;
 
-    if (password == m_username->text()) return false;
+    if (password.size() < 7 || password.size() > 16) return false;
 
     uint success_num = 0;
 
