@@ -230,6 +230,10 @@ bool CreatePage::validatePassword(const QString &password)
 template <typename T>
 void CreatePage::onEditFinished(T t)
 {
+    QSettings setting("/etc/deepin/dde-control-center.conf", QSettings::IniFormat);
+    setting.beginGroup("Password");
+    if (!setting.value("STRONG_PASSWORD", false).toBool()) return;
+
     const QString &password = t->text();
     if (m_username->text().toLower() == password.toLower()) {
         showPasswordEmptyErrorTip(tr("The password should be different from the username"));

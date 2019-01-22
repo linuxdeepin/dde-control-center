@@ -197,6 +197,10 @@ bool ModifyPasswordPage::ContainsChar(const QString &password, const QString &va
 template <typename T>
 void ModifyPasswordPage::onEditFinished(T t)
 {
+    QSettings setting("/etc/deepin/dde-control-center.conf", QSettings::IniFormat);
+    setting.beginGroup("Password");
+    if (!setting.value("STRONG_PASSWORD", false).toBool()) return;
+
     const QString &password = t->text();
 
     if (m_userInter->name().toLower() == password.toLower()) {
