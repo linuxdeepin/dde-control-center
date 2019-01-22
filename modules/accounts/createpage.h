@@ -70,6 +70,8 @@ private:
     bool validatePassword(const QString &password);
     bool ContainsChar(const QString &password, const QString &validate);
 
+    bool eventFilter(QObject *watched, QEvent *event) override;
+
 private:
     AvatarWidget *m_avatar;
     dcc::widgets::SettingsGroup *m_group;

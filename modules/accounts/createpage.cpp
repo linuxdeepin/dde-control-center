@@ -29,6 +29,7 @@
 #include <QHBoxLayout>
 #include <QDebug>
 #include <QSettings>
+#include <QApplication>
 
 #include "translucentframe.h"
 
@@ -85,6 +86,8 @@ CreatePage::CreatePage(QWidget *parent) :
     setContent(container);
     setTitle(tr("New Account"));
 
+    m_username->textEdit()->installEventFilter(this);
+
     connect(confirmBtn, &QPushButton::clicked, this, &CreatePage::createUser);
     connect(cancelBtn, &QPushButton::clicked, this, &CreatePage::cancelCreation);
 
@@ -93,7 +96,6 @@ CreatePage::CreatePage(QWidget *parent) :
     connect(this, &CreatePage::appear, m_errorTip, &ErrorTip::appearIfNotEmpty, Qt::QueuedConnection);
 
     connect(m_username->textEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
-    connect(m_username->textEdit(), &QLineEdit::textEdited, [=] { m_username->textEdit()->setText(m_username->textEdit()->text().toLower()); });
     connect(m_password->textEdit(), &QLineEdit::editingFinished, this, [=] {
         onEditFinished<LineEditWidget*>(m_password);
     });
@@ -194,6 +196,20 @@ bool CreatePage::ContainsChar(const QString &password, const QString &validate)
         if (validate.contains(p)) {
             return true;
         }
+    }
+
+    return false;
+}
+
+class FakeKeyEvent : public QKeyEvent {
+// The meaning of existence is to modify the text to lowercase
+    friend class CreatePage;
+};
+bool CreatePage::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == m_username->textEdit() && event->type() == QEvent::KeyPress) {
+        FakeKeyEvent *tmp_event = static_cast<FakeKeyEvent*>(event);
+        tmp_event->txt = tmp_event->txt.toLower();
     }
 
     return false;
