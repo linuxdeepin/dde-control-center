@@ -144,72 +144,72 @@
 <context>
     <name>SoundEffectPage</name>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="11"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="15"/>
         <source>Boot up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="12"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Shut down</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="13"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="17"/>
         <source>Logout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="14"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="18"/>
         <source>Wake up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="15"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Volume +/-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="16"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Notification</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="17"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="21"/>
         <source>Low battery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="18"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="22"/>
         <source>Send icon in Launcher to Desktop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="19"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Empty Trash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="20"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="24"/>
         <source>Plug in</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="21"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="25"/>
         <source>Plug out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="22"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Removable device connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="23"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device removed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="24"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1514,37 +1514,37 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="91"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="87"/>
         <source>Disconnect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="93"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="89"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="98"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="94"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="99"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="95"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="338"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="339"/>
         <source>Wired Connection %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="342"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="343"/>
         <source>Wireless Connection %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectioneditpage.cpp" line="346"/>
+        <location filename="../modules/network/connectioneditpage.cpp" line="347"/>
         <source>PPPoE Connection %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1598,27 +1598,32 @@
 <context>
     <name>dcc::network::EthernetSection</name>
     <message>
-        <location filename="../modules/network/sections/ethernetsection.cpp" line="35"/>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="37"/>
         <source>Ethernet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ethernetsection.cpp" line="91"/>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="54"/>
+        <source>Not Bind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="96"/>
         <source>Device MAC Addr</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ethernetsection.cpp" line="114"/>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="111"/>
         <source>Cloned MAC Addr</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ethernetsection.cpp" line="127"/>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="124"/>
         <source>Customize MTU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/ethernetsection.cpp" line="130"/>
+        <location filename="../modules/network/sections/ethernetsection.cpp" line="127"/>
         <source>MTU</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1658,12 +1663,13 @@
     <name>dcc::network::HotspotPage</name>
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="61"/>
-        <source>Hotspot Settings</source>
+        <location filename="../modules/network/hotspotpage.cpp" line="82"/>
+        <source>Hotspot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/hotspotpage.cpp" line="76"/>
-        <source>Hotspot</source>
+        <location filename="../modules/network/hotspotpage.cpp" line="62"/>
+        <source>Add Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3328,27 +3334,32 @@
 <context>
     <name>dcc::network::WirelessSection</name>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="106"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="55"/>
+        <source>Not Bind</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="111"/>
         <source>SSID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="107"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="112"/>
         <source>Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="110"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="115"/>
         <source>Device MAC Addr</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="146"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="143"/>
         <source>Customize MTU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/wirelesssection.cpp" line="149"/>
+        <location filename="../modules/network/sections/wirelesssection.cpp" line="146"/>
         <source>MTU</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3573,7 +3584,7 @@
 <context>
     <name>dcc::sound::SoundEffectPage</name>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="38"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="58"/>
         <source>System Sound Effect</source>
         <translation type="unfinished"></translation>
     </message>

@@ -58,7 +58,7 @@ HotspotPage::HotspotPage(WirelessDevice *wdev, QWidget *parent)
 {
     Q_ASSERT(m_wdev->supportHotspot());
 
-    m_hotspotSwitch->setTitle("Hotspot");
+    m_hotspotSwitch->setTitle(tr("Hotspot"));
     m_createBtn->setText(tr("Add Settings"));
 
     m_refreshActiveTimer->setInterval(300);
