@@ -41,7 +41,8 @@ enum UpdatesStatus {
     UpdateFailed,
     NeedRestart,
     NoNetwork,
-    NoSpace
+    NoSpace,
+    DeependenciesBrokenError,
 };
 
 static inline QString formatCap(qulonglong cap, const int size = 1024)

@@ -55,6 +55,9 @@ protected:
     void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
 
 private:
+    void updateIcon(bool isSuccessd = true);
+
+private:
     QLabel *m_icon;
     NormalLabel *m_title;
     TipsLabel *m_content;

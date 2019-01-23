@@ -35,7 +35,7 @@ UpdateNotifier::UpdateNotifier(QWidget *parent)
     : QFrame(parent),
       m_icon(new QLabel),
       m_title(new NormalLabel(tr("Updates"))),
-      m_content(new TipsLabel(tr("Updates detected, click to view"))),
+      m_content(new TipsLabel()),
       m_closeButton(new DImageButton(this)),
       m_settings(new QSettings("deepin", "dcc-update-notifier")),
       m_updaterInter(new com::deepin::lastore::Updater("com.deepin.lastore",
@@ -48,18 +48,6 @@ UpdateNotifier::UpdateNotifier(QWidget *parent)
 
     m_content->setWordWrap(true);
     m_content->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-
-    const qreal ratio = devicePixelRatioF();
-    QIcon icon = QIcon::fromTheme("system-updated", QIcon::fromTheme("application-default-icon"));
-    m_icon->setFixedSize(48, 48);
-
-    QPixmap pixmap = icon.pixmap(m_icon->width() * ratio, m_icon->height() * ratio);
-    pixmap = pixmap.scaled(m_icon->width() * ratio, m_icon->height() * ratio,
-                           Qt::KeepAspectRatioByExpanding,
-                           Qt::SmoothTransformation);
-    pixmap.setDevicePixelRatio(ratio);
-
-    m_icon->setPixmap(pixmap);
 
     m_closeButton->setFixedSize(14, 14);
 
@@ -122,6 +110,29 @@ void UpdateNotifier::leaveEvent(QEvent *event)
     m_closeButton->setVisible(false);
 }
 
+void UpdateNotifier::updateIcon(bool isSuccessd)
+{
+    const qreal ratio = devicePixelRatioF();
+    QIcon icon;
+
+    if (isSuccessd) {
+        icon = QIcon::fromTheme("system-updated", QIcon::fromTheme("application-default-icon"));
+    }
+    else {
+        icon = QIcon::fromTheme("package-updated-failed", QIcon::fromTheme("application-default-icon"));
+    }
+
+    m_icon->setFixedSize(48, 48);
+
+    QPixmap pixmap = icon.pixmap(m_icon->width() * ratio, m_icon->height() * ratio);
+    pixmap = pixmap.scaled(m_icon->width() * ratio, m_icon->height() * ratio,
+                           Qt::KeepAspectRatioByExpanding,
+                           Qt::SmoothTransformation);
+    pixmap.setDevicePixelRatio(ratio);
+
+    m_icon->setPixmap(pixmap);
+}
+
 void UpdateNotifier::ignoreUpdates()
 {
     setVisible(false);
@@ -131,11 +142,32 @@ void UpdateNotifier::ignoreUpdates()
 
 void UpdateNotifier::updatablePkgsChanged(const QStringList &value)
 {
-    if (!m_updaterInter->autoCheckUpdates() || value.length() == 0) {
+    if (!m_updaterInter->autoCheckUpdates()) {
         setVisible(false);
         return;
     };
 
+    if (value.isEmpty()) {
+        QDBusPendingReply<AppUpdateInfoList> reply = m_updaterInter->ApplicationUpdateInfos("");
+        reply.waitForFinished();
+        if (reply.isError()) {
+            const QString &message = reply.error().message();
+            const QJsonObject &obj = QJsonDocument::fromJson(message.toUtf8()).object();
+
+            if (obj["Type"].toString().contains("dependenciesBroken")) {
+                m_content->setText(tr("Dependency error, failed to detect the updates"));
+            }
+            else {
+                m_content->setText(tr("Updates detecting failure"));
+            }
+            setVisible(true);
+            updateIcon(false);
+            return;
+        }
+    }
+
+    updateIcon(true);
+    m_content->setText(tr("Updates detected, click to view"));
     m_updatablePkgs = value;
 
     QStringList pkgs = m_settings->value(IgnoredPkgsKey).toStringList();

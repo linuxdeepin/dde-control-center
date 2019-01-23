@@ -542,8 +542,19 @@ void UpdateWorker::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
     QDBusPendingReply<AppUpdateInfoList> reply = *w;
 
     if (reply.isError()) {
-        qDebug() << "check for updates job success, but infolist failed." << reply.error();
-        m_model->setStatus(UpdatesStatus::Updated);
+        const QJsonObject &obj = QJsonDocument::fromJson(reply.
+                                                         error().
+                                                         message().
+                                                         toUtf8())
+                                 .object();
+
+        if (obj["Type"].toString().contains("dependenciesBroken")) {
+            m_model->setStatus(UpdatesStatus::DeependenciesBrokenError);
+        }
+        else {
+            m_model->setStatus(UpdatesStatus::UpdateFailed);
+        }
+
         w->deleteLater();
         return;
     }

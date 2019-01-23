@@ -50,14 +50,13 @@ ResultItem::ResultItem(QFrame *parent)
     layout->setMargin(0);
     layout->setSpacing(0);
 
-    layout->addStretch();
+    layout->addSpacing(15);
     layout->addWidget(m_icon, 0, Qt::AlignHCenter);
     layout->addSpacing(10);
     layout->addWidget(m_message, 0, Qt::AlignHCenter);
-    layout->addStretch();
+    layout->addSpacing(15);
 
     setLayout(layout);
-    setFixedHeight(110);
 }
 
 void ResultItem::setSuccess(bool success)
