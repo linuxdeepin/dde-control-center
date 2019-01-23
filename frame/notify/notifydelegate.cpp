@@ -70,10 +70,9 @@ void NotifyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option
         painter->fillRect(mRect, QColor(254, 254, 254, 0.13 * 255));
     } else {
         // draw time
-        QRect timeRect = QRect(mRect.x() + option.rect.width() - timeWidth - 10, mRect.y() + 10,
-                               timeWidth, timeHeight);
         painter->setFont(timeFont);
-        painter->drawText(timeRect, strTime);
+        QRect timeRect = QRect(mRect.x(), mRect.y() + 10, option.rect.width() - 10, timeHeight);
+        painter->drawText(timeRect, Qt::AlignRight, strTime);
     }
 
     // draw icon
