@@ -72,7 +72,9 @@ void VpnOpenVPNSettings::initSections()
     ipv6Section->setNeverDefaultEnable(true);
 
     VpnTLSSection *vpnTLSSection = new VpnTLSSection(vpnSetting);
-    QTimer::singleShot(0, [=] {vpnTLSSection->setVisible(vpnOpenVPNSection->authType() != "static-key");});
+    if (vpnOpenVPNSection->authType() == "static-key") {
+        vpnTLSSection->setVisible(false);
+    }
 
     connect(vpnOpenVPNSection, &VpnOpenVPNSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(vpnOpenVPNSection, &VpnOpenVPNSection::authTypeChanged, this, [=](const QString &type) {
