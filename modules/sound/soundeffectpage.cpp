@@ -6,6 +6,7 @@
 #include <QSound>
 #include <QEvent>
 #include <DHiDPIHelper>
+#include <QApplication>
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -69,7 +70,7 @@ SoundEffectPage::SoundEffectPage(SoundModel *model, QWidget *parent)
     auto effect_map = model->soundEffectMap();
 
     for (auto it : effect_map) {
-        SwitchWidget * widget = new SwitchWidget(tr(it.first.toUtf8()));
+        SwitchWidget * widget = new SwitchWidget(qApp->translate("SoundEffectPage", it.first.toUtf8()));
         widget->installEventFilter(this);
         connect(widget, &SwitchWidget::checkedChanged, this, &SoundEffectPage::onSwitchClicked);
         connect(widget, &SwitchWidget::clicked, this, &SoundEffectPage::readyPlay);
