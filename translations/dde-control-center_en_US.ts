@@ -61,17 +61,17 @@
 <context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../frame/notify/notifydelegate.cpp" line="210"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="209"/>
         <source>Yesterday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/notify/notifydelegate.cpp" line="213"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="212"/>
         <source>The day before yesterday</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../frame/notify/notifydelegate.cpp" line="219"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="218"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -454,13 +454,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="235"/>
+        <location filename="../modules/accounts/createpage.cpp" line="239"/>
         <source>The password should be different from the username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="241"/>
-        <location filename="../modules/accounts/createpage.cpp" line="244"/>
+        <location filename="../modules/accounts/createpage.cpp" line="245"/>
+        <location filename="../modules/accounts/createpage.cpp" line="248"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -561,12 +561,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="203"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="207"/>
         <source>The password should be different from the username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/accounts/modifypasswordpage.cpp" line="211"/>
+        <location filename="../modules/accounts/modifypasswordpage.cpp" line="215"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1560,38 +1560,43 @@
 <context>
     <name>dcc::network::ConnectionVpnEditPage</name>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="146"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="154"/>
         <source>Export</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="157"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="165"/>
         <source>VPN L2TP %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="161"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="169"/>
         <source>VPN PPTP %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="165"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="173"/>
         <source>VPN VPNC %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="169"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="177"/>
         <source>VPN OpenVPN %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="173"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="181"/>
         <source>VPN StrongSwan %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/connectionvpneditpage.cpp" line="177"/>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="185"/>
         <source>VPN OpenConnect %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/connectionvpneditpage.cpp" line="189"/>
+        <source>VPN SSTP %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2915,7 +2920,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/network/vpnpage.cpp" line="305"/>
+        <location filename="../modules/network/vpnpage.cpp" line="283"/>
+        <source>SSTP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/vpnpage.cpp" line="310"/>
         <source>New VPN</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2977,6 +2987,24 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="169"/>
         <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnSSTPSection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="77"/>
+        <source>CA File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
+        <source>Ignore certificate warnings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
+        <source>Use TLS hostname extensions</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3584,7 +3612,7 @@
 <context>
     <name>dcc::sound::SoundEffectPage</name>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="58"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="59"/>
         <source>System Sound Effect</source>
         <translation type="unfinished"></translation>
     </message>
