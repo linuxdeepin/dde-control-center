@@ -1,3 +1,32 @@
+<a name="4.9.2"></a>
+### 4.9.2 (2019-01-25)
+
+
+#### Features
+
+*   enable network proxy for sw and mipsel ([16d19139](https://github.com/linuxdeepin/dde-control-center/commit/16d191390b5956f73f04aac2c4e6a171ff493d88))
+*   add support for sstp vpn ([19e9052d](https://github.com/linuxdeepin/dde-control-center/commit/19e9052d73aeba9a62657af9d82d068811cb0700))
+* **Sound:**
+  *  play sound ([cb7e15af](https://github.com/linuxdeepin/dde-control-center/commit/cb7e15af9ef2684c99217721140705a8f9eb6ab9))
+  *  add play icon ([d539e2e0](https://github.com/linuxdeepin/dde-control-center/commit/d539e2e082bbee8951909b879aca4b6d460578dd))
+  *  add sound effect page ([d57f9ad4](https://github.com/linuxdeepin/dde-control-center/commit/d57f9ad4a55e651df8aa011ae3d41a815765d837))
+
+#### Bug Fixes
+
+*   visible of tls section of openvpn when create edit page ([71ffe4b4](https://github.com/linuxdeepin/dde-control-center/commit/71ffe4b45de21add5f392cc8255b6c5d192120c7))
+*   notify time not display completely ([12e030bf](https://github.com/linuxdeepin/dde-control-center/commit/12e030bf124177b244ef28651724ac72e80b975f))
+*   build warning ([bc31b573](https://github.com/linuxdeepin/dde-control-center/commit/bc31b5737ec4cca7ec0a6d688af570cd82d5ff84))
+*   macaddress ([3dfe0c26](https://github.com/linuxdeepin/dde-control-center/commit/3dfe0c26a83fca1411b1555f2fed2bebd89306e4))
+* **Accounts:**
+  *  wrong handle lowercase username ([0e2bb310](https://github.com/linuxdeepin/dde-control-center/commit/0e2bb31051d91aa8c133bc00e59cb76fcc269e28))
+  *  not check password length ([6a855984](https://github.com/linuxdeepin/dde-control-center/commit/6a8559847b9bc1cde5859a3918d07bb61d6140da))
+  *  check password without checking enabled ([4e639d92](https://github.com/linuxdeepin/dde-control-center/commit/4e639d920196db79d74d1a9579757c5bfb08974f))
+* **Personalization:**  refresh wm when toggle wm failed ([32f269d3](https://github.com/linuxdeepin/dde-control-center/commit/32f269d3f1052192f919c8fe001ca8fa8a137752))
+* **Sound:**  not load translation ([503ba8fa](https://github.com/linuxdeepin/dde-control-center/commit/503ba8fabd461e35d28f3e52e502d5d2a1fcfb02))
+* **Update:**  handle the required path with update module ([7450a275](https://github.com/linuxdeepin/dde-control-center/commit/7450a275c5ff7d9639f126c2f9ef5a097e366737))
+
+
+
 <a name="4.9.1"></a>
 ### 4.9.1 (2019-01-15)
 
