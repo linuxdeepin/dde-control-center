@@ -139,72 +139,72 @@
 <context>
     <name>SoundEffectPage</name>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="15"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
         <translation>Покретање</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="16"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="17"/>
         <source>Shut down</source>
         <translation>Искључивање</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="17"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="18"/>
         <source>Logout</source>
         <translation>Одјављивање</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="18"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
         <translation>Буђење</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="19"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
         <translation>Гласноћа +/-</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="20"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="21"/>
         <source>Notification</source>
         <translation>Обавештења</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="21"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="22"/>
         <source>Low battery</source>
         <translation>Батерија при крају</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="22"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
         <translation>Слање иконице из Покретача Програма на Радну површину</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="23"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="24"/>
         <source>Empty Trash</source>
         <translation>Пражњење смећа</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="24"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="25"/>
         <source>Plug in</source>
         <translation>Прикључење</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="25"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Plug out</source>
         <translation>Ископчавање</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="26"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
         <translation>Уклоњиви уређај прикључен</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="27"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
         <translation>Уклоњиви уређај уклоњен</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="28"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
         <translation>Грешка</translation>
     </message>
@@ -794,8 +794,8 @@
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="55"/>
-        <source>Browser</source>
-        <translation>Веб прегледач</translation>
+        <source>Webpage</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="56"/>
@@ -1592,7 +1592,7 @@
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="189"/>
         <source>VPN SSTP %1</source>
-        <translation type="unfinished"/>
+        <translation>ВПН ССТП %1</translation>
     </message>
 </context>
 <context>
@@ -2058,8 +2058,23 @@
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="68"/>
-        <source>Http Proxy</source>
-        <translation>Хттп посредник</translation>
+        <source>HTTP Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="73"/>
+        <source>HTTPS Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
+        <source>FTP Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="83"/>
+        <source>SOCKS Proxy</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="70"/>
@@ -2068,21 +2083,6 @@
         <location filename="../modules/network/proxypage.cpp" line="85"/>
         <source>Port</source>
         <translation>Прикључaк</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="73"/>
-        <source>Https Proxy</source>
-        <translation>Хттпс посредник</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="78"/>
-        <source>Ftp Proxy</source>
-        <translation>Фтп посредник</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="83"/>
-        <source>Socks Proxy</source>
-        <translation>СОКС посредник</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="92"/>
@@ -2917,7 +2917,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="283"/>
         <source>SSTP</source>
-        <translation type="unfinished"/>
+        <translation>ССТП</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="310"/>
@@ -2990,12 +2990,12 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="77"/>
         <source>CA File</source>
-        <translation type="unfinished"/>
+        <translation>&quot;CA&quot; датотека</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
         <source>Ignore certificate warnings</source>
-        <translation type="unfinished"/>
+        <translation>Игнориши упозорења сертификата</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
@@ -3305,7 +3305,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
         <source>CA File</source>
-        <translation>CA датотека</translation>
+        <translation>&quot;CA&quot; датотека</translation>
     </message>
 </context>
 <context>
@@ -3607,7 +3607,7 @@
 <context>
     <name>dcc::sound::SoundEffectPage</name>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="59"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="60"/>
         <source>System Sound Effect</source>
         <translation>Системски звучни ефекти</translation>
     </message>

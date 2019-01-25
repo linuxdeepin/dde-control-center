@@ -139,72 +139,72 @@
 <context>
     <name>SoundEffectPage</name>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="15"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
         <translation>开机</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="16"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="17"/>
         <source>Shut down</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="17"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="18"/>
         <source>Logout</source>
         <translation>注销</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="18"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
         <translation>唤醒</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="19"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
         <translation>音量调节</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="20"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="21"/>
         <source>Notification</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="21"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="22"/>
         <source>Low battery</source>
         <translation>电量不足</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="22"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
         <translation>从启动器发送图标到桌面</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="23"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="24"/>
         <source>Empty Trash</source>
         <translation>清空回收站</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="24"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="25"/>
         <source>Plug in</source>
         <translation>电源接入</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="25"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Plug out</source>
         <translation>电源拔出</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="26"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
         <translation>移动设备接入</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="27"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
         <translation>移动设备拔出</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="28"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
         <translation>错误提示</translation>
     </message>
@@ -794,8 +794,8 @@
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="55"/>
-        <source>Browser</source>
-        <translation>浏览器</translation>
+        <source>Webpage</source>
+        <translation>网页</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="56"/>
@@ -2058,8 +2058,23 @@
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="68"/>
-        <source>Http Proxy</source>
-        <translation>Http代理</translation>
+        <source>HTTP Proxy</source>
+        <translation>HTTP代理</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="73"/>
+        <source>HTTPS Proxy</source>
+        <translation>HTTPS代理</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
+        <source>FTP Proxy</source>
+        <translation>FTP代理</translation>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="83"/>
+        <source>SOCKS Proxy</source>
+        <translation>SOCKS代理</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="70"/>
@@ -2068,21 +2083,6 @@
         <location filename="../modules/network/proxypage.cpp" line="85"/>
         <source>Port</source>
         <translation>端口</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="73"/>
-        <source>Https Proxy</source>
-        <translation>Https代理</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="78"/>
-        <source>Ftp Proxy</source>
-        <translation>Ftp代理</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="83"/>
-        <source>Socks Proxy</source>
-        <translation>Socks代理</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="92"/>
@@ -3607,7 +3607,7 @@
 <context>
     <name>dcc::sound::SoundEffectPage</name>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="59"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="60"/>
         <source>System Sound Effect</source>
         <translation>系统音效</translation>
     </message>

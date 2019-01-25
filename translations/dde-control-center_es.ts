@@ -139,72 +139,72 @@
 <context>
     <name>SoundEffectPage</name>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="15"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
         <translation>Arrancar</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="16"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="17"/>
         <source>Shut down</source>
         <translation>Apagar</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="17"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="18"/>
         <source>Logout</source>
         <translation>Cerrar sesión</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="18"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
-        <translation type="unfinished"/>
+        <translation>Despertar</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="19"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
         <translation>Volumen +/-</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="20"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="21"/>
         <source>Notification</source>
         <translation>Notificaciones</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="21"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="22"/>
         <source>Low battery</source>
         <translation>Batería baja</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="22"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Enviar icono del Lanzador a Escritorio</translation>
+        <translation>Enviar icono del Lanzador al Escritorio</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="23"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="24"/>
         <source>Empty Trash</source>
         <translation>Papelera vacía</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="24"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="25"/>
         <source>Plug in</source>
         <translation>Enchufar</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="25"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Plug out</source>
         <translation>Desconectar</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="26"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
         <translation>Dispositivo extraíble conectado</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="27"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
-        <translation>Dispositivo extraíble eliminado</translation>
+        <translation>Dispositivo extraíble quitado</translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="28"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
@@ -794,8 +794,8 @@
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="55"/>
-        <source>Browser</source>
-        <translation>Navegador</translation>
+        <source>Webpage</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="56"/>
@@ -1592,7 +1592,7 @@
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="189"/>
         <source>VPN SSTP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN SSTP %1</translation>
     </message>
 </context>
 <context>
@@ -1605,7 +1605,7 @@
     <message>
         <location filename="../modules/network/sections/ethernetsection.cpp" line="54"/>
         <source>Not Bind</source>
-        <translation>No se unen</translation>
+        <translation>Sin enlazar</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/ethernetsection.cpp" line="96"/>
@@ -2058,8 +2058,23 @@
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="68"/>
-        <source>Http Proxy</source>
-        <translation>Proxy Http</translation>
+        <source>HTTP Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="73"/>
+        <source>HTTPS Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
+        <source>FTP Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="83"/>
+        <source>SOCKS Proxy</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="70"/>
@@ -2068,21 +2083,6 @@
         <location filename="../modules/network/proxypage.cpp" line="85"/>
         <source>Port</source>
         <translation>Puerto</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="73"/>
-        <source>Https Proxy</source>
-        <translation>Proxy https</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="78"/>
-        <source>Ftp Proxy</source>
-        <translation>Proxy Ftp</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="83"/>
-        <source>Socks Proxy</source>
-        <translation>Proxy Socks </translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="92"/>
@@ -2917,7 +2917,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="283"/>
         <source>SSTP</source>
-        <translation type="unfinished"/>
+        <translation>SSTP</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="310"/>
@@ -2990,17 +2990,17 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="77"/>
         <source>CA File</source>
-        <translation type="unfinished"/>
+        <translation>Archivo CA</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
         <source>Ignore certificate warnings</source>
-        <translation type="unfinished"/>
+        <translation>Ignorar advertencias de certificado</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
         <source>Use TLS hostname extensions</source>
-        <translation type="unfinished"/>
+        <translation>Usar extensiones para TLS hostname</translation>
     </message>
 </context>
 <context>
@@ -3359,7 +3359,7 @@
     <message>
         <location filename="../modules/network/sections/wirelesssection.cpp" line="55"/>
         <source>Not Bind</source>
-        <translation>No se unen</translation>
+        <translation>Sin enlazar</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/wirelesssection.cpp" line="111"/>
@@ -3607,7 +3607,7 @@
 <context>
     <name>dcc::sound::SoundEffectPage</name>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="59"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="60"/>
         <source>System Sound Effect</source>
         <translation>Efecto de sonido del sistema</translation>
     </message>

@@ -139,74 +139,74 @@
 <context>
     <name>SoundEffectPage</name>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="15"/>
-        <source>Boot up</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="16"/>
-        <source>Shut down</source>
-        <translation type="unfinished"/>
+        <source>Boot up</source>
+        <translation>Başlatıldığında</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="17"/>
-        <source>Logout</source>
-        <translation type="unfinished"/>
+        <source>Shut down</source>
+        <translation>Kapatıldığında</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Wake up</source>
-        <translation type="unfinished"/>
+        <source>Logout</source>
+        <translation>Oturum Kapatıldığında</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="19"/>
-        <source>Volume +/-</source>
-        <translation type="unfinished"/>
+        <source>Wake up</source>
+        <translation>Uyandırıldığında</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="20"/>
-        <source>Notification</source>
-        <translation type="unfinished"/>
+        <source>Volume +/-</source>
+        <translation>Ses Düzeyi Değiştirildiğinde</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="21"/>
-        <source>Low battery</source>
-        <translation type="unfinished"/>
+        <source>Notification</source>
+        <translation>Bildirim Geldiğinde</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="22"/>
-        <source>Send icon in Launcher to Desktop</source>
-        <translation type="unfinished"/>
+        <source>Low battery</source>
+        <translation>Batarya Düzeyi Düştüğünde</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="23"/>
-        <source>Empty Trash</source>
-        <translation type="unfinished"/>
+        <source>Send icon in Launcher to Desktop</source>
+        <translation>Başlatıcı Simgesi Masaüstüne Gönderildiğinde</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="24"/>
-        <source>Plug in</source>
-        <translation type="unfinished"/>
+        <source>Empty Trash</source>
+        <translation>Çöp Boşaltıldığında</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="25"/>
-        <source>Plug out</source>
-        <translation type="unfinished"/>
+        <source>Plug in</source>
+        <translation>Fişe Takıldığında</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="26"/>
-        <source>Removable device connected</source>
-        <translation type="unfinished"/>
+        <source>Plug out</source>
+        <translation>Fişten Çıkarıldığında</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="27"/>
-        <source>Removable device removed</source>
-        <translation type="unfinished"/>
+        <source>Removable device connected</source>
+        <translation>Çıkarılabilir Aygıt Takıldığında</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="28"/>
+        <source>Removable device removed</source>
+        <translation>Çıkarılabilir Aygıt Çıkarıldığında</translation>
+    </message>
+    <message>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Sorun Çıktığında</translation>
     </message>
 </context>
 <context>
@@ -794,8 +794,8 @@
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="55"/>
-        <source>Browser</source>
-        <translation>Tarayıcı</translation>
+        <source>Webpage</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="56"/>
@@ -1592,7 +1592,7 @@
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="189"/>
         <source>VPN SSTP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN SSTP %1</translation>
     </message>
 </context>
 <context>
@@ -1605,7 +1605,7 @@
     <message>
         <location filename="../modules/network/sections/ethernetsection.cpp" line="54"/>
         <source>Not Bind</source>
-        <translation type="unfinished"/>
+        <translation>Bağlı Değil</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/ethernetsection.cpp" line="96"/>
@@ -1670,7 +1670,7 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="62"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ayar Ekle</translation>
     </message>
 </context>
 <context>
@@ -2058,8 +2058,23 @@
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="68"/>
-        <source>Http Proxy</source>
-        <translation>HTTP Vekil Sunucusu</translation>
+        <source>HTTP Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="73"/>
+        <source>HTTPS Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
+        <source>FTP Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="83"/>
+        <source>SOCKS Proxy</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="70"/>
@@ -2068,21 +2083,6 @@
         <location filename="../modules/network/proxypage.cpp" line="85"/>
         <source>Port</source>
         <translation>Kapı Numarası</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="73"/>
-        <source>Https Proxy</source>
-        <translation>HTTPS Vekil Sunucusu</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="78"/>
-        <source>Ftp Proxy</source>
-        <translation>FTP Vekil Sunucusu</translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="83"/>
-        <source>Socks Proxy</source>
-        <translation>SOCKS Vekil Sunucusu</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="92"/>
@@ -2917,7 +2917,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="283"/>
         <source>SSTP</source>
-        <translation type="unfinished"/>
+        <translation>SSTP</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="310"/>
@@ -2990,17 +2990,17 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="77"/>
         <source>CA File</source>
-        <translation type="unfinished"/>
+        <translation>CA Dosyası</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
         <source>Ignore certificate warnings</source>
-        <translation type="unfinished"/>
+        <translation>Sertifika uyarıları yok sayılsın</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
         <source>Use TLS hostname extensions</source>
-        <translation type="unfinished"/>
+        <translation>TLS sunucu adı eklentileri kullanılsın</translation>
     </message>
 </context>
 <context>
@@ -3359,7 +3359,7 @@
     <message>
         <location filename="../modules/network/sections/wirelesssection.cpp" line="55"/>
         <source>Not Bind</source>
-        <translation type="unfinished"/>
+        <translation>Bağlı Değil</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/wirelesssection.cpp" line="111"/>
@@ -3607,9 +3607,9 @@
 <context>
     <name>dcc::sound::SoundEffectPage</name>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="59"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="60"/>
         <source>System Sound Effect</source>
-        <translation type="unfinished"/>
+        <translation>Sistem Ses Etkisi</translation>
     </message>
 </context>
 <context>
