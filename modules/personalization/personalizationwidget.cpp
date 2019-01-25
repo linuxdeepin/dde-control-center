@@ -81,6 +81,10 @@ PersonalizationWidget::PersonalizationWidget()
             &PersonalizationWidget::showFontsWidget);
     connect(m_wmSwitch, &SwitchWidget::checkedChanged, this,
             &PersonalizationWidget::requestSwitchWM);
+    connect(m_wmSwitch, &SwitchWidget::checkedChanged, this, [=] {
+        // reset switch state
+        m_wmSwitch->setChecked(m_model->is3DWm());
+    });
 
     connect(m_transparentSlider->slider(), &DCCSlider::valueChanged, this,
             &PersonalizationWidget::requestSetOpacity);
@@ -93,6 +97,8 @@ PersonalizationWidget::PersonalizationWidget()
 
 void PersonalizationWidget::setModel(PersonalizationModel *const model)
 {
+    m_model = model;
+
     connect(model, &PersonalizationModel::wmChanged, m_wmSwitch,
             &SwitchWidget::setChecked);
 

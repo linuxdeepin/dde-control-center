@@ -58,6 +58,7 @@ private:
     void onBlurWindowChanged();
 
 private:
+    PersonalizationModel *m_model;
     dcc::widgets::SettingsGroup* m_userGroup;
     dcc::widgets::SwitchWidget*  m_wmSwitch;
     widgets::TitledSliderItem*   m_transparentSlider;

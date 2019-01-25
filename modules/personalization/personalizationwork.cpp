@@ -368,7 +368,14 @@ void PersonalizationWork::setFontSize(const int value)
 
 void PersonalizationWork::switchWM()
 {
-    m_wmSwitcher->RequestSwitchWM();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_wmSwitcher->RequestSwitchWM(), this);
+
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (watcher->isError()) {
+            qDebug() << watcher->error();
+        }
+        watcher->deleteLater();
+    });
 }
 
 void PersonalizationWork::setOpacity(int opacity)
