@@ -52,7 +52,7 @@ QWidget *DefAppViewer::defappDetail()
     mainlayout->setMargin(0);
     mainlayout->setSpacing(20);
 
-    m_modBrowser = new DefCategoryWidget(tr("Browser"), this);
+    m_modBrowser = new DefCategoryWidget(tr("Webpage"), this);
     m_modMail = new DefCategoryWidget(tr("Mail"), this);
     m_modText = new DefCategoryWidget(tr("Text"), this);
     m_modMusic = new DefCategoryWidget(tr("Music"), this);

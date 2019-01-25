@@ -144,72 +144,72 @@
 <context>
     <name>SoundEffectPage</name>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="15"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="16"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="17"/>
         <source>Shut down</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="17"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="18"/>
         <source>Logout</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="18"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="19"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="20"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="21"/>
         <source>Notification</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="21"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="22"/>
         <source>Low battery</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="22"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="23"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="24"/>
         <source>Empty Trash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="24"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="25"/>
         <source>Plug in</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="25"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Plug out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="26"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="27"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="28"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -799,7 +799,7 @@
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="55"/>
-        <source>Browser</source>
+        <source>Webpage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2063,7 +2063,22 @@
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="68"/>
-        <source>Http Proxy</source>
+        <source>HTTP Proxy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="73"/>
+        <source>HTTPS Proxy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="78"/>
+        <source>FTP Proxy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../modules/network/proxypage.cpp" line="83"/>
+        <source>SOCKS Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2072,21 +2087,6 @@
         <location filename="../modules/network/proxypage.cpp" line="80"/>
         <location filename="../modules/network/proxypage.cpp" line="85"/>
         <source>Port</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="73"/>
-        <source>Https Proxy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="78"/>
-        <source>Ftp Proxy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../modules/network/proxypage.cpp" line="83"/>
-        <source>Socks Proxy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3612,7 +3612,7 @@
 <context>
     <name>dcc::sound::SoundEffectPage</name>
     <message>
-        <location filename="../modules/sound/soundeffectpage.cpp" line="59"/>
+        <location filename="../modules/sound/soundeffectpage.cpp" line="60"/>
         <source>System Sound Effect</source>
         <translation type="unfinished"></translation>
     </message>

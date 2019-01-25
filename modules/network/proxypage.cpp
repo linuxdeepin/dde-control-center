@@ -65,22 +65,22 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_proxyType->setFixedHeight(30);
 
     m_httpAddr = new LineEditWidget;
-    m_httpAddr->setTitle(tr("Http Proxy"));
+    m_httpAddr->setTitle(tr("HTTP Proxy"));
     m_httpPort = new LineEditWidget;
     m_httpPort->setTitle(tr("Port"));
 
     m_httpsAddr = new LineEditWidget;
-    m_httpsAddr->setTitle(tr("Https Proxy"));
+    m_httpsAddr->setTitle(tr("HTTPS Proxy"));
     m_httpsPort = new LineEditWidget;
     m_httpsPort->setTitle(tr("Port"));
 
     m_ftpAddr = new LineEditWidget;
-    m_ftpAddr->setTitle(tr("Ftp Proxy"));
+    m_ftpAddr->setTitle(tr("FTP Proxy"));
     m_ftpPort = new LineEditWidget;
     m_ftpPort->setTitle(tr("Port"));
 
     m_socksAddr = new LineEditWidget;
-    m_socksAddr->setTitle(tr("Socks Proxy"));
+    m_socksAddr->setTitle(tr("SOCKS Proxy"));
     m_socksPort = new LineEditWidget;
     m_socksPort->setTitle(tr("Port"));
 
