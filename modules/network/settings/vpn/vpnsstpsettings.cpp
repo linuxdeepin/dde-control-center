@@ -24,6 +24,7 @@
 #include "../../sections/vpn/vpnsstpsection.h"
 #include "../../sections/vpn/vpnpppsection.h"
 #include "../../sections/vpn/vpnipsecsection.h"
+#include "../../sections/vpn/vpnsstpproxysection.h"
 #include "../../sections/ipvxsection.h"
 
 using namespace dcc::network;
@@ -57,6 +58,7 @@ void VpnSSTPSettings::initSections()
         "nobsdcomp", "nodeflate", "no-vj-comp", "lcp-echo-interval"
     };
     vpnPPPSection->setSupportOptions(supportOptions);
+    VpnSstpProxySection *vpnProxySection = new VpnSstpProxySection(vpnSetting);
     IpvxSection *ipv4Section = new IpvxSection(
             m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     ipv4Section->setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod::Manual, false);
@@ -72,12 +74,14 @@ void VpnSSTPSettings::initSections()
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(vpnSection);
     m_sectionsLayout->addWidget(vpnPPPSection);
+    m_sectionsLayout->addWidget(vpnProxySection);
     m_sectionsLayout->addWidget(ipv4Section);
     //m_sectionsLayout->addWidget(ipv6Section);
 
     m_settingSections.append(genericSection);
     m_settingSections.append(vpnSection);
     m_settingSections.append(vpnPPPSection);
+    m_settingSections.append(vpnProxySection);
     m_settingSections.append(ipv4Section);
     //m_settingSections.append(ipv6Section);
 }
