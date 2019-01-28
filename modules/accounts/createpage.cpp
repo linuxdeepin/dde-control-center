@@ -81,6 +81,7 @@ CreatePage::CreatePage(QWidget *parent) :
     layout->addWidget(m_avatar, 0, Qt::AlignHCenter);
     layout->addWidget(m_group);
     layout->addWidget(m_buttonTuple);
+    layout->addStretch();
     layout->setSpacing(10);
 
     setContent(container);
