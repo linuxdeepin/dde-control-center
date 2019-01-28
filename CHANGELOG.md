@@ -1,3 +1,18 @@
+<a name="4.9.2.1"></a>
+## 4.9.2.1 (2019-01-28)
+
+
+#### Bug Fixes
+
+*   network hotspot wep security ([8c0f15c6](https://github.com/linuxdeepin/dde-control-center/commit/8c0f15c64f5e39aa97c2580ecea2a2b271557f37))
+* **Accounts:**  not add stretch for create page ([57e7c525](https://github.com/linuxdeepin/dde-control-center/commit/57e7c525fd6513a15ab174daaa457e8300b8ff55))
+
+#### Features
+
+*   sstp vpn proxy support ([8c8fb8df](https://github.com/linuxdeepin/dde-control-center/commit/8c8fb8dfc19ba4240ee68bb61a205c133bd7c385))
+
+
+
 <a name="4.9.2"></a>
 ### 4.9.2 (2019-01-25)
 
