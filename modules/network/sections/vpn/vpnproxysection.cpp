@@ -28,7 +28,7 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 VpnProxySection::VpnProxySection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
-    : AbstractSection(tr("VPN Proxies"), parent),
+    : AbstractSection(tr("VPN Proxy"), parent),
       m_vpnSetting(vpnSetting),
     m_proxyTypeChooser(new ComboBoxWidget(this)),
     m_server(new LineEditWidget(this)),
