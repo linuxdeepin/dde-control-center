@@ -84,10 +84,15 @@ void SecretHotspotSection::saveSettings()
 
     m_wsSetting->setKeyMgmt(m_currentKeyMgmt);
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
+        m_wsSetting->setAuthAlg(NetworkManager::WirelessSecuritySetting::AuthAlg::Open);
         m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
         m_wsSetting->setWepKey0(m_passwdEdit->text());
+        m_wsSetting->setPsk("");
     } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
         m_wsSetting->setPsk(m_passwdEdit->text());
+        m_wsSetting->setAuthAlg(NetworkManager::WirelessSecuritySetting::AuthAlg::None);
+        m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::NotSpecified);
+        m_wsSetting->setWepKey0("");
     }
 
     m_wsSetting->setInitialized(true);
