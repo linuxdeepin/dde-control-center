@@ -191,7 +191,7 @@
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Plug out</source>
-        <translation>Desconectar</translation>
+        <translation>Desenchufar</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="27"/>
@@ -201,7 +201,7 @@
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
-        <translation>Dispositivo extraíble quitado</translation>
+        <translation>Dispositivo extraíble retirado</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="29"/>
@@ -402,60 +402,60 @@
 <context>
     <name>dcc::accounts::CreatePage</name>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="52"/>
+        <location filename="../modules/accounts/createpage.cpp" line="53"/>
         <source>Username</source>
         <translation>Nombre de usuario</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="53"/>
-        <location filename="../modules/accounts/createpage.cpp" line="55"/>
-        <location filename="../modules/accounts/createpage.cpp" line="58"/>
+        <location filename="../modules/accounts/createpage.cpp" line="54"/>
+        <location filename="../modules/accounts/createpage.cpp" line="56"/>
+        <location filename="../modules/accounts/createpage.cpp" line="59"/>
         <source>Required</source>
         <translation>Requerido</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="54"/>
+        <location filename="../modules/accounts/createpage.cpp" line="55"/>
         <source>Password</source>
         <translation>Contraseña</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="57"/>
+        <location filename="../modules/accounts/createpage.cpp" line="58"/>
         <source>Repeat password</source>
         <translation>Repetir contraseña</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="66"/>
+        <location filename="../modules/accounts/createpage.cpp" line="67"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="67"/>
+        <location filename="../modules/accounts/createpage.cpp" line="68"/>
         <source>Create</source>
         <translation>Crear</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="86"/>
+        <location filename="../modules/accounts/createpage.cpp" line="88"/>
         <source>New Account</source>
         <translation>Nueva cuenta</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="148"/>
+        <location filename="../modules/accounts/createpage.cpp" line="151"/>
         <source>Username can&apos;t be empty</source>
         <translation>El nombre de usuario no puede estar vacío</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="151"/>
+        <location filename="../modules/accounts/createpage.cpp" line="154"/>
         <source>Password can&apos;t be empty</source>
         <translation>La contraseña no puede estar vacía</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="239"/>
+        <location filename="../modules/accounts/createpage.cpp" line="256"/>
         <source>The password should be different from the username</source>
         <translation>La contraseña debe ser diferente del nombre de usuario</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="245"/>
-        <location filename="../modules/accounts/createpage.cpp" line="248"/>
+        <location filename="../modules/accounts/createpage.cpp" line="262"/>
+        <location filename="../modules/accounts/createpage.cpp" line="265"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>La contraseña debe contener letras (mayúsculas y minúsculas), números o símbolos especiales  (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
@@ -795,7 +795,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="55"/>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Página web</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="56"/>
@@ -2059,22 +2059,22 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="68"/>
         <source>HTTP Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy HTTP</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="73"/>
         <source>HTTPS Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy HTTPS</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="78"/>
         <source>FTP Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy FTP</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="83"/>
         <source>SOCKS Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy SOCKS</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="70"/>
@@ -2268,37 +2268,37 @@
 <context>
     <name>dcc::network::SecretHotspotSection</name>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="99"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="104"/>
         <source>None</source>
         <translation>Ninguno</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="100"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="105"/>
         <source>WEP 40/128-bit</source>
         <translation>Clave WEP de 40/128-bit</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="101"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="106"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 Personal</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="107"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="112"/>
         <source>Security</source>
         <translation>Seguridad</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="113"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="118"/>
         <source>Required</source>
         <translation>Requerido</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="143"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="148"/>
         <source>Key</source>
         <translation>Clave</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="149"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="154"/>
         <source>Password</source>
         <translation>Contraseña</translation>
     </message>
@@ -2944,8 +2944,8 @@
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
-        <source>VPN Proxies</source>
-        <translation>Proxies VPN</translation>
+        <source>VPN Proxy</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
@@ -3086,6 +3086,34 @@
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="132"/>
         <source>NT Domain</source>
         <translation>Dominio NT</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnSstpProxySection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
+        <source>VPN Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
+        <source>Server IP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="116"/>
+        <source>Password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

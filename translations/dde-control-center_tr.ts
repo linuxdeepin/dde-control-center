@@ -402,60 +402,60 @@
 <context>
     <name>dcc::accounts::CreatePage</name>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="52"/>
+        <location filename="../modules/accounts/createpage.cpp" line="53"/>
         <source>Username</source>
         <translation>Kullanıcı Adı</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="53"/>
-        <location filename="../modules/accounts/createpage.cpp" line="55"/>
-        <location filename="../modules/accounts/createpage.cpp" line="58"/>
+        <location filename="../modules/accounts/createpage.cpp" line="54"/>
+        <location filename="../modules/accounts/createpage.cpp" line="56"/>
+        <location filename="../modules/accounts/createpage.cpp" line="59"/>
         <source>Required</source>
         <translation>Zorunlu</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="54"/>
+        <location filename="../modules/accounts/createpage.cpp" line="55"/>
         <source>Password</source>
         <translation>Parola</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="57"/>
+        <location filename="../modules/accounts/createpage.cpp" line="58"/>
         <source>Repeat password</source>
         <translation>Parola Onayı</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="66"/>
+        <location filename="../modules/accounts/createpage.cpp" line="67"/>
         <source>Cancel</source>
         <translation>İptal</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="67"/>
+        <location filename="../modules/accounts/createpage.cpp" line="68"/>
         <source>Create</source>
         <translation>Oluştur</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="86"/>
+        <location filename="../modules/accounts/createpage.cpp" line="88"/>
         <source>New Account</source>
         <translation>Yeni Hesap</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="148"/>
+        <location filename="../modules/accounts/createpage.cpp" line="151"/>
         <source>Username can&apos;t be empty</source>
         <translation>Kullanıcı adı boş olamaz</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="151"/>
+        <location filename="../modules/accounts/createpage.cpp" line="154"/>
         <source>Password can&apos;t be empty</source>
         <translation>Parola boş olamaz</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="239"/>
+        <location filename="../modules/accounts/createpage.cpp" line="256"/>
         <source>The password should be different from the username</source>
         <translation>Parola kullanıcı adından farklı olmalı</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="245"/>
-        <location filename="../modules/accounts/createpage.cpp" line="248"/>
+        <location filename="../modules/accounts/createpage.cpp" line="262"/>
+        <location filename="../modules/accounts/createpage.cpp" line="265"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Parolada, İngiliz alfabesi harfleri (büyük-küçük harfe duyarlı), rakamlar ya da özel simgeler (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) bulunmalıdır</translation>
     </message>
@@ -795,7 +795,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="55"/>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Web Sitesi</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="56"/>
@@ -2059,22 +2059,22 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="68"/>
         <source>HTTP Proxy</source>
-        <translation type="unfinished"/>
+        <translation>HTTP Vekil Sunucusu</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="73"/>
         <source>HTTPS Proxy</source>
-        <translation type="unfinished"/>
+        <translation>HTTPS Vekil Sunucusu</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="78"/>
         <source>FTP Proxy</source>
-        <translation type="unfinished"/>
+        <translation>FTP Vekil Sunucusu</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="83"/>
         <source>SOCKS Proxy</source>
-        <translation type="unfinished"/>
+        <translation>SOCKS Vekil Sunucusu</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="70"/>
@@ -2268,37 +2268,37 @@
 <context>
     <name>dcc::network::SecretHotspotSection</name>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="99"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="104"/>
         <source>None</source>
         <translation>Yok</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="100"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="105"/>
         <source>WEP 40/128-bit</source>
         <translation>WEP 40/128-bit</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="101"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="106"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 Kişisel</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="107"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="112"/>
         <source>Security</source>
         <translation>Güvenlik</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="113"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="118"/>
         <source>Required</source>
         <translation>Zorunlu</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="143"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="148"/>
         <source>Key</source>
         <translation>Anahtar</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="149"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="154"/>
         <source>Password</source>
         <translation>Parola</translation>
     </message>
@@ -2944,8 +2944,8 @@
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
-        <source>VPN Proxies</source>
-        <translation>VPN Vekil Sunucuları</translation>
+        <source>VPN Proxy</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
@@ -3086,6 +3086,34 @@
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="132"/>
         <source>NT Domain</source>
         <translation>NT Etki Alanı</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnSstpProxySection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
+        <source>VPN Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
+        <source>Server IP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="116"/>
+        <source>Password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

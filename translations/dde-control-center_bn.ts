@@ -402,60 +402,60 @@
 <context>
     <name>dcc::accounts::CreatePage</name>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="52"/>
+        <location filename="../modules/accounts/createpage.cpp" line="53"/>
         <source>Username</source>
         <translation>ব্যবহারকারীর নাম </translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="53"/>
-        <location filename="../modules/accounts/createpage.cpp" line="55"/>
-        <location filename="../modules/accounts/createpage.cpp" line="58"/>
+        <location filename="../modules/accounts/createpage.cpp" line="54"/>
+        <location filename="../modules/accounts/createpage.cpp" line="56"/>
+        <location filename="../modules/accounts/createpage.cpp" line="59"/>
         <source>Required</source>
         <translation>আবশ্যক</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="54"/>
+        <location filename="../modules/accounts/createpage.cpp" line="55"/>
         <source>Password</source>
         <translation>পাসওয়ার্ড</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="57"/>
+        <location filename="../modules/accounts/createpage.cpp" line="58"/>
         <source>Repeat password</source>
         <translation>পুনরায় পাসওয়ার্ড দিন</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="66"/>
+        <location filename="../modules/accounts/createpage.cpp" line="67"/>
         <source>Cancel</source>
         <translation>বাতিল</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="67"/>
+        <location filename="../modules/accounts/createpage.cpp" line="68"/>
         <source>Create</source>
         <translation>তৈরি করুন</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="86"/>
+        <location filename="../modules/accounts/createpage.cpp" line="88"/>
         <source>New Account</source>
         <translation>নতুন অ্যাকাউন্ট</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="148"/>
+        <location filename="../modules/accounts/createpage.cpp" line="151"/>
         <source>Username can&apos;t be empty</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="151"/>
+        <location filename="../modules/accounts/createpage.cpp" line="154"/>
         <source>Password can&apos;t be empty</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="239"/>
+        <location filename="../modules/accounts/createpage.cpp" line="256"/>
         <source>The password should be different from the username</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="245"/>
-        <location filename="../modules/accounts/createpage.cpp" line="248"/>
+        <location filename="../modules/accounts/createpage.cpp" line="262"/>
+        <location filename="../modules/accounts/createpage.cpp" line="265"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation type="unfinished"/>
     </message>
@@ -2271,37 +2271,37 @@
 <context>
     <name>dcc::network::SecretHotspotSection</name>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="99"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="104"/>
         <source>None</source>
         <translation>কোনটিই নয়</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="100"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="105"/>
         <source>WEP 40/128-bit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="101"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="106"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA / WPA2 ব্যক্তিগত</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="107"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="112"/>
         <source>Security</source>
         <translation>নিরাপত্তা</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="113"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="118"/>
         <source>Required</source>
         <translation>আবশ্যক</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="143"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="148"/>
         <source>Key</source>
         <translation>চাবি</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="149"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="154"/>
         <source>Password</source>
         <translation>পাসওয়ার্ড</translation>
     </message>
@@ -2947,8 +2947,8 @@
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
-        <source>VPN Proxies</source>
-        <translation>ভিপিএন প্রক্সি</translation>
+        <source>VPN Proxy</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
@@ -3089,6 +3089,34 @@
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="132"/>
         <source>NT Domain</source>
         <translation>এনটি ডোমেন</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnSstpProxySection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
+        <source>VPN Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
+        <source>Server IP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="116"/>
+        <source>Password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -146,32 +146,32 @@
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="17"/>
         <source>Shut down</source>
-        <translation type="unfinished"/>
+        <translation>Apagar</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="18"/>
         <source>Logout</source>
-        <translation type="unfinished"/>
+        <translation>Cerrar sesión</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
-        <translation type="unfinished"/>
+        <translation>Encender</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
-        <translation type="unfinished"/>
+        <translation>Volumen +/-</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="21"/>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificación</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="22"/>
         <source>Low battery</source>
-        <translation type="unfinished"/>
+        <translation>Batería baja</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="23"/>
@@ -181,32 +181,32 @@
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="24"/>
         <source>Empty Trash</source>
-        <translation type="unfinished"/>
+        <translation>Vaciar Papelera</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="25"/>
         <source>Plug in</source>
-        <translation type="unfinished"/>
+        <translation>Enchufar</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Plug out</source>
-        <translation type="unfinished"/>
+        <translation>Desconectar</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivo extraíble conectado</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivo extraíble removido</translation>
     </message>
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Error</translation>
     </message>
 </context>
 <context>
@@ -333,27 +333,27 @@
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Tu host fue removido del servidor de dominio satisfactoriamente</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="325"/>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Tu host se ha unido al servidor de dominio satisfactoriamente</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Tu host ha fallado en dejar el servidor de dominio</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="348"/>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Tu host ha fallado en unirse al servidor de dominio</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="420"/>
         <source>Password not match</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña no coincide</translation>
     </message>
     <message>
         <location filename="../modules/accounts/accountsworker.cpp" line="351"/>
@@ -402,62 +402,62 @@
 <context>
     <name>dcc::accounts::CreatePage</name>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="52"/>
+        <location filename="../modules/accounts/createpage.cpp" line="53"/>
         <source>Username</source>
         <translation>Nombre de usuario</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="53"/>
-        <location filename="../modules/accounts/createpage.cpp" line="55"/>
-        <location filename="../modules/accounts/createpage.cpp" line="58"/>
+        <location filename="../modules/accounts/createpage.cpp" line="54"/>
+        <location filename="../modules/accounts/createpage.cpp" line="56"/>
+        <location filename="../modules/accounts/createpage.cpp" line="59"/>
         <source>Required</source>
         <translation>Requerido</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="54"/>
+        <location filename="../modules/accounts/createpage.cpp" line="55"/>
         <source>Password</source>
         <translation>Contraseña</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="57"/>
+        <location filename="../modules/accounts/createpage.cpp" line="58"/>
         <source>Repeat password</source>
         <translation>Repetir contraseña</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="66"/>
+        <location filename="../modules/accounts/createpage.cpp" line="67"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="67"/>
+        <location filename="../modules/accounts/createpage.cpp" line="68"/>
         <source>Create</source>
         <translation>Crear</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="86"/>
+        <location filename="../modules/accounts/createpage.cpp" line="88"/>
         <source>New Account</source>
         <translation>Nueva cuenta</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="148"/>
-        <source>Username can&apos;t be empty</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../modules/accounts/createpage.cpp" line="151"/>
+        <source>Username can&apos;t be empty</source>
+        <translation>El nombre de usuario no puede estar vacío</translation>
+    </message>
+    <message>
+        <location filename="../modules/accounts/createpage.cpp" line="154"/>
         <source>Password can&apos;t be empty</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña no puede estar vacía</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="239"/>
+        <location filename="../modules/accounts/createpage.cpp" line="256"/>
         <source>The password should be different from the username</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña debe ser diferente del nombre de usuario</translation>
     </message>
     <message>
-        <location filename="../modules/accounts/createpage.cpp" line="245"/>
-        <location filename="../modules/accounts/createpage.cpp" line="248"/>
+        <location filename="../modules/accounts/createpage.cpp" line="262"/>
+        <location filename="../modules/accounts/createpage.cpp" line="265"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña debe contener letras (mayúsculas y minúsculas), números o símbolos especiales (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -558,12 +558,12 @@
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="207"/>
         <source>The password should be different from the username</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña debe ser diferente del nombre de usuario</translation>
     </message>
     <message>
         <location filename="../modules/accounts/modifypasswordpage.cpp" line="215"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña debe contener letras (mayúsculas y minúsculas), números o símbolos especiales (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -795,7 +795,7 @@
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="55"/>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Página Web</translation>
     </message>
     <message>
         <location filename="../modules/defapp/defappviewer.cpp" line="56"/>
@@ -1567,32 +1567,32 @@
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="169"/>
         <source>VPN PPTP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN PPTP %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="173"/>
         <source>VPN VPNC %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN VPNC %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="177"/>
         <source>VPN OpenVPN %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN OpenVPN %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="181"/>
         <source>VPN StrongSwan %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN StrongSwan %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="185"/>
         <source>VPN OpenConnect %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN OpenConnect %1</translation>
     </message>
     <message>
         <location filename="../modules/network/connectionvpneditpage.cpp" line="189"/>
         <source>VPN SSTP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN SSTP %1</translation>
     </message>
 </context>
 <context>
@@ -1670,7 +1670,7 @@
     <message>
         <location filename="../modules/network/hotspotpage.cpp" line="62"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>Añadir Ajustes</translation>
     </message>
 </context>
 <context>
@@ -2059,22 +2059,22 @@
     <message>
         <location filename="../modules/network/proxypage.cpp" line="68"/>
         <source>HTTP Proxy</source>
-        <translation type="unfinished"/>
+        <translation>HTTP Proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="73"/>
         <source>HTTPS Proxy</source>
-        <translation type="unfinished"/>
+        <translation>HTTPS Proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="78"/>
         <source>FTP Proxy</source>
-        <translation type="unfinished"/>
+        <translation>FTP Proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="83"/>
         <source>SOCKS Proxy</source>
-        <translation type="unfinished"/>
+        <translation>SOCKS Proxy</translation>
     </message>
     <message>
         <location filename="../modules/network/proxypage.cpp" line="70"/>
@@ -2268,37 +2268,37 @@
 <context>
     <name>dcc::network::SecretHotspotSection</name>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="99"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="104"/>
         <source>None</source>
         <translation>Ninguno</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="100"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="105"/>
         <source>WEP 40/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/128-bit</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="101"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="106"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 Personal</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="107"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="112"/>
         <source>Security</source>
         <translation>Seguridad</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="113"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="118"/>
         <source>Required</source>
         <translation>Requerido</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="143"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="148"/>
         <source>Key</source>
         <translation>Clave</translation>
     </message>
     <message>
-        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="149"/>
+        <location filename="../modules/network/sections/secrethotspotsection.cpp" line="154"/>
         <source>Password</source>
         <translation>Contraseña</translation>
     </message>
@@ -2321,7 +2321,7 @@
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>WEP 40/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/128-bit</translation>
     </message>
     <message>
         <location filename="../modules/network/sections/secretwirelesssection.cpp" line="108"/>
@@ -2917,7 +2917,7 @@
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="283"/>
         <source>SSTP</source>
-        <translation type="unfinished"/>
+        <translation>SSTP</translation>
     </message>
     <message>
         <location filename="../modules/network/vpnpage.cpp" line="310"/>
@@ -2944,8 +2944,8 @@
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
-        <source>VPN Proxies</source>
-        <translation>Proxies VPN</translation>
+        <source>VPN Proxy</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
@@ -3000,7 +3000,7 @@
     <message>
         <location filename="../modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
         <source>Use TLS hostname extensions</source>
-        <translation type="unfinished"/>
+        <translation>Usar extensiones de nombre de host TLS</translation>
     </message>
 </context>
 <context>
@@ -3086,6 +3086,34 @@
         <location filename="../modules/network/sections/vpn/vpnsection.cpp" line="132"/>
         <source>NT Domain</source>
         <translation>Dominio NT</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::network::VpnSstpProxySection</name>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
+        <source>VPN Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
+        <source>Server IP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../modules/network/sections/vpn/vpnsstpproxysection.cpp" line="116"/>
+        <source>Password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3559,12 +3587,12 @@
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="107"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo Ahorro de Energía</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="108"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>Interruptor de modo automático</translation>
     </message>
     <message>
         <location filename="../modules/power/powerwidget.cpp" line="184"/>
@@ -3609,7 +3637,7 @@
     <message>
         <location filename="../modules/sound/soundeffectpage.cpp" line="60"/>
         <source>System Sound Effect</source>
-        <translation type="unfinished"/>
+        <translation>Efectos de sonido</translation>
     </message>
 </context>
 <context>
@@ -3682,12 +3710,12 @@
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="78"/>
         <source>You can click the option in boot menu to set it as the first boot, and drag and drop a picture to replace the background.</source>
-        <translation type="unfinished"/>
+        <translation>MarcarPuede hacer clic en la opción en el menú de arranque para configurarlo como el primer inicio, y arrastrar y soltar una imagen para reemplazar el fondo.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="82"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar tema para verlo en el menú de arranque</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/bootwidget.cpp" line="102"/>
@@ -3715,7 +3743,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -3760,7 +3788,7 @@
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="123"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Acuerdo de licencia de usuario final</translation>
     </message>
     <message>
         <location filename="../modules/systeminfo/systeminfowidget.cpp" line="128"/>
@@ -3778,7 +3806,7 @@
     <message>
         <location filename="../modules/systeminfo/userlicense.cpp" line="15"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Acuerdo de licencia de usuario final</translation>
     </message>
 </context>
 <context>
@@ -3867,7 +3895,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
-        <translation type="unfinished"/>
+        <translation>Esta actualización puede tardar mucho tiempo, no apague o reinicie durante el proceso.</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="176"/>
@@ -3888,7 +3916,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="195"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
+        <translation>%1% descargado (Clic para continuar)</translation>
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="201"/>
@@ -3913,7 +3941,7 @@
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="237"/>
         <source>Insufficient disk space, unable to update system.</source>
-        <translation type="unfinished"/>
+        <translation>Espacio en disco insuficiente, no se puede actualizar el sistema.</translation>
     </message>
     <message numerus="yes">
         <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
@@ -3974,7 +4002,7 @@
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="65"/>
         <source>Updates Notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificaciones de actualizaciones</translation>
     </message>
     <message>
         <location filename="../modules/update/updatesettings.cpp" line="68"/>
