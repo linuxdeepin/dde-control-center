@@ -184,50 +184,30 @@ QString NotifyDelegate::notifyTime(const QString &t) const
 
         const QString hour = date.toString("hh:mm");
 
-        const uint year = date.date().year();
-        uint now = QDateTime::currentDateTime().date().year();
-
-        if (now > year)
+        if (QDateTime::currentDateTime().date().year() > date.date().year()) {
             return date.toString("yyyy/MM/dd hh:mm");
-        else {
-            const uint notify_day = date.date().day();
-            now = QDateTime::currentDateTime().date().day();
+        } else {
+            //contrast day
+            const uint days = date.daysTo(QDateTime::currentDateTime());
 
-            const uint month = date.date().month();
-            const uint now_month = QDateTime::currentDateTime().date().month();
-
-            if (now_month == month) {
-
-                //contrast day
-                const uint time = now - notify_day;
-
-                switch (time) {
-                case 0:
-                    return hour;
-                    break;
-                case 1:
-                    return tr("Yesterday") + " " + hour;
-                    break;
-                case 2:
-                    return tr("The day before yesterday") + " " + hour;
-                    break;
-                default:
-                    if (time > 7) {
-                        return date.toString("MM/dd hh:mm");
-                    } else {
-                        return tr("%n day(s) ago", "", time) + " " + hour;
-                    }
-                    break;
+            switch (days) {
+            case 0:
+                return hour;
+            case 1:
+                return tr("Yesterday") + " " + hour;
+            case 2:
+                return tr("The day before yesterday") + " " + hour;
+            default:
+                if (days <= 6) {
+                    return tr("%n day(s) ago", "", days) + " " + hour;
                 }
-            } else {
-                return date.toString("MM/dd hh:mm");
             }
+
+            return date.toString("MM/dd hh:mm");
         }
     } else {
         return date.toString("yyyy/MM/dd hh:mm");
     }
-
-    return t;
 }
 
 const QPair<QString, bool> NotifyDelegate::holdTextInRect(const QFontMetrics &fm, const QString &text, const QRect &rect) const
