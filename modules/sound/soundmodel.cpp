@@ -27,6 +27,24 @@
 
 #include <QDebug>
 
+static const QStringList SOUND_EFFECT_LIST {
+    "message",
+    "camera-shutter",
+    "trash-empty",
+    "x-deepin-app-sent-to-desktop",
+    "desktop-login",
+    "system-shutdown",
+    "desktop-logout",
+    "suspend-resume",
+    "audio-volume-change",
+    "power-unplug-battery-low",
+    "power-plug",
+    "power-unplug",
+    "device-added",
+    "device-removed",
+    "dialog-error",
+};
+
 namespace dcc {
 namespace sound {
 
@@ -225,6 +243,11 @@ void SoundModel::updateSoundEffectPath(DDesktopServices::SystemSoundEffect effec
 const QString SoundModel::soundEffectPathByType(DDesktopServices::SystemSoundEffect effect)
 {
     return m_soundEffectPaths[effect];
+}
+
+const QString SoundModel::getNameByEffectType(DDesktopServices::SystemSoundEffect effect) const
+{
+    return SOUND_EFFECT_LIST.at(static_cast<int>(effect));
 }
 
 void Port::setId(const QString &id)

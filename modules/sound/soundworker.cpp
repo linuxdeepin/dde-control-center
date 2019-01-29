@@ -155,13 +155,13 @@ void SoundWorker::setPort(const Port *port)
 
 void SoundWorker::querySoundEffectData(DDesktopServices::SystemSoundEffect effect)
 {
-    const QString name = DDesktopServices::getNameByEffectType(effect);
+    const QString name = m_model->getNameByEffectType(effect);
     m_model->setEffectData(effect, m_effectGsettings->get(name).toBool());
 }
 
 void SoundWorker::setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable)
 {
-    m_effectGsettings->set(DDesktopServices::getNameByEffectType(effect), enable);
+    m_effectGsettings->set(m_model->getNameByEffectType(effect), enable);
 }
 
 void SoundWorker::enableAllSoundEffect(bool enable)

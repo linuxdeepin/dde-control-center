@@ -137,6 +137,8 @@ public:
     inline QMap<DDesktopServices::SystemSoundEffect, QString> soundEffectPaths() { return m_soundEffectPaths; }
     const QString soundEffectPathByType(DDesktopServices::SystemSoundEffect effect);
 
+    const QString getNameByEffectType(DDesktopServices::SystemSoundEffect effect) const;
+
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
