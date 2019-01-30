@@ -67,9 +67,17 @@ void Category::addUserItem(const App &value)
 
 void Category::delUserItem(const App &value)
 {
-    m_applist.removeOne(value);
-    m_systemAppList.removeOne(value);
-    m_userAppList.removeOne(value);
+    bool isRemove = false;
 
-    Q_EMIT removedUserItem(value);
+    if (value.isUser) {
+       isRemove = m_userAppList.removeOne(value);
+    }
+    else {
+        isRemove = m_systemAppList.removeOne(value);
+    }
+
+    if (isRemove) {
+        m_applist.removeOne(value);
+        Q_EMIT removedUserItem(value);
+    }
 }

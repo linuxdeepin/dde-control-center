@@ -232,10 +232,20 @@ void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json, cons
         }
     }
 
-    QList<App> allList = category->getappItem();
-    for (App app : allList) {
-        if (!list.contains(app)) {
-            category->delUserItem(app);
+    if (isUser) {
+        userList = category->userAppList();
+        for (App app : userList) {
+            if (!list.contains(app)) {
+                category->delUserItem(app);
+            }
+        }
+    }
+    else {
+        systemList = category->systemAppList();
+        for (App app : systemList) {
+            if (!list.contains(app)) {
+                category->delUserItem(app);
+            }
         }
     }
 
