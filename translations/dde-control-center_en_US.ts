@@ -61,17 +61,17 @@
 <context>
     <name>NotifyDelegate</name>
     <message>
-        <location filename="../frame/notify/notifydelegate.cpp" line="209"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="197"/>
         <source>Yesterday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/notify/notifydelegate.cpp" line="212"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="199"/>
         <source>The day before yesterday</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../frame/notify/notifydelegate.cpp" line="218"/>
+        <location filename="../frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -222,7 +222,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../frame/updatenotifier.cpp" line="38"/>
+        <location filename="../frame/updatenotifier.cpp" line="158"/>
+        <source>Dependency error, failed to detect the updates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../frame/updatenotifier.cpp" line="161"/>
+        <source>Updates detecting failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../frame/updatenotifier.cpp" line="170"/>
         <source>Updates detected, click to view</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3868,12 +3878,12 @@
 <context>
     <name>dcc::update::ResultItem</name>
     <message>
-        <location filename="../modules/update/resultitem.cpp" line="67"/>
+        <location filename="../modules/update/resultitem.cpp" line="66"/>
         <source>Update successfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/resultitem.cpp" line="68"/>
+        <location filename="../modules/update/resultitem.cpp" line="67"/>
         <source>Failed to update</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3914,7 +3924,7 @@
     </message>
     <message>
         <location filename="../modules/update/updatectrlwidget.cpp" line="190"/>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="289"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="294"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3948,8 +3958,13 @@
         <source>Insufficient disk space, unable to update system.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="242"/>
+        <source>Dependency error, failed to detect the updates</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="259"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -3957,12 +3972,12 @@
         </translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="264"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="269"/>
         <source>New system edition detected</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location filename="../modules/update/updatectrlwidget.cpp" line="266"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -3970,22 +3985,22 @@
         </translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="273"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Downloaded</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="275"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="280"/>
         <source>Download size: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="297"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="302"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../modules/update/updatectrlwidget.cpp" line="299"/>
+        <location filename="../modules/update/updatectrlwidget.cpp" line="304"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation type="unfinished"></translation>
     </message>
