@@ -65,7 +65,7 @@ PersonalizationWidget::PersonalizationWidget()
     NextPageWidget *theme = new NextPageWidget;
     NextPageWidget *font  = new NextPageWidget;
 
-    m_wmSwitch = new SwitchWidget(tr("Enable window effect"));
+    m_wmSwitch = new SwitchWidget(tr("Window effect"));
 
     theme->setTitle(tr("Theme"));
     font->setTitle(tr("Font"));
