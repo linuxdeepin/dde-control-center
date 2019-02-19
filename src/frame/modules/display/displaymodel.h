@@ -73,8 +73,6 @@ public:
     inline std::pair<int, QString> lastConfig() const { return m_lastConfig; }
     void setLastConfig(const std::pair<int, QString> &lastConfig);
 
-    inline QString lastPrimary() const { return m_lastPrimary; }
-
 Q_SIGNALS:
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;
@@ -110,7 +108,6 @@ private:
     double m_uiScale;
     double m_minimumBrightnessScale;
     QString m_primary;
-    QString m_lastPrimary;
     QString m_currentConfig;
     QStringList m_configList;
     QList<Monitor *> m_monitors;

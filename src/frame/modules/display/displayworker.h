@@ -85,6 +85,8 @@ public Q_SLOTS:
     void setUiScale(const double value);
     void setNightMode(const bool nightmode);
     void updateNightModeStatus();
+    void record(); // save mutilScreenConfig
+    void restore(); // restore mutilScreenConfig
 
 private Q_SLOTS:
     void onGSettingsChanged(const QString &key);

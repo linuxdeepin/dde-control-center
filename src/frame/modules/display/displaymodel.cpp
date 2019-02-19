@@ -106,7 +106,6 @@ void DisplayModel::setDisplayMode(const int mode)
 {
     if (m_mode != mode)
     {
-        m_lastConfig.first = m_mode;
         m_mode = mode;
         Q_EMIT displayModeChanged(m_mode);
     }
@@ -134,7 +133,6 @@ void DisplayModel::setPrimary(const QString &primary)
 {
     if (m_primary != primary)
     {
-        m_lastPrimary = m_primary;
         m_primary = primary;
         Q_EMIT primaryScreenChanged(m_primary);
     }
@@ -144,7 +142,6 @@ void DisplayModel::setCurrentConfig(const QString &config)
 {
     if (m_currentConfig != config)
     {
-        m_lastConfig.second = m_currentConfig;
         m_currentConfig = config;
         Q_EMIT currentConfigChanged(m_currentConfig);
     }

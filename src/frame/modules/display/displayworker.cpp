@@ -201,10 +201,7 @@ void DisplayWorker::createConfig()
 //    if (m_model->displayMode() == CUSTOM_MODE)
 //        return switchConfig(configName);
 
-    // 因为在自定义的情况下修改mode不会有dbus的changed信号，需要手动设置
-    if (m_model->displayMode() == CUSTOM_MODE) {
-        m_model->setLastConfig({CUSTOM_MODE, m_model->lastConfig().second});
-    }
+    record();
 
     const auto reply = m_displayInter.SwitchMode(CUSTOM_MODE, configName);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply);
@@ -514,4 +511,38 @@ void DisplayWorker::onGSettingsChanged(const QString &key)
 
     if (key == GSETTINGS_MINIMUM_BRIGHTNESS)
         m_model->setMinimumBrightnessScale(value.toDouble());
+}
+
+void DisplayWorker::record() {
+    const int displayMode { m_model->displayMode() };
+    const QString config { displayMode == CUSTOM_MODE ? m_model->config() : m_model->primary() };
+
+    m_model->setLastConfig(std::pair<int, QString>(displayMode, config));
+}
+
+void DisplayWorker::restore() {
+    const std::pair<int, QString> lastConfig { m_model->lastConfig() };
+
+    switch (lastConfig.first)
+    {
+        case CUSTOM_MODE: {
+            const QString config = m_model->config();
+            discardChanges();
+            switchMode(lastConfig.first, lastConfig.second);
+            saveChanges();
+            deleteConfig(config);
+            break;
+        }
+        case MERGE_MODE:
+            mergeScreens();
+            break;
+        case EXTEND_MODE:
+            extendMode();
+            break;
+        case SINGLE_MODE:
+            onlyMonitor(lastConfig.second);
+            break;
+        default:
+            break;
+    }
 }
