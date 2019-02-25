@@ -309,9 +309,6 @@ void SoundWorker::onSourceCardChanged(const uint &cardId)
 
 void SoundWorker::updatePortActivity()
 {
-    if (m_activeSinkPort.isEmpty() || m_activeSourcePort.isEmpty())
-        return;
-
     for (Port *port : m_model->ports()) {
         const bool isActiveOuputPort = (port->id() == m_activeSinkPort) && (port->cardId() == m_activeOutputCard);
         const bool isActiveInputPort = (port->id() == m_activeSourcePort) && (port->cardId() == m_activeInputCard);
