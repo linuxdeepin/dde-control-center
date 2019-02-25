@@ -812,6 +812,8 @@ find_package(Qt5Multimedia REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
 find_package(DtkCMake REQUIRED)
 
+find_library(KF5_LIB "libKF5NetworkManagerQt.so")
+
 pkg_check_modules(XCB_EWMH REQUIRED xcb-ewmh x11 xext)
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 pkg_check_modules(QGSettings REQUIRED gsettings-qt)
@@ -910,7 +912,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${Geoip_LIBRARIES}
     ${Gio-2.0_LIBRARIES}
     ${LibNM_LIBRARIES}
-    "/usr/lib/x86_64-linux-gnu/libKF5NetworkManagerQt.so"
+    ${KF5_LIB}
 )
 
 # bin
