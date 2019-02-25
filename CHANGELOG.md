@@ -1,3 +1,18 @@
+<a name=""></a>
+##  4.9.3 (2019-02-25)
+
+
+#### Features
+
+* **Update:**  add dependency error check ([cfb6e219](https://github.com/linuxdeepin/dde-control-center/commit/cfb6e2192374cfae9474f115616a4a6e26e0fecb))
+
+#### Bug Fixes
+
+*   notify date ([346b6053](https://github.com/linuxdeepin/dde-control-center/commit/346b60531fd37174ada2daf467f393bed1136354))
+* **defapp:**  refresh multiple times, data is empty ([3dd033f7](https://github.com/linuxdeepin/dde-control-center/commit/3dd033f70b10a8af477a98c5745ebe83071aa7bf))
+
+
+
 <a name="4.9.2.1"></a>
 ## 4.9.2.1 (2019-01-28)
 
