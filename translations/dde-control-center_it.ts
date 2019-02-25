@@ -160,9 +160,11 @@
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="164"/>
-        <source>Left click to rotate and right click to exit</source>
-        <translation>Click col sinistro per ruotare e col destro per uscire</translation>
+        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="135"/>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
+If no operation, the display will be restored after %1s.</source>
+        <translation>Tasto sinistro per ruotare, tasto destro per ripristinare ed uscire, premi Ctrl+S per salvare.
+In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translation>
     </message>
 </context>
 <context>
@@ -283,6 +285,29 @@
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
         <translation>Errore</translation>
+    </message>
+</context>
+<context>
+    <name>TimeoutDialog</name>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
+        <source>Do you want to save the display settings?</source>
+        <translation>Desideri salvare le impostazioni correnti?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
+        <source>If no operation, the display will be restored after %1s.</source>
+        <translation>In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
+        <source>Restore</source>
+        <translation>Ripristina</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
+        <source>Save</source>
+        <translation>Salva</translation>
     </message>
 </context>
 <context>
@@ -1029,12 +1054,12 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="225"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="227"/>
         <source>My Settings %1</source>
         <translation>Le mie impostazioni %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="273"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="280"/>
         <source>Wireless Screen Projection</source>
         <translation>Trasmissione WiFi dello schermo</translation>
     </message>
@@ -1043,38 +1068,38 @@
     <name>dcc::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="197"/>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="117"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="118"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
         <source>Display</source>
         <translation>Schermo</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="47"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="48"/>
         <source>Display scaling</source>
         <translation>Scala di visualizzazione</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="56"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
         <source>Rotate</source>
         <translation>Ruota</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="58"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
         <source>Custom Settings</source>
         <translation>Impostazioni personalizzate</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
         <translation>Risoluzione</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
         <source>Brightness</source>
         <translation>Luminosità</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="270"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="271"/>
         <source>Wireless Screen Projection</source>
         <translation>Trasmissione WiFi dello schermo</translation>
     </message>
@@ -1639,37 +1664,37 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="87"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="90"/>
         <source>Disconnect</source>
         <translation>Disconnetti</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="89"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="92"/>
         <source>Delete</source>
         <translation>Elimina</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="94"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="97"/>
         <source>Cancel</source>
         <translation>Annulla</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="95"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="98"/>
         <source>Save</source>
         <translation>Salva</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="339"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="342"/>
         <source>Wired Connection %1</source>
         <translation>Connessione cablata %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="343"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="346"/>
         <source>Wireless Connection %1</source>
         <translation>Connessione WiFi %1 </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="347"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="350"/>
         <source>PPPoE Connection %1</source>
         <translation>Connessione PPPoE %1</translation>
     </message>

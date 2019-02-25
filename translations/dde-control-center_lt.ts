@@ -160,9 +160,10 @@
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="164"/>
-        <source>Left click to rotate and right click to exit</source>
-        <translation>Kairysis spustelėjimas, norint pasukti, o dešinysis, norint išeiti</translation>
+        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="135"/>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
+If no operation, the display will be restored after %1s.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -286,6 +287,29 @@
     </message>
 </context>
 <context>
+    <name>TimeoutDialog</name>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
+        <source>Do you want to save the display settings?</source>
+        <translation>Ar norite įrašyti ekrano nustatymus?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
+        <source>If no operation, the display will be restored after %1s.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
+        <source>Restore</source>
+        <translation>Atkurti</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
+        <source>Save</source>
+        <translation>Įrašyti</translation>
+    </message>
+</context>
+<context>
     <name>UpdateNotifier</name>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="37"/>
@@ -357,12 +381,12 @@
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>Išeiti iš srities</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Prisijungti prie srities</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="62"/>
@@ -445,12 +469,12 @@
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>Išeiti iš srities</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Prisijungti prie srities</translation>
     </message>
 </context>
 <context>
@@ -463,22 +487,22 @@
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Jūsų serveris buvo sekmingai pašalintas iš srities serverio</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="325"/>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Jūsų serveris sėkmingai prisijungia prie srities serverio</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Jūsų serveriui nepavyko išeiti iš srities serverio</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="348"/>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Jūsų serveriui nepavyko prisijungti prie srities serverio</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="420"/>
@@ -488,7 +512,7 @@
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="351"/>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>Aktyvaus katalogo srities nustatymai</translation>
     </message>
 </context>
 <context>
@@ -501,7 +525,7 @@
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>Įvesti iš naujo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="56"/>
@@ -615,7 +639,7 @@
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="56"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation type="unfinished"/>
+        <translation>Piršto atspaudas yra naudojamas prisijungimui prie sistemos, tapatybės nustatymui programose ir kitomis aplinkybėmis. Nuskenuokite piršto atspaudą, kai reikia slaptažodžio.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="98"/>
@@ -1029,12 +1053,12 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="225"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="227"/>
         <source>My Settings %1</source>
         <translation>Mano nustatymai %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="273"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="280"/>
         <source>Wireless Screen Projection</source>
         <translation>Belaidis ekrano projektorius</translation>
     </message>
@@ -1043,38 +1067,38 @@
     <name>dcc::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="197"/>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="117"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="118"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
         <source>Display</source>
         <translation>Ekranas</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="47"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="48"/>
         <source>Display scaling</source>
         <translation>Ekrano mastelis</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="56"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
         <source>Rotate</source>
         <translation>Pasukti</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="58"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
         <source>Custom Settings</source>
         <translation>Asmeniniai nustatymai</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
         <translation>Raiška</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
         <source>Brightness</source>
         <translation>Ryškumas</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="270"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="271"/>
         <source>Wireless Screen Projection</source>
         <translation>Belaidis ekrano projektorius</translation>
     </message>
@@ -1550,17 +1574,17 @@
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detect</source>
-        <translation type="unfinished"/>
+        <translation>Delninuko aptikimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <source>Minimum contact surface</source>
-        <translation type="unfinished"/>
+        <translation>Minimalus kontaktinis paviršius</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <source>Minimum pressure value</source>
-        <translation type="unfinished"/>
+        <translation>Mažiausia spaudimo reikšmė</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
@@ -1615,7 +1639,7 @@
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation type="unfinished"/>
+        <translation>Sukonfigūravę ir norėdami naudoti, leistuke, programos kontekstiniame meniu ieškokite &quot;Atverti pagal įgaliotąjį serverį&quot;</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
@@ -1639,37 +1663,37 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="87"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="90"/>
         <source>Disconnect</source>
         <translation>Atsijungti</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="89"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="92"/>
         <source>Delete</source>
         <translation>Ištrinti</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="94"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="97"/>
         <source>Cancel</source>
         <translation>Atsisakyti</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="95"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="98"/>
         <source>Save</source>
         <translation>Įrašyti</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="339"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="342"/>
         <source>Wired Connection %1</source>
         <translation>Laidinis ryšys %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="343"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="346"/>
         <source>Wireless Connection %1</source>
         <translation>Belaidis ryšys %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="347"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="350"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE ryšys %1</translation>
     </message>
@@ -1735,7 +1759,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="54"/>
         <source>Not Bind</source>
-        <translation type="unfinished"/>
+        <translation>Nesusietas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="96"/>
@@ -2103,22 +2127,22 @@
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
-        <translation type="unfinished"/>
+        <translation>Be nuostolingojo duomenų glaudinimo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="93"/>
         <source>No TCP Header Compression</source>
-        <translation type="unfinished"/>
+        <translation>Be TCP antraštės glaudinimo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
-        <translation type="unfinished"/>
+        <translation>Be protokolo lauko glaudinimo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
-        <translation type="unfinished"/>
+        <translation>Be adreso/valdymo glaudinimo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="96"/>
@@ -2128,7 +2152,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="110"/>
         <source>Stateful MPPE</source>
-        <translation type="unfinished"/>
+        <translation>Įsimenamoji MPPE</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="31"/>
@@ -2265,7 +2289,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="163"/>
         <source>Saved</source>
-        <translation>Išsaugota</translation>
+        <translation>Įrašytas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="164"/>
@@ -2300,7 +2324,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="218"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Slaptažodžio parametrai</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="31"/>
@@ -2348,12 +2372,12 @@
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="381"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="416"/>
         <source>CA Cert</source>
-        <translation>LĮ sertifikatas</translation>
+        <translation>LĮ liudijimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="310"/>
         <source>User Cert</source>
-        <translation>Naudotojo sertifikatas</translation>
+        <translation>Naudotojo liudijimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="328"/>
@@ -2365,7 +2389,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="332"/>
         <source>Provisioning</source>
-        <translation type="unfinished"/>
+        <translation>Aprūpinimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="344"/>
@@ -2504,12 +2528,12 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
         <source>Customize Renegotiation Interval</source>
-        <translation type="unfinished"/>
+        <translation>Tinkinti pakartotinių derybų intervalą</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
         <source>Renegotiation Interval</source>
-        <translation type="unfinished"/>
+        <translation>Pakartotinių derybų intervalas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
@@ -2549,12 +2573,12 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
         <source>Restrict Tunnel TCP MSS</source>
-        <translation type="unfinished"/>
+        <translation>Apriboti tunelio TCP MSS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
         <source>Randomize Remote Hosts</source>
-        <translation type="unfinished"/>
+        <translation>Atsitiktinai išdėstyti nuotolinius serverius</translation>
     </message>
 </context>
 <context>
@@ -2567,7 +2591,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="141"/>
         <source>Netscreen</source>
-        <translation type="unfinished"/>
+        <translation>Netscreen</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="144"/>
@@ -2660,7 +2684,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
         <source>NAT Traversal Mode</source>
-        <translation type="unfinished"/>
+        <translation>NAT apėjimo veiksena</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="194"/>
@@ -2670,7 +2694,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="200"/>
         <source>Forward Secrecy</source>
-        <translation type="unfinished"/>
+        <translation>Pažangus slaptumas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
@@ -2680,7 +2704,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="211"/>
         <source>Disable Dead Peer Detection</source>
-        <translation type="unfinished"/>
+        <translation>Išjungti neveikiančių lygiarangių aptikimą</translation>
     </message>
 </context>
 <context>
@@ -2741,7 +2765,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
         <source>CA Cert</source>
-        <translation>LĮ sertifikatas</translation>
+        <translation>LĮ liudijimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="91"/>
@@ -2761,7 +2785,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="100"/>
         <source>User Cert</source>
-        <translation>Naudotojo sertifikatas</translation>
+        <translation>Naudotojo liudijimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="103"/>
@@ -2779,7 +2803,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="115"/>
         <source>Certificates (TLS)</source>
-        <translation>Sertifikatai (TLS)</translation>
+        <translation>Liudijimai (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
@@ -2790,7 +2814,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
         <source>Certificates with Password (TLS)</source>
-        <translation>Sertifikatai su slaptažodžiu (TLS)</translation>
+        <translation>Liudijimai su slaptažodžiu (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
@@ -2801,7 +2825,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="123"/>
         <source>Saved</source>
-        <translation>Išsaugota</translation>
+        <translation>Įrašytas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
@@ -2816,7 +2840,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="177"/>
         <source>User Cert</source>
-        <translation>Naudotojo sertifikatas</translation>
+        <translation>Naudotojo liudijimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
@@ -2827,7 +2851,7 @@
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="230"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Slaptažodžio parametrai</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="285"/>
@@ -2866,7 +2890,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="145"/>
         <source>CA Cert</source>
-        <translation>LĮ sertifikatas</translation>
+        <translation>LĮ liudijimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
@@ -2881,7 +2905,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="274"/>
         <source>Customize Key Direction</source>
-        <translation type="unfinished"/>
+        <translation>Tinkinti rakto kryptį</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="278"/>
@@ -2939,22 +2963,22 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
-        <translation type="unfinished"/>
+        <translation>Be nuostolingojo duomenų glaudinimo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No TCP Header Compression</source>
-        <translation type="unfinished"/>
+        <translation>Be TCP antraštės glaudinimo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
-        <translation type="unfinished"/>
+        <translation>Be protokolo lauko glaudinimo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
-        <translation type="unfinished"/>
+        <translation>Be adreso/valdymo glaudinimo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
@@ -2964,7 +2988,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="170"/>
         <source>Stateful MPPE</source>
-        <translation type="unfinished"/>
+        <translation>Įsimenamoji MPPE</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
@@ -3047,7 +3071,7 @@
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="283"/>
         <source>SSTP</source>
-        <translation type="unfinished"/>
+        <translation>SSTP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="310"/>
@@ -3125,12 +3149,12 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
         <source>Ignore certificate warnings</source>
-        <translation type="unfinished"/>
+        <translation>Nepaisyti liudijimų įspėjimų</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
         <source>Use TLS hostname extensions</source>
-        <translation type="unfinished"/>
+        <translation>Naudoti TLS kompiuterių vardų plėtinius</translation>
     </message>
 </context>
 <context>
@@ -3168,7 +3192,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
         <source>Saved</source>
-        <translation>Išsaugota</translation>
+        <translation>Įrašytas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
@@ -3205,7 +3229,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Slaptažodžio parametrai</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="128"/>
@@ -3262,7 +3286,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
         <source>Smartcard</source>
-        <translation type="unfinished"/>
+        <translation>Lustinė kortelė</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
@@ -3292,7 +3316,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
         <source>CA Cert</source>
-        <translation>LĮ sertifikatas</translation>
+        <translation>LĮ liudijimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
@@ -3302,7 +3326,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="169"/>
         <source>User Cert</source>
-        <translation>Naudotojo sertifikatas</translation>
+        <translation>Naudotojo liudijimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="175"/>
@@ -3332,7 +3356,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable custom cipher proposals</source>
-        <translation type="unfinished"/>
+        <translation>Įjungti tinkintus šifro pasiūlymus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
@@ -3370,7 +3394,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="87"/>
         <source>Subject Match</source>
-        <translation type="unfinished"/>
+        <translation>Temos atitikimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
@@ -3385,7 +3409,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="103"/>
         <source>Customize Key Direction</source>
-        <translation type="unfinished"/>
+        <translation>Tinkinti rakto kryptį</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="106"/>
@@ -3398,7 +3422,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="159"/>
         <source>Saved</source>
-        <translation>Išsaugota</translation>
+        <translation>Įrašytas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="160"/>
@@ -3438,7 +3462,7 @@
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Slaptažodžio parametrai</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
@@ -3517,7 +3541,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="55"/>
         <source>Not Bind</source>
-        <translation type="unfinished"/>
+        <translation>Nesusietas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="111"/>
@@ -3722,7 +3746,7 @@
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="108"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>Automatinis veiksenos perjungimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="184"/>

@@ -160,9 +160,10 @@
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="164"/>
-        <source>Left click to rotate and right click to exit</source>
-        <translation>Käännä hiiren vasemmalla painikkeella ja poistu oikealla painikkeella</translation>
+        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="135"/>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
+If no operation, the display will be restored after %1s.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -283,6 +284,29 @@
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
         <translation>Virhe</translation>
+    </message>
+</context>
+<context>
+    <name>TimeoutDialog</name>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
+        <source>Do you want to save the display settings?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
+        <source>If no operation, the display will be restored after %1s.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
+        <source>Restore</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
+        <source>Save</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1029,12 +1053,12 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="225"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="227"/>
         <source>My Settings %1</source>
         <translation>Minun asetukset %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="273"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="280"/>
         <source>Wireless Screen Projection</source>
         <translation>Langattoman näytön heijastaminen</translation>
     </message>
@@ -1043,38 +1067,38 @@
     <name>dcc::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="197"/>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="117"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="118"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
         <source>Display</source>
         <translation>Näyttö</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="47"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="48"/>
         <source>Display scaling</source>
         <translation>Näytön skaalaus</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="56"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
         <source>Rotate</source>
         <translation>Pyöritä</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="58"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
         <source>Custom Settings</source>
         <translation>Mukautetut asetukset</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
         <translation>Resoluutio</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
         <source>Brightness</source>
         <translation>Kirkkaus</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="270"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="271"/>
         <source>Wireless Screen Projection</source>
         <translation>Langattoman näytön heijastaminen</translation>
     </message>
@@ -1639,37 +1663,37 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="87"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="90"/>
         <source>Disconnect</source>
         <translation>Katkaise yhteys</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="89"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="92"/>
         <source>Delete</source>
         <translation>Poista</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="94"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="97"/>
         <source>Cancel</source>
         <translation>Peruuta</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="95"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="98"/>
         <source>Save</source>
         <translation>Tallenna</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="339"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="342"/>
         <source>Wired Connection %1</source>
         <translation>Langallinen yhteys %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="343"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="346"/>
         <source>Wireless Connection %1</source>
         <translation>Langaton yhteys %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="347"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="350"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE-yhteys %1</translation>
     </message>
@@ -2103,7 +2127,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
-        <translation>Ei deflate-pakkausta</translation>
+        <translation>Ei tyhjennä datan pakkausta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="93"/>
@@ -2113,12 +2137,12 @@
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
-        <translation>No Protocol Field Compression</translation>
+        <translation>Ei protokollakentän pakkausta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
-        <translation>No Address/Control Compression</translation>
+        <translation>Ei osoitetta/ohjauksen pakkausta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="96"/>
@@ -2504,12 +2528,12 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
         <source>Customize Renegotiation Interval</source>
-        <translation>Customize Regegotiation Interval</translation>
+        <translation>Mukauta uudelleenneuvotteluväli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
         <source>Renegotiation Interval</source>
-        <translation>Renegotiation Interval</translation>
+        <translation>Uudelleenneuvottelu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
@@ -2529,7 +2553,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
         <source>Customize Tunnel MTU</source>
-        <translation>Customize Tunnel MTU</translation>
+        <translation>Mukauta tunneli MTU</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
@@ -2539,22 +2563,22 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
         <source>Customize UDP Fragment Size</source>
-        <translation>Customize UDP Fragment Size</translation>
+        <translation>Mukauta UDP-palan kokoa</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
         <source>UDP Fragment Size</source>
-        <translation>UDP Fragment Size</translation>
+        <translation>UDP-palan koko</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
         <source>Restrict Tunnel TCP MSS</source>
-        <translation>Restrict Tunnel TCP MSS</translation>
+        <translation>Rajoita tunnelin TCP MSS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
         <source>Randomize Remote Hosts</source>
-        <translation>Randomize Remote Hosts</translation>
+        <translation>Satunnainen etäisäntä</translation>
     </message>
 </context>
 <context>
@@ -2645,7 +2669,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="173"/>
         <source>Vendor</source>
-        <translation>Vendor</translation>
+        <translation>Toimittaja</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="179"/>
@@ -2665,12 +2689,12 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="194"/>
         <source>IKE DH Group</source>
-        <translation>IKE DH Group</translation>
+        <translation>IKE DH ryhmä</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="200"/>
         <source>Forward Secrecy</source>
-        <translation>Forward Secrecy -ominaisuus</translation>
+        <translation>Edelleen salaus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
@@ -2703,7 +2727,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
         <source>Group ID</source>
-        <translation>Group ID</translation>
+        <translation>Ryhmän tunnus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
@@ -2713,7 +2737,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
         <source>Phase1 Algorithms</source>
-        <translation>Vaihe1 -algoritmit</translation>
+        <translation>Phase1 -algoritmit</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
@@ -2756,7 +2780,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="97"/>
         <source>CSD Script</source>
-        <translation>CSD Script</translation>
+        <translation>CSD Scripti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="100"/>
@@ -2832,12 +2856,12 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="285"/>
         <source>Remote IP</source>
-        <translation>Remote IP</translation>
+        <translation>Ulkoinen IP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="290"/>
         <source>Local IP</source>
-        <translation>Local IP</translation>
+        <translation>Paikallinen IP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
@@ -2949,12 +2973,12 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
-        <translation>No Protocol Field Compression</translation>
+        <translation>Ei protokollakentän pakkausta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
-        <translation>No Address/Control Compression</translation>
+        <translation>Ei osoitetta/ohjauksen pakkausta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
@@ -3070,7 +3094,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="137"/>
         <source>SOCKS</source>
-        <translation>SUKAT</translation>
+        <translation>PORTIT</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
@@ -3262,7 +3286,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
         <source>Smartcard</source>
-        <translation>Smartcard</translation>
+        <translation>Älykortti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
@@ -3370,12 +3394,12 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="87"/>
         <source>Subject Match</source>
-        <translation>Subject match</translation>
+        <translation>Kohde täsmää</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
         <source>Remote Cert Type</source>
-        <translation>Remote Cert Type</translation>
+        <translation>Varmenteen tyyppi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="100"/>
@@ -3458,7 +3482,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="199"/>
         <source>Use Hybrid Authentication</source>
-        <translation>Use Hybrid Authentication</translation>
+        <translation>Käytä hybriditodennusta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>

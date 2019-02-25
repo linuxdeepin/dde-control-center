@@ -160,9 +160,11 @@
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="164"/>
-        <source>Left click to rotate and right click to exit</source>
-        <translation>鼠标左键旋转，右键退出</translation>
+        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="135"/>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
+If no operation, the display will be restored after %1s.</source>
+        <translation>鼠标左键旋转，右键还原并退出，按Ctrl+S键保存。
+如无任何操作将在%1秒后还原。</translation>
     </message>
 </context>
 <context>
@@ -283,6 +285,29 @@
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
         <translation>错误提示</translation>
+    </message>
+</context>
+<context>
+    <name>TimeoutDialog</name>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
+        <source>Do you want to save the display settings?</source>
+        <translation>是否要保存显示设置？</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
+        <source>If no operation, the display will be restored after %1s.</source>
+        <translation>如无任何操作将在%1秒后还原。</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
+        <source>Restore</source>
+        <translation>还原</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
+        <source>Save</source>
+        <translation>保存</translation>
     </message>
 </context>
 <context>
@@ -1029,12 +1054,12 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="225"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="227"/>
         <source>My Settings %1</source>
         <translation>我的设置%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="273"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="280"/>
         <source>Wireless Screen Projection</source>
         <translation>无线投屏</translation>
     </message>
@@ -1043,38 +1068,38 @@
     <name>dcc::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="197"/>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="117"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="118"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
         <source>Display</source>
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="47"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="48"/>
         <source>Display scaling</source>
         <translation>屏幕缩放</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="56"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
         <source>Rotate</source>
         <translation>旋转</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="58"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
         <source>Custom Settings</source>
         <translation>自定义设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="270"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="271"/>
         <source>Wireless Screen Projection</source>
         <translation>无线投屏</translation>
     </message>
@@ -1639,37 +1664,37 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="87"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="90"/>
         <source>Disconnect</source>
         <translation>断开</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="89"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="92"/>
         <source>Delete</source>
         <translation>删除</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="94"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="97"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="95"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="98"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="339"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="342"/>
         <source>Wired Connection %1</source>
         <translation>有线连接 %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="343"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="346"/>
         <source>Wireless Connection %1</source>
         <translation>无线连接 %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="347"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="350"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE连接 %1</translation>
     </message>

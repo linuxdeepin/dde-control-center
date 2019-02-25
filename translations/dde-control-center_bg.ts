@@ -160,9 +160,10 @@
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="164"/>
-        <source>Left click to rotate and right click to exit</source>
-        <translation>Ляв бутон за въртене, а десен за изход</translation>
+        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="135"/>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
+If no operation, the display will be restored after %1s.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -217,7 +218,7 @@
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
-        <translation type="unfinished"/>
+        <translation>Зареждане</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
@@ -286,6 +287,29 @@
     </message>
 </context>
 <context>
+    <name>TimeoutDialog</name>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
+        <source>Do you want to save the display settings?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
+        <source>If no operation, the display will be restored after %1s.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
+        <source>Restore</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>UpdateNotifier</name>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="37"/>
@@ -295,12 +319,12 @@
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="158"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <translation>Грешка в зависимост, не можe да се открият актуализациите</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="161"/>
         <source>Updates detecting failure</source>
-        <translation type="unfinished"/>
+        <translation>Неуспешно търсене на актуализации</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="170"/>
@@ -478,12 +502,12 @@
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="348"/>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Вашият хост не успя да се присъедини към сървъра на домейна</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="420"/>
         <source>Password not match</source>
-        <translation type="unfinished"/>
+        <translation>Паролата нe съвпада</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="351"/>
@@ -571,12 +595,12 @@
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="151"/>
         <source>Username can&apos;t be empty</source>
-        <translation type="unfinished"/>
+        <translation>Потребителското име не може да бъде празно</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="154"/>
         <source>Password can&apos;t be empty</source>
-        <translation type="unfinished"/>
+        <translation>Паролата не може да бъде празна</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="256"/>
@@ -925,7 +949,7 @@
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="55"/>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Уебсайт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="56"/>
@@ -1029,12 +1053,12 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="225"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="227"/>
         <source>My Settings %1</source>
         <translation>Моите настройки %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="273"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="280"/>
         <source>Wireless Screen Projection</source>
         <translation>Безжична екранна прожекция</translation>
     </message>
@@ -1043,38 +1067,38 @@
     <name>dcc::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="197"/>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="117"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="118"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
         <source>Display</source>
         <translation>Дисплей</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="47"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="48"/>
         <source>Display scaling</source>
         <translation>Мащабиране на екрана</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="56"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
         <source>Rotate</source>
         <translation>Завърти</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="58"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
         <source>Custom Settings</source>
         <translation>Потребителски настройки</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
         <translation>Резолюция</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
         <source>Brightness</source>
         <translation>Яркост</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="270"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="271"/>
         <source>Wireless Screen Projection</source>
         <translation>Безжична екранна прожекция</translation>
     </message>
@@ -1639,37 +1663,37 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="87"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="90"/>
         <source>Disconnect</source>
         <translation>Прекъсване</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="89"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="92"/>
         <source>Delete</source>
         <translation>Изтриване</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="94"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="97"/>
         <source>Cancel</source>
         <translation>Отказ</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="95"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="98"/>
         <source>Save</source>
         <translation>Запазване</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="339"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="342"/>
         <source>Wired Connection %1</source>
         <translation>Кабелна връзка: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="343"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="346"/>
         <source>Wireless Connection %1</source>
         <translation>Безжична връзка: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="347"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="350"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE Връзка %1</translation>
     </message>
@@ -1722,7 +1746,7 @@
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="189"/>
         <source>VPN SSTP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN SSTP %1</translation>
     </message>
 </context>
 <context>
@@ -1735,7 +1759,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="54"/>
         <source>Not Bind</source>
-        <translation type="unfinished"/>
+        <translation>Не е свързан</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="96"/>
@@ -2204,7 +2228,7 @@
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="83"/>
         <source>SOCKS Proxy</source>
-        <translation type="unfinished"/>
+        <translation>SOCKS Proxy</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="70"/>
@@ -3047,7 +3071,7 @@
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="283"/>
         <source>SSTP</source>
-        <translation type="unfinished"/>
+        <translation>SSTP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="310"/>
@@ -3075,7 +3099,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation type="unfinished"/>
+        <translation>VPN Proxy</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
@@ -3125,12 +3149,12 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
         <source>Ignore certificate warnings</source>
-        <translation type="unfinished"/>
+        <translation>Игнориране на предупрежденията за сертификати</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
         <source>Use TLS hostname extensions</source>
-        <translation type="unfinished"/>
+        <translation>Използвайте TLS разширения на име на хост</translation>
     </message>
 </context>
 <context>
@@ -3223,7 +3247,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation type="unfinished"/>
+        <translation>VPN Proxy</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
@@ -3517,7 +3541,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="55"/>
         <source>Not Bind</source>
-        <translation type="unfinished"/>
+        <translation>Не е свързан</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="111"/>
@@ -3767,7 +3791,7 @@
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="60"/>
         <source>System Sound Effect</source>
-        <translation type="unfinished"/>
+        <translation>Системни звукови ефекти</translation>
     </message>
 </context>
 <context>
@@ -3845,7 +3869,7 @@
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="82"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Включете темата, за да я видите в менюто за зареждане</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="102"/>
@@ -4076,7 +4100,7 @@
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <translation>Грешка в зависимост, не можаха да се открият актуализациите</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
@@ -4167,7 +4191,7 @@
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation type="unfinished"/>
+        <translation>Включете, за да се свържете автоматично с най-бързия огледален сайт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="113"/>
@@ -4199,7 +4223,7 @@
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="245"/>
         <source>System patches</source>
-        <translation type="unfinished"/>
+        <translation>Системни кръпки</translation>
     </message>
 </context>
 <context>

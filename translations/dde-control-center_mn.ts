@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>Дахин ачааллах</translation>
     </message>
 </context>
 <context>
@@ -12,12 +12,12 @@
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Дүрс дээр дарж блютүүтийг идэвхжүүлнэ</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
         <source>Connect to other devices</source>
-        <translation type="unfinished"/>
+        <translation>Бусад төхөөрөмжүүдтэй холбогдох</translation>
     </message>
 </context>
 <context>
@@ -32,7 +32,7 @@
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="89"/>
         <source>Extend</source>
-        <translation>Tэлэх</translation>
+        <translation>Өрөгтгөх</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
@@ -43,35 +43,35 @@
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation type="unfinished"/>
+        <translation>Шинэ тусгай тохиргоо</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="99"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation>Дэлгэцэн дээрх зүйлсийг нэг эсвэл олон дэлгэцрүү хуулах</translation>
+        <translation>Дэлгэцэн дээрх зүйлсийг нэг эсвэл олон дэлэгцэд хуулах</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="101"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation type="unfinished"/>
+        <translation>Дэлгэцийн агуулгыг өрөгтгөснөөр өөр өөр дэлгэц дээр янз бүрийн агуулгыг үзүүлэх боломжтой</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="103"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation type="unfinished"/>
+        <translation>Дэлгэцийн агуулга нь зөвхөн %1 дээр харагдана</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
         <source>Please enter Display module to set if you want to change the custom settings</source>
-        <translation type="unfinished"/>
+        <translation>Хэрэв та тусгай тохиргоо хийхийг хүсвэл дэлгэцийн модулийг оруулна уу</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
-        <translation type="unfinished"/>
+        <translation>Дэлгэцийн модулруу дарна уу</translation>
     </message>
 </context>
 <context>
@@ -87,7 +87,7 @@
     <message>
         <location filename="../src/frame/navigation/navmodel.cpp" line="148"/>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Чиглүүлэгч</translation>
     </message>
 </context>
 <context>
@@ -95,7 +95,7 @@
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="235"/>
         <source>Navigation</source>
-        <translation type="unfinished"/>
+        <translation>Чиглүүлэгч</translation>
     </message>
 </context>
 <context>
@@ -103,17 +103,17 @@
     <message>
         <location filename="../src/frame/notify/notifydelegate.cpp" line="197"/>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Өчигдөр</translation>
     </message>
     <message>
         <location filename="../src/frame/notify/notifydelegate.cpp" line="199"/>
         <source>The day before yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Уржигдар</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n өдөрийн өмнө</numerusform><numerusform>%n өдөрийн өмнө</numerusform></translation>
     </message>
 </context>
 <context>
@@ -121,12 +121,12 @@
     <message>
         <location filename="../src/frame/notify/notifywidget.cpp" line="33"/>
         <source>No system notifications</source>
-        <translation type="unfinished"/>
+        <translation>Системийн мэдэгдэл алга</translation>
     </message>
     <message>
         <location filename="../src/frame/notify/notifywidget.cpp" line="35"/>
         <source>Clear all</source>
-        <translation type="unfinished"/>
+        <translation>Бүгдийг цэвэрлэ</translation>
     </message>
 </context>
 <context>
@@ -134,12 +134,12 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Шинэчлэлүүд суулгагдсан, та дахин эхлүүлэх хэрэгтэй. Одоо дахин эхлүүлэх үү?</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Please make sure all data have been saved firstly</source>
-        <translation type="unfinished"/>
+        <translation>Эхлээд бүх өгөгдлүүд хадгалагдсан эсэхийг шалгана уу</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
@@ -154,14 +154,15 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Дахин ачааллах</translation>
     </message>
 </context>
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="164"/>
-        <source>Left click to rotate and right click to exit</source>
+        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="135"/>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
+If no operation, the display will be restored after %1s.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -178,12 +179,12 @@
     <message>
         <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="50"/>
         <source>No search results</source>
-        <translation>Хайлт олдсонгүй</translation>
+        <translation>Хайлтын үр дүн олдсонгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="142"/>
         <source>Current City: %1</source>
-        <translation type="unfinished"/>
+        <translation>Одоогийн Хот: %1</translation>
     </message>
 </context>
 <context>
@@ -209,7 +210,7 @@
     <message>
         <location filename="../src/frame/settingswidget.cpp" line="89"/>
         <source>All Settings</source>
-        <translation>Бүх Тохиргоо</translation>
+        <translation>Бүх тохируулга</translation>
     </message>
 </context>
 <context>
@@ -217,7 +218,7 @@
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
-        <translation type="unfinished"/>
+        <translation>Ачаална</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
@@ -232,56 +233,79 @@
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
-        <translation type="unfinished"/>
+        <translation>Сэрээх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
-        <translation type="unfinished"/>
+        <translation>Дуу +/-</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="21"/>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Мэдэгдэл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="22"/>
         <source>Low battery</source>
-        <translation type="unfinished"/>
+        <translation>Бага цэнэгтэй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Дүрсийг ажлын тавцанруу илгээх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
         <source>Empty Trash</source>
-        <translation type="unfinished"/>
+        <translation>Хоосон хогийн сав</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="25"/>
         <source>Plug in</source>
-        <translation type="unfinished"/>
+        <translation>Залгах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Plug out</source>
-        <translation type="unfinished"/>
+        <translation>Салгах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
-        <translation type="unfinished"/>
+        <translation>Зөөвөрийн төхөөрөмж холбогдлоо</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
-        <translation type="unfinished"/>
+        <translation>Зөөвөрийн төхөөрөмж салгагдлаа</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
+        <translation>Алдаа</translation>
+    </message>
+</context>
+<context>
+    <name>TimeoutDialog</name>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
+        <source>Do you want to save the display settings?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
+        <source>If no operation, the display will be restored after %1s.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
+        <source>Restore</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
+        <source>Save</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -290,22 +314,22 @@
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Шинэчлэлүүд</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="158"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <translation>Хамааралын алдаа, шинэчлэлүүдийг илрүүлж чадсангүй</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="161"/>
         <source>Updates detecting failure</source>
-        <translation type="unfinished"/>
+        <translation>Шинэчлэлүүдийг илрүүлж чадсангүй</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="170"/>
         <source>Updates detected, click to view</source>
-        <translation type="unfinished"/>
+        <translation>Шинэчлэлүүд илэрлээ, дараад харна уу</translation>
     </message>
 </context>
 <context>
@@ -313,7 +337,7 @@
     <message>
         <location filename="../src/frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPN идэвхжүүлэхийн тулд дээр дарна уу</translation>
     </message>
 </context>
 <context>
@@ -321,17 +345,17 @@
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="120"/>
         <source>Sorry, unable to get weather!</source>
-        <translation type="unfinished"/>
+        <translation>Уучлаарай, цаг агаарын мэдээлэлийг авах боломжгүй!</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="127"/>
         <source>Loading weather...</source>
-        <translation type="unfinished"/>
+        <translation>Цаг агаарыг ачаалж байна ...</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="197"/>
         <source>Just updated</source>
-        <translation type="unfinished"/>
+        <translation>Саяхан шинэчлэгдсэн</translation>
     </message>
 </context>
 <context>
@@ -339,17 +363,17 @@
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WIFI</source>
-        <translation type="unfinished"/>
+        <translation>WIFI идэвхжүүлэхийн тулд дээр дарна уу</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>Нуужуулсан сүлжээнд холбогдоно уу</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
         <source>Wireless Card %1</source>
-        <translation type="unfinished"/>
+        <translation>Утасгүй сүлжээний карт %1</translation>
     </message>
 </context>
 <context>
@@ -357,22 +381,22 @@
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>Домэйн орхи</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Домэйнд холбогд</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="62"/>
         <source>Domain Server</source>
-        <translation type="unfinished"/>
+        <translation>Домэйн Сервер</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Admin account</source>
-        <translation type="unfinished"/>
+        <translation>Админы бүртгэл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="64"/>
@@ -390,27 +414,27 @@
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
-        <translation type="unfinished"/>
+        <translation>Хөрөг өөрчлөх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation type="unfinished"/>
+        <translation>Бүтэн нэрийг өөрчлөх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үгээ өөрчлөх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>Автоматаар нэвтрэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үггүй нэвтрэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -420,12 +444,12 @@
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation type="unfinished"/>
+        <translation>Устгах боломжгүй, одоогийн хэрэглэгч нэвтэрсэн байна</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Хурууны хээний нууц үг</translation>
     </message>
 </context>
 <context>
@@ -435,22 +459,22 @@
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="112"/>
         <source>Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Бүртгэлүүд</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
-        <translation type="unfinished"/>
+        <translation>Бүртгэл үүсгэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>Домэйн орхи</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>Домэйнд холбогд</translation>
     </message>
 </context>
 <context>
@@ -458,37 +482,37 @@
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="122"/>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Зургууд</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Таны хост домэйн серверээс амжилттай устгагдсан</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="325"/>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Таны хост домэйн серверт амжилттай холбогдсон</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Таны хост домэйн серверийг орхиж чадсангүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="348"/>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Таны хост домэйн серверт нэгдэх боломжгүй байна</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="420"/>
         <source>Password not match</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үг тохирсонгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="351"/>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>AD домэйн тохиргоо</translation>
     </message>
 </context>
 <context>
@@ -496,12 +520,12 @@
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Хурууны хээ нэмэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
-        <translation type="unfinished"/>
+        <translation>Дахин оруулах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="56"/>
@@ -511,22 +535,22 @@
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Хурууны хээг таниж байна</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation type="unfinished"/>
+        <translation>Хурууны хээг таньсангүй, хуруугаа хурууны хээ уншигч дээр байрлуулаад доороос дээшээ уншуулна уу</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Add successfully</source>
-        <translation type="unfinished"/>
+        <translation>Амжилттай нэмэгдлээ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation type="unfinished"/>
+        <translation>Хурууны хээг таньсангүй, хуруугаа хурууны хээ уншигч дээр байрлуулаад доороос дээшээ уншуулаад энэ алхамыг давтна уу</translation>
     </message>
 </context>
 <context>
@@ -541,7 +565,7 @@
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="56"/>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="59"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="55"/>
@@ -551,7 +575,7 @@
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="58"/>
         <source>Repeat password</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үгээ дахин оруулах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="67"/>
@@ -561,33 +585,33 @@
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="68"/>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Үүсгэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="88"/>
         <source>New Account</source>
-        <translation type="unfinished"/>
+        <translation>Шинэ бүртгэл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="151"/>
         <source>Username can&apos;t be empty</source>
-        <translation type="unfinished"/>
+        <translation>Хэрэглэгчийн нэр хоосон байж болохгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="154"/>
         <source>Password can&apos;t be empty</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үг хоосон байж болохгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="256"/>
         <source>The password should be different from the username</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үг нь хэрэглэгчийн нэрээс өөр байх ёстой</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="262"/>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="265"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үг Англи үсэг агуулсан байх шаардлагатай (Том жижиг үсэг), тоонууд эсвэл тусгай тэмдэгүүд (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -595,32 +619,32 @@
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
-        <translation type="unfinished"/>
+        <translation>Хурууны хээний жагсаалт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Хурууны хээн нууц үг</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Хурууны хээ нэмэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Хурууны хээ арилгах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="56"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation type="unfinished"/>
+        <translation>Хурууны хээн нууц үгийг системд нэвтрэх болох програмын зөвшөөрөл болон бусад зүйлст ашиглана. Нууц үг шаардах үед хурууны хээг уншуулах хэрэгтэй.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Хурууны хээ</translation>
     </message>
 </context>
 <context>
@@ -628,17 +652,17 @@
     <message>
         <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation type="unfinished"/>
+        <translation>Бүтэн нэр:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="48"/>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>ЗА</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation type="unfinished"/>
+        <translation>Бүтэн нэрний тохиргоо</translation>
     </message>
 </context>
 <context>
@@ -646,7 +670,7 @@
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="50"/>
         <source>Current Password</source>
-        <translation type="unfinished"/>
+        <translation>Одоогийн нууц үг</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="52"/>
@@ -663,7 +687,7 @@
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="57"/>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="58"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="62"/>
@@ -673,12 +697,12 @@
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="64"/>
         <source>Accept</source>
-        <translation type="unfinished"/>
+        <translation>Зөвшөөрөх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="112"/>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"/>
+        <translation>Шинэ нууц үг одоогийнхоос өөр байх ёстой</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="148"/>
@@ -688,12 +712,12 @@
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="207"/>
         <source>The password should be different from the username</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үг хэрэглэгчийн нэрнээс өөр байх ёстой</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="215"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үг Англи үсэг агуулсан байх шаардлагатай (Том жижиг үсэг), тоонууд эсвэл тусгай тэмдэгүүд (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -701,12 +725,12 @@
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>Бүртгэлийг устагахын тулд администраторын зөвшөөрөл шаардлагтай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>Бүртгэлийн санг устгах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
@@ -734,7 +758,7 @@
     <message>
         <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="67"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>Ойролцоо байгаа блютүүт идэвхижсэн төхөөрөмжүүдийг хайх (Дуу өсгөгч, компьютерийн гар, хулгана)</translation>
     </message>
 </context>
 <context>
@@ -770,7 +794,7 @@
     <message>
         <location filename="../src/frame/modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Холбогдоогүй</translation>
     </message>
 </context>
 <context>
@@ -778,7 +802,7 @@
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation type="unfinished"/>
+        <translation>Блютүүт төхөөрөмжид холбогдох ПИН код:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="49"/>
@@ -788,7 +812,7 @@
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="51"/>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>ЗА</translation>
     </message>
 </context>
 <context>
@@ -796,7 +820,7 @@
     <message>
         <location filename="../src/frame/modules/datetime/datesettings.cpp" line="63"/>
         <source>Change Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Цагалбарын тохиргоо</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datesettings.cpp" line="68"/>
@@ -814,17 +838,17 @@
     <message>
         <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="56"/>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Жил</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="59"/>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Сар</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Өдөр</translation>
     </message>
 </context>
 <context>
@@ -834,12 +858,12 @@
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="119"/>
         <source>Time and Date</source>
-        <translation type="unfinished"/>
+        <translation>Цаг ба огноо</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
-        <translation type="unfinished"/>
+        <translation>Автоматаар синк хийх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="51"/>
@@ -849,17 +873,17 @@
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="61"/>
         <source>Change System Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Системийн цагын бүсийг өөрчлөх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="69"/>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Цагны тохиргоо</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="74"/>
         <source>Timezone List</source>
-        <translation type="unfinished"/>
+        <translation>Цагын бүсийн жагсаалт</translation>
     </message>
 </context>
 <context>
@@ -882,7 +906,7 @@
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="176"/>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Цагын бүс өөрчлөх</translation>
     </message>
 </context>
 <context>
@@ -890,12 +914,12 @@
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="107"/>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>Маргааш</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="109"/>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Өчигдөр</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="111"/>
@@ -905,12 +929,12 @@
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="116"/>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>Орон нутгийнхаас %1 цагаар эрт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="118"/>
         <source>%1 hours late than local</source>
-        <translation type="unfinished"/>
+        <translation>Орон нутгийнхаас %1 цагаар сүүлд</translation>
     </message>
 </context>
 <context>
@@ -925,7 +949,7 @@
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="55"/>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Вэб хуудас</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="56"/>
@@ -968,7 +992,7 @@
     <message>
         <location filename="../src/frame/modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>Ажлын тавцангийн файл нээх</translation>
     </message>
 </context>
 <context>
@@ -990,17 +1014,17 @@
     <message>
         <location filename="../src/frame/modules/display/brightnesspage.cpp" line="81"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Шөнийн шилжилт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/brightnesspage.cpp" line="86"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation type="unfinished"/>
+        <translation>Таны байршлаас хамааран нүдийг хамгаалах үүднээс дэлгэцийн гэрлийн автоматаар тохируулах болно</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/brightnesspage.cpp" line="95"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Автомат гэрэлтүүлэг</translation>
     </message>
 </context>
 <context>
@@ -1008,7 +1032,7 @@
     <message>
         <location filename="../src/frame/modules/display/customconfigpage.cpp" line="43"/>
         <source>Modify</source>
-        <translation type="unfinished"/>
+        <translation>Өөрчлөх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/customconfigpage.cpp" line="45"/>
@@ -1018,65 +1042,65 @@
     <message>
         <location filename="../src/frame/modules/display/customconfigpage.cpp" line="48"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation type="unfinished"/>
+        <translation>Тохиргоог өөрчлөхийн тулд одоогийн горимыг сольно уу</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/customconfigpage.cpp" line="50"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation type="unfinished"/>
+        <translation>Өөр горимд шилжихийн тулд тохиргоог устгана уу</translation>
     </message>
 </context>
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="225"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="227"/>
         <source>My Settings %1</source>
-        <translation type="unfinished"/>
+        <translation>Миний тохиргоо %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="273"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="280"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Утасгүй дэлгэцийн дамжуулагч</translation>
     </message>
 </context>
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="197"/>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="117"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="118"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
         <source>Display</source>
         <translation>Дэлгэц</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="47"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="48"/>
         <source>Display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Дэлгэц өрөгтгөх</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="56"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
         <source>Rotate</source>
-        <translation type="unfinished"/>
+        <translation>Эргүүлэх</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="58"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
         <source>Custom Settings</source>
         <translation>Хэрэглэгчийн тохиргоо</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
         <translation>Нягтаршил</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
         <source>Brightness</source>
         <translation>Цайралт</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="270"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="271"/>
         <source>Wireless Screen Projection</source>
-        <translation type="unfinished"/>
+        <translation>Утасгүй дэлгэцийн дамжуулагч</translation>
     </message>
 </context>
 <context>
@@ -1084,17 +1108,17 @@
     <message>
         <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="43"/>
         <source>Scanning devices, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Төхөөрөмжүүдийг шүүж байна, түр хүлээнэ үү...</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="44"/>
         <source>No available device found</source>
-        <translation type="unfinished"/>
+        <translation>Төхөөрөмж олдсонгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="47"/>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>Дахин ачааллах</translation>
     </message>
 </context>
 <context>
@@ -1102,17 +1126,17 @@
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="51"/>
         <source>WIFI will be disconnected when enable screen projection</source>
-        <translation type="unfinished"/>
+        <translation>Дэлгэц дамжуулалт хийх үед WIFI салгагдах болно</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="55"/>
         <source>Refresh</source>
-        <translation type="unfinished"/>
+        <translation>Дахин ачааллах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="69"/>
         <source>Device List</source>
-        <translation type="unfinished"/>
+        <translation>Төхөөрөмжийн жагсаалт</translation>
     </message>
 </context>
 <context>
@@ -1120,17 +1144,17 @@
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="48"/>
         <source>Recognize</source>
-        <translation type="unfinished"/>
+        <translation>Таних</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="55"/>
         <source>Split</source>
-        <translation type="unfinished"/>
+        <translation>Хуваах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="62"/>
         <source>Merge</source>
-        <translation type="unfinished"/>
+        <translation>Нэгтгэх</translation>
     </message>
 </context>
 <context>
@@ -1163,7 +1187,7 @@
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="359"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation> (Санал болгож байна)</translation>
     </message>
 </context>
 <context>
@@ -1176,7 +1200,7 @@
     <message>
         <location filename="../src/frame/modules/display/resolutiondetailpage.cpp" line="80"/>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation> (Санал болгож байна)</translation>
     </message>
 </context>
 <context>
@@ -1184,7 +1208,7 @@
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="51"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Товчилбор</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="60"/>
@@ -1195,12 +1219,12 @@
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="64"/>
         <source>Command</source>
-        <translation type="unfinished"/>
+        <translation>Тушаал</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="83"/>
@@ -1215,12 +1239,12 @@
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="116"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Энэ товчилбор %1 товчилбортой давхцаж байна. Бусад товчилборуудтай давхцуулалгүйгээр нэмэх хэрэгтэй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="171"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>Файл сонгох</translation>
     </message>
 </context>
 <context>
@@ -1229,12 +1253,12 @@
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="50"/>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="99"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Товчилборууд</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="60"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="71"/>
@@ -1254,17 +1278,17 @@
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="103"/>
         <source>Command</source>
-        <translation type="unfinished"/>
+        <translation>Тушаал</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="120"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Энэ товчилбор %1 товчилбортой давхцаж байна. Бусад товчилборуудтай давхцуулалгүйгээр нэмэх хэрэгтэй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="161"/>
         <source>Choose File</source>
-        <translation type="unfinished"/>
+        <translation>Файл сонгох</translation>
     </message>
 </context>
 <context>
@@ -1272,12 +1296,12 @@
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Товчилбор</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="105"/>
         <source>Please enter a shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Товчилборыг оруулна уу</translation>
     </message>
 </context>
 <context>
@@ -1286,17 +1310,17 @@
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="49"/>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="51"/>
         <source>Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Гарын байрлал</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>Байрлалыг солих (Олон)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="88"/>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Гарын байрлал нэмэх</translation>
     </message>
 </context>
 <context>
@@ -1304,7 +1328,7 @@
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardlayoutwidget.cpp" line="50"/>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Гарын байрлал нэмэх</translation>
     </message>
 </context>
 <context>
@@ -1314,27 +1338,27 @@
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="122"/>
         <source>Keyboard and Language</source>
-        <translation type="unfinished"/>
+        <translation>Гар болон хэл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="52"/>
         <source>Repeat Delay</source>
-        <translation type="unfinished"/>
+        <translation>Давтах хүлээлт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>Богино</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Удаан</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="65"/>
         <source>Repeat Rate</source>
-        <translation type="unfinished"/>
+        <translation>Давтах хурд</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="74"/>
@@ -1349,32 +1373,32 @@
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="79"/>
         <source>Please Test Here</source>
-        <translation type="unfinished"/>
+        <translation>Туршиж үзнэ үү</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="93"/>
         <source>Enable Numeric Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Тоон гарыг идэвхижүүлэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="97"/>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished"/>
+        <translation>Том үсгийн мэдэгдэл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="103"/>
         <source>Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Гарын байршил</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="111"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Системийн хэл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Товчилбор</translation>
     </message>
 </context>
 <context>
@@ -1382,7 +1406,7 @@
     <message>
         <location filename="../src/frame/modules/keyboard/langwidget.cpp" line="48"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>Системийн хэл</translation>
     </message>
 </context>
 <context>
@@ -1390,7 +1414,7 @@
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="50"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Товчилборыг дахин тохируулах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="57"/>
@@ -1405,12 +1429,12 @@
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="60"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Товчилборууд</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="93"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Энэ товчилбор %1 товчилбортой зөрчилдөж байна, Солих товч дээр дарж энэ товчилборыг сайжруулаарай</translation>
     </message>
 </context>
 <context>
@@ -1418,7 +1442,7 @@
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="85"/>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Шинэ товчилборыг оруулна уу</translation>
     </message>
 </context>
 <context>
@@ -1436,22 +1460,22 @@
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="57"/>
         <source>WorkSpace</source>
-        <translation type="unfinished"/>
+        <translation>Ажлын орон зай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="65"/>
         <source>Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Тусгай товчилбор</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Тусгай товчилбор оруулах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Товчилборууд</translation>
     </message>
 </context>
 <context>
@@ -1459,7 +1483,7 @@
     <message>
         <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="44"/>
         <source>Double-click Test</source>
-        <translation type="unfinished"/>
+        <translation>Хоёр дарж туршна уу</translation>
     </message>
 </context>
 <context>
@@ -1469,32 +1493,32 @@
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="121"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Хулгана</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="46"/>
         <source>Mouse and Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Хулгана болон Товшигч</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
-        <translation type="unfinished"/>
+        <translation>Товшигч</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="51"/>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>Чиглүүлэгч цэг</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="53"/>
         <source>Left Hand</source>
-        <translation type="unfinished"/>
+        <translation>Зүүн гар</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="54"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Бичиж байх үед товчлуурыг идэвхигүй болгох</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="55"/>
@@ -1511,28 +1535,28 @@
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Хулганы хурдатгал</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
-        <translation type="unfinished"/>
+        <translation>Гүйлгэх зурвасын хурд</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="61"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation type="unfinished"/>
+        <translation>Хулганыг залгах үед товшигчыг идэвхигүй болгох</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="62"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="66"/>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Байгалийн гүйлгэлт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="65"/>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Дарах товч дээр дар</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="73"/>
@@ -1550,22 +1574,22 @@
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detect</source>
-        <translation type="unfinished"/>
+        <translation>Алга мэдрэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <source>Minimum contact surface</source>
-        <translation type="unfinished"/>
+        <translation>Хамгийн бага холбогдох гадаргуу</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <source>Minimum pressure value</source>
-        <translation type="unfinished"/>
+        <translation>Хамгийн бага даралтын утга</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>Хэрэв товшигч идвхижүүлсэний дараа ажиллахгүй бол энэ сонголтыг идэвхигүй болгоно уу</translation>
     </message>
 </context>
 <context>
@@ -1573,23 +1597,23 @@
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="46"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Програмын прокси</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="49"/>
         <source>Proxy Type</source>
-        <translation type="unfinished"/>
+        <translation>Проксины төрөл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="52"/>
         <source>IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP хаяг</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="53"/>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="57"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="56"/>
@@ -1605,7 +1629,7 @@
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="61"/>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="65"/>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлаггүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="64"/>
@@ -1615,7 +1639,7 @@
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation type="unfinished"/>
+        <translation>&quot;Проксигоор нээх&quot; гэсэн текст цэсийг эхлүүлэгч дэхь програмын цэснээс шалгаарай.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
@@ -1625,7 +1649,7 @@
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="89"/>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>ЗА</translation>
     </message>
 </context>
 <context>
@@ -1633,45 +1657,45 @@
     <message>
         <location filename="../src/frame/modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
-        <translation type="unfinished"/>
+        <translation>Проксины төрөл</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="87"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="90"/>
         <source>Disconnect</source>
         <translation>Салгах</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="89"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="92"/>
         <source>Delete</source>
         <translation>Устгах</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="94"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="97"/>
         <source>Cancel</source>
         <translation>Цуцлах</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="95"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="98"/>
         <source>Save</source>
         <translation>Хадгалах</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="339"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="342"/>
         <source>Wired Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Утастай холболт %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="343"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="346"/>
         <source>Wireless Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>Утасгүй холболт %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="347"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="350"/>
         <source>PPPoE Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>PPPoE холболт %1</translation>
     </message>
 </context>
 <context>
@@ -1679,7 +1703,7 @@
     <message>
         <location filename="../src/frame/modules/network/connectionhotspoteditpage.cpp" line="47"/>
         <source>hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Утасгүй сүлжээ цацагч</translation>
     </message>
 </context>
 <context>
@@ -1687,42 +1711,42 @@
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="154"/>
         <source>Export</source>
-        <translation type="unfinished"/>
+        <translation>Экспорт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="165"/>
         <source>VPN L2TP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN L2TP %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="169"/>
         <source>VPN PPTP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN PPTP %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="173"/>
         <source>VPN VPNC %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN VPNC %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="177"/>
         <source>VPN OpenVPN %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN OpenVPN %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="181"/>
         <source>VPN StrongSwan %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN StrongSwan %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="185"/>
         <source>VPN OpenConnect %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN OpenConnect %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="189"/>
         <source>VPN SSTP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN SSTP %1</translation>
     </message>
 </context>
 <context>
@@ -1730,32 +1754,32 @@
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="37"/>
         <source>Ethernet</source>
-        <translation type="unfinished"/>
+        <translation>Итернэт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="54"/>
         <source>Not Bind</source>
-        <translation type="unfinished"/>
+        <translation>Бэхлэгдээгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="96"/>
         <source>Device MAC Addr</source>
-        <translation type="unfinished"/>
+        <translation>Төхөөрөмжийн МАК хаяг</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="111"/>
         <source>Cloned MAC Addr</source>
-        <translation type="unfinished"/>
+        <translation>Хувилсан МАК хаяг</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="124"/>
         <source>Customize MTU</source>
-        <translation type="unfinished"/>
+        <translation>MTU өөрчлөх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="127"/>
         <source>MTU</source>
-        <translation type="unfinished"/>
+        <translation>MTU</translation>
     </message>
 </context>
 <context>
@@ -1763,7 +1787,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/generichotspotsection.cpp" line="31"/>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Ерөнхий</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/generichotspotsection.cpp" line="63"/>
@@ -1776,7 +1800,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="31"/>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Ерөнхий</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="62"/>
@@ -1786,7 +1810,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
         <source>Automatically connect</source>
-        <translation type="unfinished"/>
+        <translation>Автоматаар холбогдох</translation>
     </message>
 </context>
 <context>
@@ -1795,12 +1819,12 @@
         <location filename="../src/frame/modules/network/hotspotpage.cpp" line="61"/>
         <location filename="../src/frame/modules/network/hotspotpage.cpp" line="82"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Утасгүй сүлжээ цацагч</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/hotspotpage.cpp" line="62"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>Тохиргоо нэмэх</translation>
     </message>
 </context>
 <context>
@@ -1809,13 +1833,13 @@
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="214"/>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="219"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Автомат</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="215"/>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="220"/>
         <source>Manual</source>
-        <translation type="unfinished"/>
+        <translation>Гар арга</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="221"/>
@@ -1825,17 +1849,17 @@
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="32"/>
         <source>IPv4</source>
-        <translation type="unfinished"/>
+        <translation>IPv4</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="52"/>
         <source>IPv6</source>
-        <translation type="unfinished"/>
+        <translation>IPv6</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="227"/>
         <source>Method</source>
-        <translation type="unfinished"/>
+        <translation>Арга</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="228"/>
@@ -1846,37 +1870,37 @@
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="229"/>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="230"/>
         <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>Гарц</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="231"/>
         <source>Primary DNS</source>
-        <translation type="unfinished"/>
+        <translation>Үндсэн DNS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="232"/>
         <source>Secondary DNS</source>
-        <translation type="unfinished"/>
+        <translation>Хоёрдогч DNS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="233"/>
         <source>Only applied in corresponding resources</source>
-        <translation type="unfinished"/>
+        <translation>Зөвхөн холбогдох нөөцөд л хамаарна</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="293"/>
         <source>Netmask</source>
-        <translation type="unfinished"/>
+        <translation>Нэтмаск</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="304"/>
         <source>Prefix</source>
-        <translation type="unfinished"/>
+        <translation>Угтвар</translation>
     </message>
 </context>
 <context>
@@ -1884,74 +1908,74 @@
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="94"/>
         <source>Network Details</source>
-        <translation type="unfinished"/>
+        <translation>Сүлжээний дэлгэрэнгүй мэдээлэл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="139"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Утасгүй сүлжээ цацагч</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="144"/>
         <source>SSID</source>
-        <translation type="unfinished"/>
+        <translation>SSID</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="154"/>
         <source>Security</source>
-        <translation type="unfinished"/>
+        <translation>Аюулгүй байдал</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="160"/>
         <source>Interface</source>
-        <translation type="unfinished"/>
+        <translation>Интерфэйс</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="165"/>
         <source>MAC</source>
-        <translation type="unfinished"/>
+        <translation>МАК</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="171"/>
         <source>Band</source>
-        <translation type="unfinished"/>
+        <translation>Холболт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="180"/>
         <source>IPv4</source>
-        <translation type="unfinished"/>
+        <translation>IPv4</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="205"/>
         <source>IPv6</source>
-        <translation type="unfinished"/>
+        <translation>IPv6</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="185"/>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="210"/>
         <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>Гарц</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="190"/>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="215"/>
         <source>Primary DNS</source>
-        <translation type="unfinished"/>
+        <translation>Үндсэн DNS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="195"/>
         <source>Netmask</source>
-        <translation type="unfinished"/>
+        <translation>Нэтмаск</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="220"/>
         <source>Prefix</source>
-        <translation type="unfinished"/>
+        <translation>Угтвар</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="226"/>
         <source>Speed</source>
-        <translation type="unfinished"/>
+        <translation>Хурд</translation>
     </message>
 </context>
 <context>
@@ -1966,7 +1990,7 @@
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="57"/>
         <source>DSL</source>
-        <translation type="unfinished"/>
+        <translation>DSL</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="61"/>
@@ -1976,67 +2000,67 @@
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="65"/>
         <source>System Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Системийн прокси</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
         <source>Application proxy</source>
-        <translation type="unfinished"/>
+        <translation>Програмын прокси</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
         <source>Network Details</source>
-        <translation type="unfinished"/>
+        <translation>Сүлжээний дэлгэрэнгүй мэдээлэл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="237"/>
         <source>Wired Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Утастай сүлжээний карт %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="238"/>
         <source>Wired Network%1</source>
-        <translation type="unfinished"/>
+        <translation>Утастай сүлжээ %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="242"/>
         <source>Wired Network Card</source>
-        <translation type="unfinished"/>
+        <translation>Утастай сүлжээний карт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Утастай сүлжээ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="252"/>
         <source>Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Утасгүй сүлжээ цацагч</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="257"/>
         <source>Shared</source>
-        <translation type="unfinished"/>
+        <translation>Хуваалцсан</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="266"/>
         <source>Wireless Network Card%1</source>
-        <translation type="unfinished"/>
+        <translation>Утасгүй сүлжээний карт %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="267"/>
         <source>Wireless Network%1</source>
-        <translation type="unfinished"/>
+        <translation>Утасгүй сүлжээ %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network Card</source>
-        <translation type="unfinished"/>
+        <translation>Утасгүй сүлжээний карт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="272"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Утасгүй сүлжээ</translation>
     </message>
 </context>
 <context>
@@ -2055,12 +2079,12 @@
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="79"/>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="82"/>
         <source>Service</source>
-        <translation type="unfinished"/>
+        <translation>Үйлчилгээ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="85"/>
@@ -2073,77 +2097,77 @@
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
-        <translation type="unfinished"/>
+        <translation>EAP баталгаажуулалтаас татгалзах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
-        <translation type="unfinished"/>
+        <translation>PAP баталгаажуулалтаас татгалзах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
-        <translation type="unfinished"/>
+        <translation>CHAP баталгаажуулалтаас татгалзах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation type="unfinished"/>
+        <translation>MSCHAP баталгаажуулалтаас татгалзах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation type="unfinished"/>
+        <translation>MSCHAPv2 баталгаажуулалтаас татгалзах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="91"/>
         <source>No BSD Data Compression</source>
-        <translation type="unfinished"/>
+        <translation>BSD өгөгдлийн шахалт байхгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
-        <translation type="unfinished"/>
+        <translation>Deflate өгөгдлийн шахалт байхгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="93"/>
         <source>No TCP Header Compression</source>
-        <translation type="unfinished"/>
+        <translation>TCP толгойн шахалт байхгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
-        <translation type="unfinished"/>
+        <translation>Протоколийн талбарын шахалт байхгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
-        <translation type="unfinished"/>
+        <translation>Хаяг байхгүй / Хяналтын шахалт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="96"/>
         <source>Send PPP Echo Packets</source>
-        <translation type="unfinished"/>
+        <translation>PPP цуурай багц илгээх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="110"/>
         <source>Stateful MPPE</source>
-        <translation type="unfinished"/>
+        <translation>MPPE төлөв</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="31"/>
         <source>PPP</source>
-        <translation type="unfinished"/>
+        <translation>PPP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
-        <translation type="unfinished"/>
+        <translation>MPPE ашиглах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="107"/>
         <source>128-bit MPPE</source>
-        <translation type="unfinished"/>
+        <translation>128 бит MPPE</translation>
     </message>
 </context>
 <context>
@@ -2151,12 +2175,12 @@
     <message>
         <location filename="../src/frame/modules/network/pppoepage.cpp" line="52"/>
         <source>Create PPPoE Connection</source>
-        <translation type="unfinished"/>
+        <translation>PPPoE холболт үүсгэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/pppoepage.cpp" line="66"/>
         <source>PPP</source>
-        <translation type="unfinished"/>
+        <translation>PPP</translation>
     </message>
 </context>
 <context>
@@ -2179,32 +2203,32 @@
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="62"/>
         <source>Manual</source>
-        <translation type="unfinished"/>
+        <translation>Гар арга</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="63"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Автомат</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="68"/>
         <source>HTTP Proxy</source>
-        <translation type="unfinished"/>
+        <translation>HTTP прокси</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="73"/>
         <source>HTTPS Proxy</source>
-        <translation type="unfinished"/>
+        <translation>HTTPS прокси</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="78"/>
         <source>FTP Proxy</source>
-        <translation type="unfinished"/>
+        <translation>FTP прокси</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="83"/>
         <source>SOCKS Proxy</source>
-        <translation type="unfinished"/>
+        <translation>SOCKS прокси</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="70"/>
@@ -2217,17 +2241,17 @@
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="92"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="unfinished"/>
+        <translation>Дээрх талбарт бичигдсэн хостууд болон домайнуудад прокси тохиргоо хамааралгүй.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="95"/>
         <source>Configuration URL</source>
-        <translation type="unfinished"/>
+        <translation>Тохиргооны URL</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="152"/>
         <source>System Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Системийн прокси</translation>
     </message>
 </context>
 <context>
@@ -2235,37 +2259,37 @@
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="153"/>
         <source>TLS</source>
-        <translation type="unfinished"/>
+        <translation>TLS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="154"/>
         <source>MD5</source>
-        <translation type="unfinished"/>
+        <translation>MD5</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="155"/>
         <source>LEAP</source>
-        <translation type="unfinished"/>
+        <translation>LEAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="156"/>
         <source>FAST</source>
-        <translation type="unfinished"/>
+        <translation>FAST</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="157"/>
         <source>Tunneled TLS</source>
-        <translation type="unfinished"/>
+        <translation>Түнелэгдсэн TLS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="158"/>
         <source>Protected EAP</source>
-        <translation type="unfinished"/>
+        <translation>Хамгааладсан EAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="163"/>
         <source>Saved</source>
-        <translation type="unfinished"/>
+        <translation>Хадгалсан</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="164"/>
@@ -2275,119 +2299,119 @@
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="169"/>
         <source>Disabled</source>
-        <translation type="unfinished"/>
+        <translation>Идэвхигүй болсон</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="170"/>
         <source>Anonymous</source>
-        <translation type="unfinished"/>
+        <translation>Нэргүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="171"/>
         <source>Authenticated</source>
-        <translation type="unfinished"/>
+        <translation>Баталгаажсан</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="172"/>
         <source>Both</source>
-        <translation type="unfinished"/>
+        <translation>Аль аль нь</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="188"/>
         <source>Automatic</source>
-        <translation type="unfinished"/>
+        <translation>Автоматаар</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="218"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Pwd сонголтууд</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="31"/>
         <source>Security</source>
-        <translation type="unfinished"/>
+        <translation>Аюулгүй байдал</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="202"/>
         <source>EAP Auth</source>
-        <translation type="unfinished"/>
+        <translation>EAP Auth</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="165"/>
         <source>Not Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагагүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="189"/>
         <source>Version 0</source>
-        <translation type="unfinished"/>
+        <translation>Хувилбар 0</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="190"/>
         <source>Version 1</source>
-        <translation type="unfinished"/>
+        <translation>Хувилбар 1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="214"/>
         <source>Identity</source>
-        <translation type="unfinished"/>
+        <translation>Тодорхойлолт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="216"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="224"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="302"/>
         <source>Private Key</source>
-        <translation type="unfinished"/>
+        <translation>Хувийн түлхүүр</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="306"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="381"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="416"/>
         <source>CA Cert</source>
-        <translation type="unfinished"/>
+        <translation>CA гэрчилгээ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="310"/>
         <source>User Cert</source>
-        <translation type="unfinished"/>
+        <translation>Хэрэглэгчийн гэрчилгээ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="328"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="377"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="412"/>
         <source>Anonymous ID</source>
-        <translation type="unfinished"/>
+        <translation>Нэргүй ID</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="332"/>
         <source>Provisioning</source>
-        <translation type="unfinished"/>
+        <translation>Төлөвлөлт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="344"/>
         <source>PAC file</source>
-        <translation type="unfinished"/>
+        <translation>PAC файл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="348"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="385"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="431"/>
         <source>Inner Auth</source>
-        <translation type="unfinished"/>
+        <translation>Inner Auth</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="420"/>
         <source>PEAP Version</source>
-        <translation type="unfinished"/>
+        <translation>PEAP хувилбар</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="514"/>
         <source>Private Pwd</source>
-        <translation type="unfinished"/>
+        <translation>Хаалттай Pwd</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="516"/>
@@ -2405,27 +2429,27 @@
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="105"/>
         <source>WEP 40/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/128-бит</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="106"/>
         <source>WPA/WPA2 Personal</source>
-        <translation type="unfinished"/>
+        <translation>Хувийн WPA/WPA2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="112"/>
         <source>Security</source>
-        <translation type="unfinished"/>
+        <translation>Аюулгүй байдал</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="118"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="148"/>
         <source>Key</source>
-        <translation type="unfinished"/>
+        <translation>Түлхүүр</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="154"/>
@@ -2438,7 +2462,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/secretwiredsection.cpp" line="32"/>
         <source>Security Required</source>
-        <translation type="unfinished"/>
+        <translation>Аюулгүй байдал шаардлагатай</translation>
     </message>
 </context>
 <context>
@@ -2451,32 +2475,32 @@
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>WEP 40/128-bit</source>
-        <translation type="unfinished"/>
+        <translation>WEP 40/128-бит</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WPA/WPA2 Personal</source>
-        <translation type="unfinished"/>
+        <translation>Хувийн WPA/WPA2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="109"/>
         <source>WPA/WPA2 Enterprise</source>
-        <translation type="unfinished"/>
+        <translation>Аж ахуй нэгжийн WPA/WPA2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="115"/>
         <source>Security</source>
-        <translation type="unfinished"/>
+        <translation>Аюулгүй байдал</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="121"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="163"/>
         <source>Key</source>
-        <translation type="unfinished"/>
+        <translation>Түлхүүр</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="170"/>
@@ -2489,72 +2513,72 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation type="unfinished"/>
+        <translation> VPN нарийвчилсан тохиргоо</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
         <source>Customize Gateway Port</source>
-        <translation type="unfinished"/>
+        <translation>Гарцын портыг тохируулах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
         <source>Gateway Port</source>
-        <translation type="unfinished"/>
+        <translation>Гарцын порт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
         <source>Customize Renegotiation Interval</source>
-        <translation type="unfinished"/>
+        <translation>Дахин нийцүүлэх давтамж тохируулах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
         <source>Renegotiation Interval</source>
-        <translation type="unfinished"/>
+        <translation>Дахин нийцүүлэх давтамж</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO data compression</source>
-        <translation type="unfinished"/>
+        <translation>LZO өгөгдөл шахагч ашиглах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP connection</source>
-        <translation type="unfinished"/>
+        <translation>TCP холболт ашиглах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP device</source>
-        <translation type="unfinished"/>
+        <translation>TAP төхөөрөмж ашиглах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
         <source>Customize Tunnel MTU</source>
-        <translation type="unfinished"/>
+        <translation>MTU туннель тохируулах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
         <source>MTU</source>
-        <translation type="unfinished"/>
+        <translation>MTU</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
         <source>Customize UDP Fragment Size</source>
-        <translation type="unfinished"/>
+        <translation>UDP хэсгийн хэмжээ тохируулах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
         <source>UDP Fragment Size</source>
-        <translation type="unfinished"/>
+        <translation>UDP хэсгийн хэмжээ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
         <source>Restrict Tunnel TCP MSS</source>
-        <translation type="unfinished"/>
+        <translation>TCP MSS Туннел хязгаарлах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
         <source>Randomize Remote Hosts</source>
-        <translation type="unfinished"/>
+        <translation>Алсын хостыг эрэмбэлэх</translation>
     </message>
 </context>
 <context>
@@ -2562,22 +2586,22 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="140"/>
         <source>Cisco (default)</source>
-        <translation type="unfinished"/>
+        <translation>Сиско (үндсэн)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="141"/>
         <source>Netscreen</source>
-        <translation type="unfinished"/>
+        <translation>Нэтскрийн</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="144"/>
         <source>Secure (default)</source>
-        <translation type="unfinished"/>
+        <translation>Нууцлалтай (үндсэн)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="145"/>
         <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>Сул</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
@@ -2588,99 +2612,99 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="149"/>
         <source>NAT-T When Available (default)</source>
-        <translation type="unfinished"/>
+        <translation>NAT-T боломжтой үед (үндсэн)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="150"/>
         <source>NAT-T Always</source>
-        <translation type="unfinished"/>
+        <translation>Үргэлж NAT-T</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
         <source>Cisco UDP</source>
-        <translation type="unfinished"/>
+        <translation>Сиско UDP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
         <source>Disabled</source>
-        <translation type="unfinished"/>
+        <translation>Идэвхигүй болсон</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="155"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="162"/>
         <source>DH Group 1</source>
-        <translation type="unfinished"/>
+        <translation>DH групп 1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="156"/>
         <source>DH Group 2 (default)</source>
-        <translation type="unfinished"/>
+        <translation>DH групп 2 (үндсэн)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="164"/>
         <source>DH Group 5</source>
-        <translation type="unfinished"/>
+        <translation>DH групп 5</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="160"/>
         <source>Server (default)</source>
-        <translation type="unfinished"/>
+        <translation>Сервер (үндсэн)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
         <source>DH Group 2</source>
-        <translation type="unfinished"/>
+        <translation>DH групп 2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation type="unfinished"/>
+        <translation> VPN нарийвчилсан тохиргоо</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="170"/>
         <source>Domain</source>
-        <translation type="unfinished"/>
+        <translation>Домэйн</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="173"/>
         <source>Vendor</source>
-        <translation type="unfinished"/>
+        <translation>Борлуулагч</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="179"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Хувилбар</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="182"/>
         <source>Encryption</source>
-        <translation type="unfinished"/>
+        <translation>Шифрлэлт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
         <source>NAT Traversal Mode</source>
-        <translation type="unfinished"/>
+        <translation>NAT Traversal горим</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="194"/>
         <source>IKE DH Group</source>
-        <translation type="unfinished"/>
+        <translation>IKE DH групп</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="200"/>
         <source>Forward Secrecy</source>
-        <translation type="unfinished"/>
+        <translation>Урд талын нууцлал</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
         <source>Local Port</source>
-        <translation type="unfinished"/>
+        <translation>Дотоод порт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="211"/>
         <source>Disable Dead Peer Detection</source>
-        <translation type="unfinished"/>
+        <translation>Dead Peer Detection-г идэвхгүй болгох</translation>
     </message>
 </context>
 <context>
@@ -2688,37 +2712,37 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
         <source>VPN IPsec</source>
-        <translation type="unfinished"/>
+        <translation>VPN IPsec</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="83"/>
         <source>Enable IPsec</source>
-        <translation type="unfinished"/>
+        <translation>IPsec идэвхижүүлэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
         <source>Group Name</source>
-        <translation type="unfinished"/>
+        <translation>Группийн нэр</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
         <source>Group ID</source>
-        <translation type="unfinished"/>
+        <translation>Группийн ID</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
         <source>Pre-Shared Key</source>
-        <translation type="unfinished"/>
+        <translation>Хуваалцахын өмнөх түлхүүр</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
         <source>Phase1 Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>1-р үелэлийн алгоритм</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
         <source>Phase2 Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>2-р үелэлийн алгоритм</translation>
     </message>
 </context>
 <context>
@@ -2731,47 +2755,47 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="84"/>
         <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>Гарц</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="85"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
         <source>CA Cert</source>
-        <translation type="unfinished"/>
+        <translation>CA гэрчилгээ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="91"/>
         <source>Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Прокси</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="94"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation type="unfinished"/>
+        <translation>Сискогийн десктопын трожан нууцлалыг зөвшөөрөх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="97"/>
         <source>CSD Script</source>
-        <translation type="unfinished"/>
+        <translation>CSD скрипт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="100"/>
         <source>User Cert</source>
-        <translation type="unfinished"/>
+        <translation>Хэрэглэгчийн гэрчилгээ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="103"/>
         <source>Private Key</source>
-        <translation type="unfinished"/>
+        <translation>Хувийн түлхүүр</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="106"/>
         <source>Use FSID for Key Passphrase</source>
-        <translation type="unfinished"/>
+        <translation>FSID түлхүүр нууц үгт ашиглах</translation>
     </message>
 </context>
 <context>
@@ -2779,7 +2803,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="115"/>
         <source>Certificates (TLS)</source>
-        <translation type="unfinished"/>
+        <translation>Гэрчилгээ (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
@@ -2790,18 +2814,18 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
         <source>Certificates with Password (TLS)</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үгтэй гэрчилгээ (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="270"/>
         <source>Static Key</source>
-        <translation type="unfinished"/>
+        <translation>Статик түлхүүр</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="123"/>
         <source>Saved</source>
-        <translation type="unfinished"/>
+        <translation>Хадгалсан</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
@@ -2811,33 +2835,33 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
         <source>Not Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагагүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="177"/>
         <source>User Cert</source>
-        <translation type="unfinished"/>
+        <translation>Хэрэглэгчийн гэрчилгээ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
         <source>Private Key</source>
-        <translation type="unfinished"/>
+        <translation>Хувийн түлхүүр</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="230"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Pwd сонголтууд</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="285"/>
         <source>Remote IP</source>
-        <translation type="unfinished"/>
+        <translation>Алсын IP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="290"/>
         <source>Local IP</source>
-        <translation type="unfinished"/>
+        <translation>Дотоод IP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
@@ -2847,7 +2871,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="131"/>
         <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>Гарц</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
@@ -2856,22 +2880,22 @@
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="286"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="291"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="142"/>
         <source>Auth Type</source>
-        <translation type="unfinished"/>
+        <translation>Зөвшөөрөлийн төрөл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="145"/>
         <source>CA Cert</source>
-        <translation type="unfinished"/>
+        <translation>CA гэрчилгээ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
         <source>Private Pwd</source>
-        <translation type="unfinished"/>
+        <translation>Хаалттай Pwd</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="225"/>
@@ -2881,12 +2905,12 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="274"/>
         <source>Customize Key Direction</source>
-        <translation type="unfinished"/>
+        <translation>Түлхүүрийн чиглэлийг өөрчлөх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="278"/>
         <source>Key Direction</source>
-        <translation type="unfinished"/>
+        <translation>Түлхүүрийн чиглэл</translation>
     </message>
 </context>
 <context>
@@ -2894,92 +2918,92 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
-        <translation type="unfinished"/>
+        <translation>Бүгд боломжтой (үндсэн)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
         <source>40-bit (less secure)</source>
-        <translation type="unfinished"/>
+        <translation>40-бит (нууцлал бага)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
         <source>128-bit (most secure)</source>
-        <translation type="unfinished"/>
+        <translation>128-бит (нууцлал өндөр)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
-        <translation type="unfinished"/>
+        <translation>EAP баталгаажуулалтаас татгалзах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
-        <translation type="unfinished"/>
+        <translation>PAP баталгаажуулалтаас татгалзах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
-        <translation type="unfinished"/>
+        <translation>CHAP баталгаажуулалтаас татгалзах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation type="unfinished"/>
+        <translation>MSCHAP баталгаажуулалтаас татгалзах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation type="unfinished"/>
+        <translation>MSCHAPv2 баталгаажуулалтаас татгалзах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No BSD Data Compression</source>
-        <translation type="unfinished"/>
+        <translation>BSD өгөгдлийн шахалт байхгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
-        <translation type="unfinished"/>
+        <translation>Deflate өгөгдлийн шахалт байхгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No TCP Header Compression</source>
-        <translation type="unfinished"/>
+        <translation>TCP толгойн шахалт байхгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
-        <translation type="unfinished"/>
+        <translation>Портколын талбарын шахалт байхгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
-        <translation type="unfinished"/>
+        <translation>Хаяггүй/Хяналтын шахалт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
-        <translation type="unfinished"/>
+        <translation>PPP Цуурай багц илгээх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="170"/>
         <source>Stateful MPPE</source>
-        <translation type="unfinished"/>
+        <translation>MPPE төлөв</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
         <source>VPN PPP</source>
-        <translation type="unfinished"/>
+        <translation>VPN PPP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
         <source>Use MPPE</source>
-        <translation type="unfinished"/>
+        <translation>MPPE хэрэглэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="164"/>
         <source>Security</source>
-        <translation type="unfinished"/>
+        <translation>Аюулгүй байдал</translation>
     </message>
 </context>
 <context>
@@ -2987,17 +3011,17 @@
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="76"/>
         <source>VPN Status</source>
-        <translation type="unfinished"/>
+        <translation>VPN-ний төлөв</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="79"/>
         <source>Create VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPN үүсгэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="82"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>Импорт VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="101"/>
@@ -3007,52 +3031,52 @@
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="241"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>Импортын алдаа</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="243"/>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>ЗА</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="265"/>
         <source>L2TP</source>
-        <translation type="unfinished"/>
+        <translation>L2TP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="268"/>
         <source>PPTP</source>
-        <translation type="unfinished"/>
+        <translation>PPTP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="271"/>
         <source>VPNC</source>
-        <translation type="unfinished"/>
+        <translation>VPNC</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="274"/>
         <source>OpenVPN</source>
-        <translation type="unfinished"/>
+        <translation>OpenVPN</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="277"/>
         <source>StrongSwan</source>
-        <translation type="unfinished"/>
+        <translation>StrongSwan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="280"/>
         <source>OpenConnect</source>
-        <translation type="unfinished"/>
+        <translation>OpenConnect</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="283"/>
         <source>SSTP</source>
-        <translation type="unfinished"/>
+        <translation>SSTP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="310"/>
         <source>New VPN</source>
-        <translation type="unfinished"/>
+        <translation>Шинэ VPN</translation>
     </message>
 </context>
 <context>
@@ -3060,39 +3084,39 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="135"/>
         <source>Not Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагагүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="136"/>
         <source>HTTP</source>
-        <translation type="unfinished"/>
+        <translation>HTTP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="137"/>
         <source>SOCKS</source>
-        <translation type="unfinished"/>
+        <translation>SOCKS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation type="unfinished"/>
+        <translation>VPN прокси</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
         <source>Proxy Type</source>
-        <translation type="unfinished"/>
+        <translation>Проксины төрөл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
         <source>Server IP</source>
-        <translation type="unfinished"/>
+        <translation>Серверийн IP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="154"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="170"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="157"/>
@@ -3102,7 +3126,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
         <source>Retry Indefinitely When Failed</source>
-        <translation type="unfinished"/>
+        <translation>Тодорхойгүй шалтгаанаар амжилгүй болвол дахин оролдож үзнэ үү</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
@@ -3120,17 +3144,17 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="77"/>
         <source>CA File</source>
-        <translation type="unfinished"/>
+        <translation>CA файл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
         <source>Ignore certificate warnings</source>
-        <translation type="unfinished"/>
+        <translation>Гэрчилгээний анхааруулгыг үл тоох</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
         <source>Use TLS hostname extensions</source>
-        <translation type="unfinished"/>
+        <translation>TLS хостын нэрийн өргөтгөлүүд хэрэглэх</translation>
     </message>
 </context>
 <context>
@@ -3139,7 +3163,7 @@
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="75"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="96"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Үндсэн</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="76"/>
@@ -3150,17 +3174,17 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
         <source>VPN Security</source>
-        <translation type="unfinished"/>
+        <translation>VPN аюулгүй байдал</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="111"/>
         <source>Cipher</source>
-        <translation type="unfinished"/>
+        <translation>Шифр</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="121"/>
         <source>HMAC Auth</source>
-        <translation type="unfinished"/>
+        <translation>HMAC Auth</translation>
     </message>
 </context>
 <context>
@@ -3168,7 +3192,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
         <source>Saved</source>
-        <translation type="unfinished"/>
+        <translation>Хадгалсан</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
@@ -3178,7 +3202,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
         <source>Not Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагагүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="29"/>
@@ -3188,14 +3212,14 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
         <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>Гарц</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="115"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="119"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="129"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
@@ -3205,7 +3229,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Pwd сонголтууд</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="128"/>
@@ -3215,7 +3239,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="132"/>
         <source>NT Domain</source>
-        <translation type="unfinished"/>
+        <translation>NT домэйн</translation>
     </message>
 </context>
 <context>
@@ -3223,12 +3247,12 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation type="unfinished"/>
+        <translation>VPN прокси</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
         <source>Server IP</source>
-        <translation type="unfinished"/>
+        <translation>Серверийн IP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
@@ -3252,27 +3276,27 @@
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="142"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="172"/>
         <source>Private Key</source>
-        <translation type="unfinished"/>
+        <translation>Хувийн түлхүүр</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
         <source>SSH Agent</source>
-        <translation type="unfinished"/>
+        <translation>SSH агент</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
         <source>Smartcard</source>
-        <translation type="unfinished"/>
+        <translation>Ухаалаг карт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
         <source>EAP</source>
-        <translation type="unfinished"/>
+        <translation>EAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="146"/>
         <source>Pre-Shared Key</source>
-        <translation type="unfinished"/>
+        <translation>Хуваалцахын өмнөх түлхүүр</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="29"/>
@@ -3282,27 +3306,27 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
         <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>Гарц</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="153"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
         <source>CA Cert</source>
-        <translation type="unfinished"/>
+        <translation>CA гэрчилгээ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
         <source>Auth Type</source>
-        <translation type="unfinished"/>
+        <translation>Зөвшөөрөлийн төрөл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="169"/>
         <source>User Cert</source>
-        <translation type="unfinished"/>
+        <translation>Хэрэглэгчийн гэрчилгээ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="175"/>
@@ -3317,32 +3341,32 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="181"/>
         <source>Request an Inner IP Address</source>
-        <translation type="unfinished"/>
+        <translation>Дотоод IP хаягийн хүсэлт гаргах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="184"/>
         <source>Enforce UDP Encapsulation</source>
-        <translation type="unfinished"/>
+        <translation>UDP хайрцаглалтыг мөрдөх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="187"/>
         <source>Use IP Compression</source>
-        <translation type="unfinished"/>
+        <translation>IP шахагчыг хэрэглэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable custom cipher proposals</source>
-        <translation type="unfinished"/>
+        <translation>Тусгай шифрлэлтийн саналыг идэвхижүүлэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
         <source>IKE</source>
-        <translation type="unfinished"/>
+        <translation>IKE</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="196"/>
         <source>ESP</source>
-        <translation type="unfinished"/>
+        <translation>ESP</translation>
     </message>
 </context>
 <context>
@@ -3350,47 +3374,47 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="79"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Үндсэн</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="80"/>
         <source>Client</source>
-        <translation type="unfinished"/>
+        <translation>Харилцагч</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="81"/>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Сервер</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
         <source>VPN TLS Authentication</source>
-        <translation type="unfinished"/>
+        <translation>VPN TLS баталгаажуулалт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="87"/>
         <source>Subject Match</source>
-        <translation type="unfinished"/>
+        <translation>Субжект тэнцэл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
         <source>Remote Cert Type</source>
-        <translation type="unfinished"/>
+        <translation>Алсын гэрчилгээний төрөл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="100"/>
         <source>Key File</source>
-        <translation type="unfinished"/>
+        <translation>Түлхүүр файл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="103"/>
         <source>Customize Key Direction</source>
-        <translation type="unfinished"/>
+        <translation>Түлхүүрийн чиглэлийг өөрчлөх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="106"/>
         <source>Key Direction</source>
-        <translation type="unfinished"/>
+        <translation>Түлхүүрийн чиглэл</translation>
     </message>
 </context>
 <context>
@@ -3398,7 +3422,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="159"/>
         <source>Saved</source>
-        <translation type="unfinished"/>
+        <translation>Хадгалсан</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="160"/>
@@ -3408,7 +3432,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
         <source>Not Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагагүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="29"/>
@@ -3418,7 +3442,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="167"/>
         <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>Гарц</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="168"/>
@@ -3427,7 +3451,7 @@
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="186"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="196"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
@@ -3438,7 +3462,7 @@
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>Pwd сонголтууд</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
@@ -3448,22 +3472,22 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="185"/>
         <source>Group Name</source>
-        <translation type="unfinished"/>
+        <translation>Группын нэр</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="195"/>
         <source>Group Pwd</source>
-        <translation type="unfinished"/>
+        <translation>Групп Pwd</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="199"/>
         <source>Use Hybrid Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Эрлийз баталгаажуулалт ашиглах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
         <source>CA File</source>
-        <translation type="unfinished"/>
+        <translation>CA файл</translation>
     </message>
 </context>
 <context>
@@ -3471,22 +3495,22 @@
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="59"/>
         <source>Setting List</source>
-        <translation type="unfinished"/>
+        <translation>Тохиргооны жагсаалт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
         <source>Please firstly plug in the network cable</source>
-        <translation type="unfinished"/>
+        <translation>Эхлээд сүлжээний утасыг залгана уу</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
         <source>Add Settings</source>
-        <translation type="unfinished"/>
+        <translation>Тохиргоо нэмэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="84"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>Тохиргоо сонгох</translation>
     </message>
 </context>
 <context>
@@ -3494,22 +3518,22 @@
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="59"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>Харагдахгүй байгаа сүлжээнд холбогдох</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="62"/>
         <source>Close hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Утасгүй сүлжээ цацагчыг хаах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="65"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation type="unfinished"/>
+        <translation>Хэрэв та утасгүй сүлжээнд холбогдох болон ашиглахыг хүсвэл утсгүй сүлжээ цацагчыг идэвхигүй болгоно уу</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="88"/>
         <source>WLAN</source>
-        <translation type="unfinished"/>
+        <translation>WLAN</translation>
     </message>
 </context>
 <context>
@@ -3517,32 +3541,32 @@
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="55"/>
         <source>Not Bind</source>
-        <translation type="unfinished"/>
+        <translation>Бэхлэгдээгүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="111"/>
         <source>SSID</source>
-        <translation type="unfinished"/>
+        <translation>SSID</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="112"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Шаардлагатай</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="115"/>
         <source>Device MAC Addr</source>
-        <translation type="unfinished"/>
+        <translation>Төхөөрөмжийн МАК хаяг</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="143"/>
         <source>Customize MTU</source>
-        <translation type="unfinished"/>
+        <translation>MTU өөрчлөх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="146"/>
         <source>MTU</source>
-        <translation type="unfinished"/>
+        <translation>MTU</translation>
     </message>
 </context>
 <context>
@@ -3550,7 +3574,7 @@
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontlistwidget.cpp" line="89"/>
         <source> (Unsupported font)</source>
-        <translation type="unfinished"/>
+        <translation> (Дэмжигдээгүй фонт)</translation>
     </message>
 </context>
 <context>
@@ -3558,18 +3582,18 @@
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="45"/>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>Стандарт фонт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Кодчлолын фонт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="108"/>
         <source> (Unsupported font)</source>
-        <translation type="unfinished"/>
+        <translation> (Дэмжигдээгүй фонт)</translation>
     </message>
 </context>
 <context>
@@ -3585,7 +3609,7 @@
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontswidget.cpp" line="52"/>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>Фонт</translation>
     </message>
 </context>
 <context>
@@ -3593,12 +3617,12 @@
     <message>
         <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="118"/>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>Стандарт фонт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="127"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Кодчлолын фонт</translation>
     </message>
 </context>
 <context>
@@ -3608,27 +3632,27 @@
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="77"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="115"/>
         <source>Personalization</source>
-        <translation type="unfinished"/>
+        <translation>Харагдах байдал</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="46"/>
         <source>Transparency</source>
-        <translation type="unfinished"/>
+        <translation>Нэвтрэлт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Window effect</source>
-        <translation type="unfinished"/>
+        <translation>Цонхоны эффект</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Харагдах байдал</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="71"/>
         <source>Font</source>
-        <translation type="unfinished"/>
+        <translation>Фонт</translation>
     </message>
 </context>
 <context>
@@ -3636,7 +3660,7 @@
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/theme.cpp" line="84"/>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Үндсэн</translation>
     </message>
 </context>
 <context>
@@ -3644,22 +3668,22 @@
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="40"/>
         <source>Window Theme</source>
-        <translation type="unfinished"/>
+        <translation>Цонхны харагдац</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="41"/>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>Дүрсний харагдац</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="42"/>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>Заагчын харагдац</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="54"/>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Харагдах байдал</translation>
     </message>
 </context>
 <context>
@@ -3669,29 +3693,29 @@
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="120"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="120"/>
         <source>Power Management</source>
-        <translation type="unfinished"/>
+        <translation>Эрчим хүчний зохицуулалт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="46"/>
         <source>Plugged in</source>
-        <translation type="unfinished"/>
+        <translation>Тогонд залгагдсан үед</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="47"/>
         <source>On battery</source>
-        <translation type="unfinished"/>
+        <translation>Зайгаар ажиллах үед</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="48"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="50"/>
         <source>Monitor will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Дэлгэц амрах хугацаа</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="49"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="51"/>
         <source>Computer will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Компьютер амрах хугацаа</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="61"/>
@@ -3702,27 +3726,27 @@
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="97"/>
         <source>Password required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Дэлгэцийг сэрээхэд нууц үг шаардах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="100"/>
         <source>Password required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Компьютерийг сэрээхэд нууц үг шаардах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="103"/>
         <source>Suspend on lid close</source>
-        <translation type="unfinished"/>
+        <translation>Дэлгэцийг эвххэд түр зогсоох</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="107"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <translation>Эрчим хүч хэмнэх горим</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="108"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>Атомат горимыг солих</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="184"/>
@@ -3736,7 +3760,7 @@
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="192"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="198"/>
         <source>%1 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>%1 минут</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="194"/>
@@ -3749,17 +3773,17 @@
     <message>
         <location filename="../src/frame/modules/sound/advancedpage.cpp" line="37"/>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Гаралт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/advancedpage.cpp" line="38"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Оролт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/advancedpage.cpp" line="40"/>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Нарийвчилсан</translation>
     </message>
 </context>
 <context>
@@ -3767,7 +3791,7 @@
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="60"/>
         <source>System Sound Effect</source>
-        <translation type="unfinished"/>
+        <translation>Системийн дууны эффект</translation>
     </message>
 </context>
 <context>
@@ -3777,47 +3801,47 @@
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="118"/>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Дуу</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="43"/>
         <source>Output Volume</source>
-        <translation type="unfinished"/>
+        <translation>Гаралтын дууны хүч</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="44"/>
         <source>Left/Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>Баруун/Зүүн тэнцвэржүүлэлт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="47"/>
         <source>Input Volume</source>
-        <translation type="unfinished"/>
+        <translation>Оролтын дууны хүч</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="49"/>
         <source>Feedback Volume</source>
-        <translation type="unfinished"/>
+        <translation>Санал хүсэлтийн дууны хүч</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="60"/>
         <source>Speaker</source>
-        <translation type="unfinished"/>
+        <translation>Өсгөгч</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="83"/>
         <source>Microphone</source>
-        <translation type="unfinished"/>
+        <translation>Микрофон</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="106"/>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Нарийвчилсан</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="109"/>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Дууны эффект</translation>
     </message>
 </context>
 <context>
@@ -3830,27 +3854,27 @@
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="73"/>
         <source>Startup Delay</source>
-        <translation type="unfinished"/>
+        <translation>Эхлэлийн хүлээгдэл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="76"/>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Харагдах байдал</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="78"/>
         <source>You can click the option in boot menu to set it as the first boot, and drag and drop a picture to replace the background.</source>
-        <translation type="unfinished"/>
+        <translation>Ачаалагчын цэснээс эхлээд ажиллах ачаалагчыг сонгон дарж тохируулахаас гадна зураг чирж оруулан дэвсгэр зургаа өөрчлөх боломжтой.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="82"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Харагдах байдалыг сонголтыг туршаад үзээрэй.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="102"/>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Ачаалагчын цэс</translation>
     </message>
 </context>
 <context>
@@ -3858,7 +3882,7 @@
     <message>
         <location filename="../src/frame/modules/systeminfo/copyrightwidget.cpp" line="70"/>
         <source>Edition License</source>
-        <translation type="unfinished"/>
+        <translation>Лицензийн хувилбар</translation>
     </message>
 </context>
 <context>
@@ -3873,27 +3897,27 @@
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Зохиогчийн эрх © 2011-%1 Вухан дээпин технологи компани.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Distribution:</source>
-        <translation type="unfinished"/>
+        <translation>Тархац:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="86"/>
         <source>Distribution Release:</source>
-        <translation type="unfinished"/>
+        <translation>Тархацын хувилбар:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="91"/>
         <source>Edition:</source>
-        <translation type="unfinished"/>
+        <translation>Хувилбар:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="95"/>
         <source>Type:</source>
-        <translation type="unfinished"/>
+        <translation>Төрөл:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="98"/>
@@ -3913,22 +3937,22 @@
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="120"/>
         <source>Edition License</source>
-        <translation type="unfinished"/>
+        <translation>Лицензийн хувилбар</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="123"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Хэрэглэгчийн лицензийн гэрээг дуусгах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="128"/>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Ачаалагчын цэс</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="190"/>
         <source>%1Bit</source>
-        <translation type="unfinished"/>
+        <translation>%1бит</translation>
     </message>
 </context>
 <context>
@@ -3936,7 +3960,7 @@
     <message>
         <location filename="../src/frame/modules/systeminfo/userlicense.cpp" line="15"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Хэрэглэгчийн лицензийн гэрээг дуусгах</translation>
     </message>
 </context>
 <context>
@@ -3945,13 +3969,13 @@
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="37"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="132"/>
         <source>Untested</source>
-        <translation type="unfinished"/>
+        <translation>Шалгагдаагүй</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="80"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="128"/>
         <source>Timeout</source>
-        <translation type="unfinished"/>
+        <translation>Завсарлага</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="82"/>
@@ -3977,17 +4001,17 @@
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="42"/>
         <source>Test Speed</source>
-        <translation type="unfinished"/>
+        <translation>Хурд шалгах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="46"/>
         <source>Switch Mirror</source>
-        <translation type="unfinished"/>
+        <translation>Толин серверийг солих</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="141"/>
         <source>Retest</source>
-        <translation type="unfinished"/>
+        <translation>Дахин шалгах</translation>
     </message>
 </context>
 <context>
@@ -3995,12 +4019,12 @@
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="66"/>
         <source>Update successfully</source>
-        <translation type="unfinished"/>
+        <translation>Амжилттай шинэчлэгдлээ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="67"/>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>Шинэчлэлт амжилтгүй боллоо</translation>
     </message>
 </context>
 <context>
@@ -4015,103 +4039,103 @@
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="55"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation type="unfinished"/>
+        <translation>Шинэчилсний дараа систем болон програмуудыг ашиглахын тулд дахин эхлүүлнэ үү</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="56"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
+        <translation>Сүлжээ тасарсан, холбогдсоны дараа дахин оролдож үзнэ үү</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
-        <translation type="unfinished"/>
+        <translation>Энэ шинэчлэлийг хийхэд нилээдгүй хугацаа зарцуулах тул үйлдэлийг гүйцэтгэх хугацаанд системийг унтраах, дахин эхлүүлэх үйлдэл хийхгүй байхыг зөвлөе.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
         <source>Checking for updates, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Шинэчлэлийг шалгаж байна, түр хүлээнэ үү...</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Download and install updates</source>
-        <translation type="unfinished"/>
+        <translation>Шинэчлэлүүдийг татаж аваад суулгах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="190"/>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="294"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1% татаж авсан (Дараад түр зогсоох)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="195"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
+        <translation>%1% татаж авсан (Дараад үргэлжилүүлэх)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Install updates</source>
-        <translation type="unfinished"/>
+        <translation>Шинэчлэлүүдийг суулгах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="208"/>
         <source>Your system is up to date</source>
-        <translation type="unfinished"/>
+        <translation>Таны систем шинэчлэгдсэн</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="213"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Шинэчилж байна, түр хүлээнэ үү ...</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="227"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Шинэ систем суулгагдсан, системийг дахин эхлүүлснээр хүчин төгөлдөржинө</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="237"/>
         <source>Insufficient disk space, unable to update system.</source>
-        <translation type="unfinished"/>
+        <translation>Дискний зай хангалтгүй тул системийг шинэчлэх боломжгүй байна.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <translation>Дефендесын алдаа, шинэчлэлийг илрүүлж чадсангүй</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n програмын шинэчлэл илэрлээ</numerusform><numerusform>%n програмын шинэчлэл илэрлээ</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
         <source>New system edition detected</source>
-        <translation type="unfinished"/>
+        <translation>Шинэ системийн хувилбар илэрлээ</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Шинэ системийн хувилбар болон %n програмын шинэчлэл(үүд) илэрлээ</numerusform><numerusform>Шинэ системийн хувилбар болон %n програмын шинэчлэл(үүд) илэрлээ</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Downloaded</source>
-        <translation type="unfinished"/>
+        <translation>Татаж авсан</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="280"/>
         <source>Download size: %1</source>
-        <translation type="unfinished"/>
+        <translation>Татаж авсан хэмжээ: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="302"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation type="unfinished"/>
+        <translation>Таны цэнэг 50 хувиас бага байна, тогонд залгана уу</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="304"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="unfinished"/>
+        <translation>Системийг дахин эхлүүлхэд таны цэнэг хангалтгүй байгаа тул төхөөрөмжөө унтраах эсвэл тогноос бүү салгаарай</translation>
     </message>
 </context>
 <context>
@@ -4119,7 +4143,7 @@
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="124"/>
         <source>Details</source>
-        <translation type="unfinished"/>
+        <translation>Дэлгэрэнгүй мэдээлэл</translation>
     </message>
 </context>
 <context>
@@ -4127,52 +4151,52 @@
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="50"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Шинэчлэлийн тохиргоо</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto clear package cache</source>
-        <translation type="unfinished"/>
+        <translation>Багцын кэшийг автоматаар цэвэрлэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="65"/>
         <source>Updates Notification</source>
-        <translation type="unfinished"/>
+        <translation>Шинэчлэлийн мэдэгдэл</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="68"/>
         <source>Auto-download Updates</source>
-        <translation type="unfinished"/>
+        <translation>Шинэчлэлүүдийг автоматаар татаж авах</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="unfinished"/>
+        <translation>Утасгүй болон утастай сүлжээнд холбогдсон үед шинэчлэлүүдийг автоматаар татаж авах болно.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
         <source>System source detection</source>
-        <translation type="unfinished"/>
+        <translation>Системийн эх үүсвэрийн илрүүлэлт</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation type="unfinished"/>
+        <translation>Хэрэв системийн толин сервер өөрчлөгдсөн бол танд мэдэгдэл илгээнэ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="99"/>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>Ухаалгаар толин сервер солих</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation type="unfinished"/>
+        <translation>Таны байрлалаас хамгийн хурдан холбогдох боломжтой толин серверийг автоматаар сонгоно.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="113"/>
         <source>Switch Mirror</source>
-        <translation type="unfinished"/>
+        <translation>Толин сервер солих</translation>
     </message>
 </context>
 <context>
@@ -4186,7 +4210,7 @@
     <message>
         <location filename="../src/frame/modules/update/updateview.cpp" line="45"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Шинэчлэлийн тохиргоо</translation>
     </message>
 </context>
 <context>
@@ -4194,12 +4218,12 @@
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="244"/>
         <source>Patches</source>
-        <translation type="unfinished"/>
+        <translation>Засварууд</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="245"/>
         <source>System patches</source>
-        <translation type="unfinished"/>
+        <translation>Системийн засварууд</translation>
     </message>
 </context>
 <context>
@@ -4207,12 +4231,12 @@
     <message>
         <location filename="../src/frame/modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Үзэг</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/wacommodepage.cpp" line="38"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Хулгана</translation>
     </message>
 </context>
 <context>
@@ -4220,17 +4244,17 @@
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitive</source>
-        <translation type="unfinished"/>
+        <translation>Даралтын мэдрэг</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>light</source>
-        <translation type="unfinished"/>
+        <translation>хөнгөн</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>heavy</source>
-        <translation type="unfinished"/>
+        <translation>хүнд</translation>
     </message>
 </context>
 <context>
@@ -4240,22 +4264,22 @@
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="123"/>
         <source>Wacom</source>
-        <translation type="unfinished"/>
+        <translation>Ваком</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="50"/>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Горим</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Хулгана</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Үзэг</translation>
     </message>
 </context>
 <context>

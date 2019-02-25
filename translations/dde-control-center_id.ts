@@ -160,9 +160,10 @@
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="164"/>
-        <source>Left click to rotate and right click to exit</source>
-        <translation>Klik kiri untuk memutar dan klik kanan untuk keluar</translation>
+        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="135"/>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
+If no operation, the display will be restored after %1s.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -217,7 +218,7 @@
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
-        <translation type="unfinished"/>
+        <translation>Hidupkan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
@@ -232,12 +233,12 @@
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
-        <translation type="unfinished"/>
+        <translation>Bangunkan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
-        <translation type="unfinished"/>
+        <translation>Volume +/-</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="21"/>
@@ -252,7 +253,7 @@
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Kirim ikon di Launcher ke Desktop</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
@@ -262,27 +263,50 @@
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="25"/>
         <source>Plug in</source>
-        <translation type="unfinished"/>
+        <translation>Masukan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Plug out</source>
-        <translation type="unfinished"/>
+        <translation>Keluarkan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
-        <translation type="unfinished"/>
+        <translation>Perangkat removable terpasang</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
-        <translation type="unfinished"/>
+        <translation>Perangkat removable dilepas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
         <translation>Galat</translation>
+    </message>
+</context>
+<context>
+    <name>TimeoutDialog</name>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
+        <source>Do you want to save the display settings?</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
+        <source>If no operation, the display will be restored after %1s.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
+        <source>Restore</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
+        <source>Save</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -295,12 +319,12 @@
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="158"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <translation>Dependensi error, gagal mendeteksi pembaruan</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="161"/>
         <source>Updates detecting failure</source>
-        <translation type="unfinished"/>
+        <translation>Gagal mendeteksi pembaruan</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="170"/>
@@ -925,7 +949,7 @@
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="55"/>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Halaman Web</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="56"/>
@@ -1029,12 +1053,12 @@
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="225"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="227"/>
         <source>My Settings %1</source>
         <translation>Pengaturan Saya %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="273"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="280"/>
         <source>Wireless Screen Projection</source>
         <translation>Proyeksi Layar Nirkabel</translation>
     </message>
@@ -1043,38 +1067,38 @@
     <name>dcc::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="197"/>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="117"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="118"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
         <source>Display</source>
         <translation>Tampilan</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="47"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="48"/>
         <source>Display scaling</source>
         <translation>Tampilan skala</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="56"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
         <source>Rotate</source>
         <translation>Putar</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="58"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
         <source>Custom Settings</source>
         <translation>Pengaturan Kustom</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
         <translation>Resolusi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
         <source>Brightness</source>
         <translation>Kecerahan</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="270"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="271"/>
         <source>Wireless Screen Projection</source>
         <translation>Proyeksi Layar Nirkabel</translation>
     </message>
@@ -1639,37 +1663,37 @@
 <context>
     <name>dcc::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="87"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="90"/>
         <source>Disconnect</source>
         <translation>Putus</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="89"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="92"/>
         <source>Delete</source>
         <translation>Hapus</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="94"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="97"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="95"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="98"/>
         <source>Save</source>
         <translation>Simpan</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="339"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="342"/>
         <source>Wired Connection %1</source>
         <translation>Koneksi Kabel %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="343"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="346"/>
         <source>Wireless Connection %1</source>
         <translation>Koneksi Nirkabel %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="347"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="350"/>
         <source>PPPoE Connection %1</source>
         <translation>Koneksi PPPoE %1</translation>
     </message>
@@ -1722,7 +1746,7 @@
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="189"/>
         <source>VPN SSTP %1</source>
-        <translation type="unfinished"/>
+        <translation>SSTP VPN %1</translation>
     </message>
 </context>
 <context>
@@ -1735,7 +1759,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="54"/>
         <source>Not Bind</source>
-        <translation type="unfinished"/>
+        <translation>Belum Terpasang</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="96"/>
@@ -2205,7 +2229,7 @@
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="83"/>
         <source>SOCKS Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy SOCKS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="70"/>
@@ -3048,7 +3072,7 @@
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="283"/>
         <source>SSTP</source>
-        <translation type="unfinished"/>
+        <translation>SSTP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="310"/>
@@ -3076,7 +3100,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
@@ -3126,12 +3150,12 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
         <source>Ignore certificate warnings</source>
-        <translation type="unfinished"/>
+        <translation>Abaikan sertifikat peringatan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
         <source>Use TLS hostname extensions</source>
-        <translation type="unfinished"/>
+        <translation>Gunakan TLS ekstensi hostname</translation>
     </message>
 </context>
 <context>
@@ -3224,7 +3248,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
@@ -3518,7 +3542,7 @@
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="55"/>
         <source>Not Bind</source>
-        <translation type="unfinished"/>
+        <translation>Belum Terpasang</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="111"/>
@@ -3768,7 +3792,7 @@
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="60"/>
         <source>System Sound Effect</source>
-        <translation type="unfinished"/>
+        <translation>Efek Suara Sistem</translation>
     </message>
 </context>
 <context>
@@ -4077,7 +4101,7 @@
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <translation>Dependensi error, gagal mendeteksi pembaruan</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
