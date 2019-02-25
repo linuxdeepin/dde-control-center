@@ -1,3 +1,13 @@
+<a name="4.9.4"></a>
+### 4.9.4 (2019-02-25)
+
+
+#### Bug Fixes
+
+*   replace the hardcoded path with find_library ([b38a3f70](https://github.com/linuxdeepin/dde-control-center/commit/b38a3f7070c1a915a3f0ca35be7181a046914cd5))
+
+
+
 <a name=""></a>
 ##  4.9.3 (2019-02-25)
 
