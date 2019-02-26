@@ -137,13 +137,9 @@ set(WIDGETS_FILES
                 widgets/dccslider.h
                 widgets/dccsliderannotated.cpp
                 widgets/dccsliderannotated.h
-                widgets/labels/largelabel.cpp
                 widgets/labels/largelabel.h
-                widgets/labels/normallabel.cpp
                 widgets/labels/normallabel.h
-                widgets/labels/smalllabel.cpp
                 widgets/labels/smalllabel.h
-                widgets/labels/tipslabel.cpp
                 widgets/labels/tipslabel.h
                 widgets/lineeditwidget.cpp
                 widgets/loadingindicator.cpp

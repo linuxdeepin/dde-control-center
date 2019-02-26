@@ -36,8 +36,7 @@ class SmallLabel : public QLabel
     Q_OBJECT
 
 public:
-    explicit SmallLabel(QWidget *parent = 0);
-    explicit SmallLabel(const QString &text, QWidget *parent = 0);
+    using QLabel::QLabel; // using default inheritance constructor
 };
 
 }

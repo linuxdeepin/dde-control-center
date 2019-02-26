@@ -36,8 +36,7 @@ class LargeLabel : public QLabel
     Q_OBJECT
 
 public:
-    explicit LargeLabel(QWidget *parent = nullptr);
-    explicit LargeLabel(const QString &text, QWidget *parent = nullptr);
+    using QLabel::QLabel; // using default inheritance constructor
 };
 
 }

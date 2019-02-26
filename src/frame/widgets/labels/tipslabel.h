@@ -35,8 +35,7 @@ class TipsLabel : public SmallLabel
 {
     Q_OBJECT
 public:
-    explicit TipsLabel(QWidget *parent = 0);
-    TipsLabel(const QString &text, QWidget *parent = 0);
+    using SmallLabel::SmallLabel; // using default inheritance constructor
 };
 
 } // namespace widgets
