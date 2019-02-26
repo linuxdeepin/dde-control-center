@@ -812,8 +812,6 @@ find_package(Qt5Multimedia REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
 find_package(DtkCMake REQUIRED)
 
-find_library(KF5_LIB "libKF5NetworkManagerQt.so")
-
 pkg_check_modules(XCB_EWMH REQUIRED xcb-ewmh x11 xext)
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 pkg_check_modules(QGSettings REQUIRED gsettings-qt)
@@ -821,6 +819,9 @@ pkg_check_modules(DDE-Network-Utils REQUIRED dde-network-utils)
 pkg_check_modules(Geoip REQUIRED geoip)
 pkg_check_modules(Gio-2.0 REQUIRED gio-2.0)
 pkg_check_modules(LibNM REQUIRED libnm)
+
+get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_DIRECTORIES)
+get_target_property(KF5_QT_LIBRARIES KF5::NetworkManagerQt IMPORTED_LOCATION_DEBIAN)
 
 function(add_build_macro macro)
     string(TOUPPER ${macro} macro)
@@ -894,7 +895,7 @@ target_include_directories(${BIN_NAME} PUBLIC
     ${Gio-2.0_INCLUDE_DIRS}
     ${LibNM_INCLUDE_DIRS}
     ${Qt5X11Extras_INCLUDE_DIRS}
-    "/usr/include/KF5/NetworkManagerQt/"
+    ${KF5_QT_INCLUDE_DIRS}
 )
 
 target_link_libraries(${BIN_NAME} PRIVATE
@@ -912,7 +913,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${Geoip_LIBRARIES}
     ${Gio-2.0_LIBRARIES}
     ${LibNM_LIBRARIES}
-    ${KF5_LIB}
+    ${KF5_QT_LIBRARIES}
 )
 
 # bin
