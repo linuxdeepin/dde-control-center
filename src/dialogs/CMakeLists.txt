@@ -20,6 +20,7 @@ if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
 endif ()
 
+if(NOT DEFINED DISABLE_SYS_UPDATE)
 
 set(SRCS
         main.cpp
@@ -51,4 +52,6 @@ target_link_libraries(${BIN_NAME} PRIVATE
 )
 
 # bin
-install(TARGETS ${BIN_NAME} DESTINATION bin)
+install(TARGETS ${BIN_NAME} DESTINATION lib/dde-control-center/reboot-reminder-dialog)
+
+endif()
