@@ -820,8 +820,24 @@ pkg_check_modules(Geoip REQUIRED geoip)
 pkg_check_modules(Gio-2.0 REQUIRED gio-2.0)
 pkg_check_modules(LibNM REQUIRED libnm)
 
+# KF5 network manager
 get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_DIRECTORIES)
-get_target_property(KF5_QT_LIBRARIES KF5::NetworkManagerQt IMPORTED_LOCATION_DEBIAN)
+
+set(TRY_KF5_LIBRARIES
+IMPORTED_LOCATION_DEBIAN
+IMPORTED_LOCATION_NOCONFIG
+)
+
+foreach(LETTER ${TRY_KF5_LIBRARIES})
+    if (NOT KF5_QT_LIBRARIES)
+        get_target_property(KF5_QT_LIBRARIES KF5::NetworkManagerQt ${LETTER})
+    endif()
+endforeach()
+
+if (NOT KF5_QT_LIBRARIES)
+    find_library(KF5_QT_LIBRARIES libKF5NetworkManagerQt.so)
+endif()
+# end KF5 network manager
 
 function(add_build_macro macro)
     string(TOUPPER ${macro} macro)
