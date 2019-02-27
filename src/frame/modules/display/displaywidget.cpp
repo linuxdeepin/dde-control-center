@@ -34,6 +34,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/titledslideritem.h"
 #include "widgets/translucentframe.h"
+#include <cmath>
 
 using namespace dcc::widgets;
 using namespace dcc::display;
@@ -302,24 +303,12 @@ void DisplayWidget::onUiScaleChanged(const double scale)
 
 int DisplayWidget::converToSlider(const float value)
 {
-    int number = 1;
-    int value_int = (value * 100);
-    int number_int = 100;
-
-    while(number_int < value_int) {
-        number_int += 25;
-        number++;
-    };
-
-    return number;
+    //remove base scale (100), then convert to 1-based value
+    //with a stepping of 25
+    return (int)round(value * 100 - 100) / 25 + 1;
 }
 
 float DisplayWidget::converToScale(const int value)
 {
-    float number = 1;
-    for (int i = 1; i != value; i++) {
-        number += 0.25;
-    }
-
-    return number;
+    return 1.0 + (value - 1) * 0.25;
 }
