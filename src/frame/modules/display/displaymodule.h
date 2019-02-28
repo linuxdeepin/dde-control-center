@@ -55,6 +55,7 @@ private Q_SLOTS:
     void showBrightnessPage();
     void showResolutionDetailPage();
     void showCustomSettings();
+    void showScalingPage();
     void showRecognize();
 #ifndef DCC_DISABLE_ROTATE
     void showRotate(Monitor *mon = nullptr);

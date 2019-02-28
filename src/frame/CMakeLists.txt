@@ -415,6 +415,8 @@ set(DISPLAY_FILES
                 modules/display/settingslistwidget.h
                 modules/display/settingsoptionitem.cpp
                 modules/display/settingsoptionitem.h
+                modules/display/scalingpage.h
+                modules/display/scalingpage.cpp
 )
 
 # load keyboard

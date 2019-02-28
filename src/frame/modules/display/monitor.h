@@ -50,6 +50,7 @@ public:
     inline int y() const { return m_y; }
     inline int w() const { return m_w; }
     inline int h() const { return m_h; }
+    inline double scale() const { return m_scale; }
     inline bool isPrimary() const { return m_primary == m_name; }
     inline quint16 rotate() const { return m_rotate; }
     inline double brightness() const { return m_brightness; }
@@ -66,6 +67,7 @@ Q_SIGNALS:
     void yChanged(const int y) const;
     void wChanged(const int w) const;
     void hChanged(const int h) const;
+    void scaleChanged(const double scale) const;
     void rotateChanged(const quint16 rotate) const;
     void brightnessChanged(const double brightness) const;
     void currentModeChanged(const Resolution &resolution) const;
@@ -75,6 +77,7 @@ private Q_SLOTS:
     void setY(const int y);
     void setW(const int w);
     void setH(const int h);
+    void setScale(const double scale);
     void setPrimary(const QString &primaryName);
     void setRotate(const quint16 rotate);
     void setBrightness(const double brightness);
@@ -89,6 +92,7 @@ private:
     int m_y;
     int m_w;
     int m_h;
+    double m_scale;
     quint16 m_rotate;
     double m_brightness;
     QString m_name;

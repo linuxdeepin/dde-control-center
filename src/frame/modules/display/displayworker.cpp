@@ -32,7 +32,6 @@
 using namespace dcc;
 using namespace dcc::display;
 
-#define UI_SCALE_KEY    "scaleFactor"
 #define GSETTINGS_MINIMUM_BRIGHTNESS    "brightness-minimum"
 
 const QString DisplayInterface("com.deepin.daemon.Display");
@@ -91,8 +90,10 @@ DisplayWorker::~DisplayWorker()
 void DisplayWorker::active()
 {
     QDBusPendingCallWatcher *scalewatcher = new QDBusPendingCallWatcher(m_appearanceInter->GetScaleFactor());
-
     connect(scalewatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScaleFinished);
+
+    QDBusPendingCallWatcher *screenscaleswatcher = new QDBusPendingCallWatcher(m_appearanceInter->GetScreenScaleFactors());
+    connect(screenscaleswatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScreenScalesFinished);
 }
 
 void DisplayWorker::saveChanges()
@@ -261,6 +262,20 @@ void DisplayWorker::onGetScaleFinished(QDBusPendingCallWatcher *w)
     w->deleteLater();
 }
 
+void DisplayWorker::onGetScreenScalesFinished(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QMap<QString,double>> reply = w->reply();
+    QMap<QString,double> rmap = reply;
+
+    for (auto& m : m_model->monitorList()){
+        if (rmap.find(m->name()) != rmap.end()){
+            m->setScale(rmap[m->name()]);
+        }
+    }
+
+    w->deleteLater();
+}
+
 void DisplayWorker::onCreateConfigFinshed(QDBusPendingCallWatcher *w)
 {
     const QString &name = w->property("ConfigName").toString();
@@ -333,14 +348,43 @@ void DisplayWorker::setMonitorPosition(Monitor *mon, const int x, const int y)
 
 void DisplayWorker::setUiScale(const double value)
 {
-   QDBusPendingCall call = m_appearanceInter->SetScaleFactor(value);
+    double rv=value;
+    if (rv < 0) rv = m_model->uiScale();
 
-   QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-   connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-       if (call.isError())
-           Q_EMIT m_model->setUIScale(value);
-       watcher->deleteLater();
-   });
+    m_appearanceInter->SetScreenScaleFactors({});
+
+    for (auto &mm : m_model->monitorList()) {
+        mm->setScale(-1);
+    }
+    QDBusPendingCall call = m_appearanceInter->SetScaleFactor(rv);
+
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (call.isError())
+            Q_EMIT m_model->uiScaleChanged(rv);
+        watcher->deleteLater();
+    });
+}
+
+void DisplayWorker::setIndividualScaling(Monitor *m, const double scaling)
+{
+    if (m && scaling > 0) {
+        m->setScale(scaling);
+    }
+
+    double primaryscale = m_model->primaryMonitor()->scale();
+    m_appearanceInter->SetScaleFactor(primaryscale);
+
+    QMap<QString, double> scalemap;
+    for (auto& m : m_model->monitorList()){
+        if (m->scale() > 0) {
+            scalemap[m->name()]=m->scale();
+        }
+        else {
+            scalemap[m->name()]=1;
+        }
+    }
+    m_appearanceInter->SetScreenScaleFactors(scalemap);
 }
 
 void DisplayWorker::setNightMode(const bool nightmode)
@@ -350,11 +394,11 @@ void DisplayWorker::setNightMode(const bool nightmode)
     QString cmd;
     QString serverCmd;
     if (nightmode) {
-       cmd = "start";
-       serverCmd = "enable";
+        cmd = "start";
+        serverCmd = "enable";
     } else {
-       cmd = "stop";
-       serverCmd = "disable";
+        cmd = "stop";
+        serverCmd = "disable";
     }
 
     connect(process, static_cast<void (QProcess::*)(int exitCode)>(&QProcess::finished), this, [=] {

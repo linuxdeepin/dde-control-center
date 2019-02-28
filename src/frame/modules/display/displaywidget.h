@@ -29,6 +29,7 @@
 #include <QPushButton>
 #include "miracastmodel.h"
 #include "modules/modulewidget.h"
+#include "scalingpage.h"
 
 namespace dcc {
 
@@ -56,6 +57,7 @@ public:
 Q_SIGNALS:
     void showResolutionPage() const;
     void showBrightnessPage() const;
+    void showScalingPage() const;
 #ifndef DCC_DISABLE_ROTATE
     void requestRotate() const;
 #endif
@@ -73,9 +75,9 @@ Q_SIGNALS:
     void requestExtendMode() const;
     void requestOnlyMonitor(const QString &monName) const;
 
-private:
-    int converToSlider(const float value);
-    float converToScale(const int value);
+public:
+    static int convertToSlider(const float value);
+    static float convertToScale(const int value);
 
 private Q_SLOTS:
     void onMonitorListChanged() const;
@@ -94,6 +96,7 @@ private:
     widgets::NextPageWidget *        m_brightnessSettings;
     widgets::SettingsGroup *         m_resolutionsGrp;
     widgets::TitledSliderItem *      m_scaleWidget;
+    widgets::NextPageWidget *        m_scalingSettings;
 #ifndef DCC_DISABLE_MIRACAST
     widgets::SettingsGroup *m_miracastGrp;
 #endif

@@ -44,6 +44,7 @@ DisplayWidget::DisplayWidget()
     , m_displayControlPage(new DisplayControlPage)
     , m_resolution(new NextPageWidget)
     , m_brightnessSettings(new NextPageWidget)
+    , m_scalingSettings(new NextPageWidget)
     , m_scaleWidget(new TitledSliderItem(tr("Display scaling")))
 #ifndef DCC_DISABLE_ROTATE
     , m_rotate(new QPushButton)
@@ -57,6 +58,7 @@ DisplayWidget::DisplayWidget()
     m_customConfigButton->setText(tr("Custom Settings"));
     m_resolution->setTitle(tr("Resolution"));
     m_brightnessSettings->setTitle(tr("Brightness"));
+    m_scalingSettings->setTitle(tr("Scaling Settings"));
 
     QStringList scaleList;
     scaleList << "1.0"
@@ -84,6 +86,7 @@ DisplayWidget::DisplayWidget()
 
     SettingsGroup *scaleGrp = new SettingsGroup;
     scaleGrp->appendItem(m_scaleWidget);
+    scaleGrp->appendItem(m_scalingSettings);
 
     m_resolutionsGrp = new SettingsGroup;
     m_resolutionsGrp->appendItem(m_resolution);
@@ -111,6 +114,7 @@ DisplayWidget::DisplayWidget()
 
     connect(m_brightnessSettings, &NextPageWidget::clicked, this,
             &DisplayWidget::showBrightnessPage);
+    connect(m_scalingSettings, &NextPageWidget::clicked, this, &DisplayWidget::showScalingPage);
     connect(m_resolution, &NextPageWidget::clicked, this, &DisplayWidget::showResolutionPage);
 #ifndef DCC_DISABLE_ROTATE
     connect(m_rotate, &QPushButton::clicked, this, &DisplayWidget::requestRotate);
@@ -131,9 +135,9 @@ DisplayWidget::DisplayWidget()
         }
     });
     connect(slider, &DCCSlider::valueChanged, this, [=](const int value) {
-        Q_EMIT requestUiScaleChanged(converToScale(value));
+        Q_EMIT requestUiScaleChanged(convertToScale(value));
 
-        m_scaleWidget->setValueLiteral(QString::number(converToScale(value)));
+        m_scaleWidget->setValueLiteral(QString::number(convertToScale(value)));
     });
 
     connect(m_displayControlPage, &DisplayControlPage::requestDuplicateMode, this,
@@ -190,6 +194,8 @@ void DisplayWidget::onMonitorListChanged() const
 
         m_resolutionsGrp->show();
         m_resolution->show();
+        m_scaleWidget->show();
+        m_scalingSettings->hide();
 #ifndef DCC_DISABLE_ROTATE
         m_rotate->show();
 #endif
@@ -203,6 +209,8 @@ void DisplayWidget::onMonitorListChanged() const
 
         m_resolutionsGrp->hide();
         m_resolution->hide();
+        m_scaleWidget->hide();
+        m_scalingSettings->show();
 #ifndef DCC_DISABLE_ROTATE
         m_rotate->hide();
 #endif
@@ -249,20 +257,20 @@ void DisplayWidget::onUiScaleChanged(const double scale)
     DCCSlider *slider = m_scaleWidget->slider();
 
     slider->blockSignals(true);
-    slider->setValue(converToSlider(scale));
+    slider->setValue(convertToSlider(scale));
     slider->blockSignals(false);
 
     m_scaleWidget->setValueLiteral(QString::number(scale));
 }
 
-int DisplayWidget::converToSlider(const float value)
+int DisplayWidget::convertToSlider(const float value)
 {
     //remove base scale (100), then convert to 1-based value
     //with a stepping of 25
     return (int)round(value * 100 - 100) / 25 + 1;
 }
 
-float DisplayWidget::converToScale(const int value)
+float DisplayWidget::convertToScale(const int value)
 {
     return 1.0 + (value - 1) * 0.25;
 }

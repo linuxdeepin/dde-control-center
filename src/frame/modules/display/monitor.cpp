@@ -29,7 +29,8 @@ using namespace dcc::display;
 
 Monitor::Monitor(QObject *parent)
     : QObject(parent),
-      m_brightness(1.)
+      m_brightness(1.),
+      m_scale(-1)
 {
 
 }
@@ -76,6 +77,15 @@ void Monitor::setH(const int h)
 
     Q_EMIT hChanged(m_h);
     Q_EMIT geometryChanged();
+}
+
+void Monitor::setScale(const double scale)
+{
+    if (m_scale == scale)
+        return;
+    m_scale = scale;
+
+    Q_EMIT scaleChanged(m_scale);
 }
 
 void Monitor::setPrimary(const QString &primaryName)

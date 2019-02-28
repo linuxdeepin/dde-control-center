@@ -33,6 +33,7 @@
 #include "displaymodel.h"
 #include "displayworker.h"
 #include "brightnesspage.h"
+#include "scalingpage.h"
 #include "customconfigpage.h"
 #include "widgets/timeoutdialog.h"
 
@@ -92,6 +93,17 @@ void DisplayModule::showResolutionDetailPage()
 
     page->setModel(m_displayModel);
     connect(page, &ResolutionDetailPage::requestSetResolution, this, &DisplayModule::onDetailPageRequestSetResolution);
+
+    m_frameProxy->pushWidget(this, page);
+}
+
+void DisplayModule::showScalingPage()
+{
+    ScalingPage *page = new ScalingPage;
+
+    page->setModel(m_displayModel);
+    connect(page, &ScalingPage::requestUiScaleChange, m_displayWorker, &DisplayWorker::setUiScale);
+    connect(page, &ScalingPage::requestIndividualScaling, m_displayWorker, &DisplayWorker::setIndividualScaling);
 
     m_frameProxy->pushWidget(this, page);
 }
@@ -162,6 +174,7 @@ ModuleWidget *DisplayModule::moduleWidget()
     connect(m_displayWidget, &DisplayWidget::requestRecordCurrentState, m_displayWorker, &DisplayWorker::record);
     connect(m_displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
     connect(m_displayWidget, &DisplayWidget::showBrightnessPage, this, &DisplayModule::showBrightnessPage);
+    connect(m_displayWidget, &DisplayWidget::showScalingPage, this, &DisplayModule::showScalingPage);
 #ifndef DCC_DISABLE_MIRACAST
     connect(m_displayWidget, &DisplayWidget::requestMiracastConfigPage, this, &DisplayModule::showMiracastPage);
 #endif

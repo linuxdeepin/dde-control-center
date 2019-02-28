@@ -82,6 +82,7 @@ public Q_SLOTS:
     void setMonitorBrightness(Monitor *mon, const double brightness);
     void setMonitorPosition(Monitor *mon, const int x, const int y);
     void setUiScale(const double value);
+    void setIndividualScaling(Monitor *m, const double scaling);
     void setNightMode(const bool nightmode);
     void updateNightModeStatus();
     void record(); // save mutilScreenConfig
@@ -93,6 +94,7 @@ private Q_SLOTS:
     void onMonitorsBrightnessChanged(const BrightnessMap &brightness);
     void onModifyConfigNameFinished(QDBusPendingCallWatcher *w);
     void onGetScaleFinished(QDBusPendingCallWatcher *w);
+    void onGetScreenScalesFinished(QDBusPendingCallWatcher *w);
     void onCreateConfigFinshed(QDBusPendingCallWatcher *w);
 
 private:
