@@ -202,6 +202,8 @@ set(WIDGETS_FILES
                 widgets/themeitem.h
                 widgets/titledslideritem.cpp
                 widgets/titledslideritem.h
+                widgets/timeoutdialog.cpp
+                widgets/timeoutdialog.h
 )
 
 # load modules

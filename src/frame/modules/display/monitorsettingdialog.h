@@ -70,7 +70,7 @@ Q_SIGNALS:
 #ifndef DCC_DISABLE_ROTATE
     void requestMonitorRotate(Monitor *mon) const;
 #endif
-    void requestSetMonitorMode(Monitor *mon, const int mode) const;
+    void requestSetMonitorResolution(Monitor *mon, const int mode) const;
     void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
     void requestJustApply() const;
     void requestApplySave() const;
@@ -91,7 +91,7 @@ private Q_SLOTS:
     void onPrimaryChanged();
     void onMonitorRectChanged();
     void onMonitorModeChanged();
-    void onMonitorModeSelected(const int index);
+    void onMonitorResolutionSelected(const int index);
 #ifndef DCC_DISABLE_ROTATE
     void onRotateBtnClicked();
 #endif

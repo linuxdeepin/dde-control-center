@@ -161,7 +161,7 @@ void MonitorSettingDialog::init()
     m_positionWatcher->setInterval(1000);
     m_positionWatcher->start();
 
-    connect(resolutionView, &BasicListView::clicked, [=](const QModelIndex &index) { onMonitorModeSelected(index.row()); });
+    connect(resolutionView, &BasicListView::clicked, [=](const QModelIndex &index) { onMonitorResolutionSelected(index.row()); });
 #ifndef DCC_DISABLE_ROTATE
     connect(m_rotateBtn, &DImageButton::clicked, this, &MonitorSettingDialog::onRotateBtnClicked);
 #endif
@@ -258,7 +258,7 @@ void MonitorSettingDialog::reloadOtherScreensDialog()
         MonitorSettingDialog *dialog = new MonitorSettingDialog(mon, this);
 
         connect(dialog, &MonitorSettingDialog::requestSetPrimary, this, &MonitorSettingDialog::requestSetPrimary);
-        connect(dialog, &MonitorSettingDialog::requestSetMonitorMode, this, &MonitorSettingDialog::requestSetMonitorMode);
+        connect(dialog, &MonitorSettingDialog::requestSetMonitorResolution, this, &MonitorSettingDialog::requestSetMonitorResolution);
 #ifndef DCC_DISABLE_ROTATE
         connect(dialog, &MonitorSettingDialog::requestMonitorRotate, this, &MonitorSettingDialog::requestMonitorRotate);
 #endif
@@ -365,7 +365,7 @@ void MonitorSettingDialog::updateModeList(const QList<Resolution> &modeList)
     Q_EMIT m_resolutionsModel->layoutChanged();
 }
 
-void MonitorSettingDialog::onMonitorModeSelected(const int index)
+void MonitorSettingDialog::onMonitorResolutionSelected(const int index)
 {
     const bool intersect = m_primary && m_model->monitorsIsIntersect();
 
@@ -381,14 +381,14 @@ void MonitorSettingDialog::onMonitorModeSelected(const int index)
             for (int i(0); i != list.size(); ++i)
             {
                 if (list[i].width() == mode.width() && list[i].height() == mode.height())
-                    Q_EMIT requestSetMonitorMode(mon, list[i].id());
+                    Q_EMIT requestSetMonitorResolution(mon, list[i].id());
             }
         }
     } else {
         const auto modeList = m_monitor->modeList();
         Q_ASSERT(modeList.size() > index);
 
-        Q_EMIT requestSetMonitorMode(m_monitor, modeList[index].id());
+        Q_EMIT requestSetMonitorResolution(m_monitor, modeList[index].id());
     }
 }
 

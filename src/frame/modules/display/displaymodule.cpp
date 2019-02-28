@@ -34,12 +34,15 @@
 #include "displayworker.h"
 #include "brightnesspage.h"
 #include "customconfigpage.h"
+#include "widgets/timeoutdialog.h"
 
 #ifndef DCC_DISABLE_MIRACAST
 #include "miracastsettings.h"
 #include "miracastmodel.h"
 #include "miracastworker.h"
 #endif
+
+#include <QApplication>
 
 using namespace dcc;
 using namespace dcc::display;
@@ -88,8 +91,7 @@ void DisplayModule::showResolutionDetailPage()
     ResolutionDetailPage *page = new ResolutionDetailPage;
 
     page->setModel(m_displayModel);
-    connect(page, &ResolutionDetailPage::requestSetResolution, m_displayWorker, &DisplayWorker::setMonitorResolution);
-    connect(page, &ResolutionDetailPage::requestSetResolution, m_displayWorker, &DisplayWorker::saveChanges, Qt::QueuedConnection);
+    connect(page, &ResolutionDetailPage::requestSetResolution, this, &DisplayModule::onDetailPageRequestSetResolution);
 
     m_frameProxy->pushWidget(this, page);
 }
@@ -209,9 +211,9 @@ void DisplayModule::showCustomSettings(const QString &config, bool isNewConfig)
     connect(&dialog, &MonitorSettingDialog::requestMerge, m_displayWorker, &DisplayWorker::mergeScreens);
     connect(&dialog, &MonitorSettingDialog::requestSplit, m_displayWorker, &DisplayWorker::splitScreens);
     connect(&dialog, &MonitorSettingDialog::requestSetPrimary, m_displayWorker, &DisplayWorker::setPrimary);
-    connect(&dialog, &MonitorSettingDialog::requestSetMonitorMode, m_displayWorker, &DisplayWorker::setMonitorResolution);
 //    connect(&dialog, &MonitorSettingDialog::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
     connect(&dialog, &MonitorSettingDialog::requestSetMonitorPosition, m_displayWorker, &DisplayWorker::setMonitorPosition);
+    connect(&dialog, &MonitorSettingDialog::requestSetMonitorResolution, this, &DisplayModule::onCustomPageRequestSetResolution);
     connect(&dialog, &MonitorSettingDialog::requestRecognize, this, &DisplayModule::showRecognize);
 #ifndef DCC_DISABLE_ROTATE
     connect(&dialog, &MonitorSettingDialog::requestMonitorRotate, this, &DisplayModule::showRotate);
@@ -259,11 +261,16 @@ void DisplayModule::showRotate(Monitor *mon)
     connect(dialog, &RotateDialog::requestRotate, m_displayWorker, &DisplayWorker::setMonitorRotate);
     connect(dialog, &RotateDialog::requestRotateAll, m_displayWorker, &DisplayWorker::setMonitorRotateAll);
 
-    dialog->exec();
+    int retCode = dialog->exec();
     dialog->deleteLater();
 
-    if (m_displayModel->monitorList().size() == 1)
-        m_displayWorker->saveChanges();
+    if (retCode == QDialog::DialogCode::Accepted) {
+        // if monitor list size > 1 means the config file will be saved by MonitorSettingDialog
+        if (m_displayModel->monitorList().size() == 1)
+            m_displayWorker->saveChanges();
+    } else {
+        m_displayWorker->restore();
+    }
 }
 #endif
 
@@ -279,5 +286,41 @@ void DisplayModule::showMiracastPage(const QDBusObjectPath &path)
     connect(miracast, &MiracastPage::requestDeviceRefreshed, m_miracastWorker, &MiracastWorker::setLinkScannning);
 
     m_frameProxy->pushWidget(this, miracast);
+}
+
+void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mode)
+{
+    m_displayWorker->setMonitorResolution(mon, mode);
+
+    if (showTimeoutDialog(mon) == QDialog::Accepted) {
+        m_displayWorker->saveChanges();
+        return;
+    }
+
+    m_displayWorker->restore();
+}
+
+void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, const int mode)
+{
+    m_displayWorker->setMonitorResolution(mon, mode);
+
+    if (showTimeoutDialog(mon) != QDialog::Accepted) {
+        m_displayWorker->restore();
+    }
+}
+
+int DisplayModule::showTimeoutDialog(Monitor *mon)
+{
+    TimeoutDialog *timeoutDialog = new TimeoutDialog(15);
+
+    qreal radio = qApp->devicePixelRatio();
+    connect(mon, &Monitor::geometryChanged, timeoutDialog, [=] {
+        if (timeoutDialog) {
+            timeoutDialog->moveToCenterByRect(QRect(mon->x(), mon->y(), mon->w() / radio, mon->h() / radio));
+        }
+    }, Qt::QueuedConnection);
+    connect(timeoutDialog, &TimeoutDialog::closed, timeoutDialog, &TimeoutDialog::deleteLater);
+
+    return timeoutDialog->exec();
 }
 #endif

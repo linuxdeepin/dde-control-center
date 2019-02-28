@@ -89,6 +89,9 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
         m_resolutions->appendItem(item);
     }
 
+    connect(mon, &Monitor::currentModeChanged, this, &ResolutionDetailPage::refreshCurrentResolution,
+            static_cast<Qt::ConnectionType>(Qt::QueuedConnection | Qt::UniqueConnection));
+
     if (!m_currentItem)
         return;
 
@@ -115,4 +118,28 @@ void ResolutionDetailPage::onItemClicked()
     m_currentItem = item;
 
     Q_EMIT requestSetResolution(m_model->monitorList().first(), m_options[item]);
+}
+
+void ResolutionDetailPage::refreshCurrentResolution()
+{
+    if (!m_model || m_options.isEmpty()) {
+        return;
+    }
+
+    const Monitor *mon = m_model->monitorList().first();
+    if (!mon) {
+        return;
+    }
+
+    if (m_currentItem) {
+        m_currentItem->blockSignals(true);
+        m_currentItem->setSelected(false);
+        m_currentItem->blockSignals(false);
+    }
+    m_currentItem = m_options.key(m_model->monitorList().first()->currentMode().id(), nullptr);
+    if (m_currentItem) {
+        m_currentItem->blockSignals(true);
+        m_currentItem->setSelected(true);
+        m_currentItem->blockSignals(false);
+    }
 }

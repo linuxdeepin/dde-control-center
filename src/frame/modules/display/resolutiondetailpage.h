@@ -55,6 +55,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onItemClicked();
+    void refreshCurrentResolution();
 
 private:
     DisplayModel *m_model;

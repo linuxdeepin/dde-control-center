@@ -45,6 +45,8 @@
 
 #include <com_deepin_daemon_inputdevice_mouse.h>
 
+#define ResetOperationTimeLimit 15
+
 DWIDGET_USE_NAMESPACE
 
 using namespace dcc::display;
@@ -57,7 +59,6 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
       m_model(nullptr),
       m_adjustDelayTimer(new QTimer(this)),
       m_wmHelper(DWindowManagerHelper::instance()),
-
       m_mouseLeftHand(false)
 {
     const qreal ratio = devicePixelRatioF();
@@ -126,11 +127,43 @@ void RotateDialog::init()
     m_adjustDelayTimer->setSingleShot(true);
     m_adjustDelayTimer->setInterval(100);
     m_adjustDelayTimer->start();
+
+    m_resetOperationTimer = new QTimer(this);
+    m_resetTimeout = ResetOperationTimeLimit;
+
+    // Note: Using normal method cannot translate this string
+    const char* NoopTips = QT_TRANSLATE_NOOP(
+                "RotateDialog",
+                "Left click to rotate, right click to restore and exit, press Ctrl+S to save.\nIf no operation, the display will be restored after %1s.");
+    m_tips = QApplication::translate("RotateDialog", NoopTips);
+
+    m_resetOperationTimer->setInterval(1000);
+    connect(m_resetOperationTimer, &QTimer::timeout, this, [=] {
+        m_resetTimeout--;
+        update();
+        if (m_resetTimeout < 1) {
+            reject();
+        }
+    });
+
 }
 
 RotateDialog::~RotateDialog()
 {
     qApp->restoreOverrideCursor();
+}
+
+void RotateDialog::keyPressEvent(QKeyEvent *event)
+{
+    // another implementation
+//    if (event->modifiers() == Qt::ControlModifier
+//            && event->key() == Qt::Key_S) {
+//        accept();
+//    }
+
+    if (event->matches(QKeySequence::StandardKey::Save)) {
+        accept();
+    }
 }
 
 void RotateDialog::mouseReleaseEvent(QMouseEvent *e)
@@ -139,7 +172,7 @@ void RotateDialog::mouseReleaseEvent(QMouseEvent *e)
 
     switch (e->button())
     {
-    case Qt::RightButton:   accept();       break;
+    case Qt::RightButton:   reject();       break;
     case Qt::LeftButton:    rotate();       break;
     default:;
     }
@@ -161,15 +194,10 @@ void RotateDialog::leaveEvent(QEvent *e)
 
 void RotateDialog::paintEvent(QPaintEvent *e)
 {
-    const char* NoopTips = QT_TRANSLATE_NOOP("RotateDialog", "Left click to rotate and right click to exit");
-    const QString tips = QApplication::translate("RotateDialog", NoopTips);
-
     QDialog::paintEvent(e);
 
-    QFontMetrics fm(font());
-    const int tw = fm.width(tips);
-    const int w = width();
-    const int h = height();
+    const QString tips = m_tips.arg(m_resetTimeout);
+
     int margin = 100;
 
     QPainter painter(this);
@@ -186,20 +214,31 @@ void RotateDialog::paintEvent(QPaintEvent *e)
         painter.setPen(Qt::black);
     }
 
+    QRect destHRect(0, 0, width(), margin);
+    QRect destVRect(0, 0, height(), margin);
+
     // bottom
-    painter.drawText((w - tw) / 2, h - margin, tips);
+    painter.translate(0, height() - margin);
+    painter.drawText(destHRect, Qt::AlignHCenter, tips);
+    painter.resetTransform();
 
     // left
     painter.rotate(90);
-    painter.drawText((h - tw) / 2, -margin, tips);
+    painter.translate(0, -margin);
+    painter.drawText(destVRect, Qt::AlignHCenter, tips);
+    painter.resetTransform();
 
     // top
-    painter.rotate(90);
-    painter.drawText((w + tw) / -2, -margin, tips);
+    painter.rotate(180);
+    painter.translate(-width(), -margin);
+    painter.drawText(destHRect, Qt::AlignHCenter, tips);
+    painter.resetTransform();
 
     // right
-    painter.rotate(90);
-    painter.drawText((h + tw) / -2, w - margin, tips);
+    painter.rotate(270);
+    painter.translate(-height(), width() - margin);
+    painter.drawText(destVRect, Qt::AlignHCenter, tips);
+    painter.resetTransform();
 }
 
 void RotateDialog::showEvent(QShowEvent *e)
@@ -228,6 +267,10 @@ void RotateDialog::rotate()
         Q_EMIT requestRotate(m_mon, nextValue);
     else
         Q_EMIT requestRotateAll(nextValue);
+
+    m_resetTimeout = ResetOperationTimeLimit;
+    m_resetOperationTimer->start();
+    update();
 }
 
 void RotateDialog::adjustGemotry()

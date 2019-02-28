@@ -51,11 +51,12 @@ Q_SIGNALS:
     void requestRotate(Monitor *mon, const quint16 rotate) const;
 
 protected:
-    void mouseReleaseEvent(QMouseEvent *e);
-    void mouseMoveEvent(QMouseEvent *e);
-    void leaveEvent(QEvent *e);
-    void paintEvent(QPaintEvent *e);
-    void showEvent(QShowEvent *e);
+    void keyPressEvent(QKeyEvent *event) override;
+    void mouseReleaseEvent(QMouseEvent *e) override;
+    void mouseMoveEvent(QMouseEvent *e) override;
+    void leaveEvent(QEvent *e) override;
+    void paintEvent(QPaintEvent *e) override;
+    void showEvent(QShowEvent *e) override;
 
 private Q_SLOTS:
     void adjustGemotry();
@@ -68,9 +69,12 @@ private:
     Monitor *m_mon;
     DisplayModel *m_model;
     QTimer *m_adjustDelayTimer;
+    QTimer *m_resetOperationTimer;
     Dtk::Widget::DWindowManagerHelper *m_wmHelper;
 
+    QString m_tips;
     bool m_mouseLeftHand;
+    int m_resetTimeout;
 };
 
 } // namespace display

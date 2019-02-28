@@ -216,5 +216,6 @@
         <file>themes/dark/icons/password_show_normal.svg</file>
         <file>themes/dark/icons/password_show_press.svg</file>
         <file>themes/dark/icons/select.svg</file>
+        <file>themes/dark/icons/display_setting.svg</file>
     </qresource>
 </RCC>
