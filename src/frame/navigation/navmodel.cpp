@@ -199,5 +199,5 @@ QStringList NavModel::validModuleList()
     moduleList.removeOne("update");
 #endif
 
-    return std::move(moduleList);
+    return moduleList;
 }

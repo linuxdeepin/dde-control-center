@@ -145,8 +145,6 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
 
 #ifndef DISABLE_SYS_UPDATE
     m_updateNotifier->setObjectName("UpdateNotifier");
-
-//    connect(m_updateNotifier, &UpdateNotifier::notifierVisibleChanged, this, &MainWidget::updateMPRISEnable);
 #endif
 
     m_pluginsLayout->addWidget(m_navWidget);
@@ -187,32 +185,15 @@ MainWidget::MainWidget(FrameContentWrapper *parent)
     refershTimedate();
 }
 
-void MainWidget::resizeEvent(QResizeEvent *e)
-{
-    FrameWidget::resizeEvent(e);
-
-    QTimer::singleShot(1, this, &MainWidget::updatePluginsHeight);
-}
-
 int MainWidget::getPluginsHeight()
 {
     return height() > 800 ? PluginsHeightMax : PluginsHeightMin;
-}
-
-void MainWidget::updatePluginsHeight()
-{
-//    const bool b = height() > 650;
-//    m_pluginWidget->setVisible(b);
-//    m_quickSettingsPanel->setAllSettingsVisible(!b);
-
-//    updateMPRISEnable();
 }
 
 void MainWidget::pluginAdded(QWidget * const w)
 {
     w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     const int idx = m_pluginsLayout->addWidget(w);
-    const int count = m_pluginsLayout->count();
     m_pluginsLayout->setCurrentIndex(idx);
 }
 
@@ -237,17 +218,6 @@ void MainWidget::refershTimedate()
     const QDateTime tm = QDateTime::currentDateTime();
     m_currentTimeLbl->setText(tm.time().toString("HH:mm"));
     m_currentDateLbl->setText(tm.date().toString(Qt::SystemLocaleLongDate));
-}
-
-void MainWidget::updateMPRISEnable()
-{
-#ifndef DISABLE_SYS_UPDATE
-    const bool update_visible = m_updateNotifier->isVisible();
-#else
-    const bool update_visible = false;
-#endif
-    const int screen_height = qApp->primaryScreen()->geometry().height();
-    const bool is_768 = screen_height <= 768;
 }
 
 void MainWidget::toggleNotify()

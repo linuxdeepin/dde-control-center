@@ -38,20 +38,23 @@ using namespace NetworkManager;
 
 static QString DevicePath = "";
 
-ConnectionEditPage::ConnectionEditPage(ConnectionType connType, const QString &devPath,  const QString &connUuid, QWidget *parent)
-    : ContentWidget(parent),
-      m_mainLayout(new QVBoxLayout),
-      m_settingsLayout(new QVBoxLayout),
-      m_connection(nullptr),
-      m_connectionSettings(nullptr),
-      m_settingsWidget(nullptr),
-      m_disconnectBtn(new QPushButton),
-      m_removeBtn(new QPushButton),
-      m_buttonTuple(new ButtonTuple),
-      m_subPage(nullptr),
-      m_connType(static_cast<NetworkManager::ConnectionSettings::ConnectionType>(connType)),
-      m_isNewConnection(false),
-      m_connectionUuid(connUuid)
+ConnectionEditPage::ConnectionEditPage(ConnectionType connType,
+                                       const QString &devPath,
+                                       const QString &connUuid,
+                                       QWidget *      parent)
+    : ContentWidget(parent)
+    , m_settingsLayout(new QVBoxLayout)
+    , m_connection(nullptr)
+    , m_connectionSettings(nullptr)
+    , m_settingsWidget(nullptr)
+    , m_mainLayout(new QVBoxLayout)
+    , m_disconnectBtn(new QPushButton)
+    , m_removeBtn(new QPushButton)
+    , m_buttonTuple(new ButtonTuple)
+    , m_subPage(nullptr)
+    , m_connType(static_cast<NetworkManager::ConnectionSettings::ConnectionType>(connType))
+    , m_isNewConnection(false)
+    , m_connectionUuid(connUuid)
 {
     DevicePath = devPath;
 

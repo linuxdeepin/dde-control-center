@@ -146,9 +146,9 @@ bool NavigationBar::eventFilter(QObject *watched, QEvent *event)
 {
     if (event->type() == QEvent::Enter) {
         DImageButton *btn = static_cast<DImageButton*>(watched);
-        const QPoint p { std::move(mapToGlobal(btn->geometry().topLeft())) };
-        const QString str { std::move(transModuleName(m_navigationButtons.key(btn))) };
-        const int width { std::move(fontMetrics().width(str)) };
+        const QPoint p { mapToGlobal(btn->geometry().topLeft()) };
+        const QString str { transModuleName(m_navigationButtons.key(btn)) };
+        const int width { fontMetrics().width(str) };
         m_navLabel->setText(str);
         m_navLabel->setFixedWidth(width);
         m_arrowRectangle->setWidth(width);
