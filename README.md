@@ -6,19 +6,28 @@ DDE Control Center is the control panel of Deepin Desktop Environment.
 
 ### Build dependencies
 * pkg-config
+* cmake
 * Qt5(>= 5.6) with modules:
   - qt5-default
-  - qt5-qmake
   - qt5declarative5-dev
   - qt5svg5-dev
   - qttools5-dev-tools
+  - qtdeclarative5-dev
 * Deepin-tool-kit(>=2.0) with modules:
   - dtkcore-dev
   - dtkwidget-dev
-* libgeoip-dev
-* libdframeworkdbus-dev
-* libgsettings-qt-dev
-* libx11-dev
+  - dtkcore-bin
+* geoip-dev
+* dde-qt-dbus-factory
+* gsettings-qt-dev
+* dde-network-utils-dev
+* kf5networkmanagerqt-dev
+* xrandr-dev
+* mtdev-dev
+* fontconfig1-dev
+* freetype6-dev
+* egl1-mesa-dev
+* xcb-ewmh-dev
 
 ### Runtime dependencies
 
@@ -46,7 +55,7 @@ DDE Control Center is the control panel of Deepin Desktop Environment.
 $ cd dde-control-center
 $ mkdir Build
 $ cd Build
-$ qmake ..
+$ cmake ..
 $ make
 ```
 
