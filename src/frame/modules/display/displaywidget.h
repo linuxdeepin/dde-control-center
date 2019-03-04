@@ -59,11 +59,12 @@ Q_SIGNALS:
 #ifndef DCC_DISABLE_ROTATE
     void requestRotate() const;
 #endif
-    void requestNewConfig() const;
-    void requestConfigPage(const QString &config) const;
+    void requestNewConfig(const QString &config) const;
+    void requestDeleteConfig(const QString &config) const;
     void requestSwitchConfig(const QString &config) const;
-    void requestModifyConfig(const QString &config, bool isNewConfig) const;
+    void requestModifyConfig() const;
     void requestModifyConfigName(const QString &oldName, const QString &newName) const;
+    void requestRecordCurrentState() const;
 #ifndef DCC_DISABLE_MIRACAST
     void requestMiracastConfigPage(const QDBusObjectPath &path) const;
 #endif
@@ -77,10 +78,8 @@ private:
     float converToScale(const int value);
 
 private Q_SLOTS:
-    void onScreenListChanged() const;
+    void onMonitorListChanged() const;
     void onScreenSizeChanged() const;
-    void onConfigListChanged();
-    void onFirstConfigCreated(const QString &config);
 #ifndef DCC_DISABLE_MIRACAST
     void onMiracastLinkAdded(const LinkInfo &link);
     void onMiracastLinkRemoved(const QDBusObjectPath &path);
@@ -93,8 +92,6 @@ private:
     DisplayControlPage *             m_displayControlPage;
     widgets::NextPageWidget *        m_resolution;
     widgets::NextPageWidget *        m_brightnessSettings;
-    QList<widgets::NextPageWidget *> m_customSettings;
-    widgets::SettingsGroup *         m_customSettingsGrp;
     widgets::SettingsGroup *         m_resolutionsGrp;
     widgets::TitledSliderItem *      m_scaleWidget;
 #ifndef DCC_DISABLE_MIRACAST
@@ -103,9 +100,8 @@ private:
 #ifndef DCC_DISABLE_ROTATE
     QPushButton *m_rotate;
 #endif
-    QPushButton *m_createConfig;
+    QPushButton *m_customConfigButton;
 
-    QTimer *m_configListRefershTimer;
 #ifndef DCC_DISABLE_MIRACAST
     QMap<QDBusObjectPath, NextPageWidget *> m_miracastList;
 #endif

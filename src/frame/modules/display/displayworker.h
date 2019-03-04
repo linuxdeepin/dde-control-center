@@ -66,8 +66,7 @@ public Q_SLOTS:
     void duplicateMode();
     void extendMode();
     void onlyMonitor(const QString &monName);
-//    void switchCustom(const bool deleteConfig = true);
-    void createConfig();
+    void createConfig(const QString &config);
     void switchConfig(const QString &config);
     void deleteConfig(const QString &config);
     void modifyConfigName(const QString &oldName, const QString &newName);

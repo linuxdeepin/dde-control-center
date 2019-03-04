@@ -185,27 +185,11 @@ void DisplayWorker::onlyMonitor(const QString &monName)
     switchMode(SINGLE_MODE, monName);
 }
 
-void DisplayWorker::createConfig()
+void DisplayWorker::createConfig(const QString &config)
 {
-    int idx = 0;
-    QString configName;
-
-    do
-    {
-        configName = QString("_dde_display_%1").arg(++idx);
-
-        if (!m_model->configList().contains(configName))
-            break;
-    } while (true);
-
-//    if (m_model->displayMode() == CUSTOM_MODE)
-//        return switchConfig(configName);
-
-    record();
-
-    const auto reply = m_displayInter.SwitchMode(CUSTOM_MODE, configName);
+    const auto reply = m_displayInter.SwitchMode(CUSTOM_MODE, config);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply);
-    watcher->setProperty("Name", configName);
+    watcher->setProperty("ConfigName", config);
 
     connect(watcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onCreateConfigFinshed);
 }
@@ -226,15 +210,6 @@ void DisplayWorker::modifyConfigName(const QString &oldName, const QString &newN
 
     connect(w, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onModifyConfigNameFinished);
 }
-
-//void DisplayWorker::switchCustom(const bool deleteConfig)
-//{
-    // delete old config file
-//    if (deleteConfig)
-//        m_displayInter.DeleteCustomConfig().waitForFinished();
-
-//    switchMode(CUSTOM_MODE);
-//}
 
 void DisplayWorker::switchMode(const int mode, const QString &name)
 {
@@ -288,9 +263,9 @@ void DisplayWorker::onGetScaleFinished(QDBusPendingCallWatcher *w)
 
 void DisplayWorker::onCreateConfigFinshed(QDBusPendingCallWatcher *w)
 {
-    const QString name = w->property("Name").toString();
+    const QString &name = w->property("ConfigName").toString();
 
-    Q_EMIT m_model->firstConfigCreated(name);
+    Q_EMIT m_model->configCreated(name);
 
     w->deleteLater();
 }
@@ -526,11 +501,9 @@ void DisplayWorker::restore() {
     switch (lastConfig.first)
     {
         case CUSTOM_MODE: {
-            const QString config = m_model->config();
             discardChanges();
             switchMode(lastConfig.first, lastConfig.second);
             saveChanges();
-            deleteConfig(config);
             break;
         }
         case MERGE_MODE:

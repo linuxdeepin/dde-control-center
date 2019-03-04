@@ -54,8 +54,7 @@ public:
 private Q_SLOTS:
     void showBrightnessPage();
     void showResolutionDetailPage();
-    void showCustomSettings(const QString &config, bool isNewConfig = false);
-    void showConfigPage(const QString &config);
+    void showCustomSettings();
     void showRecognize();
 #ifndef DCC_DISABLE_ROTATE
     void showRotate(Monitor *mon = nullptr);

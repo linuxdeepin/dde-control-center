@@ -96,19 +96,6 @@ void DisplayModule::showResolutionDetailPage()
     m_frameProxy->pushWidget(this, page);
 }
 
-void DisplayModule::showConfigPage(const QString &config)
-{
-    CustomConfigPage *page = new CustomConfigPage(config);
-
-    page->onCurrentConfigChanged(m_displayModel->displayMode() == CUSTOM_MODE, m_displayModel->config());
-    connect(page, &CustomConfigPage::requestDeleteConfig, m_displayWorker, &DisplayWorker::deleteConfig);
-    connect(page, &CustomConfigPage::requestModifyConfig, this, [=] (const QString &config) {
-        showCustomSettings(config, false);
-    });
-
-    m_frameProxy->pushWidget(this, page);
-}
-
 void DisplayModule::initialize()
 {
     m_displayModel = new DisplayModel;
@@ -168,12 +155,13 @@ ModuleWidget *DisplayModule::moduleWidget()
     m_displayWidget->setMiracastModel(m_miracastModel);
 #endif
     connect(m_displayWidget, &DisplayWidget::requestNewConfig, m_displayWorker, &DisplayWorker::createConfig);
+    connect(m_displayWidget, &DisplayWidget::requestDeleteConfig, m_displayWorker, &DisplayWorker::deleteConfig);
     connect(m_displayWidget, &DisplayWidget::requestSwitchConfig, m_displayWorker, &DisplayWorker::switchConfig);
-    connect(m_displayWidget, &DisplayWidget::requestModifyConfigName, m_displayWorker, &DisplayWorker::modifyConfigName);
     connect(m_displayWidget, &DisplayWidget::requestModifyConfig, this, &DisplayModule::showCustomSettings);
+    connect(m_displayWidget, &DisplayWidget::requestModifyConfigName, m_displayWorker, &DisplayWorker::modifyConfigName);
+    connect(m_displayWidget, &DisplayWidget::requestRecordCurrentState, m_displayWorker, &DisplayWorker::record);
     connect(m_displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
     connect(m_displayWidget, &DisplayWidget::showBrightnessPage, this, &DisplayModule::showBrightnessPage);
-    connect(m_displayWidget, &DisplayWidget::requestConfigPage, this, &DisplayModule::showConfigPage);
 #ifndef DCC_DISABLE_MIRACAST
     connect(m_displayWidget, &DisplayWidget::requestMiracastConfigPage, this, &DisplayModule::showMiracastPage);
 #endif
@@ -189,16 +177,10 @@ ModuleWidget *DisplayModule::moduleWidget()
     return m_displayWidget;
 }
 
-void DisplayModule::showCustomSettings(const QString &config, bool isNewConfig)
+void DisplayModule::showCustomSettings()
 {
-    // save last mode
     const int displayMode = m_displayModel->displayMode();
-//    const QString primaryName = m_displayModel->primary();
-
-    // only allow modify current used config
     Q_ASSERT(displayMode == CUSTOM_MODE);
-//    if (displayMode != CUSTOM_MODE)
-//        m_displayWorker->switchMode(CUSTOM_MODE, config);
 
     // open all monitors
     for (auto mon : m_displayModel->monitorList())
@@ -218,27 +200,10 @@ void DisplayModule::showCustomSettings(const QString &config, bool isNewConfig)
 #ifndef DCC_DISABLE_ROTATE
     connect(&dialog, &MonitorSettingDialog::requestMonitorRotate, this, &DisplayModule::showRotate);
 #endif
-    connect(&dialog, &MonitorSettingDialog::requestJustApply, m_displayWorker, &DisplayWorker::applyChanges);
-    connect(&dialog, &MonitorSettingDialog::requestApplySave, this, [=] {
-        if (isNewConfig) {
-            int idx = 0;
-            QString configName;
-            do {
-                configName = tr("My Settings %1").arg(++idx);
-                if (!m_displayModel->configList().contains(configName))
-                    break;
-            } while (true);
-            m_displayWorker->modifyConfigName(config, configName);
-        }
-        m_displayWorker->saveChanges();
-    });
+    connect(&dialog, &MonitorSettingDialog::requestApplySave, m_displayWorker, &DisplayWorker::saveChanges);
 
-    // discard or save
     if (dialog.exec() != QDialog::Accepted) {
-        if (isNewConfig) {
-            m_displayWorker->restore();
-        }
-
+        m_displayWorker->restore();
     }
 
     m_frameProxy->setFrameAutoHide(this, true);

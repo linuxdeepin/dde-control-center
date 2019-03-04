@@ -72,7 +72,6 @@ Q_SIGNALS:
 #endif
     void requestSetMonitorResolution(Monitor *mon, const int mode) const;
     void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
-    void requestJustApply() const;
     void requestApplySave() const;
 
 private:

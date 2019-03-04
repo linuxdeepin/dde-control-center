@@ -44,19 +44,17 @@ DisplayWidget::DisplayWidget()
     , m_displayControlPage(new DisplayControlPage)
     , m_resolution(new NextPageWidget)
     , m_brightnessSettings(new NextPageWidget)
-    , m_customSettingsGrp(new SettingsGroup)
     , m_scaleWidget(new TitledSliderItem(tr("Display scaling")))
 #ifndef DCC_DISABLE_ROTATE
     , m_rotate(new QPushButton)
 #endif
-    , m_createConfig(new QPushButton)
-    , m_configListRefershTimer(new QTimer(this))
+    , m_customConfigButton(new QPushButton)
 {
     setObjectName("Display");
 #ifndef DCC_DISABLE_ROTATE
     m_rotate->setText(tr("Rotate"));
 #endif
-    m_createConfig->setText(tr("Custom Settings"));
+    m_customConfigButton->setText(tr("Custom Settings"));
     m_resolution->setTitle(tr("Resolution"));
     m_brightnessSettings->setTitle(tr("Brightness"));
 
@@ -94,8 +92,6 @@ DisplayWidget::DisplayWidget()
     m_miracastGrp = new SettingsGroup;
 #endif
 
-    m_customSettingsGrp = new SettingsGroup;
-
     SettingsGroup *brightnessGrp = new SettingsGroup;
     brightnessGrp->appendItem(m_brightnessSettings);
 
@@ -109,11 +105,7 @@ DisplayWidget::DisplayWidget()
 #ifndef DCC_DISABLE_ROTATE
     m_centralLayout->addWidget(m_rotate);
 #endif
-    m_centralLayout->addWidget(m_customSettingsGrp);
-    m_centralLayout->addWidget(m_createConfig);
-
-    m_configListRefershTimer->setSingleShot(true);
-    m_configListRefershTimer->setInterval(100);
+    m_centralLayout->addWidget(m_customConfigButton);
 
     setTitle(tr("Display"));
 
@@ -123,15 +115,21 @@ DisplayWidget::DisplayWidget()
 #ifndef DCC_DISABLE_ROTATE
     connect(m_rotate, &QPushButton::clicked, this, &DisplayWidget::requestRotate);
 #endif
-    connect(m_createConfig, &QPushButton::clicked, this, [=] {
-        if (m_model->displayMode() == CUSTOM_MODE && m_model->config().startsWith("_dde_display")) {
-            Q_EMIT requestModifyConfig(m_model->config(), true);
+    connect(m_customConfigButton, &QPushButton::clicked, this, [=] {
+        // delete the previous custom config if current mode is not Custom mode
+        if (m_model->displayMode() != CUSTOM_MODE) {
+            Q_EMIT requestDeleteConfig(m_model->DDE_Display_Config);
         }
-        else {
-            Q_EMIT requestNewConfig();
+
+        // save/record current mode/config state in order to restore later
+        Q_EMIT requestRecordCurrentState();
+
+        if (m_model->displayMode() == CUSTOM_MODE && m_model->config() == m_model->DDE_Display_Config) {
+            Q_EMIT requestModifyConfig();
+        } else {
+            Q_EMIT requestNewConfig(m_model->DDE_Display_Config);
         }
     });
-    connect(m_configListRefershTimer, &QTimer::timeout, this, &DisplayWidget::onConfigListChanged);
     connect(slider, &DCCSlider::valueChanged, this, [=](const int value) {
         Q_EMIT requestUiScaleChanged(converToScale(value));
 
@@ -150,27 +148,20 @@ void DisplayWidget::setModel(DisplayModel *model)
 {
     m_model = model;
 
-    connect(m_model, &DisplayModel::monitorListChanged, this, &DisplayWidget::onScreenListChanged);
-    connect(m_model, &DisplayModel::configListChanged, this, &DisplayWidget::onScreenListChanged);
-    connect(m_model, &DisplayModel::configListChanged, m_configListRefershTimer,
-            static_cast<void (QTimer::*)()>(&QTimer::start));
-    connect(m_model, &DisplayModel::currentConfigChanged, m_configListRefershTimer,
-            static_cast<void (QTimer::*)()>(&QTimer::start));
-    connect(m_model, &DisplayModel::displayModeChanged, m_configListRefershTimer,
-            static_cast<void (QTimer::*)()>(&QTimer::start));
+    connect(m_model, &DisplayModel::monitorListChanged, this, &DisplayWidget::onMonitorListChanged);
+    connect(m_model, &DisplayModel::configListChanged, this, &DisplayWidget::onMonitorListChanged);
     connect(m_model, &DisplayModel::screenHeightChanged, this, &DisplayWidget::onScreenSizeChanged,
             Qt::QueuedConnection);
     connect(m_model, &DisplayModel::screenWidthChanged, this, &DisplayWidget::onScreenSizeChanged,
             Qt::QueuedConnection);
-    connect(m_model, &DisplayModel::firstConfigCreated, this, &DisplayWidget::onFirstConfigCreated,
+    connect(m_model, &DisplayModel::configCreated, this, &DisplayWidget::requestModifyConfig,
             Qt::QueuedConnection);
     connect(m_model, &DisplayModel::uiScaleChanged, this, &DisplayWidget::onUiScaleChanged);
 
     m_displayControlPage->setModel(model);
 
-    onScreenListChanged();
+    onMonitorListChanged();
     onScreenSizeChanged();
-    m_configListRefershTimer->start();
     onUiScaleChanged(m_model->uiScale());
 }
 
@@ -187,13 +178,12 @@ void DisplayWidget::setMiracastModel(MiracastModel *miracastModel)
 }
 #endif
 
-void DisplayWidget::onScreenListChanged() const
+void DisplayWidget::onMonitorListChanged() const
 {
     const auto mons = m_model->monitorList();
 
     if (mons.size() <= 1) {
-        m_createConfig->hide();
-        m_customSettingsGrp->hide();
+        m_customConfigButton->hide();
 
         m_displayControlPageGrp->hide();
         m_displayControlPage->hide();
@@ -209,8 +199,7 @@ void DisplayWidget::onScreenListChanged() const
         m_displayControlPage->show();
         m_displayControlPageGrp->show();
 
-        m_createConfig->show();
-        m_customSettingsGrp->setVisible(!m_model->configList().isEmpty());
+        m_customConfigButton->show();
 
         m_resolutionsGrp->hide();
         m_resolution->hide();
@@ -225,41 +214,6 @@ void DisplayWidget::onScreenSizeChanged() const
     const QString resolution =
         QString("%1×%2").arg(m_model->screenWidth()).arg(m_model->screenHeight());
     m_resolution->setValue(resolution);
-}
-
-void DisplayWidget::onConfigListChanged()
-{
-    m_customSettingsGrp->clear();
-    for (auto *w : m_customSettings) QTimer::singleShot(1, w, &NextPageWidget::deleteLater);
-    m_customSettings.clear();
-
-    const auto mode       = m_model->displayMode();
-    const auto current    = m_model->config();
-    const auto configList = m_model->configList();
-
-    for (const auto &config : configList) {
-        EditableNextPageWidget *w = new EditableNextPageWidget;
-        w->setTitle(config);
-        if (mode == CUSTOM_MODE && config == current)
-            w->setIcon(loadPixmap(":/widgets/themes/dark/icons/select.svg"));
-
-        w->setVisible(!config.startsWith("_dde_display"));
-
-        connect(w, &EditableNextPageWidget::textChanged, this,
-                &DisplayWidget::requestModifyConfigName);
-        connect(w, &EditableNextPageWidget::acceptNextPage, this,
-                [=] { Q_EMIT requestConfigPage(config); });
-        connect(w, &EditableNextPageWidget::selected, this,
-                [=] { Q_EMIT requestSwitchConfig(config); });
-
-        m_customSettingsGrp->appendItem(w);
-    }
-}
-
-void DisplayWidget::onFirstConfigCreated(const QString &config)
-{
-//    Q_EMIT requestConfigPage(config);
-    Q_EMIT requestModifyConfig(config, true);
 }
 
 #ifndef DCC_DISABLE_MIRACAST

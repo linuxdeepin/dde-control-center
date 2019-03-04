@@ -40,6 +40,9 @@ class DisplayModel : public QObject
 {
     Q_OBJECT
 
+public:
+    static const QString DDE_Display_Config;
+
     friend class DisplayWorker;
 
 public:
@@ -81,7 +84,7 @@ Q_SIGNALS:
     void minimumBrightnessScaleChanged(const double) const;
     void primaryScreenChanged(const QString &primary) const;
     void currentConfigChanged(const QString &config) const;
-    void firstConfigCreated(const QString &config) const;
+    void configCreated(const QString &config) const;
     void configListChanged(const QStringList &configs) const;
     void monitorListChanged() const;
     void nightModeChanged(const bool nightmode) const;

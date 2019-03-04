@@ -28,6 +28,8 @@
 using namespace dcc;
 using namespace dcc::display;
 
+const QString DisplayModel::DDE_Display_Config = "_dde_display_config_private";
+
 bool contains(const QList<Resolution> &container, const Resolution &item)
 {
     for (auto r : container)
