@@ -318,7 +318,10 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
     setFixedHeight(h);
     m_frameWrapper->setFixedHeight(h);
 
-    DBlurEffectWidget::move(m_primaryRect.x() + m_primaryRect.width() / ratio - width() + 1, m_primaryRect.y());
+    QTimer::singleShot(500, this, [=] {
+        // FIXME: The signal is too fast and the screen is not adjusted
+        DBlurEffectWidget::move(m_primaryRect.x() + m_primaryRect.width() / ratio - width() + 1, m_primaryRect.y());
+    });
 }
 
 void Frame::onMouseButtonReleased(const QPoint &p, const int flag)
