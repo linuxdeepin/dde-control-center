@@ -73,7 +73,6 @@ private Q_SLOTS:
     void refreshNavigationbar();
     void resetAllSettings();
     void onNavItemClicked(const QModelIndex &index);
-    void onNavItemEntered(const QModelIndex &index);
 
 private:
     int m_moduleLoadDelay;

@@ -291,7 +291,7 @@ void SettingsWidget::showModulePage(const QString &moduleName, const QString &pa
     stopScroll();
 
     // whatever module/page found or not, refresh module active state is necessary.
-    QTimer::singleShot(!animation ?: m_scrollAni->duration(),
+    QTimer::singleShot(!animation ? 1 : m_scrollAni->duration(),
                        m_refreshModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
 
     // test module is loaded
@@ -409,25 +409,6 @@ void SettingsWidget::resetAllSettings()
 void SettingsWidget::onNavItemClicked(const QModelIndex &index)
 {
     showModulePage(index.data().toString(), QString(), false);
-}
-
-// TODO:
-void SettingsWidget::onNavItemEntered(const QModelIndex &index)
-{
-    if (!index.isValid())
-        return;
-
-    const QString name = index.data().toString();
-    ModuleInterface *inter = nullptr;
-
-    for (auto *it : m_moduleInterfaces)
-    {
-        if (it->name() == name)
-        {
-            inter = it;
-            break;
-        }
-    }
 }
 
 SettingsWidget::~SettingsWidget()

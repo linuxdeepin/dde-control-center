@@ -161,9 +161,6 @@ QHBoxLayout *OptionWidget::layout()
 
 void OptionWidget::mouseReleaseEvent(QMouseEvent *)
 {
-    if (QMouseEvent::MouseButtonRelease) {
-        //do someting
-        setChecked(true);
-        Q_EMIT setDefault();
-    }
+    setChecked(true);
+    Q_EMIT setDefault();
 }
