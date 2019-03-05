@@ -1,3 +1,17 @@
+<a name="4.9.5"></a>
+### 4.9.5 (2019-03-05)
+
+
+#### Features
+
+*   timeout to restore when change monitors settings ([43b5aa63](https://github.com/linuxdeepin/dde-control-center/commit/43b5aa63ebb135c7e3a3dde7e51d4245b72d1f85))
+
+#### Bug Fixes
+
+* **frame:**  position not align right screen box ([26c10af4](https://github.com/linuxdeepin/dde-control-center/commit/26c10af407ed05c2e4cfba3e3c68221331f73e8f))
+
+
+
 <a name="4.9.4"></a>
 ### 4.9.4 (2019-02-25)
 
