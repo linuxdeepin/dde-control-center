@@ -29,12 +29,12 @@
 #include "widgets/contentwidget.h"
 
 namespace dcc {
+class ContentWidget;
 
 namespace widgets {
-class ContentWidget;
 class OptionItem;
-
 }
+
 namespace network {
 class ChainsTypePage : public ContentWidget
 {

@@ -287,6 +287,7 @@ void DisplayModule::showMiracastPage(const QDBusObjectPath &path)
 
     m_frameProxy->pushWidget(this, miracast);
 }
+#endif
 
 void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mode)
 {
@@ -323,4 +324,3 @@ int DisplayModule::showTimeoutDialog(Monitor *mon)
 
     return timeoutDialog->exec();
 }
-#endif
