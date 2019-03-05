@@ -12,6 +12,9 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_FLAGS "-g -Wall")
 set(CMAKE_EXE_LINKER_FLAGS "-lcrypt")
 
+# disable qt keywords, cause gio have signals member;
+ADD_DEFINITIONS(-DQT_NO_KEYWORDS)
+
 if (DEFINED ENABLE_MIEEE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mieee")
 endif()

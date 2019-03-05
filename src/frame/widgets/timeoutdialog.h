@@ -36,7 +36,7 @@ public:
     QString messageModel() const;
     void setMessageModel(const QString &messageModel);
 
-public slots:
+public Q_SLOTS:
     int exec() override;
     void open() override;
 
