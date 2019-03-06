@@ -1,3 +1,13 @@
+<a name="4.9.6"></a>
+### 4.9.6 (2019-03-06)
+
+
+#### Bug Fixes
+
+*   build failed ([300b76ed](https://github.com/linuxdeepin/dde-control-center/commit/300b76ed8b4eb20944e9737561bcac38294e4ee9))
+
+
+
 <a name="4.9.5"></a>
 ### 4.9.5 (2019-03-05)
 
