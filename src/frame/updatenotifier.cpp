@@ -162,8 +162,8 @@ void UpdateNotifier::updatablePkgsChanged(const QStringList &value)
             }
             setVisible(true);
             updateIcon(false);
-            return;
         }
+        return;
     }
 
     updateIcon(true);
