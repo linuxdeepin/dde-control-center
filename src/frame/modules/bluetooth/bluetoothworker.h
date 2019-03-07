@@ -84,8 +84,8 @@ private Q_SLOTS:
 
 private:
     explicit BluetoothWorker(BluetoothModel *model);
-    BluetoothWorker(BluetoothWorker const &) = default;
-    BluetoothWorker& operator =(BluetoothWorker const &) = default;
+    BluetoothWorker(BluetoothWorker const &) = delete;
+    BluetoothWorker& operator =(BluetoothWorker const &) = delete;
     ~BluetoothWorker();
 
     DBusBluetooth *m_bluetoothInter;
