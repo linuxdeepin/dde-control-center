@@ -144,7 +144,7 @@ void VpnSection::initConnection()
     connect(m_gateway->textEdit(), &QLineEdit::editingFinished, this, &VpnSection::allInputValid);
     connect(m_userName->textEdit(), &QLineEdit::editingFinished, this, &VpnSection::allInputValid);
     connect(m_password->textEdit(), &QLineEdit::editingFinished, this, &VpnSection::allInputValid);
-    connect(m_passwordFlagsChooser, &ComboBoxWidget::requestPage, this, &VpnSection::requestPage);
+    connect(m_passwordFlagsChooser, &ComboBoxWidget::requestPage, this, &VpnSection::requestNextPage);
     connect(m_passwordFlagsChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         onPasswordFlagsChanged(data.value<NetworkManager::Setting::SecretFlagType>());
     });

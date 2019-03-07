@@ -224,27 +224,27 @@ void VpnAdvVPNCSection::initUI()
 
 void VpnAdvVPNCSection::initConnection()
 {
-    connect(m_vendorChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestPage);
+    connect(m_vendorChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestNextPage);
     connect(m_vendorChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         m_currentVendor = data.value<QString>();
     });
 
-    connect(m_encryptionChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestPage);
+    connect(m_encryptionChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestNextPage);
     connect(m_encryptionChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         m_currentEncryption = data.value<QString>();
     });
 
-    connect(m_natTravModeChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestPage);
+    connect(m_natTravModeChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestNextPage);
     connect(m_natTravModeChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         m_currentNatTravMod = data.value<QString>();
     });
 
-    connect(m_ikeDHGroupChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestPage);
+    connect(m_ikeDHGroupChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestNextPage);
     connect(m_ikeDHGroupChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         m_currentIkeDHGroup = data.value<QString>();
     });
 
-    connect(m_forwordSecrecyChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestPage);
+    connect(m_forwordSecrecyChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestNextPage);
     connect(m_forwordSecrecyChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         m_currentForwordSecrecy = data.value<QString>();
     });

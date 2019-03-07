@@ -62,6 +62,7 @@ public:
 
 Q_SIGNALS:
     void requestNextPage(ContentWidget * const page);
+    void requestFrameAutoHide(const bool autoHide) const;
 
     // private signals
     void saveSettingsDone();

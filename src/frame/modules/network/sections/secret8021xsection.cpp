@@ -244,12 +244,12 @@ void Secret8021xSection::initConnection()
 
     connect(m_enableWatcher, &Secret8021xEnableWatcher::secretEnableChanged, this, &Secret8021xSection::onSecretEnableChanged);
 
-    connect(m_eapMethmodChooser, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestPage);
+    connect(m_eapMethmodChooser, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestNextPage);
     connect(m_eapMethmodChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         onEapMethodChanged(data.value<NetworkManager::Security8021xSetting::EapMethod>());
     });
 
-    connect(m_passwordFlagsChooser, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestPage);
+    connect(m_passwordFlagsChooser, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestNextPage);
     connect(m_passwordFlagsChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         onPasswordFlagsChanged(data.value<NetworkManager::Setting::SecretFlagType>());
     });
@@ -313,6 +313,10 @@ void Secret8021xSection::initEapMethodTlsItems(QList<SettingsItem *> *itemList)
     connect(privateKey->edit(), &QLineEdit::textChanged, this, &Secret8021xSection::allInputValid);
     connect(userCert->edit(), &QLineEdit::textChanged, this, &Secret8021xSection::allInputValid);
 
+    connect(privateKey, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
+    connect(caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
+    connect(userCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
+
     appendItem(privateKey);
     appendItem(caCert);
     appendItem(userCert);
@@ -357,8 +361,10 @@ void Secret8021xSection::initEapMethodFastItems(QList<SettingsItem *> *itemList)
         authMethod->setCurrent(AuthMethodStrMapFast.first());
     }
 
-    connect(provisioning, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestPage);
-    connect(authMethod, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestPage);
+    connect(provisioning, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestNextPage);
+    connect(authMethod, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestNextPage);
+
+    connect(pacFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
 
     appendItem(anonymousID);
     appendItem(provisioning);
@@ -395,7 +401,8 @@ void Secret8021xSection::initEapMethodTtlsItems(QList<SettingsItem *> *itemList)
         authMethod->setCurrent(AuthMethodStrMapTtls.first());
     }
 
-    connect(authMethod, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestPage);
+    connect(authMethod, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestNextPage);
+    connect(caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
 
     appendItem(anonymousID);
     appendItem(caCert);
@@ -441,8 +448,10 @@ void Secret8021xSection::initEapMethodPeapItems(QList<SettingsItem *> *itemList)
         authMethod->setCurrent(AuthMethodStrMapPeap.first());
     }
 
-    connect(peapVersion, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestPage);
-    connect(authMethod, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestPage);
+    connect(peapVersion, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestNextPage);
+    connect(authMethod, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestNextPage);
+
+    connect(caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
 
     appendItem(anonymousID);
     appendItem(caCert);

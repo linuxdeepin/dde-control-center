@@ -58,10 +58,15 @@ void VpnStrongSwanSettings::initSections()
     //IpvxSection *ipv6Section = new IpvxSection(
             //m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
 
-    connect(vpnStrongSwanSection, &VpnStrongSwanSection::requestPage,
+    connect(vpnStrongSwanSection, &VpnStrongSwanSection::requestNextPage,
             this, &VpnStrongSwanSettings::requestNextPage);
-    connect(ipv4Section, &IpvxSection::requestPage, this, &VpnStrongSwanSettings::requestNextPage);
-    //connect(ipv6Section, &IpvxSection::requestPage, this, &VpnStrongSwanSettings::requestNextPage);
+    connect(ipv4Section, &IpvxSection::requestNextPage, this, &VpnStrongSwanSettings::requestNextPage);
+    //connect(ipv6Section, &IpvxSection::requestNextPage, this, &VpnStrongSwanSettings::requestNextPage);
+
+    connect(vpnStrongSwanSection, &VpnStrongSwanSection::requestFrameAutoHide,
+            this, &VpnStrongSwanSettings::requestFrameAutoHide);
+    connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &VpnStrongSwanSettings::requestFrameAutoHide);
+    //connect(ipv6Section, &IpvxSection::requestFrameAutoHide, this, &VpnStrongSwanSettings::requestFrameAutoHide);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(vpnStrongSwanSection);

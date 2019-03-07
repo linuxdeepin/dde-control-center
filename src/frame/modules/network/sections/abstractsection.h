@@ -23,6 +23,7 @@
 #define ABSTRACTSECTION_H
 
 #include "widgets/settingsgroup.h"
+#include "widgets/contentwidget.h"
 
 namespace dcc {
 namespace network {
@@ -38,6 +39,10 @@ public:
 
     virtual bool allInputValid() = 0;
     virtual void saveSettings() = 0;
+
+Q_SIGNALS:
+    void requestNextPage(ContentWidget * const page) const;
+    void requestFrameAutoHide(const bool autoHide) const;
 };
 
 } /* network */

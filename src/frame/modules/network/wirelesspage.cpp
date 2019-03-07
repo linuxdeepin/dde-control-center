@@ -264,6 +264,7 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
     }
 
     connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
+    connect(m_apEditPage, &ConnectionEditPage::requestFrameAutoHide, this, &WirelessPage::requestFrameKeepAutoHide);
 
     Q_EMIT requestNextPage(m_apEditPage);
 }
@@ -288,6 +289,7 @@ void WirelessPage::showConnectHidePage()
     m_apEditPage = new ConnectionWirelessEditPage(m_device->path());
     m_apEditPage->initSettingsWidget();
     connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
+    connect(m_apEditPage, &ConnectionEditPage::requestFrameAutoHide, this, &WirelessPage::requestFrameKeepAutoHide);
     Q_EMIT requestNextPage(m_apEditPage);
 }
 

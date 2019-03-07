@@ -199,11 +199,13 @@ void VpnOpenVPNSection::initTLSItems()
     connect(userCertFile->edit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
     connect(priKeyFile->edit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
     connect(priKeyPassword->textEdit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
-    connect(certPasswordFlagsChooser, &ComboBoxWidget::requestPage, this, &VpnOpenVPNSection::requestPage);
+    connect(certPasswordFlagsChooser, &ComboBoxWidget::requestPage, this, &VpnOpenVPNSection::requestNextPage);
     connect(certPasswordFlagsChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         m_currentCertPasswordType = data.value<NetworkManager::Setting::SecretFlagType>();
         priKeyPassword->setVisible(m_currentCertPasswordType == NetworkManager::Setting::SecretFlagType::None);
     });
+    connect(userCertFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenVPNSection::requestFrameAutoHide);
+    connect(priKeyFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenVPNSection::requestFrameAutoHide);
 
     QList<SettingsItem *> itemList;
     itemList << userCertFile << priKeyFile << certPasswordFlagsChooser << priKeyPassword;
@@ -244,7 +246,7 @@ void VpnOpenVPNSection::initPasswordItems()
 
     connect(userName->textEdit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
     connect(password->textEdit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
-    connect(passwordFlagsChooser, &ComboBoxWidget::requestPage, this, &VpnOpenVPNSection::requestPage);
+    connect(passwordFlagsChooser, &ComboBoxWidget::requestPage, this, &VpnOpenVPNSection::requestNextPage);
     connect(passwordFlagsChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         m_currentPasswordType = data.value<NetworkManager::Setting::SecretFlagType>();
         password->setVisible(m_currentPasswordType == NetworkManager::Setting::SecretFlagType::None);
@@ -296,10 +298,11 @@ void VpnOpenVPNSection::initStaticKeyItems()
     connect(localIp->textEdit(), &QLineEdit::textChanged, this, &VpnOpenVPNSection::allInputValid);
     connect(customizeKeyDirection, &SwitchWidget::checkedChanged,
             keyDirectionChooser, &ComboBoxWidget::setVisible);
-    connect(keyDirectionChooser, &ComboBoxWidget::requestPage, this, &VpnOpenVPNSection::requestPage);
+    connect(keyDirectionChooser, &ComboBoxWidget::requestPage, this, &VpnOpenVPNSection::requestNextPage);
     connect(keyDirectionChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         m_currentKeyDirection = data.toString();
     });
+    connect(staticKey, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenVPNSection::requestFrameAutoHide);
 
     QList<SettingsItem *> itemList;
     itemList << staticKey << customizeKeyDirection << keyDirectionChooser << remoteIp << localIp;
@@ -316,7 +319,9 @@ void VpnOpenVPNSection::initConnection()
     connect(m_authTypeChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         onAuthTypeChanged(data.toString());
     });
-    connect(m_authTypeChooser, &ComboBoxWidget::requestPage, this, &VpnOpenVPNSection::requestPage);
+    connect(m_authTypeChooser, &ComboBoxWidget::requestPage, this, &VpnOpenVPNSection::requestNextPage);
+
+    connect(m_caFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenVPNSection::requestFrameAutoHide);
 }
 
 void VpnOpenVPNSection::onAuthTypeChanged(const QString &type)

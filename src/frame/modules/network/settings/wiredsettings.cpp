@@ -50,10 +50,15 @@ void WiredSettings::initSections()
     EthernetSection *etherNetSection = new EthernetSection(
             m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>());
 
-    connect(secretSection, &Secret8021xSection::requestPage, this, &WiredSettings::requestNextPage);
-    connect(ipv4Section, &IpvxSection::requestPage, this, &WiredSettings::requestNextPage);
-    connect(ipv6Section, &IpvxSection::requestPage, this, &WiredSettings::requestNextPage);
-    connect(etherNetSection, &EthernetSection::requestPage, this, &WiredSettings::requestNextPage);
+    connect(secretSection, &Secret8021xSection::requestNextPage, this, &WiredSettings::requestNextPage);
+    connect(ipv4Section, &IpvxSection::requestNextPage, this, &WiredSettings::requestNextPage);
+    connect(ipv6Section, &IpvxSection::requestNextPage, this, &WiredSettings::requestNextPage);
+    connect(etherNetSection, &EthernetSection::requestNextPage, this, &WiredSettings::requestNextPage);
+
+    connect(secretSection, &Secret8021xSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
+    connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
+    connect(ipv6Section, &IpvxSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
+    connect(etherNetSection, &EthernetSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(secretSection);

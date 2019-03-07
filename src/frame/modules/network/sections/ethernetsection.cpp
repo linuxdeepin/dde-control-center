@@ -138,7 +138,7 @@ void EthernetSection::initUI()
 
 void EthernetSection::initConnection()
 {
-    connect(m_deviceMac, &ComboBoxWidget::requestPage, this, &EthernetSection::requestPage);
+    connect(m_deviceMac, &ComboBoxWidget::requestPage, this, &EthernetSection::requestNextPage);
     connect(m_clonedMac->textEdit(), &QLineEdit::editingFinished, this, &EthernetSection::allInputValid);
     connect(m_customMtuSwitch, &SwitchWidget::checkedChanged, this, &EthernetSection::onCostomMtuChanged);
 }

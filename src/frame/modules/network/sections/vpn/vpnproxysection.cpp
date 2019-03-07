@@ -180,7 +180,7 @@ void VpnProxySection::initUI()
 
 void VpnProxySection::initConnection()
 {
-    connect(m_proxyTypeChooser, &ComboBoxWidget::requestPage, this, &VpnProxySection::requestPage);
+    connect(m_proxyTypeChooser, &ComboBoxWidget::requestPage, this, &VpnProxySection::requestNextPage);
     connect(m_proxyTypeChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         onProxyTypeChanged(data.toString());
     });

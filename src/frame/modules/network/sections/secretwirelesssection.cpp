@@ -137,7 +137,7 @@ void SecretWirelessSection::initUI()
 
 void SecretWirelessSection::initConnection()
 {
-    connect(m_keyMgmtChooser, &ComboBoxWidget::requestPage, this, &SecretWirelessSection::requestPage);
+    connect(m_keyMgmtChooser, &ComboBoxWidget::requestPage, this, &SecretWirelessSection::requestNextPage);
     connect(m_keyMgmtChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         onKeyMgmtChanged(data.value<NetworkManager::WirelessSecuritySetting::KeyMgmt>());
     });

@@ -43,9 +43,6 @@ public:
     bool allInputValid() Q_DECL_OVERRIDE;
     void saveSettings() Q_DECL_OVERRIDE;
 
-Q_SIGNALS:
-    void requestPage(ContentWidget * const page) const;
-
 private:
     void initStrMaps();
     void initUI();

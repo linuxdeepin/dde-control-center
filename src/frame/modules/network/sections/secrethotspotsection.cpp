@@ -123,7 +123,7 @@ void SecretHotspotSection::initUI()
 
 void SecretHotspotSection::initConnection()
 {
-    connect(m_keyMgmtChooser, &ComboBoxWidget::requestPage, this, &SecretHotspotSection::requestPage);
+    connect(m_keyMgmtChooser, &ComboBoxWidget::requestPage, this, &SecretHotspotSection::requestNextPage);
     connect(m_keyMgmtChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         onKeyMgmtChanged(data.value<NetworkManager::WirelessSecuritySetting::KeyMgmt>());
     });

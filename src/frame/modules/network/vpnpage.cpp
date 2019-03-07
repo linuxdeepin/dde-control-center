@@ -161,6 +161,7 @@ void VpnPage::onVpnDetailClicked()
     m_editPage = new ConnectionVpnEditPage(m_editingConnUuid);
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
+    connect(m_editPage, &ConnectionVpnEditPage::requestFrameAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
     Q_EMIT requestNextPage(m_editPage);
 }
 
@@ -323,6 +324,7 @@ void VpnPage::createVPN(ConnectionVpnEditPage::VpnType vpnType)
     m_editPage = new ConnectionVpnEditPage();
     m_editPage->initSettingsWidgetByType(vpnType);
     connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
+    connect(m_editPage, &ConnectionVpnEditPage::requestFrameAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
     connect(m_editPage, &ConnectionVpnEditPage::back, [=]{
         QTimer::singleShot(0, this, &VpnPage::onVpnEditFinished);
     });

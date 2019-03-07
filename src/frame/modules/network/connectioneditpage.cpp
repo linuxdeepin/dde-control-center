@@ -152,6 +152,7 @@ void ConnectionEditPage::initSettingsWidget()
     }
 
     connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionEditPage::onRequestNextPage);
+    connect(m_settingsWidget, &AbstractSettings::requestFrameAutoHide, this, &ConnectionEditPage::requestFrameAutoHide);
 
     m_settingsLayout->addWidget(m_settingsWidget);
 }

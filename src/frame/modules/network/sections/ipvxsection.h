@@ -55,9 +55,6 @@ public:
     void setIpv6ConfigMethodEnable(NetworkManager::Ipv6Setting::ConfigMethod method, const bool enabled);
     void setNeverDefaultEnable(const bool neverDefault);
 
-Q_SIGNALS:
-    void requestPage(ContentWidget * const page) const;
-
 private:
     void initStrMaps();
     void initUI();

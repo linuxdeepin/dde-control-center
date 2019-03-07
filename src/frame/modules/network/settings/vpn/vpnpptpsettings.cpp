@@ -64,10 +64,15 @@ void VpnPPTPSettings::initSections()
     //IpvxSection *ipv6Section = new IpvxSection(
             //m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
 
-    connect(vpnSection, &VpnSection::requestPage, this, &VpnPPTPSettings::requestNextPage);
-    connect(vpnPPPSection, &VpnPPPSection::requestPage, this, &VpnPPTPSettings::requestNextPage);
-    connect(ipv4Section, &IpvxSection::requestPage, this, &VpnPPTPSettings::requestNextPage);
-    //connect(ipv6Section, &IpvxSection::requestPage, this, &VpnPPTPSettings::requestNextPage);
+    connect(vpnSection, &VpnSection::requestNextPage, this, &VpnPPTPSettings::requestNextPage);
+    connect(vpnPPPSection, &VpnPPPSection::requestNextPage, this, &VpnPPTPSettings::requestNextPage);
+    connect(ipv4Section, &IpvxSection::requestNextPage, this, &VpnPPTPSettings::requestNextPage);
+    //connect(ipv6Section, &IpvxSection::requestNextPage, this, &VpnPPTPSettings::requestNextPage);
+
+    connect(vpnSection, &VpnSection::requestFrameAutoHide, this, &VpnPPTPSettings::requestFrameAutoHide);
+    connect(vpnPPPSection, &VpnPPPSection::requestFrameAutoHide, this, &VpnPPTPSettings::requestFrameAutoHide);
+    connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &VpnPPTPSettings::requestFrameAutoHide);
+    //connect(ipv6Section, &IpvxSection::requestFrameAutoHide, this, &VpnPPTPSettings::requestFrameAutoHide);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(vpnSection);

@@ -47,7 +47,6 @@ public:
     inline QString authType() const {return m_currentAuthType;}
 
 Q_SIGNALS:
-    void requestPage(ContentWidget * const page) const;
     void authTypeChanged(const QString &type) const;
 
 private:

@@ -47,6 +47,7 @@ public:
 
 Q_SIGNALS:
     void requestNextPage(ContentWidget * const page);
+    void requestFrameAutoHide(const bool autoHide) const;
 
 protected:
     virtual void initSections() = 0;

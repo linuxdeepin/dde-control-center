@@ -76,16 +76,24 @@ void VpnOpenVPNSettings::initSections()
         vpnTLSSection->setVisible(false);
     }
 
-    connect(vpnOpenVPNSection, &VpnOpenVPNSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
+    connect(vpnOpenVPNSection, &VpnOpenVPNSection::requestNextPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(vpnOpenVPNSection, &VpnOpenVPNSection::authTypeChanged, this, [=](const QString &type) {
         vpnTLSSection->setVisible(type != "static-key");
     });
-    connect(vpnAdvOpenVPNSection, &VpnAdvOpenVPNSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
-    connect(vpnSecOpenVPNSection, &VpnSecOpenVPNSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
-    connect(vpnProxySection, &VpnProxySection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
-    connect(ipv4Section, &IpvxSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
-    connect(ipv6Section, &IpvxSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
-    connect(vpnTLSSection, &VpnTLSSection::requestPage, this, &VpnOpenVPNSettings::requestNextPage);
+    connect(vpnAdvOpenVPNSection, &VpnAdvOpenVPNSection::requestNextPage, this, &VpnOpenVPNSettings::requestNextPage);
+    connect(vpnSecOpenVPNSection, &VpnSecOpenVPNSection::requestNextPage, this, &VpnOpenVPNSettings::requestNextPage);
+    connect(vpnProxySection, &VpnProxySection::requestNextPage, this, &VpnOpenVPNSettings::requestNextPage);
+    connect(ipv4Section, &IpvxSection::requestNextPage, this, &VpnOpenVPNSettings::requestNextPage);
+    connect(ipv6Section, &IpvxSection::requestNextPage, this, &VpnOpenVPNSettings::requestNextPage);
+    connect(vpnTLSSection, &VpnTLSSection::requestNextPage, this, &VpnOpenVPNSettings::requestNextPage);
+
+    connect(vpnOpenVPNSection, &VpnOpenVPNSection::requestFrameAutoHide, this, &VpnOpenVPNSettings::requestFrameAutoHide);
+    connect(vpnAdvOpenVPNSection, &VpnAdvOpenVPNSection::requestFrameAutoHide, this, &VpnOpenVPNSettings::requestFrameAutoHide);
+    connect(vpnSecOpenVPNSection, &VpnSecOpenVPNSection::requestFrameAutoHide, this, &VpnOpenVPNSettings::requestFrameAutoHide);
+    connect(vpnProxySection, &VpnProxySection::requestFrameAutoHide, this, &VpnOpenVPNSettings::requestFrameAutoHide);
+    connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &VpnOpenVPNSettings::requestFrameAutoHide);
+    connect(ipv6Section, &IpvxSection::requestFrameAutoHide, this, &VpnOpenVPNSettings::requestFrameAutoHide);
+    connect(vpnTLSSection, &VpnTLSSection::requestFrameAutoHide, this, &VpnOpenVPNSettings::requestFrameAutoHide);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(vpnOpenVPNSection);

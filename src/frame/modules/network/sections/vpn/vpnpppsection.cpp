@@ -179,7 +179,7 @@ void VpnPPPSection::initConnection()
 {
     connect(m_mppeEnable, &SwitchWidget::checkedChanged, this, &VpnPPPSection::onMppeEnableChanged);
 
-    connect(m_mppeChooser, &ComboBoxWidget::requestPage, this, &VpnPPPSection::requestPage);
+    connect(m_mppeChooser, &ComboBoxWidget::requestPage, this, &VpnPPPSection::requestNextPage);
     connect(m_mppeChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         onMppeMethodChanged(data.value<QString>());
     });

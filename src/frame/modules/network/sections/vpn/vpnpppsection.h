@@ -45,9 +45,6 @@ public:
 
     void setSupportOptions(const QStringList &supportOptions);
 
-Q_SIGNALS:
-    void requestPage(ContentWidget * const page) const;
-
 private:
     void initStrMaps();
     void initUI();

@@ -40,6 +40,10 @@ VpnOpenConnectSection::VpnOpenConnectSection(NetworkManager::VpnSetting::Ptr vpn
     m_dataMap = vpnSetting->data();
 
     initUI();
+
+    connect(m_caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenConnectSection::requestFrameAutoHide);
+    connect(m_userCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenConnectSection::requestFrameAutoHide);
+    connect(m_userKey, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenConnectSection::requestFrameAutoHide);
 }
 
 VpnOpenConnectSection::~VpnOpenConnectSection()

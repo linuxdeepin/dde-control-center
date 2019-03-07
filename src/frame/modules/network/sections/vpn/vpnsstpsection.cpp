@@ -35,6 +35,8 @@ VpnSSTPSection::VpnSSTPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFram
     m_dataMap = vpnSetting->data();
 
     initUI();
+
+    connect(m_caFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnSSTPSection::requestFrameAutoHide);
 }
 
 VpnSSTPSection::~VpnSSTPSection()

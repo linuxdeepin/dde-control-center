@@ -321,7 +321,7 @@ void NetworkModule::showWiredEditPage(NetworkDevice *dev, const QString &connUui
     m_connEditPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::WiredConnection, dev->path(), connUuid);
 
     connect(m_connEditPage, &ConnectionEditPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
-    //connect(m_connEditPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
+    connect(m_connEditPage, &ConnectionEditPage::requestFrameAutoHide, this, &NetworkModule::onSetFrameAutoHide);
     connect(m_connEditPage, &ConnectionEditPage::back, this, [=]() {m_connEditPage = nullptr; });
     connect(dev, &dde::network::NetworkDevice::removed, this, [=]() {
         removeConnEditPageByDevice(dev);
@@ -338,7 +338,7 @@ void NetworkModule::showWirelessEditPage(dde::network::NetworkDevice *dev, const
     m_connEditPage = new ConnectionWirelessEditPage(dev->path(), connUuid);
 
     connect(m_connEditPage, &ConnectionEditPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
-    //connect(m_connEditPage, &ConnectionEditPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
+    connect(m_connEditPage, &ConnectionEditPage::requestFrameAutoHide, this, &NetworkModule::onSetFrameAutoHide);
     connect(m_connEditPage, &ConnectionEditPage::back, this, [=]() {m_connEditPage = nullptr; });
     connect(dev, &dde::network::NetworkDevice::removed, this, [=]() {
         removeConnEditPageByDevice(dev);

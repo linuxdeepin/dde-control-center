@@ -172,6 +172,7 @@ void WiredPage::editConnection()
             m_device->path(), m_model->connectionUuidByPath(connPath));
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
+    connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
     Q_EMIT requestNextPage(m_editPage);
 }
 
@@ -180,6 +181,7 @@ void WiredPage::createNewConnection()
     m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection, m_device->path());
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
+    connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
     Q_EMIT requestNextPage(m_editPage);
 }
 

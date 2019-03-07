@@ -89,6 +89,7 @@ void PppoePage::createPPPoEConnection()
     m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, "/");
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
+    connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
 
     Q_EMIT requestNextPage(m_editPage);
 }
@@ -127,6 +128,7 @@ void PppoePage::onConnectionDetailClicked()
     m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, "/", m_editingUuid);
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
+    connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
 
     Q_EMIT requestNextPage(m_editPage);
 }

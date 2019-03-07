@@ -54,6 +54,7 @@ void ConnectionHotspotEditPage::initSettingsWidget()
     m_settingsWidget = new HotspotSettings(m_connectionSettings, this);
 
     connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionHotspotEditPage::onRequestNextPage);
+    connect(m_settingsWidget, &AbstractSettings::requestFrameAutoHide, this, &ConnectionEditPage::requestFrameAutoHide);
 
     m_settingsLayout->addWidget(m_settingsWidget);
 }

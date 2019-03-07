@@ -51,7 +51,6 @@ public:
     inline void setSsid(const QString &ssid) { m_apSsid->setText(ssid); }
 
 Q_SIGNALS:
-    void requestPage(ContentWidget * const page) const;
     void ssidChanged(const QString &ssid);
 
 private:

@@ -216,12 +216,16 @@ void VpnStrongSwanSection::initUI()
 void VpnStrongSwanSection::initConnection()
 {
     connect(m_gateway->textEdit(), &QLineEdit::editingFinished, this, &VpnStrongSwanSection::allInputValid);
-    connect(m_authTypeChooser, &ComboBoxWidget::requestPage, this, &VpnStrongSwanSection::requestPage);
+    connect(m_authTypeChooser, &ComboBoxWidget::requestPage, this, &VpnStrongSwanSection::requestNextPage);
     connect(m_authTypeChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         onAuthTypeChanged(data.toString());
     });
     connect(m_enableCustomCipher, &SwitchWidget::checkedChanged,
             this, &VpnStrongSwanSection::onCustomCipherEnableChanged);
+
+    connect(m_caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnStrongSwanSection::requestFrameAutoHide);
+    connect(m_userCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnStrongSwanSection::requestFrameAutoHide);
+    connect(m_userKey, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnStrongSwanSection::requestFrameAutoHide);
 }
 
 void VpnStrongSwanSection::onAuthTypeChanged(const QString type)

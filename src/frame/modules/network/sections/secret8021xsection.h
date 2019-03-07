@@ -67,9 +67,6 @@ public:
     bool allInputValid() Q_DECL_OVERRIDE;
     void saveSettings() Q_DECL_OVERRIDE;
 
-Q_SIGNALS:
-    void requestPage(ContentWidget * const page) const;
-
 protected:
     explicit Secret8021xSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent = 0);
     // This method must be called by subclass after initialization

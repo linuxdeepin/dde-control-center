@@ -61,8 +61,12 @@ void VpnOpenConnectSettings::initSections()
     ipv6Section->setIpv6ConfigMethodEnable(NetworkManager::Ipv6Setting::ConfigMethod::Manual, false);
     ipv6Section->setNeverDefaultEnable(true);
 
-    connect(ipv4Section, &IpvxSection::requestPage, this, &VpnOpenConnectSettings::requestNextPage);
-    connect(ipv6Section, &IpvxSection::requestPage, this, &VpnOpenConnectSettings::requestNextPage);
+    connect(ipv4Section, &IpvxSection::requestNextPage, this, &VpnOpenConnectSettings::requestNextPage);
+    connect(ipv6Section, &IpvxSection::requestNextPage, this, &VpnOpenConnectSettings::requestNextPage);
+
+    connect(vpnOpenConnectSection, &VpnOpenConnectSection::requestFrameAutoHide, this, &VpnOpenConnectSettings::requestFrameAutoHide);
+    connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &VpnOpenConnectSettings::requestFrameAutoHide);
+    connect(ipv6Section, &IpvxSection::requestFrameAutoHide, this, &VpnOpenConnectSettings::requestFrameAutoHide);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(vpnOpenConnectSection);

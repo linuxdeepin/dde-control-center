@@ -60,10 +60,15 @@ void WirelessSettings::initSections()
         wirelessSection->setSsidEditable(false);
     }
 
-    connect(wirelessSection, &WirelessSection::requestPage, this, &WirelessSettings::requestNextPage);
-    connect(secretSection, &Secret8021xSection::requestPage, this, &WirelessSettings::requestNextPage);
-    connect(ipv4Section, &IpvxSection::requestPage, this, &WirelessSettings::requestNextPage);
-    connect(ipv6Section, &IpvxSection::requestPage, this, &WirelessSettings::requestNextPage);
+    connect(wirelessSection, &WirelessSection::requestNextPage, this, &WirelessSettings::requestNextPage);
+    connect(secretSection, &Secret8021xSection::requestNextPage, this, &WirelessSettings::requestNextPage);
+    connect(ipv4Section, &IpvxSection::requestNextPage, this, &WirelessSettings::requestNextPage);
+    connect(ipv6Section, &IpvxSection::requestNextPage, this, &WirelessSettings::requestNextPage);
+
+    connect(wirelessSection, &WirelessSection::requestFrameAutoHide, this, &WirelessSettings::requestFrameAutoHide);
+    connect(secretSection, &Secret8021xSection::requestFrameAutoHide, this, &WirelessSettings::requestFrameAutoHide);
+    connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &WirelessSettings::requestFrameAutoHide);
+    connect(ipv6Section, &IpvxSection::requestFrameAutoHide, this, &WirelessSettings::requestFrameAutoHide);
 
     connect(wirelessSection, &WirelessSection::ssidChanged, genericSection, &GenericSection::setConnectionName);
 

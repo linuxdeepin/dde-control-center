@@ -145,6 +145,7 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
     }
 
     connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionVpnEditPage::onRequestNextPage);
+    connect(m_settingsWidget, &AbstractSettings::requestFrameAutoHide, this, &ConnectionEditPage::requestFrameAutoHide);
 
     m_settingsLayout->addWidget(m_settingsWidget);
 
@@ -199,9 +200,9 @@ void ConnectionVpnEditPage::exportConnConfig()
 {
     const QString uuid = connectionUuid();
 
-//    Q_EMIT requestFrameKeepAutoHide(false);
+    Q_EMIT requestFrameAutoHide(false);
     const QUrl u = QFileDialog::getSaveFileUrl(nullptr, QString(), QUrl::fromLocalFile(QDir::homePath()), "Config File (*.conf)");
-//    Q_EMIT requestFrameKeepAutoHide(true);
+    Q_EMIT requestFrameAutoHide(true);
 
     if (u.isEmpty() || !u.isLocalFile())
         return;

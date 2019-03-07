@@ -67,6 +67,7 @@ void ConnectionWirelessEditPage::initSettingsWidgetFromAp(const QString &apPath)
     m_settingsWidget = new WirelessSettings(m_connectionSettings, this);
 
     connect(m_settingsWidget, &WirelessSettings::requestNextPage, this, &ConnectionWirelessEditPage::onRequestNextPage);
+    connect(m_settingsWidget, &AbstractSettings::requestFrameAutoHide, this, &ConnectionEditPage::requestFrameAutoHide);
     m_settingsLayout->addWidget(m_settingsWidget);
 }
 

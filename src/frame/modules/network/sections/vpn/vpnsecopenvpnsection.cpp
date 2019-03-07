@@ -134,12 +134,12 @@ void VpnSecOpenVPNSection::initUI()
 
 void VpnSecOpenVPNSection::initConnection()
 {
-    connect(m_cipherChooser, &ComboBoxWidget::requestPage, this, &VpnSecOpenVPNSection::requestPage);
+    connect(m_cipherChooser, &ComboBoxWidget::requestPage, this, &VpnSecOpenVPNSection::requestNextPage);
     connect(m_cipherChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         m_currentCipher = data.toString();
     });
 
-    connect(m_hmacChooser, &ComboBoxWidget::requestPage, this, &VpnSecOpenVPNSection::requestPage);
+    connect(m_hmacChooser, &ComboBoxWidget::requestPage, this, &VpnSecOpenVPNSection::requestNextPage);
     connect(m_hmacChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         m_currentHMAC = data.toString();
     });

@@ -345,7 +345,7 @@ void IpvxSection::initForIpv6()
 
 void IpvxSection::initConnection()
 {
-    connect(m_methodChooser, &ComboBoxWidget::requestPage, this, &IpvxSection::requestPage);
+    connect(m_methodChooser, &ComboBoxWidget::requestPage, this, &IpvxSection::requestNextPage);
     connect(m_ipAddress->textEdit(), &QLineEdit::editingFinished, this, &IpvxSection::allInputValid);
     connect(m_gateway->textEdit(), &QLineEdit::editingFinished, this, &IpvxSection::allInputValid);
     connect(m_dnsPrimary->textEdit(), &QLineEdit::editingFinished, this, &IpvxSection::allInputValid);

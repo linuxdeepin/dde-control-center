@@ -119,15 +119,17 @@ void VpnTLSSection::initUI()
 
 void VpnTLSSection::initConnection()
 {
-    connect(m_remoteCertTypeChooser, &ComboBoxWidget::requestPage, this, &VpnTLSSection::requestPage);
+    connect(m_remoteCertTypeChooser, &ComboBoxWidget::requestPage, this, &VpnTLSSection::requestNextPage);
     connect(m_remoteCertTypeChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         m_currentRemoteCertType = data.toString();
     });
 
     connect(m_customKeyDirection, &SwitchWidget::checkedChanged, m_keyDirectionChooser, &ComboBoxWidget::setVisible);
 
-    connect(m_keyDirectionChooser, &ComboBoxWidget::requestPage, this, &VpnTLSSection::requestPage);
+    connect(m_keyDirectionChooser, &ComboBoxWidget::requestPage, this, &VpnTLSSection::requestNextPage);
     connect(m_keyDirectionChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
         m_currentKeyDirection = data.toString();
     });
+
+    connect(m_caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnTLSSection::requestFrameAutoHide);
 }
