@@ -41,7 +41,7 @@ WacomSettings::WacomSettings(QWidget *parent):
 {
     m_mainGroup = new SettingsGroup;
     m_mainLayout = new QVBoxLayout;
-    m_pressureSlider = new TitledSliderItem(tr("Pressure Sensitive"));
+    m_pressureSlider = new TitledSliderItem(tr("Pressure Sensitivity"));
     m_pressureSlider->slider()->setType(DCCSlider::Vernier);
     m_pressureSlider->slider()->setTickPosition(QSlider::TicksBelow);
     m_pressureSlider->slider()->setRange(1, 7);
@@ -49,7 +49,7 @@ WacomSettings::WacomSettings(QWidget *parent):
     m_pressureSlider->slider()->setPageStep(1);
 
     QStringList delays;
-    delays<<tr("light")<<""<<""<<""<<""<<""<<tr("heavy");
+    delays<<tr("Light")<<""<<""<<""<<""<<""<<tr("Heavy");
     m_pressureSlider->setAnnotations(delays);
     m_mainGroup->appendItem(m_pressureSlider);
 
