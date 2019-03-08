@@ -79,7 +79,7 @@ void PppoePage::setModel(NetworkModel *model)
     m_model = model;
 
     connect(model, &NetworkModel::connectionListChanged, this, &PppoePage::onConnectionListChanged);
-    connect(model, &NetworkModel::activeConnectionsChanged, this, &PppoePage::onActivateConnectionChanged);
+    connect(model, &NetworkModel::activeConnectionsChanged, this, &PppoePage::onActiveConnectionChanged);
 
     onConnectionListChanged();
 }
@@ -115,7 +115,7 @@ void PppoePage::onConnectionListChanged()
         m_connUuid[w] = uuid;
     }
 
-    onActivateConnectionChanged(m_model->activeConnections());
+    onActiveConnectionChanged(m_model->activeConns());
 }
 
 void PppoePage::onConnectionDetailClicked()
@@ -142,14 +142,15 @@ void PppoePage::onPPPoESelected()
     Q_EMIT requestActivateConnection("/", m_editingUuid);
 }
 
-void PppoePage::onActivateConnectionChanged(const QSet<QString> &conns)
+void PppoePage::onActiveConnectionChanged(const QList<QJsonObject> &conns)
 {
     for (LoadingNextPageWidget *widget : m_connUuid.keys()) {
         widget->setIcon(QPixmap());
         widget->setLoading(false);
     }
 
-    for (const QString &uuid : conns) {
+    for (const QJsonObject &connObj : conns) {
+        const QString &uuid = connObj.value("Uuid").toString();
         LoadingNextPageWidget *w = m_connUuid.key(uuid);
         // the State of Active Connection
         // 0:Unknow, 1:Activating, 2:Activated, 3:Deactivating, 4:Deactivated

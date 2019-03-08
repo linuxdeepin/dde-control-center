@@ -26,9 +26,11 @@
 #include "accesspointwidget.h"
 #include "widgets/labels/normallabel.h"
 
-#include <QVBoxLayout>
 #include <QDebug>
+#include <QPointer>
+#include <QApplication>
 
+#include <dpicturesequenceview.h>
 #include <dimagebutton.h>
 #include <dhidpihelper.h>
 
@@ -36,6 +38,8 @@ DWIDGET_USE_NAMESPACE
 
 using namespace dcc::widgets;
 using namespace dcc::network;
+
+static QPointer<DPictureSequenceView> ConnectingIndicator = nullptr;
 
 AccessPointWidget::AccessPointWidget(QWidget *parent)
     : SettingsItem(parent),
@@ -46,7 +50,7 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
       m_activeIcon(new DImageButton),
       m_detailBtn(new DImageButton),
 
-      m_mainLayout(new QVBoxLayout),
+      m_mainLayout(new QHBoxLayout),
 
       m_strength(-1),
       m_encrypt(false),
@@ -59,19 +63,14 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
     m_activeIcon->setNormalPic(":/network/themes/dark/icons/select.svg");
     m_detailBtn->setObjectName("DetailButton");
 
-    QHBoxLayout *basicInfoLayout = new QHBoxLayout;
-    basicInfoLayout->addWidget(m_lockIcon);
-    basicInfoLayout->addWidget(m_strengthIcon);
-    basicInfoLayout->addWidget(m_apName);
-    basicInfoLayout->addStretch();
-    basicInfoLayout->addWidget(m_activeIcon);
-    basicInfoLayout->addWidget(m_detailBtn);
-    basicInfoLayout->setSpacing(5);
-    basicInfoLayout->setContentsMargins(0, 5, 0, 5);
-
-    m_mainLayout->addLayout(basicInfoLayout);
-    m_mainLayout->setSpacing(0);
-    m_mainLayout->setContentsMargins(20, 0, 10, 0);
+    m_mainLayout->addWidget(m_lockIcon);
+    m_mainLayout->addWidget(m_strengthIcon);
+    m_mainLayout->addWidget(m_apName);
+    m_mainLayout->addStretch();
+    m_mainLayout->addWidget(m_activeIcon);
+    m_mainLayout->addWidget(m_detailBtn);
+    m_mainLayout->setSpacing(5);
+    m_mainLayout->setContentsMargins(20, 5, 10, 5);
 
     setLayout(m_mainLayout);
     setObjectName("AccessPointWidget");
@@ -99,6 +98,30 @@ void AccessPointWidget::setPath(const QString &path)
     m_path = path;
 }
 
+void AccessPointWidget::setLoadingIndicatorVisible(const bool value)
+{
+    if (!ConnectingIndicator) {
+        const qreal ratio = qApp->devicePixelRatio();
+        ConnectingIndicator = new DPictureSequenceView;
+        ConnectingIndicator->setFixedSize(16 * ratio, 16 * ratio);
+        ConnectingIndicator->setPictureSequence(":/widgets/themes/dark/icons/Loading/loading_%1.png", QPair<int, int>(0, 90), 3, true);
+    }
+
+    if (value) {
+        if (m_mainLayout->indexOf(ConnectingIndicator) == -1) {
+            m_mainLayout->insertWidget(m_mainLayout->indexOf(m_detailBtn), ConnectingIndicator);
+        }
+        ConnectingIndicator->setVisible(true);
+        ConnectingIndicator->play();
+    } else {
+        if (m_mainLayout->indexOf(ConnectingIndicator) != -1) {
+            ConnectingIndicator->setVisible(false);
+            ConnectingIndicator->stop();
+            m_mainLayout->removeWidget(ConnectingIndicator);
+        }
+    }
+}
+
 void AccessPointWidget::mouseReleaseEvent(QMouseEvent *e)
 {
     SettingsItem::mouseReleaseEvent(e);
@@ -121,6 +144,10 @@ void AccessPointWidget::setStrength(const int strength)
 void AccessPointWidget::setConnected(const bool connected)
 {
     m_connected = connected;
+
+    if (!m_connected) {
+        setLoadingIndicatorVisible(false);
+    }
 
     m_activeIcon->setVisible(m_connected);
 }

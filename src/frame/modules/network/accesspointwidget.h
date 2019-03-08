@@ -29,6 +29,7 @@
 #include "widgets/settingsitem.h"
 
 #include <QLabel>
+#include <QHBoxLayout>
 
 class QVBoxLayout;
 class QLabel;
@@ -71,6 +72,7 @@ public Q_SLOTS:
     void setEditable(const bool editable);
     void setAPName(const QString &name);
     void setPath(const QString &path);
+    void setLoadingIndicatorVisible(const bool value);
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e);
@@ -81,7 +83,7 @@ private:
     QLabel *m_apName;
     Dtk::Widget::DImageButton *m_activeIcon;
     Dtk::Widget::DImageButton *m_detailBtn;
-    QVBoxLayout *m_mainLayout;
+    QHBoxLayout *m_mainLayout;
 
     int m_strength;
     bool m_encrypt;

@@ -89,6 +89,7 @@ private Q_SLOTS:
     void showConnectHidePage();
     void onDeviceRemoved();
     void onActivateApFailed(const QString &apPath, const QString &uuid);
+    void refreshLoadingIndicator();
 
 private:
     void updateActiveAp();
@@ -107,7 +108,8 @@ private:
     QPointer<ConnectionWirelessEditPage> m_apEditPage;
 
     QString m_editingUuid;
-    QTimer m_sortDelayTimer;
+    QTimer *m_sortDelayTimer;
+    QTimer *m_indicatorDelayTimer;
     QMap<QString, AccessPointWidget *> m_apItems;
 };
 

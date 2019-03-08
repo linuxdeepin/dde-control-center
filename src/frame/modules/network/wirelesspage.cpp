@@ -51,10 +51,15 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
       m_tipsGroup(new SettingsGroup),
       m_connectHideSSID(new AccessPointWidget(this)),
       m_closeHotspotBtn(new QPushButton),
-      m_currentClickApw(nullptr)
+      m_currentClickApw(nullptr),
+      m_sortDelayTimer(new QTimer(this)),
+      m_indicatorDelayTimer(new QTimer(this))
 {
-    m_sortDelayTimer.setInterval(100);
-    m_sortDelayTimer.setSingleShot(true);
+    m_sortDelayTimer->setInterval(100);
+    m_sortDelayTimer->setSingleShot(true);
+
+    m_indicatorDelayTimer->setInterval(300);
+    m_indicatorDelayTimer->setSingleShot(true);
 
     m_connectHideSSID->setAPName(tr("Connect to hidden network"));
     m_connectHideSSID->setStrength(-1);
@@ -83,21 +88,23 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     setContent(mainWidget);
 #ifdef QT_DEBUG
-    setTitle(dev->path());
+    setTitle(m_device->path());
 #else
     setTitle(tr("WLAN"));
 #endif
 
-    connect(&m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
+    connect(m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
+    connect(m_indicatorDelayTimer, &QTimer::timeout, this, &WirelessPage::refreshLoadingIndicator);
     connect(m_connectHideSSID, &AccessPointWidget::requestEdit, this, &WirelessPage::showConnectHidePage);
     connect(m_closeHotspotBtn, &QPushButton::clicked, this, &WirelessPage::onCloseHotspotClicked);
-    connect(dev, &WirelessDevice::apAdded, this, &WirelessPage::onAPAdded);
-    connect(dev, &WirelessDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
-    connect(dev, &WirelessDevice::apRemoved, this, &WirelessPage::onAPRemoved);
-    connect(dev, &WirelessDevice::activeWirelessConnectionChanged, this, &WirelessPage::updateActiveAp);
-    connect(dev, &WirelessDevice::hotspotEnabledChanged, this, &WirelessPage::onHotspotEnableChanged);
-    connect(dev, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
-    connect(dev, &WirelessDevice::activateAccessPointFailed, this, &WirelessPage::onActivateApFailed);
+    connect(m_device, &WirelessDevice::apAdded, this, &WirelessPage::onAPAdded);
+    connect(m_device, &WirelessDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
+    connect(m_device, &WirelessDevice::apRemoved, this, &WirelessPage::onAPRemoved);
+    connect(m_device, &WirelessDevice::activeWirelessConnectionInfoChanged, this, &WirelessPage::updateActiveAp);
+    connect(m_device, &WirelessDevice::hotspotEnabledChanged, this, &WirelessPage::onHotspotEnableChanged);
+    connect(m_device, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
+    connect(m_device, &WirelessDevice::activateAccessPointFailed, this, &WirelessPage::onActivateApFailed);
+    connect(m_device, &WirelessDevice::activeConnectionsChanged, m_indicatorDelayTimer, static_cast<void (QTimer::*) ()>(&QTimer::start));
 
     // init data
     const QJsonArray mApList = m_device->apList();
@@ -170,7 +177,7 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 
     w->setEncrypt(apInfo.value("Secured").toBool());
 
-    m_sortDelayTimer.start();
+    m_sortDelayTimer->start();
 }
 
 void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
@@ -227,6 +234,27 @@ void WirelessPage::onActivateApFailed(const QString &apPath, const QString &uuid
     }
 }
 
+void WirelessPage::refreshLoadingIndicator()
+{
+    QString activeSsid;
+    for (auto activeConnObj : m_device->activeConnections()) {
+        if (activeConnObj.value("Vpn").toBool(false)) {
+            continue;
+        }
+        // the State of Active Connection
+        // 0:Unknow, 1:Activating, 2:Activated, 3:Deactivating, 4:Deactivated
+        if (activeConnObj.value("State").toInt(0) != 1) {
+            break;
+        }
+        activeSsid = activeConnObj.value("Id").toString();
+        break;
+    }
+
+    for (auto it = m_apItems.constBegin(); it != m_apItems.constEnd(); ++it) {
+        it.value()->setLoadingIndicatorVisible(it.key() == activeSsid);
+    }
+}
+
 void WirelessPage::sortAPList()
 {
     auto cmpFunc = [=](const AccessPointWidget *a, const AccessPointWidget *b) {
@@ -246,6 +274,8 @@ void WirelessPage::sortAPList()
     // sort list
     for (int i(0); i != sortedList.size(); ++i)
         m_listGroup->moveItem(sortedList[i], i);
+
+    m_indicatorDelayTimer->start();
 }
 
 void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString &ssid)
@@ -298,7 +328,7 @@ void WirelessPage::updateActiveAp()
     for (auto it(m_apItems.cbegin()); it != m_apItems.cend(); ++it)
         it.value()->setConnected(it.key() == m_device->activeApSsid());
 
-    sortAPList();
+    m_sortDelayTimer->start();
 }
 
 QString WirelessPage::connectionUuid(const QString &ssid)

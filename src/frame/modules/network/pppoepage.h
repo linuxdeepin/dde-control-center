@@ -70,7 +70,7 @@ private Q_SLOTS:
     void onConnectionListChanged();
     void onConnectionDetailClicked();
     void onPPPoESelected();
-    void onActivateConnectionChanged(const QSet<QString> &conns);
+    void onActiveConnectionChanged(const QList<QJsonObject> &conns);
 
 private:
     dde::network::NetworkModel *m_model;
