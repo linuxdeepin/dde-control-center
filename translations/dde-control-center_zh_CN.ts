@@ -456,9 +456,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="196"/>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="112"/>
+        <location filename="../src/frame/navigationbar.cpp" line="196"/>
         <source>Accounts</source>
         <translation>账户</translation>
     </message>
@@ -765,9 +765,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <location filename="../src/frame/modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="117"/>
+        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
@@ -855,9 +855,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="119"/>
+        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <source>Time and Date</source>
         <translation>时间日期</translation>
     </message>
@@ -941,9 +941,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="41"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="114"/>
+        <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
     </message>
@@ -1054,12 +1054,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="227"/>
-        <source>My Settings %1</source>
-        <translation>我的设置%1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="280"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="245"/>
         <source>Wireless Screen Projection</source>
         <translation>无线投屏</translation>
     </message>
@@ -1067,39 +1062,39 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="197"/>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="118"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="110"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
+        <location filename="../src/frame/navigationbar.cpp" line="197"/>
         <source>Display</source>
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="48"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="47"/>
         <source>Display scaling</source>
         <translation>屏幕缩放</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="55"/>
         <source>Rotate</source>
         <translation>旋转</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
         <source>Custom Settings</source>
         <translation>自定义设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="58"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="271"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="225"/>
         <source>Wireless Screen Projection</source>
         <translation>无线投屏</translation>
     </message>
@@ -1172,21 +1167,16 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="178"/>
-        <source>Apply</source>
-        <translation>应用</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="180"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="188"/>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="185"/>
         <source>Primary</source>
         <translation>主屏幕</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="359"/>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="354"/>
         <source> (Recommended)</source>
         <translation>（推荐）</translation>
     </message>
@@ -1335,9 +1325,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="122"/>
+        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <source>Keyboard and Language</source>
         <translation>键盘和语言</translation>
     </message>
@@ -1490,9 +1480,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="121"/>
+        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
@@ -1684,17 +1674,17 @@ If no operation, the display will be restored after %1s.</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="342"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="343"/>
         <source>Wired Connection %1</source>
         <translation>有线连接 %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="346"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="347"/>
         <source>Wireless Connection %1</source>
         <translation>无线连接 %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="350"/>
+        <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="351"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE连接 %1</translation>
     </message>
@@ -1710,42 +1700,42 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::ConnectionVpnEditPage</name>
     <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="154"/>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="155"/>
         <source>Export</source>
         <translation>导出</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="165"/>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="166"/>
         <source>VPN L2TP %1</source>
         <translation>VPN L2TP %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="169"/>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="170"/>
         <source>VPN PPTP %1</source>
         <translation>VPN PPTP %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="173"/>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="174"/>
         <source>VPN VPNC %1</source>
         <translation>VPN VPNC %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="177"/>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="178"/>
         <source>VPN OpenVPN %1</source>
         <translation>VPN OpenVPN %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="181"/>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="182"/>
         <source>VPN StrongSwan %1</source>
         <translation>VPN StrongSwan %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="185"/>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="186"/>
         <source>VPN OpenConnect %1</source>
         <translation>VPN OpenConnect %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="189"/>
+        <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="190"/>
         <source>VPN SSTP %1</source>
         <translation>VPN SSTP %1</translation>
     </message>
@@ -1982,9 +1972,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
+        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <source>Network</source>
         <translation>网络</translation>
     </message>
@@ -2370,8 +2360,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="306"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="381"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="416"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="387"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="423"/>
         <source>CA Cert</source>
         <translation>CA证书</translation>
     </message>
@@ -2381,41 +2371,41 @@ If no operation, the display will be restored after %1s.</source>
         <translation>用户证书</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="328"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="377"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="412"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="332"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="383"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="419"/>
         <source>Anonymous ID</source>
         <translation>匿名身份</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="332"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="336"/>
         <source>Provisioning</source>
         <translation>自动PAC配置</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="344"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="348"/>
         <source>PAC file</source>
         <translation>PAC文件</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="348"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="385"/>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="431"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="352"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="391"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="438"/>
         <source>Inner Auth</source>
         <translation>内部认证</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="420"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="427"/>
         <source>PEAP Version</source>
         <translation>PEAP版本</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="514"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="523"/>
         <source>Private Pwd</source>
         <translation>私钥密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="516"/>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="525"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -2754,47 +2744,47 @@ If no operation, the display will be restored after %1s.</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="84"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="85"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
         <source>CA Cert</source>
         <translation>CA证书</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="91"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
         <source>Proxy</source>
         <translation>代理</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="94"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
         <translation>允许思科安全桌面木马</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="97"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
         <source>CSD Script</source>
         <translation>CSD 脚本</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="100"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
         <source>User Cert</source>
         <translation>用户证书</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="103"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
         <source>Private Key</source>
         <translation>私钥</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="106"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
         <source>Use FSID for Key Passphrase</source>
         <translation>为密钥口令句使用FSID</translation>
     </message>
@@ -2808,7 +2798,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="241"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="243"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
@@ -2819,7 +2809,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="270"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="272"/>
         <source>Static Key</source>
         <translation>静态密钥</translation>
     </message>
@@ -2850,17 +2840,17 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="230"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="232"/>
         <source>Pwd Options</source>
         <translation>密码选项</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="285"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
         <source>Remote IP</source>
         <translation>远程IP</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="290"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
         <source>Local IP</source>
         <translation>本地IP</translation>
     </message>
@@ -2876,10 +2866,10 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="227"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="243"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="286"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="291"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="229"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="245"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="288"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
@@ -2899,17 +2889,17 @@ If no operation, the display will be restored after %1s.</source>
         <translation>私钥密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="225"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="227"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="274"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="276"/>
         <source>Customize Key Direction</source>
         <translation>自定义密钥方向</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="278"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="280"/>
         <source>Key Direction</source>
         <translation>密钥方向</translation>
     </message>
@@ -3030,52 +3020,52 @@ If no operation, the display will be restored after %1s.</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="241"/>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="242"/>
         <source>Import Error</source>
         <translation>导入错误</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="243"/>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="244"/>
         <source>OK</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="265"/>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="266"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="268"/>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="269"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="271"/>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="272"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="274"/>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="275"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="277"/>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="278"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="280"/>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="281"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="283"/>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="284"/>
         <source>SSTP</source>
         <translation>SSTP</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/vpnpage.cpp" line="310"/>
+        <location filename="../src/frame/modules/network/vpnpage.cpp" line="311"/>
         <source>New VPN</source>
         <translation>新建VPN</translation>
     </message>
@@ -3143,17 +3133,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnSSTPSection</name>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="77"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="79"/>
         <source>CA File</source>
         <translation>CA文件</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore certificate warnings</source>
         <translation>忽略证书警告</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS hostname extensions</source>
         <translation>使用TLS主机名扩展</translation>
     </message>
@@ -3517,22 +3507,22 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="59"/>
+        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="64"/>
         <source>Connect to hidden network</source>
         <translation>连接到隐藏网络</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="62"/>
+        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
         <source>Close hotspot</source>
         <translation>关闭热点</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="65"/>
+        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
         <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
         <translation>若要连接并使用无线网络功能，请先关闭热点分享</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="88"/>
+        <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -3629,9 +3619,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="199"/>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="77"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="115"/>
+        <location filename="../src/frame/navigationbar.cpp" line="199"/>
         <source>Personalization</source>
         <translation>个性化</translation>
     </message>
@@ -3690,9 +3680,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::power::PowerWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="120"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="120"/>
+        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Power Management</source>
         <translation>电源管理</translation>
     </message>
@@ -3798,9 +3788,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="118"/>
+        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
@@ -3889,9 +3879,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>System Information</source>
         <translation>系统信息</translation>
     </message>
@@ -4031,9 +4021,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="124"/>
+        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Update</source>
         <translation>更新</translation>
     </message>
@@ -4244,26 +4234,26 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::wacom::WacomSettings</name>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="44"/>
-        <source>Pressure Sensitive</source>
+        <source>Pressure Sensitivity</source>
         <translation>压感</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
-        <source>light</source>
+        <source>Light</source>
         <translation>轻</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
-        <source>heavy</source>
+        <source>Heavy</source>
         <translation>重</translation>
     </message>
 </context>
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="123"/>
+        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <source>Wacom</source>
         <translation>Wacom 数位板</translation>
     </message>
