@@ -1,3 +1,17 @@
+<a name="4.9.7"></a>
+## 4.9.7 (2019-03-13)
+
+
+#### Bug Fixes
+
+*   activating indicator not show when activate a wireless from other place ([c3b3f492](https://github.com/linuxdeepin/dde-control-center/commit/c3b3f492519897a5a54e4d3883da0db85397c076))
+*   sw_64 name error ([dc59f025](https://github.com/linuxdeepin/dde-control-center/commit/dc59f0257e1f83c88fcb3d4aab1638fb51154d7d))
+*   frame auto hide when click choose file dialog ([d4d37b72](https://github.com/linuxdeepin/dde-control-center/commit/d4d37b72f1cc94ccc2f886cc0d6018d53683594e))
+*   caption for wacom settings ([4b19bbbc](https://github.com/linuxdeepin/dde-control-center/commit/4b19bbbcce1da0b10ebe322fdb2e57eed0c68caf))
+* **Update:**  wrong check update notifier ([ab8e4f73](https://github.com/linuxdeepin/dde-control-center/commit/ab8e4f7314b4aabb1e0c46a5da9ed62cf69188a2))
+
+
+
 <a name="4.9.6"></a>
 ### 4.9.6 (2019-03-06)
 
