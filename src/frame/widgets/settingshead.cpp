@@ -26,6 +26,7 @@
 #include "widgets/settingshead.h"
 #include <QHBoxLayout>
 #include <QMouseEvent>
+#include <QApplication>
 
 #include "widgets/labels/normallabel.h"
 
@@ -46,10 +47,12 @@ SettingsHead::SettingsHead(QFrame *parent)
     m_edit->setFlat(true);
     m_cancel->setFlat(true);
 
-    m_edit->setText(tr("Edit"));
+    // can not translate correctly just using tr()
+    m_edit->setText(qApp->translate("SettingsHead", "Edit"));
     m_edit->setVisible(false);
 
-    m_cancel->setText(tr("Cancel"));
+    // same as above
+    m_cancel->setText(qApp->translate("SettingsHead", "Cancel"));
     m_cancel->setVisible(false);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
