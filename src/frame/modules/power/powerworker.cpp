@@ -61,6 +61,7 @@ void PowerWorker::active()
     m_powerModel->setSleepLock(m_powerInter->sleepLock());
     m_powerModel->setLidPresent(m_powerInter->lidIsPresent());
     m_powerModel->setSleepOnLidClose(m_powerInter->lidClosedSleep());
+    m_powerModel->setHaveBettary(m_sysPowerInter->hasBattery());
 
     setScreenBlackDelayToModelOnPower(m_powerInter->linePowerScreenBlackDelay());
     setSleepDelayToModelOnPower(m_powerInter->linePowerSleepDelay());
@@ -71,7 +72,6 @@ void PowerWorker::active()
 #ifndef DCC_DISABLE_POWERSAVE
     m_powerModel->setAutoPowerSaveMode(m_sysPowerInter->powerSavingModeAuto());
     m_powerModel->setPowerSaveMode(m_sysPowerInter->powerSavingModeEnabled());
-    m_powerModel->setHaveBettary(m_sysPowerInter->hasBattery());
 #endif
 }
 
