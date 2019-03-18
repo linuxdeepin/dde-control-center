@@ -117,7 +117,7 @@ void AddFingerPage::onEnrollStatusChanged(FingerModel::EnrollStatus status)
 
     if (status == FingerModel::EnrollStatus::Finished) {
         m_fingerWidget->finished();
-        m_fingerWidget->setFrequency(tr("Add successfully"));
+        m_fingerWidget->setFrequency(tr("Added successfully"));
         m_buttonTuple->setVisible(true);
 
         m_frequency = 1;
