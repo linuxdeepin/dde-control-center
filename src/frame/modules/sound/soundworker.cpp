@@ -102,12 +102,9 @@ void SoundWorker::refreshSoundEffect()
 {
     m_model->setEnableSoundEffect(m_soundEffectInter->enabled());
 
-    auto map = m_model->soundEffectMap();
-
-    for (auto it : map) {
-        m_model->updateSoundEffectPath(it.second,
-                                       m_soundEffectInter->GetSystemSoundFile(DDesktopServices::getNameByEffectType(it.second)));
-    }
+    QDBusPendingCall call = m_soundEffectInter->GetSoundEnabledMap();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &SoundWorker::getSoundEnabledMapFinished);
 }
 
 void SoundWorker::switchSpeaker(bool on)
@@ -153,15 +150,9 @@ void SoundWorker::setPort(const Port *port)
     m_audioInter->SetPort(port->cardId(), port->id(), int(port->direction()));
 }
 
-void SoundWorker::querySoundEffectData(DDesktopServices::SystemSoundEffect effect)
-{
-    const QString name = m_model->getNameByEffectType(effect);
-    m_model->setEffectData(effect, m_effectGsettings->get(name).toBool());
-}
-
 void SoundWorker::setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable)
 {
-    m_effectGsettings->set(m_model->getNameByEffectType(effect), enable);
+    m_soundEffectInter->EnableSound(m_model->getNameByEffectType(effect), enable);
 }
 
 void SoundWorker::enableAllSoundEffect(bool enable)
@@ -305,6 +296,42 @@ void SoundWorker::onSourceCardChanged(const uint &cardId)
     m_activeInputCard = cardId;
 
     m_activeTimer->start();
+}
+
+void SoundWorker::getSoundEnabledMapFinished(QDBusPendingCallWatcher *watcher) {
+    if (!watcher->isError()) {
+        QDBusReply<QMap<QString, bool>> value = watcher->reply();
+        auto map = value.value();
+
+        for (auto it = map.constBegin(); it != map.constEnd(); ++it) {
+            DDesktopServices::SystemSoundEffect type = m_model->getEffectTypeByGsettingName(it.key());
+            m_model->setEffectData(type, it.value());
+
+            QDBusPendingCall call = m_soundEffectInter->GetSoundFile(it.key());
+            QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+            watcher->setProperty("Type", type);
+            connect(watcher, &QDBusPendingCallWatcher::finished, this, &SoundWorker::getSoundPathFinished);
+        }
+    }
+    else {
+        qWarning() << "get sound enabled map error." << watcher->error();
+    }
+
+    watcher->deleteLater();
+}
+
+void SoundWorker::getSoundPathFinished(QDBusPendingCallWatcher *watcher) {
+    if (!watcher->isError()) {
+        QDBusReply<QString> reply = watcher->reply();
+        m_model->updateSoundEffectPath(
+            watcher->property("Type").value<DDesktopServices::SystemSoundEffect>(),
+            reply.value());
+    }
+    else {
+        qWarning() << "get sound path error." << watcher->error();
+    }
+
+    watcher->deleteLater();
 }
 
 void SoundWorker::updatePortActivity()

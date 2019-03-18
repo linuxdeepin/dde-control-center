@@ -72,7 +72,6 @@ public Q_SLOTS:
     void setSinkVolume(double volume);
 
     void setPort(const Port *port);
-    void querySoundEffectData(DDesktopServices::SystemSoundEffect effect);
     void setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable);
     void enableAllSoundEffect(bool enable);
 
@@ -86,6 +85,8 @@ private Q_SLOTS:
 
     void onSinkCardChanged(const uint &cardId);
     void onSourceCardChanged(const uint &cardId);
+    void getSoundEnabledMapFinished(QDBusPendingCallWatcher *watcher);
+    void getSoundPathFinished(QDBusPendingCallWatcher *watcher);
 
 private:
     void updatePortActivity();
@@ -112,5 +113,7 @@ private:
 
 }
 }
+
+Q_DECLARE_METATYPE(DDesktopServices::SystemSoundEffect);
 
 #endif // SOUNDWORKER_H

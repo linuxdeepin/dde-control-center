@@ -24,7 +24,6 @@ public:
 
 Q_SIGNALS:
     void requestEnableAllEffect(bool enable);
-    void requestQueryData(DDesktopServices::SystemSoundEffect effect);
     void requestSetEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable);
 
 public Q_SLOTS:

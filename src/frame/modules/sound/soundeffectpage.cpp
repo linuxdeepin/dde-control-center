@@ -40,8 +40,8 @@ SoundEffectPage::SoundEffectPage(SoundModel *model, QWidget *parent)
     , m_currentPlayItem(nullptr)
     , m_sound(nullptr)
 {
-    m_hideIconTimer->setInterval(3000);
-    m_hideIconTimer->setSingleShot(true);
+    m_hideIconTimer->setInterval(1000);
+    m_hideIconTimer->setSingleShot(false);
 
     m_playIcon->setFixedSize(20, 20);
 
@@ -76,9 +76,6 @@ SoundEffectPage::SoundEffectPage(SoundModel *model, QWidget *parent)
         connect(widget, &SwitchWidget::clicked, this, &SoundEffectPage::readyPlay);
         m_effectGrp->appendItem(widget);
         m_effectSwitchList[widget] = it.second;
-        QTimer::singleShot(0, this, [=] {
-            Q_EMIT requestQueryData(it.second);
-        });
         widget->setChecked(model->queryEffectData(it.second));
     }
 
@@ -96,9 +93,12 @@ SoundEffectPage::SoundEffectPage(SoundModel *model, QWidget *parent)
     setContent(w);
     connect(model, &SoundModel::soundEffectDataChanged, this, &SoundEffectPage::onEffectSwitchChanged);
     connect(m_hideIconTimer, &QTimer::timeout, this, [=] {
-        m_playIcon->hide();
-        m_iconAni->stop();
-        m_currentPlayItem = nullptr;
+        if (m_sound->isFinished()) {
+            m_playIcon->hide();
+            m_iconAni->stop();
+            m_currentPlayItem = nullptr;
+            m_hideIconTimer->stop();
+        }
     });
 
     connect(m_iconAni, &QVariantAnimation::valueChanged, this, [=] (const QVariant &value) {

@@ -138,6 +138,7 @@ public:
     const QString soundEffectPathByType(DDesktopServices::SystemSoundEffect effect);
 
     const QString getNameByEffectType(DDesktopServices::SystemSoundEffect effect) const;
+    DDesktopServices::SystemSoundEffect getEffectTypeByGsettingName(const QString &name);
 
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;

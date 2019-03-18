@@ -27,22 +27,22 @@
 
 #include <QDebug>
 
-static const QStringList SOUND_EFFECT_LIST {
-    "message",
-    "camera-shutter",
-    "trash-empty",
-    "x-deepin-app-sent-to-desktop",
-    "desktop-login",
-    "system-shutdown",
-    "desktop-logout",
-    "suspend-resume",
-    "audio-volume-change",
-    "power-unplug-battery-low",
-    "power-plug",
-    "power-unplug",
-    "device-added",
-    "device-removed",
-    "dialog-error",
+static const QMap<DDesktopServices::SystemSoundEffect, QString> SOUND_EFFECT_MAP{
+    { DDesktopServices::SystemSoundEffect::SSE_Notifications, "message" },
+    { DDesktopServices::SystemSoundEffect::SEE_Screenshot, "camera-shutter" },
+    { DDesktopServices::SystemSoundEffect::SSE_EmptyTrash, "trash-empty" },
+    { DDesktopServices::SystemSoundEffect::SSE_SendFileComplete, "x-deepin-app-sent-to-desktop" },
+    { DDesktopServices::SystemSoundEffect::SSE_BootUp, "desktop-login" },
+    { DDesktopServices::SystemSoundEffect::SSE_Shutdown, "system-shutdown" },
+    { DDesktopServices::SystemSoundEffect::SSE_Logout, "desktop-logout" },
+    { DDesktopServices::SystemSoundEffect::SSE_WakeUp, "suspend-resume" },
+    { DDesktopServices::SystemSoundEffect::SSE_VolumeChange, "audio-volume-change" },
+    { DDesktopServices::SystemSoundEffect::SSE_LowBattery, "power-unplug-battery-low" },
+    { DDesktopServices::SystemSoundEffect::SSE_PlugIn, "power-plug" },
+    { DDesktopServices::SystemSoundEffect::SSE_PlugOut, "power-unplug" },
+    { DDesktopServices::SystemSoundEffect::SSE_DeviceAdded, "device-added" },
+    { DDesktopServices::SystemSoundEffect::SSE_DeviceRemoved, "device-removed" },
+    { DDesktopServices::SystemSoundEffect::SSE_Error, "dialog-error" }
 };
 
 namespace dcc {
@@ -247,7 +247,11 @@ const QString SoundModel::soundEffectPathByType(DDesktopServices::SystemSoundEff
 
 const QString SoundModel::getNameByEffectType(DDesktopServices::SystemSoundEffect effect) const
 {
-    return SOUND_EFFECT_LIST.at(static_cast<int>(effect));
+    return SOUND_EFFECT_MAP.value(effect);
+}
+
+DDesktopServices::SystemSoundEffect SoundModel::getEffectTypeByGsettingName(const QString &name) {
+    return SOUND_EFFECT_MAP.key(name);
 }
 
 void Port::setId(const QString &id)
