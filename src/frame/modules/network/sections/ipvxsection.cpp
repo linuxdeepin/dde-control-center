@@ -148,6 +148,7 @@ bool IpvxSection::saveIpv6Settings()
     ipv6Setting->setMethod(Ipv6ConfigMethodStrMap.value(m_methodChooser->value()));
 
     if (method == NetworkManager::Ipv6Setting::Ignored) {
+        ipv6Setting->setAddresses(QList<NetworkManager::IpAddress>());
         return true;
     }
 
