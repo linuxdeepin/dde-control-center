@@ -1,3 +1,15 @@
+<a name="4.9.8"></a>
+### 4.9.8 (2019-03-19)
+
+
+#### Bug Fixes
+
+*   translate failed in defapp module ([51195d6f](https://github.com/linuxdeepin/dde-control-center/commit/51195d6f93819dea1c2dd6818456df972496da13))
+* **power:**  remove battery in DISABLE_POWERSAVE macro ([d57a039d](https://github.com/linuxdeepin/dde-control-center/commit/d57a039de020ffa2e517ea7f1be0d23a6be2d506))
+* **typo:**  update -> updated ([b0d2bdb0](https://github.com/linuxdeepin/dde-control-center/commit/b0d2bdb0b1c524af1a18af6f241b681561b0393d))
+
+
+
 <a name="4.9.7"></a>
 ## 4.9.7 (2019-03-13)
 
