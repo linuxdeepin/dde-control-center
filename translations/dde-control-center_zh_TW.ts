@@ -191,12 +191,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>SettingsHead</name>
     <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="49"/>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="51"/>
         <source>Edit</source>
         <translation>編輯</translation>
     </message>
     <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="52"/>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="55"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -456,9 +456,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="196"/>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="112"/>
-        <location filename="../src/frame/navigationbar.cpp" line="196"/>
         <source>Accounts</source>
         <translation>帳戶</translation>
     </message>
@@ -545,8 +545,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
-        <source>Add successfully</source>
-        <translation>加入成功</translation>
+        <source>Added successfully</source>
+        <translation>指紋新增成功。</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
@@ -765,9 +765,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <location filename="../src/frame/modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="117"/>
-        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Bluetooth</source>
         <translation>藍牙</translation>
     </message>
@@ -855,9 +855,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="119"/>
-        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <source>Time and Date</source>
         <translation>日期與時間</translation>
     </message>
@@ -941,9 +941,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="41"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="114"/>
-        <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <source>Default Applications</source>
         <translation>預設程式</translation>
     </message>
@@ -1062,9 +1062,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="197"/>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="110"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
-        <location filename="../src/frame/navigationbar.cpp" line="197"/>
         <source>Display</source>
         <translation>螢幕</translation>
     </message>
@@ -1121,8 +1121,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::display::MiracastPage</name>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="51"/>
-        <source>WIFI will be disconnected when enable screen projection</source>
-        <translation>Miracast 開啟時無法使用 Wi-Fi</translation>
+        <source>WIFI will be disconnected when screen projection is enabled</source>
+        <translation>開啟無線投影時將斷開 Wi-Fi 連線</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="55"/>
@@ -1325,9 +1325,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="122"/>
-        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <source>Keyboard and Language</source>
         <translation>鍵盤與語言</translation>
     </message>
@@ -1480,9 +1480,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="121"/>
-        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <source>Mouse</source>
         <translation>滑鼠</translation>
     </message>
@@ -1972,9 +1972,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
-        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <source>Network</source>
         <translation>網路</translation>
     </message>
@@ -3518,8 +3518,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
-        <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation>使用 Wi-Fi 前請先關閉無線熱點功能</translation>
+        <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
+        <translation>若要連線至無線網路，請先關閉無線熱點分享功能。</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
@@ -3619,9 +3619,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="199"/>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="77"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="115"/>
-        <location filename="../src/frame/navigationbar.cpp" line="199"/>
         <source>Personalization</source>
         <translation>個人化</translation>
     </message>
@@ -3680,9 +3680,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::power::PowerWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="120"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="120"/>
-        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Power Management</source>
         <translation>電源管理</translation>
     </message>
@@ -3788,9 +3788,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="118"/>
-        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <source>Sound</source>
         <translation>聲音</translation>
     </message>
@@ -3879,9 +3879,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="125"/>
-        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>System Information</source>
         <translation>系統資訊</translation>
     </message>
@@ -4009,8 +4009,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::update::ResultItem</name>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="66"/>
-        <source>Update successfully</source>
-        <translation>更新成功</translation>
+        <source>Updated successfully</source>
+        <translation>已順利更新</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="67"/>
@@ -4021,9 +4021,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="124"/>
-        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Update</source>
         <translation>更新</translation>
     </message>
@@ -4235,25 +4235,25 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>壓力感應</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>輕</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>重</translation>
     </message>
 </context>
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="123"/>
-        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>

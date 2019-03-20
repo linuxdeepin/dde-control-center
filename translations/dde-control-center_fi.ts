@@ -134,7 +134,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Updates installed, need to restart, restart now?</source>
-        <translation>Päivitykset asennettu ja uudelleenkäynnistys tarvittu, käynnistetäänkö uudelleen nyt?</translation>
+        <translation>Päivitykset asennettu, käynnistetäänkö uudelleen nyt?</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
@@ -191,12 +191,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>SettingsHead</name>
     <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="49"/>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="51"/>
         <source>Edit</source>
         <translation>Muokkaa</translation>
     </message>
     <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="52"/>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="55"/>
         <source>Cancel</source>
         <translation>Peru</translation>
     </message>
@@ -330,7 +330,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="170"/>
         <source>Updates detected, click to view</source>
-        <translation>Päivityksiä löydetty, klikkaa nähdäksesi</translation>
+        <translation>Päivityksiä löydetty, katso ne nyt</translation>
     </message>
 </context>
 <context>
@@ -456,9 +456,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="196"/>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="112"/>
-        <location filename="../src/frame/navigationbar.cpp" line="196"/>
         <source>Accounts</source>
         <translation>Tilit</translation>
     </message>
@@ -488,22 +488,22 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>Laitteesi poistettiin toimialapalvelimelta onnistuneesti.</translation>
+        <translation>Laitteesi poistettiin toimialapalvelimelta onnistuneesti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="325"/>
         <source>Your host joins the domain server successfully</source>
-        <translation>Laitteesi liittyi toimialapalvelimeen onnistuneesti.</translation>
+        <translation>Laitteesi liittyi toimialapalvelimeen onnistuneesti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to leave the domain server</source>
-        <translation>Laitteesi poistuminen toimialapalvelimelta epäonnistui.</translation>
+        <translation>Laitteesi poistuminen toimialapalvelimelta epäonnistui</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="348"/>
         <source>Your host failed to join the domain server</source>
-        <translation>Laitteesi liittyminen toimialapalvelimeen epäonnistui.</translation>
+        <translation>Laitteesi liittyminen toimialapalvelimeen epäonnistui</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="420"/>
@@ -545,7 +545,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
-        <source>Add successfully</source>
+        <source>Added successfully</source>
         <translation>Lisätty onnistuneesti</translation>
     </message>
     <message>
@@ -765,9 +765,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <location filename="../src/frame/modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="117"/>
-        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -855,9 +855,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="119"/>
-        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <source>Time and Date</source>
         <translation>Aika ja päivämäärä</translation>
     </message>
@@ -941,9 +941,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="41"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="114"/>
-        <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <source>Default Applications</source>
         <translation>Oletusohjelmat</translation>
     </message>
@@ -1062,9 +1062,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="197"/>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="110"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
-        <location filename="../src/frame/navigationbar.cpp" line="197"/>
         <source>Display</source>
         <translation>Näyttö</translation>
     </message>
@@ -1121,7 +1121,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <name>dcc::display::MiracastPage</name>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="51"/>
-        <source>WIFI will be disconnected when enable screen projection</source>
+        <source>WIFI will be disconnected when screen projection is enabled</source>
         <translation>WIFI-yhteys katkeaa, kun näytön projektio otetaan käyttöön</translation>
     </message>
     <message>
@@ -1325,9 +1325,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="122"/>
-        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <source>Keyboard and Language</source>
         <translation>Näppäimistö ja kieli</translation>
     </message>
@@ -1480,9 +1480,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="121"/>
-        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <source>Mouse</source>
         <translation>Hiiri</translation>
     </message>
@@ -1972,9 +1972,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
-        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <source>Network</source>
         <translation>Verkko</translation>
     </message>
@@ -3518,8 +3518,8 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
-        <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation>Poista ensin yhteyspisteen jakaminen, jos haluat liittää ja käyttää langatonta verkkoa</translation>
+        <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
+        <translation>Poista hotspot-jakaminen käytöstä ensin, jos haluat muodostaa yhteyden langattomaan verkkoon</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
@@ -3619,9 +3619,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="199"/>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="77"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="115"/>
-        <location filename="../src/frame/navigationbar.cpp" line="199"/>
         <source>Personalization</source>
         <translation>Personointi</translation>
     </message>
@@ -3680,9 +3680,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::power::PowerWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="120"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="120"/>
-        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Power Management</source>
         <translation>Virran hallinta</translation>
     </message>
@@ -3788,9 +3788,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="118"/>
-        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <source>Sound</source>
         <translation>Ääni</translation>
     </message>
@@ -3879,9 +3879,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="125"/>
-        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>System Information</source>
         <translation>Järjestelmätiedot</translation>
     </message>
@@ -3978,7 +3978,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="84"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="130"/>
         <source>Medium</source>
-        <translation>Keskikokoinen</translation>
+        <translation>Hyvä</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="86"/>
@@ -4009,21 +4009,21 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <name>dcc::update::ResultItem</name>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="66"/>
-        <source>Update successfully</source>
-        <translation>Päivitys onnistui!</translation>
+        <source>Updated successfully</source>
+        <translation>Päivitetty onnistuneesti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="67"/>
         <source>Failed to update</source>
-        <translation>Päivitys epäonnistui.</translation>
+        <translation>Päivitys epäonnistui</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="124"/>
-        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Update</source>
         <translation>Päivitä</translation>
     </message>
@@ -4172,17 +4172,17 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation>Pyydä ilmoitusta, jos järjestelmän päivitystä on muutettu</translation>
+        <translation>Pyydä ilmoitus, jos järjestelmän pakettivarasto on muutunut</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="99"/>
         <source>Smart Mirror Switch</source>
-        <translation>Fiksu peilipaikan vaihto</translation>
+        <translation>Älykäs pakettivaraston vaihto</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>Valitse, jos haluat muodostaa yhteyden nopeimpaan peilipaikaan automaattisesti</translation>
+        <translation>Valitse, jos haluat muodostaa yhteyden nopeimpaan pakettivarastoon automaattisesti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="113"/>
@@ -4235,25 +4235,25 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Paineherkkyys</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Kevyt</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Painava</translation>
     </message>
 </context>
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="123"/>
-        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>

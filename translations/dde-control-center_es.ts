@@ -191,12 +191,12 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
 <context>
     <name>SettingsHead</name>
     <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="49"/>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="51"/>
         <source>Edit</source>
         <translation>Editar</translation>
     </message>
     <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="52"/>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="55"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -456,9 +456,9 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="196"/>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="112"/>
-        <location filename="../src/frame/navigationbar.cpp" line="196"/>
         <source>Accounts</source>
         <translation>Cuentas</translation>
     </message>
@@ -545,8 +545,8 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
-        <source>Add successfully</source>
-        <translation>Añadido con éxito</translation>
+        <source>Added successfully</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
@@ -765,9 +765,9 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <location filename="../src/frame/modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="117"/>
-        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -855,9 +855,9 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="119"/>
-        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <source>Time and Date</source>
         <translation>Fecha y hora</translation>
     </message>
@@ -941,9 +941,9 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="41"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="114"/>
-        <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <source>Default Applications</source>
         <translation>Aplicaciones predeterminadas</translation>
     </message>
@@ -1062,9 +1062,9 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="197"/>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="110"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
-        <location filename="../src/frame/navigationbar.cpp" line="197"/>
         <source>Display</source>
         <translation>Pantalla</translation>
     </message>
@@ -1121,8 +1121,8 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <name>dcc::display::MiracastPage</name>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="51"/>
-        <source>WIFI will be disconnected when enable screen projection</source>
-        <translation>El WiFi se desconectará cuando se active la proyección de pantalla</translation>
+        <source>WIFI will be disconnected when screen projection is enabled</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="55"/>
@@ -1325,9 +1325,9 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="122"/>
-        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <source>Keyboard and Language</source>
         <translation>Idioma y teclado</translation>
     </message>
@@ -1480,9 +1480,9 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="121"/>
-        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <source>Mouse</source>
         <translation>Ratón</translation>
     </message>
@@ -1972,9 +1972,9 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
-        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <source>Network</source>
         <translation>Redes e Internet</translation>
     </message>
@@ -3518,8 +3518,8 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
-        <source>Please firstly disabled hotspot sharing if you want to connect and use wireless network function</source>
-        <translation>Por favor, deshabilite primero &quot;Conexión compartida&quot; si quiere conectarse y usar la función de conexión inalámbrica</translation>
+        <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
@@ -3619,9 +3619,9 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="199"/>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="77"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="115"/>
-        <location filename="../src/frame/navigationbar.cpp" line="199"/>
         <source>Personalization</source>
         <translation>Personalización</translation>
     </message>
@@ -3680,9 +3680,9 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
 <context>
     <name>dcc::power::PowerWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="120"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="120"/>
-        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Power Management</source>
         <translation>Gestión de energía</translation>
     </message>
@@ -3788,9 +3788,9 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="118"/>
-        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <source>Sound</source>
         <translation>Sonido</translation>
     </message>
@@ -3879,9 +3879,9 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="125"/>
-        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>System Information</source>
         <translation>Información del sistema</translation>
     </message>
@@ -4009,8 +4009,8 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <name>dcc::update::ResultItem</name>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="66"/>
-        <source>Update successfully</source>
-        <translation>Actualizado exitosamente</translation>
+        <source>Updated successfully</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="67"/>
@@ -4021,9 +4021,9 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="124"/>
-        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Update</source>
         <translation>Actualización</translation>
     </message>
@@ -4235,25 +4235,25 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Sensibilidad a la presión</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Ligera</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Intensa</translation>
     </message>
 </context>
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
+        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="123"/>
-        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>
