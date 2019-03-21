@@ -39,7 +39,7 @@ SearchInput::SearchInput(QWidget* parent)
 {
     setContextMenuPolicy(Qt::NoContextMenu);
     setFocusPolicy(Qt::ClickFocus);
-    m_search = tr("Search");
+    m_search = qApp->translate("SearchInput", "Search");
 }
 
 void SearchInput::setSearchText(const QString &text)
