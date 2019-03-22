@@ -52,6 +52,6 @@ target_link_libraries(${BIN_NAME} PRIVATE
 )
 
 # bin
-install(TARGETS ${BIN_NAME} DESTINATION lib/dde-control-center/reboot-reminder-dialog)
+install(TARGETS ${BIN_NAME} DESTINATION lib/dde-control-center/)
 
 endif()
