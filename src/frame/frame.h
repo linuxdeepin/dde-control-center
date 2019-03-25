@@ -105,6 +105,7 @@ private Q_SLOTS:
     void onMouseButtonReleased(const QPoint &p, const int flag);
 
 private:
+    void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
     void keyPressEvent(QKeyEvent *e) Q_DECL_OVERRIDE;
     void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
     void moveEvent(QMoveEvent *e) Q_DECL_OVERRIDE;

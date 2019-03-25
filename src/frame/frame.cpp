@@ -343,6 +343,14 @@ void Frame::onMouseButtonReleased(const QPoint &p, const int flag)
     hide();
 }
 
+void Frame::showEvent(QShowEvent *event)
+{
+    // try to fix can not obtain focus or still in unactive state on LS/SW platform
+    DBlurEffectWidget::activateWindow();
+
+    DBlurEffectWidget::showEvent(event);
+}
+
 void Frame::keyPressEvent(QKeyEvent *e)
 {
     DBlurEffectWidget::keyPressEvent(e);
