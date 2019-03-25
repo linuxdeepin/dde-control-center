@@ -114,6 +114,9 @@ private:
 }
 }
 
-Q_DECLARE_METATYPE(DDesktopServices::SystemSoundEffect);
+// should include 2.0.9.17
+#if DTK_VERSION < DTK_VERSION_CHECK(2, 0, 9, 17)
+    Q_DECLARE_METATYPE(DDesktopServices::SystemSoundEffect)
+#endif
 
 #endif // SOUNDWORKER_H
