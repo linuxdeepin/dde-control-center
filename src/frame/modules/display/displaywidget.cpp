@@ -35,6 +35,7 @@
 #include "widgets/titledslideritem.h"
 #include "widgets/translucentframe.h"
 #include <cmath>
+#include <functional>
 
 using namespace dcc::widgets;
 using namespace dcc::display;
@@ -120,11 +121,14 @@ DisplayWidget::DisplayWidget()
 #ifndef DCC_DISABLE_ROTATE
     connect(m_rotate, &QPushButton::clicked, this, &DisplayWidget::requestRotate);
 #endif
+
     connect(m_customConfigButton, &QPushButton::clicked, this, [=] {
         // delete the previous custom config if current mode is not Custom mode
         if (m_model->displayMode() != CUSTOM_MODE) {
             Q_EMIT requestDeleteConfig(m_model->DDE_Display_Config);
         }
+
+        setIndividualScalingEnabled(true);
 
         // save/record current mode/config state in order to restore later
         Q_EMIT requestRecordCurrentState();
@@ -147,6 +151,13 @@ DisplayWidget::DisplayWidget()
             &DisplayWidget::requestExtendMode);
     connect(m_displayControlPage, &DisplayControlPage::requestOnlyMonitor, this,
             &DisplayWidget::requestOnlyMonitor);
+
+    connect(m_displayControlPage, &DisplayControlPage::requestDuplicateMode, this,
+            std::bind(&DisplayWidget::setIndividualScalingEnabled, this, false));
+    connect(m_displayControlPage, &DisplayControlPage::requestOnlyMonitor, this,
+            std::bind(&DisplayWidget::setIndividualScalingEnabled, this, false));
+    connect(m_displayControlPage, &DisplayControlPage::requestExtendMode, this,
+            std::bind(&DisplayWidget::setIndividualScalingEnabled, this, true));
 }
 
 void DisplayWidget::setModel(DisplayModel *model)
@@ -195,10 +206,7 @@ void DisplayWidget::onMonitorListChanged() const
 
         m_resolutionsGrp->show();
         m_resolution->show();
-#ifdef QT_DEBUG
-        m_scaleWidget->show();
-        m_scalingSettings->hide();
-#endif
+        setIndividualScalingEnabled(false);
 #ifndef DCC_DISABLE_ROTATE
         m_rotate->show();
 #endif
@@ -212,10 +220,7 @@ void DisplayWidget::onMonitorListChanged() const
 
         m_resolutionsGrp->hide();
         m_resolution->hide();
-#ifdef QT_DEBUG
-        m_scaleWidget->hide();
-        m_scalingSettings->show();
-#endif
+        setIndividualScalingEnabled(true);
 #ifndef DCC_DISABLE_ROTATE
         m_rotate->hide();
 #endif
@@ -267,6 +272,23 @@ void DisplayWidget::onUiScaleChanged(const double scale)
 
     m_scaleWidget->setValueLiteral(QString::number(scale));
 }
+
+void DisplayWidget::setIndividualScalingEnabled(bool enabled) const
+{
+#ifdef QT_DEBUG
+    if(enabled) {
+        m_scaleWidget->hide();
+        m_scalingSettings->show();
+    }
+    else {
+        m_scaleWidget->show();
+        m_scalingSettings->hide();
+    }
+#else
+    Q_UNUSED(enabled);
+#endif
+}
+
 
 int DisplayWidget::convertToSlider(const float value)
 {
