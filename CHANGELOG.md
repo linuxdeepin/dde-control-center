@@ -1,3 +1,20 @@
+<a name="4.9.9"></a>
+## 4.9.9 (2019-03-26)
+
+
+#### Bug Fixes
+
+*   keep the lenght of ssid among 1-32 ([ffbf5dae](https://github.com/linuxdeepin/dde-control-center/commit/ffbf5dae08742ee8ee474b917816166a3a3c471e))
+*   compile error caused by dtk ([11daa363](https://github.com/linuxdeepin/dde-control-center/commit/11daa363ef55bda720f1d9cf4fbeaf4936aaf9f4))
+*   translate failed in searchinput widget ([c3c8192e](https://github.com/linuxdeepin/dde-control-center/commit/c3c8192e826c36da82d7049b99e7e45d7cf651ad))
+* **update:**  reboot-reminder-dialog install path error ([b11ac9aa](https://github.com/linuxdeepin/dde-control-center/commit/b11ac9aa324e5704dc7aa669332c2b63d918b6b0))
+
+#### Features
+
+*   initial work on scaling monitors individually ([6b17e883](https://github.com/linuxdeepin/dde-control-center/commit/6b17e8833e714d00814ec3a8f2148bef465d55a8))
+
+
+
 <a name="4.9.8"></a>
 ### 4.9.8 (2019-03-19)
 
