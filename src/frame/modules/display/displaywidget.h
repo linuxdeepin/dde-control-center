@@ -108,6 +108,7 @@ private:
 #ifndef DCC_DISABLE_MIRACAST
     QMap<QDBusObjectPath, NextPageWidget *> m_miracastList;
 #endif
+    void setIndividualScalingEnabled(bool enabled) const;
 };
 
 }  // namespace display
