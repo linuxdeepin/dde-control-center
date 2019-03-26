@@ -69,12 +69,13 @@ bool WirelessSection::allInputValid()
 {
     bool valid = true;
 
-    const QString &apSsid = m_apSsid->text();
-    if (apSsid.isEmpty()) {
+    // available length is [1-32]
+    const int length = m_apSsid->text().toUtf8().length();
+    if (length > 0 && length < 33) {
+        m_apSsid->setIsErr(false);
+    } else {
         valid = false;
         m_apSsid->setIsErr(true);
-    } else {
-        m_apSsid->setIsErr(false);
     }
 
     return valid;
