@@ -87,6 +87,7 @@ DisplayWidget::DisplayWidget()
     SettingsGroup *scaleGrp = new SettingsGroup;
     scaleGrp->appendItem(m_scaleWidget);
     scaleGrp->appendItem(m_scalingSettings);
+    m_scalingSettings->hide();
 
     m_resolutionsGrp = new SettingsGroup;
     m_resolutionsGrp->appendItem(m_resolution);
@@ -194,8 +195,10 @@ void DisplayWidget::onMonitorListChanged() const
 
         m_resolutionsGrp->show();
         m_resolution->show();
+#ifdef QT_DEBUG
         m_scaleWidget->show();
         m_scalingSettings->hide();
+#endif
 #ifndef DCC_DISABLE_ROTATE
         m_rotate->show();
 #endif
@@ -209,8 +212,10 @@ void DisplayWidget::onMonitorListChanged() const
 
         m_resolutionsGrp->hide();
         m_resolution->hide();
+#ifdef QT_DEBUG
         m_scaleWidget->hide();
         m_scalingSettings->show();
+#endif
 #ifndef DCC_DISABLE_ROTATE
         m_rotate->hide();
 #endif
