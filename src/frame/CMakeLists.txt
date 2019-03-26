@@ -897,6 +897,13 @@ if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "mips64")
     )
 endif()
 
+if (${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
+    set(BUILD_MACRO
+        ${BUILD_MACRO}
+        DISABLE_POWER
+    )
+endif()
+
 foreach(LETTER ${BUILD_MACRO})
     add_build_macro(${LETTER})
 endforeach()
