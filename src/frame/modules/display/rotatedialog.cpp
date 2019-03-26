@@ -59,7 +59,8 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
       m_model(nullptr),
       m_adjustDelayTimer(new QTimer(this)),
       m_wmHelper(DWindowManagerHelper::instance()),
-      m_mouseLeftHand(false)
+      m_mouseLeftHand(false),
+      m_changed(false)
 {
     const qreal ratio = devicePixelRatioF();
 
@@ -173,7 +174,11 @@ void RotateDialog::mouseReleaseEvent(QMouseEvent *e)
     switch (e->button())
     {
     case Qt::RightButton:   reject();       break;
-    case Qt::LeftButton:    rotate();       break;
+    case Qt::LeftButton: {
+        rotate();
+        m_changed = true;
+        break;
+    }
     default:;
     }
 }
@@ -196,7 +201,10 @@ void RotateDialog::paintEvent(QPaintEvent *e)
 {
     QDialog::paintEvent(e);
 
-    const QString tips = m_tips.arg(m_resetTimeout);
+    QString tips = m_tips.arg(m_resetTimeout);
+    if (!m_changed) {
+        tips = tips.split("\n").first();
+    }
 
     int margin = 100;
 

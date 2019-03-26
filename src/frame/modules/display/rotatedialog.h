@@ -74,6 +74,7 @@ private:
 
     QString m_tips;
     bool m_mouseLeftHand;
+    bool m_changed;
     int m_resetTimeout;
 };
 
