@@ -1,3 +1,13 @@
+<a name="4.9.9.1"></a>
+## 4.9.9.1 (2019-03-27)
+
+
+#### Bug Fixes
+
+*   hide option for individual scaling unless extend or custom configuration is in use. ([71bdf68a](https://github.com/linuxdeepin/dde-control-center/commit/71bdf68a55456bab3791886b21e1e5a9c57e63cd))
+
+
+
 <a name="4.9.9"></a>
 ## 4.9.9 (2019-03-26)
 
