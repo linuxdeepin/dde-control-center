@@ -275,7 +275,6 @@ void DisplayWidget::onUiScaleChanged(const double scale)
 
 void DisplayWidget::setIndividualScalingEnabled(bool enabled) const
 {
-#ifdef QT_DEBUG
     if(enabled) {
         m_scaleWidget->hide();
         m_scalingSettings->show();
@@ -284,9 +283,6 @@ void DisplayWidget::setIndividualScalingEnabled(bool enabled) const
         m_scaleWidget->show();
         m_scalingSettings->hide();
     }
-#else
-    Q_UNUSED(enabled);
-#endif
 }
 
 
