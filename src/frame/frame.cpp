@@ -310,9 +310,14 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
         return;
     }
 
+    // 控制中心一直在主屏显示
+    if (windowHandle())
+        windowHandle()->setScreen(qApp->primaryScreen());
+
     m_primaryRect = primaryRect;
 
-    const qreal ratio = devicePixelRatioF();
+    // 假定控制中心一直在主屏
+    const qreal ratio = qApp->primaryScreen()->devicePixelRatio();
     const auto h = m_primaryRect.height() / ratio;
 
     setFixedHeight(h);
@@ -320,7 +325,24 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
 
     QTimer::singleShot(500, this, [=] {
         // FIXME: The signal is too fast and the screen is not adjusted
-        DBlurEffectWidget::move(m_primaryRect.x() + m_primaryRect.width() / ratio - width() + 1, m_primaryRect.y());
+        // ###(zccrs): 窗口改变所在屏幕之后，新屏幕的缩放比可能和之前的屏幕不一致。
+        // 假定以下情况，屏幕A： 100x100，缩放=1.0，屏幕B：200x200，缩放=2.0
+        // 窗口从屏幕A移动屏幕B之后，计算出的新geometry和旧geometry一致，使用QWidget
+        // 或QWindow的接口更改窗口大小时会判断参数是否和旧的一致，导致更新位置和大小
+        // 失效，因此此处直接使用 QPlatformWindow 调整窗口位置和大小。
+        if (windowHandle()) {
+            QPlatformWindow *native_windwo = windowHandle()->handle();
+            QRect rect = native_windwo->geometry();
+
+            rect.setWidth(FRAME_WIDTH * ratio);
+            rect.setHeight(m_primaryRect.height());
+            rect.moveLeft(m_primaryRect.right() - rect.width() + 1);
+            rect.moveTop(m_primaryRect.top());
+
+            native_windwo->setGeometry(rect);
+        } else {
+            DBlurEffectWidget::move(m_primaryRect.x() + m_primaryRect.width() / ratio - width() + 1, m_primaryRect.y());
+        }
     });
 }
 
