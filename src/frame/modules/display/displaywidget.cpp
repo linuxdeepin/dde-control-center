@@ -35,7 +35,6 @@
 #include "widgets/titledslideritem.h"
 #include "widgets/translucentframe.h"
 #include <cmath>
-#include <functional>
 
 using namespace dcc::widgets;
 using namespace dcc::display;
@@ -128,8 +127,6 @@ DisplayWidget::DisplayWidget()
             Q_EMIT requestDeleteConfig(m_model->DDE_Display_Config);
         }
 
-        setIndividualScalingEnabled(true);
-
         // save/record current mode/config state in order to restore later
         Q_EMIT requestRecordCurrentState();
 
@@ -151,13 +148,6 @@ DisplayWidget::DisplayWidget()
             &DisplayWidget::requestExtendMode);
     connect(m_displayControlPage, &DisplayControlPage::requestOnlyMonitor, this,
             &DisplayWidget::requestOnlyMonitor);
-
-    connect(m_displayControlPage, &DisplayControlPage::requestDuplicateMode, this,
-            std::bind(&DisplayWidget::setIndividualScalingEnabled, this, false));
-    connect(m_displayControlPage, &DisplayControlPage::requestOnlyMonitor, this,
-            std::bind(&DisplayWidget::setIndividualScalingEnabled, this, false));
-    connect(m_displayControlPage, &DisplayControlPage::requestExtendMode, this,
-            std::bind(&DisplayWidget::setIndividualScalingEnabled, this, true));
 }
 
 void DisplayWidget::setModel(DisplayModel *model)
