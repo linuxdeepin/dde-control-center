@@ -304,6 +304,8 @@ void SoundWorker::getSoundEnabledMapFinished(QDBusPendingCallWatcher *watcher) {
         auto map = value.value();
 
         for (auto it = map.constBegin(); it != map.constEnd(); ++it) {
+            if (!m_model->checkSEExist(it.key())) continue;
+
             DDesktopServices::SystemSoundEffect type = m_model->getEffectTypeByGsettingName(it.key());
             m_model->setEffectData(type, it.value());
 

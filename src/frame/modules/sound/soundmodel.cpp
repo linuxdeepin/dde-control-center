@@ -254,6 +254,11 @@ DDesktopServices::SystemSoundEffect SoundModel::getEffectTypeByGsettingName(cons
     return SOUND_EFFECT_MAP.key(name);
 }
 
+bool SoundModel::checkSEExist(const QString &name)
+{
+    return SOUND_EFFECT_MAP.values().contains(name);
+}
+
 void Port::setId(const QString &id)
 {
     if (id != m_id) {

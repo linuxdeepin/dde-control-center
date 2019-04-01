@@ -140,6 +140,8 @@ public:
     const QString getNameByEffectType(DDesktopServices::SystemSoundEffect effect) const;
     DDesktopServices::SystemSoundEffect getEffectTypeByGsettingName(const QString &name);
 
+    bool checkSEExist(const QString &name); // SE: Sound Effect
+
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
