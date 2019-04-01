@@ -1,3 +1,15 @@
+<a name=""></a>
+##  4.9.9.3 (2019-04-01)
+
+
+#### Bug Fixes
+
+*   main window geometry is wrong ([0043f027](https://github.com/linuxdeepin/dde-control-center/commit/0043f027d4d4d346456d6d330702582354c65666))
+* **Sound:**  skip not need values ([cc8f88ec](https://github.com/linuxdeepin/dde-control-center/commit/cc8f88ec2d2bad7ddd251b1a2e8c15a0d6c4f2e3))
+* **arm:**  disable power module ([0f19f99a](https://github.com/linuxdeepin/dde-control-center/commit/0f19f99a83c43d33cf5d2f8f7c7a5ecf21003804))
+
+
+
 <a name="4.9.9.1"></a>
 ## 4.9.9.1 (2019-03-27)
 
