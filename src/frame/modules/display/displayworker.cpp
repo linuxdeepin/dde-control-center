@@ -26,6 +26,7 @@
 #include "displayworker.h"
 #include "displaymodel.h"
 #include "monitorsettingdialog.h"
+#include "widgets/utils.h"
 
 #include <QDebug>
 
@@ -89,6 +90,13 @@ DisplayWorker::~DisplayWorker()
 
 void DisplayWorker::active()
 {
+    m_model->setAllowEnableMultiScaleRatio(
+        valueByQSettings<bool>("/etc/deepin/dde-control-center.conf",
+                               "DISPLAY",
+                               "AllowEnableMultiScaleRatio",
+                               false)
+    );
+
     QDBusPendingCallWatcher *scalewatcher = new QDBusPendingCallWatcher(m_appearanceInter->GetScaleFactor());
     connect(scalewatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScaleFinished);
 

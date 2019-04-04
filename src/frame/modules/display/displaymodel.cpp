@@ -43,6 +43,7 @@ DisplayModel::DisplayModel(QObject *parent)
     : QObject(parent)
     , m_uiScale(1)
     , m_redshiftSetting(false)
+    , m_allowEnableMultiScaleRatio(false)
 {
 
 }
@@ -221,4 +222,10 @@ void DisplayModel::setIsNightMode(bool isNightMode)
     m_isNightMode = isNightMode;
 
     Q_EMIT nightModeChanged(isNightMode);
+}
+
+void DisplayModel::setAllowEnableMultiScaleRatio(bool allowEnableMultiScaleRatio) {
+    if (m_allowEnableMultiScaleRatio == allowEnableMultiScaleRatio) return;
+
+    m_allowEnableMultiScaleRatio = allowEnableMultiScaleRatio;
 }

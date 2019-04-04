@@ -76,6 +76,9 @@ public:
     inline std::pair<int, QString> lastConfig() const { return m_lastConfig; }
     void setLastConfig(const std::pair<int, QString> &lastConfig);
 
+    inline bool allowEnableMultiScaleRatio() { return m_allowEnableMultiScaleRatio; }
+    void setAllowEnableMultiScaleRatio(bool allowEnableMultiScaleRatio);
+
 Q_SIGNALS:
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;
@@ -117,6 +120,7 @@ private:
     bool m_isNightMode;
     bool m_redshiftIsValid;
     bool m_redshiftSetting;
+    bool m_allowEnableMultiScaleRatio;
     BrightnessMap m_brightnessMap;
     std::pair<int, QString> m_lastConfig;
 };

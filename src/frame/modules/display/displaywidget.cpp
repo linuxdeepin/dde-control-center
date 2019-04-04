@@ -198,7 +198,7 @@ void DisplayWidget::onMonitorListChanged() const
 {
     const auto mons = m_model->monitorList();
 
-    if (mons.size() <= 1) {
+    if (mons.size() <= 1 || !m_model->allowEnableMultiScaleRatio()) {
         m_customConfigButton->hide();
 
         m_displayControlPageGrp->hide();

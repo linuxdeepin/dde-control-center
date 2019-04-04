@@ -1,0 +1,5 @@
+[Password]
+STRONG_PASSWORD=@STRONG_PASSWORD@
+
+[DISPLAY]
+AllowEnableMultiScaleRatio=@AllowEnableMultiScaleRatio@

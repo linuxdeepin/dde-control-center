@@ -15,6 +15,11 @@ if (NOT (${CMAKE_BUILD_TYPE} MATCHES "Debug"))
                     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif ()
 
+set(STRONG_PASSWORD false)
+set(AllowEnableMultiScaleRatio false)
+
+configure_file(files/dde-control-center.conf.in files/dde-control-center.conf @ONLY)
+
 add_subdirectory("src/frame")
 add_subdirectory("src/dialogs")
 
@@ -35,3 +40,6 @@ install(FILES ${DOCS_FILES} DESTINATION share/dman/dde-control-center)
 
 #datebases
 install(FILES data/timezone.db DESTINATION share/dde-control-center)
+
+# conf file
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/files/dde-control-center.conf DESTINATION ../etc/deepin/)
