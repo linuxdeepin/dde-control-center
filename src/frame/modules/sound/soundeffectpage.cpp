@@ -69,7 +69,15 @@ SoundEffectPage::SoundEffectPage(SoundModel *model, QWidget *parent)
 
     auto effect_map = model->soundEffectMap();
 
+    QList<DDesktopServices::SystemSoundEffect> disable_list {
+        DDesktopServices::SystemSoundEffect::SSE_LowBattery,
+        DDesktopServices::SystemSoundEffect::SSE_PlugIn,
+        DDesktopServices::SystemSoundEffect::SSE_PlugOut,
+    };
+
     for (auto it : effect_map) {
+        if (!m_model->isLaptop() && disable_list.contains(it.second)) continue;
+
         SwitchWidget * widget = new SwitchWidget(qApp->translate("SoundEffectPage", it.first.toUtf8()));
         widget->installEventFilter(this);
         connect(widget, &SwitchWidget::checkedChanged, this, &SoundEffectPage::onSwitchClicked);
@@ -103,6 +111,16 @@ SoundEffectPage::SoundEffectPage(SoundModel *model, QWidget *parent)
 
     connect(m_iconAni, &QVariantAnimation::valueChanged, this, [=] (const QVariant &value) {
         m_playIcon->setPixmap(DHiDPIHelper::loadNxPixmap(QString(":/sound/themes/dark/sound_preview_%1.svg").arg(value.toInt())));
+    });
+
+    connect(m_model, &SoundModel::isLaptopChanged, this, [=] (bool isLaptop) {
+        if (!isLaptop) {
+            for (auto it = m_effectSwitchList.constBegin(); it != m_effectSwitchList.constEnd(); ++it) {
+                if (disable_list.contains(it.value())) {
+                    m_effectGrp->removeItem(it.key());
+                }
+            }
+        }
     });
 }
 

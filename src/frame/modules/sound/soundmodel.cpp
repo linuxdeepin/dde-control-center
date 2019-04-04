@@ -259,6 +259,14 @@ bool SoundModel::checkSEExist(const QString &name)
     return SOUND_EFFECT_MAP.values().contains(name);
 }
 
+void SoundModel::setIsLaptop(bool isLaptop) {
+    if (isLaptop == m_isLaptop) return;
+
+    m_isLaptop = isLaptop;
+
+    Q_EMIT isLaptopChanged(isLaptop);
+}
+
 void Port::setId(const QString &id)
 {
     if (id != m_id) {

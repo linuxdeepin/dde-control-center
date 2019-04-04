@@ -142,6 +142,9 @@ public:
 
     bool checkSEExist(const QString &name); // SE: Sound Effect
 
+    inline bool isLaptop() { return m_isLaptop; }
+    void setIsLaptop(bool isLaptop);
+
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
@@ -160,11 +163,13 @@ Q_SIGNALS:
     void portRemoved(const QString & portId, const uint &cardId);
     void soundEffectDataChanged(DDesktopServices::SystemSoundEffect effect, const bool enable);
     void enableSoundEffectChanged(bool enableSoundEffect);
+    void isLaptopChanged(bool isLaptop);
 
 private:
     bool m_speakerOn;
     bool m_microphoneOn;
     bool m_enableSoundEffect;
+    bool m_isLaptop;
     double m_speakerVolume;
     double m_speakerBalance;
     double m_microphoneVolume;

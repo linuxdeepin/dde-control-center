@@ -45,10 +45,12 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
     , m_defaultSource(nullptr)
     , m_sourceMeter(nullptr)
     , m_effectGsettings(new QGSettings("com.deepin.dde.sound-effect", "", this))
+    , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
     , m_pingTimer(new QTimer(this))
     , m_activeTimer(new QTimer(this))
 {
     m_audioInter->setSync(false);
+    m_powerInter->setSync(false);
 
     m_pingTimer->setInterval(5000);
     m_pingTimer->setSingleShot(false);
@@ -68,10 +70,12 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
 
     connect(m_pingTimer, &QTimer::timeout, [this] { if (m_sourceMeter) m_sourceMeter->Tick(); });
     connect(m_activeTimer, &QTimer::timeout, this, &SoundWorker::updatePortActivity);
+    connect(m_powerInter, &PowerInter::LidIsPresentChanged, m_model, &SoundModel::setIsLaptop);
 
     m_model->setDefaultSink(m_audioInter->defaultSink());
     m_model->setDefaultSource(m_audioInter->defaultSource());
     m_model->setAudioCards(m_audioInter->cards());
+    m_model->setIsLaptop(m_powerInter->lidIsPresent());
 }
 
 void SoundWorker::activate()
