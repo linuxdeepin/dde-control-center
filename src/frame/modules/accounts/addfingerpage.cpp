@@ -111,7 +111,7 @@ void AddFingerPage::onEnrollStatusChanged(FingerModel::EnrollStatus status)
     }
 
     if (status == FingerModel::EnrollStatus::Retry) {
-        m_fingerWidget->setFrequency(tr("Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench"));
+        m_fingerWidget->setFrequency(tr("Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release"));
         return;
     }
 
@@ -127,5 +127,5 @@ void AddFingerPage::onEnrollStatusChanged(FingerModel::EnrollStatus status)
 
 void AddFingerPage::onViewPlayEnd()
 {
-    m_fingerWidget->setFrequency(tr("Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps"));
+    m_fingerWidget->setFrequency(tr("Place your finger on the fingerprint reader, swipe upwards, then repeat"));
 }

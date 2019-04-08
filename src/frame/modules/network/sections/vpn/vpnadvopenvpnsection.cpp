@@ -143,13 +143,13 @@ void VpnAdvOpenVPNSection::initUI()
     m_renegInterval->spinBox()->setValue(m_dataMap.value("reneg-seconds", "0").toInt());
     m_renegInterval->setVisible(m_renegIntervalSwitch->checked());
 
-    m_compLZOSwitch->setTitle(tr("Use LZO data compression"));
+    m_compLZOSwitch->setTitle(tr("Use LZO Data Compression"));
     m_compLZOSwitch->setChecked(m_dataMap.value("comp-lzo") == "yes");
 
-    m_tcpProtoSwitch->setTitle(tr("Use TCP connection"));
+    m_tcpProtoSwitch->setTitle(tr("Use TCP Connection"));
     m_tcpProtoSwitch->setChecked(m_dataMap.value("proto-tcp") == "yes");
 
-    m_useTapSwitch->setTitle(tr("Use TAP device"));
+    m_useTapSwitch->setTitle(tr("Use TAP Device"));
     m_useTapSwitch->setChecked(m_dataMap.value("dev-type") == "tap");
 
     m_tunnelMTUSwitch->setTitle(tr("Customize Tunnel MTU"));

@@ -59,7 +59,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     SettingsGroup* ug = new SettingsGroup;
 
     m_autoCleanCache = new SwitchWidget;
-    m_autoCleanCache->setTitle(tr("Auto clear package cache"));
+    m_autoCleanCache->setTitle(tr("Auto Clear Package Cache"));
 
     m_autoCheckUpdate = new SwitchWidget;
     m_autoCheckUpdate->setTitle(tr("Updates Notification"));
@@ -74,7 +74,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     SettingsGroup* sourceCheckGrp = new SettingsGroup;
     m_sourceCheck = new SwitchWidget;
-    m_sourceCheck->setTitle(tr("System source detection"));
+    m_sourceCheck->setTitle(tr("System Source Detection"));
     sourceCheckGrp->appendItem(m_sourceCheck);
     layout->addWidget(sourceCheckGrp);
     layout->addSpacing(8);

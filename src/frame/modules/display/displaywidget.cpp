@@ -46,7 +46,7 @@ DisplayWidget::DisplayWidget()
     , m_resolution(new NextPageWidget)
     , m_brightnessSettings(new NextPageWidget)
     , m_scalingSettings(new NextPageWidget)
-    , m_scaleWidget(new TitledSliderItem(tr("Display scaling")))
+    , m_scaleWidget(new TitledSliderItem(tr("Display Scaling")))
 #ifndef DCC_DISABLE_ROTATE
     , m_rotate(new QPushButton)
 #endif

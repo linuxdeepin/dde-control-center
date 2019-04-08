@@ -79,10 +79,10 @@ void VpnSSTPSection::initUI()
     m_caFile->setTitle(tr("CA File"));
     m_caFile->edit()->setText(m_dataMap.value("ca-cert"));
 
-    m_ignoreCAWarnings->setTitle(tr("Ignore certificate warnings"));
+    m_ignoreCAWarnings->setTitle(tr("Ignore Certificate Warnings"));
     m_ignoreCAWarnings->setChecked(m_dataMap.value("ignore-cert-warn") == "yes");
 
-    m_useTLSExt->setTitle(tr("Use TLS hostname extensions"));
+    m_useTLSExt->setTitle(tr("Use TLS Hostname Extensions"));
     m_useTLSExt->setChecked(m_dataMap.value("tls-ext") == "yes");
 
     appendItem(m_caFile);

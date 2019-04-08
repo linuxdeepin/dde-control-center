@@ -32,8 +32,8 @@
 #include <QDebug>
 
 ReminderDialog::ReminderDialog(QRect screenGeometry)
-    : DDialog(tr("Updates installed, need to restart, restart now?"),
-              tr("Please make sure all data have been saved firstly")),
+    : DDialog(tr("Updates installed! A restart is required, restart now?"),
+              tr("Make sure all data has been saved before preceeding")),
       m_screenGeometry(screenGeometry)
 {
     const qreal ratio = devicePixelRatioF();
