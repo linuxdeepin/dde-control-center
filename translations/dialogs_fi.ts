@@ -24,7 +24,7 @@
     <message>
         <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
         <source>Reboot</source>
-        <translation>Käynnistä uudelleen</translation>
+        <translation>Käynnistä</translation>
     </message>
 </context>
 </TS>
