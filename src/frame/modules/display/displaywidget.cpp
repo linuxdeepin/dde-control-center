@@ -198,7 +198,7 @@ void DisplayWidget::onMonitorListChanged() const
 {
     const auto mons = m_model->monitorList();
 
-    if (mons.size() <= 1 || !m_model->allowEnableMultiScaleRatio()) {
+    if (mons.size() <= 1) {
         m_customConfigButton->hide();
 
         m_displayControlPageGrp->hide();
@@ -220,7 +220,7 @@ void DisplayWidget::onMonitorListChanged() const
 
         m_resolutionsGrp->hide();
         m_resolution->hide();
-        setIndividualScalingEnabled(true);
+        setIndividualScalingEnabled(m_model->allowEnableMultiScaleRatio());
 #ifndef DCC_DISABLE_ROTATE
         m_rotate->hide();
 #endif
