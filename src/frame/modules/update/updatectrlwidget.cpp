@@ -86,7 +86,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_noNetworkTip->setAlignment(Qt::AlignHCenter);
     m_noNetworkTip->setVisible(false);
 
-    m_upgradeWarning->setTitle(tr("This update may take a long time, please do not shut down or reboot during the process"));
+    m_upgradeWarning->setTitle(tr("This update may take a long time, please do not shut down or reboot during the process"));
     m_upgradeWarning->setContentsMargins(20, 0, 20, 0);
     m_upgradeWarningGroup->setVisible(false);
     m_upgradeWarningGroup->appendItem(m_upgradeWarning);
