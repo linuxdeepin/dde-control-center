@@ -1,3 +1,20 @@
+<a name="4.9.9.4"></a>
+## 4.9.9.4 (2019-04-08)
+
+
+#### Features
+
+* **Display:**  use a profile to control multi-screen scale ratio ([2360bca9](https://github.com/linuxdeepin/dde-control-center/commit/2360bca986ffff1ed128b5f652c4fffb2bb9f60e))
+* **Sound:**  hide some sound effect when not laptop ([4840656a](https://github.com/linuxdeepin/dde-control-center/commit/4840656ac8c4bdd5f748fb055613bf4979337961))
+
+#### Bug Fixes
+
+*   main window geometry is wrong ([2f0276fa](https://github.com/linuxdeepin/dde-control-center/commit/2f0276fa3e32485a60eb97fa0cfa7aa392623675))
+* **Sound:**  skip not need values ([f8774697](https://github.com/linuxdeepin/dde-control-center/commit/f877469731992d75a15a78b7ba1ac2494fc681ca))
+* **arm:**  disable power module ([3d819203](https://github.com/linuxdeepin/dde-control-center/commit/3d8192031f577925d2571d8d9889f23383869489))
+
+
+
 <a name="4.9.9.2"></a>
 ## 4.9.9.2 (2019-03-28)
 
