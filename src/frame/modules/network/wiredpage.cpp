@@ -60,7 +60,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 
     TipsItem *tips = new TipsItem;
     tips->setFixedHeight(80);
-    tips->setText(tr("Please firstly plug in the network cable"));
+    tips->setText(tr("Plug in the network cable first"));
 
     m_tipsGrp = new SettingsGroup;
     m_tipsGrp->appendItem(tips);

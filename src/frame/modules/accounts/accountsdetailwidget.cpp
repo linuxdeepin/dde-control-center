@@ -62,7 +62,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     m_autoLogin->setChecked(user->autoLogin());
     m_accountSettings->appendItem(m_autoLogin);
 
-    m_nopasswdLogin->setTitle(tr("Login without password"));
+    m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(user->nopasswdLogin());
     m_accountSettings->appendItem(m_nopasswdLogin);
 

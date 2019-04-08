@@ -114,7 +114,7 @@ KeyboardWidget::KeyboardWidget(KeyboardModel *model)
 
     SettingsGroup* scGroup = new SettingsGroup();
     m_scItem = new NextPageWidget();
-    m_scItem->setTitle(tr("Shortcut"));
+    m_scItem->setTitle(tr("Shortcuts"));
     scGroup->appendItem(m_scItem);
 
     m_centralLayout->addWidget(keyTest);

@@ -187,7 +187,7 @@ void VpnStrongSwanSection::initUI()
     m_useIPComp->setTitle(tr("Use IP Compression"));
     m_useIPComp->setChecked(m_dataMap.value("ipcomp") == "yes");
 
-    m_enableCustomCipher->setTitle(tr("Enable custom cipher proposals"));
+    m_enableCustomCipher->setTitle(tr("Enable Custom Cipher Proposals"));
     m_enableCustomCipher->setChecked(m_dataMap.value("proposal") == "yes");
 
     m_ike->setTitle(tr("IKE"));

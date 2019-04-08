@@ -43,7 +43,7 @@ using namespace dde::network;
 
 ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
 {
-    setTitle(tr("Application proxy"));
+    setTitle(tr("Application Proxy"));
 
     m_proxyType = new NextPageWidget;
     m_proxyType->setTitle(tr("Proxy Type"));

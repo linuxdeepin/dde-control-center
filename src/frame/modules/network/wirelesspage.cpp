@@ -64,7 +64,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_connectHideSSID->setAPName(tr("Connect to hidden network"));
     m_connectHideSSID->setStrength(-1);
 
-    m_closeHotspotBtn->setText(tr("Close hotspot"));
+    m_closeHotspotBtn->setText(tr("Close Hotspot"));
 
     TipsItem *tips = new TipsItem;
     tips->setText(tr("Please disable hotspot sharing first if you want to connect to a wireless network"));

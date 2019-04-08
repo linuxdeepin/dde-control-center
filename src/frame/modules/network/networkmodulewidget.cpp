@@ -64,7 +64,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 #ifndef DISABLE_NETWORK_PROXY
     m_proxyBtn->setTitle(tr("System Proxy"));
     m_appProxy = new NextPageWidget;
-    m_appProxy->setTitle(tr("Application proxy"));
+    m_appProxy->setTitle(tr("Application Proxy"));
 #endif
 
     m_detailBtn->setTitle(tr("Network Details"));
