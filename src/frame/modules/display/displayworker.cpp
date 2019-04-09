@@ -368,8 +368,10 @@ void DisplayWorker::setUiScale(const double value)
 
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-        if (call.isError())
+        if (call.isError()) {
             Q_EMIT m_model->uiScaleChanged(rv);
+            qWarning() << call.error();
+        }
         watcher->deleteLater();
     });
 }
