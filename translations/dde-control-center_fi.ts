@@ -23,20 +23,20 @@
 <context>
     <name>DisplayControlModel</name>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="87"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
         <source>Copy</source>
         <translation>Kopioi</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="89"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <source>Extend</source>
         <translation>Laajenna</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="91"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <source>Only Displayed on %1</source>
         <translation>Näkyvillä vain %1:ssä</translation>
     </message>
@@ -46,20 +46,20 @@
         <translation>Uudet mukautetut asetukset</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="99"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
         <translation>Kopioi näytön sisältö yhteen tai useampaan näyttöön</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="101"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
         <translation>Laajenna näyttösi sisältö näyttämään eri sisältöjä eri näytöillä</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="103"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
         <translation>Näytön sisältö on näkyvissä vain kohteessa %1</translation>
     </message>
@@ -79,7 +79,7 @@
     <message>
         <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="45"/>
         <source>None</source>
-        <translation>Ei mitään</translation>
+        <translation>Mitään</translation>
     </message>
 </context>
 <context>
@@ -133,13 +133,13 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed, need to restart, restart now?</source>
-        <translation>Päivitykset asennettu, käynnistetäänkö uudelleen nyt?</translation>
+        <source>Updates installed! A restart is required, restart now?</source>
+        <translation>Päivitykset asennettu! Tarvitaan uudelleenkäynnistys, käynnistä uudelleen nyt?</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
-        <source>Please make sure all data have been saved firstly</source>
-        <translation>Varmista ensin, että kaikki tiedot on tallennettu</translation>
+        <source>Make sure all data has been saved before proceeding</source>
+        <translation>Varmista, että kaikki tiedot on tallennettu ennen kuin jatkat</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
@@ -154,13 +154,13 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
-        <translation>Käynnistä uudelleen</translation>
+        <translation>Käynnistä</translation>
     </message>
 </context>
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="135"/>
+        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="136"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
 If no operation, the display will be restored after %1s.</source>
         <translation>Vasen klikkaus kääntää ja oikea klikaus palauttaa. Näppäinyhdistelmällä Ctrl+S talletus ja poistuminen.
@@ -434,8 +434,8 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
-        <source>Login without password</source>
-        <translation>Kirjaudu sisään ilman salasanaa</translation>
+        <source>Login Without Password</source>
+        <translation>Kirjaudu ilman salasanaa</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -456,9 +456,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="196"/>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="112"/>
+        <location filename="../src/frame/navigationbar.cpp" line="196"/>
         <source>Accounts</source>
         <translation>Tilit</translation>
     </message>
@@ -526,7 +526,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
-        <translation>Anna uudestaan</translation>
+        <translation>Uudestaan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="56"/>
@@ -540,18 +540,18 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
-        <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation>Sormenjäljen tunnistaminen epäonnistui, laita sormesi sormenjälkilukijan päälle, siirry alhaalta ylöspäin ja päästä irti</translation>
+        <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
+        <translation>Sormenjäljen tunnistaminen epäonnistui, sormi lukijaan, pyyhkäisy ylöspäin ja vapautta</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
+        <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
+        <translation>Aseta sormi lukijaan, pyyhkäise ylöspäin ja toista</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Added successfully</source>
         <translation>Lisätty onnistuneesti</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
-        <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation>Laita sormesi sormenjälkilukijan päälle, siirry alhaalta ylöspäin ja päästä irti, ja toista vaiheet</translation>
     </message>
 </context>
 <context>
@@ -765,9 +765,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <location filename="../src/frame/modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="117"/>
+        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -855,9 +855,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="119"/>
+        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <source>Time and Date</source>
         <translation>Aika ja päivämäärä</translation>
     </message>
@@ -874,7 +874,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="61"/>
         <source>Change System Timezone</source>
-        <translation>Vaihda järjestelmän aikavyöhykettä</translation>
+        <translation>Vaihda järjestelmän aikavyöhyke</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="69"/>
@@ -941,9 +941,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="41"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="114"/>
+        <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <source>Default Applications</source>
         <translation>Oletusohjelmat</translation>
     </message>
@@ -1054,7 +1054,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="245"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="258"/>
         <source>Wireless Screen Projection</source>
         <translation>Langattoman näytön heijastaminen</translation>
     </message>
@@ -1062,39 +1062,44 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="197"/>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="110"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="115"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
+        <location filename="../src/frame/navigationbar.cpp" line="197"/>
         <source>Display</source>
         <translation>Näyttö</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="47"/>
-        <source>Display scaling</source>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
+        <source>Display Scaling</source>
         <translation>Näytön skaalaus</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="55"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
         <source>Rotate</source>
         <translation>Pyöritä</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
         <source>Custom Settings</source>
         <translation>Mukautetut asetukset</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="58"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
         <translation>Resoluutio</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
         <source>Brightness</source>
         <translation>Kirkkaus</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="225"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
+        <source>Scaling Settings</source>
+        <translation>Skaalauksen asetukset</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
         <source>Wireless Screen Projection</source>
         <translation>Langattoman näytön heijastaminen</translation>
     </message>
@@ -1195,6 +1200,29 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
 </context>
 <context>
+    <name>dcc::display::ScalingPage</name>
+    <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="56"/>
+        <source>Some applications in multi-screens may not scale as the settings.</source>
+        <translation>Jotkut monen näytön sovellukset eivät ehkä skaalaudu asetuksina.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
+        <source>Display Scaling</source>
+        <translation>Näytön skaalaus</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
+        <source>Display scaling for %1</source>
+        <translation>Näytön skaalaus %1</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="87"/>
+        <source>Display scaling for all monitors</source>
+        <translation>Näytä kaikkien näyttöjen skaalaus</translation>
+    </message>
+</context>
+<context>
     <name>dcc::keyboard::CustomContent</name>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="51"/>
@@ -1286,7 +1314,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <name>dcc::keyboard::CustomItem</name>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="48"/>
-        <source>Shortcut</source>
+        <source>Shortcuts</source>
         <translation>Pikanäppäimet</translation>
     </message>
     <message>
@@ -1325,9 +1353,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="122"/>
+        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <source>Keyboard and Language</source>
         <translation>Näppäimistö ja kieli</translation>
     </message>
@@ -1349,7 +1377,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="65"/>
         <source>Repeat Rate</source>
-        <translation>Toiton tahti</translation>
+        <translation>Toiston tahti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="74"/>
@@ -1388,7 +1416,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
-        <source>Shortcut</source>
+        <source>Shortcuts</source>
         <translation>Pikanäppäimet</translation>
     </message>
 </context>
@@ -1474,15 +1502,15 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="44"/>
         <source>Double-click Test</source>
-        <translation>Kaksoisklikkauksen testi</translation>
+        <translation>Testaa kaksoisklikkaus</translation>
     </message>
 </context>
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="121"/>
+        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <source>Mouse</source>
         <translation>Hiiri</translation>
     </message>
@@ -1542,7 +1570,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="62"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="66"/>
         <source>Natural Scrolling</source>
-        <translation>Luonnollinen rullaaminen</translation>
+        <translation>Tasainen vieritys</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="65"/>
@@ -1587,7 +1615,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <name>dcc::network::ChainsProxyPage</name>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="46"/>
-        <source>Application proxy</source>
+        <source>Application Proxy</source>
         <translation>Sovelluksen välityspalvelin</translation>
     </message>
     <message>
@@ -1800,8 +1828,8 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
-        <source>Automatically connect</source>
-        <translation>Yhdistä automaattisesti</translation>
+        <source>Auto connect</source>
+        <translation>Automaattinen yhteys</translation>
     </message>
 </context>
 <context>
@@ -1821,19 +1849,19 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::network::IpvxSection</name>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="214"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="219"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="215"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="220"/>
         <source>Auto</source>
         <translation>Automaattinen</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="215"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="220"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="216"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="221"/>
         <source>Manual</source>
         <translation>Manuaalinen</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="221"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="222"/>
         <source>Ignore</source>
         <translation>Sivuuta</translation>
     </message>
@@ -1848,48 +1876,48 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <translation>IPv6</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="227"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="228"/>
         <source>Method</source>
         <translation>Menetelmä</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="228"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="229"/>
         <source>IP Address</source>
         <translation>IP osoite</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="229"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="230"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="295"/>
         <source>Required</source>
         <translation>Vaadittu</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="230"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="231"/>
         <source>Gateway</source>
         <translation>Yhdyskäytävä</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="231"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="232"/>
         <source>Primary DNS</source>
         <translation>Ensisijainen DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="232"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="233"/>
         <source>Secondary DNS</source>
         <translation>Toissijainen DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="233"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="234"/>
         <source>Only applied in corresponding resources</source>
         <translation>Sovelletaan vastaaviin resursseihin</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="293"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
         <source>Netmask</source>
         <translation>Verkkopeite</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="304"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="305"/>
         <source>Prefix</source>
         <translation>Etuliite</translation>
     </message>
@@ -1972,9 +2000,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
+        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <source>Network</source>
         <translation>Verkko</translation>
     </message>
@@ -1995,7 +2023,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
-        <source>Application proxy</source>
+        <source>Application Proxy</source>
         <translation>Sovelluksen välityspalvelin</translation>
     </message>
     <message>
@@ -2153,12 +2181,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
-        <translation>Käytä Point-to-Point-salausta (MPPE)</translation>
+        <translation>Käytä MPPE</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="107"/>
         <source>128-bit MPPE</source>
-        <translation>128-bittinen salaus</translation>
+        <translation>128-bittinen MPPE</translation>
     </message>
 </context>
 <context>
@@ -2315,7 +2343,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="218"/>
         <source>Pwd Options</source>
-        <translation>Pwd-asetukset</translation>
+        <translation>Pwd asetukset</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="31"/>
@@ -2325,7 +2353,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="202"/>
         <source>EAP Auth</source>
-        <translation>Suojattu EAP (PEAP)</translation>
+        <translation>Suojattu EAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="165"/>
@@ -2402,7 +2430,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="523"/>
         <source>Private Pwd</source>
-        <translation>Yksityisen avaimen salasana</translation>
+        <translation>Avaimen salasana</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="525"/>
@@ -2415,7 +2443,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="104"/>
         <source>None</source>
-        <translation>Ei mitään</translation>
+        <translation>Mitään</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="105"/>
@@ -2425,7 +2453,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="106"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Henkilökohtainen</translation>
+        <translation>Oma WPA/WPA2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="112"/>
@@ -2461,7 +2489,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="106"/>
         <source>None</source>
-        <translation>Ei mitään</translation>
+        <translation>Mitään</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="107"/>
@@ -2471,12 +2499,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Henkilökohtainen</translation>
+        <translation>Oma WPA/WPA2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="109"/>
         <source>WPA/WPA2 Enterprise</source>
-        <translation>WPA/WPA2 Enterprise</translation>
+        <translation>Yritys WPA/WPA2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="115"/>
@@ -2519,7 +2547,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
         <source>Customize Renegotiation Interval</source>
-        <translation>Mukauta uudelleenneuvotteluväli</translation>
+        <translation>Mukauta neuvotteluväli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
@@ -2528,17 +2556,17 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
-        <source>Use LZO data compression</source>
+        <source>Use LZO Data Compression</source>
         <translation>Käytä LZO-pakkausta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
-        <source>Use TCP connection</source>
+        <source>Use TCP Connection</source>
         <translation>Käytä TCP-yhteyttä</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
-        <source>Use TAP device</source>
+        <source>Use TAP Device</source>
         <translation>Käytä TAP-laitetta</translation>
     </message>
     <message>
@@ -2608,7 +2636,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="150"/>
         <source>NAT-T Always</source>
-        <translation>NAT-T Aina</translation>
+        <translation>NAT-T aina</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
@@ -2618,7 +2646,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
         <source>Disabled</source>
-        <translation>Poissa päältä</translation>
+        <translation>Suljettu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="155"/>
@@ -2979,7 +3007,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="170"/>
         <source>Stateful MPPE</source>
-        <translation>Tilallinen salaus</translation>
+        <translation>Tilaobjekti MPPE</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
@@ -2989,7 +3017,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
         <source>Use MPPE</source>
-        <translation>Käytä Point-to-Point-salausta (MPPE)</translation>
+        <translation>Käytä MPPE</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="164"/>
@@ -3052,12 +3080,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="278"/>
         <source>StrongSwan</source>
-        <translation>VPN StrongSwan</translation>
+        <translation>VPN vahvuus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="281"/>
         <source>OpenConnect</source>
-        <translation>OpenConnect</translation>
+        <translation>Avoinyhteys</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="284"/>
@@ -3139,12 +3167,12 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
-        <source>Ignore certificate warnings</source>
+        <source>Ignore Certificate Warnings</source>
         <translation>Ohita varmenteet</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
-        <source>Use TLS hostname extensions</source>
+        <source>Use TLS Hostname Extensions</source>
         <translation>Käytä TLS-isäntänimen laajennuksia</translation>
     </message>
 </context>
@@ -3175,7 +3203,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="121"/>
         <source>HMAC Auth</source>
-        <translation>HMAC-tunnistautuminen</translation>
+        <translation>HMAC tunnistus</translation>
     </message>
 </context>
 <context>
@@ -3346,8 +3374,8 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
-        <source>Enable custom cipher proposals</source>
-        <translation>Ota mukautetut salausehdotukset käyttöön</translation>
+        <source>Enable Custom Cipher Proposals</source>
+        <translation>Mukautetut salausehdotukset käyttöön</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
@@ -3380,7 +3408,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
         <source>VPN TLS Authentication</source>
-        <translation>TLS-tunnistauminen</translation>
+        <translation>VPN TLS tunnistus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="87"/>
@@ -3490,7 +3518,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
-        <source>Please firstly plug in the network cable</source>
+        <source>Plug in the network cable first</source>
         <translation>Kytke ensin verkkokaapeli</translation>
     </message>
     <message>
@@ -3513,7 +3541,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
-        <source>Close hotspot</source>
+        <source>Close Hotspot</source>
         <translation>Sulje yhteyspiste</translation>
     </message>
     <message>
@@ -3535,27 +3563,27 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <translation>Ei sido</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="111"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="112"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="112"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="113"/>
         <source>Required</source>
         <translation>Vaadittu</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="115"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="116"/>
         <source>Device MAC Addr</source>
         <translation>Laitteen MAC-osoite</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="143"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="144"/>
         <source>Customize MTU</source>
-        <translation>Muokkaa MTU:ta</translation>
+        <translation>Muokkaa MTU</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="146"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="147"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -3619,9 +3647,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="199"/>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="77"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="115"/>
+        <location filename="../src/frame/navigationbar.cpp" line="199"/>
         <source>Personalization</source>
         <translation>Personointi</translation>
     </message>
@@ -3632,7 +3660,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="68"/>
-        <source>Window effect</source>
+        <source>Window Effect</source>
         <translation>Ikkunatehosteet</translation>
     </message>
     <message>
@@ -3680,9 +3708,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::power::PowerWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="120"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="120"/>
+        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Power Management</source>
         <translation>Virran hallinta</translation>
     </message>
@@ -3788,9 +3816,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="118"/>
+        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <source>Sound</source>
         <translation>Ääni</translation>
     </message>
@@ -3865,7 +3893,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="102"/>
         <source>Boot Menu</source>
-        <translation>Käynnistys menu</translation>
+        <translation>Käynnistys valikko</translation>
     </message>
 </context>
 <context>
@@ -3879,9 +3907,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>System Information</source>
         <translation>Järjestelmätiedot</translation>
     </message>
@@ -3938,7 +3966,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="128"/>
         <source>Boot Menu</source>
-        <translation>Käynnistys menu</translation>
+        <translation>Käynnistys valikko</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="190"/>
@@ -4021,9 +4049,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="124"/>
+        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Update</source>
         <translation>Päivitä</translation>
     </message>
@@ -4039,7 +4067,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
-        <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
+        <source>This update may take a long time, please do not shut down or reboot during the process</source>
         <translation>Tämä päivitys voi kestää kauan, älä sammuta tai käynnistä uudelleen prosessin aikana.</translation>
     </message>
     <message>
@@ -4145,11 +4173,6 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <translation>Päivitä asetukset</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
-        <source>Auto clear package cache</source>
-        <translation>Automaattinen pakettivälimuistin tyhjennys</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="65"/>
         <source>Updates Notification</source>
         <translation>Päivitysten ilmoitus</translation>
@@ -4165,8 +4188,13 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
         <translation>Valitse, jotta päivitykset ladataan automaattisesti langattomassa tai langallisessa verkossa</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
+        <source>Auto Clear Package Cache</source>
+        <translation>Automaattinen pakettien välimuistin tyhjennys</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
-        <source>System source detection</source>
+        <source>System Source Detection</source>
         <translation>Järjestelmän lähteiden tunnistus</translation>
     </message>
     <message>
@@ -4187,7 +4215,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="113"/>
         <source>Switch Mirror</source>
-        <translation>Vaihda peilipaikka</translation>
+        <translation>Vaihda pakettivarasto</translation>
     </message>
 </context>
 <context>
@@ -4251,9 +4279,9 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="123"/>
+        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>

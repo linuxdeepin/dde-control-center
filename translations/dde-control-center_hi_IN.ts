@@ -23,20 +23,20 @@
 <context>
     <name>DisplayControlModel</name>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="87"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
         <source>Copy</source>
         <translation>कॉपी करें</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="89"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <source>Extend</source>
         <translation>विस्तारित करें</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="91"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <source>Only Displayed on %1</source>
         <translation>केवल %1 में दिखाएँ</translation>
     </message>
@@ -46,20 +46,20 @@
         <translation>नई अनुकूलित सेटिंग्स</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="99"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
         <translation>स्क्रीन की सामग्रियों को एक या एकाधिक स्क्रीनों पर कॉपी करें</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="101"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
         <translation>भिन्न समाग्री को भिन्न स्क्रीन पर प्रदर्शित करने हेतु स्क्रीन की सामग्रियों को विस्तारित करें</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="103"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
         <translation>स्क्रीन सामग्रियों को केवल %1 पर प्रदर्शित किया जाएँ</translation>
     </message>
@@ -133,13 +133,13 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed, need to restart, restart now?</source>
-        <translation>अपडेट इंस्टॉल हो गई हैं, अब पुनः आरंभ करने की आवश्यकता है, अभी पुनः आरंभ करें?</translation>
+        <source>Updates installed! A restart is required, restart now?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
-        <source>Please make sure all data have been saved firstly</source>
-        <translation>इससे पहले कृपया सुनिश्चित करें कि सारा डेटा संचित है</translation>
+        <source>Make sure all data has been saved before proceeding</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
@@ -160,7 +160,7 @@
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="135"/>
+        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="136"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
 If no operation, the display will be restored after %1s.</source>
         <translation type="unfinished"/>
@@ -433,8 +433,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
-        <source>Login without password</source>
-        <translation>बिना कूटशब्द के लॉगिन करें</translation>
+        <source>Login Without Password</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -455,9 +455,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="196"/>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="112"/>
+        <location filename="../src/frame/navigationbar.cpp" line="196"/>
         <source>Accounts</source>
         <translation>खातें</translation>
     </message>
@@ -539,18 +539,18 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
-        <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation>अंगुली-चिन्ह की पहचान करने में विफल, अपनी अंगुली को अंगुली-चिन्ह रिकॉर्डर पर रखें, अंगुली को नीचे से ऊपर की ओर स्पर्श कर, रिकॉर्डर से हटा लें</translation>
+        <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
+        <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Added successfully</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
-        <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation>अपनी अंगुली को अंगुली-चिन्ह रिकॉर्डर पर रखें, अंगुली को नीचे से ऊपर की ओर स्पर्श कर, रिकॉर्डर से हटा लें, फिर चरणों को दोहराएँ</translation>
     </message>
 </context>
 <context>
@@ -764,9 +764,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <location filename="../src/frame/modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="117"/>
+        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Bluetooth</source>
         <translation>ब्लूटूथ</translation>
     </message>
@@ -854,9 +854,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="119"/>
+        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <source>Time and Date</source>
         <translation>समय व दिनांक</translation>
     </message>
@@ -940,9 +940,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="41"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="114"/>
+        <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <source>Default Applications</source>
         <translation>डिफ़ॉल्ट अनुप्रयोग</translation>
     </message>
@@ -1053,7 +1053,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="245"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="258"/>
         <source>Wireless Screen Projection</source>
         <translation>बेतार स्क्रीन प्रक्षेपण</translation>
     </message>
@@ -1061,39 +1061,44 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="197"/>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="110"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="115"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
+        <location filename="../src/frame/navigationbar.cpp" line="197"/>
         <source>Display</source>
         <translation>प्रदर्शन </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="47"/>
-        <source>Display scaling</source>
-        <translation>डिस्प्ले मापन</translation>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
+        <source>Display Scaling</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="55"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
         <source>Rotate</source>
         <translation>घुमाएँ</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
         <source>Custom Settings</source>
         <translation>कस्टम सेटिंग्स </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="58"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
         <translation>रिज़ॉल्यूशन</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
         <source>Brightness</source>
         <translation>स्क्रीन की चमक</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="225"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
+        <source>Scaling Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
         <source>Wireless Screen Projection</source>
         <translation>बेतार स्क्रीन प्रक्षेपण</translation>
     </message>
@@ -1194,6 +1199,29 @@ If no operation, the display will be restored after %1s.</source>
     </message>
 </context>
 <context>
+    <name>dcc::display::ScalingPage</name>
+    <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="56"/>
+        <source>Some applications in multi-screens may not scale as the settings.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
+        <source>Display Scaling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
+        <source>Display scaling for %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="87"/>
+        <source>Display scaling for all monitors</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::keyboard::CustomContent</name>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="51"/>
@@ -1285,8 +1313,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::keyboard::CustomItem</name>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="48"/>
-        <source>Shortcut</source>
-        <translation>शॉर्टकट</translation>
+        <source>Shortcuts</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="105"/>
@@ -1324,9 +1352,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="122"/>
+        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <source>Keyboard and Language</source>
         <translation>कुंजीपटल व भाषा</translation>
     </message>
@@ -1387,8 +1415,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
-        <source>Shortcut</source>
-        <translation>शॉर्टकट</translation>
+        <source>Shortcuts</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1479,9 +1507,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="121"/>
+        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <source>Mouse</source>
         <translation>माउस</translation>
     </message>
@@ -1586,8 +1614,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::network::ChainsProxyPage</name>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="46"/>
-        <source>Application proxy</source>
-        <translation>अनुप्रयोग प्रॉक्सी</translation>
+        <source>Application Proxy</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="49"/>
@@ -1799,8 +1827,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
-        <source>Automatically connect</source>
-        <translation>स्वचालित रूप से कनेक्ट करें </translation>
+        <source>Auto connect</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1820,19 +1848,19 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::IpvxSection</name>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="214"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="219"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="215"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="220"/>
         <source>Auto</source>
         <translation>स्वतः</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="215"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="220"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="216"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="221"/>
         <source>Manual</source>
         <translation>मैनुअल </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="221"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="222"/>
         <source>Ignore</source>
         <translation>अनदेखा करें </translation>
     </message>
@@ -1847,48 +1875,48 @@ If no operation, the display will be restored after %1s.</source>
         <translation>आईपीवी6</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="227"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="228"/>
         <source>Method</source>
         <translation>विधि</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="228"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="229"/>
         <source>IP Address</source>
         <translation>आईपी पता</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="229"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="230"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="295"/>
         <source>Required</source>
         <translation>आवश्यक</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="230"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="231"/>
         <source>Gateway</source>
         <translation>नेटवर्क गेटवे</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="231"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="232"/>
         <source>Primary DNS</source>
         <translation>प्राथमिक DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="232"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="233"/>
         <source>Secondary DNS</source>
         <translation>माध्यमिक डीएनएस</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="233"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="234"/>
         <source>Only applied in corresponding resources</source>
         <translation>केवल अनुकूल साधानो पर लागू किया जाएगा</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="293"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
         <source>Netmask</source>
         <translation>Netmask</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="304"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="305"/>
         <source>Prefix</source>
         <translation>नेटवर्क उपसर्ग </translation>
     </message>
@@ -1971,9 +1999,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
+        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <source>Network</source>
         <translation>नेटवर्क </translation>
     </message>
@@ -1994,8 +2022,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
-        <source>Application proxy</source>
-        <translation>अनुप्रयोग प्रॉक्सी</translation>
+        <source>Application Proxy</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
@@ -2527,18 +2555,18 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
-        <source>Use LZO data compression</source>
-        <translation>LZO डेटा संपीड़न </translation>
+        <source>Use LZO Data Compression</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
-        <source>Use TCP connection</source>
-        <translation>TCP कनेक्शन का इस्तेमाल करें </translation>
+        <source>Use TCP Connection</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
-        <source>Use TAP device</source>
-        <translation>TAP उपकरण का इस्तेमाल करें </translation>
+        <source>Use TAP Device</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
@@ -3138,12 +3166,12 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
-        <source>Ignore certificate warnings</source>
+        <source>Ignore Certificate Warnings</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
-        <source>Use TLS hostname extensions</source>
+        <source>Use TLS Hostname Extensions</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3345,8 +3373,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
-        <source>Enable custom cipher proposals</source>
-        <translation>Enable custom cipher proposals</translation>
+        <source>Enable Custom Cipher Proposals</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
@@ -3489,8 +3517,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
-        <source>Please firstly plug in the network cable</source>
-        <translation>कृपया पहले नेटवर्क केबल लगाएँ</translation>
+        <source>Plug in the network cable first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
@@ -3512,8 +3540,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
-        <source>Close hotspot</source>
-        <translation>हॉटस्पॉट बंद करें</translation>
+        <source>Close Hotspot</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
@@ -3534,27 +3562,27 @@ If no operation, the display will be restored after %1s.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="111"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="112"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="112"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="113"/>
         <source>Required</source>
         <translation>आवश्यक</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="115"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="116"/>
         <source>Device MAC Addr</source>
         <translation>उपकरण MAC ऐड्रेस</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="143"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="144"/>
         <source>Customize MTU</source>
         <translation>MTU को कस्टमाइज करें </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="146"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="147"/>
         <source>MTU</source>
         <translation>एमटीयू</translation>
     </message>
@@ -3618,9 +3646,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="199"/>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="77"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="115"/>
+        <location filename="../src/frame/navigationbar.cpp" line="199"/>
         <source>Personalization</source>
         <translation>अनुकूलन</translation>
     </message>
@@ -3631,8 +3659,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="68"/>
-        <source>Window effect</source>
-        <translation>विंडो प्रभाव</translation>
+        <source>Window Effect</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
@@ -3679,9 +3707,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::power::PowerWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="120"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="120"/>
+        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Power Management</source>
         <translation>ऊर्जा प्रबंधन </translation>
     </message>
@@ -3787,9 +3815,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="118"/>
+        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <source>Sound</source>
         <translation>ध्वनि</translation>
     </message>
@@ -3878,9 +3906,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>System Information</source>
         <translation>सिस्टम जानकारी</translation>
     </message>
@@ -4020,9 +4048,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="124"/>
+        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Update</source>
         <translation>अपडेट</translation>
     </message>
@@ -4038,8 +4066,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
-        <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
-        <translation>अपडेट प्रक्रिया में कुछ समय लग सकता है, कृपया इस दौरान सिस्टम को बंद या पुनः आरंभ न करें।</translation>
+        <source>This update may take a long time, please do not shut down or reboot during the process</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
@@ -4144,11 +4172,6 @@ If no operation, the display will be restored after %1s.</source>
         <translation>अपडेट सेटिंग्स</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
-        <source>Auto clear package cache</source>
-        <translation>पैकेज की कैश स्वतः हटाएँ</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="65"/>
         <source>Updates Notification</source>
         <translation type="unfinished"/>
@@ -4164,9 +4187,14 @@ If no operation, the display will be restored after %1s.</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
+        <source>Auto Clear Package Cache</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
-        <source>System source detection</source>
-        <translation>सिस्टम स्रोत पहचानना</translation>
+        <source>System Source Detection</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>
@@ -4250,9 +4278,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="123"/>
+        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>

@@ -23,20 +23,20 @@
 <context>
     <name>DisplayControlModel</name>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="87"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
         <source>Copy</source>
         <translation>复制</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="89"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <source>Extend</source>
         <translation>扩展</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="91"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <source>Only Displayed on %1</source>
         <translation>只在%1显示</translation>
     </message>
@@ -46,20 +46,20 @@
         <translation>新建自定义设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="99"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
         <translation>将屏幕内容复制到一个或者多个屏幕</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="101"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
         <translation>扩展屏幕并在不同屏幕显示不同内容</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="103"/>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
         <translation>仅在%1上显示屏幕内容</translation>
     </message>
@@ -133,12 +133,12 @@
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed, need to restart, restart now?</source>
+        <source>Updates installed! A restart is required, restart now?</source>
         <translation>更新安装完毕， 需要重启， 是否立即重启？</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
-        <source>Please make sure all data have been saved firstly</source>
+        <source>Make sure all data has been saved before proceeding</source>
         <translation>请您先确认已保存所有数据！</translation>
     </message>
     <message>
@@ -160,7 +160,7 @@
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="135"/>
+        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="136"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
 If no operation, the display will be restored after %1s.</source>
         <translation>鼠标左键旋转，右键还原并退出，按Ctrl+S键保存。
@@ -434,7 +434,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
-        <source>Login without password</source>
+        <source>Login Without Password</source>
         <translation>无密码登录</translation>
     </message>
     <message>
@@ -456,9 +456,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="196"/>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="112"/>
+        <location filename="../src/frame/navigationbar.cpp" line="196"/>
         <source>Accounts</source>
         <translation>账户</translation>
     </message>
@@ -540,18 +540,18 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
-        <source>Failed to identify fingerprint, put your finger on fingerprint recorder, move up from the bottom and unclench</source>
-        <translation>识别指纹失败，将手指放入指纹录入器上并从下往上移动手指再松开。</translation>
+        <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
+        <translation>识别指纹失败，将手指放在指纹录入器上，并从下往上移动手指再松开</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
+        <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
+        <translation>将手指放在指纹录入器上，并从下往上移动手指再松开，重复此步骤</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Added successfully</source>
         <translation>成功添加指纹</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
-        <source>Put your finger on fingerprint recorder, move up from the bottom and unclench, then repeat the steps</source>
-        <translation>将手指放入指纹录入器上并从下往上移动手指再松开，重复此步骤</translation>
     </message>
 </context>
 <context>
@@ -765,9 +765,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <location filename="../src/frame/modules/bluetooth/bluetoothmodule.cpp" line="159"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="117"/>
+        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
@@ -855,9 +855,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="119"/>
+        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <source>Time and Date</source>
         <translation>时间日期</translation>
     </message>
@@ -941,9 +941,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="41"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="114"/>
+        <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
     </message>
@@ -1054,7 +1054,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/modules/display/displaymodule.cpp" line="245"/>
+        <location filename="../src/frame/modules/display/displaymodule.cpp" line="258"/>
         <source>Wireless Screen Projection</source>
         <translation>无线投屏</translation>
     </message>
@@ -1062,39 +1062,44 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="197"/>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="110"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="115"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
+        <location filename="../src/frame/navigationbar.cpp" line="197"/>
         <source>Display</source>
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="47"/>
-        <source>Display scaling</source>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
+        <source>Display Scaling</source>
         <translation>屏幕缩放</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="55"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
         <source>Rotate</source>
         <translation>旋转</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
         <source>Custom Settings</source>
         <translation>自定义设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="58"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="225"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
+        <source>Scaling Settings</source>
+        <translation>缩放设置</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
         <source>Wireless Screen Projection</source>
         <translation>无线投屏</translation>
     </message>
@@ -1195,6 +1200,29 @@ If no operation, the display will be restored after %1s.</source>
     </message>
 </context>
 <context>
+    <name>dcc::display::ScalingPage</name>
+    <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="56"/>
+        <source>Some applications in multi-screens may not scale as the settings.</source>
+        <translation>屏幕缩放在多屏情况下可能会使某些应用无法正常显示。</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
+        <source>Display Scaling</source>
+        <translation>屏幕缩放</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
+        <source>Display scaling for %1</source>
+        <translation>%1的屏幕缩放值</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/display/scalingpage.cpp" line="87"/>
+        <source>Display scaling for all monitors</source>
+        <translation>所有显示器的屏幕缩放值</translation>
+    </message>
+</context>
+<context>
     <name>dcc::keyboard::CustomContent</name>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="51"/>
@@ -1286,7 +1314,7 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::keyboard::CustomItem</name>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="48"/>
-        <source>Shortcut</source>
+        <source>Shortcuts</source>
         <translation>快捷键</translation>
     </message>
     <message>
@@ -1325,9 +1353,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="122"/>
+        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <source>Keyboard and Language</source>
         <translation>键盘和语言</translation>
     </message>
@@ -1388,7 +1416,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
-        <source>Shortcut</source>
+        <source>Shortcuts</source>
         <translation>快捷键</translation>
     </message>
 </context>
@@ -1480,9 +1508,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="121"/>
+        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
@@ -1587,7 +1615,7 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::network::ChainsProxyPage</name>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="46"/>
-        <source>Application proxy</source>
+        <source>Application Proxy</source>
         <translation>应用代理</translation>
     </message>
     <message>
@@ -1800,7 +1828,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
-        <source>Automatically connect</source>
+        <source>Auto connect</source>
         <translation>自动连接</translation>
     </message>
 </context>
@@ -1821,19 +1849,19 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::IpvxSection</name>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="214"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="219"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="215"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="220"/>
         <source>Auto</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="215"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="220"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="216"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="221"/>
         <source>Manual</source>
         <translation>手动</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="221"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="222"/>
         <source>Ignore</source>
         <translation>忽略</translation>
     </message>
@@ -1848,48 +1876,48 @@ If no operation, the display will be restored after %1s.</source>
         <translation>IPv6</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="227"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="228"/>
         <source>Method</source>
         <translation>方法</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="228"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="229"/>
         <source>IP Address</source>
         <translation>IP 地址</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="229"/>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="230"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="295"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="230"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="231"/>
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="231"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="232"/>
         <source>Primary DNS</source>
         <translation>首选DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="232"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="233"/>
         <source>Secondary DNS</source>
         <translation>备用DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="233"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="234"/>
         <source>Only applied in corresponding resources</source>
         <translation>仅用于相对应的网络上的资源</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="293"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
         <source>Netmask</source>
         <translation>子网掩码</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="304"/>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="305"/>
         <source>Prefix</source>
         <translation>前缀</translation>
     </message>
@@ -1972,9 +2000,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
+        <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <source>Network</source>
         <translation>网络</translation>
     </message>
@@ -1995,7 +2023,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
-        <source>Application proxy</source>
+        <source>Application Proxy</source>
         <translation>应用代理</translation>
     </message>
     <message>
@@ -2528,17 +2556,17 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
-        <source>Use LZO data compression</source>
+        <source>Use LZO Data Compression</source>
         <translation>使用LZO压缩</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
-        <source>Use TCP connection</source>
+        <source>Use TCP Connection</source>
         <translation>使用TCP连接</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
-        <source>Use TAP device</source>
+        <source>Use TAP Device</source>
         <translation>使用TAP设备</translation>
     </message>
     <message>
@@ -3139,12 +3167,12 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
-        <source>Ignore certificate warnings</source>
+        <source>Ignore Certificate Warnings</source>
         <translation>忽略证书警告</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
-        <source>Use TLS hostname extensions</source>
+        <source>Use TLS Hostname Extensions</source>
         <translation>使用TLS主机名扩展</translation>
     </message>
 </context>
@@ -3346,7 +3374,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
-        <source>Enable custom cipher proposals</source>
+        <source>Enable Custom Cipher Proposals</source>
         <translation>启用自定义加密方案</translation>
     </message>
     <message>
@@ -3490,7 +3518,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
-        <source>Please firstly plug in the network cable</source>
+        <source>Plug in the network cable first</source>
         <translation>请您先插入网线！</translation>
     </message>
     <message>
@@ -3513,7 +3541,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
-        <source>Close hotspot</source>
+        <source>Close Hotspot</source>
         <translation>关闭热点</translation>
     </message>
     <message>
@@ -3535,27 +3563,27 @@ If no operation, the display will be restored after %1s.</source>
         <translation>不指定设备</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="111"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="112"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="112"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="113"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="115"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="116"/>
         <source>Device MAC Addr</source>
         <translation>设备MAC地址</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="143"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="144"/>
         <source>Customize MTU</source>
         <translation>自定义MTU</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="146"/>
+        <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="147"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -3619,9 +3647,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="199"/>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="77"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="115"/>
+        <location filename="../src/frame/navigationbar.cpp" line="199"/>
         <source>Personalization</source>
         <translation>个性化</translation>
     </message>
@@ -3632,7 +3660,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="68"/>
-        <source>Window effect</source>
+        <source>Window Effect</source>
         <translation>窗口特效</translation>
     </message>
     <message>
@@ -3680,9 +3708,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::power::PowerWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="120"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="120"/>
+        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Power Management</source>
         <translation>电源管理</translation>
     </message>
@@ -3788,9 +3816,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="118"/>
+        <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
@@ -3879,9 +3907,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>System Information</source>
         <translation>系统信息</translation>
     </message>
@@ -4021,9 +4049,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="124"/>
+        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Update</source>
         <translation>更新</translation>
     </message>
@@ -4039,8 +4067,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
-        <source>This update may take a long time, please do not shutdown or reboot during the process.</source>
-        <translation>本次更新可能会用时较长，更新完成前请不要关机或重启。</translation>
+        <source>This update may take a long time, please do not shut down or reboot during the process</source>
+        <translation>本次更新可能会用时较长，更新完成前请不要关机或重启</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
@@ -4145,11 +4173,6 @@ If no operation, the display will be restored after %1s.</source>
         <translation>更新设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
-        <source>Auto clear package cache</source>
-        <translation>自动清除软件包缓存</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="65"/>
         <source>Updates Notification</source>
         <translation>更新提醒</translation>
@@ -4165,8 +4188,13 @@ If no operation, the display will be restored after %1s.</source>
         <translation>开启“自动下载更新”，会在有无线网络和有线网络的情况下自动下载</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
+        <source>Auto Clear Package Cache</source>
+        <translation>自动清除软件包缓存</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
-        <source>System source detection</source>
+        <source>System Source Detection</source>
         <translation>系统源检测</translation>
     </message>
     <message>
@@ -4251,9 +4279,9 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="123"/>
+        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <source>Wacom</source>
         <translation>Wacom 数位板</translation>
     </message>
