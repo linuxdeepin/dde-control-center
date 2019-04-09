@@ -36,7 +36,7 @@ DDE Control Center is the control panel of Deepin Desktop Environment.
 * [dde-daemon](https://github.com/linuxdeepin/dde-daemon)
 * [startdde](https://github.com/linuxdeepin/startdde)
 * [dde-qt-dbus-factory](https://github.com/linuxdeepin/dde-qt-dbus-factory)
-* [deepin-qt5integration](https://github.com/linuxdeepin/deepin-qt5integration)
+* [qt5integration](https://github.com/linuxdeepin/qt5integration)
 * geoip-database
 * Qt5(>= 5.6)
   * Qt5-DBus
