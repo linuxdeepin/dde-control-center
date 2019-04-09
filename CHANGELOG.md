@@ -1,3 +1,13 @@
+<a name="4.9.10"></a>
+## 4.9.10 (2019-04-09)
+
+
+#### Bug Fixes
+
+*   multiple screen can not show ([2e976baa](https://github.com/linuxdeepin/dde-control-center/commit/2e976baa3a51a06925f9fc8f499bf123a64ec73b))
+
+
+
 <a name="4.9.9.4"></a>
 ## 4.9.9.4 (2019-04-08)
 
