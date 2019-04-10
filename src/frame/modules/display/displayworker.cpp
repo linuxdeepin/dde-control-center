@@ -91,7 +91,7 @@ DisplayWorker::~DisplayWorker()
 void DisplayWorker::active()
 {
     m_model->setAllowEnableMultiScaleRatio(
-        valueByQSettings<bool>("/etc/deepin/dde-control-center.conf",
+        valueByQSettings<bool>("/usr/share/dde-control-center/dde-control-center.conf",
                                "DISPLAY",
                                "AllowEnableMultiScaleRatio",
                                false)

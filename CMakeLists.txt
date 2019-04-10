@@ -42,4 +42,4 @@ install(FILES ${DOCS_FILES} DESTINATION share/dman/dde-control-center)
 install(FILES data/timezone.db DESTINATION share/dde-control-center)
 
 # conf file
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/files/dde-control-center.conf DESTINATION ../etc/deepin/)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/files/dde-control-center.conf DESTINATION share/dde-control-center)
