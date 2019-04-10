@@ -1,3 +1,13 @@
+<a name="4.9.12"></a>
+## 4.9.12 (2019-04-10)
+
+
+#### Bug Fixes
+
+* **display:**  exit rotate disloag after press Esc key ([ab023b91](https://github.com/linuxdeepin/dde-control-center/commit/ab023b915456ef97073c96fc5648b9ce9d33ba95))
+
+
+
 <a name="4.9.11"></a>
 ## 4.9.11 (2019-04-10)
 
