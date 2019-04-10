@@ -78,6 +78,11 @@ AccessPointWidget::AccessPointWidget(QWidget *parent)
     connect(m_detailBtn, &DImageButton::clicked, [=] { Q_EMIT requestEdit(m_path, m_apName->text()); });
 }
 
+bool AccessPointWidget::operator>(const AccessPointWidget &other) const
+{
+    return (m_strength / 10 & ~1) > (other.strength() / 10 & ~1);
+}
+
 void AccessPointWidget::setEncrypt(const bool encrypt)
 {
     m_encrypt = encrypt;
