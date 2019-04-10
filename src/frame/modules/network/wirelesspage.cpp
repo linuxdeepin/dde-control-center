@@ -260,7 +260,7 @@ void WirelessPage::sortAPList()
     auto cmpFunc = [=](const AccessPointWidget *a, const AccessPointWidget *b) {
         if (a->connected() != b->connected())
             return a->connected();
-        return a->strength() > b->strength();
+        return *a > *b;
     };
 
     QList<AccessPointWidget *> sortedList;

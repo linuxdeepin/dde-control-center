@@ -61,6 +61,8 @@ public:
     const QString path() const { return m_path; }
     const QString ssid() const { return m_apName->text(); }
 
+    bool operator> (const AccessPointWidget &other) const;
+
 Q_SIGNALS:
     void requestEdit(const QString &path, const QString &ssid) const;
     void requestConnect(const QString &path, const QString &ssid) const;
