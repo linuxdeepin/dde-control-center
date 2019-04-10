@@ -1315,7 +1315,7 @@ Bei keiner Eingabe werden die Einstellungen in %1s zurückgesetzt.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Tastenkürzel</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="105"/>
@@ -1417,7 +1417,7 @@ Bei keiner Eingabe werden die Einstellungen in %1s zurückgesetzt.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Tastenkürzel</translation>
     </message>
 </context>
 <context>

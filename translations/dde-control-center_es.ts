@@ -1315,7 +1315,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Teclas atajo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="105"/>
@@ -1417,7 +1417,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Teclas atajo</translation>
     </message>
 </context>
 <context>

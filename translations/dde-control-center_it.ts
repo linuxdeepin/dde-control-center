@@ -134,12 +134,12 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Updates installed! A restart is required, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Aggiornamenti installati! E&apos; necessario riavviare, desideri farlo ora?</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation type="unfinished"/>
+        <translation>Assicurati di aver salvato tutto prima di procedere</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
@@ -435,7 +435,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>Login senza password</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -541,12 +541,12 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
-        <translation type="unfinished"/>
+        <translation>Identificazione impronta fallita, posiziona il dito sul sensore, muovilo dal basso verso l&apos;alto e poi allontanalo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
-        <translation type="unfinished"/>
+        <translation>Identificazione impronta fallita, posiziona il dito sul sensore, muovilo dal basso verso l&apos;alto e poi allontanalo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
@@ -1071,7 +1071,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Scala di visualizzazione</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
@@ -1096,7 +1096,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
         <source>Scaling Settings</source>
-        <translation type="unfinished"/>
+        <translation>Impostazioni Scala di visualizzazione</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
@@ -1204,22 +1204,22 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="56"/>
         <source>Some applications in multi-screens may not scale as the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Alcune applicazioni in multi-schermo potrebbero non scalare come richiesto</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Scala di visualizzazione</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
         <source>Display scaling for %1</source>
-        <translation type="unfinished"/>
+        <translation>Scala di visualizzazione per %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="87"/>
         <source>Display scaling for all monitors</source>
-        <translation type="unfinished"/>
+        <translation>Scala di visualizzazione per tutti gli schermi</translation>
     </message>
 </context>
 <context>
@@ -1315,7 +1315,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Scorciatoie</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="105"/>
@@ -1417,7 +1417,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Scorciatoie</translation>
     </message>
 </context>
 <context>
@@ -1616,7 +1616,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="46"/>
         <source>Application Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy applicazioni</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="49"/>
@@ -1829,7 +1829,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
         <source>Auto connect</source>
-        <translation type="unfinished"/>
+        <translation>Connetti automaticamente</translation>
     </message>
 </context>
 <context>
@@ -2024,7 +2024,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
         <source>Application Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy applicazione</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
@@ -2557,17 +2557,17 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation type="unfinished"/>
+        <translation>Usa compressione dati LZO</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
-        <translation type="unfinished"/>
+        <translation>Usa connessione TCP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
-        <translation type="unfinished"/>
+        <translation>Usa un dispositivo TAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
@@ -3168,12 +3168,12 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
-        <translation type="unfinished"/>
+        <translation>Ignora avvisi sul certificato</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation type="unfinished"/>
+        <translation>Usa estensione TLS Hostname</translation>
     </message>
 </context>
 <context>
@@ -3375,7 +3375,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable Custom Cipher Proposals</source>
-        <translation type="unfinished"/>
+        <translation>Abilita cipher proposals personalizzato</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
@@ -3519,7 +3519,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
         <source>Plug in the network cable first</source>
-        <translation type="unfinished"/>
+        <translation>Collega prima il cavo di rete</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
@@ -3542,7 +3542,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
         <source>Close Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Spegni l&apos;hotspot</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
@@ -3661,7 +3661,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Window Effect</source>
-        <translation type="unfinished"/>
+        <translation>Effetti grafici</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
@@ -4069,7 +4069,7 @@ Localizzazione italiana a cura di Carofano Massimo Antonio.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="unfinished"/>
+        <translation>Questo aggiornamento potrebbe richiedere molto tempo, non spegnere o riavviare il PC durante il processo.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
@@ -4191,12 +4191,12 @@ Localizzazione italiana a cura di Carofano Massimo Antonio.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto Clear Package Cache</source>
-        <translation type="unfinished"/>
+        <translation>Pulizia automatica cache pacchetti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
         <source>System Source Detection</source>
-        <translation type="unfinished"/>
+        <translation>Verifica modifica delle fonti di Sistema</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>

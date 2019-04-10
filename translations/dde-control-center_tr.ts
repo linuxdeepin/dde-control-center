@@ -134,12 +134,12 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Updates installed! A restart is required, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Güncellemeler kuruldu! Yeniden başlatma gerekiyor. Şimdi yeniden başlatılsın mı?</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation type="unfinished"/>
+        <translation>İlerlemeden önce tüm verilerin kaydedildiğinden emin olun</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
@@ -435,7 +435,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>Parolasız Oturum Aç</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -541,12 +541,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
-        <translation type="unfinished"/>
+        <translation>Parmak izi tanınamadı. Parmağınızı parmak izi okuyucuya koyup yukarıya doğru kaydırdıktan sonra kaldırın</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
-        <translation type="unfinished"/>
+        <translation>Parmağınızı parmak izi okuyucuya koyup yukarıya doğru kaydırdıktan sonra kaldırın ve aynı işlemi yeniden yapın</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
@@ -1071,7 +1071,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Görüntü Ölçeklendirme</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
@@ -1096,7 +1096,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
         <source>Scaling Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ölçeklendirme Ayarları</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
@@ -1204,22 +1204,22 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="56"/>
         <source>Some applications in multi-screens may not scale as the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Birden çok ekran kullanılırken bazı uygulamalar ayarlandığı gibi ölçeklendirilmez</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Görüntü Ölçeklendirme</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
         <source>Display scaling for %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 için görüntü ölçeklendirme</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="87"/>
         <source>Display scaling for all monitors</source>
-        <translation type="unfinished"/>
+        <translation>Tüm ekranlar için görüntü ölçeklendirme</translation>
     </message>
 </context>
 <context>
@@ -1315,7 +1315,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Kısayollar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="105"/>
@@ -1417,7 +1417,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Kısayollar</translation>
     </message>
 </context>
 <context>
@@ -1616,7 +1616,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="46"/>
         <source>Application Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Uygulama Vekil Sunucusu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="49"/>
@@ -1829,7 +1829,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
         <source>Auto connect</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik Olarak Bağlanılsın</translation>
     </message>
 </context>
 <context>
@@ -2024,7 +2024,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
         <source>Application Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Uygulama Vekil Sunucusu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
@@ -2557,17 +2557,17 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation type="unfinished"/>
+        <translation>LZO Veri Sıkıştırması Kullanılsın</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
-        <translation type="unfinished"/>
+        <translation>TCP Bağlantısı Kullanılsın</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
-        <translation type="unfinished"/>
+        <translation>TAP Aygıtı Kullanılsın</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
@@ -3168,12 +3168,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
-        <translation type="unfinished"/>
+        <translation>Sertifika Uyarıları Yok Sayılsın</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation type="unfinished"/>
+        <translation>TLS Sunucu Adı Eklentileri Kullanılsın</translation>
     </message>
 </context>
 <context>
@@ -3375,7 +3375,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable Custom Cipher Proposals</source>
-        <translation type="unfinished"/>
+        <translation>Özel Şifre Önerileri Kullanılsın</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
@@ -3519,7 +3519,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
         <source>Plug in the network cable first</source>
-        <translation type="unfinished"/>
+        <translation>Önce ağ kablosunu takın</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
@@ -3542,7 +3542,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
         <source>Close Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Erişim Noktasını Kapat</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
@@ -3661,7 +3661,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Window Effect</source>
-        <translation type="unfinished"/>
+        <translation>Pencere Etkisi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
@@ -4068,7 +4068,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="unfinished"/>
+        <translation>Bu güncellemenin yapılması uzun sürebilir. Lütfen işlem sürerken bilgisayarı kapatmayın ya da yeniden başlatmayın</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
@@ -4190,12 +4190,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto Clear Package Cache</source>
-        <translation type="unfinished"/>
+        <translation> Paket Ön Belleği Otomatik Temizlensin</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
         <source>System Source Detection</source>
-        <translation type="unfinished"/>
+        <translation>Sistem Kaynağı Algılaması</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>

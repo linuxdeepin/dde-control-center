@@ -1315,7 +1315,7 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Hurtigtaster</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="105"/>
@@ -1417,7 +1417,7 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Hurtigtaster</translation>
     </message>
 </context>
 <context>
