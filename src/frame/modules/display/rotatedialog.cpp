@@ -156,6 +156,11 @@ RotateDialog::~RotateDialog()
 
 void RotateDialog::keyPressEvent(QKeyEvent *event)
 {
+    if (event->key() == Qt::Key_Escape) {
+        reject();
+        return;
+    }
+
     // another implementation
 //    if (event->modifiers() == Qt::ControlModifier
 //            && event->key() == Qt::Key_S) {
