@@ -359,8 +359,6 @@ void DisplayWorker::setUiScale(const double value)
     double rv=value;
     if (rv < 0) rv = m_model->uiScale();
 
-    m_appearanceInter->SetScreenScaleFactors({});
-
     for (auto &mm : m_model->monitorList()) {
         mm->setScale(-1);
     }
