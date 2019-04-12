@@ -40,6 +40,8 @@ SoundEffectPage::SoundEffectPage(SoundModel *model, QWidget *parent)
     , m_currentPlayItem(nullptr)
     , m_sound(nullptr)
 {
+    setTitle(tr("Sound Effects"));
+
     m_hideIconTimer->setInterval(1000);
     m_hideIconTimer->setSingleShot(false);
 
@@ -91,6 +93,7 @@ SoundEffectPage::SoundEffectPage(SoundModel *model, QWidget *parent)
 
     allEffectGrp->appendItem(m_allEffectSwitch);
 
+    layout->addSpacing(10);
     layout->addWidget(allEffectGrp);
     layout->addSpacing(20);
     layout->addWidget(m_effectGrp);
