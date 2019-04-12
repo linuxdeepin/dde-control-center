@@ -130,34 +130,6 @@
     </message>
 </context>
 <context>
-    <name>ReminderDialog</name>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>更新安装完毕， 需要重启， 是否立即重启？</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation>请您先确认已保存所有数据！</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
-        <source>Shut down</source>
-        <translation>关机</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
-        <source>Reboot</source>
-        <translation>重启</translation>
-    </message>
-</context>
-<context>
     <name>RotateDialog</name>
     <message>
         <location filename="../src/frame/modules/display/rotatedialog.cpp" line="136"/>
@@ -328,7 +300,7 @@ If no operation, the display will be restored after %1s.</source>
         <translation>检测更新失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="170"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
         <source>Updates detected, click to view</source>
         <translation>检测到系统有更新，点击查看</translation>
     </message>

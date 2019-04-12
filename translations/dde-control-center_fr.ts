@@ -130,34 +130,6 @@
     </message>
 </context>
 <context>
-    <name>ReminderDialog</name>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>Mises à jour installées ! Un redémarrage est nécessaire, redémarrer maintenant ?</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation>Assurez-vous que toutes vos données ont été sauvegardées avant de procéder</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
-        <source>Cancel</source>
-        <translation>Annuler</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
-        <source>Shut down</source>
-        <translation>Arrêter</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
-        <source>Reboot</source>
-        <translation>Redémarrer</translation>
-    </message>
-</context>
-<context>
     <name>RotateDialog</name>
     <message>
         <location filename="../src/frame/modules/display/rotatedialog.cpp" line="136"/>
@@ -328,7 +300,7 @@ Sans interaction, l&apos;affichage sera rétabli après %1s.</translation>
         <translation>Échec de détection des mises à jour</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="170"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
         <source>Updates detected, click to view</source>
         <translation>Mises à jour disponibles, cliquez pour afficher</translation>
     </message>

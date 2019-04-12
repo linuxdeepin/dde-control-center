@@ -130,34 +130,6 @@
     </message>
 </context>
 <context>
-    <name>ReminderDialog</name>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
-        <source>Cancel</source>
-        <translation>Batal</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
-        <source>Shut down</source>
-        <translation>Matikan</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
-        <source>Reboot</source>
-        <translation>But semula</translation>
-    </message>
-</context>
-<context>
     <name>RotateDialog</name>
     <message>
         <location filename="../src/frame/modules/display/rotatedialog.cpp" line="136"/>
@@ -328,7 +300,7 @@ simpan, jika tiada apa-apa operaasi, paparan akan dipulihkan selepas %1s.</trans
         <translation>Kegagalan mengesan kemaskini</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="170"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
         <source>Updates detected, click to view</source>
         <translation>Kemaskini dikesan, klik untuk lihat</translation>
     </message>

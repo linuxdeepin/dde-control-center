@@ -2,27 +2,27 @@
 <context>
     <name>ReminderDialog</name>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
-        <source>Updates installed, need to restart, restart now?</source>
-        <translation>Kemaskini dipasang, perlu dimulakan semula, mahu mulakan semula sekarang ?</translation>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
+        <source>Updates installed! A restart is required, restart now?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
-        <source>Please make sure all data have been saved firstly</source>
-        <translation>Sila pastikan semua data telah disimpan terlebih dahulu</translation>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data has been saved before proceeding</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
         <translation>Matikan</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
         <translation>But semula</translation>
     </message>

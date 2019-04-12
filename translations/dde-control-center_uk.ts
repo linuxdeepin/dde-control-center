@@ -130,34 +130,6 @@
     </message>
 </context>
 <context>
-    <name>ReminderDialog</name>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation>Оновлення встановлено, потрібне перезавантаження, перезавантажити зараз?</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation>Переконайтеся, що всі дані були збережені, перш ніж продовжити</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
-        <source>Cancel</source>
-        <translation>Скасувати</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
-        <source>Shut down</source>
-        <translation>Вимкнути</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
-        <source>Reboot</source>
-        <translation>Перезавантажити</translation>
-    </message>
-</context>
-<context>
     <name>RotateDialog</name>
     <message>
         <location filename="../src/frame/modules/display/rotatedialog.cpp" line="136"/>
@@ -328,7 +300,7 @@ If no operation, the display will be restored after %1s.</source>
         <translation>Помилка у виявленні оновлень</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="170"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
         <source>Updates detected, click to view</source>
         <translation>Виявлено оновлення, натисніть для перегляду</translation>
     </message>

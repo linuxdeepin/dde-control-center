@@ -2,27 +2,27 @@
 <context>
     <name>ReminderDialog</name>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
-        <source>Updates installed, need to restart, restart now?</source>
-        <translation>Frissítések telepítve, újraindítás szükséges. Újraindítod most a számítógépet?</translation>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
+        <source>Updates installed! A restart is required, restart now?</source>
+        <translation>Frissítések települtek! Újraindítás szükséges, szeretné most megtenni?</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
-        <source>Please make sure all data have been saved firstly</source>
-        <translation>Kérlek bizonyosodj meg róla, hogy minden adatot elmentettél.</translation>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data has been saved before proceeding</source>
+        <translation>A folytatás előtt mentse el minden munkáját</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
         <translation>Mégse</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
         <translation>Leállítás</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
         <translation>Újraindítás</translation>
     </message>

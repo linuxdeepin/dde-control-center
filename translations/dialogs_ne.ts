@@ -2,27 +2,27 @@
 <context>
     <name>ReminderDialog</name>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
-        <source>Updates installed, need to restart, restart now?</source>
-        <translation>अपडेट स्थापना, रिबुट गर्न आवश्यक छ फेरि रिबुट गर्नुहोस् ?</translation>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
+        <source>Updates installed! A restart is required, restart now?</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
-        <source>Please make sure all data have been saved firstly</source>
-        <translation>कृपया निश्चित गर्नुहोस् कि सबै डाटाहरू पहिला सुरक्षित गरिएको छ</translation>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data has been saved before proceeding</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
         <translation>रद्द गर्नुहोस्</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
         <translation>बन्द गर्नुहोस्</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
         <translation>रिबुट गर्नुहोस्</translation>
     </message>

@@ -2,27 +2,27 @@
 <context>
     <name>ReminderDialog</name>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
-        <source>Updates installed, need to restart, restart now?</source>
-        <translation>Обновяванията са инсталирани и е необходимо рестартиране. Да се рестартира ли сега?</translation>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
+        <source>Updates installed! A restart is required, restart now?</source>
+        <translation>Актуализациите са инсталирани! Изисква се рестартиране, рестартирайте сега?</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
-        <source>Please make sure all data have been saved firstly</source>
-        <translation>Моля, направете необходимото, всички данни да бъдат съхранени</translation>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data has been saved before proceeding</source>
+        <translation>Уверете се, че всички данни са запазени, преди да продължите</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
         <translation>Отказ</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
         <translation>Изключване</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
         <translation>Рестартиране</translation>
     </message>

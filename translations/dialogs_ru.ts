@@ -2,27 +2,27 @@
 <context>
     <name>ReminderDialog</name>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
-        <source>Updates installed, need to restart, restart now?</source>
-        <translation>Обновления установлены, необходимо перезагрузить, перезагрузить сейчас?</translation>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
+        <source>Updates installed! A restart is required, restart now?</source>
+        <translation>Обновления установлены, требуется перезагрузка, перезагрузить сейчас?</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
-        <source>Please make sure all data have been saved firstly</source>
-        <translation>Прежде всего убедитесь, что все данные были сохранены</translation>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data has been saved before proceeding</source>
+        <translation>Убедитесь, что все данные были сохранены, прежде чем продолжить</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
         <translation>Выключить</translation>
     </message>
     <message>
-        <location filename="../dialogs/reboot-reminder-dialog/reminderdialog.cpp" line="45"/>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
         <translation>Перезагрузить</translation>
     </message>

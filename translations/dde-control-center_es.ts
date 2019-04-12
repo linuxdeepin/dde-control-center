@@ -130,34 +130,6 @@
     </message>
 </context>
 <context>
-    <name>ReminderDialog</name>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
-        <source>Updates installed! A restart is required, restart now?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
-        <source>Make sure all data has been saved before proceeding</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
-        <source>Cancel</source>
-        <translation>Cancelar</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
-        <source>Shut down</source>
-        <translation>Apagar</translation>
-    </message>
-    <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
-        <source>Reboot</source>
-        <translation>Reiniciar </translation>
-    </message>
-</context>
-<context>
     <name>RotateDialog</name>
     <message>
         <location filename="../src/frame/modules/display/rotatedialog.cpp" line="136"/>
@@ -328,7 +300,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
         <translation>Actualizaciones detectando fallas</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="170"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
         <source>Updates detected, click to view</source>
         <translation>Actualizaciones detectadas, clic para verlas</translation>
     </message>
@@ -435,7 +407,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>Iniciar sesión sin contraseña</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -541,12 +513,12 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
-        <translation type="unfinished"/>
+        <translation>Falló la identificación de huella dactilar; coloque su dedo en el sensor dactilar, deslice de abajo hacia arriba y suelte</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
-        <translation type="unfinished"/>
+        <translation>Ponga su dedo en el sensor de huella dactilar, mueva hacia arriba desde abajo y suelte, luego repita el paso</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
@@ -1071,7 +1043,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Escalado de pantalla</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
@@ -1096,7 +1068,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
         <source>Scaling Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de escalado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
@@ -1204,22 +1176,22 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="56"/>
         <source>Some applications in multi-screens may not scale as the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Algunas aplicaciones en varios monitores podrían no escalar en los ajustes.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Escalado de pantalla</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
         <source>Display scaling for %1</source>
-        <translation type="unfinished"/>
+        <translation> Escalado de pantalla  para %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="87"/>
         <source>Display scaling for all monitors</source>
-        <translation type="unfinished"/>
+        <translation> Escalado de pantalla para todos los monitores</translation>
     </message>
 </context>
 <context>
@@ -1315,7 +1287,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcuts</source>
-        <translation>Teclas atajo</translation>
+        <translation>Atajos de teclado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="105"/>
@@ -1417,7 +1389,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcuts</source>
-        <translation>Teclas atajo</translation>
+        <translation>Atajos de teclado</translation>
     </message>
 </context>
 <context>
@@ -1616,7 +1588,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="46"/>
         <source>Application Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy para la aplicación</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="49"/>
@@ -1829,7 +1801,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
         <source>Auto connect</source>
-        <translation type="unfinished"/>
+        <translation>Autoconectar</translation>
     </message>
 </context>
 <context>
@@ -2024,7 +1996,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
         <source>Application Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy para la aplicación</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
@@ -2557,17 +2529,17 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation type="unfinished"/>
+        <translation>Utilizar compresión LZO</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
-        <translation type="unfinished"/>
+        <translation>Usar conexión TCP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
-        <translation type="unfinished"/>
+        <translation>Usar dispositivo TAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
@@ -3168,12 +3140,12 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
-        <translation type="unfinished"/>
+        <translation>Ignorar advertencias de certificado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation type="unfinished"/>
+        <translation>Usar extensiones para hostname TLS</translation>
     </message>
 </context>
 <context>
@@ -3375,7 +3347,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable Custom Cipher Proposals</source>
-        <translation type="unfinished"/>
+        <translation> Habilitar propuestas de cifrado personalizadas </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
@@ -3519,7 +3491,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
         <source>Plug in the network cable first</source>
-        <translation type="unfinished"/>
+        <translation>Conectar en el cable de red primero</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
@@ -3542,7 +3514,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
         <source>Close Hotspot</source>
-        <translation type="unfinished"/>
+        <translation> Cerrar «Conexión compartida» </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
@@ -3661,7 +3633,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Window Effect</source>
-        <translation type="unfinished"/>
+        <translation>Efectos de ventana</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
@@ -4068,7 +4040,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="unfinished"/>
+        <translation>Esta actualización tomaría mucho tiempo, por favor no apague ni reinicie durante el procedimiento.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
@@ -4190,12 +4162,12 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto Clear Package Cache</source>
-        <translation type="unfinished"/>
+        <translation> Autoborrar la caché de paquetes </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
         <source>System Source Detection</source>
-        <translation type="unfinished"/>
+        <translation>Detección de repositorios</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>
