@@ -1,3 +1,15 @@
+<a name="4.9.13"></a>
+## 4.9.13 (2019-04-15)
+
+
+#### Bug Fixes
+
+*   wifi list sort algorithm ([dfe814a4](https://github.com/linuxdeepin/dde-control-center/commit/dfe814a4f7928a3d2b71edeb058272f0a0d3f3de))
+* **miracast:**  wrong display nodevice item ([7eba25cd](https://github.com/linuxdeepin/dde-control-center/commit/7eba25cd83d1a5fe5485f446a2328b88b6bdfcd4))
+* **sound:**  missing page title ([f33968a0](https://github.com/linuxdeepin/dde-control-center/commit/f33968a0d3793cfeb3078f6974d02ae00de427a5))
+
+
+
 <a name="4.9.12"></a>
 ## 4.9.12 (2019-04-10)
 
