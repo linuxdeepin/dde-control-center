@@ -275,7 +275,7 @@ void DisplayWidget::onUiScaleChanged(const double scale)
 
 void DisplayWidget::setIndividualScalingEnabled(bool enabled) const
 {
-    if(enabled) {
+    if(enabled && m_model->allowEnableMultiScaleRatio()) {
         m_scaleWidget->hide();
         m_scalingSettings->show();
     }
