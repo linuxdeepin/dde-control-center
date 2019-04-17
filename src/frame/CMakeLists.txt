@@ -10,7 +10,6 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_FLAGS "-g -Wall")
-set(CMAKE_EXE_LINKER_FLAGS "-lcrypt")
 
 # disable qt keywords, cause gio have signals member;
 ADD_DEFINITIONS(-DQT_NO_KEYWORDS)
@@ -940,6 +939,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${Gio-2.0_LIBRARIES}
     ${LibNM_LIBRARIES}
     ${KF5_QT_LIBRARIES}
+    crypt
 )
 
 # bin
