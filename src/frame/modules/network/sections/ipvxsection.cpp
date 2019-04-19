@@ -432,7 +432,7 @@ bool IpvxSection::ipv4InputIsValid()
         }
 
         const QString &netmask = m_netmaskIpv4->text();
-        if (!netmask.startsWith("255.") || !isIpv4Address(netmask)) {
+        if (!isIpv4SubnetMask(netmask)) {
             valid = false;
             m_netmaskIpv4->setIsErr(true);
         } else {
@@ -537,6 +537,22 @@ bool IpvxSection::isIpv6Address(const QString &ip)
         return false;
     }
     return true;
+}
+
+bool IpvxSection::isIpv4SubnetMask(const QString &ip)
+{
+    bool done;
+    quint32 mask = QHostAddress(ip).toIPv4Address(&done);
+
+    if (!done) {
+        return false;
+    }
+
+    for (;mask != 0; mask <<= 1) {
+        if ((mask & (1<<31)) == 0)
+            return false; // Highest bit is now zero, but mask is non-zero.
+    }
+    return true; // Mask was, or became 0.
 }
 
 QList<QHostAddress> IpvxSection::dnsList()

@@ -69,6 +69,7 @@ private:
     bool ipv6InputIsValid();
     bool isIpv4Address(const QString &ip);
     bool isIpv6Address(const QString &ip);
+    bool isIpv4SubnetMask(const QString &ip);
 
     QList<QHostAddress> dnsList();
 
