@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.7)
 project(dde-control-center)
 
 find_package(DtkCMake REQUIRED)
+include(Dart)
+include(CTest)
 
 # Install settings
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)

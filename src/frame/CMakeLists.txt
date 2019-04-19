@@ -841,15 +841,18 @@ set(QRC
 
 # Find the library
 find_package(PkgConfig REQUIRED)
-find_package(Qt5Widgets REQUIRED)
-find_package(Qt5Concurrent REQUIRED)
-find_package(Qt5X11Extras REQUIRED)
-find_package(Qt5DBus REQUIRED)
-find_package(Qt5Network REQUIRED)
 find_package(DtkWidget REQUIRED)
-find_package(Qt5Multimedia REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
 find_package(DtkCMake REQUIRED)
+find_package(Qt5 COMPONENTS
+    Core
+    Widgets
+    Concurrent
+    X11Extras
+    DBus
+    Network
+    Multimedia
+REQUIRED)
 
 pkg_check_modules(XCB_EWMH REQUIRED xcb-ewmh x11 xext)
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
@@ -857,6 +860,16 @@ pkg_check_modules(QGSettings REQUIRED gsettings-qt)
 pkg_check_modules(DDE-Network-Utils REQUIRED dde-network-utils)
 pkg_check_modules(Gio-2.0 REQUIRED gio-2.0)
 pkg_check_modules(LibNM REQUIRED libnm)
+
+set(Qt_LIBS
+    Qt5::Core
+    Qt5::Gui
+    Qt5::DBus
+    Qt5::Widgets
+    Qt5::X11Extras
+    Qt5::Network
+    Qt5::Multimedia
+)
 
 # KF5 network manager
 get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_DIRECTORIES)
@@ -982,3 +995,49 @@ target_link_libraries(${BIN_NAME} PRIVATE
 
 # bin
 install(TARGETS ${BIN_NAME} DESTINATION bin)
+
+find_package(Qt5 COMPONENTS
+Test
+REQUIRED)
+
+set(Qt_LIBS
+${Qt_LIBS}
+Qt5::Test
+)
+
+set(TEST_SRCS
+    tests/display_test.h
+    ${DISPLAY_FILES}
+    ${WIDGETS_FILES}
+    ${MODULE_FILES}
+    ${DtkWidget_INCLUDE_DIRS}
+    ${DFrameworkDBus_INCLUDE_DIRS}
+    ${QGSettings_INCLUDE_DIRS}
+    ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
+    ${Qt5X11Extras_INCLUDE_DIRS}
+    ${QGSettings_INCLUDE_DIRS}
+    ${XCB_EWMH_INCLUDE_DIRS}
+)
+
+add_executable(display-unit-test
+    ${TEST_SRCS}
+)
+
+target_include_directories(display-unit-test PUBLIC
+    ${TEST_SRCS}
+    ${PROJECT_BINARY_DIR}
+)
+
+target_link_libraries(display-unit-test PRIVATE
+    ${DISPLAY_TEST_LIBS}
+    ${DFrameworkDBus_LIBRARIES}
+    ${DtkWidget_LIBRARIES}
+    ${Qt5Widgets_LIBRARIES}
+    ${Qt5X11Extras_LIBRARIES}
+    ${Qt5DBus_LIBRARIES}
+    ${QGSettings_LIBRARIES}
+    ${XCB_EWMH_LIBRARIES}
+    ${Qt_LIBS}
+)
+
+add_test(NAME display-unit-test COMMAND "${CMAKE_CURRENT_BINARY_DIR}/display-unit-test")
