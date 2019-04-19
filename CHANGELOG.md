@@ -1,3 +1,16 @@
+<a name=""></a>
+##  4.10.0 (2019-04-19)
+
+
+#### Bug Fixes
+
+*   rotate dialog postion is wrong in 2D mode ([b0351d7c](https://github.com/linuxdeepin/dde-control-center/commit/b0351d7c56b4f5f373c6c46f8fcdf9b78a19040b))
+*   ipv4 subnet mask valid checkup ([8aeede16](https://github.com/linuxdeepin/dde-control-center/commit/8aeede161e7681d81ebb910fd8b5e839714eb662))
+*   wireless activating indicator not align in vertical ([42e88304](https://github.com/linuxdeepin/dde-control-center/commit/42e88304b888669e05561162e551bb24f8e30b94))
+* **Display:**  did not check the multi scale ratio ([0434bfd2](https://github.com/linuxdeepin/dde-control-center/commit/0434bfd2183e180c199429e95650f153fd209b2f))
+
+
+
 <a name="4.9.13"></a>
 ## 4.9.13 (2019-04-15)
 
