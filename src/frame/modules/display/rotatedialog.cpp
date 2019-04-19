@@ -289,12 +289,12 @@ void RotateDialog::rotate()
 void RotateDialog::adjustGemotry()
 {
     const bool composite = m_wmHelper->hasComposite();
+    const qreal ratio = devicePixelRatioF();
 
     if (composite)
     {
         if (m_mon)
         {
-            const qreal ratio = devicePixelRatioF();
             setFixedWidth(m_mon->w() / ratio);
             setFixedHeight(m_mon->h() / ratio);
             move(m_mon->x(), m_mon->y());
@@ -307,8 +307,11 @@ void RotateDialog::adjustGemotry()
         setFixedWidth(500);
         setFixedHeight(500);
 
-        if (m_mon)
-            move(m_mon->rect().center() - rect().center());
+        if (m_mon) {
+            QRectF r(rect());
+            r.moveCenter(m_mon->rect().center() / ratio);
+            setGeometry(r.toRect());
+        }
         else
             move((m_model->screenWidth() - width()) / 2, m_model->screenHeight() - height() / 2);
     }
