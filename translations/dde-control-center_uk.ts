@@ -264,7 +264,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
         <source>Do you want to save the display settings?</source>
-        <translation>Бажаєте зберегти налаштування дисплея?</translation>
+        <translation>Бажаєте зберегти налаштування дисплею?</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
@@ -407,7 +407,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login Without Password</source>
-        <translation>Входити в Систему без вводу Пароля</translation>
+        <translation>Входити в Систему без введення Паролю</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -785,7 +785,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="51"/>
         <source>OK</source>
-        <translation>ОК</translation>
+        <translation>Гаразд</translation>
     </message>
 </context>
 <context>
@@ -1306,7 +1306,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation>Переключити компонування (Декілька)</translation>
+        <translation>Перемкнути компонування (Декілька)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="88"/>
@@ -2901,7 +2901,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="280"/>
         <source>Key Direction</source>
-        <translation>Управління клавішами</translation>
+        <translation>Керування клавішами</translation>
     </message>
 </context>
 <context>
@@ -3405,7 +3405,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="106"/>
         <source>Key Direction</source>
-        <translation>Управління клавішами</translation>
+        <translation>Керування клавішами</translation>
     </message>
 </context>
 <context>
@@ -3780,7 +3780,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::sound::SoundEffectPage</name>
     <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="60"/>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="43"/>
+        <source>Sound Effects</source>
+        <translation>Звукові ефекти</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="62"/>
         <source>System Sound Effect</source>
         <translation>Звукові ефекти системи</translation>
     </message>
@@ -4056,7 +4061,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="190"/>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="294"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation>%1% завантажено(Клік для паузи)</translation>
+        <translation>%1% завантажено(Натисність для паузи)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="195"/>
@@ -4096,7 +4101,7 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>Виявлено %n оновлення програм</numerusform><numerusform>Виявлено %n оновлення програм</numerusform><numerusform>Виявлено %n оновлень програм</numerusform><numerusform>Виявлено %n оновлення програм</numerusform></translation>
+        <translation><numerusform>Виявлено %n оновлення програм(и)</numerusform><numerusform>Виявлено %n оновлення програм(и)</numerusform><numerusform>Виявлено %n оновлення програм(и)</numerusform><numerusform> Виявлено %n оновлення програм(и)</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -4106,7 +4111,7 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Виявлено нову версію системи та %n оновлення програм</numerusform><numerusform>Виявлено нову версію системи та %n оновлення програм</numerusform><numerusform>Виявлено нову версію системи та %n оновлень програм</numerusform><numerusform>Виявлено нову версію системи та %n оновлення програм</numerusform></translation>
+        <translation><numerusform>Виявлено нову версію системи та %n оновлення програм(и)</numerusform><numerusform>Виявлено нову версію системи та %n оновлення програм(и)</numerusform><numerusform>Виявлено нову версію системи та %n оновлення програм(и)</numerusform><numerusform>Виявлено нову версію системи та %n оновлення програм(и)</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
