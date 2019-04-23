@@ -3782,7 +3782,12 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
 <context>
     <name>dcc::sound::SoundEffectPage</name>
     <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="60"/>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="43"/>
+        <source>Sound Effects</source>
+        <translation>Garso efektai</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="62"/>
         <source>System Sound Effect</source>
         <translation>Sistemos garso efektai</translation>
     </message>

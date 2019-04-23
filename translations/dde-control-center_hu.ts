@@ -3780,7 +3780,12 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
 <context>
     <name>dcc::sound::SoundEffectPage</name>
     <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="60"/>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="43"/>
+        <source>Sound Effects</source>
+        <translation>Hangeffektusok</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="62"/>
         <source>System Sound Effect</source>
         <translation>Rendszer hangeffektus</translation>
     </message>

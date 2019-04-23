@@ -3780,7 +3780,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
 <context>
     <name>dcc::sound::SoundEffectPage</name>
     <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="60"/>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="43"/>
+        <source>Sound Effects</source>
+        <translation>Ses Etkileri</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="62"/>
         <source>System Sound Effect</source>
         <translation>Sistem Ses Etkisi</translation>
     </message>

@@ -3780,7 +3780,12 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
 <context>
     <name>dcc::sound::SoundEffectPage</name>
     <message>
-        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="60"/>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="43"/>
+        <source>Sound Effects</source>
+        <translation>Efectes de so</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="62"/>
         <source>System Sound Effect</source>
         <translation>Efecte de so del sistema</translation>
     </message>
