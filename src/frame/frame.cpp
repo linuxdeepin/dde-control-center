@@ -330,11 +330,11 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
         // 窗口从屏幕A移动屏幕B之后，计算出的新geometry和旧geometry一致，使用QWidget
         // 或QWindow的接口更改窗口大小时会判断参数是否和旧的一致，导致更新位置和大小
         // 失效，因此此处直接使用 QPlatformWindow 调整窗口位置和大小。
-        if (windowHandle()) {
+        if (windowHandle() && windowHandle()->handle()) {
             QPlatformWindow *native_windwo = windowHandle()->handle();
             QRect rect = native_windwo->geometry();
 
-            rect.setWidth(FRAME_WIDTH * ratio);
+            rect.setWidth(static_cast<int>(FRAME_WIDTH * ratio));
             rect.setHeight(m_primaryRect.height());
             rect.moveLeft(m_primaryRect.right() - rect.width() + 1);
             rect.moveTop(m_primaryRect.top());
