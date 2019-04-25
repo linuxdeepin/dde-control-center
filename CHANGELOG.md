@@ -1,3 +1,13 @@
+<a name="4.10.2"></a>
+## 4.10.2 (2019-04-25)
+
+
+#### Bug Fixes
+
+*   crash when startup in terminal ([f460f886](https://github.com/linuxdeepin/dde-control-center/commit/f460f886222e988a7b6fc32615adf76356eb1968))
+
+
+
 <a name="4.10.1"></a>
 ### 4.10.1 (2019-04-25)
 
