@@ -15,7 +15,7 @@ using namespace dcc::sound;
 #if 0
 QT_TRANSLATE_NOOP("SoundEffectPage", "Boot up"),
 QT_TRANSLATE_NOOP("SoundEffectPage", "Shut down"),
-QT_TRANSLATE_NOOP("SoundEffectPage", "Logout"),
+QT_TRANSLATE_NOOP("SoundEffectPage", "Log out"),
 QT_TRANSLATE_NOOP("SoundEffectPage", "Wake up"),
 QT_TRANSLATE_NOOP("SoundEffectPage", "Volume +/-"),
 QT_TRANSLATE_NOOP("SoundEffectPage", "Notification"),

@@ -204,7 +204,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Logout</source>
+        <source>Log out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
