@@ -200,8 +200,8 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Logout</source>
-        <translation>Uitloggen</translation>
+        <source>Log out</source>
+        <translation>Afmelden</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
@@ -1629,8 +1629,8 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>Vink &quot;Openen via proxy&quot; aan in het toepassingscontextmenu in de Launcher om er gebruik van te maken nadat u het heeft geconfigureerd</translation>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

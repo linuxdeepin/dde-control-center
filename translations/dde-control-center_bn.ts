@@ -199,7 +199,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Logout</source>
+        <source>Log out</source>
         <translation>লগ আউট করুন</translation>
     </message>
     <message>
@@ -1631,8 +1631,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>কনফিগার করার পরে ব্যবহার করার জন্য লঞ্চারের অ্যাপ্লিকেশন কন্টেক্সট মেনুতে &quot;প্রক্সি দ্বারা খুলুন&quot; টিক দিন</translation>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

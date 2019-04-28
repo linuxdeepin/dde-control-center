@@ -200,7 +200,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Logout</source>
+        <source>Log out</source>
         <translation>Logout</translation>
     </message>
     <message>
@@ -1629,8 +1629,8 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>Controlla &quot;Apri con proxy&quot; nel menu contestuale dell&apos;app nel launcher per utilizzarlo dopo averlo configurato.</translation>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

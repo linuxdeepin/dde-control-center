@@ -200,7 +200,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Logout</source>
+        <source>Log out</source>
         <translation>Log ud</translation>
     </message>
     <message>
@@ -1629,8 +1629,8 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>Tilvælg &quot;Åbn med proxy&quot; i programmet genvejsmenu i programstarteren, for at bruge den efter den er blevet konfigureret</translation>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

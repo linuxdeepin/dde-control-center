@@ -200,8 +200,8 @@ Pokud neuděláte nic, zobrazení bude obnoveno za %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Logout</source>
-        <translation>Odhlásit</translation>
+        <source>Log out</source>
+        <translation>Odhlásit se</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
@@ -1629,8 +1629,8 @@ Pokud neuděláte nic, zobrazení bude obnoveno za %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>Zaškrtnout Otevřít v zastoupení související nabídky programu ve spouštěči, k použití po nastavení</translation>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

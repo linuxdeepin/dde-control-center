@@ -200,7 +200,7 @@ Sans interaction, l&apos;affichage sera rétabli après %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Logout</source>
+        <source>Log out</source>
         <translation>Déconnexion</translation>
     </message>
     <message>
@@ -1629,8 +1629,8 @@ Sans interaction, l&apos;affichage sera rétabli après %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>Cochez &quot;Ouvrir par proxy&quot; dans le menu contextuel de l&apos;application dans le lanceur à pour la lancer après la configuration du proxy.</translation>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
