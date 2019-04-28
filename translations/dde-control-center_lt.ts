@@ -202,7 +202,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Logout</source>
+        <source>Log out</source>
         <translation>Atsijungti</translation>
     </message>
     <message>
@@ -1631,8 +1631,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>Sukonfigūravę ir norėdami naudoti, leistuke, programos kontekstiniame meniu ieškokite &quot;Atverti pagal įgaliotąjį serverį&quot;</translation>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

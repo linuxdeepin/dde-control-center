@@ -200,7 +200,7 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Logout</source>
+        <source>Log out</source>
         <translation>Kijelentkezés</translation>
     </message>
     <message>
@@ -1629,8 +1629,8 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>Jelölje be a &quot;Megnyitás proxyn keresztül&quot; pontot az Indító alkalmazás környezeti menüjében a használathoz miután beállította</translation>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

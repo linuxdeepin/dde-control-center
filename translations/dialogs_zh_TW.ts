@@ -4,12 +4,12 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Updates installed! A restart is required, restart now?</source>
-        <translation type="unfinished"/>
+        <translation>已安裝更新！需要重開機，現在重開？</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation type="unfinished"/>
+        <translation>請在確認前確保所有資料皆已儲存</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

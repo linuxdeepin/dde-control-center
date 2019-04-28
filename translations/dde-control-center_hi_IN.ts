@@ -199,8 +199,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Logout</source>
-        <translation>लॉगआउट करें</translation>
+        <source>Log out</source>
+        <translation>लॉग आउट</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
@@ -1628,8 +1628,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>विन्यास के बाद उपयोग करने हेतु, लॉन्चर में अनुप्रयोग प्रसंग मेन्यू में &quot;प्रॉक्सी द्वारा खोलें&quot; को चयनित करें</translation>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

@@ -200,8 +200,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Logout</source>
-        <translation>Одјављивање</translation>
+        <source>Log out</source>
+        <translation>Одјави се</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
@@ -480,7 +480,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="420"/>
         <source>Password not match</source>
-        <translation>Лозинке се не поклапају</translation>
+        <translation>Лозинке се не подударају</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="351"/>
@@ -1629,8 +1629,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>У падајућем изборнику програма у Покретачу Програма обележи опцију &quot;Покрени уз посредника&quot; за коришћење након поставке</translation>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

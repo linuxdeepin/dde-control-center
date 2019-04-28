@@ -200,8 +200,8 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Logout</source>
-        <translation>Oturum Kapatıldığında</translation>
+        <source>Log out</source>
+        <translation>Oturumu Kapat</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
@@ -1629,8 +1629,8 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>Yapılandırdıktan sonra kullanmak için başlatıcıdaki uygulama sağ tık menüsünden &quot;Vekil sunucu ile açılsın&quot; seçeneğini etkinleştirin</translation>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

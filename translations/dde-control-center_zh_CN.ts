@@ -200,7 +200,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
-        <source>Logout</source>
+        <source>Log out</source>
         <translation>注销</translation>
     </message>
     <message>
@@ -1629,8 +1629,8 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
-        <source>Check &quot;Open by proxy&quot; of application context menu in Launcher to use after configured</source>
-        <translation>配置好代理后，可在启动器的应用右键菜单查看“使用代理打开”选项，勾选后即可使用代理</translation>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation>配置好代理后，可在启动器的应用右键菜单查看“使用代理”选项，勾选后即可使用代理</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
