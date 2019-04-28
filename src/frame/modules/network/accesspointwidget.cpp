@@ -106,7 +106,7 @@ void AccessPointWidget::setPath(const QString &path)
 void AccessPointWidget::setLoadingIndicatorVisible(const bool value)
 {
     if (!ConnectingIndicator) {
-        const qreal ratio = qApp->devicePixelRatio();
+        const qreal ratio = devicePixelRatioF();
         ConnectingIndicator = new DPictureSequenceView;
         ConnectingIndicator->setMaximumSize(16 * ratio, 16 * ratio);
         ConnectingIndicator->setPictureSequence(":/widgets/themes/dark/icons/Loading/loading_%1.png", QPair<int, int>(0, 90), 3, true);
