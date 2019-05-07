@@ -150,7 +150,11 @@ void UpdateNotifier::updatablePkgsChanged(const QStringList &value)
     if (value.isEmpty()) {
         QDBusPendingReply<AppUpdateInfoList> reply = m_updaterInter->ApplicationUpdateInfos("");
         reply.waitForFinished();
-        if (reply.isError()) {
+
+        const bool isError = reply.isError();
+        setVisible(isError);
+
+        if (isError) {
             const QString &message = reply.error().message();
             const QJsonObject &obj = QJsonDocument::fromJson(message.toUtf8()).object();
 
@@ -160,7 +164,6 @@ void UpdateNotifier::updatablePkgsChanged(const QStringList &value)
             else {
                 m_content->setText(tr("Updates detecting failure"));
             }
-            setVisible(true);
             updateIcon(false);
             qDebug() << message;
         }
