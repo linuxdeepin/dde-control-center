@@ -123,11 +123,6 @@ DisplayWidget::DisplayWidget()
 #endif
 
     connect(m_customConfigButton, &QPushButton::clicked, this, [=] {
-        // delete the previous custom config if current mode is not Custom mode
-        if (m_model->displayMode() != CUSTOM_MODE) {
-            Q_EMIT requestDeleteConfig(m_model->DDE_Display_Config);
-        }
-
         setIndividualScalingEnabled(true);
 
         // save/record current mode/config state in order to restore later
