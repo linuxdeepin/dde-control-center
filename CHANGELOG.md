@@ -1,3 +1,14 @@
+<a name="4.10.3"></a>
+### 4.10.3 (2019-05-10)
+
+
+#### Bug Fixes
+
+*   Update notifications are not hidden ([6193a484](https://github.com/linuxdeepin/dde-control-center/commit/6193a484dceb52ec827be6423994d95682078ef3))
+* **network:**  refresh loading icon not align center ([6840c8bc](https://github.com/linuxdeepin/dde-control-center/commit/6840c8bc3b0aee39a0c448273533dd2164e5b7cb))
+
+
+
 <a name="4.10.2"></a>
 ## 4.10.2 (2019-04-25)
 
