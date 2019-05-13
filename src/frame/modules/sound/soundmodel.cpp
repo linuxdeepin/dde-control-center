@@ -62,7 +62,7 @@ SoundModel::SoundModel(QObject *parent)
     m_soundEffectMap = {
         { "Boot up", DDesktopServices::SSE_BootUp },
         { "Shut down", DDesktopServices::SSE_Shutdown },
-        { "Logout", DDesktopServices::SSE_Logout },
+        { "Log out", DDesktopServices::SSE_Logout },
         { "Wake up", DDesktopServices::SSE_WakeUp },
         { "Volume +/-", DDesktopServices::SSE_VolumeChange },
         { "Notification", DDesktopServices::SSE_Notifications },
