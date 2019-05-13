@@ -1,3 +1,13 @@
+<a name="4.10.4"></a>
+### 4.10.4 (2019-05-13)
+
+
+#### Bug Fixes
+
+* **Sound:**  typo Logout ([bf5325a2](https://github.com/linuxdeepin/dde-control-center/commit/bf5325a2348f24ce9dc98725ca95b0b2a7fe8499))
+
+
+
 <a name="4.10.3"></a>
 ### 4.10.3 (2019-05-10)
 
