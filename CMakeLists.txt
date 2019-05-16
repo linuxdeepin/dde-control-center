@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.7)
 
 project(dde-control-center)
 
+find_package(DtkCMake REQUIRED)
+
 # Install settings
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
@@ -43,3 +45,11 @@ install(FILES data/timezone.db DESTINATION share/dde-control-center)
 
 # conf file
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/files/dde-control-center.conf DESTINATION share/dde-control-center)
+
+# polkit policy file
+if (OS_DEEPIN_PROFESSIONAL)
+    if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
+        install(FILES com.deepin.controlcenter.addomain.policy DESTINATION share/polkit-1/actions)
+    endif()
+endif()
+
