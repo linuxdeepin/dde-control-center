@@ -7,19 +7,30 @@
 #include <QVBoxLayout>
 
 namespace dcc {
+namespace widgets {
+class SettingsGroup;
+class NextPageWidget;
+}
 namespace sync {
+class SyncModel;
 class SyncWidget : public ModuleWidget {
     Q_OBJECT
 public:
     explicit SyncWidget();
+    void setModel(const SyncModel* const model);
 
 Q_SIGNALS:
     void requestLogin() const;
+    void requestShowSyncDetails();
 
-public Q_SLOTS:
+private:
+    void onUserInfoChanged(const QVariantMap& userinfo);
 
 private:
     QPushButton *m_accountBtn;
+    const SyncModel* m_model;
+    widgets::SettingsGroup* m_userButtonGrp;
+    widgets::NextPageWidget* m_userButton;
 };
 }  // namespace sync
 }  // namespace dcc

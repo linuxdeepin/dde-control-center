@@ -8,6 +8,8 @@
 namespace dcc {
 namespace sync {
 class SyncWidget;
+class SyncWorker;
+class SyncModel;
 class SyncModule : public QObject, public ModuleInterface {
     Q_OBJECT
 public:
@@ -27,6 +29,8 @@ Q_SIGNALS:
 public Q_SLOTS:
 
 private:
+    SyncWorker* m_worker;
+    SyncModel* m_model;
     SyncWidget *m_moduleWidget;
 };
 }  // namespace sync

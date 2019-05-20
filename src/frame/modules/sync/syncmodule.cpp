@@ -1,5 +1,9 @@
 #include "syncmodule.h"
 #include "syncwidget.h"
+#include "syncworker.h"
+#include "syncmodel.h"
+
+#include <QThread>
 
 using namespace dcc;
 using namespace dcc::sync;
@@ -14,12 +18,15 @@ SyncModule::SyncModule(FrameProxyInterface *frame, QObject *parent)
 
 SyncModule::~SyncModule()
 {
-
 }
 
 void SyncModule::initialize()
 {
+    m_model = new SyncModel;
+    m_worker = new SyncWorker(m_model);
 
+    m_model->moveToThread(qApp->thread());
+    m_worker->moveToThread(qApp->thread());
 }
 
 const QString SyncModule::name() const
@@ -29,12 +36,12 @@ const QString SyncModule::name() const
 
 void SyncModule::moduleActive()
 {
-
+    m_worker->activate();
 }
 
 void SyncModule::moduleDeactive()
 {
-
+    m_worker->deactivate();
 }
 
 void SyncModule::reset()
@@ -46,6 +53,9 @@ ModuleWidget *SyncModule::moduleWidget()
 {
     if (!m_moduleWidget) {
         m_moduleWidget = new SyncWidget;
+        m_moduleWidget->setModel(m_model);
+
+        connect(m_moduleWidget, &SyncWidget::requestLogin, m_worker, &SyncWorker::loginUser);
     }
 
     return m_moduleWidget;

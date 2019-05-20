@@ -2,6 +2,7 @@
 #define SYNCMODEL_H
 
 #include <QObject>
+#include <QVariantMap>
 
 namespace dcc {
 namespace sync {
@@ -12,9 +13,14 @@ public:
 
     enum SyncType { Network, Sound, Mouse, Update, Dock, Launcher, Wallpaper };
 
-Q_SIGNALS:
+    const QVariantMap userinfo() const { return m_userinfo; }
+    void setUserinfo(const QVariantMap &userinfo);
 
-public Q_SLOTS:
+Q_SIGNALS:
+    void userInfoChanged(const QVariantMap &userInfo);
+
+private:
+    QVariantMap m_userinfo;
 };
 }  // namespace sync
 }  // namespace dcc

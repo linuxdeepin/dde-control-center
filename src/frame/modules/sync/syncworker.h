@@ -24,6 +24,8 @@ public:
 
 public Q_SLOTS:
     void setSync(SyncModel::SyncType type, bool enable);
+    void loginUser();
+    void logoutUser();
 
 private:
     SyncModel *m_model;

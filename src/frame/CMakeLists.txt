@@ -812,7 +812,6 @@ set(QRC
         modules/keyboard/keyboard.qrc
         modules/mouse/mouse.qrc
         widgets/widgets.qrc
-        navigation/navigation.qrc
         modules/sync/sync.qrc
 )
 
