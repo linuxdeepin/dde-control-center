@@ -25,6 +25,8 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     m_deepinId_inter->setSync(false, false);
 
     connect(m_deepinId_inter, &DeepinId::UserInfoChanged, m_model, &SyncModel::setUserinfo);
+    connect(m_syncInter, &SyncInter::StateChanged, this, &SyncWorker::onStateChanged);
+    connect(m_syncInter, &SyncInter::LastSyncTimeChanged, m_model, &SyncModel::setLastSyncTime);
 }
 
 void SyncWorker::activate()
@@ -33,6 +35,8 @@ void SyncWorker::activate()
     m_deepinId_inter->blockSignals(false);
 
     m_model->setUserinfo(m_deepinId_inter->userInfo());
+    onStateChanged(m_syncInter->state());
+    m_model->setLastSyncTime(m_syncInter->lastSyncTime());
 }
 
 void SyncWorker::deactivate()
@@ -54,4 +58,9 @@ void SyncWorker::loginUser()
 void SyncWorker::logoutUser()
 {
     m_deepinId_inter->Logout();
+}
+
+void SyncWorker::onStateChanged(const IntString &state)
+{
+    m_model->setSyncState(std::pair<qint32, QString>(state.state, state.description));
 }

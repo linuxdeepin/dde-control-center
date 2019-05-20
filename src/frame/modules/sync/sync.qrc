@@ -1,3 +1,6 @@
 <RCC>
-    <qresource prefix="/"/>
+    <qresource prefix="/">
+        <file>syncstatewidget.h</file>
+        <file>syncstatewidget.cpp</file>
+    </qresource>
 </RCC>

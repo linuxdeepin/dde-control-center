@@ -673,6 +673,8 @@ set(SYNC_FILES
     modules/sync/syncwidget.h
     modules/sync/syncworker.cpp
     modules/sync/syncworker.h
+    modules/sync/syncstatewidget.h
+    modules/sync/syncstatewidget.cpp
 )
 
 # load systeminfo

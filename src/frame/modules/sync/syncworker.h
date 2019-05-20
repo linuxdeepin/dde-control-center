@@ -28,6 +28,9 @@ public Q_SLOTS:
     void logoutUser();
 
 private:
+    void onStateChanged(const IntString& state);
+
+private:
     SyncModel *m_model;
     SyncInter *m_syncInter;
     DeepinId *m_deepinId_inter;
