@@ -64,6 +64,7 @@ Q_SIGNALS:
     void requestUpdateKey(ShortcutInfo *info);
     void requestShowConflict(ShortcutInfo *info, const QString &shortcut);
     void requestSaveShortcut(ShortcutInfo *info);
+    void requestReset();
 
 public Q_SLOTS:
     void onSearchTextChanged(const QString &text);

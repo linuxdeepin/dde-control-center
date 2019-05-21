@@ -54,6 +54,8 @@ public:
         shift = 8
     };
 
+    void resetAll();
+
     void setShortcutModel(ShortcutModel * model);
 
     void refreshShortcut();

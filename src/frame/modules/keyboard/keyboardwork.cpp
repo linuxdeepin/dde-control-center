@@ -80,6 +80,17 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
 #endif
 }
 
+void KeyboardWorker::resetAll() {
+    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(m_keybindInter->Reset(), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *reply) {
+        watcher->deleteLater();
+
+        if (reply->isError()) {
+            qWarning() << Q_FUNC_INFO << reply->error();
+        }
+    });
+}
+
 void KeyboardWorker::setShortcutModel(ShortcutModel *model)
 {
     m_shortcutModel = model;

@@ -217,6 +217,7 @@ void KeyboardModule::onPushShortcut()
         connect(m_shortcutWidget, &ShortcutWidget::requestSaveShortcut, m_work, &KeyboardWorker::modifyShortcutEdit);
         connect(m_shortcutWidget, &ShortcutWidget::requestDisableShortcut, m_work, &KeyboardWorker::onDisableShortcut);
         connect(m_shortcutWidget, &ShortcutWidget::shortcutEditChanged, this, &KeyboardModule::onShortcutEdit);
+        connect(m_shortcutWidget, &ShortcutWidget::requestReset, m_work, &KeyboardWorker::resetAll);
         connect(m_work, &KeyboardWorker::removed, m_shortcutWidget, &ShortcutWidget::onRemoveItem);
         connect(m_work, SIGNAL(searchChangd(ShortcutInfo*,QString)), m_shortcutWidget, SLOT(onSearchInfo(ShortcutInfo*,QString)));
     }

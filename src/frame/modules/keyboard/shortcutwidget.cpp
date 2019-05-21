@@ -77,12 +77,17 @@ ShortcutWidget::ShortcutWidget(ShortcutModel *model, QWidget *parent)
 
     m_addCustom = new QPushButton(tr("Add Custom Shortcut"));
 
+    QPushButton* resetBtn = new QPushButton(tr("Restore Defaults"));
+
     m_layout->addWidget(m_addCustom);
-    m_layout->addSpacing(20);
+    m_layout->addSpacing(10);
+    m_layout->addWidget(resetBtn);
+    m_layout->addSpacing(10);
     m_widget->setLayout(m_layout);
 
     setContent(m_widget);
     connect(m_addCustom, SIGNAL(clicked()), this, SIGNAL(customShortcut()));
+    connect(resetBtn, &QPushButton::clicked, this, &ShortcutWidget::requestReset);
     connect(m_searchInput, &QLineEdit::textChanged, this, &ShortcutWidget::onSearchTextChanged);
     connect(m_searchDelayTimer, &QTimer::timeout, this, &ShortcutWidget::prepareSearchKeys);
     setTitle(tr("Shortcuts"));
