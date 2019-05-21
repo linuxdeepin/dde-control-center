@@ -79,6 +79,9 @@ public:
     inline bool allowEnableMultiScaleRatio() { return m_allowEnableMultiScaleRatio; }
     void setAllowEnableMultiScaleRatio(bool allowEnableMultiScaleRatio);
 
+    inline bool isMerge() const { return m_isMerged; }
+    void setIsMerge(bool isMerge);
+
 Q_SIGNALS:
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;
@@ -121,6 +124,7 @@ private:
     bool m_redshiftIsValid;
     bool m_redshiftSetting;
     bool m_allowEnableMultiScaleRatio;
+    bool m_isMerged;
     BrightnessMap m_brightnessMap;
     std::pair<int, QString> m_lastConfig;
 };

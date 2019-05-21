@@ -122,6 +122,8 @@ void DisplayWorker::mergeScreens()
 {
     qDebug() << Q_FUNC_INFO;
 
+    m_model->setIsMerge(true);
+
     // TODO: make asynchronous
     const QList<Resolution> commonModes = m_displayInter.ListOutputsCommonModes();
     Q_ASSERT(!commonModes.isEmpty());
@@ -152,6 +154,8 @@ void DisplayWorker::mergeScreens()
 void DisplayWorker::splitScreens()
 {
     qDebug() << Q_FUNC_INFO;
+
+    m_model->setIsMerge(false);
 
     const auto mList = m_model->monitorList();
     Q_ASSERT(mList.size() == 2);

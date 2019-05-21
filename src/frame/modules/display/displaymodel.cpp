@@ -44,6 +44,7 @@ DisplayModel::DisplayModel(QObject *parent)
     , m_uiScale(1)
     , m_redshiftSetting(false)
     , m_allowEnableMultiScaleRatio(false)
+    , m_isMerged(false)
 {
 
 }
@@ -228,4 +229,10 @@ void DisplayModel::setAllowEnableMultiScaleRatio(bool allowEnableMultiScaleRatio
     if (m_allowEnableMultiScaleRatio == allowEnableMultiScaleRatio) return;
 
     m_allowEnableMultiScaleRatio = allowEnableMultiScaleRatio;
+}
+
+void DisplayModel::setIsMerge(bool isMerge) {
+    if (m_isMerged == isMerge) return;
+
+    m_isMerged = isMerge;
 }

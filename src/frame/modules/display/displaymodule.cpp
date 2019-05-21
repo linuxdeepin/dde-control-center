@@ -283,6 +283,10 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, const int mod
 {
     m_displayWorker->setMonitorResolution(mon, mode);
 
+    if (m_displayModel->isMerge()) {
+        return;
+    }
+
     if (showTimeoutDialog(mon) != QDialog::Accepted) {
         m_displayWorker->restore();
     }

@@ -325,14 +325,12 @@ void MonitorSettingDialog::onMonitorModeChanged()
     }
     else
     {
-        const int w = m_model->screenWidth();
-        const int h = m_model->screenHeight();
-        const auto list = m_model->monitorsSameModeList();
-        for (int i(0); i != list.size(); ++i)
-        {
-            if (list[i].width() == w && list[i].height() == h)
-            {
-                m_resolutionsModel->setSelectedIndex(m_resolutionsModel->index(i));
+        const ResolutionList list = m_model->monitorsSameModeList();
+        const Resolution mode = m_model->monitorList().first()->currentMode();
+
+        for (auto it = list.cbegin(); it != list.cend(); ++it) {
+            if (it->id() == mode.id()) {
+                m_resolutionsModel->setSelectedIndex(m_resolutionsModel->index(it - list.cbegin()));
                 break;
             }
         }
@@ -366,17 +364,17 @@ void MonitorSettingDialog::onMonitorResolutionSelected(const int index)
 
     if (intersect)
     {
-        const auto modeList = m_model->monitorsSameModeList();
+        const ResolutionList modeList = m_model->monitorsSameModeList();
         Q_ASSERT(modeList.size() > index);
-        const auto mode = modeList[index];
+        const Resolution mode = modeList[index];
 
-        for (auto mon : m_model->monitorList())
-        {
-            const auto list = mon->modeList();
-            for (int i(0); i != list.size(); ++i)
-            {
-                if (list[i].width() == mode.width() && list[i].height() == mode.height())
-                    Q_EMIT requestSetMonitorResolution(mon, list[i].id());
+        for (Monitor* mon : m_model->monitorList()) {
+            const ResolutionList& list = mon->modeList();
+            for (auto it = list.cbegin(); it != list.cend(); ++it) {
+                if (it->width() == mode.width() && it->height() == mode.height()) {
+                    Q_EMIT requestSetMonitorResolution(mon, it->id());
+                    break;
+                }
             }
         }
     } else {
