@@ -44,7 +44,10 @@ SyncStateWidget::SyncStateWidget(QWidget *parent)
         { SyncModel::SyncType::Update, tr("Update Settings") },
         { SyncModel::SyncType::Dock, tr("Dock") },
         { SyncModel::SyncType::Launcher, tr("Launcher") },
-        { SyncModel::SyncType::Wallpaper, tr("Wallpaper") }
+        { SyncModel::SyncType::Wallpaper, tr("Wallpaper") },
+        { SyncModel::SyncType::Theme, tr("Theme") },
+        { SyncModel::SyncType::Power, tr("Power Settings") },
+        { SyncModel::SyncType::Corner, tr("Corner Settings") }
     };
 
     m_moduleGrp = new SettingsGroup;

@@ -19,7 +19,10 @@ public:
         Update,
         Dock,
         Launcher,
-        Wallpaper
+        Wallpaper,
+        Theme,
+        Power,
+        Corner
     };
 
     enum SyncState {

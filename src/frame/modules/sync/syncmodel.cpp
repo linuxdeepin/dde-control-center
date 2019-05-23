@@ -64,10 +64,12 @@ void SyncModel::setEnableSync(bool enableSync)
 
 QMap<SyncModel::SyncType, QString> SyncModel::moduleMap()
 {
-    return QMap<SyncType, QString>{ { Network, "network" },     { Sound, "audio" },
-                                    { Mouse, "peripherals" },   { Update, "updater" },
-                                    { Dock, "dock" },           { Launcher, "launcher" },
-                                    { Wallpaper, "background" } };
+    return QMap<SyncType, QString>{
+        { Network, "network" },      { Sound, "audio" }, { Mouse, "peripherals" },
+        { Update, "updater" },       { Dock, "dock" },   { Launcher, "launcher" },
+        { Wallpaper, "background" }, { Theme, "theme" }, { Power, "power" },
+        { Corner, "corner" }
+    };
 }
 
 void SyncModel::setModuleSyncState(SyncModel::SyncType type, bool state)
