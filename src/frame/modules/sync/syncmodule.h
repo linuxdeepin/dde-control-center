@@ -27,6 +27,7 @@ public:
 Q_SIGNALS:
 
 public Q_SLOTS:
+    void ShowSyncDetails();
 
 private:
     SyncWorker* m_worker;

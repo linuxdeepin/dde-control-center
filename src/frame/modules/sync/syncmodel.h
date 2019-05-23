@@ -12,7 +12,15 @@ class SyncModel : public QObject {
 public:
     explicit SyncModel(QObject *parent = nullptr);
 
-    enum SyncType { Network, Sound, Mouse, Update, Dock, Launcher, Wallpaper };
+    enum SyncType : unsigned int {
+        Network,
+        Sound,
+        Mouse,
+        Update,
+        Dock,
+        Launcher,
+        Wallpaper
+    };
 
     enum SyncState {
         Succeed,
@@ -33,12 +41,28 @@ public:
     inline qlonglong lastSyncTime() const { return m_lastSyncTime; }
     void setLastSyncTime(const qlonglong &lastSyncTime);
 
+    inline bool enableSync() const { return m_enableSync; }
+    void setEnableSync(bool enableSync);
+
+    static QMap<SyncType, QString> moduleMap();
+
+    inline QMap<SyncType, bool> moduleSyncState() const { return m_moduleSyncState; }
+    inline bool getModuleStateByType(SyncType type) {
+        return m_moduleSyncState[type];
+    }
+
+    void setModuleSyncState(SyncType type, bool state);
+
 Q_SIGNALS:
     void userInfoChanged(const QVariantMap &userInfo);
     void syncStateChanged(const std::pair<qint32, QString>& syncState);
     void lastSyncTimeChanged(const qlonglong lastSyncTime);
+    void enableSyncChanged(bool enableSync);
+    void moduleSyncStateChanged(std::pair<SyncType, bool> state);
 
 private:
+    bool m_enableSync;
+    QMap<SyncType, bool> m_moduleSyncState;
     QVariantMap m_userinfo;
     std::pair<qint32, QString> m_syncState;
     qlonglong m_lastSyncTime;

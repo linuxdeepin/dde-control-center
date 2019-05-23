@@ -22,13 +22,17 @@ public:
     virtual void activate();
     virtual void deactivate();
 
+    void refreshSyncState();
+
 public Q_SLOTS:
-    void setSync(SyncModel::SyncType type, bool enable);
+    void setSync(std::pair<SyncModel::SyncType, bool> state);
     void loginUser();
     void logoutUser();
+    void setAutoSync(bool autoSync);
 
 private:
     void onStateChanged(const IntString& state);
+    void onGetModuleSyncStateFinished(QDBusPendingCallWatcher* watcher);
 
 private:
     SyncModel *m_model;

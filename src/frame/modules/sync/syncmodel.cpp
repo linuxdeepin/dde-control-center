@@ -3,7 +3,9 @@
 using namespace dcc;
 using namespace dcc::sync;
 
-SyncModel::SyncModel(QObject *parent) : QObject(parent)
+SyncModel::SyncModel(QObject *parent)
+    : QObject(parent)
+    , m_enableSync(false)
 {
 
 }
@@ -49,4 +51,28 @@ void SyncModel::setLastSyncTime(const qlonglong &lastSyncTime)
     m_lastSyncTime = lastSyncTime;
 
     Q_EMIT lastSyncTimeChanged(lastSyncTime);
+}
+
+void SyncModel::setEnableSync(bool enableSync)
+{
+    if (m_enableSync == enableSync) return;
+
+    m_enableSync = enableSync;
+
+    Q_EMIT enableSyncChanged(enableSync);
+}
+
+QMap<SyncModel::SyncType, QString> SyncModel::moduleMap()
+{
+    return QMap<SyncType, QString>{ { Network, "network" },     { Sound, "audio" },
+                                    { Mouse, "peripherals" },   { Update, "updater" },
+                                    { Dock, "dock" },           { Launcher, "launcher" },
+                                    { Wallpaper, "background" } };
+}
+
+void SyncModel::setModuleSyncState(SyncModel::SyncType type, bool state)
+{
+    m_moduleSyncState[type] = state;
+
+    Q_EMIT moduleSyncStateChanged(std::pair<SyncType, bool>(type, state));
 }

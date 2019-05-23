@@ -2,6 +2,7 @@
 #include "syncwidget.h"
 #include "syncworker.h"
 #include "syncmodel.h"
+#include "syncstatewidget.h"
 
 #include <QThread>
 
@@ -56,6 +57,7 @@ ModuleWidget *SyncModule::moduleWidget()
         m_moduleWidget->setModel(m_model);
 
         connect(m_moduleWidget, &SyncWidget::requestLogin, m_worker, &SyncWorker::loginUser);
+        connect(m_moduleWidget, &SyncWidget::requestShowSyncDetails, this, &SyncModule::ShowSyncDetails);
     }
 
     return m_moduleWidget;
@@ -64,4 +66,15 @@ ModuleWidget *SyncModule::moduleWidget()
 void SyncModule::contentPopped(ContentWidget * const w)
 {
 
+}
+
+void SyncModule::ShowSyncDetails()
+{
+    SyncStateWidget* detailPage = new SyncStateWidget;
+    detailPage->setModel(m_model);
+
+    connect(detailPage, &SyncStateWidget::requestEnableSync, m_worker, &SyncWorker::setAutoSync);
+    connect(detailPage, &SyncStateWidget::requestSetModuleState, m_worker, &SyncWorker::setSync);
+
+    m_frameProxy->pushWidget(this, detailPage);
 }

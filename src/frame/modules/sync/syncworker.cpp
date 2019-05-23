@@ -5,16 +5,6 @@ using namespace dcc::sync;
 
 static QString SYNC_INTERFACE = "com.deepin.sync.Daemon";
 
-static const QMap<SyncModel::SyncType, QString> SYNC_TYPE_MAP {
-    {SyncModel::SyncType::Network, "network"},
-    {SyncModel::SyncType::Sound, "sound_effect"},
-    {SyncModel::SyncType::Mouse, "peripherals"},
-    {SyncModel::SyncType::Update, "updater"},
-    {SyncModel::SyncType::Dock, "dock"},
-    {SyncModel::SyncType::Launcher, "launcher"},
-    {SyncModel::SyncType::Wallpaper, "Background"},
-};
-
 SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
@@ -37,6 +27,8 @@ void SyncWorker::activate()
     m_model->setUserinfo(m_deepinId_inter->userInfo());
     onStateChanged(m_syncInter->state());
     m_model->setLastSyncTime(m_syncInter->lastSyncTime());
+
+    refreshSyncState();
 }
 
 void SyncWorker::deactivate()
@@ -45,9 +37,15 @@ void SyncWorker::deactivate()
     m_deepinId_inter->blockSignals(true);
 }
 
-void SyncWorker::setSync(SyncModel::SyncType type, bool enable)
+void SyncWorker::refreshSyncState()
 {
-    m_syncInter->SwitcherSet(SYNC_TYPE_MAP[type], enable);
+    QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(m_syncInter->SwitcherDump(), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, &SyncWorker::onGetModuleSyncStateFinished);
+}
+
+void SyncWorker::setSync(std::pair<SyncModel::SyncType, bool> state)
+{
+    m_syncInter->SwitcherSet(m_model->moduleMap()[state.first], state.second);
 }
 
 void SyncWorker::loginUser()
@@ -60,7 +58,37 @@ void SyncWorker::logoutUser()
     m_deepinId_inter->Logout();
 }
 
+void SyncWorker::setAutoSync(bool autoSync)
+{
+    m_syncInter->SwitcherSet("enabled", autoSync);
+}
+
 void SyncWorker::onStateChanged(const IntString &state)
 {
     m_model->setSyncState(std::pair<qint32, QString>(state.state, state.description));
+}
+
+void SyncWorker::onGetModuleSyncStateFinished(QDBusPendingCallWatcher *watcher)
+{
+    watcher->deleteLater();
+
+    if (watcher->isError()) {
+        qWarning() << watcher->error();
+        return;
+    }
+
+    QDBusReply<QString> reply = watcher->reply();
+    QJsonObject obj = QJsonDocument::fromJson(reply.value().toUtf8()).object();
+
+    if (obj.isEmpty()) {
+        qWarning() << "Sync Info is Wrong!";
+        return;
+    }
+
+    m_model->setEnableSync(obj["enabled"].toBool());
+
+    QMap<SyncModel::SyncType, QString> moduleMap = m_model->moduleMap();
+    for (auto it = moduleMap.cbegin(); it != moduleMap.cend(); ++it) {
+        m_model->setModuleSyncState(it.key(), obj[it.value()].toBool());
+    }
 }

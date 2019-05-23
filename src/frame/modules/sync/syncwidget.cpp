@@ -29,7 +29,7 @@ SyncWidget::SyncWidget()
     m_userButton->hide();
 
     connect(m_accountBtn, &QPushButton::clicked, this, &SyncWidget::requestLogin);
-    connect(m_userButton, &NextPageWidget::acceptNextPage, this, &SyncWidget::requestShowSyncDetails);
+    connect(m_userButton, &NextPageWidget::clicked, this, &SyncWidget::requestShowSyncDetails);
 }
 
 void SyncWidget::setModel(const SyncModel * const model)
@@ -43,13 +43,14 @@ void SyncWidget::setModel(const SyncModel * const model)
 
 void SyncWidget::onUserInfoChanged(const QVariantMap &userinfo)
 {
-    const bool isLogind = !userinfo.isEmpty();
+    const QString& username = userinfo["Username"].toString();
+    const bool isLogind = !username.isEmpty();
 
     m_accountBtn->setVisible(!isLogind);
     m_userButton->setVisible(isLogind);
     m_userButtonGrp->setVisible(isLogind);
 
     if (isLogind) {
-        m_userButton->setTitle(userinfo["Username"].toString());
+        m_userButton->setTitle(username);
     }
 }
