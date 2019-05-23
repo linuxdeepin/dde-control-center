@@ -290,17 +290,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <translation>Opdateringer</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Afhængighedsfejl, kunne ikke registrere opdateringerne</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Fejl ved registrering af opdateringer</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Opdateringer registreret, klik for at vise</translation>
     </message>
@@ -1071,7 +1071,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Trådløs skærmprojektion</translation>
     </message>
@@ -1464,7 +1464,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <translation>Tilføj brugerdefineret genvej</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Genveje</translation>
     </message>

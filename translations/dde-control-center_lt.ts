@@ -292,17 +292,17 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
         <translation>Atnaujinimai</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Priklausomybių klaida, nepavyko aptikti atnaujinimų</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Atnaujinimų aptikimo nesėkmė</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Aptikti atnaujinimai, spustelėkite, norėdami peržiūrėti</translation>
     </message>
@@ -1073,7 +1073,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
         <translation>Mastelio nustatymai</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Belaidis ekrano projektorius</translation>
     </message>
@@ -1466,7 +1466,12 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
         <translation>Pridėti tinkintą trumpinį</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation>Atkurti numatytuosius</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Trumpiniai</translation>
     </message>
@@ -1632,7 +1637,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"/>
+        <translation>Sukonfigūravę, leistuke, programos kontekstiniame meniu ieškokite &quot;Naudoti įgaliotąjį serverį&quot;</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

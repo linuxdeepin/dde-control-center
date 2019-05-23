@@ -290,17 +290,17 @@ simpan, jika tiada apa-apa operaasi, paparan akan dipulihkan selepas %1s.</trans
         <translation>Kemaskini</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Ralat dependensi, gagal mengesan kemaskini</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Kegagalan mengesan kemaskini</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Kemaskini dikesan, klik untuk lihat</translation>
     </message>
@@ -1071,7 +1071,7 @@ simpan, jika tiada apa-apa operaasi, paparan akan dipulihkan selepas %1s.</trans
         <translation>Tetapan Penskalaan</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Unjuran Skrin Tanpa Wayar</translation>
     </message>
@@ -1464,7 +1464,12 @@ simpan, jika tiada apa-apa operaasi, paparan akan dipulihkan selepas %1s.</trans
         <translation>Tambah Pintasan Suai</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation>Pulih ke Lalai</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Pintasan</translation>
     </message>
@@ -1630,7 +1635,7 @@ simpan, jika tiada apa-apa operaasi, paparan akan dipulihkan selepas %1s.</trans
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"/>
+        <translation>Tanda &quot;Guna satu proksi&quot; pada menu konteks aplikasi di dalam Pelancar selepas dikonfigurkan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

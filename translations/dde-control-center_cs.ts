@@ -290,17 +290,17 @@ Pokud neuděláte nic, zobrazení bude obnoveno za %1s.</translation>
         <translation>Aktualizace</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Chyba závislosti. Nepodařilo se zjistit aktualizace</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Zjištění aktualizací selhalo</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Zjištěny aktualizace. Klepněte pro zobrazení</translation>
     </message>
@@ -1071,7 +1071,7 @@ Pokud neuděláte nic, zobrazení bude obnoveno za %1s.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Bezdrátové promítání na plátno</translation>
     </message>
@@ -1464,7 +1464,12 @@ Pokud neuděláte nic, zobrazení bude obnoveno za %1s.</translation>
         <translation>Přidat vlastní zkratku</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Klávesové zkratky</translation>
     </message>

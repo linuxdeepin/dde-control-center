@@ -290,17 +290,17 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
         <translation>Updates</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Afhankelijkheidsfout, bijwerken mislukt</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Bijwerken mislukt</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Er zijn updates beschikbaar, klik om ze te bekijken</translation>
     </message>
@@ -407,7 +407,7 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>Login Zonder Wachtwoord</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -513,12 +513,12 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
-        <translation type="unfinished"/>
+        <translation>Kan vingerafdruk niet identificeren, plaats uw vinger op de vingerafdrukrecorder, beweeg uw vinger van beneden omhoog en ontspan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
-        <translation type="unfinished"/>
+        <translation>Plaats uw vinger op de vingerafdrukrecorder, beweeg uw vinger van beneden omhoog en ontspan, herhaal vervolgens deze stappen</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
@@ -1043,7 +1043,7 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Schaling Weergeven</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
@@ -1071,7 +1071,7 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Draadloze Schermprojectie</translation>
     </message>
@@ -1181,7 +1181,7 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Schaling Weergeven</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
@@ -1464,7 +1464,12 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
         <translation>Aangepaste sneltoets toevoegen</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Sneltoetsen</translation>
     </message>
@@ -1588,7 +1593,7 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="46"/>
         <source>Application Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Toepassingsproxy</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="49"/>
@@ -1801,7 +1806,7 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
         <source>Auto connect</source>
-        <translation type="unfinished"/>
+        <translation>Automatisch verbinden</translation>
     </message>
 </context>
 <context>
@@ -1996,7 +2001,7 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
         <source>Application Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Toepassingsproxy</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
@@ -2529,17 +2534,17 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation type="unfinished"/>
+        <translation>LZO Datacompressie Gebruiken</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
-        <translation type="unfinished"/>
+        <translation>TCP-verbinding Gebruiken</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
-        <translation type="unfinished"/>
+        <translation>TAP-apparaat Gebruiken</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
@@ -3140,12 +3145,12 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
-        <translation type="unfinished"/>
+        <translation>Certificatie Waarschuwingen Negeren</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik TLS Hostnaam Extensies</translation>
     </message>
 </context>
 <context>
@@ -3347,7 +3352,7 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable Custom Cipher Proposals</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik Gewone Cijfer Voorstellen</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
@@ -3491,7 +3496,7 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
         <source>Plug in the network cable first</source>
-        <translation type="unfinished"/>
+        <translation>Sluit eerst de netwerkkabel aan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
@@ -3514,7 +3519,7 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
         <source>Close Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Hotspot Sluiten</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
@@ -3633,7 +3638,7 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Window Effect</source>
-        <translation type="unfinished"/>
+        <translation>Venster Effect</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
@@ -4045,7 +4050,7 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="unfinished"/>
+        <translation>Het bijwerken kan lang duren, gelieve het systeem niet af te sluiten of te herstarten tijdens dit proces.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
@@ -4167,12 +4172,12 @@ Zonder bewerking zal het venster hersteld worden na %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto Clear Package Cache</source>
-        <translation type="unfinished"/>
+        <translation>Cachegeheugen Van Een Pakket Automatisch Wissen</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
         <source>System Source Detection</source>
-        <translation type="unfinished"/>
+        <translation>Systeembron Detectie</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>

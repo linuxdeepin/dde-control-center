@@ -290,17 +290,17 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
         <translation>Actualizaciones</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Error de dependencia, no se detectaron las actualizaciones.</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Actualizaciones detectando fallas</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Actualizaciones detectadas, clic para verlas</translation>
     </message>
@@ -1071,7 +1071,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
         <translation>Ajustes de escalado</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Proyección a pantalla inalámbrica</translation>
     </message>
@@ -1464,7 +1464,12 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
         <translation>Añadir atajo de teclado personalizado</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Atajos de teclado</translation>
     </message>
@@ -1630,7 +1635,7 @@ Si no se realiza ninguna operación, la pantalla se restaurará después de% 1s.
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"/>
+        <translation>Marque &quot;Usar un proxy&quot; en el menú contextual de la aplicación en el Lanzador después de configurar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

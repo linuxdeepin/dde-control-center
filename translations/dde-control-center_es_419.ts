@@ -113,7 +113,7 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n día(s) atrás </numerusform><numerusform>Hace %n día(s)</numerusform></translation>
     </message>
 </context>
 <context>
@@ -135,7 +135,8 @@
         <location filename="../src/frame/modules/display/rotatedialog.cpp" line="136"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
 If no operation, the display will be restored after %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Haga clic izquierdo para rotar, clic derecho para restaurar y salir, presione Ctrl+S para guardar.
+ Si no se realiza ninguna operación, la pantalla volverá a restaurarse después de %1s.</translation>
     </message>
 </context>
 <context>
@@ -263,7 +264,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
         <source>Do you want to save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>¿Desea guardar los ajustes de la pantalla?</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
@@ -289,17 +290,17 @@ If no operation, the display will be restored after %1s.</source>
         <translation>Actualizaciones</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Actualizaciones detectadas, clic para verlas</translation>
     </message>
@@ -1070,7 +1071,7 @@ If no operation, the display will be restored after %1s.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Proyector de pantalla inalámbrico</translation>
     </message>
@@ -1463,7 +1464,12 @@ If no operation, the display will be restored after %1s.</source>
         <translation>Añadir atajo de teclado personalizado</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Atajos de teclado</translation>
     </message>

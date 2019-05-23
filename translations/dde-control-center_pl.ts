@@ -135,7 +135,8 @@
         <location filename="../src/frame/modules/display/rotatedialog.cpp" line="136"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
 If no operation, the display will be restored after %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Kliknij lewym przyciskiem mysz, aby obrócić, prawym, aby przywrócić i wyjść, wciśnij kombinację Ctrl+S, aby zapisać.
+W przypadku braku akcji ustawienia zostaną przywrócone za %1s.</translation>
     </message>
 </context>
 <context>
@@ -190,7 +191,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
-        <translation type="unfinished"/>
+        <translation>Rozruch</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
@@ -205,12 +206,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
-        <translation type="unfinished"/>
+        <translation>Wybudzenie</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
-        <translation type="unfinished"/>
+        <translation>Głośność +/-</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="21"/>
@@ -225,7 +226,8 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Wyślij ikonę w programu uruchamiania na pulpit
+</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
@@ -235,22 +237,22 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="25"/>
         <source>Plug in</source>
-        <translation type="unfinished"/>
+        <translation>Podłącz</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Plug out</source>
-        <translation type="unfinished"/>
+        <translation>Odłącz</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
-        <translation type="unfinished"/>
+        <translation>Podłączono urządzenie wymienne</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
-        <translation type="unfinished"/>
+        <translation>Usunięto urządzenie wymienne</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="29"/>
@@ -263,12 +265,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
         <source>Do you want to save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Czy chcesz zapisać ustawienia wyświetlania?</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
         <source>If no operation, the display will be restored after %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Jeśli brak działania, wyświetlacz zostanie przywrócony po %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
@@ -289,17 +291,17 @@ If no operation, the display will be restored after %1s.</source>
         <translation>Aktualizacje</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <translation>Błąd zależności, nie udało się wykryć aktualizacji</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizacje wykryły awarię</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Wykryto aktualizacje; kliknij, aby zobaczyć</translation>
     </message>
@@ -406,7 +408,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>Zaloguj się bez hasła</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -459,27 +461,27 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Twój host został pomyślnie usunięty z serwera domeny</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="325"/>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Twój host pomyślnie dołącza się do serwera domeny</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Twój host nie opuścił serwera domeny</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="348"/>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Twój host nie przyłączył się do serwera domeny</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="420"/>
         <source>Password not match</source>
-        <translation type="unfinished"/>
+        <translation>Hasło nie pasuje</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="351"/>
@@ -512,17 +514,17 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
-        <translation type="unfinished"/>
+        <translation>Nie można zidentyfikować odcisku palca, połóż palec na czytniku linii papilarnych, przesunąć w górę i zwolnić</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
-        <translation type="unfinished"/>
+        <translation>Umieść palec na czytniku linii papilarnych, przesuń palcem w górę, a następnie powtórz</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Added successfully</source>
-        <translation type="unfinished"/>
+        <translation>Dodano pomyślnie</translation>
     </message>
 </context>
 <context>
@@ -567,17 +569,17 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="151"/>
         <source>Username can&apos;t be empty</source>
-        <translation type="unfinished"/>
+        <translation>Nazwa użytkownika nie może być pusta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="154"/>
         <source>Password can&apos;t be empty</source>
-        <translation type="unfinished"/>
+        <translation>Hasło nie może być puste</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="256"/>
         <source>The password should be different from the username</source>
-        <translation type="unfinished"/>
+        <translation>Hasło powinno być inne niż nazwa użytkownika</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="262"/>
@@ -684,7 +686,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="207"/>
         <source>The password should be different from the username</source>
-        <translation type="unfinished"/>
+        <translation>Hasło powinno być inne niż nazwa użytkownika</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="215"/>
@@ -921,7 +923,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="55"/>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Strona internetowa</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="56"/>
@@ -1042,7 +1044,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Skalowanie wyświetlania</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
@@ -1067,10 +1069,10 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
         <source>Scaling Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia skalowania</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Bezprzewodowy projektor ekranu</translation>
     </message>
@@ -1098,7 +1100,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="51"/>
         <source>WIFI will be disconnected when screen projection is enabled</source>
-        <translation type="unfinished"/>
+        <translation>WIFI zostanie rozłączone, gdy wyświetlanie ekranu jest włączone</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="55"/>
@@ -1175,22 +1177,22 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="56"/>
         <source>Some applications in multi-screens may not scale as the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Niektóre aplikacje na wielu ekranach mogą nie być skalowane jako ustawienia.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Skalowanie wyświetlania</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
         <source>Display scaling for %1</source>
-        <translation type="unfinished"/>
+        <translation>Skalowanie wyświetlania  dla %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="87"/>
         <source>Display scaling for all monitors</source>
-        <translation type="unfinished"/>
+        <translation>Skalowanie wyświetlania dla wszystkich monitorów</translation>
     </message>
 </context>
 <context>
@@ -1463,7 +1465,12 @@ If no operation, the display will be restored after %1s.</source>
         <translation>Dodaj własny skrót</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Skróty</translation>
     </message>
@@ -1587,7 +1594,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="46"/>
         <source>Application Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy aplikacji</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="49"/>
@@ -1629,7 +1636,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"/>
+        <translation>Zaznacz „Użyj serwera proxy” w menu kontekstowym aplikacji w programie uruchamiającym po skonfigurowaniu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
@@ -1736,7 +1743,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="190"/>
         <source>VPN SSTP %1</source>
-        <translation type="unfinished"/>
+        <translation>VPN SSTP %1</translation>
     </message>
 </context>
 <context>
@@ -1800,7 +1807,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
         <source>Auto connect</source>
-        <translation type="unfinished"/>
+        <translation>Automatyczne połączenie</translation>
     </message>
 </context>
 <context>
@@ -1995,7 +2002,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
         <source>Application Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy aplikacji</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
@@ -2218,7 +2225,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="83"/>
         <source>SOCKS Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy SOCKS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="70"/>
@@ -2528,17 +2535,17 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation type="unfinished"/>
+        <translation>Użyj kompresji danych LZO</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
-        <translation type="unfinished"/>
+        <translation>Użyj połączenia TCP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
-        <translation type="unfinished"/>
+        <translation>Użyj urządzenia TAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
@@ -3061,7 +3068,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="284"/>
         <source>SSTP</source>
-        <translation type="unfinished"/>
+        <translation>SSTP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="311"/>
@@ -3089,7 +3096,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
@@ -3139,12 +3146,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
-        <translation type="unfinished"/>
+        <translation>Ignoruj ostrzeżenia certyfikatu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation type="unfinished"/>
+        <translation>Użyj rozszerzeń nazwy hosta TLS</translation>
     </message>
 </context>
 <context>
@@ -3237,7 +3244,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Proxy VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
@@ -3346,7 +3353,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable Custom Cipher Proposals</source>
-        <translation type="unfinished"/>
+        <translation>Włącz niestandardowe propozycje szyfrów</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
@@ -3490,7 +3497,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
         <source>Plug in the network cable first</source>
-        <translation type="unfinished"/>
+        <translation>Najpierw podłącz kabel sieciowy</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
@@ -3513,12 +3520,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
         <source>Close Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Zamknij Hotspot</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation type="unfinished"/>
+        <translation>Jeśli chcesz połączyć się z siecią bezprzewodową, wyłącz najpierw udostępnianie hotspotów</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
@@ -3632,7 +3639,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Window Effect</source>
-        <translation type="unfinished"/>
+        <translation>Efekt okna</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
@@ -3786,7 +3793,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="62"/>
         <source>System Sound Effect</source>
-        <translation type="unfinished"/>
+        <translation>Systemowy efekt dźwiękowy</translation>
     </message>
 </context>
 <context>
@@ -3864,7 +3871,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="82"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Włącz temat, aby wyświetlić go w menu startowym</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="102"/>
@@ -3892,7 +3899,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="43"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation type="unfinished"/>
+        <translation>Copyright © 2011-% 1 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -4014,7 +4021,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="66"/>
         <source>Updated successfully</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizacja zakończona sukcesem</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="67"/>
@@ -4044,7 +4051,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="unfinished"/>
+        <translation>Ta aktualizacja może zająć dużo czasu, nie wyłączaj się ani nie uruchamiaj ponownie podczas procesu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
@@ -4095,7 +4102,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <translation>Błąd zależności, nie udało się wykryć aktualizacji</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
@@ -4166,12 +4173,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto Clear Package Cache</source>
-        <translation type="unfinished"/>
+        <translation>Automatyczne kasowanie pamięci podręcznej pakietu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
         <source>System Source Detection</source>
-        <translation type="unfinished"/>
+        <translation>Wykrywanie źródła systemu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>
@@ -4186,7 +4193,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation type="unfinished"/>
+        <translation>Włącz go, aby automatycznie połączyć się z najszybszą witryną lustrzaną</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="113"/>
@@ -4218,7 +4225,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="245"/>
         <source>System patches</source>
-        <translation type="unfinished"/>
+        <translation>Poprawki systemowe</translation>
     </message>
 </context>
 <context>

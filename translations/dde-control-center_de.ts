@@ -290,17 +290,17 @@ Bei keiner Eingabe werden die Einstellungen in %1s zurückgesetzt.</translation>
         <translation>Aktualisierungen</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Abhängigkeitsfehler, Fehler beim Suchen von Updates</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Fehler beim Finden von Updates</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Aktualisierungen gefunden, klicken Sie hier für Details</translation>
     </message>
@@ -568,12 +568,12 @@ Bei keiner Eingabe werden die Einstellungen in %1s zurückgesetzt.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="151"/>
         <source>Username can&apos;t be empty</source>
-        <translation>Benutzername darf nicht leer sein.</translation>
+        <translation>Benutzername darf nicht leer sein</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="154"/>
         <source>Password can&apos;t be empty</source>
-        <translation>Passwort darf nicht leer sein.</translation>
+        <translation>Passwort darf nicht leer sein</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="256"/>
@@ -1071,7 +1071,7 @@ Bei keiner Eingabe werden die Einstellungen in %1s zurückgesetzt.</translation>
         <translation>Skalierungseinstellungen</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Drahtlose Bildschirmprojektion</translation>
     </message>
@@ -1464,7 +1464,12 @@ Bei keiner Eingabe werden die Einstellungen in %1s zurückgesetzt.</translation>
         <translation>Angepasstes Tastenkürzel hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation>Standardeinstellungen wiederherstellen</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Tastenkürzel</translation>
     </message>
@@ -1630,7 +1635,7 @@ Bei keiner Eingabe werden die Einstellungen in %1s zurückgesetzt.</translation>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"/>
+        <translation>Auswählen von &quot;Proxy benutzen&quot; im Kontextmenü der Anwendung im Starter, um das Programm mit der Proxy-Konfiguration auszuführen.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

@@ -290,17 +290,17 @@ Ako nema operacija, monitor će se obnoviti nakon %1s.</translation>
         <translation>Ažuriranja</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Greška zavisnosti, neuspjelo otkrivanje ažuriranja</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Neuspjelo otkrivanje ažuriranja</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Otkrivena su ažuriranja, klikni za pregled</translation>
     </message>
@@ -1071,7 +1071,7 @@ Ako nema operacija, monitor će se obnoviti nakon %1s.</translation>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation type="unfinished"/>
     </message>
@@ -1464,7 +1464,12 @@ Ako nema operacija, monitor će se obnoviti nakon %1s.</translation>
         <translation>Dodaj prilagođeni prečac</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Prečaci</translation>
     </message>

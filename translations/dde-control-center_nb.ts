@@ -290,17 +290,17 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
         <translation>Oppdateringer</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Avhengighetsfeil, klarte ikke å finne oppdateringene</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Feil med å finne oppdateringer</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Oppdateringer funnet, klikk her for å vise</translation>
     </message>
@@ -407,7 +407,7 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>Innlogging uten passord</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -513,12 +513,12 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
-        <translation type="unfinished"/>
+        <translation>Klarte ikke å identifisere fingeravtrykk. Legg fingeren på fingeravtrykksleseren, dra oppover og slipp.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
-        <translation type="unfinished"/>
+        <translation>Legg fingeren på fingeravtrykksleseren, dra oppover og gjenta.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
@@ -1043,7 +1043,7 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Skjermskalering</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
@@ -1068,10 +1068,10 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
         <source>Scaling Settings</source>
-        <translation type="unfinished"/>
+        <translation>Skaleringsinnstillinger</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Trådløs skjermprojisering</translation>
     </message>
@@ -1176,22 +1176,22 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="56"/>
         <source>Some applications in multi-screens may not scale as the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Noen programmer vil kanskje ikke skalere som innstilt på flere skjermer.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Skjermskalering</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
         <source>Display scaling for %1</source>
-        <translation type="unfinished"/>
+        <translation>Skjermskalering for %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="87"/>
         <source>Display scaling for all monitors</source>
-        <translation type="unfinished"/>
+        <translation>Skjermskalering for alle skjermer</translation>
     </message>
 </context>
 <context>
@@ -1464,7 +1464,12 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
         <translation>Legg til egendefinert snarvei</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Hurtigtaster</translation>
     </message>
@@ -1801,7 +1806,7 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
         <source>Auto connect</source>
-        <translation type="unfinished"/>
+        <translation>Automatisk tilkobling</translation>
     </message>
 </context>
 <context>
@@ -3515,7 +3520,7 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
         <source>Close Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Lukk Hotspot</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
@@ -3634,7 +3639,7 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Window Effect</source>
-        <translation type="unfinished"/>
+        <translation>Vinduseffekt</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
@@ -4046,7 +4051,7 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="unfinished"/>
+        <translation>Denne oppdateringen kan ta lang tid. Vennligst ikke skru av eller gjør en omstart mens oppdateringen pågår.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
@@ -4168,7 +4173,7 @@ Hvis ingen operasjon vil skjermen bli gjenopprettet om %1 sek.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto Clear Package Cache</source>
-        <translation type="unfinished"/>
+        <translation>Automatisk tømming av forhåndslager for pakker</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>

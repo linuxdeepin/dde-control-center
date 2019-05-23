@@ -4,12 +4,12 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Updates installed! A restart is required, restart now?</source>
-        <translation>Frissítések települtek! Újraindítás szükséges, szeretné most megtenni?</translation>
+        <translation>Frissítések települtek! Újraindítás szükséges, szeretnéd újraindítani most a számítógépet?</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>A folytatás előtt mentse el minden munkáját</translation>
+        <translation>A folytatás előtt ments el mindent</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

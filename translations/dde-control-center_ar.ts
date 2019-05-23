@@ -113,7 +113,7 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>منذ %n يوم</numerusform><numerusform>منذ %n يوم</numerusform><numerusform>منذ يومان</numerusform><numerusform>منذ %n ايام</numerusform><numerusform>منذ %n يوم</numerusform><numerusform>منذ %n يوم</numerusform></translation>
     </message>
 </context>
 <context>
@@ -190,7 +190,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
-        <translation type="unfinished"/>
+        <translation>الاقلاع</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
@@ -205,22 +205,22 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
-        <translation type="unfinished"/>
+        <translation>إيقاظ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
-        <translation type="unfinished"/>
+        <translation>مستوى الصوت +/-</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="21"/>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>اشعارات</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="22"/>
         <source>Low battery</source>
-        <translation type="unfinished"/>
+        <translation>البطارية ضعيفة</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
@@ -263,7 +263,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
         <source>Do you want to save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>هل تريد الاحتفاظ بإعدادات العرض هذه ؟</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
@@ -289,17 +289,17 @@ If no operation, the display will be restored after %1s.</source>
         <translation>التحديثات</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
-        <translation type="unfinished"/>
+        <translation>فشل التحقق من التحديثات</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>هناك تحديثات جديدة٫ انقر لرؤيتها </translation>
     </message>
@@ -406,7 +406,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>تسجيل الدخول دون كلمة مرور</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -479,7 +479,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="420"/>
         <source>Password not match</source>
-        <translation type="unfinished"/>
+        <translation>كلممتا المرور غير متطابقتان</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="351"/>
@@ -522,7 +522,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Added successfully</source>
-        <translation type="unfinished"/>
+        <translation>اضيف بنجاح</translation>
     </message>
 </context>
 <context>
@@ -567,12 +567,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="151"/>
         <source>Username can&apos;t be empty</source>
-        <translation type="unfinished"/>
+        <translation>لا يجب ان تكون خانة اسم المستخدم فارغة</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="154"/>
         <source>Password can&apos;t be empty</source>
-        <translation type="unfinished"/>
+        <translation>لا يجب ان تكون خانة كلمة المرور فارغة</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="256"/>
@@ -921,7 +921,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="55"/>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>صفحة الويب</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="56"/>
@@ -996,7 +996,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/display/brightnesspage.cpp" line="95"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>سطوع تلقائى</translation>
     </message>
 </context>
 <context>
@@ -1070,7 +1070,7 @@ If no operation, the display will be restored after %1s.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>شاشة إسقاط لاسلكية </translation>
     </message>
@@ -1098,7 +1098,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="51"/>
         <source>WIFI will be disconnected when screen projection is enabled</source>
-        <translation type="unfinished"/>
+        <translation>سيتم قطع شبكة الواي فاي عند تمكين شاشة اﻹسقاط</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="55"/>
@@ -1463,7 +1463,12 @@ If no operation, the display will be restored after %1s.</source>
         <translation>إضافة اختصار مخصص</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>الإختصارات</translation>
     </message>
@@ -1675,12 +1680,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="343"/>
         <source>Wired Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>اتصال سلكي %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="347"/>
         <source>Wireless Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>اتصال لاسلكي  %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="351"/>
@@ -1693,7 +1698,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/connectionhotspoteditpage.cpp" line="47"/>
         <source>hotspot</source>
-        <translation type="unfinished"/>
+        <translation>نقطة الإتصال</translation>
     </message>
 </context>
 <context>
@@ -1800,7 +1805,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
         <source>Auto connect</source>
-        <translation type="unfinished"/>
+        <translation>اتصال تلقائي</translation>
     </message>
 </context>
 <context>
@@ -3627,12 +3632,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="46"/>
         <source>Transparency</source>
-        <translation type="unfinished"/>
+        <translation>الشفافية</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Window Effect</source>
-        <translation type="unfinished"/>
+        <translation>تأثيرات النوافذ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
@@ -3786,7 +3791,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="62"/>
         <source>System Sound Effect</source>
-        <translation type="unfinished"/>
+        <translation>مؤثرات صوت النظام</translation>
     </message>
 </context>
 <context>
@@ -4014,7 +4019,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="66"/>
         <source>Updated successfully</source>
-        <translation type="unfinished"/>
+        <translation>تم التحديث بنجاح</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="67"/>
@@ -4218,7 +4223,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="245"/>
         <source>System patches</source>
-        <translation type="unfinished"/>
+        <translation>تصحيحات النظام.</translation>
     </message>
 </context>
 <context>
@@ -4239,7 +4244,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>حساسية الضغط</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
@@ -4249,7 +4254,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>ثقيل</translation>
     </message>
 </context>
 <context>
