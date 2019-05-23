@@ -1,3 +1,18 @@
+<a name="4.10.5"></a>
+### 4.10.5 (2019-05-23)
+
+
+#### Bug Fixes
+
+*   missing polkit policy file ([0021142d](https://github.com/linuxdeepin/dde-control-center/commit/0021142d1740f915f0588fd128449bca3544a993))
+* **display:**  Adjust the resolution when merging the screen, destroy the merge ([b7136579](https://github.com/linuxdeepin/dde-control-center/commit/b71365797b67937113bb40b2d43db523275938cd))
+
+#### Features
+
+* **shortcut:**  add restore defaults button ([cebb30a2](https://github.com/linuxdeepin/dde-control-center/commit/cebb30a221d5421bcb3ea991254bdb8cbfd95677))
+
+
+
 <a name="4.10.4"></a>
 ### 4.10.4 (2019-05-13)
 
