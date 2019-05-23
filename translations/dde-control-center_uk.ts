@@ -113,7 +113,7 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>%n день тому</numerusform><numerusform>%n дні тому</numerusform><numerusform>%n днів тому</numerusform><numerusform>%n день тому</numerusform></translation>
+        <translation><numerusform>%n день(ів) тому</numerusform><numerusform>%n день(ів) тому</numerusform><numerusform>%n день(ів) тому</numerusform><numerusform>%n день(ів) тому</numerusform></translation>
     </message>
 </context>
 <context>
@@ -290,17 +290,17 @@ If no operation, the display will be restored after %1s.</source>
         <translation>Оновлення</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Помилка у залежностях. Не вдалося виявити оновлення.</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Помилка у виявленні оновлень</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Виявлено оновлення, натисніть для перегляду</translation>
     </message>
@@ -1071,7 +1071,7 @@ If no operation, the display will be restored after %1s.</source>
         <translation>Налаштування масштабування</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Бездротова проекція екрану</translation>
     </message>
@@ -1199,7 +1199,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="51"/>
         <source>Shortcuts</source>
-        <translation>Ярлики</translation>
+        <translation>Гарячі Клавіші</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="60"/>
@@ -1244,7 +1244,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="50"/>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="99"/>
         <source>Shortcuts</source>
-        <translation>Ярлики</translation>
+        <translation>Поєднання Клавіш</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="60"/>
@@ -1287,7 +1287,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcuts</source>
-        <translation>Ярлики</translation>
+        <translation>Гарячі Клавіші</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="105"/>
@@ -1389,7 +1389,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcuts</source>
-        <translation>Ярлики</translation>
+        <translation>Гарячі Клавіші</translation>
     </message>
 </context>
 <context>
@@ -1420,7 +1420,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="60"/>
         <source>Shortcuts</source>
-        <translation>Гарячі клавіші</translation>
+        <translation>Поєднання клавіш</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="93"/>
@@ -1464,9 +1464,14 @@ If no operation, the display will be restored after %1s.</source>
         <translation>Додати швидку клавішу</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation>Відновити за замовчуванням</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
-        <translation>Ярлики</translation>
+        <translation>Поєднання клавіш</translation>
     </message>
 </context>
 <context>
@@ -1630,7 +1635,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"/>
+        <translation>Позначте пункт «Використовувати проксі» у контекстному меню програми у Launcher після налаштовування</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

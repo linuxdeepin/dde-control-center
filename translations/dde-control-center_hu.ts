@@ -66,12 +66,12 @@
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
         <source>Please enter Display module to set if you want to change the custom settings</source>
-        <translation>Megjelenítési mód módosítása</translation>
+        <translation>Egyéni megjelenítési mód változtatása</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
-        <translation>Kattintson a Képernyő mudulra</translation>
+        <translation>Kattints a képernyő modulra</translation>
     </message>
 </context>
 <context>
@@ -136,7 +136,7 @@
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
 If no operation, the display will be restored after %1s.</source>
         <translation>Bal kattintás a forgatáshoz, jobb kattintás a visszaállításhoz és kilépéshez, Ctrl+S a mentéshez.
-Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc elteltével.</translation>
+Ha nem működik, a képernyőbeállítás visszaáll %1 másodperc elteltével.</translation>
     </message>
 </context>
 <context>
@@ -264,12 +264,12 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
         <source>Do you want to save the display settings?</source>
-        <translation>Do you want to save the display settings?</translation>
+        <translation>El akarod menteni a képernyő beállításokat?</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
         <source>If no operation, the display will be restored after %1s.</source>
-        <translation>Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc elteltével.</translation>
+        <translation>Ha nem működik a képernyőbeállítás,  visszaáll %1 másodperc múlva.</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
@@ -279,7 +279,7 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
         <source>Save</source>
-        <translation>Elment</translation>
+        <translation>Ment</translation>
     </message>
 </context>
 <context>
@@ -290,17 +290,17 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
         <translation>Frissítés</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation>Függőségi hiba, frissítések keresése sikertelen</translation>
+        <translation>Függőségi hiba, a frissítések keresése sikertelen</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Frissítés keresési hiba</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Új frissítések elérhetők, kattints a megjelenítéshez.</translation>
     </message>
@@ -310,7 +310,7 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     <message>
         <location filename="../src/frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation>A VPN engedélyezéséhez kattintsunk az ikonra.</translation>
+        <translation>A VPN engedélyezéséhez kattints az ikonra.</translation>
     </message>
 </context>
 <context>
@@ -318,7 +318,7 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="120"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>Sajnáljuk, az időjárási adatok nem elérhetőek</translation>
+        <translation>Az időjárási adatok nem elérhetőek</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="127"/>
@@ -336,7 +336,7 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WIFI</source>
-        <translation>A Wifi engedélyezéséhez kattintsunk az ikonra</translation>
+        <translation>A Wifi engedélyezéséhez kattints az ikonra</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
@@ -460,22 +460,22 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>Gépe sikeresen eltávolításra került a domain szerverről</translation>
+        <translation>A számítógép eltávolítva a domain szerverről</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="325"/>
         <source>Your host joins the domain server successfully</source>
-        <translation>Gépe sikeresen csatlakozott a domain szerverhez</translation>
+        <translation>A számítógép csatlakozott a domain szerverhez</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to leave the domain server</source>
-        <translation>Gépe nem tudott lecsatlakozni a domain szerverről</translation>
+        <translation>A számítógép nem tudott lecsatlakozni a domain szerverről</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="348"/>
         <source>Your host failed to join the domain server</source>
-        <translation>Gépe nem tudott csatlakozni a domain szerverhez</translation>
+        <translation>A számítógép nem tudott csatlakozni a domain szerverhez</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="420"/>
@@ -1071,7 +1071,7 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
         <translation>Átméretezési beállítások</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Vezeték nélküli kivetítés </translation>
     </message>
@@ -1464,7 +1464,12 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
         <translation>Gyorsbillentyű hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Gyorsbillentyűk</translation>
     </message>
@@ -1630,7 +1635,7 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"/>
+        <translation>Jelöld be a &quot;Proxy használata&quot; pontot az Indító alkalmazás környezeti menüjében miután beállítottad</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
@@ -3519,7 +3524,7 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation>Kérjük, hogy wifi hálózathoz kapcsolódás előtt először kapcsolja ki a Hotspot megosztást.</translation>
+        <translation>A WIFI hálózathoz kapcsolódás előtt először kapcsold ki a Hotspot megosztást.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
@@ -3860,12 +3865,12 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="78"/>
         <source>You can click the option in boot menu to set it as the first boot, and drag and drop a picture to replace the background.</source>
-        <translation>Beállíthatja a boot menüben az első indításkor, és kicserélheti a hátteret egy kép megadásával.</translation>
+        <translation>A boot menuben beállíthatod és kicserélheted a háttérképet.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="82"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation>Téma váltása a választhatóra a boot menüben</translation>
+        <translation>A boot-menü téma megváltoztatása</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="102"/>
@@ -4045,7 +4050,7 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>A frissítés alkalmazása hosszú időt vesz igénybe, kérjük hogy ne kapcsolja ki vagy indítsa újra gépét ezalatt</translation>
+        <translation>A frissítés sokáig tarthat, kérlek ez alatt ne kapcsold ki, és ne indítsd újra a számítógépet.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
@@ -4101,7 +4106,7 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>%n alkalmazás frissítés érzékelve</numerusform><numerusform>%n alkalmazás frissítés érzékelve</numerusform></translation>
+        <translation><numerusform>%n alkalmazás frissítés érzékelve</numerusform><numerusform>%n alkalmazás frissítés( ) elérhető</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -4111,7 +4116,7 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>Új rendszer kiadás és %n alkalmazás frissítés érzékelve</numerusform><numerusform>Új rendszer kiadás és %n alkalmazás frissítés érzékelve</numerusform></translation>
+        <translation><numerusform>Új rendszer kiadás és %n alkalmazás frissítés érzékelve</numerusform><numerusform>Új rendszer és %n alkalmazás frissítés elérhető</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
@@ -4162,12 +4167,12 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>Kapcsolja be a frissítések automatikus letöltéséhez vezeték nélküli vagy vezetékes hálózati kapcsolat esetén</translation>
+        <translation>Frissítések automatikus letöltése vezeték nélküli vagy vezetékes hálózati kapcsolat esetén</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto Clear Package Cache</source>
-        <translation>Automatikus csomag átmeneti-tároló törlés</translation>
+        <translation>Automatikus átmeneti-tároló törlés</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
@@ -4177,17 +4182,17 @@ Ha nem működik, a képernyőbeállítás vissza lesz állítva %1 másodperc e
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation>Értesítés megjelenítése, ha a rendszerfrissítés tükörszervere módosult</translation>
+        <translation>Értesítés, ha a rendszerfrissítés tükörszervere módosult</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="99"/>
         <source>Smart Mirror Switch</source>
-        <translation>Okos tükörszerver választó</translation>
+        <translation>Automatikus tükörszerver választó</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>Kapcsolja be az automatikus leggyorsabb tükörszerverre váltáshoz</translation>
+        <translation>Automatikus tökörszerver választás.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="113"/>

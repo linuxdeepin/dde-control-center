@@ -290,17 +290,17 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
         <translation>Aggiornamenti</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Errore dipendenza, rilevazione aggiornamenti fallita</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Rilevazione aggiornamenti fallita</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Aggiornamenti rilevati, clicca per i dettagli</translation>
     </message>
@@ -1071,7 +1071,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
         <translation>Impostazioni Scala di visualizzazione</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Trasmissione WiFi dello schermo</translation>
     </message>
@@ -1464,7 +1464,12 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
         <translation>Aggiungi scorciatoia personalizzata</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation>Ripristina ai valori predefiniti</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Scorciatoie</translation>
     </message>
@@ -1630,7 +1635,7 @@ In caso di mancata conferma, lo schermo sarà ripristinato dopo %1s.</translatio
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"/>
+        <translation>Seleziona &quot;Usa un proxy&quot; nel menu contestuale del Launcher dopo averlo configurato</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

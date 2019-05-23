@@ -290,17 +290,17 @@ Sans interaction, l&apos;affichage sera rétabli après %1s.</translation>
         <translation>Mises à jour</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Erreur de dépendance, échec de la détection des mises à jour</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Échec de détection des mises à jour</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Mises à jour disponibles, cliquez pour afficher</translation>
     </message>
@@ -1071,7 +1071,7 @@ Sans interaction, l&apos;affichage sera rétabli après %1s.</translation>
         <translation>Paramètres de mise à l&apos;échelle</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Projection d&apos;écran sans fil</translation>
     </message>
@@ -1464,7 +1464,12 @@ Sans interaction, l&apos;affichage sera rétabli après %1s.</translation>
         <translation>Ajouter un raccourci personnalisé </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Raccourcis </translation>
     </message>
@@ -1630,7 +1635,7 @@ Sans interaction, l&apos;affichage sera rétabli après %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"/>
+        <translation>Cochez la case &quot;utiliser un proxy&quot; dans le menu contextuel du Launcher après l&apos;avoir configuré</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>

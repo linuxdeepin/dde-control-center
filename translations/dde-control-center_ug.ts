@@ -289,17 +289,17 @@ If no operation, the display will be restored after %1s.</source>
         <translation>يېڭىلانمىلار</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>يېڭىلانمىلار بايقالدى، چېكىپ كۆرۈپ بېقىڭ</translation>
     </message>
@@ -1070,7 +1070,7 @@ If no operation, the display will be restored after %1s.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>سىمسىز ئېكران تەسۋىرى چۈشۈرۈش</translation>
     </message>
@@ -1463,7 +1463,12 @@ If no operation, the display will be restored after %1s.</source>
         <translation>سۈكۈتتىكى تىزلەتمە كۇنۇپكا قوشۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>تىزلەتمە كۇنۇپكىلار</translation>
     </message>

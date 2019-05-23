@@ -121,7 +121,7 @@
     <message>
         <location filename="../src/frame/notify/notifywidget.cpp" line="33"/>
         <source>No system notifications</source>
-        <translation>Nenhuma notificação do sistema</translation>
+        <translation>Nenhuma notificação</translation>
     </message>
     <message>
         <location filename="../src/frame/notify/notifywidget.cpp" line="35"/>
@@ -183,7 +183,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/settingswidget.cpp" line="89"/>
         <source>All Settings</source>
-        <translation>Todas as configurações</translation>
+        <translation>Todas as Configurações</translation>
     </message>
 </context>
 <context>
@@ -226,7 +226,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Enviar ícone no Launcher para o Desktop</translation>
+        <translation>Enviar ícone do Lançador para a Área de Trabalho</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
@@ -290,17 +290,17 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
         <translation>Atualizações</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Erro de dependência, falha ao detectar atualizações</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Falha ao detectar atualizações</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Atualizações encontradas, clique para visualizar</translation>
     </message>
@@ -318,7 +318,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="120"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>Não foi possível obter o clima!</translation>
+        <translation>Desculpe, incapaz de obter a previsão do tempo!</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="127"/>
@@ -387,42 +387,42 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="52"/>
         <source>Modify Avatar</source>
-        <translation>Trocar avatar</translation>
+        <translation>Alterar Avatar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="55"/>
         <source>Modify Fullname</source>
-        <translation>Modificar nome completo</translation>
+        <translation>Alterar Nome Completo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
-        <translation>Trocar a senha</translation>
+        <translation>Alterar Senha</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
-        <translation>Login automático</translation>
+        <translation>Entrar Automáticamente</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login Without Password</source>
-        <translation>Logar Sem Senha</translation>
+        <translation>Entrar Sem Senha</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
         <source>Delete Account</source>
-        <translation>Excluir conta</translation>
+        <translation>Excluir Conta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation>Não foi possível excluir, o usuário atual iniciou sessão</translation>
+        <translation>Não é possível excluir, o usuário atual iniciou sessão</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="75"/>
         <source>Fingerprint Password</source>
-        <translation>Senha de impressão digital</translation>
+        <translation>Senha por Impressão Digital</translation>
     </message>
 </context>
 <context>
@@ -437,7 +437,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
-        <translation>Criar conta</translation>
+        <translation>Criar Conta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
@@ -493,7 +493,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation>Adicionar impressão digital</translation>
+        <translation>Adicionar Impressão Digital</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="55"/>
@@ -508,7 +508,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
-        <translation>Identificando digital</translation>
+        <translation>Identificando impressão digital</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
@@ -548,7 +548,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="58"/>
         <source>Repeat password</source>
-        <translation>Confirmar a senha</translation>
+        <translation>Repita a senha</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="67"/>
@@ -563,7 +563,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="88"/>
         <source>New Account</source>
-        <translation>Nova conta</translation>
+        <translation>Nova Conta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="151"/>
@@ -592,22 +592,22 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
-        <translation>Lista de impressões digitais</translation>
+        <translation>Lista de Impressões Digitais</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
-        <translation>Senha de impressão digital</translation>
+        <translation>Senha por Impressão Digital</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation>Adicionar impressão digital</translation>
+        <translation>Adicionar Impressão Digital</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
-        <translation>Limpar impressão digital</translation>
+        <translation>Limpar Impressão Digital</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="56"/>
@@ -625,7 +625,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation>Nome completo:</translation>
+        <translation>Nome Completo:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="48"/>
@@ -635,7 +635,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation>Configurações do nome completo</translation>
+        <translation>Configurações de Nome Completo</translation>
     </message>
 </context>
 <context>
@@ -648,12 +648,12 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="52"/>
         <source>New Password</source>
-        <translation>Nova senha</translation>
+        <translation>Nova Senha</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="54"/>
         <source>Repeat Password</source>
-        <translation>Confirma a senha</translation>
+        <translation>Repita a Senha</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="56"/>
@@ -793,7 +793,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/datetime/datesettings.cpp" line="63"/>
         <source>Change Time Settings</source>
-        <translation>Configurações de data e hora</translation>
+        <translation>Configurações de Data e Hora</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datesettings.cpp" line="68"/>
@@ -836,27 +836,27 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
-        <translation>Sincronizar automaticamente</translation>
+        <translation>Sincronizar Automaticamente</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="51"/>
         <source>Add Timezone</source>
-        <translation>Adicionar fuso horário</translation>
+        <translation>Adicionar Fuso Horário</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="61"/>
         <source>Change System Timezone</source>
-        <translation>Selecione o fuso horário do sistema</translation>
+        <translation>Altere o Fuso Horário do Sistema</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="69"/>
         <source>Time Settings</source>
-        <translation>Alterar data e hora</translation>
+        <translation>Configurações de Data e Hora</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="74"/>
         <source>Timezone List</source>
-        <translation>Lista de fuso horário</translation>
+        <translation>Lista de Fusos Horários</translation>
     </message>
 </context>
 <context>
@@ -874,12 +874,12 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="176"/>
         <source>Add Timezone</source>
-        <translation>Adicionar fuso horário</translation>
+        <translation>Adicionar Fuso Horário</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="176"/>
         <source>Change Timezone</source>
-        <translation>Alterar fuso horário</translation>
+        <translation>Alterar Fuso Horário</translation>
     </message>
 </context>
 <context>
@@ -917,7 +917,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
         <location filename="../src/frame/navigation/navmodel.cpp" line="114"/>
         <location filename="../src/frame/navigationbar.cpp" line="198"/>
         <source>Default Applications</source>
-        <translation>Aplicativos Padrões</translation>
+        <translation>Aplicativos Padrão</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="55"/>
@@ -937,17 +937,17 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="58"/>
         <source>Music</source>
-        <translation>Player de Música</translation>
+        <translation>Reprodutor de Música</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="59"/>
         <source>Video</source>
-        <translation>Player de Vídeo</translation>
+        <translation>Reprodutor de Vídeo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="60"/>
         <source>Picture</source>
-        <translation>Visualizador de Fotos</translation>
+        <translation>Visualizador de Imagens</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="61"/>
@@ -974,7 +974,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
         <location filename="../src/frame/modules/defapp/defappwidget.cpp" line="46"/>
         <location filename="../src/frame/modules/defapp/defappwidget.cpp" line="50"/>
         <source>Default Applications</source>
-        <translation>Aplicativos Padrões</translation>
+        <translation>Aplicativos Padrão</translation>
     </message>
 </context>
 <context>
@@ -987,7 +987,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/display/brightnesspage.cpp" line="81"/>
         <source>Night Shift</source>
-        <translation>Modo noite</translation>
+        <translation>Modo Noturno</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/brightnesspage.cpp" line="86"/>
@@ -997,7 +997,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/display/brightnesspage.cpp" line="95"/>
         <source>Auto Brightness</source>
-        <translation>Brilho automático</translation>
+        <translation>Brilho Automático</translation>
     </message>
 </context>
 <context>
@@ -1028,7 +1028,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/display/displaymodule.cpp" line="258"/>
         <source>Wireless Screen Projection</source>
-        <translation>Projeção de tela wireless</translation>
+        <translation>Projeção de Tela Wireless</translation>
     </message>
 </context>
 <context>
@@ -1043,7 +1043,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
         <source>Display Scaling</source>
-        <translation>Exibir Escala</translation>
+        <translation>Escala de Exibição</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
@@ -1068,12 +1068,12 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
         <source>Scaling Settings</source>
-        <translation>Configurações da Escala</translation>
+        <translation>Configurações de Escala</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
-        <translation>Projeção de tela wireless</translation>
+        <translation>Projeção de Tela Wireless</translation>
     </message>
 </context>
 <context>
@@ -1109,7 +1109,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="69"/>
         <source>Device List</source>
-        <translation>Lista de dispositivos</translation>
+        <translation>Lista de Dispositivos</translation>
     </message>
 </context>
 <context>
@@ -1311,7 +1311,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="88"/>
         <source>Add Keyboard Layout</source>
-        <translation>Adicicionar layout de teclado</translation>
+        <translation>Adicicionar Layout de Teclado</translation>
     </message>
 </context>
 <context>
@@ -1319,7 +1319,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardlayoutwidget.cpp" line="50"/>
         <source>Add Keyboard Layout</source>
-        <translation>Adicicionar layout de teclado</translation>
+        <translation>Adicicionar Layout de Teclado</translation>
     </message>
 </context>
 <context>
@@ -1334,7 +1334,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="52"/>
         <source>Repeat Delay</source>
-        <translation>Atraso de repetição</translation>
+        <translation>Atraso de Repetição</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="61"/>
@@ -1349,7 +1349,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="65"/>
         <source>Repeat Rate</source>
-        <translation>Taxa de repetição</translation>
+        <translation>Taxa de Repetição</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="74"/>
@@ -1364,22 +1364,22 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="79"/>
         <source>Please Test Here</source>
-        <translation>Teste aqui</translation>
+        <translation>Teste Aqui</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="93"/>
         <source>Enable Numeric Keyboard</source>
-        <translation>Habilitar teclado numérico</translation>
+        <translation>Habilitar Teclado Numérico</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="97"/>
         <source>Caps Lock Prompt</source>
-        <translation>Notificação de Caps Lock</translation>
+        <translation>Notificação do Caps Lock</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="103"/>
         <source>Keyboard Layout</source>
-        <translation>Idioma do Teclado</translation>
+        <translation>Layout do Teclado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="111"/>
@@ -1456,7 +1456,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="65"/>
         <source>Custom Shortcut</source>
-        <translation>Atalhos personalizados</translation>
+        <translation>Atalhos Personalizados</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="78"/>
@@ -1464,7 +1464,12 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
         <translation>Adicionar atalho personalizado</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation>Restaurar Padrões</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Atalhos</translation>
     </message>
@@ -1489,7 +1494,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="46"/>
         <source>Mouse and Touchpad</source>
-        <translation>Mouse</translation>
+        <translation>Mouse e Touchpad</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="50"/>
@@ -1509,7 +1514,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="54"/>
         <source>Disable the touchpad while typing</source>
-        <translation>Desativar touchpad enquanto digita</translation>
+        <translation>Desativar o touchpad enquanto digita</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="55"/>
@@ -1521,7 +1526,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="64"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="70"/>
         <source>Pointer Speed</source>
-        <translation>Velocidade do ponteiro</translation>
+        <translation>Velocidade do Cursor</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="59"/>
@@ -1531,7 +1536,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
-        <translation>Velocidade de rolagem</translation>
+        <translation>Velocidade da Rolagem</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="61"/>
@@ -1542,12 +1547,12 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="62"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="66"/>
         <source>Natural Scrolling</source>
-        <translation>Rolagem natural</translation>
+        <translation>Rolagem Natural</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="65"/>
         <source>Tap to Click</source>
-        <translation>Toque para clicar</translation>
+        <translation>Toque para Clicar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="73"/>
@@ -1565,7 +1570,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detect</source>
-        <translation>Detecção de palma</translation>
+        <translation>Detecção da Palma</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
@@ -1630,7 +1635,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"/>
+        <translation>Marque &quot;Usar um proxy&quot; no menu de contexto do aplicativo no Launcher depois de configurado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
@@ -1991,7 +1996,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="65"/>
         <source>System Proxy</source>
-        <translation>Proxy do sistema</translation>
+        <translation>Proxy do Sistema</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
@@ -2001,27 +2006,27 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
         <source>Network Details</source>
-        <translation>Detalhes da rede</translation>
+        <translation>Detalhes de Rede</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="237"/>
         <source>Wired Network Card%1</source>
-        <translation>Placa de rede cabeada %1</translation>
+        <translation>Placa de Rede Cabeada %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="238"/>
         <source>Wired Network%1</source>
-        <translation>Rede cabeada %1</translation>
+        <translation>Rede Cabeada %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="242"/>
         <source>Wired Network Card</source>
-        <translation>Placa de rede cabeada </translation>
+        <translation>Placa de Rede Cabeada</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wired Network</source>
-        <translation>Rede cabeada</translation>
+        <translation>Rede Cabeada</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="252"/>
@@ -2036,22 +2041,22 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="266"/>
         <source>Wireless Network Card%1</source>
-        <translation>Placa wireless %1</translation>
+        <translation>Placa Wireless %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="267"/>
         <source>Wireless Network%1</source>
-        <translation>Wireless %1</translation>
+        <translation>Rede Wireless %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network Card</source>
-        <translation>Placa wireless</translation>
+        <translation>Placa de Rede Wireless</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="272"/>
         <source>Wireless Network</source>
-        <translation>Wireless</translation>
+        <translation>Rede Wireless</translation>
     </message>
 </context>
 <context>
@@ -2270,7 +2275,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="157"/>
         <source>Tunneled TLS</source>
-        <translation> TLS Encapsulado</translation>
+        <translation>TLS Encapsulado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="158"/>
@@ -3117,7 +3122,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
         <source>Retry Indefinitely When Failed</source>
-        <translation>Retentar Indefinidamente Quando falhar</translation>
+        <translation>Tentar novamente indefinitivamente quando falhar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
@@ -3787,7 +3792,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="62"/>
         <source>System Sound Effect</source>
-        <translation>Efeito de Som do Sistema</translation>
+        <translation>Efeitos Sonoros do Sistema</translation>
     </message>
 </context>
 <context>
@@ -3802,17 +3807,17 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="43"/>
         <source>Output Volume</source>
-        <translation>Volume de saída</translation>
+        <translation>Volume de Saída</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="44"/>
         <source>Left/Right Balance</source>
-        <translation>Balanço</translation>
+        <translation>Esquerda/Direita Balanço</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="47"/>
         <source>Input Volume</source>
-        <translation>Volume de entrada</translation>
+        <translation>Volume de Entrada</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="49"/>
@@ -3837,7 +3842,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="109"/>
         <source>Sound Effects</source>
-        <translation>Efeitos sonoros</translation>
+        <translation>Efeitos Sonoros</translation>
     </message>
 </context>
 <context>
@@ -3850,7 +3855,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="73"/>
         <source>Startup Delay</source>
-        <translation>Atraso de inicialização</translation>
+        <translation>Atraso na Inicialização</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="76"/>
@@ -3878,7 +3883,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/systeminfo/copyrightwidget.cpp" line="70"/>
         <source>Edition License</source>
-        <translation>Licença de edição</translation>
+        <translation>Licença da Edição</translation>
     </message>
 </context>
 <context>
@@ -3888,7 +3893,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
         <location filename="../src/frame/navigation/navmodel.cpp" line="125"/>
         <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>System Information</source>
-        <translation>Informações</translation>
+        <translation>Informação do Sistema</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="43"/>
@@ -3903,7 +3908,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="86"/>
         <source>Distribution Release:</source>
-        <translation>Distribuição Release:</translation>
+        <translation>Versão da Distribuição:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="91"/>
@@ -3933,17 +3938,17 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="120"/>
         <source>Edition License</source>
-        <translation>Licença de edição</translation>
+        <translation>Licença da Edição</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="123"/>
         <source>End User License Agreement</source>
-        <translation>Contrato de Licença de Usuário Final</translation>
+        <translation>Contrato de Licença do Usuário Final</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="128"/>
         <source>Boot Menu</source>
-        <translation>Menu de boot</translation>
+        <translation>Menu de Inicialização</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="190"/>
@@ -3956,7 +3961,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/systeminfo/userlicense.cpp" line="15"/>
         <source>End User License Agreement</source>
-        <translation>Contrato de Licença de Usuário Final</translation>
+        <translation>Contrato de Licença do Usuário Final</translation>
     </message>
 </context>
 <context>
@@ -3965,13 +3970,13 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="37"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="132"/>
         <source>Untested</source>
-        <translation>Não testado</translation>
+        <translation>Não Testado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="80"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="128"/>
         <source>Timeout</source>
-        <translation>Tempo esgotado</translation>
+        <translation>Tempo Esgotado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="82"/>
@@ -3997,17 +4002,17 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="42"/>
         <source>Test Speed</source>
-        <translation>Teste de velocidade</translation>
+        <translation>Teste de Velocidade</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="46"/>
         <source>Switch Mirror</source>
-        <translation>Alterar mirror</translation>
+        <translation>Alterar Espelho</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="141"/>
         <source>Retest</source>
-        <translation>Testar novamente</translation>
+        <translation>Testar Novamente</translation>
     </message>
 </context>
 <context>
@@ -4147,7 +4152,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="50"/>
         <source>Update Settings</source>
-        <translation>Configurações de atualização</translation>
+        <translation>Configurações de Atualização</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="65"/>
@@ -4157,7 +4162,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="68"/>
         <source>Auto-download Updates</source>
-        <translation>Baixar atualizações automaticamente</translation>
+        <translation>Baixar Atualizações automaticamente</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
@@ -4182,7 +4187,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="99"/>
         <source>Smart Mirror Switch</source>
-        <translation>Interruptor Inteligente de Mirrors</translation>
+        <translation>Espelho Inteligente</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
@@ -4192,7 +4197,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="113"/>
         <source>Switch Mirror</source>
-        <translation>Alterar mirror</translation>
+        <translation>Alterar Espelho</translation>
     </message>
 </context>
 <context>
@@ -4206,7 +4211,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/update/updateview.cpp" line="45"/>
         <source>Update Settings</source>
-        <translation>Alterar configurações</translation>
+        <translation>Configurações de Atualização</translation>
     </message>
 </context>
 <context>
@@ -4219,7 +4224,7 @@ Se não houver operação, a exibição será restaurada após %1s.</translation
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="245"/>
         <source>System patches</source>
-        <translation>Patches do sistema</translation>
+        <translation>Correções do sistema</translation>
     </message>
 </context>
 <context>

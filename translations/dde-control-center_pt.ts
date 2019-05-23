@@ -290,17 +290,17 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
         <translation>Atulizações</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Erro de dependência, falha ao detetar as atualizações</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Atualizações detetando falha</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Atualizações encontradas, clique para ver</translation>
     </message>
@@ -513,12 +513,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
-        <translation>Falha ao identificar impressão digital, coloque o seu dedo no gravador de impressões digitais, mova-o de baixo para cima e retire</translation>
+        <translation>Falha ao identificar impressão digital, coloque o seu dedo no leitor de impressões digitais, mova-o de baixo para cima e retire</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
-        <translation>Coloque o seu dedo no leitor de impressões digitais, mova-o de baixo para cima e retire-o, depois repita os passos</translation>
+        <translation>Coloque o seu dedo no leitor de impressões digitais, mova-o de baixo para cima e retire-o, depois repita</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
@@ -1071,7 +1071,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
         <translation>Definições de dimensionamento</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Projeção de Ecrã Sem Fios</translation>
     </message>
@@ -1464,7 +1464,12 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
         <translation>Adicionar Atalho Personalizado</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation>Restaurar Predefinições</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Atalhos</translation>
     </message>
@@ -1630,7 +1635,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"/>
+        <translation>Marque &quot;Usar um proxy&quot; no menu de contexto da aplicação no Lançador depois de configurado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
@@ -1801,7 +1806,7 @@ Se não houver ação, o ecrã será restaurado após %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
         <source>Auto connect</source>
-        <translation>Auto ligar</translation>
+        <translation>Conexão automática</translation>
     </message>
 </context>
 <context>

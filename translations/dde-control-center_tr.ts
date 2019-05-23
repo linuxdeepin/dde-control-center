@@ -290,17 +290,17 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <translation>Güncellemeler</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="158"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Bağımlılık sorunu, güncellemeler belirlenemedi</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="161"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
         <translation>Güncellemeler bulunurken sorun çıktı</translation>
     </message>
     <message>
-        <location filename="../src/frame/updatenotifier.cpp" line="171"/>
+        <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
         <translation>Güncellemeler bulundu, görüntülemek için tıklayın</translation>
     </message>
@@ -1071,7 +1071,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <translation>Ölçeklendirme Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="243"/>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
         <translation>Kablosuz Ekran Yansıtması</translation>
     </message>
@@ -1464,7 +1464,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <translation>Özel Kısayol Ekle</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="88"/>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
+        <source>Restore Defaults</source>
+        <translation>Varsayılanları Geri Yükle</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
         <translation>Kısayollar</translation>
     </message>
@@ -1630,7 +1635,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"/>
+        <translation>Yapılandırdıktan sonra kullanmak için başlatıcıdaki uygulama sağ tık menüsünden &quot;Vekil Sunucu Kullanılsın&quot; seçeneğini etkinleştirin</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
