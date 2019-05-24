@@ -1,8 +1,14 @@
 #include "syncstatewidget.h"
+#include "syncstateicon.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/translucentframe.h"
 
+#include <QDebug>
 #include <QVBoxLayout>
+#include <DHiDPIHelper>
+#include <QDateTime>
+
+DWIDGET_USE_NAMESPACE
 
 using namespace dcc;
 using namespace dcc::sync;
@@ -10,17 +16,30 @@ using namespace dcc::widgets;
 
 SyncStateWidget::SyncStateWidget(QWidget *parent)
     : ContentWidget(parent)
-    , m_syncIcon(new QLabel)
-    , m_syncState(new QLabel)
-    , m_lastSyncTime(new QLabel)
+    , m_syncIcon(new SyncStateIcon)
+    , m_syncStateLbl(new QLabel)
+    , m_lastSyncTimeLbl(new QLabel)
 {
+    m_syncIcon->setPixmap(DHiDPIHelper::loadNxPixmap(":/sync/themes/dark/cloud.svg"));
+    m_syncStateLbl->setText(tr("Syncing"));
+
     QVBoxLayout* layout = new QVBoxLayout;
     layout->setMargin(0);
     layout->setSpacing(0);
 
-    layout->addWidget(m_syncIcon, 0, Qt::AlignHCenter);
-    layout->addWidget(m_syncState, 0, Qt::AlignHCenter);
-    layout->addWidget(m_lastSyncTime, 0, Qt::AlignHCenter);
+    QVBoxLayout* syncStateLayout = new QVBoxLayout;
+    syncStateLayout->setSpacing(10);
+
+    syncStateLayout->addWidget(m_syncIcon, 0, Qt::AlignHCenter);
+    syncStateLayout->addWidget(m_syncStateLbl, 0, Qt::AlignHCenter);
+    syncStateLayout->addWidget(m_lastSyncTimeLbl, 0, Qt::AlignHCenter);
+
+    SettingsGroup* syncStateGrp = new SettingsGroup;
+    SettingsItem* syncStateItem = new SettingsItem;
+    syncStateItem->setLayout(syncStateLayout);
+    syncStateGrp->appendItem(syncStateItem);
+
+    layout->addWidget(syncStateGrp);
     layout->addSpacing(10);
 
     SettingsGroup* autoSyncGrp = new SettingsGroup;
@@ -69,8 +88,8 @@ SyncStateWidget::SyncStateWidget(QWidget *parent)
 
     setContent(frame);
 
-    m_syncState->hide();
-    m_lastSyncTime->hide();
+    m_syncStateLbl->hide();
+    m_lastSyncTimeLbl->hide();
 }
 
 void SyncStateWidget::setModel(const SyncModel * const model)
@@ -96,6 +115,10 @@ void SyncStateWidget::setModel(const SyncModel * const model)
 
 void SyncStateWidget::onStateChanged(const std::pair<qint32, QString> &state)
 {
+    if (!SyncModel::isSyncStateValid(state)) {
+        return;
+    }
+
     SyncModel::SyncState syncState;
 
     do {
@@ -123,21 +146,32 @@ void SyncStateWidget::onStateChanged(const std::pair<qint32, QString> &state)
 
     switch (syncState) {
         case SyncModel::SyncState::Succeed:
-            m_lastSyncTime->show();
-            m_syncState->hide();
+            m_lastSyncTimeLbl->show();
+            m_syncStateLbl->hide();
+            m_syncIcon->setRotatePixmap(DHiDPIHelper::loadNxPixmap(":/sync/themes/dark/sync_ok.svg"));
+            m_syncIcon->stop();
             break;
         case SyncModel::SyncState::Syncing:
-            m_syncState->show();
-            m_lastSyncTime->hide();
+            m_syncStateLbl->show();
+            m_lastSyncTimeLbl->hide();
+            m_syncIcon->setRotatePixmap(DHiDPIHelper::loadNxPixmap(":/sync/themes/dark/syncing@2x.svg"));
+            m_syncIcon->play();
             break;
         case SyncModel::SyncState::Failed:
+            m_lastSyncTimeLbl->show();
+            m_syncStateLbl->hide();
+            m_syncIcon->setRotatePixmap(QPixmap());
+            m_syncIcon->stop();
             break;
     }
 }
 
 void SyncStateWidget::onLastSyncTimeChanged(qlonglong lastSyncTime)
 {
-    m_lastSyncTime->setText(QString::number(lastSyncTime));
+    m_lastSyncTimeLbl->setText(
+        tr("Last Sync: %1")
+            .arg(QDateTime::fromMSecsSinceEpoch(lastSyncTime * 1000)
+                     .toString(tr("yyyy-MM-dd hh:mm"))));
 }
 
 void SyncStateWidget::onModuleStateChanged(std::pair<SyncModel::SyncType, bool> state)

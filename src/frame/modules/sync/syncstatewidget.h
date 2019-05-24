@@ -13,6 +13,7 @@
 
 namespace dcc {
 namespace sync {
+class SyncStateIcon;
 class SyncStateWidget : public ContentWidget
 {
     Q_OBJECT
@@ -33,9 +34,9 @@ private:
 
 private:
     const SyncModel* m_model;
-    QLabel* m_syncIcon;
-    QLabel* m_syncState;
-    QLabel* m_lastSyncTime;
+    SyncStateIcon* m_syncIcon;
+    QLabel* m_syncStateLbl;
+    QLabel* m_lastSyncTimeLbl;
     widgets::TipsLabel* m_tips;
     widgets::SwitchWidget* m_autoSync;
     widgets::SettingsGroup* m_moduleGrp;

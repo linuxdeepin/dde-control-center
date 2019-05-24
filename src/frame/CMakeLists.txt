@@ -675,6 +675,8 @@ set(SYNC_FILES
     modules/sync/syncworker.h
     modules/sync/syncstatewidget.h
     modules/sync/syncstatewidget.cpp
+    modules/sync/syncstateicon.h
+    modules/sync/syncstateicon.cpp
 )
 
 # load systeminfo

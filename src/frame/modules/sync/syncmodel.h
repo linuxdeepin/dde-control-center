@@ -37,6 +37,7 @@ public:
     inline std::pair<qint32, QString> syncState() const { return m_syncState; }
     void setSyncState(const std::pair<qint32, QString> &syncState);
 
+    static bool isSyncStateValid(const std::pair<qint32, QString> &state);
     static bool isSyncSucceed(const std::pair<qint32, QString> &state);
     static bool isSyncFailed(const std::pair<qint32, QString> &state);
     static bool isSyncing(const std::pair<qint32, QString> &state);

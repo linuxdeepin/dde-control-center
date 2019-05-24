@@ -66,10 +66,11 @@ static const QString getStyleSheetFromDir(QDir dir)
 
 static const QString styleSheetFromTheme(const QString &theme)
 {
-    QStringList moduleList = { "frame", "widgets", "accounts", "defapp",
-                               "mouse", "wacom", "sound", "bluetooth",
-                               "personalization", "datetime", "display",
-                               "keyboard", "power", "systeminfo",  "update", "network"};
+    QStringList moduleList = {
+        "frame", "widgets",    "accounts",        "defapp",   "mouse",   "wacom",
+        "sound", "bluetooth",  "personalization", "datetime", "display", "keyboard",
+        "power", "systeminfo", "update",          "network",  "sync"
+    };
 
     QString ret;
 

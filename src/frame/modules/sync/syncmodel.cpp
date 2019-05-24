@@ -28,6 +28,11 @@ void SyncModel::setSyncState(const std::pair<qint32, QString> &syncState)
     Q_EMIT syncStateChanged(syncState);
 }
 
+bool SyncModel::isSyncStateValid(const std::pair<qint32, QString> &state)
+{
+    return state.first == 100 || state.first == 200 || state.first >= 1000;
+}
+
 bool SyncModel::isSyncFailed(const std::pair<qint32, QString> &state)
 {
     // NOTE(justforlxz): Daemon definition is greater than 1000 is wrong

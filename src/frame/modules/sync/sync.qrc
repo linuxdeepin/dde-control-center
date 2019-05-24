@@ -1,6 +1,10 @@
 <RCC>
-    <qresource prefix="/">
-        <file>syncstatewidget.h</file>
-        <file>syncstatewidget.cpp</file>
+    <qresource prefix="/sync">
+        <file>themes/dark/cloud.svg</file>
+        <file>themes/dark/nav_cloud_normal.svg</file>
+        <file>themes/dark/nav_cloud.svg</file>
+        <file>themes/dark/sync_ok.svg</file>
+        <file>themes/dark/syncing@2x.svg</file>
+        <file>themes/dark/dark.qss</file>
     </qresource>
 </RCC>

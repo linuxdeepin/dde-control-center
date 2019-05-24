@@ -13,7 +13,7 @@ SyncWidget::SyncWidget()
     , m_accountBtn(new QPushButton(tr("Login")))
     , m_userButton(new NextPageWidget)
 {
-    setObjectName("deepin ID");
+    setObjectName("Sync");
     setTitle(tr("deepin ID"));
 
     m_centralLayout->setMargin(0);
