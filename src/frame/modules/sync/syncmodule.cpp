@@ -75,6 +75,7 @@ void SyncModule::ShowSyncDetails()
 
     connect(detailPage, &SyncStateWidget::requestEnableSync, m_worker, &SyncWorker::setAutoSync);
     connect(detailPage, &SyncStateWidget::requestSetModuleState, m_worker, &SyncWorker::setSync);
+    connect(detailPage, &SyncStateWidget::requestLogout, m_worker, &SyncWorker::logoutUser);
 
     m_frameProxy->pushWidget(this, detailPage);
 }

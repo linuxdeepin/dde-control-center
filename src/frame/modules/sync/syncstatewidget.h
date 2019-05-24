@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QLabel>
 #include <utility>
+#include <QPushButton>
 
 #include "widgets/contentwidget.h"
 #include "widgets/switchwidget.h"
@@ -24,6 +25,7 @@ public:
 Q_SIGNALS:
     void requestEnableSync(bool enable);
     void requestSetModuleState(std::pair<SyncModel::SyncType, bool> state);
+    void requestLogout();
 
 private:
     void onStateChanged(const std::pair<qint32, QString> &state);
@@ -40,6 +42,7 @@ private:
     widgets::TipsLabel* m_tips;
     widgets::SwitchWidget* m_autoSync;
     widgets::SettingsGroup* m_moduleGrp;
+    QPushButton* m_logoutBtn;
     QMap<widgets::SwitchWidget*, SyncModel::SyncType> m_syncModuleMap;
 };
 }

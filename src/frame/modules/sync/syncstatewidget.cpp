@@ -19,9 +19,12 @@ SyncStateWidget::SyncStateWidget(QWidget *parent)
     , m_syncIcon(new SyncStateIcon)
     , m_syncStateLbl(new QLabel)
     , m_lastSyncTimeLbl(new QLabel)
+    , m_logoutBtn(new QPushButton)
 {
     m_syncIcon->setPixmap(DHiDPIHelper::loadNxPixmap(":/sync/themes/dark/cloud.svg"));
     m_syncStateLbl->setText(tr("Syncing"));
+    m_logoutBtn->setText(tr("Logout"));
+    m_logoutBtn->setObjectName("LogoutButton");
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->setMargin(0);
@@ -81,6 +84,9 @@ SyncStateWidget::SyncStateWidget(QWidget *parent)
 
     layout->addWidget(m_moduleGrp);
 
+    layout->addSpacing(10);
+    layout->addWidget(m_logoutBtn);
+
     layout->addStretch();
 
     TranslucentFrame* frame = new TranslucentFrame;
@@ -90,6 +96,8 @@ SyncStateWidget::SyncStateWidget(QWidget *parent)
 
     m_syncStateLbl->hide();
     m_lastSyncTimeLbl->hide();
+
+    connect(m_logoutBtn, &QPushButton::clicked, this, &SyncStateWidget::requestLogout);
 }
 
 void SyncStateWidget::setModel(const SyncModel * const model)
@@ -100,6 +108,11 @@ void SyncStateWidget::setModel(const SyncModel * const model)
     connect(model, &SyncModel::lastSyncTimeChanged, this, &SyncStateWidget::onLastSyncTimeChanged);
     connect(model, &SyncModel::moduleSyncStateChanged, this, &SyncStateWidget::onModuleStateChanged);
     connect(model, &SyncModel::enableSyncChanged, this, &SyncStateWidget::onAutoSyncChanged);
+    connect(model, &SyncModel::userInfoChanged, this, [=] (const QVariantMap& info) {
+        if (info["Username"].toString().isEmpty()) {
+            Q_EMIT back();
+        }
+    });
 
     onStateChanged(model->syncState());
     onLastSyncTimeChanged(model->lastSyncTime());
