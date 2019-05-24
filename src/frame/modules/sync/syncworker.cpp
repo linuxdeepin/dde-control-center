@@ -17,6 +17,7 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     connect(m_deepinId_inter, &DeepinId::UserInfoChanged, m_model, &SyncModel::setUserinfo);
     connect(m_syncInter, &SyncInter::StateChanged, this, &SyncWorker::onStateChanged);
     connect(m_syncInter, &SyncInter::LastSyncTimeChanged, m_model, &SyncModel::setLastSyncTime);
+    connect(m_syncInter, &SyncInter::SwitcherChange, this, &SyncWorker::onSyncModuleStateChanged);
 }
 
 void SyncWorker::activate()
@@ -61,6 +62,14 @@ void SyncWorker::logoutUser()
 void SyncWorker::setAutoSync(bool autoSync)
 {
     m_syncInter->SwitcherSet("enabled", autoSync);
+}
+
+void SyncWorker::onSyncModuleStateChanged(const QString& module, bool enable) {
+    if (module == "enabled") {
+        return m_model->setEnableSync(enable);
+    }
+
+    m_model->setModuleSyncState(m_model->moduleMap().key(module), enable);
 }
 
 void SyncWorker::onStateChanged(const IntString &state)

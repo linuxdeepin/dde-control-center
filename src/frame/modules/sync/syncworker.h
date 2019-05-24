@@ -31,6 +31,7 @@ public Q_SLOTS:
     void setAutoSync(bool autoSync);
 
 private:
+    void onSyncModuleStateChanged(const QString& module, bool enable);
     void onStateChanged(const IntString& state);
     void onGetModuleSyncStateFinished(QDBusPendingCallWatcher* watcher);
 
