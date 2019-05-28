@@ -11,7 +11,7 @@ namespace widgets {
 class SettingsGroup;
 class NextPageWidget;
 }
-namespace sync {
+namespace cloudsync {
 class SyncModel;
 class SyncWidget : public ModuleWidget {
     Q_OBJECT
@@ -32,7 +32,7 @@ private:
     widgets::SettingsGroup* m_userButtonGrp;
     widgets::NextPageWidget* m_userButton;
 };
-}  // namespace sync
+}  // namespace cloudsync
 }  // namespace dcc
 
 #endif  // SYNCWIDGET_H

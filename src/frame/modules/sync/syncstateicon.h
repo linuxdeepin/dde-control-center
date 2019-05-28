@@ -5,7 +5,7 @@
 #include <QVariantAnimation>
 
 namespace dcc {
-namespace sync {
+namespace cloudsync {
 class SyncStateIcon : public QLabel
 {
     Q_OBJECT
@@ -23,7 +23,7 @@ private:
     QPixmap m_rotatePixmap;
     QVariantAnimation m_rotateAni;
 };
-}  // namespace sync
+}  // namespace cloudsync
 }  // namespace dcc
 
 #endif  // !SYNCSTATEICON_H

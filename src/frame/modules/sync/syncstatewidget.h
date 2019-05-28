@@ -13,7 +13,7 @@
 #include "syncmodel.h"
 
 namespace dcc {
-namespace sync {
+namespace cloudsync {
 class SyncStateIcon;
 class SyncStateWidget : public ContentWidget
 {

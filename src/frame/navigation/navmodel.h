@@ -24,7 +24,7 @@
 
 #include <QAbstractTableModel>
 
-const QStringList MODULES = { "accounts", "display", "defapp", "personalization", "network",
+const QStringList MODULES = { "accounts", "cloudsync", "display", "defapp", "personalization", "network",
                               "bluetooth", "sound", "datetime", "power", "mouse", "keyboard",
                               "wacom", "update", "systeminfo" };
 

@@ -7,7 +7,7 @@
 #include <QThread>
 
 using namespace dcc;
-using namespace dcc::sync;
+using namespace dcc::cloudsync;
 
 SyncModule::SyncModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent)
@@ -32,7 +32,7 @@ void SyncModule::initialize()
 
 const QString SyncModule::name() const
 {
-    return QStringLiteral("deepin ID");
+    return QStringLiteral("Cloud Sync");
 }
 
 void SyncModule::moduleActive()

@@ -12,7 +12,7 @@ using SyncInter = com::deepin::sync::Daemon;
 using DeepinId = com::deepin::deepinid;
 
 namespace dcc {
-namespace sync {
+namespace cloudsync {
 class SyncWorker : public QObject, public ModuleWorker
 {
     Q_OBJECT

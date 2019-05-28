@@ -1,5 +1,5 @@
-QLabel#ModuleHeaderIconSync {
-    background-image: url(:/sync/themes/dark/nav_cloud.svg);
+QLabel#ModuleHeaderIconCloudSync {
+    background-image: url(:/cloudsync/themes/dark/icons/nav_cloudsync.svg);
 }
 
 QPushButton#LogoutButton

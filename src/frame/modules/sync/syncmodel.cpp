@@ -1,7 +1,7 @@
 #include "syncmodel.h"
 
 using namespace dcc;
-using namespace dcc::sync;
+using namespace dcc::cloudsync;
 
 SyncModel::SyncModel(QObject *parent)
     : QObject(parent)

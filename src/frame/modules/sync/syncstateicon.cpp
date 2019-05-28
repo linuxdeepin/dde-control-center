@@ -4,7 +4,7 @@
 #include <QVBoxLayout>
 
 using namespace dcc;
-using namespace dcc::sync;
+using namespace dcc::cloudsync;
 
 SyncStateIcon::SyncStateIcon(QWidget* parent) : QLabel(parent), m_centerLbl(new QLabel)
 {

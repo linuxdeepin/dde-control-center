@@ -11,7 +11,7 @@
 DWIDGET_USE_NAMESPACE
 
 using namespace dcc;
-using namespace dcc::sync;
+using namespace dcc::cloudsync;
 using namespace dcc::widgets;
 
 SyncStateWidget::SyncStateWidget(QWidget *parent)
@@ -21,7 +21,7 @@ SyncStateWidget::SyncStateWidget(QWidget *parent)
     , m_lastSyncTimeLbl(new QLabel)
     , m_logoutBtn(new QPushButton)
 {
-    m_syncIcon->setPixmap(DHiDPIHelper::loadNxPixmap(":/sync/themes/dark/cloud.svg"));
+    m_syncIcon->setPixmap(DHiDPIHelper::loadNxPixmap(":/cloudsync/themes/dark/cloud.svg"));
     m_syncStateLbl->setText(tr("Syncing"));
     m_logoutBtn->setText(tr("Logout"));
     m_logoutBtn->setObjectName("LogoutButton");
@@ -161,13 +161,13 @@ void SyncStateWidget::onStateChanged(const std::pair<qint32, QString> &state)
         case SyncModel::SyncState::Succeed:
             m_lastSyncTimeLbl->show();
             m_syncStateLbl->hide();
-            m_syncIcon->setRotatePixmap(DHiDPIHelper::loadNxPixmap(":/sync/themes/dark/sync_ok.svg"));
+            m_syncIcon->setRotatePixmap(DHiDPIHelper::loadNxPixmap(":/cloudsync/themes/dark/sync_ok.svg"));
             m_syncIcon->stop();
             break;
         case SyncModel::SyncState::Syncing:
             m_syncStateLbl->show();
             m_lastSyncTimeLbl->hide();
-            m_syncIcon->setRotatePixmap(DHiDPIHelper::loadNxPixmap(":/sync/themes/dark/syncing@2x.svg"));
+            m_syncIcon->setRotatePixmap(DHiDPIHelper::loadNxPixmap(":/cloudsync/themes/dark/syncing@2x.svg"));
             m_syncIcon->play();
             break;
         case SyncModel::SyncState::Failed:

@@ -6,7 +6,7 @@
 #include <utility>
 
 namespace dcc {
-namespace sync {
+namespace cloudsync {
 class SyncModel : public QObject {
     Q_OBJECT
 public:
@@ -71,7 +71,7 @@ private:
     std::pair<qint32, QString> m_syncState;
     qlonglong m_lastSyncTime;
 };
-}  // namespace sync
+}  // namespace cloudsync
 }  // namespace dcc
 
 #endif  // SYNCMODEL_H

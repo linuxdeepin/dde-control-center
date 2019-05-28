@@ -110,6 +110,7 @@ QString NavModel::transModuleName(const QString &moduleName) const
 {
     static const QStringList modules_trans = {
         QT_TRANSLATE_NOOP("dcc::accounts::AccountsWidget", "Accounts"),
+        QT_TRANSLATE_NOOP("dcc::cloudsync::SyncWidget", "Cloud Sync"),
         QT_TRANSLATE_NOOP("dcc::display::DisplayWidget", "Display"),
         QT_TRANSLATE_NOOP("dcc::defapp::DefAppViewer", "Default Applications"),
         QT_TRANSLATE_NOOP("dcc::personalization::PersonalizationWidget", "Personalization"),
@@ -127,6 +128,7 @@ QString NavModel::transModuleName(const QString &moduleName) const
 
     static const QStringList modules_scope = {
         "dcc::accounts::AccountsWidget",
+        "dcc::cloudsync::SyncWidget",
         "dcc::display::DisplayWidget",
         "dcc::defapp::DefAppViewer",
         "dcc::personalization::PersonalizationWidget",
@@ -157,6 +159,10 @@ QStringList NavModel::validModuleList()
 
 #ifdef DISABLE_ACCOUNT
     moduleList.removeOne("accounts");
+#endif
+
+#ifdef DISALBE_CLOUD_SYNC
+    moduleList.removeOne("cloudsync");
 #endif
 
 #ifdef DISABLE_DISPALY

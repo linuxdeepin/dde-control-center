@@ -35,7 +35,7 @@ static const QStringList ModuleList = {
     "accounts",
 #endif
 #ifndef DISABLE_SYNC
-    "deepin ID",
+    "cloudsync",
 #endif
 #ifndef DISABLE_DISPALY
     "display",
@@ -191,7 +191,7 @@ void NavigationBar::setModuleChecked(DImageButton *button)
 
 QString NavigationBar::transModuleName(const QString &moduleName) const
 {
-    const QStringList MODULES = { "accounts", "deepin ID",  "display",
+    const QStringList MODULES = { "accounts", "cloud sync",  "display",
                                   "defapp",   "personalization",
                                   "network", "bluetooth", "sound",
                                   "datetime", "power", "mouse",
@@ -200,7 +200,7 @@ QString NavigationBar::transModuleName(const QString &moduleName) const
 
     static const QStringList modules_trans = {
         QT_TRANSLATE_NOOP("dcc::accounts::AccountsWidget", "Accounts"),
-        QT_TRANSLATE_NOOP("dcc::sync::SyncWidget", "deepin ID"),
+        QT_TRANSLATE_NOOP("dcc::sync::SyncWidget", "Cloud Sync"),
         QT_TRANSLATE_NOOP("dcc::display::DisplayWidget", "Display"),
         QT_TRANSLATE_NOOP("dcc::defapp::DefAppViewer", "Default Applications"),
         QT_TRANSLATE_NOOP("dcc::personalization::PersonalizationWidget", "Personalization"),

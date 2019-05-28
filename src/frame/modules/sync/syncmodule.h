@@ -6,7 +6,7 @@
 #include <QObject>
 
 namespace dcc {
-namespace sync {
+namespace cloudsync {
 class SyncWidget;
 class SyncWorker;
 class SyncModel;
@@ -34,7 +34,7 @@ private:
     SyncModel* m_model;
     SyncWidget *m_moduleWidget;
 };
-}  // namespace sync
+}  // namespace cloudsync
 }  // namespace dcc
 
 #endif  // SYNCMODULE_H

@@ -1,7 +1,7 @@
 #include "syncworker.h"
 
 using namespace dcc;
-using namespace dcc::sync;
+using namespace dcc::cloudsync;
 
 static QString SYNC_INTERFACE = "com.deepin.sync.Daemon";
 

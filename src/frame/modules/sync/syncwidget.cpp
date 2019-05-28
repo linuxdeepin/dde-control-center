@@ -5,7 +5,7 @@
 #include <QDebug>
 
 using namespace dcc;
-using namespace dcc::sync;
+using namespace dcc::cloudsync;
 using namespace dcc::widgets;
 
 SyncWidget::SyncWidget()
@@ -13,8 +13,8 @@ SyncWidget::SyncWidget()
     , m_accountBtn(new QPushButton(tr("Login")))
     , m_userButton(new NextPageWidget)
 {
-    setObjectName("Sync");
-    setTitle(tr("deepin ID"));
+    setObjectName("CloudSync");
+    setTitle(tr("Cloud Sync"));
 
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(0);
