@@ -106,6 +106,15 @@ CreatePage::CreatePage(QWidget *parent) :
         }
     });
 
+    QList<QLineEdit*> list {
+        m_username->textEdit(),
+        m_password->textEdit(),
+        m_repeatpass->textEdit()
+    };
+
+    for (QLineEdit* edit : list) {
+        connect(edit, &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
+    }
 }
 
 CreatePage::~CreatePage()
@@ -249,7 +258,7 @@ void CreatePage::onEditFinished(T t)
 {
     QSettings setting("/etc/deepin/dde-control-center.conf", QSettings::IniFormat);
     setting.beginGroup("Password");
-    if (!setting.value("STRONG_PASSWORD", false).toBool()) return;
+    if (!setting.value("STRONG_PASSWORD", false).toBool()) return m_errorTip->hide();
 
     const QString &password = t->text();
     if (m_username->text().toLower() == password.toLower()) {

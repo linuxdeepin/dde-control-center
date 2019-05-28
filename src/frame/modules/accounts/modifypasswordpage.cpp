@@ -199,7 +199,7 @@ void ModifyPasswordPage::onEditFinished(T t)
 {
     QSettings setting("/etc/deepin/dde-control-center.conf", QSettings::IniFormat);
     setting.beginGroup("Password");
-    if (!setting.value("STRONG_PASSWORD", false).toBool()) return;
+    if (!setting.value("STRONG_PASSWORD", false).toBool()) return t->hideAlertMessage();
 
     const QString &password = t->text();
 
