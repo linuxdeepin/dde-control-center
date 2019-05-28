@@ -17,6 +17,17 @@ if (NOT (${CMAKE_BUILD_TYPE} MATCHES "Debug"))
                     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif ()
 
+# Test architecture
+execute_process(COMMAND dpkg-architecture -qDEB_BUILD_ARCH OUTPUT_VARIABLE ARCHITECTURE RESULT_VARIABLE EXIT_CODE)
+if (${EXIT_CODE} EQUAL 0)
+    string(STRIP ${ARCHITECTURE} ARCHITECTURE)
+
+    if (${ARCHITECTURE} STREQUAL "sw_64")
+        # add compiler flags -mieee for mathmatic
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mieee")
+    endif()
+endif()
+
 set(STRONG_PASSWORD false)
 set(AllowEnableMultiScaleRatio false)
 
@@ -52,4 +63,3 @@ if (OS_DEEPIN_PROFESSIONAL)
         install(FILES com.deepin.controlcenter.addomain.policy DESTINATION share/polkit-1/actions)
     endif()
 endif()
-
