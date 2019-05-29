@@ -1,3 +1,14 @@
+<a name="4.10.6"></a>
+### 4.10.6 (2019-05-29)
+
+
+#### Bug Fixes
+
+* **accounts:**  not hide error tip ([c4818bc7](https://github.com/linuxdeepin/dde-control-center/commit/c4818bc7dd9c60415f2fbaf0c2a2bf4383e40310))
+* **sw:**  missing mieee ([048511fd](https://github.com/linuxdeepin/dde-control-center/commit/048511fdc85714d13cb77a6ee2d12269a2c3c5f3))
+
+
+
 <a name="4.10.5"></a>
 ### 4.10.5 (2019-05-23)
 
