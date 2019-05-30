@@ -260,7 +260,7 @@ double MouseWorker::converToMotionAcceleration(int value)
 {
     switch (value) {
     case 0:
-        return 3.2;
+        return 2.8;
     case 1:
         return 2.3;
     case 2:
@@ -298,4 +298,3 @@ int MouseWorker::converToModelMotionAcceleration(double value)
         return 3;
     }
 }
-
