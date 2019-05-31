@@ -57,6 +57,8 @@ LogoItem::LogoItem(QFrame *parent)
 void LogoItem::setDescription(const QString &des)
 {
     m_description->setText(des);
+    QRect r = m_description->fontMetrics().boundingRect(QRect(0, 0, m_description->minimumWidth(), 100), Qt::TextWordWrap, des);
+    m_description->setMinimumHeight(r.height());
 }
 
 void LogoItem::setLogo(const QString &logo)
