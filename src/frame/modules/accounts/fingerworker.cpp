@@ -40,7 +40,9 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     , m_fprDefaultInter(nullptr)
 {
     m_fprintdInter->setSync(false);
+}
 
+void FingerWorker::refreshDevice() {
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_fprintdInter->GetDefaultDevice(), this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, &FingerWorker::onGetFprDefaultDevFinished);
 }

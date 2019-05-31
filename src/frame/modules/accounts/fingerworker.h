@@ -46,6 +46,8 @@ class FingerWorker : public QObject
 public:
     explicit FingerWorker(FingerModel *model, QObject *parent = nullptr);
 
+    void refreshDevice();
+
 Q_SIGNALS:
     void requestShowAddThumb(const QString &name, const QString &thumb);
 
