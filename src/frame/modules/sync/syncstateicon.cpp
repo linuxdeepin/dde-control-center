@@ -2,30 +2,22 @@
 
 #include <QMatrix>
 #include <QVBoxLayout>
+#include <QPainter>
 
 using namespace dcc;
 using namespace dcc::cloudsync;
 
-SyncStateIcon::SyncStateIcon(QWidget* parent) : QLabel(parent), m_centerLbl(new QLabel)
+SyncStateIcon::SyncStateIcon(QWidget* parent) : QLabel(parent)
 {
     m_rotateAni.setStartValue(0);
     m_rotateAni.setEndValue(360);
-    m_rotateAni.setDuration(2000);
+    m_rotateAni.setDuration(5000);
     m_rotateAni.setLoopCount(-1);
-
-    QVBoxLayout* layout = new QVBoxLayout;
-    layout->setMargin(0);
-    layout->setSpacing(0);
-    layout->addWidget(m_centerLbl, 0, Qt::AlignHCenter);
-
-    setLayout(layout);
 
     connect(&m_rotateAni, &QVariantAnimation::valueChanged, this,
             [=](const QVariant& value) -> void {
-                QMatrix matrix;
-                matrix.rotate(value.toUInt());
-                m_centerLbl->setPixmap(
-                    m_rotatePixmap.transformed(matrix, Qt::SmoothTransformation));
+                m_rotateRatio = value.toDouble();
+                update();
             });
 }
 
@@ -34,7 +26,7 @@ SyncStateIcon::~SyncStateIcon() {}
 void SyncStateIcon::setRotatePixmap(const QPixmap& pixmap)
 {
     m_rotatePixmap = pixmap;
-    m_centerLbl->setPixmap(pixmap);
+    update();
 }
 
 void SyncStateIcon::play()
@@ -45,4 +37,21 @@ void SyncStateIcon::play()
 void SyncStateIcon::stop()
 {
     m_rotateAni.stop();
+}
+
+void SyncStateIcon::paintEvent(QPaintEvent* event)
+{
+    QLabel::paintEvent(event);
+
+    QPainter painter(this);
+    painter.setRenderHints(QPainter::SmoothPixmapTransform);
+
+    const QSize pixmapSize { m_rotatePixmap.size() / devicePixelRatioF() };
+    const QPointF pixmapCenter { static_cast<qreal>(pixmapSize.width() / 2), static_cast<qreal>(pixmapSize.height() / 2) };
+    const QPoint offset { rect().center() - pixmapCenter.toPoint() };
+    const QRect r(offset, pixmapSize);
+    painter.translate(pixmapCenter + offset);
+    painter.rotate(m_rotateRatio);
+    painter.translate(-pixmapCenter - offset);
+    painter.drawPixmap(r, m_rotatePixmap);
 }

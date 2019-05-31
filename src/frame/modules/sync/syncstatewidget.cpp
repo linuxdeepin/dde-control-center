@@ -167,7 +167,7 @@ void SyncStateWidget::onStateChanged(const std::pair<qint32, QString> &state)
         case SyncModel::SyncState::Syncing:
             m_syncStateLbl->show();
             m_lastSyncTimeLbl->hide();
-            m_syncIcon->setRotatePixmap(DHiDPIHelper::loadNxPixmap(":/cloudsync/themes/dark/syncing@2x.svg"));
+            m_syncIcon->setRotatePixmap(DHiDPIHelper::loadNxPixmap(":/cloudsync/themes/dark/syncing.svg"));
             m_syncIcon->play();
             break;
         case SyncModel::SyncState::Failed:

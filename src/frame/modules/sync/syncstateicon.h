@@ -18,10 +18,13 @@ public:
     void play();
     void stop();
 
+protected:
+    void paintEvent(QPaintEvent* event) override;
+
 private:
-    QLabel* m_centerLbl;
     QPixmap m_rotatePixmap;
     QVariantAnimation m_rotateAni;
+    qreal m_rotateRatio;
 };
 }  // namespace cloudsync
 }  // namespace dcc
