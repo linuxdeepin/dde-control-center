@@ -35,6 +35,15 @@ namespace dcc
 namespace widgets
 {
 
+class ResizeEventFilter : public QObject
+{
+    Q_OBJECT
+public:
+    explicit ResizeEventFilter(QObject* parent = nullptr);
+protected:
+    bool eventFilter(QObject *watched, QEvent *event);
+};
+
 class TipsLabel;
 class TitleValueItem : public SettingsItem
 {

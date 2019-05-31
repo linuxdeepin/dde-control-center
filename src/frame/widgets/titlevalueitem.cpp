@@ -25,6 +25,7 @@
 
 #include "titlevalueitem.h"
 #include <QHBoxLayout>
+#include <QEvent>
 
 #include "widgets/labels/tipslabel.h"
 
@@ -33,6 +34,22 @@ namespace dcc
 
 namespace widgets
 {
+
+ResizeEventFilter::ResizeEventFilter(QObject *parent) : QObject(parent) {}
+
+bool ResizeEventFilter::eventFilter(QObject *watched, QEvent *event)
+{
+    if(event->type() == QEvent::Resize) {
+        QLabel* l = qobject_cast<QLabel*>(watched);
+        if (l) {
+            //as we are not interested in the y offset of the rendered text, height of the rectangle doesn't matter.
+            QRect r = l->fontMetrics().boundingRect(QRect(0, 0, l->width(), 100), Qt::TextWordWrap, l->text());
+            l->setMinimumHeight(r.height());
+            return true;
+        }
+    }
+    return QObject::eventFilter(watched, event);
+}
 
 TitleValueItem::TitleValueItem(QFrame *parent)
     : SettingsItem(parent),
@@ -49,8 +66,9 @@ TitleValueItem::TitleValueItem(QFrame *parent)
     layout->addWidget(m_title);
     layout->addWidget(m_value);
 
+    m_value->installEventFilter(new ResizeEventFilter(this));
+
     setLayout(layout);
-//    setFixedHeight(36);
 }
 
 void TitleValueItem::setTitle(const QString &title)
