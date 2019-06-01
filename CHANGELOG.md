@@ -1,3 +1,14 @@
+<a name="4.10.7"></a>
+### 4.10.7 (2019-06-01)
+
+
+#### Bug Fixes
+
+*   long processor name screws up layout. ([722a95ef](https://github.com/linuxdeepin/dde-control-center/commit/722a95efc9e4d85fe83683ae88927eaaeb4436b6))
+* **fprintd:**  refresh device when enter user detail page again ([b912e969](https://github.com/linuxdeepin/dde-control-center/commit/b912e969fea91c3c1f1baf6f5b5ea9ac077304ff))
+
+
+
 <a name="4.10.6"></a>
 ### 4.10.6 (2019-05-29)
 
