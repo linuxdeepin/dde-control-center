@@ -331,17 +331,19 @@ void Frame::onScreenRectChanged(const QRect &primaryRect)
         // 或QWindow的接口更改窗口大小时会判断参数是否和旧的一致，导致更新位置和大小
         // 失效，因此此处直接使用 QPlatformWindow 调整窗口位置和大小。
         if (windowHandle() && windowHandle()->handle()) {
-            QPlatformWindow *native_windwo = windowHandle()->handle();
-            QRect rect = native_windwo->geometry();
+            QPlatformWindow *native_window = windowHandle()->handle();
+            QRect rect = native_window->geometry();
 
             rect.setWidth(static_cast<int>(FRAME_WIDTH * ratio));
             rect.setHeight(m_primaryRect.height());
-            rect.moveLeft(m_primaryRect.right() - rect.width() + 1);
+            //the frame might be invisible here as rotating screen in control center hides the frame
+            rect.moveLeft(m_primaryRect.right() - (m_shown ? (rect.width() - 1) : 0));
             rect.moveTop(m_primaryRect.top());
 
-            native_windwo->setGeometry(rect);
+            native_window->setGeometry(rect);
+            Q_EMIT rectChanged(rect);
         } else {
-            DBlurEffectWidget::move(m_primaryRect.x() + m_primaryRect.width() / ratio - width() + 1, m_primaryRect.y());
+            DBlurEffectWidget::move(m_primaryRect.x() + m_primaryRect.width() / ratio - (m_shown ? (width() - 1) : 0), m_primaryRect.y());
         }
     });
 }
