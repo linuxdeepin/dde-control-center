@@ -159,7 +159,7 @@ void SettingsWidget::loadModules()
     loadModule(new accounts::AccountsModule(this));
 #endif
 
-#ifndef DISABLE_SYNC
+#ifndef DISALBE_CLOUD_SYNC
     loadModule(new cloudsync::SyncModule(this));
 #endif
 
