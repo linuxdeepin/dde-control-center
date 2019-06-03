@@ -22,6 +22,7 @@
 #include "navmodel.h"
 
 #include <QCoreApplication>
+#include <QDebug>
 
 NavModel::NavModel(QObject *parent) : QAbstractTableModel(parent)
 {
@@ -30,6 +31,7 @@ NavModel::NavModel(QObject *parent) : QAbstractTableModel(parent)
 
     setModuleVisible("bluetooth", false);
     setModuleVisible("wacom", false);
+    setModuleVisible("Cloud Sync", false);
 }
 
 int NavModel::rowCount(const QModelIndex &parent) const
@@ -83,6 +85,7 @@ void NavModel::setHoverIndex(const QModelIndex &index)
 
 void NavModel::setModuleVisible(const QString &module, bool visible)
 {
+    qDebug() << module;
     if (visible) {
         m_hideModuleList.removeOne(module);
     }

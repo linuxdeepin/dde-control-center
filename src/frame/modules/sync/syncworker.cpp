@@ -1,5 +1,7 @@
 #include "syncworker.h"
 
+#include <QProcess>
+
 using namespace dcc;
 using namespace dcc::cloudsync;
 
@@ -18,6 +20,8 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     connect(m_syncInter, &SyncInter::StateChanged, this, &SyncWorker::onStateChanged);
     connect(m_syncInter, &SyncInter::LastSyncTimeChanged, this, &SyncWorker::onLastSyncTimeChanged);
     connect(m_syncInter, &SyncInter::SwitcherChange, this, &SyncWorker::onSyncModuleStateChanged);
+
+    m_model->setSyncIsValid(QProcess::execute("which", QStringList() << "/usr/lib/deepin-sync-daemon/deepin-sync-daemon") == 0);
 }
 
 void SyncWorker::activate()

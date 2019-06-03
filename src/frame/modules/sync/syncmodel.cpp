@@ -5,6 +5,7 @@ using namespace dcc::cloudsync;
 
 SyncModel::SyncModel(QObject *parent)
     : QObject(parent)
+    , m_syncIsValid(false)
     , m_enableSync(false)
 {
 
@@ -82,4 +83,13 @@ void SyncModel::setModuleSyncState(SyncModel::SyncType type, bool state)
     m_moduleSyncState[type] = state;
 
     Q_EMIT moduleSyncStateChanged(std::pair<SyncType, bool>(type, state));
+}
+
+void SyncModel::setSyncIsValid(bool syncIsValid)
+{
+    if (m_syncIsValid == syncIsValid) return;
+
+    m_syncIsValid = syncIsValid;
+
+    Q_EMIT syncIsValidChanged(syncIsValid);
 }

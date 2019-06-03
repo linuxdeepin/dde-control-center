@@ -57,14 +57,19 @@ public:
 
     void setModuleSyncState(SyncType type, bool state);
 
+    inline bool syncIsValid() const { return m_syncIsValid; }
+    void setSyncIsValid(bool syncIsValid);
+
 Q_SIGNALS:
     void userInfoChanged(const QVariantMap &userInfo);
     void syncStateChanged(const std::pair<qint32, QString>& syncState);
     void lastSyncTimeChanged(const qlonglong lastSyncTime);
     void enableSyncChanged(bool enableSync);
     void moduleSyncStateChanged(std::pair<SyncType, bool> state);
+    void syncIsValidChanged(bool syncIsValid);
 
 private:
+    bool m_syncIsValid;
     bool m_enableSync;
     QMap<SyncType, bool> m_moduleSyncState;
     QVariantMap m_userinfo;
