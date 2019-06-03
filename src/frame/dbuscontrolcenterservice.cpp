@@ -46,6 +46,7 @@
 #include <QtCore/QStringList>
 #include <QtCore/QVariant>
 #include <QGuiApplication>
+#include <qpa/qplatformwindow.h>
 #include <QScreen>
 #include <QString>
 
@@ -94,7 +95,7 @@ bool DBusControlCenterService::showInRight() const
 
 const QRect DBusControlCenterService::rect() const
 {
-    return parent()->geometry();
+    return parent()->windowHandle()->handle()->geometry();
 }
 
 //int DBusControlCenterService::x() const
