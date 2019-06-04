@@ -89,11 +89,11 @@ SyncStateWidget::SyncStateWidget(QWidget *parent)
     };
 
     m_moduleGrp = new SettingsGroup;
-    QSet<SyncModel::SyncType> list = m_model->moduleMap().keys().toSet();
+    const std::list<std::pair<SyncModel::SyncType, QStringList>> list = m_model->moduleMap();
     for (auto it = list.cbegin(); it != list.cend(); ++it) {
         SwitchWidget* module = new SwitchWidget;
-        module->setTitle(moduleTs[*it]);
-        m_syncModuleMap[module] = *it;
+        module->setTitle(moduleTs[it->first]);
+        m_syncModuleMap[module] = it->first;
         m_moduleGrp->appendItem(module);
         connect(module, &SwitchWidget::checkedChanged, this, &SyncStateWidget::onModuleItemSwitched);
     }
@@ -237,6 +237,10 @@ void SyncStateWidget::onAutoSyncChanged(bool autoSync)
 
 void SyncStateWidget::onUserInfoChanged(const QVariantMap &info)
 {
+#ifdef QT_DEBUG
+    return;
+#endif
+
     if (info["Region"].toString() == "CN") {
         m_regionTipFrame->hide();
         m_backgroundFrame->show();

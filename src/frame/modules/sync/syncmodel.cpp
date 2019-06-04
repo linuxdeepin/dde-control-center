@@ -68,19 +68,20 @@ void SyncModel::setEnableSync(bool enableSync)
     Q_EMIT enableSyncChanged(enableSync);
 }
 
-QMultiMap<SyncModel::SyncType, QString> SyncModel::moduleMap()
+std::list<std::pair<SyncModel::SyncType, QStringList>> SyncModel::moduleMap()
 {
-    return QMultiMap<SyncType, QString>{ { Network, "network" },
-                                         { Sound, "audio" },
-                                         { Mouse, "peripherals" },
-                                         { Update, "updater" },
-                                         { Dock, "dock" },
-                                         { Launcher, "launcher" },
-                                         { Wallpaper, "background" },
-                                         { Wallpaper, "screensaver" },
-                                         { Theme, "theme" },
-                                         { Power, "power" },
-                                         { Corner, "screen_edge" } };
+    return std::list<std::pair<SyncType, QStringList>>{
+        { Network, { "network" } },
+        { Sound, { "audio" } },
+        { Mouse, { "peripherals" } },
+        { Update, { "updater" } },
+        { Dock, { "dock" } },
+        { Launcher, { "launcher" } },
+        { Wallpaper, { "background", "screensaver" } },
+        { Theme, { "appearance" } },
+        { Power, { "power" } },
+        { Corner, { "screen_edge" } }
+    };
 }
 
 void SyncModel::setModuleSyncState(SyncModel::SyncType type, bool state)
