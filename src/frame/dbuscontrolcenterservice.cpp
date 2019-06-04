@@ -95,7 +95,11 @@ bool DBusControlCenterService::showInRight() const
 
 const QRect DBusControlCenterService::rect() const
 {
-    return parent()->windowHandle()->handle()->geometry();
+    if (parent()->windowHandle() && parent()->windowHandle()->handle()) {
+        return parent()->windowHandle()->handle()->geometry();
+    }
+
+    return parent()->geometry();
 }
 
 //int DBusControlCenterService::x() const
