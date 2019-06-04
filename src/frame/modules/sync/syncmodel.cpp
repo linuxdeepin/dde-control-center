@@ -78,7 +78,7 @@ QMultiMap<SyncModel::SyncType, QString> SyncModel::moduleMap()
                                          { Launcher, "launcher" },
                                          { Wallpaper, "background" },
                                          { Wallpaper, "screensaver" },
-                                         { Theme, "theme" },
+                                         { Theme, "appearance" },
                                          { Power, "power" },
                                          { Corner, "screen_edge" } };
 }
