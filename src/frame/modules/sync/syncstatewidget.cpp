@@ -2,6 +2,9 @@
 #include "syncstateicon.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/translucentframe.h"
+#include "widgets/switchwidget.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/labels/tipslabel.h"
 
 #include <QDebug>
 #include <QVBoxLayout>
@@ -20,11 +23,24 @@ SyncStateWidget::SyncStateWidget(QWidget *parent)
     , m_syncStateLbl(new QLabel)
     , m_lastSyncTimeLbl(new QLabel)
     , m_logoutBtn(new QPushButton)
+    , m_regionTipFrame(new TranslucentFrame)
 {
     m_syncIcon->setPixmap(DHiDPIHelper::loadNxPixmap(":/cloudsync/themes/dark/cloud.svg"));
     m_syncStateLbl->setText(tr("Syncing"));
     m_logoutBtn->setText(tr("Logout"));
     m_logoutBtn->setObjectName("LogoutButton");
+
+    TipsLabel* regionTip = new TipsLabel;
+    regionTip->setText(tr("Sorry, it is not supported in your region at present, and will be coming soon"));
+    regionTip->setWordWrap(true);
+
+    QVBoxLayout* regionLayout = new QVBoxLayout;
+    regionLayout->setMargin(0);
+    regionLayout->setSpacing(0);
+    regionLayout->addWidget(regionTip);
+
+    m_regionTipFrame->setLayout(regionLayout);
+    m_regionTipFrame->hide();
 
     QVBoxLayout* layout = new QVBoxLayout;
     layout->setMargin(0);
@@ -84,15 +100,21 @@ SyncStateWidget::SyncStateWidget(QWidget *parent)
 
     layout->addWidget(m_moduleGrp);
 
-    layout->addSpacing(10);
-    layout->addWidget(m_logoutBtn);
+    m_backgroundFrame = new TranslucentFrame;
+    m_backgroundFrame->setLayout(layout);
 
-    layout->addStretch();
+    QVBoxLayout* mainLayout = new QVBoxLayout;
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(10);
+    mainLayout->addWidget(m_backgroundFrame);
+    mainLayout->addWidget(m_regionTipFrame);
+    mainLayout->addWidget(m_logoutBtn);
+    mainLayout->addStretch();
 
-    TranslucentFrame* frame = new TranslucentFrame;
-    frame->setLayout(layout);
+    TranslucentFrame* widget = new TranslucentFrame;
+    widget->setLayout(mainLayout);
 
-    setContent(frame);
+    setContent(widget);
 
     m_syncStateLbl->hide();
     m_lastSyncTimeLbl->hide();
@@ -104,6 +126,7 @@ void SyncStateWidget::setModel(const SyncModel * const model)
 {
     m_model = model;
 
+    connect(model, &SyncModel::userInfoChanged, this, &SyncStateWidget::onUserInfoChanged);
     connect(model, &SyncModel::syncStateChanged, this, &SyncStateWidget::onStateChanged);
     connect(model, &SyncModel::lastSyncTimeChanged, this, &SyncStateWidget::onLastSyncTimeChanged);
     connect(model, &SyncModel::moduleSyncStateChanged, this, &SyncStateWidget::onModuleStateChanged);
@@ -124,6 +147,8 @@ void SyncStateWidget::setModel(const SyncModel * const model)
     for (auto it = moduleState.cbegin(); it != moduleState.cend(); ++it) {
         onModuleStateChanged(*it);
     };
+
+    onUserInfoChanged(model->userinfo());
 }
 
 void SyncStateWidget::onStateChanged(const std::pair<qint32, QString> &state)
@@ -208,4 +233,16 @@ void SyncStateWidget::onAutoSyncChanged(bool autoSync)
     m_tips->setVisible(!autoSync);
     m_moduleGrp->setVisible(autoSync);
     m_autoSync->setChecked(autoSync);
+}
+
+void SyncStateWidget::onUserInfoChanged(const QVariantMap &info)
+{
+    if (info["Region"].toString() == "CN") {
+        m_regionTipFrame->hide();
+        m_backgroundFrame->show();
+    }
+    else {
+        m_regionTipFrame->show();
+        m_backgroundFrame->hide();
+    }
 }
