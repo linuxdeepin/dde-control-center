@@ -57,13 +57,23 @@ SwitchWidget::SwitchWidget(QWidget *widget, QFrame *parent):
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(20, 0, 10, 0);
+
+    //set a vertical margin instead of a fixed height,
+    //as we are now dealing with multi-line labels as well.
+    int vertical_margin = 0;
+    QLabel *label = qobject_cast<QLabel*>(m_leftWidget);
+    if (label) {
+        vertical_margin = (36 - label->fontMetrics().height()) / 2;
+    }
+
+    mainLayout->setContentsMargins(20, vertical_margin, 10, vertical_margin);
 
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
     mainLayout->addStretch();
     mainLayout->addWidget(m_switchBtn, 0, Qt::AlignVCenter);
 
-    setFixedHeight(36);
+    m_leftWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
     setLayout(mainLayout);
 
     connect(m_switchBtn, &DSwitchButton::checkedChanged, this, &SwitchWidget::checkedChanged);
@@ -80,6 +90,7 @@ void SwitchWidget::setTitle(const QString &title)
 {
     QLabel *label = qobject_cast<QLabel*>(m_leftWidget);
     if (label) {
+        label->setWordWrap(true);
         label->setText(title);
     }
 
