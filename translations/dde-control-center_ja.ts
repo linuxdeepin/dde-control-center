@@ -85,7 +85,7 @@
 <context>
     <name>NavModel</name>
     <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="148"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
         <source>Navigation</source>
         <translation>ナビゲーション</translation>
     </message>
@@ -93,7 +93,7 @@
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="235"/>
+        <location filename="../src/frame/navigationbar.cpp" line="240"/>
         <source>Navigation</source>
         <translation>ナビゲーション</translation>
     </message>
@@ -121,7 +121,7 @@
     <message>
         <location filename="../src/frame/notify/notifywidget.cpp" line="33"/>
         <source>No system notifications</source>
-        <translation type="unfinished"/>
+        <translation>システム通知はありません</translation>
     </message>
     <message>
         <location filename="../src/frame/notify/notifywidget.cpp" line="35"/>
@@ -175,12 +175,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../src/frame/settingswidget.cpp" line="79"/>
+        <location filename="../src/frame/settingswidget.cpp" line="80"/>
         <source>Reset all settings</source>
         <translation>全ての設定をリセット</translation>
     </message>
     <message>
-        <location filename="../src/frame/settingswidget.cpp" line="89"/>
+        <location filename="../src/frame/settingswidget.cpp" line="90"/>
         <source>All Settings</source>
         <translation>全体の設定</translation>
     </message>
@@ -428,8 +428,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="112"/>
-        <location filename="../src/frame/navigationbar.cpp" line="196"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="115"/>
+        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Accounts</source>
         <translation>アカウント</translation>
     </message>
@@ -565,23 +565,23 @@ If no operation, the display will be restored after %1s.</source>
         <translation>新規アカウント</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="151"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="160"/>
         <source>Username can&apos;t be empty</source>
         <translation>ユーザー名は空欄にする事ができません</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="154"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="163"/>
         <source>Password can&apos;t be empty</source>
         <translation>パスワードは空欄にできません</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="256"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="265"/>
         <source>The password should be different from the username</source>
         <translation>パスワードはユーザー名とはことなるパスワードにしてください</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="262"/>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="265"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="271"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="274"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>パスワードは英字(大文字と小文字を区別)、数字、特殊記号 (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) が含まれている必要があります</translation>
     </message>
@@ -697,12 +697,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Administrator permission required to delete account</source>
-        <translation type="unfinished"/>
+        <translation>アカウントの削除には管理者権限が必要です</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>アカウントのディレクトリを削除</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
@@ -737,8 +737,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../src/frame/modules/bluetooth/bluetoothmodule.cpp" line="159"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="117"/>
-        <location filename="../src/frame/navigationbar.cpp" line="202"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="121"/>
+        <location filename="../src/frame/navigationbar.cpp" line="208"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -761,7 +761,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
-        <translation>接続済</translation>
+        <translation>接続済み</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/devicesettingsitem.cpp" line="130"/>
@@ -785,6 +785,113 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="51"/>
         <source>OK</source>
         <translation>OK</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::cloudsync::SyncStateWidget</name>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="29"/>
+        <source>Syncing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="30"/>
+        <source>Logout</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="34"/>
+        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
+        <source>Auto Sync</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
+        <source>Switch it on to sync part of the settings for Control Center, Launcher and Dock automatically.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="79"/>
+        <source>Network Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="80"/>
+        <source>Sound Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="81"/>
+        <source>Mouse Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="82"/>
+        <source>Update Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
+        <source>Dock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
+        <source>Launcher</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="85"/>
+        <source>Wallpaper</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="86"/>
+        <source>Theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="87"/>
+        <source>Power Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="88"/>
+        <source>Corner Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="210"/>
+        <source>Last Sync: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="212"/>
+        <source>yyyy-MM-dd hh:mm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::cloudsync::SyncWidget</name>
+    <message>
+        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="14"/>
+        <source>Login</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
+        <source>Cloud Sync</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
+        <source>Only supported in Mainland China at present</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -827,8 +934,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::datetime::Datetime</name>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="119"/>
-        <location filename="../src/frame/navigationbar.cpp" line="204"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="123"/>
+        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Time and Date</source>
         <translation>時間と日付</translation>
     </message>
@@ -913,8 +1020,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="41"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="114"/>
-        <location filename="../src/frame/navigationbar.cpp" line="198"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="118"/>
+        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Default Applications</source>
         <translation>既定のアプリケーション</translation>
     </message>
@@ -1034,8 +1141,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="115"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
-        <location filename="../src/frame/navigationbar.cpp" line="197"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="117"/>
+        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <source>Display</source>
         <translation>ディスプレイ</translation>
     </message>
@@ -1152,7 +1259,7 @@ If no operation, the display will be restored after %1s.</source>
         <translation>プライマリー</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="354"/>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="352"/>
         <source> (Recommended)</source>
         <translation>(推奨)</translation>
     </message>
@@ -1325,8 +1432,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="49"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="122"/>
-        <location filename="../src/frame/navigationbar.cpp" line="207"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="126"/>
+        <location filename="../src/frame/navigationbar.cpp" line="213"/>
         <source>Keyboard and Language</source>
         <translation>キーボードと言語</translation>
     </message>
@@ -1404,7 +1511,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="50"/>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>ショートカットをリセットしてください</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="57"/>
@@ -1445,7 +1552,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="56"/>
         <source>Window</source>
-        <translation>ウインドウ</translation>
+        <translation>ウィンドウ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="57"/>
@@ -1485,8 +1592,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::mouse::MouseWidget</name>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="121"/>
-        <location filename="../src/frame/navigationbar.cpp" line="206"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../src/frame/navigationbar.cpp" line="212"/>
         <source>Mouse</source>
         <translation>マウス</translation>
     </message>
@@ -1508,7 +1615,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="53"/>
         <source>Left Hand</source>
-        <translation>左手</translation>
+        <translation>左利き</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="54"/>
@@ -1546,7 +1653,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="62"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="66"/>
         <source>Natural Scrolling</source>
-        <translation>ナチュラル・スクロール</translation>
+        <translation>ナチュラル スクロール</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="65"/>
@@ -1977,8 +2084,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
-        <location filename="../src/frame/navigationbar.cpp" line="201"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="120"/>
+        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <source>Network</source>
         <translation>ネットワーク</translation>
     </message>
@@ -2284,7 +2391,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="163"/>
         <source>Saved</source>
-        <translation>保存済</translation>
+        <translation>保存済み</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="164"/>
@@ -2820,7 +2927,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="123"/>
         <source>Saved</source>
-        <translation>保存済</translation>
+        <translation>保存済み</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
@@ -3006,17 +3113,17 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="76"/>
         <source>VPN Status</source>
-        <translation type="unfinished"/>
+        <translation>VPN の状態</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="79"/>
         <source>Create VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPN を作成</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="82"/>
         <source>Import VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPN をインポート</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="101"/>
@@ -3071,7 +3178,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="311"/>
         <source>New VPN</source>
-        <translation type="unfinished"/>
+        <translation>新しい VPN</translation>
     </message>
 </context>
 <context>
@@ -3094,7 +3201,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation type="unfinished"/>
+        <translation>VPN プロキシ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
@@ -3187,7 +3294,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
         <source>Saved</source>
-        <translation>保存済</translation>
+        <translation>保存済み</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
@@ -3242,7 +3349,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation type="unfinished"/>
+        <translation>VPN プロキシ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
@@ -3417,7 +3524,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="159"/>
         <source>Saved</source>
-        <translation>保存済</translation>
+        <translation>保存済み</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="160"/>
@@ -3513,7 +3620,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="64"/>
         <source>Connect to hidden network</source>
-        <translation>隠されたネットワークへ接続</translation>
+        <translation>非表示のネットワークへ接続</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
@@ -3569,7 +3676,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontlistwidget.cpp" line="89"/>
         <source> (Unsupported font)</source>
-        <translation type="unfinished"/>
+        <translation>(サポートされていないフォント)</translation>
     </message>
 </context>
 <context>
@@ -3577,12 +3684,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="45"/>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>標準のフォント</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>等幅フォント</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
@@ -3612,32 +3719,32 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="118"/>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>標準のフォント</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="127"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>等幅フォント</translation>
     </message>
 </context>
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="77"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="115"/>
-        <location filename="../src/frame/navigationbar.cpp" line="199"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="119"/>
+        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <source>Personalization</source>
         <translation>パーソナライズ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="46"/>
         <source>Transparency</source>
-        <translation type="unfinished"/>
+        <translation>透明度</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="68"/>
         <source>Window Effect</source>
-        <translation type="unfinished"/>
+        <translation>ウィンドウ効果</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
@@ -3663,7 +3770,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="40"/>
         <source>Window Theme</source>
-        <translation>ウインドウテーマ</translation>
+        <translation>ウィンドウテーマ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="41"/>
@@ -3685,53 +3792,53 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::power::PowerWidget</name>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="120"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="120"/>
-        <location filename="../src/frame/navigationbar.cpp" line="205"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="124"/>
+        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>Power Management</source>
-        <translation>消費電力管理</translation>
+        <translation>電力管理</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="46"/>
         <source>Plugged in</source>
-        <translation>プラグイン</translation>
+        <translation>電源接続時</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="47"/>
         <source>On battery</source>
-        <translation>バッテリーの上</translation>
+        <translation>バッテリー時</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="48"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="50"/>
         <source>Monitor will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>以下の時間が経過したら画面をサスペントする</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="49"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="51"/>
         <source>Computer will suspend after</source>
-        <translation>コンピューターを後にサスペントにする</translation>
+        <translation>以下の時間が経過したらコンピューターをサスペントする</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="61"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="196"/>
         <source>Never</source>
-        <translation>なし</translation>
+        <translation>しない</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="97"/>
         <source>Password required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>モニターの復帰時にパスワードを要求</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="100"/>
         <source>Password required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>コンピューターの復帰時にパスワードを要求</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="103"/>
         <source>Suspend on lid close</source>
-        <translation type="unfinished"/>
+        <translation>カバーを閉じたらサスペンドする</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="107"/>
@@ -3798,8 +3905,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::sound::SoundWidget</name>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="118"/>
-        <location filename="../src/frame/navigationbar.cpp" line="203"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="122"/>
+        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <source>Sound</source>
         <translation>サウンド</translation>
     </message>
@@ -3845,6 +3952,14 @@ If no operation, the display will be restored after %1s.</source>
     </message>
 </context>
 <context>
+    <name>dcc::sync::SyncWidget</name>
+    <message>
+        <location filename="../src/frame/navigationbar.cpp" line="203"/>
+        <source>Cloud Sync</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::systeminfo::BootWidget</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="62"/>
@@ -3882,15 +3997,15 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/systeminfo/copyrightwidget.cpp" line="70"/>
         <source>Edition License</source>
-        <translation type="unfinished"/>
+        <translation>エディションのライセンス</translation>
     </message>
 </context>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="125"/>
-        <location filename="../src/frame/navigationbar.cpp" line="211"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="129"/>
+        <location filename="../src/frame/navigationbar.cpp" line="216"/>
         <source>System Information</source>
         <translation>システム情報</translation>
     </message>
@@ -3912,7 +4027,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="91"/>
         <source>Edition:</source>
-        <translation type="unfinished"/>
+        <translation>エディション:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="95"/>
@@ -3937,7 +4052,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="120"/>
         <source>Edition License</source>
-        <translation type="unfinished"/>
+        <translation>エディションのライセンス</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="123"/>
@@ -4024,15 +4139,15 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="67"/>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>更新に失敗しました</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="124"/>
-        <location filename="../src/frame/navigationbar.cpp" line="210"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="128"/>
+        <location filename="../src/frame/navigationbar.cpp" line="215"/>
         <source>Update</source>
         <translation>更新</translation>
     </message>
@@ -4054,12 +4169,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
         <source>Checking for updates, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>更新を確認しています。お待ちください…</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Download and install updates</source>
-        <translation type="unfinished"/>
+        <translation>更新をダウンロードしてインストール</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="190"/>
@@ -4085,7 +4200,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="213"/>
         <source>Updating, please wait...</source>
-        <translation>更新中、しばらくお待ちください...</translation>
+        <translation>更新しています、しばらくお待ちください...</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="227"/>
@@ -4115,12 +4230,12 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>新しいエディションのシステムと %n 件のアプリケーションの更新を検出しました</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Downloaded</source>
-        <translation>ダウンロード済</translation>
+        <translation>ダウンロード済み</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="280"/>
@@ -4151,47 +4266,47 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="50"/>
         <source>Update Settings</source>
-        <translation>更新設定</translation>
+        <translation>更新の設定</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="65"/>
         <source>Updates Notification</source>
-        <translation type="unfinished"/>
+        <translation>更新の通知</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="68"/>
         <source>Auto-download Updates</source>
-        <translation type="unfinished"/>
+        <translation>更新を自動的にダウンロード</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="unfinished"/>
+        <translation>無線または有線ネットワークで更新を自動的にダウンロードするにはオンにしてください</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto Clear Package Cache</source>
-        <translation type="unfinished"/>
+        <translation>パッケージキャッシュを自動的に消去</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
         <source>System Source Detection</source>
-        <translation type="unfinished"/>
+        <translation>システムソースの検出</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation type="unfinished"/>
+        <translation>システム更新のミラーが変更された場合に通知を表示します</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="99"/>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>効率的なミラーの切り替え</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation type="unfinished"/>
+        <translation>最速のミラーに自動的に接続するにはオンにしてください</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="113"/>
@@ -4210,7 +4325,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updateview.cpp" line="45"/>
         <source>Update Settings</source>
-        <translation>更新設定</translation>
+        <translation>更新の設定</translation>
     </message>
 </context>
 <context>
@@ -4261,8 +4376,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::wacom::WacomWidget</name>
     <message>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="123"/>
-        <location filename="../src/frame/navigationbar.cpp" line="209"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="127"/>
+        <location filename="../src/frame/navigationbar.cpp" line="214"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>
@@ -4287,7 +4402,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
-        <translation>接続済</translation>
+        <translation>接続済み</translation>
     </message>
 </context>
 </TS>

@@ -85,7 +85,7 @@
 <context>
     <name>NavModel</name>
     <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="148"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
         <source>Navigation</source>
         <translation>Navegación</translation>
     </message>
@@ -93,7 +93,7 @@
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="235"/>
+        <location filename="../src/frame/navigationbar.cpp" line="240"/>
         <source>Navigation</source>
         <translation>Navegación</translation>
     </message>
@@ -176,12 +176,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../src/frame/settingswidget.cpp" line="79"/>
+        <location filename="../src/frame/settingswidget.cpp" line="80"/>
         <source>Reset all settings</source>
         <translation>Restablecer todos los ajustes</translation>
     </message>
     <message>
-        <location filename="../src/frame/settingswidget.cpp" line="89"/>
+        <location filename="../src/frame/settingswidget.cpp" line="90"/>
         <source>All Settings</source>
         <translation>Todos los ajustes</translation>
     </message>
@@ -191,7 +191,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
-        <translation type="unfinished"/>
+        <translation>Arranque</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
@@ -226,7 +226,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Enviar ícono de la barra de lanzamiento al escritorio</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
@@ -269,7 +269,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
         <source>If no operation, the display will be restored after %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Si no hay operación, la pantalla se restaurará después de% 1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
@@ -292,12 +292,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <translation>Error de dependencia, error al detectar las actualizaciones</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
-        <translation type="unfinished"/>
+        <translation>Actualizaciones que detectan errores</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="174"/>
@@ -407,7 +407,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>Iniciar sesión sin contraseña</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -429,8 +429,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="112"/>
-        <location filename="../src/frame/navigationbar.cpp" line="196"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="115"/>
+        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Accounts</source>
         <translation>Cuentas</translation>
     </message>
@@ -513,17 +513,17 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
-        <translation type="unfinished"/>
+        <translation>Error al identificar la huella digital, coloque el dedo en el lector de huellas dactilares, deslice hacia arriba y suelte</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
-        <translation type="unfinished"/>
+        <translation>Coloque el dedo en el lector de huellas digitales, deslice hacia arriba y repita</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Added successfully</source>
-        <translation type="unfinished"/>
+        <translation>Se ha añadido correctamente</translation>
     </message>
 </context>
 <context>
@@ -566,23 +566,23 @@ If no operation, the display will be restored after %1s.</source>
         <translation>Nueva cuenta</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="151"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="160"/>
         <source>Username can&apos;t be empty</source>
         <translation>El nombre de usuario no puede estar vacío</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="154"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="163"/>
         <source>Password can&apos;t be empty</source>
         <translation>La contraseña no puede estar vacía</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="256"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="265"/>
         <source>The password should be different from the username</source>
         <translation>La contraseña debe ser diferente del nombre de usuario</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="262"/>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="265"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="271"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="274"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>La contraseña debe contener letras (mayúsculas y minúsculas), números o símbolos especiales (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
@@ -738,8 +738,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../src/frame/modules/bluetooth/bluetoothmodule.cpp" line="159"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="117"/>
-        <location filename="../src/frame/navigationbar.cpp" line="202"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="121"/>
+        <location filename="../src/frame/navigationbar.cpp" line="208"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -789,6 +789,113 @@ If no operation, the display will be restored after %1s.</source>
     </message>
 </context>
 <context>
+    <name>dcc::cloudsync::SyncStateWidget</name>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="29"/>
+        <source>Syncing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="30"/>
+        <source>Logout</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="34"/>
+        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
+        <source>Auto Sync</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
+        <source>Switch it on to sync part of the settings for Control Center, Launcher and Dock automatically.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="79"/>
+        <source>Network Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="80"/>
+        <source>Sound Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="81"/>
+        <source>Mouse Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="82"/>
+        <source>Update Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
+        <source>Dock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
+        <source>Launcher</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="85"/>
+        <source>Wallpaper</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="86"/>
+        <source>Theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="87"/>
+        <source>Power Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="88"/>
+        <source>Corner Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="210"/>
+        <source>Last Sync: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="212"/>
+        <source>yyyy-MM-dd hh:mm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::cloudsync::SyncWidget</name>
+    <message>
+        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="14"/>
+        <source>Login</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
+        <source>Cloud Sync</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
+        <source>Only supported in Mainland China at present</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::datetime::DateSettings</name>
     <message>
         <location filename="../src/frame/modules/datetime/datesettings.cpp" line="63"/>
@@ -828,8 +935,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::datetime::Datetime</name>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="119"/>
-        <location filename="../src/frame/navigationbar.cpp" line="204"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="123"/>
+        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Time and Date</source>
         <translation>Fecha y hora</translation>
     </message>
@@ -914,8 +1021,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="41"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="114"/>
-        <location filename="../src/frame/navigationbar.cpp" line="198"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="118"/>
+        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Default Applications</source>
         <translation>Aplicaciones predeterminadas</translation>
     </message>
@@ -1035,15 +1142,15 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="115"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
-        <location filename="../src/frame/navigationbar.cpp" line="197"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="117"/>
+        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <source>Display</source>
         <translation>Pantalla</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Escala de visualización</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
@@ -1068,7 +1175,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
         <source>Scaling Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de escala</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
@@ -1099,7 +1206,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="51"/>
         <source>WIFI will be disconnected when screen projection is enabled</source>
-        <translation type="unfinished"/>
+        <translation>WIFI se desconectará cuando la proyección de pantalla esté habilitada</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="55"/>
@@ -1153,7 +1260,7 @@ If no operation, the display will be restored after %1s.</source>
         <translation>Primario</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="354"/>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="352"/>
         <source> (Recommended)</source>
         <translation>(Recomendado)</translation>
     </message>
@@ -1176,7 +1283,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="56"/>
         <source>Some applications in multi-screens may not scale as the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Es posible que algunas aplicaciones en varias pantallas no se escalen como la configuración.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
@@ -1326,8 +1433,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="49"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="122"/>
-        <location filename="../src/frame/navigationbar.cpp" line="207"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="126"/>
+        <location filename="../src/frame/navigationbar.cpp" line="213"/>
         <source>Keyboard and Language</source>
         <translation>Idioma y teclado</translation>
     </message>
@@ -1486,8 +1593,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::mouse::MouseWidget</name>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="121"/>
-        <location filename="../src/frame/navigationbar.cpp" line="206"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../src/frame/navigationbar.cpp" line="212"/>
         <source>Mouse</source>
         <translation>Ratón</translation>
     </message>
@@ -1635,7 +1742,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"/>
+        <translation>Marque “Usar un proxy” en el menú contextual de la aplicación en el Launcher después de configurar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
@@ -1978,8 +2085,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
-        <location filename="../src/frame/navigationbar.cpp" line="201"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="120"/>
+        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <source>Network</source>
         <translation>Redes e Internet</translation>
     </message>
@@ -3625,8 +3732,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="77"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="115"/>
-        <location filename="../src/frame/navigationbar.cpp" line="199"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="119"/>
+        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <source>Personalization</source>
         <translation>Personalización</translation>
     </message>
@@ -3686,8 +3793,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::power::PowerWidget</name>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="120"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="120"/>
-        <location filename="../src/frame/navigationbar.cpp" line="205"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="124"/>
+        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>Power Management</source>
         <translation>Administración de energía</translation>
     </message>
@@ -3799,8 +3906,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::sound::SoundWidget</name>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="118"/>
-        <location filename="../src/frame/navigationbar.cpp" line="203"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="122"/>
+        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <source>Sound</source>
         <translation>Sonido</translation>
     </message>
@@ -3843,6 +3950,14 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="109"/>
         <source>Sound Effects</source>
         <translation>Efectos de sonido</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::sync::SyncWidget</name>
+    <message>
+        <location filename="../src/frame/navigationbar.cpp" line="203"/>
+        <source>Cloud Sync</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3890,8 +4005,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="125"/>
-        <location filename="../src/frame/navigationbar.cpp" line="211"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="129"/>
+        <location filename="../src/frame/navigationbar.cpp" line="216"/>
         <source>System Information</source>
         <translation>Información del sistema</translation>
     </message>
@@ -4032,8 +4147,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="124"/>
-        <location filename="../src/frame/navigationbar.cpp" line="210"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="128"/>
+        <location filename="../src/frame/navigationbar.cpp" line="215"/>
         <source>Update</source>
         <translation>Actualización</translation>
     </message>
@@ -4050,7 +4165,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="unfinished"/>
+        <translation>Esta actualización puede tardar mucho tiempo, por favor, no apague ni reinicie durante el proceso</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
@@ -4167,7 +4282,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="unfinished"/>
+        <translation>Enciéndalo para descargar automáticamente las actualizaciones en red inalámbrica o cableada</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
@@ -4262,8 +4377,8 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::wacom::WacomWidget</name>
     <message>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="123"/>
-        <location filename="../src/frame/navigationbar.cpp" line="209"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="127"/>
+        <location filename="../src/frame/navigationbar.cpp" line="214"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>
