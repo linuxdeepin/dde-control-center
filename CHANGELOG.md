@@ -1,3 +1,32 @@
+<a name="4.10.8"></a>
+### 4.10.8 (2019-06-04)
+
+
+#### Bug Fixes
+
+*   switch widget caption text overflows. (#212) ([a16647b3](https://github.com/linuxdeepin/dde-control-center/commit/a16647b30591978721fdc5d7f61345970b7a60e9))
+*   dbus method 'rect' returns wrong results after screen rotation. ([6fe8c17d](https://github.com/linuxdeepin/dde-control-center/commit/6fe8c17dc4386dc9f0093a6121c462c0c445ed31))
+* **dbus:**  check windowhandle ([25f0ff7d](https://github.com/linuxdeepin/dde-control-center/commit/25f0ff7dd7e931991d3695feaab0551db2a5477d))
+
+#### Features
+
+* **sync:**
+  *  add region check ([c519e4b4](https://github.com/linuxdeepin/dde-control-center/commit/c519e4b4e8b5402a22b65e8b23e1feb7fdb558e8))
+  *  disable cloud sync for professional platform ([1e6c4dee](https://github.com/linuxdeepin/dde-control-center/commit/1e6c4deebfc0d099ded972ef8b0042706b9981c6))
+  *  upload new syncing icon ([f5eed42a](https://github.com/linuxdeepin/dde-control-center/commit/f5eed42a0abda087abafe9f09f94085d0a0a56bb))
+  *  check sync daemon isvalid ([9da7475a](https://github.com/linuxdeepin/dde-control-center/commit/9da7475a0352136666d1612e0618fdb33eac597b))
+  *  set syncing when lastsynctime is zero ([1f89546d](https://github.com/linuxdeepin/dde-control-center/commit/1f89546de52aac1b369134249d06e2492e2fc764))
+  *  add sync module state changed ([ae369562](https://github.com/linuxdeepin/dde-control-center/commit/ae3695624d96223b75751f48a6001fbeee9bb4e7))
+  *  add logout button ([550652ca](https://github.com/linuxdeepin/dde-control-center/commit/550652ca260442f26a17194e672249792f8c4ce8))
+  *  add sync state icon ([88eba3c8](https://github.com/linuxdeepin/dde-control-center/commit/88eba3c8c58d12858f5c60ea94e7e9cfc923280b))
+  *  add theme power corner SyncType ([eff81f96](https://github.com/linuxdeepin/dde-control-center/commit/eff81f96c70324838df2a4f0f3f5dcab449d49b9))
+  *  add sync module list ([d02993d5](https://github.com/linuxdeepin/dde-control-center/commit/d02993d566862dc8d28150f6f818029bb09c651a))
+  *  add sync state widget ([aa5a5bdf](https://github.com/linuxdeepin/dde-control-center/commit/aa5a5bdf71f1ce237e64019b2a497088c789b5f7))
+  *  show user info when user logind ([7d36e283](https://github.com/linuxdeepin/dde-control-center/commit/7d36e283c8fc767efebd44b748fd84adedb1f9b7))
+  *  init sync module ([9a8ae08d](https://github.com/linuxdeepin/dde-control-center/commit/9a8ae08d660cf9ec5d5e85af60207ed31aec3218))
+
+
+
 <a name="4.10.7"></a>
 ### 4.10.7 (2019-06-01)
 
