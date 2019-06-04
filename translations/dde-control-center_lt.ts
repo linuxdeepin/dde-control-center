@@ -85,7 +85,7 @@
 <context>
     <name>NavModel</name>
     <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="148"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
         <source>Navigation</source>
         <translation>Naršymas</translation>
     </message>
@@ -93,7 +93,7 @@
 <context>
     <name>NavigationBar</name>
     <message>
-        <location filename="../src/frame/navigationbar.cpp" line="235"/>
+        <location filename="../src/frame/navigationbar.cpp" line="240"/>
         <source>Navigation</source>
         <translation>Naršymas</translation>
     </message>
@@ -178,12 +178,12 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
 <context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../src/frame/settingswidget.cpp" line="79"/>
+        <location filename="../src/frame/settingswidget.cpp" line="80"/>
         <source>Reset all settings</source>
         <translation>Atstatyti visus nustatymus</translation>
     </message>
     <message>
-        <location filename="../src/frame/settingswidget.cpp" line="89"/>
+        <location filename="../src/frame/settingswidget.cpp" line="90"/>
         <source>All Settings</source>
         <translation>Visi nustatymai</translation>
     </message>
@@ -431,8 +431,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="112"/>
-        <location filename="../src/frame/navigationbar.cpp" line="196"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="115"/>
+        <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Accounts</source>
         <translation>Paskyros</translation>
     </message>
@@ -568,23 +568,23 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
         <translation>Nauja paskyra</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="151"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="160"/>
         <source>Username can&apos;t be empty</source>
         <translation>Naudotojo vardas negali būti tuščias</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="154"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="163"/>
         <source>Password can&apos;t be empty</source>
         <translation>Slaptažodis negali būti tuščias</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="256"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="265"/>
         <source>The password should be different from the username</source>
         <translation>Slaptažodis turėtų skirtis nuo naudotojo vardo</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="262"/>
-        <location filename="../src/frame/modules/accounts/createpage.cpp" line="265"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="271"/>
+        <location filename="../src/frame/modules/accounts/createpage.cpp" line="274"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>Slaptažodyje privalo būti anglų kalbos raidės (skiriant raidžių dydį), skaičiai ar specialūs simboliai (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
@@ -740,8 +740,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <name>dcc::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../src/frame/modules/bluetooth/bluetoothmodule.cpp" line="159"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="117"/>
-        <location filename="../src/frame/navigationbar.cpp" line="202"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="121"/>
+        <location filename="../src/frame/navigationbar.cpp" line="208"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -791,6 +791,113 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     </message>
 </context>
 <context>
+    <name>dcc::cloudsync::SyncStateWidget</name>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="29"/>
+        <source>Syncing</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="30"/>
+        <source>Logout</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="34"/>
+        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
+        <source>Auto Sync</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
+        <source>Switch it on to sync part of the settings for Control Center, Launcher and Dock automatically.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="79"/>
+        <source>Network Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="80"/>
+        <source>Sound Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="81"/>
+        <source>Mouse Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="82"/>
+        <source>Update Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
+        <source>Dock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
+        <source>Launcher</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="85"/>
+        <source>Wallpaper</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="86"/>
+        <source>Theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="87"/>
+        <source>Power Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="88"/>
+        <source>Corner Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="210"/>
+        <source>Last Sync: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="212"/>
+        <source>yyyy-MM-dd hh:mm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::cloudsync::SyncWidget</name>
+    <message>
+        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="14"/>
+        <source>Login</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
+        <source>Cloud Sync</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
+        <source>Only supported in Mainland China at present</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::datetime::DateSettings</name>
     <message>
         <location filename="../src/frame/modules/datetime/datesettings.cpp" line="63"/>
@@ -830,8 +937,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <name>dcc::datetime::Datetime</name>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="119"/>
-        <location filename="../src/frame/navigationbar.cpp" line="204"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="123"/>
+        <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Time and Date</source>
         <translation>Laikas ir data</translation>
     </message>
@@ -916,8 +1023,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <name>dcc::defapp::DefAppViewer</name>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="41"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="114"/>
-        <location filename="../src/frame/navigationbar.cpp" line="198"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="118"/>
+        <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Default Applications</source>
         <translation>Numatytosios programos</translation>
     </message>
@@ -1037,8 +1144,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <name>dcc::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="115"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="113"/>
-        <location filename="../src/frame/navigationbar.cpp" line="197"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="117"/>
+        <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <source>Display</source>
         <translation>Ekranas</translation>
     </message>
@@ -1155,7 +1262,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
         <translation>Pirminis</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="354"/>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="352"/>
         <source> (Recommended)</source>
         <translation> (Rekomenduojama)</translation>
     </message>
@@ -1328,8 +1435,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <name>dcc::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="49"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="122"/>
-        <location filename="../src/frame/navigationbar.cpp" line="207"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="126"/>
+        <location filename="../src/frame/navigationbar.cpp" line="213"/>
         <source>Keyboard and Language</source>
         <translation>Klaviatūra ir kalba</translation>
     </message>
@@ -1488,8 +1595,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <name>dcc::mouse::MouseWidget</name>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="121"/>
-        <location filename="../src/frame/navigationbar.cpp" line="206"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="125"/>
+        <location filename="../src/frame/navigationbar.cpp" line="212"/>
         <source>Mouse</source>
         <translation>Pelė</translation>
     </message>
@@ -1980,8 +2087,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <name>dcc::network::NetworkModuleWidget</name>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
-        <location filename="../src/frame/navigationbar.cpp" line="201"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="120"/>
+        <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <source>Network</source>
         <translation>Tinklas</translation>
     </message>
@@ -3627,8 +3734,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="77"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="115"/>
-        <location filename="../src/frame/navigationbar.cpp" line="199"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="119"/>
+        <location filename="../src/frame/navigationbar.cpp" line="206"/>
         <source>Personalization</source>
         <translation>Personalizacija</translation>
     </message>
@@ -3688,8 +3795,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <name>dcc::power::PowerWidget</name>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="120"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="120"/>
-        <location filename="../src/frame/navigationbar.cpp" line="205"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="124"/>
+        <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>Power Management</source>
         <translation>Energijos valdymas</translation>
     </message>
@@ -3801,8 +3908,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <name>dcc::sound::SoundWidget</name>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="118"/>
-        <location filename="../src/frame/navigationbar.cpp" line="203"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="122"/>
+        <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <source>Sound</source>
         <translation>Garsas</translation>
     </message>
@@ -3845,6 +3952,14 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="109"/>
         <source>Sound Effects</source>
         <translation>Garso efektai</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::sync::SyncWidget</name>
+    <message>
+        <location filename="../src/frame/navigationbar.cpp" line="203"/>
+        <source>Cloud Sync</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3892,8 +4007,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="125"/>
-        <location filename="../src/frame/navigationbar.cpp" line="211"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="129"/>
+        <location filename="../src/frame/navigationbar.cpp" line="216"/>
         <source>System Information</source>
         <translation>Sistemos informacija</translation>
     </message>
@@ -4034,8 +4149,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="124"/>
-        <location filename="../src/frame/navigationbar.cpp" line="210"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="128"/>
+        <location filename="../src/frame/navigationbar.cpp" line="215"/>
         <source>Update</source>
         <translation>Atnaujinimas</translation>
     </message>
@@ -4264,8 +4379,8 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <name>dcc::wacom::WacomWidget</name>
     <message>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="123"/>
-        <location filename="../src/frame/navigationbar.cpp" line="209"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="127"/>
+        <location filename="../src/frame/navigationbar.cpp" line="214"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
     </message>
