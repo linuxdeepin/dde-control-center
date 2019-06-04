@@ -73,11 +73,11 @@ SyncStateWidget::SyncStateWidget(QWidget *parent)
     };
 
     m_moduleGrp = new SettingsGroup;
-    QMap<SyncModel::SyncType, QString> moduleMap = m_model->moduleMap();
-    for (auto it = moduleMap.cbegin(); it != moduleMap.cend(); ++it) {
+    QSet<SyncModel::SyncType> list = m_model->moduleMap().keys().toSet();
+    for (auto it = list.cbegin(); it != list.cend(); ++it) {
         SwitchWidget* module = new SwitchWidget;
-        module->setTitle(moduleTs[it.key()]);
-        m_syncModuleMap[module] = it.key();
+        module->setTitle(moduleTs[*it]);
+        m_syncModuleMap[module] = *it;
         m_moduleGrp->appendItem(module);
         connect(module, &SwitchWidget::checkedChanged, this, &SyncStateWidget::onModuleItemSwitched);
     }

@@ -48,7 +48,7 @@ public:
     inline bool enableSync() const { return m_enableSync; }
     void setEnableSync(bool enableSync);
 
-    static QMap<SyncType, QString> moduleMap();
+    static QMultiMap<SyncType, QString> moduleMap();
 
     inline QMap<SyncType, bool> moduleSyncState() const { return m_moduleSyncState; }
     inline bool getModuleStateByType(SyncType type) {
