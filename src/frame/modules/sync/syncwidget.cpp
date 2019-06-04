@@ -2,6 +2,7 @@
 #include "syncmodel.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/nextpagewidget.h"
+#include "widgets/labels/tipslabel.h"
 #include <QDebug>
 
 using namespace dcc;
@@ -16,6 +17,11 @@ SyncWidget::SyncWidget()
     setObjectName("CloudSync");
     setTitle(tr("Cloud Sync"));
 
+    TipsLabel* tipsLabel = new TipsLabel;
+    tipsLabel->setText(tr("Only supported in Mainland China at present"));
+    tipsLabel->setWordWrap(true);
+    tipsLabel->setContentsMargins(20, 0, 0, 0);
+
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(0);
 
@@ -24,6 +30,8 @@ SyncWidget::SyncWidget()
 
     m_centralLayout->addWidget(m_userButtonGrp);
     m_centralLayout->addWidget(m_accountBtn);
+
+    m_centralLayout->addWidget(tipsLabel);
 
     m_userButtonGrp->hide();
     m_userButton->hide();

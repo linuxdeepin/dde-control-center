@@ -5,14 +5,18 @@
 #include <QLabel>
 #include <utility>
 #include <QPushButton>
+#include <QPointer>
 
 #include "widgets/contentwidget.h"
-#include "widgets/switchwidget.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/labels/tipslabel.h"
 #include "syncmodel.h"
 
 namespace dcc {
+namespace widgets {
+class TipsLabel;
+class SwitchWidget;
+class SettingsGroup;
+class TranslucentFrame;
+}
 namespace cloudsync {
 class SyncStateIcon;
 class SyncStateWidget : public ContentWidget
@@ -33,6 +37,7 @@ private:
     void onModuleStateChanged(std::pair<SyncModel::SyncType, bool> state);
     void onModuleItemSwitched(const bool checked);
     void onAutoSyncChanged(bool autoSync);
+    void onUserInfoChanged(const QVariantMap& info);
 
 private:
     const SyncModel* m_model;
@@ -44,6 +49,8 @@ private:
     widgets::SettingsGroup* m_moduleGrp;
     QPushButton* m_logoutBtn;
     QMap<widgets::SwitchWidget*, SyncModel::SyncType> m_syncModuleMap;
+    widgets::TranslucentFrame* m_backgroundFrame;
+    widgets::TranslucentFrame* m_regionTipFrame;
 };
 }
 }

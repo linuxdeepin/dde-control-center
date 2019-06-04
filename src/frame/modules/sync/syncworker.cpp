@@ -50,7 +50,14 @@ void SyncWorker::refreshSyncState()
 
 void SyncWorker::setSync(std::pair<SyncModel::SyncType, bool> state)
 {
-    m_syncInter->SwitcherSet(m_model->moduleMap()[state.first], state.second);
+    // TODO(justforlxz): Maybe will add screensaver in the future
+    // you don't need a multimap.
+    const QMultiMap<SyncModel::SyncType, QString> map { m_model->moduleMap() };
+    for (auto it = map.cbegin(); it != map.cend(); ++it) {
+        if (it.key() == state.first) {
+            m_syncInter->SwitcherSet(it.value(), state.second);
+        }
+    }
 }
 
 void SyncWorker::loginUser()
