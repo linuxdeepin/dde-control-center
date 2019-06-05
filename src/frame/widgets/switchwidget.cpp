@@ -63,6 +63,7 @@ SwitchWidget::SwitchWidget(QWidget *widget, QFrame *parent):
     int vertical_margin = 0;
     QLabel *label = qobject_cast<QLabel*>(m_leftWidget);
     if (label) {
+        label->setWordWrap(true);
         vertical_margin = (36 - label->fontMetrics().height()) / 2;
     }
 
