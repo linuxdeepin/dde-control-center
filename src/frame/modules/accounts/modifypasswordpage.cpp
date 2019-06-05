@@ -86,6 +86,9 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
     connect(m_pwdEditRepeat->textEdit(), &QLineEdit::editingFinished, this, &ModifyPasswordPage::checkPwd);
     connect(user, &User::passwordModifyFinished, this, &ModifyPasswordPage::onPasswordChangeFinished);
     connect(user, &User::fullnameChanged, this, &ModifyPasswordPage::updateTitle);
+    connect(user, &User::passwordStatusChanged, this, [=] (const QString& status) {
+            m_oldpwdEdit->setVisible(status != NO_PASSWORD);
+    });
     connect(this, &ModifyPasswordPage::disappear, this, &ModifyPasswordPage::hideAlert);
     connect(m_oldpwdEdit->textEdit(), &QLineEdit::editingFinished, this, &ModifyPasswordPage::hideAlert);
     connect(m_pwdEdit->textEdit(), &QLineEdit::editingFinished, this, [=] {
@@ -96,6 +99,8 @@ ModifyPasswordPage::ModifyPasswordPage(User *user, QWidget *parent)
             onEditFinished<LineEditWidget*>(m_pwdEditRepeat);
         }
     });
+
+    m_oldpwdEdit->setVisible(user->passwordStatus() != NO_PASSWORD);
 
     updateTitle();
 }
@@ -113,7 +118,7 @@ void ModifyPasswordPage::passwordSubmit()
         return;
     }
 
-    if (m_pwdEdit->text().isEmpty() || m_pwdEditRepeat->text().isEmpty() || m_oldpwdEdit->text().isEmpty())
+    if (!(m_userInter->passwordStatus() == NO_PASSWORD && m_oldpwdEdit->text().isEmpty()) || m_pwdEditRepeat->text().isEmpty() || m_pwdEdit->text().isEmpty())
         return;
 
     if (pwd0 != pwd1)
@@ -124,7 +129,10 @@ void ModifyPasswordPage::passwordSubmit()
 
 void ModifyPasswordPage::checkPwd()
 {
-    m_oldpwdEdit->setIsErr(m_oldpwdEdit->text().isEmpty());
+    if (m_userInter->passwordStatus() == "P") {
+        m_oldpwdEdit->setIsErr(m_oldpwdEdit->text().isEmpty());
+    }
+
     m_pwdEdit->setIsErr(m_pwdEdit->text().isEmpty() || m_oldpwdEdit->text() == m_pwdEdit->text());
     m_pwdEditRepeat->setIsErr(m_pwdEditRepeat->text() != m_pwdEdit->text());
 }

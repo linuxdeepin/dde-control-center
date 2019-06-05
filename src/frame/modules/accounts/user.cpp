@@ -127,3 +127,14 @@ void User::setIsCurrentUser(bool isCurrentUser)
 
     Q_EMIT isCurrentUserChanged(isCurrentUser);
 }
+
+void User::setPasswordStatus(const QString& status)
+{
+    if (m_passwordStatus == status) {
+        return;
+    }
+
+    m_passwordStatus = status;
+
+    Q_EMIT passwordStatusChanged(status);
+}

@@ -203,7 +203,11 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     process.setProgram("passwd");
     process.setArguments(QStringList() << user->name());
     process.start();
-    process.write(QString("%1\n%2\n%3").arg(oldpwd).arg(passwd).arg(passwd).toLatin1());
+    if (user->passwordStatus() == NO_PASSWORD) {
+        process.write(QString("%1\n%2\n").arg(passwd).arg(passwd).toLatin1());
+    } else {
+        process.write(QString("%1\n%2\n%3").arg(oldpwd).arg(passwd).arg(passwd).toLatin1());
+    }
     process.closeWriteChannel();
     process.waitForFinished();
 
@@ -241,6 +245,7 @@ void AccountsWorker::addUser(const QString &userPath)
     connect(userInter, &AccountsUser::IconFileChanged, user, &User::setCurrentAvatar);
     connect(userInter, &AccountsUser::FullNameChanged, user, &User::setFullname);
     connect(userInter, &AccountsUser::NoPasswdLoginChanged, user, &User::setNopasswdLogin);
+    connect(userInter, &AccountsUser::PasswordStatusChanged, user, &User::setPasswordStatus);
 
     user->setName(userInter->userName());
     user->setFullname(userInter->fullName());
@@ -248,6 +253,7 @@ void AccountsWorker::addUser(const QString &userPath)
     user->setAvatars(userInter->iconList());
     user->setCurrentAvatar(userInter->iconFile());
     user->setNopasswdLogin(userInter->noPasswdLogin());
+    user->setPasswordStatus(userInter->passwordStatus());
 
     m_userInters[user] = userInter;
     m_userModel->addUser(userPath, user);

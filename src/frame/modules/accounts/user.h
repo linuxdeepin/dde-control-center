@@ -30,6 +30,8 @@
 #include <QSet>
 #include <QString>
 
+static const QString NO_PASSWORD { "NP" };
+
 namespace dcc {
 namespace accounts {
 
@@ -75,6 +77,9 @@ public:
     inline bool isCurrentUser() const { return m_isCurrentUser; }
     void setIsCurrentUser(bool isCurrentUser);
 
+    inline QString passwordStatus() const { return m_passwordStatus; }
+    void setPasswordStatus(const QString& status);
+
 Q_SIGNALS:
     void passwordModifyFinished(const int exitCode) const;
     void nameChanged(const QString &name) const;
@@ -85,6 +90,7 @@ Q_SIGNALS:
     void onlineChanged(const bool &online) const;
     void nopasswdLoginChanged(const bool nopasswdLogin) const;
     void isCurrentUserChanged(bool isCurrentUser);
+    void passwordStatusChanged(const QString& password) const;
 
 private:
     bool m_isCurrentUser;
@@ -96,6 +102,7 @@ private:
     QString m_password;
     QString m_repeatPassword;
     QString m_currentAvatar;
+    QString m_passwordStatus; // NP: no password, P have a password, L user is locked
     QList<QString> m_avatars;
 };
 
