@@ -90,9 +90,9 @@ VpnPage::VpnPage(QWidget *parent)
     mainLayout->addWidget(m_vpnGroup);
     mainLayout->addWidget(createVpnBtn);
     mainLayout->addWidget(importVpnBtn);
+    mainLayout->addStretch();
     mainLayout->setSpacing(10);
     mainLayout->setContentsMargins(0, 0, 0, 0);
-    mainLayout->addSpacing(10);
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(mainLayout);
