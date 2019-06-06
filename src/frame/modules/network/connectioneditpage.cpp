@@ -102,6 +102,7 @@ void ConnectionEditPage::initUI()
     m_mainLayout->addWidget(m_removeBtn);
     m_mainLayout->addLayout(m_settingsLayout);
     m_mainLayout->addWidget(m_buttonTuple);
+    m_mainLayout->addStretch();
     m_mainLayout->setSpacing(10);
     m_mainLayout->setContentsMargins(0, 0, 0, 0);
 

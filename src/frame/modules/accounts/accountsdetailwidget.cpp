@@ -83,6 +83,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     mainLayout->addWidget(fingerGrp);
     mainLayout->addWidget(m_deleteAccount);
     mainLayout->addWidget(tip);
+    mainLayout->addStretch();
     mainLayout->setMargin(0);
     mainLayout->setSpacing(10);
 
