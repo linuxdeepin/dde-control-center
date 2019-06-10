@@ -30,6 +30,7 @@ endif()
 
 set(STRONG_PASSWORD false)
 set(AllowEnableMultiScaleRatio false)
+set(AllowCloudSync false)
 
 configure_file(files/dde-control-center.conf.in files/dde-control-center.conf @ONLY)
 

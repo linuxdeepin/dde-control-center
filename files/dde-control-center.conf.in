@@ -1,5 +1,8 @@
 [Password]
 STRONG_PASSWORD=@STRONG_PASSWORD@
 
-[DISPLAY]
+[Display]
 AllowEnableMultiScaleRatio=@AllowEnableMultiScaleRatio@
+
+[CloudSync]
+AllowCloudSync=@AllowCloudSync@

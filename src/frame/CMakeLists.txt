@@ -924,12 +924,6 @@ if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "aarch64")
     )
 endif()
 
-# disable cloud sync
-set(BUILD_MACRO
-    ${BUILD_MACRO}
-    DISALBE_CLOUD_SYNC
-)
-
 foreach(LETTER ${BUILD_MACRO})
     add_build_macro(${LETTER})
 endforeach()

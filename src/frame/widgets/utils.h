@@ -6,6 +6,11 @@
 #include <QFile>
 #include <QSettings>
 
+static const QStringList DCC_CONFIG_FILES {
+    "/etc/deepin/dde-control-center.conf",
+    "/usr/share/dde-control-center.conf"
+};
+
 static const QMap<QString, QString> SYSTEM_LOCAL_MAP {
     {"zh_CN", "zh_CN"},
 #ifndef DCC_ENABLE_END_USER_LICENSE
@@ -29,17 +34,25 @@ static const QString getLicense(const QString &filePath, const QString &type)
 }
 
 template <typename T>
-T valueByQSettings(const QString & file,
-                   const QString & group,
-                   const QString & key,
-                   const QVariant &failback)
+T valueByQSettings(const QStringList& configFiles,
+                   const QString&     group,
+                   const QString&     key,
+                   const QVariant&    failback)
 {
-    QSettings settings(file, QSettings::IniFormat);
-    settings.beginGroup(group);
-    T t = settings.value(key, failback).value<T>();
-    settings.endGroup();
+    for (const QString& path : configFiles) {
+        QSettings settings(path, QSettings::IniFormat);
+        if (!group.isEmpty()) {
+            settings.beginGroup(group);
+        }
 
-    return t;
+        const QVariant& v = settings.value(key);
+        if (v.isValid()) {
+            T t = v.value<T>();
+            return t;
+        }
+    }
+
+    return failback.value<T>();
 }
 
 #endif // UTILS_H
