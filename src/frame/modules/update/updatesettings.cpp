@@ -106,6 +106,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
         smartTips->setWordWrap(true);
         smartTips->setContentsMargins(20, 0, 20, 0);
         layout->addWidget(smartMirrorGrp);
+        layout->addSpacing(8);
         layout->addWidget(smartTips);
         layout->addSpacing(15);
 
