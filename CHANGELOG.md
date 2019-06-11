@@ -1,3 +1,22 @@
+<a name="4.10.9"></a>
+### 4.10.9 (2019-06-11)
+
+
+#### Features
+
+* **Sync:**  add config files ([a9415192](https://github.com/linuxdeepin/dde-control-center/commit/a941519291894c2f3fa43248b34cd8e5305f002f))
+
+#### Bug Fixes
+
+*   incorrect layout of various pages. ([c9360985](https://github.com/linuxdeepin/dde-control-center/commit/c9360985d99ee4502c5dd7e04dd4cd19df7cfe23))
+*   set word wrap on switch widget construction. ([bee7372e](https://github.com/linuxdeepin/dde-control-center/commit/bee7372e84deec36c4d83a5f2c1ec1d00805e79f))
+* **sync:**
+  *  syncstate widget was truncated the first time started ([9c814dd9](https://github.com/linuxdeepin/dde-control-center/commit/9c814dd979feef9d08fe74649fd64b0500466741))
+  *  last sync time always not show ([e29491fe](https://github.com/linuxdeepin/dde-control-center/commit/e29491fecb1f5a95dc22fb979ee4035b722aea0c))
+* **update:**  missing smarttips spacing ([f9e5ff78](https://github.com/linuxdeepin/dde-control-center/commit/f9e5ff7812610aeafcde2413e2d3d636940a1724))
+
+
+
 <a name="4.10.8"></a>
 ### 4.10.8 (2019-06-04)
 
