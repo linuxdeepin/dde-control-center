@@ -17,10 +17,10 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     m_syncInter->setSync(false, false);
     m_deepinId_inter->setSync(false, false);
 
-    connect(m_deepinId_inter, &DeepinId::UserInfoChanged, m_model, &SyncModel::setUserinfo);
-    connect(m_syncInter, &SyncInter::StateChanged, this, &SyncWorker::onStateChanged);
-    connect(m_syncInter, &SyncInter::LastSyncTimeChanged, this, &SyncWorker::onLastSyncTimeChanged);
-    connect(m_syncInter, &SyncInter::SwitcherChange, this, &SyncWorker::onSyncModuleStateChanged);
+    connect(m_deepinId_inter, &DeepinId::UserInfoChanged, m_model, &SyncModel::setUserinfo, Qt::QueuedConnection);
+    connect(m_syncInter, &SyncInter::StateChanged, this, &SyncWorker::onStateChanged, Qt::QueuedConnection);
+    connect(m_syncInter, &SyncInter::LastSyncTimeChanged, this, &SyncWorker::onLastSyncTimeChanged, Qt::QueuedConnection);
+    connect(m_syncInter, &SyncInter::SwitcherChange, this, &SyncWorker::onSyncModuleStateChanged, Qt::QueuedConnection);
 
     m_model->setSyncIsValid(
         QProcess::execute(
@@ -132,6 +132,7 @@ void SyncWorker::onLastSyncTimeChanged(qlonglong lastSyncTime)
         m_model->setSyncState(std::pair<qint32, QString>(100, ""));
     }
     else {
+        onStateChanged(m_syncInter->state());
         m_model->setLastSyncTime(lastSyncTime);
     }
 }

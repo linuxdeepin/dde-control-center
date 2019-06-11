@@ -37,6 +37,8 @@ void SyncStateIcon::play()
 void SyncStateIcon::stop()
 {
     m_rotateAni.stop();
+
+    m_rotateRatio = 0;
 }
 
 void SyncStateIcon::paintEvent(QPaintEvent* event)
