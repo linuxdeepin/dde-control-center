@@ -98,7 +98,10 @@ void SyncWorker::onSyncModuleStateChanged(const QString& module, bool enable) {
 
 void SyncWorker::onStateChanged(const IntString &state)
 {
-    m_model->setSyncState(std::pair<qint32, QString>(state.state, state.description));
+    std::pair<qint32, QString> value(state.state, state.description);
+    if (SyncModel::isSyncStateValid(value)) {
+        m_model->setSyncState(value);
+    }
 }
 
 void SyncWorker::onGetModuleSyncStateFinished(QDBusPendingCallWatcher *watcher)
@@ -132,7 +135,7 @@ void SyncWorker::onLastSyncTimeChanged(qlonglong lastSyncTime)
         m_model->setSyncState(std::pair<qint32, QString>(100, ""));
     }
     else {
-        onStateChanged(m_syncInter->state());
+        Q_EMIT m_syncInter->StateChanged(m_syncInter->state());
         m_model->setLastSyncTime(lastSyncTime);
     }
 }

@@ -111,6 +111,8 @@ SyncStateWidget::SyncStateWidget(QWidget *parent)
     mainLayout->addWidget(m_logoutBtn);
     mainLayout->addStretch();
 
+    mainLayout->setContentsMargins(0, 10, 0, 0);
+
     TranslucentFrame* widget = new TranslucentFrame;
     widget->setLayout(mainLayout);
 
@@ -202,6 +204,8 @@ void SyncStateWidget::onStateChanged(const std::pair<qint32, QString> &state)
             m_syncIcon->stop();
             break;
     }
+
+    m_backgroundFrame->adjustSize();
 }
 
 void SyncStateWidget::onLastSyncTimeChanged(qlonglong lastSyncTime)
