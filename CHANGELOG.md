@@ -1,3 +1,13 @@
+<a name="4.10.10"></a>
+### 4.10.10 (2019-06-13)
+
+
+#### Others
+
+*   update license ([765fc346](https://github.com/linuxdeepin/dde-control-center/commit/765fc346bf2107bd33af55cb46585878187ae375))
+
+
+
 <a name="4.10.9"></a>
 ### 4.10.9 (2019-06-11)
 

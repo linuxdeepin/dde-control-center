@@ -3,3 +3,7 @@ repository = "https://github.com/linuxdeepin/dde-control-center"
 from-latest-tag = true
 
 changelog = "CHANGELOG.md"
+
+[sections]
+Others = ["chore", "refactor"]
+
