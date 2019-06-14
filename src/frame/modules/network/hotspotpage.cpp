@@ -74,6 +74,7 @@ HotspotPage::HotspotPage(WirelessDevice *wdev, QWidget *parent)
     centralLayout->addWidget(sgrp);
     centralLayout->addWidget(m_connectionsGroup);
     centralLayout->addWidget(m_createBtn);
+    centralLayout->addStretch();
 
     QWidget *centralWidget = new TranslucentFrame;
     centralWidget->setLayout(centralLayout);
