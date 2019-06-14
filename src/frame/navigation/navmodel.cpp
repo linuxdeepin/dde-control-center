@@ -208,5 +208,9 @@ QStringList NavModel::validModuleList()
     moduleList.removeOne("update");
 #endif
 
+#ifdef DISABLE_SYSINFO
+    moduleList.removeOne("systeminfo");
+#endif
+
     return moduleList;
 }
