@@ -164,7 +164,7 @@ QStringList NavModel::validModuleList()
     moduleList.removeOne("accounts");
 #endif
 
-#ifdef DISALBE_CLOUD_SYNC
+#ifdef DISABLE_CLOUD_SYNC
     moduleList.removeOne("cloudsync");
 #endif
 
