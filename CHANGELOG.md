@@ -1,3 +1,14 @@
+<a name="4.10.11"></a>
+### 4.10.11 (2019-06-14)
+
+
+#### Bug Fixes
+
+* **accounts:**  cannot modify user password ([0c68cc3b](https://github.com/linuxdeepin/dde-control-center/commit/0c68cc3bd9e2d4b7f161322094c3da734fc5818f))
+* **network:**  Abnormal interface of hostpot ([551d13e9](https://github.com/linuxdeepin/dde-control-center/commit/551d13e904c232fae0e193c846f948208fd44da0))
+
+
+
 <a name="4.10.10"></a>
 ### 4.10.10 (2019-06-13)
 
