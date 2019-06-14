@@ -118,7 +118,7 @@ void ModifyPasswordPage::passwordSubmit()
         return;
     }
 
-    if (!(m_userInter->passwordStatus() == NO_PASSWORD && m_oldpwdEdit->text().isEmpty()) || m_pwdEditRepeat->text().isEmpty() || m_pwdEdit->text().isEmpty())
+    if ((m_userInter->passwordStatus() != NO_PASSWORD && m_oldpwdEdit->text().isEmpty()) || m_pwdEditRepeat->text().isEmpty() || m_pwdEdit->text().isEmpty())
         return;
 
     if (pwd0 != pwd1)
