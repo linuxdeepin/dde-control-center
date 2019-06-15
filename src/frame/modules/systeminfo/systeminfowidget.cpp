@@ -33,6 +33,10 @@
 #include <QSettings>
 #include <QDebug>
 #include <QApplication>
+#include <DSysInfo>
+
+DWIDGET_USE_NAMESPACE
+DCORE_USE_NAMESPACE
 
 const QString systemCopyright()
 {
@@ -106,6 +110,10 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     m_disk->setTitle(tr("Disk:"));
     m_disk->setValue(m_model->disk());
 
+    m_kernel = new TitleValueItem();
+    m_kernel->setTitle("Linux version:");
+    m_kernel->setValue(QSysInfo::kernelVersion());
+
     infoGroup->appendItem(logo);
     infoGroup->appendItem(m_distroid);
     infoGroup->appendItem(m_distrover);
@@ -114,7 +122,13 @@ SystemInfoWidget::SystemInfoWidget(SystemInfoModel* model)
     infoGroup->appendItem(m_processor);
     infoGroup->appendItem(m_memory);
     infoGroup->appendItem(m_disk);
-
+    infoGroup->appendItem(m_kernel);
+    if(DSysInfo::isDDE()){
+        TitleValueItem *m_deepinver = new TitleValueItem();
+        m_deepinver->setTitle("Deepin DE version:");
+        m_deepinver->setValue(DSysInfo::deepinVersion());
+        infoGroup->appendItem(m_deepinver);
+    }
 #ifndef DCC_ENABLE_END_USER_LICENSE
     m_copyright = new NextPageWidget();
     m_copyright->setTitle(tr("Edition License"));
