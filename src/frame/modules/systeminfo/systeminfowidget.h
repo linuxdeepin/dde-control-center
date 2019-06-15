@@ -73,6 +73,7 @@ private:
     widgets::TitleValueItem* m_memory;
     widgets::TitleValueItem* m_disk;
     widgets::TitleValueItem* m_kernel;
+    widgets::TitleValueItem* m_deepinver;
 
 #ifndef DCC_ENABLE_END_USER_LICENSE
     widgets::NextPageWidget* m_copyright;
