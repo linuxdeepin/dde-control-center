@@ -89,12 +89,21 @@ void PowerModel::setSleepDelayOnBattery(const int sleepDelayOnBattery)
     }
 }
 
-void PowerModel::setSleepOnLidClose(bool sleepOnLidClose)
+void PowerModel::setSleepOnLidOnPowerClose(bool sleepOnLidClose)
 {
-    if (sleepOnLidClose != m_sleepOnLidClose) {
-        m_sleepOnLidClose = sleepOnLidClose;
+    if (sleepOnLidClose != m_sleepOnLidOnPowerClose) {
+        m_sleepOnLidOnPowerClose = sleepOnLidClose;
 
-        Q_EMIT sleepOnLidCloseChanged(sleepOnLidClose);
+        Q_EMIT sleepOnLidOnPowerCloseChanged(sleepOnLidClose);
+    }
+}
+
+void PowerModel::setSleepOnLidOnBatteryClose(bool sleepOnLidClose)
+{
+    if (sleepOnLidClose != m_sleepOnLidOnBatteryClose) {
+        m_sleepOnLidOnBatteryClose = sleepOnLidClose;
+
+        Q_EMIT sleepOnLidOnBatteryCloseChanged(sleepOnLidClose);
     }
 }
 

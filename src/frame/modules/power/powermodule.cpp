@@ -84,7 +84,8 @@ ModuleWidget *PowerModule::moduleWidget()
 
         connect(m_powerWidget, &PowerWidget::requestSetScreenBlackLock, m_powerWorker, &PowerWorker::setScreenBlackLock);
         connect(m_powerWidget, &PowerWidget::requestSetSleepLock, m_powerWorker, &PowerWorker::setSleepLock);
-        connect(m_powerWidget, &PowerWidget::requestSetSleepOnLidClosed, m_powerWorker, &PowerWorker::setSleepOnLidClosed);
+        connect(m_powerWidget, &PowerWidget::requestSetSleepOnLidOnPowerClosed, m_powerWorker, &PowerWorker::setSleepOnLidOnPowerClosed);
+        connect(m_powerWidget, &PowerWidget::requestSetSleepOnLidOnBatteryClosed, m_powerWorker, &PowerWorker::setSleepOnLidOnBatteryClosed);
         connect(m_powerWidget, &PowerWidget::requestSetScreenBlackDelayOnPower, m_powerWorker, &PowerWorker::setScreenBlackDelayOnPower);
         connect(m_powerWidget, &PowerWidget::requestSetScreenBlackDelayOnBattery, m_powerWorker, &PowerWorker::setScreenBlackDelayOnBattery);
         connect(m_powerWidget, &PowerWidget::requestSetSleepDelayOnPoewr, m_powerWorker, &PowerWorker::setSleepDelayOnPower);

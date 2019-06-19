@@ -49,7 +49,8 @@ public:
 public Q_SLOTS:
     void setScreenBlackLock(const bool lock);
     void setSleepLock(const bool lock);
-    void setSleepOnLidClosed(const bool sleep);
+    void setSleepOnLidOnPowerClosed(const bool sleep);
+    void setSleepOnLidOnBatteryClosed(const bool sleep);
     void setSleepDelayOnPower(const int delay);
     void setSleepDelayOnBattery(const int delay);
     void setScreenBlackDelayOnPower(const int delay);

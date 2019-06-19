@@ -53,7 +53,8 @@ PowerWidget::PowerWidget()
     , m_displayNeedPassword(new SwitchWidget)
     , m_wakeNeedPassword(new SwitchWidget)
     , m_notebookSettings(new SettingsGroup)
-    , m_sleepOnLidOff(new SwitchWidget)
+    , m_sleepOnLidOffOnPower(new SwitchWidget)
+    , m_sleepOnLidOffOnBattery(new SwitchWidget)
 {
     setObjectName("Power");
 
@@ -90,9 +91,11 @@ PowerWidget::PowerWidget()
 
     m_sleepTimeoutSettingsOnPower->appendItem(m_monitorSleepOnPower);
     m_sleepTimeoutSettingsOnPower->appendItem(m_computerSleepOnPower);
+    m_sleepTimeoutSettingsOnPower->appendItem(m_sleepOnLidOffOnPower);
 
     m_sleepTimeoutSettingsOnBattery->appendItem(m_monitorSleepOnBattery);
     m_sleepTimeoutSettingsOnBattery->appendItem(m_computerSleepOnBattery);
+    m_sleepTimeoutSettingsOnBattery->appendItem(m_sleepOnLidOffOnBattery);
 
     m_displayNeedPassword->setTitle(tr("Password required to wake up the monitor"));
     m_passwordSettings->appendItem(m_displayNeedPassword);
@@ -100,8 +103,8 @@ PowerWidget::PowerWidget()
     m_wakeNeedPassword->setTitle(tr("Password required to wake up the computer"));
     m_passwordSettings->appendItem(m_wakeNeedPassword);
 
-    m_sleepOnLidOff->setTitle(tr("Suspend on lid close"));
-    m_notebookSettings->appendItem(m_sleepOnLidOff);
+    m_sleepOnLidOffOnPower->setTitle(tr("Suspend on lid close"));
+    m_sleepOnLidOffOnBattery->setTitle(tr("Suspend on lid close"));
 
 #ifndef DCC_DISABLE_POWERSAVE
     m_powerSaveMode->setTitle(tr("Power Saving Mode"));
@@ -115,14 +118,13 @@ PowerWidget::PowerWidget()
     m_centralLayout->addWidget(m_sleepTimeoutSettingsOnPower);
     m_centralLayout->addWidget(m_sleepTimeoutSettingsOnBattery);
     m_centralLayout->addWidget(m_passwordSettings);
-    m_centralLayout->addWidget(m_notebookSettings);
 
     setTitle(tr("Power Management"));
 
     connect(m_displayNeedPassword, &SwitchWidget::checkedChanged, this, &PowerWidget::requestSetScreenBlackLock);
     connect(m_wakeNeedPassword, &SwitchWidget::checkedChanged, this, &PowerWidget::requestSetSleepLock);
-    connect(m_sleepOnLidOff, &SwitchWidget::checkedChanged, this, &PowerWidget::requestSetSleepOnLidClosed);
-
+    connect(m_sleepOnLidOffOnPower, &SwitchWidget::checkedChanged, this, &PowerWidget::requestSetSleepOnLidOnPowerClosed);
+    connect(m_sleepOnLidOffOnBattery, &SwitchWidget::checkedChanged, this, &PowerWidget::requestSetSleepOnLidOnBatteryClosed);
     connect(m_monitorSleepOnPower->slider(), &DCCSlider::valueChanged, this, &PowerWidget::requestSetScreenBlackDelayOnPower);
     connect(m_monitorSleepOnBattery->slider(), &DCCSlider::valueChanged, this, &PowerWidget::requestSetScreenBlackDelayOnBattery);
 
@@ -140,7 +142,8 @@ void PowerWidget::setModel(PowerModel *const model)
     connect(model, &PowerModel::screenBlackLockChanged, m_displayNeedPassword, &SwitchWidget::setChecked);
     connect(model, &PowerModel::sleepLockChanged, m_wakeNeedPassword, &SwitchWidget::setChecked);
     connect(model, &PowerModel::lidPresentChanged, m_notebookSettings, &SettingsGroup::setVisible);
-    connect(model, &PowerModel::sleepOnLidCloseChanged, m_sleepOnLidOff, &SwitchWidget::setChecked);
+    connect(model, &PowerModel::sleepOnLidOnPowerCloseChanged, m_sleepOnLidOffOnPower, &SwitchWidget::setChecked);
+    connect(model, &PowerModel::sleepOnLidOnBatteryCloseChanged, m_sleepOnLidOffOnBattery, &SwitchWidget::setChecked);
 
     connect(model, &PowerModel::sleepDelayChangedOnPower, this, &PowerWidget::setSleepDelayOnPower);
     connect(model, &PowerModel::sleepDelayChangedOnBattery, this, &PowerWidget::setSleepDelayOnBattery);
@@ -159,7 +162,8 @@ void PowerWidget::setModel(PowerModel *const model)
     m_displayNeedPassword->setChecked(model->screenBlackLock());
     m_wakeNeedPassword->setChecked(model->sleepLock());
     m_notebookSettings->setVisible(model->lidPresent());
-    m_sleepOnLidOff->setChecked(model->sleepOnLidClose());
+    m_sleepOnLidOffOnPower->setChecked(model->sleepOnLidOnPowerClose());
+    m_sleepOnLidOffOnBattery->setChecked(model->sleepOnLidOnBatteryClose());
     blockSignals(false);
 
     m_sleepTimeoutSettingsOnBattery->setVisible(model->haveBettary());

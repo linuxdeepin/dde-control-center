@@ -52,7 +52,8 @@ public:
 Q_SIGNALS:
     void requestSetScreenBlackLock(const bool lock) const;
     void requestSetSleepLock(const bool lock) const;
-    void requestSetSleepOnLidClosed(const bool sleep) const;
+    void requestSetSleepOnLidOnPowerClosed(const bool sleep) const;
+    void requestSetSleepOnLidOnBatteryClosed(const bool sleep) const;
     void requestSetScreenBlackDelayOnPower(const int delay) const;
     void requestSetScreenBlackDelayOnBattery(const int delay) const;
     void requestSetSleepDelayOnPoewr(const int delay) const;
@@ -88,7 +89,8 @@ private:
     widgets::SwitchWidget *m_displayNeedPassword;
     widgets::SwitchWidget *m_wakeNeedPassword;
     widgets::SettingsGroup *m_notebookSettings;
-    widgets::SwitchWidget *m_sleepOnLidOff;
+    widgets::SwitchWidget *m_sleepOnLidOffOnPower;
+    widgets::SwitchWidget *m_sleepOnLidOffOnBattery;
 };
 }
 

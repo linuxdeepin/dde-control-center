@@ -62,8 +62,11 @@ public:
     inline int sleepDelayOnBattery() const { return m_sleepDelayOnBattery; }
     void setSleepDelayOnBattery(const int sleepDelayOnBattery);
 
-    inline bool sleepOnLidClose() const { return m_sleepOnLidClose; }
-    void setSleepOnLidClose(bool sleepOnLidClose);
+    inline bool sleepOnLidOnPowerClose() const { return m_sleepOnLidOnPowerClose; }
+    void setSleepOnLidOnPowerClose(bool sleepOnLidOnPowerClose);
+
+    inline bool sleepOnLidOnBatteryClose() const { return m_sleepOnLidOnBatteryClose; }
+    void setSleepOnLidOnBatteryClose(bool sleepOnLidOnBatteryClose);
 
 #ifndef DCC_DISABLE_POWERSAVE
     inline bool autoPowerSaveMode() const { return m_autoPowerSaveMode; }
@@ -80,7 +83,8 @@ Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
     void screenBlackLockChanged(const bool screenBlackLock);
     void lidPresentChanged(const bool lidPresent);
-    void sleepOnLidCloseChanged(const bool sleepOnLidClose);
+    void sleepOnLidOnPowerCloseChanged(const bool sleepOnLidClose);
+    void sleepOnLidOnBatteryCloseChanged(const bool sleepOnLidClose);
     void screenBlackDelayChangedOnPower(const int screenBlackDelay);
     void sleepDelayChangedOnPower(const int sleepDelay);
     void screenBlackDelayChangedOnBattery(const int screenBlackDelay);
@@ -93,7 +97,8 @@ Q_SIGNALS:
 
 private:
     bool m_lidPresent;
-    bool m_sleepOnLidClose;
+    bool m_sleepOnLidOnPowerClose;
+    bool m_sleepOnLidOnBatteryClose;
     bool m_screenBlackLock;
     bool m_sleepLock;
     int m_screenBlackDelayOnPower;
