@@ -342,8 +342,7 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
             QFile tmpFile("/tmp/.dde-session-ui.conf");
             if (tmpFile.open(QIODevice::Text | QIODevice::ReadWrite)) {
                 QSettings setting("/tmp/.dde-session-ui.conf", QSettings::IniFormat);
-                setting.beginGroup("ADDOMAIN");
-                setting.setValue("JOIN", !isJoin);
+                setting.setValue("loginPromptInput", !isJoin);
                 setting.sync();
                 QProcess::execute("pkexec", QStringList() << "cp" << "/tmp/.dde-session-ui.conf" << "/etc/deepin/dde-session-ui.conf");
                 tmpFile.remove();
