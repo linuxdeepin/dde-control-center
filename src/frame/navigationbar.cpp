@@ -34,7 +34,7 @@ static const QStringList ModuleList = {
 #ifndef DISABLE_ACCOUNT
     "accounts",
 #endif
-#ifndef DISALBE_CLOUD_SYNC
+#ifndef DISABLE_CLOUD_SYNC
     "cloudsync",
 #endif
 #ifndef DISABLE_DISPALY
