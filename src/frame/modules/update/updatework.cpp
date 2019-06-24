@@ -131,12 +131,6 @@ void UpdateWorker::checkForUpdates()
         return;
     }
 
-    if (m_networkInter->state() <= MIN_NM_ACTIVE) {
-        qWarning() << "no network, please check network connect.";
-        m_model->setStatus(UpdatesStatus::NoNetwork);
-        return;
-    }
-
     QDBusPendingCall call = m_managerInter->UpdateSource();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
