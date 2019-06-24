@@ -83,6 +83,7 @@ NavigationBar::NavigationBar(QWidget *parent)
     , m_arrowRectangle(new DArrowRectangle(DArrowRectangle::ArrowRight))
     , m_navLabel(new QLabel)
 {
+    m_arrowRectangle->setWindowFlags(m_arrowRectangle->windowFlags() | Qt::WindowDoesNotAcceptFocus);
     m_arrowRectangle->setContent(m_navLabel);
 
     QVBoxLayout *buttonsLayout = new QVBoxLayout;
