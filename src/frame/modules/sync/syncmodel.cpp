@@ -99,3 +99,12 @@ void SyncModel::setSyncIsValid(bool syncIsValid)
 
     Q_EMIT syncIsValidChanged(syncIsValid);
 }
+
+QString SyncModel::userDisplayName() const
+{
+    QString username = m_userinfo["Nickname"].toString();
+    if (username.isEmpty()) {
+        username = m_userinfo["Username"].toString();
+    }
+    return username;
+}

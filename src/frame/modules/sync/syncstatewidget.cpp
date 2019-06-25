@@ -143,7 +143,7 @@ void SyncStateWidget::setModel(const SyncModel * const model)
     onLastSyncTimeChanged(model->lastSyncTime());
     onAutoSyncChanged(model->enableSync());
 
-    setTitle(model->userinfo()["Username"].toString());
+    setTitle(model->userDisplayName());
 
     std::map<SyncModel::SyncType, bool> moduleState = m_model->moduleSyncState().toStdMap();
     for (auto it = moduleState.cbegin(); it != moduleState.cend(); ++it) {

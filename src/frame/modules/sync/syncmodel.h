@@ -59,6 +59,7 @@ public:
 
     inline bool syncIsValid() const { return m_syncIsValid; }
     void setSyncIsValid(bool syncIsValid);
+    QString userDisplayName() const;
 
 Q_SIGNALS:
     void userInfoChanged(const QVariantMap &userInfo);

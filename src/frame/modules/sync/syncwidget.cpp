@@ -51,14 +51,13 @@ void SyncWidget::setModel(const SyncModel * const model)
 
 void SyncWidget::onUserInfoChanged(const QVariantMap &userinfo)
 {
-    const QString& username = userinfo["Username"].toString();
-    const bool isLogind = !username.isEmpty();
+    const bool isLogind = !userinfo["Username"].toString().isEmpty();
 
     m_accountBtn->setVisible(!isLogind);
     m_userButton->setVisible(isLogind);
     m_userButtonGrp->setVisible(isLogind);
 
     if (isLogind) {
-        m_userButton->setTitle(username);
+        m_userButton->setTitle(m_model->userDisplayName());
     }
 }
