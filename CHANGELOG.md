@@ -1,3 +1,24 @@
+<a name="4.10.12"></a>
+### 4.10.12 (2019-06-25)
+
+
+#### Bug Fixes
+
+* **ldap:**  login not enabled after joining domain ([0c645d91](https://github.com/linuxdeepin/dde-control-center/commit/0c645d91055b488d1d6bde0dd7f732bb7e3be2ff))
+* **nav:**  missing disable systeminfo module ([02511c4a](https://github.com/linuxdeepin/dde-control-center/commit/02511c4ae7f10887dceb503f4d6a7d6db745d919))
+* **sync:**  typo DISALBE -> DISABLE ([95356783](https://github.com/linuxdeepin/dde-control-center/commit/95356783358dfa0581122d9da50eb6b6c2b649d8))
+
+#### Others
+
+*   missing build macro ([b8681869](https://github.com/linuxdeepin/dde-control-center/commit/b8681869731642764603db33f748566ff82cdac0))
+* **update:**  remove network check ([b52f5267](https://github.com/linuxdeepin/dde-control-center/commit/b52f526753bdd9822934e13d346d70ceb4f0bfd8))
+
+#### Features
+
+* **navbar:**  avoid tip grab focus ([d4251454](https://github.com/linuxdeepin/dde-control-center/commit/d4251454f512a8f0ab0be9aa444b4c24b8124c65))
+
+
+
 <a name="4.10.11"></a>
 ### 4.10.11 (2019-06-14)
 
