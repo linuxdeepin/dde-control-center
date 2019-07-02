@@ -337,16 +337,17 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
         }
         // save config
         QFile file("/etc/deepin/dde-session-ui.conf");
-        if (file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+        QFile tmpFile("/tmp/.dde-session-ui.conf");
+
+        if (file.exists() && file.open(QIODevice::Text | QIODevice::ReadOnly)) {
             qDebug() << file.copy("/tmp/.dde-session-ui.conf");
-            QFile tmpFile("/tmp/.dde-session-ui.conf");
-            if (tmpFile.open(QIODevice::Text | QIODevice::ReadWrite)) {
-                QSettings setting("/tmp/.dde-session-ui.conf", QSettings::IniFormat);
-                setting.setValue("loginPromptInput", !isJoin);
-                setting.sync();
-                QProcess::execute("pkexec", QStringList() << "cp" << "/tmp/.dde-session-ui.conf" << "/etc/deepin/dde-session-ui.conf");
-                tmpFile.remove();
-            }
+        }
+        if (tmpFile.open(QIODevice::Text | QIODevice::ReadWrite)) {
+            QSettings setting("/tmp/.dde-session-ui.conf", QSettings::IniFormat);
+            setting.setValue("loginPromptInput", !isJoin);
+            setting.sync();
+            QProcess::execute("pkexec", QStringList() << "cp" << "/tmp/.dde-session-ui.conf" << "/etc/deepin/dde-session-ui.conf");
+            tmpFile.remove();
         }
     } else {
         message = isJoin ? tr("Your host failed to leave the domain server")
