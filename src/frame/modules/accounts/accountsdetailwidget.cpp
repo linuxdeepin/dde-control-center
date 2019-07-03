@@ -129,6 +129,8 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 
 void AccountsDetailWidget::setFingerModel(FingerModel *model)
 {
+    connect(model, &FingerModel::vaildChanged, m_finger, &NextPageWidget::setVisible);
+
     m_finger->setVisible(model->isVaild());
 }
 

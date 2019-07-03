@@ -168,8 +168,8 @@ void AccountsModule::showPasswordPage(User *account)
 void AccountsModule::showAccountsDetail(User *account)
 {
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
-    m_fingerWorker->refreshDevice();
     w->setFingerModel(m_fingerModel);
+    m_fingerWorker->refreshDevice();
 
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
     connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
