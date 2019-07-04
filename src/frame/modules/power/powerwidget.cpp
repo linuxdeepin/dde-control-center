@@ -150,6 +150,7 @@ void PowerWidget::setModel(PowerModel *const model)
     connect(model, &PowerModel::screenBlackDelayChangedOnPower, this, &PowerWidget::setScreenBlackDelayOnPower);
     connect(model, &PowerModel::screenBlackDelayChangedOnBattery, this, &PowerWidget::setScreenBlackDelayOnBattery);
     connect(model, &PowerModel::haveBettaryChanged, m_sleepTimeoutSettingsOnBattery, &SettingsGroup::setVisible);
+    connect(model, &PowerModel::lidPresentChanged, m_sleepOnLidOffOnPower, &SwitchWidget::setVisible);
 
 #ifndef DCC_DISABLE_POWERSAVE
     connect(model, &PowerModel::autoPowerSavingModeChanged, m_autoPowerSave, &SwitchWidget::setChecked);
@@ -164,6 +165,7 @@ void PowerWidget::setModel(PowerModel *const model)
     m_notebookSettings->setVisible(model->lidPresent());
     m_sleepOnLidOffOnPower->setChecked(model->sleepOnLidOnPowerClose());
     m_sleepOnLidOffOnBattery->setChecked(model->sleepOnLidOnBatteryClose());
+    m_sleepOnLidOffOnPower->setVisible(model->lidPresent());
     blockSignals(false);
 
     m_sleepTimeoutSettingsOnBattery->setVisible(model->haveBettary());
