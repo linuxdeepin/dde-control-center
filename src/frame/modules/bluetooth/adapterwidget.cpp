@@ -47,6 +47,8 @@ AdapterWidget::AdapterWidget(const Adapter *adapter) :
     m_myDevicesGroup(new SettingsGroup(tr("My devices"))),
     m_otherDevicesGroup(new SettingsGroup(tr("Other devices")))
 {
+    m_switch->setFixedHeight(36);
+
     setTitle(adapter->name());
 
     QVBoxLayout *layout = new QVBoxLayout;
