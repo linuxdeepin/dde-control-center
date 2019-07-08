@@ -12,12 +12,12 @@
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation>Bluetooth arabirimini etkinleştirmek için simgeye tıklayın</translation>
+        <translation>Bluetooth&apos;u etkinleştirmek için simgeye tıkla</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
         <source>Connect to other devices</source>
-        <translation>Başka aygıtlara bağlan</translation>
+        <translation>Diğer aygıtlara bağlan</translation>
     </message>
 </context>
 <context>
@@ -108,7 +108,7 @@
     <message>
         <location filename="../src/frame/notify/notifydelegate.cpp" line="199"/>
         <source>The day before yesterday</source>
-        <translation>Dünden Önceki Gün</translation>
+        <translation>Dünden önceki gün</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
@@ -121,7 +121,7 @@
     <message>
         <location filename="../src/frame/notify/notifywidget.cpp" line="33"/>
         <source>No system notifications</source>
-        <translation>Herhangi bir sistem bildirimi yok</translation>
+        <translation>Sistem bildirimi yok</translation>
     </message>
     <message>
         <location filename="../src/frame/notify/notifywidget.cpp" line="35"/>
@@ -144,7 +144,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
         <source>Search</source>
-        <translation>Arama</translation>
+        <translation>Ara</translation>
     </message>
 </context>
 <context>
@@ -152,7 +152,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="50"/>
         <source>No search results</source>
-        <translation>Herhangi bir sonuç bulunamadı</translation>
+        <translation>Arama sonucu bulunamadı</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="142"/>
@@ -178,7 +178,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/settingswidget.cpp" line="80"/>
         <source>Reset all settings</source>
-        <translation>Tüm Ayarları Sıfırla</translation>
+        <translation>Tüm ayarları sıfırla</translation>
     </message>
     <message>
         <location filename="../src/frame/settingswidget.cpp" line="90"/>
@@ -191,72 +191,72 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
-        <translation>Başlatıldığında</translation>
+        <translation>Başlangıç</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
         <source>Shut down</source>
-        <translation>Kapatıldığında</translation>
+        <translation>Kapat</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
         <source>Log out</source>
-        <translation>Oturumu Kapat</translation>
+        <translation>Oturumu kapat</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
-        <translation>Uyandırıldığında</translation>
+        <translation>Uyan</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
-        <translation>Ses Düzeyi Değiştirildiğinde</translation>
+        <translation>Ses +/-</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="21"/>
         <source>Notification</source>
-        <translation>Bildirim Geldiğinde</translation>
+        <translation>Bildirim</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="22"/>
         <source>Low battery</source>
-        <translation>Batarya Düzeyi Düştüğünde</translation>
+        <translation>Düşük batarya</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Başlatıcı Simgesi Masaüstüne Gönderildiğinde</translation>
+        <translation>Başlatıcı&apos;dan Masaüstüne simge gönder</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
         <source>Empty Trash</source>
-        <translation>Çöp Boşaltıldığında</translation>
+        <translation>Çöpü Boşalt</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="25"/>
         <source>Plug in</source>
-        <translation>Fişe Takıldığında</translation>
+        <translation>Fişe tak</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Plug out</source>
-        <translation>Fişten Çıkarıldığında</translation>
+        <translation>Fişten çıkar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
-        <translation>Çıkarılabilir Aygıt Takıldığında</translation>
+        <translation>Çıkarılabilir aygıt bağlandı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
-        <translation>Çıkarılabilir Aygıt Çıkarıldığında</translation>
+        <translation>Çıkarılabilir aygıt kaldırıldı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
-        <translation>Sorun Çıktığında</translation>
+        <translation>Hata</translation>
     </message>
 </context>
 <context>
@@ -269,7 +269,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
         <source>If no operation, the display will be restored after %1s.</source>
-        <translation>Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler %1s sonra geri alınacak.</translation>
+        <translation>İşlem yapılmazsa, ekran %1s sonra geri yüklenir.</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
@@ -354,22 +354,22 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Leave domain</source>
-        <translation>Etki Alanından Ayrıl</translation>
+        <translation>Etki alanından ayrıl</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="54"/>
         <source>Join domain</source>
-        <translation>Etki Alanına Katıl</translation>
+        <translation>Etki alanına katıl</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="62"/>
         <source>Domain Server</source>
-        <translation>Etki Alanı Sunucusu</translation>
+        <translation>Etki alanı sunucusu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Admin account</source>
-        <translation>Yönetici Hesabı</translation>
+        <translation>Yönetici hesabı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="64"/>
@@ -402,12 +402,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="61"/>
         <source>Auto Login</source>
-        <translation>Oturum Otomatik Olarak Açılsın</translation>
+        <translation>Otomatik Giriş</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login Without Password</source>
-        <translation>Parolasız Oturum Aç</translation>
+        <translation>Parola Olmadan Giriş</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -417,7 +417,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="72"/>
         <source>Unable to delete, current user logged in</source>
-        <translation>Oturum açmış geçerli kullanıcı silinemez</translation>
+        <translation>Oturum açmış mevcut kullanıcı silinemez</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="75"/>
@@ -442,12 +442,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
-        <translation>Etki Alanından Ayrıl</translation>
+        <translation>Etki alanından ayrıl</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation>Etki Alanına Katıl</translation>
+        <translation>Etki alanına katıl</translation>
     </message>
 </context>
 <context>
@@ -460,32 +460,32 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="324"/>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>Bilgisayarınız etki alanı sunucusundan ayrıldı</translation>
+        <translation>Ana makineniz etki alanı sunucusundan başarıyla kaldırıldı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="325"/>
         <source>Your host joins the domain server successfully</source>
-        <translation>Bilgisayarınız etki alanı sunucusuna katıldı</translation>
+        <translation>Ana makineniz etki alanı sunucusuna başarıyla katıldı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="347"/>
         <source>Your host failed to leave the domain server</source>
-        <translation>Bilgisayarınız etki alanı sunucusundan ayrılamadı</translation>
+        <translation>Ana makineniz etki alanı sunucusundan ayrılamadı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="348"/>
         <source>Your host failed to join the domain server</source>
-        <translation>Bilgisayarınız etki alanı sunucusuna katılamadı</translation>
+        <translation>Ana makineniz etki alanı sunucusuna katılamadı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="420"/>
         <source>Password not match</source>
-        <translation>Parola ile onayı aynı değil</translation>
+        <translation>Parola eşleşmiyor</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="351"/>
         <source>AD domain settings</source>
-        <translation>Aktif Dizin Etki Alanı Ayarları</translation>
+        <translation>Aktif Dizin etki alanı ayarları</translation>
     </message>
 </context>
 <context>
@@ -493,12 +493,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation>Parmak izi ekle</translation>
+        <translation>Parmak İzi Ekle</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
-        <translation>Yeniden yazın</translation>
+        <translation>Tekrar-gir</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="56"/>
@@ -531,7 +531,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="53"/>
         <source>Username</source>
-        <translation>Kullanıcı Adı</translation>
+        <translation>Kullanıcı adı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="54"/>
@@ -548,7 +548,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="58"/>
         <source>Repeat password</source>
-        <translation>Parola Onayı</translation>
+        <translation>Parolayı tekrarla</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="67"/>
@@ -584,7 +584,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="271"/>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="274"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Parolada, İngiliz alfabesi harfleri (büyük-küçük harfe duyarlı), rakamlar ya da özel simgeler (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) bulunmalıdır</translation>
+        <translation>Parola, İngilizce harfler (büyük/küçük harf duyarlı), sayılar veya özel semboller içermelidir (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -653,7 +653,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="54"/>
         <source>Repeat Password</source>
-        <translation>Parola Onayı</translation>
+        <translation>Parola Tekrarla</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="56"/>
@@ -690,7 +690,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="215"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Parolada, İngiliz alfabesi harfleri (büyük-küçük harfe duyarlı), rakamlar ya da özel simgeler (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) bulunmalıdır</translation>
+        <translation>Parola, İngilizce harfler (büyük/küçük harf duyarlı), sayılar veya özel semboller içermelidir (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -703,7 +703,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
-        <translation>Hesap klasörü silinsin</translation>
+        <translation>Hesap dizinini sil</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
@@ -726,7 +726,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="48"/>
         <source>Other devices</source>
-        <translation>Diğer Aygıtlar</translation>
+        <translation>Diğer aygıtlar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="67"/>
@@ -749,12 +749,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/bluetooth/detailpage.cpp" line="43"/>
         <source>Ignore</source>
-        <translation>Yok Say</translation>
+        <translation>Yoksay</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Disconnect</source>
-        <translation>Bağlantıyı Kes</translation>
+        <translation>Bağlantıyı kes</translation>
     </message>
 </context>
 <context>
@@ -767,7 +767,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
-        <translation>Bağlı Değil</translation>
+        <translation>Bağlı değil</translation>
     </message>
 </context>
 <context>
@@ -793,87 +793,87 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="29"/>
         <source>Syncing</source>
-        <translation type="unfinished"/>
+        <translation>Eşitleniyor</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="30"/>
         <source>Logout</source>
-        <translation type="unfinished"/>
+        <translation>Oturumu Kapat</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="34"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation type="unfinished"/>
+        <translation>Üzgünüz, şu anda bölgenizde desteklenmiyor ve yakında geliyor</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik Eşitle</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
         <source>Switch it on to sync part of the settings for Control Center, Launcher and Dock automatically.</source>
-        <translation type="unfinished"/>
+        <translation>Bu seçenek etkinleştirildiğinde, Kontrol Merkezi, Başlatıcı ve Görev Çubuğu ayarları otomatik olarak eşitlenir.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="79"/>
         <source>Network Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ağ Ayarları</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="80"/>
         <source>Sound Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ses Ayarları</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="81"/>
         <source>Mouse Settings</source>
-        <translation type="unfinished"/>
+        <translation>Fare Ayarları</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="82"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Güncelleme Ayarları</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>Görev Çubuğu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
         <source>Launcher</source>
-        <translation type="unfinished"/>
+        <translation>Başlatıcı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="85"/>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Duvar Kağıdı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="86"/>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="87"/>
         <source>Power Settings</source>
-        <translation type="unfinished"/>
+        <translation>Güç Ayarları</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="88"/>
         <source>Corner Settings</source>
-        <translation type="unfinished"/>
+        <translation>Köşe Ayarları</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="210"/>
         <source>Last Sync: %1</source>
-        <translation type="unfinished"/>
+        <translation>Son Eşitleme: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="212"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>yyyy-MM-dd hh:mm</translation>
     </message>
 </context>
 <context>
@@ -881,18 +881,18 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="14"/>
         <source>Login</source>
-        <translation type="unfinished"/>
+        <translation>Giriş</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Bulut Eşitleme</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
         <source>Only supported in Mainland China at present</source>
-        <translation type="unfinished"/>
+        <translation>Şu anda yalnız Çin içinde destekleniyor</translation>
     </message>
 </context>
 <context>
@@ -900,7 +900,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/datetime/datesettings.cpp" line="63"/>
         <source>Change Time Settings</source>
-        <translation>Saat Ayarlarını Değiştir</translation>
+        <translation>Zaman Ayarlarını Değiştir</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datesettings.cpp" line="68"/>
@@ -943,7 +943,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
-        <translation>Otomatik Ayarlansın</translation>
+        <translation>Otomatik-Eşitle</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="51"/>
@@ -958,7 +958,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="69"/>
         <source>Time Settings</source>
-        <translation>Saat Ayarları</translation>
+        <translation>Zaman Ayarları</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="74"/>
@@ -1049,12 +1049,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="59"/>
         <source>Video</source>
-        <translation>Görüntü</translation>
+        <translation>Video</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="60"/>
         <source>Picture</source>
-        <translation>Fotoğraf</translation>
+        <translation>Resim</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="61"/>
@@ -1342,7 +1342,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="171"/>
         <source>Choose File</source>
-        <translation>Dosya Seçin</translation>
+        <translation>Dosya Seç</translation>
     </message>
 </context>
 <context>
@@ -1386,7 +1386,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="161"/>
         <source>Choose File</source>
-        <translation>Dosya Seçin</translation>
+        <translation>Dosya Seç</translation>
     </message>
 </context>
 <context>
@@ -1408,17 +1408,17 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="49"/>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="51"/>
         <source>Keyboard Layout</source>
-        <translation>Tuş Takımı Düzeni</translation>
+        <translation>Klavye Düzeni</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation>Düzenleri Değiştir (Birden Çok)</translation>
+        <translation>Düzenleri Değiştir (Çoklu)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="88"/>
         <source>Add Keyboard Layout</source>
-        <translation>Tuş Takımı Düzeni Ekle</translation>
+        <translation>Klavye Düzeni Ekle</translation>
     </message>
 </context>
 <context>
@@ -1426,7 +1426,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardlayoutwidget.cpp" line="50"/>
         <source>Add Keyboard Layout</source>
-        <translation>Tuş Takımı Düzeni Ekle</translation>
+        <translation>Klavye Düzeni Ekle</translation>
     </message>
 </context>
 <context>
@@ -1436,7 +1436,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <location filename="../src/frame/navigation/navmodel.cpp" line="126"/>
         <location filename="../src/frame/navigationbar.cpp" line="213"/>
         <source>Keyboard and Language</source>
-        <translation>Tuş Takımı ve Dil</translation>
+        <translation>Klavye ve Dil</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="52"/>
@@ -1476,17 +1476,17 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="93"/>
         <source>Enable Numeric Keyboard</source>
-        <translation>Sayısal Tuş Takımı Kullanılsın</translation>
+        <translation>Sayısal Klavyeyi Etkinleştir</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="97"/>
         <source>Caps Lock Prompt</source>
-        <translation>Büyük Harf Kilidi Bildirimi Görüntülensin</translation>
+        <translation>Büyük Harf Kilidi Bildirimi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="103"/>
         <source>Keyboard Layout</source>
-        <translation>Tuş Takımı Düzeni</translation>
+        <translation>Klavye Düzeni</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="111"/>
@@ -1540,7 +1540,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="85"/>
         <source>Please enter a new shortcut</source>
-        <translation>Lütfen yeni bir kısayol yazın</translation>
+        <translation>Lütfen yeni bir kısayol girin</translation>
     </message>
 </context>
 <context>
@@ -1611,17 +1611,17 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="51"/>
         <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
+        <translation>İz İşareti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="53"/>
         <source>Left Hand</source>
-        <translation>Kullanım Solaklara Uygun Olsun</translation>
+        <translation>Solak Düzeni</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="54"/>
         <source>Disable the touchpad while typing</source>
-        <translation>Yazarken Dokunmatik Yüzey Devre Dışı Bırakılsın</translation>
+        <translation>Yazarken dokunmatik yüzeyi devre dışı bırak</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="55"/>
@@ -1638,7 +1638,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="59"/>
         <source>Mouse Acceleration</source>
-        <translation>Fare Hızlanması</translation>
+        <translation>Fare Hızlandırması</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="60"/>
@@ -1648,7 +1648,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="61"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Fare Bağlandığında Dokunmatik Yüzey Devre Dışı Bırakılsın</translation>
+        <translation>Fare Takılıyken Dokunmatik Yüzeyi Devre Dışı Bırak</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="62"/>
@@ -1677,17 +1677,17 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detect</source>
-        <translation>Avuç İçi Algılansın</translation>
+        <translation>Avuç İçi Algıla</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <source>Minimum contact surface</source>
-        <translation>En Küçük Temas Yüzeyi</translation>
+        <translation>Asgari temas yüzeyi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <source>Minimum pressure value</source>
-        <translation>En Küçük Basınç Değeri</translation>
+        <translation>Asgari basınç değeri</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
@@ -1721,7 +1721,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="56"/>
         <source>Port</source>
-        <translation>Kapı Numarası</translation>
+        <translation>Port</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="60"/>
@@ -1742,7 +1742,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Yapılandırdıktan sonra kullanmak için başlatıcıdaki uygulama sağ tık menüsünden &quot;Vekil Sunucu Kullanılsın&quot; seçeneğini etkinleştirin</translation>
+        <translation>Yapılandırıldıktan sonra Başlatıcı&apos;daki uygulama bağlamı menüsünde &quot;Vekil Sunucu Kullan&quot; seçeneğini işaretleyin.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
@@ -1913,7 +1913,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
         <source>Auto connect</source>
-        <translation>Otomatik Olarak Bağlanılsın</translation>
+        <translation>Otomatik bağlan</translation>
     </message>
 </context>
 <context>
@@ -2397,7 +2397,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="164"/>
         <source>Ask</source>
-        <translation>Sorulsun</translation>
+        <translation>Sor</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="169"/>
@@ -2427,7 +2427,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="218"/>
         <source>Pwd Options</source>
-        <translation>Parola ayarları</translation>
+        <translation>Pwd Seçenekleri</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="31"/>
@@ -2487,7 +2487,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="383"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="419"/>
         <source>Anonymous ID</source>
-        <translation>Anonim Kod</translation>
+        <translation>Anonim Kimlik</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="336"/>
@@ -2830,7 +2830,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
         <source>Group ID</source>
-        <translation>Grup Kodu</translation>
+        <translation>Grup Kimliği</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
@@ -2933,7 +2933,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
         <source>Ask</source>
-        <translation>Sorulsun</translation>
+        <translation>Sor</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
@@ -3144,7 +3144,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="266"/>
         <source>L2TP</source>
-        <translation>L2TPa_</translation>
+        <translation>L2TP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="269"/>
@@ -3384,7 +3384,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
         <source>SSH Agent</source>
-        <translation>SSH Ajanı</translation>
+        <translation>SSH İstemci</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
@@ -3613,7 +3613,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="84"/>
         <source>Select Settings</source>
-        <translation>Ayarları Seçin</translation>
+        <translation>Ayarları Seç</translation>
     </message>
 </context>
 <context>
@@ -3801,24 +3801,24 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="46"/>
         <source>Plugged in</source>
-        <translation>Fişe Takılı</translation>
+        <translation>Fişe takılı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="47"/>
         <source>On battery</source>
-        <translation>Batarya Gücünde</translation>
+        <translation>Bataryada</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="48"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="50"/>
         <source>Monitor will suspend after</source>
-        <translation>Ekranın Uykuya Dalma Süresi</translation>
+        <translation>Ekranın askıya alınma süresi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="49"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="51"/>
         <source>Computer will suspend after</source>
-        <translation>Bilgisayarın Uykuya Dalma Süresi</translation>
+        <translation>Bilgisayarın askıya alınma süresi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="61"/>
@@ -3829,17 +3829,17 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="97"/>
         <source>Password required to wake up the monitor</source>
-        <translation>Ekranı Uyandırmak İçin Parola İstensin</translation>
+        <translation>Ekranı uyandırmak için parola gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="100"/>
         <source>Password required to wake up the computer</source>
-        <translation>Bilgisayarı Uyandırmak İçin Parola İstensin</translation>
+        <translation>Bilgisayarı uyandırmak için parola gerekli</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="103"/>
         <source>Suspend on lid close</source>
-        <translation>Kapak Kapatıldığında Bilgisayar Uyutulsun</translation>
+        <translation>Kapak kapandığında askıya al</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="107"/>
@@ -3914,22 +3914,22 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="43"/>
         <source>Output Volume</source>
-        <translation>Çıkış Ses Düzeyi</translation>
+        <translation>Ses Çıkışı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="44"/>
         <source>Left/Right Balance</source>
-        <translation>Sol/Sağ Kanal Dengesi</translation>
+        <translation>Sol/Sağ Dengesi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="47"/>
         <source>Input Volume</source>
-        <translation>Giriş Ses Düzeyi</translation>
+        <translation>Ses Girişi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="49"/>
         <source>Feedback Volume</source>
-        <translation>Geri Besleme Ses Düzeyi</translation>
+        <translation>Geri Bildirim Sesi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="60"/>
@@ -3957,7 +3957,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Bulut Eşitleme</translation>
     </message>
 </context>
 <context>
@@ -3970,7 +3970,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="73"/>
         <source>Startup Delay</source>
-        <translation>Başlatma Gecikmesi</translation>
+        <translation>Başlangıç ​​Gecikmesi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="76"/>
@@ -3980,12 +3980,12 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="78"/>
         <source>You can click the option in boot menu to set it as the first boot, and drag and drop a picture to replace the background.</source>
-        <translation>İlk başlatmayı ayarlamak için başlatma menüsündeki seçeneğe tıklayabilir ve bir görseli sürükleyip bırakarak arka planı değiştirebilirsiniz.</translation>
+        <translation>Hızlı önyükleme ayarı için önyükleme menüsündeki seçeneği tıklatabilir ve arka planı değiştirmek için bir resmi sürükleyip bırakabilirsiniz.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="82"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation>Başlatma menüsünde görüntülenmesi için temayı etkinleştirin</translation>
+        <translation>Önyükleme menüsünde görüntülemek için temayı etkinleştirin</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="102"/>
@@ -4117,7 +4117,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="42"/>
         <source>Test Speed</source>
-        <translation>Hızı Dene</translation>
+        <translation>Hız Testi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="46"/>
@@ -4150,7 +4150,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
         <location filename="../src/frame/navigation/navmodel.cpp" line="128"/>
         <location filename="../src/frame/navigationbar.cpp" line="215"/>
         <source>Update</source>
-        <translation>Güncelleme</translation>
+        <translation>Güncelle</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="55"/>
@@ -4175,7 +4175,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Download and install updates</source>
-        <translation>Güncellemeleri İndir ve Kur</translation>
+        <translation>Güncellemeleri indir ve kur</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="190"/>
@@ -4191,7 +4191,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Install updates</source>
-        <translation>Güncellemeleri Kur</translation>
+        <translation>Güncellemeleri kur</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="208"/>
@@ -4206,7 +4206,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="227"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation>En yeni sistem dosyaları kuruldu. Değişikliklerin etkili olması için bilgisayarı yeniden başlatın</translation>
+        <translation>En yeni sistem kuruldu, etkin olması için yeniden başlat</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="237"/>
@@ -4287,7 +4287,7 @@ Herhangi bir şey yapılmaz ise görüntü ayarlarında yapılan değişiklikler
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto Clear Package Cache</source>
-        <translation> Paket Ön Belleği Otomatik Temizlensin</translation>
+        <translation>Paket Önbelleğini Otomatik Temizle</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>

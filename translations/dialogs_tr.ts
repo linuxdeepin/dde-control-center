@@ -24,7 +24,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
-        <translation>Yeniden Başlat</translation>
+        <translation>Yeniden başlat</translation>
     </message>
 </context>
 </TS>
