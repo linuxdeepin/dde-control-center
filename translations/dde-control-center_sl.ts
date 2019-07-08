@@ -872,7 +872,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="212"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>yyyy-MM-dd hh:mm</translation>
     </message>
 </context>
 <context>

@@ -793,87 +793,87 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="29"/>
         <source>Syncing</source>
-        <translation type="unfinished"/>
+        <translation>Se sincronitza</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="30"/>
         <source>Logout</source>
-        <translation type="unfinished"/>
+        <translation>Surt</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="34"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation type="unfinished"/>
+        <translation>Perdoneu, això ara no s&apos;admet a la vostra regió. Es podrà fer aviat...</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>Sincronització automàtica</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
         <source>Switch it on to sync part of the settings for Control Center, Launcher and Dock automatically.</source>
-        <translation type="unfinished"/>
+        <translation>Activeu-ho per sincronitzar part de la configuració del Centre de control, del llançador i de l&apos;acoblador automàticament.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="79"/>
         <source>Network Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració de la xarxa</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="80"/>
         <source>Sound Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració del so</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="81"/>
         <source>Mouse Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració del ratolí</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="82"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració de l&apos;actualització</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>Acoblador</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
         <source>Launcher</source>
-        <translation type="unfinished"/>
+        <translation>Llançador</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="85"/>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fons de pantalla</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="86"/>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="87"/>
         <source>Power Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració de l&apos;energia</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="88"/>
         <source>Corner Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració del cantó</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="210"/>
         <source>Last Sync: %1</source>
-        <translation type="unfinished"/>
+        <translation>Darrera sincronització: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="212"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>dd-MM-yyyy hh.mm</translation>
     </message>
 </context>
 <context>
@@ -881,18 +881,18 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="14"/>
         <source>Login</source>
-        <translation type="unfinished"/>
+        <translation>Inicia la sessió</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Sincronització del núvol</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
         <source>Only supported in Mainland China at present</source>
-        <translation type="unfinished"/>
+        <translation>Només s&apos;admet ara a la Xina continental.</translation>
     </message>
 </context>
 <context>
@@ -3957,7 +3957,7 @@ Si no es fa res, la pantalla es restaurarà al cap de %1s.</translation>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Sincronització del núvol</translation>
     </message>
 </context>
 <context>

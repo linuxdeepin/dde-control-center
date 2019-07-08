@@ -795,87 +795,87 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="29"/>
         <source>Syncing</source>
-        <translation type="unfinished"/>
+        <translation>Sinchronizavimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="30"/>
         <source>Logout</source>
-        <translation type="unfinished"/>
+        <translation>Atsijungti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="34"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation type="unfinished"/>
+        <translation>Atleiskite, šiuo metu tai nėra palaikoma jūsų regione, tačiau greitu metu bus</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>Automatinis sinchronizavimas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
         <source>Switch it on to sync part of the settings for Control Center, Launcher and Dock automatically.</source>
-        <translation type="unfinished"/>
+        <translation>Įjunkite, norėdami automatiškai sinchronizuoti valdymo centro, leistuko ir doko nustatymų dalį.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="79"/>
         <source>Network Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tinklo nustatymai</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="80"/>
         <source>Sound Settings</source>
-        <translation type="unfinished"/>
+        <translation>Garso nustatymai</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="81"/>
         <source>Mouse Settings</source>
-        <translation type="unfinished"/>
+        <translation>Pelės nustatymai</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="82"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Atnaujinimų nustatymai</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>Dokas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
         <source>Launcher</source>
-        <translation type="unfinished"/>
+        <translation>Leistukas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="85"/>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Darbalaukio fonas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="86"/>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="87"/>
         <source>Power Settings</source>
-        <translation type="unfinished"/>
+        <translation>Energijos nustatymai</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="88"/>
         <source>Corner Settings</source>
-        <translation type="unfinished"/>
+        <translation>Kampų nustatymai</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="210"/>
         <source>Last Sync: %1</source>
-        <translation type="unfinished"/>
+        <translation>Paskutinis sinchronizavimas: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="212"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>yyyy-MM-dd hh:mm</translation>
     </message>
 </context>
 <context>
@@ -883,18 +883,18 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="14"/>
         <source>Login</source>
-        <translation type="unfinished"/>
+        <translation>Prisijungti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="116"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Sinchronizavimas su debesija</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
         <source>Only supported in Mainland China at present</source>
-        <translation type="unfinished"/>
+        <translation>Šiuo metu palaikoma tik pagrindinėje Kinijos teritorijoje</translation>
     </message>
 </context>
 <context>
@@ -3959,7 +3959,7 @@ Jeigu nieko nebus atlikta, ekranas bus atkurtas po %1s.</translation>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Sinchronizavimas su debesija</translation>
     </message>
 </context>
 <context>

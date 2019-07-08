@@ -177,7 +177,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/settingswidget.cpp" line="80"/>
         <source>Reset all settings</source>
-        <translation>全ての設定をリセット</translation>
+        <translation>すべての設定をリセット</translation>
     </message>
     <message>
         <location filename="../src/frame/settingswidget.cpp" line="90"/>
@@ -291,12 +291,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <translation>依存関係エラーが発生したため、アップデートを検出できませんでした</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
-        <translation type="unfinished"/>
+        <translation>アップデートを検出できませんでした</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="174"/>
@@ -327,7 +327,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="197"/>
         <source>Just updated</source>
-        <translation type="unfinished"/>
+        <translation>たった今更新</translation>
     </message>
 </context>
 <context>
@@ -547,7 +547,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="58"/>
         <source>Repeat password</source>
-        <translation>パスワード繰り返し</translation>
+        <translation>パスワードを再入力</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="67"/>
@@ -562,7 +562,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="88"/>
         <source>New Account</source>
-        <translation>新規アカウント</translation>
+        <translation>新しいアカウント</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="160"/>
@@ -652,7 +652,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="54"/>
         <source>Repeat Password</source>
-        <translation>パスワード 再度</translation>
+        <translation>パスワードを再入力</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="56"/>
@@ -832,7 +832,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="82"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>アップデートの設定</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
@@ -2277,7 +2277,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/pppoepage.cpp" line="52"/>
         <source>Create PPPoE Connection</source>
-        <translation>PPPoE接続を作成</translation>
+        <translation>PPPoE 接続を作成</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/pppoepage.cpp" line="66"/>
@@ -4134,12 +4134,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="66"/>
         <source>Updated successfully</source>
-        <translation type="unfinished"/>
+        <translation>正常にアップデートしました</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="67"/>
         <source>Failed to update</source>
-        <translation>更新に失敗しました</translation>
+        <translation>アップデートに失敗しました</translation>
     </message>
 </context>
 <context>
@@ -4149,12 +4149,12 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/navigation/navmodel.cpp" line="128"/>
         <location filename="../src/frame/navigationbar.cpp" line="215"/>
         <source>Update</source>
-        <translation>更新</translation>
+        <translation>アップデート</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="55"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation type="unfinished"/>
+        <translation>システムとアプリケーションが正常に動作するように、アップデート後は再起動してください</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="56"/>
@@ -4164,12 +4164,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="unfinished"/>
+        <translation>このアップデートには時間がかかる可能性があります。アップデート中にシャットダウンしたり再起動したりしないでください</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
         <source>Checking for updates, please wait...</source>
-        <translation>更新を確認しています。お待ちください…</translation>
+        <translation>アップデートを確認しています。お待ちください…</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="181"/>
@@ -4190,7 +4190,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Install updates</source>
-        <translation>更新をインストール</translation>
+        <translation>アップデートをインストール</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="208"/>
@@ -4210,17 +4210,17 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="237"/>
         <source>Insufficient disk space, unable to update system.</source>
-        <translation>デスクの容量が不足しているためシステムを更新できません。</translation>
+        <translation>デスクの容量が不足しているためシステムをアップデートできません。</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <translation>依存関係エラーが発生したため、アップデートを検出できませんでした</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 件のアプリケーションのアップデートを検出しました</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -4230,7 +4230,7 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>新しいエディションのシステムと %n 件のアプリケーションの更新を検出しました</numerusform></translation>
+        <translation><numerusform>新しいエディションのシステムと %n 件のアプリケーションのアップデートを検出しました</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
@@ -4245,7 +4245,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="302"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>バッテリー残量が50%未満です。続けるには電源に接続してください</translation>
+        <translation>バッテリー残量が 50% 未満です。続けるには電源に接続してください</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="304"/>
@@ -4266,22 +4266,22 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="50"/>
         <source>Update Settings</source>
-        <translation>更新の設定</translation>
+        <translation>アップデートの設定</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="65"/>
         <source>Updates Notification</source>
-        <translation>更新の通知</translation>
+        <translation>アップデートの通知</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="68"/>
         <source>Auto-download Updates</source>
-        <translation>更新を自動的にダウンロード</translation>
+        <translation>アップデートを自動的にダウンロード</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>無線または有線ネットワークで更新を自動的にダウンロードするにはオンにしてください</translation>
+        <translation>無線または有線ネットワークでアップデートを自動的にダウンロードするにはオンにしてください</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
@@ -4296,7 +4296,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation>システム更新のミラーが変更された場合に通知を表示します</translation>
+        <translation>システムアップデートのミラーが変更された場合に通知を表示します</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="99"/>
@@ -4320,12 +4320,12 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/update/updateview.cpp" line="40"/>
         <location filename="../src/frame/modules/update/updateview.cpp" line="52"/>
         <source>Update</source>
-        <translation>更新</translation>
+        <translation>アップデート</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updateview.cpp" line="45"/>
         <source>Update Settings</source>
-        <translation>更新の設定</translation>
+        <translation>アップデートの設定</translation>
     </message>
 </context>
 <context>

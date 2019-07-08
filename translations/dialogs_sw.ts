@@ -1,30 +1,30 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="bn" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sw" version="2.1">
 <context>
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Updates installed! A restart is required, restart now?</source>
-        <translation>আপডেট ইন্সটল হয়েছে। কম্পিউটার পুনরায় চালু করতে হবে করতে হবে। এখনই পুনরায় চালু করবেন?</translation>
+        <translation>Sasisha zimesakinisha! Washo inahitaji, fanya washo sasa?</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation>সামনে এগোনোর আগে সমস্ত তথ্য সংরক্ষিত হয়েছে কিনা তা নিশ্চিত করুন</translation>
+        <translation>Tafadhali hifadhi data yote imeandikwa kabla ya kuendelea</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
-        <translation>বাতিল</translation>
+        <translation>Katisha</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
-        <translation>বন্ধ করুন</translation>
+        <translation>Zima</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
-        <translation>পুনঃরায় চালু করুন</translation>
+        <translation>Washa upya</translation>
     </message>
 </context>
 </TS>
