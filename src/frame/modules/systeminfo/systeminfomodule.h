@@ -64,6 +64,7 @@ public Q_SLOTS:
 #endif
 
     void onSetAutoHide(const bool visible);
+    void showLicensePage();
 
 private:
     SystemInfoWork* m_work;

@@ -17,5 +17,7 @@
         <file>gpl/gpl-3.0-en_US-title.txt</file>
         <file>themes/dark/icons/nav_systeminfo.svg</file>
         <file>themes/dark/icons/nav_systeminfo_normal.svg</file>
+        <file>license/deepin-end-user-license-agreement_community_en_US.txt</file>
+        <file>license/deepin-end-user-license-agreement_community_zh_CN.txt</file>
     </qresource>
 </RCC>
