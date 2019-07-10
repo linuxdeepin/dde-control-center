@@ -26,5 +26,9 @@ UserLicense::UserLicense(QWidget *parent)
     widget->setLayout(layout);
     setContent(widget);
 
+#ifdef DCC_COMMUNITY_LICENSE
     m_body->setText(getLicense(":/systeminfo/license/deepin-end-user-license-agreement_%1.txt", "title"));
+#else
+    m_body->setText(getLicense(":/systeminfo/license/deepin-end-user-license-agreement_community_%1.txt", "title"));
+#endif
 }

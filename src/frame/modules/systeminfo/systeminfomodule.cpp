@@ -86,6 +86,7 @@ ModuleWidget *SystemInfoModule::moduleWidget()
     {
         m_mainWidget = new SystemInfoWidget(m_model);
         connect(m_mainWidget, SIGNAL(copyright()), this, SLOT(onPushCopyright()));
+        connect(m_mainWidget, &SystemInfoWidget::requestShowLicense, this, &SystemInfoModule::showLicensePage);
 #ifndef DCC_DISABLE_GRUB
         connect(m_mainWidget, SIGNAL(boot()), this, SLOT(onPushBoot()));
 #endif
@@ -113,16 +114,12 @@ void SystemInfoModule::contentPopped(ContentWidget * const w)
 
 void SystemInfoModule::onPushCopyright()
 {
-#ifndef DCC_ENABLE_END_USER_LICENSE
     if(!m_copyrightWidget)
     {
         m_copyrightWidget = new CopyrightWidget();
     }
 
     m_frameProxy->pushWidget(this, m_copyrightWidget);
-#else
-    m_frameProxy->pushWidget(this, new UserLicense);
-#endif
 }
 
 #ifndef DCC_DISABLE_GRUB
@@ -148,6 +145,11 @@ void SystemInfoModule::onPushBoot()
 void SystemInfoModule::onSetAutoHide(const bool visible)
 {
     m_frameProxy->setFrameAutoHide(this, visible);
+}
+
+void SystemInfoModule::showLicensePage()
+{
+    m_frameProxy->pushWidget(this, new UserLicense);
 }
 
 }

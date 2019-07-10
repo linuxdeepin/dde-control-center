@@ -13,14 +13,20 @@ static const QStringList DCC_CONFIG_FILES {
 
 static const QMap<QString, QString> SYSTEM_LOCAL_MAP {
     {"zh_CN", "zh_CN"},
-#ifndef DCC_ENABLE_END_USER_LICENSE
     {"zh_TW", "zh_TW"},
-#endif
 };
 
 static const QString getLicense(const QString &filePath, const QString &type)
 {
-    const QString lang { SYSTEM_LOCAL_MAP.value(QLocale::system().name(), "en_US") };
+    const QString& locale { QLocale::system().name() };
+    QString lang;
+    if (SYSTEM_LOCAL_MAP.keys().contains(locale)) {
+        lang = { SYSTEM_LOCAL_MAP.value(QLocale::system().name(), "en_US") };
+    }
+
+    if (lang.isEmpty()) {
+        lang = { SYSTEM_LOCAL_MAP.value(QLocale::system().name(), "en_US") };
+    }
 
     QString path = QString(filePath).arg(lang).arg(type);
     QFile license(path);

@@ -54,6 +54,7 @@ public:
 Q_SIGNALS:
     void copyright();
     void boot();
+    void requestShowLicense();
 
 public Q_SLOTS:
     void setEdition(const QString& edition);
@@ -72,10 +73,7 @@ private:
     widgets::TitleValueItem* m_processor;
     widgets::TitleValueItem* m_memory;
     widgets::TitleValueItem* m_disk;
-
-#ifndef DCC_ENABLE_END_USER_LICENSE
     widgets::NextPageWidget* m_copyright;
-#endif
 
 #ifndef DCC_DISABLE_GRUB
     widgets::NextPageWidget* m_boot;
