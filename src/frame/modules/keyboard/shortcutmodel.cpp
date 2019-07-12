@@ -236,10 +236,5 @@ ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
 
     return nullptr;
 }
-
-ShortcutInfo::ShortcutInfo()
-{
-    item = NULL;
-}
 }
 }

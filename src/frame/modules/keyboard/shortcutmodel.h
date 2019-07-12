@@ -47,15 +47,13 @@ namespace keyboard{
 class ShortcutItem;
 struct ShortcutInfo
 {
-    ShortcutInfo();
-
     QString accels;
     QString id;
     QString name;
     QString command;
     quint32 type;
     ShortcutInfo* replace = nullptr;
-    ShortcutItem* item;
+    ShortcutItem* item = nullptr;
 
     bool operator==(const ShortcutInfo &info) const
     {

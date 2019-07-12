@@ -53,7 +53,7 @@ public:
     explicit ShortcutItem(QFrame *parent = 0);
 
     void setShortcutInfo(ShortcutInfo* info);
-    ShortcutInfo* curInfo();
+    inline ShortcutInfo* curInfo() { return m_info; };
 
     void setChecked(bool checked);
     void setTitle(const QString &title);

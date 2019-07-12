@@ -100,11 +100,6 @@ void ShortcutItem::setShortcutInfo(ShortcutInfo *info)
     setShortcut(info->accels);
 }
 
-ShortcutInfo *ShortcutItem::curInfo()
-{
-    return m_info;
-}
-
 void ShortcutItem::setTitle(const QString &title)
 {
     m_title->setText(title);
