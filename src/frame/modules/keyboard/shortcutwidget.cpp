@@ -105,54 +105,40 @@ ShortcutWidget::ShortcutWidget(ShortcutModel *model, QWidget *parent)
 
 void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::InfoType type)
 {
+    QMap<ShortcutModel::InfoType, QList<ShortcutItem*>*> InfoMap {
+        {ShortcutModel::System, &m_systemList},
+        {ShortcutModel::Window, &m_windowList},
+        {ShortcutModel::Workspace, &m_workspaceList},
+        {ShortcutModel::Custom, &m_customList}
+    };
 
-    if(type == ShortcutModel::System) {
-        for (ShortcutItem *item : m_systemList) {
-            if (item) {
-                m_systemGroup->removeItem(item);
-                item->deleteLater();
-            }
-        }
-        m_systemList.clear();
+    QMap<ShortcutModel::InfoType, SettingsGroup*> GroupMap{
+        {ShortcutModel::System, m_systemGroup},
+        {ShortcutModel::Window, m_windowGroup},
+        {ShortcutModel::Workspace, m_workspaceGroup},
+        {ShortcutModel::Custom, m_customGroup}
+    };
+
+    QList<ShortcutItem *> *itemList{ InfoMap[type] };
+    for (auto it = itemList->begin(); it != itemList->end();) {
+        ShortcutItem* item = *it;
+        m_allList.removeOne(item);
+        it = itemList->erase(it);
+        item->deleteLater();
     }
-    else if(type == ShortcutModel::Window) {
-        for (ShortcutItem *item : m_windowList) {
-            if (item) {
-                m_windowGroup->removeItem(item);
-                item->deleteLater();
-            }
-        }
-        m_windowList.clear();
-    }
-    else if(type == ShortcutModel::Workspace) {
-        for (ShortcutItem *item : m_workspaceList) {
-            if (item) {
-                m_workspaceGroup->removeItem(item);
-                item->deleteLater();
-            }
-        }
-        m_workspaceList.clear();
-    }
-    else if(type == ShortcutModel::Custom)
-    {
-        for (ShortcutItem *item : m_customList) {
-            if (item) {
-                m_customGroup->removeItem(item);
-                item->deleteLater();
-            }
-        }
-        m_customList.clear();
-    }
+
+    GroupMap[type]->clear();
 
     QList<ShortcutInfo*>::iterator it = list.begin();
     for(; it != list.end(); ++it)
     {
+        ShortcutInfo* info = *it;
         ShortcutItem* item = new ShortcutItem();
         connect(item, &ShortcutItem::requestUpdateKey, this, &ShortcutWidget::requestUpdateKey);
-        item->setShortcutInfo((*it));
-        item->setTitle((*it)->name);
-        (*it)->item = item;
-        m_searchInfos[(*it)->toString()] = (*it);
+        item->setShortcutInfo(info);
+        item->setTitle(info->name);
+        info->item = item;
+        m_searchInfos[info->toString()] = info;
 
         m_allList << item;
 
