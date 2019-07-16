@@ -120,14 +120,15 @@ void ShortcutWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::Info
     };
 
     QList<ShortcutItem *> *itemList{ InfoMap[type] };
+    auto group = GroupMap[type];
     for (auto it = itemList->begin(); it != itemList->end();) {
         ShortcutItem* item = *it;
+
+        group->removeItem(item);
         m_allList.removeOne(item);
         it = itemList->erase(it);
         item->deleteLater();
     }
-
-    GroupMap[type]->clear();
 
     QList<ShortcutInfo*>::iterator it = list.begin();
     for(; it != list.end(); ++it)
