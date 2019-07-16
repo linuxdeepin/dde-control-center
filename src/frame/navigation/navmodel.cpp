@@ -21,10 +21,14 @@
 
 #include "navmodel.h"
 
+#include <QColor>
 #include <QCoreApplication>
 #include <QDebug>
+#include <QIcon>
 
-NavModel::NavModel(QObject *parent) : QAbstractTableModel(parent)
+NavModel::NavModel(int columnCount, QObject *parent)
+    : QAbstractTableModel(parent)
+    , m_columnCount(columnCount)
 {
     m_moduleList = validModuleList();
     m_hoverIndex = QModelIndex();
@@ -39,14 +43,17 @@ int NavModel::rowCount(const QModelIndex &parent) const
     Q_UNUSED(parent)
 
     int mSize = m_moduleList.size();
-    return mSize % 2 > 0 ? mSize / 2 + 1 : mSize / 2;
+    // 最后一行在未完全填充时多出的元素个数
+    int last_extra_count = mSize % m_columnCount;
+
+    return last_extra_count > 0 ? mSize / m_columnCount + last_extra_count : mSize / m_columnCount;
 }
 
 int NavModel::columnCount(const QModelIndex &parent) const
 {
     Q_UNUSED(parent)
 
-    return 2;
+    return m_columnCount;
 }
 
 QVariant NavModel::data(const QModelIndex &index, int role) const
@@ -68,9 +75,12 @@ QVariant NavModel::data(const QModelIndex &index, int role) const
     case NavHoverRole:
         return m_hoverIndex == index;
         break;
+    case Qt::DisplayRole:
     case NavDisplayRole:
         return transModuleName(m_moduleList.at(mIndex));
         break;
+    case Qt::DecorationRole:
+        return QIcon(QString(":/%1/themes/dark/icons/nav_%1.svg").arg(m_moduleList.at(mIndex)));
     default:;
     }
 

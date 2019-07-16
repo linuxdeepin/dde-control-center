@@ -142,6 +142,10 @@ set(FRAME_FILES
                 updatenotifier.h
 )
 
+set(WINDOW_FILES
+    window/mainwindow.cpp
+    )
+
 # load interfaces
 set(INTERFACES_FILES
                 interfaces/frameproxyinterface.h
@@ -798,6 +802,7 @@ set(WACOM_FILES
 set(SRCS
         ${MODULE_FILES}
         ${FRAME_FILES}
+        ${WINDOW_FILES}
         ${INTERFACES_FILES}
         ${WIDGETS_FILES}
         ${ACCOUNTS_FILES}

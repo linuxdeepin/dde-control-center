@@ -24,91 +24,46 @@
 
 #include <QPainter>
 #include <QImageReader>
-#include <QApplication>
-#include <QScreen>
+#include <QDebug>
 
-NavDelegate::NavDelegate(QObject *parent) : QStyledItemDelegate(parent)
+NavDelegate::NavDelegate(QListView::ViewMode mode, QObject *parent)
+    : QStyledItemDelegate(parent)
+    , m_viewMode(mode)
 {
 }
 
-void NavDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void NavDelegate::setViewMode(QListView::ViewMode mode)
 {
-    QString moduleName = index.data(Qt::WhatsThisRole).toString();
-    if (!moduleName.isEmpty()) {
-        bool isHover = index.data(NavModel::NavHoverRole).toBool();
-
-        QRect rect = QRect(option.rect.left() + 5,
-                           option.rect.top() + 5,
-                           option.rect.width() - 10,
-                           option.rect.height() - 10);
-
-        QPainterPath path;
-        path.addRoundedRect(rect, 5, 5);
-
-        auto renderHints = painter->renderHints();
-        painter->setRenderHint(QPainter::Antialiasing);
-
-        // draw background
-        if (isHover) {
-            painter->fillPath(path, QColor(255, 255, 255, 25));
-        } else {
-            painter->fillPath(path, QColor(255, 255, 255, 7));
-        }
-
-        painter->setRenderHints(renderHints);
-
-        QPixmap modulePm = loadPixmap(QString(":/%1/themes/dark/icons/nav_%1.svg").arg(moduleName));
-
-        // Keep and offset from the top left corner, base is 1080P
-        const double Sh = qApp->primaryScreen()->geometry().height();
-        double keepRatio = 1;
-        if (Sh <= 1080) {
-            keepRatio = Sh / 1080;
-        }
-
-        QPoint p(rect.x() + 20 * keepRatio, rect.y() + 26 * keepRatio);
-        painter->drawPixmap(p, modulePm);
-
-        const QString &displayText = index.data(NavModel::NavDisplayRole).toString();
-
-        QFontMetrics fontMetrics(displayText);
-
-        if (rect.height() < static_cast<int>(modulePm.height() / qApp->devicePixelRatio() + fontMetrics.height() + 40 * keepRatio)) {
-            p = QPoint(p.x() + modulePm.width() / qApp->devicePixelRatio() + 20 * keepRatio, p.y());
-        }
-        else {
-            p = QPoint(p.x(), p.y() + modulePm.height() / qApp->devicePixelRatio() + 14 * keepRatio);
-        }
-
-        QTextOption option;
-        option.setAlignment(Qt::AlignLeft | Qt::AlignTop);
-
-        painter->drawText(QRect(p, QSize(rect.width() - 20 * keepRatio, rect.height())),
-                          index.data(NavModel::NavDisplayRole).toString(),
-                          option);
-    }
-
-    QStyledItemDelegate::paint(painter, option, index);
+    m_viewMode = mode;
 }
 
-QPixmap NavDelegate::loadPixmap(const QString &path) const
+void NavDelegate::setItemSize(const QSize &size)
 {
-    qreal ratio = 1.0;
-    QPixmap pixmap;
+    m_itemSize = size;
+}
 
-    const qreal devicePR = qApp->devicePixelRatio();
+QSize NavDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    Q_UNUSED(option)
+    Q_UNUSED(index)
 
-    if (!qFuzzyCompare(ratio, devicePR)) {
-        QImageReader reader;
-        reader.setFileName(qt_findAtNxFile(path, devicePR, &ratio));
-        if (reader.canRead()) {
-            reader.setScaledSize(reader.size() * (devicePR / ratio));
-            pixmap = QPixmap::fromImage(reader.read());
-            pixmap.setDevicePixelRatio(devicePR);
+    if (m_itemSize.isValid())
+        return m_itemSize;
+
+    return QStyledItemDelegate::sizeHint(option, index);
+}
+
+void NavDelegate::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
+{
+    QStyledItemDelegate::initStyleOption(option, index);
+
+    if (m_viewMode == QListView::IconMode) {
+        option->decorationPosition = QStyleOptionViewItem::Top;
+        option->decorationAlignment = Qt::AlignCenter;
+        option->displayAlignment = Qt::AlignHCenter;
+
+        if (m_itemSize.isValid()) {
+            option->decorationSize = QSize(m_itemSize.height() / 2, m_itemSize.height() / 2);
         }
-    } else {
-        pixmap.load(path);
     }
-
-    return pixmap;
 }
