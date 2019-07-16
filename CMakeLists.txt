@@ -36,6 +36,10 @@ set(AllowCloudSync true)
 
 configure_file(files/dde-control-center.conf.in files/dde-control-center.conf @ONLY)
 
+if (${CMAKE_BUILD_TYPE} STREQUAL Debug)
+    add_definitions(-DWINDOW_MODE)
+endif()
+
 add_subdirectory("src/frame")
 add_subdirectory("src/dialogs")
 

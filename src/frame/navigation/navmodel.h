@@ -38,7 +38,7 @@ public:
         NavDisplayRole
     };
 
-    NavModel(QObject *parent = Q_NULLPTR);
+    NavModel(int columnCount = 2, QObject *parent = Q_NULLPTR);
 
 public:
     int rowCount(const QModelIndex &parent) const Q_DECL_OVERRIDE;
@@ -59,6 +59,7 @@ private:
     QStringList m_moduleList;
     QStringList m_hideModuleList;
     QModelIndex m_hoverIndex;
+    int m_columnCount = 2;
 };
 
 #endif // NAVMODEL_H

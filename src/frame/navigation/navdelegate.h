@@ -23,17 +23,24 @@
 #define NAVDELEGATE_H
 
 #include <QStyledItemDelegate>
+#include <QListView>
 
 class NavDelegate : public QStyledItemDelegate
 {
 public:
-    NavDelegate(QObject *parent = 0);
+    NavDelegate(QListView::ViewMode mode = QListView::IconMode, QObject *parent = 0);
+
+    void setViewMode(QListView::ViewMode mode);
+    void setItemSize(const QSize &size);
 
 public:
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
 private:
-    QPixmap loadPixmap(const QString &path) const;
+    void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const override;
+
+    QListView::ViewMode m_viewMode;
+    QSize m_itemSize;
 };
 
 #endif // NAVDELEGATE_H

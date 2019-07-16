@@ -25,6 +25,7 @@
 
 #include "frame.h"
 #include "dbuscontrolcenterservice.h"
+#include "window/mainwindow.h"
 
 #include <DApplication>
 #include <DDBusSender>
@@ -181,6 +182,12 @@ int main(int argc, char *argv[])
     parser.addOption(pageOption);
     parser.process(app);
 
+#ifdef WINDOW_MODE
+    MainWindow mw;
+
+    mw.resize(500, 500);
+    mw.show();
+#else
     const QString &reqModule = parser.value(moduleOption);
     const QString &reqPage = parser.value(pageOption);
 
@@ -239,6 +246,7 @@ int main(int argc, char *argv[])
     QObject::connect(&f, &Frame::fontSizeChanged, &f, [=] {
         onFontSizeChanged(qApp->font().pointSizeF());
     });
+#endif
 
     return app.exec();
 }
