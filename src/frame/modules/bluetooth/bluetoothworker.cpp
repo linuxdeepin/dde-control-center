@@ -63,6 +63,12 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
 
     connect(m_bluetoothInter, &DBusBluetooth::DisplayPasskey, this, [] (const QDBusObjectPath &in0, uint in1, uint in2) {
         qDebug() << "request display passkey: " << in0.path() << in1 << in2;
+
+        PinCodeDialog *dialog = PinCodeDialog::instance(QString::number(in1), false);
+        if (!dialog->isVisible()) {
+            dialog->exec();
+            QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
+        }
     });
 
     connect(m_bluetoothInter, &DBusBluetooth::DisplayPinCode, this, [] (const QDBusObjectPath &in0, const QString &in1) {
