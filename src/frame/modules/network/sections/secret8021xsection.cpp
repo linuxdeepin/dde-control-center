@@ -631,6 +631,23 @@ void Secret8021xSection::saveCommonItems()
     }
 }
 
+// 转成networkmanager所需要的文件uri格式
+static QByteArray formatFileUriForNMPath(const QString &localFilePath)
+{
+    if (localFilePath.isEmpty())
+        return QByteArray();
+
+    QByteArray uri;
+
+    if (!localFilePath.startsWith("file://")) {
+        uri.append("file://");
+    }
+
+    uri.append(QFile::encodeName(localFilePath));
+
+    return uri.append('\0');
+}
+
 void Secret8021xSection::saveTlsItems()
 {
     const QList<SettingsItem *> &itemsList = m_eapMethodItemsMap.value(NetworkManager::Security8021xSetting::EapMethodTls);
@@ -638,9 +655,9 @@ void Secret8021xSection::saveTlsItems()
     FileChooseWidget *caCert = static_cast<FileChooseWidget *>(itemsList.at(1));
     FileChooseWidget *userCert = static_cast<FileChooseWidget *>(itemsList.at(2));
 
-    m_secretSetting->setPrivateKey(QFile::encodeName(privateKey->edit()->text()));
-    m_secretSetting->setCaCertificate(QFile::encodeName(caCert->edit()->text()));
-    m_secretSetting->setClientCertificate(QFile::encodeName(userCert->edit()->text()));
+    m_secretSetting->setPrivateKey(formatFileUriForNMPath(privateKey->edit()->text()));
+    m_secretSetting->setCaCertificate(formatFileUriForNMPath(caCert->edit()->text()));
+    m_secretSetting->setClientCertificate(formatFileUriForNMPath(userCert->edit()->text()));
 }
 
 void Secret8021xSection::saveFastItems()
@@ -665,7 +682,7 @@ void Secret8021xSection::saveTtlsItems()
     ComboBoxWidget *authMethod = static_cast<ComboBoxWidget *>(itemsList.at(2));
 
     m_secretSetting->setAnonymousIdentity(anonymousID->text());
-    m_secretSetting->setCaCertificate(QFile::encodeName(caCert->edit()->text()));
+    m_secretSetting->setCaCertificate(formatFileUriForNMPath(caCert->edit()->text()));
     m_secretSetting->setPhase2AuthMethod(AuthMethodStrMapTtls.value(authMethod->value()));
 }
 
@@ -678,7 +695,7 @@ void Secret8021xSection::savePeapItems()
     ComboBoxWidget *authMethod = static_cast<ComboBoxWidget *>(itemsList.at(3));
 
     m_secretSetting->setAnonymousIdentity(anonymousID->text());
-    m_secretSetting->setCaCertificate(QFile::encodeName(caCert->edit()->text()));
+    m_secretSetting->setCaCertificate(formatFileUriForNMPath(caCert->edit()->text()));
     m_secretSetting->setPhase1PeapVersion(PeapVersionStrMap.value(peapVersion->value()));
     m_secretSetting->setPhase2AuthMethod(AuthMethodStrMapPeap.value(authMethod->value()));
 }
