@@ -40,14 +40,21 @@ public:
     void pushWidget(QWidget *widget);
     void popWidget();
 
+    void backTopPage();
+    void updateFirstPage(int index);
+    void createSecPage(int count = 1, int index = 15);
+
 private:
-    void onItemClieck(const QModelIndex &index);
+    void onFirstItemClieck(const QModelIndex &index);
+    void onSecondItemClieck(const QModelIndex &index);
 
     QHBoxLayout *m_contentLayout;
     QHBoxLayout *m_rightContentLayout;
     NavWinView *m_navView;
+    NavWinView *m_navSecView;
     QWidget *m_rightView;
     NavModel *m_navModel;
+    NavModel *m_navSecModel;
     QStack<QWidget *> m_contentStack;
 };
 
