@@ -143,8 +143,10 @@ set(FRAME_FILES
 )
 
 set(WINDOW_FILES
+    window/constant.h
     window/mainwindow.cpp
-    )
+    window/navwinview.cpp
+     )
 
 # load interfaces
 set(INTERFACES_FILES

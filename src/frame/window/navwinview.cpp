@@ -18,37 +18,34 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#include "navwinview.h"
+#include "constant.h"
 
-#include <DMainWindow>
-#include <QStack>
-
-DWIDGET_USE_NAMESPACE
-QT_BEGIN_NAMESPACE
-class QHBoxLayout;
-QT_END_NAMESPACE
-class NavWinView;
-class NavModel;
-class MainWindow : public DMainWindow
+NavWinView::NavWinView(QWidget *parent)
+    : QListView(parent)
+    , m_delegate(new NavDelegate(IconMode, this))
 {
-    Q_OBJECT
+    setItemDelegate(m_delegate);
+    setViewMode(IconMode);
+    setResizeMode(QListView::Adjust);
+    setSpacing(10);
+}
 
-public:
-    explicit MainWindow(QWidget *parent = nullptr);
+void NavWinView::setViewMode(QListView::ViewMode mode)
+{
+    m_delegate->setViewMode(mode);
 
-    void pushWidget(QWidget *widget);
-    void popWidget();
+    if (mode == IconMode) {
+        m_delegate->setItemSize(QSize(Constant::HomeIconSize, Constant::HomeIconSize));
 
-private:
-    void onItemClieck(const QModelIndex &index);
+        setWordWrap(true);
+        setWrapping(true);
+        setFlow(QListView::LeftToRight);
+    } else {
+        m_delegate->setItemSize(QSize());
 
-    QHBoxLayout *m_contentLayout;
-    QHBoxLayout *m_rightContentLayout;
-    NavWinView *m_navView;
-    QWidget *m_rightView;
-    NavModel *m_navModel;
-    QStack<QWidget *> m_contentStack;
-};
-
-#endif // MAINWINDOW_H
+        setWordWrap(false);
+        setWrapping(false);
+        setFlow(QListView::TopToBottom);
+    }
+}

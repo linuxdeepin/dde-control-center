@@ -18,37 +18,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef NAVIWINVIEW_H
+#define NAVIWINVIEW_H
 
-#include <DMainWindow>
-#include <QStack>
+#include <QListView>
+#include "navigation/navdelegate.h"
 
-DWIDGET_USE_NAMESPACE
-QT_BEGIN_NAMESPACE
-class QHBoxLayout;
-QT_END_NAMESPACE
-class NavWinView;
-class NavModel;
-class MainWindow : public DMainWindow
+class NavDelegate;
+class NavWinView : public QListView
 {
-    Q_OBJECT
-
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    explicit NavWinView(QWidget *parent = nullptr);
 
-    void pushWidget(QWidget *widget);
-    void popWidget();
+    void setViewMode(ViewMode mode);
 
 private:
-    void onItemClieck(const QModelIndex &index);
+    using QListView::setItemDelegate;
 
-    QHBoxLayout *m_contentLayout;
-    QHBoxLayout *m_rightContentLayout;
-    NavWinView *m_navView;
-    QWidget *m_rightView;
-    NavModel *m_navModel;
-    QStack<QWidget *> m_contentStack;
+    NavDelegate *m_delegate;
 };
 
-#endif // MAINWINDOW_H
+#endif // NAVIGATIONVIEW_H
