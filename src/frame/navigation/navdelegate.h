@@ -34,7 +34,7 @@ public:
     void setItemSize(const QSize &size);
 
 public:
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
     void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const override;
