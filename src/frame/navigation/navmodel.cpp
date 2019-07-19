@@ -32,6 +32,7 @@ NavModel::NavModel(int columnCount, QObject *parent)
 {
     m_moduleList = validModuleList();
     m_hoverIndex = QModelIndex();
+    setModuleTypeMapData();
 
     setModuleVisible("bluetooth", false);
     setModuleVisible("wacom", false);
@@ -62,7 +63,7 @@ QVariant NavModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    int mIndex = index.row() * 2 + index.column();
+    int mIndex = index.row() * m_columnCount + index.column();
     if (mIndex >= m_moduleList.size()) {
         return QVariant();
     }
@@ -81,10 +82,31 @@ QVariant NavModel::data(const QModelIndex &index, int role) const
         break;
     case Qt::DecorationRole:
         return QIcon(QString(":/%1/themes/dark/icons/nav_%1.svg").arg(m_moduleList.at(mIndex)));
+    case NavModuleType:
+        return m_moduleTypeMap.value(m_moduleList.at(mIndex));
     default:;
     }
 
     return QVariant();
+}
+
+void NavModel::setModuleTypeMapData()
+{
+    m_moduleTypeMap.insert("accountsModule", AccountsModule);
+    m_moduleTypeMap.insert("cloudsync", Cloudsync);
+    m_moduleTypeMap.insert("display", Display);
+    m_moduleTypeMap.insert("defapp", Defapp);
+    m_moduleTypeMap.insert("personalization", Personalization);
+    m_moduleTypeMap.insert("network", Network);
+    m_moduleTypeMap.insert("bluetooth", Bluetooth);
+    m_moduleTypeMap.insert("sound", Sound);
+    m_moduleTypeMap.insert("datetime", Datetime);
+    m_moduleTypeMap.insert("power", Power);
+    m_moduleTypeMap.insert("mouse", Mouse);
+    m_moduleTypeMap.insert("keyboard", Keyboard);
+    m_moduleTypeMap.insert("wacom", Wacom);
+    m_moduleTypeMap.insert("update", Update);
+    m_moduleTypeMap.insert("systeminfo", Systeminfo);
 }
 
 void NavModel::setHoverIndex(const QModelIndex &index)

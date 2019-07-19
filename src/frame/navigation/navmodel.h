@@ -33,9 +33,28 @@ class NavModel : public QAbstractTableModel
     Q_OBJECT
 
 public:
+    enum ModuleType {
+        AccountsModule,
+        Cloudsync,
+        Display,
+        Defapp,
+        Personalization,
+        Network,
+        Bluetooth,
+        Sound,
+        Datetime,
+        Power,
+        Mouse,
+        Keyboard,
+        Wacom,
+        Update,
+        Systeminfo
+    };
+
     enum NavDataRole{
         NavHoverRole = Qt::UserRole + 1,
-        NavDisplayRole
+        NavDisplayRole,
+        NavModuleType
     };
 
     NavModel(int columnCount = 2, QObject *parent = Q_NULLPTR);
@@ -44,6 +63,7 @@ public:
     int rowCount(const QModelIndex &parent) const Q_DECL_OVERRIDE;
     int columnCount(const QModelIndex &parent) const Q_DECL_OVERRIDE;
     QVariant data(const QModelIndex &index, int role) const Q_DECL_OVERRIDE;
+    void setModuleTypeMapData();
 
 public Q_SLOTS:
     void setHoverIndex(const QModelIndex &index);
@@ -58,6 +78,7 @@ private:
 private:
     QStringList m_moduleList;
     QStringList m_hideModuleList;
+    QMap<QString, ModuleType> m_moduleTypeMap;
     QModelIndex m_hoverIndex;
     int m_columnCount = 2;
 };
