@@ -59,6 +59,7 @@ private:
     void moduleDeactive();
     void contentPopped(ContentWidget * const w);
     const QString name() const;
+public:
     ModuleWidget *moduleWidget();
 
 private Q_SLOTS:
