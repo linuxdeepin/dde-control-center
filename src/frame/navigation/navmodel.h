@@ -48,8 +48,10 @@ public:
         Keyboard,
         Wacom,
         Update,
-        Systeminfo
+        Systeminfo,
+        Default
     };
+    Q_ENUM(ModuleType)
 
     enum NavDataRole{
         NavHoverRole = Qt::UserRole + 1,

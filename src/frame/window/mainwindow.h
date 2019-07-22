@@ -21,25 +21,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "navigation/navmodel.h"
+
 #include <DMainWindow>
 
-#include <com_deepin_daemon_display.h>
-#include <com_deepin_dde_launcher.h>
-#include <com_deepin_daemon_appearance.h>
-
-#include "widgets/contentwidget.h"
 #include "interfaces/moduleinterface.h"
-#include "widgets/translucentframe.h"
-#include "navigationview.h"
-#include "navigationmodel.h"
 
 #include <QStack>
-#include <QPropertyAnimation>
-
-#include <DBlurEffectWidget>
-#include <DPlatformWindowHandle>
-#include <DWindowManagerHelper>
-#include <dregionmonitor.h>
 
 #define NOT_USE_DEMO 1
 
@@ -51,12 +39,10 @@ class NavWinView;
 class NavModel;
 
 using namespace dcc;
-using namespace dcc::widgets;
 
 class MainWindow : public DMainWindow, public FrameProxyInterface
 {
     Q_OBJECT
-
 public:
     explicit MainWindow(QWidget *parent = nullptr);
 
@@ -80,22 +66,26 @@ private:
     QHBoxLayout *m_contentLayout;
     QHBoxLayout *m_rightContentLayout;
     NavWinView *m_navView;
+#if !NOT_USE_DEMO
     NavWinView *m_navSecView;
+#endif
     QWidget *m_rightView;
     NavModel *m_navModel;
+#if !NOT_USE_DEMO
     NavModel *m_navSecModel;
+#endif
     QStack<QWidget *> m_contentStack;
-    QString m_curModuleType;
+    NavModel::ModuleType m_navModelType;
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);
 
 private Q_SLOTS:
     void onFirstItemClieck(const QModelIndex &index);
+#if !NOT_USE_DEMO
     void onSecondItemClieck(const QModelIndex &index);
+#endif
     void loadModule(ModuleInterface *const module);
-    void onModuleInitFinished(ModuleInterface *const module);
-
 };
 
 #endif // MAINWINDOW_H

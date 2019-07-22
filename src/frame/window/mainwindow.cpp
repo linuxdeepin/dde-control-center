@@ -18,17 +18,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#include "mainwindow.h"
-#include "constant.h"
-#include "navwinview.h"
-#include "navigation/navmodel.h"
-
-#include <QHBoxLayout>
-#include <QStandardItemModel>
-#include <QStandardItem>
-#include <QPushButton>
-#include <QDebug>
-
 #include "modules/accounts/accountsmodule.h"
 #include "modules/bluetooth/bluetoothmodule.h"
 #include "modules/datetime/datetimemodule.h"
@@ -45,6 +34,14 @@
 #include "modules/systeminfo/systeminfomodule.h"
 #include "modules/network/networkmodule.h"
 #include "moduleinitthread.h"
+
+#include "mainwindow.h"
+#include "constant.h"
+#include "navwinview.h"
+
+#include <QHBoxLayout>
+#include <QMetaEnum>
+#include <QDebug>
 
 using namespace dcc::accounts;
 using namespace dcc::datetime;
@@ -65,33 +62,38 @@ using namespace dcc::systeminfo;
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
+    , m_navModelType(NavModel::ModuleType::Default)
 {
-    // 初始化视图和布局结构
+    //Initialize view and layout structure
     QWidget *content = new QWidget(this);
     m_rightView = new QWidget(this);
+
     m_contentLayout = new QHBoxLayout(content);
     m_rightContentLayout = new QHBoxLayout(m_rightView);
     m_navView = new NavWinView(this);
+
     m_contentLayout->addWidget(m_navView);
     m_contentLayout->addWidget(m_rightView);
+
     m_contentLayout->setContentsMargins(0, 0, 0, 0);
     m_rightContentLayout->setContentsMargins(10, 10, 10, 10);
     m_rightContentLayout->setSpacing(10);
+
     m_rightView->hide();
     m_rightView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
     setCentralWidget(content);
 
-    // 初始化测试数据
+    //Initialize top page view and model
     m_navModel = new NavModel(1, m_navView);
     m_navView->setModel(m_navModel);
 
     connect(m_navView, &NavWinView::clicked, this, &MainWindow::onFirstItemClieck);
-
 }
 
 void MainWindow::pushWidget(QWidget *widget)
 {
-    if (m_contentStack.isEmpty()) {//添加第一个第二页面，一级页面从Icon变为list (top页面不添加到m_contentStack)
+    if (m_contentStack.isEmpty()) {//Add the first second-level page, the top page changes from Icon to list (top page is not added to m_contentStack)
         m_navView->setViewMode(QListView::ListMode);
         m_navView->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
         m_rightView->show();
@@ -99,10 +101,11 @@ void MainWindow::pushWidget(QWidget *widget)
         m_contentStack.top()->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     }
 
-    //设置新添加进来的页面铺满空白区域
+    //Set the newly added page to fill the blank area
     widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    //已经有第3级界面的时候，先移除上一个第3级页面，再添加新的第3级页面(保证只有一个3级页面)
+    //When there is already a third-level page, first remove the previous third-level page,
+    //then add a new level 3 page (guaranteed that there is only one third-level page)
     if (m_contentStack.size() == 2) {
         QWidget *w = m_contentStack.pop();
         m_rightContentLayout->removeWidget(w);
@@ -156,28 +159,30 @@ void MainWindow::backTopPage()
     m_navView->setViewMode(QListView::IconMode);
     m_navView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_rightView->hide();
-
 }
 
-void MainWindow::updateFirstPage(int index)//list模式，直接从一级页面的切换
+void MainWindow::updateFirstPage(int index)//When in listMode，Dirct change page from first-level
 {
     if (m_contentStack.count() > 1) {
         popWidget();
-    } else { //只剩1个页面的时候，直接删除，但是不能返回top页面 ， 然后再new一个二级页面
+    } else { //When there is only 1 page left, delete it directly, but can't return to the top page, Then new one second page
+        if (m_navModelType != static_cast<NavModel::ModuleType>(index)) {
+            m_navModelType = static_cast<NavModel::ModuleType>(index);
 
-        QWidget *w = m_contentStack.pop();
-        m_rightContentLayout->removeWidget(w);
-        w->setParent(nullptr);
-        w->deleteLater();
-
-        createSecPage(1, index);
-
+            QWidget *w = m_contentStack.pop();
+            m_rightContentLayout->removeWidget(w);
+            w->setParent(nullptr);
+            w->deleteLater();
+            createSecPage(1, index);
+        } else {
+            qDebug() << " Request the same type : " << QMetaEnum::fromType<NavModel::ModuleType>().valueToKey(index);
+        }
     }
 }
 
 void MainWindow::createSecPage(int count, int index)
 {
-    //此处根据实际情况new二级页面，下面仅为使用例子
+    //According to actual click index to load module
 #if NOT_USE_DEMO
     Q_UNUSED(count)
 
@@ -230,9 +235,7 @@ void MainWindow::createSecPage(int count, int index)
     default:
         break;
     }
-
 #else
-
     m_navSecView = new NavWinView(this);
     m_navSecView->setViewMode(QListView::ListMode);
     m_navSecView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -244,7 +247,6 @@ void MainWindow::createSecPage(int count, int index)
 
     pushWidget(m_navSecView);
 #endif
-
 }
 
 void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
@@ -252,7 +254,7 @@ void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
     Q_UNUSED(event)
 
     QWidget *w = new QWidget;
-    QString data = QString("background: %1").arg("red");
+    QString data("background: red");
     w->setStyleSheet(data);
     w->setMinimumWidth(200);
     QPushButton *button = new QPushButton("pop", w);
@@ -294,18 +296,18 @@ void MainWindow::pushWidget(ModuleInterface *const inter, ContentWidget *const w
 
 void MainWindow::onFirstItemClieck(const QModelIndex &index)
 {
-    qDebug() << "onFirstItemClieck , index.row() : " << index.data(NavModel::NavModuleType).toInt();
+    qDebug() << "onFirstItemClieck , index.row() : " << QMetaEnum::fromType<NavModel::ModuleType>().valueToKey(index.row());
 
     int type = index.data(NavModel::NavModuleType).toInt();
-    if ((m_navView->viewMode() == QListView::ViewMode::ListMode)//判断当前处于top页面
-            && (m_contentStack.count() == 0)) {//当一级页面为ListMode时，防止多次点击一级页面，会添加多个二级页面
+    if ((m_navView->viewMode() == QListView::ViewMode::ListMode)//Judge the current page is top page
+            && (m_contentStack.count() == 0)) {//When the first-level page is ListMode, it prevents multiple clicks on the first-level page Will add multiple secondary pages
         createSecPage(1, type);
-    } else { //当前处于有2级页面(可能还有3级页面)，需要删除除1级页面以外的全部页面
+    } else { //Currently in second-level(or third-level), you need to delete all pages except the first-level page.
         updateFirstPage(type);
     }
-
 }
 
+#if !NOT_USE_DEMO
 //Used to test
 void MainWindow::onSecondItemClieck(const QModelIndex &index)
 {
@@ -379,14 +381,10 @@ void MainWindow::onSecondItemClieck(const QModelIndex &index)
 
     pushWidget(w);
 }
+#endif
 
 void MainWindow::loadModule(ModuleInterface *const module)
 {
     module->initialize();
     pushWidget((QWidget *)module->moduleWidget());
-}
-
-void MainWindow::onModuleInitFinished(ModuleInterface *const module)
-{
-    Q_UNUSED(module)
 }
