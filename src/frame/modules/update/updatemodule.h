@@ -47,6 +47,7 @@ class UpdateModule : public QObject, public ModuleInterface
 public:
     explicit UpdateModule(FrameProxyInterface *frame, QObject *parent = 0);
     ~UpdateModule();
+    ModuleWidget* moduleWidget();
 
 private:
     void initialize();
@@ -54,7 +55,6 @@ private:
     void moduleDeactive();
     void reset();
     void contentPopped(ContentWidget * const w);
-    ModuleWidget* moduleWidget();
     const QString name() const;
     void showPage(const QString &pageName);
 

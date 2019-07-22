@@ -41,6 +41,7 @@ class PowerModule : public QObject, public dcc::ModuleInterface
 
 public:
     explicit PowerModule(dcc::FrameProxyInterface *frame, QObject *parent = 0);
+    dcc::ModuleWidget *moduleWidget();
 
 private:
     ~PowerModule();
@@ -50,7 +51,6 @@ private:
     void moduleDeactive();
     void reset();
     void contentPopped(dcc::ContentWidget * const w);
-    dcc::ModuleWidget *moduleWidget();
     const QString name() const;
 
 

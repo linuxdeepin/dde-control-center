@@ -21,7 +21,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "navigation/navmodel.h"
+#include "interfaces/moduleinterface.h"
+
 #include <DMainWindow>
+
 #include <QStack>
 
 DWIDGET_USE_NAMESPACE
@@ -30,25 +34,43 @@ class QHBoxLayout;
 QT_END_NAMESPACE
 class NavWinView;
 class NavModel;
-class MainWindow : public DMainWindow
+
+using namespace dcc;
+
+class MainWindow : public DMainWindow, public FrameProxyInterface
 {
     Q_OBJECT
-
 public:
     explicit MainWindow(QWidget *parent = nullptr);
 
+private:
     void pushWidget(QWidget *widget);
-    void popWidget();
+    void popWidget(void);
+    void popAllWidgets(void);
+    void tryLoadModule(NavModel::ModuleType type);
+    void mouseDoubleClickEvent(QMouseEvent *event) override;
+
+public:
+    void pushWidget(ModuleInterface * const inter, ContentWidget * const w);
+    void setFrameAutoHide(ModuleInterface * const inter, const bool autoHide);
+    void setModuleVisible(ModuleInterface * const inter, const bool visible);
+    void showModulePage(const QString &module, const QString &page, bool animation);
 
 private:
-    void onItemClieck(const QModelIndex &index);
-
     QHBoxLayout *m_contentLayout;
     QHBoxLayout *m_rightContentLayout;
     NavWinView *m_navView;
     QWidget *m_rightView;
     NavModel *m_navModel;
     QStack<QWidget *> m_contentStack;
+    NavModel::ModuleType m_navModelType;
+
+Q_SIGNALS:
+    void moduleVisibleChanged(const QString &module, bool visible);
+
+private Q_SLOTS:
+    void onFirstItemClick(const QModelIndex &index);
+    void loadModule(ModuleInterface *const module);
 };
 
 #endif // MAINWINDOW_H

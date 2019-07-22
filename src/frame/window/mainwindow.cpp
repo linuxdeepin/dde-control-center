@@ -18,21 +18,53 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#include "modules/accounts/accountsmodule.h"
+#include "modules/bluetooth/bluetoothmodule.h"
+#include "modules/datetime/datetimemodule.h"
+#include "modules/defapp/defaultappsmodule.h"
+#include "modules/keyboard/keyboardmodule.h"
+#include "modules/power/powermodule.h"
+#include "modules/sound/soundmodule.h"
+#include "modules/update/updatemodule.h"
+#include "modules/mouse/mousemodule.h"
+#include "modules/wacom/wacommodule.h"
+#include "modules/display/displaymodule.h"
+#include "modules/personalization/personalizationmodule.h"
+#include "modules/sync/syncmodule.h"
+#include "modules/systeminfo/systeminfomodule.h"
+#include "modules/network/networkmodule.h"
+#include "moduleinitthread.h"
+
 #include "mainwindow.h"
 #include "constant.h"
 #include "navwinview.h"
-#include "navigation/navmodel.h"
 
 #include <QHBoxLayout>
-#include <QStandardItemModel>
-#include <QStandardItem>
-#include <QPushButton>
+#include <QMetaEnum>
 #include <QDebug>
+
+using namespace dcc::accounts;
+using namespace dcc::datetime;
+using namespace dcc::update;
+using namespace dcc::cloudsync;
+using namespace dcc::display;
+using namespace dcc::defapp;
+using namespace dcc::personalization;
+using namespace dcc::network;
+using namespace dcc::bluetooth;
+using namespace dcc::sound;
+using namespace dcc::power;
+using namespace dcc::mouse;
+using namespace dcc::keyboard;
+using namespace dcc::sound;
+using namespace dcc::wacom;
+using namespace dcc::systeminfo;
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
+    , m_navModelType(NavModel::ModuleType::Default)
 {
-    // 初始化视图和布局结构
+    //Initialize view and layout structure
     QWidget *content = new QWidget(this);
     m_rightView = new QWidget(this);
 
@@ -52,28 +84,16 @@ MainWindow::MainWindow(QWidget *parent)
 
     setCentralWidget(content);
 
-    // 初始化测试数据
-    m_navModel = new NavModel(1, this);
-
-    // 初始化导航栏名，Theme暂时使用临时的
-//    m_navModel-> ->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), m_navModel->transModuleName(MODULES.at(0))));
-//    m_navModel->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), m_navModel->transModuleName(MODULES.at(1))));
-//    m_navModel->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), m_navModel->transModuleName(MODULES.at(2))));
-//    m_navModel->appendRow(new QStandardItem(QIcon::fromTheme("deepin-feedback"), m_navModel->transModuleName(MODULES.at(3))));
-//    m_navModel->appendRow(new QStandardItem(QIcon::fromTheme("deepin-image-viewer"), m_navModel->transModuleName(MODULES.at(4))));
-//    m_navModel->appendRow(new QStandardItem(QIcon::fromTheme("deepin-launcher"), m_navModel->transModuleName(MODULES.at(5))));
-//    m_navModel->appendRow(new QStandardItem(QIcon::fromTheme("deepin-movie"), m_navModel->transModuleName(MODULES.at(6))));
-//    m_navModel->appendRow(new QStandardItem(QIcon::fromTheme("deepin-music"), m_navModel->transModuleName(MODULES.at(7))));
-//    m_navModel->appendRow(new QStandardItem(QIcon::fromTheme("deepin-terminal"), m_navModel->transModuleName(MODULES.at(8))));
-
+    //Initialize top page view and model
+    m_navModel = new NavModel(1, m_navView);
     m_navView->setModel(m_navModel);
 
-    connect(m_navView, &NavWinView::clicked, this, &MainWindow::onItemClieck);
+    connect(m_navView, &NavWinView::clicked, this, &MainWindow::onFirstItemClick);
 }
 
 void MainWindow::pushWidget(QWidget *widget)
 {
-    if (m_contentStack.isEmpty()) {
+    if (m_contentStack.isEmpty()) {//Add the first second-level page, the top page changes from Icon to list (top page is not added to m_contentStack)
         m_navView->setViewMode(QListView::ListMode);
         m_navView->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
         m_rightView->show();
@@ -81,7 +101,9 @@ void MainWindow::pushWidget(QWidget *widget)
         m_contentStack.top()->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     }
 
+    //Set the newly added page to fill the blank area
     widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
     m_contentStack.push(widget);
     m_rightContentLayout->addWidget(widget);
 }
@@ -94,30 +116,163 @@ void MainWindow::popWidget()
     w->setParent(nullptr);
     w->deleteLater();
 
-    if (m_contentStack.isEmpty()) {
+    if (m_contentStack.isEmpty()) {//Only remain 1 level page : back to top page
+        m_navModelType = NavModel::ModuleType::Default;
         m_navView->setViewMode(QListView::IconMode);
         m_navView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         m_rightView->hide();
-    } else {
+    } else {//The second page will Covered with fill blank areas
         m_contentStack.top()->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     }
 }
 
-void MainWindow::onItemClieck(const QModelIndex &index)
+//Only used to from third page to top page can use it
+void MainWindow::popAllWidgets()
 {
-    qDebug() << " index.column() : " << index.column() << "index.row() : " << index.row();
+    for (int pageCount = m_contentStack.count(); pageCount > 0; pageCount--) {
+        popWidget();
+    }
+}
 
-    QWidget *w = new QWidget(this);
+void MainWindow::tryLoadModule(NavModel::ModuleType type)
+{
+    //According to actual click index to load module
+    switch (type) {
+    case NavModel::AccountsModule:
+        loadModule(new AccountsModule(this));
+        break;
+    case NavModel::Cloudsync:
+        loadModule(new SyncModule(this));
+        break;
+    case NavModel::Display:
+        loadModule(new DisplayModule(this));
+        break;
+    case NavModel::Defapp:
+        loadModule(new DefaultAppsModule(this));
+        break;
+    case NavModel::Personalization:
+        loadModule(new PersonalizationModule(this));
+        break;
+    case NavModel::Network:
+        loadModule(new NetworkModule(this));
+        break;
+    case NavModel::Bluetooth:
+        loadModule(new BluetoothModule(this));
+        break;
+    case NavModel::Sound:
+        loadModule(new SoundModule(this));
+        break;
+    case NavModel::Datetime:
+        loadModule(new DatetimeModule(this));
+        break;
+    case NavModel::Power:
+        loadModule(new PowerModule(this));
+        break;
+    case NavModel::Mouse:
+        loadModule(new MouseModule(this));
+        break;
+    case NavModel::Keyboard:
+        loadModule(new KeyboardModule(this));
+        break;
+    case NavModel::Wacom:
+        loadModule(new WacomModule(this));
+        break;
+    case NavModel::Update:
+        loadModule(new UpdateModule(this));
+        break;
+    case NavModel::Systeminfo:
+        loadModule(new SystemInfoModule(this));
+        break;
+    default:
+        break;
+    }
+}
 
-    if (m_contentStack.size() > 0) {
-        w->setStyleSheet("background: red");
-    } else {
-        w->setStyleSheet("background: blue");
+void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event)
+
+    if (m_contentStack.count() < 2) {
+        QWidget *w = new QWidget;
+        QString data("background: red");
+        w->setStyleSheet(data);
+        w->setMinimumWidth(200);
+        QPushButton *button = new QPushButton("pop", w);
+        connect(button, &QPushButton::clicked, this, &MainWindow::popWidget);
+        QPushButton *backTopBtn = new QPushButton("popTop", w);
+        backTopBtn->move(0, 30);
+        connect(backTopBtn, &QPushButton::clicked, this, &MainWindow::popAllWidgets);
+        pushWidget(w);
+    }
+}
+
+void MainWindow::showModulePage(const QString &module, const QString &page, bool animation)
+{
+
+}
+
+void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visible)
+{
+    // get right position to insert
+    const QString name = inter->name();
+
+    QWidget *moduleWidget = inter->moduleWidget();
+    Q_ASSERT(moduleWidget);
+    moduleWidget->setVisible(visible);
+
+    Q_EMIT moduleVisibleChanged(name, visible);
+}
+
+void MainWindow::setFrameAutoHide(ModuleInterface *const inter, const bool autoHide)
+{
+
+}
+
+void MainWindow::pushWidget(ModuleInterface *const inter, ContentWidget *const w)
+{
+    Q_UNUSED(inter)
+
+    //When there is already a third-level page, first remove the previous third-level page,
+    //then add a new level 3 page (guaranteed that there is only one third-level page)
+    if (m_contentStack.size() == 2) {
+        QWidget *w = m_contentStack.pop();
+        m_rightContentLayout->removeWidget(w);
+        w->setParent(nullptr);
+        w->deleteLater();
     }
 
-    w->setMinimumWidth(100);
+    pushWidget((QWidget *)w);
+}
 
-    QPushButton *button = new QPushButton("pop", w);
-    connect(button, &QPushButton::clicked, this, &MainWindow::popWidget);
-    pushWidget(w);
+void MainWindow::onFirstItemClick(const QModelIndex &index)
+{
+    NavModel::ModuleType type = static_cast<NavModel::ModuleType>(index.data(NavModel::NavModuleType).toInt());
+
+    if (m_navModelType == type) {
+        qDebug() << "onFirstItemClick , Request the same type : " << QMetaEnum::fromType<NavModel::ModuleType>().valueToKey(type) << "  do nothing ";
+        return;
+    } else {
+        qDebug() << "onFirstItemClick , new type : " << type;
+
+        popAllWidgets();
+        tryLoadModule(type);
+
+        m_navModelType = type;
+    }
+}
+
+void MainWindow::loadModule(ModuleInterface *const module)
+{
+    module->initialize();
+
+    QWidget *widget = module->moduleWidget();
+
+    //the child widget destroy follow parent widget
+    if (QObject *obj = dynamic_cast<QObject *>(module)) {
+        obj->setParent(widget);
+    } else {
+        qWarning() << "The module not inherit QObject , module : " << module;
+    }
+
+    pushWidget(widget);
 }
