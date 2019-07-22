@@ -22,10 +22,9 @@
 #define MAINWINDOW_H
 
 #include "navigation/navmodel.h"
+#include "interfaces/moduleinterface.h"
 
 #include <DMainWindow>
-
-#include "interfaces/moduleinterface.h"
 
 #include <QStack>
 
