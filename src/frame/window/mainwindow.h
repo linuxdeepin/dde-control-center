@@ -70,7 +70,7 @@ Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);
 
 private Q_SLOTS:
-    void onFirstItemClieck(const QModelIndex &index);
+    void onFirstItemClick(const QModelIndex &index);
     void loadModule(ModuleInterface *const module);
 };
 

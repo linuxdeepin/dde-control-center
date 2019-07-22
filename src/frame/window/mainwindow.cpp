@@ -88,7 +88,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_navModel = new NavModel(1, m_navView);
     m_navView->setModel(m_navModel);
 
-    connect(m_navView, &NavWinView::clicked, this, &MainWindow::onFirstItemClieck);
+    connect(m_navView, &NavWinView::clicked, this, &MainWindow::onFirstItemClick);
 }
 
 void MainWindow::pushWidget(QWidget *widget)
@@ -241,7 +241,7 @@ void MainWindow::pushWidget(ModuleInterface *const inter, ContentWidget *const w
     pushWidget((QWidget *)w);
 }
 
-void MainWindow::onFirstItemClieck(const QModelIndex &index)
+void MainWindow::onFirstItemClick(const QModelIndex &index)
 {
     NavModel::ModuleType type = static_cast<NavModel::ModuleType>(index.data(NavModel::NavModuleType).toInt());
 

@@ -36,7 +36,7 @@ NavModel::NavModel(int columnCount, QObject *parent)
 
     setModuleVisible("bluetooth", false);
     setModuleVisible("wacom", false);
-    setModuleVisible("cloudsync", false);
+    setModuleVisible("Cloud Sync", false);
 }
 
 int NavModel::rowCount(const QModelIndex &parent) const
