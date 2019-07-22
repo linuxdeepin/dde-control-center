@@ -65,7 +65,6 @@ public:
     int rowCount(const QModelIndex &parent) const Q_DECL_OVERRIDE;
     int columnCount(const QModelIndex &parent) const Q_DECL_OVERRIDE;
     QVariant data(const QModelIndex &index, int role) const Q_DECL_OVERRIDE;
-    void setModuleTypeMapData();
 
 public Q_SLOTS:
     void setHoverIndex(const QModelIndex &index);
@@ -76,6 +75,7 @@ public:
 
 private:
     QStringList validModuleList();
+    void initModuleTypeMapData();
 
 private:
     QStringList m_moduleList;

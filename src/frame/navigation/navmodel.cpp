@@ -32,7 +32,7 @@ NavModel::NavModel(int columnCount, QObject *parent)
 {
     m_moduleList = validModuleList();
     m_hoverIndex = QModelIndex();
-    setModuleTypeMapData();
+    initModuleTypeMapData();
 
     setModuleVisible("bluetooth", false);
     setModuleVisible("wacom", false);
@@ -90,7 +90,7 @@ QVariant NavModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-void NavModel::setModuleTypeMapData()
+void NavModel::initModuleTypeMapData()
 {
     m_moduleTypeMap.insert(MODULES.at(0), AccountsModule);
     m_moduleTypeMap.insert(MODULES.at(1), Cloudsync);
@@ -132,7 +132,6 @@ void NavModel::setModuleVisible(const QString &module, bool visible)
     for (auto it = m_moduleList.begin(); it != m_moduleList.end();) {
         if (m_hideModuleList.contains(*it)) {
             it = m_moduleList.erase(it);
-            m_moduleTypeMap.remove(module);
         }
         else {
             ++it;

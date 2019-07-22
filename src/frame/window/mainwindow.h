@@ -43,12 +43,11 @@ class MainWindow : public DMainWindow, public FrameProxyInterface
 public:
     explicit MainWindow(QWidget *parent = nullptr);
 
+private:
     void pushWidget(QWidget *widget);
     void popWidget(void);
     void popAllWidgets(void);
-
-private:
-    void tryLoadModule(NavModel::ModuleType type = NavModel::ModuleType::Default);
+    void tryLoadModule(NavModel::ModuleType type);
     void mouseDoubleClickEvent(QMouseEvent *event) override;
 
 public:

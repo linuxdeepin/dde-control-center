@@ -104,15 +104,6 @@ void MainWindow::pushWidget(QWidget *widget)
     //Set the newly added page to fill the blank area
     widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    //When there is already a third-level page, first remove the previous third-level page,
-    //then add a new level 3 page (guaranteed that there is only one third-level page)
-    if (m_contentStack.size() == 2) {
-        QWidget *w = m_contentStack.pop();
-        m_rightContentLayout->removeWidget(w);
-        w->setParent(nullptr);
-        w->deleteLater();
-    }
-
     m_contentStack.push(widget);
     m_rightContentLayout->addWidget(widget);
 }
@@ -126,6 +117,7 @@ void MainWindow::popWidget()
     w->deleteLater();
 
     if (m_contentStack.isEmpty()) {//Only remain 1 level page : back to top page
+        m_navModelType = NavModel::ModuleType::Default;
         m_navView->setViewMode(QListView::IconMode);
         m_navView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         m_rightView->hide();
@@ -200,16 +192,18 @@ void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
 {
     Q_UNUSED(event)
 
-    QWidget *w = new QWidget;
-    QString data("background: red");
-    w->setStyleSheet(data);
-    w->setMinimumWidth(200);
-    QPushButton *button = new QPushButton("pop", w);
-    connect(button, &QPushButton::clicked, this, &MainWindow::popWidget);
-    QPushButton *backTopBtn = new QPushButton("popTop", w);
-    backTopBtn->move(0, 30);
-    connect(backTopBtn, &QPushButton::clicked, this, &MainWindow::popAllWidgets);
-    pushWidget(w);
+    if (m_contentStack.count() < 2) {
+        QWidget *w = new QWidget;
+        QString data("background: red");
+        w->setStyleSheet(data);
+        w->setMinimumWidth(200);
+        QPushButton *button = new QPushButton("pop", w);
+        connect(button, &QPushButton::clicked, this, &MainWindow::popWidget);
+        QPushButton *backTopBtn = new QPushButton("popTop", w);
+        backTopBtn->move(0, 30);
+        connect(backTopBtn, &QPushButton::clicked, this, &MainWindow::popAllWidgets);
+        pushWidget(w);
+    }
 }
 
 void MainWindow::showModulePage(const QString &module, const QString &page, bool animation)
@@ -238,6 +232,15 @@ void MainWindow::pushWidget(ModuleInterface *const inter, ContentWidget *const w
 {
     Q_UNUSED(inter)
 
+    //When there is already a third-level page, first remove the previous third-level page,
+    //then add a new level 3 page (guaranteed that there is only one third-level page)
+    if (m_contentStack.size() == 2) {
+        QWidget *w = m_contentStack.pop();
+        m_rightContentLayout->removeWidget(w);
+        w->setParent(nullptr);
+        w->deleteLater();
+    }
+
     pushWidget((QWidget *)w);
 }
 
@@ -245,25 +248,31 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
 {
     NavModel::ModuleType type = static_cast<NavModel::ModuleType>(index.data(NavModel::NavModuleType).toInt());
 
-    if (m_navModelType != type) {
-        qDebug() << "onFirstItemClieck , new type : " << QMetaEnum::fromType<NavModel::ModuleType>().valueToKey(type);
-        m_navModelType = type;
-    } else {
-        qDebug() << "onFirstItemClieck , Request the same type : " << QMetaEnum::fromType<NavModel::ModuleType>().valueToKey(type) << "  do nothing ";
+    if (m_navModelType == type) {
+        qDebug() << "onFirstItemClick , Request the same type : " << QMetaEnum::fromType<NavModel::ModuleType>().valueToKey(type) << "  do nothing ";
         return;
-    }
+    } else {
+        qDebug() << "onFirstItemClick , new type : " << type;
 
-    if ((m_navView->viewMode() == QListView::ViewMode::ListMode)//Judge the current page is top page
-            && (m_contentStack.count() == 0)) {//When the first-level page is ListMode, it prevents multiple clicks on the first-level page Will add multiple secondary pages
-        tryLoadModule(type);
-    } else { //Currently in second-level(or third-level), you need to delete all pages except the first-level page.
         popAllWidgets();
         tryLoadModule(type);
+
+        m_navModelType = type;
     }
 }
 
 void MainWindow::loadModule(ModuleInterface *const module)
 {
     module->initialize();
-    pushWidget((QWidget *)module->moduleWidget());
+
+    QWidget *widget = module->moduleWidget();
+
+    //the child widget destroy follow parent widget
+    if (QObject *obj = dynamic_cast<QObject *>(module)) {
+        obj->setParent(widget);
+    } else {
+        qWarning() << "The module not inherit QObject , module : " << module;
+    }
+
+    pushWidget(widget);
 }
