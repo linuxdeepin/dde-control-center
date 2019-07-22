@@ -36,7 +36,7 @@ NavModel::NavModel(int columnCount, QObject *parent)
 
     setModuleVisible("bluetooth", false);
     setModuleVisible("wacom", false);
-    setModuleVisible("Cloud Sync", false);
+    setModuleVisible("cloudsync", false);
 }
 
 int NavModel::rowCount(const QModelIndex &parent) const
@@ -92,21 +92,21 @@ QVariant NavModel::data(const QModelIndex &index, int role) const
 
 void NavModel::setModuleTypeMapData()
 {
-    m_moduleTypeMap.insert("accountsModule", AccountsModule);
-    m_moduleTypeMap.insert("cloudsync", Cloudsync);
-    m_moduleTypeMap.insert("display", Display);
-    m_moduleTypeMap.insert("defapp", Defapp);
-    m_moduleTypeMap.insert("personalization", Personalization);
-    m_moduleTypeMap.insert("network", Network);
-    m_moduleTypeMap.insert("bluetooth", Bluetooth);
-    m_moduleTypeMap.insert("sound", Sound);
-    m_moduleTypeMap.insert("datetime", Datetime);
-    m_moduleTypeMap.insert("power", Power);
-    m_moduleTypeMap.insert("mouse", Mouse);
-    m_moduleTypeMap.insert("keyboard", Keyboard);
-    m_moduleTypeMap.insert("wacom", Wacom);
-    m_moduleTypeMap.insert("update", Update);
-    m_moduleTypeMap.insert("systeminfo", Systeminfo);
+    m_moduleTypeMap.insert(MODULES.at(0), AccountsModule);
+    m_moduleTypeMap.insert(MODULES.at(1), Cloudsync);
+    m_moduleTypeMap.insert(MODULES.at(2), Display);
+    m_moduleTypeMap.insert(MODULES.at(3), Defapp);
+    m_moduleTypeMap.insert(MODULES.at(4), Personalization);
+    m_moduleTypeMap.insert(MODULES.at(5), Network);
+    m_moduleTypeMap.insert(MODULES.at(6), Bluetooth);
+    m_moduleTypeMap.insert(MODULES.at(7), Sound);
+    m_moduleTypeMap.insert(MODULES.at(8), Datetime);
+    m_moduleTypeMap.insert(MODULES.at(9), Power);
+    m_moduleTypeMap.insert(MODULES.at(10), Mouse);
+    m_moduleTypeMap.insert(MODULES.at(11), Keyboard);
+    m_moduleTypeMap.insert(MODULES.at(12), Wacom);
+    m_moduleTypeMap.insert(MODULES.at(13), Update);
+    m_moduleTypeMap.insert(MODULES.at(14), Systeminfo);
 }
 
 void NavModel::setHoverIndex(const QModelIndex &index)
@@ -132,6 +132,7 @@ void NavModel::setModuleVisible(const QString &module, bool visible)
     for (auto it = m_moduleList.begin(); it != m_moduleList.end();) {
         if (m_hideModuleList.contains(*it)) {
             it = m_moduleList.erase(it);
+            m_moduleTypeMap.remove(module);
         }
         else {
             ++it;

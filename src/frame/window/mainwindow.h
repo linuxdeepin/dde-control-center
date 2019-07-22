@@ -28,8 +28,6 @@
 
 #include <QStack>
 
-#define NOT_USE_DEMO 1
-
 DWIDGET_USE_NAMESPACE
 QT_BEGIN_NAMESPACE
 class QHBoxLayout;
@@ -46,13 +44,11 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
 
     void pushWidget(QWidget *widget);
-    void popWidget();
-
-    void backTopPage();
-    void updateFirstPage(int index);
+    void popWidget(void);
+    void popAllWidgets(void);
 
 private:
-    void createSecPage(int count = 1, int index = 15);
+    void tryLoadModule(NavModel::ModuleType type = NavModel::ModuleType::Default);
     void mouseDoubleClickEvent(QMouseEvent *event) override;
 
 public:
@@ -65,14 +61,8 @@ private:
     QHBoxLayout *m_contentLayout;
     QHBoxLayout *m_rightContentLayout;
     NavWinView *m_navView;
-#if !NOT_USE_DEMO
-    NavWinView *m_navSecView;
-#endif
     QWidget *m_rightView;
     NavModel *m_navModel;
-#if !NOT_USE_DEMO
-    NavModel *m_navSecModel;
-#endif
     QStack<QWidget *> m_contentStack;
     NavModel::ModuleType m_navModelType;
 
@@ -81,9 +71,6 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onFirstItemClieck(const QModelIndex &index);
-#if !NOT_USE_DEMO
-    void onSecondItemClieck(const QModelIndex &index);
-#endif
     void loadModule(ModuleInterface *const module);
 };
 

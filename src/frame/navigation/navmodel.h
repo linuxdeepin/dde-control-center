@@ -34,6 +34,7 @@ class NavModel : public QAbstractTableModel
 
 public:
     enum ModuleType {
+        Default,
         AccountsModule,
         Cloudsync,
         Display,
@@ -48,8 +49,7 @@ public:
         Keyboard,
         Wacom,
         Update,
-        Systeminfo,
-        Default
+        Systeminfo
     };
     Q_ENUM(ModuleType)
 

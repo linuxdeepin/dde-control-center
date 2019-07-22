@@ -135,58 +135,17 @@ void MainWindow::popWidget()
 }
 
 //Only used to from third page to top page can use it
-void MainWindow::backTopPage()
+void MainWindow::popAllWidgets()
 {
-    //pop third page
-    QWidget *w = m_contentStack.pop();
-    m_rightContentLayout->removeWidget(w);
-    w->setParent(nullptr);
-    w->deleteLater();
-
-    //pop second page
-#if NOT_USE_DEMO
-    QWidget *lastWidget = m_contentStack.pop();
-    m_rightContentLayout->removeWidget(lastWidget);
-    lastWidget->setParent(nullptr);
-    lastWidget->deleteLater();
-#else
-    m_contentStack.pop();
-    m_rightContentLayout->removeWidget(m_navSecView);
-    m_navSecView->setParent(nullptr);
-    m_navSecView->deleteLater();
-    m_navSecModel->deleteLater();
-#endif
-    m_navView->setViewMode(QListView::IconMode);
-    m_navView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_rightView->hide();
-}
-
-void MainWindow::updateFirstPage(int index)//When in listMode，Dirct change page from first-level
-{
-    if (m_contentStack.count() > 1) {
+    for (int pageCount = m_contentStack.count(); pageCount > 0; pageCount--) {
         popWidget();
-    } else { //When there is only 1 page left, delete it directly, but can't return to the top page, Then new one second page
-        if (m_navModelType != static_cast<NavModel::ModuleType>(index)) {
-            m_navModelType = static_cast<NavModel::ModuleType>(index);
-
-            QWidget *w = m_contentStack.pop();
-            m_rightContentLayout->removeWidget(w);
-            w->setParent(nullptr);
-            w->deleteLater();
-            createSecPage(1, index);
-        } else {
-            qDebug() << " Request the same type : " << QMetaEnum::fromType<NavModel::ModuleType>().valueToKey(index);
-        }
     }
 }
 
-void MainWindow::createSecPage(int count, int index)
+void MainWindow::tryLoadModule(NavModel::ModuleType type)
 {
     //According to actual click index to load module
-#if NOT_USE_DEMO
-    Q_UNUSED(count)
-
-    switch (static_cast<NavModel::ModuleType>(index)) {
+    switch (type) {
     case NavModel::AccountsModule:
         loadModule(new AccountsModule(this));
         break;
@@ -235,18 +194,6 @@ void MainWindow::createSecPage(int count, int index)
     default:
         break;
     }
-#else
-    m_navSecView = new NavWinView(this);
-    m_navSecView->setViewMode(QListView::ListMode);
-    m_navSecView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_rightContentLayout->addWidget(m_navSecView);
-
-    m_navSecModel = new NavModel(count, m_navSecView);
-    m_navSecView->setModel(m_navSecModel);
-    connect(m_navSecView, &NavWinView::clicked, this, &MainWindow::onSecondItemClieck);
-
-    pushWidget(m_navSecView);
-#endif
 }
 
 void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
@@ -261,7 +208,7 @@ void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
     connect(button, &QPushButton::clicked, this, &MainWindow::popWidget);
     QPushButton *backTopBtn = new QPushButton("popTop", w);
     backTopBtn->move(0, 30);
-    connect(backTopBtn, &QPushButton::clicked, this, &MainWindow::backTopPage);
+    connect(backTopBtn, &QPushButton::clicked, this, &MainWindow::popAllWidgets);
     pushWidget(w);
 }
 
@@ -296,92 +243,24 @@ void MainWindow::pushWidget(ModuleInterface *const inter, ContentWidget *const w
 
 void MainWindow::onFirstItemClieck(const QModelIndex &index)
 {
-    qDebug() << "onFirstItemClieck , index.row() : " << QMetaEnum::fromType<NavModel::ModuleType>().valueToKey(index.row());
+    NavModel::ModuleType type = static_cast<NavModel::ModuleType>(index.data(NavModel::NavModuleType).toInt());
 
-    int type = index.data(NavModel::NavModuleType).toInt();
+    if (m_navModelType != type) {
+        qDebug() << "onFirstItemClieck , new type : " << QMetaEnum::fromType<NavModel::ModuleType>().valueToKey(type);
+        m_navModelType = type;
+    } else {
+        qDebug() << "onFirstItemClieck , Request the same type : " << QMetaEnum::fromType<NavModel::ModuleType>().valueToKey(type) << "  do nothing ";
+        return;
+    }
+
     if ((m_navView->viewMode() == QListView::ViewMode::ListMode)//Judge the current page is top page
             && (m_contentStack.count() == 0)) {//When the first-level page is ListMode, it prevents multiple clicks on the first-level page Will add multiple secondary pages
-        createSecPage(1, type);
+        tryLoadModule(type);
     } else { //Currently in second-level(or third-level), you need to delete all pages except the first-level page.
-        updateFirstPage(type);
+        popAllWidgets();
+        tryLoadModule(type);
     }
 }
-
-#if !NOT_USE_DEMO
-//Used to test
-void MainWindow::onSecondItemClieck(const QModelIndex &index)
-{
-    qDebug() << " onSecondItemClieck , index.row() : " << index.row();
-
-    QWidget *w = new QWidget(this);
-
-    QString strValue = "red";
-    switch (index.row()) {
-    case 0:
-        strValue = "red";
-        break;
-    case 1:
-        strValue = "black";
-        break;
-    case 2:
-        strValue = "yellow";
-        break;
-    case 3:
-        strValue = "gray";
-        break;
-    case 4:
-        strValue = "darkBlue";
-        break;
-    case 5:
-        strValue = "darkCyan";
-        break;
-    case 6:
-        strValue = "darkGreen";
-        break;
-    case 7:
-        strValue = "darkRed";
-        break;
-    case 8:
-        strValue = "magenta";
-        break;
-    case 9:
-        strValue = "cyan";
-        break;
-    case 10:
-        strValue = "blue";
-        break;
-    case 11:
-        strValue = "lightGray";
-        break;
-    case 12:
-        strValue = "darkGray";
-        break;
-    case 13:
-        strValue = "darkMagenta";
-        break;
-    case 14:
-        strValue = "darkYellow";
-        break;
-    case 15:
-        strValue = "green";
-        break;
-    default:
-        break;
-    }
-
-    QString data = QString("background: %1").arg(strValue);
-    w->setStyleSheet(data);
-    w->setMinimumWidth(200);
-
-    QPushButton *button = new QPushButton("pop", w);
-    connect(button, &QPushButton::clicked, this, &MainWindow::popWidget);
-    QPushButton *backTopBtn = new QPushButton("popTop", w);
-    backTopBtn->move(0, 30);
-    connect(backTopBtn, &QPushButton::clicked, this, &MainWindow::backTopPage);
-
-    pushWidget(w);
-}
-#endif
 
 void MainWindow::loadModule(ModuleInterface *const module)
 {
