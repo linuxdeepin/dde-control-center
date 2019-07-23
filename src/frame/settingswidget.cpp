@@ -160,7 +160,7 @@ void SettingsWidget::loadModules()
 #endif
 
 #ifndef DISABLE_CLOUD_SYNC
-    loadModule(new cloudsync::SyncModule(this));
+    // loadModule(new cloudsync::SyncModule(this));
 #endif
 
 #ifndef DISABLE_DISPALY

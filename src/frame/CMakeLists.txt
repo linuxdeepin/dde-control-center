@@ -156,7 +156,7 @@ set(INTERFACES_FILES
                 interfaces/moduleinterface.h
                 interfaces/plugininterface.h
 
-                window/interfaces/moduleinterface.h
+                window/interface/moduleinterface.h
 )
 
 # load widgets
@@ -700,8 +700,6 @@ set(SOUND_FILES
 set(SYNC_FILES
     modules/sync/syncmodel.cpp
     modules/sync/syncmodel.h
-    modules/sync/syncmodule.cpp
-    modules/sync/syncmodule.h
     modules/sync/syncwidget.cpp
     modules/sync/syncwidget.h
     modules/sync/syncworker.cpp
@@ -710,6 +708,9 @@ set(SYNC_FILES
     modules/sync/syncstatewidget.cpp
     modules/sync/syncstateicon.h
     modules/sync/syncstateicon.cpp
+
+    window/modules/sync/syncmodule.h
+    window/modules/sync/syncmodule.cpp
 )
 
 # load systeminfo

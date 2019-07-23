@@ -46,7 +46,7 @@
 using namespace dcc::accounts;
 using namespace dcc::datetime;
 using namespace dcc::update;
-using namespace dcc::cloudsync;
+using namespace DCC_NAMESPACE::sync;
 using namespace dcc::display;
 using namespace dcc::defapp;
 using namespace dcc::personalization;
@@ -261,8 +261,23 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
     }
 }
 
-void MainWindow::loadModule(ModuleInterface *const module)
+void MainWindow::loadModule(dcc::ModuleInterface *const module)
 {
+    module->initialize();
+
+    QWidget *widget = module->moduleWidget();
+
+    //the child widget destroy follow parent widget
+    if (QObject *obj = dynamic_cast<QObject *>(module)) {
+        obj->setParent(widget);
+    } else {
+        qWarning() << "The module not inherit QObject , module : " << module;
+    }
+
+    pushWidget(widget);
+}
+
+void MainWindow::loadModule(DCC_NAMESPACE::ModuleInterface *const module) {
     module->initialize();
 
     QWidget *widget = module->moduleWidget();

@@ -23,6 +23,7 @@
 
 #include "navigation/navmodel.h"
 #include "interfaces/moduleinterface.h"
+#include "interface/moduleinterface.h"
 
 #include <DMainWindow>
 
@@ -70,7 +71,8 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onFirstItemClick(const QModelIndex &index);
-    void loadModule(ModuleInterface *const module);
+    void loadModule(dcc::ModuleInterface *const module);
+    void loadModule(DCC_NAMESPACE::ModuleInterface *const module);
 };
 
 #endif // MAINWINDOW_H
