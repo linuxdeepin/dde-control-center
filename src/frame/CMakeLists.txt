@@ -711,6 +711,8 @@ set(SYNC_FILES
 
     window/modules/sync/syncmodule.h
     window/modules/sync/syncmodule.cpp
+    window/modules/sync/syncwidget.h
+    window/modules/sync/syncwidget.cpp
 )
 
 # load systeminfo

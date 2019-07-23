@@ -1,9 +1,10 @@
 #include "syncmodule.h"
 
 #include "interfaces/frameproxyinterface.h"
-#include "widgets/contentwidget.h"
 #include "../../../modules/sync/syncworker.h"
 #include "../../../modules/sync/syncmodel.h"
+
+#include "syncwidget.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::sync;
@@ -11,13 +12,13 @@ using namespace DCC_NAMESPACE::sync;
 SyncModule::SyncModule(dcc::FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frameProxy)
-    , mainWidget(nullptr)
+    , m_mainWidget(nullptr)
 {
 }
 
 void SyncModule::initialize()
 {
-
+    m_mainWidget = new SyncWidget;
 }
 
 void SyncModule::reset() {}
@@ -34,7 +35,7 @@ void SyncModule::showPage(const QString &pageName)
 
 QWidget *SyncModule::moduleWidget()
 {
-    return mainWidget;
+    return m_mainWidget;
 }
 
 void SyncModule::contentPopped(QWidget *const w)
