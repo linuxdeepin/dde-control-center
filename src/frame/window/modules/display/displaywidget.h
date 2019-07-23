@@ -23,26 +23,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DISPLAYWIDGET_H
-#define DISPLAYWIDGET_H
+#pragma once
 
+#include "window/namespace.h"
+#include <QWidget>
 
-namespace dccV20
+namespace DCC_NAMESPACE
 {
 namespace display
 {
-class DisplayWidget : public ModuleWidget
+class DisplayWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit DisplayWidget();
-
+    using QWidget::QWidget;
 
 };
 
 }  // namespace display
-
 }  // namespace dcc
-
-#endif  // DISPLAYWIDGET_H

@@ -144,6 +144,7 @@ set(FRAME_FILES
 
 set(WINDOW_FILES
     window/constant.h
+    window/namespace.h
     window/mainwindow.cpp
     window/navwinview.cpp
     window/modules/display/displaywidget.cpp
@@ -154,6 +155,8 @@ set(INTERFACES_FILES
                 interfaces/frameproxyinterface.h
                 interfaces/moduleinterface.h
                 interfaces/plugininterface.h
+
+                window/interfaces/moduleinterface.h
 )
 
 # load widgets
@@ -443,6 +446,9 @@ set(DISPLAY_FILES
                 modules/display/settingsoptionitem.h
                 modules/display/scalingpage.h
                 modules/display/scalingpage.cpp
+
+                window/modules/display/displaywidget.h
+                window/modules/display/displaywidget.cpp
 )
 
 # load keyboard

@@ -25,9 +25,4 @@
 
 #include "displaywidget.h"
 
-using namespace dccV20::display;
-
-DisplayWidget::DisplayWidget()
-    : ModuleWidget()
-{
-}
+using namespace DCC_NAMESPACE::display;
