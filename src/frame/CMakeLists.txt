@@ -146,6 +146,7 @@ set(WINDOW_FILES
     window/constant.h
     window/mainwindow.cpp
     window/navwinview.cpp
+    window/modules/display/displaywidget.cpp
      )
 
 # load interfaces
