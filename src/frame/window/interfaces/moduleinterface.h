@@ -26,10 +26,6 @@
 
 #include <QtCore>
 
-namespace dcc {
-class ModuleWidget;
-class ContentWidget;
-}
 //struct ModuleMetadata {
 //    QString icon;
 //    QString title;
@@ -57,24 +53,13 @@ public:
     /// your module name
     /// \return
     ///
-    virtual const QString name() const = 0 ;
-
-    // activate通知Moudule开始请求数据和加载内容；
-    // 有两种情况需要考虑，一是模块未初始化，二是模块从deactivated状态恢复，两种情况
-    // 都要重新获取数据；
-//    virtual void activate();
-    virtual void moduleActive() = 0;
-
-    // deactivate通知模块进入不活跃状态；
-    // 禁止所有数据请求、后端调用；
-//    virtual void deactivate();
-    virtual void moduleDeactive() = 0;
+    virtual const QString name() const = 0;
 
     // 应该暂时不需要finalize；
     // virtual void finalize();
 
     // 获取Module的Metadata;
-//    virtual ModuleMetadata getMetadata();
+    // virtual ModuleMetadata getMetadata();
 
     ///
     /// \brief showPage
@@ -85,14 +70,14 @@ public:
     virtual void showPage(const QString &pageName) { Q_UNUSED(pageName); }
 
     // 返回模块主Widget；
-    virtual dcc::ContentWidget *moduleWidget() = 0;
+    virtual QWidget *moduleWidget() = 0;
 
     ///
     /// \brief contentPopped
     /// call when specific widget popped
     /// \param w
     ///
-    virtual void contentPopped(dcc::ContentWidget * const w) = 0;
+    virtual void contentPopped(QWidget * const w) = 0;
 
 protected:
     dcc::FrameProxyInterface *m_frameProxy = nullptr;
