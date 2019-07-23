@@ -713,6 +713,10 @@ set(SYNC_FILES
     window/modules/sync/syncmodule.cpp
     window/modules/sync/syncwidget.h
     window/modules/sync/syncwidget.cpp
+    window/modules/sync/pages/index.h
+    window/modules/sync/pages/index.cpp
+    window/modules/sync/pages/login.h
+    window/modules/sync/pages/login.cpp
 )
 
 # load systeminfo

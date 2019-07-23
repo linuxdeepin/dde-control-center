@@ -22,15 +22,22 @@
 #pragma once
 
 #include "window/namespace.h"
-#include "widgets/contentwidget.h"
+
+#include <QWidget>
+
+class QVBoxLayout;
 
 namespace DCC_NAMESPACE {
 namespace sync {
-    class SyncWidget : public dcc::ContentWidget {
-        Q_OBJECT
-    public:
-        SyncWidget(QWidget* parent = nullptr);
-    };
+class SyncWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    SyncWidget(QWidget *parent = nullptr);
+
+private:
+    QVBoxLayout *m_mainLayout;
+};
 } // namespace sync
 
 } // namespace DCC_NAMESPACE
