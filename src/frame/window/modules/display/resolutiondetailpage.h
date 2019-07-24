@@ -23,19 +23,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DISPLAYWIDGET_H_V20
-#define DISPLAYWIDGET_H_V20
+#ifndef RESOLUTIONDETAILPAGE_H_V20
+#define RESOLUTIONDETAILPAGE_H_V20
 
-#include "modules/display/iconbutton.h"
-#include "modules/modulewidget.h"
 #include "../../namespace.h"
 
-#include <dimagebutton.h>
+#include <QMap>
+#include <QWidget>
+#include <QVBoxLayout>
 
 namespace dcc {
 
+namespace widgets {
+
+class SettingsGroup;
+
+}
+
 namespace display {
+
+class Monitor;
 class DisplayModel;
+
 }
 
 }
@@ -44,39 +53,24 @@ namespace DCC_NAMESPACE {
 
 namespace display {
 
-class DisplayWidget : public QWidget
+class ResolutionDetailPage : public QWidget
 {
     Q_OBJECT
-public:
-    explicit DisplayWidget(QWidget *parent = 0);
 
 public:
-    void setModel(dcc::display::DisplayModel *model);
+    explicit ResolutionDetailPage(QWidget *parent = 0);
+
+
+Q_SIGNALS:
+
 private Q_SLOTS:
-    void onMonitorListChanged() const;
-
-public:
-    static int convertToSlider(const float value);
-    static float convertToScale(const int value);
-
-Q_SIGNALS: Q_SIGNALS:
-    void showScalingPage() const;
-    void showResolutionPage() const;
-    void showBrightnessPage() const;
-    void requestRotate() const;
-private:
-    dcc::display::DisplayModel                    *m_model{nullptr};
 
 private:
-    DTK_WIDGET_NAMESPACE::DImageButton                    *m_rotate{nullptr};
-    QPushButton *m_multiScreens{nullptr};
-    QPushButton *m_customSetting{nullptr};
-
-    QVBoxLayout *m_centralLayout{nullptr};
+    QVBoxLayout *m_mainLayout{nullptr};
 };
 
-}  // namespace display
+}   // namespace dcc
 
-}  // namespace dcc
+}   // namespace display
 
-#endif  // DISPLAYWIDGET_H_V20
+#endif // RESOLUTIONDETAILPAGE_H_V20

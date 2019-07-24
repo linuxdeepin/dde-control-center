@@ -27,8 +27,6 @@
 #include <QVBoxLayout>
 #include <QListView>
 
-using namespace dcc::widgets;
-
 namespace DCC_NAMESPACE{
 namespace datetime {
 
@@ -43,7 +41,7 @@ public:
 
 private:
     QVBoxLayout *layout;
-    SwitchWidget *m_ntpSwitch;
+    dcc::widgets::SwitchWidget *m_ntpSwitch;
     QListView *m_listview;
 
 Q_SIGNALS:

@@ -48,6 +48,7 @@ using namespace DCC_NAMESPACE;
 using namespace sync;
 using namespace datetime;
 using namespace defapp;
+using namespace DCC_NAMESPACE::display;
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
@@ -134,7 +135,7 @@ void MainWindow::tryLoadModule(NavModel::ModuleType type)
         loadModule(new SyncModule(this));
         break;
     case NavModel::Display:
-//        loadModule(new DisplayModule(this));
+        loadModule(new DisplayModule(this));
         break;
     case NavModel::Defapp:
         loadModule(new DefaultAppsModule(this));
