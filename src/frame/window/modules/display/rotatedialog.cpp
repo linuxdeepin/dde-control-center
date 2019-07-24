@@ -25,11 +25,10 @@
 
 #include "rotatedialog.h"
 
-#include <QWidget>
-#include <QVBoxLayout>
-#include <DBlurEffectWidget>
+#include "modules/display/displaymodel.h"
 
-DWIDGET_USE_NAMESPACE
+#include <QVBoxLayout>
+#include <QMouseEvent>
 
 using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
@@ -39,5 +38,63 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
 {
     QVBoxLayout *centralLayout = new QVBoxLayout;
 
+    setMouseTracking(true);
+    setAttribute(Qt::WA_TranslucentBackground);
+    setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
+
     setLayout(centralLayout);
+}
+
+
+void RotateDialog::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Escape) {
+        reject();
+        return;
+    }
+
+    if (event->matches(QKeySequence::StandardKey::Save)) {
+        accept();
+    }
+}
+
+void RotateDialog::mouseReleaseEvent(QMouseEvent *e)
+{
+    e->accept();
+
+    switch (e->button()) {
+    case Qt::RightButton:   reject();       break;
+    case Qt::LeftButton: {
+        rotate();
+        m_changed = true;
+        break;
+    }
+    default:;
+    }
+}
+
+void RotateDialog::rotate()
+{
+    Monitor *mon = m_mon ? m_mon : m_model->primaryMonitor();
+    Q_ASSERT(mon);
+
+    const auto rotates = mon->rotateList();
+    const auto rotate = mon->rotate();
+    const int s = rotates.size();
+
+    Q_ASSERT(rotates.contains(rotate));
+
+    const quint16 nextValue = m_model->mouseLeftHand()
+                              ? rotates[(rotates.indexOf(rotate) - 1 + s) % s]
+                              : rotates[(rotates.indexOf(rotate) + 1) % s];
+
+    if (m_mon)
+        Q_EMIT requestRotate(m_mon, nextValue);
+    else
+        Q_EMIT requestRotateAll(nextValue);
+
+//    m_resetTimeout = ResetOperationTimeLimit;
+//    m_resetOperationTimer->start();
+//    update();
+
 }

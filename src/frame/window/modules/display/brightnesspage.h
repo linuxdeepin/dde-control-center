@@ -28,8 +28,10 @@
 #include <QWidget>
 #include <QList>
 
+
 #include "widgets/titledslideritem.h"
 
+class QLabel;
 
 namespace dcc {
 
@@ -59,6 +61,10 @@ public:
     void setMode(dcc::display::DisplayModel* model);
 Q_SIGNALS:
     void requestSetMonitorBrightness(dcc::display::Monitor *, const double);
+
+    void requestSetNightMode(bool);
+    void requestAmbientLightAdjustBrightness(bool);
+
 private:
     void addSlider();
 private:
@@ -67,7 +73,10 @@ private:
     QVBoxLayout *m_centralLayout{nullptr};
     QList<dcc::widgets::TitledSliderItem*> m_sliders;
 
-    dcc::widgets::SwitchWidget *m_nightMode{nullptr};
+
+    QLabel *m_nightTips{nullptr};
+
+    dcc::widgets::SwitchWidget *m_nightShift{nullptr};
     dcc::widgets::SwitchWidget *m_autoLightMode{nullptr};
 };
 

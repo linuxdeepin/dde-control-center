@@ -19,51 +19,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ROTATEDIALOG_H_V20
-#define ROTATEDIALOG_H_V20
+#ifndef DISPLAYITEMDELEGATE_H_V20
+#define DISPLAYITEMDELEGATE_H_V20
 
 #include "../../namespace.h"
 
-#include <QDialog>
-
-namespace dcc {
-
-namespace display {
-class Monitor;
-class DisplayModel;
-}
-
-}
+#include <QAbstractItemDelegate>
 
 namespace DCC_NAMESPACE {
 
-namespace display {
-
-class RotateDialog : public QDialog
+class DisplayItemDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 
 public:
-    explicit RotateDialog(dcc::display::Monitor *mon, QWidget *parent = 0);
+    explicit DisplayItemDelegate(QObject *parent = 0);
 
-Q_SIGNALS:
-    void requestRotate(dcc::display::Monitor *mon, const quint16 nextValue);
-    void requestRotateAll(const quint16 nextValue);
-
-protected:
-    void keyPressEvent(QKeyEvent *event) override;
-    void mouseReleaseEvent(QMouseEvent *e) override;
-
-private:
-    void rotate();
-private:
-    bool m_changed{false};
-    dcc::display::DisplayModel *m_model{nullptr};
-    dcc::display::Monitor *m_mon{nullptr};
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
 
-} // namespace display
+}
 
-} // namespace dcc
-
-#endif // ROTATEDIALOG_H
+#endif // DISPLAYITEMDELEGATE_H

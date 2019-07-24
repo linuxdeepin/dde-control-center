@@ -30,6 +30,8 @@
 #include "widgets/dccslider.h"
 #include "widgets/switchwidget.h"
 
+#include <QLabel>
+
 using namespace dcc::widgets;
 using namespace dcc::display;
 
@@ -38,24 +40,25 @@ namespace DCC_NAMESPACE {
 namespace display {
 
 BrightnessPage::BrightnessPage(QWidget *parent)
-    : QWidget(parent),
-      m_centralLayout(new QVBoxLayout)
+    : QWidget(parent)
+    ,m_centralLayout(new QVBoxLayout)
+    ,m_nightTips(new QLabel)
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
     m_centralLayout->addSpacing(10);
 
-    QLabel *tip = new QLabel(tr("The screen tone will be auto adjusted by help of figuring out your location to protect eyes"));
-    tip->setWordWrap(true);
-    tip->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-    tip->adjustSize();
-    tip->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    m_nightTips = new QLabel(tr("The screen tone will be auto adjusted by help of figuring out your location to protect eyes"));
+    m_nightTips->setWordWrap(true);
+    m_nightTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    m_nightTips->adjustSize();
+    m_nightTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-    m_centralLayout->addWidget(tip);
+    m_centralLayout->addWidget(m_nightTips);
 
-    m_nightMode = new SwitchWidget;
-    m_nightMode->setTitle(tr("Night Shift"));
-    m_centralLayout->addWidget(m_nightMode);
+    m_nightShift = new SwitchWidget;
+    m_nightShift->setTitle(tr("Night Shift"));
+    m_centralLayout->addWidget(m_nightShift);
 
     m_autoLightMode = new SwitchWidget;
     m_autoLightMode->setTitle(tr("Auto Brightness"));
@@ -69,6 +72,26 @@ BrightnessPage::BrightnessPage(QWidget *parent)
 void BrightnessPage::setMode(DisplayModel* model)
 {
     m_displayModel = model;
+
+    connect(m_autoLightMode, &SwitchWidget::checkedChanged, this, &BrightnessPage::requestAmbientLightAdjustBrightness);
+    connect(m_displayModel, &DisplayModel::nightModeChanged, m_nightShift, &SwitchWidget::setChecked);
+    connect(m_displayModel, &DisplayModel::redshiftVaildChanged, m_nightShift, &SwitchWidget::setVisible);
+    connect(m_displayModel, &DisplayModel::redshiftVaildChanged, m_nightTips, &QLabel::setVisible);
+
+    connect(m_nightShift, &SwitchWidget::checkedChanged, this, &BrightnessPage::requestSetNightMode);
+    connect(m_displayModel, &DisplayModel::redshiftSettingChanged, m_nightShift, &SwitchWidget::setDisabled);
+
+    connect(m_displayModel, &DisplayModel::autoLightAdjustVaildChanged, m_autoLightMode, &SwitchWidget::setVisible);
+    connect(m_displayModel, &DisplayModel::autoLightAdjustSettingChanged, m_autoLightMode, &SwitchWidget::setChecked);
+
+    m_autoLightMode->setVisible(model->autoLightAdjustIsValid());
+    m_autoLightMode->setChecked(model->isAudtoLightAdjust());
+
+    m_nightShift->setVisible(model->redshiftIsValid());
+    m_nightTips->setVisible(model->redshiftIsValid());
+
+    m_nightShift->setChecked(model->isNightMode());
+    m_nightShift->setDisabled(model->redshiftSetting());
 
     addSlider();
     m_centralLayout->addStretch(1);

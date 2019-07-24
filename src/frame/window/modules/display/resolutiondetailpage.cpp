@@ -86,4 +86,23 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
     connect(m_modeList, &QListView::clicked, [ = ](QModelIndex idx) {
         Q_EMIT requestSetResolution(monitors.first(), modes[idx.row()].id());
     });
+
+    connect(monitors.first(), &Monitor::currentModeChanged, this, &ResolutionDetailPage::refreshCurrentResolution,
+            static_cast<Qt::ConnectionType>(Qt::QueuedConnection | Qt::UniqueConnection));
+}
+
+void ResolutionDetailPage::refreshCurrentResolution(const Resolution&)
+{
+    if (!m_model ) {
+        return;
+    }
+
+    const Monitor *mon = m_model->monitorList().first();
+    if (!mon) {
+        return;
+    }
+
+    auto list = mon->modeList();
+    int idx = list.indexOf(mon->currentMode());
+    m_modeList->setCurrentIndex(m_modeList->model()->index(idx,0));
 }

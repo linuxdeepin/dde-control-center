@@ -70,6 +70,11 @@ public:
     inline bool redshiftSetting() const { return m_redshiftSetting; }
     void setRedshiftSetting(bool redshiftSetting);
 
+    inline bool autoLightAdjustIsValid() const { return m_AutoLightAdjustIsValid;}
+
+    inline bool isAudtoLightAdjust() const { return m_isAutoLightAdjust; }
+    void setAutoLightAdjust(bool);
+
     inline BrightnessMap brightnessMap() const { return m_brightnessMap; }
     void setBrightnessMap(const BrightnessMap &brightnessMap);
 
@@ -81,6 +86,8 @@ public:
 
     inline bool isMerge() const { return m_isMerged; }
     void setIsMerge(bool isMerge);
+
+    inline bool mouseLeftHand() const { return m_mouseLeftHand;}
 
 Q_SIGNALS:
     void screenHeightChanged(const int h) const;
@@ -96,6 +103,9 @@ Q_SIGNALS:
     void nightModeChanged(const bool nightmode) const;
     void redshiftVaildChanged(const bool isvalid) const;
     void redshiftSettingChanged(const bool setting) const;
+    void autoLightAdjustSettingChanged(bool setting) const;
+    void autoLightAdjustVaildChanged(bool isvalid) const;
+    void mouseLeftHandChanged(bool isLeft) const;
 
 private Q_SLOTS:
     void setScreenHeight(const int h);
@@ -109,6 +119,8 @@ private Q_SLOTS:
     void setRedshiftIsValid(bool redshiftIsValid);
     void monitorAdded(Monitor *mon);
     void monitorRemoved(Monitor *mon);
+    void setAutoLightAdjustIsValid(bool);
+    void setMouseLeftHand(bool isLeft);
 
 private:
     int m_screenHeight;
@@ -123,7 +135,10 @@ private:
     bool m_isNightMode;
     bool m_redshiftIsValid;
     bool m_redshiftSetting;
+    bool m_isAutoLightAdjust{false};
+    bool m_AutoLightAdjustIsValid{false};
     bool m_allowEnableMultiScaleRatio;
+    bool m_mouseLeftHand{false};
     bool m_isMerged;
     BrightnessMap m_brightnessMap;
     std::pair<int, QString> m_lastConfig;

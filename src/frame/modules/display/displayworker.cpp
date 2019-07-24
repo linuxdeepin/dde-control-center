@@ -44,8 +44,11 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
       m_displayInter(DisplayInterface, "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this),
       m_dccSettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this)),
       m_appearanceInter(new AppearanceInter("com.deepin.daemon.Appearance",
-                                      "/com/deepin/daemon/Appearance",
-                                      QDBusConnection::sessionBus(), this))
+                                            "/com/deepin/daemon/Appearance",
+                                            QDBusConnection::sessionBus(), this)),
+      m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this)),
+      m_mouseInter(new MouseInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this))
+
 {
     // TODO:
     model->setPrimary(m_displayInter.primary());
@@ -64,6 +67,12 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
 //    connect(&m_displayInter, &DisplayInter::HasCustomConfigChanged, model, &DisplayModel::setHasConfig);
     connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), model, &DisplayModel::setPrimary);
 
+    ///////display redSfit/autoLight
+    connect(m_powerInter, &PowerInter::HasAmbientLightSensorChanged,
+            m_model, &DisplayModel::autoLightAdjustVaildChanged);
+    connect(m_powerInter, &PowerInter::AmbientLightAdjustBrightnessChanged,
+            m_model, &DisplayModel::autoLightAdjustSettingChanged);
+
     onMonitorListChanged(m_displayInter.monitors());
     onMonitorsBrightnessChanged(m_displayInter.brightness());
     model->setScreenHeight(m_displayInter.screenHeight());
@@ -73,6 +82,9 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
 //    model->setHasConfig(m_displayInter.hasCustomConfig());
     model->setDisplayMode(m_displayInter.displayMode());
 
+    m_model->setAutoLightAdjustIsValid(m_powerInter->hasAmbientLightSensor());
+    m_model->setMouseLeftHand(m_mouseInter->leftHanded());
+
     const bool isRedshiftValid = QProcess::execute("which", QStringList() << "redshift") == 0;
 
     if (isRedshiftValid)
@@ -80,6 +92,8 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
 
     m_model->setRedshiftIsValid(isRedshiftValid);
     m_model->setMinimumBrightnessScale(m_dccSettings->get(GSETTINGS_MINIMUM_BRIGHTNESS).toDouble());
+
+//    active();
 }
 
 DisplayWorker::~DisplayWorker()
@@ -134,8 +148,7 @@ void DisplayWorker::mergeScreens()
 
     QList<QDBusPendingReply<>> replys;
 
-    for (auto *mon : m_model->monitorList())
-    {
+    for (auto *mon : m_model->monitorList()) {
         auto *mInter = m_monitors[mon];
         Q_ASSERT(mInter);
 
@@ -165,8 +178,7 @@ void DisplayWorker::splitScreens()
     m_monitors[primary]->SetPosition(0, 0).waitForFinished();
 
     int xOffset = primary->w();
-    for (auto *mon : mList)
-    {
+    for (auto *mon : mList) {
         // pass primary
         if (mon == primary)
             continue;
@@ -238,8 +250,7 @@ void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
         ops << mon->path();
 
     QList<QString> pathList;
-    for (const auto op : mons)
-    {
+    for (const auto op : mons) {
         const QString path = op.path();
         pathList << path;
         if (!ops.contains(path))
@@ -276,12 +287,13 @@ void DisplayWorker::onGetScaleFinished(QDBusPendingCallWatcher *w)
 
 void DisplayWorker::onGetScreenScalesFinished(QDBusPendingCallWatcher *w)
 {
-    QDBusPendingReply<QMap<QString,double>> reply = w->reply();
-    QMap<QString,double> rmap = reply;
+    QDBusPendingReply<QMap<QString, double>> reply = w->reply();
+    QMap<QString, double> rmap = reply;
 
-    for (auto& m : m_model->monitorList()){
-        if (rmap.find(m->name()) != rmap.end()){
-            m->setScale(rmap[m->name()]);
+    for (auto &m : m_model->monitorList()) {
+        if (rmap.find(m->name()) != rmap.end()) {
+            m->setScale(rmap.value(m->name(), 1));
+            // >= 1 ? rmap.value(m->name()) : 1
         }
     }
 
@@ -360,7 +372,7 @@ void DisplayWorker::setMonitorPosition(Monitor *mon, const int x, const int y)
 
 void DisplayWorker::setUiScale(const double value)
 {
-    double rv=value;
+    double rv = value;
     if (rv < 0) rv = m_model->uiScale();
 
     for (auto &mm : m_model->monitorList()) {
@@ -369,8 +381,9 @@ void DisplayWorker::setUiScale(const double value)
     QDBusPendingCall call = m_appearanceInter->SetScaleFactor(rv);
 
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-        if (call.isError()) {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        if (call.isError())
+        {
             Q_EMIT m_model->uiScaleChanged(rv);
             qWarning() << call.error();
         }
@@ -384,17 +397,9 @@ void DisplayWorker::setIndividualScaling(Monitor *m, const double scaling)
         m->setScale(scaling);
     }
 
-    double primaryscale = m_model->primaryMonitor()->scale();
-    m_appearanceInter->SetScaleFactor(primaryscale);
-
     QMap<QString, double> scalemap;
-    for (auto& m : m_model->monitorList()){
-        if (m->scale() > 0) {
-            scalemap[m->name()]=m->scale();
-        }
-        else {
-            scalemap[m->name()]=1;
-        }
+    for (Monitor *m : m_model->monitorList()) {
+        scalemap[m->name()] = m->scale();
     }
     m_appearanceInter->SetScreenScaleFactors(scalemap);
 }
@@ -413,7 +418,7 @@ void DisplayWorker::setNightMode(const bool nightmode)
         serverCmd = "disable";
     }
 
-    connect(process, static_cast<void (QProcess::*)(int exitCode)>(&QProcess::finished), this, [=] {
+    connect(process, static_cast<void (QProcess::*)(int exitCode)>(&QProcess::finished), this, [ = ] {
         process->close();
         process->deleteLater();
         // reload
@@ -421,8 +426,8 @@ void DisplayWorker::setNightMode(const bool nightmode)
     });
 
     process->start("bash", QStringList() << "-c" << QString("systemctl --user %1 redshift.service && systemctl --user %2 redshift.service")
-                  .arg(serverCmd)
-                  .arg(cmd));
+                   .arg(serverCmd)
+                   .arg(cmd));
 
     m_model->setRedshiftSetting(true);
 }
@@ -503,10 +508,8 @@ void DisplayWorker::monitorAdded(const QString &path)
 void DisplayWorker::monitorRemoved(const QString &path)
 {
     Monitor *monitor = nullptr;
-    for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it)
-    {
-        if (it.key()->path() == path)
-        {
+    for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it) {
+        if (it.key()->path() == path) {
             monitor = it.key();
             break;
         }
@@ -526,8 +529,8 @@ void DisplayWorker::updateNightModeStatus()
 {
     QProcess *process = new QProcess;
 
-    connect(process, &QProcess::readyRead, this, [=] {
-        m_model->setIsNightMode(process->readAll().replace("\n","") == "active");
+    connect(process, &QProcess::readyRead, this, [ = ] {
+        m_model->setIsNightMode(process->readAll().replace("\n", "") == "active");
         m_model->setRedshiftSetting(false);
         process->close();
         process->deleteLater();
@@ -544,34 +547,41 @@ void DisplayWorker::onGSettingsChanged(const QString &key)
         m_model->setMinimumBrightnessScale(value.toDouble());
 }
 
-void DisplayWorker::record() {
+void DisplayWorker::record()
+{
     const int displayMode { m_model->displayMode() };
     const QString config { displayMode == CUSTOM_MODE ? m_model->config() : m_model->primary() };
 
     m_model->setLastConfig(std::pair<int, QString>(displayMode, config));
 }
 
-void DisplayWorker::restore() {
+void DisplayWorker::restore()
+{
     const std::pair<int, QString> lastConfig { m_model->lastConfig() };
 
-    switch (lastConfig.first)
-    {
-        case CUSTOM_MODE: {
-            discardChanges();
-            switchMode(lastConfig.first, lastConfig.second);
-            saveChanges();
-            break;
-        }
-        case MERGE_MODE:
-            mergeScreens();
-            break;
-        case EXTEND_MODE:
-            extendMode();
-            break;
-        case SINGLE_MODE:
-            onlyMonitor(lastConfig.second);
-            break;
-        default:
-            break;
+    switch (lastConfig.first) {
+    case CUSTOM_MODE: {
+        discardChanges();
+        switchMode(lastConfig.first, lastConfig.second);
+        saveChanges();
+        break;
     }
+    case MERGE_MODE:
+        mergeScreens();
+        break;
+    case EXTEND_MODE:
+        extendMode();
+        break;
+    case SINGLE_MODE:
+        onlyMonitor(lastConfig.second);
+        break;
+    default:
+        break;
+    }
+}
+
+
+void DisplayWorker::setAmbientLightAdjustBrightness(bool able)
+{
+    m_powerInter->setAmbientLightAdjustBrightness(able);
 }

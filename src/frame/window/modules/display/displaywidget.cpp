@@ -63,6 +63,7 @@ void DisplayWidget::setModel(DisplayModel *model)
     m_model = model;
 
     connect(m_model, &DisplayModel::monitorListChanged, this, &DisplayWidget::onMonitorListChanged);
+    connect(m_model, &DisplayModel::configListChanged, this, &DisplayWidget::onMonitorListChanged);
 
     onMonitorListChanged();
 
@@ -75,32 +76,42 @@ void DisplayWidget::onMonitorListChanged()
     if (mons.size() <= 1) {
         m_isMultiScreen = false;
         m_menuList->setModel(m_singleModel);
+        m_model->setAllowEnableMultiScaleRatio(false);
     } else {
         m_isMultiScreen = true;
         m_menuList->setModel(m_multiModel);
+        m_model->setAllowEnableMultiScaleRatio(true);
     }
 }
 
 void DisplayWidget::initMenuUI()
 {
+    m_multMenuList = {
+        {tr("Mutil-Screen"), QMetaMethod::fromSignal(&DisplayWidget::showMultiScreenPage)},
+        {tr("Brightness"), QMetaMethod::fromSignal(&DisplayWidget::showBrightnessPage)},
+        {("scaling"), QMetaMethod::fromSignal(&DisplayWidget::showScalingPage)},
+        {tr("Custom Setting"), QMetaMethod::fromSignal(&DisplayWidget::showCustomConfigPage)}
+    };
+
+    m_singleMenuList = {
+        {tr("Resolution"), QMetaMethod::fromSignal(&DisplayWidget::showResolutionPage)},
+        {tr("Brightness"), QMetaMethod::fromSignal(&DisplayWidget::showBrightnessPage)},
+        {("scaling"), QMetaMethod::fromSignal(&DisplayWidget::showScalingPage)}
+    };
+
     QStandardItem *btn{nullptr};
+    for (auto menu : m_multMenuList) {
+        btn = new QStandardItem(menu.menuText);
+        m_multiModel->appendRow(btn);
+    }
 
-    btn = new QStandardItem(tr("Mutil-Screen"));
-    m_multiModel->appendRow(btn);
-
-    btn = new QStandardItem(tr("Resolution"));
-    m_singleModel->appendRow(btn);
-
-    btn = new QStandardItem(tr("Brightness"));
-    m_singleModel->appendRow(btn);
-    m_multiModel->appendRow(btn);
-
-    btn = new QStandardItem(tr("scaling"));
-    m_singleModel->appendRow(btn);
-    m_multiModel->appendRow(btn);
+    for (auto menu : m_singleMenuList) {
+        btn = new QStandardItem(menu.menuText);
+        m_singleModel->appendRow(btn);
+    }
 
     m_centralLayout->addWidget(m_menuList);
-    connect(m_menuList,&QListView::clicked,this,&DisplayWidget::onMenuClicked);
+    connect(m_menuList, &QListView::clicked, this, &DisplayWidget::onMenuClicked);
 
     m_centralLayout->addStretch(1);
     m_rotate->setNormalPic(":/display/themes/dark/icons/rotate_normal.png");
@@ -111,46 +122,12 @@ void DisplayWidget::initMenuUI()
     connect(m_rotate, &DImageButton::clicked, this, &DisplayWidget::requestRotate);
 }
 
-void DisplayWidget::onMenuClicked(const QModelIndex& idx)
+void DisplayWidget::onMenuClicked(const QModelIndex &idx)
 {
-    if(m_isMultiScreen)
-    {//响应multiModel中的点击，
-     //分别顺序对应 initMenuUI 中 m_multiModel append的 QStandardItem
-        switch(idx.row())
-        {
-        case 0:
-            Q_EMIT showMultiScreenPage();
-            break;
-        case 1:
-            Q_EMIT showBrightnessPage();
-            break;
-        case 2:
-            Q_EMIT showScalingPage();
-            break;
-        case 3:
-            Q_EMIT showCustomConfigPage();
-            break;
-        default:
-            break;
-        }
-    }
-    else
-    {//响应singleModel中的点击，
-     //分别顺序对应 initMenuUI 中 m_singleModel append的 QStandardItem
-        switch(idx.row())
-        {
-        case 0:
-            Q_EMIT showResolutionPage();
-            break;
-        case 1:
-            Q_EMIT showBrightnessPage();
-            break;
-        case 2:
-            Q_EMIT showScalingPage();
-            break;
-        default:
-            break;
-        }
+    if (m_isMultiScreen) {
+        m_multMenuList[idx.row()].method.invoke(this);
+    } else {
+        m_singleMenuList[idx.row()].method.invoke(this);
     }
 }
 

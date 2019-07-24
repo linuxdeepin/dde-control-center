@@ -35,6 +35,8 @@ class QVBoxLayout;
 class QListView;
 class QPushButton;
 
+class Resolution;
+
 namespace dcc {
 
 namespace widgets {
@@ -47,7 +49,6 @@ namespace display {
 
 class Monitor;
 class DisplayModel;
-
 }
 
 }
@@ -67,7 +68,7 @@ public:
 Q_SIGNALS:
     void requestSetResolution(dcc::display::Monitor* ,int );
 private Q_SLOTS:
-
+    void refreshCurrentResolution(const Resolution&);
 private:
     QVBoxLayout *m_mainLayout{nullptr};
     dcc::display::DisplayModel* m_model{nullptr};

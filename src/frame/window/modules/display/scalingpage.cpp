@@ -46,7 +46,8 @@ ScalingPage::ScalingPage(QWidget *parent)
 
     QLabel *tip = new QLabel(tr("Some applications in multi-screens may not scale as the settings."), this);
 //    tip->setFixedHeight(80);
-//    tip->setWordWrap(true);
+
+    tip->setWordWrap(true);
 //    tip->setContentsMargins(16, 5, 10, 5);
     tip->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     tip->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
@@ -61,6 +62,17 @@ void ScalingPage::setModel(DisplayModel *model)
     m_displayModel = model;
 
     setupSliders();
+    connect(m_displayModel, &DisplayModel::uiScaleChanged, this, [=](const double scale){
+        for(auto widget:m_sliders)
+        {
+            DCCSlider *slider = widget->slider();
+            slider->blockSignals(true);
+            slider->setValue(DisplayWidget::convertToSlider(scale));
+            slider->blockSignals(false);
+
+            widget->setValueLiteral(QString::number(scale));
+        }
+    });
     m_centralLayout->addStretch(1);
 }
 
@@ -114,6 +126,7 @@ void ScalingPage::addSlider(int monitorID)
     if (scaling < 0)scaling = 1.0;
 
     slideritem->setValueLiteral(QString::number(scaling));
+    slider->setValue(DisplayWidget::convertToSlider(scaling));
 }
 
 }

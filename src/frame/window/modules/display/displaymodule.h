@@ -57,6 +57,7 @@ private Q_SLOTS:
     void onDetailPageRequestSetResolution(dcc::display::Monitor *mon, const int mode);
     void showBrightnessPage();
     void showRotate(dcc::display::Monitor *mon = nullptr);
+    void showMultiScreenSettingPage();
     int showTimeoutDialog(dcc::display::Monitor *mon);
 
 private:

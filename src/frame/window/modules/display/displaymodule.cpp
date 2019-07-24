@@ -26,6 +26,7 @@
 #include "brightnesspage.h"
 #include "rotatedialog.h"
 #include "scalingpage.h"
+#include "multiscreensettingpage.h"
 
 #include "widgets/timeoutdialog.h"
 #include "modules/display/displaymodel.h"
@@ -60,7 +61,6 @@ void DisplayModule::initialize()
 
     m_displayModel->moveToThread(qApp->thread());
     m_displayWorker->moveToThread(qApp->thread());
-
 }
 
 void DisplayModule::reset()
@@ -90,6 +90,7 @@ QWidget *DisplayModule::moduleWidget()
     connect(m_displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
     connect(m_displayWidget, &DisplayWidget::showBrightnessPage, this, &DisplayModule::showBrightnessPage);
     connect(m_displayWidget, &DisplayWidget::requestRotate, [ = ] { showRotate(m_displayModel->primaryMonitor()); });
+    connect(m_displayWidget, &DisplayWidget::showMultiScreenPage, this, &DisplayModule::showMultiScreenSettingPage);
 
     return m_displayWidget;
 }
@@ -99,8 +100,12 @@ void DisplayModule::showBrightnessPage()
     m_displayWorker->updateNightModeStatus();
 
     BrightnessPage *page = new BrightnessPage;
+
     page->setMode(m_displayModel);
-    connect(page,&BrightnessPage::requestSetMonitorBrightness,m_displayWorker,&DisplayWorker::setMonitorBrightness);
+
+    connect(page, &BrightnessPage::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
+    connect(page, &BrightnessPage::requestAmbientLightAdjustBrightness, m_displayWorker, &DisplayWorker::setAmbientLightAdjustBrightness);
+    connect(page, &BrightnessPage::requestSetNightMode, m_displayWorker, &DisplayWorker::setNightMode);
 
     m_frameProxy->pushWidget(this, page);
 }
@@ -110,7 +115,7 @@ void DisplayModule::showResolutionDetailPage()
     ResolutionDetailPage *page = new ResolutionDetailPage;
     page->setModel(m_displayModel);
 
-    connect(page,&ResolutionDetailPage::requestSetResolution,this,&DisplayModule::onDetailPageRequestSetResolution);
+    connect(page, &ResolutionDetailPage::requestSetResolution, this, &DisplayModule::onDetailPageRequestSetResolution);
     m_frameProxy->pushWidget(this, page);
 }
 
@@ -121,6 +126,23 @@ void DisplayModule::showScalingPage()
     page->setModel(m_displayModel);
     connect(page, &ScalingPage::requestUiScaleChange, m_displayWorker, &DisplayWorker::setUiScale);
     connect(page, &ScalingPage::requestIndividualScaling, m_displayWorker, &DisplayWorker::setIndividualScaling);
+
+    m_frameProxy->pushWidget(this, page);
+}
+
+
+void DisplayModule::showMultiScreenSettingPage()
+{
+    MultiScreenSettingPage *page = new MultiScreenSettingPage();
+
+    page->setModel(m_displayModel);
+
+    connect(page, &MultiScreenSettingPage::requestDuplicateMode, m_displayWorker,
+            &DisplayWorker::duplicateMode);
+    connect(page, &MultiScreenSettingPage::requestExtendMode, m_displayWorker,
+            &DisplayWorker::extendMode);
+    connect(page, &MultiScreenSettingPage::requestOnlyMonitor, m_displayWorker,
+            &DisplayWorker::onlyMonitor);
 
     m_frameProxy->pushWidget(this, page);
 }
@@ -156,9 +178,20 @@ int DisplayModule::showTimeoutDialog(Monitor *mon)
 
 void DisplayModule::showRotate(Monitor *mon)
 {
-    RotateDialog *dialog = nullptr;
+    RotateDialog *dialog = new RotateDialog(mon);
 
-    int retCode = dialog->exec();
+    connect(dialog, &RotateDialog::requestRotate, m_displayWorker, &DisplayWorker::setMonitorRotate);
+    connect(dialog, &RotateDialog::requestRotateAll, m_displayWorker, &DisplayWorker::setMonitorRotateAll);
+
+    if (QDialog::DialogCode::Accepted == dialog->exec()) {
+        // if monitor list size > 1 means the config file will be saved by MonitorSettingDialog
+        ///按上面说的，旧的业务逻辑会在此保存自定义设置方案
+//        if (m_displayModel->monitorList().size() == 1)
+//            m_displayWorker->saveChanges();
+    } else {
+
+    }
+
     dialog->deleteLater();
 
 }

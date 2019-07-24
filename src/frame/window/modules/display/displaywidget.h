@@ -73,13 +73,23 @@ Q_SIGNALS: Q_SIGNALS:
     void requestRotate() const;
 private:
     void initMenuUI();
+
+private:
+    struct MenuMethod {
+        QString menuText;
+        QMetaMethod method;
+    };
 private:
     dcc::display::DisplayModel *m_model{nullptr};
     DTK_WIDGET_NAMESPACE::DImageButton *m_rotate{nullptr};
     QVBoxLayout *m_centralLayout{nullptr};
     QListView *m_menuList{nullptr};
+
     QStandardItemModel *m_multiModel{nullptr};
     QStandardItemModel *m_singleModel{nullptr};
+
+    QList<MenuMethod> m_multMenuList;
+    QList<MenuMethod> m_singleMenuList;
 
     bool m_isMultiScreen{true};
 };

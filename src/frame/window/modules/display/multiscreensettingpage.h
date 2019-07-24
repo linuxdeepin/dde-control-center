@@ -19,18 +19,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ROTATEDIALOG_H_V20
-#define ROTATEDIALOG_H_V20
+#ifndef MULTISCREENSETTINGPAGE_H
+#define MULTISCREENSETTINGPAGE_H
 
 #include "../../namespace.h"
 
-#include <QDialog>
+#include <QWidget>
+class QModelIndex;
 
-namespace dcc {
+namespace dcc{
 
-namespace display {
-class Monitor;
-class DisplayModel;
+namespace display{
+    class DisplayModel;
+}
+
+namespace widgets{
+    class BasicListView;
 }
 
 }
@@ -39,31 +43,27 @@ namespace DCC_NAMESPACE {
 
 namespace display {
 
-class RotateDialog : public QDialog
+class MultiScreenSettingPage : public QWidget
 {
     Q_OBJECT
-
 public:
-    explicit RotateDialog(dcc::display::Monitor *mon, QWidget *parent = 0);
-
+    explicit MultiScreenSettingPage(QWidget* parent = nullptr);
+public:
+    void setModel(dcc::display::DisplayModel *model);
 Q_SIGNALS:
-    void requestRotate(dcc::display::Monitor *mon, const quint16 nextValue);
-    void requestRotateAll(const quint16 nextValue);
-
-protected:
-    void keyPressEvent(QKeyEvent *event) override;
-    void mouseReleaseEvent(QMouseEvent *e) override;
-
+    void requestDuplicateMode();
+    void requestExtendMode();
+    void requestCustom();
+    void requestOnlyMonitor(const QString&);
+    void requestConfig(const QString&);
+private Q_SLOTS:
+    void onItemClicked(const QModelIndex&);
 private:
-    void rotate();
-private:
-    bool m_changed{false};
-    dcc::display::DisplayModel *m_model{nullptr};
-    dcc::display::Monitor *m_mon{nullptr};
+    dcc::widgets::BasicListView *m_baseListView{nullptr};
 };
 
-} // namespace display
+}
 
-} // namespace dcc
+}
 
-#endif // ROTATEDIALOG_H
+#endif // MULTISCREENSETTINGPAGE_H

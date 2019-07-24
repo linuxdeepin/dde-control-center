@@ -54,8 +54,7 @@ const QList<Resolution> DisplayModel::monitorsSameModeList() const
     Q_ASSERT(m_monitors.size() > 1);
 
     QList<Resolution> resultList = m_monitors.first()->modeList();
-    for (int i(1); i != m_monitors.size(); ++i)
-    {
+    for (int i(1); i != m_monitors.size(); ++i) {
         const QList<Resolution> originList = m_monitors[i]->modeList();
         QList<Resolution> filteredList;
 
@@ -90,8 +89,7 @@ bool DisplayModel::monitorsIsIntersect() const
 
 void DisplayModel::setScreenHeight(const int h)
 {
-    if (m_screenHeight != h)
-    {
+    if (m_screenHeight != h) {
         m_screenHeight = h;
         Q_EMIT screenHeightChanged(m_screenHeight);
     }
@@ -99,8 +97,7 @@ void DisplayModel::setScreenHeight(const int h)
 
 void DisplayModel::setScreenWidth(const int w)
 {
-    if (m_screenWidth != w)
-    {
+    if (m_screenWidth != w) {
         m_screenWidth = w;
         Q_EMIT screenWidthChanged(m_screenWidth);
     }
@@ -108,8 +105,7 @@ void DisplayModel::setScreenWidth(const int w)
 
 void DisplayModel::setDisplayMode(const int mode)
 {
-    if (m_mode != mode)
-    {
+    if (m_mode != mode) {
         m_mode = mode;
         Q_EMIT displayModeChanged(m_mode);
     }
@@ -117,8 +113,7 @@ void DisplayModel::setDisplayMode(const int mode)
 
 void DisplayModel::setUIScale(const double scale)
 {
-    if (m_uiScale != scale)
-    {
+    if (m_uiScale != scale) {
         m_uiScale = scale;
         Q_EMIT uiScaleChanged(m_uiScale);
     }
@@ -126,8 +121,7 @@ void DisplayModel::setUIScale(const double scale)
 
 void DisplayModel::setMinimumBrightnessScale(const double scale)
 {
-    if (m_minimumBrightnessScale != scale)
-    {
+    if (m_minimumBrightnessScale != scale) {
         m_minimumBrightnessScale = scale;
         Q_EMIT minimumBrightnessScaleChanged(m_minimumBrightnessScale);
     }
@@ -135,8 +129,7 @@ void DisplayModel::setMinimumBrightnessScale(const double scale)
 
 void DisplayModel::setPrimary(const QString &primary)
 {
-    if (m_primary != primary)
-    {
+    if (m_primary != primary) {
         m_primary = primary;
         Q_EMIT primaryScreenChanged(m_primary);
     }
@@ -144,8 +137,7 @@ void DisplayModel::setPrimary(const QString &primary)
 
 void DisplayModel::setCurrentConfig(const QString &config)
 {
-    if (m_currentConfig != config)
-    {
+    if (m_currentConfig != config) {
         m_currentConfig = config;
         Q_EMIT currentConfigChanged(m_currentConfig);
     }
@@ -153,8 +145,7 @@ void DisplayModel::setCurrentConfig(const QString &config)
 
 void DisplayModel::setConfigList(const QStringList &configList)
 {
-    if (m_configList != configList)
-    {
+    if (m_configList != configList) {
         m_configList = configList;
         Q_EMIT configListChanged(m_configList);
     }
@@ -172,6 +163,14 @@ void DisplayModel::monitorRemoved(Monitor *mon)
     m_monitors.removeOne(mon);
 
     Q_EMIT monitorListChanged();
+}
+
+void DisplayModel::setAutoLightAdjustIsValid(bool ala)
+{
+    if (m_AutoLightAdjustIsValid == ala)
+        return;
+    m_AutoLightAdjustIsValid = ala;
+    Q_EMIT autoLightAdjustVaildChanged(ala);
 }
 
 void DisplayModel::setLastConfig(const std::pair<int, QString> &lastConfig)
@@ -193,6 +192,15 @@ void DisplayModel::setRedshiftSetting(bool redshiftSetting)
     m_redshiftSetting = redshiftSetting;
 
     Q_EMIT redshiftSettingChanged(redshiftSetting);
+}
+
+void DisplayModel::setAutoLightAdjust(bool ala)
+{
+    if (ala == m_isAutoLightAdjust) return;
+
+    m_isAutoLightAdjust = ala;
+
+    Q_EMIT autoLightAdjustSettingChanged(m_isAutoLightAdjust);
 }
 
 bool DisplayModel::redshiftIsValid() const
@@ -225,14 +233,24 @@ void DisplayModel::setIsNightMode(bool isNightMode)
     Q_EMIT nightModeChanged(isNightMode);
 }
 
-void DisplayModel::setAllowEnableMultiScaleRatio(bool allowEnableMultiScaleRatio) {
+void DisplayModel::setAllowEnableMultiScaleRatio(bool allowEnableMultiScaleRatio)
+{
     if (m_allowEnableMultiScaleRatio == allowEnableMultiScaleRatio) return;
 
     m_allowEnableMultiScaleRatio = allowEnableMultiScaleRatio;
 }
 
-void DisplayModel::setIsMerge(bool isMerge) {
+void DisplayModel::setIsMerge(bool isMerge)
+{
     if (m_isMerged == isMerge) return;
 
     m_isMerged = isMerge;
+}
+
+void DisplayModel::setMouseLeftHand(bool isLeft)
+{
+    if(isLeft == m_mouseLeftHand) return;
+
+    m_mouseLeftHand = isLeft;
+    Q_EMIT mouseLeftHandChanged(isLeft);
 }

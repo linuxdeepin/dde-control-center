@@ -32,11 +32,17 @@
 
 #include <com_deepin_daemon_display.h>
 #include <com_deepin_daemon_appearance.h>
+#include <com_deepin_daemon_power.h>
+#include <com_deepin_daemon_inputdevice_mouse.h>
 
 #include <QGSettings>
 
 using DisplayInter = com::deepin::daemon::Display;
 using AppearanceInter = com::deepin::daemon::Appearance;
+using PowerInter = com::deepin::daemon::Power;
+using MouseInter = com::deepin::daemon::inputdevice::Mouse;
+
+
 
 #define CUSTOM_MODE     0
 #define MERGE_MODE      1
@@ -88,6 +94,9 @@ public Q_SLOTS:
     void record(); // save mutilScreenConfig
     void restore(); // restore mutilScreenConfig
 
+public Q_SLOTS:
+    void setAmbientLightAdjustBrightness(bool);
+
 private Q_SLOTS:
     void onGSettingsChanged(const QString &key);
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
@@ -111,6 +120,9 @@ private:
     QGSettings *m_dccSettings;
     AppearanceInter *m_appearanceInter;
     QMap<Monitor *, MonitorInter *> m_monitors;
+
+    PowerInter *m_powerInter{nullptr};
+    MouseInter *m_mouseInter{nullptr};
 };
 
 } // namespace display

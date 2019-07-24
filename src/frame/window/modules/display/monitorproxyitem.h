@@ -19,51 +19,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ROTATEDIALOG_H_V20
-#define ROTATEDIALOG_H_V20
+#ifndef MONITORPROXYITEM_H
+#define MONITORPROXYITEM_H
 
-#include "../../namespace.h"
+#include <QWidget>
 
-#include <QDialog>
-
-namespace dcc {
-
-namespace display {
-class Monitor;
-class DisplayModel;
-}
-
-}
-
-namespace DCC_NAMESPACE {
-
-namespace display {
-
-class RotateDialog : public QDialog
+class MonitorProxyItem :public QWidget
 {
     Q_OBJECT
-
 public:
-    explicit RotateDialog(dcc::display::Monitor *mon, QWidget *parent = 0);
-
-Q_SIGNALS:
-    void requestRotate(dcc::display::Monitor *mon, const quint16 nextValue);
-    void requestRotateAll(const quint16 nextValue);
+    MonitorProxyItem();
 
 protected:
-    void keyPressEvent(QKeyEvent *event) override;
-    void mouseReleaseEvent(QMouseEvent *e) override;
-
-private:
-    void rotate();
-private:
-    bool m_changed{false};
-    dcc::display::DisplayModel *m_model{nullptr};
-    dcc::display::Monitor *m_mon{nullptr};
+    void paintEvent(QPaintEvent* ) override;
 };
 
-} // namespace display
-
-} // namespace dcc
-
-#endif // ROTATEDIALOG_H
+#endif // MONITORPROXYITEM_H
