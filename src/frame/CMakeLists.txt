@@ -522,6 +522,17 @@ set(MOUSE_FILES
                 modules/mouse/mousemodel.h
                 modules/mouse/mousewidget.h
                 modules/mouse/mouseworker.h
+
+                #window/modules/mouse/generalsettingwidget.h
+                #window/modules/mouse/generalsettingwidget.cpp
+                #window/modules/mouse/mousesettingwidget.h
+                #window/modules/mouse/mousesettingwidget.cpp
+                #window/modules/mouse/touchpadsettingwidget.h
+                #window/modules/mouse/touchpadsettingwidget.cpp
+                window/modules/mouse/mousemodule.h
+                window/modules/mouse/mousemodule.cpp
+                window/modules/mouse/mousewidget.h
+                window/modules/mouse/mousewidget.cpp
 )
 
 # load network

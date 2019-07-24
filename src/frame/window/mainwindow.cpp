@@ -156,7 +156,7 @@ void MainWindow::tryLoadModule(NavModel::ModuleType type)
 //        loadModule(new PowerModule(this));
         break;
     case NavModel::Mouse:
-//        loadModule(new MouseModule(this));
+        loadModule(new DCC_NAMESPACE::mouse::MouseModule(this));
         break;
     case NavModel::Keyboard:
 //        loadModule(new KeyboardModule(this));
