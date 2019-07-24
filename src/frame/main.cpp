@@ -183,7 +183,7 @@ int main(int argc, char *argv[])
     parser.process(app);
 
 #ifdef WINDOW_MODE
-    MainWindow mw;
+    DCC_NAMESPACE::MainWindow mw;
 
     mw.resize(500, 500);
     mw.show();

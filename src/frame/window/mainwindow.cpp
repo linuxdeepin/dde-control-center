@@ -43,22 +43,8 @@
 #include <QMetaEnum>
 #include <QDebug>
 
-using namespace dcc::accounts;
-using namespace dcc::datetime;
-using namespace dcc::update;
-using namespace DCC_NAMESPACE::sync;
-using namespace dcc::display;
-using namespace dcc::defapp;
-using namespace dcc::personalization;
-using namespace dcc::network;
-using namespace dcc::bluetooth;
-using namespace dcc::sound;
-using namespace dcc::power;
-using namespace dcc::mouse;
-using namespace dcc::keyboard;
-using namespace dcc::sound;
-using namespace dcc::wacom;
-using namespace dcc::systeminfo;
+using namespace DCC_NAMESPACE;
+using namespace sync;
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
@@ -139,49 +125,49 @@ void MainWindow::tryLoadModule(NavModel::ModuleType type)
     //According to actual click index to load module
     switch (type) {
     case NavModel::AccountsModule:
-        loadModule(new AccountsModule(this));
+//        loadModule(new AccountsModule(this));
         break;
     case NavModel::Cloudsync:
         loadModule(new SyncModule(this));
         break;
     case NavModel::Display:
-        loadModule(new DisplayModule(this));
+//        loadModule(new DisplayModule(this));
         break;
     case NavModel::Defapp:
-        loadModule(new DefaultAppsModule(this));
+//        loadModule(new DefaultAppsModule(this));
         break;
     case NavModel::Personalization:
-        loadModule(new PersonalizationModule(this));
+//        loadModule(new PersonalizationModule(this));
         break;
     case NavModel::Network:
-        loadModule(new NetworkModule(this));
+//        loadModule(new NetworkModule(this));
         break;
     case NavModel::Bluetooth:
-        loadModule(new BluetoothModule(this));
+//        loadModule(new BluetoothModule(this));
         break;
     case NavModel::Sound:
-        loadModule(new SoundModule(this));
+//        loadModule(new SoundModule(this));
         break;
     case NavModel::Datetime:
-        loadModule(new DatetimeModule(this));
+//        loadModule(new DatetimeModule(this));
         break;
     case NavModel::Power:
-        loadModule(new PowerModule(this));
+//        loadModule(new PowerModule(this));
         break;
     case NavModel::Mouse:
-        loadModule(new MouseModule(this));
+//        loadModule(new MouseModule(this));
         break;
     case NavModel::Keyboard:
-        loadModule(new KeyboardModule(this));
+//        loadModule(new KeyboardModule(this));
         break;
     case NavModel::Wacom:
-        loadModule(new WacomModule(this));
+//        loadModule(new WacomModule(this));
         break;
     case NavModel::Update:
-        loadModule(new UpdateModule(this));
+//        loadModule(new UpdateModule(this));
         break;
     case NavModel::Systeminfo:
-        loadModule(new SystemInfoModule(this));
+//        loadModule(new SystemInfoModule(this));
         break;
     default:
         break;
@@ -223,12 +209,7 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
     Q_EMIT moduleVisibleChanged(name, visible);
 }
 
-void MainWindow::setFrameAutoHide(ModuleInterface *const inter, const bool autoHide)
-{
-
-}
-
-void MainWindow::pushWidget(ModuleInterface *const inter, ContentWidget *const w)
+void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w)
 {
     Q_UNUSED(inter)
 
@@ -241,7 +222,7 @@ void MainWindow::pushWidget(ModuleInterface *const inter, ContentWidget *const w
         w->deleteLater();
     }
 
-    pushWidget((QWidget *)w);
+    pushWidget(w);
 }
 
 void MainWindow::onFirstItemClick(const QModelIndex &index)
@@ -261,23 +242,7 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
     }
 }
 
-void MainWindow::loadModule(dcc::ModuleInterface *const module)
-{
-    module->initialize();
-
-    QWidget *widget = module->moduleWidget();
-
-    //the child widget destroy follow parent widget
-    if (QObject *obj = dynamic_cast<QObject *>(module)) {
-        obj->setParent(widget);
-    } else {
-        qWarning() << "The module not inherit QObject , module : " << module;
-    }
-
-    pushWidget(widget);
-}
-
-void MainWindow::loadModule(DCC_NAMESPACE::ModuleInterface *const module) {
+void MainWindow::loadModule(ModuleInterface *const module) {
     module->initialize();
 
     QWidget *widget = module->moduleWidget();

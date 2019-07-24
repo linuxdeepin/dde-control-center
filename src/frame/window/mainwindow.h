@@ -22,7 +22,7 @@
 #define MAINWINDOW_H
 
 #include "navigation/navmodel.h"
-#include "interfaces/moduleinterface.h"
+#include "interface/frameproxyinterface.h"
 #include "interface/moduleinterface.h"
 
 #include <DMainWindow>
@@ -36,8 +36,7 @@ QT_END_NAMESPACE
 class NavWinView;
 class NavModel;
 
-using namespace dcc;
-
+namespace DCC_NAMESPACE {
 class MainWindow : public DMainWindow, public FrameProxyInterface
 {
     Q_OBJECT
@@ -52,10 +51,9 @@ private:
     void mouseDoubleClickEvent(QMouseEvent *event) override;
 
 public:
-    void pushWidget(ModuleInterface * const inter, ContentWidget * const w);
-    void setFrameAutoHide(ModuleInterface * const inter, const bool autoHide);
-    void setModuleVisible(ModuleInterface * const inter, const bool visible);
-    void showModulePage(const QString &module, const QString &page, bool animation);
+    void pushWidget(ModuleInterface * const inter, QWidget * const w) override;
+    void setModuleVisible(ModuleInterface * const inter, const bool visible) override;
+    void showModulePage(const QString &module, const QString &page, bool animation) override;
 
 private:
     QHBoxLayout *m_contentLayout;
@@ -71,8 +69,8 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onFirstItemClick(const QModelIndex &index);
-    void loadModule(dcc::ModuleInterface *const module);
-    void loadModule(DCC_NAMESPACE::ModuleInterface *const module);
+    void loadModule(ModuleInterface *const module);
 };
+}
 
 #endif // MAINWINDOW_H

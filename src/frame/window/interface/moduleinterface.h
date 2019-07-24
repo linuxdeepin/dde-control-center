@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "interfaces/frameproxyinterface.h"
+#include "frameproxyinterface.h"
 #include "window/namespace.h"
 
 #include <QtCore>
@@ -37,7 +37,7 @@ namespace DCC_NAMESPACE {
 class ModuleInterface
 {
 public:
-    ModuleInterface(dcc::FrameProxyInterface *frameProxy) : m_frameProxy(frameProxy) {}
+    ModuleInterface(FrameProxyInterface *frameProxy) : m_frameProxy(frameProxy) {}
     virtual ~ModuleInterface() {}
 
     // initialize初始化相应的模块，参数proxy用于Moudle向Frame信息查询和主动调用；
@@ -80,7 +80,7 @@ public:
     virtual void contentPopped(QWidget * const w) = 0;
 
 protected:
-    dcc::FrameProxyInterface *m_frameProxy = nullptr;
+    FrameProxyInterface *m_frameProxy = nullptr;
 };
 
 }

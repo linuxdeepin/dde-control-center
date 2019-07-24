@@ -26,17 +26,20 @@
 #include <QObject>
 
 namespace dcc {
+namespace cloudsync {
 class SyncWorker;
 class SyncModel;
+}
 }
 
 namespace DCC_NAMESPACE {
 namespace sync {
+class SyncWidget;
 class SyncModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
 public:
-    SyncModule(dcc::FrameProxyInterface *frameProxy, QObject *parent = nullptr);
+    SyncModule(FrameProxyInterface *frameProxy, QObject *parent = nullptr);
 
     virtual void initialize() override;
     virtual void reset() override;
@@ -46,9 +49,9 @@ public:
     virtual void contentPopped(QWidget *const w) override;
 
 private:
-    QWidget         *m_mainWidget;
-    dcc::SyncWorker *m_worker;
-    dcc::SyncModel  *m_model;
+    SyncWidget                 *m_mainWidget;
+    dcc::cloudsync::SyncModel  *m_model;
+    dcc::cloudsync::SyncWorker *m_worker;
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE

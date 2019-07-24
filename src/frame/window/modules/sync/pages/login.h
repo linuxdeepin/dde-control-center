@@ -34,6 +34,9 @@ class LoginPage : public QWidget
 public:
     LoginPage(QWidget *parent = nullptr);
 
+Q_SIGNALS:
+    void requestLoginUser() const;
+
 private:
     QVBoxLayout *m_mainLayout;
 };

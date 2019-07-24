@@ -25,18 +25,36 @@
 
 #include <QWidget>
 
-class QVBoxLayout;
+class QStackedLayout;
+
+namespace dcc {
+namespace cloudsync {
+class SyncModel;
+}
+}
 
 namespace DCC_NAMESPACE {
 namespace sync {
+class LoginPage;
+class IndexPage;
 class SyncWidget : public QWidget
 {
     Q_OBJECT
 public:
     SyncWidget(QWidget *parent = nullptr);
+    void setModel(dcc::cloudsync::SyncModel* model);
+
+Q_SIGNALS:
+    void requestLoginUser() const;
 
 private:
-    QVBoxLayout *m_mainLayout;
+    void onUserInfoChanged(const QVariantMap &userInfo);
+
+private:
+    QStackedLayout *m_mainLayout;
+    dcc::cloudsync::SyncModel* m_model;
+    LoginPage* m_loginPage;
+    IndexPage* m_indexPage;
 };
 } // namespace sync
 

@@ -9,16 +9,20 @@
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::sync;
 
-SyncModule::SyncModule(dcc::FrameProxyInterface *frameProxy, QObject *parent)
+SyncModule::SyncModule(FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frameProxy)
     , m_mainWidget(nullptr)
+    , m_model(nullptr)
+    , m_worker(nullptr)
 {
 }
 
 void SyncModule::initialize()
 {
     m_mainWidget = new SyncWidget;
+    m_model = new dcc::cloudsync::SyncModel;
+    m_worker = new dcc::cloudsync::SyncWorker(m_model);
 }
 
 void SyncModule::reset() {}
@@ -35,6 +39,11 @@ void SyncModule::showPage(const QString &pageName)
 
 QWidget *SyncModule::moduleWidget()
 {
+    connect(m_mainWidget, &SyncWidget::requestLoginUser, m_worker, &dcc::cloudsync::SyncWorker::loginUser, Qt::UniqueConnection);
+
+    m_mainWidget->setModel(m_model);
+    m_worker->activate(); //refresh data
+
     return m_mainWidget;
 }
 

@@ -24,6 +24,12 @@
 
 #include <QWidget>
 
+namespace dcc {
+namespace cloudsync {
+class SyncModel;
+}
+}
+
 namespace DCC_NAMESPACE {
 namespace sync {
 class IndexPage : public QWidget
@@ -31,6 +37,11 @@ class IndexPage : public QWidget
     Q_OBJECT
 public:
     IndexPage(QWidget *parent = nullptr);
+    void setModel(dcc::cloudsync::SyncModel* model);
+
+private:
+    dcc::cloudsync::SyncModel* m_model;
+
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE
