@@ -148,6 +148,10 @@ set(WINDOW_FILES
     window/mainwindow.cpp
     window/navwinview.cpp
     window/modules/display/displaywidget.cpp
+    window/modules/datetime/datetimemodule.cpp
+    window/modules/datetime/datetimewidget.cpp
+    window/modules/datetime/clockitem.cpp
+    window/modules/datetime/clock.cpp
      )
 
 # load interfaces
