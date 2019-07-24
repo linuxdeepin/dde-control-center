@@ -64,16 +64,16 @@ class ResolutionDetailPage : public QWidget
 public:
     explicit ResolutionDetailPage(QWidget *parent = 0);
 
-    void setModel(dcc::display::DisplayModel* mode);
+    void setModel(dcc::display::DisplayModel *mode);
 Q_SIGNALS:
-    void requestSetResolution(dcc::display::Monitor* ,int );
+    void requestSetResolution(dcc::display::Monitor *, int);
 private Q_SLOTS:
-    void refreshCurrentResolution(const Resolution&);
+    void refreshCurrentResolution(const Resolution &);
 private:
     QVBoxLayout *m_mainLayout{nullptr};
-    dcc::display::DisplayModel* m_model{nullptr};
+    dcc::display::DisplayModel *m_model{nullptr};
 
-    QListView* m_modeList{nullptr};
+    QListView *m_modeList{nullptr};
 };
 
 }   // namespace dcc

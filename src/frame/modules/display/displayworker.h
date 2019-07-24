@@ -42,13 +42,6 @@ using AppearanceInter = com::deepin::daemon::Appearance;
 using PowerInter = com::deepin::daemon::Power;
 using MouseInter = com::deepin::daemon::inputdevice::Mouse;
 
-
-
-#define CUSTOM_MODE     0
-#define MERGE_MODE      1
-#define EXTEND_MODE     2
-#define SINGLE_MODE     3
-
 namespace dcc {
 
 namespace display {

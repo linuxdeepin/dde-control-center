@@ -52,8 +52,8 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
 {
     m_model = model;
 
-    QStandardItemModel* itemModel {nullptr};
-    if (itemModel = dynamic_cast<QStandardItemModel*>(m_modeList->model())) {
+    QStandardItemModel *itemModel {nullptr};
+    if (itemModel = dynamic_cast<QStandardItemModel *>(m_modeList->model())) {
         itemModel->clear();
     }
 
@@ -91,9 +91,9 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
             static_cast<Qt::ConnectionType>(Qt::QueuedConnection | Qt::UniqueConnection));
 }
 
-void ResolutionDetailPage::refreshCurrentResolution(const Resolution&)
+void ResolutionDetailPage::refreshCurrentResolution(const Resolution &)
 {
-    if (!m_model ) {
+    if (!m_model) {
         return;
     }
 
@@ -104,5 +104,5 @@ void ResolutionDetailPage::refreshCurrentResolution(const Resolution&)
 
     auto list = mon->modeList();
     int idx = list.indexOf(mon->currentMode());
-    m_modeList->setCurrentIndex(m_modeList->model()->index(idx,0));
+    m_modeList->setCurrentIndex(m_modeList->model()->index(idx, 0));
 }

@@ -32,5 +32,5 @@ void MonitorProxyItem::paintEvent(QPaintEvent *)
 {
 //    painter->setBrush(Qt::red);
     QPainter painter(this);
-    painter.fillRect(rect(),QBrush(Qt::red));
+    painter.fillRect(rect(), QBrush(Qt::red));
 }

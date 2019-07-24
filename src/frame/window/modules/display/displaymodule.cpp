@@ -27,10 +27,12 @@
 #include "rotatedialog.h"
 #include "scalingpage.h"
 #include "multiscreensettingpage.h"
+#include "customsettingdialog.h"
 
 #include "widgets/timeoutdialog.h"
 #include "modules/display/displaymodel.h"
 #include "modules/display/displayworker.h"
+#include "modules/display/recognizedialog.h"
 
 #include <QApplication>
 
@@ -82,11 +84,14 @@ QWidget *DisplayModule::moduleWidget()
     DisplayWidget* displayWidget = new DisplayWidget;
     displayWidget->setModel(m_displayModel);
 
-    connect(displayWidget, &DisplayWidget::showScalingPage, this, &DisplayModule::showScalingPage);
-    connect(displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
-    connect(displayWidget, &DisplayWidget::showBrightnessPage, this, &DisplayModule::showBrightnessPage);
-    connect(displayWidget, &DisplayWidget::requestRotate, [ = ] { showRotate(m_displayModel->primaryMonitor()); });
-    connect(displayWidget, &DisplayWidget::showMultiScreenPage, this, &DisplayModule::showMultiScreenSettingPage);
+    connect(displayWidget, &DisplayWidget::requestShowScalingPage, this, &DisplayModule::showScalingPage);
+    connect(displayWidget, &DisplayWidget::requestShowResolutionPage, this, &DisplayModule::showResolutionDetailPage);
+    connect(displayWidget, &DisplayWidget::requestShowBrightnessPage, this, &DisplayModule::showBrightnessPage);
+    connect(displayWidget, &DisplayWidget::requestRotate, [ = ] { showRotate(nullptr); });
+    connect(displayWidget, &DisplayWidget::requestShowMultiScreenPage, this, &DisplayModule::showMultiScreenSettingPage);
+    connect(displayWidget, &DisplayWidget::requestShowCustomConfigPage, this, &DisplayModule::showCustomSettingDialog);
+    connect(displayWidget, &DisplayWidget::requsetCreateConfig, m_displayWorker, &DisplayWorker::createConfig);
+    connect(displayWidget, &DisplayWidget::requsetRecord, m_displayWorker, &DisplayWorker::record);
 
     return displayWidget;
 }
@@ -143,9 +148,31 @@ void DisplayModule::showMultiScreenSettingPage()
     m_frameProxy->pushWidget(this, page);
 }
 
+void DisplayModule::showCustomSettingDialog()
+{
+    auto displayMode = m_displayModel->displayMode();
+
+    Q_ASSERT(displayMode == CUSTOM_MODE);
+
+    for (auto mon : m_displayModel->monitorList())
+        m_displayWorker->setMonitorEnable(mon, true);
+
+    CustomSettingDialog *dlg = new CustomSettingDialog();
+
+    connect(dlg, &CustomSettingDialog::requestShowRotateDialog, this, &DisplayModule::showRotate);
+    connect(dlg, &CustomSettingDialog::requestSetResolution, this, &DisplayModule::onCustomPageRequestSetResolution);
+    connect(dlg, &CustomSettingDialog::requestMerge, m_displayWorker, &DisplayWorker::mergeScreens);
+    connect(dlg, &CustomSettingDialog::requestSplit, m_displayWorker, &DisplayWorker::splitScreens);
+    connect(dlg, &CustomSettingDialog::requestSetMonitorPosition, m_displayWorker, &DisplayWorker::setMonitorPosition);
+    connect(dlg, &CustomSettingDialog::requestRecognize, this, &DisplayModule::showRecognize);
+
+    dlg->setModel(m_displayModel);
+    dlg->exec();
+    dlg->deleteLater();
+}
+
 void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mode)
 {
-
     m_displayWorker->setMonitorResolution(mon, mode);
 
     if (showTimeoutDialog(mon) == QDialog::Accepted) {
@@ -154,6 +181,19 @@ void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mod
     }
 
     m_displayWorker->restore();
+}
+
+void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, const int mode)
+{
+    m_displayWorker->setMonitorResolution(mon, mode);
+
+    if (m_displayModel->isMerge()) {
+        return;
+    }
+
+    if (showTimeoutDialog(mon) != QDialog::Accepted) {
+        m_displayWorker->restore();
+    }
 }
 
 int DisplayModule::showTimeoutDialog(Monitor *mon)
@@ -176,18 +216,26 @@ void DisplayModule::showRotate(Monitor *mon)
 {
     RotateDialog *dialog = new RotateDialog(mon);
 
+    dialog->setModel(m_displayModel);
+
     connect(dialog, &RotateDialog::requestRotate, m_displayWorker, &DisplayWorker::setMonitorRotate);
     connect(dialog, &RotateDialog::requestRotateAll, m_displayWorker, &DisplayWorker::setMonitorRotateAll);
 
     if (QDialog::DialogCode::Accepted == dialog->exec()) {
         // if monitor list size > 1 means the config file will be saved by MonitorSettingDialog
-        ///按上面说的，旧的业务逻辑会在此保存自定义设置方案
+
 //        if (m_displayModel->monitorList().size() == 1)
 //            m_displayWorker->saveChanges();
     } else {
-
+        m_displayWorker->restore();
     }
 
     dialog->deleteLater();
 
+}
+
+void DisplayModule::showRecognize()
+{
+    RecognizeDialog dialog(m_displayModel);
+    dialog.exec();
 }

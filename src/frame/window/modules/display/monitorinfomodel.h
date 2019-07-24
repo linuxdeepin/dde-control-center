@@ -19,55 +19,49 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ROTATEDIALOG_H_V20
-#define ROTATEDIALOG_H_V20
+#ifndef MONITORINFOMODEL_H
+#define MONITORINFOMODEL_H
 
 #include "../../namespace.h"
 
-#include <QDialog>
+#include <QAbstractListModel>
 
 namespace dcc {
 
 namespace display {
-class Monitor;
 class DisplayModel;
 }
-
 }
+
 
 namespace DCC_NAMESPACE {
 
 namespace display {
 
-class RotateDialog : public QDialog
+class MonitorInfoModel : public QAbstractListModel
 {
     Q_OBJECT
-
 public:
-    explicit RotateDialog(dcc::display::Monitor *mon, QWidget *parent = 0);
-    ~RotateDialog();
-
-public:
-    void setModel(dcc::display::DisplayModel *model);
-Q_SIGNALS:
-    void requestRotate(dcc::display::Monitor *mon, const quint16 nextValue);
-    void requestRotateAll(const quint16 nextValue);
-
-protected:
-    void keyPressEvent(QKeyEvent *event) override;
-    void mouseReleaseEvent(QMouseEvent *e) override;
-    void mouseMoveEvent(QMouseEvent *e) override;
+    MonitorInfoModel(dcc::display::DisplayModel *model, QObject *parent = nullptr);
 
 private:
-    void rotate();
+    enum class Role : int {
+        monitorName,
+        size,
+        width,
+        height,
+        image
+    };
+    int rowCount(const QModelIndex &parent) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
 private:
-    bool m_changed{false};
-    dcc::display::DisplayModel *m_model{nullptr};
-    dcc::display::Monitor *m_mon{nullptr};
+    QModelIndex m_selectedIndex;
+
+    dcc::display::DisplayModel *m_model;
 };
 
-} // namespace display
+}
 
-} // namespace dcc
+}
 
-#endif // ROTATEDIALOG_H
+#endif // MONITORINFOMODEL_H

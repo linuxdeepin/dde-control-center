@@ -27,14 +27,14 @@
 #include <QWidget>
 class QModelIndex;
 
-namespace dcc{
+namespace dcc {
 
-namespace display{
-    class DisplayModel;
+namespace display {
+class DisplayModel;
 }
 
-namespace widgets{
-    class BasicListView;
+namespace widgets {
+class BasicListView;
 }
 
 }
@@ -47,17 +47,17 @@ class MultiScreenSettingPage : public QWidget
 {
     Q_OBJECT
 public:
-    explicit MultiScreenSettingPage(QWidget* parent = nullptr);
+    explicit MultiScreenSettingPage(QWidget *parent = nullptr);
 public:
     void setModel(dcc::display::DisplayModel *model);
 Q_SIGNALS:
     void requestDuplicateMode();
     void requestExtendMode();
     void requestCustom();
-    void requestOnlyMonitor(const QString&);
-    void requestConfig(const QString&);
+    void requestOnlyMonitor(const QString &);
+    void requestConfig(const QString &);
 private Q_SLOTS:
-    void onItemClicked(const QModelIndex&);
+    void onItemClicked(const QModelIndex &);
 private:
     dcc::widgets::BasicListView *m_baseListView{nullptr};
 };

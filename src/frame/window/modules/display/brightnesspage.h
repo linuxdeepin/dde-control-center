@@ -58,7 +58,7 @@ class BrightnessPage : public QWidget
 public:
     explicit BrightnessPage(QWidget *parent = 0);
 
-    void setMode(dcc::display::DisplayModel* model);
+    void setMode(dcc::display::DisplayModel *model);
 Q_SIGNALS:
     void requestSetMonitorBrightness(dcc::display::Monitor *, const double);
 
@@ -71,7 +71,7 @@ private:
     dcc::display::DisplayModel *m_displayModel{nullptr};
 
     QVBoxLayout *m_centralLayout{nullptr};
-    QList<dcc::widgets::TitledSliderItem*> m_sliders;
+    QList<dcc::widgets::TitledSliderItem *> m_sliders;
 
 
     QLabel *m_nightTips{nullptr};

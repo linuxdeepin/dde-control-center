@@ -24,14 +24,14 @@
 
 #include <QWidget>
 
-class MonitorProxyItem :public QWidget
+class MonitorProxyItem : public QWidget
 {
     Q_OBJECT
 public:
     MonitorProxyItem();
 
 protected:
-    void paintEvent(QPaintEvent* ) override;
+    void paintEvent(QPaintEvent *) override;
 };
 
 #endif // MONITORPROXYITEM_H

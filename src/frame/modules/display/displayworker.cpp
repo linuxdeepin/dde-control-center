@@ -321,10 +321,11 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 
 void DisplayWorker::setMonitorRotateAll(const quint16 rotate)
 {
+    qDebug()<<rotate;
     for (auto *mi : m_monitors)
         mi->SetRotation(rotate).waitForFinished();
 
-    m_displayInter.ApplyChanges();
+    qDebug() << m_displayInter.ApplyChanges().error();
 }
 #endif
 

@@ -31,6 +31,11 @@
 #include "monitor.h"
 #include "types/brightnessmap.h"
 
+#define CUSTOM_MODE     0
+#define MERGE_MODE      1
+#define EXTEND_MODE     2
+#define SINGLE_MODE     3
+
 namespace dcc {
 
 namespace display {

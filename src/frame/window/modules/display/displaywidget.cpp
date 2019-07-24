@@ -25,7 +25,6 @@
 #include "modules/display/displaymodel.h"
 #include "modules/display/monitor.h"
 
-
 #include <QListView>
 #include <QStandardItemModel>
 #include <QStandardItem>
@@ -64,9 +63,23 @@ void DisplayWidget::setModel(DisplayModel *model)
 
     connect(m_model, &DisplayModel::monitorListChanged, this, &DisplayWidget::onMonitorListChanged);
     connect(m_model, &DisplayModel::configListChanged, this, &DisplayWidget::onMonitorListChanged);
+    connect(m_model, &DisplayModel::configCreated, this, &DisplayWidget::requestShowCustomConfigPage);
 
     onMonitorListChanged();
 
+}
+
+void DisplayWidget::onCustomClicked()
+{
+    Q_EMIT requsetRecord();
+
+    auto displayMode = m_model->displayMode();
+
+    if (displayMode == CUSTOM_MODE && m_model->config() == m_model->DDE_Display_Config) {
+        requestShowCustomConfigPage();
+    } else {
+        Q_EMIT requsetCreateConfig(m_model->DDE_Display_Config);
+    }
 }
 
 void DisplayWidget::onMonitorListChanged()
@@ -87,16 +100,17 @@ void DisplayWidget::onMonitorListChanged()
 void DisplayWidget::initMenuUI()
 {
     m_multMenuList = {
-        {tr("Mutil-Screen"), QMetaMethod::fromSignal(&DisplayWidget::showMultiScreenPage)},
-        {tr("Brightness"), QMetaMethod::fromSignal(&DisplayWidget::showBrightnessPage)},
-        {("scaling"), QMetaMethod::fromSignal(&DisplayWidget::showScalingPage)},
-        {tr("Custom Setting"), QMetaMethod::fromSignal(&DisplayWidget::showCustomConfigPage)}
+        {tr("Mutil-Screen"), QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiScreenPage)},
+        {tr("Brightness"), QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
+        {tr("scaling"), QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)},
+        {tr("Custom Setting"), this->metaObject()->method(this->metaObject()->indexOfMethod("onCustomClicked()"))}
+//        {tr("Custom Setting"),QMetaMethod::fromSignal(&DisplayWidget::requestShowCustomConfigPage)
     };
 
     m_singleMenuList = {
-        {tr("Resolution"), QMetaMethod::fromSignal(&DisplayWidget::showResolutionPage)},
-        {tr("Brightness"), QMetaMethod::fromSignal(&DisplayWidget::showBrightnessPage)},
-        {("scaling"), QMetaMethod::fromSignal(&DisplayWidget::showScalingPage)}
+        {tr("Resolution"), QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
+        {tr("Brightness"), QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
+        {tr("scaling"), QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)}
     };
 
     QStandardItem *btn{nullptr};

@@ -56,7 +56,7 @@ public:
 public:
     void setModel(dcc::display::DisplayModel *model);
 private Q_SLOTS:
-
+    void onCustomClicked();
     void onMonitorListChanged();
     void onMenuClicked(const QModelIndex &);
 
@@ -65,12 +65,15 @@ public:
     static float convertToScale(const int value);
 
 Q_SIGNALS: Q_SIGNALS:
-    void showMultiScreenPage() const;
-    void showResolutionPage() const;
-    void showBrightnessPage() const;
-    void showScalingPage() const;
-    void showCustomConfigPage() const;
+    void requestShowMultiScreenPage() const;
+    void requestShowResolutionPage() const;
+    void requestShowBrightnessPage() const;
+    void requestShowScalingPage() const;
+    void requestShowCustomConfigPage() const;
     void requestRotate() const;
+
+    void requsetCreateConfig(const QString &) const;
+    void requsetRecord() const;
 private:
     void initMenuUI();
 

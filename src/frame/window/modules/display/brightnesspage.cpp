@@ -41,8 +41,8 @@ namespace display {
 
 BrightnessPage::BrightnessPage(QWidget *parent)
     : QWidget(parent)
-    ,m_centralLayout(new QVBoxLayout)
-    ,m_nightTips(new QLabel)
+    , m_centralLayout(new QVBoxLayout)
+    , m_nightTips(new QLabel)
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
@@ -69,7 +69,7 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     setLayout(m_centralLayout);
 }
 
-void BrightnessPage::setMode(DisplayModel* model)
+void BrightnessPage::setMode(DisplayModel *model)
 {
     m_displayModel = model;
 
@@ -102,8 +102,7 @@ void BrightnessPage::addSlider()
     auto monList = m_displayModel->monitorList();
 
     QString title = tr("Display scaling for all monitors");
-    for (int i = 0; i < monList.size(); ++i)
-    {
+    for (int i = 0; i < monList.size(); ++i) {
         monList[i]->brightness();
 
 
@@ -116,13 +115,15 @@ void BrightnessPage::addSlider()
         slider->setType(DCCSlider::Vernier);
         slider->setTickPosition(QSlider::TicksBelow);
         slider->setTickInterval(1);
-        slider->setSliderPosition(int(monList[i]->brightness()*100));
+        slider->setSliderPosition(int(monList[i]->brightness() * 100));
         slider->setPageStep(1);
 
-        connect(slider, &DCCSlider::sliderMoved, this, [=](int pos){
-            double val = pos/100.0;
-            Q_EMIT requestSetMonitorBrightness(monList[i],val);
-        });
+        auto slotfunc = [ = ](int pos) {
+            double val = pos / 100.0;
+            Q_EMIT requestSetMonitorBrightness(monList[i], val);
+        };
+        connect(slider, &DCCSlider::valueChanged, this, slotfunc);
+        connect(slider, &DCCSlider::sliderMoved, this, slotfunc);
 
         m_centralLayout->addWidget(slideritem);
     }
