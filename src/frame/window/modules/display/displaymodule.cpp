@@ -100,6 +100,7 @@ void DisplayModule::showBrightnessPage()
 
     BrightnessPage *page = new BrightnessPage;
     page->setMode(m_displayModel);
+    connect(page,&BrightnessPage::requestSetMonitorBrightness,m_displayWorker,&DisplayWorker::setMonitorBrightness);
 
     m_frameProxy->pushWidget(this, page);
 }
@@ -107,7 +108,9 @@ void DisplayModule::showBrightnessPage()
 void DisplayModule::showResolutionDetailPage()
 {
     ResolutionDetailPage *page = new ResolutionDetailPage;
+    page->setModel(m_displayModel);
 
+    connect(page,&ResolutionDetailPage::requestSetResolution,this,&DisplayModule::onDetailPageRequestSetResolution);
     m_frameProxy->pushWidget(this, page);
 }
 
@@ -124,6 +127,7 @@ void DisplayModule::showScalingPage()
 
 void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mode)
 {
+
     m_displayWorker->setMonitorResolution(mon, mode);
 
     if (showTimeoutDialog(mon) == QDialog::Accepted) {

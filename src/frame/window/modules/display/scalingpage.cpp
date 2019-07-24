@@ -28,7 +28,6 @@
 #include "widgets/dccslider.h"
 #include "widgets/settingsheaderitem.h"
 #include "widgets/settingsgroup.h"
-#include "widgets/labels/tipslabel.h"
 
 using namespace dcc::display;
 using namespace dcc::widgets;
@@ -43,15 +42,16 @@ ScalingPage::ScalingPage(QWidget *parent)
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
+    m_centralLayout->addSpacing(10);
 
-    TipsLabel *tip = new TipsLabel(tr("Some applications in multi-screens may not scale as the settings."), this);
-    tip->setWordWrap(true);
-    tip->setContentsMargins(16, 5, 10, 5);
+    QLabel *tip = new QLabel(tr("Some applications in multi-screens may not scale as the settings."), this);
+//    tip->setFixedHeight(80);
+//    tip->setWordWrap(true);
+//    tip->setContentsMargins(16, 5, 10, 5);
     tip->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     tip->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
 
     m_centralLayout->addWidget(tip);
-    m_centralLayout->addStretch(0);
 
     setLayout(m_centralLayout);
 }
@@ -61,6 +61,7 @@ void ScalingPage::setModel(DisplayModel *model)
     m_displayModel = model;
 
     setupSliders();
+    m_centralLayout->addStretch(1);
 }
 
 void ScalingPage::setupSliders()
@@ -74,6 +75,7 @@ void ScalingPage::setupSliders()
 
 void ScalingPage::addSlider(int monitorID)
 {
+    qDebug()<<"set scaling"<<~monitorID;
     m_sliders.push_back(
         new TitledSliderItem(
             ~monitorID ? tr("Display scaling for %1").arg(m_displayModel->monitorList()[monitorID]->name())

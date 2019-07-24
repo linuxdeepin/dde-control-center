@@ -35,6 +35,7 @@ namespace dcc {
 
 namespace widgets {
 class TipsLabel;
+class SwitchWidget;
 }
 
 namespace display {
@@ -57,7 +58,7 @@ public:
 
     void setMode(dcc::display::DisplayModel* model);
 Q_SIGNALS:
-
+    void requestSetMonitorBrightness(dcc::display::Monitor *, const double);
 private:
     void addSlider();
 private:
@@ -65,6 +66,9 @@ private:
 
     QVBoxLayout *m_centralLayout{nullptr};
     QList<dcc::widgets::TitledSliderItem*> m_sliders;
+
+    dcc::widgets::SwitchWidget *m_nightMode{nullptr};
+    dcc::widgets::SwitchWidget *m_autoLightMode{nullptr};
 };
 
 }

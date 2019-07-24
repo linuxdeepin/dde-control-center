@@ -32,6 +32,9 @@
 
 #include <dimagebutton.h>
 
+class QListView;
+class QStandardItemModel;
+
 namespace dcc {
 
 namespace display {
@@ -53,26 +56,32 @@ public:
 public:
     void setModel(dcc::display::DisplayModel *model);
 private Q_SLOTS:
-    void onMonitorListChanged() const;
+
+    void onMonitorListChanged();
+    void onMenuClicked(const QModelIndex &);
 
 public:
     static int convertToSlider(const float value);
     static float convertToScale(const int value);
 
 Q_SIGNALS: Q_SIGNALS:
-    void showScalingPage() const;
+    void showMultiScreenPage() const;
     void showResolutionPage() const;
     void showBrightnessPage() const;
+    void showScalingPage() const;
+    void showCustomConfigPage() const;
     void requestRotate() const;
 private:
-    dcc::display::DisplayModel                    *m_model{nullptr};
-
+    void initMenuUI();
 private:
-    DTK_WIDGET_NAMESPACE::DImageButton                    *m_rotate{nullptr};
-    QPushButton *m_multiScreens{nullptr};
-    QPushButton *m_customSetting{nullptr};
-
+    dcc::display::DisplayModel *m_model{nullptr};
+    DTK_WIDGET_NAMESPACE::DImageButton *m_rotate{nullptr};
     QVBoxLayout *m_centralLayout{nullptr};
+    QListView *m_menuList{nullptr};
+    QStandardItemModel *m_multiModel{nullptr};
+    QStandardItemModel *m_singleModel{nullptr};
+
+    bool m_isMultiScreen{true};
 };
 
 }  // namespace display

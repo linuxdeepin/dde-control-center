@@ -30,7 +30,10 @@
 
 #include <QMap>
 #include <QWidget>
-#include <QVBoxLayout>
+
+class QVBoxLayout;
+class QListView;
+class QPushButton;
 
 namespace dcc {
 
@@ -60,13 +63,16 @@ class ResolutionDetailPage : public QWidget
 public:
     explicit ResolutionDetailPage(QWidget *parent = 0);
 
-
+    void setModel(dcc::display::DisplayModel* mode);
 Q_SIGNALS:
-
+    void requestSetResolution(dcc::display::Monitor* ,int );
 private Q_SLOTS:
 
 private:
     QVBoxLayout *m_mainLayout{nullptr};
+    dcc::display::DisplayModel* m_model{nullptr};
+
+    QListView* m_modeList{nullptr};
 };
 
 }   // namespace dcc

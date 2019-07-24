@@ -28,6 +28,7 @@
 #include "widgets/settingsheaderitem.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/dccslider.h"
+#include "widgets/switchwidget.h"
 
 using namespace dcc::widgets;
 using namespace dcc::display;
@@ -44,6 +45,24 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_centralLayout->setSpacing(10);
     m_centralLayout->addSpacing(10);
 
+    QLabel *tip = new QLabel(tr("The screen tone will be auto adjusted by help of figuring out your location to protect eyes"));
+    tip->setWordWrap(true);
+    tip->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    tip->adjustSize();
+    tip->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+    m_centralLayout->addWidget(tip);
+
+    m_nightMode = new SwitchWidget;
+    m_nightMode->setTitle(tr("Night Shift"));
+    m_centralLayout->addWidget(m_nightMode);
+
+    m_autoLightMode = new SwitchWidget;
+    m_autoLightMode->setTitle(tr("Auto Brightness"));
+    m_centralLayout->addWidget(m_autoLightMode);
+
+    setMinimumWidth(300);
+
     setLayout(m_centralLayout);
 }
 
@@ -52,6 +71,7 @@ void BrightnessPage::setMode(DisplayModel* model)
     m_displayModel = model;
 
     addSlider();
+    m_centralLayout->addStretch(1);
 }
 
 void BrightnessPage::addSlider()
@@ -63,25 +83,23 @@ void BrightnessPage::addSlider()
     {
         monList[i]->brightness();
 
-        QStringList scaleList;
-        scaleList << "0%"
-                  << "20%"
-                  << "40%"
-                  << "60%"
-                  << "80%"
-                  << "100%";
 
         //单独显示每个亮度调节名
-        title = i ? title : tr("Display scaling for %1").arg(monList[i]->name());
+        title = 1 == monList.size() ? title : tr("Display scaling for %1").arg(monList[i]->name());
 
         TitledSliderItem *slideritem = new TitledSliderItem(title);
         DCCSlider *slider = slideritem->slider();
-//        slider->setRange(1, 9);/
+        slider->setRange(0, 100);
         slider->setType(DCCSlider::Vernier);
         slider->setTickPosition(QSlider::TicksBelow);
         slider->setTickInterval(1);
+        slider->setSliderPosition(int(monList[i]->brightness()*100));
         slider->setPageStep(1);
-        slideritem->setAnnotations(scaleList);
+
+        connect(slider, &DCCSlider::sliderMoved, this, [=](int pos){
+            double val = pos/100.0;
+            Q_EMIT requestSetMonitorBrightness(monList[i],val);
+        });
 
         m_centralLayout->addWidget(slideritem);
     }
