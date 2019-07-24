@@ -387,6 +387,9 @@ set(DEFAPP_FILES
                 modules/defapp/defaultappsmodule.h
                 modules/defapp/defcategorywidget.cpp
                 modules/defapp/defcategorywidget.h
+
+                window/modules/defapp/defappwidget.cpp
+                window/modules/defapp/defaultappsmodule.cpp
 )
 
 # load display

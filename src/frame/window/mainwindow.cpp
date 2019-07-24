@@ -33,6 +33,7 @@
 #include "modules/sync/syncmodule.h"
 #include "modules/systeminfo/systeminfomodule.h"
 #include "modules/network/networkmodule.h"
+#include "modules/defapp/defaultappsmodule.h"
 #include "moduleinitthread.h"
 
 #include "mainwindow.h"
@@ -46,6 +47,7 @@
 using namespace DCC_NAMESPACE;
 using namespace sync;
 using namespace datetime;
+using namespace defapp;
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
@@ -135,7 +137,7 @@ void MainWindow::tryLoadModule(NavModel::ModuleType type)
 //        loadModule(new DisplayModule(this));
         break;
     case NavModel::Defapp:
-//        loadModule(new DefaultAppsModule(this));
+        loadModule(new DefaultAppsModule(this));
         break;
     case NavModel::Personalization:
 //        loadModule(new PersonalizationModule(this));
