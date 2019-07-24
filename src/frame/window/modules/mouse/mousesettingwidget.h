@@ -25,26 +25,24 @@
 #include "widgets/contentwidget.h"
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QWidget>
 
-namespace dcc
-{
-namespace mouse
-{
+namespace dcc {
+namespace mouse {
 class MouseModel;
+class MouseWorker;
 }
 
-namespace widgets
-{
+namespace widgets {
 class SettingsGroup;
 class SwitchWidget;
 class TitledSliderItem;
 }
+}
 
-namespace DCC_NAMESPACE
-{
-namespace mouse
-{
-class MouseSettingWidget : public dcc::ContentWidget
+namespace DCC_NAMESPACE {
+namespace mouse {
+class MouseSettingWidget : public QWidget
 {
     Q_OBJECT
 public:
@@ -55,6 +53,7 @@ Q_SIGNALS:
     void requestSetAccelProfile(const bool state);
     void requestSetDisTouchPad(const bool state);
     void requestSetMouseNaturalScroll(const bool state);
+
 private:
     void onMouseMoveSpeedChanged(int speed);
 private:

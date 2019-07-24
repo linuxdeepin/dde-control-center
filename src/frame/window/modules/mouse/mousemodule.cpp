@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     andywang <wangwei_cm@deepin.com>
  *
@@ -21,16 +21,17 @@
 
 #include "mousemodule.h"
 #include "mousewidget.h"
-#include "../../../modules/mouse/mousemodel.h"
-#include "../../../modules/mouse/mouseworker.h"
+#include "modules/mouse/mousemodel.h"
+#include "modules/mouse/mouseworker.h"
 #include "widgets/contentwidget.h"
-//#include "generalsettingwidget.h"
-//#include "mousesettingwidget.h"
-//#include "touchpadsettingwidget.h"
+#include "generalsettingwidget.h"
+#include "mousesettingwidget.h"
+#include "touchpadsettingwidget.h"
 //#include "palmdetectsettingwidget.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::mouse;
+using namespace dcc::mouse;
 
 MouseModule::MouseModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
@@ -51,6 +52,7 @@ void MouseModule::initialize()
     m_worker = new dcc::mouse::MouseWorker(m_model);
     m_model->moveToThread(qApp->thread());
     m_worker->moveToThread(qApp->thread());
+    m_worker->init();
 }
 
 void MouseModule::reset()
@@ -62,9 +64,9 @@ QWidget *MouseModule::moduleWidget()
 {
     if (!m_mouseWidget) {
         m_mouseWidget = new MouseWidget;
-//        connect(m_mouseWidget, &MouseWidget::showGeneralSetting, this, &MouseModule::showGeneralSetting);
-//        connect(m_mouseWidget, &MouseWidget::showMouseSetting, this, &MouseModule::showMouseSetting);
-//        connect(m_mouseWidget, &MouseWidget::showTouchpadSetting, this, &MouseModule::showTouchpadSetting);
+        connect(m_mouseWidget, &MouseWidget::showGeneralSetting, this, &MouseModule::showGeneralSetting);
+        connect(m_mouseWidget, &MouseWidget::showMouseSetting, this, &MouseModule::showMouseSetting);
+        connect(m_mouseWidget, &MouseWidget::showTouchpadSetting, this, &MouseModule::showTouchpadSetting);
         // connect(m_mouseWidget, &MouseWidget::showPalmdetectSetting, this, &MouseModule::showPalmdetectSetting);
     }
     return m_mouseWidget;
@@ -72,23 +74,40 @@ QWidget *MouseModule::moduleWidget()
 
 void MouseModule::showGeneralSetting()
 {
-//    m_generalSettingWidget = new GeneralSettingWidget;
-//    m_generalSettingWidget->setModel(m_model);
-//    m_frameProxy->pushWidget(this, m_generalSettingWidget);
+    m_generalSettingWidget = new GeneralSettingWidget;
+    m_generalSettingWidget->setModel(m_model);
+
+    connect(m_generalSettingWidget, &GeneralSettingWidget::requestSetLeftHand, m_worker, &MouseWorker::onLeftHandStateChanged);
+    connect(m_generalSettingWidget, &GeneralSettingWidget::requestSetDisTyping, m_worker, &MouseWorker::onDisTypingChanged);
+    connect(m_generalSettingWidget, &GeneralSettingWidget::requestScrollSpeed, m_worker, &MouseWorker::setScrollSpeed);
+    connect(m_generalSettingWidget, &GeneralSettingWidget::requestSetDouClick, m_worker, &MouseWorker::onDouClickChanged);
+
+    m_frameProxy->pushWidget(this, m_generalSettingWidget);
 }
 
 void MouseModule::showMouseSetting()
 {
-//    m_mouseSettingWidget = new MouseSettingWidget;
-//    m_mouseSettingWidget->setModel(m_model);
-//    m_frameProxy->pushWidget(this, m_mouseSettingWidget);
+    m_mouseSettingWidget = new MouseSettingWidget;
+    m_mouseSettingWidget->setModel(m_model);
+
+    connect(m_mouseSettingWidget, &MouseSettingWidget::requestSetMouseMotionAcceleration, m_worker, &MouseWorker::onMouseMotionAccelerationChanged);
+    connect(m_mouseSettingWidget, &MouseSettingWidget::requestSetAccelProfile, m_worker, &MouseWorker::onAccelProfileChanged);
+    connect(m_mouseSettingWidget, &MouseSettingWidget::requestSetDisTouchPad, m_worker, &MouseWorker::onDisTouchPadChanged);
+    connect(m_mouseSettingWidget, &MouseSettingWidget::requestSetMouseNaturalScroll, m_worker, &MouseWorker::onMouseNaturalScrollStateChanged);
+
+    m_frameProxy->pushWidget(this, m_mouseSettingWidget);
 }
 
 void MouseModule::showTouchpadSetting()
 {
-//    m_touchpadSettingWidget = new TouchPadSettingWidget;
-//    m_touchpadSettingWidget->setModel(m_model);
-//    m_frameProxy->pushWidget(this, m_touchpadSettingWidget);
+    m_touchpadSettingWidget = new TouchPadSettingWidget;
+    m_touchpadSettingWidget->setModel(m_model);
+
+    connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestSetTouchpadMotionAcceleration, m_worker, &MouseWorker::onTouchpadMotionAccelerationChanged);
+    connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestSetTapClick, m_worker, &MouseWorker::onTapClick);
+    connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestSetTouchNaturalScroll, m_worker, &MouseWorker::onTouchNaturalScrollStateChanged);
+
+    m_frameProxy->pushWidget(this, m_touchpadSettingWidget);
 }
 
 void MouseModule::showPalmdetectSetting()

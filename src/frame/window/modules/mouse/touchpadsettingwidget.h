@@ -18,34 +18,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef MOUSEGENERALWIDGET_H
-#define MOUSEGENERALWIDGET_H
+#ifndef TOUCHPADSETTINGWIDGET_H
+#define TOUCHPADSETTINGWIDGET_H
 
-#include "widgets/contentwidget.h"
+#include "window/namespace.h"
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QWidget>
 
-namespace dcc
-{
-namespace mouse
-{
+namespace dcc {
+namespace mouse {
 class MouseModel;
+class MouseWorker;
 class DouTestWidget;
 }
 
-namespace widgets
-{
+namespace widgets {
 class SettingsGroup;
 class SwitchWidget;
 class TitledSliderItem;
 }
 }
 
-namespace DCC_NAMESPACE
-{
-namespace mouse
-{
-
+namespace DCC_NAMESPACE {
+namespace mouse {
 class TouchPadSettingWidget : public QWidget
 {
     Q_OBJECT
@@ -53,10 +49,11 @@ public:
     explicit TouchPadSettingWidget(QWidget *parent = 0);
     void setModel(dcc::mouse::MouseModel *const model);
 Q_SIGNALS:
-    void requestSetLeftHand(const bool state);
-    void requestSetDisTyping(const bool state);
-    void requestScrollSpeed(int speed);
-    void requestSetDouClick(const int &value);
+    void requestSetTouchpadMotionAcceleration(const int &value);
+    void requestSetTapClick(const bool state);
+    void requestSetTouchNaturalScroll(const bool state);
+private:
+    void onTouchMoveSpeedChanged(int speed);
 private:
     dcc::mouse::MouseModel *m_mouseModel;
 
@@ -69,4 +66,4 @@ private:
 };
 }
 }
-#endif // MOUSEGENERALWIDGET_H
+#endif // TOUCHPADSETTINGWIDGET_H

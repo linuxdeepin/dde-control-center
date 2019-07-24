@@ -22,36 +22,30 @@
 #define GENERALSETTINGWIDGET_H
 
 #include "window/namespace.h"
-#include "widgets/contentwidget.h"
 #include <QPushButton>
 #include <QVBoxLayout>
 
-namespace dcc
-{
-namespace mouse
-{
+namespace dcc {
+namespace mouse {
 class MouseModel;
+class MouseWorker;
 class DouTestWidget;
 }
 
-namespace widgets
-{
+namespace widgets {
 class SettingsGroup;
 class SwitchWidget;
 class TitledSliderItem;
 }
 }
 
-namespace DCC_NAMESPACE
-{
-namespace mouse
-{
+namespace DCC_NAMESPACE {
+namespace mouse {
 class GeneralSettingWidget : public QWidget
 {
     Q_OBJECT
 public:
     explicit GeneralSettingWidget(QWidget *parent = 0);
-    virtual ~GeneralSettingWidget();
     void setModel(dcc::mouse::MouseModel *const model);
 Q_SIGNALS:
     void requestSetLeftHand(const bool state);
@@ -60,7 +54,7 @@ Q_SIGNALS:
     void requestSetDouClick(const int &value);
 private:
     dcc::mouse::MouseModel *m_mouseModel;
-    dcc::widgets::SettingsGroup *m_baseSettingsGrp;
+    dcc::widgets::SettingsGroup *m_generalSettingsGrp;
 
     dcc::widgets::SwitchWidget *m_leftHand;
     dcc::widgets::SwitchWidget *m_disInTyping;

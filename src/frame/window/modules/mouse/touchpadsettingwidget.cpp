@@ -22,19 +22,21 @@
 #include "widgets/switchwidget.h"
 #include "widgets/contentwidget.h"
 #include "widgets/settingsgroup.h"
-#include "../../../modules/mouse/widget/palmdetectsetting.h"
 #include "widgets/dccslider.h"
-#include "../../../modules/mouse/widget/doutestwidget.h"
-#include "../../../modules/mouse/mousemodel.h"
+#include "modules/mouse/widget/palmdetectsetting.h"
+#include "modules/mouse/widget/doutestwidget.h"
+#include "modules/mouse/mousemodel.h"
+#include "modules/mouse/mouseworker.h"
 #include <QPushButton>
 #include <QDebug>
 #include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
+using namespace DCC_NAMESPACE::mouse;
 using namespace dcc::mouse;
 using namespace dcc::widgets;
 
-TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : ContentWidget(parent)
+TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : QWidget(parent)
 {
     m_touchpadSettingsGrp = new SettingsGroup;
 
@@ -42,18 +44,44 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : ContentWidget(pa
     m_touchClickStn = new SwitchWidget(tr("Tap to Click"));
     m_touchNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
 
+    QStringList touchMoveList;
+    touchMoveList << tr("Slow") << "" << "" << "" << "" << "" << tr("Fast");
+
+    DCCSlider *touchSlider = m_touchMoveSlider->slider();
+    touchSlider->setType(DCCSlider::Vernier);
+    touchSlider->setTickPosition(QSlider::TicksBelow);
+    touchSlider->setRange(0, 6);
+    touchSlider->setTickInterval(1);
+    touchSlider->setPageStep(1);
+    m_touchMoveSlider->setAnnotations(touchMoveList);
+
     m_touchpadSettingsGrp->appendItem(m_touchMoveSlider);
     m_touchpadSettingsGrp->appendItem(m_touchClickStn);
     m_touchpadSettingsGrp->appendItem(m_touchNaturalScroll);
 
     m_contentLayout = new QVBoxLayout();
     m_contentLayout->addWidget(m_touchpadSettingsGrp);
-    TranslucentFrame *w = new TranslucentFrame;
-    w->setLayout(m_contentLayout);
-    setContent(w);
+    setLayout(m_contentLayout);
+
+    connect(m_touchMoveSlider->slider(), &DCCSlider::valueChanged, this, &TouchPadSettingWidget::requestSetTouchpadMotionAcceleration);
+    connect(m_touchClickStn, &SwitchWidget::checkedChanged, this, &TouchPadSettingWidget::requestSetTapClick);
+    connect(m_touchNaturalScroll, &SwitchWidget::checkedChanged, this, &TouchPadSettingWidget::requestSetTouchNaturalScroll);
 }
 
-void TouchPadSettingWidget::setModel(MouseModel *const model)
+void TouchPadSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 {
     m_mouseModel = model;
+    connect(model, &MouseModel::tpadMoveSpeedChanged, this, &TouchPadSettingWidget::onTouchMoveSpeedChanged);
+    connect(model, &MouseModel::tapClickChanged, m_touchClickStn, &SwitchWidget::setChecked);
+    connect(model, &MouseModel::tpadNaturalScrollChanged, m_touchNaturalScroll, &SwitchWidget::setChecked);
+    onTouchMoveSpeedChanged(m_mouseModel->tpadMoveSpeed());
+    m_touchClickStn->setChecked(m_mouseModel->tapclick());
+    m_touchNaturalScroll->setChecked(m_mouseModel->tpadNaturalScroll());
+}
+
+void TouchPadSettingWidget::onTouchMoveSpeedChanged(int speed)
+{
+    m_touchMoveSlider->slider()->blockSignals(true);
+    m_touchMoveSlider->slider()->setValue(speed);
+    m_touchMoveSlider->slider()->blockSignals(false);
 }

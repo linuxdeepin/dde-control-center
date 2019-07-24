@@ -20,12 +20,12 @@
  */
 #include "generalsettingwidget.h"
 #include "widgets/switchwidget.h"
-#include "widgets/contentwidget.h"
 #include "widgets/settingsgroup.h"
-#include "../../../modules/mouse/widget/palmdetectsetting.h"
 #include "widgets/dccslider.h"
-#include "../../../modules/mouse/widget/doutestwidget.h"
-#include "../../../modules/mouse/mousemodel.h"
+#include "modules/mouse/widget/palmdetectsetting.h"
+#include "modules/mouse/widget/doutestwidget.h"
+#include "modules/mouse/mousemodel.h"
+#include "modules/mouse/mouseworker.h"
 #include <QPushButton>
 #include <QDebug>
 #include <QVBoxLayout>
@@ -35,9 +35,12 @@ using namespace DCC_NAMESPACE::mouse;
 using namespace dcc::mouse;
 using namespace dcc::widgets;
 
-GeneralSettingWidget::GeneralSettingWidget(QWidget *parent) : QWidget(parent)
+GeneralSettingWidget::GeneralSettingWidget(QWidget *parent) :
+    QWidget(parent),
+    m_mouseModel(nullptr),
+    m_generalSettingsGrp(nullptr)
 {
-    m_baseSettingsGrp = new SettingsGroup;
+    m_generalSettingsGrp = new SettingsGroup;
 
     m_leftHand = new SwitchWidget(tr("Left Hand"));
     m_disInTyping = new SwitchWidget(tr("Disable the touchpad while typing"));
@@ -45,34 +48,47 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent) : QWidget(parent)
     m_doubleSlider = new TitledSliderItem(tr("Double-click Speed"));
     m_doubleTest = new DouTestWidget;
 
-    m_baseSettingsGrp->appendItem(m_leftHand);
-    m_baseSettingsGrp->appendItem(m_disInTyping);
-    m_baseSettingsGrp->appendItem(m_scrollSpeedSlider);
-    m_baseSettingsGrp->appendItem(m_doubleSlider);
-    m_baseSettingsGrp->appendItem(m_doubleTest);
+    DCCSlider *speedSlider = m_scrollSpeedSlider->slider();
+    speedSlider->setType(DCCSlider::Vernier);
+    speedSlider->setTickPosition(QSlider::TicksBelow);
+    speedSlider->setRange(1, 10);
+    speedSlider->setTickInterval(1);
+    speedSlider->setPageStep(1);
+    QStringList speedList;
+    for (int i(1); i <= 10; i++) {
+        speedList << QString::number(i);
+    }
+    m_scrollSpeedSlider->setAnnotations(speedList);
+
+    QStringList doublelist;
+    doublelist << tr("Slow") << "" << "" << "" << "" << "" << tr("Fast");
+    DCCSlider *doubleSlider = m_doubleSlider->slider();
+    doubleSlider->setType(DCCSlider::Vernier);
+    doubleSlider->setTickPosition(QSlider::TicksBelow);
+    doubleSlider->setRange(0, 6);
+    doubleSlider->setTickInterval(1);
+    doubleSlider->setPageStep(1);
+    m_doubleSlider->setAnnotations(doublelist);
+
+    m_generalSettingsGrp->appendItem(m_leftHand);
+    m_generalSettingsGrp->appendItem(m_disInTyping);
+    m_generalSettingsGrp->appendItem(m_scrollSpeedSlider);
+    m_generalSettingsGrp->appendItem(m_doubleSlider);
+    m_generalSettingsGrp->appendItem(m_doubleTest);
 
     m_contentLayout = new QVBoxLayout();
-    m_contentLayout->addWidget(m_baseSettingsGrp);
+    m_contentLayout->addWidget(m_generalSettingsGrp);
     setLayout(m_contentLayout);
+
     connect(m_leftHand, &SwitchWidget::checkedChanged, this, &GeneralSettingWidget::requestSetLeftHand);
     connect(m_disInTyping, &SwitchWidget::checkedChanged, this, &GeneralSettingWidget::requestSetDisTyping);
     connect(m_scrollSpeedSlider->slider(), &DCCSlider::valueChanged, this, &GeneralSettingWidget::requestScrollSpeed);
     connect(m_doubleSlider->slider(), &DCCSlider::valueChanged, this, &GeneralSettingWidget::requestSetDouClick);
 }
 
-GeneralSettingWidget::~GeneralSettingWidget()
-{
-    qDebug() << "destory GeneralSettingWidget";
-    if (m_baseSettingsGrp) {
-        delete m_baseSettingsGrp;
-        m_baseSettingsGrp = nullptr;
-    }
-}
-
 void GeneralSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 {
     m_mouseModel = model;
-
     connect(model, &MouseModel::leftHandStateChanged, m_leftHand, &SwitchWidget::setChecked);
     connect(model, &MouseModel::disIfTypingStateChanged, m_disInTyping, &SwitchWidget::setChecked);
     m_leftHand->setChecked(model->leftHandState());

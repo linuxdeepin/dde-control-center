@@ -518,9 +518,11 @@ set(KEYBOARD_FILES
 
 # load mouse
 set(MOUSE_FILES
-                modules/mouse/mousemodule.cpp
                 modules/mouse/mousemodule.h
+                modules/mouse/mousemodule.cpp
+                modules/mouse/mousewidget.h
                 modules/mouse/mousewidget.cpp
+                modules/mouse/mouseworker.h
                 modules/mouse/mouseworker.cpp
                 modules/mouse/widget/doutestwidget.cpp
                 modules/mouse/widget/doutestwidget.h
@@ -528,19 +530,17 @@ set(MOUSE_FILES
                 modules/mouse/widget/palmdetectsetting.h
                 modules/mouse/mousemodel.cpp
                 modules/mouse/mousemodel.h
-                modules/mouse/mousewidget.h
-                modules/mouse/mouseworker.h
 
-                #window/modules/mouse/generalsettingwidget.h
-                #window/modules/mouse/generalsettingwidget.cpp
-                #window/modules/mouse/mousesettingwidget.h
-                #window/modules/mouse/mousesettingwidget.cpp
-                #window/modules/mouse/touchpadsettingwidget.h
-                #window/modules/mouse/touchpadsettingwidget.cpp
                 window/modules/mouse/mousemodule.h
                 window/modules/mouse/mousemodule.cpp
                 window/modules/mouse/mousewidget.h
                 window/modules/mouse/mousewidget.cpp
+                window/modules/mouse/generalsettingwidget.h
+                window/modules/mouse/generalsettingwidget.cpp
+                window/modules/mouse/mousesettingwidget.h
+                window/modules/mouse/mousesettingwidget.cpp
+                window/modules/mouse/touchpadsettingwidget.h
+                window/modules/mouse/touchpadsettingwidget.cpp
 )
 
 # load network

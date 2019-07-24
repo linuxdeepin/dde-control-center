@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     andywang <wangwei_cm@deepin.com>
  *
@@ -25,19 +25,15 @@
 #include "window/interface/moduleinterface.h"
 #include <QObject>
 
-namespace dcc
-{
-namespace mouse
-{
+namespace dcc {
+namespace mouse {
 class MouseModel;
 class MouseWorker;
 }
 }
 
-namespace DCC_NAMESPACE
-{
-namespace mouse
-{
+namespace DCC_NAMESPACE {
+namespace mouse {
 class MouseWidget;
 class GeneralSettingWidget;
 class MouseSettingWidget;

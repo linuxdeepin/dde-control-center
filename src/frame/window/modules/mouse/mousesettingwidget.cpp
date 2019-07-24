@@ -22,19 +22,21 @@
 #include "widgets/switchwidget.h"
 #include "widgets/contentwidget.h"
 #include "widgets/settingsgroup.h"
-#include "../../../modules/mouse/widget/palmdetectsetting.h"
 #include "widgets/dccslider.h"
-#include "../../../modules/mouse/widget/doutestwidget.h"
-#include "../../../modules/mouse/mousemodel.h"
+#include "modules/mouse/widget/palmdetectsetting.h"
+#include "modules/mouse/widget/doutestwidget.h"
+#include "modules/mouse/mousemodel.h"
+#include "modules/mouse/mouseworker.h"
 #include <QPushButton>
 #include <QDebug>
 #include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
+using namespace DCC_NAMESPACE::mouse;
 using namespace dcc::mouse;
 using namespace dcc::widgets;
 
-MouseSettingWidget::MouseSettingWidget(QWidget *parent) : ContentWidget(parent)
+MouseSettingWidget::MouseSettingWidget(QWidget *parent) : QWidget(parent)
 {
     m_mouseSettingsGrp = new SettingsGroup;
 
@@ -43,6 +45,16 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : ContentWidget(parent)
     m_disTchStn = new SwitchWidget(tr("Disable the touchpad when inserting the mouse"));
     m_mouseNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
 
+    QStringList speedList;
+    speedList << tr("Slow") << "" << "" << "" << "" << "" << tr("Fast");
+    DCCSlider *speedSlider = m_mouseMoveSlider->slider();
+    speedSlider->setType(DCCSlider::Vernier);
+    speedSlider->setTickPosition(QSlider::TicksBelow);
+    speedSlider->setRange(0, 6);
+    speedSlider->setTickInterval(1);
+    speedSlider->setPageStep(1);
+    m_mouseMoveSlider->setAnnotations(speedList);
+
     m_mouseSettingsGrp->appendItem(m_mouseMoveSlider);
     m_mouseSettingsGrp->appendItem(m_adaptiveAccelProfile);
     m_mouseSettingsGrp->appendItem(m_disTchStn);
@@ -50,16 +62,15 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : ContentWidget(parent)
 
     m_contentLayout = new QVBoxLayout();
     m_contentLayout->addWidget(m_mouseSettingsGrp);
-    TranslucentFrame *w = new TranslucentFrame;
-    w->setLayout(m_contentLayout);
-    setContent(w);
+    setLayout(m_contentLayout);
+
     connect(m_mouseMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseSettingWidget::requestSetMouseMotionAcceleration);
     connect(m_adaptiveAccelProfile, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetAccelProfile);
     connect(m_disTchStn, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetDisTouchPad);
     connect(m_mouseNaturalScroll, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetMouseNaturalScroll);
 }
 
-void MouseSettingWidget::setModel(MouseModel *const model)
+void MouseSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 {
     m_mouseModel = model;
 

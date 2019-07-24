@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     andywang <wangwei_cm@deepin.com>
  *
@@ -26,20 +26,16 @@
 #include <QVBoxLayout>
 #include <QListView>
 
-namespace dcc
-{
-namespace widgets
-{
+namespace dcc {
+namespace widgets {
 class SettingsGroup;
 class SwitchWidget;
 class TitledSliderItem;
 }
 }
 
-namespace DCC_NAMESPACE
-{
-namespace mouse
-{
+namespace DCC_NAMESPACE {
+namespace mouse {
 class MouseModel;
 class MouseWidget : public QWidget
 {

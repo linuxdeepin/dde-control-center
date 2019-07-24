@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     andywang <wangwei_cm@deepin.com>
  *
@@ -23,10 +23,10 @@
 #include "widgets/switchwidget.h"
 #include "widgets/contentwidget.h"
 #include "widgets/settingsgroup.h"
-#include "../../../modules/mouse/mousemodel.h"
-#include "../../../modules/mouse/widget/palmdetectsetting.h"
 #include "widgets/dccslider.h"
-#include "../../../modules/mouse/widget/doutestwidget.h"
+#include "modules/mouse/mousemodel.h"
+#include "modules/mouse/widget/palmdetectsetting.h"
+#include "modules/mouse/widget/doutestwidget.h"
 
 #include <QPushButton>
 #include <QDebug>
@@ -41,7 +41,6 @@ MouseWidget::MouseWidget(QWidget *parent)
     : QWidget(parent)
 {
     setObjectName("Mouse");
-    //setTitle(tr("Mouse and Touchpad"));
     m_contentLayout = new QVBoxLayout(this);
     m_mouseListView = new QListView(this);
     m_contentLayout->addWidget(m_mouseListView);
@@ -58,7 +57,7 @@ void MouseWidget::init()
     model->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), "General"));
     model->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), "Mouse"));
     model->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "TouchPad"));
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "PalmDetect"));
+    //model->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "PalmDetect"));
     m_mouseListView->setModel(model);
 //    m_mouseListView->setFlow(QListView::TopToBottom);
 //    m_mouseListView->setWordWrap(true);
