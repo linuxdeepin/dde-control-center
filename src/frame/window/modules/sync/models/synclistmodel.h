@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 ~ 2019 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     justforlxz <justforlxz@outlook.com>
  *
@@ -18,14 +18,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#pragma once
+
+#ifndef SYNCLISTMODEL_H
+#define SYNCLISTMODEL_H
 
 #include "window/namespace.h"
 
-#include <QWidget>
-
-class QListView;
-class QVBoxLayout;
+#include <QAbstractListModel>
 
 namespace dcc {
 namespace cloudsync {
@@ -35,18 +34,22 @@ class SyncModel;
 
 namespace DCC_NAMESPACE {
 namespace sync {
-class SyncListModel;
-class IndexPage : public QWidget {
+class SyncListModel : public QAbstractListModel {
     Q_OBJECT
 public:
-    IndexPage(QWidget *parent = nullptr);
-    void setModel(dcc::cloudsync::SyncModel *model);
+    SyncListModel(QObject *parent = nullptr);
+    void setModel(dcc::cloudsync::SyncModel* model);
+
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
 private:
-    QVBoxLayout *m_mainLayout;
-    dcc::cloudsync::SyncModel *m_model;
-    QListView *m_listView;
-    SyncListModel *m_listModel;
+    const QString translation(int index) const;
+
+private:
+    dcc::cloudsync::SyncModel* m_model;
 };
-} // namespace sync
-} // namespace DCC_NAMESPACE
+}
+}
+
+#endif // !SYNCLISTMODEL_H

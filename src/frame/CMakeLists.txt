@@ -741,6 +741,8 @@ set(SYNC_FILES
     window/modules/sync/pages/index.cpp
     window/modules/sync/pages/login.h
     window/modules/sync/pages/login.cpp
+    window/modules/sync/models/synclistmodel.h
+    window/modules/sync/models/synclistmodel.cpp
 )
 
 # load systeminfo
