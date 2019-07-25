@@ -1,6 +1,7 @@
 #include "index.h"
 
 #include "modules/sync/syncmodel.h"
+#include "window/standarditemhelper.h"
 
 #include <QListView>
 #include <QStandardItemModel>
@@ -17,6 +18,8 @@ IndexPage::IndexPage(QWidget *parent)
     , m_listView(new QListView)
     , m_listModel(new QStandardItemModel)
 {
+    new StandardItemHelper(m_listView, m_listModel, this);
+
     m_listView->setSelectionMode(QListView::SingleSelection);
     m_listView->setSelectionBehavior(QAbstractItemView::SelectRows);
     m_listView->setEditTriggers(QListView::NoEditTriggers);
@@ -69,10 +72,6 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
 
 void IndexPage::onListViewClicked(const QModelIndex &index)
 {
-    for (QStandardItem* item : m_items) {
-        item->setCheckState(index.row() == m_items.indexOf(item) ? Qt::Checked : Qt::Unchecked);
-    }
-
     QStandardItem* item = m_items[index.row()];
     qDebug() << item->text() << item->checkState();
 }

@@ -147,6 +147,8 @@ set(WINDOW_FILES
     window/namespace.h
     window/mainwindow.cpp
     window/navwinview.cpp
+    window/standarditemhelper.h
+    window/standarditemhelper.cpp
     window/modules/display/displaywidget.cpp
     window/modules/datetime/datetimemodule.cpp
     window/modules/datetime/datetimewidget.cpp
