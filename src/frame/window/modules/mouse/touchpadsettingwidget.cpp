@@ -36,7 +36,7 @@ using namespace DCC_NAMESPACE::mouse;
 using namespace dcc::mouse;
 using namespace dcc::widgets;
 
-TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : QWidget(parent)
+TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidget(parent)
 {
     m_touchpadSettingsGrp = new SettingsGroup;
 
@@ -61,7 +61,10 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : QWidget(parent)
 
     m_contentLayout = new QVBoxLayout();
     m_contentLayout->addWidget(m_touchpadSettingsGrp);
-    setLayout(m_contentLayout);
+    m_contentLayout->addStretch();
+    TranslucentFrame *tFrame = new TranslucentFrame;
+    tFrame->setLayout(m_contentLayout);
+    setContent(tFrame);
 
     connect(m_touchMoveSlider->slider(), &DCCSlider::valueChanged, this, &TouchPadSettingWidget::requestSetTouchpadMotionAcceleration);
     connect(m_touchClickStn, &SwitchWidget::checkedChanged, this, &TouchPadSettingWidget::requestSetTapClick);

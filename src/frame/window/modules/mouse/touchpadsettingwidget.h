@@ -22,6 +22,7 @@
 #define TOUCHPADSETTINGWIDGET_H
 
 #include "window/namespace.h"
+#include "widgets/contentwidget.h"
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QWidget>
@@ -42,7 +43,7 @@ class TitledSliderItem;
 
 namespace DCC_NAMESPACE {
 namespace mouse {
-class TouchPadSettingWidget : public QWidget
+class TouchPadSettingWidget : public dcc::ContentWidget
 {
     Q_OBJECT
 public:

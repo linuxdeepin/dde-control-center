@@ -36,8 +36,6 @@ using namespace dcc::mouse;
 MouseModule::MouseModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),
-      m_model(nullptr),
-      m_worker(nullptr),
       m_mouseWidget(nullptr),
       m_generalSettingWidget(nullptr),
       m_mouseSettingWidget(nullptr),
@@ -68,6 +66,7 @@ QWidget *MouseModule::moduleWidget()
         connect(m_mouseWidget, &MouseWidget::showMouseSetting, this, &MouseModule::showMouseSetting);
         connect(m_mouseWidget, &MouseWidget::showTouchpadSetting, this, &MouseModule::showTouchpadSetting);
         // connect(m_mouseWidget, &MouseWidget::showPalmdetectSetting, this, &MouseModule::showPalmdetectSetting);
+        QMetaObject::invokeMethod(this, "showGeneralSetting", Qt::QueuedConnection);
     }
     return m_mouseWidget;
 }

@@ -42,7 +42,7 @@ class TitledSliderItem;
 
 namespace DCC_NAMESPACE {
 namespace mouse {
-class MouseSettingWidget : public QWidget
+class MouseSettingWidget : public dcc::ContentWidget
 {
     Q_OBJECT
 public:

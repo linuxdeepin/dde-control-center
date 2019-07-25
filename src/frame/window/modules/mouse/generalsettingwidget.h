@@ -22,6 +22,7 @@
 #define GENERALSETTINGWIDGET_H
 
 #include "window/namespace.h"
+#include "widgets/contentwidget.h"
 #include <QPushButton>
 #include <QVBoxLayout>
 
@@ -41,7 +42,7 @@ class TitledSliderItem;
 
 namespace DCC_NAMESPACE {
 namespace mouse {
-class GeneralSettingWidget : public QWidget
+class GeneralSettingWidget : public dcc::ContentWidget
 {
     Q_OBJECT
 public:

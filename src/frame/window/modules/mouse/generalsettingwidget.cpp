@@ -36,7 +36,7 @@ using namespace dcc::mouse;
 using namespace dcc::widgets;
 
 GeneralSettingWidget::GeneralSettingWidget(QWidget *parent) :
-    QWidget(parent),
+    dcc::ContentWidget(parent),
     m_mouseModel(nullptr),
     m_generalSettingsGrp(nullptr)
 {
@@ -78,7 +78,11 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent) :
 
     m_contentLayout = new QVBoxLayout();
     m_contentLayout->addWidget(m_generalSettingsGrp);
-    setLayout(m_contentLayout);
+    m_contentLayout->addStretch();
+
+    TranslucentFrame *tFrame = new TranslucentFrame;
+    tFrame->setLayout(m_contentLayout);
+    setContent(tFrame);
 
     connect(m_leftHand, &SwitchWidget::checkedChanged, this, &GeneralSettingWidget::requestSetLeftHand);
     connect(m_disInTyping, &SwitchWidget::checkedChanged, this, &GeneralSettingWidget::requestSetDisTyping);

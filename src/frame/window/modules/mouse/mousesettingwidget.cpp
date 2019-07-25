@@ -36,7 +36,7 @@ using namespace DCC_NAMESPACE::mouse;
 using namespace dcc::mouse;
 using namespace dcc::widgets;
 
-MouseSettingWidget::MouseSettingWidget(QWidget *parent) : QWidget(parent)
+MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(parent)
 {
     m_mouseSettingsGrp = new SettingsGroup;
 
@@ -62,7 +62,10 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : QWidget(parent)
 
     m_contentLayout = new QVBoxLayout();
     m_contentLayout->addWidget(m_mouseSettingsGrp);
-    setLayout(m_contentLayout);
+    m_contentLayout->addStretch();
+    TranslucentFrame *tFrame = new TranslucentFrame;
+    tFrame->setLayout(m_contentLayout);
+    setContent(tFrame);
 
     connect(m_mouseMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseSettingWidget::requestSetMouseMotionAcceleration);
     connect(m_adaptiveAccelProfile, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetAccelProfile);
