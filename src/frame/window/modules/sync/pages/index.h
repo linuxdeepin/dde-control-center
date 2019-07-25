@@ -26,6 +26,8 @@
 
 class QListView;
 class QVBoxLayout;
+class QStandardItemModel;
+class QStandardItem;
 
 namespace dcc {
 namespace cloudsync {
@@ -35,7 +37,6 @@ class SyncModel;
 
 namespace DCC_NAMESPACE {
 namespace sync {
-class SyncListModel;
 class IndexPage : public QWidget {
     Q_OBJECT
 public:
@@ -43,10 +44,14 @@ public:
     void setModel(dcc::cloudsync::SyncModel *model);
 
 private:
+    void onListViewClicked(const QModelIndex &index);
+
+private:
     QVBoxLayout *m_mainLayout;
     dcc::cloudsync::SyncModel *m_model;
     QListView *m_listView;
-    SyncListModel *m_listModel;
+    QStandardItemModel *m_listModel;
+    QList<QStandardItem*> m_items;
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE
