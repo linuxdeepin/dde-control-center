@@ -44,7 +44,7 @@ Clock::~Clock()
 
 void Clock::paintEvent(QPaintEvent *)
 {
-    QDateTime datetime( QDateTime::currentDateTimeUtc() );
+    QDateTime datetime(QDateTime::currentDateTimeUtc());
     datetime = datetime.addSecs(m_timeZone.getUTCOffset());
 
     const QTime time(datetime.time());
@@ -69,7 +69,7 @@ void Clock::paintEvent(QPaintEvent *)
 
         QPainterPath path(QPointF(rct.width() / 2.0, 0));
         for (int i = 1; i <= ticks.length(); i++) {
-            QRect innerRect( rct.adjusted(rWidth / 2, rHeight / 2, - rWidth / 2, - rHeight / 2) );
+            QRect innerRect(rct.adjusted(rWidth / 2, rHeight / 2, - rWidth / 2, - rHeight / 2));
 
             path.arcMoveTo(innerRect, 90 - 30 * i);
             QPointF pos = path.currentPosition();
@@ -80,7 +80,7 @@ void Clock::paintEvent(QPaintEvent *)
         }
     }
 
-    QPen pen( painter.pen() );
+    QPen pen(painter.pen());
 
     // draw hour hand
     const qreal hourAngle = qreal(time.hour()) * 30 + time.minute() * 30 / 60 + time.second() * 30 / 60 / 60;

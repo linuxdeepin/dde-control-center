@@ -20,13 +20,11 @@
  */
 #include "datetimewidget.h"
 #include "widgets/settingsgroup.h"
-#include "widgets/nextpagewidget.h"
-#include "modules/datetime/clockitem.h"
 #include "clockitem.h"
+#include "modules/datetime/datetimemodel.h"
 
 #include <QStandardItemModel>
-using namespace dcc;
-using namespace dcc::widgets;
+
 using namespace dcc::datetime;
 
 using namespace DCC_NAMESPACE;
@@ -34,8 +32,10 @@ using namespace DCC_NAMESPACE::datetime;
 
 DatetimeWidget::DatetimeWidget(QWidget *parent)
     : QWidget(parent)
-    , m_ntpSwitch(new SwitchWidget(tr("24小时制")))
     , m_listview(new QListView)
+    , m_model(nullptr)
+    , m_clockItem(new ClockItem)
+    , m_finalPage(nullptr)
 {
     setObjectName("Datetime");
 
@@ -43,30 +43,32 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
     m_listview->setResizeMode(QListView::Adjust);
     m_listview->setSpacing(10);
 
-    SettingsGroup *clockGroup = new SettingsGroup;
-    ClockItem *m_clockItem = new ClockItem;
-    NextPageWidget *m_timezoneItem =new NextPageWidget;
-    m_timezoneItem->setTitle(tr("Change System Timezone"));
-    clockGroup->appendItem(m_clockItem);
-#ifndef DCC_DISABLE_TIMEZONE
-//    clockGroup->appendItem(m_timezoneItem);
-#endif
+    SettingsGroup *timezoneGroup = new SettingsGroup;
+
+    //default open 24 hour type : set hourTypeSwitch(true) , then set ClockItem TimeHourType
+    SwitchWidget *hourTypeSwitch = new SwitchWidget(tr("24 Hour Time"));
+    hourTypeSwitch->setChecked(true);
+    m_clockItem->setTimeHourType(hourTypeSwitch->checked());
+
+    timezoneGroup->appendItem(m_clockItem);
 
     auto model = new QStandardItemModel(this);
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), "时区列表"));
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), "系统时区")),
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "时间设置")),
-    m_listview->setModel(model);
+    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), "Timezone List"));
+    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), "System Timezone")),
+          model->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "时间设置")),
+          m_listview->setModel(model);
 
     connect(m_listview, &QListView::pressed, this, &DatetimeWidget::onItemClieck);
 
     layout = new QVBoxLayout;
-    layout->addWidget(clockGroup);
-    layout->addWidget(m_ntpSwitch);
+    layout->addWidget(timezoneGroup);
+    layout->addWidget(hourTypeSwitch);
     layout->addWidget(m_listview);
     this->setLayout(layout);
 
-    connect(m_ntpSwitch, &SwitchWidget::checkedChanged, this, &DatetimeWidget::requestSetNtp);
+    // true : 24 hour type  ,  false : 12 hour type ; All use the system time can recive DatetimeWidget::requestSetHourType signal
+    connect(hourTypeSwitch, &SwitchWidget::checkedChanged, this, &DatetimeWidget::requestSetHourType);
+    connect(this, &DatetimeWidget::requestSetHourType, this, &DatetimeWidget::onHourTypeChanged);
 }
 
 DatetimeWidget::~DatetimeWidget()
@@ -79,7 +81,27 @@ void DatetimeWidget::init()
 
 }
 
+void DatetimeWidget::setModel(const DatetimeModel *model)
+{
+    m_model = model;
+
+    connect(model, &DatetimeModel::NTPChanged, [this](const bool & ntp) {
+        Q_EMIT requestSetNtp(ntp);
+    });
+}
+
 void DatetimeWidget::onItemClieck(const QModelIndex &index)
 {
-    qDebug() << " index : " << index.row();
+//    qDebug() << " index : " << index.row();
+    Q_EMIT requestPushWidget(index.row());
 }
+
+void DatetimeWidget::onHourTypeChanged(const bool &ntp)
+{
+    if (m_clockItem) {
+        m_clockItem->setTimeHourType(ntp);
+    }
+}
+
+
+

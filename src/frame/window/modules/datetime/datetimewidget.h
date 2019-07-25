@@ -22,13 +22,30 @@
 
 #include "window/namespace.h"
 #include "widgets/switchwidget.h"
+#include "widgets/settingsitem.h"
 
 #include <QObject>
 #include <QVBoxLayout>
 #include <QListView>
+#include <QLineEdit>
+#include <QLabel>
+#include <QEvent>
+#include <QFrame>
+#include <dimagebutton.h>
 
-namespace DCC_NAMESPACE{
+DWIDGET_USE_NAMESPACE
+using namespace dcc::widgets;
+
+namespace dcc {
 namespace datetime {
+class DatetimeModel;
+}
+}
+
+namespace DCC_NAMESPACE {
+namespace datetime {
+
+class ClockItem;
 
 class DatetimeWidget : public QWidget
 {
@@ -38,19 +55,30 @@ public:
 
     virtual ~DatetimeWidget();
     void init();
+    void setModel(const dcc::datetime::DatetimeModel *model);
 
 private:
     QVBoxLayout *layout;
-    dcc::widgets::SwitchWidget *m_ntpSwitch;
     QListView *m_listview;
+    ClockItem *m_clockItem;
+    QWidget *m_finalPage;
 
 Q_SIGNALS:
     void requestSetNtp(const bool &ntp);
+    void requestSetHourType(const bool &type);
+    void requestPushWidget(const int &page);
 
 public Q_SLOTS:
-    void onItemClieck(const QModelIndex& index);
+    void onItemClieck(const QModelIndex &index);
+    void onHourTypeChanged(const bool &ntp);
+
+private:
+    const dcc::datetime::DatetimeModel *m_model;
 };
+
+
+
+
 
 }// namespace datetime
 }// namespace DCC_NAMESPACE
-

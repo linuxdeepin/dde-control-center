@@ -21,45 +21,34 @@
 #pragma once
 
 #include "window/namespace.h"
-#include "widgets/settingsitem.h"
 
-#include <QDateTime>
-#include <types/zoneinfo.h>
-
-namespace dcc {
-namespace widgets {
-class NormalLabel;
-}
-}
+#include <QWidget>
+#include <QVBoxLayout>
+#include <QPushButton>
 
 namespace DCC_NAMESPACE {
 namespace datetime {
 
-class Clock;
 
-class ClockItem : public dcc::widgets::SettingsItem
+class TimeSetting : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ClockItem(QWidget *parent = 0, bool isDisplay = true);
-
-    void setTimeZone(const ZoneInfo &zone);
-    void setTimeHourType(bool type);
+    explicit TimeSetting(QWidget *parent = nullptr);
+    virtual ~TimeSetting();
 
 private:
-    void translateHourType();
+    QVBoxLayout *m_centerLayout;
+    QPushButton *m_cancel;
+    QPushButton *m_sure;
 
-private Q_SLOTS:
-    void updateDateTime();
+Q_SIGNALS:
 
-private:
-    Clock *m_clock;
-    dcc::widgets::NormalLabel *m_label;
-    dcc::widgets::NormalLabel *m_labelTime;
-    dcc::widgets::NormalLabel *m_labelDate;
-    ZoneInfo m_zoneInfo;
-    bool m_bIs24HourType;
+
+public Q_SLOTS:
+
 };
 
-} // namespace datetime
-} // namespace DCC_NAMESPACE
+}// namespace datetime
+}// namespace DCC_NAMESPACE
+

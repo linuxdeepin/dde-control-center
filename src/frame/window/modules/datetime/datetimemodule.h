@@ -25,18 +25,30 @@
 #include <QObject>
 
 namespace dcc {
+namespace datetime {
 class DatetimeWork;
 class DatetimeModel;
+class TimeZoneChooser;
+}
 }
 
 namespace DCC_NAMESPACE {
 namespace datetime {
+class DatetimeWidget;
+
 class DatetimeModule : public QObject, public ModuleInterface
 {
-//public:
-//    DatetimeModule();
-
     Q_OBJECT
+public:
+    enum datetimeType {
+        DEFAULT = -1,
+        TIMEZONELIST,
+        SYSTEMTIMEZONE,
+        TIMESETTING,
+        COUNT
+    };
+
+
 public:
     DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent = nullptr);
 
@@ -47,10 +59,25 @@ public:
     virtual QWidget *moduleWidget() override;
     virtual void contentPopped(QWidget *const w) override;
 
+    void createWidget(int index);
+
 private:
-    QWidget* m_mainWidget;
-    dcc::DatetimeWork* m_work;
-    dcc::DatetimeModel* m_model;
+    void showTimezoneList();
+    void showSystemTimezone();
+    void showTimeSetting();
+
+private:
+    DatetimeWidget *m_mainWidget;
+    dcc::datetime::DatetimeWork *m_work;
+    dcc::datetime::DatetimeModel *m_model;
+    QPointer<dcc::datetime::TimeZoneChooser> m_dialog;
+
+Q_SIGNALS:
+
+public Q_SLOTS:
+    void onPushWidget(const int &index);
+    void onPopWidget();
+
 };
 
 }// namespace datetime

@@ -46,7 +46,7 @@
 
 using namespace DCC_NAMESPACE;
 using namespace sync;
-using namespace datetime;
+using namespace DCC_NAMESPACE::datetime;
 using namespace defapp;
 using namespace DCC_NAMESPACE::display;
 using namespace DCC_NAMESPACE::accounts;
@@ -179,22 +179,11 @@ void MainWindow::tryLoadModule(NavModel::ModuleType type)
     }
 }
 
-void MainWindow::mouseDoubleClickEvent(QMouseEvent *event)
+void MainWindow::popWidget(ModuleInterface * const inter)
 {
-    Q_UNUSED(event)
+    Q_UNUSED(inter)
 
-    if (m_contentStack.count() < 2) {
-        QWidget *w = new QWidget;
-        QString data("background: red");
-        w->setStyleSheet(data);
-        w->setMinimumWidth(200);
-        QPushButton *button = new QPushButton("pop", w);
-        connect(button, &QPushButton::clicked, this, &MainWindow::popWidget);
-        QPushButton *backTopBtn = new QPushButton("popTop", w);
-        backTopBtn->move(0, 30);
-        connect(backTopBtn, &QPushButton::clicked, this, &MainWindow::popAllWidgets);
-        pushWidget(w);
-    }
+    popWidget();
 }
 
 void MainWindow::showModulePage(const QString &module, const QString &page, bool animation)

@@ -54,4 +54,3 @@ private:
 };
 }// namespace datetime
 }// namespace DCC_NAMESPACE
-

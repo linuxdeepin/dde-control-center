@@ -20,11 +20,18 @@
  */
 #include "datetimemodule.h"
 #include "datetimewidget.h"
+#include "modules/datetime/datetimework.h"
+#include "modules/datetime/datetimemodel.h"
+#include "timezonelist.h"
+#include "modules/datetime/timezone_dialog/timezonechooser.h"
+#include "timesetting.h"
+#include "datesettings.h"
+#include "modules/datetime/datesettings.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
 
-dccV20::datetime::DatetimeModule::DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent)
+DatetimeModule::DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frameProxy)
     , m_mainWidget(nullptr)
@@ -32,42 +39,99 @@ dccV20::datetime::DatetimeModule::DatetimeModule(FrameProxyInterface *frameProxy
 
 }
 
-void dccV20::datetime::DatetimeModule::initialize()
+void DatetimeModule::initialize()
 {
     m_mainWidget = new DatetimeWidget;
 
-//    QThread::currentThread()->msleep(500);
+    m_model = new dcc::datetime::DatetimeModel;
+    m_work = new dcc::datetime::DatetimeWork(m_model);
 
-//    m_model = new dcc::DatetimeModel;
-//    m_work = new dcc::DatetimeWork(m_model);
+    QThread::currentThread()->msleep(500);
 
-//    m_work->moveToThread(qApp->thread());
-//    m_model->moveToThread(qApp->thread());
+    m_work->moveToThread(qApp->thread());
+    m_model->moveToThread(qApp->thread());
 
-//    connect(m_work, &DatetimeWork::requestSetAutoHide, this, &DatetimeModule::setFrameAutoHide);
+    connect(m_mainWidget, &DatetimeWidget::requestPushWidget, this, &DatetimeModule::onPushWidget);
 }
 
-void dccV20::datetime::DatetimeModule::reset()
+void DatetimeModule::reset()
 {
 
 }
 
-const QString dccV20::datetime::DatetimeModule::name() const
+const QString DatetimeModule::name() const
 {
     return QStringLiteral("datetime");
 }
 
-void dccV20::datetime::DatetimeModule::showPage(const QString &pageName)
+void DatetimeModule::showPage(const QString &pageName)
 {
     Q_UNUSED(pageName)
 }
 
-QWidget *dccV20::datetime::DatetimeModule::moduleWidget()
+QWidget *DatetimeModule::moduleWidget()
 {
+    m_mainWidget->setModel(m_model);
+    m_work->activate(); //refresh data
+
     return m_mainWidget;
 }
 
-void dccV20::datetime::DatetimeModule::contentPopped(QWidget * const w)
+void DatetimeModule::contentPopped(QWidget *const w)
 {
     Q_UNUSED(w);
+}
+
+void DatetimeModule::createWidget(int index)
+{
+
+}
+
+void DatetimeModule::showTimezoneList()
+{
+    TimezoneList *timezonelist = new TimezoneList;
+
+    m_frameProxy->pushWidget(this, timezonelist);
+}
+
+void DatetimeModule::showSystemTimezone()
+{
+    //only pop third-level page
+}
+
+void DatetimeModule::showTimeSetting()
+{
+    DateSettings *setting = new DateSettings;
+
+    connect(setting, &DateSettings::requestSetAutoSyncdate, m_work, &dcc::datetime::DatetimeWork::setNTP);
+    connect(setting, &DateSettings::requestSetTime, m_work, &dcc::datetime::DatetimeWork::setDatetime);
+    connect(setting, &DateSettings::requestBack, this, &DatetimeModule::onPopWidget);
+    connect(m_mainWidget, &DatetimeWidget::requestSetNtp, setting, &DateSettings::updateRealAutoSyncCheckState);
+    connect(m_model, &dcc::datetime::DatetimeModel::NTPChanged, setting, &DateSettings::updateRealAutoSyncCheckState);
+
+    setting->updateRealAutoSyncCheckState(m_model->nTP());
+
+    m_frameProxy->pushWidget(this, setting);
+}
+
+void DatetimeModule::onPushWidget(const int &index)
+{
+    switch (static_cast<datetimeType>(index)) {
+    case TIMEZONELIST:
+        showTimezoneList();
+        break;
+    case SYSTEMTIMEZONE:
+        showSystemTimezone();
+        break;
+    case TIMESETTING:
+        showTimeSetting();
+        break;
+    default:
+        break;
+    }
+}
+
+void DatetimeModule::onPopWidget()
+{
+    m_frameProxy->popWidget(this);
 }

@@ -45,12 +45,12 @@ public:
 
 private:
     void pushWidget(QWidget *widget);
-    void popWidget(void);
-    void popAllWidgets(void);
+    void popWidget();
+    void popAllWidgets();
     void tryLoadModule(NavModel::ModuleType type);
-    void mouseDoubleClickEvent(QMouseEvent *event) override;
 
 public:
+    void popWidget(ModuleInterface * const inter);
     void pushWidget(ModuleInterface * const inter, QWidget * const w) override;
     void setModuleVisible(ModuleInterface * const inter, const bool visible) override;
     void showModulePage(const QString &module, const QString &page, bool animation) override;

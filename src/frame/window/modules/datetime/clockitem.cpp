@@ -30,44 +30,40 @@ using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
 
-ClockItem::ClockItem(QWidget *parent) :
+ClockItem::ClockItem(QWidget *parent, bool isDisplay) :
     SettingsItem(parent),
     m_clock(new Clock),
     m_label(new NormalLabel),
     m_labelTime(new NormalLabel),
-    m_labelDate(new NormalLabel)
+    m_labelDate(new NormalLabel),
+    m_bIs24HourType(0)
 {
     m_clock->setFixedSize(160, 160);
     m_clock->setAutoNightMode(false);
     updateDateTime();
 
-//    *m_lcdTime = new QLCDNumber(this);
-//    // 设置能显示的位数
-//    m_lcdTime->setDigitCount(55);
-//    // 设置显示的模式为十进制
-//    m_lcdTime->setMode(QLCDNumber::Dec);
-//    // 设置显示外观
-//    m_lcdTime->setSegmentStyle(QLCDNumber::Filled);
-//    // 设置样式
-//    m_lcdTime->setStyleSheet("border: 1px solid green; color: #657d8e; background: silver;");
-//    m_lcdTime->display(QDateTime::currentDateTime().toString("HH:mm:ss").toLatin1().data());
-
     QLabel *test = new QLabel;
     test->setStyleSheet("background: #f8f8f8");
 
     QVBoxLayout *layout = new QVBoxLayout;
-    QHBoxLayout *timeLayout = new QHBoxLayout;
+
     layout->setMargin(0);
     layout->setSpacing(0);
 
     layout->addSpacing(20 * 2);
     layout->addWidget(m_clock, 0, Qt::AlignHCenter);
     layout->addSpacing(20);
-    layout->addWidget(m_labelTime, 1, Qt::AlignHCenter);
-    layout->addSpacing(20);
-    timeLayout->addWidget(m_label, 0, Qt::AlignLeft);
-    timeLayout->addWidget(m_labelDate, 1, Qt::AlignRight);
-    layout->addLayout(timeLayout);
+
+    if (isDisplay) {
+        layout->addWidget(m_labelTime, 1, Qt::AlignHCenter);
+        layout->addSpacing(20);
+
+        QHBoxLayout *timeLayout = new QHBoxLayout;
+        timeLayout->addWidget(m_label, 0, Qt::AlignLeft);
+        timeLayout->addWidget(m_labelDate, 1, Qt::AlignRight);
+        layout->addLayout(timeLayout);
+    }
+
     layout->addSpacing(20);
     setLayout(layout);
 
@@ -87,12 +83,41 @@ void ClockItem::setTimeZone(const ZoneInfo &zone)
     updateDateTime();
 }
 
+void ClockItem::setTimeHourType(bool type)
+{
+    //type : true -> 24 hour  ,  false -> 12 hour
+    if (m_bIs24HourType != type) {
+        m_bIs24HourType = type;
+        updateDateTime();
+    }
+}
+
+void ClockItem::translateHourType()
+{
+    QTime currentTime = QTime::currentTime();
+    int nHour = currentTime.hour();
+
+    //[0,23]
+    if (currentTime.hour() > 12) {
+        nHour -= 12;
+    }
+
+    m_labelTime->setText(QString("%1:%2:%3")
+                         .arg(nHour, 2, 10, QLatin1Char('0'))
+                         .arg(currentTime.minute(), 2, 10, QLatin1Char('0'))
+                         .arg(currentTime.second(), 2, 10, QLatin1Char('0')));
+}
+
 void ClockItem::updateDateTime()
 {
     m_clock->setTimeZone(m_zoneInfo);
     m_clock->update();
-    m_labelTime->setText(QDateTime::currentDateTime().toString("HH:mm:ss"));
+
+    if (m_bIs24HourType) {
+        m_labelTime->setText(QDateTime::currentDateTime().toString("HH:mm:ss"));
+    } else {
+        translateHourType();
+    }
     m_label->setText(QDate::currentDate().toString("yyyy-MM-dd"));
     m_labelDate->setText(QDate::currentDate().toString("dddd"));
-//    m_lcdTime->display(QDateTime::currentDateTime().toString("hh:mm:ss"));
 }

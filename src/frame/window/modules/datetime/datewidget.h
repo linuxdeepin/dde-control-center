@@ -22,44 +22,62 @@
 
 #include "window/namespace.h"
 #include "widgets/settingsitem.h"
+#include "widgets/labels/normallabel.h"
 
-#include <QDateTime>
-#include <types/zoneinfo.h>
+#include <QObject>
+#include <QLineEdit>
+#include <QEvent>
+#include <dimagebutton.h>
 
-namespace dcc {
-namespace widgets {
-class NormalLabel;
-}
-}
+DWIDGET_USE_NAMESPACE
+using namespace dcc::widgets;
 
 namespace DCC_NAMESPACE {
 namespace datetime {
-
-class Clock;
-
-class ClockItem : public dcc::widgets::SettingsItem
+class DateWidget : public SettingsItem
 {
     Q_OBJECT
+
 public:
-    explicit ClockItem(QWidget *parent = 0, bool isDisplay = true);
+    enum Type {
+        Year,
+        Month,
+        Day
+    };
 
-    void setTimeZone(const ZoneInfo &zone);
-    void setTimeHourType(bool type);
+public:
+    explicit DateWidget(Type type, int minimum, int maximum, QFrame *parent = 0);
+
+    int value() const;
+    void setValue(const int &value);
+
+    int minimum() const;
+    int maximum() const;
+    void setRange(int minimum, int maximum);
+
+protected:
+    bool eventFilter(QObject *watched, QEvent *event);
+
+Q_SIGNALS:
+    void editingFinished();
+
+public Q_SLOTS:
+    void slotAdd();
+    void slotReduced();
+
+    void fixup();
 
 private:
-    void translateHourType();
+    Type m_type;
 
-private Q_SLOTS:
-    void updateDateTime();
+    int m_minimum;
+    int m_maximum;
 
-private:
-    Clock *m_clock;
-    dcc::widgets::NormalLabel *m_label;
-    dcc::widgets::NormalLabel *m_labelTime;
-    dcc::widgets::NormalLabel *m_labelDate;
-    ZoneInfo m_zoneInfo;
-    bool m_bIs24HourType;
+    QLineEdit *m_lineEdit;
+    NormalLabel *m_label;
+    DImageButton *m_addBtn;
+    DImageButton *m_reducedBtn;
 };
 
-} // namespace datetime
-} // namespace DCC_NAMESPACE
+}// namespace datetime
+}// namespace DCC_NAMESPACE

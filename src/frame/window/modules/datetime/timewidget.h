@@ -23,43 +23,52 @@
 #include "window/namespace.h"
 #include "widgets/settingsitem.h"
 
-#include <QDateTime>
-#include <types/zoneinfo.h>
+#include <QObject>
+#include <QVBoxLayout>
+#include <QLineEdit>
+#include <QEvent>
+#include <QFrame>
+#include <dimagebutton.h>
+
+DWIDGET_USE_NAMESPACE
+using namespace dcc::widgets;
 
 namespace dcc {
-namespace widgets {
-class NormalLabel;
+namespace datetime {
+class DatetimeModel;
 }
 }
 
 namespace DCC_NAMESPACE {
 namespace datetime {
 
-class Clock;
-
-class ClockItem : public dcc::widgets::SettingsItem
+class TimeWidget : public SettingsItem
 {
     Q_OBJECT
+
 public:
-    explicit ClockItem(QWidget *parent = 0, bool isDisplay = true);
+    explicit TimeWidget(QFrame *parent = 0, bool bType = true);
 
-    void setTimeZone(const ZoneInfo &zone);
-    void setTimeHourType(bool type);
+    int getEditValue() const;
 
-private:
-    void translateHourType();
-
-private Q_SLOTS:
-    void updateDateTime();
+protected:
+    bool eventFilter(QObject *watched, QEvent *event);
 
 private:
-    Clock *m_clock;
-    dcc::widgets::NormalLabel *m_label;
-    dcc::widgets::NormalLabel *m_labelTime;
-    dcc::widgets::NormalLabel *m_labelDate;
-    ZoneInfo m_zoneInfo;
-    bool m_bIs24HourType;
+    QLineEdit *m_lineEdit;
+    DImageButton *m_addBtn;
+    DImageButton *m_reducedBtn;
+    QVBoxLayout *m_btnLayout;
+    QHBoxLayout *m_layout;
+    int m_value;
+    bool m_bType;
+
+public Q_SLOTS:
+    void slotAdd();
+    void slotReduced();
+    void slotSetLineEdit();
 };
 
-} // namespace datetime
-} // namespace DCC_NAMESPACE
+}// namespace datetime
+}// namespace DCC_NAMESPACE
+

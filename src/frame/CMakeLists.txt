@@ -152,13 +152,17 @@ set(WINDOW_FILES
     window/modules/display/displaywidget.cpp
     window/modules/datetime/datetimemodule.cpp
     window/modules/datetime/datetimewidget.cpp
+    window/modules/datetime/datewidget.cpp
+    window/modules/datetime/timewidget.cpp
     window/modules/datetime/clockitem.cpp
     window/modules/datetime/clock.cpp
+    window/modules/datetime/timezonelist.cpp
+    window/modules/datetime/datesettings.cpp
     window/modules/display/displaymodule.cpp
     window/modules/display/scalingpage.cpp
     window/modules/display/resolutiondetailpage.cpp
     window/modules/display/brightnesspage.cpp
-    window/modules/display/rotatedialog.cpp
+    window/modules/display/rotatedialog.cpp   
      )
 
 # load interfaces
