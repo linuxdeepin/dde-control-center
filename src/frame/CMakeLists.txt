@@ -305,6 +305,13 @@ set(ACCOUNTS_FILES
                 modules/accounts/usermodel.cpp
                 modules/accounts/usermodel.h
                 modules/accounts/useroptionitem.h
+                # v20-accounts
+                window/modules/accounts/accountsdetailwidget.cpp
+                window/modules/accounts/accountsdetailwidget.h
+                window/modules/accounts/accountsmodule.cpp
+                window/modules/accounts/accountsmodule.h
+                window/modules/accounts/accountswidget.cpp
+                window/modules/accounts/accountswidget.h
 )
 
 # load bluetooth

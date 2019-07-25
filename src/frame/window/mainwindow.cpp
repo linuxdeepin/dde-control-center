@@ -49,6 +49,7 @@ using namespace sync;
 using namespace datetime;
 using namespace defapp;
 using namespace DCC_NAMESPACE::display;
+using namespace DCC_NAMESPACE::accounts;
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
@@ -129,7 +130,7 @@ void MainWindow::tryLoadModule(NavModel::ModuleType type)
     //According to actual click index to load module
     switch (type) {
     case NavModel::AccountsModule:
-//        loadModule(new AccountsModule(this));
+        loadModule(new AccountsModule(this));
         break;
     case NavModel::Cloudsync:
         loadModule(new SyncModule(this));
