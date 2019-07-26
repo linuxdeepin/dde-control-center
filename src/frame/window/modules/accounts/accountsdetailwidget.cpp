@@ -30,15 +30,10 @@ using namespace DCC_NAMESPACE::accounts;
 AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
-
+    , m_headLayout(new QVBoxLayout)
     , m_modifydelLayout(new QHBoxLayout)
     , m_setloginLayout(new QVBoxLayout)
-
     , m_mainContentLayout(new QVBoxLayout(this))
-
-    , m_modifydelWidget(new QWidget)
-    , m_setloginWidget(new QWidget)
-
     , m_avatar(new AvatarWidget)
     , m_shortName(new QLabel)
     , m_fullName(new QLabel)
@@ -53,6 +48,9 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 
 void AccountsDetailWidget::initWidgets()
 {
+    m_headLayout->addWidget(m_avatar, 0, Qt::AlignHCenter);
+    m_headLayout->addWidget(m_shortName, 0, Qt::AlignHCenter);
+    m_headLayout->addWidget(m_fullName, 0, Qt::AlignHCenter);
 
     m_modifydelLayout->addWidget(m_modifyPassword);
     m_modifydelLayout->addWidget(m_deleteAccount);
@@ -60,17 +58,31 @@ void AccountsDetailWidget::initWidgets()
     m_setloginLayout->addWidget(m_autoLogin);
     m_setloginLayout->addWidget(m_nopasswdLogin);
 
-    m_modifydelWidget->setLayout(m_modifydelLayout);
-    m_setloginWidget->setLayout(m_setloginLayout);
+    m_mainContentLayout->addLayout(m_headLayout);
+    m_mainContentLayout->addLayout(m_modifydelLayout);
+    m_mainContentLayout->addLayout(m_setloginLayout);
+    m_mainContentLayout->addStretch();
 
-    m_mainContentLayout->addWidget(m_modifydelWidget);
-    m_mainContentLayout->addWidget(m_setloginWidget);
+    m_shortName->setFixedHeight(20);
+    m_fullName->setFixedHeight(20);
+    m_avatar->setAlignment(Qt::AlignHCenter);
+    m_setloginLayout->setContentsMargins(0, 0, 0, 0);
+    m_setloginLayout->setSpacing(0);
+    m_setloginLayout->setMargin(0);
 
+    m_modifydelLayout->setContentsMargins(1, 0, 1, 0);
+    m_modifydelLayout->setSpacing(10);
+    m_modifydelLayout->setMargin(3);
 }
 
 void AccountsDetailWidget::initDatas()
 {
     //use m_curUser fill widget data
+    m_avatar->setAvatarPath(m_curUser->currentAvatar());
+    m_avatar->resize(640, 480);
+    m_shortName->setText(m_curUser->name());
+    m_fullName->setText(m_curUser->fullname());
+
     m_modifyPassword->setText(tr("修改密码"));
     m_deleteAccount->setText(tr("删除账户"));
 
@@ -96,13 +108,12 @@ void AccountsDetailWidget::initDatas()
     connect(m_nopasswdLogin, &SwitchWidget::checkedChanged, [ = ](const bool nopasswdLogin) {
         Q_EMIT requestNopasswdLogin(m_curUser, nopasswdLogin);
     });
+
 }
 
 //删除账户
 void AccountsDetailWidget::deleteUserClicked()
 {
-//    Q_EMIT requestChangeFrameAutoHide(false);
-
     RemoveUserDialog d(m_curUser);
     int ret = d.exec();
 

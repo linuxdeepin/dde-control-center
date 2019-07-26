@@ -67,14 +67,11 @@ private Q_SLOTS:
 
 private:
     User *m_curUser;
-
+    QVBoxLayout *m_headLayout;
     QHBoxLayout *m_modifydelLayout;
     QVBoxLayout *m_setloginLayout;
 
     QVBoxLayout *m_mainContentLayout;
-
-    QWidget *m_modifydelWidget;
-    QWidget *m_setloginWidget;
 
     AvatarWidget *m_avatar;//账户图片
     QLabel *m_shortName;
