@@ -21,8 +21,6 @@
 #pragma once
 
 #include "window/namespace.h"
-#include "widgets/switchwidget.h"
-#include "widgets/settingsitem.h"
 
 #include <QObject>
 #include <QVBoxLayout>
@@ -33,14 +31,27 @@
 #include <QFrame>
 #include <dimagebutton.h>
 
-DWIDGET_USE_NAMESPACE
-using namespace dcc::widgets;
+class QStandardItem;
 
 namespace dcc {
-namespace datetime {
-class DatetimeModel;
-}
-}
+    namespace widgets {
+
+        class SwitchWidget;
+        class SettingsItem;
+
+        namespace labels {
+            class NormalLabel;
+        } //labels
+    } //widgets
+
+        namespace datetime {
+            class DatetimeModel;
+        } //datetime
+} //dcc
+
+using namespace dcc;
+using namespace dcc::datetime;
+using namespace dcc::widgets;
 
 namespace DCC_NAMESPACE {
 namespace datetime {
@@ -61,7 +72,6 @@ private:
     QVBoxLayout *layout;
     QListView *m_listview;
     ClockItem *m_clockItem;
-    QWidget *m_finalPage;
 
 Q_SIGNALS:
     void requestSetNtp(const bool &ntp);
@@ -75,10 +85,6 @@ public Q_SLOTS:
 private:
     const dcc::datetime::DatetimeModel *m_model;
 };
-
-
-
-
 
 }// namespace datetime
 }// namespace DCC_NAMESPACE

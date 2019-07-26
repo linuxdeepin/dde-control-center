@@ -23,6 +23,7 @@
 #include "window/interface/moduleinterface.h"
 
 #include <QObject>
+#include <types/zoneinfo.h>
 
 namespace dcc {
 namespace datetime {
@@ -35,6 +36,7 @@ class TimeZoneChooser;
 namespace DCC_NAMESPACE {
 namespace datetime {
 class DatetimeWidget;
+class TimezoneList;
 
 class DatetimeModule : public QObject, public ModuleInterface
 {
@@ -65,18 +67,24 @@ private:
     void showTimezoneList();
     void showSystemTimezone();
     void showTimeSetting();
+    void ensureZoneChooserDialog();
 
 private:
     DatetimeWidget *m_mainWidget;
     dcc::datetime::DatetimeWork *m_work;
     dcc::datetime::DatetimeModel *m_model;
     QPointer<dcc::datetime::TimeZoneChooser> m_dialog;
+    QPointer<TimezoneList> m_timezonelist;//timezonelist in other page, need exchangle data from this page
 
 Q_SIGNALS:
+    void requestAddUserTimeZone(const QString &zone);
+    void requestRemoveUserTimeZone(const ZoneInfo &zone);
+    void requestSetTimeZone(const QString &zone);
 
 public Q_SLOTS:
     void onPushWidget(const int &index);
     void onPopWidget();
+    void updateSystemTimezone(const QString &timezone);
 
 };
 

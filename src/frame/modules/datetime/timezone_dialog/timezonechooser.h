@@ -58,6 +58,7 @@ public:
     explicit TimeZoneChooser();
     void setIsAddZone(const bool isAdd);
     inline bool isAddZone() { return m_isAddZone; }
+    void setCurrentTimeZoneText(const QString &zone);
 
 Q_SIGNALS:
     void confirmed(const QString &zone);

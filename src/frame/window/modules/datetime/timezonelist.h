@@ -21,22 +21,29 @@
 #pragma once
 
 #include "window/namespace.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/settingsitem.h"
-#include "widgets/settingshead.h"
-#include "widgets/nextpagewidget.h"
+#include "timezonecontentlist.h"
 
 #include <QWidget>
+#include <types/zoneinfo.h>
+#include <dimagebutton.h>
 #include <QVBoxLayout>
 
-using namespace dcc::widgets;
-
 namespace dcc {
-namespace datetime {
-class DatetimeModel;
-class TimeZoneChooser;
+    namespace datetime {
+        class DatetimeModel;
+        class TimeZoneChooser;
+        class TimezoneItem;
+    }
+
+    namespace widgets {
+        class SettingsGroup;
+        class SettingsItem;
+        class SettingsHead;
+    }
 }
-}
+
+using namespace dcc::datetime;
+using namespace dcc::widgets;
 
 namespace DCC_NAMESPACE {
 namespace datetime {
@@ -49,26 +56,20 @@ public:
     explicit TimezoneList(QWidget *parent = nullptr);
     virtual ~TimezoneList();
 
+    TimezoneContentList* getTimezoneContentListPtr();
+
 private:
     QVBoxLayout *m_centralLayout;
-
-#ifndef DCC_DISABLE_TIMEZONE
-    SettingsGroup *m_timezoneGroup;
+    DImageButton *m_addTimezoneButton;
+    SettingsGroup *m_headGroup;
     SettingsHead *m_headItem;
-    QPushButton *m_addTimezoneButton;
-    NextPageWidget *m_timezoneItem;
-
-    void ensureZoneChooserDialog();
-#endif
-//    QList<TimezoneItem*> m_zoneList;
-    bool m_addTimeZone;
-//    QPointer<TimeZoneChooser> m_dialog;
+    TimezoneContentList *m_contentList;
 
 Q_SIGNALS:
-
+    void requestAddUserTimeZone(const QString &zone);
+    void requestAddTimeZone();
 
 public Q_SLOTS:
-
 };
 
 }// namespace datetime

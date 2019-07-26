@@ -21,52 +21,56 @@
 #pragma once
 
 #include "window/namespace.h"
-#include "widgets/settingsitem.h"
+#include "widgets/contentwidget.h"
 
-#include <QObject>
-#include <QVBoxLayout>
-#include <QLineEdit>
-#include <QEvent>
-#include <QFrame>
+#include <types/zoneinfo.h>
 #include <dimagebutton.h>
-
-DWIDGET_USE_NAMESPACE
-using namespace dcc::widgets;
+#include <QWidget>
+#include <QVBoxLayout>
 
 namespace dcc {
+
 namespace datetime {
 class DatetimeModel;
+class TimeZoneChooser;
+class TimezoneItem;
+}
+
+namespace widgets {
+class SettingsGroup;
+class SettingsItem;
 }
 }
+
+using namespace dcc;
+using namespace dcc::datetime;
+using namespace dcc::widgets;
 
 namespace DCC_NAMESPACE {
 namespace datetime {
 
-class TimeWidget : public SettingsItem
+class TimezoneContentList : public ContentWidget
 {
     Q_OBJECT
-
 public:
-    explicit TimeWidget(QFrame *parent = 0, bool bType = true);
-
-    int getEditValue() const;
-
-protected:
-    bool eventFilter(QObject *watched, QEvent *event);
+    explicit TimezoneContentList(QWidget *parent = nullptr);
+    virtual ~TimezoneContentList();
 
 private:
-    QLineEdit *m_lineEdit;
-    DImageButton *m_addBtn;
-    DImageButton *m_reducedBtn;
-    QVBoxLayout *m_btnLayout;
-    QHBoxLayout *m_layout;
-    int m_value;
-    bool m_bType;
+    QVBoxLayout *m_centralLayout;
+    SettingsGroup *m_timezoneGroup;
+    QList<TimezoneItem *> m_zoneList;
+
+Q_SIGNALS:
+    void requestRemoveUserTimeZone(const ZoneInfo &zone);
 
 public Q_SLOTS:
-    void slotAdd();
-    void slotReduced();
-    void slotSetLineEdit();
+    void addTimezone(const ZoneInfo &zone);
+    void addTimezones(const QList<ZoneInfo> &zones);
+    void removeTimezone(const ZoneInfo &zone);
+    void updateTimezones(const QList<ZoneInfo> &zones);
+    void updateTimezoneItems();
+    void onEditClicked(const bool &edit);
 };
 
 }// namespace datetime

@@ -23,6 +23,7 @@
 #include "modules/datetime/datetimework.h"
 #include "modules/datetime/datetimemodel.h"
 #include "timezonelist.h"
+#include "modules/datetime/timezone_dialog/timezone.h"
 #include "modules/datetime/timezone_dialog/timezonechooser.h"
 #include "timesetting.h"
 #include "datesettings.h"
@@ -35,6 +36,7 @@ DatetimeModule::DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frameProxy)
     , m_mainWidget(nullptr)
+    , m_timezonelist(nullptr)
 {
 
 }
@@ -52,6 +54,9 @@ void DatetimeModule::initialize()
     m_model->moveToThread(qApp->thread());
 
     connect(m_mainWidget, &DatetimeWidget::requestPushWidget, this, &DatetimeModule::onPushWidget);
+    connect(this, &DatetimeModule::requestSetTimeZone, m_work, &DatetimeWork::setTimezone);
+    connect(this, &DatetimeModule::requestRemoveUserTimeZone, m_work, &DatetimeWork::removeUserTimeZone);
+    connect(this, &DatetimeModule::requestAddUserTimeZone, m_work, &DatetimeWork::addUserTimeZone);
 }
 
 void DatetimeModule::reset()
@@ -84,19 +89,87 @@ void DatetimeModule::contentPopped(QWidget *const w)
 
 void DatetimeModule::createWidget(int index)
 {
+    Q_UNUSED(index);
+}
 
+void DatetimeModule::updateSystemTimezone(const QString &timezone)
+{
+    if (timezone.isEmpty()) return;
+
+    const QString locale = QLocale::system().name();
+    const QString name = installer::GetLocalTimezoneName(timezone, locale);
+
+    if (m_dialog) {
+        m_dialog->setCurrentTimeZoneText(name);
+        m_dialog->close();
+    }
+
+    if (m_timezonelist && m_model) {
+        m_timezonelist->getTimezoneContentListPtr()->updateTimezones(m_model->userTimeZones());
+    }
+}
+
+void DatetimeModule::ensureZoneChooserDialog()
+{
+    if (m_dialog)
+        return;
+
+    m_dialog = new TimeZoneChooser();
+    m_dialog->setAttribute(Qt::WA_DeleteOnClose);
+
+    connect(m_dialog, &TimeZoneChooser::confirmed, this, [this](const QString & timezone) {
+        if (m_dialog->isAddZone()) {
+            Q_EMIT requestAddUserTimeZone(timezone);
+        } else {
+            Q_EMIT requestSetTimeZone(timezone);
+        }
+
+        m_dialog->close();
+    });
+
+    connect(m_model, &dcc::datetime::DatetimeModel::systemTimeZoneIdChanged, this, &DatetimeModule::updateSystemTimezone);
 }
 
 void DatetimeModule::showTimezoneList()
 {
-    TimezoneList *timezonelist = new TimezoneList;
+    if (!m_timezonelist) {
+        m_timezonelist = new TimezoneList;
 
-    m_frameProxy->pushWidget(this, timezonelist);
+        //first into this page, update timezonelist data
+        m_timezonelist->getTimezoneContentListPtr()->addTimezones(m_model->userTimeZones());
+        updateSystemTimezone(m_model->systemTimeZoneId());
+
+        connect(m_model, &DatetimeModel::userTimeZoneAdded,
+                m_timezonelist->getTimezoneContentListPtr(), &TimezoneContentList::addTimezone);
+        connect(m_model, &DatetimeModel::userTimeZoneRemoved,
+                m_timezonelist->getTimezoneContentListPtr(), &TimezoneContentList::removeTimezone);
+        // we need to update all the timezone items after the system time has changed.
+        connect(m_model, &DatetimeModel::NTPChanged,
+                m_timezonelist->getTimezoneContentListPtr(), &TimezoneContentList::updateTimezoneItems);
+        connect(m_model, &DatetimeModel::systemTimeChanged,
+                m_timezonelist->getTimezoneContentListPtr(), &TimezoneContentList::updateTimezoneItems);
+        connect(m_timezonelist, &TimezoneList::requestAddTimeZone, this, [this] {
+            ensureZoneChooserDialog();
+            m_dialog->setIsAddZone(true);
+            m_dialog->show();
+        });
+        connect(m_timezonelist->getTimezoneContentListPtr(),&TimezoneContentList::requestRemoveUserTimeZone,
+                this, &DatetimeModule::requestRemoveUserTimeZone);
+        connect(m_timezonelist, &TimezoneList::requestAddUserTimeZone,
+                this, &DatetimeModule::requestAddUserTimeZone);
+
+        m_frameProxy->pushWidget(this, m_timezonelist);
+    }
 }
 
 void DatetimeModule::showSystemTimezone()
 {
-    //only pop third-level page
+    if (m_dialog && m_dialog->isVisible()) return;
+
+    ensureZoneChooserDialog();
+    m_dialog->setIsAddZone(false);
+    m_dialog->show();
+    m_dialog->setMarkedTimeZone(installer::GetCurrentTimezone());
 }
 
 void DatetimeModule::showTimeSetting()

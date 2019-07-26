@@ -20,12 +20,13 @@
  */
 #include "datetimewidget.h"
 #include "widgets/settingsgroup.h"
+#include "widgets/switchwidget.h"
+#include "widgets/settingsitem.h"
+#include "widgets/labels/normallabel.h"
 #include "clockitem.h"
 #include "modules/datetime/datetimemodel.h"
 
 #include <QStandardItemModel>
-
-using namespace dcc::datetime;
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
@@ -35,7 +36,6 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
     , m_listview(new QListView)
     , m_model(nullptr)
     , m_clockItem(new ClockItem)
-    , m_finalPage(nullptr)
 {
     setObjectName("Datetime");
 
@@ -102,6 +102,3 @@ void DatetimeWidget::onHourTypeChanged(const bool &ntp)
         m_clockItem->setTimeHourType(ntp);
     }
 }
-
-
-
