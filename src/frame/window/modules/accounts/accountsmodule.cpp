@@ -1,13 +1,9 @@
 /*
- * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     liuhong <liuhong_cm@deepin.com>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
  *
- * Maintainer: sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
+ * Maintainer: liuhong <liuhong_cm@deepin.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,6 +20,10 @@
  */
 
 #include "accountsmodule.h"
+#include "createaccountpage.h"
+#include "modifypasswdpage.h"
+
+#include <QDebug>
 
 using namespace DCC_NAMESPACE::accounts;
 
@@ -32,7 +32,7 @@ AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
     , ModuleInterface(frame)
     , m_accountsWidget(nullptr)
 {
-
+    m_frameProxy =  frame;
 }
 
 void AccountsModule::initialize()
@@ -66,6 +66,8 @@ QWidget *AccountsModule::moduleWidget()
     if (!m_accountsWidget) {
         m_accountsWidget = new AccountsWidget;
         m_accountsWidget->setModel(m_userList);
+        connect(m_accountsWidget, &AccountsWidget::requestShowAccountsDetail, this, &AccountsModule::onShowAccountsDetailWidget);
+        connect(m_accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::onShowCreateAccountPage);
     }
 
     return m_accountsWidget;
@@ -76,10 +78,46 @@ void AccountsModule::contentPopped(QWidget *const w)
     Q_UNUSED(w)
 }
 
+//显示账户信息
+void AccountsModule::onShowAccountsDetailWidget(User *account)
+{
+    qDebug() << Q_FUNC_INFO;
+    AccountsDetailWidget *adw = new AccountsDetailWidget(account);
 
+    if (m_frameProxy != nullptr && adw != nullptr) {
+
+        connect(adw, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
+        connect(adw, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
+        connect(adw, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
+
+        m_frameProxy->pushWidget(nullptr, adw);
+    }
+}
+
+//创建账户界面
+void AccountsModule::onShowCreateAccountPage()
+{
+    qDebug() << Q_FUNC_INFO;
+    CreateAccountPage *cap = new CreateAccountPage();
+
+    if (m_frameProxy != nullptr && cap != nullptr) {
+        m_frameProxy->pushWidget(nullptr, cap);
+    }
+}
 
 AccountsModule::~AccountsModule()
 {
     m_userList->deleteLater();
     m_accountsWorker->deleteLater();
+}
+
+//修改密码界面
+void AccountsModule::onShowPasswordPage(User *account)
+{
+    qDebug() << Q_FUNC_INFO;
+    ModifyPasswdPage *mpp = new ModifyPasswdPage(account);
+    connect(mpp, &ModifyPasswdPage::requestChangePassword, m_accountsWorker, &AccountsWorker::setPassword);
+    if (m_frameProxy != nullptr && mpp != nullptr) {
+        m_frameProxy->pushWidget(nullptr, mpp);
+    }
 }

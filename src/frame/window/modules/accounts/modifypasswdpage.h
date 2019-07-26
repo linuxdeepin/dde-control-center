@@ -3,7 +3,7 @@
  *
  * Author:     liuhong <liuhong_cm@deepin.com>
  *
- * Maintainer: justforlxz <justforlxz@outlook.com>
+ * Maintainer: liuhong <liuhong_cm@deepin.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,17 +22,42 @@
 #ifndef MODIFYPASSWDPAGE_H
 #define MODIFYPASSWDPAGE_H
 
+#include "window/namespace.h"
+#include "modules/accounts/user.h"
+
 #include <QWidget>
 
+
+using namespace dcc;
+using namespace dcc::accounts;
+
+
+
+namespace DCC_NAMESPACE {
+namespace accounts {
+
+//修改密码页面
 class ModifyPasswdPage : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ModifyPasswdPage(QWidget *parent = 0);
+    explicit ModifyPasswdPage(User *user, QWidget *parent = nullptr);
 
-signals:
 
-public slots:
+
+Q_SIGNALS:
+    void requestChangePassword(User *userInter, const QString &oldPassword, const QString &password);
+
+
+
+public Q_SLOTS:
+
+
+
+private:
+    User *m_curUser;
 };
 
+}
+}
 #endif // MODIFYPASSWDPAGE_H

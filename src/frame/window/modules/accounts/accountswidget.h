@@ -1,13 +1,9 @@
 ﻿/*
- * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     liuhong <liuhong_cm@deepin.com>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
  *
- * Maintainer: sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
+ * Maintainer: liuhong <liuhong_cm@deepin.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,7 +22,9 @@
 #pragma once
 
 #include "window/namespace.h"
+#include "modules/accounts/user.h"
 #include "modules/accounts/usermodel.h"
+#include "accountsdetailwidget.h"
 
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -56,11 +54,17 @@ public:
 
 public Q_SLOTS:
     void addUser(User *user);
+    void onItemClicked(const QModelIndex &index);
+
+Q_SIGNALS:
+    void requestShowAccountsDetail(User *account);
+    void requestCreateAccount();
 
 private:
     QPushButton *m_createBtn;
     QListView *m_userlistView;
     QStandardItemModel *m_userItemModel;
+    QList<User *> m_userList;
 };
 
 }   // namespace accounts

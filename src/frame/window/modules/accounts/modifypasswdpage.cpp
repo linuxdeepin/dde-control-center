@@ -3,7 +3,7 @@
  *
  * Author:     liuhong <liuhong_cm@deepin.com>
  *
- * Maintainer: justforlxz <justforlxz@outlook.com>
+ * Maintainer: liuhong <liuhong_cm@deepin.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,7 +21,13 @@
 
 #include "modifypasswdpage.h"
 
-ModifyPasswdPage::ModifyPasswdPage(QWidget *parent) : QWidget(parent)
+using namespace DCC_NAMESPACE::accounts;
+
+ModifyPasswdPage::ModifyPasswdPage(User *user, QWidget *parent)
+    : QWidget(parent)
+    , m_curUser(user)
 {
+
+
 
 }

@@ -1,13 +1,9 @@
 /*
- * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     liuhong <liuhong_cm@deepin.com>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
  *
- * Maintainer: sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
+ * Maintainer: liuhong <liuhong_cm@deepin.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -53,6 +49,11 @@ public:
     QWidget *moduleWidget();
     void contentPopped(QWidget *const w);
 
+public Q_SLOTS:
+    void onShowAccountsDetailWidget(User *account);
+    void onShowCreateAccountPage();
+    void onShowPasswordPage(User *account);
+
 private:
     ~AccountsModule();
 
@@ -60,6 +61,7 @@ private:
     UserModel *m_userList;
     AccountsWidget *m_accountsWidget;
     AccountsWorker *m_accountsWorker;
+    FrameProxyInterface *m_frameProxy = nullptr;
 };
 
 }   // namespace accounts

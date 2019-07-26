@@ -3,7 +3,7 @@
  *
  * Author:     liuhong <liuhong_cm@deepin.com>
  *
- * Maintainer: justforlxz <justforlxz@outlook.com>
+ * Maintainer: liuhong <liuhong_cm@deepin.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,17 +22,39 @@
 #ifndef CREATEACCOUNTPAGE_H
 #define CREATEACCOUNTPAGE_H
 
+#include "window/namespace.h"
+#include "modules/accounts/user.h"
+
 #include <QWidget>
 
+using namespace dcc;
+using namespace dcc::accounts;
+
+
+
+namespace DCC_NAMESPACE {
+namespace accounts {
+
+//创建账户页面
 class CreateAccountPage : public QWidget
 {
     Q_OBJECT
 public:
-    explicit CreateAccountPage(QWidget *parent = 0);
+    explicit CreateAccountPage(QWidget *parent = nullptr);
 
-signals:
 
-public slots:
+
+Q_SIGNALS:
+
+
+
+public Q_SLOTS:
+
+
+
 };
+
+}
+}
 
 #endif // CREATEACCOUNTPAGE_H
