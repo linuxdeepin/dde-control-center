@@ -59,7 +59,7 @@ Q_SIGNALS:
     void requestShowPwdSettings(User *user);
     void requestSetAutoLogin(User *user, const bool autoLogin);
     void requestNopasswdLogin(User *user, const bool nopasswdLogin);
-
+    void requestDeleteAccount(User *user, const bool deleteHome);
 
 private Q_SLOTS:
     void deleteUserClicked();

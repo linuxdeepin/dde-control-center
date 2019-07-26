@@ -82,15 +82,15 @@ void AccountsModule::contentPopped(QWidget *const w)
 void AccountsModule::onShowAccountsDetailWidget(User *account)
 {
     qDebug() << Q_FUNC_INFO;
-    AccountsDetailWidget *adw = new AccountsDetailWidget(account);
+    AccountsDetailWidget *w = new AccountsDetailWidget(account);
 
-    if (m_frameProxy != nullptr && adw != nullptr) {
+    if (m_frameProxy != nullptr && w != nullptr) {
 
-        connect(adw, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
-        connect(adw, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
-        connect(adw, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
-
-        m_frameProxy->pushWidget(nullptr, adw);
+        connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
+        connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
+        connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
+        connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
+        m_frameProxy->pushWidget(nullptr, w);
     }
 }
 
@@ -98,10 +98,10 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
 void AccountsModule::onShowCreateAccountPage()
 {
     qDebug() << Q_FUNC_INFO;
-    CreateAccountPage *cap = new CreateAccountPage();
+    CreateAccountPage *w = new CreateAccountPage();
 
-    if (m_frameProxy != nullptr && cap != nullptr) {
-        m_frameProxy->pushWidget(nullptr, cap);
+    if (m_frameProxy != nullptr && w != nullptr) {
+        m_frameProxy->pushWidget(nullptr, w);
     }
 }
 
@@ -115,9 +115,9 @@ AccountsModule::~AccountsModule()
 void AccountsModule::onShowPasswordPage(User *account)
 {
     qDebug() << Q_FUNC_INFO;
-    ModifyPasswdPage *mpp = new ModifyPasswdPage(account);
-    connect(mpp, &ModifyPasswdPage::requestChangePassword, m_accountsWorker, &AccountsWorker::setPassword);
-    if (m_frameProxy != nullptr && mpp != nullptr) {
-        m_frameProxy->pushWidget(nullptr, mpp);
+    ModifyPasswdPage *w = new ModifyPasswdPage(account);
+    connect(w, &ModifyPasswdPage::requestChangePassword, m_accountsWorker, &AccountsWorker::setPassword);
+    if (m_frameProxy != nullptr && w != nullptr) {
+        m_frameProxy->pushWidget(nullptr, w);
     }
 }

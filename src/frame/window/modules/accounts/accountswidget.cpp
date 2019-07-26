@@ -53,6 +53,7 @@ AccountsWidget::AccountsWidget(QWidget *parent)
 void AccountsWidget::setModel(UserModel *model)
 {
     connect(model, &UserModel::userAdded, this, &AccountsWidget::addUser);
+    connect(model, &UserModel::userRemoved, this, &AccountsWidget::removeUser);
     //给账户列表添加用户数据
     for (auto user : model->userList()) {
         addUser(user);
@@ -74,6 +75,11 @@ void AccountsWidget::addUser(User *user)
     item->setTextAlignment(Qt::AlignCenter);
     item->setEditable(false);
     m_userItemModel->appendRow(item);
+}
+
+void AccountsWidget::removeUser(User *user)
+{
+    m_userList.removeOne(user);
 }
 
 void AccountsWidget::onItemClicked(const QModelIndex &index)

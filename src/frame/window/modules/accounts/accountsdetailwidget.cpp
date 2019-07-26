@@ -73,6 +73,9 @@ void AccountsDetailWidget::initWidgets()
     m_modifydelLayout->setContentsMargins(1, 0, 1, 0);
     m_modifydelLayout->setSpacing(10);
     m_modifydelLayout->setMargin(3);
+
+    const bool isOnline = m_curUser->online();
+    m_deleteAccount->setDisabled(isOnline);
 }
 
 void AccountsDetailWidget::initDatas()
@@ -118,7 +121,8 @@ void AccountsDetailWidget::deleteUserClicked()
     int ret = d.exec();
 
     if (ret == 1) {
-
+        Q_EMIT requestDeleteAccount(m_curUser, d.deleteHome());
     }
+
 
 }

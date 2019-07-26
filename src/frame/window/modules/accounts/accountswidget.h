@@ -54,6 +54,7 @@ public:
 
 public Q_SLOTS:
     void addUser(User *user);
+    void removeUser(User *user);
     void onItemClicked(const QModelIndex &index);
 
 Q_SIGNALS:
