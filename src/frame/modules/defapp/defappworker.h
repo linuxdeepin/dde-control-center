@@ -43,6 +43,17 @@ class DefAppWorker : public QObject
     Q_OBJECT
 public:
     explicit DefAppWorker(DefAppModel *m_defAppModel, QObject *parent = 0);
+
+    enum DefaultAppsCategory {
+        Browser,
+        Mail,
+        Text,
+        Music,
+        Video,
+        Picture,
+        Terminal
+    };
+
     void active();
     void deactive();
 
@@ -62,11 +73,6 @@ private Q_SLOTS:
 private:
     DefAppModel *m_defAppModel;
     Mime     *m_dbusManager;
-
-    enum DefaultAppsCategory {
-        Browser, Mail, Text, Music, Video, Picture, Terminal
-    };
-
     QMap<QString, DefaultAppsCategory> m_stringToCategory;
     QString m_userLocalPath;
 

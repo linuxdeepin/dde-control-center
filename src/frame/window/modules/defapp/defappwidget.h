@@ -22,14 +22,12 @@
 #pragma once
 
 #include "window/namespace.h"
-
-#include <QPushButton>
-#include <QVBoxLayout>
 #include <QWidget>
+#include "modules/defapp/defappworker.h"
 
 class QListView;
 class QStandardItemModel;
-class QWidget;
+class QVBoxLayout;
 
 namespace DCC_NAMESPACE {
 namespace defapp {
@@ -38,7 +36,12 @@ class DefaultAppsWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit DefaultAppsWidget();
+    explicit DefaultAppsWidget(QWidget* parent = nullptr);
+
+Q_SIGNALS:
+    void requestCategoryClicked(dcc::defapp::DefAppWorker::DefaultAppsCategory category);
+public Q_SLOTS:
+    void onCategoryClicked(const QModelIndex &index);
 
 private:
     QListView  *m_defAppCatView;

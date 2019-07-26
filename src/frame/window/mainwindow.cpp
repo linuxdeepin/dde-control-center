@@ -47,7 +47,7 @@
 using namespace DCC_NAMESPACE;
 using namespace sync;
 using namespace DCC_NAMESPACE::datetime;
-using namespace defapp;
+using namespace DCC_NAMESPACE::defapp;
 using namespace DCC_NAMESPACE::display;
 using namespace DCC_NAMESPACE::accounts;
 

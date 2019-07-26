@@ -18,42 +18,44 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 #pragma once
 
-#include "window/interface/moduleinterface.h"
-#include "modules/defapp/defappworker.h"
+#include "window/namespace.h"
+#include <QListView>
 
-namespace dcc {
-namespace defapp {
-class DefAppModel;
-class DefAppWorker;
-}
-}
 namespace DCC_NAMESPACE {
 namespace defapp {
-class DefaultAppsWidget;
-class DefaultAppsModule : public QObject, public ModuleInterface
+class DefAppListView : public QListView
 {
     Q_OBJECT
 
 public:
-    explicit DefaultAppsModule(FrameProxyInterface *frame, QObject *parent = 0);
-    ~DefaultAppsModule();
+    DefAppListView(QWidget *parent = Q_NULLPTR);
 
-    virtual void initialize() override;
-    virtual void reset() override;
-    virtual const QString name() const override;
-    virtual void showPage(const QString &pageName) override;
-    virtual QWidget *moduleWidget() override;
-    virtual void contentPopped(QWidget *const w) override;
+    enum DefAppDataRole{
+        DefAppIsUserRole = Qt::UserRole + 1,
+        DefAppIdRole,
+    };
+
+    const QModelIndex &currentHoverIndex() const;
+
+Q_SIGNALS:
+    void currentHoverChanged(const QModelIndex &previous, const QModelIndex &current);
+
+protected:
+    void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
+    void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
-    void showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category);
+    void onCurrentHoverChanged(const QModelIndex &previous, const QModelIndex &current);
+    void onItemEntered(const QModelIndex &index);
+
 private:
-    DefaultAppsWidget *m_defaultappsWidget;
-    dcc::defapp::DefAppModel       *m_defAppModel;
-    dcc::defapp::DefAppWorker      *m_defAppWorker;
+    QModelIndex m_indexPrevious;
+    QModelIndex m_indexCurrent;
 };
 }
 }
+
+
+

@@ -24,13 +24,13 @@
 #include <QListView>
 #include <QStandardItemModel>
 #include <QStandardItem>
-#include <QListWidget>
+#include <QVBoxLayout>
 #include <QDebug>
 
 using namespace DCC_NAMESPACE::defapp;
 
-DefaultAppsWidget::DefaultAppsWidget()
-    : QWidget()
+DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
+    : QWidget(parent)
 {
     setObjectName("Defapp");
     m_defAppCatView = new QListView(this);
@@ -61,8 +61,12 @@ DefaultAppsWidget::DefaultAppsWidget()
     m_defAppCatView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
 
     m_centralLayout->addWidget(m_defAppCatView);
-
+    connect(m_defAppCatView, &QListView::clicked, this, &DefaultAppsWidget::onCategoryClicked);
 
     setAccessibleName(tr("Default Applications"));
 }
 
+void DefaultAppsWidget::onCategoryClicked(const QModelIndex &index) {
+    qDebug() << "DefaultAppsWidget clicked row " << index.row();
+    Q_EMIT requestCategoryClicked(dcc::defapp::DefAppWorker::DefaultAppsCategory(index.row()));
+}

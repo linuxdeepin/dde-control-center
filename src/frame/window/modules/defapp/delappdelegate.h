@@ -18,42 +18,34 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 #pragma once
 
-#include "window/interface/moduleinterface.h"
-#include "modules/defapp/defappworker.h"
+#include "window/namespace.h"
 
-namespace dcc {
-namespace defapp {
-class DefAppModel;
-class DefAppWorker;
-}
-}
+#include <QStyledItemDelegate>
+#include <QStandardItemModel>
+
+
 namespace DCC_NAMESPACE {
 namespace defapp {
-class DefaultAppsWidget;
-class DefaultAppsModule : public QObject, public ModuleInterface
+class DelAppDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
+public:
+    explicit DelAppDelegate(QObject *parent = Q_NULLPTR);
+    void setModel(QStandardItemModel *model);
+
+Q_SIGNALS:
+    void removeBtnClicked(const QModelIndex &index) const;
 
 public:
-    explicit DefaultAppsModule(FrameProxyInterface *frame, QObject *parent = 0);
-    ~DefaultAppsModule();
+    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
+    void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
 
-    virtual void initialize() override;
-    virtual void reset() override;
-    virtual const QString name() const override;
-    virtual void showPage(const QString &pageName) override;
-    virtual QWidget *moduleWidget() override;
-    virtual void contentPopped(QWidget *const w) override;
-
-private Q_SLOTS:
-    void showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category);
 private:
-    DefaultAppsWidget *m_defaultappsWidget;
-    dcc::defapp::DefAppModel       *m_defAppModel;
-    dcc::defapp::DefAppWorker      *m_defAppWorker;
+    QStandardItemModel *m_model;
 };
 }
 }
+
+

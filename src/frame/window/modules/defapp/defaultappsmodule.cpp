@@ -21,6 +21,9 @@
 
 #include "defaultappsmodule.h"
 #include "defappwidget.h"
+#include "defappdetailwidget.h"
+#include "modules/defapp/defappmodel.h"
+#include "modules/defapp/defappworker.h"
 
 #include <QObject>
 #include <QWidget>
@@ -45,6 +48,11 @@ DefaultAppsModule::~DefaultAppsModule()
 
 void DefaultAppsModule::initialize()
 {
+    m_defAppModel  = new dcc::defapp::DefAppModel;
+    m_defAppWorker = new dcc::defapp::DefAppWorker(m_defAppModel);
+    m_defAppModel->moveToThread(qApp->thread());
+    m_defAppWorker->moveToThread(qApp->thread());
+    m_defAppWorker->onGetListApps();
 }
 
 void DefaultAppsModule::showPage(const QString &pageName)
@@ -61,6 +69,7 @@ QWidget *DefaultAppsModule::moduleWidget()
 {
     if (!m_defaultappsWidget) {
         m_defaultappsWidget = new DefaultAppsWidget;
+        connect(m_defaultappsWidget, &DefaultAppsWidget::requestCategoryClicked, this, &DefaultAppsModule::showDetailWidget );
     }
 
     return m_defaultappsWidget;
@@ -74,4 +83,13 @@ const QString DefaultAppsModule::name() const
 void DefaultAppsModule::contentPopped(QWidget *const w)
 {
     Q_UNUSED(w);
+}
+
+void DefaultAppsModule::showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category) {
+    DefappDetailWidget* detailWidget = new DefappDetailWidget(category);
+    detailWidget->setModel(m_defAppModel);
+    connect(detailWidget, &DefappDetailWidget::requestSetDefaultApp,   m_defAppWorker, &dcc::defapp::DefAppWorker::onSetDefaultApp); //设置默认程序
+    connect(detailWidget, &DefappDetailWidget::requestDelUserApp,      m_defAppWorker, &dcc::defapp::DefAppWorker::onDelUserApp);
+    connect(detailWidget, &DefappDetailWidget::requestCreateFile, m_defAppWorker, &dcc::defapp::DefAppWorker::onCreateFile);
+    m_frameProxy->pushWidget(this,  detailWidget);
 }
