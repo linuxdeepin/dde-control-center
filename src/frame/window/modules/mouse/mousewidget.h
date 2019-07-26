@@ -22,7 +22,6 @@
 #pragma once
 
 #include "window/namespace.h"
-#include <QPushButton>
 #include <QVBoxLayout>
 #include <QListView>
 
@@ -51,7 +50,7 @@ Q_SIGNALS:
     void showGeneralSetting();
     void showMouseSetting();
     void showTouchpadSetting();
-    void showPalmdetectSetting();
+    void showTrackPointSetting();
 private:
     MouseModel *m_mouseModel;
     QListView *m_mouseListView;

@@ -558,6 +558,8 @@ set(MOUSE_FILES
                 window/modules/mouse/mousesettingwidget.cpp
                 window/modules/mouse/touchpadsettingwidget.h
                 window/modules/mouse/touchpadsettingwidget.cpp
+                window/modules/mouse/trackpointsettingwidget.h
+                window/modules/mouse/trackpointsettingwidget.cpp
 )
 
 # load network

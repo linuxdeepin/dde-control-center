@@ -1,9 +1,9 @@
 /*
  * Copyright (C) 2017 ~ 2019 Deepin Technology Co., Ltd.
  *
- * Author:     andywang <wangwei_cm@deepin.com>
+ * Author:     andywang <andywang_cm@deepin.com>
  *
- * Maintainer: zccrs <zhangjide@deepin.com>
+ * Maintainer: andywang <andywang_cm@deepin.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,21 +18,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef TOUCHPADSETTINGWIDGET_H
-#define TOUCHPADSETTINGWIDGET_H
+#ifndef TRACKPOINTSETTINGWIDGET_H
+#define TRACKPOINTSETTINGWIDGET_H
 
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
-#include <QPushButton>
-#include <QVBoxLayout>
 #include <QWidget>
+#include <QVBoxLayout>
 
 namespace dcc {
 namespace mouse {
 class MouseModel;
-class MouseWorker;
-class DouTestWidget;
-class PalmDetectSetting;
 }
 
 namespace widgets {
@@ -44,33 +40,23 @@ class TitledSliderItem;
 
 namespace DCC_NAMESPACE {
 namespace mouse {
-class TouchPadSettingWidget : public dcc::ContentWidget
+class TrackPointSettingWidget : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
-    explicit TouchPadSettingWidget(QWidget *parent = 0);
+    explicit TrackPointSettingWidget(QWidget *parent = 0);
     void setModel(dcc::mouse::MouseModel *const model);
 Q_SIGNALS:
-    void requestSetTouchpadMotionAcceleration(const int &value);
-    void requestSetTapClick(const bool state);
-    void requestSetTouchNaturalScroll(const bool state);
-
-    void requestDetectState(bool enable);
-    void requestContact(int value);
-    void requestPressure(int value);
+    void requestSetTrackPointMotionAcceleration(const int &value);
 private Q_SLOTS:
-    void onTouchMoveSpeedChanged(int speed);
+    void onRedPointMoveSpeedChanged(int speed);
 private:
     dcc::mouse::MouseModel *m_mouseModel;
-    dcc::mouse::PalmDetectSetting *m_palmDetectSetting;
-
-    dcc::widgets::SettingsGroup *m_touchpadSettingsGrp;
-    dcc::widgets::TitledSliderItem *m_touchMoveSlider;
-    dcc::widgets::SwitchWidget *m_touchClickStn;
-    dcc::widgets::SwitchWidget *m_touchNaturalScroll;
+    dcc::widgets::SettingsGroup *m_trackPointSettingsGrp;
+    dcc::widgets::TitledSliderItem *m_trackMoveSlider;
 
     QVBoxLayout *m_contentLayout;
 };
 }
 }
-#endif // TOUCHPADSETTINGWIDGET_H
+#endif // TRACKPOINTSETTINGWIDGET_H

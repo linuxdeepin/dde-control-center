@@ -27,8 +27,6 @@
 #include "modules/mouse/mousemodel.h"
 #include "modules/mouse/widget/palmdetectsetting.h"
 #include "modules/mouse/widget/doutestwidget.h"
-
-#include <QPushButton>
 #include <QDebug>
 #include <QStandardItemModel>
 #include <QStandardItem>
@@ -57,7 +55,7 @@ void MouseWidget::init()
     model->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), "General"));
     model->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), "Mouse"));
     model->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "TouchPad"));
-    //model->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "PalmDetect"));
+    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "TrackPoint"));
     m_mouseListView->setModel(model);
 //    m_mouseListView->setFlow(QListView::TopToBottom);
 //    m_mouseListView->setWordWrap(true);
@@ -77,6 +75,9 @@ void MouseWidget::onItemClieck(const QModelIndex &index)
         break;
     case 2:
         Q_EMIT showTouchpadSetting();
+        break;
+    case 3:
+        Q_EMIT showTrackPointSetting();
         break;
     default:
         Q_EMIT showGeneralSetting();

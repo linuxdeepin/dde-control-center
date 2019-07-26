@@ -38,7 +38,7 @@ class MouseWidget;
 class GeneralSettingWidget;
 class MouseSettingWidget;
 class TouchPadSettingWidget;
-class PalmDetectSettingWidget;
+class TrackPointSettingWidget;
 
 class MouseModule : public QObject, public ModuleInterface
 {
@@ -46,30 +46,26 @@ class MouseModule : public QObject, public ModuleInterface
 
 public:
     explicit MouseModule(FrameProxyInterface *frame, QObject *parent = 0);
-
     void initialize() override;
     void reset() override;
     QWidget *moduleWidget() override;
     const QString name() const override;
-
-private:
-    ~MouseModule();
     void contentPopped(QWidget *const w) override;
 
 public Q_SLOTS:
     void showGeneralSetting();
     void showMouseSetting();
     void showTouchpadSetting();
-    void showPalmdetectSetting();
-private:
+    void showTrackPointSetting();
 
-    MouseWidget *m_mouseWidget;
-    GeneralSettingWidget *m_generalSettingWidget;
-    MouseSettingWidget *m_mouseSettingWidget;
-    TouchPadSettingWidget *m_touchpadSettingWidget;
-    PalmDetectSettingWidget *m_palmdetectSettingWidget;
-    dcc::mouse::MouseModel  *m_model;
-    dcc::mouse::MouseWorker *m_worker;
+private:
+    MouseWidget *m_mouseWidget = nullptr;
+    GeneralSettingWidget *m_generalSettingWidget = nullptr;
+    MouseSettingWidget *m_mouseSettingWidget = nullptr;
+    TouchPadSettingWidget *m_touchpadSettingWidget = nullptr;
+    TrackPointSettingWidget *m_trackPointSettingWidget = nullptr;
+    dcc::mouse::MouseModel  *m_model = nullptr;
+    dcc::mouse::MouseWorker *m_worker = nullptr;
 };
 }
 }

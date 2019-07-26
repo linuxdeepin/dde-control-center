@@ -54,7 +54,7 @@ Q_SIGNALS:
     void requestSetDisTouchPad(const bool state);
     void requestSetMouseNaturalScroll(const bool state);
 
-private:
+private Q_SLOTS:
     void onMouseMoveSpeedChanged(int speed);
 private:
     dcc::mouse::MouseModel *m_mouseModel;

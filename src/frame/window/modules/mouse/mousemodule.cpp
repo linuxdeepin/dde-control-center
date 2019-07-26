@@ -27,7 +27,7 @@
 #include "generalsettingwidget.h"
 #include "mousesettingwidget.h"
 #include "touchpadsettingwidget.h"
-//#include "palmdetectsettingwidget.h"
+#include "trackpointsettingwidget.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::mouse;
@@ -40,14 +40,14 @@ MouseModule::MouseModule(FrameProxyInterface *frame, QObject *parent)
       m_generalSettingWidget(nullptr),
       m_mouseSettingWidget(nullptr),
       m_touchpadSettingWidget(nullptr),
-      m_palmdetectSettingWidget(nullptr)
+      m_trackPointSettingWidget(nullptr)
 {
 }
 
 void MouseModule::initialize()
 {
-    m_model  = new dcc::mouse::MouseModel;
-    m_worker = new dcc::mouse::MouseWorker(m_model);
+    m_model  = new dcc::mouse::MouseModel(this);
+    m_worker = new dcc::mouse::MouseWorker(m_model, this);
     m_model->moveToThread(qApp->thread());
     m_worker->moveToThread(qApp->thread());
     m_worker->init();
@@ -65,7 +65,7 @@ QWidget *MouseModule::moduleWidget()
         connect(m_mouseWidget, &MouseWidget::showGeneralSetting, this, &MouseModule::showGeneralSetting);
         connect(m_mouseWidget, &MouseWidget::showMouseSetting, this, &MouseModule::showMouseSetting);
         connect(m_mouseWidget, &MouseWidget::showTouchpadSetting, this, &MouseModule::showTouchpadSetting);
-        // connect(m_mouseWidget, &MouseWidget::showPalmdetectSetting, this, &MouseModule::showPalmdetectSetting);
+        connect(m_mouseWidget, &MouseWidget::showTrackPointSetting, this, &MouseModule::showTrackPointSetting);
         QMetaObject::invokeMethod(this, "showGeneralSetting", Qt::QueuedConnection);
     }
     return m_mouseWidget;
@@ -106,27 +106,24 @@ void MouseModule::showTouchpadSetting()
     connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestSetTapClick, m_worker, &MouseWorker::onTapClick);
     connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestSetTouchNaturalScroll, m_worker, &MouseWorker::onTouchNaturalScrollStateChanged);
 
+    connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestDetectState, m_worker, &MouseWorker::setPalmDetect);
+    connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestContact, m_worker, &MouseWorker::setPalmMinWidth);
+    connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestPressure, m_worker, &MouseWorker::setPalmMinz);
+
     m_frameProxy->pushWidget(this, m_touchpadSettingWidget);
 }
 
-void MouseModule::showPalmdetectSetting()
+void MouseModule::showTrackPointSetting()
 {
-//    if (!m_palmdetectSettingWidget) {
-//        m_palmdetectSettingWidget = new PalmDetectSettingWidget;
-//        m_palmdetectSettingWidget->setModel(m_model);
-//        m_frameProxy->pushWidget(this, m_palmdetectSettingWidget);
-//    }
+    m_trackPointSettingWidget = new TrackPointSettingWidget;
+    m_trackPointSettingWidget->setModel(m_model);
+    connect(m_trackPointSettingWidget, &TrackPointSettingWidget::requestSetTrackPointMotionAcceleration, m_worker, &MouseWorker::onTrackPointMotionAccelerationChanged);
+    m_frameProxy->pushWidget(this, m_trackPointSettingWidget);
 }
 
 const QString MouseModule::name() const
 {
     return QStringLiteral("mouse");
-}
-
-MouseModule::~MouseModule()
-{
-    m_model->deleteLater();
-    m_worker->deleteLater();
 }
 
 void MouseModule::contentPopped(QWidget *const w)

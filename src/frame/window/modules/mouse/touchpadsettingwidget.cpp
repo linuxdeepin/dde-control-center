@@ -43,6 +43,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
     m_touchMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
     m_touchClickStn = new SwitchWidget(tr("Tap to Click"));
     m_touchNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
+    m_palmDetectSetting = new PalmDetectSetting;
 
     QStringList touchMoveList;
     touchMoveList << tr("Slow") << "" << "" << "" << "" << "" << tr("Fast");
@@ -61,6 +62,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
 
     m_contentLayout = new QVBoxLayout();
     m_contentLayout->addWidget(m_touchpadSettingsGrp);
+    m_contentLayout->addWidget(m_palmDetectSetting);
     m_contentLayout->addStretch();
     TranslucentFrame *tFrame = new TranslucentFrame;
     tFrame->setLayout(m_contentLayout);
@@ -77,6 +79,12 @@ void TouchPadSettingWidget::setModel(dcc::mouse::MouseModel *const model)
     connect(model, &MouseModel::tpadMoveSpeedChanged, this, &TouchPadSettingWidget::onTouchMoveSpeedChanged);
     connect(model, &MouseModel::tapClickChanged, m_touchClickStn, &SwitchWidget::setChecked);
     connect(model, &MouseModel::tpadNaturalScrollChanged, m_touchNaturalScroll, &SwitchWidget::setChecked);
+
+    m_palmDetectSetting->setModel(model);
+    connect(m_palmDetectSetting, &PalmDetectSetting::requestContact, this, &TouchPadSettingWidget::requestContact);
+    connect(m_palmDetectSetting, &PalmDetectSetting::requestDetectState, this, &TouchPadSettingWidget::requestDetectState);
+    connect(m_palmDetectSetting, &PalmDetectSetting::requestPressure, this, &TouchPadSettingWidget::requestPressure);
+
     onTouchMoveSpeedChanged(m_mouseModel->tpadMoveSpeed());
     m_touchClickStn->setChecked(m_mouseModel->tapclick());
     m_touchNaturalScroll->setChecked(m_mouseModel->tpadNaturalScroll());
