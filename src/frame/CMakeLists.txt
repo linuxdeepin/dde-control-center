@@ -314,6 +314,8 @@ set(ACCOUNTS_FILES
                 window/modules/accounts/createaccountpage.h
                 window/modules/accounts/modifypasswdpage.cpp
                 window/modules/accounts/modifypasswdpage.h
+                window/modules/accounts/accountsdetailwidget.h
+                window/modules/accounts/accountsdetailwidget.cpp
 )
 
 # load bluetooth
