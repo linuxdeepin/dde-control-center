@@ -27,6 +27,7 @@ SyncWidget::SyncWidget(QWidget *parent)
     setLayout(m_mainLayout);
 
     connect(m_loginPage, &LoginPage::requestLoginUser, this, &SyncWidget::requestLoginUser);
+    connect(m_indexPage, &IndexPage::requestSetAutoSync, this, &SyncWidget::requestSetAutoSync);
 }
 
 void SyncWidget::setModel(dcc::cloudsync::SyncModel *model)

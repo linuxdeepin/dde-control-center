@@ -40,6 +40,7 @@ void SyncModule::showPage(const QString &pageName)
 QWidget *SyncModule::moduleWidget()
 {
     connect(m_mainWidget, &SyncWidget::requestLoginUser, m_worker, &dcc::cloudsync::SyncWorker::loginUser, Qt::UniqueConnection);
+    connect(m_mainWidget, &SyncWidget::requestSetAutoSync, m_worker, &dcc::cloudsync::SyncWorker::setAutoSync, Qt::UniqueConnection);
 
     m_mainWidget->setModel(m_model);
     m_worker->activate(); //refresh data

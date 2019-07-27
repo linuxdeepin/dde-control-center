@@ -46,6 +46,7 @@ public:
 
 Q_SIGNALS:
     void requestLoginUser() const;
+    void requestSetAutoSync(bool enable) const;
 
 private:
     void onUserInfoChanged(const QVariantMap &userInfo);

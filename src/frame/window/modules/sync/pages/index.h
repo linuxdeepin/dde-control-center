@@ -28,8 +28,12 @@ class QListView;
 class QVBoxLayout;
 class QStandardItemModel;
 class QStandardItem;
+class QLabel;
 
 namespace dcc {
+namespace widgets {
+class SwitchWidget;
+}
 namespace cloudsync {
 class SyncModel;
 }
@@ -43,12 +47,19 @@ public:
     IndexPage(QWidget *parent = nullptr);
     void setModel(dcc::cloudsync::SyncModel *model);
 
+Q_SIGNALS:
+    void requestSetAutoSync(bool enable) const;
+
 private:
     void onListViewClicked(const QModelIndex &index);
+    void onUserInfoChanged(const QVariantMap& infos);
 
 private:
     QVBoxLayout *m_mainLayout;
     dcc::cloudsync::SyncModel *m_model;
+    QLabel* m_avatar;
+    QLabel* m_username;
+    dcc::widgets::SwitchWidget* m_autoSyncSwitch;
     QListView *m_listView;
     QStandardItemModel *m_listModel;
     QList<QStandardItem*> m_items;
