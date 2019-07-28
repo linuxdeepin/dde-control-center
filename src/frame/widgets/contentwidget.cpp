@@ -90,8 +90,10 @@ ContentWidget::ContentWidget(QWidget *parent)
     titleLayout->setContentsMargins(0, 0, m_backBtn->width(), 0);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
+#ifndef WINDOW_MODE
     centralLayout->addLayout(titleLayout);
     centralLayout->addSpacing(15);
+#endif
     centralLayout->addWidget(new dcc::widgets::HSeparator);
     centralLayout->addLayout(m_contentTopLayout);
     centralLayout->addWidget(m_contentArea);
