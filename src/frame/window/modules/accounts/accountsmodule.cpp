@@ -90,6 +90,9 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
     connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
     connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
+    connect(w, &AccountsDetailWidget::requestChangeFrameAutoHide, this, [&](){
+        m_frameProxy->popWidget(this);
+    });
     m_frameProxy->pushWidget(this, w);
 }
 
