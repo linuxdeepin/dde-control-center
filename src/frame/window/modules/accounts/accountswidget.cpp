@@ -79,7 +79,10 @@ void AccountsWidget::addUser(User *user)
 
 void AccountsWidget::removeUser(User *user)
 {
-    m_userList.removeOne(user);
+    const int index = m_userList.indexOf(user);
+    m_userList.removeAt(index);
+    delete m_userItemModel->takeItem(index);
+    Q_EMIT m_userItemModel->layoutChanged();
 }
 
 void AccountsWidget::onItemClicked(const QModelIndex &index)

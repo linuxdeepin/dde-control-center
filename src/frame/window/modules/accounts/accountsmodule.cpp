@@ -84,14 +84,13 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     qDebug() << Q_FUNC_INFO;
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
 
-    if (m_frameProxy != nullptr && w != nullptr) {
+    Q_ASSERT(w);
 
-        connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
-        connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
-        connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
-        connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
-        m_frameProxy->pushWidget(nullptr, w);
-    }
+    connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
+    connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
+    connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
+    connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
+    m_frameProxy->pushWidget(this, w);
 }
 
 //创建账户界面
@@ -99,10 +98,7 @@ void AccountsModule::onShowCreateAccountPage()
 {
     qDebug() << Q_FUNC_INFO;
     CreateAccountPage *w = new CreateAccountPage();
-
-    if (m_frameProxy != nullptr && w != nullptr) {
-        m_frameProxy->pushWidget(nullptr, w);
-    }
+    m_frameProxy->pushWidget(this, w);
 }
 
 AccountsModule::~AccountsModule()
@@ -117,7 +113,5 @@ void AccountsModule::onShowPasswordPage(User *account)
     qDebug() << Q_FUNC_INFO;
     ModifyPasswdPage *w = new ModifyPasswdPage(account);
     connect(w, &ModifyPasswdPage::requestChangePassword, m_accountsWorker, &AccountsWorker::setPassword);
-    if (m_frameProxy != nullptr && w != nullptr) {
-        m_frameProxy->pushWidget(nullptr, w);
-    }
+    m_frameProxy->pushWidget(this, w);
 }
