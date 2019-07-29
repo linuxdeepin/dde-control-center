@@ -54,6 +54,7 @@ public Q_SLOTS:
     void onShowAccountsDetailWidget(dcc::accounts::User *account);
     void onShowCreateAccountPage();
     void onShowPasswordPage(dcc::accounts::User *account);
+    void onShowAvatarListPage(dcc::accounts::User *account);
 
 private:
     ~AccountsModule();

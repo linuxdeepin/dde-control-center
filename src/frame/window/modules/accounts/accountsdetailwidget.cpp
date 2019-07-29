@@ -112,6 +112,9 @@ void AccountsDetailWidget::initDatas()
         Q_EMIT requestNopasswdLogin(m_curUser, nopasswdLogin);
     });
 
+    connect(m_avatar, &AvatarWidget::clicked, this, [ = ](const QString &iconPath) {
+        Q_EMIT requestShowAvatarList(m_curUser);
+    });
 }
 
 //删除账户

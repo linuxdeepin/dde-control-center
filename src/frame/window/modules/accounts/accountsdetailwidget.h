@@ -61,6 +61,8 @@ Q_SIGNALS:
     void requestNopasswdLogin(User *user, const bool nopasswdLogin);
     void requestDeleteAccount(User *user, const bool deleteHome);
     void requestChangeFrameAutoHide();
+    void requestShowAvatarList(User *user);
+
 
 private Q_SLOTS:
     void deleteUserClicked();
