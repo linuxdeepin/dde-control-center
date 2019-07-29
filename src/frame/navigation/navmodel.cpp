@@ -34,7 +34,7 @@ NavModel::NavModel(int columnCount, QObject *parent)
     m_hoverIndex = QModelIndex();
     initModuleTypeMapData();
 
-    setModuleVisible("bluetooth", false);
+    setModuleVisible("bluetooth", true);
     setModuleVisible("wacom", false);
     setModuleVisible("Cloud Sync", false);
 }

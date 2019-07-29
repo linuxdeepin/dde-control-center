@@ -148,7 +148,7 @@ void MainWindow::tryLoadModule(NavModel::ModuleType type)
 //        loadModule(new NetworkModule(this));
         break;
     case NavModel::Bluetooth:
-//        loadModule(new BluetoothModule(this));
+        loadModule(new DCC_NAMESPACE::bluetooth::BluetoothModule(this));
         break;
     case NavModel::Sound:
 //        loadModule(new SoundModule(this));

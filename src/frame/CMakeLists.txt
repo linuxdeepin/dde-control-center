@@ -351,6 +351,15 @@ set(BLUETOOTH_FILES
                 modules/bluetooth/device.h
                 modules/bluetooth/devicesettingsitem.cpp
                 modules/bluetooth/devicesettingsitem.h
+
+                window/modules/bluetooth/TitleEdit.h
+                window/modules/bluetooth/TitleEdit.cpp
+                window/modules/bluetooth/adapterwidget.h
+                window/modules/bluetooth/adapterwidget.cpp
+                window/modules/bluetooth/bluetoothwidget.h
+                window/modules/bluetooth/bluetoothwidget.cpp
+                window/modules/bluetooth/bluetoothmodule.h
+                window/modules/bluetooth/bluetoothmodule.cpp
 )
 
 #load datetime

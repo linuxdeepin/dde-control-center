@@ -50,7 +50,7 @@ private:
     void tryLoadModule(NavModel::ModuleType type);
 
 public:
-    void popWidget(ModuleInterface * const inter);
+    void popWidget(ModuleInterface * const inter) override;
     void pushWidget(ModuleInterface * const inter, QWidget * const w) override;
     void setModuleVisible(ModuleInterface * const inter, const bool visible) override;
     void showModulePage(const QString &module, const QString &page, bool animation) override;
