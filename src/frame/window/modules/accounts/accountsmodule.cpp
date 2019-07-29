@@ -22,6 +22,12 @@
 #include "accountsmodule.h"
 #include "createaccountpage.h"
 #include "modifypasswdpage.h"
+#include "accountswidget.h"
+#include "accountsdetailwidget.h"
+
+#include "modules/accounts/accountsworker.h"
+#include "modules/accounts/user.h"
+#include "modules/accounts/usermodel.h"
 
 #include <QDebug>
 

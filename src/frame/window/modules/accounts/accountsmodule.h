@@ -22,19 +22,20 @@
 #pragma once
 
 #include "window/interface/moduleinterface.h"
-#include "accountswidget.h"
-#include "modules/accounts/accountsworker.h"
-#include "modules/accounts/user.h"
-#include "modules/accounts/usermodel.h"
-#include "modules/accounts/fingermodel.h"
-#include "modules/accounts/fingerworker.h"
-#include "window/namespace.h"
 
 #include <com_deepin_daemon_accounts.h>
 
+namespace dcc {
+    namespace accounts {
+        class User;
+        class AccountsWorker;
+        class UserModel;
+    }
+}
+
 namespace DCC_NAMESPACE {
 namespace accounts {
-
+class AccountsWidget;
 class AccountsModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -50,18 +51,17 @@ public:
     void contentPopped(QWidget *const w);
 
 public Q_SLOTS:
-    void onShowAccountsDetailWidget(User *account);
+    void onShowAccountsDetailWidget(dcc::accounts::User *account);
     void onShowCreateAccountPage();
-    void onShowPasswordPage(User *account);
+    void onShowPasswordPage(dcc::accounts::User *account);
 
 private:
     ~AccountsModule();
 
 private:
-    UserModel *m_userList;
-    AccountsWidget *m_accountsWidget;
-    AccountsWorker *m_accountsWorker;
-    FrameProxyInterface *m_frameProxy = nullptr;
+    dcc::accounts::UserModel      *m_userList;
+    AccountsWidget                *m_accountsWidget;
+    dcc::accounts::AccountsWorker *m_accountsWorker;
 };
 
 }   // namespace accounts

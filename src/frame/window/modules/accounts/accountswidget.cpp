@@ -20,10 +20,17 @@
  */
 
 #include "accountswidget.h"
+
 #include "modules/accounts/usermodel.h"
 #include "modules/accounts/user.h"
+#include "accountsdetailwidget.h"
 
 #include <QPushButton>
+#include <QVBoxLayout>
+#include <QListView>
+#include <QStandardItem>
+#include <QStandardItemModel>
+
 #include <QDebug>
 #include <QIcon>
 #include <QSize>
@@ -62,7 +69,6 @@ void AccountsWidget::setModel(UserModel *model)
 
 void AccountsWidget::addUser(User *user)
 {
-    m_userList.append(user);
     QStandardItem *item = new QStandardItem;
     connect(user, &User::currentAvatarChanged, this, [ = ](const QString & avatar) {
         item->setIcon(QIcon(avatar));
@@ -75,24 +81,16 @@ void AccountsWidget::addUser(User *user)
     item->setTextAlignment(Qt::AlignCenter);
     item->setEditable(false);
     m_userItemModel->appendRow(item);
+    m_userList << user;
 }
 
 void AccountsWidget::removeUser(User *user)
 {
-    const int index = m_userList.indexOf(user);
-    m_userList.removeAt(index);
-    delete m_userItemModel->takeItem(index);
-    Q_EMIT m_userItemModel->layoutChanged();
+    m_userItemModel->removeRow(m_userList.indexOf(user)); // It will delete when remove
+    m_userList.removeOne(user);
 }
 
 void AccountsWidget::onItemClicked(const QModelIndex &index)
 {
-    QString user_name = index.data().toString();
-    qDebug() << user_name;
-    for (User *user : m_userList) {
-        if (user->name() == user_name) {
-            Q_EMIT requestShowAccountsDetail(user);
-        }
-    }
-
+    Q_EMIT requestShowAccountsDetail(m_userList[index.row()]);
 }

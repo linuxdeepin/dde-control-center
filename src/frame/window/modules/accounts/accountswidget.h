@@ -22,27 +22,25 @@
 #pragma once
 
 #include "window/namespace.h"
-#include "modules/accounts/user.h"
-#include "modules/accounts/usermodel.h"
-#include "accountsdetailwidget.h"
 
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QListView>
-#include <QStandardItem>
-#include <QStandardItemModel>
+#include <QWidget>
+
+class QPushButton;
+class QVBoxLayout;
+class QListView;
+class QStandardItem;
+class QStandardItemModel;
 
 namespace dcc {
 namespace accounts {
 class User;
+class UserModel;
 }
 }
-
-using namespace dcc::accounts;
 
 namespace DCC_NAMESPACE {
 namespace accounts {
-
+class AccountsDetailWidget;
 //显示用户列表
 class AccountsWidget : public QWidget
 {
@@ -53,19 +51,19 @@ public:
     void setModel(dcc::accounts::UserModel *model);
 
 public Q_SLOTS:
-    void addUser(User *user);
-    void removeUser(User *user);
+    void addUser(dcc::accounts::User *user);
+    void removeUser(dcc::accounts::User *user);
     void onItemClicked(const QModelIndex &index);
 
 Q_SIGNALS:
-    void requestShowAccountsDetail(User *account);
+    void requestShowAccountsDetail(dcc::accounts::User *account);
     void requestCreateAccount();
 
 private:
     QPushButton *m_createBtn;
     QListView *m_userlistView;
     QStandardItemModel *m_userItemModel;
-    QList<User *> m_userList;
+    QList<dcc::accounts::User*> m_userList;
 };
 
 }   // namespace accounts
