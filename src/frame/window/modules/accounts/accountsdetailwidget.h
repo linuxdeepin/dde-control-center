@@ -29,6 +29,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/nextpagewidget.h"
 #include "widgets/switchwidget.h"
+#include "avatarlistwidget.h"
 
 #include <com_deepin_daemon_fprintd_device.h>
 #include <QVBoxLayout>
@@ -61,12 +62,10 @@ Q_SIGNALS:
     void requestNopasswdLogin(User *user, const bool nopasswdLogin);
     void requestDeleteAccount(User *user, const bool deleteHome);
     void requestChangeFrameAutoHide();
-    void requestShowAvatarList(User *user);
-
+    void requestSetAvatar(User *user, const QString &filePath);
 
 private Q_SLOTS:
     void deleteUserClicked();
-
 
 private:
     User *m_curUser;
@@ -86,6 +85,7 @@ private:
     SwitchWidget *m_autoLogin;//自动登录
     SwitchWidget *m_nopasswdLogin;//无密码登录
 
+    AvatarListWidget* m_avatarListWidget;
 };
 
 }   // namespace accounts

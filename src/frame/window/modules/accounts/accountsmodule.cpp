@@ -27,7 +27,7 @@
 #include "modules/accounts/accountsworker.h"
 #include "modules/accounts/user.h"
 #include "modules/accounts/usermodel.h"
-#include "modifyavatarpage.h"
+//#include "modifyavatarpage.h"
 
 #include <QDebug>
 
@@ -92,7 +92,6 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
 
     Q_ASSERT(w);
 
-    connect(w, &AccountsDetailWidget::requestShowAvatarList, this, &AccountsModule::onShowAvatarListPage);
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
     connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
@@ -100,6 +99,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requestChangeFrameAutoHide, this, [&](){
         m_frameProxy->popWidget(this);
     });
+    connect(w, &AccountsDetailWidget::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
     m_frameProxy->pushWidget(this, w);
 }
 
@@ -123,16 +123,5 @@ void AccountsModule::onShowPasswordPage(User *account)
     qDebug() << Q_FUNC_INFO;
     ModifyPasswdPage *w = new ModifyPasswdPage(account);
     connect(w, &ModifyPasswdPage::requestChangePassword, m_accountsWorker, &AccountsWorker::setPassword);
-    m_frameProxy->pushWidget(this, w);
-}
-
-//显示图像列表界面
-void AccountsModule::onShowAvatarListPage(User *account)
-{
-    qDebug() << Q_FUNC_INFO;
-    ModifyAvatarPage *w = new ModifyAvatarPage(account);
-//    connect(w, &ModifyAvatarPage::requestAddNewAvatar, m_accountsWorker, &AccountsWorker::addNewAvatar);
-//    connect(w, &ModifyAvatarPage::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
-//    connect(w, &ModifyAvatarPage::requestDeleteAvatar, m_accountsWorker, &AccountsWorker::deleteUserIcon);
     m_frameProxy->pushWidget(this, w);
 }

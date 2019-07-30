@@ -325,8 +325,8 @@ set(ACCOUNTS_FILES
                 window/modules/accounts/modifypasswdpage.h
                 window/modules/accounts/accountsdetailwidget.h
                 window/modules/accounts/accountsdetailwidget.cpp
-                window/modules/accounts/modifyavatarpage.h
-                window/modules/accounts/modifyavatarpage.cpp
+                window/modules/accounts/avatarlistwidget.h
+                window/modules/accounts/avatarlistwidget.cpp
                 window/modules/accounts/avataritemdelegate.h
                 window/modules/accounts/avataritemdelegate.cpp
 )

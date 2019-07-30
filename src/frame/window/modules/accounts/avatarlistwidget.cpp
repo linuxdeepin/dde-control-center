@@ -19,9 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "modifyavatarpage.h"
+#include "avatarlistwidget.h"
 #include "modules/accounts/user.h"
-#include "modules/accounts/avatarwidget.h"
 #include "avataritemdelegate.h"
 
 #include <QWidget>
@@ -31,19 +30,14 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QLabel>
+#include <QDebug>
 
 
 using namespace DCC_NAMESPACE::accounts;
 
-ModifyAvatarPage::ModifyAvatarPage(dcc::accounts::User *user, QWidget *parent)
+AvatarListWidget::AvatarListWidget(QWidget *parent)
     : QWidget(parent)
-    , m_curUser(user)
     , m_mainContentLayout(new QVBoxLayout(this))
-    , m_headLayout(new QVBoxLayout)
-    , m_avatarlistLayout(new QVBoxLayout)
-    , m_avatar(new dcc::accounts::AvatarWidget)
-    , m_shortName(new QLabel)
-    , m_fullName(new QLabel)
     , m_avatarListView(new QListView(this))
     , m_avatarItemModel(new QStandardItemModel())
     , m_avatarItemDelegate(new AvatarItemDelegate())
@@ -53,40 +47,26 @@ ModifyAvatarPage::ModifyAvatarPage(dcc::accounts::User *user, QWidget *parent)
 
 }
 
-void ModifyAvatarPage::initWidgets()
+void AvatarListWidget::initWidgets()
 {
-    m_shortName->setFixedHeight(20);
-    m_fullName->setFixedHeight(20);
-    m_avatar->setAlignment(Qt::AlignHCenter);
-
-    m_headLayout->addWidget(m_avatar, 0, Qt::AlignHCenter);
-    m_headLayout->addWidget(m_shortName, 0, Qt::AlignHCenter);
-    m_headLayout->addWidget(m_fullName, 0, Qt::AlignHCenter);
-
-    m_avatarlistLayout->addWidget(m_avatarListView, 0, Qt::AlignCenter);
-
-    m_mainContentLayout->addLayout(m_headLayout);
-    m_mainContentLayout->addLayout(m_avatarlistLayout);
+    m_mainContentLayout->addWidget(m_avatarListView, 0, Qt::AlignCenter);
     m_mainContentLayout->addStretch();
 
     m_avatarListView->setViewMode(QListView::IconMode);
     m_avatarListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-    //m_avatarListView->setStyleSheet(QString("QListView::item{ background-color:red; padding:5px; margin:10px; }"));
-    qDebug() << Q_FUNC_INFO << m_avatarListView->rect();
+    m_avatarListView->setDragDropMode(QAbstractItemView::NoDragDrop);
+    m_avatarListView->setDragEnabled(false);
+    m_avatarListView->setSpacing(15);
+
+    connect(m_avatarListView, &QListView::clicked, this, &AvatarListWidget::onItemClicked);
 }
 
-void ModifyAvatarPage::initDatas()
+void AvatarListWidget::initDatas()
 {
-    //use m_curUser fill widget data
-    m_avatar->setAvatarPath(m_curUser->currentAvatar());
-    m_avatar->resize(640, 480);
-    m_shortName->setText(m_curUser->name());
-    m_fullName->setText(m_curUser->fullname());
-
-    for(int i=0; i<14; i++) {
-        QStandardItem* item = new QStandardItem();
-        QString iconpath = QString::asprintf("/var/lib/AccountsService/icons/%d.png", i+1);
-        item->setData(QVariant::fromValue(iconpath), Qt::UserRole+1);
+    for (int i = 0; i < 14; i++) {
+        QStandardItem *item = new QStandardItem();
+        QString iconpath = QString::asprintf("/var/lib/AccountsService/icons/%d.png", i + 1);
+        item->setData(QVariant::fromValue(iconpath), Qt::UserRole + 1);
         m_avatarItemModel->appendRow(item);
     }
 
@@ -94,3 +74,8 @@ void ModifyAvatarPage::initDatas()
     m_avatarListView->setModel(m_avatarItemModel);
 }
 
+void AvatarListWidget::onItemClicked(const QModelIndex &index)
+{
+    QString iconPath = index.data(Qt::UserRole + 1).value<QString>();
+    Q_EMIT requestSetAvatar(iconPath);
+}

@@ -41,6 +41,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_deleteAccount(new QPushButton)
     , m_autoLogin(new SwitchWidget)
     , m_nopasswdLogin(new SwitchWidget)
+    , m_avatarListWidget(new AvatarListWidget)
 {
     initWidgets();
     initDatas();
@@ -80,21 +81,6 @@ void AccountsDetailWidget::initWidgets()
 
 void AccountsDetailWidget::initDatas()
 {
-    //use m_curUser fill widget data
-    m_avatar->setAvatarPath(m_curUser->currentAvatar());
-    m_avatar->resize(640, 480);
-    m_shortName->setText(m_curUser->name());
-    m_fullName->setText(m_curUser->fullname());
-
-    m_modifyPassword->setText(tr("修改密码"));
-    m_deleteAccount->setText(tr("删除账户"));
-
-    m_autoLogin->setTitle(tr("自动登录"));
-    m_autoLogin->setChecked(m_curUser->autoLogin());
-    m_nopasswdLogin->setTitle(tr("无密码登录"));
-    m_nopasswdLogin->setChecked(m_curUser->autoLogin());
-
-
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
     connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
 
@@ -113,8 +99,32 @@ void AccountsDetailWidget::initDatas()
     });
 
     connect(m_avatar, &AvatarWidget::clicked, this, [ = ](const QString &iconPath) {
-        Q_EMIT requestShowAvatarList(m_curUser);
+        Q_UNUSED(iconPath)
+        m_modifyPassword->setVisible(false);
+        m_deleteAccount->setVisible(false);
+        m_autoLogin->setVisible(false);
+        m_nopasswdLogin->setVisible(false);
+        m_modifydelLayout->addWidget(m_avatarListWidget);
     });
+
+    connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar, this, [=](const QString &avatarPath){
+        Q_EMIT requestSetAvatar(m_curUser, avatarPath);
+    });
+
+    connect(m_curUser, &User::currentAvatarChanged, m_avatar, &AvatarWidget::setAvatarPath);
+
+    //use m_curUser fill widget data
+    m_avatar->setAvatarPath(m_curUser->currentAvatar());
+    m_shortName->setText(m_curUser->name());
+    m_fullName->setText(m_curUser->fullname());
+
+    m_modifyPassword->setText(tr("修改密码"));
+    m_deleteAccount->setText(tr("删除账户"));
+
+    m_autoLogin->setTitle(tr("自动登录"));
+    m_autoLogin->setChecked(m_curUser->autoLogin());
+    m_nopasswdLogin->setTitle(tr("无密码登录"));
+    m_nopasswdLogin->setChecked(m_curUser->autoLogin());
 }
 
 //删除账户

@@ -29,32 +29,26 @@ class QLabel;
 class QListView;
 class QStandardItemModel;
 
-namespace dcc {
-namespace accounts {
-class User;
-class AvatarWidget;
-}
-}
 
 namespace DCC_NAMESPACE {
 namespace accounts {
 class AvatarItemDelegate;
-class ModifyAvatarPage : public QWidget
+class AvatarListWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ModifyAvatarPage(dcc::accounts::User *user, QWidget *parent = nullptr);
+    explicit AvatarListWidget(QWidget *parent = nullptr);
     void initWidgets();
     void initDatas();
 
+Q_SIGNALS:
+    void requestSetAvatar(const QString &avatarPath);
+
+public Q_SLOTS:
+    void onItemClicked(const QModelIndex &index);
+
 private:
-    dcc::accounts::User *m_curUser;//当前用户
     QVBoxLayout *m_mainContentLayout;
-    QVBoxLayout *m_headLayout;
-    QVBoxLayout *m_avatarlistLayout;
-    dcc::accounts::AvatarWidget *m_avatar;//账户图片
-    QLabel *m_shortName;
-    QLabel *m_fullName;
     QListView *m_avatarListView;
     QStandardItemModel *m_avatarItemModel;
     AvatarItemDelegate *m_avatarItemDelegate;
