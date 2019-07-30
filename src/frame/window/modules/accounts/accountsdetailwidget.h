@@ -32,10 +32,11 @@
 #include "avatarlistwidget.h"
 
 #include <com_deepin_daemon_fprintd_device.h>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QPushButton>
-#include <QLabel>
+class QVBoxLayout;
+class QHBoxLayout;
+class QPushButton;
+class QLabel;
+class QEvent;
 
 using namespace dcc::accounts;
 using namespace dcc::widgets;
@@ -85,7 +86,7 @@ private:
     SwitchWidget *m_autoLogin;//自动登录
     SwitchWidget *m_nopasswdLogin;//无密码登录
 
-    AvatarListWidget* m_avatarListWidget;
+    AvatarListWidget *m_avatarListWidget;
 };
 
 }   // namespace accounts

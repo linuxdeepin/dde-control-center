@@ -27,7 +27,6 @@
 #include "modules/accounts/accountsworker.h"
 #include "modules/accounts/user.h"
 #include "modules/accounts/usermodel.h"
-//#include "modifyavatarpage.h"
 
 #include <QDebug>
 

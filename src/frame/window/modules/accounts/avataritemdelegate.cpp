@@ -21,7 +21,13 @@
 
 #include "avataritemdelegate.h"
 
-
+#include <QObject>
+#include <QStyledItemDelegate>
+#include <QStyleOptionViewItem>
+#include <QModelIndex>
+#include <QPainter>
+#include <QSize>
+#include <QDebug>
 
 using namespace DCC_NAMESPACE::accounts;
 

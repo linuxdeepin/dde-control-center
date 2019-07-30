@@ -23,22 +23,22 @@
 #include "modules/accounts/user.h"
 #include "avataritemdelegate.h"
 
-#include <QWidget>
-#include <QListView>
-#include <QStandardItemModel>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QPushButton>
-#include <QLabel>
-#include <QDebug>
+#include <QWidget>;
+#include <QListView>;
+#include <QStandardItemModel>;
+#include <QVBoxLayout>;
+#include <QHBoxLayout>;
+#include <QPushButton>;
+#include <QLabel>;
+#include <QDebug>;
 
 
 using namespace DCC_NAMESPACE::accounts;
 
 AvatarListWidget::AvatarListWidget(QWidget *parent)
     : QWidget(parent)
-    , m_mainContentLayout(new QVBoxLayout(this))
-    , m_avatarListView(new QListView(this))
+    , m_mainContentLayout(new QVBoxLayout())
+    , m_avatarListView(new QListView())
     , m_avatarItemModel(new QStandardItemModel())
     , m_avatarItemDelegate(new AvatarItemDelegate())
 {
@@ -49,6 +49,8 @@ AvatarListWidget::AvatarListWidget(QWidget *parent)
 
 void AvatarListWidget::initWidgets()
 {
+    setLayout(m_mainContentLayout);
+
     m_mainContentLayout->addWidget(m_avatarListView, 0, Qt::AlignCenter);
     m_mainContentLayout->addStretch();
 

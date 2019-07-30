@@ -28,7 +28,7 @@ class QVBoxLayout;
 class QLabel;
 class QListView;
 class QStandardItemModel;
-
+class QModelIndex;
 
 namespace DCC_NAMESPACE {
 namespace accounts {

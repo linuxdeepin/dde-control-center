@@ -24,15 +24,14 @@
 
 #include "window/namespace.h"
 
-
-
-#include <QObject>
 #include <QStyledItemDelegate>
-#include <QStyleOptionViewItem>
-#include <QModelIndex>
-#include <QPainter>
-#include <QSize>
-#include <QDebug>
+
+class QObject;
+class QStyleOptionViewItem;
+class QModelIndex;
+class QPainter;
+class QSize;
+class QDebug;
 
 
 namespace DCC_NAMESPACE {

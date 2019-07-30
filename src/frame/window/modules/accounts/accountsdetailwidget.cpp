@@ -24,6 +24,9 @@
 
 #include <QVBoxLayout>
 #include <QDebug>
+#include <QEvent>
+#include <QMouseEvent>
+
 
 using namespace DCC_NAMESPACE::accounts;
 
@@ -49,6 +52,8 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 
 void AccountsDetailWidget::initWidgets()
 {
+    setLayout(m_mainContentLayout);
+
     m_headLayout->addWidget(m_avatar, 0, Qt::AlignHCenter);
     m_headLayout->addWidget(m_shortName, 0, Qt::AlignHCenter);
     m_headLayout->addWidget(m_fullName, 0, Qt::AlignHCenter);
@@ -98,7 +103,7 @@ void AccountsDetailWidget::initDatas()
         Q_EMIT requestNopasswdLogin(m_curUser, nopasswdLogin);
     });
 
-    connect(m_avatar, &AvatarWidget::clicked, this, [ = ](const QString &iconPath) {
+    connect(m_avatar, &AvatarWidget::clicked, this, [ = ](const QString & iconPath) {
         Q_UNUSED(iconPath)
         m_modifyPassword->setVisible(false);
         m_deleteAccount->setVisible(false);
@@ -107,7 +112,7 @@ void AccountsDetailWidget::initDatas()
         m_modifydelLayout->addWidget(m_avatarListWidget);
     });
 
-    connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar, this, [=](const QString &avatarPath){
+    connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar, this, [ = ](const QString & avatarPath) {
         Q_EMIT requestSetAvatar(m_curUser, avatarPath);
     });
 
@@ -137,6 +142,4 @@ void AccountsDetailWidget::deleteUserClicked()
         Q_EMIT requestDeleteAccount(m_curUser, d.deleteHome());
         Q_EMIT requestChangeFrameAutoHide();
     }
-
-
 }

@@ -25,6 +25,7 @@
 #include "modules/accounts/user.h"
 #include "accountsdetailwidget.h"
 
+#include <QWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QListView>
@@ -41,17 +42,19 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     : QWidget(parent)
     , m_createBtn(new QPushButton(tr("Create Account")))
     , m_userlistView(new QListView)
-    , m_userItemModel(new QStandardItemModel(this))
+    , m_userItemModel(new QStandardItemModel)
 {
     setObjectName("Accounts");
 
-    QVBoxLayout *mainContentLayout = new QVBoxLayout(this);
+    QVBoxLayout *mainContentLayout = new QVBoxLayout();
     mainContentLayout->addWidget(m_userlistView);
     mainContentLayout->addWidget(m_createBtn);
 
     m_userlistView->setIconSize(QSize(30, 30));
     m_userlistView->setLayoutDirection(Qt::LeftToRight);
     m_userlistView->setModel(m_userItemModel);
+
+    setLayout(mainContentLayout);
 
     connect(m_userlistView, &QListView::clicked, this, &AccountsWidget::onItemClicked);
     connect(m_createBtn, &QPushButton::clicked, this, &AccountsWidget::requestCreateAccount);
