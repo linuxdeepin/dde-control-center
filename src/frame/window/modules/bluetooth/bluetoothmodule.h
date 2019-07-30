@@ -45,6 +45,7 @@ class BluetoothModule : public QObject, public ModuleInterface
     Q_OBJECT
 public:
     explicit BluetoothModule(FrameProxyInterface *frame, QObject *parent = 0);
+    void preInitialize() override;
     void initialize() override;
     void reset() override;
     QWidget *moduleWidget() override;
@@ -55,7 +56,7 @@ public Q_SLOTS:
     void showPinCode(const QDBusObjectPath &device, const QString &code);
     void closePinCode(const QDBusObjectPath &device);
     void showDeviceDetail(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
-
+    void popPage();
 private:
     BluetoothWidget *m_bluetoothView;
     dcc::bluetooth::BluetoothModel *m_bluetoothModel;

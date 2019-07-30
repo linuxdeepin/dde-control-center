@@ -62,6 +62,7 @@ public Q_SLOTS:
     void disconnectDevice(const Device *device);
     void ignoreDevice(const Adapter *adapter, const Device *device);
     void setAlias(const Adapter *adapter, const QString &alias);
+    void setDeviceAlias(const Device *device, const QString &alias);
     void setAdapterDiscoverable(const QString &path);
     void pinCodeConfirm(const QDBusObjectPath &path, bool value);
     void setAdapterDiscovering(const QDBusObjectPath &path, bool enable);

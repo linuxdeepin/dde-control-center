@@ -29,7 +29,7 @@
 #include "widgets/loadingindicator.h"
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
-#include "TitleEdit.h"
+#include "titleedit.h"
 #include <QVBoxLayout>
 #include <QDebug>
 

@@ -339,6 +339,12 @@ void BluetoothWorker::setAlias(const Adapter *adapter, const QString &alias)
     m_bluetoothInter->SetAdapterAlias(QDBusObjectPath(adapter->id()), alias);
 }
 
+void BluetoothWorker::setDeviceAlias(const Device *device, const QString &alias)
+{
+    QDBusObjectPath path(device->id());
+    m_bluetoothInter->SetDeviceAlias(path, alias);
+}
+
 void BluetoothWorker::setAdapterDiscoverable(const QString &path)
 {
     QDBusObjectPath dPath(path);

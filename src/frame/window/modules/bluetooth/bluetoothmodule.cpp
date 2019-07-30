@@ -20,11 +20,10 @@
  */
 #include "bluetoothmodule.h"
 #include "bluetoothwidget.h"
+#include "detailpage.h"
 #include "modules/bluetooth/bluetoothmodel.h"
 #include "modules/bluetooth/bluetoothworker.h"
 #include "modules/bluetooth/pincodedialog.h"
-#include "modules/bluetooth/detailpage.h"
-#include "widgets/contentwidget.h"
 #include <QDebug>
 
 using namespace DCC_NAMESPACE;
@@ -41,12 +40,24 @@ BluetoothModule::BluetoothModule(FrameProxyInterface *frame, QObject *parent)
 
 }
 
-void BluetoothModule::initialize()
+void BluetoothModule::preInitialize()
 {
     m_bluetoothWorker = &BluetoothWorker::Instance();
     m_bluetoothModel = m_bluetoothWorker->model();
     m_bluetoothModel->moveToThread(qApp->thread());
     m_bluetoothWorker->moveToThread(qApp->thread());
+
+    auto updateModuleVisible = [=] {
+        m_frameProxy->setModuleVisible(this, m_bluetoothModel->adapters().size());
+    };
+
+    connect(m_bluetoothModel, &BluetoothModel::adpaterListChanged, this, updateModuleVisible);
+
+    updateModuleVisible();
+}
+
+void BluetoothModule::initialize()
+{
     connect(m_bluetoothWorker, &BluetoothWorker::requestConfirmation, this, &BluetoothModule::showPinCode);
     connect(m_bluetoothWorker, &BluetoothWorker::pinCodeCancel, this, &BluetoothModule::closePinCode);
 }
@@ -57,18 +68,16 @@ void BluetoothModule::reset()
 
 QWidget *BluetoothModule::moduleWidget()
 {
-    if (!m_bluetoothView) {
-        m_bluetoothView = new BluetoothWidget(m_bluetoothModel);
+    m_bluetoothView = new BluetoothWidget(m_bluetoothModel);
 
-        connect(m_bluetoothView, &BluetoothWidget::requestSetToggleAdapter, m_bluetoothWorker, &BluetoothWorker::setAdapterPowered);
-        connect(m_bluetoothView, &BluetoothWidget::requestConnectDevice, m_bluetoothWorker, &BluetoothWorker::connectDevice);
-        connect(m_bluetoothView, &BluetoothWidget::requestSetAlias, m_bluetoothWorker, &BluetoothWorker::setAlias);
-        connect(m_bluetoothView, &BluetoothWidget::showDeviceDetail, this, &BluetoothModule::showDeviceDetail);
+    connect(m_bluetoothView, &BluetoothWidget::requestSetToggleAdapter, m_bluetoothWorker, &BluetoothWorker::setAdapterPowered);
+    connect(m_bluetoothView, &BluetoothWidget::requestConnectDevice, m_bluetoothWorker, &BluetoothWorker::connectDevice);
+    connect(m_bluetoothView, &BluetoothWidget::requestSetAlias, m_bluetoothWorker, &BluetoothWorker::setAlias);
+    connect(m_bluetoothView, &BluetoothWidget::showDeviceDetail, this, &BluetoothModule::showDeviceDetail);
 
-        connect(m_bluetoothView, &BluetoothWidget::showDeviceDetail, [this](const Adapter *adapter, const Device *device) {
-                        qDebug() << "";
-            });
-    }
+    connect(m_bluetoothView, &BluetoothWidget::requestModuleVisible, [this](const bool visible) {
+        m_frameProxy->setModuleVisible(this, visible);
+    });
     return m_bluetoothView;
 }
 
@@ -84,12 +93,21 @@ void BluetoothModule::contentPopped(QWidget *const w)
 
 void BluetoothModule::showDeviceDetail(const Adapter *adapter, const Device *device)
 {
-    DetailPage *page = new DetailPage(adapter, device);
+    DCC_NAMESPACE::bluetooth::DetailPage *page = new DCC_NAMESPACE::bluetooth::DetailPage(adapter, device);
 
     connect(page, &DetailPage::requestIgnoreDevice, m_bluetoothWorker, &BluetoothWorker::ignoreDevice);
     connect(page, &DetailPage::requestDisconnectDevice, m_bluetoothWorker, &BluetoothWorker::disconnectDevice);
+    connect(page, &DetailPage::requestIgnoreDevice, this, &BluetoothModule::popPage);
+    connect(page, &DetailPage::requestDisconnectDevice, this, &BluetoothModule::popPage);
+    connect(page, &DetailPage::requestBack, this, &BluetoothModule::popPage);
+    connect(page, &DetailPage::requestSetDevAlias, m_bluetoothWorker, &BluetoothWorker::setDeviceAlias);
 
     m_frameProxy->pushWidget(this, page);
+}
+
+void BluetoothModule::popPage()
+{
+    m_frameProxy->popWidget(this);
 }
 
 void BluetoothModule::showPinCode(const QDBusObjectPath &device, const QString &code)

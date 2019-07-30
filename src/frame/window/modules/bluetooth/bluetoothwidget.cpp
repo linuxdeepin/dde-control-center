@@ -75,9 +75,9 @@ AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
 void BluetoothWidget::addAdapter(const Adapter *adapter)
 {
     if (!m_valueMap.contains(adapter)) {
-        setVisibleState();
         AdapterWidget *adapterWidget = getAdapter(adapter);
         m_contentLayout->addWidget(adapterWidget);
+        setVisibleState();
     }
 }
 

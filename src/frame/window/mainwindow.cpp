@@ -88,6 +88,7 @@ void MainWindow::initAllModule()
     using namespace display;
     using namespace accounts;
     using namespace mouse;
+    using namespace bluetooth;
 
     m_modules = {
         { new AccountsModule(this), tr("Account")},
@@ -96,6 +97,7 @@ void MainWindow::initAllModule()
         { new DefaultAppsModule(this), tr("Default Applications")},
         { new DatetimeModule(this), tr("Time and Date")},
         { new MouseModule(this), tr("Mouse")},
+        { new BluetoothModule(this), tr("Bluetooth")},
     };
 
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {

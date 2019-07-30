@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "TitleEdit.h"
+#include "titleedit.h"
 #include <QHBoxLayout>
 
 using namespace DCC_NAMESPACE;
