@@ -183,6 +183,7 @@ int main(int argc, char *argv[])
     parser.process(app);
 
 #ifdef WINDOW_MODE
+    app.setTheme("dark");
     DCC_NAMESPACE::MainWindow mw;
 
     mw.resize(500, 500);
