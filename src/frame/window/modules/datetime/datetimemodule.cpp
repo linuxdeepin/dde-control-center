@@ -48,8 +48,6 @@ void DatetimeModule::initialize()
     m_model = new dcc::datetime::DatetimeModel;
     m_work = new dcc::datetime::DatetimeWork(m_model);
 
-    QThread::currentThread()->msleep(500);
-
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
 

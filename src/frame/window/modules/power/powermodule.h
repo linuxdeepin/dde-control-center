@@ -20,61 +20,68 @@
  */
 #pragma once
 
-#include "window/namespace.h"
+#include "window/interface/moduleinterface.h"
 
 #include <QObject>
-#include <QWidget>
-#include <QVBoxLayout>
-
-class QSlider;
+#include <types/zoneinfo.h>
+#include <QTimer>
 
 namespace dcc {
-    namespace widgets {
-        class TitledSliderItem;
-        class SwitchWidget;
-    }
-
     namespace power {
+        class PowerWorker;
         class PowerModel;
     }
 }
 
-using namespace dcc::widgets;
+using namespace dcc;
 using namespace dcc::power;
 
 namespace DCC_NAMESPACE {
 namespace power {
 
-class UseElectricWidget : public QWidget
+class PowerWidget;
+
+class PowerModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
 public:
-    explicit UseElectricWidget(QWidget *parent = nullptr);
-    virtual ~UseElectricWidget();
+    enum powerType {
+        DEFAULT = -1,
+        GENERAL,
+        USE_ELECTRIC,
+        USE_BATTERY,
+        COUNT
+    };
 
-    void setModel(const PowerModel *model);
+    PowerModule(FrameProxyInterface *frameProxy, QObject *parent = nullptr);
+
+    virtual void initialize() override;
+    virtual void reset() override;
+    virtual const QString name() const override;
+    virtual void showPage(const QString &pageName) override;
+    virtual QWidget *moduleWidget() override;
+    virtual void contentPopped(QWidget *const w) override;
 
 private:
-    QString delayToLiteralString(const int delay) const;
+    void showGeneral();
+    void showUseElectric();
+    void showUseBattery();
 
 private:
-    QVBoxLayout *m_layout;
-    TitledSliderItem *m_monitorSleepOnPower;
-    TitledSliderItem *m_computerSleepOnPower;
-    TitledSliderItem *m_autoLockScreen;
-    SwitchWidget *m_suspendOnLidClose;
+    PowerWidget *m_mainWidget;
+    PowerModel *m_model;
+    PowerWorker *m_work;
+    QTimer *m_timer;
 
 Q_SIGNALS:
-    void requestSetScreenBlackDelayOnPower(const int delay) const;
-    void requestSetSleepDelayOnPower(const int delay) const;
-    void requestSetAutoLockScreenOnPower(const bool state) const;
-    void requestSetSleepOnLidOnPowerClosed(const bool sleep) const;
 
 public Q_SLOTS:
-    void setScreenBlackDelayOnPower(const int delay);
-    void setSleepDelayOnPower(const int delay);
-    void setAutoLockScreenOnBattery(const int delay);
+    void onPushWidget(int index);
+
+private:
+
 };
+
 
 }// namespace datetime
 }// namespace DCC_NAMESPACE

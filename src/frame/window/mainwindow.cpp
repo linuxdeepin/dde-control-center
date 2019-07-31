@@ -50,6 +50,7 @@ using namespace DCC_NAMESPACE::datetime;
 using namespace DCC_NAMESPACE::defapp;
 using namespace DCC_NAMESPACE::display;
 using namespace DCC_NAMESPACE::accounts;
+using namespace DCC_NAMESPACE::power;
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
@@ -157,7 +158,7 @@ void MainWindow::tryLoadModule(NavModel::ModuleType type)
         loadModule(new DatetimeModule(this));
         break;
     case NavModel::Power:
-//        loadModule(new PowerModule(this));
+        loadModule(new PowerModule(this));
         break;
     case NavModel::Mouse:
         loadModule(new DCC_NAMESPACE::mouse::MouseModule(this));

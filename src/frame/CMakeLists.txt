@@ -168,6 +168,11 @@ set(WINDOW_FILES
     window/modules/display/monitorproxyitem.cpp
     window/modules/display/displayitemdelegate.cpp
     window/modules/display/displaycontrolmodel.cpp
+    window/modules/power/powermodule.cpp
+    window/modules/power/powerwidget.cpp
+    window/modules/power/generalwidget.cpp
+    window/modules/power/useelectricwidget.cpp
+    window/modules/power/usebatterywidget.cpp
      )
 
 # load interfaces
