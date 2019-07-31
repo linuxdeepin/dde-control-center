@@ -176,6 +176,12 @@ set(WINDOW_FILES
     window/modules/power/generalwidget.cpp
     window/modules/power/useelectricwidget.cpp
     window/modules/power/usebatterywidget.cpp
+    window/modules/sound/soundwidget.cpp
+    window/modules/sound/soundmodule.cpp
+    window/modules/sound/speakerpage.cpp
+    window/modules/sound/microphonepage.cpp
+    window/modules/sound/advancedpage.cpp
+    window/modules/sound/soundeffectspage.cpp
      )
 
 # load interfaces
