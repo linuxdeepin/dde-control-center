@@ -43,6 +43,8 @@ DefaultAppsModule::DefaultAppsModule(FrameProxyInterface *frame, QObject *parent
 
 DefaultAppsModule::~DefaultAppsModule()
 {
+    m_defAppModel->deleteLater();
+    m_defAppWorker->deleteLater();
 }
 
 void DefaultAppsModule::initialize()
@@ -67,6 +69,7 @@ void DefaultAppsModule::reset()
 QWidget *DefaultAppsModule::moduleWidget()
 {
     DefaultAppsWidget* defaultappsWidget = new DefaultAppsWidget;
+    connect(defaultappsWidget, &DefaultAppsWidget::requestCategoryClicked, this, &DefaultAppsModule::showDetailWidget);
     return defaultappsWidget;
 }
 

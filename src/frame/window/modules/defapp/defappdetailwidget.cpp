@@ -129,6 +129,7 @@ QIcon DefappDetailWidget::getAppIcon(const dcc::defapp::App &app) {
 
 void DefappDetailWidget::addItem(const dcc::defapp::App &item)
 {
+    qDebug() << Q_FUNC_INFO << item.Name;
     QStandardItem* newItem = new QStandardItem(getAppIcon(item), item.Name);
     newItem->setData(item.isUser, DefAppListView::DefAppIsUserRole);
     newItem->setData(item.Id, DefAppListView::DefAppIdRole);
