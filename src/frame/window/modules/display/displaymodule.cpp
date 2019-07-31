@@ -41,8 +41,7 @@ DisplayModule::DisplayModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent),
       ModuleInterface(frame),
       m_displayModel(nullptr),
-      m_displayWorker(nullptr),
-      m_displayWidget(nullptr)
+      m_displayWorker(nullptr)
 {
 
 }
@@ -80,19 +79,16 @@ const QString DisplayModule::name() const
 
 QWidget *DisplayModule::moduleWidget()
 {
-    if (m_displayWidget)
-        return m_displayWidget;
+    DisplayWidget* displayWidget = new DisplayWidget;
+    displayWidget->setModel(m_displayModel);
 
-    m_displayWidget = new DisplayWidget;
-    m_displayWidget->setModel(m_displayModel);
+    connect(displayWidget, &DisplayWidget::showScalingPage, this, &DisplayModule::showScalingPage);
+    connect(displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
+    connect(displayWidget, &DisplayWidget::showBrightnessPage, this, &DisplayModule::showBrightnessPage);
+    connect(displayWidget, &DisplayWidget::requestRotate, [ = ] { showRotate(m_displayModel->primaryMonitor()); });
+    connect(displayWidget, &DisplayWidget::showMultiScreenPage, this, &DisplayModule::showMultiScreenSettingPage);
 
-    connect(m_displayWidget, &DisplayWidget::showScalingPage, this, &DisplayModule::showScalingPage);
-    connect(m_displayWidget, &DisplayWidget::showResolutionPage, this, &DisplayModule::showResolutionDetailPage);
-    connect(m_displayWidget, &DisplayWidget::showBrightnessPage, this, &DisplayModule::showBrightnessPage);
-    connect(m_displayWidget, &DisplayWidget::requestRotate, [ = ] { showRotate(m_displayModel->primaryMonitor()); });
-    connect(m_displayWidget, &DisplayWidget::showMultiScreenPage, this, &DisplayModule::showMultiScreenSettingPage);
-
-    return m_displayWidget;
+    return displayWidget;
 }
 
 void DisplayModule::showBrightnessPage()

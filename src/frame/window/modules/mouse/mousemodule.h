@@ -34,7 +34,6 @@ class MouseWorker;
 
 namespace DCC_NAMESPACE {
 namespace mouse {
-class MouseWidget;
 class GeneralSettingWidget;
 class MouseSettingWidget;
 class TouchPadSettingWidget;
@@ -59,7 +58,6 @@ public Q_SLOTS:
     void showTrackPointSetting();
 
 private:
-    MouseWidget *m_mouseWidget = nullptr;
     GeneralSettingWidget *m_generalSettingWidget = nullptr;
     MouseSettingWidget *m_mouseSettingWidget = nullptr;
     TouchPadSettingWidget *m_touchpadSettingWidget = nullptr;

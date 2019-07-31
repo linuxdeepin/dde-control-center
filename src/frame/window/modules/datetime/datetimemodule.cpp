@@ -35,7 +35,6 @@ using namespace DCC_NAMESPACE::datetime;
 DatetimeModule::DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frameProxy)
-    , m_mainWidget(nullptr)
     , m_timezonelist(nullptr)
 {
 
@@ -43,15 +42,12 @@ DatetimeModule::DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent)
 
 void DatetimeModule::initialize()
 {
-    m_mainWidget = new DatetimeWidget;
-
     m_model = new dcc::datetime::DatetimeModel;
     m_work = new dcc::datetime::DatetimeWork(m_model);
 
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
 
-    connect(m_mainWidget, &DatetimeWidget::requestPushWidget, this, &DatetimeModule::onPushWidget);
     connect(this, &DatetimeModule::requestSetTimeZone, m_work, &DatetimeWork::setTimezone);
     connect(this, &DatetimeModule::requestRemoveUserTimeZone, m_work, &DatetimeWork::removeUserTimeZone);
     connect(this, &DatetimeModule::requestAddUserTimeZone, m_work, &DatetimeWork::addUserTimeZone);
@@ -74,10 +70,12 @@ void DatetimeModule::showPage(const QString &pageName)
 
 QWidget *DatetimeModule::moduleWidget()
 {
-    m_mainWidget->setModel(m_model);
+    DatetimeWidget* widget = new DatetimeWidget;
+    connect(widget, &DatetimeWidget::requestPushWidget, this, &DatetimeModule::onPushWidget);
+    widget->setModel(m_model);
     m_work->activate(); //refresh data
 
-    return m_mainWidget;
+    return widget;
 }
 
 void DatetimeModule::contentPopped(QWidget *const w)
@@ -177,7 +175,6 @@ void DatetimeModule::showTimeSetting()
     connect(setting, &DateSettings::requestSetAutoSyncdate, m_work, &dcc::datetime::DatetimeWork::setNTP);
     connect(setting, &DateSettings::requestSetTime, m_work, &dcc::datetime::DatetimeWork::setDatetime);
     connect(setting, &DateSettings::requestBack, this, &DatetimeModule::onPopWidget);
-    connect(m_mainWidget, &DatetimeWidget::requestSetNtp, setting, &DateSettings::updateRealAutoSyncCheckState);
     connect(m_model, &dcc::datetime::DatetimeModel::NTPChanged, setting, &DateSettings::updateRealAutoSyncCheckState);
 
     setting->updateRealAutoSyncCheckState(m_model->nTP());

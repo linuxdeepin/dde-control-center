@@ -74,7 +74,6 @@ private:
     ClockItem *m_clockItem;
 
 Q_SIGNALS:
-    void requestSetNtp(const bool &ntp);
     void requestSetHourType(const bool &type);
     void requestPushWidget(const int &page);
 

@@ -43,18 +43,12 @@
 #include <QHBoxLayout>
 #include <QMetaEnum>
 #include <QDebug>
+#include <QStandardItemModel>
 
 using namespace DCC_NAMESPACE;
-using namespace sync;
-using namespace DCC_NAMESPACE::datetime;
-using namespace DCC_NAMESPACE::defapp;
-using namespace DCC_NAMESPACE::display;
-using namespace DCC_NAMESPACE::accounts;
-using namespace DCC_NAMESPACE::power;
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
-    , m_navModelType(NavModel::ModuleType::Default)
 {
     //Initialize view and layout structure
     QWidget *content = new QWidget(this);
@@ -77,44 +71,62 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(content);
 
     //Initialize top page view and model
-    m_navModel = new NavModel(1, m_navView);
+    m_navModel = new QStandardItemModel(m_navView);
     m_navView->setModel(m_navModel);
 
     connect(m_navView, &NavWinView::clicked, this, &MainWindow::onFirstItemClick);
+
+    QTimer::singleShot(0, this, &MainWindow::initAllModule);
+    QTimer::singleShot(0, this, &MainWindow::modulePreInitialize);
 }
 
-void MainWindow::pushWidget(QWidget *widget)
+void MainWindow::initAllModule()
 {
-    if (m_contentStack.isEmpty()) {//Add the first second-level page, the top page changes from Icon to list (top page is not added to m_contentStack)
-        m_navView->setViewMode(QListView::ListMode);
-        m_navView->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-        m_rightView->show();
-    } else {
-        m_contentStack.top()->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    using namespace sync;
+    using namespace datetime;
+    using namespace defapp;
+    using namespace display;
+    using namespace accounts;
+    using namespace mouse;
+
+    m_modules = {
+        { new AccountsModule(this), tr("Account")},
+        { new SyncModule(this), tr("Cloud Sync")},
+        { new DisplayModule(this), tr("Display")},
+        { new DefaultAppsModule(this), tr("Default Applications")},
+        { new DatetimeModule(this), tr("Time and Date")},
+        { new MouseModule(this), tr("Mouse")},
+    };
+
+    for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
+        QStandardItem* item = new QStandardItem;
+        item->setIcon(QIcon(QString(":/%1/themes/dark/icons/nav_%1.svg").arg(it->first->name())));
+        item->setText(it->second);
+        m_navModel->appendRow(item);
     }
+}
 
-    //Set the newly added page to fill the blank area
-    widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    m_contentStack.push(widget);
-    m_rightContentLayout->addWidget(widget);
+void MainWindow::modulePreInitialize()
+{
+    for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
+        it->first->preInitialize();
+    }
 }
 
 void MainWindow::popWidget()
 {
-    QWidget *w = m_contentStack.pop();
+    QWidget *w = m_contentStack.pop().second;
 
     m_rightContentLayout->removeWidget(w);
     w->setParent(nullptr);
     w->deleteLater();
 
     if (m_contentStack.isEmpty()) {//Only remain 1 level page : back to top page
-        m_navModelType = NavModel::ModuleType::Default;
         m_navView->setViewMode(QListView::IconMode);
         m_navView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         m_rightView->hide();
     } else {//The second page will Covered with fill blank areas
-        m_contentStack.top()->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        m_contentStack.top().second->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     }
 }
 
@@ -123,60 +135,6 @@ void MainWindow::popAllWidgets()
 {
     for (int pageCount = m_contentStack.count(); pageCount > 0; pageCount--) {
         popWidget();
-    }
-}
-
-void MainWindow::tryLoadModule(NavModel::ModuleType type)
-{
-    //According to actual click index to load module
-    switch (type) {
-    case NavModel::AccountsModule:
-        loadModule(new AccountsModule(this));
-        break;
-    case NavModel::Cloudsync:
-        loadModule(new SyncModule(this));
-        break;
-    case NavModel::Display:
-        loadModule(new DisplayModule(this));
-        break;
-    case NavModel::Defapp:
-        loadModule(new DefaultAppsModule(this));
-        break;
-    case NavModel::Personalization:
-//        loadModule(new PersonalizationModule(this));
-        break;
-    case NavModel::Network:
-//        loadModule(new NetworkModule(this));
-        break;
-    case NavModel::Bluetooth:
-        loadModule(new DCC_NAMESPACE::bluetooth::BluetoothModule(this));
-        break;
-    case NavModel::Sound:
-//        loadModule(new SoundModule(this));
-        break;
-    case NavModel::Datetime:
-        loadModule(new DatetimeModule(this));
-        break;
-    case NavModel::Power:
-        loadModule(new PowerModule(this));
-        break;
-    case NavModel::Mouse:
-        loadModule(new DCC_NAMESPACE::mouse::MouseModule(this));
-        break;
-    case NavModel::Keyboard:
-//        loadModule(new KeyboardModule(this));
-        break;
-    case NavModel::Wacom:
-//        loadModule(new WacomModule(this));
-        break;
-    case NavModel::Update:
-//        loadModule(new UpdateModule(this));
-        break;
-    case NavModel::Systeminfo:
-//        loadModule(new SystemInfoModule(this));
-        break;
-    default:
-        break;
     }
 }
 
@@ -206,48 +164,45 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
 
 void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w)
 {
-    Q_UNUSED(inter)
-
     //When there is already a third-level page, first remove the previous third-level page,
     //then add a new level 3 page (guaranteed that there is only one third-level page)
     if (m_contentStack.size() == 2) {
-        QWidget *w = m_contentStack.pop();
+        QWidget *w = m_contentStack.pop().second;
         m_rightContentLayout->removeWidget(w);
         w->setParent(nullptr);
         w->deleteLater();
     }
 
-    pushWidget(w);
+    if (m_contentStack.isEmpty()) {//Add the first second-level page, the top page changes from Icon to list (top page is not added to m_contentStack)
+        m_navView->setViewMode(QListView::ListMode);
+        m_navView->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+        m_rightView->show();
+    }
+    else {
+        m_contentStack.top().second->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    }
+
+    //Set the newly added page to fill the blank area
+    w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    m_contentStack.push({inter, w});
+    m_rightContentLayout->addWidget(w);
 }
 
 void MainWindow::onFirstItemClick(const QModelIndex &index)
 {
-    NavModel::ModuleType type = static_cast<NavModel::ModuleType>(index.data(NavModel::NavModuleType).toInt());
+    ModuleInterface* inter = m_modules[index.row()].first;
 
-    if (m_navModelType == type) {
-        qDebug() << "onFirstItemClick , Request the same type : " << QMetaEnum::fromType<NavModel::ModuleType>().valueToKey(type) << "  do nothing ";
+    if (!m_contentStack.isEmpty() && m_contentStack.last().first == inter) {
         return;
-    } else {
-        qDebug() << "onFirstItemClick , new type : " << type;
-
-        popAllWidgets();
-        tryLoadModule(type);
-
-        m_navModelType = type;
-    }
-}
-
-void MainWindow::loadModule(ModuleInterface *const module) {
-    module->initialize();
-
-    QWidget *widget = module->moduleWidget();
-
-    //the child widget destroy follow parent widget
-    if (QObject *obj = dynamic_cast<QObject *>(module)) {
-        obj->setParent(widget);
-    } else {
-        qWarning() << "The module not inherit QObject , module : " << module;
     }
 
-    pushWidget(widget);
+    popAllWidgets();
+
+    if (!m_initList.contains(inter)) {
+        inter->initialize();
+        m_initList << inter;
+    }
+
+    pushWidget(inter, inter->moduleWidget());
 }

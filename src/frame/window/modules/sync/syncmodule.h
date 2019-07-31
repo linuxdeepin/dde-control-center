@@ -34,7 +34,6 @@ class SyncModel;
 
 namespace DCC_NAMESPACE {
 namespace sync {
-class SyncWidget;
 class SyncModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -49,7 +48,6 @@ public:
     virtual void contentPopped(QWidget *const w) override;
 
 private:
-    SyncWidget                 *m_mainWidget;
     dcc::cloudsync::SyncModel  *m_model;
     dcc::cloudsync::SyncWorker *m_worker;
 };

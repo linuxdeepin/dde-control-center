@@ -28,13 +28,14 @@
 #include <DMainWindow>
 
 #include <QStack>
+#include <QPair>
 
 DWIDGET_USE_NAMESPACE
 QT_BEGIN_NAMESPACE
 class QHBoxLayout;
 QT_END_NAMESPACE
 class NavWinView;
-class NavModel;
+class QStandardItemModel;
 
 namespace DCC_NAMESPACE {
 class MainWindow : public DMainWindow, public FrameProxyInterface
@@ -42,12 +43,6 @@ class MainWindow : public DMainWindow, public FrameProxyInterface
     Q_OBJECT
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-
-private:
-    void pushWidget(QWidget *widget);
-    void popWidget();
-    void popAllWidgets();
-    void tryLoadModule(NavModel::ModuleType type);
 
 public:
     void popWidget(ModuleInterface * const inter) override;
@@ -60,16 +55,20 @@ private:
     QHBoxLayout *m_rightContentLayout;
     NavWinView *m_navView;
     QWidget *m_rightView;
-    NavModel *m_navModel;
-    QStack<QWidget *> m_contentStack;
-    NavModel::ModuleType m_navModelType;
+    QStandardItemModel *m_navModel;
+    QStack<QPair<ModuleInterface*, QWidget *>> m_contentStack;
+    QList<QPair<ModuleInterface*, QString>> m_modules;
+    QList<ModuleInterface*> m_initList;
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);
 
-private Q_SLOTS:
+private:
+    void initAllModule();
+    void modulePreInitialize();
+    void popWidget();
+    void popAllWidgets();
     void onFirstItemClick(const QModelIndex &index);
-    void loadModule(ModuleInterface *const module);
 };
 }
 

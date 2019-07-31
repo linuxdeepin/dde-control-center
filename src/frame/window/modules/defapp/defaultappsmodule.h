@@ -32,7 +32,6 @@ class DefAppWorker;
 }
 namespace DCC_NAMESPACE {
 namespace defapp {
-class DefaultAppsWidget;
 class DefaultAppsModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -50,8 +49,8 @@ public:
 
 private Q_SLOTS:
     void showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category);
+
 private:
-    DefaultAppsWidget *m_defaultappsWidget;
     dcc::defapp::DefAppModel       *m_defAppModel;
     dcc::defapp::DefAppWorker      *m_defAppWorker;
 };

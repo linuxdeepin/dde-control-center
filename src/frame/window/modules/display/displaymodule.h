@@ -41,8 +41,6 @@ class DisplayWorker;
 namespace DCC_NAMESPACE {
 
 namespace display {
-class DisplayWidget;
-
 class DisplayModule : public QObject, public DCC_NAMESPACE::ModuleInterface
 {
     Q_OBJECT
@@ -71,7 +69,6 @@ public:
 private:
     dcc::display::DisplayModel *m_displayModel;
     dcc::display::DisplayWorker *m_displayWorker;
-    DisplayWidget *m_displayWidget;
 };
 
 } // namespace display

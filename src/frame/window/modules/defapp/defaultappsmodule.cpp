@@ -37,7 +37,6 @@ using namespace DCC_NAMESPACE::defapp;
 DefaultAppsModule::DefaultAppsModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frame)
-    , m_defaultappsWidget(nullptr)
 {
 
 }
@@ -67,12 +66,8 @@ void DefaultAppsModule::reset()
 
 QWidget *DefaultAppsModule::moduleWidget()
 {
-    if (!m_defaultappsWidget) {
-        m_defaultappsWidget = new DefaultAppsWidget;
-        connect(m_defaultappsWidget, &DefaultAppsWidget::requestCategoryClicked, this, &DefaultAppsModule::showDetailWidget );
-    }
-
-    return m_defaultappsWidget;
+    DefaultAppsWidget* defaultappsWidget = new DefaultAppsWidget;
+    return defaultappsWidget;
 }
 
 const QString DefaultAppsModule::name() const

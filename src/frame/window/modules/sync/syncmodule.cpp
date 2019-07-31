@@ -12,7 +12,6 @@ using namespace DCC_NAMESPACE::sync;
 SyncModule::SyncModule(FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frameProxy)
-    , m_mainWidget(nullptr)
     , m_model(nullptr)
     , m_worker(nullptr)
 {
@@ -20,7 +19,6 @@ SyncModule::SyncModule(FrameProxyInterface *frameProxy, QObject *parent)
 
 void SyncModule::initialize()
 {
-    m_mainWidget = new SyncWidget;
     m_model = new dcc::cloudsync::SyncModel;
     m_worker = new dcc::cloudsync::SyncWorker(m_model);
 }
@@ -39,13 +37,14 @@ void SyncModule::showPage(const QString &pageName)
 
 QWidget *SyncModule::moduleWidget()
 {
-    connect(m_mainWidget, &SyncWidget::requestLoginUser, m_worker, &dcc::cloudsync::SyncWorker::loginUser, Qt::UniqueConnection);
-    connect(m_mainWidget, &SyncWidget::requestSetAutoSync, m_worker, &dcc::cloudsync::SyncWorker::setAutoSync, Qt::UniqueConnection);
+    SyncWidget* widget = new SyncWidget;
+    connect(widget, &SyncWidget::requestLoginUser, m_worker, &dcc::cloudsync::SyncWorker::loginUser, Qt::UniqueConnection);
+    connect(widget, &SyncWidget::requestSetAutoSync, m_worker, &dcc::cloudsync::SyncWorker::setAutoSync, Qt::UniqueConnection);
 
-    m_mainWidget->setModel(m_model);
+    widget->setModel(m_model);
     m_worker->activate(); //refresh data
 
-    return m_mainWidget;
+    return widget;
 }
 
 void SyncModule::contentPopped(QWidget *const w)

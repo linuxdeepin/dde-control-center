@@ -35,7 +35,6 @@ class TimeZoneChooser;
 
 namespace DCC_NAMESPACE {
 namespace datetime {
-class DatetimeWidget;
 class TimezoneList;
 
 class DatetimeModule : public QObject, public ModuleInterface
@@ -70,7 +69,6 @@ private:
     void ensureZoneChooserDialog();
 
 private:
-    DatetimeWidget *m_mainWidget;
     dcc::datetime::DatetimeWork *m_work;
     dcc::datetime::DatetimeModel *m_model;
     QPointer<dcc::datetime::TimeZoneChooser> m_dialog;

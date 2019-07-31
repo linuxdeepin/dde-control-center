@@ -35,7 +35,6 @@ using namespace DCC_NAMESPACE::accounts;
 AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frame)
-    , m_accountsWidget(nullptr)
 {
     m_frameProxy =  frame;
 }
@@ -68,14 +67,12 @@ void AccountsModule::showPage(const QString &pageName)
 
 QWidget *AccountsModule::moduleWidget()
 {
-    if (!m_accountsWidget) {
-        m_accountsWidget = new AccountsWidget;
-        m_accountsWidget->setModel(m_userList);
-        connect(m_accountsWidget, &AccountsWidget::requestShowAccountsDetail, this, &AccountsModule::onShowAccountsDetailWidget);
-        connect(m_accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::onShowCreateAccountPage);
-    }
+    AccountsWidget* accountsWidget = new AccountsWidget;
+    accountsWidget->setModel(m_userList);
+    connect(accountsWidget, &AccountsWidget::requestShowAccountsDetail, this, &AccountsModule::onShowAccountsDetailWidget);
+    connect(accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::onShowCreateAccountPage);
 
-    return m_accountsWidget;
+    return accountsWidget;
 }
 
 void AccountsModule::contentPopped(QWidget *const w)

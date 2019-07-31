@@ -84,10 +84,6 @@ void DatetimeWidget::init()
 void DatetimeWidget::setModel(const DatetimeModel *model)
 {
     m_model = model;
-
-    connect(model, &DatetimeModel::NTPChanged, [this](const bool & ntp) {
-        Q_EMIT requestSetNtp(ntp);
-    });
 }
 
 void DatetimeWidget::onItemClieck(const QModelIndex &index)

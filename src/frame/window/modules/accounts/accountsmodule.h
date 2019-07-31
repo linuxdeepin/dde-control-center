@@ -60,7 +60,6 @@ private:
 
 private:
     dcc::accounts::UserModel      *m_userList;
-    AccountsWidget                *m_accountsWidget;
     dcc::accounts::AccountsWorker *m_accountsWorker;
 };
 
