@@ -93,6 +93,7 @@ void MainWindow::initAllModule()
     using namespace personalization;
     using namespace power;
     using namespace update;
+    using namespace keyboard;
 
     m_modules = {
         { new AccountsModule(this), tr("Account")},
@@ -101,6 +102,7 @@ void MainWindow::initAllModule()
         { new DefaultAppsModule(this), tr("Default Applications")},
         { new DatetimeModule(this), tr("Time and Date")},
         { new MouseModule(this), tr("Mouse")},
+        { new KeyboardModule(this), tr("Keyboard")},
         { new BluetoothModule(this), tr("Bluetooth")},
         { new SoundModule(this), tr("Sound")},
         { new PersonalizationModule(this), tr("Personalization")},

@@ -572,6 +572,20 @@ set(KEYBOARD_FILES
                 modules/keyboard/shortcutwidget.cpp
                 modules/keyboard/shortcutwidget.h
                 modules/keyboard/titlebuttonItem.h
+
+                window/modules/keyboard/keyboardmodule.h
+                window/modules/keyboard/keyboardmodule.cpp
+                window/modules/keyboard/keyboardwidget.h
+                window/modules/keyboard/keyboardwidget.cpp
+                window/modules/keyboard/generalkbsettingwidget.h
+                window/modules/keyboard/generalkbsettingwidget.cpp
+                window/modules/keyboard/kblayoutsettingwidget.h
+                window/modules/keyboard/kblayoutsettingwidget.cpp
+                window/modules/keyboard/systemlanguagesettingwidget.h
+                window/modules/keyboard/systemlanguagesettingwidget.cpp
+                window/modules/keyboard/shortcutsettingwidget.h
+                window/modules/keyboard/shortcutsettingwidget.cpp
+
 )
 
 # load mouse
