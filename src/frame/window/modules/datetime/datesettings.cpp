@@ -57,7 +57,7 @@ DateSettings::DateSettings(QWidget *parent)
       m_dayWidget(new DateWidget(DateWidget::Day, 1, 31)),
       m_buttonTuple(new ButtonTuple)
 {
-//    setTitle(tr("Change Time Settings"));
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     QPushButton *cancelButton = m_buttonTuple->leftButton();
     QPushButton *confirmButton = m_buttonTuple->rightButton();

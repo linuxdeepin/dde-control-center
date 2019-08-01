@@ -39,7 +39,7 @@ GeneralWidget::GeneralWidget(QWidget *parent)
     , m_wakeComputerNeedPassword(new SwitchWidget(tr("Password is required to wake up the computer")))
     , m_wakeDisplayNeedPassword(new SwitchWidget(tr("Password is required to wake up the monitor")))
 {
-    this->setFixedWidth(405);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     QLabel *label = new QLabel;
     label->setWordWrap(true);

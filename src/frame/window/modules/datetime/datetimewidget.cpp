@@ -38,6 +38,7 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
     , m_clockItem(new ClockItem)
 {
     setObjectName("Datetime");
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_listview->setViewMode(QListView::ListMode);
     m_listview->setResizeMode(QListView::Adjust);

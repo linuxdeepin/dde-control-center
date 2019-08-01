@@ -38,7 +38,7 @@ TimezoneList::TimezoneList(QWidget *parent)
     , m_headItem(new SettingsHead)
     , m_contentList(new TimezoneContentList)
 {
-    this->setFixedWidth(300);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_headItem->setEditEnable(true);
     m_headItem->setVisible(true);

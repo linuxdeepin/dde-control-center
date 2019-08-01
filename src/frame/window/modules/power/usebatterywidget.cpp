@@ -38,7 +38,7 @@ UseBatteryWidget::UseBatteryWidget(QWidget *parent)
     , m_computerSleepOnBattery(new TitledSliderItem("Computer will suspend after"))
     , m_autoLockScreen(new TitledSliderItem("Lock screen after"))
 {
-    this->setFixedWidth(400);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_layout->addWidget(m_monitorSleepOnBattery);
     m_layout->addWidget(m_computerSleepOnBattery);
