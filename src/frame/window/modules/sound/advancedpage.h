@@ -26,6 +26,21 @@
 
 #include <QWidget>
 
+class QVBoxLayout;
+
+namespace dcc {
+
+namespace sound {
+class SoundModel;
+class PortItem;
+class Port;
+}
+
+namespace widgets {
+class SettingsGroup;
+}
+}
+
 namespace DCC_NAMESPACE {
 
 namespace sound {
@@ -34,7 +49,27 @@ class AdvancedPage : public QWidget
 {
     Q_OBJECT
 public:
-    AdvancedPage();
+    AdvancedPage(QWidget *parent = nullptr);
+    ~AdvancedPage();
+public:
+    void setModel(dcc::sound::SoundModel *model);
+
+Q_SIGNALS:
+    void requestSetPort(const dcc::sound::Port *);
+
+private Q_SLOTS:
+    void removePort(const QString &portId, const uint &cardId);
+    void addPort(const dcc::sound::Port *port);
+
+private:
+    void initList();
+
+private:
+    QVBoxLayout *m_layout;
+    dcc::sound::SoundModel *m_model{nullptr};
+    dcc::widgets::SettingsGroup *m_inputGroup{nullptr};
+    dcc::widgets::SettingsGroup *m_outputGroup{nullptr};
+    QList<dcc::sound::PortItem *> m_portItemList;
 };
 
 }
