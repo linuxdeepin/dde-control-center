@@ -26,6 +26,21 @@
 
 #include <QWidget>
 
+class QVBoxLayout;
+
+namespace dcc {
+
+namespace sound {
+class SoundModel;
+}
+
+namespace widgets {
+class TitledSliderItem;
+class SwitchWidget;
+}
+
+}
+
 namespace DCC_NAMESPACE {
 
 namespace sound {
@@ -34,7 +49,25 @@ class SpeakerPage : public QWidget
 {
     Q_OBJECT
 public:
-    SpeakerPage();
+    SpeakerPage(QWidget *parent = nullptr);
+    ~SpeakerPage();
+public:
+    void setModel(dcc::sound::SoundModel *model);
+
+Q_SIGNALS:
+    void requestSwitchSpeaker(bool isOpen);
+    void requestSetSpeakerVolume(double val);
+    void requestSetSpeakerBalance(double val);
+
+private:
+    void initSlider();
+
+private:
+    dcc::sound::SoundModel *m_model{nullptr};
+    dcc::widgets::SwitchWidget *m_sw{nullptr};
+    dcc::widgets::TitledSliderItem *m_outputSlider{nullptr};
+    dcc::widgets::TitledSliderItem *m_balanceSlider{nullptr};
+    QVBoxLayout *m_layout{nullptr};
 };
 
 }
