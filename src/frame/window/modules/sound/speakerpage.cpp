@@ -39,7 +39,9 @@ using namespace DCC_NAMESPACE::sound;
 SpeakerPage::SpeakerPage(QWidget *parent):
     QWidget(parent),
     m_layout(new QVBoxLayout),
-    m_sw(new SwitchWidget)
+    m_sw(new SwitchWidget),
+    m_outputSlider(new TitledSliderItem(tr("Output Volume"))),
+    m_balanceSlider(new TitledSliderItem(tr("Left/Right Balance")))
 {
     setMinimumWidth(400);
 
@@ -77,8 +79,9 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
 
 void SpeakerPage::initSlider()
 {
-    auto outputSlider = new TitledSliderItem(tr("Output Volume"),this);
+    auto outputSlider = new TitledSliderItem(tr("Left/Right Balance"),this);
     DCCSlider *slider = outputSlider->slider();
+
     slider->setRange(0, 100);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::TicksBelow);
@@ -94,7 +97,6 @@ void SpeakerPage::initSlider()
     connect(slider, &DCCSlider::sliderMoved, slotfunc1);
 
     m_layout->insertWidget(1, outputSlider);
-
 
     auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"),this);
     DCCSlider *slider2 = balanceSlider->slider();

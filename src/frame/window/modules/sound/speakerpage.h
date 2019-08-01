@@ -51,6 +51,7 @@ class SpeakerPage : public QWidget
 public:
     SpeakerPage(QWidget *parent = nullptr);
     ~SpeakerPage();
+
 public:
     void setModel(dcc::sound::SoundModel *model);
 

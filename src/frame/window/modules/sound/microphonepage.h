@@ -26,6 +26,20 @@
 
 #include <QWidget>
 
+class QVBoxLayout;
+
+namespace dcc {
+
+namespace widgets {
+class TitledSliderItem;
+class SwitchWidget;
+}
+
+namespace sound {
+class SoundModel;
+}
+}
+
 namespace DCC_NAMESPACE {
 
 namespace sound {
@@ -34,7 +48,25 @@ class MicrophonePage : public QWidget
 {
     Q_OBJECT
 public:
-    MicrophonePage();
+    MicrophonePage(QWidget *parent = nullptr);
+
+public:
+    void setModel(dcc::sound::SoundModel *model);
+
+Q_SIGNALS:
+    void requestSwitchMicrophone(bool on);
+    void requestSetMicrophoneVolume(double vol);
+    void requestSetFeedbackVolume(double vol);
+
+private:
+    void initSlider();
+
+private:
+    dcc::sound::SoundModel *m_model{nullptr};
+    QVBoxLayout *m_layout{nullptr};
+    dcc::widgets::SwitchWidget *m_sw{nullptr};
+    dcc::widgets::TitledSliderItem *m_inputSlider{nullptr};
+    dcc::widgets::TitledSliderItem *m_feedbackSlider{nullptr};
 };
 
 }
