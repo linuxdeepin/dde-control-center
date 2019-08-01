@@ -50,13 +50,13 @@ class MicrophonePage : public QWidget
 public:
     MicrophonePage(QWidget *parent = nullptr);
 
+    ~MicrophonePage();
 public:
     void setModel(dcc::sound::SoundModel *model);
 
 Q_SIGNALS:
     void requestSwitchMicrophone(bool on);
     void requestSetMicrophoneVolume(double vol);
-    void requestSetFeedbackVolume(double vol);
 
 private:
     void initSlider();
@@ -67,6 +67,8 @@ private:
     dcc::widgets::SwitchWidget *m_sw{nullptr};
     dcc::widgets::TitledSliderItem *m_inputSlider{nullptr};
     dcc::widgets::TitledSliderItem *m_feedbackSlider{nullptr};
+    QMetaObject::Connection m_conn;
+
 };
 
 }

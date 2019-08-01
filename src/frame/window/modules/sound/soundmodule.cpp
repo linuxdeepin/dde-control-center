@@ -90,7 +90,10 @@ void SoundModule::showSpeakerPage()
 void SoundModule::showMicrophonePage()
 {
     MicrophonePage *w = new MicrophonePage;
+    connect(w, &MicrophonePage::requestSwitchMicrophone, m_worker, &SoundWorker::switchMicrophone);
+    connect(w, &MicrophonePage::requestSetMicrophoneVolume, m_worker, &SoundWorker::setSourceVolume);
 
+    w->setModel(m_model);
     m_frameProxy->pushWidget(this, w);
 }
 

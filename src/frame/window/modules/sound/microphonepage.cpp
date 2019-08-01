@@ -20,6 +20,18 @@
  */
 
 #include "microphonepage.h"
+#include "modules/sound/soundmodel.h"
+
+#include "widgets/switchwidget.h"
+#include "widgets/titledslideritem.h"
+#include "widgets/dccslider.h"
+
+#include <QHBoxLayout>
+#include <QVBoxLayout>
+#include <QLabel>
+
+using namespace dcc::sound;
+using namespace dcc::widgets;
 
 #include "modules/sound/soundmodel.h"
 
@@ -36,12 +48,12 @@ using namespace dcc::widgets;
 
 using namespace DCC_NAMESPACE::sound;
 
-MicrophonePage::MicrophonePage(QWidget* parent):
+MicrophonePage::MicrophonePage(QWidget *parent):
     QWidget(parent),
     m_layout(new QVBoxLayout),
     m_sw(new SwitchWidget),
-    m_inputSlider(new TitledSliderItem("Input Volume")),
-    m_feedbackSlider(new TitledSliderItem("Feedback Volume"))
+    m_inputSlider(new TitledSliderItem("Input Volume"))
+
 {
     setMinimumWidth(400);
 
@@ -53,6 +65,14 @@ MicrophonePage::MicrophonePage(QWidget* parent):
     m_layout->addLayout(hlayout);
     m_layout->addStretch(1);
     setLayout(m_layout);
+}
+
+
+MicrophonePage::~MicrophonePage()
+{
+    if (m_feedbackSlider)
+        m_feedbackSlider->disconnect(m_conn);
+    m_feedbackSlider->deleteLater();
 }
 
 void MicrophonePage::setModel(SoundModel *model)
@@ -89,27 +109,20 @@ void MicrophonePage::initSlider()
     };
     connect(slider, &DCCSlider::valueChanged, this, slotfunc1);
     connect(slider, &DCCSlider::sliderMoved, this, slotfunc1);
-    connect(m_model, &SoundModel::microphoneVolumeChanged, [ = ](double vol) {
-        slider->setSliderPosition(vol * 100);
-    });
 
     m_layout->insertWidget(1, m_inputSlider);
 
+
+    m_feedbackSlider = (new TitledSliderItem("Feedback Volume"));
     DCCSlider *slider2 = m_feedbackSlider->slider();
-    slider2->setRange(-100, 100);
+    slider2->setRange(0, 100);
+    slider2->setEnabled(false);
     slider2->setType(DCCSlider::Vernier);
     slider2->setTickPosition(QSlider::TicksBelow);
     slider2->setTickInterval(1);
-    slider2->setSliderPosition(m_model->speakerBalance());
     slider2->setPageStep(1);
 
-    auto slotfunc2 = [ = ](int pos) {
-        double val = pos / 100.0;
-        Q_EMIT requestSetFeedbackVolume(val);
-    };
-    connect(slider2, &DCCSlider::valueChanged, this, slotfunc2);
-    connect(slider2, &DCCSlider::sliderMoved, this, slotfunc2);
-    connect(m_model, &SoundModel::microphoneFeedbackChanged, [ = ](double vol2) {
+    m_conn = connect(m_model, &SoundModel::microphoneFeedbackChanged, [ = ](double vol2) {
         slider2->setSliderPosition(vol2 * 100);
     });
 

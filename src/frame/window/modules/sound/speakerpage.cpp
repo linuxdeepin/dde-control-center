@@ -95,7 +95,6 @@ void SpeakerPage::initSlider()
     };
     connect(slider, &DCCSlider::valueChanged, slotfunc1);
     connect(slider, &DCCSlider::sliderMoved, slotfunc1);
-
     m_layout->insertWidget(1, outputSlider);
 
     auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"),this);
