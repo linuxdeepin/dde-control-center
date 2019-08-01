@@ -91,6 +91,7 @@ void MainWindow::initAllModule()
     using namespace bluetooth;
     using namespace sound;
     using namespace personalization;
+    using namespace power;
 
     m_modules = {
         { new AccountsModule(this), tr("Account")},
@@ -102,6 +103,7 @@ void MainWindow::initAllModule()
         { new BluetoothModule(this), tr("Bluetooth")},
         { new SoundModule(this), tr("Sound")},
         { new PersonalizationModule(this), tr("Personalization")},
+        { new PowerModule(this), tr("Power")},
     };
 
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {

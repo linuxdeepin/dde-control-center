@@ -24,7 +24,6 @@
 
 #include <QObject>
 #include <types/zoneinfo.h>
-#include <QTimer>
 
 namespace dcc {
     namespace power {
@@ -68,7 +67,6 @@ private:
     void showUseBattery();
 
 private:
-    PowerWidget *m_mainWidget;
     PowerModel *m_model;
     PowerWorker *m_work;
     QTimer *m_timer;

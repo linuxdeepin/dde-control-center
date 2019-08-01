@@ -34,7 +34,6 @@ using namespace DCC_NAMESPACE::power;
 PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frameProxy)
-    , m_mainWidget(nullptr)
     , m_model(nullptr)
     , m_work(nullptr)
     , m_timer(new QTimer(this))
@@ -44,23 +43,12 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
 
 void PowerModule::initialize()
 {
-    m_mainWidget = new PowerWidget;
-    m_mainWidget->initialize();
-
     m_model = new PowerModel;
     m_work = new PowerWorker(m_model);
+    m_work->active(); //refresh data
 
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
-
-    //set default into General
-    connect(m_timer, &QTimer::timeout, this, [this] {
-        m_timer->stop();
-        m_mainWidget->requestDefaultWidget();
-    });
-
-    connect(m_mainWidget, &PowerWidget::requestPushWidget, this, &PowerModule::onPushWidget);
-    connect(m_model, &PowerModel::haveBettaryChanged, m_mainWidget, &PowerWidget::requestRemoveBattery);
 }
 
 void PowerModule::reset()
@@ -80,12 +68,14 @@ void PowerModule::showPage(const QString &pageName)
 
 QWidget *PowerModule::moduleWidget()
 {
-    m_mainWidget->setModel(m_model); //set DBUS date to powerWidget
-    m_work->active(); //refresh data
+    PowerWidget *mainWidget = new PowerWidget;
+    mainWidget->initialize();
+    mainWidget->requestDefaultWidget();//after into second then into General
 
-    m_timer->start(100); //after into second then into General
+    connect(mainWidget, &PowerWidget::requestPushWidget, this, &PowerModule::onPushWidget);
+    connect(m_model, &PowerModel::haveBettaryChanged, mainWidget, &PowerWidget::requestRemoveBattery);
 
-    return m_mainWidget;
+    return mainWidget;
 }
 
 void PowerModule::contentPopped(QWidget *const w)

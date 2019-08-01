@@ -21,6 +21,7 @@
 
 #include "powerwidget.h"
 #include "modules/power/powermodel.h"
+#include <QTimer>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
@@ -71,8 +72,10 @@ void PowerWidget::setModel(const PowerModel *model)
 
 void PowerWidget::requestDefaultWidget()
 {
-    m_listview->setCurrentIndex(m_defaultIndex);
-    m_listview->pressed(m_defaultIndex);
+    QTimer::singleShot(0, this, [this] {
+        m_listview->setCurrentIndex(m_defaultIndex);
+        m_listview->pressed(m_defaultIndex);
+    });
 }
 
 void PowerWidget::onItemClieck(const QModelIndex &index)
