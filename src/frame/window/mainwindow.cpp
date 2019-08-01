@@ -156,14 +156,19 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
 
 void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visible)
 {
-    // get right position to insert
-    const QString name = inter->name();
+    auto find_it = std::find_if(m_modules.cbegin(),
+                                m_modules.cend(),
+                                [=] (const QPair<ModuleInterface*, QString>& pair) {
+        return pair.first == inter;
+    });
 
-    QWidget *moduleWidget = inter->moduleWidget();
-    Q_ASSERT(moduleWidget);
-    moduleWidget->setVisible(visible);
-
-    Q_EMIT moduleVisibleChanged(name, visible);
+    if (find_it != m_modules.cend()) {
+        m_navView->setRowHidden(find_it - m_modules.cbegin(), !visible);
+        Q_EMIT moduleVisibleChanged(find_it->first->name(), visible);
+    }
+    else {
+        qWarning() << Q_FUNC_INFO << "Not found module!";
+    }
 }
 
 void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w)
