@@ -92,6 +92,7 @@ void MainWindow::initAllModule()
     using namespace sound;
     using namespace personalization;
     using namespace power;
+    using namespace update;
 
     m_modules = {
         { new AccountsModule(this), tr("Account")},
@@ -104,6 +105,7 @@ void MainWindow::initAllModule()
         { new SoundModule(this), tr("Sound")},
         { new PersonalizationModule(this), tr("Personalization")},
         { new PowerModule(this), tr("Power")},
+        { new UpdateModule(this), tr("Update")}
     };
 
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {

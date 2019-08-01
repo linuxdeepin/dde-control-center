@@ -182,6 +182,10 @@ set(WINDOW_FILES
     window/modules/sound/microphonepage.cpp
     window/modules/sound/advancedpage.cpp
     window/modules/sound/soundeffectspage.cpp
+    window/modules/update/updatemodule.cpp
+    window/modules/update/updatewidget.cpp
+    window/modules/update/updatectrlwidget.cpp
+    window/modules/update/updatesettings.cpp
      )
 
 # load interfaces
