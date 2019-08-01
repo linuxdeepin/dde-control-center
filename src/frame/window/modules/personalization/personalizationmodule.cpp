@@ -20,7 +20,6 @@
  */
 #include "personalizationmodule.h"
 #include "personalizationlist.h"
-#include "personalizationgeneral.h"
 #include "modules/personalization/personalizationmodel.h"
 #include "modules/personalization/personalizationwork.h"
 

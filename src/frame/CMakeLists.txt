@@ -742,6 +742,11 @@ set(PERSONALIZATION_FILES
                 modules/personalization/personalizationmodel.h
                 modules/personalization/personalizationwidget.h
                 modules/personalization/personalizationwork.h
+
+                window/modules/personalization/personalizationmodule.h
+                window/modules/personalization/personalizationmodule.cpp
+                window/modules/personalization/personalizationlist.h
+                window/modules/personalization/personalizationlist.cpp
 )
 
 # load power
