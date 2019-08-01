@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 ~ 2019 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     andywang <wangwei_cm@deepin.com>
  *
@@ -51,8 +51,8 @@ public:
 Q_SIGNALS:
     void requestSetLeftHand(const bool state);
     void requestSetDisTyping(const bool state);
-    void requestScrollSpeed(int speed);
-    void requestSetDouClick(const int &value);
+    void requestScrollSpeed(const int speed);
+    void requestSetDouClick(const int value);
 private:
     dcc::mouse::MouseModel *m_mouseModel;
     dcc::widgets::SettingsGroup *m_generalSettingsGrp;

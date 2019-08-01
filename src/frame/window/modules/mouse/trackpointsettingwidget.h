@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 ~ 2019 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     andywang <andywang_cm@deepin.com>
  *
@@ -47,7 +47,7 @@ public:
     explicit TrackPointSettingWidget(QWidget *parent = 0);
     void setModel(dcc::mouse::MouseModel *const model);
 Q_SIGNALS:
-    void requestSetTrackPointMotionAcceleration(const int &value);
+    void requestSetTrackPointMotionAcceleration(const int value);
 private Q_SLOTS:
     void onRedPointMoveSpeedChanged(int speed);
 private:

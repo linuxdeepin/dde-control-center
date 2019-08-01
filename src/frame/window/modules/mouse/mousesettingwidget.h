@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 ~ 2019 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     andywang <wangwei_cm@deepin.com>
  *
@@ -49,7 +49,7 @@ public:
     explicit MouseSettingWidget(QWidget *parent = 0);
     void setModel(dcc::mouse::MouseModel *const model);
 Q_SIGNALS:
-    void requestSetMouseMotionAcceleration(const int &value);
+    void requestSetMouseMotionAcceleration(const int value);
     void requestSetAccelProfile(const bool state);
     void requestSetDisTouchPad(const bool state);
     void requestSetMouseNaturalScroll(const bool state);
