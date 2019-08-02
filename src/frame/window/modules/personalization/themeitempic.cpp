@@ -23,6 +23,7 @@
 #include <QBitmap>
 #include <QPainter>
 #include <QPainterPath>
+#include <QPalette>
 #include <QDebug>
 
 using namespace DCC_NAMESPACE;
@@ -57,7 +58,6 @@ void ThemeItemPic::mousePressEvent(QMouseEvent* event)
     if(event->button() == Qt::LeftButton) {
         if (m_isSelected) return;
         Q_EMIT clicked();
-        update();
     }
 }
 
@@ -68,7 +68,7 @@ void ThemeItemPic::paintEvent(QPaintEvent *event)
     if (m_isSelected) {
         //draw blue rectangle
         QPen pen;
-        pen.setColor(Qt::blue);
+        pen.setBrush(palette().highlight());
         pen.setWidth(2);  //pen width
         painter.setPen(pen);
         QRect r = rect().adjusted(5, 5, -5, -5);
