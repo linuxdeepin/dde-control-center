@@ -747,6 +747,8 @@ set(PERSONALIZATION_FILES
                 window/modules/personalization/personalizationmodule.cpp
                 window/modules/personalization/personalizationlist.h
                 window/modules/personalization/personalizationlist.cpp
+                window/modules/personalization/themeitempic.h
+                window/modules/personalization/themeitempic.cpp
 )
 
 # load power
