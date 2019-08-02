@@ -94,6 +94,7 @@ void MainWindow::initAllModule()
     using namespace power;
     using namespace update;
     using namespace keyboard;
+    using namespace wacom;
 
     m_modules = {
         { new AccountsModule(this), tr("Account")},
@@ -107,11 +108,12 @@ void MainWindow::initAllModule()
         { new SoundModule(this), tr("Sound")},
         { new PersonalizationModule(this), tr("Personalization")},
         { new PowerModule(this), tr("Power")},
-        { new UpdateModule(this), tr("Update")}
+        { new UpdateModule(this), tr("Update")},
+        { new WacomModule(this), tr("Wacom")},
     };
 
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
-        QStandardItem* item = new QStandardItem;
+        QStandardItem *item = new QStandardItem;
         item->setIcon(QIcon(QString(":/%1/themes/dark/icons/nav_%1.svg").arg(it->first->name())));
         item->setText(it->second);
         m_navModel->appendRow(item);
@@ -150,7 +152,7 @@ void MainWindow::popAllWidgets()
     }
 }
 
-void MainWindow::popWidget(ModuleInterface * const inter)
+void MainWindow::popWidget(ModuleInterface *const inter)
 {
     Q_UNUSED(inter)
 
@@ -166,15 +168,14 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
 {
     auto find_it = std::find_if(m_modules.cbegin(),
                                 m_modules.cend(),
-                                [=] (const QPair<ModuleInterface*, QString>& pair) {
+    [ = ](const QPair<ModuleInterface *, QString> &pair) {
         return pair.first == inter;
     });
 
     if (find_it != m_modules.cend()) {
         m_navView->setRowHidden(find_it - m_modules.cbegin(), !visible);
         Q_EMIT moduleVisibleChanged(find_it->first->name(), visible);
-    }
-    else {
+    } else {
         qWarning() << Q_FUNC_INFO << "Not found module!";
     }
 }
@@ -194,8 +195,7 @@ void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w)
         m_navView->setViewMode(QListView::ListMode);
         m_navView->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
         m_rightView->show();
-    }
-    else {
+    } else {
         m_contentStack.top().second->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     }
 
@@ -208,7 +208,7 @@ void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w)
 
 void MainWindow::onFirstItemClick(const QModelIndex &index)
 {
-    ModuleInterface* inter = m_modules[index.row()].first;
+    ModuleInterface *inter = m_modules[index.row()].first;
 
     if (!m_contentStack.isEmpty() && m_contentStack.last().first == inter) {
         return;

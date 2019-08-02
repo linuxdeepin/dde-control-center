@@ -895,6 +895,11 @@ set(WACOM_FILES
                 modules/wacom/wacommodule.h
                 modules/wacom/wacomwidget.h
                 modules/wacom/wacomworker.h
+                #v20
+                window/modules/wacom/wacommodule.h
+                window/modules/wacom/wacommodule.cpp
+                window/modules/wacom/wacomwidget.h
+                window/modules/wacom/wacomwidget.cpp
 )
 
 # end load
