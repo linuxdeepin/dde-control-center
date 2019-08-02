@@ -36,6 +36,7 @@
 #include <QIcon>
 #include <QSize>
 
+using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
 
 AccountsWidget::AccountsWidget(QWidget *parent)

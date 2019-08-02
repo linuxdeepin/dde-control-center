@@ -19,18 +19,30 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef CREATEACCOUNTPAGE_H
-#define CREATEACCOUNTPAGE_H
+#pragma once
 
 #include "window/namespace.h"
 #include "modules/accounts/user.h"
+#include "modules/accounts/creationresult.h"
+#include "avatarlistwidget.h"
+#include "widgets/lineeditwidget.h"
+
+#include <dimagebutton.h>
 
 #include <QWidget>
 
-using namespace dcc;
-using namespace dcc::accounts;
+QT_BEGIN_NAMESPACE
 
+class QVBoxLayout;
+class QHBoxLayout;
+class QPushButton;
+class QLabel;
+class QLineEdit;
 
+template <class Key, class T>
+class QMap;
+
+QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 namespace accounts {
@@ -41,20 +53,57 @@ class CreateAccountPage : public QWidget
     Q_OBJECT
 public:
     explicit CreateAccountPage(QWidget *parent = nullptr);
+    ~CreateAccountPage();
+    void initWidgets();
+    void initDatas();
+    void setModel(dcc::accounts::User *user);
+    void createUser();
+    template <typename T>
+    void onEditFinished(T t);
+    bool validatePassword(const QString &password);
+    bool containsChar(const QString &password, const QString &validate);
 
+    void showUsernameErrorTip(const QString &error);
+    void showUserfullnameErrorTip(const QString &error);
+    void showPasswordEmptyErrorTip(const QString &error);
+    void showPasswordMatchErrorTip(const QString &error);
 
+    void updateLineEditDisplayStyle();
 
 Q_SIGNALS:
-
-
+    void requestCreateUser(const dcc::accounts::User *user);
+    void requestBack();
 
 public Q_SLOTS:
+    void setCreationResult(dcc::accounts::CreationResult *result);
 
-
-
+private:
+    dcc::accounts::User *m_newUser;
+    QVBoxLayout *m_mainContentLayout;
+    QVBoxLayout *m_inputLayout;
+    QHBoxLayout *m_selectLayout;
+    QVBoxLayout *m_nameLayout;
+    QVBoxLayout *m_fullnameLayout;
+    QVBoxLayout *m_passwdLayout;
+    QVBoxLayout *m_repeatpasswdLayout;
+    QHBoxLayout *m_passwdbtnLayout;
+    QHBoxLayout *m_repeatpasswdbtnLayout;
+    DCC_NAMESPACE::accounts::AvatarListWidget *m_avatarListWidget;
+    QLabel *m_nameLabel;
+    QLabel *m_fullnameLabel;
+    QLabel *m_passwdLabel;
+    QLabel *m_repeatpasswdLabel;
+    QLineEdit *m_nameEdit;
+    QLineEdit *m_fullnameEdit;
+    QLineEdit *m_passwdEdit;
+    QLineEdit *m_repeatpasswdEdit;
+    QPushButton *m_cancleBtn;
+    QPushButton *m_addBtn;
+    dcc::widgets::ErrorTip *m_errorTip;
+    Dtk::Widget::DImageButton *m_passwdBtn;
+    Dtk::Widget::DImageButton *m_repeatpasswdBtn;
+    QMap<Dtk::Widget::DImageButton*, QLineEdit*> m_editButtonMap;
 };
 
 }
 }
-
-#endif // CREATEACCOUNTPAGE_H

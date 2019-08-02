@@ -19,8 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef MODIFYPASSWDPAGE_H
-#define MODIFYPASSWDPAGE_H
+#pragma once
 
 #include "window/namespace.h"
 #include "modules/accounts/user.h"
@@ -60,4 +59,3 @@ private:
 
 }
 }
-#endif // MODIFYPASSWDPAGE_H

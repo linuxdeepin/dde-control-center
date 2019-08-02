@@ -23,14 +23,14 @@
 #include "modules/accounts/user.h"
 #include "avataritemdelegate.h"
 
-#include <QWidget>;
-#include <QListView>;
-#include <QStandardItemModel>;
-#include <QVBoxLayout>;
-#include <QHBoxLayout>;
-#include <QPushButton>;
-#include <QLabel>;
-#include <QDebug>;
+#include <QWidget>
+#include <QListView>
+#include <QStandardItemModel>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QPushButton>
+#include <QLabel>
+#include <QDebug>
 
 
 using namespace DCC_NAMESPACE::accounts;

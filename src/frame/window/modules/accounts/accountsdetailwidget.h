@@ -32,14 +32,14 @@
 #include "avatarlistwidget.h"
 
 #include <com_deepin_daemon_fprintd_device.h>
+#include <dimagebutton.h>
+
 class QVBoxLayout;
 class QHBoxLayout;
 class QPushButton;
 class QLabel;
-class QEvent;
+class QLineEdit;
 
-using namespace dcc::accounts;
-using namespace dcc::widgets;
 using com::deepin::daemon::fprintd::Device;
 
 namespace DCC_NAMESPACE {
@@ -52,41 +52,45 @@ class AccountsDetailWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit AccountsDetailWidget(User *user, QWidget *parent = nullptr);
+    explicit AccountsDetailWidget(dcc::accounts::User *user, QWidget *parent = nullptr);
     void initWidgets();
     void initDatas();
-
+    void updateLineEditDisplayStyle();
 
 Q_SIGNALS:
-    void requestShowPwdSettings(User *user);
-    void requestSetAutoLogin(User *user, const bool autoLogin);
-    void requestNopasswdLogin(User *user, const bool nopasswdLogin);
-    void requestDeleteAccount(User *user, const bool deleteHome);
-    void requestChangeFrameAutoHide();
-    void requestSetAvatar(User *user, const QString &filePath);
+    void requestShowPwdSettings(dcc::accounts::User *user);
+    void requestSetAutoLogin(dcc::accounts::User *user, const bool autoLogin);
+    void requestNopasswdLogin(dcc::accounts::User *user, const bool nopasswdLogin);
+    void requestDeleteAccount(dcc::accounts::User *user, const bool deleteHome);
+    void requestBack();
+    void requestSetAvatar(dcc::accounts::User *user, const QString &filePath);
+    void requestShowFullnameSettings(dcc::accounts::User *user, const QString &fullname);
 
 private Q_SLOTS:
     void deleteUserClicked();
 
 private:
-    User *m_curUser;
+    dcc::accounts::User *m_curUser;
     QVBoxLayout *m_headLayout;
     QHBoxLayout *m_modifydelLayout;
     QVBoxLayout *m_setloginLayout;
 
     QVBoxLayout *m_mainContentLayout;
-
-    AvatarWidget *m_avatar;//账户图片
+    QHBoxLayout *m_fullnameLayout;
+    QHBoxLayout *m_inputlineLayout;
+    dcc::accounts::AvatarWidget *m_avatar;//账户图片
     QLabel *m_shortName;
     QLabel *m_fullName;
-
+    QLineEdit *m_inputLineEdit;
     QPushButton *m_modifyPassword;//修改密码
     QPushButton *m_deleteAccount;//删除账户
 
-    SwitchWidget *m_autoLogin;//自动登录
-    SwitchWidget *m_nopasswdLogin;//无密码登录
+    dcc::widgets::SwitchWidget *m_autoLogin;//自动登录
+    dcc::widgets::SwitchWidget *m_nopasswdLogin;//无密码登录
 
     AvatarListWidget *m_avatarListWidget;
+    Dtk::Widget::DImageButton *m_fullnameBtn;
+    Dtk::Widget::DImageButton *m_inputeditBtn;
 };
 
 }   // namespace accounts

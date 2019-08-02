@@ -30,6 +30,7 @@
 
 #include <QDebug>
 
+using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
 
 AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
@@ -92,10 +93,11 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
     connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
     connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
-    connect(w, &AccountsDetailWidget::requestChangeFrameAutoHide, this, [&](){
+    connect(w, &AccountsDetailWidget::requestBack, this, [&]() {
         m_frameProxy->popWidget(this);
     });
     connect(w, &AccountsDetailWidget::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
+    connect(w, &AccountsDetailWidget::requestShowFullnameSettings, m_accountsWorker, &AccountsWorker::setFullname);
     m_frameProxy->pushWidget(this, w);
 }
 
@@ -104,6 +106,13 @@ void AccountsModule::onShowCreateAccountPage()
 {
     qDebug() << Q_FUNC_INFO;
     CreateAccountPage *w = new CreateAccountPage();
+    User *newUser = new User(this);
+    w->setModel(newUser);
+    connect(w, &CreateAccountPage::requestCreateUser, m_accountsWorker, &AccountsWorker::createAccount);
+    connect(m_accountsWorker, &AccountsWorker::accountCreationFinished, w, &CreateAccountPage::setCreationResult);
+    connect(w, &CreateAccountPage::requestBack, this, [&]() {
+        m_frameProxy->popWidget(this);
+    });
     m_frameProxy->pushWidget(this, w);
 }
 
