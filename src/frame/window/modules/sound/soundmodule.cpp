@@ -65,7 +65,7 @@ const QString SoundModule::name() const
 
 QWidget *SoundModule::moduleWidget()
 {
-    SoundWidget*  widget = new SoundWidget();
+    SoundWidget  *widget = new SoundWidget();
 
     connect(widget, &SoundWidget::requsetSpeakerPage, this, &SoundModule::showSpeakerPage);
     connect(widget, &SoundWidget::requestMicrophonePage, this, &SoundModule::showMicrophonePage);
@@ -102,13 +102,17 @@ void SoundModule::showAdvancedPage()
     AdvancedPage *w = new AdvancedPage;
 
     w->setModel(m_model);
-    connect(w,&AdvancedPage::requestSetPort,m_worker,&SoundWorker::setPort);
+    connect(w, &AdvancedPage::requestSetPort, m_worker, &SoundWorker::setPort);
     m_frameProxy->pushWidget(this, w);
 }
 
 void SoundModule::showSoundEffectsPage()
 {
+    m_worker->refreshSoundEffect();
     SoundEffectsPage *w = new SoundEffectsPage;
 
+    connect(w, &SoundEffectsPage::requestSwitchSoundEffects, m_worker, &SoundWorker::enableAllSoundEffect);
+    connect(w, &SoundEffectsPage::requestSetEffectAble, m_worker, &SoundWorker::setEffectEnable);
+    w->setModel(m_model);
     m_frameProxy->pushWidget(this, w);
 }

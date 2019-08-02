@@ -22,19 +22,63 @@
 #ifndef SOUNDEFFECTSPAGE_H_V20
 #define SOUNDEFFECTSPAGE_H_V20
 
-#include "../../namespace.h"
+#include "window/namespace.h"
+
+#include <DDesktopServices>
 
 #include <QWidget>
+
+class QListView;
+class QVBoxLayout;
+class QSound;
+
+namespace dcc {
+
+namespace sound {
+class SoundModel;
+}
+
+namespace widgets {
+class SwitchWidget;
+}
+}
+
+DWIDGET_USE_NAMESPACE
 
 namespace DCC_NAMESPACE {
 
 namespace sound {
 
+class HoverListView;
+class SoundEffectsModel;
+
 class SoundEffectsPage : public QWidget
 {
     Q_OBJECT
 public:
-    SoundEffectsPage();
+    SoundEffectsPage(QWidget *parent = nullptr);
+
+public:
+    void setModel(dcc::sound::SoundModel *model);
+
+Q_SIGNALS:
+    void requestSwitchSoundEffects(bool isOn);
+    void requestSetEffectAble(DDesktopServices::SystemSoundEffect effect, bool enable);
+
+public Q_SLOTS:
+    void startPlay(const QModelIndex &index);
+    void onEffectChanged(DDesktopServices::SystemSoundEffect effect, const bool enable);
+
+private:
+    void initList();
+
+private:
+    QVBoxLayout *m_layout{nullptr};
+    dcc::widgets::SwitchWidget *m_sw{nullptr};
+    dcc::sound::SoundModel *m_model{nullptr};
+    HoverListView *m_effectList{nullptr};
+    SoundEffectsModel *m_listModel{nullptr};
+    QScopedPointer<QSound> m_sound;
 };
 
 }
