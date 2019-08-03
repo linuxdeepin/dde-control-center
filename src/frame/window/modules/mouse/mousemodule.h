@@ -44,7 +44,7 @@ class MouseModule : public QObject, public ModuleInterface
     Q_OBJECT
 
 public:
-    explicit MouseModule(FrameProxyInterface *frame, QObject *parent = 0);
+    explicit MouseModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     void initialize() override;
     void reset() override;
     QWidget *moduleWidget() override;

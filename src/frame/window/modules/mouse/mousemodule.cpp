@@ -64,7 +64,6 @@ QWidget *MouseModule::moduleWidget()
     connect(mouseWidget, &MouseWidget::showMouseSetting, this, &MouseModule::showMouseSetting);
     connect(mouseWidget, &MouseWidget::showTouchpadSetting, this, &MouseModule::showTouchpadSetting);
     connect(mouseWidget, &MouseWidget::showTrackPointSetting, this, &MouseModule::showTrackPointSetting);
-    QMetaObject::invokeMethod(this, "showGeneralSetting", Qt::QueuedConnection);
 
     return mouseWidget;
 }

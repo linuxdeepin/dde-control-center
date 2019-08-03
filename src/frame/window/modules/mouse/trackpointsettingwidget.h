@@ -44,7 +44,7 @@ class TrackPointSettingWidget : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
-    explicit TrackPointSettingWidget(QWidget *parent = 0);
+    explicit TrackPointSettingWidget(QWidget *parent = nullptr);
     void setModel(dcc::mouse::MouseModel *const model);
 Q_SIGNALS:
     void requestSetTrackPointMotionAcceleration(const int value);

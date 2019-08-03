@@ -30,7 +30,7 @@ class ShortCutSettingWidget : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
-    explicit ShortCutSettingWidget(QWidget *parent = 0);
+    explicit ShortCutSettingWidget(QWidget *parent = nullptr);
 };
 }
 }

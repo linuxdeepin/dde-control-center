@@ -46,7 +46,7 @@ class GeneralSettingWidget : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
-    explicit GeneralSettingWidget(QWidget *parent = 0);
+    explicit GeneralSettingWidget(QWidget *parent = nullptr);
     void setModel(dcc::mouse::MouseModel *const model);
 Q_SIGNALS:
     void requestSetLeftHand(const bool state);

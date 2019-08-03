@@ -43,7 +43,7 @@ class GeneralKBSettingWidget : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
-    explicit GeneralKBSettingWidget(dcc::keyboard::KeyboardModel *model, QWidget *parent = 0);
+    explicit GeneralKBSettingWidget(dcc::keyboard::KeyboardModel *model, QWidget *parent = nullptr);
 Q_SIGNALS:
     void requestKBDelayChanged(const int value);
     void requestKBSpeedChanged(const int value);

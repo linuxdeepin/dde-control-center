@@ -22,8 +22,10 @@
 #pragma once
 
 #include "window/namespace.h"
+
 #include <QVBoxLayout>
 #include <QListView>
+#include <QStandardItemModel>
 
 namespace dcc {
 namespace widgets {
@@ -44,6 +46,7 @@ public:
     explicit MouseWidget(QWidget *parent = nullptr);
 private:
     void init();
+    void initSetting();
     void onItemClieck(const QModelIndex &index);
     //void paintEvent(QPaintEvent *event) override;
 Q_SIGNALS:
@@ -55,6 +58,7 @@ private:
     MouseModel *m_mouseModel;
     QListView *m_mouseListView;
     QVBoxLayout *m_contentLayout;
+    QStandardItemModel *m_listviewModel;
 };
 }
 }

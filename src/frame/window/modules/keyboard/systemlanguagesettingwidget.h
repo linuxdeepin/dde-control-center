@@ -50,7 +50,7 @@ class SystemLanguageSettingWidget : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
-    explicit SystemLanguageSettingWidget(dcc::keyboard::KeyboardModel *model, QWidget *parent = 0);
+    explicit SystemLanguageSettingWidget(dcc::keyboard::KeyboardModel *model, QWidget *parent = nullptr);
 
 Q_SIGNALS:
     void click(const QModelIndex &index);

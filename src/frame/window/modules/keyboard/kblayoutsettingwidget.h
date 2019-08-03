@@ -30,7 +30,7 @@ class KBLayoutSettingWidget : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
-    explicit KBLayoutSettingWidget(QWidget *parent = 0);
+    explicit KBLayoutSettingWidget(QWidget *parent = nullptr);
 };
 }
 }

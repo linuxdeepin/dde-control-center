@@ -49,23 +49,29 @@ MouseWidget::MouseWidget(QWidget *parent)
 
 void MouseWidget::init()
 {
-//    m_mouseListView->setViewMode(QListView::IconMode);
-    auto model = new QStandardItemModel(m_mouseListView);
+    m_listviewModel = new QStandardItemModel(m_mouseListView);
 
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), "General"));
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), "Mouse"));
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "TouchPad"));
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "TrackPoint"));
-    m_mouseListView->setModel(model);
-//    m_mouseListView->setFlow(QListView::TopToBottom);
-//    m_mouseListView->setWordWrap(true);
+    m_listviewModel->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), "General"));
+    m_listviewModel->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), "Mouse"));
+    m_listviewModel->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "TouchPad"));
+    m_listviewModel->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "TrackPoint"));
+    m_mouseListView->setModel(m_listviewModel);
+    m_mouseListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_mouseListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     connect(m_mouseListView, &QListView::clicked, this, &MouseWidget::onItemClieck);
+
+    QTimer::singleShot(0, this, &MouseWidget::initSetting);
+}
+
+void MouseWidget::initSetting()
+{
+    m_mouseListView->setCurrentIndex(m_listviewModel->index(0,0));
+    m_mouseListView->clicked(m_listviewModel->index(0,0));
 }
 
 void MouseWidget::onItemClieck(const QModelIndex &index)
 {
-    qDebug() << "row: " << index.row() << " column: " << index.column();
+    // qDebug() << "row: " << index.row() << " column: " << index.column();
     switch (index.row()) {
     case 0:
         Q_EMIT showGeneralSetting();
