@@ -18,48 +18,46 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 #pragma once
 
+#include <dimagebutton.h>
 #include "window/namespace.h"
-#include "window/interface/moduleinterface.h"
+#include <QWidget>
+#include <QVariant>
 
-#include <QObject>
+class QVBoxLayout;
+class QLabel;
+class QCheckBox;
 
-namespace dcc
-{
-namespace personalization
-{
-class PersonalizationModel;
-class PersonalizationWork;
-}
-}
+DWIDGET_USE_NAMESPACE
 
 namespace DCC_NAMESPACE {
 namespace personalization {
-class PersonalizationList;
-class PersonalizationModule : public QObject, public ModuleInterface
+class ThemeItemPic;
+
+class ThemeItem : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PersonalizationModule(FrameProxyInterface *frame, QObject *parent = 0);
-    ~PersonalizationModule();
+    explicit ThemeItem(bool titleBelowPic, QWidget *parent = nullptr);
 
-    virtual void initialize() override;
-    virtual void reset() override;
-    virtual const QString name() const override;
-    virtual void showPage(const QString &pageName) override;
-    virtual QWidget *moduleWidget() override;
-    virtual void contentPopped(QWidget *const w) override;
+    void setTitle(const QString &title);
+    void setSelected(bool selected);
+    void setPic(const QString &picPath);
+    void setId(const QVariant &id);
+    inline const QVariant id() const { return m_id; }
 
-private Q_SLOTS:
-    void showGenaralWidget();
-    void showIconThemeWidget();
-    void showCursorThemeWidget();
+Q_SIGNALS:
+    void selectedChanged(const bool selected) const;
 
 private:
-    dcc::personalization::PersonalizationModel  *m_model;
-    dcc::personalization::PersonalizationWork   *m_work;
+    QVBoxLayout *m_mainLayout;
+    QLabel *m_title;
+    bool m_state;
+    ThemeItemPic *m_itemPic;  //picture of theme
+    QVariant m_id;
+    bool m_titleBelowPic;
+    DImageButton *m_imgBtn;
 };
 }
 }

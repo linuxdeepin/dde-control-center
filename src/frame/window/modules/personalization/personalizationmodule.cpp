@@ -22,6 +22,10 @@
 #include "personalizationlist.h"
 #include "modules/personalization/personalizationmodel.h"
 #include "modules/personalization/personalizationwork.h"
+#include "personalizationgeneral.h"
+#include "perssonalizationthemewidget.h"
+#include "personalizationicontheme.h"
+#include "personalizationcursortheme.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -69,6 +73,8 @@ QWidget *PersonalizationModule::moduleWidget()
 {
     PersonalizationList *firstWidget = new PersonalizationList();
     connect(firstWidget, &PersonalizationList::requestShowGeneral, this, &PersonalizationModule::showGenaralWidget);
+    connect(firstWidget, &PersonalizationList::requestShowIconTheme, this, &PersonalizationModule::showIconThemeWidget);
+    connect(firstWidget, &PersonalizationList::requestShowCursorTheme, this, &PersonalizationModule::showCursorThemeWidget);
     return firstWidget;
 }
 
@@ -79,4 +85,38 @@ void PersonalizationModule::contentPopped(QWidget * const w)
 
 void PersonalizationModule::showGenaralWidget()
 {
+    m_work->refreshTheme();
+
+    PersonalizationGeneral *widget = new PersonalizationGeneral;
+    widget->setModel(m_model);
+    connect(widget->getThemeWidget(), &PerssonalizationThemeWidget::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
+    connect(widget, &PersonalizationGeneral::requestSetOpacity, m_work, &dcc::personalization::PersonalizationWork::setOpacity);
+    connect(widget, &PersonalizationGeneral::requestSwitchWM, m_work, &dcc::personalization::PersonalizationWork::switchWM);
+    m_work->active();
+
+    m_frameProxy->pushWidget(this, widget);
+}
+
+void PersonalizationModule::showIconThemeWidget()
+{
+    m_work->refreshTheme();
+
+    PersonalizationIconTheme *widget = new PersonalizationIconTheme;
+    widget->setModel(m_model->getIconModel());
+    connect(widget, &PersonalizationIconTheme::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
+    m_work->active();
+
+    m_frameProxy->pushWidget(this, widget);
+}
+
+void PersonalizationModule::showCursorThemeWidget()
+{
+    m_work->refreshTheme();
+
+    PersonalizationCursorTheme *widget = new PersonalizationCursorTheme;
+    widget->setModel(m_model->getMouseModel());
+    connect(widget, &PersonalizationCursorTheme::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
+    m_work->active();
+
+    m_frameProxy->pushWidget(this, widget);
 }

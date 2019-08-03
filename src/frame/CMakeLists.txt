@@ -778,6 +778,16 @@ set(PERSONALIZATION_FILES
                 window/modules/personalization/themeitempic.cpp
                 window/modules/personalization/roundcolorwidget.h
                 window/modules/personalization/roundcolorwidget.cpp
+                window/modules/personalization/personalizationgeneral.h
+                window/modules/personalization/personalizationgeneral.cpp
+                window/modules/personalization/perssonalizationthemewidget.h
+                window/modules/personalization/perssonalizationthemewidget.cpp
+                window/modules/personalization/themeitem.h
+                window/modules/personalization/themeitem.cpp
+                window/modules/personalization/personalizationicontheme.h
+                window/modules/personalization/personalizationicontheme.cpp
+                window/modules/personalization/personalizationcursortheme.h
+                window/modules/personalization/personalizationcursortheme.cpp
 )
 
 # load power
