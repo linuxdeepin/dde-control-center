@@ -767,6 +767,8 @@ set(PERSONALIZATION_FILES
                 window/modules/personalization/personalizationlist.cpp
                 window/modules/personalization/themeitempic.h
                 window/modules/personalization/themeitempic.cpp
+                window/modules/personalization/roundcolorwidget.h
+                window/modules/personalization/roundcolorwidget.cpp
 )
 
 # load power
