@@ -27,6 +27,7 @@
 #include "modules/keyboard/indexmodel.h"
 #include "widgets/searchinput.h"
 #include "widgets/translucentframe.h"
+
 #include <QVBoxLayout>
 #include <QEvent>
 

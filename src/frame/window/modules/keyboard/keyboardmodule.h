@@ -24,11 +24,14 @@
 #include "window/namespace.h"
 #include "window/interface/moduleinterface.h"
 
+#include <QObject>
+
 namespace dcc {
 namespace keyboard {
 class KeyboardModel;
 class ShortcutModel;
 class KeyboardWorker;
+class KeyboardLayoutWidget;
 }
 }
 
@@ -57,12 +60,15 @@ public Q_SLOTS:
     void showSystemLanguageSetting();
     void showShortCutSetting();
     void onSetLocale(const QModelIndex &index);
+    void onPushKeyboard(const QStringList &kblist);
+    void setCurrentLayout(const QString &value);
 private:
     GeneralKBSettingWidget *m_generalSettingWidget = nullptr;
     KBLayoutSettingWidget *m_kbLayoutSettingWidget = nullptr;
     SystemLanguageSettingWidget *m_systemLanguageSettingWidget = nullptr;
     ShortCutSettingWidget *m_shortcutSettingWidget = nullptr;
 
+    dcc::keyboard::KeyboardLayoutWidget *m_kbLayoutWidget = nullptr;
     dcc::keyboard::KeyboardModel  *m_model = nullptr;
     dcc::keyboard::ShortcutModel *m_shortcutModel = nullptr;
     dcc::keyboard::KeyboardWorker *m_work = nullptr;

@@ -22,10 +22,13 @@
 #pragma once
 
 #include "window/namespace.h"
+#include <QWidget>
 
-#include <QVBoxLayout>
-#include <QListView>
-#include <QStandardItemModel>
+QT_BEGIN_NAMESPACE
+class QListView;
+class QVBoxLayout;
+class QStandardItemModel;
+QT_END_NAMESPACE
 
 namespace dcc {
 namespace keyboard {

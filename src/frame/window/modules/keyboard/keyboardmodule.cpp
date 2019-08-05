@@ -28,6 +28,7 @@
 #include "modules/keyboard/keyboardwork.h"
 #include "modules/keyboard/keyboardmodel.h"
 #include "modules/keyboard/shortcutmodel.h"
+#include "modules/keyboard/keyboardlayoutwidget.h"
 
 using namespace dcc;
 using namespace dcc::keyboard;
@@ -90,16 +91,59 @@ void KeyboardModule::showGeneralSetting()
     m_frameProxy->pushWidget(this, m_generalSettingWidget);
 }
 
+void KeyboardModule::onPushKeyboard(const QStringList &kblist)
+{
+    m_work->onPinyin();
+    m_kbLayoutWidget = new KeyboardLayoutWidget();
+
+    auto dataControll = [ = ](QList<MetaData> datas) {
+        for (auto it(datas.begin()); it != datas.end();) {
+            const MetaData &data = *it;
+            if (kblist.contains(data.key()))
+                it = datas.erase(it);
+            else
+                ++it;
+        }
+
+        m_kbLayoutWidget->setMetaData(datas);
+    };
+
+    connect(m_work, &KeyboardWorker::onDatasChanged, m_kbLayoutWidget, dataControll);
+    connect(m_work, &KeyboardWorker::onLettersChanged, m_kbLayoutWidget, &KeyboardLayoutWidget::setLetters);
+
+    dataControll(m_work->getDatas());
+    m_kbLayoutWidget->setLetters(m_work->getLetters());
+
+    connect(m_kbLayoutWidget, &KeyboardLayoutWidget::layoutSelected, m_work, &KeyboardWorker::addUserLayout);
+    connect(m_kbLayoutWidget, &KeyboardLayoutWidget::back, this, &KeyboardModule::showKBLayoutSetting);
+
+    m_frameProxy->pushWidget(this, m_kbLayoutWidget);
+}
+
+void KeyboardModule::setCurrentLayout(const QString &value)
+{
+    m_work->setLayout(m_model->userLayout().key(value));
+}
+
 void KeyboardModule::showKBLayoutSetting()
 {
+    m_work->onRefreshKBLayout();
     m_kbLayoutSettingWidget = new KBLayoutSettingWidget;
+    m_kbLayoutSettingWidget->setModel(m_model);
+
+    connect(m_kbLayoutSettingWidget, &KBLayoutSettingWidget::layoutAdded, this, &KeyboardModule::onPushKeyboard);
+    connect(m_kbLayoutSettingWidget, &KBLayoutSettingWidget::requestCurLayoutAdded, this, &KeyboardModule::setCurrentLayout);
+    connect(m_kbLayoutSettingWidget, &KBLayoutSettingWidget::delUserLayout, m_work, &KeyboardWorker::delUserLayout);
+    connect(m_kbLayoutSettingWidget, &KBLayoutSettingWidget::requestSwitchKBLayout, m_work, &KeyboardWorker::onSetSwitchKBLayout);
+
+    m_frameProxy->pushWidget(this, m_kbLayoutSettingWidget);
 }
 
 void KeyboardModule::showSystemLanguageSetting()
 {
     m_work->refreshLang();
     m_systemLanguageSettingWidget = new SystemLanguageSettingWidget(m_model);
-    connect(m_systemLanguageSettingWidget, SIGNAL(click(QModelIndex)), this, SLOT(onSetLocale(QModelIndex)));
+    connect(m_systemLanguageSettingWidget, &SystemLanguageSettingWidget::click, this, &KeyboardModule::onSetLocale);
 
     m_frameProxy->pushWidget(this, m_systemLanguageSettingWidget);
 }

@@ -24,10 +24,13 @@
 #include "widgets/contentwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/dccslider.h"
+
 #include <QStandardItemModel>
 #include <QStandardItem>
 #include <QDebug>
 #include <QPainter>
+#include <QVBoxLayout>
+#include <QListView>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::keyboard;
@@ -60,8 +63,8 @@ void KeyboardWidget::init()
 
 void KeyboardWidget::initSetting()
 {
-    m_keyboardListView->setCurrentIndex(m_listviewModel->index(0,0));
-    m_keyboardListView->clicked(m_listviewModel->index(0,0));
+    m_keyboardListView->setCurrentIndex(m_listviewModel->index(0, 0));
+    m_keyboardListView->clicked(m_listviewModel->index(0, 0));
 }
 
 void KeyboardWidget::onItemClick(const QModelIndex &index)

@@ -573,6 +573,8 @@ set(KEYBOARD_FILES
                 modules/keyboard/shortcutwidget.h
                 modules/keyboard/titlebuttonItem.h
 
+                window/modules/keyboard/checkitem.h
+                window/modules/keyboard/checkitem.cpp
                 window/modules/keyboard/keyboardmodule.h
                 window/modules/keyboard/keyboardmodule.cpp
                 window/modules/keyboard/keyboardwidget.h

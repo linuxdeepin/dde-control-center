@@ -24,13 +24,55 @@
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
 
+namespace dcc {
+namespace keyboard {
+class KeyboardModel;
+class MetaData;
+}
+
+namespace widgets {
+class SearchInput;
+class TranslucentFrame;
+class SettingsGroup;
+class SettingsHead;
+}
+}
+
 namespace DCC_NAMESPACE {
 namespace keyboard {
+class CheckItem;
 class KBLayoutSettingWidget : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
     explicit KBLayoutSettingWidget(QWidget *parent = nullptr);
+    void setModel(dcc::keyboard::KeyboardModel *model);
+
+Q_SIGNALS:
+    void layoutAdded(const QStringList &kblist);
+    void requestCurLayoutAdded(const QString &value);
+    void curLang(const QString &value);
+    void delUserLayout(const QString &value);
+    void requestSwitchKBLayout(int value);
+
+public Q_SLOTS:
+    void onAddKeyboard(const QString &id, const QString &value);
+    void onEdit(bool value);
+    void onRemoveLayout(CheckItem *item);
+    void onDefault(const QString &value);
+    void onSwitchKBChanged();
+    void onSwitchKB(int kbSwitch);
+    void onLayoutAdded();
+
+private:
+    bool m_bEdit;
+    dcc::widgets::SettingsGroup *m_group;
+    dcc::widgets::SettingsHead *m_head;
+    QList<dcc::keyboard::MetaData> m_datas;
+    QMap<QString, CheckItem *> m_maps;
+    dcc::keyboard::KeyboardModel *m_model;
+    dcc::widgets::SettingsGroup *m_switchKBLayout;
+    QMap<CheckItem *, int> m_switchCheckItem;
 };
 }
 }
