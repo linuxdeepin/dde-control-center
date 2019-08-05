@@ -24,11 +24,13 @@
 
 #include <QWidget>
 
+QT_BEGIN_NAMESPACE
 class QListView;
 class QVBoxLayout;
 class QStandardItemModel;
 class QStandardItem;
 class QLabel;
+QT_END_NAMESPACE
 
 namespace dcc {
 namespace widgets {
@@ -36,6 +38,7 @@ class SwitchWidget;
 }
 namespace cloudsync {
 class SyncModel;
+class SyncStateIcon;
 }
 }
 
@@ -49,10 +52,13 @@ public:
 
 Q_SIGNALS:
     void requestSetAutoSync(bool enable) const;
+    void requestLogout() const;
 
 private:
     void onListViewClicked(const QModelIndex &index);
     void onUserInfoChanged(const QVariantMap& infos);
+    void onStateChanged(const std::pair<qint32, QString> &state);
+    void onLastSyncTimeChanged(const qlonglong lastSyncTime);
 
 private:
     QVBoxLayout *m_mainLayout;
@@ -61,6 +67,9 @@ private:
     QLabel* m_username;
     dcc::widgets::SwitchWidget* m_autoSyncSwitch;
     QListView *m_listView;
+    dcc::cloudsync::SyncStateIcon* m_stateIcon;
+    QLabel* m_stateLbl;
+    QLabel* m_lastSyncTimeLbl;
     QStandardItemModel *m_listModel;
     QList<QStandardItem*> m_items;
 };

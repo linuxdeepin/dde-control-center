@@ -46,6 +46,7 @@ public:
 
 Q_SIGNALS:
     void requestLoginUser() const;
+    void requestLogoutUser() const;
     void requestSetAutoSync(bool enable) const;
 
 private:

@@ -40,6 +40,7 @@ QWidget *SyncModule::moduleWidget()
     SyncWidget* widget = new SyncWidget;
     connect(widget, &SyncWidget::requestLoginUser, m_worker, &dcc::cloudsync::SyncWorker::loginUser, Qt::UniqueConnection);
     connect(widget, &SyncWidget::requestSetAutoSync, m_worker, &dcc::cloudsync::SyncWorker::setAutoSync, Qt::UniqueConnection);
+    connect(widget, &SyncWidget::requestLogoutUser, m_worker, &dcc::cloudsync::SyncWorker::logoutUser, Qt::QueuedConnection);
 
     widget->setModel(m_model);
     m_worker->activate(); //refresh data
