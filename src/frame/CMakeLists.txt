@@ -815,6 +815,7 @@ set(SYNC_FILES
     modules/sync/syncstatewidget.cpp
     modules/sync/syncstateicon.h
     modules/sync/syncstateicon.cpp
+    modules/sync/utils.h
 
     window/modules/sync/syncmodule.h
     window/modules/sync/syncmodule.cpp

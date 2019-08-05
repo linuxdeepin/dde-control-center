@@ -53,11 +53,11 @@ void SyncWorker::refreshSyncState()
     connect(watcher, &QDBusPendingCallWatcher::finished, this, &SyncWorker::onGetModuleSyncStateFinished);
 }
 
-void SyncWorker::setSync(std::pair<SyncModel::SyncType, bool> state)
+void SyncWorker::setSync(std::pair<SyncType, bool> state)
 {
     // TODO(justforlxz): Maybe will add screensaver in the future
     // you don't need a multimap.
-    const std::list<std::pair<SyncModel::SyncType, QStringList>> map { m_model->moduleMap() };
+    const std::list<std::pair<SyncType, QStringList>> map { m_model->moduleMap() };
     for (auto it = map.cbegin(); it != map.cend(); ++it) {
         if (it->first == state.first) {
             for (const QString& value : it->second) {
@@ -87,7 +87,7 @@ void SyncWorker::onSyncModuleStateChanged(const QString& module, bool enable) {
         return m_model->setEnableSync(enable);
     }
 
-    const std::list<std::pair<SyncModel::SyncType, QStringList>> list = m_model->moduleMap();
+    const std::list<std::pair<SyncType, QStringList>> list = m_model->moduleMap();
     for (auto it = list.cbegin(); it != list.cend(); ++it) {
         if (it->second.contains(module)) {
             m_model->setModuleSyncState(it->first, enable);
@@ -123,7 +123,7 @@ void SyncWorker::onGetModuleSyncStateFinished(QDBusPendingCallWatcher *watcher)
 
     m_model->setEnableSync(obj["enabled"].toBool());
 
-    const std::list<std::pair<SyncModel::SyncType, QStringList>> moduleMap = m_model->moduleMap();
+    const std::list<std::pair<SyncType, QStringList>> moduleMap = m_model->moduleMap();
     for (auto it = moduleMap.cbegin(); it != moduleMap.cend(); ++it) {
         m_model->setModuleSyncState(it->first, obj[it->second.first()].toBool());
     }

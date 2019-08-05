@@ -75,21 +75,21 @@ SyncStateWidget::SyncStateWidget(QWidget *parent)
 
     connect(m_autoSync, &SwitchWidget::checkedChanged, this, &SyncStateWidget::requestEnableSync);
 
-    QMap<SyncModel::SyncType, QString> moduleTs{
-        { SyncModel::SyncType::Network, tr("Network Settings") },
-        { SyncModel::SyncType::Sound, tr("Sound Settings") },
-        { SyncModel::SyncType::Mouse, tr("Mouse Settings") },
-        { SyncModel::SyncType::Update, tr("Update Settings") },
-        { SyncModel::SyncType::Dock, tr("Dock") },
-        { SyncModel::SyncType::Launcher, tr("Launcher") },
-        { SyncModel::SyncType::Wallpaper, tr("Wallpaper") },
-        { SyncModel::SyncType::Theme, tr("Theme") },
-        { SyncModel::SyncType::Power, tr("Power Settings") },
-        { SyncModel::SyncType::Corner, tr("Corner Settings") }
+    QMap<SyncType, QString> moduleTs{
+        { SyncType::Network, tr("Network Settings") },
+        { SyncType::Sound, tr("Sound Settings") },
+        { SyncType::Mouse, tr("Mouse Settings") },
+        { SyncType::Update, tr("Update Settings") },
+        { SyncType::Dock, tr("Dock") },
+        { SyncType::Launcher, tr("Launcher") },
+        { SyncType::Wallpaper, tr("Wallpaper") },
+        { SyncType::Theme, tr("Theme") },
+        { SyncType::Power, tr("Power Settings") },
+        { SyncType::Corner, tr("Corner Settings") }
     };
 
     m_moduleGrp = new SettingsGroup;
-    const std::list<std::pair<SyncModel::SyncType, QStringList>> list = m_model->moduleMap();
+    const std::list<std::pair<SyncType, QStringList>> list = m_model->moduleMap();
     for (auto it = list.cbegin(); it != list.cend(); ++it) {
         SwitchWidget* module = new SwitchWidget;
         module->setTitle(moduleTs[it->first]);
@@ -145,7 +145,7 @@ void SyncStateWidget::setModel(const SyncModel * const model)
 
     setTitle(model->userDisplayName());
 
-    std::map<SyncModel::SyncType, bool> moduleState = m_model->moduleSyncState().toStdMap();
+    std::map<SyncType, bool> moduleState = m_model->moduleSyncState().toStdMap();
     for (auto it = moduleState.cbegin(); it != moduleState.cend(); ++it) {
         onModuleStateChanged(*it);
     };
@@ -159,24 +159,24 @@ void SyncStateWidget::onStateChanged(const std::pair<qint32, QString> &state)
         return;
     }
 
-    SyncModel::SyncState syncState;
+    SyncState syncState;
 
     do {
         // check is sync succeed
         if (SyncModel::isSyncSucceed(state)) {
-            syncState = SyncModel::SyncState::Succeed;
+            syncState = SyncState::Succeed;
             break;
         }
 
         // check is syncing
         if (SyncModel::isSyncing(state)) {
-            syncState = SyncModel::SyncState::Syncing;
+            syncState = SyncState::Syncing;
             break;
         }
 
         // check is sync faild
         if (SyncModel::isSyncFailed(state)) {
-            syncState = SyncModel::SyncState::Failed;
+            syncState = SyncState::Failed;
             break;
         }
 
@@ -185,19 +185,19 @@ void SyncStateWidget::onStateChanged(const std::pair<qint32, QString> &state)
     } while (false);
 
     switch (syncState) {
-        case SyncModel::SyncState::Succeed:
+        case SyncState::Succeed:
             m_lastSyncTimeLbl->show();
             m_syncStateLbl->hide();
             m_syncIcon->setRotatePixmap(DHiDPIHelper::loadNxPixmap(":/cloudsync/themes/dark/sync_ok.svg"));
             m_syncIcon->stop();
             break;
-        case SyncModel::SyncState::Syncing:
+        case SyncState::Syncing:
             m_syncStateLbl->show();
             m_lastSyncTimeLbl->hide();
             m_syncIcon->setRotatePixmap(DHiDPIHelper::loadNxPixmap(":/cloudsync/themes/dark/syncing.svg"));
             m_syncIcon->play();
             break;
-        case SyncModel::SyncState::Failed:
+        case SyncState::Failed:
             m_lastSyncTimeLbl->show();
             m_syncStateLbl->hide();
             m_syncIcon->setRotatePixmap(QPixmap());
@@ -216,7 +216,7 @@ void SyncStateWidget::onLastSyncTimeChanged(qlonglong lastSyncTime)
                      .toString(tr("yyyy-MM-dd hh:mm"))));
 }
 
-void SyncStateWidget::onModuleStateChanged(std::pair<SyncModel::SyncType, bool> state)
+void SyncStateWidget::onModuleStateChanged(std::pair<SyncType, bool> state)
 {
     SwitchWidget* widget = m_syncModuleMap.key(state.first);
     Q_ASSERT(widget);
@@ -229,7 +229,7 @@ void SyncStateWidget::onModuleItemSwitched(const bool checked)
     SwitchWidget* widget = qobject_cast<SwitchWidget*>(sender());
     Q_ASSERT(widget);
 
-    Q_EMIT requestSetModuleState(std::pair<SyncModel::SyncType, bool>(m_syncModuleMap[widget], checked));
+    Q_EMIT requestSetModuleState(std::pair<SyncType, bool>(m_syncModuleMap[widget], checked));
 }
 
 void SyncStateWidget::onAutoSyncChanged(bool autoSync)

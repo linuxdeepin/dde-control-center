@@ -25,7 +25,7 @@ public:
     void refreshSyncState();
 
 public Q_SLOTS:
-    void setSync(std::pair<SyncModel::SyncType, bool> state);
+    void setSync(std::pair<SyncType, bool> state);
     void loginUser();
     void logoutUser();
     void setAutoSync(bool autoSync);

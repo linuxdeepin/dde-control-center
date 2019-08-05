@@ -1,6 +1,8 @@
 #ifndef SYNCMODEL_H
 #define SYNCMODEL_H
 
+#include "utils.h"
+
 #include <QObject>
 #include <QVariantMap>
 #include <utility>
@@ -11,25 +13,6 @@ class SyncModel : public QObject {
     Q_OBJECT
 public:
     explicit SyncModel(QObject *parent = nullptr);
-
-    enum SyncType : unsigned int {
-        Network,
-        Sound,
-        Mouse,
-        Update,
-        Dock,
-        Launcher,
-        Wallpaper,
-        Theme,
-        Power,
-        Corner
-    };
-
-    enum SyncState {
-        Succeed,
-        Syncing,
-        Failed,
-    };
 
     inline const QVariantMap userinfo() const { return m_userinfo; }
     void setUserinfo(const QVariantMap &userinfo);

@@ -28,13 +28,13 @@ public:
 
 Q_SIGNALS:
     void requestEnableSync(bool enable);
-    void requestSetModuleState(std::pair<SyncModel::SyncType, bool> state);
+    void requestSetModuleState(std::pair<SyncType, bool> state);
     void requestLogout();
 
 private:
     void onStateChanged(const std::pair<qint32, QString> &state);
     void onLastSyncTimeChanged(qlonglong lastSyncTime);
-    void onModuleStateChanged(std::pair<SyncModel::SyncType, bool> state);
+    void onModuleStateChanged(std::pair<SyncType, bool> state);
     void onModuleItemSwitched(const bool checked);
     void onAutoSyncChanged(bool autoSync);
     void onUserInfoChanged(const QVariantMap& info);
@@ -48,7 +48,7 @@ private:
     widgets::SwitchWidget* m_autoSync;
     widgets::SettingsGroup* m_moduleGrp;
     QPushButton* m_logoutBtn;
-    QMap<widgets::SwitchWidget*, SyncModel::SyncType> m_syncModuleMap;
+    QMap<widgets::SwitchWidget*, SyncType> m_syncModuleMap;
     widgets::TranslucentFrame* m_backgroundFrame;
     widgets::TranslucentFrame* m_regionTipFrame;
 };

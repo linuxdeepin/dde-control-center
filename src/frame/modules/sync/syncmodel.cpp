@@ -68,7 +68,7 @@ void SyncModel::setEnableSync(bool enableSync)
     Q_EMIT enableSyncChanged(enableSync);
 }
 
-std::list<std::pair<SyncModel::SyncType, QStringList>> SyncModel::moduleMap()
+std::list<std::pair<SyncType, QStringList>> SyncModel::moduleMap()
 {
     return std::list<std::pair<SyncType, QStringList>>{
         { Network, { "network" } },
@@ -84,7 +84,7 @@ std::list<std::pair<SyncModel::SyncType, QStringList>> SyncModel::moduleMap()
     };
 }
 
-void SyncModel::setModuleSyncState(SyncModel::SyncType type, bool state)
+void SyncModel::setModuleSyncState(SyncType type, bool state)
 {
     m_moduleSyncState[type] = state;
 
