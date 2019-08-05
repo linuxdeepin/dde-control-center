@@ -128,5 +128,8 @@ void AccountsModule::onShowPasswordPage(User *account)
     qDebug() << Q_FUNC_INFO;
     ModifyPasswdPage *w = new ModifyPasswdPage(account);
     connect(w, &ModifyPasswdPage::requestChangePassword, m_accountsWorker, &AccountsWorker::setPassword);
+    connect(w, &ModifyPasswdPage::requestBack, this, [&]() {
+        m_frameProxy->popWidget(this);
+    });
     m_frameProxy->pushWidget(this, w);
 }

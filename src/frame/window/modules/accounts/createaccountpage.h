@@ -58,6 +58,7 @@ public:
     void initDatas();
     void setModel(dcc::accounts::User *user);
     void createUser();
+
     template <typename T>
     void onEditFinished(T t);
     bool validatePassword(const QString &password);

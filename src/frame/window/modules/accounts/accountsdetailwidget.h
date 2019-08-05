@@ -87,7 +87,6 @@ private:
 
     dcc::widgets::SwitchWidget *m_autoLogin;//自动登录
     dcc::widgets::SwitchWidget *m_nopasswdLogin;//无密码登录
-
     AvatarListWidget *m_avatarListWidget;
     Dtk::Widget::DImageButton *m_fullnameBtn;
     Dtk::Widget::DImageButton *m_inputeditBtn;

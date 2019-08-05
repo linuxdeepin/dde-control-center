@@ -23,14 +23,23 @@
 
 #include "window/namespace.h"
 #include "modules/accounts/user.h"
+#include "widgets/lineeditwidget.h"
+
+#include <dpasswordedit.h>
 
 #include <QWidget>
 
+QT_BEGIN_NAMESPACE
 
-using namespace dcc;
-using namespace dcc::accounts;
+class QVBoxLayout;
+class QHBoxLayout;
+class QPushButton;
+class QLabel;
 
+template <typename T>
+class QList;
 
+QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 namespace accounts {
@@ -40,21 +49,41 @@ class ModifyPasswdPage : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ModifyPasswdPage(User *user, QWidget *parent = nullptr);
+    explicit ModifyPasswdPage(dcc::accounts::User *user, QWidget *parent = nullptr);
+    ~ModifyPasswdPage();
+    void initWidget();
+    void initData();
+    void clickSaveBtn();
+    void onPasswordChangeFinished(const int exitCode);
+    bool validatePassword(const QString &password);
+    bool containsChar(const QString &password, const QString &validate);
+    void showErrorTip(QLineEdit *edit, const QString &error);
+    void onDoEditFinish();
 
-
+private:
+    void onEditFinished(Dtk::Widget::DPasswordEdit *t);
 
 Q_SIGNALS:
-    void requestChangePassword(User *userInter, const QString &oldPassword, const QString &password);
-
-
+    void requestChangePassword(dcc::accounts::User *userInter, const QString &oldPassword, const QString &password);
+    void requestBack();
 
 public Q_SLOTS:
 
-
-
 private:
-    User *m_curUser;
+    dcc::accounts::User *m_curUser;
+    QVBoxLayout *m_mainContentLayout;
+    QHBoxLayout *m_cansaveLayout;
+    QLabel *m_titleLabel;
+    QLabel *m_oldPasswdLabel;
+    QLabel *m_newPasswdLabel;
+    QLabel *m_repeatPasswdLabel;
+    QPushButton *m_cancleBtn;
+    QPushButton *m_saveBtn;
+    dcc::widgets::ErrorTip *m_errorTip;
+    Dtk::Widget::DPasswordEdit *m_oldPasswordEdit;
+    Dtk::Widget::DPasswordEdit *m_newPasswordEdit;
+    Dtk::Widget::DPasswordEdit *m_repeatPasswordEdit;
+    QList<Dtk::Widget::DPasswordEdit *> m_passeditList;
 };
 
 }
