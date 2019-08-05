@@ -22,11 +22,13 @@
 #ifndef ADVANCEDPAGE_H_V20
 #define ADVANCEDPAGE_H_V20
 
-#include "../../namespace.h"
+#include "window/namespace.h"
 
 #include <QWidget>
 
+QT_BEGIN_NAMESPACE
 class QVBoxLayout;
+QT_END_NAMESPACE
 
 namespace dcc {
 

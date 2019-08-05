@@ -22,7 +22,7 @@
 #ifndef ROTATEDIALOG_H_V20
 #define ROTATEDIALOG_H_V20
 
-#include "../../namespace.h"
+#include "window/namespace.h"
 
 #include <QDialog>
 

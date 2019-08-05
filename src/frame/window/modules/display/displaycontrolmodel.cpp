@@ -30,9 +30,8 @@ using namespace DCC_NAMESPACE;
 using dcc::display::DisplayModel;
 
 DisplayControlModel::DisplayControlModel(DisplayModel *model, QObject *parent)
-    : QAbstractListModel(parent),
-
-      m_displayModel(model)
+    : QAbstractListModel(parent)
+    , m_displayModel(model)
 {
     connect(m_displayModel, &DisplayModel::displayModeChanged, this, &DisplayControlModel::onDisplayModeChanged, Qt::QueuedConnection);
     connect(m_displayModel, &DisplayModel::monitorListChanged, this, [ = ] { Q_EMIT layoutChanged(); }, Qt::QueuedConnection);

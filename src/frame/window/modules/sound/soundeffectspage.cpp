@@ -39,6 +39,7 @@
 using namespace dcc::sound;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::sound;
+DWIDGET_USE_NAMESPACE
 
 SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     : QWidget(parent)

@@ -48,11 +48,11 @@ using namespace dcc::widgets;
 
 using namespace DCC_NAMESPACE::sound;
 
-MicrophonePage::MicrophonePage(QWidget *parent):
-    QWidget(parent),
-    m_layout(new QVBoxLayout),
-    m_sw(new SwitchWidget),
-    m_inputSlider(new TitledSliderItem("Input Volume"))
+MicrophonePage::MicrophonePage(QWidget *parent)
+    : QWidget(parent)
+    , m_layout(new QVBoxLayout)
+    , m_sw(new SwitchWidget)
+    , m_inputSlider(new TitledSliderItem("Input Volume"))
 
 {
     setMinimumWidth(400);

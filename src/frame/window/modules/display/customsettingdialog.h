@@ -22,13 +22,15 @@
 #ifndef CUSTOMSETTINGDIALOG_H
 #define CUSTOMSETTINGDIALOG_H
 
-#include "../../namespace.h"
+#include "window/namespace.h"
 
 #include <QDialog>
 #include <memory>
 
+QT_BEGIN_NAMESPACE
 class QListView;
 class QVBoxLayout;
+QT_END_NAMESPACE
 
 namespace dcc {
 

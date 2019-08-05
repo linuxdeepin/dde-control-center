@@ -29,11 +29,11 @@ using namespace dcc::sound;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::sound;
 
-AdvancedPage::AdvancedPage(QWidget *parent):
-    QWidget(parent),
-    m_layout(new QVBoxLayout),
-    m_inputGroup(new SettingsGroup),
-    m_outputGroup(new SettingsGroup)
+AdvancedPage::AdvancedPage(QWidget *parent)
+    : QWidget(parent)
+    , m_layout(new QVBoxLayout)
+    , m_inputGroup(new SettingsGroup)
+    , m_outputGroup(new SettingsGroup)
 {
     m_layout->setMargin(10);
     QLabel *label = new QLabel(tr("Output"));

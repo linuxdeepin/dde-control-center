@@ -37,8 +37,8 @@ using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
 
 RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
-    : QDialog(parent),
-      m_mon(mon)
+    : QDialog(parent)
+    , m_mon(mon)
 {
     QVBoxLayout *centralLayout = new QVBoxLayout;
 

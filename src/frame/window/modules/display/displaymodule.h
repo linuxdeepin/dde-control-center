@@ -22,8 +22,8 @@
 #ifndef DISPLAYMODULE_H_V20
 #define DISPLAYMODULE_H_V20
 
-#include "../../interface/moduleinterface.h"
-#include "../../namespace.h"
+#include "window/interface/moduleinterface.h"
+#include "window/namespace.h"
 #include <QDBusObjectPath>
 
 namespace dcc {

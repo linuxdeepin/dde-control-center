@@ -33,9 +33,9 @@
 using namespace dcc::sound;
 using namespace DCC_NAMESPACE::sound;
 
-SoundModule::SoundModule(FrameProxyInterface *frameProxy, QObject *parent):
-    QObject(parent),
-    ModuleInterface(frameProxy)
+SoundModule::SoundModule(FrameProxyInterface *frameProxy, QObject *parent)
+    : QObject(parent)
+    , ModuleInterface(frameProxy)
 {
 
 }

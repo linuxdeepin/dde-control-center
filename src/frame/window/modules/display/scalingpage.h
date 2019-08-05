@@ -25,10 +25,13 @@
 #include "widgets/switchwidget.h"
 #include "widgets/titledslideritem.h"
 
-#include "../../namespace.h"
+#include "window/namespace.h"
 
-#include <QVBoxLayout>
 #include <QWidget>
+
+QT_BEGIN_NAMESPACE
+class QVBoxLayout;
+QT_END_NAMESPACE
 
 namespace dcc {
 

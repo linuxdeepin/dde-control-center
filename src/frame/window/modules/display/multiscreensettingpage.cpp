@@ -32,8 +32,8 @@ using namespace dcc::widgets;
 using namespace dcc::display;
 
 MultiScreenSettingPage::MultiScreenSettingPage(QWidget *parent)
-    : QWidget(parent),
-      m_baseListView(new BasicListView)
+    : QWidget(parent)
+    , m_baseListView(new BasicListView)
 {
     m_baseListView->installEventFilter(this);
 

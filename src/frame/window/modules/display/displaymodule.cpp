@@ -40,10 +40,10 @@ using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
 
 DisplayModule::DisplayModule(FrameProxyInterface *frame, QObject *parent)
-    : QObject(parent),
-      ModuleInterface(frame),
-      m_displayModel(nullptr),
-      m_displayWorker(nullptr)
+    : QObject(parent)
+    , ModuleInterface(frame)
+    , m_displayModel(nullptr)
+    , m_displayWorker(nullptr)
 {
 
 }
@@ -81,7 +81,7 @@ const QString DisplayModule::name() const
 
 QWidget *DisplayModule::moduleWidget()
 {
-    DisplayWidget* displayWidget = new DisplayWidget;
+    DisplayWidget *displayWidget = new DisplayWidget;
     displayWidget->setModel(m_displayModel);
 
     connect(displayWidget, &DisplayWidget::requestShowScalingPage, this, &DisplayModule::showScalingPage);

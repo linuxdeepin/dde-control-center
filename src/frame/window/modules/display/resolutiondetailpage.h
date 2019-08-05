@@ -26,14 +26,16 @@
 #ifndef RESOLUTIONDETAILPAGE_H_V20
 #define RESOLUTIONDETAILPAGE_H_V20
 
-#include "../../namespace.h"
+#include "window/namespace.h"
 
 #include <QMap>
 #include <QWidget>
 
+QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 class QListView;
 class QPushButton;
+QT_END_NAMESPACE
 
 class Resolution;
 
@@ -64,15 +66,18 @@ class ResolutionDetailPage : public QWidget
 public:
     explicit ResolutionDetailPage(QWidget *parent = 0);
 
+public:
     void setModel(dcc::display::DisplayModel *mode);
+
 Q_SIGNALS:
     void requestSetResolution(dcc::display::Monitor *, int);
+
 private Q_SLOTS:
     void refreshCurrentResolution(const Resolution &);
+
 private:
     QVBoxLayout *m_mainLayout{nullptr};
     dcc::display::DisplayModel *m_model{nullptr};
-
     QListView *m_modeList{nullptr};
 };
 

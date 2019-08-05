@@ -31,9 +31,9 @@
 
 using namespace DCC_NAMESPACE::sound;
 
-SoundWidget::SoundWidget(QWidget *parent):
-    QWidget(parent),
-    m_menuList(new QListView)
+SoundWidget::SoundWidget(QWidget *parent)
+    : QWidget(parent)
+    , m_menuList(new QListView)
 {
     setObjectName("Display");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);

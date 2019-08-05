@@ -20,7 +20,7 @@
  */
 
 #include "displaywidget.h"
-#include "../../namespace.h"
+#include "window/namespace.h"
 
 #include "modules/display/displaymodel.h"
 #include "modules/display/monitor.h"
@@ -34,12 +34,12 @@ using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
 
 DisplayWidget::DisplayWidget(QWidget *parent)
-    : QWidget(parent),
-      m_rotate(new DImageButton(this)),
-      m_menuList(new QListView(this)),
-      m_multiModel(new QStandardItemModel(this)),
-      m_singleModel(new QStandardItemModel(this)),
-      m_centralLayout(new QVBoxLayout(this))
+    : QWidget(parent)
+    , m_rotate(new DImageButton(this))
+    , m_centralLayout(new QVBoxLayout(this))
+    , m_menuList(new QListView(this))
+    , m_multiModel(new QStandardItemModel(this))
+    , m_singleModel(new QStandardItemModel(this))
 {
     setObjectName("Display");
 

@@ -22,7 +22,7 @@
 #ifndef DISPLAYCONTROLMODEL_H_V20
 #define DISPLAYCONTROLMODEL_H_V20
 
-#include "../../namespace.h"
+#include "window/namespace.h"
 
 #include <QAbstractListModel>
 
@@ -33,7 +33,6 @@ class DisplayModel;
 }
 
 }
-
 
 namespace DCC_NAMESPACE {
 
@@ -64,8 +63,8 @@ public:
         NewConfig,
     };
 
-    int rowCount(const QModelIndex &parent) const;
-    QVariant data(const QModelIndex &index, int role) const;
+    int rowCount(const QModelIndex &parent) const override;
+    QVariant data(const QModelIndex &index, int role) const override;
 
 private:
     ItemType optionType(const int index) const;

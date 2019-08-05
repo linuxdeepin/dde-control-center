@@ -42,9 +42,9 @@ using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
 
-CustomSettingDialog::CustomSettingDialog(QWidget *parent):
-    QDialog(parent),
-    m_isPrimary(true)
+CustomSettingDialog::CustomSettingDialog(QWidget *parent)
+    : QDialog(parent)
+    , m_isPrimary(true)
 {
     init();
 }
@@ -53,8 +53,8 @@ CustomSettingDialog::CustomSettingDialog(dcc::display::Monitor *mon,
                                          dcc::display::DisplayModel *model,
                                          QWidget *parent):
     QDialog(parent),
-    m_monitor(mon),
     m_isPrimary(false),
+    m_monitor(mon),
     m_model(model)
 {
     init();
@@ -78,8 +78,7 @@ void CustomSettingDialog::init()
     resoLabel->setText(tr("Resolution"));
     m_layout->addWidget(resoLabel);
 
-    if(m_isPrimary)
-    {
+    if (m_isPrimary) {
         m_baseListView = new BasicListView();
         m_baseListView->installEventFilter(this);
         m_layout->addWidget(m_baseListView);
@@ -184,7 +183,7 @@ void CustomSettingDialog::initOtherDialog()
 
 void CustomSettingDialog::initResolutionList()
 {
-    QStandardItemModel *itemModel = dynamic_cast<QStandardItemModel *>(m_resolutionList->model());
+    QStandardItemModel *itemModel = qobject_cast<QStandardItemModel *>(m_resolutionList->model());
     if (itemModel) {
         itemModel->clear();
     }
@@ -214,7 +213,7 @@ void CustomSettingDialog::initResolutionList()
     if (nullptr != curIdx)
         m_resolutionList->setCurrentIndex(curIdx->index());
 
-    connect(m_monitor,&Monitor::currentModeChanged,this,[=](const Resolution&){
+    connect(m_monitor, &Monitor::currentModeChanged, this, [ = ](const Resolution &) {
         Q_ASSERT(m_model);
         Q_ASSERT(m_monitor);
 
@@ -223,7 +222,7 @@ void CustomSettingDialog::initResolutionList()
         m_resolutionList->setCurrentIndex(m_resolutionList->model()->index(idx, 0));
     });
     connect(m_resolutionList, &QListView::clicked, [ = ](QModelIndex idx) {
-        if(m_resolutionList->model()->index(modes.indexOf(m_monitor->currentMode()),0) == idx)
+        if (m_resolutionList->model()->index(modes.indexOf(m_monitor->currentMode()), 0) == idx)
             return;
         Q_EMIT requestSetResolution(m_monitor, modes[idx.row()].id());
     });

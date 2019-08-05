@@ -25,9 +25,9 @@
 using namespace DCC_NAMESPACE::display;
 using namespace dcc::display;
 
-MonitorInfoModel::MonitorInfoModel(DisplayModel *model, QObject *parent):
-    QAbstractListModel(parent),
-    m_model(model)
+MonitorInfoModel::MonitorInfoModel(DisplayModel *model, QObject *parent)
+    : QAbstractListModel(parent)
+    , m_model(model)
 {
 
 }

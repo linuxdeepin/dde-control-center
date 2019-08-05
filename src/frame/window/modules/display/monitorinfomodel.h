@@ -22,7 +22,7 @@
 #ifndef MONITORINFOMODEL_H
 #define MONITORINFOMODEL_H
 
-#include "../../namespace.h"
+#include "window/namespace.h"
 
 #include <QAbstractListModel>
 

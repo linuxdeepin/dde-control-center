@@ -22,8 +22,8 @@
 #ifndef SOUNDMODULE_H_V20
 #define SOUNDMODULE_H_V20
 
-#include "../../namespace.h"
-#include "../../interface/moduleinterface.h"
+#include "window/namespace.h"
+#include "window/interface/moduleinterface.h"
 
 #include <QObject>
 

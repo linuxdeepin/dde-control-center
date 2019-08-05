@@ -22,7 +22,7 @@
 #ifndef DISPLAYITEMDELEGATE_H_V20
 #define DISPLAYITEMDELEGATE_H_V20
 
-#include "../../namespace.h"
+#include "window/namespace.h"
 
 #include <QAbstractItemDelegate>
 

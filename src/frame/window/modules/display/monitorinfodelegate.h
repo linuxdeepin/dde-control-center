@@ -22,7 +22,7 @@
 #ifndef MONITORINFODELEGATE_H
 #define MONITORINFODELEGATE_H
 
-#include "../../namespace.h"
+#include "window/namespace.h"
 
 #include <QAbstractItemDelegate>
 
@@ -36,8 +36,8 @@ class MonitorInfoDelegate: public QAbstractItemDelegate
 public:
     MonitorInfoDelegate(QObject *parent = nullptr);
 
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 };
 
 }

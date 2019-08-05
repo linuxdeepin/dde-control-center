@@ -25,8 +25,8 @@
 
 using namespace DCC_NAMESPACE::display;
 
-MonitorInfoDelegate::MonitorInfoDelegate(QObject *parent):
-    QAbstractItemDelegate(parent)
+MonitorInfoDelegate::MonitorInfoDelegate(QObject *parent)
+    : QAbstractItemDelegate(parent)
 {
 
 }

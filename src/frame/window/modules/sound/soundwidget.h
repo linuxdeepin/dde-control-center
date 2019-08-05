@@ -22,7 +22,7 @@
 #ifndef SoundWidget_H_V20
 #define SoundWidget_H_V20
 
-#include "../../namespace.h"
+#include "window/namespace.h"
 
 #include <QWidget>
 #include <QMetaMethod>

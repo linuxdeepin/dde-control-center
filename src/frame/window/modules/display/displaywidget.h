@@ -28,7 +28,7 @@
 
 #include "modules/display/iconbutton.h"
 #include "modules/modulewidget.h"
-#include "../../namespace.h"
+#include "window/namespace.h"
 
 #include <dimagebutton.h>
 

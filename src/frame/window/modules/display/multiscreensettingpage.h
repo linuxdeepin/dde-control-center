@@ -22,10 +22,13 @@
 #ifndef MULTISCREENSETTINGPAGE_H
 #define MULTISCREENSETTINGPAGE_H
 
-#include "../../namespace.h"
+#include "window/namespace.h"
 
 #include <QWidget>
+
+QT_BEGIN_NAMESPACE
 class QModelIndex;
+QT_END_NAMESPACE
 
 namespace dcc {
 
@@ -48,16 +51,20 @@ class MultiScreenSettingPage : public QWidget
     Q_OBJECT
 public:
     explicit MultiScreenSettingPage(QWidget *parent = nullptr);
+
 public:
     void setModel(dcc::display::DisplayModel *model);
+
 Q_SIGNALS:
     void requestDuplicateMode();
     void requestExtendMode();
     void requestCustom();
     void requestOnlyMonitor(const QString &);
     void requestConfig(const QString &);
+
 private Q_SLOTS:
     void onItemClicked(const QModelIndex &);
+
 private:
     dcc::widgets::BasicListView *m_baseListView{nullptr};
 };

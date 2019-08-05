@@ -22,16 +22,17 @@
 #ifndef BRIGHTNESSPAGE_H_V20
 #define BRIGHTNESSPAGE_H_V20
 
-#include "../../namespace.h"
+#include "window/namespace.h"
 
 #include <QVBoxLayout>
 #include <QWidget>
 #include <QList>
 
-
 #include "widgets/titledslideritem.h"
 
+QT_BEGIN_NAMESPACE
 class QLabel;
+QT_END_NAMESPACE
 
 namespace dcc {
 

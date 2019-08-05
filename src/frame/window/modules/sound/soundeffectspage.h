@@ -28,9 +28,11 @@
 
 #include <QWidget>
 
+QT_BEGIN_NAMESPACE
 class QListView;
 class QVBoxLayout;
 class QSound;
+QT_END_NAMESPACE
 
 namespace dcc {
 
@@ -42,8 +44,6 @@ namespace widgets {
 class SwitchWidget;
 }
 }
-
-DWIDGET_USE_NAMESPACE
 
 namespace DCC_NAMESPACE {
 
@@ -63,11 +63,11 @@ public:
 
 Q_SIGNALS:
     void requestSwitchSoundEffects(bool isOn);
-    void requestSetEffectAble(DDesktopServices::SystemSoundEffect effect, bool enable);
+    void requestSetEffectAble(DTK_WIDGET_NAMESPACE::DDesktopServices::SystemSoundEffect effect, bool enable);
 
 public Q_SLOTS:
     void startPlay(const QModelIndex &index);
-    void onEffectChanged(DDesktopServices::SystemSoundEffect effect, const bool enable);
+    void onEffectChanged(DTK_WIDGET_NAMESPACE::DDesktopServices::SystemSoundEffect effect, const bool enable);
 
 private:
     void initList();

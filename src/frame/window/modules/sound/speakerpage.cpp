@@ -36,12 +36,12 @@ using namespace dcc::sound;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::sound;
 
-SpeakerPage::SpeakerPage(QWidget *parent):
-    QWidget(parent),
-    m_layout(new QVBoxLayout),
-    m_sw(new SwitchWidget),
-    m_outputSlider(new TitledSliderItem(tr("Output Volume"))),
-    m_balanceSlider(new TitledSliderItem(tr("Left/Right Balance")))
+SpeakerPage::SpeakerPage(QWidget *parent)
+    : QWidget(parent)
+    , m_sw(new SwitchWidget)
+    , m_outputSlider(new TitledSliderItem(tr("Output Volume")))
+    , m_balanceSlider(new TitledSliderItem(tr("Left/Right Balance")))
+    , m_layout(new QVBoxLayout)
 {
     setMinimumWidth(400);
 
@@ -79,14 +79,14 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
 
 void SpeakerPage::initSlider()
 {
-    auto outputSlider = new TitledSliderItem(tr("Left/Right Balance"),this);
+    auto outputSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
     DCCSlider *slider = outputSlider->slider();
 
     slider->setRange(0, 100);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::TicksBelow);
     slider->setTickInterval(1);
-    slider->setSliderPosition(m_model->speakerVolume() * 100);
+    slider->setSliderPosition(static_cast<int>(m_model->speakerVolume() * 100.0));
     slider->setPageStep(1);
 
     auto slotfunc1 = [ = ](int pos) {
@@ -97,14 +97,13 @@ void SpeakerPage::initSlider()
     connect(slider, &DCCSlider::sliderMoved, slotfunc1);
     m_layout->insertWidget(1, outputSlider);
 
-    auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"),this);
+    auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
     DCCSlider *slider2 = balanceSlider->slider();
     slider2->setRange(-100, 100);
     slider2->setType(DCCSlider::Vernier);
     slider2->setTickPosition(QSlider::TicksBelow);
     slider2->setTickInterval(1);
-    slider2->setSliderPosition(m_model->speakerBalance() * 100);
-    qDebug()<<m_model->speakerBalance();
+    slider2->setSliderPosition(static_cast<int>(m_model->speakerBalance() * 100));
     slider2->setPageStep(1);
 
     auto slotfunc2 = [ = ](int pos) {

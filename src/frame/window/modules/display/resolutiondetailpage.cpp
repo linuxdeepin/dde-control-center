@@ -38,9 +38,9 @@ using namespace DCC_NAMESPACE::display;
 
 
 ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
-    : QWidget(parent),
-      m_mainLayout(new QVBoxLayout),
-      m_modeList(new QListView)
+    : QWidget(parent)
+    , m_mainLayout(new QVBoxLayout)
+    , m_modeList(new QListView)
 {
     m_mainLayout->setMargin(0);
     m_mainLayout->addSpacing(10);
@@ -52,8 +52,8 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
 {
     m_model = model;
 
-    QStandardItemModel *itemModel {nullptr};
-    if (itemModel = dynamic_cast<QStandardItemModel *>(m_modeList->model())) {
+    QStandardItemModel *itemModel = qobject_cast<QStandardItemModel *>(m_modeList->model());
+    if (itemModel) {
         itemModel->clear();
     }
 

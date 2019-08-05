@@ -29,6 +29,8 @@
 #include "widgets/settingsheaderitem.h"
 #include "widgets/settingsgroup.h"
 
+#include <QVBoxLayout>
+
 using namespace dcc::display;
 using namespace dcc::widgets;
 
@@ -37,8 +39,8 @@ namespace DCC_NAMESPACE {
 namespace display {
 
 ScalingPage::ScalingPage(QWidget *parent)
-    : QWidget(parent),
-      m_centralLayout(new QVBoxLayout)
+    : QWidget(parent)
+    , m_centralLayout(new QVBoxLayout)
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
