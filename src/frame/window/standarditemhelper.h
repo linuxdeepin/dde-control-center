@@ -37,6 +37,7 @@ public:
 Q_SIGNALS:
 
 public Q_SLOTS:
+    void onListViewItemChanged(const QModelIndex& previous, const QModelIndex& current);
 
 private:
     void onListViewClicked(const QModelIndex& index);

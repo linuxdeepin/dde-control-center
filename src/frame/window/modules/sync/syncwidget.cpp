@@ -29,6 +29,7 @@ SyncWidget::SyncWidget(QWidget *parent)
     connect(m_loginPage, &LoginPage::requestLoginUser, this, &SyncWidget::requestLoginUser);
     connect(m_indexPage, &IndexPage::requestSetAutoSync, this, &SyncWidget::requestSetAutoSync);
     connect(m_indexPage, &IndexPage::requestLogout, this, &SyncWidget::requestLogoutUser);
+    connect(m_indexPage, &IndexPage::requestSetModuleState, this, &SyncWidget::requestSetModuleState);
 }
 
 void SyncWidget::setModel(dcc::cloudsync::SyncModel *model)

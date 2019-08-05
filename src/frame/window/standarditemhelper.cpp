@@ -32,6 +32,13 @@ StandardItemHelper::StandardItemHelper(const QListView *const listView, const QS
     connect(listView, &QListView::clicked, this, &StandardItemHelper::onListViewClicked);
 }
 
+void StandardItemHelper::onListViewItemChanged(const QModelIndex &previous, const QModelIndex &current)
+{
+    Q_UNUSED(previous);
+
+    onListViewClicked(current);
+}
+
 void StandardItemHelper::onListViewClicked(const QModelIndex &index)
 {
     if (m_previousIndex.isValid()) {

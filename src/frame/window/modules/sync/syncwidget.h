@@ -30,6 +30,8 @@ class QStackedLayout;
 namespace dcc {
 namespace cloudsync {
 class SyncModel;
+enum SyncType : int;
+enum SyncState : int;
 }
 }
 
@@ -48,6 +50,7 @@ Q_SIGNALS:
     void requestLoginUser() const;
     void requestLogoutUser() const;
     void requestSetAutoSync(bool enable) const;
+    void requestSetModuleState(std::pair<dcc::cloudsync::SyncType, bool> state);
 
 private:
     void onUserInfoChanged(const QVariantMap &userInfo);

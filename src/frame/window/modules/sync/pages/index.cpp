@@ -1,7 +1,6 @@
 #include "index.h"
 
 #include "modules/sync/syncmodel.h"
-#include "window/standarditemhelper.h"
 
 #include "widgets/settingsgroup.h"
 #include "widgets/switchwidget.h"
@@ -17,6 +16,7 @@
 #include <QPushButton>
 #include <QDateTime>
 #include <DHiDPIHelper>
+#include <QMap>
 
 DWIDGET_USE_NAMESPACE
 
@@ -38,8 +38,6 @@ IndexPage::IndexPage(QWidget *parent)
     , m_lastSyncTimeLbl(new QLabel)
     , m_listModel(new QStandardItemModel)
 {
-    new StandardItemHelper(m_listView, m_listModel, this);
-
     m_listView->setSelectionMode(QListView::SingleSelection);
     m_listView->setSelectionBehavior(QAbstractItemView::SelectRows);
     m_listView->setEditTriggers(QListView::NoEditTriggers);
@@ -114,31 +112,37 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_listView, &QListView::setVisible);
     connect(model, &dcc::cloudsync::SyncModel::syncStateChanged, this, &IndexPage::onStateChanged);
     connect(model, &dcc::cloudsync::SyncModel::lastSyncTimeChanged, this, &IndexPage::onLastSyncTimeChanged);
+    connect(model, &dcc::cloudsync::SyncModel::moduleSyncStateChanged, this, &IndexPage::onModuleStateChanged);
 
-    const QStringList moduleTs {
-        tr("Network Settings"),
-        tr("Sound Settings"),
-        tr("Mouse Settings"),
-        tr("Update Settings"),
-        tr("Dock"),
-        tr("Launcher"),
-        tr("Wallpaper"),
-        tr("Theme"),
-        tr("Power Settings"),
-        tr("Corner Settings"),
+    QMap<SyncType, QString> moduleTs{
+        { SyncType::Network, tr("Network Settings") },
+        { SyncType::Sound, tr("Sound Settings") },
+        { SyncType::Mouse, tr("Mouse Settings") },
+        { SyncType::Update, tr("Update Settings") },
+        { SyncType::Dock, tr("Dock") },
+        { SyncType::Launcher, tr("Launcher") },
+        { SyncType::Wallpaper, tr("Wallpaper") },
+        { SyncType::Theme, tr("Theme") },
+        { SyncType::Power, tr("Power Settings") },
+        { SyncType::Corner, tr("Corner Settings") }
     };
 
-    qDeleteAll(m_items);
     m_listModel->clear(); // will delete all items
 
-    auto list = m_model->moduleMap();
+    const std::list<std::pair<SyncType, QStringList>> list = m_model->moduleMap();
     for (auto it = list.cbegin(); it != list.cend(); ++it) {
         QStandardItem *item = new QStandardItem;
         item->setCheckable(true);
-        item->setText(moduleTs[static_cast<int>(it->first)]);
+        item->setText(moduleTs[it->first]);
+        item->setData(it->first, Qt::WhatsThisPropertyRole);
         m_listModel->appendRow(item);
-        m_items << item;
+        m_itemMap[it->first] = item;
     }
+
+    std::map<SyncType, bool> moduleState = m_model->moduleSyncState().toStdMap();
+    for (auto it = moduleState.cbegin(); it != moduleState.cend(); ++it) {
+        onModuleStateChanged(*it);
+    };
 
     onUserInfoChanged(model->userinfo());
     m_autoSyncSwitch->setChecked(model->enableSync());
@@ -149,8 +153,9 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
 
 void IndexPage::onListViewClicked(const QModelIndex &index)
 {
-    QStandardItem* item = m_items[index.row()];
-    qDebug() << item->text() << item->checkState();
+    QStandardItem* item = (m_itemMap.begin() + index.row()).value();
+    const bool enable = item->checkState() == Qt::Checked;
+    Q_EMIT requestSetModuleState(std::pair<SyncType, bool>(item->data(Qt::WhatsThisPropertyRole).value<SyncType>(), !enable));
 }
 
 void IndexPage::onUserInfoChanged(const QVariantMap &infos)
@@ -166,24 +171,24 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
         return;
     }
 
-    SyncModel::SyncState syncState;
+    SyncState syncState;
 
     do {
         // check is sync succeed
         if (SyncModel::isSyncSucceed(state)) {
-            syncState = SyncModel::SyncState::Succeed;
+            syncState = SyncState::Succeed;
             break;
         }
 
         // check is syncing
         if (SyncModel::isSyncing(state)) {
-            syncState = SyncModel::SyncState::Syncing;
+            syncState = SyncState::Syncing;
             break;
         }
 
         // check is sync faild
         if (SyncModel::isSyncFailed(state)) {
-            syncState = SyncModel::SyncState::Failed;
+            syncState = SyncState::Failed;
             break;
         }
 
@@ -192,19 +197,19 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
     } while (false);
 
     switch (syncState) {
-        case SyncModel::SyncState::Succeed:
+        case SyncState::Succeed:
             m_lastSyncTimeLbl->show();
             m_stateLbl->hide();
             m_stateIcon->setRotatePixmap(DHiDPIHelper::loadNxPixmap(":/cloudsync/themes/dark/sync_ok.svg"));
             m_stateIcon->stop();
             break;
-        case SyncModel::SyncState::Syncing:
+        case SyncState::Syncing:
             m_lastSyncTimeLbl->hide();
             m_stateLbl->show();
             m_stateIcon->setRotatePixmap(DHiDPIHelper::loadNxPixmap(":/cloudsync/themes/dark/syncing.svg"));
             m_stateIcon->play();
             break;
-        case SyncModel::SyncState::Failed:
+        case SyncState::Failed:
             m_lastSyncTimeLbl->show();
             m_stateLbl->hide();
             m_stateIcon->setRotatePixmap(QPixmap());
@@ -219,4 +224,17 @@ void IndexPage::onLastSyncTimeChanged(const qlonglong lastSyncTime)
         tr("Last Sync: %1")
             .arg(QDateTime::fromMSecsSinceEpoch(lastSyncTime * 1000)
                      .toString(tr("yyyy-MM-dd hh:mm"))));
+}
+
+void IndexPage::onModuleStateChanged(std::pair<SyncType, bool> state)
+{
+    QStandardItem* item = m_itemMap[state.first];
+    Q_ASSERT(item);
+
+    item->setCheckState(state.second ? Qt::Checked : Qt::Unchecked);
+}
+
+void IndexPage::onAutoSyncChanged(bool autoSync)
+{
+    m_listView->setVisible(!autoSync);
 }
