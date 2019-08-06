@@ -116,13 +116,13 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
 void GeneralKBSettingWidget::setDelayValue(uint value)
 {
     m_delaySlider->blockSignals(true);
-    m_delaySlider->setValue(value);
+    m_delaySlider->setValue(static_cast<int>(value));
     m_delaySlider->blockSignals(false);
 }
 
 void GeneralKBSettingWidget::setSpeedValue(uint value)
 {
     m_speedSlider->blockSignals(true);
-    m_speedSlider->setValue(value);
+    m_speedSlider->setValue(static_cast<int>(value));
     m_speedSlider->blockSignals(false);
 }

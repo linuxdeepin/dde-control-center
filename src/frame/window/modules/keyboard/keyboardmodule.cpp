@@ -25,9 +25,13 @@
 #include "kblayoutsettingwidget.h"
 #include "shortcutsettingwidget.h"
 #include "systemlanguagesettingwidget.h"
+#include "widgets/settingshead.h"
 #include "modules/keyboard/keyboardwork.h"
 #include "modules/keyboard/keyboardmodel.h"
 #include "modules/keyboard/shortcutmodel.h"
+#include "modules/keyboard/customedit.h"
+#include "modules/keyboard/customcontent.h"
+#include "modules/keyboard/shortcutcontent.h"
 #include "modules/keyboard/keyboardlayoutwidget.h"
 
 using namespace dcc;
@@ -157,5 +161,61 @@ void KeyboardModule::onSetLocale(const QModelIndex &index)
 
 void KeyboardModule::showShortCutSetting()
 {
-    m_shortcutSettingWidget = new ShortCutSettingWidget;
+    m_work->refreshShortcut();
+    m_shortcutSettingWidget = new ShortCutSettingWidget(m_shortcutModel);
+    connect(m_shortcutSettingWidget, &ShortCutSettingWidget::customShortcut, this, &KeyboardModule::onPushCustomShortcut);
+    connect(m_shortcutSettingWidget, &ShortCutSettingWidget::delShortcutInfo, m_work, &KeyboardWorker::delShortcut);
+    connect(m_shortcutSettingWidget, &ShortCutSettingWidget::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
+    connect(m_shortcutSettingWidget, &ShortCutSettingWidget::requestShowConflict, this, &KeyboardModule::onPushConflict);
+    connect(m_shortcutSettingWidget, &ShortCutSettingWidget::requestSaveShortcut, m_work, &KeyboardWorker::modifyShortcutEdit);
+    connect(m_shortcutSettingWidget, &ShortCutSettingWidget::requestDisableShortcut, m_work, &KeyboardWorker::onDisableShortcut);
+    connect(m_shortcutSettingWidget, &ShortCutSettingWidget::shortcutEditChanged, this, &KeyboardModule::onShortcutEdit);
+    connect(m_shortcutSettingWidget, &ShortCutSettingWidget::requestReset, m_work, &KeyboardWorker::resetAll);
+    connect(m_work, &KeyboardWorker::removed, m_shortcutSettingWidget, &ShortCutSettingWidget::onRemoveItem);
+    connect(m_work, &KeyboardWorker::searchChangd, m_shortcutSettingWidget, &ShortCutSettingWidget::onSearchInfo);
+
+    m_frameProxy->pushWidget(this, m_shortcutSettingWidget);
+}
+
+void KeyboardModule::onPushCustomShortcut()
+{
+    m_customContent = new CustomContent(m_shortcutModel);
+    connect(m_customContent, &CustomContent::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
+    connect(m_customContent, &CustomContent::requestAddKey, m_work, &KeyboardWorker::addCustomShortcut);
+    connect(m_customContent, &CustomContent::requestForceSubs, m_work, &KeyboardWorker::onDisableShortcut);
+    connect(m_customContent, &CustomContent::back, this, &KeyboardModule::showShortCutSetting);
+
+    m_frameProxy->pushWidget(this, m_customContent);
+}
+
+void KeyboardModule::onPushConflict(ShortcutInfo *info, const QString &shortcut)
+{
+    m_scContent = new ShortcutContent(m_shortcutModel);
+
+    connect(m_scContent, &ShortcutContent::requestSaveShortcut, m_work, &KeyboardWorker::modifyShortcutEdit);
+    connect(m_scContent, &ShortcutContent::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
+    connect(m_scContent, &ShortcutContent::requestDisableShortcut, m_work, &KeyboardWorker::onDisableShortcut);
+    connect(m_scContent, &ShortcutContent::back, this, &KeyboardModule::showShortCutSetting);
+
+    m_scContent->setInfo(info);
+    m_scContent->setShortcut(shortcut);
+    m_scContent->setBottomTip(m_shortcutModel->getInfo(shortcut));
+
+    m_frameProxy->pushWidget(this, m_scContent);
+}
+
+void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
+{
+    m_customEdit = new CustomEdit(m_shortcutModel);
+    m_customEdit->setShortcut(info);
+
+    ShortCutSettingWidget *shortcutWidget = qobject_cast<ShortCutSettingWidget *>(sender());
+    SettingsHead *head = shortcutWidget->getHead();
+
+    connect(m_customEdit, &CustomEdit::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
+    connect(m_customEdit, &CustomEdit::requestSaveShortcut, head, &SettingsHead::toCancel);
+    connect(m_customEdit, &CustomEdit::requestSaveShortcut, m_work, &KeyboardWorker::modifyCustomShortcut);
+    connect(m_customEdit, &CustomEdit::back, this, &KeyboardModule::showShortCutSetting);
+
+    m_frameProxy->pushWidget(this, m_customEdit);
 }

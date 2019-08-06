@@ -67,8 +67,8 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     setContent(m_contentWidget);
     m_contentWidget->setAttribute(Qt::WA_TranslucentBackground);
 
-    connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
-    connect(m_view, SIGNAL(clicked(QModelIndex)), this, SIGNAL(click(QModelIndex)));
+    connect(m_search, &SearchInput::textChanged, this, &SystemLanguageSettingWidget::onSearch);
+    connect(m_view, &IndexView::clicked, this, &SystemLanguageSettingWidget::click);
 
     connect(m_keyboardModel, &KeyboardModel::langChanged, this, &SystemLanguageSettingWidget::setModelData);
     connect(m_keyboardModel, &KeyboardModel::curLangChanged, this, &SystemLanguageSettingWidget::setCurLang);

@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
@@ -32,6 +33,10 @@ class KeyboardModel;
 class ShortcutModel;
 class KeyboardWorker;
 class KeyboardLayoutWidget;
+struct ShortcutInfo;
+class CustomContent;
+class CustomEdit;
+class ShortcutContent;
 }
 }
 
@@ -62,6 +67,9 @@ public Q_SLOTS:
     void onSetLocale(const QModelIndex &index);
     void onPushKeyboard(const QStringList &kblist);
     void setCurrentLayout(const QString &value);
+    void onPushCustomShortcut();
+    void onPushConflict(dcc::keyboard::ShortcutInfo *info, const QString &shortcut);
+    void onShortcutEdit(dcc::keyboard::ShortcutInfo *info);
 private:
     GeneralKBSettingWidget *m_generalSettingWidget = nullptr;
     KBLayoutSettingWidget *m_kbLayoutSettingWidget = nullptr;
@@ -72,6 +80,9 @@ private:
     dcc::keyboard::KeyboardModel  *m_model = nullptr;
     dcc::keyboard::ShortcutModel *m_shortcutModel = nullptr;
     dcc::keyboard::KeyboardWorker *m_work = nullptr;
+    dcc::keyboard::CustomContent *m_customContent = nullptr;
+    dcc::keyboard::CustomEdit    *m_customEdit = nullptr;
+    dcc::keyboard::ShortcutContent *m_scContent = nullptr;
 };
 }
 }

@@ -19,13 +19,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "kblayoutsettingwidget.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/settingshead.h"
 #include "checkitem.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/translucentframe.h"
+#include "widgets/settingshead.h"
 #include "modules/keyboard/checkitem.h"
 #include "modules/keyboard/keylabel.h"
 #include "modules/keyboard/keyboardmodel.h"
-#include "widgets/translucentframe.h"
 
 #include <QStringList>
 #include <QVBoxLayout>
