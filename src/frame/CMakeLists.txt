@@ -1149,13 +1149,6 @@ set(TEST_SRCS
     ${DISPLAY_FILES}
     ${WIDGETS_FILES}
     ${MODULE_FILES}
-    ${DtkWidget_INCLUDE_DIRS}
-    ${DFrameworkDBus_INCLUDE_DIRS}
-    ${QGSettings_INCLUDE_DIRS}
-    ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
-    ${Qt5X11Extras_INCLUDE_DIRS}
-    ${QGSettings_INCLUDE_DIRS}
-    ${XCB_EWMH_INCLUDE_DIRS}
 )
 
 add_executable(display-unit-test
@@ -1163,7 +1156,13 @@ add_executable(display-unit-test
 )
 
 target_include_directories(display-unit-test PUBLIC
-    ${TEST_SRCS}
+    ${DtkWidget_INCLUDE_DIRS}
+    ${DFrameworkDBus_INCLUDE_DIRS}
+    ${QGSettings_INCLUDE_DIRS}
+    ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
+    ${Qt5X11Extras_INCLUDE_DIRS}
+    ${QGSettings_INCLUDE_DIRS}
+    ${XCB_EWMH_INCLUDE_DIRS}
     ${PROJECT_BINARY_DIR}
 )
 
