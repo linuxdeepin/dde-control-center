@@ -189,6 +189,10 @@ set(WINDOW_FILES
     window/modules/update/updatewidget.cpp
     window/modules/update/updatectrlwidget.cpp
     window/modules/update/updatesettings.cpp
+    window/modules/update/loadingitem.cpp
+    window/modules/update/updatehistorybutton.cpp
+    window/modules/update/recenthistoryapplist.cpp
+    window/modules/update/mirrorswidget.cpp
      )
 
 # load interfaces

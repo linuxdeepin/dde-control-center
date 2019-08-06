@@ -23,7 +23,7 @@
 #include "modules/update/updateitem.h"
 #include "widgets/translucentframe.h"
 #include "modules/update/updatemodel.h"
-#include "modules/update/loadingitem.h"
+#include "loadingitem.h"
 #include "widgets/labels/normallabel.h"
 #include "widgets/settingsgroup.h"
 #include "modules/update/summaryitem.h"
@@ -64,11 +64,6 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     setTitle(tr("Update"));
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    TranslucentFrame* widget = new TranslucentFrame();
-    QVBoxLayout *layout = new QVBoxLayout();
-    layout->setMargin(0);
-    layout->setSpacing(10);
-
     m_checkGroup->setVisible(false);
     m_checkGroup->appendItem(m_checkUpdateItem);
 
@@ -78,7 +73,6 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_progress->setVisible(false);
 
     m_summaryGroup->setVisible(false);
-    m_summaryGroup->appendItem(m_summary);
 
     m_powerTip->setWordWrap(true);
     m_powerTip->setAlignment(Qt::AlignHCenter);
@@ -97,17 +91,27 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_upgradeWarningGroup->setVisible(false);
     m_upgradeWarningGroup->appendItem(m_upgradeWarning);
 
-    layout->addSpacing(10);
-    layout->addWidget(m_checkGroup);
+    m_PlaceholderLabel = new QLabel;//used to holder place
+
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->setMargin(0);
+    layout->setSpacing(10);
+    layout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
+    layout->addStretch();
+//    layout->addSpacing(10);
+    layout->addWidget(m_PlaceholderLabel);
     layout->addWidget(m_resultGroup);
-    layout->addWidget(m_progress);
+    layout->addWidget(m_checkGroup);
     layout->addWidget(m_upgradeWarningGroup);
-    layout->addWidget(m_summaryGroup);
     layout->addWidget(m_powerTip);
     layout->addWidget(m_reminderTip);
     layout->addWidget(m_noNetworkTip);
+    layout->addWidget(m_summary);
+    layout->addWidget(m_progress);
+    layout->addWidget(m_summaryGroup);
     layout->addStretch();
 
+    TranslucentFrame *widget = new TranslucentFrame();
     widget->setLayout(layout);
     setContent(widget);
 
@@ -121,18 +125,18 @@ UpdateCtrlWidget::~UpdateCtrlWidget()
 
 }
 
-void UpdateCtrlWidget::loadAppList(const QList<AppUpdateInfo>& infos)
+void UpdateCtrlWidget::loadAppList(const QList<AppUpdateInfo> &infos)
 {
     qDebug() << infos.count();
+
     QLayoutItem *item;
-    while((item = m_summaryGroup->layout()->takeAt(1)) != NULL) {
+    while ((item = m_summaryGroup->layout()->takeAt(0)) != nullptr) {
         item->widget()->deleteLater();
         delete item;
     }
 
-    for(const AppUpdateInfo& info : infos)
-    {
-        UpdateItem* item = new UpdateItem();
+    for (const AppUpdateInfo &info : infos) {
+        UpdateItem *item = new UpdateItem();
         item->setAppInfo(info);
 
         m_summaryGroup->appendItem(item);
@@ -164,6 +168,8 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 {
     m_status = status;
 
+    Q_EMIT notifyUpdateState(m_status);
+
     m_noNetworkTip->setVisible(false);
     m_resultGroup->setVisible(false);
     m_progress->setVisible(false);
@@ -173,6 +179,10 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     m_checkGroup->setVisible(false);
     m_checkUpdateItem->setVisible(false);
     m_checkUpdateItem->setProgressBarVisible(false);
+    m_checkUpdateItem->setImageAndTextVisible(false);
+    m_PlaceholderLabel->setVisible(false);
+    m_PlaceholderLabel->setFixedHeight(0);
+    m_summary->setVisible(false);
 
     switch (status) {
     case UpdatesStatus::Checking:
@@ -180,10 +190,12 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setProgressBarVisible(true);
         m_checkUpdateItem->setMessage(tr("Checking for updates, please wait..."));
+        m_checkUpdateItem->setImageOrTextVisible(false);
         break;
     case UpdatesStatus::UpdatesAvailable:
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
+        m_summary->setVisible(true);
         m_progress->setMessage(tr("Download and install updates"));
         setDownloadInfo(m_model->downloadInfo());
         m_progress->setValue(100);
@@ -192,17 +204,20 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::Downloading:
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
+        m_summary->setVisible(true);
         m_progress->setValue(m_progress->minimum());
         m_progress->setMessage(tr("%1% downloaded (Click to pause)").arg(m_progress->value()));
         break;
     case UpdatesStatus::DownloadPaused:
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
+        m_summary->setVisible(true);
         m_progress->setMessage(tr("%1% downloaded (Click to continue)").arg(m_progress->value()));
         break;
     case UpdatesStatus::Downloaded:
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
+        m_summary->setVisible(true);
         m_progress->setValue(m_progress->maximum());
         m_progress->setMessage(tr("Install updates"));
         setDownloadInfo(m_model->downloadInfo());
@@ -212,10 +227,15 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_checkGroup->setVisible(true);
         m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setMessage(tr("Your system is up to date"));
+        m_checkUpdateItem->setImageOrTextVisible(true);
+        m_checkUpdateItem->setSystemVersion(m_systemVersion);
+        m_PlaceholderLabel->setVisible(true);
+        m_PlaceholderLabel->setFixedHeight(75);
         break;
     case UpdatesStatus::Installing:
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
+        m_summary->setVisible(true);
         m_progress->setMessage(tr("Updating, please wait..."));
         break;
     case UpdatesStatus::UpdateSucceeded:
@@ -226,6 +246,8 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::UpdateFailed:
         m_resultGroup->setVisible(true);
         m_resultItem->setSuccess(false);
+        m_PlaceholderLabel->setVisible(true);
+        m_PlaceholderLabel->setFixedHeight(65);
         break;
     case UpdatesStatus::NeedRestart:
         m_checkGroup->setVisible(true);
@@ -241,11 +263,15 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_resultGroup->setVisible(true);
         m_resultItem->setSuccess(false);
         m_resultItem->setMessage(tr("Insufficient disk space, unable to update system."));
+        m_PlaceholderLabel->setVisible(true);
+        m_PlaceholderLabel->setFixedHeight(20);
         break;
     case UpdatesStatus::DeependenciesBrokenError:
         m_resultGroup->setVisible(true);
         m_resultItem->setSuccess(false);
         m_resultItem->setMessage(tr("Dependency error, failed to detect the updates"));
+        m_PlaceholderLabel->setVisible(true);
+        m_PlaceholderLabel->setFixedHeight(20);
         break;
     default:
         qWarning() << "unknown status!!!";
@@ -304,7 +330,7 @@ void UpdateCtrlWidget::setProgressValue(const double value)
 void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
 {
     if (m_status == UpdatesStatus::Downloaded || m_status == UpdatesStatus::UpdatesAvailable) {
-        if(lowBattery) {
+        if (lowBattery) {
             m_powerTip->setText(tr("Your battery is lower than 50%, please plug in to continue"));
         } else {
             m_powerTip->setText(tr("Please ensure sufficient power to restart, and don't power off or unplug your machine"));
@@ -335,4 +361,13 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     setStatus(m_model->status());
     setLowBattery(m_model->lowBattery());
     setDownloadInfo(m_model->downloadInfo());
+
+    setDownloadInfo(m_model->downloadInfo());
+}
+
+void UpdateCtrlWidget::setSystemVersion(QString version)
+{
+    if (m_systemVersion != version) {
+        m_systemVersion = version;
+    }
 }

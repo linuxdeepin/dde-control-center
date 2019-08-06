@@ -30,6 +30,7 @@ namespace dcc {
 namespace update {
 
 enum UpdatesStatus {
+    Default,
     Checking,
     Updated,
     UpdatesAvailable,

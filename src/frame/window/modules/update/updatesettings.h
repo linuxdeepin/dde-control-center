@@ -37,14 +37,14 @@ namespace dcc {
 }
 
 namespace DCC_NAMESPACE {
-namespace update{
+namespace update {
 
 class UpdateSettings : public dcc::ContentWidget
 {
     Q_OBJECT
 
 public:
-    explicit UpdateSettings(dcc::update::UpdateModel* model, QWidget *parent = 0);
+    explicit UpdateSettings(dcc::update::UpdateModel *model, QWidget *parent = 0);
 
     void setModel(dcc::update::UpdateModel *model);
 
@@ -59,15 +59,15 @@ Q_SIGNALS:
     void requestEnableSmartMirror(bool enable);
 
 private:
-    dcc::update::UpdateModel* m_model;
+    dcc::update::UpdateModel *m_model;
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     dcc::widgets::SwitchWidget *m_sourceCheck;
 #endif
     dcc::widgets::SwitchWidget *m_autoCleanCache;
     dcc::widgets::SwitchWidget *m_autoCheckUpdate;
-    dcc::widgets::SwitchWidget* m_autoDownloadSwitch;
+    dcc::widgets::SwitchWidget *m_autoDownloadSwitch;
     dcc::widgets::SwitchWidget *m_smartMirrorBtn;
-    dcc::widgets::NextPageWidget* m_updateMirrors;
+    dcc::widgets::NextPageWidget *m_updateMirrors;
     dcc::widgets::TipsLabel *m_updateLbl;
     dcc::widgets::SettingsGroup *m_mirrorGrp;
     bool m_isProfessional;

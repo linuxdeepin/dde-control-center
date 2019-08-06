@@ -19,55 +19,43 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #pragma once
+#include "window/namespace.h"
+#include "widgets/settingsitem.h"
 
-#include "window/interface/moduleinterface.h"
-
-#include <QObject>
-
-QT_BEGIN_NAMESPACE
-class QVBoxLayout;
-QT_END_NAMESPACE
+#include <QProgressBar>
+#include <QLabel>
 
 namespace dcc {
-    namespace update {
-        class UpdateWorker;
-        class UpdateModel;
-        class MirrorsWidget;
+    namespace widgets {
+        class NormalLabel;
     }
 }
 
 namespace DCC_NAMESPACE {
 namespace update {
 
-class UpdateWidget;
-class UpdateCtrlWidget;
-
-class UpdateModule : public QObject, public ModuleInterface
+class LoadingItem : public dcc::widgets::SettingsItem
 {
     Q_OBJECT
 public:
-    UpdateModule(FrameProxyInterface *frameProxy, QObject *parent = nullptr);
-
-    virtual void initialize() override;
-    virtual void reset() override;
-    virtual const QString name() const override;
-    virtual void showPage(const QString &pageName) override;
-    virtual QWidget *moduleWidget() override;
-    virtual void contentPopped(QWidget *const w) override;
-    QString getSystemVersion();
-
-private:
-
+    explicit LoadingItem(QFrame *parent = 0);
+    void setProgressValue(int value);
+    void setProgressBarVisible(bool visible);
+    void setMessage(const QString &message);
+    void setVersionVisible(bool state);
+    void setSystemVersion(QString version);
+    void setImage(QImage *image);
+    void setImageVisible(bool state);
+    void setImageOrTextVisible(bool state);
+    void setImageAndTextVisible(bool state);
 
 private:
-    dcc::update::UpdateModel *m_model;
-    dcc::update::UpdateWorker *m_work;
-
-Q_SIGNALS:
-
-public Q_SLOTS:
-
+    dcc::widgets::NormalLabel *m_messageLabel;
+    QProgressBar *m_progress;
+    QImage *m_image;
+    QLabel *m_labelImage;
+    QLabel *m_labelText;
 };
 
-}// namespace datetime
-}// namespace DCC_NAMESPACE
+} // namespace update
+} // namespace DCC_NAMESPACE

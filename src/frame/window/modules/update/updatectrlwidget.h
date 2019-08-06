@@ -25,13 +25,15 @@
 #include "modules/update/common.h"
 
 class AppUpdateInfo;
+
+QT_BEGIN_NAMESPACE
 class QSettings;
+QT_END_NAMESPACE
 
 namespace dcc {
     namespace update {
         class UpdateModel;
         class DownloadInfo;
-        class LoadingItem;
         class SummaryItem;
         class DownloadProgressBar;
         class ResultItem;
@@ -44,7 +46,9 @@ namespace dcc {
 }
 
 namespace DCC_NAMESPACE {
-namespace update{
+namespace update {
+
+class LoadingItem;
 
 class UpdateCtrlWidget : public dcc::ContentWidget
 {
@@ -55,12 +59,14 @@ public:
     ~UpdateCtrlWidget();
 
     void setModel(dcc::update::UpdateModel *model);
+    void setSystemVersion(QString version);
 
 Q_SIGNALS:
     void requestDownloadUpdates();
     void requestPauseDownload();
     void requestResumeDownload();
     void requestInstallUpdates();
+    void notifyUpdateState(int);
 
 private Q_SLOTS:
     void onProgressBarClicked();
@@ -77,20 +83,27 @@ private:
     dcc::update::UpdateModel *m_model;
     dcc::update::UpdatesStatus m_status;
 
-    dcc::widgets::SettingsGroup* m_checkGroup;
-    dcc::update::LoadingItem* m_checkUpdateItem;
+    dcc::widgets::SettingsGroup *m_checkGroup;
+    LoadingItem *m_checkUpdateItem;
     dcc::widgets::SettingsGroup *m_resultGroup;
     dcc::update::ResultItem *m_resultItem;
-    dcc::update::DownloadProgressBar* m_progress;
-    dcc::widgets::SettingsGroup* m_summaryGroup;
-    dcc::widgets::SettingsGroup* m_upgradeWarningGroup;
-    dcc::update::SummaryItem* m_summary;
-    dcc::update::SummaryItem* m_upgradeWarning;
+    dcc::update::DownloadProgressBar *m_progress;
+    dcc::widgets::SettingsGroup *m_summaryGroup;
+    dcc::widgets::SettingsGroup *m_upgradeWarningGroup;
+    dcc::update::SummaryItem *m_summary;
+    dcc::update::SummaryItem *m_upgradeWarning;
     dcc::widgets::TipsLabel *m_powerTip;
     dcc::widgets::TipsLabel *m_reminderTip;
     dcc::widgets::TipsLabel *m_noNetworkTip;
 
     QSettings *m_qsettings;
+    QString m_systemVersion;
+
+    QLabel *m_PlaceholderLabel;
+
+    int m_layoutSpaceDistance = 85;
+
+    bool m_display = false;
 };
 
 }// namespace datetime

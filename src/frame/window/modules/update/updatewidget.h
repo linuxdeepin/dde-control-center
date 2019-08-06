@@ -21,20 +21,31 @@
 #pragma once
 
 #include "window/namespace.h"
+#include "updatectrlwidget.h"
 
 #include <QObject>
 #include <QWidget>
 #include <QListView>
+#include <QList>
 
 #include <dimagebutton.h>
 
+class AppUpdateInfo;
+
+QT_BEGIN_NAMESPACE
 class QStackedLayout;
+class QLayoutItem;
 class QVBoxLayout;
+QT_END_NAMESPACE
 
 namespace dcc {
     namespace update {
         class UpdateModel;
         class UpdateWorker;
+    }
+
+    namespace widgets {
+        class SettingsGroup;
     }
 }
 
@@ -45,6 +56,8 @@ const unsigned int default_listview_index = 0;
 static const QString OfflineUpgraderService = "com.deepin.dde.OfflineUpgrader";
 
 class UpdateCtrlWidget;
+class UpdateHistoryButton;
+class RecentHistoryApplist;
 
 class UpdateWidget : public QWidget
 {
@@ -59,9 +72,14 @@ public:
     explicit UpdateWidget(QWidget *parent = nullptr);
     ~UpdateWidget();
 
-    void initialize();   
+    void initialize();
     void setModel(const dcc::update::UpdateModel *model, const dcc::update::UpdateWorker *work);
     void setDefaultState();
+    void setSystemVersion(QString version);
+    void resetUpdateCheckState(bool state = true);
+    void mouseDoubleClickEvent(QMouseEvent *event);
+
+    QList<AppUpdateInfo> getTestApplistInfo();
 
 private:
     void showCheckUpdate();
@@ -73,15 +91,27 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void onTopListviewCliecked(const QModelIndex &index);
+    void onNotifyUpdateState(int state);
+    void onAppendApplist(const QList<AppUpdateInfo> &infos);
 
 private:
     Dtk::Widget::DImageButton *m_bottomLabel;
     QVBoxLayout *m_layout;
     QListView *m_listview;
+    QModelIndex m_currentIndex;
     QModelIndex m_defaultIndex;
-    dcc::update::UpdateModel* m_model;
-    dcc::update::UpdateWorker* m_work;
-    QStackedLayout *m_centerLayout;
+    dcc::update::UpdateModel *m_model;
+    dcc::update::UpdateWorker *m_work;
+    QWidget *m_centerWidget;
+    QVBoxLayout *m_centerLayout;
+    QLabel *m_label;//System Version display
+    QString m_systemVersion;
+    UpdateHistoryButton *m_historyBtn;//update history button
+    dcc::update::UpdatesStatus m_updateState;
+    QLabel *m_updateHistoryText;
+    dcc::widgets::SettingsGroup *m_applistGroup;
+    RecentHistoryApplist *m_recentHistoryApplist;
+    bool m_test = false;
 };
 
 }// namespace datetime

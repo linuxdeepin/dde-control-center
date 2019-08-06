@@ -22,7 +22,9 @@
 #include "modules/update/updatemodel.h"
 #include "modules/update/updatework.h"
 #include "updatewidget.h"
-#include "modules/update/mirrorswidget.h"
+#include "mirrorswidget.h"
+#include "modules/systeminfo/systeminfomodel.h"
+#include "modules/systeminfo/systeminfowork.h"
 
 #include <QVBoxLayout>
 
@@ -69,19 +71,23 @@ QWidget *UpdateModule::moduleWidget()
 {
     UpdateWidget *mainWidget = new UpdateWidget;
     mainWidget->initialize();
+    mainWidget->setSystemVersion(getSystemVersion());
     mainWidget->setModel(m_model, m_work);
 
     connect(mainWidget, &UpdateWidget::pushMirrorsView, this, [this]() {
-        if (!m_mirrorsWidget) {
-            m_mirrorsWidget = new MirrorsWidget(m_model);
+        MirrorsWidget *mirrorsWidget = new MirrorsWidget(m_model);
 
-            m_work->checkNetselect();
+        m_work->checkNetselect();
 
-            connect(m_mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWorker::setMirrorSource);
-            connect(m_mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWorker::testMirrorSpeed);
-        }
-
-        m_frameProxy->pushWidget(this, m_mirrorsWidget);
+        connect(mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWorker::setMirrorSource);
+        connect(mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWorker::testMirrorSpeed);
+#if 1
+        mirrorsWidget->setFixedSize(480, 600);
+        mirrorsWidget->setAttribute(Qt::WA_QuitOnClose);
+        mirrorsWidget->show();
+#else
+        m_frameProxy->pushWidget(this, mirrorsWidget);
+#endif
     });
 
     return mainWidget;
@@ -90,4 +96,13 @@ QWidget *UpdateModule::moduleWidget()
 void UpdateModule::contentPopped(QWidget *const w)
 {
     Q_UNUSED(w)
+}
+
+QString UpdateModule::getSystemVersion()
+{
+    SystemInfoInter *systemInfoInter = new SystemInfoInter("com.deepin.daemon.SystemInfo",
+                                                           "/com/deepin/daemon/SystemInfo",
+                                                           QDBusConnection::sessionBus(), this);
+
+    return systemInfoInter->distroVer();
 }
