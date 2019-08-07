@@ -78,16 +78,13 @@ QWidget *UpdateModule::moduleWidget()
         MirrorsWidget *mirrorsWidget = new MirrorsWidget(m_model);
 
         m_work->checkNetselect();
+        mirrorsWidget->setMinimumWidth(350);
+        mirrorsWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
         connect(mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWorker::setMirrorSource);
         connect(mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWorker::testMirrorSpeed);
-#if 1
-        mirrorsWidget->setFixedSize(480, 600);
-        mirrorsWidget->setAttribute(Qt::WA_QuitOnClose);
-        mirrorsWidget->show();
-#else
-        m_frameProxy->pushWidget(this, mirrorsWidget);
-#endif
+
+        m_frameProxy->pushWidget(this, mirrorsWidget, FrameProxyInterface::PushType::CoverTop);
     });
 
     return mainWidget;

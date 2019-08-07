@@ -39,15 +39,15 @@ namespace dcc {
     }
 }
 
-namespace DCC_NAMESPACE{
-namespace update{
+namespace DCC_NAMESPACE {
+namespace update {
 
 class MirrorsWidget : public dcc::ContentWidget
 {
     Q_OBJECT
 
 public:
-    explicit MirrorsWidget(dcc::update::UpdateModel *model, QWidget* parent = 0);
+    explicit MirrorsWidget(dcc::update::UpdateModel *model, QWidget *parent = 0);
 
     void setModel(dcc::update::UpdateModel *model);
 
@@ -60,15 +60,15 @@ Q_SIGNALS:
     void notifyBackpage();
 
 private Q_SLOTS:
-    void setCurItem(dcc::update::MirrorItem* item);
+    void setCurItem(dcc::update::MirrorItem *item);
     void onSpeedInfoAvailable(const QMap<QString, int> &info);
     void testButtonClicked();
 
     void sortMirrorsBySpeed();
 
 private:
-    void setDefaultMirror(const MirrorInfo& mirror);
-    void setMirrorInfoList(const MirrorInfoList& list);
+    void setDefaultMirror(const MirrorInfo &mirror);
+    void setMirrorInfoList(const MirrorInfoList &list);
 
 private:
     enum TestProgress {
@@ -77,7 +77,7 @@ private:
         Done
     };
 
-    dcc::update::MirrorItem* m_curItem;
+    dcc::update::MirrorItem *m_curItem;
     MirrorInfo m_defaultMirror;
     TestProgress m_testProgress;
 

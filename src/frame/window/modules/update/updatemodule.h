@@ -58,7 +58,6 @@ public:
 
 private:
 
-
 private:
     dcc::update::UpdateModel *m_model;
     dcc::update::UpdateWorker *m_work;
@@ -66,7 +65,6 @@ private:
 Q_SIGNALS:
 
 public Q_SLOTS:
-
 };
 
 }// namespace datetime
