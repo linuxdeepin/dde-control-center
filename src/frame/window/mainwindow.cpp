@@ -35,6 +35,7 @@
 #include "modules/network/networkmodule.h"
 #include "modules/defapp/defaultappsmodule.h"
 #include "moduleinitthread.h"
+#include "modules/update/mirrorswidget.h"
 
 #include "mainwindow.h"
 #include "constant.h"
@@ -44,6 +45,7 @@
 #include <QMetaEnum>
 #include <QDebug>
 #include <QStandardItemModel>
+#include <QPushButton>
 
 using namespace DCC_NAMESPACE;
 
@@ -150,6 +152,8 @@ void MainWindow::popAllWidgets()
     for (int pageCount = m_contentStack.count(); pageCount > 0; pageCount--) {
         popWidget();
     }
+
+    memset(&m_lastThirdPage, 0, sizeof(m_lastThirdPage));
 }
 
 void MainWindow::popWidget(ModuleInterface *const inter)
@@ -161,7 +165,16 @@ void MainWindow::popWidget(ModuleInterface *const inter)
 
 void MainWindow::showModulePage(const QString &module, const QString &page, bool animation)
 {
+    Q_UNUSED(module)
+    Q_UNUSED(page)
+    Q_UNUSED(animation)
+}
 
+void MainWindow::resizeEvent(QResizeEvent *event)
+{
+    if (m_topPage) {
+        m_topPage->setFixedSize(event->size());
+    }
 }
 
 void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visible)
@@ -180,30 +193,91 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
     }
 }
 
-void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w)
+void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w, PushType type)
 {
-    //When there is already a third-level page, first remove the previous third-level page,
-    //then add a new level 3 page (guaranteed that there is only one third-level page)
-    if (m_contentStack.size() == 2) {
-        QWidget *w = m_contentStack.pop().second;
-        m_rightContentLayout->removeWidget(w);
-        w->setParent(nullptr);
-        w->deleteLater();
+    switch (type) {
+    case Replace:
+        replaceThirdWidget(inter, w);
+        break;
+    case CoverTop:
+        pushTopWidget(inter, w);
+        break;
+    case Normal:
+    default:
+        pushNormalWidget(inter, w);
+        break;
+    }
+}
+
+//First save the third level page, Then pop the third level page
+//Next set the new page as the third level page,
+//Finally when in the new third level page clicked "pop" button , return to the old three level page
+void MainWindow::replaceThirdWidget(ModuleInterface *const inter, QWidget *const w)
+{
+    if (m_contentStack.count() != 2)    return;
+
+    //if need pop the replace widget and set old widget : link the function of slotfunc
+    auto slotfunc = [ = ]() {
+        popWidget();
+
+        if (m_lastThirdPage.second) {
+            m_lastThirdPage.second->setVisible(true);
+            pushNormalWidget(m_lastThirdPage.first, m_lastThirdPage.second);
+        }
+
+        memset(&m_lastThirdPage, 0, sizeof(m_lastThirdPage));
+    };
+    Q_UNUSED(slotfunc)
+
+    QPair<ModuleInterface *, QWidget *>widget = m_contentStack.pop();
+    m_lastThirdPage.first = widget.first;
+    m_lastThirdPage.second = widget.second;
+    m_lastThirdPage.second->setVisible(false);
+
+    w->setParent(m_lastThirdPage.second);//the replace widget follow the old third widget to delete
+    pushNormalWidget(inter, w);
+}
+
+void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
+{
+    QWidget *topWidget = new QWidget;
+    QPalette pe;
+    pe.setColor(QPalette::Background, QColor(238, 238, 238, 51));
+    topWidget->setPalette(pe);
+    topWidget->setFixedSize(this->width(), this->height());
+
+    QHBoxLayout *layout = new QHBoxLayout;
+    w->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    pe.setColor(QPalette::Background, QColor(0, 0, 0, 255));
+    w->setPalette(pe);
+
+    linkTopBackSignal(inter->name(), w);
+
+    layout->setMargin(0);
+    layout->setSpacing(0);
+    layout->addWidget(w, 0, Qt::AlignRight);
+    topWidget->setLayout(layout);
+
+    topWidget->setParent(this);
+    topWidget->setVisible(true);
+
+    m_topPage = topWidget;
+}
+
+void MainWindow::linkTopBackSignal(QString moduleName, QWidget *w)
+{
+    //link update::MirrorsWidget backButton
+    if (moduleName == tr("update")) {
+        DCC_NAMESPACE::update::MirrorsWidget *widget = dynamic_cast<DCC_NAMESPACE::update::MirrorsWidget *>(w);
+        connect(widget, &DCC_NAMESPACE::update::MirrorsWidget::notifyBackpage, this, [&]() {
+            if (m_topPage) {
+                m_topPage->deleteLater();
+                m_topPage = nullptr;
+            }
+        });
     }
 
-    if (m_contentStack.isEmpty()) {//Add the first second-level page, the top page changes from Icon to list (top page is not added to m_contentStack)
-        m_navView->setViewMode(QListView::ListMode);
-        m_navView->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-        m_rightView->show();
-    } else {
-        m_contentStack.top().second->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    }
-
-    //Set the newly added page to fill the blank area
-    w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    m_contentStack.push({inter, w});
-    m_rightContentLayout->addWidget(w);
+    //if some module need from topRight widget back normal widget need imitate up
 }
 
 void MainWindow::onFirstItemClick(const QModelIndex &index)
@@ -221,5 +295,31 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
         m_initList << inter;
     }
 
-    pushWidget(inter, inter->moduleWidget());
+    pushNormalWidget(inter, inter->moduleWidget());
+}
+
+void MainWindow::pushNormalWidget(ModuleInterface *const inter, QWidget *const w)
+{
+    //When there is already a third-level page, first remove the previous third-level page,
+    //then add a new level 3 page (guaranteed that there is only one third-level page)
+    if (m_contentStack.size() == 2) {
+        QWidget *widget = m_contentStack.pop().second;
+        m_rightContentLayout->removeWidget(widget);
+        widget->setParent(nullptr);
+        widget->deleteLater();
+    }
+
+    if (m_contentStack.isEmpty()) {//Add the first second-level page, the top page changes from Icon to list (top page is not added to m_contentStack)
+        m_navView->setViewMode(QListView::ListMode);
+        m_navView->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+        m_rightView->show();
+    } else {
+        m_contentStack.top().second->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    }
+
+    //Set the newly added page to fill the blank area
+    w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    m_contentStack.push({inter, w});
+    m_rightContentLayout->addWidget(w);
 }

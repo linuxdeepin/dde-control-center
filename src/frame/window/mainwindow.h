@@ -44,11 +44,13 @@ class MainWindow : public DMainWindow, public FrameProxyInterface
 public:
     explicit MainWindow(QWidget *parent = nullptr);
 
-public:
-    void popWidget(ModuleInterface * const inter) override;
-    void pushWidget(ModuleInterface * const inter, QWidget * const w) override;
-    void setModuleVisible(ModuleInterface * const inter, const bool visible) override;
+    void popWidget(ModuleInterface *const inter) override;
+    void pushWidget(ModuleInterface *const inter, QWidget *const w, PushType type = Normal) override;
+    void setModuleVisible(ModuleInterface *const inter, const bool visible) override;
     void showModulePage(const QString &module, const QString &page, bool animation) override;
+
+protected:
+    void resizeEvent(QResizeEvent * event) override;
 
 private:
     QHBoxLayout *m_contentLayout;
@@ -56,12 +58,16 @@ private:
     NavWinView *m_navView;
     QWidget *m_rightView;
     QStandardItemModel *m_navModel;
-    QStack<QPair<ModuleInterface*, QWidget *>> m_contentStack;
-    QList<QPair<ModuleInterface*, QString>> m_modules;
-    QList<ModuleInterface*> m_initList;
+    QStack<QPair<ModuleInterface *, QWidget *>> m_contentStack;
+    QList<QPair<ModuleInterface *, QString>> m_modules;
+    QList<ModuleInterface *> m_initList;
+    QPair<ModuleInterface *, QWidget *> m_lastThirdPage;
+    QWidget *m_topPage;
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);
+
+private Q_SLOTS:
 
 private:
     void initAllModule();
@@ -69,6 +75,10 @@ private:
     void popWidget();
     void popAllWidgets();
     void onFirstItemClick(const QModelIndex &index);
+    void pushNormalWidget(ModuleInterface *const inter, QWidget *const w);  //exchange third widget : push new widget
+    void replaceThirdWidget(ModuleInterface *const inter, QWidget *const w);  //replace(hide) third widget : Can recover
+    void pushTopWidget(ModuleInterface *const inter, QWidget *const w);  //Covere the top
+    void linkTopBackSignal(QString moduleName, QWidget *w);
 };
 }
 
