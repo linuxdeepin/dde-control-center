@@ -56,6 +56,7 @@ private Q_SLOTS:
     void showGenaralWidget();
     void showIconThemeWidget();
     void showCursorThemeWidget();
+    void showFontThemeWidget();
 
 private:
     dcc::personalization::PersonalizationModel  *m_model;

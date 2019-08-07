@@ -26,6 +26,8 @@
 #include "perssonalizationthemewidget.h"
 #include "personalizationicontheme.h"
 #include "personalizationcursortheme.h"
+#include "personalizationfontswidget.h"
+#include "modules/personalization/module/fontswidget/fontlistwidget.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -36,7 +38,6 @@ PersonalizationModule::PersonalizationModule(FrameProxyInterface *frame, QObject
     , m_model(nullptr)
     , m_work(nullptr)
 {
-
 }
 
 PersonalizationModule::~PersonalizationModule()
@@ -56,7 +57,6 @@ void PersonalizationModule::initialize()
 
 void PersonalizationModule::reset()
 {
-
 }
 
 const QString PersonalizationModule::name() const
@@ -75,10 +75,11 @@ QWidget *PersonalizationModule::moduleWidget()
     connect(firstWidget, &PersonalizationList::requestShowGeneral, this, &PersonalizationModule::showGenaralWidget);
     connect(firstWidget, &PersonalizationList::requestShowIconTheme, this, &PersonalizationModule::showIconThemeWidget);
     connect(firstWidget, &PersonalizationList::requestShowCursorTheme, this, &PersonalizationModule::showCursorThemeWidget);
+    connect(firstWidget, &PersonalizationList::requestShowFonts, this, &PersonalizationModule::showFontThemeWidget);
     return firstWidget;
 }
 
-void PersonalizationModule::contentPopped(QWidget * const w)
+void PersonalizationModule::contentPopped(QWidget *const w)
 {
     Q_UNUSED(w);
 }
@@ -116,6 +117,20 @@ void PersonalizationModule::showCursorThemeWidget()
     PersonalizationCursorTheme *widget = new PersonalizationCursorTheme;
     widget->setModel(m_model->getMouseModel());
     connect(widget, &PersonalizationCursorTheme::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
+    m_work->active();
+
+    m_frameProxy->pushWidget(this, widget);
+}
+
+void PersonalizationModule::showFontThemeWidget()
+{
+    m_work->refreshFont();
+
+    PersonalizationFontsWidget *widget = new PersonalizationFontsWidget;
+    widget->setModel(m_model);
+
+    connect(widget, &PersonalizationFontsWidget::requestSetFontSize, m_work, &dcc::personalization::PersonalizationWork::setFontSize);
+    connect(widget, &PersonalizationFontsWidget::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
     m_work->active();
 
     m_frameProxy->pushWidget(this, widget);

@@ -72,4 +72,3 @@ void PersonalizationList::onCategoryClicked(const QModelIndex &index)
         break;
     }
 }
-

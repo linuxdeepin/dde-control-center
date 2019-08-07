@@ -33,13 +33,14 @@ class PersonalizationList : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PersonalizationList(QWidget *parent = 0);
+    explicit PersonalizationList(QWidget *parent = nullptr);
 
 Q_SIGNALS:
     void requestShowGeneral();
     void requestShowIconTheme();
     void requestShowCursorTheme();
     void requestShowFonts();
+
 public Q_SLOTS:
     void onCategoryClicked(const QModelIndex &index);
 
@@ -48,7 +49,5 @@ private:
     QStandardItemModel *m_model;
     QVBoxLayout *m_centralLayout;
 };
-
 }
 }
-

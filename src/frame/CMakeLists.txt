@@ -791,6 +791,8 @@ set(PERSONALIZATION_FILES
                 window/modules/personalization/personalizationicontheme.cpp
                 window/modules/personalization/personalizationcursortheme.h
                 window/modules/personalization/personalizationcursortheme.cpp
+                window/modules/personalization/personalizationfontswidget.h
+                window/modules/personalization/personalizationfontswidget.cpp
 )
 
 # load power

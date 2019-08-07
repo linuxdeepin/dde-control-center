@@ -32,7 +32,7 @@ class ThemeItemPic : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ThemeItemPic(QWidget *parent = 0);
+    explicit ThemeItemPic(QWidget *parent = nullptr);
     bool isSelected();
     void setSelected(bool selected);
     void setPixmap(const QPixmap& pixmap);
@@ -41,8 +41,8 @@ Q_SIGNALS:
     void clicked();
 
 protected:
-    void mousePressEvent(QMouseEvent* event);
-    void paintEvent(QPaintEvent *event);
+    void mousePressEvent(QMouseEvent* event) override;
+    void paintEvent(QPaintEvent *event) override;
 
 private:
     bool m_isSelected = false;
