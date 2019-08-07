@@ -22,41 +22,35 @@
 #pragma once
 
 #include "window/namespace.h"
-#include "window/interface/moduleinterface.h"
+#include "widgets/contentwidget.h"
+
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
-#include <QObject>
+class QVBoxLayout;
+class QLabel;
 QT_END_NAMESPACE
 
 namespace dcc {
-namespace systeminfo {
-class SystemInfoModel;
-class SystemInfoWork;
+namespace widgets {
+class TipsLabel;
 }
 }
 
 namespace DCC_NAMESPACE {
 namespace systeminfo {
-class SystemInfoModule : public QObject, public ModuleInterface
+
+class VersionProtocolWidget : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
-    explicit SystemInfoModule(FrameProxyInterface *frame, QObject *parent = nullptr);
-    ~SystemInfoModule();
-
-    void initialize() override;
-    void reset() override;
-    const QString name() const override;
-    QWidget *moduleWidget() override;
-    void contentPopped(QWidget *const w) override;
-
-public Q_SLOTS:
-    void onShowAboutNativePage();
-    void onVersionProtocolPage();
+    explicit VersionProtocolWidget(QWidget *parent = nullptr);
 
 private:
-    dcc::systeminfo::SystemInfoWork *m_work;
-    dcc::systeminfo::SystemInfoModel *m_model;
+    QVBoxLayout *m_mainLayout;
+    QLabel *m_thanks;
+    dcc::widgets::TipsLabel *m_title;
+    dcc::widgets::TipsLabel *m_body;
 };
 
 }

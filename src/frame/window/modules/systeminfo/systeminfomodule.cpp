@@ -22,6 +22,7 @@
 #include "systeminfomodule.h"
 #include "systeminfowidget.h"
 #include "nativeinfowidget.h"
+#include "versionprotocolwidget.h"
 
 #include "modules/systeminfo/systeminfowork.h"
 #include "modules/systeminfo/systeminfomodel.h"
@@ -59,6 +60,7 @@ QWidget *SystemInfoModule::moduleWidget()
 {
     SystemInfoWidget *w = new SystemInfoWidget;
     connect(w, &SystemInfoWidget::requestShowAboutNative, this, &SystemInfoModule::onShowAboutNativePage);
+    connect(w, &SystemInfoWidget::requestShowVersionProtocol, this, &SystemInfoModule::onVersionProtocolPage);
     return w;
 }
 
@@ -75,5 +77,11 @@ const QString SystemInfoModule::name() const
 void SystemInfoModule::onShowAboutNativePage()
 {
     NativeInfoWidget *w = new NativeInfoWidget(m_model);
+    m_frameProxy->pushWidget(this, w);
+}
+
+void SystemInfoModule::onVersionProtocolPage()
+{
+    VersionProtocolWidget *w = new VersionProtocolWidget;
     m_frameProxy->pushWidget(this, w);
 }
