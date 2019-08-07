@@ -870,6 +870,11 @@ set(SYSTEMINFO_FILES
                 modules/systeminfo/systeminfowork.h
                 modules/systeminfo/bootwidget.cpp
                 modules/systeminfo/grubbackgrounditem.cpp
+                #for V20
+                window/modules/systeminfo/systeminfomodule.h
+                window/modules/systeminfo/systeminfomodule.cpp
+                window/modules/systeminfo/systeminfowidget.h
+                window/modules/systeminfo/systeminfowidget.cpp
 )
 
 # load update

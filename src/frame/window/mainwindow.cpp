@@ -97,6 +97,7 @@ void MainWindow::initAllModule()
     using namespace update;
     using namespace keyboard;
     using namespace wacom;
+    using namespace systeminfo;
 
     m_modules = {
         { new AccountsModule(this), tr("Account")},
@@ -112,6 +113,7 @@ void MainWindow::initAllModule()
         { new PowerModule(this), tr("Power")},
         { new UpdateModule(this), tr("Update")},
         { new WacomModule(this), tr("Wacom")},
+        { new SystemInfoModule(this), tr("Systeminfo")},
     };
 
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
