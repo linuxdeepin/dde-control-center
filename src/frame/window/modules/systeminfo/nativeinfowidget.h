@@ -22,40 +22,52 @@
 #pragma once
 
 #include "window/namespace.h"
-#include "window/interface/moduleinterface.h"
+#include "modules/systeminfo/systeminfomodel.h"
+#include "widgets/titlevalueitem.h"
+
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
-#include <QObject>
+
+class QVBoxLayout;
+
 QT_END_NAMESPACE
 
 namespace dcc {
 namespace systeminfo {
 class SystemInfoModel;
-class SystemInfoWork;
 }
 }
 
 namespace DCC_NAMESPACE {
 namespace systeminfo {
-class SystemInfoModule : public QObject, public ModuleInterface
+
+class NativeInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SystemInfoModule(FrameProxyInterface *frame, QObject *parent = nullptr);
-    ~SystemInfoModule();
-
-    void initialize() override;
-    void reset() override;
-    const QString name() const override;
-    QWidget *moduleWidget() override;
-    void contentPopped(QWidget *const w) override;
-
-public Q_SLOTS:
-    void onShowAboutNativePage();
+    explicit NativeInfoWidget(dcc::systeminfo::SystemInfoModel *model, QWidget *parent = nullptr);
 
 private:
-    dcc::systeminfo::SystemInfoWork *m_work;
+    void initWidget();
+    const QString systemCopyright() const;
+    const QString systemLogo() const;
+
+public Q_SLOTS:
+    void setEdition(const QString &edition);
+    void setType(const QString &type);
+    void setProcessor(const QString &processor);
+    void setMemory(const QString &memory);
+    void setDisk(const QString &disk);
+
+private:
     dcc::systeminfo::SystemInfoModel *m_model;
+    QVBoxLayout *m_mainLayout;
+    dcc::widgets::TitleValueItem *m_version;
+    dcc::widgets::TitleValueItem *m_type;
+    dcc::widgets::TitleValueItem *m_processor;
+    dcc::widgets::TitleValueItem *m_memory;
+    dcc::widgets::TitleValueItem *m_disk;
 };
 
 }

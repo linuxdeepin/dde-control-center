@@ -21,6 +21,7 @@
 
 #include "systeminfomodule.h"
 #include "systeminfowidget.h"
+#include "nativeinfowidget.h"
 
 #include "modules/systeminfo/systeminfowork.h"
 #include "modules/systeminfo/systeminfomodel.h"
@@ -57,6 +58,7 @@ void SystemInfoModule::reset()
 QWidget *SystemInfoModule::moduleWidget()
 {
     SystemInfoWidget *w = new SystemInfoWidget;
+    connect(w, &SystemInfoWidget::requestShowAboutNative, this, &SystemInfoModule::onShowAboutNativePage);
     return w;
 }
 
@@ -68,4 +70,10 @@ void SystemInfoModule::contentPopped(QWidget *const w)
 const QString SystemInfoModule::name() const
 {
     return QStringLiteral("systeminfo");
+}
+
+void SystemInfoModule::onShowAboutNativePage()
+{
+    NativeInfoWidget *w = new NativeInfoWidget(m_model);
+    m_frameProxy->pushWidget(this, w);
 }

@@ -875,6 +875,8 @@ set(SYSTEMINFO_FILES
                 window/modules/systeminfo/systeminfomodule.cpp
                 window/modules/systeminfo/systeminfowidget.h
                 window/modules/systeminfo/systeminfowidget.cpp
+                window/modules/systeminfo/nativeinfowidget.h
+                window/modules/systeminfo/nativeinfowidget.cpp
 )
 
 # load update
