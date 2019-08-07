@@ -27,6 +27,9 @@
 #include "modules/accounts/accountsworker.h"
 #include "modules/accounts/user.h"
 #include "modules/accounts/usermodel.h"
+#include "modules/accounts/fingerworker.h"
+#include "modules/accounts/fingermodel.h"
+#include "addfingedialog.h"
 
 #include <QDebug>
 
@@ -42,13 +45,20 @@ AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
 
 void AccountsModule::initialize()
 {
-    m_userList = new UserModel;
+    m_userList = new UserModel(this);
     m_accountsWorker = new AccountsWorker(m_userList);
 
     m_accountsWorker->moveToThread(qApp->thread());
     m_userList->moveToThread(qApp->thread());
 
+    m_fingerModel = new FingerModel(this);
+    m_fingerWorker = new FingerWorker(m_fingerModel);
+
+    m_fingerModel->moveToThread(qApp->thread());
+    m_fingerWorker->moveToThread(qApp->thread());
+
     m_accountsWorker->active();
+    connect(m_fingerWorker, &FingerWorker::requestShowAddThumb, this, &AccountsModule::onShowAddThumb);
 }
 
 void AccountsModule::reset()
@@ -68,7 +78,7 @@ void AccountsModule::showPage(const QString &pageName)
 
 QWidget *AccountsModule::moduleWidget()
 {
-    AccountsWidget* accountsWidget = new AccountsWidget;
+    AccountsWidget *accountsWidget = new AccountsWidget;
     accountsWidget->setModel(m_userList);
     connect(accountsWidget, &AccountsWidget::requestShowAccountsDetail, this, &AccountsModule::onShowAccountsDetailWidget);
     connect(accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::onShowCreateAccountPage);
@@ -86,8 +96,8 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
 {
     qDebug() << Q_FUNC_INFO;
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
-
-    Q_ASSERT(w);
+    w->setFingerModel(m_fingerModel);
+    m_fingerWorker->refreshDevice();
 
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
@@ -98,6 +108,8 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     });
     connect(w, &AccountsDetailWidget::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
     connect(w, &AccountsDetailWidget::requestShowFullnameSettings, m_accountsWorker, &AccountsWorker::setFullname);
+    connect(w, &AccountsDetailWidget::requestAddThumbs, m_fingerWorker, &FingerWorker::enrollStart);
+    connect(w, &AccountsDetailWidget::requestCleanThumbs, m_fingerWorker, &FingerWorker::cleanEnroll);
     m_frameProxy->pushWidget(this, w);
 }
 
@@ -132,4 +144,18 @@ void AccountsModule::onShowPasswordPage(User *account)
         m_frameProxy->popWidget(this);
     });
     m_frameProxy->pushWidget(this, w);
+}
+
+void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
+{
+    qDebug() << Q_FUNC_INFO ;
+
+    AddFingeDialog *dlg = new AddFingeDialog(thumb);
+    dlg->setFingerModel(m_fingerModel);
+    dlg->setUsername(name);
+
+    connect(dlg, &AddFingeDialog::requestSaveThumb, m_fingerWorker, &FingerWorker::saveEnroll);
+    connect(dlg, &AddFingeDialog::requestReEnrollStart, m_fingerWorker, &FingerWorker::reEnrollStart);
+
+    dlg->exec();//Note:destroy this object when this window is closed
 }

@@ -19,8 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef ACCOUNTSDETAILWIDGET_H__V20
-#define ACCOUNTSDETAILWIDGET_H__V20
+#pragma once
 
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
@@ -30,23 +29,34 @@
 #include "widgets/nextpagewidget.h"
 #include "widgets/switchwidget.h"
 #include "avatarlistwidget.h"
+#include "modules/accounts/fingermodel.h"
 
 #include <com_deepin_daemon_fprintd_device.h>
-#include <dimagebutton.h>
 
+DWIDGET_BEGIN_NAMESPACE
+class DImageButton;
+DWIDGET_END_NAMESPACE
+
+QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 class QHBoxLayout;
 class QPushButton;
 class QLabel;
 class QLineEdit;
+class QEvent;
+class QCommandLinkButton;
+QT_END_NAMESPACE
+
+namespace dcc {
+namespace account {
+class FingerModel;
+}
+}
 
 using com::deepin::daemon::fprintd::Device;
 
 namespace DCC_NAMESPACE {
 namespace accounts {
-
-
-
 class AccountsDetailWidget : public QWidget
 {
     Q_OBJECT
@@ -56,6 +66,7 @@ public:
     void initWidgets();
     void initDatas();
     void updateLineEditDisplayStyle();
+    void setFingerModel(dcc::accounts::FingerModel *model);
 
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);
@@ -65,15 +76,23 @@ Q_SIGNALS:
     void requestBack();
     void requestSetAvatar(dcc::accounts::User *user, const QString &filePath);
     void requestShowFullnameSettings(dcc::accounts::User *user, const QString &fullname);
+    void requestShowFingerSettings(dcc::accounts::User *user);
+
+    void requestAddThumbs(const QString &name, const QString &thumb);
+    void requestCleanThumbs(dcc::accounts::User *user);
 
 private Q_SLOTS:
     void deleteUserClicked();
+    void onThumbsListChanged(const QList<dcc::accounts::FingerModel::UserThumbs> &thumbs);
 
 private:
     dcc::accounts::User *m_curUser;
     QVBoxLayout *m_headLayout;
     QHBoxLayout *m_modifydelLayout;
     QVBoxLayout *m_setloginLayout;
+
+    QVBoxLayout *m_setfingeLayout;
+    QHBoxLayout *m_fingepasswdLayout;
 
     QVBoxLayout *m_mainContentLayout;
     QHBoxLayout *m_fullnameLayout;
@@ -88,11 +107,15 @@ private:
     dcc::widgets::SwitchWidget *m_autoLogin;//自动登录
     dcc::widgets::SwitchWidget *m_nopasswdLogin;//无密码登录
     AvatarListWidget *m_avatarListWidget;
-    Dtk::Widget::DImageButton *m_fullnameBtn;
-    Dtk::Widget::DImageButton *m_inputeditBtn;
+    DTK_WIDGET_NAMESPACE::DImageButton *m_fullnameBtn;
+    DTK_WIDGET_NAMESPACE::DImageButton *m_inputeditBtn;
+    dcc::widgets::SettingsGroup *m_listGrp;//指纹列表
+    dcc::accounts::FingerModel *m_model;
+    QLabel *m_fingetitleLabel;
+    QCommandLinkButton *m_addBtn;
+    QCommandLinkButton *m_clearBtn;
+    QString m_notUseThumb;
 };
 
 }   // namespace accounts
 }   // namespace dccV20
-
-#endif // ACCOUNTSDETAILWIDGET_H__V20

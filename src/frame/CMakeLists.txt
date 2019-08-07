@@ -354,6 +354,10 @@ set(ACCOUNTS_FILES
                 window/modules/accounts/avatarlistwidget.cpp
                 window/modules/accounts/avataritemdelegate.h
                 window/modules/accounts/avataritemdelegate.cpp
+                window/modules/accounts/accounntfingeitem.h
+                window/modules/accounts/accounntfingeitem.cpp
+                window/modules/accounts/addfingedialog.h
+                window/modules/accounts/addfingedialog.cpp
 )
 
 # load bluetooth
