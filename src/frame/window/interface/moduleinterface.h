@@ -50,7 +50,7 @@ public:
     virtual void initialize() = 0;
 
     // reset module settings
-    virtual void reset() = 0;
+    virtual void reset() {}
 
     ///
     /// \brief name
@@ -81,7 +81,7 @@ public:
     /// call when specific widget popped
     /// \param w
     ///
-    virtual void contentPopped(QWidget * const w) = 0;
+    virtual void contentPopped(QWidget * const w) { Q_UNUSED(w);}
 
 protected:
     FrameProxyInterface *m_frameProxy = nullptr;
