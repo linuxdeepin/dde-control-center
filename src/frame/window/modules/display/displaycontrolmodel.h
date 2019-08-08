@@ -25,6 +25,7 @@
 #include "window/namespace.h"
 
 #include <QAbstractListModel>
+#include <DStyleOption>
 
 namespace dcc {
 
@@ -45,7 +46,7 @@ public:
 
     enum DisplayRole {
         ItemTitleRole = Qt::DisplayRole,
-        UnusedRole = Qt::UserRole,
+        UnusedRole = Dtk::UserRole,
         ItemDescriptionRole,
         ItemTypeRole,
         ItemNameRole,

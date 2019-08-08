@@ -30,7 +30,6 @@ using namespace DCC_NAMESPACE;
 DisplayItemDelegate::DisplayItemDelegate(QObject *parent)
     : QAbstractItemDelegate(parent)
 {
-
 }
 
 void DisplayItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const

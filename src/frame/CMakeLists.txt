@@ -165,7 +165,6 @@ set(WINDOW_FILES
     window/modules/display/brightnesspage.cpp
     window/modules/display/rotatedialog.cpp
     window/modules/display/multiscreensettingpage.cpp
-    window/modules/display/monitorproxyitem.cpp
     window/modules/display/displayitemdelegate.cpp
     window/modules/display/displaycontrolmodel.cpp
     window/modules/display/customsettingdialog.cpp

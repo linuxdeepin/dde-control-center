@@ -66,7 +66,7 @@ void ScalingPage::setModel(DisplayModel *model)
         for (auto widget : m_sliders) {
             DCCSlider *slider = widget->slider();
             slider->blockSignals(true);
-            slider->setValue(DisplayWidget::convertToSlider(scale));
+            slider->setValue(DisplayWidget::convertToSlider(float(scale)));
             slider->blockSignals(false);
 
             widget->setValueLiteral(QString::number(scale));
@@ -116,17 +116,16 @@ void ScalingPage::addSlider(int monitorID)
 
     connect(slider, &DCCSlider::valueChanged, this, [ = ](const int value) {
         Q_EMIT requestIndividualScaling(m_displayModel->monitorList()[monitorID],
-                                        DisplayWidget::convertToScale(value));
-
-        slideritem->setValueLiteral(QString::number(DisplayWidget::convertToScale(value)));
+                                        double(DisplayWidget::convertToScale(value)));
+        slideritem->setValueLiteral(QString::number(double(DisplayWidget::convertToScale(value))));
     });
-//    connect(slider,&DCCSlider::)
 
     double scaling = m_displayModel->monitorList()[monitorID]->scale();
-    if (scaling < 0)scaling = 1.0;
+    if (scaling < 0)
+        scaling = 1.0;
 
     slideritem->setValueLiteral(QString::number(scaling));
-    slider->setValue(DisplayWidget::convertToSlider(scaling));
+    slider->setValue(DisplayWidget::convertToSlider(float(scaling)));
 }
 
 }

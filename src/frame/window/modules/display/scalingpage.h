@@ -53,6 +53,7 @@ class ScalingPage : public QWidget
 public:
     explicit ScalingPage(QWidget *parent = 0);
 
+public:
     void setModel(dcc::display::DisplayModel *model);
 
 Q_SIGNALS:
@@ -65,9 +66,7 @@ private:
 
 private:
     dcc::display::DisplayModel *m_displayModel{nullptr};
-
     QVBoxLayout *m_centralLayout{nullptr};
-
     QList<dcc::widgets::TitledSliderItem *> m_sliders;
 };
 

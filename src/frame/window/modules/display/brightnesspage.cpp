@@ -29,8 +29,11 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/dccslider.h"
 #include "widgets/switchwidget.h"
+#include "widgets/titledslideritem.h"
 
 #include <QLabel>
+#include <QVBoxLayout>
+#include <QList>
 
 using namespace dcc::widgets;
 using namespace dcc::display;
@@ -48,12 +51,12 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_centralLayout->setSpacing(10);
     m_centralLayout->addSpacing(10);
 
-    m_nightTips = new QLabel(tr("The screen tone will be auto adjusted by help of figuring out your location to protect eyes"));
+    m_nightTips = new QLabel(tr("The screen tone will be auto adjusted by \
+                                help of figuring out your location to protect eyes"));
     m_nightTips->setWordWrap(true);
     m_nightTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     m_nightTips->adjustSize();
     m_nightTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-
     m_centralLayout->addWidget(m_nightTips);
 
     m_nightShift = new SwitchWidget;
@@ -65,7 +68,6 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_centralLayout->addWidget(m_autoLightMode);
 
     setMinimumWidth(300);
-
     setLayout(m_centralLayout);
 }
 
@@ -80,7 +82,6 @@ void BrightnessPage::setMode(DisplayModel *model)
 
     connect(m_nightShift, &SwitchWidget::checkedChanged, this, &BrightnessPage::requestSetNightMode);
     connect(m_displayModel, &DisplayModel::redshiftSettingChanged, m_nightShift, &SwitchWidget::setDisabled);
-
     connect(m_displayModel, &DisplayModel::autoLightAdjustVaildChanged, m_autoLightMode, &SwitchWidget::setVisible);
     connect(m_displayModel, &DisplayModel::autoLightAdjustSettingChanged, m_autoLightMode, &SwitchWidget::setChecked);
 
@@ -89,7 +90,6 @@ void BrightnessPage::setMode(DisplayModel *model)
 
     m_nightShift->setVisible(model->redshiftIsValid());
     m_nightTips->setVisible(model->redshiftIsValid());
-
     m_nightShift->setChecked(model->isNightMode());
     m_nightShift->setDisabled(model->redshiftSetting());
 
@@ -103,9 +103,6 @@ void BrightnessPage::addSlider()
 
     QString title = tr("Display scaling for all monitors");
     for (int i = 0; i < monList.size(); ++i) {
-        monList[i]->brightness();
-
-
         //单独显示每个亮度调节名
         title = 1 == monList.size() ? title : tr("Display scaling for %1").arg(monList[i]->name());
 
@@ -119,8 +116,7 @@ void BrightnessPage::addSlider()
         slider->setPageStep(1);
 
         auto slotfunc = [ = ](int pos) {
-            double val = pos / 100.0;
-            Q_EMIT requestSetMonitorBrightness(monList[i], val);
+            Q_EMIT requestSetMonitorBrightness(monList[i], pos / 100.0);
         };
         connect(slider, &DCCSlider::valueChanged, this, slotfunc);
         connect(slider, &DCCSlider::sliderMoved, this, slotfunc);

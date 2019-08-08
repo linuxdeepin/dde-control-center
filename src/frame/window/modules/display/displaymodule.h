@@ -24,11 +24,8 @@
 
 #include "window/interface/moduleinterface.h"
 #include "window/namespace.h"
-#include <QDBusObjectPath>
 
 namespace dcc {
-
-class ModuleWidget;
 
 namespace display {
 class DisplayModel;
@@ -41,10 +38,10 @@ class DisplayWorker;
 namespace DCC_NAMESPACE {
 
 namespace display {
+
 class DisplayModule : public QObject, public DCC_NAMESPACE::ModuleInterface
 {
     Q_OBJECT
-
 public:
     explicit DisplayModule(DCC_NAMESPACE::FrameProxyInterface *frame, QObject *parent = 0);
     ~DisplayModule();
@@ -60,13 +57,11 @@ private Q_SLOTS:
     void showCustomSettingDialog();
     int showTimeoutDialog(dcc::display::Monitor *mon);
     void showRecognize();
-private:
-    void initialize() override;
-    void reset() override;
-    void contentPopped(QWidget *const w) override;
-    const QString name() const override;
+
 public:
     QWidget *moduleWidget() override;
+    void initialize() override;
+    const QString name() const override;
 
 private:
     dcc::display::DisplayModel *m_displayModel;

@@ -28,7 +28,6 @@
 
 #include "window/namespace.h"
 
-#include <QMap>
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -42,9 +41,7 @@ class Resolution;
 namespace dcc {
 
 namespace widgets {
-
 class SettingsGroup;
-
 }
 
 namespace display {
@@ -62,7 +59,6 @@ namespace display {
 class ResolutionDetailPage : public QWidget
 {
     Q_OBJECT
-
 public:
     explicit ResolutionDetailPage(QWidget *parent = 0);
 

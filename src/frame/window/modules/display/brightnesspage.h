@@ -24,14 +24,11 @@
 
 #include "window/namespace.h"
 
-#include <QVBoxLayout>
 #include <QWidget>
-#include <QList>
-
-#include "widgets/titledslideritem.h"
 
 QT_BEGIN_NAMESPACE
 class QLabel;
+class QVBoxLayout;
 QT_END_NAMESPACE
 
 namespace dcc {
@@ -39,6 +36,7 @@ namespace dcc {
 namespace widgets {
 class TipsLabel;
 class SwitchWidget;
+class TitledSliderItem;
 }
 
 namespace display {
@@ -55,27 +53,26 @@ namespace display {
 class BrightnessPage : public QWidget
 {
     Q_OBJECT
-
 public:
     explicit BrightnessPage(QWidget *parent = 0);
 
+public:
     void setMode(dcc::display::DisplayModel *model);
+
 Q_SIGNALS:
     void requestSetMonitorBrightness(dcc::display::Monitor *, const double);
-
     void requestSetNightMode(bool);
     void requestAmbientLightAdjustBrightness(bool);
 
 private:
     void addSlider();
+
 private:
     dcc::display::DisplayModel *m_displayModel{nullptr};
 
     QVBoxLayout *m_centralLayout{nullptr};
-    QList<dcc::widgets::TitledSliderItem *> m_sliders;
-
-
     QLabel *m_nightTips{nullptr};
+    QList<dcc::widgets::TitledSliderItem *> m_sliders;
 
     dcc::widgets::SwitchWidget *m_nightShift{nullptr};
     dcc::widgets::SwitchWidget *m_autoLightMode{nullptr};

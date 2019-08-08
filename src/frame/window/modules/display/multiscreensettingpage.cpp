@@ -41,13 +41,13 @@ MultiScreenSettingPage::MultiScreenSettingPage(QWidget *parent)
     mainLayout->addStretch();
     mainLayout->addWidget(m_baseListView);
     mainLayout->setMargin(0);
-
     mainLayout->addStretch(1);
     setLayout(mainLayout);
 
     setMinimumWidth(300);
 
-    connect(m_baseListView, &BasicListView::clicked, this, &MultiScreenSettingPage::onItemClicked);
+    connect(m_baseListView, &BasicListView::clicked,
+            this, &MultiScreenSettingPage::onItemClicked);
 }
 
 void MultiScreenSettingPage::setModel(dcc::display::DisplayModel *model)
@@ -71,7 +71,9 @@ void MultiScreenSettingPage::onItemClicked(const QModelIndex &index)
     case DisplayControlModel::Custom:
         Q_EMIT requestConfig(index.data(DisplayControlModel::ItemConfigNameRole).toString());
         return;
-    case DisplayControlModel::NewConfig: Q_EMIT requestCustom(); return;
+    case DisplayControlModel::NewConfig:
+        Q_EMIT requestCustom();
+        return;
     default:;
     }
 

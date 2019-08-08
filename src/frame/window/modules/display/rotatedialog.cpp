@@ -40,10 +40,7 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
     : QDialog(parent)
     , m_mon(mon)
 {
-    QVBoxLayout *centralLayout = new QVBoxLayout;
-
     setFixedSize(300, 300);
-
     setMouseTracking(true);
     setAttribute(Qt::WA_TranslucentBackground);
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
@@ -52,14 +49,15 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
     QPixmap rotatePixmap = loadPixmap(":/display/themes/common/icon/rotate.svg");
     QLabel *osd = new QLabel;
     osd->setPixmap(rotatePixmap);
-    osd->setFixedSize(rotatePixmap.width() / ratio, rotatePixmap.height() / ratio);
+    osd->setFixedSize(int(rotatePixmap.width() / ratio),
+                      int(rotatePixmap.height() / ratio));
 
+    QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addWidget(osd, Qt::AlignHCenter);
     centralLayout->setAlignment(osd, Qt::AlignCenter);
+    setLayout(centralLayout);
 
     qApp->setOverrideCursor(Qt::BlankCursor);
-
-    setLayout(centralLayout);
 }
 
 RotateDialog::~RotateDialog()
@@ -73,8 +71,8 @@ void RotateDialog::setModel(dcc::display::DisplayModel *model)
 
     const qreal ratio = devicePixelRatioF();
     Monitor *mon = m_mon ? m_mon : m_model->primaryMonitor();
-    setFixedWidth(mon->w() / ratio);
-    setFixedHeight(mon->w() / ratio);
+    setFixedWidth(int(mon->w() / ratio));
+    setFixedHeight(int(mon->w() / ratio));
 
     move(mon->rect().topLeft());
     QCursor::setPos(rect().center() + pos());
@@ -97,20 +95,21 @@ void RotateDialog::mouseReleaseEvent(QMouseEvent *e)
     e->accept();
 
     switch (e->button()) {
-    case Qt::RightButton:   reject();       break;
-    case Qt::LeftButton: {
+    case Qt::RightButton:
+        reject();
+        break;
+    case Qt::LeftButton:
         rotate();
         m_changed = true;
         break;
-    }
-    default:;
+    default:
+        break;;
     }
 }
 
 void RotateDialog::mouseMoveEvent(QMouseEvent *e)
 {
     QDialog::mouseMoveEvent(e);
-
     QCursor::setPos(rect().center() + pos());
 }
 
@@ -134,7 +133,5 @@ void RotateDialog::rotate()
     else
         Q_EMIT RotateDialog::requestRotateAll(nextValue);
 
-//    m_resetTimeout = ResetOperationTimeLimit;
-//    m_resetOperationTimer->start();
     update();
 }

@@ -29,7 +29,7 @@
 #include "modules/display/monitorindicator.h"
 #include "widgets/basiclistview.h"
 
-#include "dimagebutton.h"
+#include <dimagebutton.h>
 
 #include <QLabel>
 #include <QListView>
@@ -70,9 +70,8 @@ void CustomSettingDialog::init()
 {
     setMinimumSize(640, 800);
     setWindowFlags(windowFlags() | Qt::X11BypassWindowManagerHint);
+
     m_layout = new QVBoxLayout(this);
-
-
     QLabel *resoLabel = new QLabel;
     resoLabel->setObjectName("Resolution");
     resoLabel->setText(tr("Resolution"));
@@ -87,7 +86,6 @@ void CustomSettingDialog::init()
     m_resolutionList = new QListView;
     m_layout->addWidget(m_resolutionList);
     setLayout(m_layout);
-
     m_layout->addStretch(1);
 
     QHBoxLayout *hlayout = new QHBoxLayout();
@@ -99,7 +97,9 @@ void CustomSettingDialog::init()
     rotate->setPressPic(":/display/themes/dark/icons/rotate_press.png");
 
     hlayout->addWidget(rotate);
-    connect(rotate, &DImageButton::clicked, this, [ = ]() { Q_EMIT CustomSettingDialog::requestShowRotateDialog(m_monitor);});
+    connect(rotate, &DImageButton::clicked, this, [ this ]() {
+        Q_EMIT CustomSettingDialog::requestShowRotateDialog(m_monitor);
+    });
 
     hlayout->addStretch(1);
     hlayout->setMargin(10);
@@ -173,8 +173,11 @@ void CustomSettingDialog::initOtherDialog()
             continue;
         CustomSettingDialog *dlg = new CustomSettingDialog(mon, m_model, this);
 
-        connect(dlg, &CustomSettingDialog::requestSetResolution, this, &CustomSettingDialog::requestSetResolution);
-        connect(dlg, &CustomSettingDialog::requestShowRotateDialog, this, &CustomSettingDialog::requestShowRotateDialog);
+        connect(dlg, &CustomSettingDialog::requestSetResolution, this,
+                &CustomSettingDialog::requestSetResolution);
+        connect(dlg, &CustomSettingDialog::requestShowRotateDialog, this,
+                &CustomSettingDialog::requestShowRotateDialog);
+
         dlg->initWithModel();
         dlg->show();
         m_otherDialog.append(dlg);
@@ -184,9 +187,8 @@ void CustomSettingDialog::initOtherDialog()
 void CustomSettingDialog::initResolutionList()
 {
     QStandardItemModel *itemModel = qobject_cast<QStandardItemModel *>(m_resolutionList->model());
-    if (itemModel) {
+    if (itemModel)
         itemModel->clear();
-    }
 
     bool first = true;
     auto modes = m_monitor->modeList();

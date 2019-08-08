@@ -106,23 +106,28 @@ void DisplayControlModel::onDisplayModeChanged(const int mode)
 {
     const QModelIndex oldIndex = m_selectedIndex;
 
-    if (mode == MERGE_MODE)
+    switch (mode) {
+    case MERGE_MODE:
         m_selectedIndex = index(0);
-    else if (mode == EXTEND_MODE)
+        break;
+    case EXTEND_MODE:
         m_selectedIndex = index(1);
-    else if (mode == CUSTOM_MODE)
-        m_selectedIndex = index(2 + m_displayModel->monitorList().size() + m_displayModel->configList().indexOf(m_displayModel->config()));
-    else {
+        break;
+    case CUSTOM_MODE:
+        m_selectedIndex = index(2 + m_displayModel->monitorList().size()
+                                + m_displayModel->configList().indexOf(m_displayModel->config()));
+        break;
+    default: {
         int idx = 2;
         const QString current = m_displayModel->primary();
         for (const auto *mon : m_displayModel->monitorList()) {
             if (mon->name() == current)
                 break;
-
             ++idx;
         }
-
         m_selectedIndex = index(idx);
+        break;
+    }
     }
 
     Q_EMIT dataChanged(oldIndex, oldIndex);
@@ -131,13 +136,18 @@ void DisplayControlModel::onDisplayModeChanged(const int mode)
 
 DisplayControlModel::ItemType DisplayControlModel::optionType(const int index) const
 {
-    if (index == 0)
+    switch (index) {
+    case 0:
         return Duplicate;
-    else if (index == 1)
+    case 1:
         return Extend;
-    else if (index < m_displayModel->monitorList().size() + 2)
+    default:
+        break;
+    }
+
+    if (index < m_displayModel->monitorList().size() + 2)
         return Specified;
-    else if (index != rowCount(QModelIndex()) - 1)
+    if (index != rowCount(QModelIndex()) - 1)
         return Custom;
 
     return NewConfig;
@@ -148,12 +158,18 @@ const QPixmap DisplayControlModel::optionIcon(const int index) const
     const ItemType type = optionType(index);
 
     switch (type) {
-    case Duplicate:     return QPixmap(":/frame/themes/dark/icons/copy_mode.png");
-    case Extend:        return QPixmap(":/frame/themes/dark/icons/extend_mode.png");
+    case Duplicate:
+        return QPixmap(":/frame/themes/dark/icons/copy_mode.png");
+    case Extend:
+        return QPixmap(":/frame/themes/dark/icons/extend_mode.png");
     case NewConfig:
-    case Custom:        return QPixmap(":/frame/themes/dark/icons/custom.png");
-    case Specified:     return QPixmap(index > 2 ? ":/frame/themes/dark/icons/only2.png" : ":/frame/themes/dark/icons/only1.png");
-    default:;
+    case Custom:
+        return QPixmap(":/frame/themes/dark/icons/custom.png");
+    case Specified:
+        return QPixmap(index > 2 ? ":/frame/themes/dark/icons/only2.png"
+                       : ":/frame/themes/dark/icons/only1.png");
+    default:
+        break;
     }
 
     Q_UNREACHABLE();

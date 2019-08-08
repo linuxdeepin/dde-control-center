@@ -28,6 +28,7 @@
 #include <QListView>
 #include <QStandardItemModel>
 #include <QStandardItem>
+#include <QVBoxLayout>
 
 using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
@@ -42,19 +43,16 @@ DisplayWidget::DisplayWidget(QWidget *parent)
     , m_singleModel(new QStandardItemModel(this))
 {
     setObjectName("Display");
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    setMaximumWidth(500);
+    setMinimumWidth(300);
 
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
     m_centralLayout->addSpacing(10);
-
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    setMaximumWidth(500);
-    setMinimumWidth(300);
+    setLayout(m_centralLayout);
 
     initMenuUI();
-
-    setLayout(m_centralLayout);
 }
 
 void DisplayWidget::setModel(DisplayModel *model)
@@ -66,7 +64,6 @@ void DisplayWidget::setModel(DisplayModel *model)
     connect(m_model, &DisplayModel::configCreated, this, &DisplayWidget::requestShowCustomConfigPage);
 
     onMonitorListChanged();
-
 }
 
 void DisplayWidget::onCustomClicked()
@@ -75,11 +72,10 @@ void DisplayWidget::onCustomClicked()
 
     auto displayMode = m_model->displayMode();
 
-    if (displayMode == CUSTOM_MODE && m_model->config() == m_model->DDE_Display_Config) {
+    if (displayMode == CUSTOM_MODE && m_model->config() == m_model->DDE_Display_Config)
         requestShowCustomConfigPage();
-    } else {
+    else
         Q_EMIT requsetCreateConfig(m_model->DDE_Display_Config);
-    }
 }
 
 void DisplayWidget::onMonitorListChanged()
@@ -104,7 +100,6 @@ void DisplayWidget::initMenuUI()
         {tr("Brightness"), QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
         {tr("scaling"), QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)},
         {tr("Custom Setting"), this->metaObject()->method(this->metaObject()->indexOfMethod("onCustomClicked()"))}
-//        {tr("Custom Setting"),QMetaMethod::fromSignal(&DisplayWidget::requestShowCustomConfigPage)
     };
 
     m_singleMenuList = {
@@ -138,21 +133,20 @@ void DisplayWidget::initMenuUI()
 
 void DisplayWidget::onMenuClicked(const QModelIndex &idx)
 {
-    if (m_isMultiScreen) {
+    if (m_isMultiScreen)
         m_multMenuList[idx.row()].method.invoke(this);
-    } else {
+    else
         m_singleMenuList[idx.row()].method.invoke(this);
-    }
 }
 
 int DisplayWidget::convertToSlider(const float value)
 {
     //remove base scale (100), then convert to 1-based value
     //with a stepping of 25
-    return (int)round(value * 100 - 100) / 25 + 1;
+    return int(round(double(value * 100 - 100) / 25)) + 1;
 }
 
 float DisplayWidget::convertToScale(const int value)
 {
-    return 1.0 + (value - 1) * 0.25;
+    return float(1.0 + (value - 1) * 0.25);
 }

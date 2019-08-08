@@ -57,8 +57,10 @@ public:
     CustomSettingDialog(QWidget *parent = nullptr);
     CustomSettingDialog(dcc::display::Monitor *mon, dcc::display::DisplayModel *model, QWidget *parent = nullptr);
     ~CustomSettingDialog();
+
 public:
     void setModel(dcc::display::DisplayModel *model);
+
 Q_SIGNALS:
     void requestShowRotateDialog(dcc::display::Monitor *mon);
     void requestRecognize();
@@ -66,24 +68,27 @@ Q_SIGNALS:
     void requestSplit();
     void requestSetMonitorPosition(dcc::display::Monitor *mon, const int x, const int y);
     void requestSetResolution(dcc::display::Monitor *mon, int resolution);
+
 private Q_SLOTS:
     void onMonitorPress(dcc::display::Monitor *mon);
     void onMonitorRelease(dcc::display::Monitor *mon);
+
 private:
     void init();
     void initWithModel();
     void initOtherDialog();
     void initResolutionList();
+
 private:
     bool m_isPrimary{false};
     dcc::display::Monitor *m_monitor{nullptr};
     dcc::display::DisplayModel *m_model{nullptr};
     QListView *m_resolutionList{nullptr};
-    QList<CustomSettingDialog *> m_otherDialog;
     QVBoxLayout *m_layout{nullptr};
     std::unique_ptr<dcc::display::MonitorIndicator> m_fullIndication;
     dcc::display::MonitorControlWidget *m_monitroControlWidget{nullptr};
     dcc::widgets::BasicListView *m_baseListView{nullptr};
+    QList<CustomSettingDialog *> m_otherDialog;
 };
 }
 

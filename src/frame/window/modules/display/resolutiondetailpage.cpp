@@ -36,7 +36,6 @@ using namespace dcc::widgets;
 using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
 
-
 ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
     : QWidget(parent)
     , m_mainLayout(new QVBoxLayout)
@@ -87,20 +86,19 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
         Q_EMIT requestSetResolution(monitors.first(), modes[idx.row()].id());
     });
 
-    connect(monitors.first(), &Monitor::currentModeChanged, this, &ResolutionDetailPage::refreshCurrentResolution,
+    connect(monitors.first(), &Monitor::currentModeChanged, this,
+            &ResolutionDetailPage::refreshCurrentResolution,
             static_cast<Qt::ConnectionType>(Qt::QueuedConnection | Qt::UniqueConnection));
 }
 
 void ResolutionDetailPage::refreshCurrentResolution(const Resolution &)
 {
-    if (!m_model) {
+    if (!m_model)
         return;
-    }
 
     const Monitor *mon = m_model->monitorList().first();
-    if (!mon) {
+    if (!mon)
         return;
-    }
 
     auto list = mon->modeList();
     int idx = list.indexOf(mon->currentMode());

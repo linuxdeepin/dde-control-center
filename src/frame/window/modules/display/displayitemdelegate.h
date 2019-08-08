@@ -31,7 +31,6 @@ namespace DCC_NAMESPACE {
 class DisplayItemDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
-
 public:
     explicit DisplayItemDelegate(QObject *parent = 0);
 

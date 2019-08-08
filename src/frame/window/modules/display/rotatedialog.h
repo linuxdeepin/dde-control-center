@@ -42,13 +42,13 @@ namespace display {
 class RotateDialog : public QDialog
 {
     Q_OBJECT
-
 public:
     explicit RotateDialog(dcc::display::Monitor *mon, QWidget *parent = 0);
     ~RotateDialog();
 
 public:
     void setModel(dcc::display::DisplayModel *model);
+
 Q_SIGNALS:
     void requestRotate(dcc::display::Monitor *mon, const quint16 nextValue);
     void requestRotateAll(const quint16 nextValue);
@@ -60,6 +60,7 @@ protected:
 
 private:
     void rotate();
+
 private:
     bool m_changed{false};
     dcc::display::DisplayModel *m_model{nullptr};

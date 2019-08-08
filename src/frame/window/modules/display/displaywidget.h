@@ -1,13 +1,9 @@
 /*
  * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
- * Author:     sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
+ * Author:     lq <longqi_cm@deepin.com>
  *
- * Maintainer: sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
+ * Maintainer: lq <longqi_cm@deepin.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,14 +22,15 @@
 #ifndef DISPLAYWIDGET_H_V20
 #define DISPLAYWIDGET_H_V20
 
-#include "modules/display/iconbutton.h"
-#include "modules/modulewidget.h"
 #include "window/namespace.h"
 
 #include <dimagebutton.h>
 
+QT_BEGIN_NAMESPACE
 class QListView;
 class QStandardItemModel;
+class QVBoxLayout;
+QT_END_NAMESPACE
 
 namespace dcc {
 
@@ -51,7 +48,7 @@ class DisplayWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit DisplayWidget(QWidget *parent = 0);
+    explicit DisplayWidget(QWidget *parent = nullptr);
 
 public:
     void setModel(dcc::display::DisplayModel *model);
