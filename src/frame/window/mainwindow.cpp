@@ -51,6 +51,14 @@ using namespace DCC_NAMESPACE;
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
+    , m_contentLayout(nullptr)
+    , m_rightContentLayout(nullptr)
+    , m_navView(nullptr)
+    , m_rightView(nullptr)
+    , m_navModel(nullptr)
+    , m_bIsFinalWidget(false)
+    , m_bIsFromSecondAddWidget(false)
+    , m_topWidget(nullptr)
 {
     //Initialize view and layout structure
     QWidget *content = new QWidget(this);
@@ -61,6 +69,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_navView = new NavWinView(this);
 
     m_contentLayout->addWidget(m_navView);
+    m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_rightView);
 
     m_contentLayout->setContentsMargins(0, 0, 0, 0);
@@ -75,7 +84,7 @@ MainWindow::MainWindow(QWidget *parent)
     //Initialize top page view and model
     m_navModel = new QStandardItemModel(m_navView);
     m_navView->setModel(m_navModel);
-
+    m_navView->setMinimumWidth(first_widget_min_width);
     connect(m_navView, &NavWinView::clicked, this, &MainWindow::onFirstItemClick);
 
     QTimer::singleShot(0, this, &MainWindow::initAllModule);
@@ -149,13 +158,11 @@ void MainWindow::popWidget()
 }
 
 //Only used to from third page to top page can use it
-void MainWindow::popAllWidgets()
+void MainWindow::popAllWidgets(int place)
 {
-    for (int pageCount = m_contentStack.count(); pageCount > 0; pageCount--) {
+    for (int pageCount = m_contentStack.count(); pageCount > place; pageCount--) {
         popWidget();
     }
-
-    memset(&m_lastThirdPage, 0, sizeof(m_lastThirdPage));
 }
 
 void MainWindow::popWidget(ModuleInterface *const inter)
@@ -174,8 +181,8 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
-    if (m_topPage) {
-        m_topPage->setFixedSize(event->size());
+    if (m_topWidget) {
+        m_topWidget->setFixedSize(event->size());
     }
 }
 
@@ -197,12 +204,22 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
 
 void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w, PushType type)
 {
+    if (!inter)  {
+        qWarning() << Q_FUNC_INFO << " inter is nullptr";
+        return;
+    }
+
+    if (!w)  {
+        qWarning() << Q_FUNC_INFO << " widget is nullptr";
+        return;
+    }
+
     switch (type) {
     case Replace:
         replaceThirdWidget(inter, w);
         break;
     case CoverTop:
-        pushTopWidget(inter, w);
+        judgeTopWidgetPlace(inter, w);
         break;
     case Normal:
     default:
@@ -218,18 +235,11 @@ void MainWindow::replaceThirdWidget(ModuleInterface *const inter, QWidget *const
 {
     if (m_contentStack.count() != 2)    return;
 
-    //if need pop the replace widget and set old widget : link the function of slotfunc
-    auto slotfunc = [ = ]() {
-        popWidget();
+    linkReplaceBackSignal(inter->name(), w);
 
-        if (m_lastThirdPage.second) {
-            m_lastThirdPage.second->setVisible(true);
-            pushNormalWidget(m_lastThirdPage.first, m_lastThirdPage.second);
-        }
-
-        memset(&m_lastThirdPage, 0, sizeof(m_lastThirdPage));
-    };
-    Q_UNUSED(slotfunc)
+    if (m_lastThirdPage.second) {
+        memset(&m_lastThirdPage, 0, sizeof (m_lastThirdPage));
+    }
 
     QPair<ModuleInterface *, QWidget *>widget = m_contentStack.pop();
     m_lastThirdPage.first = widget.first;
@@ -237,6 +247,7 @@ void MainWindow::replaceThirdWidget(ModuleInterface *const inter, QWidget *const
     m_lastThirdPage.second->setVisible(false);
 
     w->setParent(m_lastThirdPage.second);//the replace widget follow the old third widget to delete
+    m_lastThirdPage.second->setParent(m_contentStack.top().second);
     pushNormalWidget(inter, w);
 }
 
@@ -263,23 +274,125 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
     topWidget->setParent(this);
     topWidget->setVisible(true);
 
-    m_topPage = topWidget;
+    if (m_topWidget) {
+        m_topWidget->deleteLater();
+        m_topWidget = nullptr;
+    }
+
+    m_topWidget = topWidget;
+}
+
+void MainWindow::pushFinalWidget(ModuleInterface *const inter, QWidget *const w)
+{
+    QPalette pe;
+    pe.setColor(QPalette::Background, QColor(0, 0, 0, 255));
+    w->setPalette(pe);
+    w->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+
+    linkTopBackSignal(inter->name(), w);//link back signal
+
+    w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_contentStack.push({inter, w});
+    m_rightContentLayout->addWidget(w);
+
+    if (m_contentStack.size() == 2) {
+        m_contentStack.at(0).second->setMinimumWidth(second_widget_min_width);
+        m_contentStack.at(1).second->setMinimumWidth(third_widget_min_width);
+    }
+}
+
+void MainWindow::linkReplaceBackSignal(QString moduleName, QWidget *w)
+{
+    //if need pop the replace widget and set old widget : link the function of slotfunc
+    auto slotfunc = [ = ]() {
+        popWidget();
+
+        if (m_lastThirdPage.second) {
+            m_lastThirdPage.second->setVisible(true);
+            pushWidget(m_lastThirdPage.first, m_lastThirdPage.second);
+        }
+
+        memset(&m_lastThirdPage, 0, sizeof(m_lastThirdPage));
+    };
+
+    Q_UNUSED(slotfunc)
+    Q_UNUSED(moduleName)
+    Q_UNUSED(w)
+
+    //link widget backButton , For example like down place
+//    if (moduleName == tr("xxx")) {
+//        DCC_NAMESPACE::xxx::xxxWidget *widget = dynamic_cast<DCC_NAMESPACE::xxx::xxxWidget *>(w);
+//        connect(widget, &DCC_NAMESPACE::xxx::xxxWidget::notifyBackpage, this, slotDeletefunc);
+//    }
 }
 
 void MainWindow::linkTopBackSignal(QString moduleName, QWidget *w)
 {
+    auto slotDeletefunc = [ = ]() {
+        if (m_bIsFinalWidget) {
+            popWidget();
+        } else {
+            if (m_topWidget) {
+                m_topWidget->deleteLater();
+                m_topWidget = nullptr;
+            }
+        }
+    };
+
     //link update::MirrorsWidget backButton
     if (moduleName == tr("update")) {
         DCC_NAMESPACE::update::MirrorsWidget *widget = dynamic_cast<DCC_NAMESPACE::update::MirrorsWidget *>(w);
-        connect(widget, &DCC_NAMESPACE::update::MirrorsWidget::notifyBackpage, this, [&]() {
-            if (m_topPage) {
-                m_topPage->deleteLater();
-                m_topPage = nullptr;
-            }
-        });
+        connect(widget, &DCC_NAMESPACE::update::MirrorsWidget::notifyBackpage, this, slotDeletefunc);
     }
 
     //if some module need from topRight widget back normal widget need imitate up
+}
+
+void MainWindow::judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *const w)
+{
+    int totalWidth = m_navView->minimumWidth() + 10;//10 is first and second widget space
+    int contentCount = m_contentStack.count();
+
+    if (m_bIsFinalWidget) {
+        m_bIsFinalWidget = false;
+    }
+
+    for (int count = 0; count < contentCount; count++) {
+        totalWidth += m_contentStack.at(count).second->minimumWidth();
+    }
+
+    //according current content widgets count to calculate use top widget or right widget
+    switch (contentCount) {
+    case 1: //from second widget to add top/right widget (like update setting : source list)
+        if (totalWidth < widget_total_min_width) {
+            m_bIsFinalWidget = true;
+            m_bIsFromSecondAddWidget = true;//save from pushWidget of CoverTop type to add final(right) widget
+        }
+        break;
+    case 2: //from third widget to add top/right widget
+        if (totalWidth < widget_total_min_width) {
+            m_bIsFinalWidget = true;
+        }
+
+        if (m_bIsFromSecondAddWidget) {
+            popAllWidgets(1);//pop the final widget, need distinguish
+            m_bIsFromSecondAddWidget = false;
+        }
+        break;
+    case 3: //replace final widget to new top/right widget
+        m_bIsFinalWidget = true;
+        popAllWidgets(2);//move fourth widget(m_navView not in it , other level > 2)
+        break;
+    default:
+        qWarning() << Q_FUNC_INFO << " error widget content conut : " << contentCount;
+        return;
+    }
+
+    if (m_bIsFinalWidget) {
+        pushFinalWidget(inter, w);
+    } else {
+        pushTopWidget(inter, w);
+    }
 }
 
 void MainWindow::onFirstItemClick(const QModelIndex &index)
@@ -304,12 +417,7 @@ void MainWindow::pushNormalWidget(ModuleInterface *const inter, QWidget *const w
 {
     //When there is already a third-level page, first remove the previous third-level page,
     //then add a new level 3 page (guaranteed that there is only one third-level page)
-    if (m_contentStack.size() == 2) {
-        QWidget *widget = m_contentStack.pop().second;
-        m_rightContentLayout->removeWidget(widget);
-        widget->setParent(nullptr);
-        widget->deleteLater();
-    }
+    popAllWidgets(1);
 
     if (m_contentStack.isEmpty()) {//Add the first second-level page, the top page changes from Icon to list (top page is not added to m_contentStack)
         m_navView->setViewMode(QListView::ListMode);
@@ -324,4 +432,9 @@ void MainWindow::pushNormalWidget(ModuleInterface *const inter, QWidget *const w
 
     m_contentStack.push({inter, w});
     m_rightContentLayout->addWidget(w);
+
+    if (m_contentStack.size() == 2) {
+        m_contentStack.at(0).second->setMinimumWidth(second_widget_min_width);
+        m_contentStack.at(1).second->setMinimumWidth(third_widget_min_width);
+    }
 }

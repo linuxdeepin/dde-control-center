@@ -186,7 +186,7 @@ int main(int argc, char *argv[])
     app.setStyle("chameleon");
     DCC_NAMESPACE::MainWindow mw;
 
-    mw.resize(500, 500);
+    mw.resize(510, 510);
     mw.show();
 #else
     const QString &reqModule = parser.value(moduleOption);

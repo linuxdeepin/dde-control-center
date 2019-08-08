@@ -37,6 +37,11 @@ QT_END_NAMESPACE
 class NavWinView;
 class QStandardItemModel;
 
+const int first_widget_min_width = 190;
+const int second_widget_min_width = 250;
+const int third_widget_min_width = 370;
+const int widget_total_min_width = 820;
+
 namespace DCC_NAMESPACE {
 class MainWindow : public DMainWindow, public FrameProxyInterface
 {
@@ -62,7 +67,9 @@ private:
     QList<QPair<ModuleInterface *, QString>> m_modules;
     QList<ModuleInterface *> m_initList;
     QPair<ModuleInterface *, QWidget *> m_lastThirdPage;
-    QWidget *m_topPage;
+    bool m_bIsFinalWidget;//used to distinguish the widget is final or top : fianl pop in popWidget , top pop by m_topWidget
+    bool m_bIsFromSecondAddWidget;//used to save the third widget is load from final widget
+    QWidget *m_topWidget;
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);
@@ -73,12 +80,15 @@ private:
     void initAllModule();
     void modulePreInitialize();
     void popWidget();
-    void popAllWidgets();
+    void popAllWidgets(int place = 0);//place is Remain count
     void onFirstItemClick(const QModelIndex &index);
     void pushNormalWidget(ModuleInterface *const inter, QWidget *const w);  //exchange third widget : push new widget
     void replaceThirdWidget(ModuleInterface *const inter, QWidget *const w);  //replace(hide) third widget : Can recover
     void pushTopWidget(ModuleInterface *const inter, QWidget *const w);  //Covere the top
+    void pushFinalWidget(ModuleInterface *const inter, QWidget *const w);  //Insert after the finalWidget
+    void linkReplaceBackSignal(QString moduleName, QWidget *w);
     void linkTopBackSignal(QString moduleName, QWidget *w);
+    void judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *const w);
 };
 }
 
