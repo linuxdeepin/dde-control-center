@@ -23,7 +23,7 @@
 #include "systeminfowidget.h"
 #include "nativeinfowidget.h"
 #include "versionprotocolwidget.h"
-
+#include "userlicensewidget.h"
 #include "modules/systeminfo/systeminfowork.h"
 #include "modules/systeminfo/systeminfomodel.h"
 
@@ -61,6 +61,7 @@ QWidget *SystemInfoModule::moduleWidget()
     SystemInfoWidget *w = new SystemInfoWidget;
     connect(w, &SystemInfoWidget::requestShowAboutNative, this, &SystemInfoModule::onShowAboutNativePage);
     connect(w, &SystemInfoWidget::requestShowVersionProtocol, this, &SystemInfoModule::onVersionProtocolPage);
+    connect(w, &SystemInfoWidget::requestShowEndUserLicenseAgreement, this, &SystemInfoModule::onShowEndUserLicenseAgreementPage);
     return w;
 }
 
@@ -83,5 +84,11 @@ void SystemInfoModule::onShowAboutNativePage()
 void SystemInfoModule::onVersionProtocolPage()
 {
     VersionProtocolWidget *w = new VersionProtocolWidget;
+    m_frameProxy->pushWidget(this, w);
+}
+
+void SystemInfoModule::onShowEndUserLicenseAgreementPage()
+{
+    UserLicenseWidget *w = new UserLicenseWidget;
     m_frameProxy->pushWidget(this, w);
 }
