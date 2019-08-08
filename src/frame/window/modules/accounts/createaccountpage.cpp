@@ -30,7 +30,7 @@
 #include <QDebug>
 #include <QSettings>
 #include <QApplication>
-#include <QMap>
+#include <QTimer>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -42,12 +42,6 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     , m_mainContentLayout(new QVBoxLayout)
     , m_inputLayout(new QVBoxLayout)
     , m_selectLayout(new QHBoxLayout)
-    , m_nameLayout(new QVBoxLayout)
-    , m_fullnameLayout(new QVBoxLayout)
-    , m_passwdLayout(new QVBoxLayout)
-    , m_repeatpasswdLayout(new QVBoxLayout)
-    , m_passwdbtnLayout(new QHBoxLayout)
-    , m_repeatpasswdbtnLayout(new QHBoxLayout)
     , m_avatarListWidget(new AvatarListWidget)
     , m_nameLabel(new QLabel)
     , m_fullnameLabel(new QLabel)
@@ -55,13 +49,11 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     , m_repeatpasswdLabel(new QLabel)
     , m_nameEdit(new QLineEdit)
     , m_fullnameEdit(new QLineEdit)
-    , m_passwdEdit(new QLineEdit)
-    , m_repeatpasswdEdit(new QLineEdit)
+    , m_passwdEdit(new DPasswordEdit)
+    , m_repeatpasswdEdit(new DPasswordEdit)
     , m_cancleBtn(new QPushButton)
     , m_addBtn(new QPushButton)
     , m_errorTip(new ErrorTip)
-    , m_passwdBtn(new DImageButton)
-    , m_repeatpasswdBtn(new DImageButton)
 {
     initWidgets();
     initDatas();
@@ -74,47 +66,29 @@ CreateAccountPage::~CreateAccountPage()
 
 void CreateAccountPage::initWidgets()
 {
-    m_passwdbtnLayout->setMargin(0);
-    m_passwdbtnLayout->setSpacing(5);
+    m_inputLayout->setSpacing(3);
 
-    m_repeatpasswdbtnLayout->setMargin(0);
-    m_repeatpasswdbtnLayout->setSpacing(5);
+    m_inputLayout->addWidget(m_nameLabel);
+    m_inputLayout->addWidget(m_nameEdit);
+
+    m_inputLayout->addWidget(m_fullnameLabel);
+    m_inputLayout->addWidget(m_fullnameEdit);
+
+    m_inputLayout->addWidget(m_passwdLabel);
+    m_inputLayout->addWidget(m_passwdEdit);
+
+    m_inputLayout->addWidget(m_repeatpasswdLabel);
+    m_inputLayout->addWidget(m_repeatpasswdEdit);
+
+    m_selectLayout->addWidget(m_cancleBtn, 0, Qt::AlignCenter);
+    m_selectLayout->addWidget(m_addBtn, 0, Qt::AlignCenter);
 
     m_mainContentLayout->addWidget(m_avatarListWidget);
     m_mainContentLayout->addLayout(m_inputLayout);
     m_mainContentLayout->addLayout(m_selectLayout);
     m_mainContentLayout->addStretch();
 
-    m_inputLayout->addLayout(m_nameLayout);
-    m_inputLayout->addLayout(m_fullnameLayout);
-    m_inputLayout->addLayout(m_passwdLayout);
-    m_inputLayout->addLayout(m_repeatpasswdLayout);
-
-    m_selectLayout->addWidget(m_cancleBtn, 0, Qt::AlignCenter);
-    m_selectLayout->addWidget(m_addBtn, 0, Qt::AlignCenter);
-
-    m_nameLayout->addWidget(m_nameLabel);
-    m_nameLayout->addWidget(m_nameEdit);
-
-    m_fullnameLayout->addWidget(m_fullnameLabel);
-    m_fullnameLayout->addWidget(m_fullnameEdit);
-
-    m_passwdbtnLayout->addWidget(m_passwdEdit);
-    m_passwdbtnLayout->addWidget(m_passwdBtn);
-
-    m_repeatpasswdbtnLayout->addWidget(m_repeatpasswdEdit);
-    m_repeatpasswdbtnLayout->addWidget(m_repeatpasswdBtn);
-
-    m_passwdLayout->addWidget(m_passwdLabel);
-    m_passwdLayout->addLayout(m_passwdbtnLayout);
-
-    m_repeatpasswdLayout->addWidget(m_repeatpasswdLabel);
-    m_repeatpasswdLayout->addLayout(m_repeatpasswdbtnLayout);
-
     setLayout(m_mainContentLayout);
-
-    m_editButtonMap.insert(m_passwdBtn, m_passwdEdit);
-    m_editButtonMap.insert(m_repeatpasswdBtn, m_repeatpasswdEdit);
 
     m_errorTip->setWindowFlags(Qt::ToolTip);
     m_errorTip->hide();
@@ -122,40 +96,31 @@ void CreateAccountPage::initWidgets()
 
 void CreateAccountPage::initDatas()
 {
-    for (auto it = m_editButtonMap.begin(); it != m_editButtonMap.end(); it++) {
-        connect(it.key(), &DImageButton::clicked, this, &CreateAccountPage::updateLineEditDisplayStyle, Qt::QueuedConnection);
-        Q_EMIT it.key()->clicked();
-    }
-
     connect(m_cancleBtn, &QPushButton::clicked, this, &CreateAccountPage::requestBack);
     connect(m_addBtn, &QPushButton::clicked, this, &CreateAccountPage::createUser);
-    connect(m_nameEdit, &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
-    connect(m_fullnameEdit, &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
-    connect(m_passwdEdit, &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
-    connect(m_repeatpasswdEdit, &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
 
-    connect(m_passwdEdit, &QLineEdit::editingFinished, this, [ = ] {
-        onEditFinished<QLineEdit *>(m_passwdEdit);
+    connect(m_passwdEdit, &DPasswordEdit::editingFinished, this, [ = ] {
+        onEditFinished(m_passwdEdit);
     });
 
-    connect(m_repeatpasswdEdit, &QLineEdit::editingFinished, this, [ = ] {
+    connect(m_repeatpasswdEdit, &DPasswordEdit::editingFinished, this, [ = ] {
         if (!m_errorTip->isVisible())
         {
-            onEditFinished<QLineEdit *>(m_repeatpasswdEdit);
+            onEditFinished(m_repeatpasswdEdit);
         }
     });
 
-    m_nameLabel->setText("账户名");
-    m_nameEdit->setPlaceholderText("必填");
-    m_fullnameLabel->setText("全名");
-    m_fullnameEdit->setPlaceholderText("必填");
-    m_passwdLabel->setText("密码");
-    m_passwdEdit->setPlaceholderText("必填");
-    m_repeatpasswdLabel->setText("重复密码");
-    m_repeatpasswdEdit->setPlaceholderText("必填");
+    m_nameLabel->setText(tr("Username"));
+    m_nameEdit->setPlaceholderText(tr("Necessary Filling"));
+    m_fullnameLabel->setText(tr("Full Name"));
+    m_fullnameEdit->setPlaceholderText(tr("Necessary Filling"));
+    m_passwdLabel->setText(tr("Password"));
+    m_passwdEdit->setPlaceholderText(tr("Necessary Filling"));
+    m_repeatpasswdLabel->setText(tr("Repeat Password"));
+    m_repeatpasswdEdit->setPlaceholderText(tr("Necessary Filling"));
 
-    m_cancleBtn->setText("取消");
-    m_addBtn->setText("添加");
+    m_cancleBtn->setText(tr("Cancle"));
+    m_addBtn->setText(tr("Add"));
 }
 
 void CreateAccountPage::setModel(User *user)
@@ -168,15 +133,15 @@ void CreateAccountPage::setModel(User *user)
 void CreateAccountPage::createUser()
 {
     if (m_nameEdit->text().isEmpty()) {
-        showUsernameErrorTip(tr("用户名不能为空"));
+        showErrorTip(m_nameEdit, tr("Username cannot be empty"));
         return;
     }
     if (m_passwdEdit->text().isEmpty()) {
-        showPasswordEmptyErrorTip(tr("密码不能为空"));
+        showErrorTip(m_passwdEdit, tr("Password cannot be empty"));
         return;
     }
     if (m_passwdEdit->text() != m_repeatpasswdEdit->text()) {
-        showPasswordMatchErrorTip(tr("2次输入的密码不一致"));
+        showErrorTip(m_repeatpasswdEdit, tr("Passwords do not match"));
         return;
     }
 
@@ -231,78 +196,40 @@ bool CreateAccountPage::containsChar(const QString &password, const QString &val
     return false;
 }
 
-void CreateAccountPage::showUsernameErrorTip(const QString &error)
+void CreateAccountPage::showErrorTip(QLineEdit *edit, const QString &error)
 {
-    QPoint globalStart = m_nameEdit->mapToGlobal(QPoint(0, 0));
+    QPoint globalStart = edit->mapToGlobal(QPoint(0, 0));
     m_errorTip->setText(error);
-    m_errorTip->show(globalStart.x() + m_nameEdit->width() / 2,
-                     globalStart.y() + m_nameEdit->height() / 2 + 10);
-}
-
-void CreateAccountPage::showUserfullnameErrorTip(const QString &error)
-{
-    QPoint globalStart = m_fullnameEdit->mapToGlobal(QPoint(0, 0));
-    m_errorTip->setText(error);
-    m_errorTip->show(globalStart.x() + m_fullnameEdit->width() / 2,
-                     globalStart.y() + m_fullnameEdit->height() / 2 + 10);
-}
-
-void CreateAccountPage::showPasswordEmptyErrorTip(const QString &error)
-{
-    QPoint globalStart = m_passwdEdit->mapToGlobal(QPoint(0, 0));
-    m_errorTip->setText(error);
-    m_errorTip->show(globalStart.x() + m_passwdEdit->width() / 2,
-                     globalStart.y() + m_passwdEdit->height() / 2 + 10);
-}
-
-void CreateAccountPage::showPasswordMatchErrorTip(const QString &error)
-{
-    QPoint globalStart = m_repeatpasswdEdit->mapToGlobal(QPoint(0, 0));
-    m_errorTip->setText(error);
-    m_errorTip->show(globalStart.x() + m_repeatpasswdEdit->width() / 2,
-                     globalStart.y() + m_repeatpasswdEdit->height() / 2 + 10);
-}
-
-void CreateAccountPage::updateLineEditDisplayStyle()
-{
-    DImageButton* button = qobject_cast<DImageButton*>(sender());
-    QLineEdit* edit = m_editButtonMap[button];
-    const bool isPasswordMode = edit->echoMode() == QLineEdit::Password;
-
-    edit->setEchoMode(isPasswordMode ? QLineEdit::Normal : QLineEdit::Password);
-
-    button->setNormalPic(QString(":/widgets/themes/dark/icons/password_%1_normal.svg").arg(isPasswordMode ? "show" : "hide"));
-    button->setHoverPic(QString(":/widgets/themes/dark/icons/password_%1_hover.svg").arg(isPasswordMode ? "show" : "hide"));
-    button->setPressPic(QString(":/widgets/themes/dark/icons/password_%1_press.svg").arg(isPasswordMode ? "show" : "hide"));
+    m_errorTip->show(globalStart.x() + edit->width() / 2,
+                     globalStart.y() + edit->height() / 2 + 10);
+    QTimer::singleShot(1.5 * 1000, this, [&]() {
+        m_errorTip->hide();
+    });
 }
 
 void CreateAccountPage::setCreationResult(CreationResult *result)
 {
-    qDebug() << Q_FUNC_INFO << "result->type()=" << result->type();
     switch (result->type()) {
     case CreationResult::NoError:
         break;
     case CreationResult::UserNameError:
-        showUsernameErrorTip(result->message());
+        showErrorTip(m_nameEdit, result->message());
         break;
     case CreationResult::PasswordMatchError:
-        showPasswordMatchErrorTip(result->message());
+        showErrorTip(m_nameEdit, result->message());
         break;
     case CreationResult::PasswordError:
-        showPasswordEmptyErrorTip(result->message());
+        showErrorTip(m_repeatpasswdEdit, result->message());
         break; // reserved for future server edition feature.
     case CreationResult::UnknownError:
         qWarning() << "error encountered creating user: " << result->message();
-        break;
-    default:
         break;
     }
 
     result->deleteLater();
 }
 
-template <typename T>
-void CreateAccountPage::onEditFinished(T t)
+void CreateAccountPage::onEditFinished(DPasswordEdit *edit)
 {
     QSettings setting("/etc/deepin/dde-control-center.conf", QSettings::IniFormat);
     setting.beginGroup("Password");
@@ -310,17 +237,17 @@ void CreateAccountPage::onEditFinished(T t)
         return m_errorTip->hide();
     }
 
-    const QString &password = t->text();
+    const QString &password = edit->text();
     if (m_nameEdit->text().toLower() == password.toLower()) {
-        showPasswordEmptyErrorTip(tr("The password should be different from the username"));
+        showErrorTip(m_passwdEdit, tr("The password should be different from the username"));
         return;
     }
 
     if (!validatePassword(password)) {
-        if (t == m_passwdEdit) {
-            showPasswordEmptyErrorTip(tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"));
+        if (edit == m_passwdEdit) {
+            showErrorTip(m_passwdEdit, tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"));
         } else {
-            showPasswordMatchErrorTip(tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"));
+            showErrorTip(m_repeatpasswdEdit, tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"));
         }
     } else {
         m_errorTip->hide();

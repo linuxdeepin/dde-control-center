@@ -27,21 +27,16 @@
 #include "avatarlistwidget.h"
 #include "widgets/lineeditwidget.h"
 
-#include <dimagebutton.h>
+#include <dpasswordedit.h>
 
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
-
 class QVBoxLayout;
 class QHBoxLayout;
 class QPushButton;
 class QLabel;
 class QLineEdit;
-
-template <class Key, class T>
-class QMap;
-
 QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
@@ -58,18 +53,10 @@ public:
     void initDatas();
     void setModel(dcc::accounts::User *user);
     void createUser();
-
-    template <typename T>
-    void onEditFinished(T t);
+    void onEditFinished(DPasswordEdit *edit);
     bool validatePassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
-
-    void showUsernameErrorTip(const QString &error);
-    void showUserfullnameErrorTip(const QString &error);
-    void showPasswordEmptyErrorTip(const QString &error);
-    void showPasswordMatchErrorTip(const QString &error);
-
-    void updateLineEditDisplayStyle();
+    void showErrorTip(QLineEdit *edit, const QString &error);
 
 Q_SIGNALS:
     void requestCreateUser(const dcc::accounts::User *user);
@@ -83,12 +70,6 @@ private:
     QVBoxLayout *m_mainContentLayout;
     QVBoxLayout *m_inputLayout;
     QHBoxLayout *m_selectLayout;
-    QVBoxLayout *m_nameLayout;
-    QVBoxLayout *m_fullnameLayout;
-    QVBoxLayout *m_passwdLayout;
-    QVBoxLayout *m_repeatpasswdLayout;
-    QHBoxLayout *m_passwdbtnLayout;
-    QHBoxLayout *m_repeatpasswdbtnLayout;
     DCC_NAMESPACE::accounts::AvatarListWidget *m_avatarListWidget;
     QLabel *m_nameLabel;
     QLabel *m_fullnameLabel;
@@ -96,14 +77,11 @@ private:
     QLabel *m_repeatpasswdLabel;
     QLineEdit *m_nameEdit;
     QLineEdit *m_fullnameEdit;
-    QLineEdit *m_passwdEdit;
-    QLineEdit *m_repeatpasswdEdit;
+    Dtk::Widget::DPasswordEdit *m_passwdEdit;
+    Dtk::Widget::DPasswordEdit *m_repeatpasswdEdit;
     QPushButton *m_cancleBtn;
     QPushButton *m_addBtn;
     dcc::widgets::ErrorTip *m_errorTip;
-    Dtk::Widget::DImageButton *m_passwdBtn;
-    Dtk::Widget::DImageButton *m_repeatpasswdBtn;
-    QMap<Dtk::Widget::DImageButton*, QLineEdit*> m_editButtonMap;
 };
 
 }
