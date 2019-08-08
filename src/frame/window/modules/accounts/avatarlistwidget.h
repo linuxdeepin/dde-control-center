@@ -24,11 +24,13 @@
 #include "window/namespace.h"
 #include <QWidget>
 
+QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 class QLabel;
 class QListView;
 class QStandardItemModel;
 class QModelIndex;
+QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 namespace accounts {
@@ -52,6 +54,7 @@ private:
     QListView *m_avatarListView;
     QStandardItemModel *m_avatarItemModel;
     AvatarItemDelegate *m_avatarItemDelegate;
+    QList<QString> m_iconpathList;
 };
 
 }

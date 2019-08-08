@@ -49,7 +49,6 @@ public:
 
     // set item size
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
-
 };
 
 }

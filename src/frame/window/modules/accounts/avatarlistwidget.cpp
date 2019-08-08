@@ -30,8 +30,8 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QLabel>
-#include <QDebug>
-
+#include <QPixmap>
+#include <QList>
 
 using namespace DCC_NAMESPACE::accounts;
 
@@ -44,7 +44,6 @@ AvatarListWidget::AvatarListWidget(QWidget *parent)
 {
     initWidgets();
     initDatas();
-
 }
 
 void AvatarListWidget::initWidgets()
@@ -68,7 +67,8 @@ void AvatarListWidget::initDatas()
     for (int i = 0; i < 14; i++) {
         QStandardItem *item = new QStandardItem();
         QString iconpath = QString::asprintf("/var/lib/AccountsService/icons/%d.png", i + 1);
-        item->setData(QVariant::fromValue(iconpath), Qt::UserRole + 1);
+        m_iconpathList.push_back(iconpath);
+        item->setData(QVariant::fromValue(QPixmap(iconpath)), Qt::DecorationRole);
         m_avatarItemModel->appendRow(item);
     }
 
@@ -78,6 +78,14 @@ void AvatarListWidget::initDatas()
 
 void AvatarListWidget::onItemClicked(const QModelIndex &index)
 {
-    QString iconPath = index.data(Qt::UserRole + 1).value<QString>();
-    Q_EMIT requestSetAvatar(iconPath);
+    for (int i = 0; i < m_avatarItemModel->rowCount(); ++i) {
+        QStandardItem *item = m_avatarItemModel->item(i);
+        if (i == index.row()) {
+            item->setCheckState(Qt::Checked);
+            Q_EMIT requestSetAvatar(m_iconpathList.at(i));
+        } else {
+            item->setCheckState(Qt::Unchecked);
+        }
+    }
+    update();
 }

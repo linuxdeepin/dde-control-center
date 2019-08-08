@@ -21,14 +21,19 @@
 
 #include "avataritemdelegate.h"
 
+#include <DStyle>
+
 #include <QObject>
 #include <QStyledItemDelegate>
 #include <QStyleOptionViewItem>
 #include <QModelIndex>
 #include <QPainter>
+#include <QPixmap>
+#include <QPen>
 #include <QSize>
 #include <QDebug>
 
+DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE::accounts;
 
 AvatarItemDelegate::AvatarItemDelegate(QObject *parent)
@@ -40,16 +45,28 @@ AvatarItemDelegate::AvatarItemDelegate(QObject *parent)
 void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     if (index.isValid()) {
-        QString iconPath = index.data(Qt::UserRole+1).value<QString>();
+        int borderWidth = option.widget->style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), &option, nullptr);
+        int borderSpacing = option.widget->style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), &option, nullptr);
+        const QMargins margins(borderWidth + borderSpacing, borderWidth + borderSpacing, borderWidth + borderSpacing, borderWidth + borderSpacing);
+        painter->setRenderHint(QPainter::Antialiasing);
+        QPixmap pixmap = index.data(Qt::DecorationRole).value<QPixmap>();
         QPainterPath path;
-        path.addEllipse(option.rect);
+        path.addEllipse(option.rect.marginsRemoved(margins));
         painter->setClipPath(path);
-        painter->drawPixmap(option.rect, QPixmap(iconPath));
+        painter->drawPixmap(option.rect.marginsRemoved(margins), pixmap);
+        painter->setClipping(false);
+        if (index.data(Qt::CheckStateRole).toInt() == Qt::Checked) {
+            painter->setPen(QPen(option.palette.highlight(), borderWidth));
+            painter->setBrush(Qt::NoBrush);
+            painter->drawEllipse(option.rect.adjusted(1, 1, -1, -1));
+        }
     }
 }
 
 QSize AvatarItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    Q_UNUSED(option)
     Q_UNUSED(index)
-    return QSize(50, 50);
+
+    return QSize(74, 74);
 }
