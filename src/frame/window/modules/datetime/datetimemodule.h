@@ -23,6 +23,7 @@
 #include "window/interface/moduleinterface.h"
 
 #include <QObject>
+
 #include <types/zoneinfo.h>
 
 namespace dcc {
@@ -48,7 +49,6 @@ public:
         TIMESETTING,
         COUNT
     };
-
 
 public:
     DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent = nullptr);
@@ -83,7 +83,6 @@ public Q_SLOTS:
     void onPushWidget(const int &index);
     void onPopWidget();
     void updateSystemTimezone(const QString &timezone);
-
 };
 
 }// namespace datetime

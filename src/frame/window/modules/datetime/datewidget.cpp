@@ -19,10 +19,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "datewidget.h"
+#include "widgets/labels/normallabel.h"
 
 #include <QIntValidator>
 #include <QHBoxLayout>
 
+using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
 

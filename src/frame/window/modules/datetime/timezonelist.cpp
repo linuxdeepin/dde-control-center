@@ -28,6 +28,7 @@
 
 using namespace dcc;
 using namespace dcc::datetime;
+using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::datetime;
 
 TimezoneList::TimezoneList(QWidget *parent)

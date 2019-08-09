@@ -24,26 +24,24 @@
 #include "timezonecontentlist.h"
 
 #include <QWidget>
-#include <types/zoneinfo.h>
-#include <dimagebutton.h>
 #include <QVBoxLayout>
 
-namespace dcc {
-    namespace datetime {
-        class DatetimeModel;
-        class TimeZoneChooser;
-        class TimezoneItem;
-    }
+#include <types/zoneinfo.h>
+#include <dimagebutton.h>
 
-    namespace widgets {
-        class SettingsGroup;
-        class SettingsItem;
-        class SettingsHead;
-    }
+namespace dcc {
+namespace datetime {
+class DatetimeModel;
+class TimeZoneChooser;
+class TimezoneItem;
 }
 
-using namespace dcc::datetime;
-using namespace dcc::widgets;
+namespace widgets {
+class SettingsGroup;
+class SettingsItem;
+class SettingsHead;
+}
+}
 
 namespace DCC_NAMESPACE {
 namespace datetime {
@@ -56,13 +54,13 @@ public:
     explicit TimezoneList(QWidget *parent = nullptr);
     virtual ~TimezoneList();
 
-    TimezoneContentList* getTimezoneContentListPtr();
+    TimezoneContentList *getTimezoneContentListPtr();
 
 private:
     QVBoxLayout *m_centralLayout;
     DImageButton *m_addTimezoneButton;
-    SettingsGroup *m_headGroup;
-    SettingsHead *m_headItem;
+    dcc::widgets::SettingsGroup *m_headGroup;
+    dcc::widgets::SettingsHead *m_headItem;
     TimezoneContentList *m_contentList;
 
 Q_SIGNALS:

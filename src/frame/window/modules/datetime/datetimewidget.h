@@ -22,36 +22,32 @@
 
 #include "window/namespace.h"
 
-#include <QObject>
+#include <dimagebutton.h>
+
 #include <QVBoxLayout>
 #include <QListView>
 #include <QLineEdit>
 #include <QLabel>
 #include <QEvent>
 #include <QFrame>
-#include <dimagebutton.h>
 
 class QStandardItem;
 
 namespace dcc {
-    namespace widgets {
+namespace widgets {
 
-        class SwitchWidget;
-        class SettingsItem;
+class SwitchWidget;
+class SettingsItem;
 
-        namespace labels {
-            class NormalLabel;
-        } //labels
-    } //widgets
+namespace labels {
+class NormalLabel;
+} //labels
+} //widgets
 
-        namespace datetime {
-            class DatetimeModel;
-        } //datetime
+namespace datetime {
+class DatetimeModel;
+} //datetime
 } //dcc
-
-using namespace dcc;
-using namespace dcc::datetime;
-using namespace dcc::widgets;
 
 namespace DCC_NAMESPACE {
 namespace datetime {

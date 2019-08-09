@@ -23,15 +23,15 @@
 #include "window/namespace.h"
 #include "widgets/settingsitem.h"
 
+#include <dimagebutton.h>
+
 #include <QObject>
 #include <QVBoxLayout>
 #include <QLineEdit>
 #include <QEvent>
 #include <QFrame>
-#include <dimagebutton.h>
 
 DWIDGET_USE_NAMESPACE
-using namespace dcc::widgets;
 
 namespace dcc {
 namespace datetime {
@@ -42,10 +42,9 @@ class DatetimeModel;
 namespace DCC_NAMESPACE {
 namespace datetime {
 
-class TimeWidget : public SettingsItem
+class TimeWidget : public dcc::widgets::SettingsItem
 {
     Q_OBJECT
-
 public:
     explicit TimeWidget(QFrame *parent = 0, bool bType = true);
 

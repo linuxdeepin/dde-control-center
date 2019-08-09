@@ -23,13 +23,13 @@
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
 
-#include <types/zoneinfo.h>
-#include <dimagebutton.h>
 #include <QWidget>
 #include <QVBoxLayout>
 
-namespace dcc {
+#include <types/zoneinfo.h>
+#include <dimagebutton.h>
 
+namespace dcc {
 namespace datetime {
 class DatetimeModel;
 class TimeZoneChooser;
@@ -42,14 +42,10 @@ class SettingsItem;
 }
 }
 
-using namespace dcc;
-using namespace dcc::datetime;
-using namespace dcc::widgets;
-
 namespace DCC_NAMESPACE {
 namespace datetime {
 
-class TimezoneContentList : public ContentWidget
+class TimezoneContentList : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
@@ -58,8 +54,8 @@ public:
 
 private:
     QVBoxLayout *m_centralLayout;
-    SettingsGroup *m_timezoneGroup;
-    QList<TimezoneItem *> m_zoneList;
+    dcc::widgets::SettingsGroup *m_timezoneGroup;
+    QList<dcc::datetime::TimezoneItem *> m_zoneList;
 
 Q_SIGNALS:
     void requestRemoveUserTimeZone(const ZoneInfo &zone);

@@ -25,10 +25,10 @@
 #include "timezonelist.h"
 #include "modules/datetime/timezone_dialog/timezone.h"
 #include "modules/datetime/timezone_dialog/timezonechooser.h"
-#include "timesetting.h"
 #include "datesettings.h"
 #include "modules/datetime/datesettings.h"
 
+using namespace dcc::datetime;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
 
@@ -48,9 +48,11 @@ void DatetimeModule::initialize()
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
 
+#ifndef DCC_DISABLE_TIMEZONE
     connect(this, &DatetimeModule::requestSetTimeZone, m_work, &DatetimeWork::setTimezone);
     connect(this, &DatetimeModule::requestRemoveUserTimeZone, m_work, &DatetimeWork::removeUserTimeZone);
     connect(this, &DatetimeModule::requestAddUserTimeZone, m_work, &DatetimeWork::addUserTimeZone);
+#endif
 }
 
 void DatetimeModule::reset()

@@ -22,12 +22,11 @@
 #pragma once
 
 #include "window/namespace.h"
+#include "widgets/contentwidget.h"
 
 #include <QWidget>
 
 #include <types/zoneinfo.h>
-
-#include "widgets/contentwidget.h"
 
 class QPushButton;
 
@@ -48,11 +47,6 @@ class TimeZoneChooser;
 }
 }
 
-using namespace dcc;
-using namespace dcc::widgets;
-using namespace dcc::datetime;
-
-
 namespace DCC_NAMESPACE {
 namespace datetime {
 
@@ -63,7 +57,6 @@ class DateWidget;
 class DateSettings : public QWidget
 {
     Q_OBJECT
-
 public:
     explicit DateSettings(QWidget *parent = 0);
     void setCurrentTimeZone(const ZoneInfo &info);
@@ -76,23 +69,20 @@ Q_SIGNALS:
 private Q_SLOTS:
     void onCancelButtonClicked();
     void onConfirmButtonClicked();
-
     void updateDayRange();
 
 public Q_SLOTS:
     void updateRealAutoSyncCheckState(const bool &state);
 
 private:
-    SettingsGroup *m_datetimeGroup;
-
+    dcc::widgets::SettingsGroup *m_datetimeGroup;
     ClockItem *m_clock;
-    SwitchWidget *m_autoSyncTimeSwitch;
+    dcc::widgets::SwitchWidget *m_autoSyncTimeSwitch;
     TimeWidget *m_timeHourWidget;
     TimeWidget *m_timeMinWidget;
     DateWidget *m_yearWidget;
     DateWidget *m_monthWidget;
     DateWidget *m_dayWidget;
-
     dcc::widgets::ButtonTuple *m_buttonTuple;
 };
 

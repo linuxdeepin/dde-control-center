@@ -28,14 +28,17 @@
 
 #include <QStandardItemModel>
 
+using namespace dcc;
+using namespace dcc::datetime;
+using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
 
 DatetimeWidget::DatetimeWidget(QWidget *parent)
     : QWidget(parent)
     , m_listview(new QListView)
-    , m_model(nullptr)
     , m_clockItem(new ClockItem)
+    , m_model(nullptr)
 {
     setObjectName("Datetime");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -56,7 +59,7 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
     auto model = new QStandardItemModel(this);
     model->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), "Timezone List"));
     model->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), "System Timezone")),
-          model->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "时间设置")),
+          model->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "Time Setting")),//时间设置
           m_listview->setModel(model);
 
     connect(m_listview, &QListView::pressed, this, &DatetimeWidget::onItemClieck);

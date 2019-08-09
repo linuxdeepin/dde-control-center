@@ -42,6 +42,10 @@
 #include "datewidget.h"
 #include "timewidget.h"
 
+using namespace dcc;
+using namespace dcc::widgets;
+using namespace dcc::datetime;
+
 namespace DCC_NAMESPACE {
 namespace datetime {
 

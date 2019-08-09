@@ -25,6 +25,9 @@
 #include "modules/datetime/timezone_dialog/timezone.h"
 #include "modules/datetime/timezone_dialog/timezonechooser.h"
 
+using namespace dcc;
+using namespace dcc::datetime;
+using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::datetime;
 
 TimezoneContentList::TimezoneContentList(QWidget *parent)

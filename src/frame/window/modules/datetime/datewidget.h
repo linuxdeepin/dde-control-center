@@ -22,22 +22,26 @@
 
 #include "window/namespace.h"
 #include "widgets/settingsitem.h"
-#include "widgets/labels/normallabel.h"
 
 #include <QObject>
 #include <QLineEdit>
 #include <QEvent>
+
 #include <dimagebutton.h>
 
 DWIDGET_USE_NAMESPACE
-using namespace dcc::widgets;
+
+namespace dcc {
+namespace widgets {
+class NormalLabel;
+}
+}
 
 namespace DCC_NAMESPACE {
 namespace datetime {
-class DateWidget : public SettingsItem
+class DateWidget : public dcc::widgets::SettingsItem
 {
     Q_OBJECT
-
 public:
     enum Type {
         Year,
@@ -50,7 +54,6 @@ public:
 
     int value() const;
     void setValue(const int &value);
-
     int minimum() const;
     int maximum() const;
     void setRange(int minimum, int maximum);
@@ -64,17 +67,14 @@ Q_SIGNALS:
 public Q_SLOTS:
     void slotAdd();
     void slotReduced();
-
     void fixup();
 
 private:
     Type m_type;
-
     int m_minimum;
     int m_maximum;
-
     QLineEdit *m_lineEdit;
-    NormalLabel *m_label;
+    dcc::widgets::NormalLabel *m_label;
     DImageButton *m_addBtn;
     DImageButton *m_reducedBtn;
 };
