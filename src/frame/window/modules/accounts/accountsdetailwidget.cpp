@@ -121,6 +121,8 @@ void AccountsDetailWidget::initWidgets()
     m_modifydelLayout->setSpacing(10);
     m_modifydelLayout->setMargin(3);
 
+    m_avatarListWidget->setUserModel(m_curUser);
+
     const bool isOnline = m_curUser->online();
     m_deleteAccount->setDisabled(isOnline);
     m_modifyPassword->setDisabled(!isOnline);
@@ -131,6 +133,7 @@ void AccountsDetailWidget::initWidgets()
 
 void AccountsDetailWidget::initDatas()
 {
+    connect(m_avatarListWidget, &AvatarListWidget::requestAddNewAvatar, this, &AccountsDetailWidget::requestAddNewAvatar);
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
     connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
 

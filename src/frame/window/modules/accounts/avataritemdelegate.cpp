@@ -20,6 +20,7 @@
  */
 
 #include "avataritemdelegate.h"
+#include "avatarlistwidget.h"
 
 #include <DStyle>
 
@@ -31,7 +32,7 @@
 #include <QPixmap>
 #include <QPen>
 #include <QSize>
-#include <QDebug>
+#include <QPoint>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE::accounts;
@@ -59,6 +60,11 @@ void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
             painter->setPen(QPen(option.palette.highlight(), borderWidth));
             painter->setBrush(Qt::NoBrush);
             painter->drawEllipse(option.rect.adjusted(1, 1, -1, -1));
+            return;
+        }
+        if (index.data(AvatarListWidget::AddAvatarRole).toBool() == true) {
+            painter->drawLine(QPoint(option.rect.width() / 2 + 15, option.rect.y() + 20), QPoint(option.rect.width() / 2 + 15, option.rect.y() + option.rect.height() - 20));
+            painter->drawLine(QPoint(35, option.rect.y() + option.rect.height() / 2), QPoint(option.rect.width() - 5, option.rect.y() + option.rect.height() / 2));
         }
     }
 }

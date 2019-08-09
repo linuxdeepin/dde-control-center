@@ -41,6 +41,7 @@ AvatarListWidget::AvatarListWidget(QWidget *parent)
     , m_avatarListView(new QListView())
     , m_avatarItemModel(new QStandardItemModel())
     , m_avatarItemDelegate(new AvatarItemDelegate())
+    , m_prevSelectIndex(-1)
 {
     initWidgets();
     initDatas();
@@ -65,27 +66,37 @@ void AvatarListWidget::initWidgets()
 void AvatarListWidget::initDatas()
 {
     for (int i = 0; i < 14; i++) {
-        QStandardItem *item = new QStandardItem();
         QString iconpath = QString::asprintf("/var/lib/AccountsService/icons/%d.png", i + 1);
         m_iconpathList.push_back(iconpath);
+        QStandardItem *item = new QStandardItem();
         item->setData(QVariant::fromValue(QPixmap(iconpath)), Qt::DecorationRole);
         m_avatarItemModel->appendRow(item);
     }
+
+    QStandardItem *item = new QStandardItem();
+    item->setData(QVariant::fromValue(true), AvatarListWidget::AddAvatarRole);
+    m_avatarItemModel->appendRow(item);
 
     m_avatarListView->setItemDelegate(m_avatarItemDelegate);
     m_avatarListView->setModel(m_avatarItemModel);
 }
 
+void AvatarListWidget::setUserModel(dcc::accounts::User *user)
+{
+    m_curUser = user;
+}
+
 void AvatarListWidget::onItemClicked(const QModelIndex &index)
 {
-    for (int i = 0; i < m_avatarItemModel->rowCount(); ++i) {
-        QStandardItem *item = m_avatarItemModel->item(i);
-        if (i == index.row()) {
-            item->setCheckState(Qt::Checked);
-            Q_EMIT requestSetAvatar(m_iconpathList.at(i));
-        } else {
-            item->setCheckState(Qt::Unchecked);
+    if (index.data(AvatarListWidget::AddAvatarRole).toBool() == true) {
+        Q_EMIT requestAddNewAvatar(m_curUser);
+    } else {
+        if (m_prevSelectIndex != -1) {
+            m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
         }
+        m_prevSelectIndex = index.row();
+        m_avatarItemModel->item(index.row())->setCheckState(Qt::Checked);
+        Q_EMIT requestSetAvatar(m_iconpathList.at(index.row()));
     }
     update();
 }

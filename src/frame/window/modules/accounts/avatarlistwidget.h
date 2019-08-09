@@ -22,6 +22,8 @@
 #pragma once
 
 #include "window/namespace.h"
+#include "modules/accounts/user.h"
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -42,19 +44,27 @@ public:
     explicit AvatarListWidget(QWidget *parent = nullptr);
     void initWidgets();
     void initDatas();
+    void setUserModel(dcc::accounts::User *user);
+
+    enum ItemRole {
+        AddAvatarRole = Qt::UserRole + 1,
+    };
 
 Q_SIGNALS:
     void requestSetAvatar(const QString &avatarPath);
+    void requestAddNewAvatar(dcc::accounts::User *user);
 
 public Q_SLOTS:
     void onItemClicked(const QModelIndex &index);
 
 private:
+    dcc::accounts::User *m_curUser;
     QVBoxLayout *m_mainContentLayout;
     QListView *m_avatarListView;
     QStandardItemModel *m_avatarItemModel;
     AvatarItemDelegate *m_avatarItemDelegate;
     QList<QString> m_iconpathList;
+    int m_prevSelectIndex;
 };
 
 }
