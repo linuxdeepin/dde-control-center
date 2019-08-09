@@ -30,6 +30,8 @@
 #include "widgets/switchwidget.h"
 #include "modules/power/powermodel.h"
 
+using namespace dcc::widgets;
+using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 

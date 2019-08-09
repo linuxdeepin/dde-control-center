@@ -26,14 +26,11 @@
 #include <types/zoneinfo.h>
 
 namespace dcc {
-    namespace power {
-        class PowerWorker;
-        class PowerModel;
-    }
+namespace power {
+class PowerWorker;
+class PowerModel;
 }
-
-using namespace dcc;
-using namespace dcc::power;
+}
 
 namespace DCC_NAMESPACE {
 namespace power {
@@ -67,17 +64,14 @@ private:
     void showUseBattery();
 
 private:
-    PowerModel *m_model;
-    PowerWorker *m_work;
+    dcc::power::PowerModel *m_model;
+    dcc::power::PowerWorker *m_work;
     QTimer *m_timer;
 
 Q_SIGNALS:
 
 public Q_SLOTS:
     void onPushWidget(int index);
-
-private:
-
 };
 
 

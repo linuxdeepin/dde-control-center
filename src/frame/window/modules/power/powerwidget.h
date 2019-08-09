@@ -22,7 +22,6 @@
 
 #include "window/namespace.h"
 
-#include <QObject>
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QListView>
@@ -33,8 +32,6 @@ namespace power {
 class PowerModel;
 }
 }
-
-using namespace dcc::power;
 
 namespace DCC_NAMESPACE {
 namespace power {
@@ -49,13 +46,13 @@ public:
     virtual ~PowerWidget();
 
     void initialize();
-    void setModel(const PowerModel *model);
+    void setModel(const dcc::power::PowerModel *model);
     void requestDefaultWidget();
 
 private:
     QVBoxLayout *layout;
     QListView *m_listview;
-    const PowerModel *m_model;
+    const dcc::power::PowerModel *m_model;
     QModelIndex m_defaultIndex;
     QStandardItemModel *m_listmodel;
 

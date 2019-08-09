@@ -22,23 +22,19 @@
 
 #include "window/namespace.h"
 
-#include <QObject>
 #include <QWidget>
 #include <QVBoxLayout>
 
 namespace dcc {
-    namespace widgets {
-        class SwitchWidget;
-        class NormalLabel;
-    }
-
-    namespace power {
-        class PowerModel;
-    }
+namespace widgets {
+class SwitchWidget;
+class NormalLabel;
 }
 
-using namespace dcc::widgets;
-using namespace dcc::power;
+namespace power {
+class PowerModel;
+}
+}
 
 namespace DCC_NAMESPACE {
 namespace power {
@@ -50,14 +46,14 @@ public:
     explicit GeneralWidget(QWidget *parent = nullptr);
     virtual ~GeneralWidget();
 
-    void setModel(const PowerModel *model);
+    void setModel(const dcc::power::PowerModel *model);
 
 private:
     QVBoxLayout *m_layout;
-    SwitchWidget *m_lowBatteryMode;
-    SwitchWidget *m_autoIntoSaveEnergyMode;
-    SwitchWidget *m_wakeComputerNeedPassword;
-    SwitchWidget *m_wakeDisplayNeedPassword;
+    dcc::widgets::SwitchWidget *m_lowBatteryMode;
+    dcc::widgets::SwitchWidget *m_autoIntoSaveEnergyMode;
+    dcc::widgets::SwitchWidget *m_wakeComputerNeedPassword;
+    dcc::widgets::SwitchWidget *m_wakeDisplayNeedPassword;
 
 Q_SIGNALS:
     void requestSetLowBatteryMode(const bool &state);

@@ -28,6 +28,8 @@
 #include "useelectricwidget.h"
 #include "usebatterywidget.h"
 
+using namespace dcc;
+using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 

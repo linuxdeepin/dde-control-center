@@ -26,21 +26,20 @@
 #include <QWidget>
 #include <QVBoxLayout>
 
+QT_BEGIN_NAMESPACE
 class QSlider;
+QT_END_NAMESPACE
 
 namespace dcc {
-    namespace widgets {
-        class TitledSliderItem;
-        class SwitchWidget;
-    }
-
-    namespace power {
-        class PowerModel;
-    }
+namespace widgets {
+class TitledSliderItem;
+class SwitchWidget;
 }
 
-using namespace dcc::widgets;
-using namespace dcc::power;
+namespace power {
+class PowerModel;
+}
+}
 
 namespace DCC_NAMESPACE {
 namespace power {
@@ -52,17 +51,17 @@ public:
     explicit UseElectricWidget(QWidget *parent = nullptr);
     virtual ~UseElectricWidget();
 
-    void setModel(const PowerModel *model);
+    void setModel(const dcc::power::PowerModel *model);
 
 private:
     QString delayToLiteralString(const int delay) const;
 
 private:
     QVBoxLayout *m_layout;
-    TitledSliderItem *m_monitorSleepOnPower;
-    TitledSliderItem *m_computerSleepOnPower;
-    TitledSliderItem *m_autoLockScreen;
-    SwitchWidget *m_suspendOnLidClose;
+    dcc::widgets::TitledSliderItem *m_monitorSleepOnPower;
+    dcc::widgets::TitledSliderItem *m_computerSleepOnPower;
+    dcc::widgets::TitledSliderItem *m_autoLockScreen;
+    dcc::widgets::SwitchWidget *m_suspendOnLidClose;
 
 Q_SIGNALS:
     void requestSetScreenBlackDelayOnPower(const int delay) const;

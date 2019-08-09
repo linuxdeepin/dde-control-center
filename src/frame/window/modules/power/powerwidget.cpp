@@ -23,6 +23,7 @@
 #include "modules/power/powermodel.h"
 #include <QTimer>
 
+using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 
