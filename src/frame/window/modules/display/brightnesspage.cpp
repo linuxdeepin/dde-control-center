@@ -107,15 +107,24 @@ void BrightnessPage::addSlider()
         title = 1 == monList.size() ? title : tr("Display scaling for %1").arg(monList[i]->name());
 
         TitledSliderItem *slideritem = new TitledSliderItem(title);
+        QStringList annoList;
+        annoList << "0%" << "20%" << "40%" << "60%" << "80%" << "100%";
+        slideritem->setAnnotations(annoList);
+
+        int brightness = int(monList[i]->brightness() * 100);
+        slideritem->setValueLiteral(QString::number(brightness) + "%");
+
         DCCSlider *slider = slideritem->slider();
         slider->setRange(0, 100);
         slider->setType(DCCSlider::Vernier);
         slider->setTickPosition(QSlider::TicksBelow);
-        slider->setTickInterval(1);
-        slider->setSliderPosition(int(monList[i]->brightness() * 100));
+        slider->setTickInterval(20);
+        slider->setSliderPosition(brightness);
         slider->setPageStep(1);
 
+
         auto slotfunc = [ = ](int pos) {
+            slideritem->setValueLiteral(QString::number(pos) + "%");
             Q_EMIT requestSetMonitorBrightness(monList[i], pos / 100.0);
         };
         connect(slider, &DCCSlider::valueChanged, this, slotfunc);

@@ -97,6 +97,7 @@ void DisplayWidget::initMenuUI()
 {
     m_multMenuList = {
         {tr("Mutil-Screen"), QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiScreenPage)},
+        {tr("Resolution"), QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
         {tr("Brightness"), QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
         {tr("scaling"), QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)},
         {tr("Custom Setting"), this->metaObject()->method(this->metaObject()->indexOfMethod("onCustomClicked()"))}

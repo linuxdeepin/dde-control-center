@@ -69,12 +69,15 @@ Q_SIGNALS:
     void requestSetResolution(dcc::display::Monitor *, int);
 
 private Q_SLOTS:
-    void refreshCurrentResolution(const Resolution &);
+    void refreshCurrentResolution(const Resolution &reso, int listIdx);
+
+private:
+    void initResoList();
 
 private:
     QVBoxLayout *m_mainLayout{nullptr};
     dcc::display::DisplayModel *m_model{nullptr};
-    QListView *m_modeList{nullptr};
+    QList<QListView *> m_resoList;
 };
 
 }   // namespace dcc
