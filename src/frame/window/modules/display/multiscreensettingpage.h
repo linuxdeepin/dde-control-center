@@ -61,12 +61,17 @@ Q_SIGNALS:
     void requestCustom();
     void requestOnlyMonitor(const QString &);
     void requestConfig(const QString &);
+    void requestCustomDiglog();
+    void requsetRecord() const;
+    void requsetCreateConfig(const QString &) const;
 
 private Q_SLOTS:
     void onItemClicked(const QModelIndex &);
+    void onCustomClicked();
 
 private:
     dcc::widgets::BasicListView *m_baseListView{nullptr};
+    dcc::display::DisplayModel *m_model{nullptr};
 };
 
 }

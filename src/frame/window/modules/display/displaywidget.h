@@ -53,7 +53,6 @@ public:
 public:
     void setModel(dcc::display::DisplayModel *model);
 private Q_SLOTS:
-    void onCustomClicked();
     void onMonitorListChanged();
     void onMenuClicked(const QModelIndex &);
 
@@ -69,8 +68,6 @@ Q_SIGNALS: Q_SIGNALS:
     void requestShowCustomConfigPage() const;
     void requestRotate() const;
 
-    void requsetCreateConfig(const QString &) const;
-    void requsetRecord() const;
 private:
     void initMenuUI();
 

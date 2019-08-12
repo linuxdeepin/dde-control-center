@@ -66,18 +66,6 @@ void DisplayWidget::setModel(DisplayModel *model)
     onMonitorListChanged();
 }
 
-void DisplayWidget::onCustomClicked()
-{
-    Q_EMIT requsetRecord();
-
-    auto displayMode = m_model->displayMode();
-
-    if (displayMode == CUSTOM_MODE && m_model->config() == m_model->DDE_Display_Config)
-        requestShowCustomConfigPage();
-    else
-        Q_EMIT requsetCreateConfig(m_model->DDE_Display_Config);
-}
-
 void DisplayWidget::onMonitorListChanged()
 {
     const auto mons = m_model->monitorList();
@@ -99,8 +87,7 @@ void DisplayWidget::initMenuUI()
         {tr("Mutil-Screen"), QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiScreenPage)},
         {tr("Resolution"), QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
         {tr("Brightness"), QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
-        {tr("scaling"), QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)},
-        {tr("Custom Setting"), this->metaObject()->method(this->metaObject()->indexOfMethod("onCustomClicked()"))}
+        {tr("scaling"), QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)}
     };
 
     m_singleMenuList = {

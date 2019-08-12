@@ -24,8 +24,10 @@
 #include "widgets/basiclistview.h"
 #include "displaycontrolmodel.h"
 #include "displayitemdelegate.h"
+#include "modules/display/displaymodel.h"
 
 #include <QVBoxLayout>
+#include <QPushButton>
 
 using namespace DCC_NAMESPACE::display;
 using namespace dcc::widgets;
@@ -35,23 +37,29 @@ MultiScreenSettingPage::MultiScreenSettingPage(QWidget *parent)
     : QWidget(parent)
     , m_baseListView(new BasicListView)
 {
-    m_baseListView->installEventFilter(this);
-
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addStretch();
-    mainLayout->addWidget(m_baseListView);
     mainLayout->setMargin(0);
+
+    m_baseListView->installEventFilter(this);
+    mainLayout->addWidget(m_baseListView);
+
+    QPushButton *btn = new QPushButton(tr("Custom Setting"), this);
+    mainLayout->addSpacing(10);
+    mainLayout->addWidget(btn);
+
     mainLayout->addStretch(1);
     setLayout(mainLayout);
-
     setMinimumWidth(300);
 
+    connect(btn, &QPushButton::clicked, this, &MultiScreenSettingPage::onCustomClicked);
     connect(m_baseListView, &BasicListView::clicked,
             this, &MultiScreenSettingPage::onItemClicked);
 }
 
 void MultiScreenSettingPage::setModel(dcc::display::DisplayModel *model)
 {
+    m_model = model;
     m_baseListView->setModel(new DisplayControlModel(model));
     m_baseListView->setItemDelegate(new DisplayItemDelegate);
 }
@@ -80,4 +88,17 @@ void MultiScreenSettingPage::onItemClicked(const QModelIndex &index)
     Q_ASSERT(type == DisplayControlModel::Specified);
 
     Q_EMIT requestOnlyMonitor(index.data(DisplayControlModel::ItemNameRole).toString());
+}
+
+void MultiScreenSettingPage::onCustomClicked()
+{
+    Q_EMIT requsetRecord();
+
+    auto displayMode = m_model->displayMode();
+
+    if (displayMode == CUSTOM_MODE && m_model->config() == m_model->DDE_Display_Config) {
+        Q_EMIT requestCustomDiglog();
+    } else {
+        Q_EMIT requsetCreateConfig(m_model->DDE_Display_Config);
+    }
 }
