@@ -32,6 +32,10 @@
 #include <QLabel>
 #include <QPixmap>
 #include <QList>
+#include <QDir>
+#include <QFileInfo>
+#include <QFileInfoList>
+#include <QDebug>
 
 using namespace DCC_NAMESPACE::accounts;
 
@@ -65,8 +69,19 @@ void AvatarListWidget::initWidgets()
 
 void AvatarListWidget::initDatas()
 {
-    for (int i = 0; i < 14; i++) {
-        QString iconpath = QString::asprintf("/var/lib/AccountsService/icons/%d.png", i + 1);
+    QString dirpath("/var/lib/AccountsService/icons/");
+    QDir dir(dirpath);
+    QStringList hideList;
+    hideList << "default.png" << "guest.png";
+    QStringList filters;
+    filters << "*.png";//设置过滤类型
+    dir.setNameFilters(filters);//设置文件名的过滤
+    QFileInfoList list = dir.entryInfoList();
+    for (int i = 0; i < list.size(); ++i) {
+        if (hideList.contains(list.at(i).fileName())) {
+            continue;
+        }
+        QString iconpath = list.at(i).filePath();
         m_iconpathList.push_back(iconpath);
         QStandardItem *item = new QStandardItem();
         item->setData(QVariant::fromValue(QPixmap(iconpath)), Qt::DecorationRole);
