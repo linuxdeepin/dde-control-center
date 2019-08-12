@@ -37,22 +37,6 @@ void NavDelegate::setViewMode(QListView::ViewMode mode)
     m_viewMode = mode;
 }
 
-void NavDelegate::setItemSize(const QSize &size)
-{
-    m_itemSize = size;
-}
-
-QSize NavDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
-{
-    Q_UNUSED(option)
-    Q_UNUSED(index)
-
-    if (m_itemSize.isValid())
-        return m_itemSize;
-
-    return QStyledItemDelegate::sizeHint(option, index);
-}
-
 void NavDelegate::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
 {
     QStyledItemDelegate::initStyleOption(option, index);
@@ -60,10 +44,9 @@ void NavDelegate::initStyleOption(QStyleOptionViewItem *option, const QModelInde
     if (m_viewMode == QListView::IconMode) {
         option->decorationPosition = QStyleOptionViewItem::Top;
         option->decorationAlignment = Qt::AlignCenter;
-        option->displayAlignment = Qt::AlignHCenter;
+        option->displayAlignment = Qt::AlignBottom | Qt::AlignHCenter;
 
-        if (m_itemSize.isValid()) {
-            option->decorationSize = QSize(m_itemSize.height() / 2, m_itemSize.height() / 2);
-        }
+        auto size = index.data(Qt::SizeHintRole).toSize();
+        option->decorationSize = QSize(size.width() / 2, size.height() / 2);
     }
 }

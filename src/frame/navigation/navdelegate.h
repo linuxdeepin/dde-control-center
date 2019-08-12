@@ -28,13 +28,10 @@
 class NavDelegate : public QStyledItemDelegate
 {
 public:
-    NavDelegate(QListView::ViewMode mode = QListView::IconMode, QObject *parent = 0);
+    NavDelegate(QListView::ViewMode mode = QListView::IconMode, QObject *parent = nullptr);
 
+    inline QListView::ViewMode viewMode() const { return m_viewMode; }
     void setViewMode(QListView::ViewMode mode);
-    void setItemSize(const QSize &size);
-
-public:
-    QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
 private:
     void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const override;

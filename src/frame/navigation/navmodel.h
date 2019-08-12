@@ -22,6 +22,8 @@
 #ifndef NAVMODEL_H
 #define NAVMODEL_H
 
+#include <DStyleOption>
+
 #include <QAbstractTableModel>
 
 const QStringList MODULES = { "accounts", "cloudsync", "display", "defapp", "personalization", "network",
@@ -54,7 +56,7 @@ public:
     Q_ENUM(ModuleType)
 
     enum NavDataRole{
-        NavHoverRole = Qt::UserRole + 1,
+        NavHoverRole = Dtk::UserRole + 1,
         NavDisplayRole,
         NavModuleType
     };

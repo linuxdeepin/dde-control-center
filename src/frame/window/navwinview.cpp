@@ -21,6 +21,11 @@
 #include "navwinview.h"
 #include "constant.h"
 
+#include <DStyleOption>
+#include <DPalette>
+
+DWIDGET_USE_NAMESPACE
+
 NavWinView::NavWinView(QWidget *parent)
     : QListView(parent)
     , m_delegate(new NavDelegate(IconMode, this))
@@ -35,17 +40,40 @@ void NavWinView::setViewMode(QListView::ViewMode mode)
 {
     m_delegate->setViewMode(mode);
 
+    QSize size;
+    QVariant bgTyle;
     if (mode == IconMode) {
-        m_delegate->setItemSize(QSize(Constant::HomeIconSize, Constant::HomeIconSize));
-
         setWordWrap(true);
         setWrapping(true);
+        setSpacing(20);
         setFlow(QListView::LeftToRight);
-    } else {
-        m_delegate->setItemSize(QSize());
 
+        size = QSize(170, 168);
+        bgTyle = Dtk::RoundedBackground;
+    } else {
         setWordWrap(false);
         setWrapping(false);
+        setSpacing(0);
         setFlow(QListView::TopToBottom);
+
+        size = QSize(168, 48);
+        bgTyle = Dtk::RoundedBackground;
+    }
+
+    auto mod = model();
+    if (!mod)
+        return;
+
+    DPalette pa = DPalette::get(this);
+    pa.setBrush(DPalette::ItemBackground, palette().base());
+    DPalette::set(this, pa);
+    viewport()->setAutoFillBackground(mode != IconMode);
+
+    for (auto r = 0; r < mod->rowCount(); ++r) {
+        for (int c = 0; c < mod->columnCount(); ++c) {
+            auto idx = mod->index(r, c);
+            mod->setData(idx, bgTyle, Dtk::BackgroundTypeRole);
+            mod->setData(idx, size, Qt::SizeHintRole);
+        }
     }
 }

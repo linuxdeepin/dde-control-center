@@ -55,7 +55,7 @@ public:
     void showModulePage(const QString &module, const QString &page, bool animation) override;
 
 protected:
-    void resizeEvent(QResizeEvent * event) override;
+    void resizeEvent(QResizeEvent *event) override;
 
 private:
     QHBoxLayout *m_contentLayout;

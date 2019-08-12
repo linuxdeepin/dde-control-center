@@ -21,6 +21,8 @@
 
 #include "navmodel.h"
 
+#include <DStyleOption>
+
 #include <QColor>
 #include <QCoreApplication>
 #include <QDebug>
@@ -68,7 +70,7 @@ QVariant NavModel::data(const QModelIndex &index, int role) const
         return QVariant();
     }
 
-    switch (role)
+    switch (static_cast<int>(role))
     {
     case Qt::WhatsThisRole:
         return m_moduleList.at(mIndex);
@@ -84,6 +86,8 @@ QVariant NavModel::data(const QModelIndex &index, int role) const
         return QIcon(QString(":/%1/themes/dark/icons/nav_%1.svg").arg(m_moduleList.at(mIndex)));
     case NavModuleType:
         return m_moduleTypeMap.value(m_moduleList.at(mIndex));
+    case Dtk::BackgroundTypeRole:
+        return Dtk::RoundedBackground;
     default:;
     }
 

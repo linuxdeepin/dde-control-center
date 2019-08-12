@@ -67,9 +67,10 @@ MainWindow::MainWindow(QWidget *parent)
     m_contentLayout = new QHBoxLayout(content);
     m_rightContentLayout = new QHBoxLayout(m_rightView);
     m_navView = new NavWinView(this);
+    m_navView->setFrameShape(QFrame::Shape::NoFrame);
+
 
     m_contentLayout->addWidget(m_navView);
-    m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_rightView);
 
     m_contentLayout->setContentsMargins(0, 0, 0, 0);
@@ -85,6 +86,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_navModel = new QStandardItemModel(m_navView);
     m_navView->setModel(m_navModel);
     m_navView->setMinimumWidth(first_widget_min_width);
+    m_navView->setViewMode(QListView::IconMode);
     connect(m_navView, &NavWinView::clicked, this, &MainWindow::onFirstItemClick);
 
     QTimer::singleShot(0, this, &MainWindow::initAllModule);
@@ -125,10 +127,16 @@ void MainWindow::initAllModule()
         { new SystemInfoModule(this), tr("Systeminfo")},
     };
 
+    auto dele = static_cast<NavDelegate *>(m_navView->itemDelegate());
+    bool isIcon = dele->viewMode() == QListView::IconMode;
+
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
         QStandardItem *item = new QStandardItem;
         item->setIcon(QIcon(QString(":/%1/themes/dark/icons/nav_%1.svg").arg(it->first->name())));
         item->setText(it->second);
+        item->setData(isIcon ? Dtk::RoundedBackground : QVariant(),
+                      Dtk::BackgroundTypeRole);
+        item->setSizeHint(isIcon ? QSize(170, 168) : QSize(168, 48));
         m_navModel->appendRow(item);
     }
 }
@@ -238,7 +246,7 @@ void MainWindow::replaceThirdWidget(ModuleInterface *const inter, QWidget *const
     linkReplaceBackSignal(inter->name(), w);
 
     if (m_lastThirdPage.second) {
-        memset(&m_lastThirdPage, 0, sizeof (m_lastThirdPage));
+        memset(&m_lastThirdPage, 0, sizeof(m_lastThirdPage));
     }
 
     QPair<ModuleInterface *, QWidget *>widget = m_contentStack.pop();
