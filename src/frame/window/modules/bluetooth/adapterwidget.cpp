@@ -20,6 +20,7 @@
  */
 
 #include "adapterwidget.h"
+#include "titleedit.h"
 #include "modules/bluetooth/adapter.h"
 #include "modules/bluetooth/detailpage.h"
 #include "modules/bluetooth/adapter.h"
@@ -29,13 +30,14 @@
 #include "widgets/loadingindicator.h"
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
-#include "titleedit.h"
+
 #include <QVBoxLayout>
 #include <QDebug>
+#include <QLabel>
 
-using namespace dcc::widgets;
 using namespace dcc;
 using namespace dcc::bluetooth;
+using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::bluetooth;
 

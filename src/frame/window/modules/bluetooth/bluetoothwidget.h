@@ -23,8 +23,6 @@
 
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
-#include <QWidget>
-#include <QVBoxLayout>
 #include <QMap>
 
 namespace dcc {
@@ -47,7 +45,6 @@ class BluetoothWidget : public dcc::ContentWidget
 public:
     explicit BluetoothWidget(dcc::bluetooth::BluetoothModel *model);
     void setModel(dcc::bluetooth::BluetoothModel *model);
-//    AdapterWidget *widgetByAdapterId(const QString &adapterId);
 
 Q_SIGNALS:
     void showBluetoothDetail(const dcc::bluetooth::Adapter *adapter) const;
@@ -71,7 +68,6 @@ private:
     dcc::bluetooth::BluetoothModel *m_model;
     dcc::bluetooth::BluetoothWorker *m_bluetoothWorker;
     QMap<const dcc::bluetooth::Adapter *, AdapterWidget *> m_valueMap;
-
     QVBoxLayout *m_contentLayout;
 };
 }

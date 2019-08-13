@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ~ 2019 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     andywang <andywang_cm@deepin.com>
  *
@@ -22,12 +22,13 @@
 #pragma once
 
 #include "window/namespace.h"
-#include <QWidget>
-#include <QLabel>
-#include <QLineEdit>
-#include <dimagebutton.h>
 
-DWIDGET_USE_NAMESPACE
+#include <QWidget>
+
+QT_BEGIN_NAMESPACE
+class QLabel;
+class QLineEdit;
+QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 namespace bluetooth {
@@ -48,8 +49,6 @@ public Q_SLOTS:
 private:
     QLabel *m_name;
     QLineEdit *m_lineEdit;
-    DImageButton *m_editWidget;
-
 };
 }
 }

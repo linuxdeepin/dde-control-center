@@ -24,35 +24,35 @@
  */
 
 #include "detailpage.h"
+#include "modules/bluetooth/device.h"
+#include "modules/bluetooth/adapter.h"
+#include "widgets/translucentframe.h"
+
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QLineEdit>
 #include <QLabel>
 #include <QString>
-#include "modules/bluetooth/device.h"
-#include "modules/bluetooth/adapter.h"
-#include "widgets/translucentframe.h"
 
 using namespace dcc;
 using namespace dcc::bluetooth;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::bluetooth;
 
-DetailPage::DetailPage(const Adapter *adapter, const Device *device) :
-    ContentWidget(),
-    m_adapter(adapter),
-    m_device(device),
-    m_ignoreButton(new QPushButton(tr("Ignore"))),
-    m_disconnectButton(new QPushButton(tr("Disconnect"))),
-    m_backButton(new QPushButton(tr("back")))
+DetailPage::DetailPage(const Adapter *adapter, const Device *device)
+    : ContentWidget()
+    , m_adapter(adapter)
+    , m_device(device)
+    , m_ignoreButton(new QPushButton(tr("Ignore")))
+    , m_disconnectButton(new QPushButton(tr("Disconnect")))
+    , m_backButton(new QPushButton(tr("back")))
 {
     setTitle(device->name());
-
     dcc::widgets::TranslucentFrame *frame = new dcc::widgets::TranslucentFrame;
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setSpacing(0);
     layout->setMargin(0);
-    m_devNameLabel = new QLabel("备注");
+    m_devNameLabel = new QLabel(tr("Remark"));
     layout->addWidget(m_devNameLabel);
     layout->addSpacing(10);
     m_editDevName = new QLineEdit;

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ~ 2019 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     andywang <andywang_cm@deepin.com>
  *
@@ -20,31 +20,37 @@
  */
 
 #include "titleedit.h"
+
+#include <dimagebutton.h>
+
+#include <QLabel>
+#include <QLineEdit>
 #include <QHBoxLayout>
+
+DWIDGET_USE_NAMESPACE
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::bluetooth;
 
 TitleEdit::TitleEdit(QWidget *parent)
-    : QWidget(parent),
-      m_name(new QLabel),
-      m_lineEdit(new QLineEdit),
-      m_editWidget(new DImageButton)
+    : QWidget(parent)
+    , m_name(new QLabel)
+    , m_lineEdit(new QLineEdit)
 {
     QHBoxLayout *mainlayout = new QHBoxLayout;
     m_lineEdit->setVisible(false);
-
     mainlayout->addWidget(m_name);
     mainlayout->addWidget(m_lineEdit);
     mainlayout->addSpacing(5);
-    mainlayout->addWidget(m_editWidget);
+    DImageButton *editWidget = new DImageButton;
+    mainlayout->addWidget(editWidget);
     mainlayout->addStretch();
     mainlayout->setMargin(0);
     mainlayout->setSpacing(0);
     setLayout(mainlayout);
 
     connect(m_lineEdit, &QLineEdit::editingFinished, this, &TitleEdit::setName);
-    connect(m_editWidget, &DImageButton::clicked, this, &TitleEdit::setEdit);
+    connect(editWidget, &DImageButton::clicked, this, &TitleEdit::setEdit);
 }
 
 void TitleEdit::setName()

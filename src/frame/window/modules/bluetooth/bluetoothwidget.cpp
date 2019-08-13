@@ -20,10 +20,12 @@
  */
 
 #include "bluetoothwidget.h"
+#include "adapterwidget.h"
 #include "widgets/settingsgroup.h"
 #include "modules/bluetooth/bluetoothmodel.h"
 #include "modules/bluetooth/bluetoothworker.h"
-#include "adapterwidget.h"
+
+#include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::bluetooth;

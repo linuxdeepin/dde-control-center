@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2016 ~ 2019 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     andywang <andywang_cm@deepin.com>
  *
@@ -23,7 +23,10 @@
 
 #include "window/namespace.h"
 #include <QWidget>
-#include <QLabel>
+
+QT_BEGIN_NAMESPACE
+class QLabel;
+QT_END_NAMESPACE
 
 namespace dcc {
 namespace widgets {

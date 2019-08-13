@@ -27,7 +27,12 @@
 
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
-#include <QLineEdit>
+
+QT_BEGIN_NAMESPACE
+class QLabel;
+class QLineEdit;
+class QPushButton;
+QT_END_NAMESPACE
 
 namespace dcc {
 namespace bluetooth {
@@ -49,12 +54,13 @@ Q_SIGNALS:
     void requestDisconnectDevice(const dcc::bluetooth::Device *device);
     void requestBack();
     void requestSetDevAlias(const dcc::bluetooth::Device *device, QString &devAlias);
+
 private Q_SLOTS:
     void onDeviceNameChanged();
+
 private:
     const dcc::bluetooth::Adapter *m_adapter;
     const dcc::bluetooth::Device *m_device;
-
     QPushButton *m_ignoreButton;
     QPushButton *m_disconnectButton;
     QPushButton *m_backButton;

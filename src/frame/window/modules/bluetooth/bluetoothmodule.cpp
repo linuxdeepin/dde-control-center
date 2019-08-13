@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 ~ 2019 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
  * Author:     andywang <andywang_cm@deepin.com>
  *
@@ -18,12 +18,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 #include "bluetoothmodule.h"
 #include "bluetoothwidget.h"
 #include "detailpage.h"
 #include "modules/bluetooth/bluetoothmodel.h"
 #include "modules/bluetooth/bluetoothworker.h"
 #include "modules/bluetooth/pincodedialog.h"
+
 #include <QDebug>
 
 using namespace DCC_NAMESPACE;
@@ -31,11 +33,11 @@ using namespace DCC_NAMESPACE::bluetooth;
 using namespace dcc;
 using namespace dcc::bluetooth;
 BluetoothModule::BluetoothModule(FrameProxyInterface *frame, QObject *parent)
-    : QObject(parent),
-      ModuleInterface(frame),
-      m_bluetoothView(nullptr),
-      m_bluetoothModel(nullptr),
-      m_bluetoothWorker(nullptr)
+    : QObject(parent)
+    , ModuleInterface(frame)
+    , m_bluetoothView(nullptr)
+    , m_bluetoothModel(nullptr)
+    , m_bluetoothWorker(nullptr)
 {
 
 }
@@ -47,7 +49,7 @@ void BluetoothModule::preInitialize()
     m_bluetoothModel->moveToThread(qApp->thread());
     m_bluetoothWorker->moveToThread(qApp->thread());
 
-    auto updateModuleVisible = [=] {
+    auto updateModuleVisible = [ = ] {
         m_frameProxy->setModuleVisible(this, m_bluetoothModel->adapters().size());
     };
 
