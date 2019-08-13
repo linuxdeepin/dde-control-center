@@ -27,7 +27,7 @@
 #include "modules/mouse/widget/doutestwidget.h"
 #include "modules/mouse/mousemodel.h"
 #include "modules/mouse/mouseworker.h"
-#include <QPushButton>
+
 #include <QDebug>
 #include <QVBoxLayout>
 

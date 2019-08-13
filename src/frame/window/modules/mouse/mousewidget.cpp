@@ -27,14 +27,18 @@
 #include "modules/mouse/mousemodel.h"
 #include "modules/mouse/widget/palmdetectsetting.h"
 #include "modules/mouse/widget/doutestwidget.h"
+
 #include <QDebug>
 #include <QStandardItemModel>
 #include <QStandardItem>
 #include <QPainter>
+#include <QVBoxLayout>
+#include <QListView>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::mouse;
 using namespace dcc::widgets;
+
 MouseWidget::MouseWidget(QWidget *parent)
     : QWidget(parent)
 {
@@ -65,8 +69,8 @@ void MouseWidget::init()
 
 void MouseWidget::initSetting()
 {
-    m_mouseListView->setCurrentIndex(m_listviewModel->index(0,0));
-    m_mouseListView->clicked(m_listviewModel->index(0,0));
+    m_mouseListView->setCurrentIndex(m_listviewModel->index(0, 0));
+    m_mouseListView->clicked(m_listviewModel->index(0, 0));
 }
 
 void MouseWidget::onItemClieck(const QModelIndex &index)

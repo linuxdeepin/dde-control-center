@@ -20,14 +20,13 @@
  */
 #include "mousesettingwidget.h"
 #include "widgets/switchwidget.h"
-#include "widgets/contentwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/dccslider.h"
 #include "modules/mouse/widget/palmdetectsetting.h"
 #include "modules/mouse/widget/doutestwidget.h"
 #include "modules/mouse/mousemodel.h"
 #include "modules/mouse/mouseworker.h"
-#include <QPushButton>
+
 #include <QDebug>
 #include <QVBoxLayout>
 

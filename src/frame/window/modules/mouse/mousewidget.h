@@ -23,9 +23,13 @@
 
 #include "window/namespace.h"
 
-#include <QVBoxLayout>
-#include <QListView>
-#include <QStandardItemModel>
+#include <QWidget>
+
+QT_BEGIN_NAMESPACE
+class QListView;
+class QVBoxLayout;
+class QStandardItemModel;
+QT_END_NAMESPACE
 
 namespace dcc {
 namespace widgets {

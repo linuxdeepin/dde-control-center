@@ -3,7 +3,7 @@
  *
  * Author:     andywang <wangwei_cm@deepin.com>
  *
- * Maintainer: zccrs <zhangjide@deepin.com>
+ * Maintainer: andywang <wangwei_cm@deepin.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,9 +23,6 @@
 
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QWidget>
 
 namespace dcc {
 namespace mouse {
@@ -50,25 +47,25 @@ class TouchPadSettingWidget : public dcc::ContentWidget
 public:
     explicit TouchPadSettingWidget(QWidget *parent = nullptr);
     void setModel(dcc::mouse::MouseModel *const model);
+
 Q_SIGNALS:
     void requestSetTouchpadMotionAcceleration(const int value);
     void requestSetTapClick(const bool state);
     void requestSetTouchNaturalScroll(const bool state);
-
     void requestDetectState(bool enable);
     void requestContact(int value);
     void requestPressure(int value);
+
 private Q_SLOTS:
     void onTouchMoveSpeedChanged(int speed);
+
 private:
     dcc::mouse::MouseModel *m_mouseModel;
     dcc::mouse::PalmDetectSetting *m_palmDetectSetting;
-
     dcc::widgets::SettingsGroup *m_touchpadSettingsGrp;
     dcc::widgets::TitledSliderItem *m_touchMoveSlider;
     dcc::widgets::SwitchWidget *m_touchClickStn;
     dcc::widgets::SwitchWidget *m_touchNaturalScroll;
-
     QVBoxLayout *m_contentLayout;
 };
 }

@@ -24,6 +24,8 @@
 #include "widgets/titledslideritem.h"
 #include "modules/mouse/mousemodel.h"
 
+#include <QVBoxLayout>
+
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::mouse;
 using namespace dcc::mouse;
@@ -32,12 +34,9 @@ using namespace dcc::widgets;
 TrackPointSettingWidget::TrackPointSettingWidget(QWidget *parent) : dcc::ContentWidget(parent)
 {
     m_trackPointSettingsGrp = new SettingsGroup;
-
     m_trackMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
-
     QStringList trackPointlist;
     trackPointlist << tr("Slow") << "" << "" << "" << "" << "" << tr("Fast");
-
     DCCSlider *pointSlider = m_trackMoveSlider->slider();
     pointSlider->setType(DCCSlider::Vernier);
     pointSlider->setTickPosition(QSlider::TicksBelow);
@@ -45,23 +44,19 @@ TrackPointSettingWidget::TrackPointSettingWidget(QWidget *parent) : dcc::Content
     pointSlider->setTickInterval(1);
     pointSlider->setPageStep(1);
     m_trackMoveSlider->setAnnotations(trackPointlist);
-
     m_trackPointSettingsGrp->appendItem(m_trackMoveSlider);
-
     m_contentLayout = new QVBoxLayout();
     m_contentLayout->addWidget(m_trackPointSettingsGrp);
     m_contentLayout->addStretch();
     TranslucentFrame *tFrame = new TranslucentFrame;
     tFrame->setLayout(m_contentLayout);
     setContent(tFrame);
-
     connect(m_trackMoveSlider->slider(), &DCCSlider::valueChanged, this, &TrackPointSettingWidget::requestSetTrackPointMotionAcceleration);
 }
 
 void TrackPointSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 {
     m_mouseModel = model;
-
     connect(m_mouseModel, &MouseModel::redPointMoveSpeedChanged, this, &TrackPointSettingWidget::onRedPointMoveSpeedChanged);
     onRedPointMoveSpeedChanged(m_mouseModel->redPointMoveSpeed());
 }

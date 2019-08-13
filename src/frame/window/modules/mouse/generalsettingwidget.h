@@ -23,8 +23,6 @@
 
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
-#include <QPushButton>
-#include <QVBoxLayout>
 
 namespace dcc {
 namespace mouse {
@@ -62,7 +60,6 @@ private:
     dcc::widgets::TitledSliderItem *m_doubleSlider;
     dcc::widgets::TitledSliderItem *m_scrollSpeedSlider;
     dcc::mouse::DouTestWidget *m_doubleTest;
-
     QVBoxLayout *m_contentLayout;
 };
 }

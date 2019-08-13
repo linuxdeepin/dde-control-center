@@ -23,8 +23,6 @@
 
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
-#include <QWidget>
-#include <QVBoxLayout>
 
 namespace dcc {
 namespace mouse {
@@ -46,15 +44,17 @@ class TrackPointSettingWidget : public dcc::ContentWidget
 public:
     explicit TrackPointSettingWidget(QWidget *parent = nullptr);
     void setModel(dcc::mouse::MouseModel *const model);
+
 Q_SIGNALS:
     void requestSetTrackPointMotionAcceleration(const int value);
+
 private Q_SLOTS:
     void onRedPointMoveSpeedChanged(int speed);
+
 private:
     dcc::mouse::MouseModel *m_mouseModel;
     dcc::widgets::SettingsGroup *m_trackPointSettingsGrp;
     dcc::widgets::TitledSliderItem *m_trackMoveSlider;
-
     QVBoxLayout *m_contentLayout;
 };
 }

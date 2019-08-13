@@ -35,13 +35,12 @@ using namespace DCC_NAMESPACE::mouse;
 using namespace dcc::mouse;
 using namespace dcc::widgets;
 
-GeneralSettingWidget::GeneralSettingWidget(QWidget *parent) :
-    dcc::ContentWidget(parent),
-    m_mouseModel(nullptr),
-    m_generalSettingsGrp(nullptr)
+GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
+    : dcc::ContentWidget(parent)
+    , m_mouseModel(nullptr)
+    , m_generalSettingsGrp(nullptr)
 {
     m_generalSettingsGrp = new SettingsGroup;
-
     m_leftHand = new SwitchWidget(tr("Left Hand"));
     m_disInTyping = new SwitchWidget(tr("Disable the touchpad while typing"));
     m_scrollSpeedSlider = new TitledSliderItem(tr("Scroll Speed"));

@@ -21,25 +21,24 @@
 
 #include "mousemodule.h"
 #include "mousewidget.h"
-#include "modules/mouse/mousemodel.h"
-#include "modules/mouse/mouseworker.h"
-#include "widgets/contentwidget.h"
 #include "generalsettingwidget.h"
 #include "mousesettingwidget.h"
 #include "touchpadsettingwidget.h"
 #include "trackpointsettingwidget.h"
+#include "modules/mouse/mousemodel.h"
+#include "modules/mouse/mouseworker.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::mouse;
 using namespace dcc::mouse;
 
 MouseModule::MouseModule(FrameProxyInterface *frame, QObject *parent)
-    : QObject(parent),
-      ModuleInterface(frame),
-      m_generalSettingWidget(nullptr),
-      m_mouseSettingWidget(nullptr),
-      m_touchpadSettingWidget(nullptr),
-      m_trackPointSettingWidget(nullptr)
+    : QObject(parent)
+    , ModuleInterface(frame)
+    , m_generalSettingWidget(nullptr)
+    , m_mouseSettingWidget(nullptr)
+    , m_touchpadSettingWidget(nullptr)
+    , m_trackPointSettingWidget(nullptr)
 {
 }
 
@@ -59,7 +58,7 @@ void MouseModule::reset()
 
 QWidget *MouseModule::moduleWidget()
 {
-    MouseWidget* mouseWidget = new MouseWidget;
+    MouseWidget *mouseWidget = new MouseWidget;
     connect(mouseWidget, &MouseWidget::showGeneralSetting, this, &MouseModule::showGeneralSetting);
     connect(mouseWidget, &MouseWidget::showMouseSetting, this, &MouseModule::showMouseSetting);
     connect(mouseWidget, &MouseWidget::showTouchpadSetting, this, &MouseModule::showTouchpadSetting);
