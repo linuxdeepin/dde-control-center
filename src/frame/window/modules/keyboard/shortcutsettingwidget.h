@@ -87,7 +87,7 @@ private:
     QString m_searchText;
     QVBoxLayout *m_layout;
     QVBoxLayout *m_searchLayout;
-    QPushButton *m_addCustom;
+
     dcc::widgets::SettingsHead *m_head;
     dcc::widgets::SettingsGroup *m_systemGroup;
     dcc::widgets::SettingsGroup *m_windowGroup;

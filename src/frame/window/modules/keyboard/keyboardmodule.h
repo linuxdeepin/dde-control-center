@@ -34,7 +34,6 @@ class ShortcutModel;
 class KeyboardWorker;
 class KeyboardLayoutWidget;
 struct ShortcutInfo;
-class CustomContent;
 class CustomEdit;
 class ShortcutContent;
 }
@@ -46,6 +45,7 @@ class GeneralKBSettingWidget;
 class KBLayoutSettingWidget;
 class SystemLanguageSettingWidget;
 class ShortCutSettingWidget;
+class CustomContent;
 class KeyboardModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -80,7 +80,7 @@ private:
     dcc::keyboard::KeyboardModel  *m_model = nullptr;
     dcc::keyboard::ShortcutModel *m_shortcutModel = nullptr;
     dcc::keyboard::KeyboardWorker *m_work = nullptr;
-    dcc::keyboard::CustomContent *m_customContent = nullptr;
+    CustomContent *m_customContent = nullptr;
     dcc::keyboard::CustomEdit    *m_customEdit = nullptr;
     dcc::keyboard::ShortcutContent *m_scContent = nullptr;
 };

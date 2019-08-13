@@ -589,6 +589,8 @@ set(KEYBOARD_FILES
                 window/modules/keyboard/keyboardmodule.cpp
                 window/modules/keyboard/keyboardwidget.h
                 window/modules/keyboard/keyboardwidget.cpp
+                window/modules/keyboard/customcontent.h
+                window/modules/keyboard/customcontent.cpp
                 window/modules/keyboard/generalkbsettingwidget.h
                 window/modules/keyboard/generalkbsettingwidget.cpp
                 window/modules/keyboard/kblayoutsettingwidget.h

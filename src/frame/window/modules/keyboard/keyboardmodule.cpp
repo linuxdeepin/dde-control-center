@@ -21,6 +21,7 @@
 
 #include "keyboardmodule.h"
 #include "keyboardwidget.h"
+#include "customcontent.h"
 #include "generalkbsettingwidget.h"
 #include "kblayoutsettingwidget.h"
 #include "shortcutsettingwidget.h"
@@ -30,7 +31,6 @@
 #include "modules/keyboard/keyboardmodel.h"
 #include "modules/keyboard/shortcutmodel.h"
 #include "modules/keyboard/customedit.h"
-#include "modules/keyboard/customcontent.h"
 #include "modules/keyboard/shortcutcontent.h"
 #include "modules/keyboard/keyboardlayoutwidget.h"
 

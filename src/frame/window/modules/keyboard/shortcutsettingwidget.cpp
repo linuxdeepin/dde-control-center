@@ -23,11 +23,13 @@
 #include "modules/keyboard/shortcutmodel.h"
 #include "modules/keyboard/shortcutitem.h"
 #include "widgets/settingshead.h"
-#include "modules/keyboard/shortcutmodel.h"
 #include "widgets/translucentframe.h"
 #include "widgets/settingsheaderitem.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/searchinput.h"
+
+#include <dimagebutton.h>
+#include <DAnchors>
 
 #include <QLineEdit>
 
@@ -57,6 +59,10 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_searchGroup = new SettingsGroup();
     m_searchInput = new SearchInput();
 
+    m_contentTopLayout->addSpacing(10);
+    m_contentTopLayout->addWidget(m_searchInput);
+    m_contentTopLayout->addSpacing(10);
+
     m_head = new SettingsHead();
     m_head->setEditEnable(true);
     m_head->setVisible(false);
@@ -67,25 +73,28 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->setMargin(0);
     m_layout->setSpacing(10);
     m_layout->addSpacing(10);
-    m_layout->addWidget(m_searchInput);
+
     m_layout->addWidget(m_systemGroup);
     m_layout->addWidget(m_windowGroup);
     m_layout->addWidget(m_workspaceGroup);
     m_layout->addWidget(m_customGroup);
 
-    m_addCustom = new QPushButton(tr("Add Custom Shortcut"));
-
-    QPushButton *resetBtn = new QPushButton(tr("Restore Defaults"));
-
-    m_layout->addWidget(m_addCustom);
-    m_layout->addSpacing(10);
-    m_layout->addWidget(resetBtn);
-    m_layout->addSpacing(10);
     m_widget->setLayout(m_layout);
-
     setContent(m_widget);
-    connect(m_addCustom, &QPushButton::clicked, this, &ShortCutSettingWidget::customShortcut);
-    connect(resetBtn, &QPushButton::clicked, this, &ShortCutSettingWidget::requestReset);
+
+    DImageButton *addCustomShortcut = new DImageButton(this);
+
+    addCustomShortcut->setNormalPic(":/keyboard/themes/dark/icons/list_delete_hover.svg");
+    addCustomShortcut->setHoverPic(":/keyboard/themes/dark/icons/list_delete_hover.svg");
+    addCustomShortcut->setPressPic(":/keyboard/themes/dark/icons/list_delete_hover.svg");
+
+    DAnchors<DImageButton> anchors(addCustomShortcut);
+
+    anchors.setAnchor(Qt::AnchorBottom, this, Qt::AnchorBottom);
+    anchors.setBottomMargin(2);
+    anchors.setAnchor(Qt::AnchorHorizontalCenter, this, Qt::AnchorHorizontalCenter);
+
+    connect(addCustomShortcut, &DImageButton::clicked, this, &ShortCutSettingWidget::customShortcut);
     connect(m_searchInput, &QLineEdit::textChanged, this, &ShortCutSettingWidget::onSearchTextChanged);
     connect(m_searchDelayTimer, &QTimer::timeout, this, &ShortCutSettingWidget::prepareSearchKeys);
     setTitle(tr("Shortcuts"));
@@ -110,7 +119,7 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
         {ShortcutModel::Custom, &m_customList}
     };
 
-    QMap<ShortcutModel::InfoType, SettingsGroup *> GroupMap{
+    QMap<ShortcutModel::InfoType, SettingsGroup *> GroupMap {
         {ShortcutModel::System, m_systemGroup},
         {ShortcutModel::Window, m_windowGroup},
         {ShortcutModel::Workspace, m_workspaceGroup},
@@ -178,26 +187,22 @@ SettingsHead *ShortCutSettingWidget::getHead() const
 void ShortCutSettingWidget::modifyStatus(bool status)
 {
     if (status) {
-        m_addCustom->hide();
         m_customGroup->hide();
         m_workspaceGroup->hide();
         m_windowGroup->hide();
         m_systemGroup->hide();
         m_searchGroup->show();
-        m_layout->removeWidget(m_addCustom);
         m_layout->removeWidget(m_customGroup);
         m_layout->removeWidget(m_workspaceGroup);
         m_layout->removeWidget(m_windowGroup);
         m_layout->removeWidget(m_systemGroup);
         m_layout->insertWidget(2, m_searchGroup);
     } else {
-        m_addCustom->show();
         m_customGroup->show();
         m_workspaceGroup->show();
         m_windowGroup->show();
         m_systemGroup->show();
         m_searchGroup->hide();
-        m_layout->insertWidget(2, m_addCustom);
         m_layout->insertWidget(2, m_customGroup);
         m_layout->insertWidget(2, m_workspaceGroup);
         m_layout->insertWidget(2, m_windowGroup);
