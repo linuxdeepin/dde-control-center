@@ -227,7 +227,9 @@ void UpdateWidget::showUpdateSetting()
     m_work->checkNetselect();
 
     UpdateSettings *updateSetting = new UpdateSettings(m_model);
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
     m_work->refreshMirrors();
+#endif
     updateSetting = new UpdateSettings(m_model);
     updateSetting->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     connect(updateSetting, &UpdateSettings::requestSetAutoUpdate, m_work, &UpdateWorker::setAutoDownloadUpdates);
