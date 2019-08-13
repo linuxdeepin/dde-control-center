@@ -21,9 +21,12 @@
 
 #include "displaywidget.h"
 #include "window/namespace.h"
+#include "window/utils.h"
 
 #include "modules/display/displaymodel.h"
 #include "modules/display/monitor.h"
+
+#include <DStyleOption>
 
 #include <QListView>
 #include <QStandardItemModel>
@@ -79,6 +82,9 @@ void DisplayWidget::onMonitorListChanged()
         m_menuList->setModel(m_multiModel);
         m_model->setAllowEnableMultiScaleRatio(true);
     }
+
+    m_menuList->setCurrentIndex(m_menuList->model()->index(0, 0));
+    m_currentIdx = m_menuList->currentIndex();
 }
 
 void DisplayWidget::initMenuUI()
@@ -99,14 +105,20 @@ void DisplayWidget::initMenuUI()
     QStandardItem *btn{nullptr};
     for (auto menu : m_multMenuList) {
         btn = new QStandardItem(menu.menuText);
+        btn->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
+        btn->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_multiModel->appendRow(btn);
     }
 
     for (auto menu : m_singleMenuList) {
         btn = new QStandardItem(menu.menuText);
+        btn->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
+        btn->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_singleModel->appendRow(btn);
     }
 
+    m_menuList->setMinimumWidth(230);
+    m_menuList->setFrameShape(QFrame::NoFrame);
     m_centralLayout->addWidget(m_menuList);
     connect(m_menuList, &QListView::clicked, this, &DisplayWidget::onMenuClicked);
 
@@ -121,10 +133,15 @@ void DisplayWidget::initMenuUI()
 
 void DisplayWidget::onMenuClicked(const QModelIndex &idx)
 {
-    if (m_isMultiScreen)
+    if (idx == m_currentIdx)
+        return;
+
+    m_currentIdx = idx;
+    if (m_isMultiScreen) {
         m_multMenuList[idx.row()].method.invoke(this);
-    else
+    } else {
         m_singleMenuList[idx.row()].method.invoke(this);
+    }
 }
 
 int DisplayWidget::convertToSlider(const float value)

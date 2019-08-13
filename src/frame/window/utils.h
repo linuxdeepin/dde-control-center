@@ -19,50 +19,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SoundWidget_H_V20
-#define SoundWidget_H_V20
+#ifndef V20_DISPLAY_UTILS_H
+#define V20_DISPLAY_UTILS_H
 
 #include "window/namespace.h"
 
-#include <QWidget>
-#include <QMetaMethod>
-#include <QModelIndex>
+#include <QMargins>
+#include <QVariant>
 
-class QListView;
+Q_DECLARE_METATYPE(QMargins)
 
 namespace DCC_NAMESPACE {
 
-namespace sound {
-
-class SoundWidget : public QWidget
-{
-    Q_OBJECT
-public:
-    SoundWidget(QWidget *parent = nullptr);
-
-private:
-    void initMenuUI();
-
-Q_SIGNALS:
-    void requsetSpeakerPage();
-    void requestMicrophonePage();
-    void requestAdvancedPage();
-    void requsetSoundEffectsPage();
-
-private:
-    struct MenuMethod {
-        QString menuText;
-        QMetaMethod method;
-    };
-
-private:
-    QList<MenuMethod> m_menuMethod;
-    QListView *m_menuList{nullptr};
-    QModelIndex m_currentIdx;
-};
-}
+const QMargins ListViweItemMargin(20,8,20,8);
+const QVariant VListViewItemMargin = QVariant::fromValue(ListViweItemMargin);
 
 }
 
-
-#endif // SoundWidget_H_V20
+#endif // V20_DISPLAY_UTILS_H

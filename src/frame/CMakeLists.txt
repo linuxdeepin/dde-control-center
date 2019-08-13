@@ -149,6 +149,7 @@ set(WINDOW_FILES
     window/navwinview.cpp
     window/standarditemhelper.h
     window/standarditemhelper.cpp
+    window/utils.h
     window/modules/display/displaywidget.cpp
     window/modules/datetime/datetimemodule.cpp
     window/modules/datetime/datetimewidget.cpp
@@ -527,9 +528,6 @@ set(DISPLAY_FILES
                 modules/display/settingsoptionitem.h
                 modules/display/scalingpage.h
                 modules/display/scalingpage.cpp
-
-                window/modules/display/displaywidget.h
-                window/modules/display/displaywidget.cpp
 )
 
 # load keyboard

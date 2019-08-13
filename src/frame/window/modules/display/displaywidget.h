@@ -26,6 +26,8 @@
 
 #include <dimagebutton.h>
 
+#include <QModelIndex>
+
 QT_BEGIN_NAMESPACE
 class QListView;
 class QStandardItemModel;
@@ -81,6 +83,7 @@ private:
     DTK_WIDGET_NAMESPACE::DImageButton *m_rotate{nullptr};
     QVBoxLayout *m_centralLayout{nullptr};
     QListView *m_menuList{nullptr};
+    QModelIndex m_currentIdx;
 
     QStandardItemModel *m_multiModel{nullptr};
     QStandardItemModel *m_singleModel{nullptr};

@@ -20,14 +20,16 @@
  */
 
 #include "soundwidget.h"
-
-#include "modules/sound/soundmodel.h"
+#include "window/utils.h"
 #include "modules/sound/soundworker.h"
+
+#include <DStyleOption>
 
 #include <QVBoxLayout>
 #include <QStandardItemModel>
 #include <QStandardItem>
 #include <QListView>
+#include <QMargins>
 
 using namespace DCC_NAMESPACE::sound;
 
@@ -46,16 +48,12 @@ SoundWidget::SoundWidget(QWidget *parent)
     layout->setSpacing(10);
     layout->addSpacing(10);
 
+    m_menuList->setFrameShape(QFrame::NoFrame);
     layout->addWidget(m_menuList);
     initMenuUI();
 
     layout->addStretch(1);
     setLayout(layout);
-}
-
-void SoundWidget::setModel(dcc::sound::SoundModel *model)
-{
-    m_model = model;
 }
 
 void SoundWidget::initMenuUI()
@@ -70,9 +68,18 @@ void SoundWidget::initMenuUI()
     QStandardItemModel *listModel = new QStandardItemModel(this);
     for (auto mm : m_menuMethod) {
         QStandardItem *item = new QStandardItem(mm.menuText);
+        item->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
         listModel->appendRow(item);
     }
-
+    m_menuList->setMinimumWidth(230);
     m_menuList->setModel(listModel);
-    connect(m_menuList, &QListView::clicked, [ = ](const QModelIndex & idx) {   m_menuMethod[idx.row()].method.invoke(this);});
+    m_menuList->setCurrentIndex(listModel->index(0, 0));
+    m_currentIdx = m_menuList->currentIndex();
+    connect(m_menuList, &QListView::clicked, [ = ](const QModelIndex & idx) {
+        if (idx == m_currentIdx)
+            return;
+        m_currentIdx = idx;
+        m_menuMethod[idx.row()].method.invoke(this);
+    });
 }
