@@ -23,6 +23,8 @@
 
 #include <dimagebutton.h>
 
+#include <QDebug>
+
 DWIDGET_USE_NAMESPACE
 
 using namespace DCC_NAMESPACE::defapp;
@@ -42,8 +44,8 @@ QWidget *DelAppDelegate::createEditor(QWidget *parent, const QStyleOptionViewIte
 
     // view class will delete these object later
     DImageButton *editor = new DImageButton(":/images/notify_close_normal.svg",
-                             ":/images/notify_close_hover.svg",
-                             ":/images/notify_close_press.svg", parent);
+                                            ":/images/notify_close_hover.svg",
+                                            ":/images/notify_close_press.svg", parent);
 
     editor->setFixedSize(QPixmap(editor->getNormalPic()).size());
 
@@ -58,9 +60,9 @@ void DelAppDelegate::updateEditorGeometry(QWidget *editor, const QStyleOptionVie
 {
     Q_UNUSED(index)
 
-    const QRect& mRect = option.rect;
-    editor->setGeometry(mRect.x() + mRect.width() - editor->width(),
-                        mRect.y() + editor->width(),
+    const QRect &mRect = option.rect;
+    editor->setGeometry(mRect.x() + mRect.right() - editor->width() - 10,
+                        mRect.y() + (mRect.height() - editor->height()) / 2,
                         editor->width(),
                         editor->height());
 }

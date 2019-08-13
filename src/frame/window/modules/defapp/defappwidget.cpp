@@ -20,50 +20,66 @@
  */
 
 #include "defappwidget.h"
-#include "window/constant.h"
+
+#include <DStyleOption>
+
 #include <QListView>
 #include <QStandardItemModel>
 #include <QStandardItem>
 #include <QVBoxLayout>
+#include <QTimer>
 #include <QDebug>
 
 using namespace DCC_NAMESPACE::defapp;
 
+DWIDGET_USE_NAMESPACE
+
+Q_DECLARE_METATYPE(QMargins)
+
 DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     : QWidget(parent)
+    , m_defAppCatView(new QListView(this))
+    , m_centralLayout(new QVBoxLayout(this))
 {
     setObjectName("Defapp");
-    m_defAppCatView = new QListView(this);
-    m_defAppCatView->setIconSize(QSize(Constant::HomeIconSize,Constant::HomeIconSize));
-    m_defAppCatView->setSpacing(10);
+    m_defAppCatView->setIconSize(QSize(24, 24));
     m_defAppCatView->setResizeMode(QListView::Adjust);
     m_defAppCatView->setMovement(QListView::Static);
+    m_defAppCatView->setMinimumSize(250, 564);
+    m_defAppCatView->setFrameShape(QFrame::NoFrame);
+    m_defAppCatView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    QStringList titles;
+    titles << tr("Webpage")
+           << tr("Mail")
+           << tr("Text")
+           << tr("Music")
+           << tr("Video")
+           << tr("Picture")
+           << tr("Terminal");
 
     //Initialize second page view and model
-    m_model = new QStandardItemModel(this);
-    QStandardItem* item1    = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), tr("Webpage"));
-    QStandardItem* item2    = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), tr("Mail"));
-    QStandardItem* item3    = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), tr("Text"));
-    QStandardItem* item4    = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), tr("Music"));
-    QStandardItem* item5    = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), tr("Video"));
-    QStandardItem* item6    = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), tr("Picture"));
-    QStandardItem* item7    = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), tr("Terminal"));
-    m_model->appendRow(item1);
-    m_model->appendRow(item2);
-    m_model->appendRow(item3);
-    m_model->appendRow(item4);
-    m_model->appendRow(item5);
-    m_model->appendRow(item6);
-    m_model->appendRow(item7);
-    m_centralLayout = new QVBoxLayout(this);
+    QStandardItemModel *model = new QStandardItemModel(this);
 
-    m_defAppCatView->setModel(m_model);
-    m_defAppCatView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
+    for (int i = 0; i < titles.size(); i++) {
+        QStandardItem* item = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), titles.at(i));
+
+        item->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
+        item->setSizeHint(QSize(230, 48));
+        item->setData(QVariant::fromValue(QMargins(10, 10, 10, 0)), Dtk::MarginsRole);
+        model->appendRow(item);
+    }
+
+    m_defAppCatView->setModel(model);
+    //show default browser app
+    m_defAppCatView->setCurrentIndex(model->indexFromItem(model->item(0)));
 
     m_centralLayout->addWidget(m_defAppCatView);
+
     connect(m_defAppCatView, &QListView::clicked, this, &DefaultAppsWidget::onCategoryClicked);
 
     setAccessibleName(tr("Default Applications"));
+    setMinimumSize(262, 564);
 }
 
 void DefaultAppsWidget::onCategoryClicked(const QModelIndex &index) {

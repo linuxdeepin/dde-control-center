@@ -21,6 +21,9 @@
 #pragma once
 
 #include "window/namespace.h"
+
+#include <DStyleOption>
+
 #include <QListView>
 
 namespace DCC_NAMESPACE {
@@ -33,7 +36,7 @@ public:
     DefAppListView(QWidget *parent = Q_NULLPTR);
 
     enum DefAppDataRole{
-        DefAppIsUserRole = Qt::UserRole + 1,
+        DefAppIsUserRole = Dtk::UserRole + 1,
         DefAppIdRole,
     };
 

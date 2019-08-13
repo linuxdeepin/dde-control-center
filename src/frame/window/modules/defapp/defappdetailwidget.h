@@ -21,27 +21,33 @@
 #pragma once
 
 #include "window/namespace.h"
-#include "window/standarditemhelper.h"
 #include "modules/defapp/defappworker.h"
+
+#include <dtkwidget_global.h>
+
 #include <QWidget>
 
-class QListView;
+namespace dcc {
+namespace defapp {
+class DefAppModel;
+class Category;
+struct App;
+}
+}
+
+DWIDGET_BEGIN_NAMESPACE
+class DFloatingButton;
+DWIDGET_END_NAMESPACE
+
+QT_BEGIN_NAMESPACE
+class QStandardItem;
 class QPushButton;
 class QStandardItemModel;
 class QVBoxLayout;
 class QFileInfo;
 class QIcon;
+QT_END_NAMESPACE
 
-namespace dcc {
-namespace defapp {
-class DefCategoryWidget;
-class DefAppModel;
-
-class Category;
-struct App;
-}
-
-}
 namespace DCC_NAMESPACE {
 namespace defapp {
 class DefAppListView;
@@ -50,15 +56,15 @@ class DefappDetailWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category, QWidget *parent = 0);
-    void setModel(dcc::defapp::DefAppModel * const model);
+    explicit DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category, QWidget *parent = nullptr);
+    void setModel(dcc::defapp::DefAppModel *const model);
     void setCategory(dcc::defapp::Category *const category);
 
 private:
     void updateListView(const dcc::defapp::App &app);
     QIcon getAppIcon(const dcc::defapp::App &app);
-    void setDefault(const dcc::defapp::App &app);
     dcc::defapp::App getAppById(const QString &appId);
+    void appendItemData(const dcc::defapp::App &app);
 
 Q_SIGNALS:
     void requestSetDefaultApp(const QString &category, const dcc::defapp::App &item);
@@ -69,10 +75,9 @@ Q_SIGNALS:
 public Q_SLOTS:
     void onDefaultAppSet(const dcc::defapp::App &app);
     void setCategoryName(const QString &name);
-    void onListViewClicked(const QModelIndex& index);
+    void onListViewClicked(const QModelIndex &index);
     void onAddBtnClicked();
     void onDelBtnClicked(const QModelIndex &index);
-
 
 private:
     void AppsItemChanged(const QList<dcc::defapp::App> &list);
@@ -81,15 +86,13 @@ private:
 
 private:
     QVBoxLayout *m_centralLayout;
-    DefAppListView   *m_defApps = nullptr;
-    QStandardItemModel *m_model = nullptr;
-    QPushButton *m_addBtn;
-    QString      m_categoryName;
-    int  m_categoryValue;
-    dcc::defapp::Category *m_category = nullptr;
-    QList<dcc::defapp::App> m_appList;
-    DelAppDelegate  *m_delItemDelegate = nullptr;
+    DefAppListView *m_defApps;
+    QStandardItemModel *m_model;
+    Dtk::Widget::DFloatingButton *m_addBtn;
+    QString m_categoryName;
+    int m_categoryValue;
+    dcc::defapp::Category *m_category;
+    DelAppDelegate *m_delItemDelegate;
 };
 }
 }
-

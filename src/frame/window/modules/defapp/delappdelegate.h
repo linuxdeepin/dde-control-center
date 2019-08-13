@@ -23,8 +23,6 @@
 #include "window/namespace.h"
 
 #include <QStyledItemDelegate>
-#include <QStandardItemModel>
-
 
 namespace DCC_NAMESPACE {
 namespace defapp {
@@ -33,19 +31,11 @@ class DelAppDelegate : public QStyledItemDelegate
     Q_OBJECT
 public:
     explicit DelAppDelegate(QObject *parent = Q_NULLPTR);
-    void setModel(QStandardItemModel *model);
-
-Q_SIGNALS:
-    void removeBtnClicked(const QModelIndex &index) const;
-
-public:
     QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
     void updateEditorGeometry(QWidget *editor, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
 
-private:
-    QStandardItemModel *m_model;
+Q_SIGNALS:
+    void removeBtnClicked(const QModelIndex &index) const;
 };
 }
 }
-
-

@@ -20,7 +20,6 @@
  */
 #include "defapplistview.h"
 
-#include <QListView>
 #include <QStandardItemModel>
 #include <QDebug>
 #include <QScroller>
