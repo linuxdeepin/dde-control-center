@@ -67,7 +67,7 @@ const QString DisplayModule::name() const
     return QStringLiteral("display");
 }
 
-QWidget *DisplayModule::moduleWidget()
+void DisplayModule::active()
 {
     DisplayWidget *displayWidget = new DisplayWidget;
     displayWidget->setModel(m_displayModel);
@@ -83,7 +83,8 @@ QWidget *DisplayModule::moduleWidget()
     connect(displayWidget, &DisplayWidget::requestShowMultiScreenPage,
             this, &DisplayModule::showMultiScreenSettingPage);
 
-    return displayWidget;
+    m_frameProxy->pushWidget(this, displayWidget);
+    showMultiScreenSettingPage();
 }
 
 void DisplayModule::showBrightnessPage()

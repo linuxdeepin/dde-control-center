@@ -74,14 +74,24 @@ public:
     virtual void showPage(const QString &pageName) { Q_UNUSED(pageName); }
 
     // 返回模块主Widget；
-    virtual QWidget *moduleWidget() = 0;
+    virtual QWidget *moduleWidget() { return nullptr;}
 
     ///
     /// \brief contentPopped
     /// call when specific widget popped
     /// \param w
     ///
-    virtual void contentPopped(QWidget * const w) { Q_UNUSED(w);}
+    virtual void contentPopped(QWidget *const w) { Q_UNUSED(w);}
+
+    ///
+    /// \brief active
+    /// 当模块第一次被点击进入时，active会被调用
+    virtual void active();
+
+    ///
+    /// \brief active
+    /// 当模块被销毁时，deactive会被调用
+    virtual void deactive();
 
 protected:
     FrameProxyInterface *m_frameProxy = nullptr;

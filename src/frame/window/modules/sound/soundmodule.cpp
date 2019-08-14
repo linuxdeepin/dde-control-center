@@ -63,7 +63,7 @@ const QString SoundModule::name() const
     return tr("Sound");
 }
 
-QWidget *SoundModule::moduleWidget()
+void SoundModule::active()
 {
     SoundWidget  *widget = new SoundWidget();
 
@@ -72,7 +72,8 @@ QWidget *SoundModule::moduleWidget()
     connect(widget, &SoundWidget::requestAdvancedPage, this, &SoundModule::showAdvancedPage);
     connect(widget, &SoundWidget::requsetSoundEffectsPage, this, &SoundModule::showSoundEffectsPage);
 
-    return widget;
+    m_frameProxy->pushWidget(this, widget);
+    showSpeakerPage();
 }
 
 void SoundModule::showSpeakerPage()

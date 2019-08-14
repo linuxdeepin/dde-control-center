@@ -417,8 +417,7 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
         inter->initialize();
         m_initList << inter;
     }
-
-    pushNormalWidget(inter, inter->moduleWidget());
+    inter->active();
 }
 
 void MainWindow::pushNormalWidget(ModuleInterface *const inter, QWidget *const w)

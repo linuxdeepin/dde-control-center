@@ -59,9 +59,9 @@ private Q_SLOTS:
     void showRecognize();
 
 public:
-    QWidget *moduleWidget() override;
     void initialize() override;
     const QString name() const override;
+    void active() override;
 
 private:
     dcc::display::DisplayModel *m_displayModel;

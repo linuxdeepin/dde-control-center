@@ -202,6 +202,7 @@ set(INTERFACES_FILES
                 interfaces/plugininterface.h
 
                 window/interface/moduleinterface.h
+                window/interface/moduleinterface.cpp
                 window/interface/frameproxyinterface.h
 )
 

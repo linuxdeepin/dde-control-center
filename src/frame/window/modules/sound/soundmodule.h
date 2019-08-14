@@ -54,7 +54,7 @@ public:
     const QString name() const override;
 
 public:
-    QWidget *moduleWidget() override;
+    void active() override;
 
 public Q_SLOTS:
     void showSpeakerPage();
