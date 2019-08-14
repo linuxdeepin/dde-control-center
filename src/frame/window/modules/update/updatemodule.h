@@ -29,11 +29,11 @@ class QVBoxLayout;
 QT_END_NAMESPACE
 
 namespace dcc {
-    namespace update {
-        class UpdateWorker;
-        class UpdateModel;
-        class MirrorsWidget;
-    }
+namespace update {
+class UpdateWorker;
+class UpdateModel;
+class MirrorsWidget;
+}
 }
 
 namespace DCC_NAMESPACE {
@@ -49,11 +49,8 @@ public:
     UpdateModule(FrameProxyInterface *frameProxy, QObject *parent = nullptr);
 
     virtual void initialize() override;
-    virtual void reset() override;
     virtual const QString name() const override;
-    virtual void showPage(const QString &pageName) override;
-    virtual QWidget *moduleWidget() override;
-    virtual void contentPopped(QWidget *const w) override;
+    virtual void active() override;
     QString getSystemVersion();
 
 private:

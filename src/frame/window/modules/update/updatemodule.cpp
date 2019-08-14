@@ -52,22 +52,12 @@ void UpdateModule::initialize()
     m_model->moveToThread(qApp->thread());
 }
 
-void UpdateModule::reset()
-{
-
-}
-
 const QString UpdateModule::name() const
 {
     return QStringLiteral("update");
 }
 
-void UpdateModule::showPage(const QString &pageName)
-{
-    Q_UNUSED(pageName)
-}
-
-QWidget *UpdateModule::moduleWidget()
+void UpdateModule::active()
 {
     UpdateWidget *mainWidget = new UpdateWidget;
     mainWidget->initialize();
@@ -87,12 +77,7 @@ QWidget *UpdateModule::moduleWidget()
         m_frameProxy->pushWidget(this, mirrorsWidget, FrameProxyInterface::PushType::CoverTop);
     });
 
-    return mainWidget;
-}
-
-void UpdateModule::contentPopped(QWidget *const w)
-{
-    Q_UNUSED(w)
+    m_frameProxy->pushWidget(this, mainWidget);
 }
 
 QString UpdateModule::getSystemVersion()

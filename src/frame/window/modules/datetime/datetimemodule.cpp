@@ -55,34 +55,19 @@ void DatetimeModule::initialize()
 #endif
 }
 
-void DatetimeModule::reset()
-{
-
-}
-
 const QString DatetimeModule::name() const
 {
     return QStringLiteral("datetime");
 }
 
-void DatetimeModule::showPage(const QString &pageName)
-{
-    Q_UNUSED(pageName)
-}
-
-QWidget *DatetimeModule::moduleWidget()
+void DatetimeModule::active()
 {
     DatetimeWidget* widget = new DatetimeWidget;
     connect(widget, &DatetimeWidget::requestPushWidget, this, &DatetimeModule::onPushWidget);
     widget->setModel(m_model);
     m_work->activate(); //refresh data
 
-    return widget;
-}
-
-void DatetimeModule::contentPopped(QWidget *const w)
-{
-    Q_UNUSED(w);
+    m_frameProxy->pushWidget(this, widget);
 }
 
 void DatetimeModule::createWidget(int index)

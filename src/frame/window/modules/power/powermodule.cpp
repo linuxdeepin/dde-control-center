@@ -53,22 +53,12 @@ void PowerModule::initialize()
     m_model->moveToThread(qApp->thread());
 }
 
-void PowerModule::reset()
-{
-
-}
-
 const QString PowerModule::name() const
 {
     return QStringLiteral("power");
 }
 
-void PowerModule::showPage(const QString &pageName)
-{
-    Q_UNUSED(pageName)
-}
-
-QWidget *PowerModule::moduleWidget()
+void PowerModule::active()
 {
     PowerWidget *mainWidget = new PowerWidget;
     mainWidget->initialize();
@@ -77,12 +67,7 @@ QWidget *PowerModule::moduleWidget()
     connect(mainWidget, &PowerWidget::requestPushWidget, this, &PowerModule::onPushWidget);
     connect(m_model, &PowerModel::haveBettaryChanged, mainWidget, &PowerWidget::requestRemoveBattery);
 
-    return mainWidget;
-}
-
-void PowerModule::contentPopped(QWidget *const w)
-{
-    Q_UNUSED(w);
+    m_frameProxy->pushWidget(this, mainWidget);
 }
 
 void PowerModule::showGeneral()
