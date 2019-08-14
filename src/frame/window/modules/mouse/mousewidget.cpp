@@ -63,8 +63,6 @@ void MouseWidget::init()
     m_mouseListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_mouseListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     connect(m_mouseListView, &QListView::clicked, this, &MouseWidget::onItemClieck);
-
-    QTimer::singleShot(0, this, &MouseWidget::initSetting);
 }
 
 void MouseWidget::initSetting()

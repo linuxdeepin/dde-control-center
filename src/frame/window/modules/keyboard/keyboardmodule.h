@@ -55,7 +55,7 @@ public:
 
     void initialize() override;
     void reset() override;
-    QWidget *moduleWidget() override;
+    void active() override;
     const QString name() const override;
     void contentPopped(QWidget *const w) override;
 

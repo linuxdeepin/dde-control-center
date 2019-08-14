@@ -68,7 +68,7 @@ void BluetoothModule::reset()
 {
 }
 
-QWidget *BluetoothModule::moduleWidget()
+void BluetoothModule::active()
 {
     m_bluetoothView = new BluetoothWidget(m_bluetoothModel);
 
@@ -76,11 +76,10 @@ QWidget *BluetoothModule::moduleWidget()
     connect(m_bluetoothView, &BluetoothWidget::requestConnectDevice, m_bluetoothWorker, &BluetoothWorker::connectDevice);
     connect(m_bluetoothView, &BluetoothWidget::requestSetAlias, m_bluetoothWorker, &BluetoothWorker::setAlias);
     connect(m_bluetoothView, &BluetoothWidget::showDeviceDetail, this, &BluetoothModule::showDeviceDetail);
-
     connect(m_bluetoothView, &BluetoothWidget::requestModuleVisible, [this](const bool visible) {
         m_frameProxy->setModuleVisible(this, visible);
     });
-    return m_bluetoothView;
+    m_frameProxy->pushWidget(this, m_bluetoothView);
 }
 
 const QString BluetoothModule::name() const

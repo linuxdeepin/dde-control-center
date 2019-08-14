@@ -58,7 +58,6 @@ void KeyboardWidget::init()
     m_keyboardListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_keyboardListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     connect(m_keyboardListView, &QListView::clicked, this, &KeyboardWidget::onItemClick);
-    QTimer::singleShot(0, this, &KeyboardWidget::initSetting);
 }
 
 void KeyboardWidget::initSetting()

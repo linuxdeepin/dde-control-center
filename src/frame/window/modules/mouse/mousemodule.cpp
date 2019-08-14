@@ -56,15 +56,15 @@ void MouseModule::reset()
     m_worker->onDefaultReset();
 }
 
-QWidget *MouseModule::moduleWidget()
+void MouseModule::active()
 {
     MouseWidget *mouseWidget = new MouseWidget;
     connect(mouseWidget, &MouseWidget::showGeneralSetting, this, &MouseModule::showGeneralSetting);
     connect(mouseWidget, &MouseWidget::showMouseSetting, this, &MouseModule::showMouseSetting);
     connect(mouseWidget, &MouseWidget::showTouchpadSetting, this, &MouseModule::showTouchpadSetting);
     connect(mouseWidget, &MouseWidget::showTrackPointSetting, this, &MouseModule::showTrackPointSetting);
-
-    return mouseWidget;
+    m_frameProxy->pushWidget(this, mouseWidget);
+    showGeneralSetting();
 }
 
 void MouseModule::showGeneralSetting()

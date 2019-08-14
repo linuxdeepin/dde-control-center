@@ -62,15 +62,15 @@ void KeyboardModule::reset()
 
 }
 
-QWidget *KeyboardModule::moduleWidget()
+void KeyboardModule::active()
 {
     KeyboardWidget *keyboardWidget = new KeyboardWidget;
     connect(keyboardWidget, &KeyboardWidget::showGeneralSetting, this, &KeyboardModule::showGeneralSetting);
     connect(keyboardWidget, &KeyboardWidget::showKBLayoutSetting, this, &KeyboardModule::showKBLayoutSetting);
     connect(keyboardWidget, &KeyboardWidget::showSystemLanguageSetting, this, &KeyboardModule::showSystemLanguageSetting);
     connect(keyboardWidget, &KeyboardWidget::showShortCutSetting, this, &KeyboardModule::showShortCutSetting);
-
-    return keyboardWidget;
+    m_frameProxy->pushWidget(this, keyboardWidget);
+    showGeneralSetting();
 }
 
 const QString KeyboardModule::name() const
