@@ -68,7 +68,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_rightContentLayout = new QHBoxLayout(m_rightView);
     m_navView = new NavWinView(this);
     m_navView->setFrameShape(QFrame::Shape::NoFrame);
-
+    m_navView->setEditTriggers(QListView::NoEditTriggers);
 
     m_contentLayout->addWidget(m_navView);
     m_contentLayout->addWidget(m_rightView);
