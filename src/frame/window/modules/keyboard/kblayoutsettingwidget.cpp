@@ -27,7 +27,7 @@
 #include "modules/keyboard/keylabel.h"
 #include "modules/keyboard/keyboardmodel.h"
 
-#include <dimagebutton.h>
+#include <DFloatingButton>
 #include <DAnchors>
 
 #include <QStringList>
@@ -87,16 +87,14 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     }
     content->setLayout(layout);
     setContent(content);
-    DImageButton *addLayout = new DImageButton(this);
-    addLayout->setNormalPic(":/keyboard/themes/dark/icons/list_delete_hover.svg");
-    addLayout->setHoverPic(":/keyboard/themes/dark/icons/list_delete_hover.svg");
-    addLayout->setPressPic(":/keyboard/themes/dark/icons/list_delete_hover.svg");
-    DAnchors<DImageButton> anchors(addLayout);
+
+    DFloatingButton *addLayout = new DFloatingButton(QString("+"), this);
+    DAnchors<DFloatingButton> anchors(addLayout);
     anchors.setAnchor(Qt::AnchorBottom, this, Qt::AnchorBottom);
     anchors.setBottomMargin(2);
     anchors.setAnchor(Qt::AnchorHorizontalCenter, this, Qt::AnchorHorizontalCenter);
 
-    connect(addLayout, &DImageButton::clicked, this, &KBLayoutSettingWidget::onLayoutAdded);
+    connect(addLayout, &DFloatingButton::clicked, this, &KBLayoutSettingWidget::onLayoutAdded);
     connect(m_head, &SettingsHead::editChanged, this, &KBLayoutSettingWidget::onEdit);
 }
 

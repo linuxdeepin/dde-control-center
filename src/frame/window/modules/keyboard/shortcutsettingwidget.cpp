@@ -28,7 +28,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/searchinput.h"
 
-#include <dimagebutton.h>
+#include <DFloatingButton>
 #include <DAnchors>
 
 #include <QLineEdit>
@@ -82,19 +82,13 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_widget->setLayout(m_layout);
     setContent(m_widget);
 
-    DImageButton *addCustomShortcut = new DImageButton(this);
-
-    addCustomShortcut->setNormalPic(":/keyboard/themes/dark/icons/list_delete_hover.svg");
-    addCustomShortcut->setHoverPic(":/keyboard/themes/dark/icons/list_delete_hover.svg");
-    addCustomShortcut->setPressPic(":/keyboard/themes/dark/icons/list_delete_hover.svg");
-
-    DAnchors<DImageButton> anchors(addCustomShortcut);
-
+    DFloatingButton *addCustomShortcut = new DFloatingButton(QString("+"), this);
+    DAnchors<DFloatingButton> anchors(addCustomShortcut);
     anchors.setAnchor(Qt::AnchorBottom, this, Qt::AnchorBottom);
     anchors.setBottomMargin(2);
     anchors.setAnchor(Qt::AnchorHorizontalCenter, this, Qt::AnchorHorizontalCenter);
 
-    connect(addCustomShortcut, &DImageButton::clicked, this, &ShortCutSettingWidget::customShortcut);
+    connect(addCustomShortcut, &DFloatingButton::clicked, this, &ShortCutSettingWidget::customShortcut);
     connect(m_searchInput, &QLineEdit::textChanged, this, &ShortCutSettingWidget::onSearchTextChanged);
     connect(m_searchDelayTimer, &QTimer::timeout, this, &ShortCutSettingWidget::prepareSearchKeys);
     setTitle(tr("Shortcuts"));
