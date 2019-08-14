@@ -49,6 +49,7 @@ class AccountsWidget : public QWidget
 public:
     explicit AccountsWidget(QWidget *parent = nullptr);
     void setModel(dcc::accounts::UserModel *model);
+    void showDefaultAccountInfo();
 
 public Q_SLOTS:
     void addUser(dcc::accounts::User *user);

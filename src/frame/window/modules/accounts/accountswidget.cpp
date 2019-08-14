@@ -33,7 +33,7 @@
 #include <QListView>
 #include <QStandardItem>
 #include <QStandardItemModel>
-
+#include <QTimer>
 #include <QDebug>
 #include <QIcon>
 #include <QSize>
@@ -74,6 +74,14 @@ void AccountsWidget::setModel(UserModel *model)
     }
 }
 
+void AccountsWidget::showDefaultAccountInfo()
+{
+    QModelIndex qindex = m_userItemModel->index(0, 0);
+    m_userlistView->setFocus();
+    m_userlistView->setCurrentIndex(qindex);
+    Q_EMIT m_userlistView->clicked(qindex);
+}
+
 void AccountsWidget::addUser(User *user)
 {
     QStandardItem *item = new QStandardItem;
@@ -90,6 +98,9 @@ void AccountsWidget::addUser(User *user)
     item->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
     m_userItemModel->appendRow(item);
     m_userList << user;
+
+    //The first line in the default selection when the user list is loaded
+    QTimer::singleShot(0, this, &AccountsWidget::showDefaultAccountInfo);
 }
 
 void AccountsWidget::removeUser(User *user)
