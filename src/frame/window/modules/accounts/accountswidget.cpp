@@ -25,6 +25,8 @@
 #include "modules/accounts/user.h"
 #include "accountsdetailwidget.h"
 
+#include <DStyleOption>
+
 #include <QWidget>
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -51,6 +53,7 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     mainContentLayout->addWidget(m_userlistView);
     mainContentLayout->addWidget(m_createBtn);
 
+    m_userlistView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_userlistView->setIconSize(QSize(30, 30));
     m_userlistView->setLayoutDirection(Qt::LeftToRight);
     m_userlistView->setModel(m_userItemModel);
@@ -82,8 +85,9 @@ void AccountsWidget::addUser(User *user)
     });
     item->setIcon(QIcon(user->currentAvatar()));
     item->setText(user->name());
-    item->setTextAlignment(Qt::AlignCenter);
+    item->setTextAlignment(Qt::AlignLeft);
     item->setEditable(false);
+    item->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
     m_userItemModel->appendRow(item);
     m_userList << user;
 }
