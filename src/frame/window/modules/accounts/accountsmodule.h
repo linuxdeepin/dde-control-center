@@ -51,6 +51,7 @@ public:
     void showPage(const QString &pageName);
     QWidget *moduleWidget();
     void contentPopped(QWidget *const w);
+    void active() override;
 
 public Q_SLOTS:
     void onShowAccountsDetailWidget(dcc::accounts::User *account);

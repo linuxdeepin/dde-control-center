@@ -91,6 +91,12 @@ void AccountsModule::contentPopped(QWidget *const w)
     Q_UNUSED(w)
 }
 
+void AccountsModule::active()
+{
+    QWidget* w = moduleWidget();
+    m_frameProxy->pushWidget(this, w);
+}
+
 //显示账户信息
 void AccountsModule::onShowAccountsDetailWidget(User *account)
 {
