@@ -79,7 +79,7 @@ void DisplayModule::active()
     connect(displayWidget, &DisplayWidget::requestShowBrightnessPage,
             this, &DisplayModule::showBrightnessPage);
     connect(displayWidget, &DisplayWidget::requestRotate,
-            this,reinterpret_cast<void (DisplayModule::*)()>(&DisplayModule::showRotate));
+            this, reinterpret_cast<void (DisplayModule::*)()>(&DisplayModule::showRotate));
     connect(displayWidget, &DisplayWidget::requestShowMultiScreenPage,
             this, &DisplayModule::showMultiScreenSettingPage);
 
@@ -106,11 +106,19 @@ void DisplayModule::showBrightnessPage()
 
 void DisplayModule::showResolutionDetailPage()
 {
+    m_displayWorker->record();
     ResolutionDetailPage *page = new ResolutionDetailPage;
     page->setModel(m_displayModel);
 
-    connect(page, &ResolutionDetailPage::requestSetResolution, this,
-            &DisplayModule::onDetailPageRequestSetResolution);
+    connect(page, &ResolutionDetailPage::requestSetResolution, m_displayWorker,
+            &DisplayWorker::setMonitorResolution);
+    connect(page, &ResolutionDetailPage::requestReset, m_displayWorker,
+            &DisplayWorker::restore);
+    connect(page, &ResolutionDetailPage::requestSave, this, [ this ]() {
+        m_displayWorker->saveChanges();
+        m_displayWorker->record();
+    });
+
     m_frameProxy->pushWidget(this, page);
 }
 
@@ -178,18 +186,6 @@ void DisplayModule::showCustomSettingDialog()
     }
 
     dlg->deleteLater();
-}
-
-void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mode)
-{
-    m_displayWorker->setMonitorResolution(mon, mode);
-
-    if (QDialog::Accepted == showTimeoutDialog(mon)) {
-        m_displayWorker->saveChanges();
-        return;
-    }
-
-    m_displayWorker->restore();
 }
 
 void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, const int mode)

@@ -49,7 +49,6 @@ public:
 private Q_SLOTS:
     void showScalingPage();
     void showResolutionDetailPage();
-    void onDetailPageRequestSetResolution(dcc::display::Monitor *mon, const int mode);
     void onCustomPageRequestSetResolution(dcc::display::Monitor *mon, const int mode);
     void showBrightnessPage();
     void showRotate(dcc::display::Monitor *mon = nullptr);

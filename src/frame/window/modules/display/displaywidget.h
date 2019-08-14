@@ -62,7 +62,7 @@ public:
     static int convertToSlider(const float value);
     static float convertToScale(const int value);
 
-Q_SIGNALS: Q_SIGNALS:
+Q_SIGNALS:
     void requestShowMultiScreenPage() const;
     void requestShowResolutionPage() const;
     void requestShowBrightnessPage() const;

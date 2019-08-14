@@ -27,8 +27,9 @@
 #define RESOLUTIONDETAILPAGE_H_V20
 
 #include "window/namespace.h"
+#include "widgets/contentwidget.h"
 
-#include <QWidget>
+#include <QModelIndex>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -56,7 +57,7 @@ namespace DCC_NAMESPACE {
 
 namespace display {
 
-class ResolutionDetailPage : public QWidget
+class ResolutionDetailPage : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
@@ -67,17 +68,27 @@ public:
 
 Q_SIGNALS:
     void requestSetResolution(dcc::display::Monitor *, int);
+    void requestReset();
+    void requestSave();
 
 private Q_SLOTS:
     void refreshCurrentResolution(const Resolution &reso, int listIdx);
+    void onListClick(const QModelIndex &idx);
 
 private:
     void initResoList();
+    void checkedChange(const QModelIndex &idx, QListView *list);
 
 private:
-    QVBoxLayout *m_mainLayout{nullptr};
+    QVBoxLayout *m_resoListLayout{nullptr};
     dcc::display::DisplayModel *m_model{nullptr};
+
     QList<QListView *> m_resoList;
+    QList<QModelIndex> m_curIdxs;
+    QList<QModelIndex> m_initialIdxs;
+
+    QPushButton *m_saveBtn{nullptr};
+    QPushButton *m_cancelBtn{nullptr};
 };
 
 }   // namespace dcc
