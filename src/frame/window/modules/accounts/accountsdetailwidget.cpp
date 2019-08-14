@@ -153,15 +153,15 @@ void AccountsDetailWidget::initDatas()
 
     connect(m_avatar, &AvatarWidget::clicked, this, [ = ](const QString & iconPath) {
         Q_UNUSED(iconPath)
-        m_modifyPassword->setVisible(false);
-        m_deleteAccount->setVisible(false);
-        m_autoLogin->setVisible(false);
-        m_nopasswdLogin->setVisible(false);
-        m_modifydelLayout->addWidget(m_avatarListWidget);
+        setAvatarListWgtVisible(true);
+        setFingerWgtsVisible(false);
+
     });
 
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar, this, [ = ](const QString & avatarPath) {
         Q_EMIT requestSetAvatar(m_curUser, avatarPath);
+        setAvatarListWgtVisible(false);
+        setFingerWgtsVisible(true);
     });
 
     connect(m_curUser, &User::currentAvatarChanged, m_avatar, &AvatarWidget::setAvatarPath);
@@ -207,7 +207,7 @@ void AccountsDetailWidget::updateLineEditDisplayStyle()
 
     m_fullName->setVisible(visible);
     m_fullnameBtn->setVisible(visible);
-    m_inputLineEdit->setVisible(!visible);;
+    m_inputLineEdit->setVisible(!visible);
     m_inputeditBtn->setVisible(!visible);
 
     if (!visible) {
@@ -219,8 +219,32 @@ void AccountsDetailWidget::updateLineEditDisplayStyle()
 void AccountsDetailWidget::setFingerModel(FingerModel *model)
 {
     m_model = model;
+    connect(model, &FingerModel::vaildChanged, this, &AccountsDetailWidget::setFingerWgtsVisible);
+    setFingerWgtsVisible(model->isVaild());
     connect(model, &FingerModel::thumbsListChanged, this, &AccountsDetailWidget::onThumbsListChanged);
     onThumbsListChanged(model->thumbsList());
+}
+
+void AccountsDetailWidget::setFingerWgtsVisible(bool visible)
+{
+    m_fingetitleLabel->setVisible(visible);
+    m_listGrp->setVisible(visible);
+    m_addBtn->setVisible(visible);
+    m_clearBtn->setVisible(visible);
+}
+
+void AccountsDetailWidget::setAvatarListWgtVisible(bool visible)
+{
+    m_avatarListWidget->setVisible(visible);
+    if (visible) {
+        m_modifydelLayout->addWidget(m_avatarListWidget);
+    } else {
+        m_modifydelLayout->removeWidget(m_avatarListWidget);
+    }
+    m_modifyPassword->setVisible(!visible);
+    m_deleteAccount->setVisible(!visible);
+    m_autoLogin->setVisible(!visible);
+    m_nopasswdLogin->setVisible(!visible);
 }
 
 //删除账户
@@ -241,7 +265,7 @@ void AccountsDetailWidget::onThumbsListChanged(const QList<FingerModel::UserThum
 
     m_listGrp->clear();
 
-    for(int n = 0; n < 10 && n < thumbs.size(); ++n) {
+    for (int n = 0; n < 10 && n < thumbs.size(); ++n) {
         auto u = thumbs.at(n);
         if (u.username != m_curUser->name()) {
             continue;

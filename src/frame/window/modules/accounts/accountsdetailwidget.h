@@ -67,6 +67,8 @@ public:
     void initDatas();
     void updateLineEditDisplayStyle();
     void setFingerModel(dcc::accounts::FingerModel *model);
+    void setFingerWgtsVisible(bool visible = false);
+    void setAvatarListWgtVisible(bool visible = false);
 
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);
