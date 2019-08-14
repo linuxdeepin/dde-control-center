@@ -93,8 +93,8 @@ void AccountsModule::contentPopped(QWidget *const w)
 
 void AccountsModule::active()
 {
-    QWidget* w = moduleWidget();
-    m_frameProxy->pushWidget(this, w);
+    m_accountsWidget = qobject_cast<AccountsWidget*>(moduleWidget());
+    m_frameProxy->pushWidget(this, m_accountsWidget);
 }
 
 //显示账户信息
@@ -131,6 +131,7 @@ void AccountsModule::onShowCreateAccountPage()
     connect(m_accountsWorker, &AccountsWorker::accountCreationFinished, w, &CreateAccountPage::setCreationResult);
     connect(w, &CreateAccountPage::requestBack, this, [&]() {
         m_frameProxy->popWidget(this);
+        m_accountsWidget->showDefaultAccountInfo();
     });
     m_frameProxy->pushWidget(this, w);
 }

@@ -67,6 +67,7 @@ private:
     dcc::accounts::AccountsWorker *m_accountsWorker;
     dcc::accounts::FingerWorker *m_fingerWorker;
     dcc::accounts::FingerModel *m_fingerModel;
+    AccountsWidget *m_accountsWidget = nullptr;
 };
 
 }   // namespace accounts
