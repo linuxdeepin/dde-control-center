@@ -161,8 +161,11 @@ void ModifyPasswdPage::clickSaveBtn()
 
 void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
 {
-    if (exitCode == 0) {
+    if (exitCode == ModifyPasswdPage::ModifyNewPwdSuccess) {
         Q_EMIT requestBack();
+        return;
+    } if (exitCode == ModifyPasswdPage::InputOldPwdError) {
+        showErrorTip(m_oldPasswordEdit, tr("Wrong password"));
         return;
     } else {
         qWarning() << Q_FUNC_INFO << "exit =" << exitCode;

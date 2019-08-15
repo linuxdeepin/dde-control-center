@@ -60,6 +60,11 @@ public:
     void showErrorTip(QLineEdit *edit, const QString &error);
     void onDoEditFinish();
 
+    enum ModifyPwdRetFlag {
+        ModifyNewPwdSuccess = 0,
+        InputOldPwdError  = 10
+    };
+
 private:
     void onEditFinished(Dtk::Widget::DPasswordEdit *t);
 
