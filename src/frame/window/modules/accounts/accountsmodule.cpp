@@ -157,7 +157,7 @@ void AccountsModule::onShowPasswordPage(User *account)
 void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
 {
     qDebug() << Q_FUNC_INFO ;
-
+    m_fingerWorker->refreshUserEnrollList(name);
     AddFingeDialog *dlg = new AddFingeDialog(thumb);
     dlg->setFingerModel(m_fingerModel);
     dlg->setUsername(name);
