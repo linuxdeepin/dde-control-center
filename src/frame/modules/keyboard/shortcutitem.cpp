@@ -36,18 +36,18 @@
 using namespace dcc;
 
 namespace dcc {
-namespace keyboard{
+namespace keyboard {
 
 ShortcutItem::ShortcutItem(QFrame *parent)
-    :SettingsItem(parent),
-      m_info(NULL)
+    : SettingsItem(parent)
+    , m_info(nullptr)
 {
     setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     setMinimumHeight(36);
 
     setMouseTracking(true);
-    QHBoxLayout* layout = new QHBoxLayout();
-    layout->setContentsMargins(20,2,10,2);
+    QHBoxLayout *layout = new QHBoxLayout();
+    layout->setContentsMargins(20, 2, 10, 2);
     layout->setSpacing(2);
 
     m_title = new QLabel();
@@ -114,7 +114,7 @@ void ShortcutItem::setShortcut(const QString &shortcut)
     QString accels = shortcut;
     accels = accels.replace("<", "");
     accels = accels.replace(">", "-");
-    accels = accels.replace("_L","");
+    accels = accels.replace("_L", "");
     accels = accels.replace("_R", "");
     accels = accels.replace("Control", "Ctrl");
 
@@ -123,14 +123,11 @@ void ShortcutItem::setShortcut(const QString &shortcut)
 
 void ShortcutItem::onEditMode(bool value)
 {
-    if(value)
-    {
+    if (value) {
         m_checkBtn->show();
         m_editBtn->show();
         m_key->hide();
-    }
-    else
-    {
+    } else {
         m_checkBtn->hide();
         m_editBtn->hide();
         m_key->show();
@@ -154,8 +151,12 @@ void ShortcutItem::updateTitleSize()
 
     int v = width() - m_key->width() - 32;
 
-    if (m_title->fontMetrics().width(m_title->text()) > v)
+    if (m_title->fontMetrics().width(m_title->text()) > v) {
         m_title->setFixedWidth(v / 2);
+        QFontMetrics fontWidth(m_title->font());
+        QString elideNote = fontWidth.elidedText(m_title->text(), Qt::ElideRight, v / 2);
+        m_title->setText(elideNote);
+    }
 }
 
 void ShortcutItem::mouseReleaseEvent(QMouseEvent *e)
@@ -163,16 +164,13 @@ void ShortcutItem::mouseReleaseEvent(QMouseEvent *e)
     if (m_checkBtn->isVisible())
         return;
 
-    if(!m_shortcutEdit->isVisible() && m_key->rect().contains(m_key->mapFromParent(e->pos())))
-    {
+    if (!m_shortcutEdit->isVisible() && m_key->rect().contains(m_key->mapFromParent(e->pos()))) {
         m_key->hide();
         m_shortcutEdit->show();
         m_info->item = this;
 
         Q_EMIT requestUpdateKey(m_info);
-    }
-    else
-    {
+    } else {
         m_shortcutEdit->hide();
         m_key->show();
     }

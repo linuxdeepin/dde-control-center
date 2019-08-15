@@ -40,7 +40,7 @@ DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
 
 namespace dcc {
-namespace keyboard{
+namespace keyboard {
 
 struct ShortcutInfo;
 using KeybingdingInter = com::deepin::daemon::Keybinding;
@@ -50,17 +50,17 @@ class ShortcutItem : public SettingsItem
     Q_OBJECT
 
 public:
-    explicit ShortcutItem(QFrame *parent = 0);
+    explicit ShortcutItem(QFrame *parent = nullptr);
 
-    void setShortcutInfo(ShortcutInfo* info);
-    inline ShortcutInfo* curInfo() { return m_info; };
+    void setShortcutInfo(ShortcutInfo *info);
+    inline ShortcutInfo *curInfo() { return m_info; }
 
     void setChecked(bool checked);
     void setTitle(const QString &title);
     void setShortcut(const QString &shortcut);
 
 Q_SIGNALS:
-    void shortcutEditChanged(ShortcutInfo* info);
+    void shortcutEditChanged(ShortcutInfo *info);
     void requestUpdateKey(ShortcutInfo *info);
     void requestRemove(ShortcutInfo *info);
 
@@ -76,11 +76,11 @@ protected:
     void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
 
 private:
-    QLineEdit* m_shortcutEdit;
-    QLabel* m_title;
-    ShortcutInfo* m_info;
-    DImageButton* m_checkBtn;
-    DImageButton* m_editBtn;
+    QLineEdit *m_shortcutEdit;
+    QLabel *m_title;
+    ShortcutInfo *m_info;
+    DImageButton *m_checkBtn;
+    DImageButton *m_editBtn;
     ShortcutKey *m_key;
 };
 }
