@@ -155,7 +155,6 @@ int main(int argc, char *argv[])
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
     app.loadTranslator();
 //    app.loadTranslator(QList<QLocale>() << QLocale::Chinese);
-    app.setQuitOnLastWindowClosed(false);
     app.setTheme("light");
 
     // load dde-network-utils translator
