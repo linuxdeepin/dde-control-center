@@ -72,6 +72,7 @@ void MouseWidget::init()
     m_mouseListView->setModel(m_listviewModel);
     m_mouseListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_mouseListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_mouseListView->setCurrentIndex(m_listviewModel->index(0, 0));
     connect(m_mouseListView, &QListView::clicked, this, &MouseWidget::onItemClieck);
 }
 
