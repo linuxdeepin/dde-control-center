@@ -37,18 +37,16 @@ class DefaultAppsModule : public QObject, public ModuleInterface
     Q_OBJECT
 
 public:
-    explicit DefaultAppsModule(FrameProxyInterface *frame, QObject *parent = 0);
+    explicit DefaultAppsModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     ~DefaultAppsModule();
 
     virtual void initialize() override;
-    virtual void reset() override;
     virtual const QString name() const override;
-    virtual void showPage(const QString &pageName) override;
-    virtual QWidget *moduleWidget() override;
+    virtual void active() override;
     virtual void contentPopped(QWidget *const w) override;
 
 private Q_SLOTS:
-    void showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category);
+    void showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category = dcc::defapp::DefAppWorker::Browser);
 
 private:
     dcc::defapp::DefAppModel       *m_defAppModel;

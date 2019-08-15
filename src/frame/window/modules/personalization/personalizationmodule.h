@@ -46,10 +46,8 @@ public:
     ~PersonalizationModule();
 
     virtual void initialize() override;
-    virtual void reset() override;
     virtual const QString name() const override;
-    virtual void showPage(const QString &pageName) override;
-    virtual QWidget *moduleWidget() override;
+    virtual void active() override;
     virtual void contentPopped(QWidget *const w) override;
 
 private Q_SLOTS:

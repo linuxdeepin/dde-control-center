@@ -56,21 +56,14 @@ void DefaultAppsModule::initialize()
     m_defAppWorker->onGetListApps();
 }
 
-void DefaultAppsModule::showPage(const QString &pageName)
-{
-    Q_UNUSED(pageName);
-}
-
-void DefaultAppsModule::reset()
-{
-
-}
-
-QWidget *DefaultAppsModule::moduleWidget()
+void DefaultAppsModule::active()
 {
     DefaultAppsWidget* defaultappsWidget = new DefaultAppsWidget;
+
     connect(defaultappsWidget, &DefaultAppsWidget::requestCategoryClicked, this, &DefaultAppsModule::showDetailWidget);
-    return defaultappsWidget;
+    m_frameProxy->pushWidget(this, defaultappsWidget);
+    //显示默认页
+    showDetailWidget();
 }
 
 const QString DefaultAppsModule::name() const
@@ -85,9 +78,10 @@ void DefaultAppsModule::contentPopped(QWidget *const w)
 
 void DefaultAppsModule::showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category) {
     DefappDetailWidget* detailWidget = new DefappDetailWidget(category);
+
     detailWidget->setModel(m_defAppModel);
-    connect(detailWidget, &DefappDetailWidget::requestSetDefaultApp,   m_defAppWorker, &dcc::defapp::DefAppWorker::onSetDefaultApp); //设置默认程序
-    connect(detailWidget, &DefappDetailWidget::requestDelUserApp,      m_defAppWorker, &dcc::defapp::DefAppWorker::onDelUserApp);
+    connect(detailWidget, &DefappDetailWidget::requestSetDefaultApp, m_defAppWorker, &dcc::defapp::DefAppWorker::onSetDefaultApp); //设置默认程序
+    connect(detailWidget, &DefappDetailWidget::requestDelUserApp, m_defAppWorker, &dcc::defapp::DefAppWorker::onDelUserApp);
     connect(detailWidget, &DefappDetailWidget::requestCreateFile, m_defAppWorker, &dcc::defapp::DefAppWorker::onCreateFile);
-    m_frameProxy->pushWidget(this,  detailWidget);
+    m_frameProxy->pushWidget(this, detailWidget);
 }

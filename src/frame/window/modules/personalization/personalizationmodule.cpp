@@ -27,7 +27,6 @@
 #include "personalizationicontheme.h"
 #include "personalizationcursortheme.h"
 #include "personalizationfontswidget.h"
-#include "modules/personalization/module/fontswidget/fontlistwidget.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -55,28 +54,22 @@ void PersonalizationModule::initialize()
     m_work->moveToThread(qApp->thread());
 }
 
-void PersonalizationModule::reset()
-{
-}
-
 const QString PersonalizationModule::name() const
 {
     return QStringLiteral("personalization");
 }
 
-void PersonalizationModule::showPage(const QString &pageName)
-{
-    Q_UNUSED(pageName);
-}
-
-QWidget *PersonalizationModule::moduleWidget()
+void PersonalizationModule::active()
 {
     PersonalizationList *firstWidget = new PersonalizationList();
+
     connect(firstWidget, &PersonalizationList::requestShowGeneral, this, &PersonalizationModule::showGenaralWidget);
     connect(firstWidget, &PersonalizationList::requestShowIconTheme, this, &PersonalizationModule::showIconThemeWidget);
     connect(firstWidget, &PersonalizationList::requestShowCursorTheme, this, &PersonalizationModule::showCursorThemeWidget);
     connect(firstWidget, &PersonalizationList::requestShowFonts, this, &PersonalizationModule::showFontThemeWidget);
-    return firstWidget;
+    m_frameProxy->pushWidget(this, firstWidget);
+    //显示默认页
+    showGenaralWidget();
 }
 
 void PersonalizationModule::contentPopped(QWidget *const w)
@@ -89,6 +82,7 @@ void PersonalizationModule::showGenaralWidget()
     m_work->refreshTheme();
 
     PersonalizationGeneral *widget = new PersonalizationGeneral;
+
     widget->setModel(m_model);
     connect(widget->getThemeWidget(), &PerssonalizationThemeWidget::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
     connect(widget, &PersonalizationGeneral::requestSetOpacity, m_work, &dcc::personalization::PersonalizationWork::setOpacity);
