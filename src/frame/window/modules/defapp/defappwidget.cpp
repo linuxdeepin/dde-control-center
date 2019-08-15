@@ -45,7 +45,6 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     m_defAppCatView->setIconSize(QSize(24, 24));
     m_defAppCatView->setResizeMode(QListView::Adjust);
     m_defAppCatView->setMovement(QListView::Static);
-    m_defAppCatView->setMinimumSize(250, 564);
     m_defAppCatView->setFrameShape(QFrame::NoFrame);
     m_defAppCatView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
