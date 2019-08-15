@@ -20,6 +20,7 @@
  */
 
 #include "mousewidget.h"
+#include "window/utils.h"
 #include "widgets/switchwidget.h"
 #include "widgets/contentwidget.h"
 #include "widgets/settingsgroup.h"
@@ -27,6 +28,8 @@
 #include "modules/mouse/mousemodel.h"
 #include "modules/mouse/widget/palmdetectsetting.h"
 #include "modules/mouse/widget/doutestwidget.h"
+
+#include <DStyleOption>
 
 #include <QDebug>
 #include <QStandardItemModel>
@@ -55,10 +58,17 @@ void MouseWidget::init()
 {
     m_listviewModel = new QStandardItemModel(m_mouseListView);
 
-    m_listviewModel->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), "General"));
-    m_listviewModel->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), "Mouse"));
-    m_listviewModel->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "TouchPad"));
-    m_listviewModel->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "TrackPoint"));
+    QStringList menuList;
+    menuList << tr("General") << tr("Mouse") << tr("TouchPad") << tr("TrackPoint");
+
+    QStandardItem *mouseItem = nullptr;
+    for (auto strMenuItem : menuList) {
+        mouseItem = new QStandardItem(strMenuItem);
+        mouseItem->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
+        mouseItem->setData(VListViewItemMargin, Dtk::MarginsRole);
+        m_listviewModel->appendRow(mouseItem);
+    }
+    m_mouseListView->setFrameShape(QFrame::NoFrame);
     m_mouseListView->setModel(m_listviewModel);
     m_mouseListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_mouseListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);

@@ -20,10 +20,13 @@
  */
 
 #include "keyboardwidget.h"
+#include "window/utils.h"
 #include "widgets/switchwidget.h"
 #include "widgets/contentwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/dccslider.h"
+
+#include <DStyleOption>
 
 #include <QStandardItemModel>
 #include <QStandardItem>
@@ -48,12 +51,19 @@ KeyboardWidget::KeyboardWidget(QWidget *parent) : QWidget(parent)
 
 void KeyboardWidget::init()
 {
-//    m_mouseListView->setViewMode(QListView::IconMode);
     m_listviewModel = new QStandardItemModel(m_keyboardListView);
-    m_listviewModel->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), "General"));
-    m_listviewModel->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), "Keyboard Layout"));
-    m_listviewModel->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "System Language"));
-    m_listviewModel->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "ShortCut"));
+
+    QStringList menuList;
+    menuList << tr("General") << tr("Keyboard Layout") << tr("System Language") << tr("ShortCut");
+
+    QStandardItem *keyboardItem = nullptr;
+    for (auto strMenuItem : menuList) {
+        keyboardItem = new QStandardItem(strMenuItem);
+        keyboardItem->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
+        keyboardItem->setData(VListViewItemMargin, Dtk::MarginsRole);
+        m_listviewModel->appendRow(keyboardItem);
+    }
+    m_keyboardListView->setFrameShape(QFrame::NoFrame);
     m_keyboardListView->setModel(m_listviewModel);
     m_keyboardListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_keyboardListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
