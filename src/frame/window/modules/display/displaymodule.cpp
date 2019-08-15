@@ -78,8 +78,9 @@ void DisplayModule::active()
             this, &DisplayModule::showResolutionDetailPage);
     connect(displayWidget, &DisplayWidget::requestShowBrightnessPage,
             this, &DisplayModule::showBrightnessPage);
-    connect(displayWidget, &DisplayWidget::requestRotate,
-            this, reinterpret_cast<void (DisplayModule::*)()>(&DisplayModule::showRotate));
+    connect(displayWidget, &DisplayWidget::requestRotate, this, [ this ] {
+        showRotate();
+    });
     connect(displayWidget, &DisplayWidget::requestShowMultiScreenPage,
             this, &DisplayModule::showMultiScreenSettingPage);
 
