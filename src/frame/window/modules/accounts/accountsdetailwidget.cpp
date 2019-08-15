@@ -183,6 +183,9 @@ void AccountsDetailWidget::initDatas()
         Q_EMIT requestCleanThumbs(m_curUser);
     });
 
+    connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
+    connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
+
     //use m_curUser fill widget data
     m_avatar->setAvatarPath(m_curUser->currentAvatar());
     m_shortName->setText(m_curUser->name());
@@ -194,7 +197,7 @@ void AccountsDetailWidget::initDatas()
     m_autoLogin->setTitle(tr("Automatic login"));
     m_autoLogin->setChecked(m_curUser->autoLogin());
     m_nopasswdLogin->setTitle(tr("No password login"));
-    m_nopasswdLogin->setChecked(m_curUser->autoLogin());
+    m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
     m_fingetitleLabel->setText(tr("Fingerprint Password"));
     m_addBtn->setText(tr("Add fingerprint"));
