@@ -47,8 +47,9 @@ public:
     void initialize() override;
     void reset() override;
     const QString name() const override;
-    QWidget *moduleWidget() override;
+    QWidget *moduleWidget();
     void contentPopped(QWidget *const w) override;
+    void active() override;
 
 public Q_SLOTS:
     void onShowAboutNativePage();

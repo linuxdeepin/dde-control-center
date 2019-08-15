@@ -70,6 +70,12 @@ void SystemInfoModule::contentPopped(QWidget *const w)
     Q_UNUSED(w);
 }
 
+void SystemInfoModule::active()
+{
+    QWidget *w = moduleWidget();
+    m_frameProxy->pushWidget(this, w);
+}
+
 const QString SystemInfoModule::name() const
 {
     return QStringLiteral("systeminfo");
