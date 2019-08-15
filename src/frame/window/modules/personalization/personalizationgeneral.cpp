@@ -36,7 +36,10 @@ using namespace DCC_NAMESPACE::personalization;
 
 PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     : QWidget(parent)
+    , m_centralLayout(new QVBoxLayout())
+    , m_wmSwitch(new Dtk::Widget::DSwitchButton())
     , m_transparentSlider(new dcc::widgets::DCCSliderAnnotated())
+    , m_Themes(new PerssonalizationThemeWidget())
 {
     const QList<QColor> colors = {
         QColor(0xD8, 0x31, 0x6C),
@@ -49,12 +52,10 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         QColor(0x6A, 0x00, 0x85),
         QColor(0x4D, 0x4D, 0x4D)
     };
-    m_centralLayout = new QVBoxLayout();
 
     //appearance
     m_centralLayout->addWidget(new QLabel(tr("Appearance")));
     //pictures and types
-    m_Themes = new PerssonalizationThemeWidget(this);
     m_Themes->setMainLayout(new QHBoxLayout(), true);
     m_centralLayout->addWidget(m_Themes);
 
@@ -62,6 +63,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     m_centralLayout->addWidget(new QLabel(tr("Active Colors")));
 
     QHBoxLayout *colorsLayout = new QHBoxLayout();
+
     for (int i = 0; i < colors.size(); ++i) {
         RoundColorWidget *colorItem = new RoundColorWidget(colors.at(i), this);
         colorItem->setFixedSize(40, 40);
@@ -70,7 +72,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     m_centralLayout->addLayout(colorsLayout);
 
     //transparancy switch
-    QHBoxLayout *transparancyLayout = new QHBoxLayout();
+    QVBoxLayout *transparancyLayout = new QVBoxLayout();
     transparancyLayout->addWidget(new QLabel(tr("Transparency"), this));
     m_transparentSlider->slider()->setOrientation(Qt::Horizontal);
     m_transparentSlider->setObjectName("Transparency");
@@ -90,7 +92,6 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     //sw switch
     QHBoxLayout *swswitchLayout = new QHBoxLayout();
     swswitchLayout->addWidget(new QLabel(tr("Window Effect")));
-    m_wmSwitch = new Dtk::Widget::DSwitchButton();
     swswitchLayout->addStretch();
     swswitchLayout->addWidget(m_wmSwitch);
     m_centralLayout->addLayout(swswitchLayout);
@@ -105,6 +106,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this,
             &PersonalizationGeneral::requestSetOpacity);
+    setMinimumWidth(360);
 }
 
 void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel *model)

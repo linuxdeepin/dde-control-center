@@ -78,7 +78,6 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     setLayout(m_centralLayout);
 
     connect(slider, &QSlider::valueChanged, this, &PersonalizationFontsWidget::requestSetFontSize);
-    setFixedSize(390, 300);
 }
 
 void PersonalizationFontsWidget::setModel(dcc::personalization::PersonalizationModel *const model)

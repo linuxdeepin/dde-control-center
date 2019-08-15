@@ -19,38 +19,52 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "personalizationlist.h"
-#include "window/constant.h"
+
+#include <DStyleOption>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
 
-PersonalizationList::PersonalizationList(QWidget *parent) : QWidget(parent)
+DWIDGET_USE_NAMESPACE
+
+Q_DECLARE_METATYPE(QMargins)
+
+PersonalizationList::PersonalizationList(QWidget *parent)
+    : QWidget(parent)
+    , m_categoryListView(new QListView())
+    , m_model(new QStandardItemModel(this))
+    , m_centralLayout(new QVBoxLayout())
 {
     setObjectName("personanization");
-    m_categoryListView = new QListView(this);
-    m_categoryListView->setIconSize(QSize(Constant::HomeIconSize,Constant::HomeIconSize));
-    m_categoryListView->setSpacing(10);
+    m_categoryListView->setIconSize(QSize(26, 26));
     m_categoryListView->setResizeMode(QListView::Adjust);
     m_categoryListView->setMovement(QListView::Static);
+    m_categoryListView->setFrameShape(QFrame::NoFrame);
 
     //Initialize second page view and model
-    m_model = new QStandardItemModel(this);
-    QStandardItem* item1    = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), tr("General"));
-    QStandardItem* item2    = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), tr("Icon Themes"));
-    QStandardItem* item3    = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), tr("Cursor Themes"));
-    QStandardItem* item4    = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), tr("Fonts"));
+    QStringList menus;
+    menus   << tr("General")
+            << tr("Icon Themes")
+            << tr("Cursor Themes")
+            << tr("Fonts");
+    for (int i = 0; i < menus.size(); ++i) {
+        QStandardItem* item = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), menus.at(i));
 
-    m_model->appendRow(item1);
-    m_model->appendRow(item2);
-    m_model->appendRow(item3);
-    m_model->appendRow(item4);
-    m_centralLayout = new QVBoxLayout(this);
+        item->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
+        item->setSizeHint(QSize(230, 48));
+        item->setData(QVariant::fromValue(QMargins(10, 10, 10, 0)), Dtk::MarginsRole);
+
+        m_model->appendRow(item);
+    }
 
     m_categoryListView->setModel(m_model);
     m_categoryListView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
 
     m_centralLayout->addWidget(m_categoryListView);
+    setLayout(m_centralLayout);
     connect(m_categoryListView, &QListView::clicked, this, &PersonalizationList::onCategoryClicked);
+    //set default show page
+    m_categoryListView->setCurrentIndex(m_model->indexFromItem(m_model->item(0)));
 }
 
 void PersonalizationList::onCategoryClicked(const QModelIndex &index)
