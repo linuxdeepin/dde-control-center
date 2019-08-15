@@ -64,6 +64,7 @@ void KeyboardModule::reset()
 
 void KeyboardModule::active()
 {
+    m_work->active();
     KeyboardWidget *keyboardWidget = new KeyboardWidget;
     connect(keyboardWidget, &KeyboardWidget::showGeneralSetting, this, &KeyboardModule::showGeneralSetting);
     connect(keyboardWidget, &KeyboardWidget::showKBLayoutSetting, this, &KeyboardModule::showKBLayoutSetting);
