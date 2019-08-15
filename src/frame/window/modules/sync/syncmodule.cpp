@@ -23,21 +23,19 @@ void SyncModule::initialize()
     m_worker = new dcc::cloudsync::SyncWorker(m_model);
 }
 
-void SyncModule::reset() {}
-
 const QString SyncModule::name() const
 {
     return QStringLiteral("cloudsync");
 }
 
-void SyncModule::showPage(const QString &pageName)
+void SyncModule::contentPopped(QWidget *const w)
 {
-    Q_UNUSED(pageName);
+    Q_UNUSED(w);
 }
 
-QWidget *SyncModule::moduleWidget()
+void SyncModule::active()
 {
-    SyncWidget* widget = new SyncWidget;
+    SyncWidget *widget = new SyncWidget;
     connect(widget, &SyncWidget::requestLoginUser, m_worker, &dcc::cloudsync::SyncWorker::loginUser, Qt::UniqueConnection);
     connect(widget, &SyncWidget::requestSetAutoSync, m_worker, &dcc::cloudsync::SyncWorker::setAutoSync, Qt::UniqueConnection);
     connect(widget, &SyncWidget::requestLogoutUser, m_worker, &dcc::cloudsync::SyncWorker::logoutUser, Qt::QueuedConnection);
@@ -46,10 +44,5 @@ QWidget *SyncModule::moduleWidget()
     widget->setModel(m_model);
     m_worker->activate(); //refresh data
 
-    return widget;
-}
-
-void SyncModule::contentPopped(QWidget *const w)
-{
-    Q_UNUSED(w);
+    m_frameProxy->pushWidget(this, widget);
 }
