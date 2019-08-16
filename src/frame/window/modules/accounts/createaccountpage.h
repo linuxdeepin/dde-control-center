@@ -42,6 +42,10 @@ QT_END_NAMESPACE
 namespace DCC_NAMESPACE {
 namespace accounts {
 
+class FakeKeyEvent : public QKeyEvent {
+    friend class CreateAccountPage;
+};
+
 //创建账户页面
 class CreateAccountPage : public QWidget
 {
@@ -57,6 +61,9 @@ public:
     bool validatePassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
     void showErrorTip(QLineEdit *edit, const QString &error);
+
+protected:
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 Q_SIGNALS:
     void requestCreateUser(const dcc::accounts::User *user);
