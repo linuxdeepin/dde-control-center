@@ -86,7 +86,12 @@ void AccountsWidget::addUser(User *user)
 {
     QStandardItem *item = new QStandardItem;
     connect(user, &User::currentAvatarChanged, this, [ = ](const QString & avatar) {
-        item->setIcon(QIcon(avatar));
+        if (avatar.startsWith("file://")) {
+            QString iconpath = QUrl(avatar).toLocalFile();
+            item->setIcon(QIcon(iconpath));
+        } else {
+            item->setIcon(QIcon(avatar));
+        }
     });
     connect(user, &User::nameChanged, this, [ = ](const QString & name) {
         item->setText(user->displayName());
