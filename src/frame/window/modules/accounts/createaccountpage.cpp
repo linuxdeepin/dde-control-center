@@ -104,6 +104,7 @@ void CreateAccountPage::initDatas()
 {
     connect(m_cancleBtn, &QPushButton::clicked, this, &CreateAccountPage::requestBack);
     connect(m_addBtn, &QPushButton::clicked, this, &CreateAccountPage::createUser);
+    connect(m_nameEdit, &QLineEdit::editingFinished, this, &CreateAccountPage::checkInputNameLenth);
 
     connect(m_passwdEdit, &DPasswordEdit::editingFinished, this, [ = ] {
         onEditFinished(m_passwdEdit);
@@ -267,10 +268,22 @@ bool CreateAccountPage::eventFilter(QObject *watched, QEvent *event)
 
     if (event->type() == QEvent::KeyPress) {
         if (obj == m_nameEdit || obj == m_fullnameEdit || obj == m_passwdEdit || obj == m_repeatpasswdEdit) {
-            FakeKeyEvent *tmp_event = static_cast<FakeKeyEvent*>(event);
+            FakeKeyEvent *tmp_event = static_cast<FakeKeyEvent *>(event);
             tmp_event->txt = tmp_event->txt.toLower();
         }
     }
 
     return  false;
+}
+
+void CreateAccountPage::checkInputNameLenth()
+{
+    QLineEdit *edit = qobject_cast<QLineEdit *>(sender());
+
+    if (edit->text().size() < 3 || edit->text().size() > 32) {
+        m_addBtn->setEnabled(false);
+        showErrorTip(edit, tr("Username must be between 3 and 32 characters"));
+    } else {
+        m_addBtn->setEnabled(true);
+    }
 }

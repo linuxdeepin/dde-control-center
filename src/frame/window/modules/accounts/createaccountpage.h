@@ -61,6 +61,7 @@ public:
     bool validatePassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
     void showErrorTip(QLineEdit *edit, const QString &error);
+    void checkInputNameLenth();
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
