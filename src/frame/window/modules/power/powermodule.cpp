@@ -61,7 +61,7 @@ const QString PowerModule::name() const
 void PowerModule::active()
 {
     PowerWidget *mainWidget = new PowerWidget;
-    mainWidget->initialize();
+    mainWidget->initialize(m_model->haveBettary());
     mainWidget->requestDefaultWidget();//after into second then into General
 
     connect(mainWidget, &PowerWidget::requestPushWidget, this, &PowerModule::onPushWidget);

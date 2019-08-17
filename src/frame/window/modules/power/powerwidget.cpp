@@ -20,7 +20,11 @@
  */
 
 #include "powerwidget.h"
+#include "window/utils.h"
 #include "modules/power/powermodel.h"
+
+#include <DStyleOption>
+
 #include <QTimer>
 
 using namespace dcc::power;
@@ -41,23 +45,31 @@ PowerWidget::~PowerWidget()
 
 }
 
-void PowerWidget::initialize()
+void PowerWidget::initialize(bool hasBattery)
 {
-    m_listview->setViewMode(QListView::ListMode);
-    m_listview->setResizeMode(QListView::Adjust);
-    m_listview->setSpacing(10);
+    m_listmodel = new QStandardItemModel(m_listview);
 
-    m_listmodel = new QStandardItemModel(this);
-    m_listmodel->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), "通用"));
-    m_listmodel->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), "Plugged In")),
-          m_listmodel->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "On Battery")),
-          m_listview->setModel(m_listmodel);
+    QStringList menuList;
+    menuList << tr("General") << tr("Plugged In") << tr("On Battery");
+
+    QStandardItem *powerItem = nullptr;
+    for (auto strMenuItem : menuList) {
+        powerItem = new QStandardItem(strMenuItem);
+        powerItem->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
+        powerItem->setData(VListViewItemMargin, Dtk::MarginsRole);
+        m_listmodel->appendRow(powerItem);
+    }
+
+    m_listview->setFrameShape(QFrame::NoFrame);
+    m_listview->setModel(m_listmodel);
+    m_listview->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_listview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_listview->setCurrentIndex(m_listmodel->index(0, 0));
+    m_listview->setRowHidden(2, !hasBattery);
 
     connect(m_listview, &QListView::pressed, this, &PowerWidget::onItemClieck);
     connect(this, &PowerWidget::requestRemoveBattery, this, [this](bool state) {
-        if (!state) {
-            m_listmodel->removeRow(2);
-        }
+        m_listview->setRowHidden(2, !state);
     });
 
     layout->addWidget(m_listview);

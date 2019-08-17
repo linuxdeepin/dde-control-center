@@ -45,7 +45,7 @@ public:
     explicit PowerWidget(QWidget *parent = nullptr);
     virtual ~PowerWidget();
 
-    void initialize();
+    void initialize(bool hasBattery);
     void setModel(const dcc::power::PowerModel *model);
     void requestDefaultWidget();
 

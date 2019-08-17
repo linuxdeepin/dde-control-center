@@ -32,6 +32,7 @@ using namespace dcc::power;
 
 PowerModel::PowerModel(QObject *parent)
     : QObject(parent)
+    , m_haveBettary(false)
 {
 }
 
