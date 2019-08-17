@@ -126,6 +126,8 @@ void AccountsDetailWidget::initWidgets()
     const bool isOnline = m_curUser->online();
     m_deleteAccount->setDisabled(isOnline);
     m_modifyPassword->setDisabled(!isOnline);
+    m_autoLogin->setDisabled(!isOnline);
+    m_nopasswdLogin->setDisabled(!isOnline);
 
     m_inputLineEdit->setVisible(false);
     m_inputeditBtn->setVisible(false);
