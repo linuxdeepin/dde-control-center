@@ -55,7 +55,7 @@ IndexFrame::IndexFrame(QFrame *parent):TranslucentFrame(parent)
     setMinimumHeight(m_w*26);
 
     m_pressed = false;
-    m_index = -1;
+    m_index = 0;
 }
 
 void IndexFrame::setLetters(const QStringList &lists)

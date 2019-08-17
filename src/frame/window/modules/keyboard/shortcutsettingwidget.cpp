@@ -79,6 +79,10 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->addWidget(m_workspaceGroup);
     m_layout->addWidget(m_customGroup);
 
+    QPushButton* resetBtn = new QPushButton(tr("Restore Defaults"));
+
+    m_layout->addWidget(resetBtn);
+    m_layout->addSpacing(10);
     m_widget->setLayout(m_layout);
     setContent(m_widget);
 
@@ -89,6 +93,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     anchors.setAnchor(Qt::AnchorHorizontalCenter, this, Qt::AnchorHorizontalCenter);
 
     connect(addCustomShortcut, &DFloatingButton::clicked, this, &ShortCutSettingWidget::customShortcut);
+    connect(resetBtn, &QPushButton::clicked, this, &ShortCutSettingWidget::requestReset);
     connect(m_searchInput, &QLineEdit::textChanged, this, &ShortCutSettingWidget::onSearchTextChanged);
     connect(m_searchDelayTimer, &QTimer::timeout, this, &ShortCutSettingWidget::prepareSearchKeys);
     setTitle(tr("Shortcuts"));
