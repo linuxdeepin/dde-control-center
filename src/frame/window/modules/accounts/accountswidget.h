@@ -50,6 +50,8 @@ public:
     explicit AccountsWidget(QWidget *parent = nullptr);
     void setModel(dcc::accounts::UserModel *model);
     void showDefaultAccountInfo();
+    void showLastAccountInfo();
+    void setShowFirstUserInfo(bool show);
 
 public Q_SLOTS:
     void addUser(dcc::accounts::User *user);
@@ -64,7 +66,8 @@ private:
     QPushButton *m_createBtn;
     QListView *m_userlistView;
     QStandardItemModel *m_userItemModel;
-    QList<dcc::accounts::User*> m_userList;
+    QList<dcc::accounts::User *> m_userList;
+    bool m_isShowFirstUserInfo = false;
 };
 
 }   // namespace accounts

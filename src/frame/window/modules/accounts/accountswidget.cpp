@@ -82,6 +82,20 @@ void AccountsWidget::showDefaultAccountInfo()
     Q_EMIT m_userlistView->clicked(qindex);
 }
 
+void AccountsWidget::showLastAccountInfo()
+{
+    int lastindex = m_userItemModel->rowCount() - 1;
+    QModelIndex qindex = m_userItemModel->index(lastindex, 0);
+    m_userlistView->setFocus();
+    m_userlistView->setCurrentIndex(qindex);
+    Q_EMIT m_userlistView->clicked(qindex);
+}
+
+void AccountsWidget::setShowFirstUserInfo(bool show)
+{
+    m_isShowFirstUserInfo = show;
+}
+
 void AccountsWidget::addUser(User *user)
 {
     QStandardItem *item = new QStandardItem;
@@ -108,7 +122,11 @@ void AccountsWidget::addUser(User *user)
     m_userList << user;
 
     //The first line in the default selection when the user list is loaded
-    QTimer::singleShot(0, this, &AccountsWidget::showDefaultAccountInfo);
+    if (m_isShowFirstUserInfo) {
+        showDefaultAccountInfo();
+    } else {
+        showLastAccountInfo();
+    }
 }
 
 void AccountsWidget::removeUser(User *user)

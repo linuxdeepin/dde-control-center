@@ -93,14 +93,14 @@ void AccountsModule::contentPopped(QWidget *const w)
 
 void AccountsModule::active()
 {
-    m_accountsWidget = qobject_cast<AccountsWidget*>(moduleWidget());
+    m_accountsWidget = qobject_cast<AccountsWidget *>(moduleWidget());
+    m_accountsWidget->setShowFirstUserInfo(true);
     m_frameProxy->pushWidget(this, m_accountsWidget);
 }
 
 //显示账户信息
 void AccountsModule::onShowAccountsDetailWidget(User *account)
 {
-    qDebug() << Q_FUNC_INFO;
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
     w->setFingerModel(m_fingerModel);
     m_fingerWorker->refreshDevice();
@@ -123,7 +123,6 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
 //创建账户界面
 void AccountsModule::onShowCreateAccountPage()
 {
-    qDebug() << Q_FUNC_INFO;
     CreateAccountPage *w = new CreateAccountPage();
     User *newUser = new User(this);
     w->setModel(newUser);
@@ -131,7 +130,7 @@ void AccountsModule::onShowCreateAccountPage()
     connect(m_accountsWorker, &AccountsWorker::accountCreationFinished, w, &CreateAccountPage::setCreationResult);
     connect(w, &CreateAccountPage::requestBack, this, [&]() {
         m_frameProxy->popWidget(this);
-        m_accountsWidget->showDefaultAccountInfo();
+        m_accountsWidget->setShowFirstUserInfo(false);
     });
     m_frameProxy->pushWidget(this, w);
 }
@@ -145,7 +144,6 @@ AccountsModule::~AccountsModule()
 //修改密码界面
 void AccountsModule::onShowPasswordPage(User *account)
 {
-    qDebug() << Q_FUNC_INFO;
     ModifyPasswdPage *w = new ModifyPasswdPage(account);
     connect(w, &ModifyPasswdPage::requestChangePassword, m_accountsWorker, &AccountsWorker::setPassword);
     connect(w, &ModifyPasswdPage::requestBack, this, [&]() {
@@ -154,9 +152,9 @@ void AccountsModule::onShowPasswordPage(User *account)
     m_frameProxy->pushWidget(this, w);
 }
 
+//添加指纹界面
 void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
 {
-    qDebug() << Q_FUNC_INFO ;
     m_fingerWorker->refreshUserEnrollList(name);
     AddFingeDialog *dlg = new AddFingeDialog(thumb);
     dlg->setFingerModel(m_fingerModel);
