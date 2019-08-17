@@ -60,12 +60,14 @@ public Q_SLOTS:
     void setFontSize(const int value);
     void switchWM();
     void setOpacity(int opcaity);
+    void setActiveColor(const QString &hexColor);
 
 private Q_SLOTS:
     void FontSizeChanged(const double value) const;
     void onGetFontFinished(QDBusPendingCallWatcher *w);
     void onGetThemeFinished(QDBusPendingCallWatcher *w);
     void onGetPicFinished(QDBusPendingCallWatcher *w);
+    void onGetActiveColorFinished(QDBusPendingCallWatcher *w);
     void onRefreshedChanged(const QString &type);
     void onToggleWM(const QString &wm);
     void onGetCurrentWMFinished(QDBusPendingCallWatcher *w);
@@ -81,6 +83,7 @@ private:
     void refreshThemeByType(const QString &type);
     void refreshFontByType(const QString &type);
     void refreshOpacity(double opacity);
+    void refreshActiveColor(const QString &color);
 
     template<typename T>
     T toSliderValue(std::vector<T> list, T value);

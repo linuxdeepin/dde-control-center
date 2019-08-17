@@ -70,3 +70,13 @@ void PersonalizationModel::setOpacity(std::pair<int, double> opacity)
 
     Q_EMIT onOpacityChanged(opacity);
 }
+
+void PersonalizationModel::setActiveColor(const QString &color)
+{
+    if (m_activeColor == color)
+        return;
+
+    m_activeColor = color;
+
+    Q_EMIT onActiveColorChanged(color);
+}

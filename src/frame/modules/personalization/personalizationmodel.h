@@ -55,9 +55,13 @@ public:
     inline std::pair<int, double> opacity() const { return m_opacity; }
     void setOpacity(std::pair<int, double> opacity);
 
+    inline QString getActiveColor() {return m_activeColor;}
+    void setActiveColor(const QString &color);
+
 Q_SIGNALS:
     void wmChanged(const bool is3d);
     void onOpacityChanged(std::pair<int, double> opacity);
+    void onActiveColorChanged(const QString &color);
 
 private:
     ThemeModel    *m_windowModel;
@@ -68,6 +72,7 @@ private:
     FontSizeModel *m_fontSizeModel;
     bool m_is3DWm;
     std::pair<int, double> m_opacity;
+    QString m_activeColor;
 };
 }
 }

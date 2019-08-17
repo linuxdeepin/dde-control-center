@@ -44,6 +44,7 @@ class DCCSliderAnnotated;
 namespace DCC_NAMESPACE {
 namespace personalization {
 class PerssonalizationThemeWidget;
+class RoundColorWidget;
 class PersonalizationGeneral : public QWidget
 {
     Q_OBJECT
@@ -52,14 +53,20 @@ public:
     void setModel(dcc::personalization::PersonalizationModel *model);
     inline PerssonalizationThemeWidget *getThemeWidget() { return m_Themes; }
 
+private:
+    void updateActiveColors(RoundColorWidget *selectedWidget);
+
 Q_SIGNALS:
     void showThemeWidget();
     void showFontsWidget();
     void requestSwitchWM();
     void requestSetOpacity(int value);
+    void requestSetActiveColor(const QString &color);
 
 private:
     void onOpacityChanged(std::pair<int, double> value);
+    void onActiveColorChanged(const QString &newColor);
+    void onActiveColorClicked();
 
 private:
     QVBoxLayout *m_centralLayout;             //主布局
@@ -67,6 +74,7 @@ private:
     dcc::widgets::DCCSliderAnnotated *m_transparentSlider;  //透明度调节
     dcc::personalization::PersonalizationModel *m_model;
     PerssonalizationThemeWidget *m_Themes;
+    QList<RoundColorWidget *> m_activeColorsList;
 };
 }
 }

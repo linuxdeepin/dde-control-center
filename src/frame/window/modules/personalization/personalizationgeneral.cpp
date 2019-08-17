@@ -23,7 +23,6 @@
 #include "widgets/dccslider.h"
 #include "perssonalizationthemewidget.h"
 #include "roundcolorwidget.h"
-#include "dwindowmanagerhelper.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -34,6 +33,18 @@ DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
 
+const QList<QString> ACTIVE_COLORS = {
+    "#D8316C",
+    "#FF5D00",
+    "#F8CB00",
+    "#23C400",
+    "#00A48A",
+    "#0081FF",
+    "#3C02FF",
+    "#6A0085",
+    "#4D4D4D"
+};
+
 PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout())
@@ -41,17 +52,6 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     , m_transparentSlider(new dcc::widgets::DCCSliderAnnotated())
     , m_Themes(new PerssonalizationThemeWidget())
 {
-    const QList<QColor> colors = {
-        QColor(0xD8, 0x31, 0x6C),
-        QColor(0xFF, 0x5D, 0x00),
-        QColor(0xF8, 0xCB, 0x00),
-        QColor(0x23, 0xC4, 0x00),
-        QColor(0x00, 0xA4, 0x8A),
-        QColor(0x00, 0x81, 0xFF),
-        QColor(0x3C, 0x02, 0xFF),
-        QColor(0x6A, 0x00, 0x85),
-        QColor(0x4D, 0x4D, 0x4D)
-    };
 
     //appearance
     m_centralLayout->addWidget(new QLabel(tr("Appearance")));
@@ -64,10 +64,12 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     QHBoxLayout *colorsLayout = new QHBoxLayout();
 
-    for (int i = 0; i < colors.size(); ++i) {
-        RoundColorWidget *colorItem = new RoundColorWidget(colors.at(i), this);
+    for (QString aColor : ACTIVE_COLORS) {
+        RoundColorWidget *colorItem = new RoundColorWidget(aColor, this);
         colorItem->setFixedSize(40, 40);
         colorsLayout->addWidget(colorItem);
+        connect(colorItem, &RoundColorWidget::clicked, this, &PersonalizationGeneral::onActiveColorClicked);
+        m_activeColorsList.append(colorItem);
     }
     m_centralLayout->addLayout(colorsLayout);
 
@@ -126,6 +128,21 @@ void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel
             &PersonalizationGeneral::onOpacityChanged);
 
     onOpacityChanged(model->opacity());
+
+    connect(model, &dcc::personalization::PersonalizationModel::onActiveColorChanged, this,
+            &PersonalizationGeneral::onActiveColorChanged);
+    onActiveColorChanged(model->getActiveColor());
+}
+
+void PersonalizationGeneral::updateActiveColors(RoundColorWidget *selectedWidget)
+{
+    for (RoundColorWidget *item : m_activeColorsList) {
+        if (item == selectedWidget) {
+            item->setSelected(true);
+        } else {
+            item->setSelected(false);
+        }
+    }
 }
 
 void PersonalizationGeneral::onOpacityChanged(std::pair<int, double> value)
@@ -133,4 +150,22 @@ void PersonalizationGeneral::onOpacityChanged(std::pair<int, double> value)
     m_transparentSlider->slider()->blockSignals(true);
     m_transparentSlider->slider()->setValue(value.first);
     m_transparentSlider->slider()->blockSignals(false);
+}
+
+void PersonalizationGeneral::onActiveColorChanged(const QString &newColor)
+{
+    int colorIndex = ACTIVE_COLORS.indexOf(newColor.trimmed());
+
+    if (colorIndex >= 0)
+        updateActiveColors(m_activeColorsList[colorIndex]);
+}
+
+void PersonalizationGeneral::onActiveColorClicked()
+{
+    RoundColorWidget *activeColor = qobject_cast<RoundColorWidget *>(sender());
+
+    //设置active color
+    QString strColor = ACTIVE_COLORS[m_activeColorsList.indexOf(activeColor)];
+    qDebug() << Q_FUNC_INFO << " strColor : " << strColor;
+    Q_EMIT requestSetActiveColor(strColor);
 }

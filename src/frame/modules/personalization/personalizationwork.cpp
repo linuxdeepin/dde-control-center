@@ -66,6 +66,7 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
 
     connect(m_wmSwitcher, &WMSwitcher::WMChanged, this, &PersonalizationWork::onToggleWM);
     connect(m_dbus, &Appearance::OpacityChanged, this, &PersonalizationWork::refreshOpacity);
+    connect(m_dbus, &Appearance::QtActiveColorChanged, this, &PersonalizationWork::refreshActiveColor);
 
     m_themeModels["gtk"]           = windowTheme;
     m_themeModels["icon"]          = iconTheme;
@@ -84,6 +85,7 @@ void PersonalizationWork::active()
 
     refreshWMState();
     refreshOpacity(m_dbus->opacity());
+    refreshActiveColor(m_dbus->qtActiveColor());
 
     m_model->getWindowModel()->setDefault(m_dbus->gtkTheme());
     m_model->getIconModel()->setDefault(m_dbus->iconTheme());
@@ -205,6 +207,19 @@ void PersonalizationWork::onGetPicFinished(QDBusPendingCallWatcher *w)
     w->deleteLater();
 }
 
+void PersonalizationWork::onGetActiveColorFinished(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QString> reply = *w;
+
+    if (!reply.isError()) {
+        m_model->setActiveColor(reply.value());
+    } else {
+        qWarning() << reply.error();
+    }
+
+    w->deleteLater();
+}
+
 void PersonalizationWork::onRefreshedChanged(const QString &type)
 {
     if (m_themeModels.keys().contains(type)) {
@@ -300,6 +315,11 @@ void PersonalizationWork::refreshFontByType(const QString &type) {
     connect(fontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetFontFinished);
 }
 
+void PersonalizationWork::refreshActiveColor(const QString &color)
+{
+    m_model->setActiveColor(color);
+}
+
 void PersonalizationWork::refreshOpacity(double opacity)
 {
     int slider { toSliderValue<int>(OPACITY_SLIDER, static_cast<int>(opacity * 100)) };
@@ -381,6 +401,11 @@ void PersonalizationWork::switchWM()
 void PersonalizationWork::setOpacity(int opacity)
 {
     m_dbus->setOpacity(sliderValutToOpacity(opacity));
+}
+
+void PersonalizationWork::setActiveColor(const QString &hexColor)
+{
+    m_dbus->setQtActiveColor(hexColor);
 }
 
 template<typename T>
