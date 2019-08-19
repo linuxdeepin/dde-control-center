@@ -41,7 +41,7 @@ UseElectricWidget::UseElectricWidget(QWidget *parent)
     , m_monitorSleepOnPower(new TitledSliderItem(tr("Monitor will suspend after")))
     , m_computerSleepOnPower(new TitledSliderItem(tr("Computer will suspend after")))
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
-    , m_suspendOnLidClose(new SwitchWidget("Suspend on lid close"))
+    , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 

@@ -67,6 +67,12 @@ void PowerWidget::initialize(bool hasBattery)
     m_listview->setCurrentIndex(m_listmodel->index(0, 0));
     m_listview->setRowHidden(2, !hasBattery);
 
+    m_listmodel = new QStandardItemModel(this);
+    m_listmodel->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), tr("General")));
+    m_listmodel->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), tr("Plugged In"))),
+          m_listmodel->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), tr("On Battery"))),
+          m_listview->setModel(m_listmodel);
+
     connect(m_listview, &QListView::pressed, this, &PowerWidget::onItemClieck);
     connect(this, &PowerWidget::requestRemoveBattery, this, [this](bool state) {
         m_listview->setRowHidden(2, !state);

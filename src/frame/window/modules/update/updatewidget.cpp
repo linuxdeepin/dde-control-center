@@ -51,7 +51,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     , m_label(new QLabel)
     , m_historyBtn(new UpdateHistoryButton)
     , m_updateState(UpdatesStatus::Default)
-    , m_updateHistoryText(new QLabel(tr("Recently updated")))//最近更新
+    , m_updateHistoryText(new QLabel(tr("Recently updated")))
     , m_applistGroup(new SettingsGroup)
     , m_recentHistoryApplist(new RecentHistoryApplist)
 {
@@ -64,9 +64,9 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
     auto model = new QStandardItemModel(this);
     //~ contents_path /update/Update
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), tr("Update")));//检查更新
-    //~ contents_path /update/Update Setting
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), tr("Update Setting")));//更新设置
+    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), tr("Update")));
+    //~ contents_path /update/Update Settings
+    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), tr("Update Settings")));
     m_listview->setModel(model);
 
     connect(m_listview, &QListView::pressed, this, &UpdateWidget::onTopListviewCliecked);

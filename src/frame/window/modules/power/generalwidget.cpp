@@ -43,23 +43,8 @@ GeneralWidget::GeneralWidget(QWidget *parent)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    QLabel *label = new QLabel;
-    label->setWordWrap(true);
-    label->setText(tr("开启低电量模式会降低屏幕亮度、关闭不需要的系统服务等来提高电池的使用时长。"));
-    label->setContentsMargins(20, 0, 0, 0);
-
-    QPalette pe;
-    pe.setColor(QPalette::WindowText, QColor("#99a7b4"));
-    label->setPalette(pe);
-
-    QFont font = this->font();
-    font.setPixelSize(14);
-    font.setWeight(QFont::Light);
-    label->setFont(font);
-
     m_layout->addWidget(m_lowBatteryMode);
     m_layout->setSpacing(0);
-    m_layout->addWidget(label);
     m_layout->addWidget(m_autoIntoSaveEnergyMode);
     m_layout->addWidget(m_wakeComputerNeedPassword);
     m_layout->addWidget(m_wakeDisplayNeedPassword);
