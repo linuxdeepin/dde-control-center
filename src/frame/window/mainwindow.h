@@ -26,6 +26,7 @@
 #include "interface/moduleinterface.h"
 
 #include <DMainWindow>
+#include <DBackgroundGroup>
 
 #include <QStack>
 #include <QPair>
@@ -67,7 +68,7 @@ private:
     QHBoxLayout *m_contentLayout;
     QHBoxLayout *m_rightContentLayout;
     NavWinView *m_navView;
-    QWidget *m_rightView;
+    DBackgroundGroup *m_rightView;
     QStandardItemModel *m_navModel;
     QStack<QPair<ModuleInterface *, QWidget *>> m_contentStack;
     QList<QPair<ModuleInterface *, QString>> m_modules;

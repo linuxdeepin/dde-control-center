@@ -70,10 +70,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     //Initialize view and layout structure
     QWidget *content = new QWidget(this);
-    m_rightView = new QWidget(this);
 
     m_contentLayout = new QHBoxLayout(content);
-    m_rightContentLayout = new QHBoxLayout(m_rightView);
+    m_rightContentLayout = new QHBoxLayout();
+    m_rightView = new DBackgroundGroup(m_rightContentLayout);
     m_navView = new NavWinView(this);
     m_navView->setFrameShape(QFrame::Shape::NoFrame);
     m_navView->setEditTriggers(QListView::NoEditTriggers);
