@@ -22,6 +22,7 @@
 #include <QColor>
 #include <QPainter>
 #include <QMouseEvent>
+#include <QApplication>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -40,7 +41,17 @@ bool RoundColorWidget::isSelected()
 
 void RoundColorWidget::setSelected(bool selected)
 {
+    if (m_isSelected == selected)
+        return;
+
     m_isSelected = selected;
+
+    if (m_isSelected) {
+        QPalette palette = qApp->palette();
+        palette.setColor(QPalette::Highlight, m_color);
+        qApp->setPalette(palette);
+    }
+
     update();
 }
 
