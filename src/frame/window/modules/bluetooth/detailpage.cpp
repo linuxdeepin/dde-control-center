@@ -1,13 +1,9 @@
 /*
- * Copyright (C) 2016 ~ 2018 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
- * Author:     sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
+ * Author:     andywang <andywang_cm@deepin.com>
  *
- * Maintainer: sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
+ * Maintainer: andywang <andywang_cm@deepin.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -45,14 +41,13 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     , m_device(device)
     , m_ignoreButton(new QPushButton(tr("Ignore")))
     , m_disconnectButton(new QPushButton(tr("Disconnect")))
-    , m_backButton(new QPushButton(tr("back")))
 {
     setTitle(device->name());
     dcc::widgets::TranslucentFrame *frame = new dcc::widgets::TranslucentFrame;
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setSpacing(0);
     layout->setMargin(0);
-    m_devNameLabel = new QLabel(tr("Remark"));
+    m_devNameLabel = new QLabel(tr("Change Name"));
     layout->addWidget(m_devNameLabel);
     layout->addSpacing(10);
     m_editDevName = new QLineEdit;
@@ -61,8 +56,7 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     layout->addWidget(m_disconnectButton);
     layout->addSpacing(10);
     layout->addWidget(m_ignoreButton);
-    layout->addSpacing(10);
-    layout->addWidget(m_backButton);
+    layout->addStretch();
     setContent(frame);
 
     device->state() == Device::StateConnected ? m_disconnectButton->show() : m_disconnectButton->hide();
@@ -71,7 +65,6 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
 
     connect(m_ignoreButton, &QPushButton::clicked, [this] { Q_EMIT requestIgnoreDevice(m_adapter, m_device); });
     connect(m_disconnectButton, &QPushButton::clicked, [this] { Q_EMIT requestDisconnectDevice(m_device); });
-    connect(m_backButton, &QPushButton::clicked, this, &DetailPage::requestBack);
     connect(m_editDevName, &QLineEdit::editingFinished, this, &DetailPage::onDeviceNameChanged);
     connect(adapter, &Adapter::destroyed, this, &DetailPage::back);
 }

@@ -1,13 +1,9 @@
 /*
- * Copyright (C) 2016 ~ 2018 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
- * Author:     sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
+ * Author:     andywang <andywang_cm@deepin.com>
  *
- * Maintainer: sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
+ * Maintainer: andywang <andywang_cm@deepin.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -52,7 +48,6 @@ public:
 Q_SIGNALS:
     void requestIgnoreDevice(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
     void requestDisconnectDevice(const dcc::bluetooth::Device *device);
-    void requestBack();
     void requestSetDevAlias(const dcc::bluetooth::Device *device, QString &devAlias);
 
 private Q_SLOTS:
@@ -63,9 +58,8 @@ private:
     const dcc::bluetooth::Device *m_device;
     QPushButton *m_ignoreButton;
     QPushButton *m_disconnectButton;
-    QPushButton *m_backButton;
-    QLabel      *m_devNameLabel;
-    QLineEdit   *m_editDevName;
+    QLabel *m_devNameLabel;
+    QLineEdit *m_editDevName;
 };
 }
 }
