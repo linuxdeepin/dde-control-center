@@ -28,33 +28,49 @@
 #include "modules/display/displaymodel.h"
 #include "widgets/basiclistdelegate.h"
 
+#include <DBlurEffectWidget>
+
 #include <QVBoxLayout>
 #include <QMouseEvent>
 #include <QLabel>
 #include <QPixmap>
+#include <QPainter>
 
 using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
+using namespace Dtk::Widget;
 
 RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
     : QDialog(parent)
     , m_mon(mon)
 {
-    setFixedSize(300, 300);
     setMouseTracking(true);
     setAttribute(Qt::WA_TranslucentBackground);
     setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
 
-    const qreal ratio = devicePixelRatioF();
+    DBlurEffectWidget *blurWidget = new DBlurEffectWidget;
+    blurWidget->setFixedSize(140, 140);
+    blurWidget->setBlurRectXRadius(10);
+    blurWidget->setBlurRectYRadius(10);
+    blurWidget->setMaskColor(DBlurEffectWidget::LightColor);
+    blurWidget->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
+
     QPixmap rotatePixmap = loadPixmap(":/display/themes/common/icon/rotate.svg");
     QLabel *osd = new QLabel;
+    const qreal ratio = devicePixelRatioF();
     osd->setPixmap(rotatePixmap);
     osd->setFixedSize(int(rotatePixmap.width() / ratio),
                       int(rotatePixmap.height() / ratio));
 
+    QVBoxLayout *l = new QVBoxLayout(blurWidget);
+    l->setMargin(0);
+    l->setSpacing(0);
+    l->addWidget(osd, Qt::AlignHCenter);
+    l->setAlignment(osd, Qt::AlignCenter);
+
     QVBoxLayout *centralLayout = new QVBoxLayout;
-    centralLayout->addWidget(osd, Qt::AlignHCenter);
-    centralLayout->setAlignment(osd, Qt::AlignCenter);
+    centralLayout->addWidget(blurWidget, Qt::AlignHCenter);
+    centralLayout->setAlignment(blurWidget, Qt::AlignCenter);
     setLayout(centralLayout);
 
     qApp->setOverrideCursor(Qt::BlankCursor);
@@ -69,13 +85,13 @@ void RotateDialog::setModel(dcc::display::DisplayModel *model)
 {
     m_model = model;
 
-    const qreal ratio = devicePixelRatioF();
     Monitor *mon = m_mon ? m_mon : m_model->primaryMonitor();
-    setFixedWidth(int(mon->w() / ratio));
-    setFixedHeight(int(mon->w() / ratio));
+    connect(mon, &Monitor::wChanged, this, &RotateDialog::resetGeometry);
+    connect(mon, &Monitor::hChanged, this, &RotateDialog::resetGeometry);
+    connect(mon, &Monitor::xChanged, this, &RotateDialog::resetGeometry);
+    connect(mon, &Monitor::yChanged, this, &RotateDialog::resetGeometry);
 
-    move(mon->rect().topLeft());
-    QCursor::setPos(rect().center() + pos());
+    resetGeometry();
 }
 
 void RotateDialog::keyPressEvent(QKeyEvent *event)
@@ -107,10 +123,57 @@ void RotateDialog::mouseReleaseEvent(QMouseEvent *e)
     }
 }
 
-void RotateDialog::mouseMoveEvent(QMouseEvent *e)
+void RotateDialog::showEvent(QShowEvent *e)
 {
-    QDialog::mouseMoveEvent(e);
-    QCursor::setPos(rect().center() + pos());
+    QDialog::showEvent(e);
+
+    QTimer::singleShot(100, this, static_cast<void (RotateDialog::*)()>(&RotateDialog::grabMouse));
+    QTimer::singleShot(100, this, &RotateDialog::grabKeyboard);
+}
+
+void RotateDialog::paintEvent(QPaintEvent *e)
+{
+    QDialog::paintEvent(e);
+
+    QPainter painter(this);
+    int margin = 100;
+    if (m_wmHelper->hasComposite()) {
+        painter.fillRect(rect(), QColor(0, 0, 0, int(255 * 0.6)));
+        painter.setPen(Qt::white);
+    } else {
+        margin = 60;
+
+        painter.fillRect(rect(), Qt::white);
+        painter.setPen(Qt::black);
+    }
+
+    QRect destHRect(0, 0, width(), margin);
+    QRect destVRect(0, 0, height(), margin);
+
+    QString tips(tr("Left click to rotate, right click to restore and exit, press Ctrl+S to save."));
+
+    // bottom
+    painter.translate(0, height() - margin);
+    painter.drawText(destHRect, Qt::AlignHCenter, tips);
+    painter.resetTransform();
+
+    // left
+    painter.rotate(90);
+    painter.translate(0, -margin);
+    painter.drawText(destVRect, Qt::AlignHCenter, tips);
+    painter.resetTransform();
+
+    // top
+    painter.rotate(180);
+    painter.translate(-width(), -margin);
+    painter.drawText(destHRect, Qt::AlignHCenter, tips);
+    painter.resetTransform();
+
+    // right
+    painter.rotate(270);
+    painter.translate(-height(), width() - margin);
+    painter.drawText(destVRect, Qt::AlignHCenter, tips);
+    painter.resetTransform();
 }
 
 void RotateDialog::rotate()
@@ -134,4 +197,17 @@ void RotateDialog::rotate()
         Q_EMIT RotateDialog::requestRotateAll(nextValue);
 
     update();
+}
+
+void RotateDialog::resetGeometry()
+{
+    const qreal ratio = devicePixelRatioF();
+    Monitor *mon = m_mon ? m_mon : m_model->primaryMonitor();
+    if (m_wmHelper->hasComposite()) {
+        setFixedSize(int(mon->w() / ratio), int(mon->h() / ratio));
+        move(0, 0);
+    } else {
+        setFixedSize(600, 500);
+        move((mon->w() - width()) / 2, (mon->h() - height()) / 2);
+    }
 }

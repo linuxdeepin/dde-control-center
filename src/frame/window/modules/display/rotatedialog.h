@@ -24,6 +24,8 @@
 
 #include "window/namespace.h"
 
+#include <DWindowManagerHelper>
+
 #include <QDialog>
 
 namespace dcc {
@@ -56,15 +58,18 @@ Q_SIGNALS:
 protected:
     void keyPressEvent(QKeyEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *e) override;
-    void mouseMoveEvent(QMouseEvent *e) override;
+    void showEvent(QShowEvent *e) override;
+    void paintEvent(QPaintEvent *e) override;
 
 private:
     void rotate();
+    void resetGeometry();
 
 private:
     bool m_changed{false};
     dcc::display::DisplayModel *m_model{nullptr};
     dcc::display::Monitor *m_mon{nullptr};
+    Dtk::Widget::DWindowManagerHelper *m_wmHelper;
 };
 
 } // namespace display
