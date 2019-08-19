@@ -62,9 +62,24 @@ void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
             painter->drawEllipse(option.rect.adjusted(1, 1, -1, -1));
             return;
         }
-        if (index.data(AvatarListWidget::AddAvatarRole).toBool() == true) {
-            painter->drawLine(QPoint(option.rect.width() / 2 + 15, option.rect.y() + 20), QPoint(option.rect.width() / 2 + 15, option.rect.y() + option.rect.height() - 20));
-            painter->drawLine(QPoint(35, option.rect.y() + option.rect.height() / 2), QPoint(option.rect.width() - 5, option.rect.y() + option.rect.height() / 2));
+        // draw + in the end
+        if (index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().isDrawLast == true) {
+            QString iconpath = index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().iconPath;
+            if (!iconpath.isEmpty()) {
+                //1.画图片
+                painter->setClipping(true);
+                painter->drawPixmap(option.rect.marginsRemoved(margins), QPixmap(iconpath));
+                painter->setClipping(false);
+                painter->setPen(QPen(Qt::white, 1.0));
+            } else {
+                painter->setPen(QPen(option.palette.text(), 1.0));
+            }
+
+            //2.画+号
+            QRectF rect(0, 0, option.rect.width() / 3.0, option.rect.height() / 3.0);
+            rect.moveCenter(QRectF(option.rect).center());
+            painter->drawLine(QPointF(rect.x(), rect.center().y()), QPointF(rect.right(), rect.center().y()));
+            painter->drawLine(QPointF(rect.center().x(), rect.y()), QPointF(rect.center().x(), rect.bottom()));
         }
     }
 }

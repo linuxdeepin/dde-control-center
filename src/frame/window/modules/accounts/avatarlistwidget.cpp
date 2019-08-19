@@ -35,7 +35,6 @@
 #include <QDir>
 #include <QFileInfo>
 #include <QFileInfoList>
-#include <QDebug>
 
 using namespace DCC_NAMESPACE::accounts;
 
@@ -62,15 +61,55 @@ void AvatarListWidget::initWidgets()
     m_avatarListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     m_avatarListView->setDragDropMode(QAbstractItemView::NoDragDrop);
     m_avatarListView->setDragEnabled(false);
-    m_avatarListView->setSpacing(15);
+    m_avatarListView->setContentsMargins(0, 0, 0, 0);
 
     connect(m_avatarListView, &QListView::clicked, this, &AvatarListWidget::onItemClicked);
 }
 
 void AvatarListWidget::initDatas()
 {
-    QString dirpath("/var/lib/AccountsService/icons/");
-    QDir dir(dirpath);
+    addItemFromDefaultDir();
+    addLastItem();
+
+    m_avatarListView->setItemDelegate(m_avatarItemDelegate);
+    m_avatarListView->setModel(m_avatarItemModel);
+}
+
+void AvatarListWidget::setUserModel(dcc::accounts::User *user)
+{
+    m_curUser = user;
+}
+
+void AvatarListWidget::onItemClicked(const QModelIndex &index)
+{
+    if (index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().isDrawLast == true) {
+        clickAddAvatarBtn();
+    } else {
+        if (m_prevSelectIndex != -1) {
+            m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
+        }
+        m_prevSelectIndex = index.row();
+        m_avatarItemModel->item(index.row())->setCheckState(Qt::Checked);
+        Q_EMIT requestSetAvatar(m_iconpathList.at(index.row()));
+    }
+    update();
+}
+
+void AvatarListWidget::clickAddAvatarBtn()
+{
+    Q_EMIT requestAddNewAvatar(m_curUser);
+
+    if (m_avatarItemModel->rowCount() > 0) {
+        m_avatarItemModel->clear();
+    }
+
+    addItemFromDefaultDir();
+    addLastItem();
+}
+
+void AvatarListWidget::addItemFromDefaultDir()
+{
+    QDir dir("/var/lib/AccountsService/icons/");
     QStringList hideList;
     hideList << "default.png" << "guest.png";
     QStringList filters;
@@ -87,31 +126,29 @@ void AvatarListWidget::initDatas()
         item->setData(QVariant::fromValue(QPixmap(iconpath)), Qt::DecorationRole);
         m_avatarItemModel->appendRow(item);
     }
+}
+
+void AvatarListWidget::addLastItem()
+{
+    LastItemData lastItemData;
+    lastItemData.isDrawLast = true;
+    lastItemData.iconPath = "";
+
+    QString dirpath("/var/lib/AccountsService/icons/local/");
+    QDir dir(dirpath);
+    QStringList hideList;
+    hideList << "." << "..";
+    QFileInfoList list = dir.entryInfoList();
+    for (int i = 0; i < list.size(); ++i) {
+        if (hideList.contains(list.at(i).fileName())) {
+            continue;
+        }
+        QString iconpath = list.at(i).filePath();
+        m_iconpathList.push_back(iconpath);
+        lastItemData.iconPath = iconpath;
+    }
 
     QStandardItem *item = new QStandardItem();
-    item->setData(QVariant::fromValue(true), AvatarListWidget::AddAvatarRole);
+    item->setData(QVariant::fromValue(lastItemData), AvatarListWidget::AddAvatarRole);
     m_avatarItemModel->appendRow(item);
-
-    m_avatarListView->setItemDelegate(m_avatarItemDelegate);
-    m_avatarListView->setModel(m_avatarItemModel);
-}
-
-void AvatarListWidget::setUserModel(dcc::accounts::User *user)
-{
-    m_curUser = user;
-}
-
-void AvatarListWidget::onItemClicked(const QModelIndex &index)
-{
-    if (index.data(AvatarListWidget::AddAvatarRole).toBool() == true) {
-        Q_EMIT requestAddNewAvatar(m_curUser);
-    } else {
-        if (m_prevSelectIndex != -1) {
-            m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
-        }
-        m_prevSelectIndex = index.row();
-        m_avatarItemModel->item(index.row())->setCheckState(Qt::Checked);
-        Q_EMIT requestSetAvatar(m_iconpathList.at(index.row()));
-    }
-    update();
 }

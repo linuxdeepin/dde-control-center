@@ -25,14 +25,21 @@
 #include "window/namespace.h"
 
 #include <QStyledItemDelegate>
+#include <QMetaType>
 
+struct LastItemData {
+    bool isDrawLast;
+    QString iconPath;
+};
+Q_DECLARE_METATYPE(LastItemData)
+
+QT_BEGIN_NAMESPACE
 class QObject;
 class QStyleOptionViewItem;
 class QModelIndex;
 class QPainter;
 class QSize;
-class QDebug;
-
+QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 namespace accounts {

@@ -24,6 +24,8 @@
 #include "window/namespace.h"
 #include "modules/accounts/user.h"
 
+#include <DStyleOption>
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -47,8 +49,12 @@ public:
     void setUserModel(dcc::accounts::User *user);
 
     enum ItemRole {
-        AddAvatarRole = Qt::UserRole + 1,
+        AddAvatarRole = Dtk::UserRole + 1,
     };
+
+    void addItemFromDefaultDir();
+    void addLastItem();
+    void clickAddAvatarBtn();
 
 Q_SIGNALS:
     void requestSetAvatar(const QString &avatarPath);
