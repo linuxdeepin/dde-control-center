@@ -63,6 +63,7 @@ public Q_SLOTS:
     void onSwitchKBChanged();
     void onSwitchKB(int kbSwitch);
     void onLayoutAdded();
+    void onSwitchKBLayout(const QString &comboxName);
 
 private:
     bool m_bEdit;

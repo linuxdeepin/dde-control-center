@@ -248,6 +248,8 @@ set(WIDGETS_FILES
                 widgets/settingsgroup.cpp
                 widgets/passwdeditwidget.cpp
                 widgets/switchwidget.cpp
+                widgets/comboxwidget.cpp
+                widgets/comboxwidget.h
                 widgets/themeitempic.cpp
                 widgets/themeitempic.h
                 widgets/utils.h

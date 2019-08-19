@@ -23,6 +23,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/translucentframe.h"
 #include "widgets/settingshead.h"
+#include "widgets/comboxwidget.h"
 #include "modules/keyboard/checkitem.h"
 #include "modules/keyboard/keylabel.h"
 #include "modules/keyboard/keyboardmodel.h"
@@ -32,6 +33,7 @@
 
 #include <QStringList>
 #include <QVBoxLayout>
+#include <QComboBox>
 #include <QDebug>
 #include <QList>
 
@@ -85,6 +87,14 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
         m_switchCheckItem.insert(shortCutItem, iter.key());
         connect(shortCutItem, &CheckItem::checkedChanged, this, &KBLayoutSettingWidget::onSwitchKBChanged);
     }
+
+    ComboxWidget *comboWidget = new ComboxWidget;
+    comboWidget->setTitle(tr("Applies to"));
+    QStringList comboxOptions;
+    comboxOptions << tr("System") << tr("Application");
+    comboWidget->setComboxOption(comboxOptions);
+    m_switchKBLayout->appendItem(comboWidget);
+
     content->setLayout(layout);
     setContent(content);
 
@@ -96,6 +106,12 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
 
     connect(addLayout, &DFloatingButton::clicked, this, &KBLayoutSettingWidget::onLayoutAdded);
     connect(m_head, &SettingsHead::editChanged, this, &KBLayoutSettingWidget::onEdit);
+    connect(comboWidget, &ComboxWidget::onSelectChanged, this, &KBLayoutSettingWidget::onSwitchKBLayout);
+}
+
+void KBLayoutSettingWidget::onSwitchKBLayout(const QString &comboxName)
+{
+    qDebug() << "Select: " << comboxName;
 }
 
 void KBLayoutSettingWidget::setModel(KeyboardModel *model)
