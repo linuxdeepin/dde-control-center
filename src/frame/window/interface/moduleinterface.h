@@ -59,6 +59,13 @@ public:
     ///
     virtual const QString name() const = 0;
 
+    ///
+    /// \brief getIconPath
+    /// get module icon path
+    /// \return
+    ///
+    static const QString getIconPath(QString moduleName)  { return QString(":/%1/themes/dark/icons/nav_%1.svg").arg(moduleName); }
+
     // 应该暂时不需要finalize；
     // virtual void finalize();
 
@@ -92,6 +99,11 @@ public:
     /// \brief active
     /// 当模块被销毁时，deactive会被调用
     virtual void deactive();
+
+    ///
+    /// \brief load
+    /// 当搜索到相关字段后，load会被调用
+    virtual void load(QString path) { Q_UNUSED(path)};
 
 protected:
     FrameProxyInterface *m_frameProxy = nullptr;

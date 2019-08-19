@@ -53,7 +53,7 @@ dccV20::update::UpdateHistoryButton::UpdateHistoryButton(QFrame *parent)
     connect(this, &UpdateHistoryButton::notifyBtnRelease, this, &UpdateHistoryButton::onProcessMouseEvent);
 }
 
-void UpdateHistoryButton::setImage(const QString& fileName)
+void UpdateHistoryButton::setImage(const QString &fileName)
 {
     m_picture.load(fileName);
 }

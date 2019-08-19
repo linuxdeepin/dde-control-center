@@ -24,16 +24,16 @@
 #include "widgets/contentwidget.h"
 
 namespace dcc {
-    namespace widgets {
-        class SettingsGroup;
-        class SwitchWidget;
-        class NextPageWidget;
-        class TipsLabel;
-    }
+namespace widgets {
+class SettingsGroup;
+class SwitchWidget;
+class NextPageWidget;
+class TipsLabel;
+}
 
-    namespace update {
-        class UpdateModel;
-    }
+namespace update {
+class UpdateModel;
+}
 }
 
 namespace DCC_NAMESPACE {

@@ -41,9 +41,9 @@ class UpdateHistoryButton : public dcc::widgets::SettingsItem
     };
 
 public:
-    explicit UpdateHistoryButton(QFrame* parent = 0);
+    explicit UpdateHistoryButton(QFrame *parent = 0);
 
-    void setImage(const QString& fileName);
+    void setImage(const QString &fileName);
     void setLabelText(QString text);
 
 protected:
@@ -60,7 +60,7 @@ private Q_SLOTS:
     void onProcessMouseEvent();
 
 private:
-    QLabel* m_messageLabel;
+    QLabel *m_messageLabel;
     QLabel *m_label;
     clickState m_mouseType;
     QPixmap m_picture;

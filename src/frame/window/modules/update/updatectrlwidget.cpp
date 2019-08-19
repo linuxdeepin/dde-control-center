@@ -127,7 +127,7 @@ UpdateCtrlWidget::~UpdateCtrlWidget()
 
 void UpdateCtrlWidget::loadAppList(const QList<AppUpdateInfo> &infos)
 {
-    qDebug() << infos.count();
+//    qDebug() << infos.count();
 
     QLayoutItem *item;
     while ((item = m_summaryGroup->layout()->takeAt(0)) != nullptr) {

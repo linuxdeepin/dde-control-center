@@ -116,6 +116,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
         layout->addSpacing(15);
 
         m_updateMirrors = new NextPageWidget;
+        //~ contents_path /update/Update Setting/Switch Mirror
         m_updateMirrors->setTitle(tr("Switch Mirror"));
         m_mirrorGrp = new SettingsGroup;
         m_mirrorGrp->appendItem(m_updateMirrors);

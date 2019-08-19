@@ -39,20 +39,19 @@ class QVBoxLayout;
 QT_END_NAMESPACE
 
 namespace dcc {
-    namespace update {
-        class UpdateModel;
-        class UpdateWorker;
-    }
+namespace update {
+class UpdateModel;
+class UpdateWorker;
+}
 
-    namespace widgets {
-        class SettingsGroup;
-    }
+namespace widgets {
+class SettingsGroup;
+}
 }
 
 namespace DCC_NAMESPACE {
 namespace update {
 
-const unsigned int default_listview_index = 0;
 static const QString OfflineUpgraderService = "com.deepin.dde.OfflineUpgrader";
 
 class UpdateCtrlWidget;
@@ -62,11 +61,13 @@ class RecentHistoryApplist;
 class UpdateWidget : public QWidget
 {
     Q_OBJECT
-    enum updateType {
-        DEFAULT = -1,
-        CHECK_UPDATE,
-        UPDATE_SETTING,
-        COUNT
+public:
+    enum UpdateType {
+        Default = -1,
+        UpdateCheck,
+        UpdateSetting,
+        UpdateSettingMir,
+        Count
     };
 public:
     explicit UpdateWidget(QWidget *parent = nullptr);
@@ -74,12 +75,13 @@ public:
 
     void initialize();
     void setModel(const dcc::update::UpdateModel *model, const dcc::update::UpdateWorker *work);
-    void setDefaultState();
+    void setDefaultState(UpdateType value = UpdateCheck);
     void setSystemVersion(QString version);
     void resetUpdateCheckState(bool state = true);
     void mouseDoubleClickEvent(QMouseEvent *event);
 
     QList<AppUpdateInfo> getTestApplistInfo();
+    void refreshWidget(UpdateType value);
 
 private:
     void showCheckUpdate();
@@ -99,7 +101,6 @@ private:
     QVBoxLayout *m_layout;
     QListView *m_listview;
     QModelIndex m_currentIndex;
-    QModelIndex m_defaultIndex;
     dcc::update::UpdateModel *m_model;
     dcc::update::UpdateWorker *m_work;
     QWidget *m_centerWidget;

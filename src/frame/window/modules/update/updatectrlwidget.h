@@ -31,18 +31,18 @@ class QSettings;
 QT_END_NAMESPACE
 
 namespace dcc {
-    namespace update {
-        class UpdateModel;
-        class DownloadInfo;
-        class SummaryItem;
-        class DownloadProgressBar;
-        class ResultItem;
-    }
+namespace update {
+class UpdateModel;
+class DownloadInfo;
+class SummaryItem;
+class DownloadProgressBar;
+class ResultItem;
+}
 
-    namespace widgets {
-        class SettingsGroup;
-        class TipsLabel;
-    }
+namespace widgets {
+class SettingsGroup;
+class TipsLabel;
+}
 }
 
 namespace DCC_NAMESPACE {

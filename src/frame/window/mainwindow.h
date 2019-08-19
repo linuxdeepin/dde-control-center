@@ -37,6 +37,12 @@ QT_END_NAMESPACE
 class NavWinView;
 class QStandardItemModel;
 
+namespace DCC_NAMESPACE {
+namespace search {
+class SearchWidget;
+}
+}
+
 const int first_widget_min_width = 190;
 const int second_widget_min_width = 250;
 const int third_widget_min_width = 370;
@@ -70,11 +76,13 @@ private:
     bool m_bIsFinalWidget;//used to distinguish the widget is final or top : fianl pop in popWidget , top pop by m_topWidget
     bool m_bIsFromSecondAddWidget;//used to save the third widget is load from final widget
     QWidget *m_topWidget;
+    DCC_NAMESPACE::search::SearchWidget *m_searchWidget;
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);
 
 private Q_SLOTS:
+    void onEnterSearchWidget(QString moduleName, QString widget);
 
 private:
     void initAllModule();

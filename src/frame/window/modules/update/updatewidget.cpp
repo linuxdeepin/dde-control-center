@@ -63,10 +63,11 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_listview->setFixedHeight(40);
 
     auto model = new QStandardItemModel(this);
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), tr("Update Checked")));//检查更新
+    //~ contents_path /update/Update
+    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), tr("Update")));//检查更新
+    //~ contents_path /update/Update Setting
     model->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), tr("Update Setting")));//更新设置
     m_listview->setModel(model);
-    m_defaultIndex = model->index(0, default_listview_index);
 
     connect(m_listview, &QListView::pressed, this, &UpdateWidget::onTopListviewCliecked);
 
@@ -109,10 +110,6 @@ UpdateWidget::~UpdateWidget()
 
 void UpdateWidget::initialize()
 {
-    QTimer::singleShot(0, this, [this] {
-        setDefaultState();
-    });
-
     connect(m_historyBtn, &UpdateHistoryButton::notifyBtnRelease, this, [ = ](bool state) {
         resetUpdateCheckState();
 
@@ -135,10 +132,12 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
     m_work = const_cast<UpdateWorker *>(work);
 }
 
-void UpdateWidget::setDefaultState()
+void UpdateWidget::setDefaultState(UpdateType value)
 {
-    m_listview->setCurrentIndex(m_defaultIndex);
-    m_listview->pressed(m_defaultIndex);
+    if (value > Default && value < Count) {
+        m_listview->setCurrentIndex(m_listview->model()->index(value, 0));
+        m_listview->pressed(m_listview->model()->index(value, 0));
+    }
 }
 
 void UpdateWidget::setSystemVersion(QString version)
@@ -194,6 +193,17 @@ QList<AppUpdateInfo> UpdateWidget::getTestApplistInfo()
     }
 
     return applist;
+}
+
+void UpdateWidget::refreshWidget(UpdateType value)
+{
+    if (value > Default && value <= UpdateSetting) {
+        setDefaultState(value);
+    } else if (value == UpdateSettingMir) {
+        setDefaultState(UpdateSetting);
+
+        Q_EMIT pushMirrorsView();
+    }
 }
 
 void UpdateWidget::showCheckUpdate()
@@ -255,11 +265,11 @@ void UpdateWidget::onTopListviewCliecked(const QModelIndex &index)
         delete item;
     }
 
-    switch (static_cast<updateType>(index.row())) {
-    case CHECK_UPDATE:
+    switch (static_cast<UpdateType>(index.row())) {
+    case UpdateCheck:
         showCheckUpdate();
         break;
-    case UPDATE_SETTING:
+    case UpdateSetting:
         showUpdateSetting();
         break;
     default:

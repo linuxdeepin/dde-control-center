@@ -193,6 +193,7 @@ set(WINDOW_FILES
     window/modules/update/updatehistorybutton.cpp
     window/modules/update/recenthistoryapplist.cpp
     window/modules/update/mirrorswidget.cpp
+    window/search/searchwidget.cpp
      )
 
 # load interfaces
@@ -1007,6 +1008,7 @@ set(QRC
         modules/mouse/mouse.qrc
         widgets/widgets.qrc
         modules/sync/sync.qrc
+        window/search/translator/languages.qrc
 )
 
 # Find the library

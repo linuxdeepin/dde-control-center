@@ -38,6 +38,7 @@ UpdateModule::UpdateModule(FrameProxyInterface *frameProxy, QObject *parent)
     , ModuleInterface(frameProxy)
     , m_model(nullptr)
     , m_work(nullptr)
+    , m_updateWidget(nullptr)
 {
 
 }
@@ -63,6 +64,7 @@ void UpdateModule::active()
     mainWidget->initialize();
     mainWidget->setSystemVersion(getSystemVersion());
     mainWidget->setModel(m_model, m_work);
+    m_updateWidget = mainWidget;
 
     connect(mainWidget, &UpdateWidget::pushMirrorsView, this, [this]() {
         MirrorsWidget *mirrorsWidget = new MirrorsWidget(m_model);
@@ -78,6 +80,20 @@ void UpdateModule::active()
     });
 
     m_frameProxy->pushWidget(this, mainWidget);
+    mainWidget->refreshWidget(UpdateWidget::UpdateType::UpdateCheck);
+}
+
+void UpdateModule::load(QString path)
+{
+    if (m_updateWidget) {
+        if (path == "Update Setting") {
+            m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateSetting);
+        } else if (path == "Update") {
+            m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateCheck);
+        } else if (path == "Update Setting/Switch Mirror") {
+            m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateSettingMir);
+        }
+    }
 }
 
 QString UpdateModule::getSystemVersion()

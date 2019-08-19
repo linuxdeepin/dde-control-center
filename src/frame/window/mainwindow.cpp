@@ -40,14 +40,18 @@
 #include "mainwindow.h"
 #include "constant.h"
 #include "navwinview.h"
+#include "search/searchwidget.h"
+#include "dtitlebar.h"
 
 #include <QHBoxLayout>
 #include <QMetaEnum>
 #include <QDebug>
 #include <QStandardItemModel>
 #include <QPushButton>
+#include <QLocale>
 
 using namespace DCC_NAMESPACE;
+using namespace DCC_NAMESPACE::search;
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
@@ -59,6 +63,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_bIsFinalWidget(false)
     , m_bIsFromSecondAddWidget(false)
     , m_topWidget(nullptr)
+    , m_searchWidget(nullptr)
 {
     //Initialize view and layout structure
     QWidget *content = new QWidget(this);
@@ -72,8 +77,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_contentLayout->addWidget(m_navView);
     m_contentLayout->addWidget(m_rightView);
-
     m_contentLayout->setContentsMargins(0, 0, 0, 0);
+
     m_rightContentLayout->setContentsMargins(10, 10, 10, 10);
     m_rightContentLayout->setSpacing(10);
 
@@ -88,6 +93,14 @@ MainWindow::MainWindow(QWidget *parent)
     m_navView->setMinimumWidth(first_widget_min_width);
     m_navView->setViewMode(QListView::IconMode);
     connect(m_navView, &NavWinView::clicked, this, &MainWindow::onFirstItemClick);
+
+    m_searchWidget = new SearchWidget(this);
+    m_searchWidget->setMinimumSize(280, 36);
+
+    DTitlebar *titlebar = this->titlebar();
+    titlebar->setCustomWidget(m_searchWidget, Qt::AlignCenter, true);
+    m_searchWidget->setLanguage(QLocale::system().name());
+    connect(m_searchWidget, &SearchWidget::notifyModuleSearch, this, &MainWindow::onEnterSearchWidget);
 
     QTimer::singleShot(0, this, &MainWindow::initAllModule);
     QTimer::singleShot(0, this, &MainWindow::modulePreInitialize);
@@ -192,6 +205,25 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     if (m_topWidget) {
         m_topWidget->setFixedSize(event->size());
     }
+}
+
+void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
+{
+    qDebug() << Q_FUNC_INFO << " moduleName : " << moduleName << " , widget :" << widget;
+
+    for (int firstCount = 0; firstCount < m_modules.count(); firstCount++) {
+        //Compare moduleName and m_modules.second(module name)
+        if (moduleName == m_modules[firstCount].first->name()) {
+            //enter first level widget
+            m_navView->setCurrentIndex(m_navView->model()->index(firstCount, 0));
+            m_navView->clicked(m_navView->model()->index(firstCount, 0));
+
+            //notify related module load widget
+            m_modules[firstCount].first->load(widget);
+            break;
+        }
+    }
+
 }
 
 void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visible)
