@@ -55,11 +55,6 @@ DisplayModule::~DisplayModule()
 
 void DisplayModule::initialize()
 {
-    m_displayModel = new DisplayModel;
-    m_displayWorker = new DisplayWorker(m_displayModel);
-
-    m_displayModel->moveToThread(qApp->thread());
-    m_displayWorker->moveToThread(qApp->thread());
 }
 
 const QString DisplayModule::name() const
@@ -69,23 +64,43 @@ const QString DisplayModule::name() const
 
 void DisplayModule::active()
 {
-    DisplayWidget *displayWidget = new DisplayWidget;
-    displayWidget->setModel(m_displayModel);
+    m_displayWidget = new DisplayWidget;
+    m_displayWidget->setModel(m_displayModel);
 
-    connect(displayWidget, &DisplayWidget::requestShowScalingPage,
+    connect(m_displayWidget, &DisplayWidget::requestShowScalingPage,
             this, &DisplayModule::showScalingPage);
-    connect(displayWidget, &DisplayWidget::requestShowResolutionPage,
+    connect(m_displayWidget, &DisplayWidget::requestShowResolutionPage,
             this, &DisplayModule::showResolutionDetailPage);
-    connect(displayWidget, &DisplayWidget::requestShowBrightnessPage,
+    connect(m_displayWidget, &DisplayWidget::requestShowBrightnessPage,
             this, &DisplayModule::showBrightnessPage);
-    connect(displayWidget, &DisplayWidget::requestRotate, this, [ this ] {
+    connect(m_displayWidget, &DisplayWidget::requestRotate, this, [ this ] {
         showRotate();
     });
-    connect(displayWidget, &DisplayWidget::requestShowMultiScreenPage,
+    connect(m_displayWidget, &DisplayWidget::requestShowMultiScreenPage,
             this, &DisplayModule::showMultiScreenSettingPage);
+    connect(m_displayWidget, &DisplayWidget::requestShowCustomConfigPage,
+            this, &DisplayModule::showCustomSettingDialog);
 
-    m_frameProxy->pushWidget(this, displayWidget);
+    m_frameProxy->pushWidget(this, m_displayWidget);
     showMultiScreenSettingPage();
+}
+
+void DisplayModule::load(QString path)
+{
+    if (!m_displayWidget) {
+        active();
+    }
+
+    m_displayWidget->showPath(path);
+}
+
+void DisplayModule::preInitialize()
+{
+    m_displayModel = new DisplayModel;
+    m_displayWorker = new DisplayWorker(m_displayModel);
+
+    m_displayModel->moveToThread(qApp->thread());
+    m_displayWorker->moveToThread(qApp->thread());
 }
 
 void DisplayModule::showBrightnessPage()

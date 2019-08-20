@@ -39,6 +39,8 @@ namespace DCC_NAMESPACE {
 
 namespace display {
 
+class DisplayWidget;
+
 class DisplayModule : public QObject, public DCC_NAMESPACE::ModuleInterface
 {
     Q_OBJECT
@@ -61,10 +63,13 @@ public:
     void initialize() override;
     const QString name() const override;
     void active() override;
+    void load(QString path) override;
+    void preInitialize() override;
 
 private:
-    dcc::display::DisplayModel *m_displayModel;
-    dcc::display::DisplayWorker *m_displayWorker;
+    dcc::display::DisplayModel *m_displayModel{nullptr};
+    dcc::display::DisplayWorker *m_displayWorker{nullptr};
+    DCC_NAMESPACE::display::DisplayWidget *m_displayWidget{nullptr};
 };
 
 } // namespace display

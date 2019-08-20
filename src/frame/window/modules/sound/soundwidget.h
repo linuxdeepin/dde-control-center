@@ -40,14 +40,17 @@ class SoundWidget : public QWidget
 public:
     SoundWidget(QWidget *parent = nullptr);
 
-private:
-    void initMenuUI();
+public:
+    void showPath(const QString &path);
 
 Q_SIGNALS:
     void requsetSpeakerPage();
     void requestMicrophonePage();
     void requestAdvancedPage();
     void requsetSoundEffectsPage();
+
+private:
+    void initMenuUI();
 
 private:
     struct MenuMethod {

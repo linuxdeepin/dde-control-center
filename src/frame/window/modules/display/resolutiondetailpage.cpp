@@ -86,6 +86,8 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
 {
     m_model = model;
 
+    connect(m_model, &DisplayModel::monitorListChanged,
+            this, &ResolutionDetailPage::initResoList);
     initResoList();
 }
 

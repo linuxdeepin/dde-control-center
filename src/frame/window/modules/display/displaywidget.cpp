@@ -61,12 +61,32 @@ DisplayWidget::DisplayWidget(QWidget *parent)
 void DisplayWidget::setModel(DisplayModel *model)
 {
     m_model = model;
+    m_isMultiScreen = model->monitorList().size() > 1;
 
     connect(m_model, &DisplayModel::monitorListChanged, this, &DisplayWidget::onMonitorListChanged);
     connect(m_model, &DisplayModel::configListChanged, this, &DisplayWidget::onMonitorListChanged);
     connect(m_model, &DisplayModel::configCreated, this, &DisplayWidget::requestShowCustomConfigPage);
 
     onMonitorListChanged();
+}
+
+void DisplayWidget::showPath(const QString &path)
+{
+    if (path == "Customize") {
+        Q_EMIT this->requestShowCustomConfigPage();
+        m_menuList->setCurrentIndex(m_menuList->model()->index(0, 0));
+        return;
+    }
+
+    auto menuList = m_isMultiScreen ? m_multMenuList : m_singleMenuList;
+    for (int i = 0; i < menuList.size(); ++i) {
+        auto menu = menuList[i];
+        if (tr(path.toStdString().c_str()) == menu.menuText) {
+            menu.method.invoke(this);
+            m_menuList->setCurrentIndex(m_menuList->model()->index(i, 0));
+            break;
+        }
+    }
 }
 
 void DisplayWidget::onMonitorListChanged()
@@ -90,16 +110,23 @@ void DisplayWidget::onMonitorListChanged()
 void DisplayWidget::initMenuUI()
 {
     m_multMenuList = {
-        {tr("Mutil-Screen"), QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiScreenPage)},
+        //~ contents_path /display/Multiple Displays
+        {tr("Multiple Displays"), QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiScreenPage)},
+        //~ contents_path /display/Resolution
         {tr("Resolution"), QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
+        //~ contents_path /display/Brightness
         {tr("Brightness"), QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
-        {tr("scaling"), QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)}
+        //~ contents_path /display/Display Scaling
+        {tr("Display Scaling"), QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)}
     };
 
     m_singleMenuList = {
+        //~ contents_path /display/Resolution
         {tr("Resolution"), QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
+        //~ contents_path /display/Brightness
         {tr("Brightness"), QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
-        {tr("scaling"), QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)}
+        //~ contents_path /display/Display Scaling
+        {tr("Display Scaling"), QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)}
     };
 
     QStandardItem *btn{nullptr};

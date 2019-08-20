@@ -49,15 +49,6 @@ void SoundModule::initialize()
     m_worker->moveToThread(qApp->thread());
 }
 
-void SoundModule::reset()
-{
-}
-
-void SoundModule::contentPopped(QWidget *const w)
-{
-    w->deleteLater();
-}
-
 const QString SoundModule::name() const
 {
     return "sound";
@@ -65,15 +56,23 @@ const QString SoundModule::name() const
 
 void SoundModule::active()
 {
-    SoundWidget  *widget = new SoundWidget();
+    m_soundWidget = new SoundWidget();
 
-    connect(widget, &SoundWidget::requsetSpeakerPage, this, &SoundModule::showSpeakerPage);
-    connect(widget, &SoundWidget::requestMicrophonePage, this, &SoundModule::showMicrophonePage);
-    connect(widget, &SoundWidget::requestAdvancedPage, this, &SoundModule::showAdvancedPage);
-    connect(widget, &SoundWidget::requsetSoundEffectsPage, this, &SoundModule::showSoundEffectsPage);
+    connect(m_soundWidget, &SoundWidget::requsetSpeakerPage, this, &SoundModule::showSpeakerPage);
+    connect(m_soundWidget, &SoundWidget::requestMicrophonePage, this, &SoundModule::showMicrophonePage);
+    connect(m_soundWidget, &SoundWidget::requestAdvancedPage, this, &SoundModule::showAdvancedPage);
+    connect(m_soundWidget, &SoundWidget::requsetSoundEffectsPage, this, &SoundModule::showSoundEffectsPage);
 
-    m_frameProxy->pushWidget(this, widget);
+    m_frameProxy->pushWidget(this, m_soundWidget);
     showSpeakerPage();
+}
+
+void SoundModule::load(QString path)
+{
+    if (!m_soundWidget)
+        active();
+
+    m_soundWidget->showPath(path);
 }
 
 void SoundModule::showSpeakerPage()

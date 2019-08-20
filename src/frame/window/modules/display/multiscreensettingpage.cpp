@@ -44,7 +44,8 @@ MultiScreenSettingPage::MultiScreenSettingPage(QWidget *parent)
     m_baseListView->installEventFilter(this);
     mainLayout->addWidget(m_baseListView);
 
-    QPushButton *btn = new QPushButton(tr("Custom Setting"), this);
+    //~ contents_path /display/Customize
+    QPushButton *btn = new QPushButton(tr("Customize"), this);
     mainLayout->addSpacing(10);
     mainLayout->addWidget(btn);
 

@@ -74,9 +74,9 @@ Q_SIGNALS:
 private Q_SLOTS:
     void refreshCurrentResolution(const Resolution &reso, int listIdx);
     void onListClick(const QModelIndex &idx);
+    void initResoList();
 
 private:
-    void initResoList();
     void checkedChange(const QModelIndex &idx, QListView *list);
 
 private:

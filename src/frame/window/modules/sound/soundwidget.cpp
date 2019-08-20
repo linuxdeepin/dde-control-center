@@ -56,12 +56,28 @@ SoundWidget::SoundWidget(QWidget *parent)
     setLayout(layout);
 }
 
+void SoundWidget::showPath(const QString &path)
+{
+    for (int i = 0; i < m_menuMethod.size(); ++i) {
+        auto menu = m_menuMethod[i];
+        if (tr(path.toStdString().c_str()) == menu.menuText) {
+            menu.method.invoke(this);
+            m_menuList->setCurrentIndex(m_menuList->model()->index(i, 0));
+            break;
+        }
+    }
+}
+
 void SoundWidget::initMenuUI()
 {
     m_menuMethod = {
+        //~ contents_path /sound/Speaker
         { tr("Speaker"), QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage)},
+        //~ contents_path /sound/Microphone
         { tr("Microphone"), QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage)},
+        //~ contents_path /sound/Advanced
         { tr("Advanced"), QMetaMethod::fromSignal(&SoundWidget::requestAdvancedPage)},
+        //~ contents_path /sound/Sound Effects
         { tr("Sound Effects"), QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage)}
     };
 

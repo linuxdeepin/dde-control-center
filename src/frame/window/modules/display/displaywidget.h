@@ -54,6 +54,8 @@ public:
 
 public:
     void setModel(dcc::display::DisplayModel *model);
+    void showPath(const QString &path);
+
 private Q_SLOTS:
     void onMonitorListChanged();
     void onMenuClicked(const QModelIndex &);

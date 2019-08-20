@@ -55,6 +55,9 @@ public:
 public:
     void setModel(dcc::display::DisplayModel *model);
 
+public Q_SLOTS:
+    void onCustomClicked();
+
 Q_SIGNALS:
     void requestDuplicateMode();
     void requestExtendMode();
@@ -67,7 +70,6 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onItemClicked(const QModelIndex &);
-    void onCustomClicked();
 
 private:
     dcc::widgets::BasicListView *m_baseListView{nullptr};

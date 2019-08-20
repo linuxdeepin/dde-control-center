@@ -49,12 +49,9 @@ public:
 
 public:
     void initialize() override;
-    void reset() override;
-    void contentPopped(QWidget *const w) override;
     const QString name() const override;
-
-public:
     void active() override;
+    void load(QString path) override;
 
 public Q_SLOTS:
     void showSpeakerPage();
@@ -63,9 +60,9 @@ public Q_SLOTS:
     void showSoundEffectsPage();
 
 private:
-    SoundWidget *m_widget{nullptr};
     dcc::sound::SoundModel *m_model{nullptr};
     dcc::sound::SoundWorker *m_worker{nullptr};
+    DCC_NAMESPACE::sound::SoundWidget *m_soundWidget{nullptr};
 };
 }
 }
