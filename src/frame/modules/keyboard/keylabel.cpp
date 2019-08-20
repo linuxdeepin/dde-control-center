@@ -33,14 +33,10 @@
 #include <QApplication>
 
 #ifdef WINDOW_MODE
-KeyLabel::KeyLabel(QWidget *parent)
-    : QPushButton(parent)
-    , m_isEnter(false)
-{
-}
-
 KeyLabel::KeyLabel(const QString &text, QWidget *parent)
-    : KeyLabel(parent)
+    : QWidget(parent)
+    , m_isEnter(false)
+    , m_text("")
 {
     QString t;
 
@@ -51,7 +47,7 @@ KeyLabel::KeyLabel(const QString &text, QWidget *parent)
         t = value.isEmpty() ? text : value;
     }
 
-    setText(t);
+    m_text = t;
 
     QFont font = qApp->font();
     QFontMetrics fm(font);
@@ -72,7 +68,7 @@ void KeyLabel::paintEvent(QPaintEvent *event)
     QStylePainter stylePainter(this);
     QStyleOptionButton option;
     option.rect = rect();
-    option.text = this->text();
+    option.text = m_text;
     option.palette.setBrush(QPalette::Light, option.palette.base());
     option.palette.setBrush(QPalette::Dark, option.palette.base());
     option.palette.setBrush(QPalette::ButtonText, option.palette.highlight());

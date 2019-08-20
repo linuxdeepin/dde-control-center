@@ -28,13 +28,12 @@
 
 #ifdef WINDOW_MODE
 
-#include <QPushButton>
+#include <QWidget>
 
-class KeyLabel : public QPushButton
+class KeyLabel : public QWidget
 {
     Q_OBJECT
 public:
-    explicit KeyLabel(QWidget *parent = nullptr);
     explicit KeyLabel(const QString &text, QWidget *parent = nullptr);
 
     void setEnter(const bool enter);
@@ -44,6 +43,7 @@ protected:
 
 private:
     bool m_isEnter;
+    QString m_text;
 };
 
 #else
