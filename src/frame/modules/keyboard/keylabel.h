@@ -26,6 +26,28 @@
 #ifndef KEYLABEL_H
 #define KEYLABEL_H
 
+#ifdef WINDOW_MODE
+
+#include <QPushButton>
+
+class KeyLabel : public QPushButton
+{
+    Q_OBJECT
+public:
+    explicit KeyLabel(QWidget *parent = nullptr);
+    explicit KeyLabel(const QString &text, QWidget *parent = nullptr);
+
+    void setEnter(const bool enter);
+
+protected:
+    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+
+private:
+    bool m_isEnter;
+};
+
+#else
+
 #include <QLabel>
 
 class KeyLabel : public QLabel
@@ -43,5 +65,7 @@ protected:
 private:
     bool m_isEnter;
 };
+
+#endif
 
 #endif // KEYLABEL_H
