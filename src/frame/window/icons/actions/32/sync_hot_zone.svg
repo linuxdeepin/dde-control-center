@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <rect id="sync_hot-zone_32px-a" width="22" height="16" x="0" y="0" rx="2"/>
+    <filter id="sync_hot-zone_32px-b" width="118.2%" height="125%" x="-4.5%" y="-6.2%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.41176792   0 0 0 0 1  0 0 0 0.2 0"/>
+    </filter>
+    <circle id="sync_hot-zone_32px-e" cx="1" cy="1" r="8"/>
+    <filter id="sync_hot-zone_32px-d" width="125%" height="125%" x="-6.2%" y="-6.2%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.486177885   0 0 0 0 1  0 0 0 0.3 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(5 8)">
+    <mask id="sync_hot-zone_32px-c" fill="#fff">
+      <use xlink:href="#sync_hot-zone_32px-a"/>
+    </mask>
+    <use fill="#000" filter="url(#sync_hot-zone_32px-b)" xlink:href="#sync_hot-zone_32px-a"/>
+    <rect width="20.909" height="14.909" x=".545" y=".545" fill="#E1DFB6" stroke="#4F89CA" stroke-linejoin="square" stroke-width="1.091" rx="2"/>
+    <g mask="url(#sync_hot-zone_32px-c)">
+      <use fill="#000" filter="url(#sync_hot-zone_32px-d)" xlink:href="#sync_hot-zone_32px-e"/>
+      <use fill="#4663FF" xlink:href="#sync_hot-zone_32px-e"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="84" height="84" viewBox="0 0 84 84">
+  <defs>
+    <linearGradient id="nav_power_84px-c" x1="50%" x2="50%" y1="0%" y2="96.884%">
+      <stop offset="0%" stop-color="#3F3F3F"/>
+      <stop offset="100%" stop-color="#5A5A5A"/>
+    </linearGradient>
+    <linearGradient id="nav_power_84px-d" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#4F4F4F"/>
+      <stop offset="100%" stop-color="#434343"/>
+    </linearGradient>
+    <path id="nav_power_84px-b" d="M53,12 L52,12 L52,8 C52,3.581722 48.418278,-8.11624501e-16 44,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,28 C5.41083001e-16,32.418278 3.581722,36 8,36 L44,36 C48.418278,36 52,32.418278 52,28 L52,24 L53,24 C54.6568542,24 56,22.6568542 56,21 L56,15 C56,13.3431458 54.6568542,12 53,12 Z"/>
+    <filter id="nav_power_84px-a" width="153.6%" height="183.3%" x="-26.8%" y="-30.6%" filterUnits="objectBoundingBox">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadOuter1"/>
+      <feOffset dy="4" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="4"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.529411765   0 0 0 0 0.733333333   0 0 0 0 0  0 0 0 0.6 0"/>
+    </filter>
+    <linearGradient id="nav_power_84px-e" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#ACACAC"/>
+      <stop offset="16.767%" stop-color="#E9E9E9"/>
+      <stop offset="56.689%" stop-color="#D6D6D6"/>
+      <stop offset="80.293%" stop-color="#B3B3B3"/>
+      <stop offset="94.123%" stop-color="#BDBDBD"/>
+      <stop offset="100%" stop-color="#616161"/>
+    </linearGradient>
+    <linearGradient id="nav_power_84px-f" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#94DB00"/>
+      <stop offset="100%" stop-color="#5AB400"/>
+    </linearGradient>
+    <linearGradient id="nav_power_84px-g" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#CCF20A"/>
+      <stop offset="100%" stop-color="#82D00E"/>
+    </linearGradient>
+    <linearGradient id="nav_power_84px-h" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity=".62"/>
+      <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(14 24)">
+    <g stroke-linejoin="round">
+      <use fill="#000" filter="url(#nav_power_84px-a)" xlink:href="#nav_power_84px-b"/>
+      <use fill="url(#nav_power_84px-c)" stroke="url(#nav_power_84px-d)" stroke-width="2" xlink:href="#nav_power_84px-b"/>
+    </g>
+    <path fill="url(#nav_power_84px-e)" d="M53,11 L54,11 C55.6568542,11 57,12.3431458 57,14 L57,22 C57,23.6568542 55.6568542,25 54,25 L53,25 L53,11 Z"/>
+    <path fill="url(#nav_power_84px-f)" d="M8,35 L35,35 L35,1 L8,1 C4.13400675,1 1,4.13400675 1,8 L1,28 C1,31.8659932 4.13400675,35 8,35 Z"/>
+    <path stroke="url(#nav_power_84px-g)" stroke-width="2" d="M34,34 L34,2 L8,2 C4.6862915,2 2,4.6862915 2,8 L2,28 C2,31.3137085 4.6862915,34 8,34 L34,34 Z"/>
+    <path fill="url(#nav_power_84px-h)" fill-opacity=".67" d="M8,1 L44,1 C47.8659932,1 51,4.13400675 51,8 L51,18 L1,18 L1,8 C1,4.13400675 4.13400675,1 8,1 Z"/>
+  </g>
+</svg>

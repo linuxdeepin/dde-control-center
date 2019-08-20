@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="84" height="84" viewBox="0 0 84 84">
+  <defs>
+    <linearGradient id="nav_bluetooth_84px-a" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#13CEF6"/>
+      <stop offset="100%" stop-color="#006AFF"/>
+    </linearGradient>
+    <linearGradient id="nav_bluetooth_84px-b" x1="50%" x2="50%" y1="0%" y2="98.156%">
+      <stop offset="0%" stop-color="#2BA9FF"/>
+      <stop offset="100%" stop-color="#0668F5"/>
+    </linearGradient>
+    <linearGradient id="nav_bluetooth_84px-c" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#13CEF6"/>
+      <stop offset="100%" stop-color="#006AFF"/>
+    </linearGradient>
+    <linearGradient id="nav_bluetooth_84px-d" x1="50%" x2="50%" y1="0%" y2="98.156%">
+      <stop offset="0%" stop-color="#2BA9FF"/>
+      <stop offset="100%" stop-color="#0668F5"/>
+    </linearGradient>
+    <linearGradient id="nav_bluetooth_84px-g" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#13CEF6"/>
+      <stop offset="100%" stop-color="#006AFF"/>
+    </linearGradient>
+    <linearGradient id="nav_bluetooth_84px-h" x1="50%" x2="50%" y1="0%" y2="98.156%">
+      <stop offset="0%" stop-color="#2BA9FF"/>
+      <stop offset="100%" stop-color="#0668F5"/>
+    </linearGradient>
+    <ellipse id="nav_bluetooth_84px-f" cx="23.867" cy="26.587" rx="23" ry="26"/>
+    <filter id="nav_bluetooth_84px-e" width="162.5%" height="155.3%" x="-31.3%" y="-20%" filterUnits="objectBoundingBox">
+      <feMorphology in="SourceAlpha" operator="dilate" radius=".385" result="shadowSpreadOuter1"/>
+      <feOffset dy="4" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="4"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0618657395   0 0 0 0 0.45898907   0 0 0 0 0.966066114  0 0 0 0.5 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(13 10)">
+    <ellipse cx="29" cy="32" fill="url(#nav_bluetooth_84px-a)" fill-rule="nonzero" stroke="url(#nav_bluetooth_84px-b)" stroke-width=".77" opacity=".1" rx="29" ry="32"/>
+    <ellipse cx="29" cy="32" fill="url(#nav_bluetooth_84px-c)" fill-rule="nonzero" stroke="url(#nav_bluetooth_84px-d)" stroke-width=".77" opacity=".2" rx="26" ry="29"/>
+    <g transform="translate(5.133 5.413)">
+      <g fill-rule="nonzero">
+        <use fill="#000" filter="url(#nav_bluetooth_84px-e)" xlink:href="#nav_bluetooth_84px-f"/>
+        <use fill="url(#nav_bluetooth_84px-g)" stroke="url(#nav_bluetooth_84px-h)" stroke-width=".77" xlink:href="#nav_bluetooth_84px-f"/>
+      </g>
+      <polygon stroke="#FFF" stroke-linejoin="round" stroke-width="2" points="23.867 26.087 23.867 14.087 32.968 20.194"/>
+      <polygon stroke="#FFF" stroke-linejoin="round" stroke-width="2" points="23.867 38.087 23.867 26.087 32.968 32.203"/>
+      <polyline stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" points="15.221 20.15 23.463 26.226 15.221 32.085"/>
+    </g>
+  </g>
+</svg>

@@ -145,7 +145,7 @@ void MainWindow::initAllModule()
 
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
         QStandardItem *item = new QStandardItem;
-        item->setIcon(QIcon(QString(":/%1/themes/dark/icons/nav_%1.svg").arg(it->first->name())));
+        item->setIcon(it->first->icon());
         item->setText(it->second);
         item->setData(isIcon ? Dtk::RoundedBackground : QVariant(),
                       Dtk::BackgroundTypeRole);

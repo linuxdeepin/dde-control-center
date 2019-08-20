@@ -1,0 +1,29 @@
+[Icon Theme]
+Name=deepin-app
+Comment=In-app icon theme
+FollowsColorScheme=false
+
+Directories=actions/24,actions/32,actions/42,actions/64,icons/42,icons/84
+
+[actions/24]
+Size=24
+Context=Actions
+Type=Scalable
+
+[actions/32]
+Size=32
+Context=Actions
+Type=Scalable
+
+[actions/42]
+Size=42
+Context=Actions
+Type=Scalable
+
+[icons/42]
+Size=42
+Type=Scalable
+
+[icons/84]
+Size=84
+Type=Scalable

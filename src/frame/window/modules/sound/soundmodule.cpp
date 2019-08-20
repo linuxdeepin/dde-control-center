@@ -60,7 +60,7 @@ void SoundModule::contentPopped(QWidget *const w)
 
 const QString SoundModule::name() const
 {
-    return tr("Sound");
+    return "sound";
 }
 
 void SoundModule::active()

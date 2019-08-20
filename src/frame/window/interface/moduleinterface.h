@@ -64,7 +64,8 @@ public:
     /// get module icon path
     /// \return
     ///
-    static const QString getIconPath(QString moduleName)  { return QString(":/%1/themes/dark/icons/nav_%1.svg").arg(moduleName); }
+    static QIcon getIcon(const QString &moduleName);
+    virtual QIcon icon() const;
 
     // 应该暂时不需要finalize；
     // virtual void finalize();

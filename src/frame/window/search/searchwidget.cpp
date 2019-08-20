@@ -165,7 +165,7 @@ void SearchWidget::loadxml()
                             m_EnterNewPagelist.append(m_searchBoxStruct);
 
                             //Add search result content
-                            m_model->appendRow(new QStandardItem(QIcon::fromTheme(ModuleInterface::getIconPath(m_searchBoxStruct.explain.section('/', 1, 1).toLower())),
+                            m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(m_searchBoxStruct.explain.section('/', 1, 1)),
                                                                  QString("%1 --> %2").arg(m_searchBoxStruct.title).arg(m_searchBoxStruct.explain)));
 
                             m_searchBoxStruct.title = "";

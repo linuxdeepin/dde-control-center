@@ -1011,6 +1011,7 @@ set(QRC
         widgets/widgets.qrc
         modules/sync/sync.qrc
         window/search/translator/languages.qrc
+        window/icons/dde-control-center-icons.qrc
 )
 
 # Find the library
