@@ -138,53 +138,40 @@ void AccountsDetailWidget::initDatas()
     connect(m_avatarListWidget, &AvatarListWidget::requestAddNewAvatar, this, &AccountsDetailWidget::requestAddNewAvatar);
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
     connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
-
     connect(m_deleteAccount, &QPushButton::clicked, this, &AccountsDetailWidget::deleteUserClicked);
-
     connect(m_modifyPassword, &QPushButton::clicked, [ = ] {
         Q_EMIT requestShowPwdSettings(m_curUser);
     });
-
     connect(m_autoLogin, &SwitchWidget::checkedChanged, [ = ](const bool autoLogin) {
         Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
     });
-
     connect(m_nopasswdLogin, &SwitchWidget::checkedChanged, [ = ](const bool nopasswdLogin) {
         Q_EMIT requestNopasswdLogin(m_curUser, nopasswdLogin);
     });
-
     connect(m_avatar, &AvatarWidget::clicked, this, [ = ](const QString & iconPath) {
         Q_UNUSED(iconPath)
         setAvatarListWgtVisible(true);
         setFingerWgtsVisible(false);
-
     });
-
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar, this, [ = ](const QString & avatarPath) {
         Q_EMIT requestSetAvatar(m_curUser, avatarPath);
         setAvatarListWgtVisible(false);
         setFingerWgtsVisible(true);
     });
-
     connect(m_curUser, &User::currentAvatarChanged, m_avatar, &AvatarWidget::setAvatarPath);
-
+    connect(m_curUser, &User::nameChanged, m_shortName, &QLabel::setText);
     connect(m_curUser, &User::fullnameChanged, m_fullName, &QLabel::setText);
-
     connect(m_fullnameBtn, &DImageButton::clicked, this, &AccountsDetailWidget::updateLineEditDisplayStyle);
-
     connect(m_inputeditBtn, &DImageButton::clicked, this, [ = ]() {
         Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text());
         updateLineEditDisplayStyle();
     });
-
     connect(m_addBtn, &QCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestAddThumbs(m_curUser->name(), m_notUseThumb);
     });
-
     connect(m_clearBtn, &QCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestCleanThumbs(m_curUser);
     });
-
     connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
 
