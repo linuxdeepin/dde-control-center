@@ -55,10 +55,10 @@ void KeyboardWidget::init()
     m_listviewModel = new QStandardItemModel(m_keyboardListView);
     QList<QPair<QIcon, QString>> menuIconText;
     menuIconText = {
-        { QIcon::fromTheme("general_purpose"), tr("General")},
-        { QIcon::fromTheme("keyboard"), tr("Keyboard Layout")},
-        { QIcon::fromTheme("language"), tr("System Language")},
-        { QIcon::fromTheme("hot_key"), tr("ShortCut")}
+        { QIcon::fromTheme("dcc_general_purpose"), tr("General")},
+        { QIcon::fromTheme("dcc_keyboard"), tr("Keyboard Layout")},
+        { QIcon::fromTheme("dcc_language"), tr("System Language")},
+        { QIcon::fromTheme("dcc_hot_key"), tr("ShortCut")}
     };
     QStandardItem *keyboardItem = nullptr;
     for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {

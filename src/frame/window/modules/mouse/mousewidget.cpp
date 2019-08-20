@@ -60,10 +60,10 @@ void MouseWidget::init()
 
     QList<QPair<QIcon, QString>> menuIconText;
     menuIconText = {
-        { QIcon::fromTheme("general_purpose"), tr("General")},
-        { QIcon::fromTheme("mouse"), tr("Mouse")},
-        { QIcon::fromTheme("touchpad"), tr("TouchPad")},
-        { QIcon::fromTheme("trackpoint"), tr("TrackPoint")}
+        { QIcon::fromTheme("dcc_general_purpose"), tr("General")},
+        { QIcon::fromTheme("dcc_mouse"), tr("Mouse")},
+        { QIcon::fromTheme("dcc_touchpad"), tr("TouchPad")},
+        { QIcon::fromTheme("dcc_trackpoint"), tr("TrackPoint")}
     };
     QStandardItem *mouseItem = nullptr;
     for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {

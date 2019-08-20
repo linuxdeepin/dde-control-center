@@ -46,6 +46,8 @@
         <file>actions/32/dcc_time.svg</file>
         <file>actions/32/dcc_time_zone.svg</file>
         <file>actions/32/dcc_touchpad.svg</file>
+        <file>actions/32/dcc_mouse.svg</file>
+        <file>actions/32/dcc_trackpoint.svg</file>
         <file>actions/32/dcc_update.svg</file>
         <file>actions/32/dcc_using_electric.svg</file>
         <file>actions/32/dcc_version.svg</file>
