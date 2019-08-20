@@ -43,6 +43,8 @@
 #include "search/searchwidget.h"
 #include "dtitlebar.h"
 
+#include <DBackgroundGroup>
+
 #include <QHBoxLayout>
 #include <QMetaEnum>
 #include <QDebug>
@@ -52,6 +54,7 @@
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
+DTK_USE_NAMESPACE
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
@@ -101,6 +104,18 @@ MainWindow::MainWindow(QWidget *parent)
     titlebar->setCustomWidget(m_searchWidget, Qt::AlignCenter, true);
     m_searchWidget->setLanguage(QLocale::system().name());
     connect(m_searchWidget, &SearchWidget::notifyModuleSearch, this, &MainWindow::onEnterSearchWidget);
+
+    auto thlayout = new QHBoxLayout(this);
+    thlayout->setSpacing(0);
+    DBackgroundGroup *btnGroup = new DBackgroundGroup(thlayout, this);
+    auto titleLayout = qobject_cast<QHBoxLayout *>(titlebar->layout());
+    titleLayout->insertWidget(0, btnGroup);
+    QPushButton *backwardBtn = new QPushButton("<");
+    thlayout->addWidget(backwardBtn);
+    connect(backwardBtn, &QPushButton::clicked, this, static_cast<void (MainWindow::*)()>(&MainWindow::popWidget));
+
+    QPushButton *forwardBtn = new QPushButton(">");
+    thlayout->addWidget(forwardBtn);
 
     QTimer::singleShot(0, this, &MainWindow::initAllModule);
     QTimer::singleShot(0, this, &MainWindow::modulePreInitialize);
@@ -165,6 +180,9 @@ void MainWindow::modulePreInitialize()
 
 void MainWindow::popWidget()
 {
+    if (!m_contentStack.size())
+        return;
+
     QWidget *w = m_contentStack.pop().second;
 
     m_rightContentLayout->removeWidget(w);
