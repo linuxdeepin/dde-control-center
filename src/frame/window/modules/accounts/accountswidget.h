@@ -23,13 +23,16 @@
 
 #include "window/namespace.h"
 
+#include <DFloatingButton>
+
 #include <QWidget>
 
-class QPushButton;
+QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 class QListView;
 class QStandardItem;
 class QStandardItemModel;
+QT_END_NAMESPACE
 
 namespace dcc {
 namespace accounts {
@@ -63,7 +66,7 @@ Q_SIGNALS:
     void requestCreateAccount();
 
 private:
-    QPushButton *m_createBtn;
+    Dtk::Widget::DFloatingButton *m_createBtn;
     QListView *m_userlistView;
     QStandardItemModel *m_userItemModel;
     QList<dcc::accounts::User *> m_userList;
