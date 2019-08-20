@@ -27,7 +27,7 @@ using namespace DCC_NAMESPACE;
 
 QIcon ModuleInterface::getIcon(const QString &moduleName)
 {
-    return QIcon::fromTheme(QString("nav_%1").arg(moduleName));
+    return QIcon::fromTheme(QString("dcc_nav_%1").arg(moduleName));
 }
 
 QIcon ModuleInterface::icon() const
