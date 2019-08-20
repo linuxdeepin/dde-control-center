@@ -94,6 +94,11 @@ void ComboxWidget::setTitle(const QString &title)
     setAccessibleName(title);
 }
 
+QComboBox* ComboxWidget::comboBox()
+{
+    return m_switchComboBox;
+}
+
 void ComboxWidget::mouseReleaseEvent(QMouseEvent *event)
 {
     if (!m_switchComboBox->geometry().contains(event->pos())) {

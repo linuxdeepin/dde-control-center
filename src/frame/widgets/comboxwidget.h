@@ -44,6 +44,8 @@ public:
     void setComboxOption(const QStringList &options);
     void setTitle(const QString &title);
 
+    QComboBox *comboBox();
+
 Q_SIGNALS:
     void onSelectChanged(const QString &selected);
     void clicked();

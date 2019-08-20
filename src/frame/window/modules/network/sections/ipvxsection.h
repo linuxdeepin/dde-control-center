@@ -23,9 +23,8 @@
 #define IPVXSECTION_H
 
 #include "abstractsection.h"
-#include "widgets/comboboxwidget.h"
+#include "widgets/comboxwidget.h"
 #include "widgets/lineeditwidget.h"
-#include "widgets/optionitem.h"
 #include "widgets/spinboxwidget.h"
 #include "widgets/switchwidget.h"
 
@@ -81,7 +80,7 @@ private:
     QMap<QString, NetworkManager::Ipv6Setting::ConfigMethod> Ipv6ConfigMethodStrMap;
 
     QComboBox *m_methodChooser;
-    dcc::widgets::OptionItem *m_methodline;
+    dcc::widgets::ComboxWidget *m_methodLine;
     dcc::widgets::LineEditWidget *m_ipAddress;
     dcc::widgets::LineEditWidget *m_netmaskIpv4;
     dcc::widgets::SpinBoxWidget *m_prefixIpv6;

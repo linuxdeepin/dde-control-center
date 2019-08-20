@@ -23,7 +23,7 @@
 #define WIRELESSSECTION_H
 
 #include "abstractsection.h"
-#include "widgets/comboboxwidget.h"
+#include "widgets/comboxwidget.h"
 #include "widgets/lineeditwidget.h"
 #include "widgets/optionitem.h"
 #include "widgets/switchwidget.h"
@@ -64,8 +64,8 @@ private:
 
 private:
     dcc::widgets::LineEditWidget *m_apSsid;
-    QComboBox *m_deviceMac;
-    dcc::widgets::OptionItem *m_deviceMacOption;
+    QComboBox *m_deviceMacComboBox;
+    dcc::widgets::ComboxWidget *m_deviceMacLine;
     //LineEditWidget *m_clonedMac;
     dcc::widgets::SwitchWidget *m_customMtuSwitch;
     dcc::widgets::SpinBoxWidget *m_customMtu;

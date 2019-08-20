@@ -35,8 +35,7 @@ using namespace NetworkManager;
 
 EthernetSection::EthernetSection(NetworkManager::WiredSetting::Ptr wiredSetting, QFrame *parent)
     : AbstractSection(tr("Ethernet"), parent),
-      m_deviceMacOption(new OptionItem(this)),
-      m_deviceMac(new QComboBox(this)),
+      m_deviceMacLine(new ComboxWidget(this)),
       m_clonedMac(new LineEditWidget(this)),
       m_customMtuSwitch(new SwitchWidget(this)),
       m_customMtu(new SpinBoxWidget(this)),
@@ -78,7 +77,7 @@ bool EthernetSection::allInputValid()
 
 void EthernetSection::saveSettings()
 {
-    QString hwAddr = m_macStrMap.value(m_deviceMac->currentText());
+    QString hwAddr = m_macStrMap.value(m_deviceMacComboBox->currentText());
     if (hwAddr == NotBindValue) {
         hwAddr.clear();
     }
@@ -94,20 +93,20 @@ void EthernetSection::saveSettings()
 
 void EthernetSection::initUI()
 {
-    m_deviceMacOption->setTitle(tr("Device MAC Addr"));
-    m_deviceMacOption->setContentWidget(m_deviceMac);
+    m_deviceMacLine->setTitle(tr("Device MAC Addr"));
+    m_deviceMacComboBox = m_deviceMacLine->comboBox();
     for (const QString &key : m_macStrMap.keys()) {
-        m_deviceMac->addItem(key, m_macStrMap.value(key));
+        m_deviceMacComboBox->addItem(key, m_macStrMap.value(key));
     }
 
     // get the macAddress from existing Settings
     const QString &macAddr = QString(m_wiredSetting->macAddress().toHex()).toUpper();
 
     if (m_macStrMap.values().contains(macAddr)) {
-        m_deviceMac->setCurrentIndex(m_deviceMac->findData(macAddr));
+        m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(macAddr));
     } else {
         // set macAddress of the current device to be default value
-        m_deviceMac->setCurrentIndex(m_deviceMac->findData(NotBindValue));
+        m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(NotBindValue));
     }
 
     m_clonedMac->setTitle(tr("Cloned MAC Addr"));
@@ -132,7 +131,7 @@ void EthernetSection::initUI()
     m_customMtu->spinBox()->setValue(m_wiredSetting->mtu());
     onCostomMtuChanged(m_customMtuSwitch->checked());
 
-    appendItem(m_deviceMacOption);
+    appendItem(m_deviceMacLine);
     appendItem(m_clonedMac);
     appendItem(m_customMtuSwitch);
     appendItem(m_customMtu);

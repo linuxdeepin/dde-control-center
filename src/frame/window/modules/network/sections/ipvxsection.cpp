@@ -30,8 +30,7 @@ using namespace NetworkManager;
 
 IpvxSection::IpvxSection(NetworkManager::Ipv4Setting::Ptr ipv4Setting, QFrame *parent)
     : AbstractSection(tr("IPv4"), parent),
-      m_methodChooser(new QComboBox(this)),
-      m_methodline(new OptionItem(this)),
+      m_methodLine(new ComboxWidget(this)),
       m_ipAddress (new LineEditWidget(this)),
       m_netmaskIpv4 (new LineEditWidget(this)),
       m_prefixIpv6 (nullptr),
@@ -51,8 +50,7 @@ IpvxSection::IpvxSection(NetworkManager::Ipv4Setting::Ptr ipv4Setting, QFrame *p
 
 IpvxSection::IpvxSection(NetworkManager::Ipv6Setting::Ptr ipv6Setting, QFrame *parent)
     : AbstractSection(tr("IPv6"), parent),
-      m_methodChooser(new QComboBox(this)),
-      m_methodline(new OptionItem(this)),
+      m_methodLine(new ComboxWidget(this)),
       m_ipAddress (new LineEditWidget(this)),
       m_netmaskIpv4 (nullptr),
       m_prefixIpv6 (new SpinBoxWidget(this)),
@@ -235,9 +233,9 @@ void IpvxSection::initUI()
     m_neverDefault->setTitle(tr("Only applied in corresponding resources"));
     m_neverDefault->setVisible(false);
 
-    m_methodline->setContentWidget(m_methodChooser);
-    m_methodline->setTitle(tr("Method"));
-    appendItem(m_methodline);
+    m_methodChooser = m_methodLine->comboBox();
+    m_methodLine->setTitle(tr("Method"));
+    appendItem(m_methodLine);
     appendItem(m_ipAddress);
 
     switch (m_currentIpvx) {
