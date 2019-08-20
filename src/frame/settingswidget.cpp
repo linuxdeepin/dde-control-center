@@ -176,7 +176,7 @@ void SettingsWidget::loadModules()
 #endif
 
 #ifndef DISABLE_NETWORK
-    loadModule(new network::NetworkModule(this));
+    //loadModule(new network::NetworkModule(this));
 #endif
 
 #ifndef DISABLE_BLUETOOTH

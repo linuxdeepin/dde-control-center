@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/network">
+        <file>themes/dark/dark.qss</file>
+        <file>themes/dark/icons/wireless/security.svg</file>
+        <file>themes/dark/icons/wireless/wireless-0-symbolic.svg</file>
+        <file>themes/dark/icons/wireless/wireless-2-symbolic.svg</file>
+        <file>themes/dark/icons/wireless/wireless-4-symbolic.svg</file>
+        <file>themes/dark/icons/wireless/wireless-6-symbolic.svg</file>
+        <file>themes/dark/icons/wireless/wireless-8-symbolic.svg</file>
+        <file>themes/dark/icons/wireless/wireless-10-symbolic.svg</file>
+        <file>themes/dark/icons/enter_details_normal.svg</file>
+        <file>themes/dark/icons/enter_details_hover.svg</file>
+        <file>themes/dark/icons/enter_details_press.svg</file>
+        <file>themes/dark/icons/select.svg</file>
+        <file>themes/dark/icons/nav_network_normal.svg</file>
+        <file>themes/dark/icons/nav_network.svg</file>
+    </qresource>
+</RCC>

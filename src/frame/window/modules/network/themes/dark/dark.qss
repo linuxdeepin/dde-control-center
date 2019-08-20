@@ -1,0 +1,15 @@
+QLabel#ModuleHeaderIconNetwork {
+    background-image: url(:/network/themes/dark/icons/nav_network.svg);
+}
+
+#AccessPointWidget > QLabel
+{
+    color: white;
+}
+
+#AccessPointWidget > #DetailButton
+{
+    qproperty-normalPic: url(:/network/themes/dark/icons/enter_details_normal.svg);
+    qproperty-hoverPic: url(:/network/themes/dark/icons/enter_details_hover.svg);
+    qproperty-pressPic: url(:/network/themes/dark/icons/enter_details_press.svg);
+}

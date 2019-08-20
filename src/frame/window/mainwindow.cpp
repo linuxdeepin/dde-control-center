@@ -111,6 +111,7 @@ void MainWindow::initAllModule()
     using namespace sync;
     using namespace datetime;
     using namespace defapp;
+    using namespace network;
     using namespace display;
     using namespace accounts;
     using namespace mouse;
@@ -128,6 +129,7 @@ void MainWindow::initAllModule()
         { new SyncModule(this), tr("Cloud Sync")},
         { new DisplayModule(this), tr("Display")},
         { new DefaultAppsModule(this), tr("Default Applications")},
+        { new NetworkModule(this), tr("Network")},
         { new DatetimeModule(this), tr("Time and Date")},
         { new MouseModule(this), tr("Mouse")},
         { new KeyboardModule(this), tr("Keyboard")},
