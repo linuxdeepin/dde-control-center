@@ -29,6 +29,7 @@
 #include <QList>
 
 #include <dimagebutton.h>
+#include <DSegmentedControl>
 
 class AppUpdateInfo;
 
@@ -57,6 +58,7 @@ static const QString OfflineUpgraderService = "com.deepin.dde.OfflineUpgrader";
 class UpdateCtrlWidget;
 class UpdateHistoryButton;
 class RecentHistoryApplist;
+class UpdateSettings;
 
 class UpdateWidget : public QWidget
 {
@@ -75,15 +77,15 @@ public:
 
     void initialize();
     void setModel(const dcc::update::UpdateModel *model, const dcc::update::UpdateWorker *work);
-    void setDefaultState(UpdateType value = UpdateCheck);
     void setSystemVersion(QString version);
     void resetUpdateCheckState(bool state = true);
     void mouseDoubleClickEvent(QMouseEvent *event);
 
     QList<AppUpdateInfo> getTestApplistInfo();
-    void refreshWidget(UpdateType value);
+    void refreshWidget(UpdateType type = UpdateCheck);
 
 private:
+    void displayUpdateContent(UpdateType index);
     void showCheckUpdate();
     void showUpdateSetting();
 
@@ -92,15 +94,12 @@ Q_SIGNALS:
     void pushMirrorsView();
 
 public Q_SLOTS:
-    void onTopListviewCliecked(const QModelIndex &index);
     void onNotifyUpdateState(int state);
     void onAppendApplist(const QList<AppUpdateInfo> &infos);
 
 private:
     Dtk::Widget::DImageButton *m_bottomLabel;
     QVBoxLayout *m_layout;
-    QListView *m_listview;
-    QModelIndex m_currentIndex;
     dcc::update::UpdateModel *m_model;
     dcc::update::UpdateWorker *m_work;
     QWidget *m_centerWidget;
@@ -112,7 +111,7 @@ private:
     QLabel *m_updateHistoryText;
     dcc::widgets::SettingsGroup *m_applistGroup;
     RecentHistoryApplist *m_recentHistoryApplist;
-    bool m_test = false;
+    DSegmentedControl *m_topSwitchWidgetBtn;
 };
 
 }// namespace datetime

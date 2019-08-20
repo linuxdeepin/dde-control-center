@@ -43,7 +43,6 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     : QWidget(parent)
     , m_bottomLabel(new Dtk::Widget::DImageButton)
     , m_layout(new QVBoxLayout)
-    , m_listview(new QListView)
     , m_model(nullptr)
     , m_work(nullptr)
     , m_centerWidget(new QWidget)
@@ -54,31 +53,26 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     , m_updateHistoryText(new QLabel(tr("Recently updated")))
     , m_applistGroup(new SettingsGroup)
     , m_recentHistoryApplist(new RecentHistoryApplist)
+    , m_topSwitchWidgetBtn(new DSegmentedControl)
 {
-    QWidget *centerWidget = new QWidget;
-    centerWidget->setFixedSize(360, 40);
-    centerWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-
-    m_listview->setFlow(QListView::LeftToRight);
-    m_listview->setFixedHeight(40);
-
-    auto model = new QStandardItemModel(this);
     //~ contents_path /update/Update
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), tr("Update")));
-    //~ contents_path /update/Update Settings
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), tr("Update Settings")));
-    m_listview->setModel(model);
+    m_topSwitchWidgetBtn->addSegmented(QIcon::fromTheme("dcc_sync_update"), tr("Update"));
+    //~ contents_path /update/Update Setting
+    m_topSwitchWidgetBtn->addSegmented(QIcon::fromTheme("dcc_setting"), tr("Update Setting"));
+    m_topSwitchWidgetBtn->setMinimumSize(240, 36);
 
-    connect(m_listview, &QListView::pressed, this, &UpdateWidget::onTopListviewCliecked);
+    connect(m_topSwitchWidgetBtn, &DSegmentedControl::currentChanged, [ = ]() {
+        refreshWidget(static_cast<UpdateType>(m_topSwitchWidgetBtn->currentIndex()));
+    });
 
-    QHBoxLayout *centerLayout = new QHBoxLayout;
-    centerLayout->addWidget(m_listview);
-    centerWidget->setLayout(centerLayout);
-    m_layout->addWidget(centerWidget, 0, Qt::AlignTop | Qt::AlignCenter);
+    m_layout->setAlignment(Qt::AlignTop);
+    m_layout->setSpacing(0);
+    m_layout->addWidget(m_topSwitchWidgetBtn, 0, Qt::AlignHCenter);
 
     m_centerWidget->setLayout(m_centerLayout);
     m_centerWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_layout->addWidget(m_centerWidget);
+    m_centerWidget->setVisible(true);
 
     QWidget *recentHistoryWidget = new QWidget;
     QVBoxLayout *bottomLayout = new QVBoxLayout;
@@ -114,7 +108,7 @@ void UpdateWidget::initialize()
         resetUpdateCheckState();
 
         if (state) {
-            m_historyBtn->setLabelText(tr("Return"));//返回
+            m_historyBtn->setLabelText(tr("Return"));
             m_updateHistoryText->setVisible(true);
             m_applistGroup->setVisible(true);
             m_recentHistoryApplist->setVisible(true);
@@ -130,14 +124,6 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
 {
     m_model = const_cast<UpdateModel *>(model);
     m_work = const_cast<UpdateWorker *>(work);
-}
-
-void UpdateWidget::setDefaultState(UpdateType value)
-{
-    if (value > Default && value < Count) {
-        m_listview->setCurrentIndex(m_listview->model()->index(value, 0));
-        m_listview->pressed(m_listview->model()->index(value, 0));
-    }
 }
 
 void UpdateWidget::setSystemVersion(QString version)
@@ -195,14 +181,14 @@ QList<AppUpdateInfo> UpdateWidget::getTestApplistInfo()
     return applist;
 }
 
-void UpdateWidget::refreshWidget(UpdateType value)
+void UpdateWidget::refreshWidget(UpdateType type)
 {
-    if (value > Default && value <= UpdateSetting) {
-        setDefaultState(value);
-    } else if (value == UpdateSettingMir) {
-        setDefaultState(UpdateSetting);
+    displayUpdateContent(type);
 
-        Q_EMIT pushMirrorsView();
+    if (type == UpdateSettingMir) {
+        QTimer::singleShot(0, this, [this] {
+            Q_EMIT pushMirrorsView();
+        });
     }
 }
 
@@ -255,28 +241,27 @@ void UpdateWidget::showUpdateSetting()
     updateSetting->show();
 }
 
-void UpdateWidget::onTopListviewCliecked(const QModelIndex &index)
+void UpdateWidget::displayUpdateContent(UpdateType index)
 {
-    if (m_currentIndex == index) return;
-
     QLayoutItem *item;
     while ((item = m_centerLayout->layout()->takeAt(0)) != nullptr) {
         item->widget()->deleteLater();
         delete item;
     }
 
-    switch (static_cast<UpdateType>(index.row())) {
+    switch (static_cast<UpdateType>(index)) {
     case UpdateCheck:
         showCheckUpdate();
+        m_topSwitchWidgetBtn->setCurrentIndex(0);
         break;
     case UpdateSetting:
+    case UpdateSettingMir:
         showUpdateSetting();
+        m_topSwitchWidgetBtn->setCurrentIndex(1);
         break;
     default:
         break;
     }
-
-    m_currentIndex = index;
 }
 
 void UpdateWidget::onNotifyUpdateState(int state)

@@ -20,9 +20,6 @@
  */
 
 #include "updatesettings.h"
-
-#include <QVBoxLayout>
-
 #include "widgets/settingsgroup.h"
 #include "modules/update/updatemodel.h"
 #include "widgets/translucentframe.h"
@@ -30,6 +27,8 @@
 #include "widgets/switchwidget.h"
 #include "widgets/nextpagewidget.h"
 #include "dsysinfo.h"
+
+#include <QVBoxLayout>
 
 DCORE_USE_NAMESPACE
 
