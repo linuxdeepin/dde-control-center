@@ -65,7 +65,7 @@ public:
     SearchWidget(QWidget *parent = nullptr);
     ~SearchWidget() override;
 
-    void jumpContentPathWidget(QString path);
+    bool jumpContentPathWidget(QString path);
     void setLanguage(QString type);
 
 private:
@@ -78,10 +78,8 @@ private:
     QStandardItemModel *m_model;
     QCompleter *m_completer;
     QList<SearchBoxStruct> m_EnterNewPagelist;
-    QString m_enterPageText;
     SearchBoxStruct m_searchBoxStruct;
     QString m_xmlExplain;
-    bool m_bIsChoosePathItem;
     QString m_xmlFilePath;
 
 Q_SIGNALS:

@@ -22,29 +22,19 @@
 #include "window/interface/moduleinterface.h"
 
 #include <QDebug>
-#include <QCoreApplication>
-#include <QVBoxLayout>
-
 #include <QLineEdit>
 #include <QListWidget>
 #include <QPushButton>
 #include <QXmlStreamReader>
 #include <QCompleter>
-#include <QStringList>
-
-#include <QModelIndex>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
 
-#include <QStandardItemModel>
-
 SearchWidget::SearchWidget(QWidget *parent)
     : DTK_WIDGET_NAMESPACE::DSearchEdit(parent)
     , m_inputEdit(nullptr)
-    , m_enterPageText("")
     , m_xmlExplain("")
-    , m_bIsChoosePathItem(false)
     , m_xmlFilePath("")
 {
     m_inputEdit = getLineEdit();
@@ -52,16 +42,20 @@ SearchWidget::SearchWidget(QWidget *parent)
     m_completer = new QCompleter(m_model, m_inputEdit);
     m_inputEdit->setCompleter(m_completer);
 
-    connect(m_inputEdit, &QLineEdit::textChanged, this, [&](const QString & text) {
-        qDebug() << " m_inputEdit.text : " << text;
+    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::returnPressed, this, [this]() {
+        QString txt = m_inputEdit->text();
 
-        //set Default
-        if (m_model->rowCount() > 0) {
+        if (txt != "") {
+            bool bResult = jumpContentPathWidget(txt);
 
-        }
+            //enter defalt set first
+            if (!bResult) {
+                QString currentCompletion = m_inputEdit->completer()->currentCompletion();
+                qDebug() << Q_FUNC_INFO << " currentCompletion : " << currentCompletion;
 
-        if (m_EnterNewPagelist.count() > 0) {
-            jumpContentPathWidget(text);
+                m_inputEdit->setText(currentCompletion);
+                jumpContentPathWidget(currentCompletion);
+            }
         }
     });
 }
@@ -71,18 +65,29 @@ SearchWidget::~SearchWidget()
 
 }
 
-void SearchWidget::jumpContentPathWidget(QString path)
+bool SearchWidget::jumpContentPathWidget(QString path)
 {
     qDebug() << Q_FUNC_INFO << path;
 
-    SearchBoxStruct data = getModuleBtnString(path);
+    bool bResult = false;
 
-    Q_EMIT notifyModuleSearch(data.title, data.explain);
+    if (m_EnterNewPagelist.count() > 0) {
+        SearchBoxStruct data = getModuleBtnString(path);
+
+        if (data.title != "" && data.explain != "") {
+            bResult = true;
+            Q_EMIT notifyModuleSearch(data.title, data.explain);
+        }
+    } else {
+        qWarning() << "QList is nullptr.";
+    }
+
+    return bResult;
 }
 
 void SearchWidget::loadxml()
 {
-#ifndef DEBUG_XML_SWITCH
+#if DEBUG_XML_SWITCH
     qDebug() << Q_FUNC_INFO;
 #endif
     QString xmlPath = getXmlFilePath();
@@ -145,19 +150,19 @@ void SearchWidget::loadxml()
 
                 switch (type) {
                 case QXmlStreamReader::StartElement:
-#ifndef DEBUG_XML_SWITCH
+#if DEBUG_XML_SWITCH
                     qDebug() << "+::StartElement: " << xmlRead.name() << xmlRead.text();
 #endif
                     m_xmlExplain = xmlRead.name().toString();
                     break;
                 case QXmlStreamReader::Characters:
                     if (!xmlRead.isWhitespace()) {
-#ifndef DEBUG_XML_SWITCH
+#if DEBUG_XML_SWITCH
                         qDebug() << "  xmlRead.text : " << xmlRead.text().toString();
 #endif
                         if (m_xmlExplain == XML_Title) {
                             m_searchBoxStruct.title = xmlRead.text().toString();
-#ifndef DEBUG_XML_SWITCH
+#if DEBUG_XML_SWITCH
                             qDebug() << "---------- m_searchBoxStruct.title : " << m_searchBoxStruct.title;
 #endif
                         } else if (m_xmlExplain == XML_Explain_Path) {
@@ -178,7 +183,7 @@ void SearchWidget::loadxml()
                     }
                     break;
                 case QXmlStreamReader::EndElement:
-#ifndef DEBUG_XML_SWITCH
+#if DEBUG_XML_SWITCH
                     qDebug() << "-::EndElement: " << xmlRead.name();
 #endif
 //                    if (m_xmlExplain != "") {
@@ -211,7 +216,7 @@ SearchWidget::SearchBoxStruct SearchWidget::getModuleBtnString(QString value)
     data.title = value.section('/', 1, 1).remove('/');
     data.explain = value.section('/', 2, 3);
 
-#ifndef DEBUG_XML_SWITCH
+#if DEBUG_XML_SWITCH
     qDebug() << Q_FUNC_INFO << "data.title : " << data.title << "   ,  data.explain : " << data.explain;
 #endif
 
