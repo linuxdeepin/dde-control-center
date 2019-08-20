@@ -46,6 +46,8 @@
         <file>actions/32/time.svg</file>
         <file>actions/32/time_zone.svg</file>
         <file>actions/32/touchpad.svg</file>
+        <file>actions/32/mouse.svg</file>
+        <file>actions/32/trackpoint.svg</file>
         <file>actions/32/update.svg</file>
         <file>actions/32/using_electric.svg</file>
         <file>actions/32/version.svg</file>

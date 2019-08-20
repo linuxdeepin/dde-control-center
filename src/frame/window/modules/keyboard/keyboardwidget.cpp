@@ -34,6 +34,7 @@
 #include <QPainter>
 #include <QVBoxLayout>
 #include <QListView>
+#include <QList>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::keyboard;
@@ -52,13 +53,16 @@ KeyboardWidget::KeyboardWidget(QWidget *parent) : QWidget(parent)
 void KeyboardWidget::init()
 {
     m_listviewModel = new QStandardItemModel(m_keyboardListView);
-
-    QStringList menuList;
-    menuList << tr("General") << tr("Keyboard Layout") << tr("System Language") << tr("ShortCut");
-
+    QList<QPair<QIcon, QString>> menuIconText;
+    menuIconText = {
+        { QIcon::fromTheme("general_purpose"), tr("General")},
+        { QIcon::fromTheme("keyboard"), tr("Keyboard Layout")},
+        { QIcon::fromTheme("language"), tr("System Language")},
+        { QIcon::fromTheme("hot_key"), tr("ShortCut")}
+    };
     QStandardItem *keyboardItem = nullptr;
-    for (auto strMenuItem : menuList) {
-        keyboardItem = new QStandardItem(strMenuItem);
+    for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {
+        keyboardItem = new QStandardItem(it->first, it->second);
         keyboardItem->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
         keyboardItem->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_listviewModel->appendRow(keyboardItem);

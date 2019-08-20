@@ -58,12 +58,16 @@ void MouseWidget::init()
 {
     m_listviewModel = new QStandardItemModel(m_mouseListView);
 
-    QStringList menuList;
-    menuList << tr("General") << tr("Mouse") << tr("TouchPad") << tr("TrackPoint");
-
+    QList<QPair<QIcon, QString>> menuIconText;
+    menuIconText = {
+        { QIcon::fromTheme("general_purpose"), tr("General")},
+        { QIcon::fromTheme("mouse"), tr("Mouse")},
+        { QIcon::fromTheme("touchpad"), tr("TouchPad")},
+        { QIcon::fromTheme("trackpoint"), tr("TrackPoint")}
+    };
     QStandardItem *mouseItem = nullptr;
-    for (auto strMenuItem : menuList) {
-        mouseItem = new QStandardItem(strMenuItem);
+    for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {
+        mouseItem = new QStandardItem(it->first, it->second);
         mouseItem->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
         mouseItem->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_listviewModel->appendRow(mouseItem);
