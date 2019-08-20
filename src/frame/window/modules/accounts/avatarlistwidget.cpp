@@ -52,16 +52,22 @@ AvatarListWidget::AvatarListWidget(QWidget *parent)
 
 void AvatarListWidget::initWidgets()
 {
-    setLayout(m_mainContentLayout);
+    m_mainContentLayout->addWidget(m_avatarListView);
 
-    m_mainContentLayout->addWidget(m_avatarListView, 0, Qt::AlignCenter);
-    m_mainContentLayout->addStretch();
-
+    m_avatarListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_avatarListView->setViewMode(QListView::IconMode);
-    m_avatarListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     m_avatarListView->setDragDropMode(QAbstractItemView::NoDragDrop);
     m_avatarListView->setDragEnabled(false);
-    m_avatarListView->setContentsMargins(0, 0, 0, 0);
+    m_avatarListView->setFlow(QListView::LeftToRight);
+    m_avatarListView->setWordWrap(true);
+    m_avatarListView->setWrapping(true);
+    m_avatarListView->setSpacing(15);
+    m_avatarListView->setResizeMode(QListView::Adjust);
+    m_avatarListView->setFrameShape(QFrame::NoFrame);
+
+    m_mainContentLayout->setContentsMargins(0, 0, 0, 0);
+    m_mainContentLayout->setMargin(0);
+    setLayout(m_mainContentLayout);
 
     connect(m_avatarListView, &QListView::clicked, this, &AvatarListWidget::onItemClicked);
 }
@@ -83,7 +89,9 @@ void AvatarListWidget::setUserModel(dcc::accounts::User *user)
 void AvatarListWidget::onItemClicked(const QModelIndex &index)
 {
     if (index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().isDrawLast == true) {
-        clickAddAvatarBtn();
+        Q_EMIT requestAddNewAvatar(m_curUser);
+        m_avatarItemModel->removeRow(index.row());
+        addLastItem();
     } else {
         if (m_prevSelectIndex != -1) {
             m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
@@ -93,18 +101,6 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
         Q_EMIT requestSetAvatar(m_iconpathList.at(index.row()));
     }
     update();
-}
-
-void AvatarListWidget::clickAddAvatarBtn()
-{
-    Q_EMIT requestAddNewAvatar(m_curUser);
-
-    if (m_avatarItemModel->rowCount() > 0) {
-        m_avatarItemModel->clear();
-    }
-
-    addItemFromDefaultDir();
-    addLastItem();
 }
 
 void AvatarListWidget::addItemFromDefaultDir()
