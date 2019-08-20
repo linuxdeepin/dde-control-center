@@ -57,11 +57,19 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
            << tr("Picture")
            << tr("Terminal");
 
+    QStringList icons;
+    icons << "dcc_browser"
+          << "dcc_mail"
+          << "dcc_text"
+          << "dcc_music"
+          << "dcc_video"
+          << "dcc_photo";
+
     //Initialize second page view and model
     QStandardItemModel *model = new QStandardItemModel(this);
 
-    for (int i = 0; i < titles.size(); i++) {
-        QStandardItem* item = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), titles.at(i));
+    for (int i = 0; i < icons.size(); i++) {
+        QStandardItem* item = new QStandardItem(QIcon::fromTheme(icons.at(i)), titles.at(i));
 
         item->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
         item->setSizeHint(QSize(230, 48));

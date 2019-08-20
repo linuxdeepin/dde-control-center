@@ -43,12 +43,19 @@ PersonalizationList::PersonalizationList(QWidget *parent)
 
     //Initialize second page view and model
     QStringList menus;
-    menus   << tr("General")
-            << tr("Icon Theme")
-            << tr("Cursor Theme")
-            << tr("Font");
+    menus << tr("General")
+          << tr("Icon Theme")
+          << tr("Cursor Theme")
+          << tr("Font");
+
+    QStringList icons;
+    icons << "dcc_common"
+          << "dcc_Icon_theme"
+          << "dcc_cursor_theme"
+          << "dcc_Font";
+
     for (int i = 0; i < menus.size(); ++i) {
-        QStandardItem* item = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), menus.at(i));
+        QStandardItem* item = new QStandardItem(QIcon::fromTheme(icons.at(i)), menus.at(i));
 
         item->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
         item->setSizeHint(QSize(230, 48));
