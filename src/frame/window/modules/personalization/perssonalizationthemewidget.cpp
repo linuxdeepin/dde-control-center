@@ -69,7 +69,22 @@ void PerssonalizationThemeWidget::onAddItem(const QJsonObject &json)
     ThemeItem *theme = new ThemeItem(m_titleBelowPic, this);
     const QString &title = json["Id"].toString();
     theme->setId(title);
-    theme->setTitle(title == "deepin" ? QString("deepin (%1)").arg(tr("Default")) : title);
+
+    //translations
+    if (json["type"] == "gtk") {
+        if (title == "deepin") {
+            theme->setTitle(tr("Light"));
+        } else if (title == "deepin-dark") {
+            theme->setTitle(tr("Dark"));
+        } else if (title == "deepin-auto") {
+            theme->setTitle(tr("Auto"));
+        } else {
+            theme->setTitle(title);
+        }
+    } else {
+        theme->setTitle(title == "deepin" ? QString("deepin (%1)").arg(tr("Default")) : title);
+    }
+
     theme->setSelected(title == m_model->getDefault());
 
     m_valueMap.insert(theme, json);

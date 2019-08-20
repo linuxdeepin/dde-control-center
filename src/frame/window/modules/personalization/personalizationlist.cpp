@@ -44,9 +44,9 @@ PersonalizationList::PersonalizationList(QWidget *parent)
     //Initialize second page view and model
     QStringList menus;
     menus   << tr("General")
-            << tr("Icon Themes")
-            << tr("Cursor Themes")
-            << tr("Fonts");
+            << tr("Icon Theme")
+            << tr("Cursor Theme")
+            << tr("Font");
     for (int i = 0; i < menus.size(); ++i) {
         QStandardItem* item = new QStandardItem(QIcon(":/defapp/icons/select@2x.png"), menus.at(i));
 

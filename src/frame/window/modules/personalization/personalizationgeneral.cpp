@@ -54,13 +54,13 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 {
 
     //appearance
-    m_centralLayout->addWidget(new QLabel(tr("Appearance")));
+    m_centralLayout->addWidget(new QLabel(tr("Theme")));
     //pictures and types
     m_Themes->setMainLayout(new QHBoxLayout(), true);
     m_centralLayout->addWidget(m_Themes);
 
     //active colors
-    m_centralLayout->addWidget(new QLabel(tr("Active Colors")));
+    m_centralLayout->addWidget(new QLabel(tr("Accent Color")));
 
     QHBoxLayout *colorsLayout = new QHBoxLayout();
 
