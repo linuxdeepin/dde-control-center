@@ -104,7 +104,7 @@ public:
     ///
     /// \brief load
     /// 当搜索到相关字段后，load会被调用
-    virtual void load(QString path) { Q_UNUSED(path)};
+    virtual void load(QString path) { Q_UNUSED(path); }
 
 protected:
     FrameProxyInterface *m_frameProxy = nullptr;

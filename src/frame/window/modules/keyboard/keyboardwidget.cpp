@@ -55,9 +55,13 @@ void KeyboardWidget::init()
     m_listviewModel = new QStandardItemModel(m_keyboardListView);
     QList<QPair<QIcon, QString>> menuIconText;
     menuIconText = {
+        //~ contents_path /keyboard/General
         { QIcon::fromTheme("dcc_general_purpose"), tr("General")},
+        //~ contents_path /keyboard/Keyboard Layout
         { QIcon::fromTheme("dcc_keyboard"), tr("Keyboard Layout")},
+        //~ contents_path /keyboard/System Language
         { QIcon::fromTheme("dcc_language"), tr("System Language")},
+        //~ contents_path /keyboard/ShortCut
         { QIcon::fromTheme("dcc_hot_key"), tr("ShortCut")}
     };
     QStandardItem *keyboardItem = nullptr;
@@ -75,10 +79,10 @@ void KeyboardWidget::init()
     connect(m_keyboardListView, &QListView::clicked, this, &KeyboardWidget::onItemClick);
 }
 
-void KeyboardWidget::initSetting()
+void KeyboardWidget::initSetting(const int settingIndex)
 {
-    m_keyboardListView->setCurrentIndex(m_listviewModel->index(0, 0));
-    m_keyboardListView->clicked(m_listviewModel->index(0, 0));
+    m_keyboardListView->setCurrentIndex(m_listviewModel->index(settingIndex, 0));
+    m_keyboardListView->clicked(m_listviewModel->index(settingIndex, 0));
 }
 
 void KeyboardWidget::onItemClick(const QModelIndex &index)
@@ -103,10 +107,3 @@ void KeyboardWidget::onItemClick(const QModelIndex &index)
     }
 
 }
-
-//void MouseWidget::paintEvent(QPaintEvent *event)
-//{
-//    QPainter pa(this);
-
-//    //pa.fillRect(rect(), Qt::red);
-//}

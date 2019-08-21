@@ -41,6 +41,7 @@ class ShortcutContent;
 
 namespace DCC_NAMESPACE {
 namespace keyboard {
+class KeyboardWidget;
 class GeneralKBSettingWidget;
 class KBLayoutSettingWidget;
 class SystemLanguageSettingWidget;
@@ -58,6 +59,7 @@ public:
     void active() override;
     const QString name() const override;
     void contentPopped(QWidget *const w) override;
+    void load(QString path)  override;
 
 public Q_SLOTS:
     void showGeneralSetting();
@@ -71,6 +73,7 @@ public Q_SLOTS:
     void onPushConflict(dcc::keyboard::ShortcutInfo *info, const QString &shortcut);
     void onShortcutEdit(dcc::keyboard::ShortcutInfo *info);
 private:
+    KeyboardWidget *m_keyboardWidget = nullptr;
     GeneralKBSettingWidget *m_generalSettingWidget = nullptr;
     KBLayoutSettingWidget *m_kbLayoutSettingWidget = nullptr;
     SystemLanguageSettingWidget *m_systemLanguageSettingWidget = nullptr;

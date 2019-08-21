@@ -42,6 +42,7 @@ using namespace DCC_NAMESPACE::keyboard;
 KeyboardModule::KeyboardModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frame)
+    , m_keyboardWidget(nullptr)
 {
 }
 
@@ -65,13 +66,26 @@ void KeyboardModule::reset()
 void KeyboardModule::active()
 {
     m_work->active();
-    KeyboardWidget *keyboardWidget = new KeyboardWidget;
-    connect(keyboardWidget, &KeyboardWidget::showGeneralSetting, this, &KeyboardModule::showGeneralSetting);
-    connect(keyboardWidget, &KeyboardWidget::showKBLayoutSetting, this, &KeyboardModule::showKBLayoutSetting);
-    connect(keyboardWidget, &KeyboardWidget::showSystemLanguageSetting, this, &KeyboardModule::showSystemLanguageSetting);
-    connect(keyboardWidget, &KeyboardWidget::showShortCutSetting, this, &KeyboardModule::showShortCutSetting);
-    m_frameProxy->pushWidget(this, keyboardWidget);
+    m_keyboardWidget = new KeyboardWidget;
+    connect(m_keyboardWidget, &KeyboardWidget::showGeneralSetting, this, &KeyboardModule::showGeneralSetting);
+    connect(m_keyboardWidget, &KeyboardWidget::showKBLayoutSetting, this, &KeyboardModule::showKBLayoutSetting);
+    connect(m_keyboardWidget, &KeyboardWidget::showSystemLanguageSetting, this, &KeyboardModule::showSystemLanguageSetting);
+    connect(m_keyboardWidget, &KeyboardWidget::showShortCutSetting, this, &KeyboardModule::showShortCutSetting);
+    m_frameProxy->pushWidget(this, m_keyboardWidget);
     showGeneralSetting();
+}
+
+void KeyboardModule::load(QString path)
+{
+    if (path == QStringLiteral("General")) {
+        m_keyboardWidget->initSetting(0);
+    } else if (path == QStringLiteral("Keyboard Layout")) {
+        m_keyboardWidget->initSetting(1);
+    } else if (path == QStringLiteral("System Language")) {
+        m_keyboardWidget->initSetting(2);
+    } else if (path == QStringLiteral("ShortCut")) {
+        m_keyboardWidget->initSetting(3);
+    }
 }
 
 const QString KeyboardModule::name() const

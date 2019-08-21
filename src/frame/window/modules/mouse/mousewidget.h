@@ -48,11 +48,10 @@ class MouseWidget : public QWidget
 
 public:
     explicit MouseWidget(QWidget *parent = nullptr);
+    void initSetting(const int settingIndex);
 private:
     void init();
-    void initSetting();
     void onItemClieck(const QModelIndex &index);
-    //void paintEvent(QPaintEvent *event) override;
 Q_SIGNALS:
     void showGeneralSetting();
     void showMouseSetting();

@@ -60,9 +60,13 @@ void MouseWidget::init()
 
     QList<QPair<QIcon, QString>> menuIconText;
     menuIconText = {
+        //~ contents_path /mouse/General
         { QIcon::fromTheme("dcc_general_purpose"), tr("General")},
+        //~ contents_path /mouse/Mouse
         { QIcon::fromTheme("dcc_mouse"), tr("Mouse")},
+        //~ contents_path /mouse/TouchPad
         { QIcon::fromTheme("dcc_touchpad"), tr("TouchPad")},
+        //~ contents_path /mouse/TrackPoint
         { QIcon::fromTheme("dcc_trackpoint"), tr("TrackPoint")}
     };
     QStandardItem *mouseItem = nullptr;
@@ -80,10 +84,10 @@ void MouseWidget::init()
     connect(m_mouseListView, &QListView::clicked, this, &MouseWidget::onItemClieck);
 }
 
-void MouseWidget::initSetting()
+void MouseWidget::initSetting(const int settingIndex)
 {
-    m_mouseListView->setCurrentIndex(m_listviewModel->index(0, 0));
-    m_mouseListView->clicked(m_listviewModel->index(0, 0));
+    m_mouseListView->setCurrentIndex(m_listviewModel->index(settingIndex, 0));
+    m_mouseListView->clicked(m_listviewModel->index(settingIndex, 0));
 }
 
 void MouseWidget::onItemClieck(const QModelIndex &index)
@@ -108,10 +112,3 @@ void MouseWidget::onItemClieck(const QModelIndex &index)
     }
 
 }
-
-//void MouseWidget::paintEvent(QPaintEvent *event)
-//{
-//    QPainter pa(this);
-
-//    //pa.fillRect(rect(), Qt::red);
-//}

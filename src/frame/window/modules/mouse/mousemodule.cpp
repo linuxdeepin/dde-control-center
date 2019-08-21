@@ -35,6 +35,7 @@ using namespace dcc::mouse;
 MouseModule::MouseModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frame)
+    , m_mouseWidget(nullptr)
     , m_generalSettingWidget(nullptr)
     , m_mouseSettingWidget(nullptr)
     , m_touchpadSettingWidget(nullptr)
@@ -58,12 +59,12 @@ void MouseModule::reset()
 
 void MouseModule::active()
 {
-    MouseWidget *mouseWidget = new MouseWidget;
-    connect(mouseWidget, &MouseWidget::showGeneralSetting, this, &MouseModule::showGeneralSetting);
-    connect(mouseWidget, &MouseWidget::showMouseSetting, this, &MouseModule::showMouseSetting);
-    connect(mouseWidget, &MouseWidget::showTouchpadSetting, this, &MouseModule::showTouchpadSetting);
-    connect(mouseWidget, &MouseWidget::showTrackPointSetting, this, &MouseModule::showTrackPointSetting);
-    m_frameProxy->pushWidget(this, mouseWidget);
+    m_mouseWidget = new MouseWidget;
+    connect(m_mouseWidget, &MouseWidget::showGeneralSetting, this, &MouseModule::showGeneralSetting);
+    connect(m_mouseWidget, &MouseWidget::showMouseSetting, this, &MouseModule::showMouseSetting);
+    connect(m_mouseWidget, &MouseWidget::showTouchpadSetting, this, &MouseModule::showTouchpadSetting);
+    connect(m_mouseWidget, &MouseWidget::showTrackPointSetting, this, &MouseModule::showTrackPointSetting);
+    m_frameProxy->pushWidget(this, m_mouseWidget);
     showGeneralSetting();
 }
 
@@ -120,6 +121,19 @@ void MouseModule::showTrackPointSetting()
 const QString MouseModule::name() const
 {
     return QStringLiteral("mouse");
+}
+
+void MouseModule::load(QString path)
+{
+    if (path == QStringLiteral("General")) {
+        m_mouseWidget->initSetting(0);
+    } else if (path == QStringLiteral("Mouse")) {
+        m_mouseWidget->initSetting(1);
+    } else if (path == QStringLiteral("TouchPad")) {
+        m_mouseWidget->initSetting(2);
+    } else if (path == QStringLiteral("TrackPoint")) {
+        m_mouseWidget->initSetting(3);
+    }
 }
 
 void MouseModule::contentPopped(QWidget *const w)

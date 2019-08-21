@@ -50,11 +50,10 @@ class KeyboardWidget : public QWidget
 
 public:
     explicit KeyboardWidget(QWidget *parent = nullptr);
+    void initSetting(const int settingIndex);
 private:
     void init();
     void onItemClick(const QModelIndex &index);
-    void initSetting();
-    //void paintEvent(QPaintEvent *event) override;
 Q_SIGNALS:
     void showGeneralSetting();
     void showKBLayoutSetting();
