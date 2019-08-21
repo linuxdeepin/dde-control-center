@@ -41,6 +41,7 @@ SystemInfoWidget::SystemInfoWidget(QWidget *parent)
 
 void SystemInfoWidget::initWidget()
 {
+    m_listView->setFrameShape(QFrame::NoFrame);
     m_listView->setIconSize(QSize(50, 50));
     m_listView->setModel(m_itemModel);
 
