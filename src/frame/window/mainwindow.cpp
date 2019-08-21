@@ -39,7 +39,6 @@
 
 #include "mainwindow.h"
 #include "constant.h"
-#include "navwinview.h"
 #include "search/searchwidget.h"
 #include "dtitlebar.h"
 
@@ -55,6 +54,11 @@
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
 DTK_USE_NAMESPACE
+
+const int first_widget_min_width = 190;
+const int second_widget_min_width = 250;
+const int third_widget_min_width = 370;
+const int widget_total_min_width = 820;
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
@@ -74,16 +78,22 @@ MainWindow::MainWindow(QWidget *parent)
     m_contentLayout = new QHBoxLayout(content);
     m_rightContentLayout = new QHBoxLayout();
     m_rightView = new DBackgroundGroup(m_rightContentLayout);
-    m_navView = new NavWinView(this);
+    m_navView = new DListView(this);
     m_navView->setFrameShape(QFrame::Shape::NoFrame);
     m_navView->setEditTriggers(QListView::NoEditTriggers);
+    m_navView->setResizeMode(QListView::Adjust);
+    m_navView->setAutoScroll(false);
+    m_navView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_navView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+    m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_navView);
+    m_contentLayout->setSpacing(0);
     m_contentLayout->addWidget(m_rightView);
     m_contentLayout->setContentsMargins(0, 0, 0, 0);
 
     m_rightContentLayout->setContentsMargins(10, 10, 10, 10);
-    m_rightContentLayout->setSpacing(10);
+    m_rightContentLayout->setSpacing(2);
 
     m_rightView->hide();
     m_rightView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -93,14 +103,13 @@ MainWindow::MainWindow(QWidget *parent)
     //Initialize top page view and model
     m_navModel = new QStandardItemModel(m_navView);
     m_navView->setModel(m_navModel);
-    m_navView->setMinimumWidth(first_widget_min_width);
-    m_navView->setViewMode(QListView::IconMode);
-    connect(m_navView, &NavWinView::clicked, this, &MainWindow::onFirstItemClick);
+    connect(m_navView, &DListView::clicked, this, &MainWindow::onFirstItemClick);
 
     m_searchWidget = new SearchWidget(this);
     m_searchWidget->setMinimumSize(280, 36);
 
     DTitlebar *titlebar = this->titlebar();
+    titlebar->setMinimumHeight(50);
     titlebar->setCustomWidget(m_searchWidget, Qt::AlignCenter, true);
     m_searchWidget->setLanguage(QLocale::system().name());
     connect(m_searchWidget, &SearchWidget::notifyModuleSearch, this, &MainWindow::onEnterSearchWidget);
@@ -112,7 +121,10 @@ MainWindow::MainWindow(QWidget *parent)
     titleLayout->insertWidget(0, btnGroup);
     QPushButton *backwardBtn = new QPushButton("<");
     thlayout->addWidget(backwardBtn);
-    connect(backwardBtn, &QPushButton::clicked, this, static_cast<void (MainWindow::*)()>(&MainWindow::popWidget));
+    connect(backwardBtn, &QPushButton::clicked, this, [this] {
+        popWidget();
+        resetNavList(m_contentStack.isEmpty());
+    });
 
     QPushButton *forwardBtn = new QPushButton(">");
     thlayout->addWidget(forwardBtn);
@@ -157,11 +169,10 @@ void MainWindow::initAllModule()
         { new SystemInfoModule(this), tr("Systeminfo")},
     };
 
-    auto dele = static_cast<NavDelegate *>(m_navView->itemDelegate());
-    bool isIcon = dele->viewMode() == QListView::IconMode;
+    bool isIcon = m_contentStack.empty();
 
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
-        QStandardItem *item = new QStandardItem;
+        DStandardItem *item = new DStandardItem;
         item->setIcon(it->first->icon());
         item->setText(it->second);
         item->setData(isIcon ? Dtk::RoundedBackground : QVariant(),
@@ -169,6 +180,8 @@ void MainWindow::initAllModule()
         item->setSizeHint(isIcon ? QSize(170, 168) : QSize(168, 48));
         m_navModel->appendRow(item);
     }
+
+    resetNavList(isIcon);
 }
 
 void MainWindow::modulePreInitialize()
@@ -188,14 +201,6 @@ void MainWindow::popWidget()
     m_rightContentLayout->removeWidget(w);
     w->setParent(nullptr);
     w->deleteLater();
-
-    if (m_contentStack.isEmpty()) {//Only remain 1 level page : back to top page
-        m_navView->setViewMode(QListView::IconMode);
-        m_navView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        m_rightView->hide();
-    } else {//The second page will Covered with fill blank areas
-        m_contentStack.top().second->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    }
 }
 
 //Only used to from third page to top page can use it
@@ -225,6 +230,43 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     if (m_topWidget) {
         m_topWidget->setFixedSize(event->size());
     }
+}
+
+void MainWindow::resetNavList(bool isIconMode)
+{
+    if (isIconMode && m_navView->viewMode() == QListView::IconMode)
+        return;
+
+    if (!isIconMode && m_navView->viewMode() == QListView::ListMode)
+        return;
+
+    if (isIconMode) {
+        //Only remain 1 level page : back to top page
+        m_navView->setViewMode(QListView::IconMode);
+        m_navView->setDragEnabled(false);
+        m_navView->setMaximumWidth(QWIDGETSIZE_MAX);
+        m_navView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        m_navView->setIconSize(QSize(84, 84));
+        m_navView->setItemSize(QSize(170, 168));
+        m_navView->setSpacing(20);
+        m_rightView->hide();
+
+        DPalette pa = DPalette::get(m_navView);
+        pa.setBrush(DPalette::ItemBackground, pa.base());
+        DPalette::set(m_navView, pa);
+    } else {
+        //The second page will Covered with fill blank areas
+        m_navView->setViewMode(QListView::ListMode);
+        m_navView->setFixedWidth(first_widget_min_width);
+        m_navView->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+        m_navView->setIconSize(QSize(42, 42));
+        m_navView->setItemSize(QSize(168, 48));
+        m_navView->setSpacing(0);
+        m_rightView->show();
+        m_contentStack.top().second->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    }
+
+    m_navView->viewport()->setAutoFillBackground(!isIconMode);
 }
 
 void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
@@ -340,6 +382,7 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
     }
 
     m_topWidget = topWidget;
+    resetNavList(m_contentStack.empty());
 }
 
 void MainWindow::pushFinalWidget(ModuleInterface *const inter, QWidget *const w)
@@ -356,9 +399,28 @@ void MainWindow::pushFinalWidget(ModuleInterface *const inter, QWidget *const w)
     m_rightContentLayout->addWidget(w);
 
     if (m_contentStack.size() == 2) {
-        m_contentStack.at(0).second->setMinimumWidth(second_widget_min_width);
-        m_contentStack.at(1).second->setMinimumWidth(third_widget_min_width);
+        m_contentStack.at(0).second->setFixedWidth(second_widget_min_width);
+        m_contentStack.at(1).second->setFixedWidth(third_widget_min_width);
     }
+}
+
+void MainWindow::pushNormalWidget(ModuleInterface *const inter, QWidget *const w)
+{
+    //When there is already a third-level page, first remove the previous third-level page,
+    //then add a new level 3 page (guaranteed that there is only one third-level page)
+    popAllWidgets(1);
+    //Set the newly added page to fill the blank area
+    w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    m_contentStack.push({inter, w});
+    m_rightContentLayout->addWidget(w);
+
+    if (m_contentStack.size() == 2) {
+        m_contentStack.at(0).second->setFixedWidth(second_widget_min_width);
+        m_contentStack.at(1).second->setFixedWidth(third_widget_min_width);
+    }
+
+    resetNavList(m_contentStack.empty());
 }
 
 void MainWindow::linkReplaceBackSignal(QString moduleName, QWidget *w)
@@ -470,30 +532,4 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
         m_initList << inter;
     }
     inter->active();
-}
-
-void MainWindow::pushNormalWidget(ModuleInterface *const inter, QWidget *const w)
-{
-    //When there is already a third-level page, first remove the previous third-level page,
-    //then add a new level 3 page (guaranteed that there is only one third-level page)
-    popAllWidgets(1);
-
-    if (m_contentStack.isEmpty()) {//Add the first second-level page, the top page changes from Icon to list (top page is not added to m_contentStack)
-        m_navView->setViewMode(QListView::ListMode);
-        m_navView->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-        m_rightView->show();
-    } else {
-        m_contentStack.top().second->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    }
-
-    //Set the newly added page to fill the blank area
-    w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    m_contentStack.push({inter, w});
-    m_rightContentLayout->addWidget(w);
-
-    if (m_contentStack.size() == 2) {
-        m_contentStack.at(0).second->setMinimumWidth(second_widget_min_width);
-        m_contentStack.at(1).second->setMinimumWidth(third_widget_min_width);
-    }
 }

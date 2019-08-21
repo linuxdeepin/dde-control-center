@@ -27,27 +27,23 @@
 
 #include <DMainWindow>
 #include <DBackgroundGroup>
+#include <DListView>
 
 #include <QStack>
 #include <QPair>
 
 DWIDGET_USE_NAMESPACE
+
 QT_BEGIN_NAMESPACE
 class QHBoxLayout;
-QT_END_NAMESPACE
-class NavWinView;
 class QStandardItemModel;
+QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 namespace search {
 class SearchWidget;
 }
 }
-
-const int first_widget_min_width = 190;
-const int second_widget_min_width = 250;
-const int third_widget_min_width = 370;
-const int widget_total_min_width = 820;
 
 namespace DCC_NAMESPACE {
 class MainWindow : public DMainWindow, public FrameProxyInterface
@@ -65,9 +61,12 @@ protected:
     void resizeEvent(QResizeEvent *event) override;
 
 private:
+    void resetNavList(bool isIconMode);
+
+private:
     QHBoxLayout *m_contentLayout;
     QHBoxLayout *m_rightContentLayout;
-    NavWinView *m_navView;
+    DListView *m_navView;
     DBackgroundGroup *m_rightView;
     QStandardItemModel *m_navModel;
     QStack<QPair<ModuleInterface *, QWidget *>> m_contentStack;

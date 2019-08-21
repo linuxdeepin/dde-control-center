@@ -146,7 +146,6 @@ set(WINDOW_FILES
     window/constant.h
     window/namespace.h
     window/mainwindow.cpp
-    window/navwinview.cpp
     window/standarditemhelper.h
     window/standarditemhelper.cpp
     window/utils.h

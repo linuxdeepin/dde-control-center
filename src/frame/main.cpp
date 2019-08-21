@@ -35,6 +35,9 @@
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
+const int MainWidgetWidget = 820;
+const int MainWidgetHeight = 634;
+
 static const QString getQssFromFile(const QString &name)
 {
 #ifdef QT_DEBUG
@@ -185,7 +188,7 @@ int main(int argc, char *argv[])
     app.setStyle("chameleon");
     DCC_NAMESPACE::MainWindow mw;
 
-    mw.resize(510, 510);
+    mw.resize(MainWidgetWidget, MainWidgetHeight);
     mw.show();
 #else
     const QString &reqModule = parser.value(moduleOption);
