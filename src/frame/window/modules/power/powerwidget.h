@@ -48,6 +48,8 @@ public:
     void initialize(bool hasBattery);
     void setModel(const dcc::power::PowerModel *model);
     void requestDefaultWidget();
+    QListView *getListViewPointer();
+    bool getIsUseBattety();
 
 private:
     QVBoxLayout *layout;
@@ -55,6 +57,7 @@ private:
     const dcc::power::PowerModel *m_model;
     QModelIndex m_defaultIndex;
     QStandardItemModel *m_listmodel;
+    bool m_bhasBattery;
 
 Q_SIGNALS:
     void requestPushWidget(int index);

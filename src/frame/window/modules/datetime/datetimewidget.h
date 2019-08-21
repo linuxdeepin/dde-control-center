@@ -63,6 +63,7 @@ public:
     virtual ~DatetimeWidget();
     void init();
     void setModel(const dcc::datetime::DatetimeModel *model);
+    QListView *getListViewPointer();
 
 private:
     QVBoxLayout *layout;

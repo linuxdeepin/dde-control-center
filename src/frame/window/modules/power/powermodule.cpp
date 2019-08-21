@@ -39,6 +39,7 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
     , m_model(nullptr)
     , m_work(nullptr)
     , m_timer(new QTimer(this))
+    , m_widget(nullptr)
 {
 
 }
@@ -60,14 +61,50 @@ const QString PowerModule::name() const
 
 void PowerModule::active()
 {
-    PowerWidget *mainWidget = new PowerWidget;
-    mainWidget->initialize(m_model->haveBettary());
-    mainWidget->requestDefaultWidget();//after into second then into General
+    m_widget = new PowerWidget;;
+    m_widget->initialize(m_model->haveBettary());
+    m_widget->requestDefaultWidget();//after into second then into General
 
-    connect(mainWidget, &PowerWidget::requestPushWidget, this, &PowerModule::onPushWidget);
-    connect(m_model, &PowerModel::haveBettaryChanged, mainWidget, &PowerWidget::requestRemoveBattery);
+    connect(m_widget, &PowerWidget::requestPushWidget, this, &PowerModule::onPushWidget);
+    connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::requestRemoveBattery);
 
-    m_frameProxy->pushWidget(this, mainWidget);
+    m_frameProxy->pushWidget(this, m_widget);
+}
+
+void PowerModule::load(QString path)
+{
+    if (!m_widget) {
+        active();
+        return;
+    }
+
+    QListView *list = m_widget->getListViewPointer();
+    powerType type = DEFAULT;
+
+    if (!list) {
+        return;
+    }
+
+    if (path == "General") {
+        type = GENERAL;
+    } else if (path == "Plugged In") {
+        type = USE_ELECTRIC;
+    } else if (path == "On Battery") {
+        type = USE_BATTERY;
+
+        //true : use battrty
+        //false: not use battery  ->  not into "On Battery"
+        if (!m_widget->getIsUseBattety()) {
+            qWarning(" Now not use battery.");
+            return;
+        }
+    }
+
+    if (type > DEFAULT && type < COUNT) {
+        QModelIndex index = list->model()->index(type, 0);
+        list->setCurrentIndex(index);
+        list->pressed(index);
+    }
 }
 
 void PowerModule::showGeneral()

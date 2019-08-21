@@ -57,10 +57,13 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
     timezoneGroup->appendItem(m_clockItem);
 
     auto model = new QStandardItemModel(this);
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-calendar"), "Timezone List"));
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dde-file-manager"), "System Timezone")),
-          model->appendRow(new QStandardItem(QIcon::fromTheme("dde-introduction"), "Time Setting")),//时间设置
-          m_listview->setModel(model);
+    //~ contents_path /datetime/Timezone List
+    model->appendRow(new QStandardItem(QIcon::fromTheme("dcc_nav_datetime"), tr("Timezone List")));
+    //~ contents_path /datetime/System Timezone
+    model->appendRow(new QStandardItem(QIcon::fromTheme("dcc_time_zone"), tr("System Timezone")));
+    //~ contents_path /datetime/Time Setting
+    model->appendRow(new QStandardItem(QIcon::fromTheme("dcc_setting"), tr("Time Setting")));
+    m_listview->setModel(model);
 
     connect(m_listview, &QListView::pressed, this, &DatetimeWidget::onItemClieck);
 
@@ -88,6 +91,11 @@ void DatetimeWidget::init()
 void DatetimeWidget::setModel(const DatetimeModel *model)
 {
     m_model = model;
+}
+
+QListView *DatetimeWidget::getListViewPointer()
+{
+    return m_listview;
 }
 
 void DatetimeWidget::onItemClieck(const QModelIndex &index)

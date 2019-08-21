@@ -38,6 +38,8 @@ namespace DCC_NAMESPACE {
 namespace datetime {
 class TimezoneList;
 
+class DatetimeWidget;
+
 class DatetimeModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -56,6 +58,7 @@ public:
     virtual void initialize() override;
     virtual const QString name() const override;
     virtual void active() override;
+    virtual void load(QString path) override;
 
     void createWidget(int index);
 
@@ -70,6 +73,7 @@ private:
     dcc::datetime::DatetimeModel *m_model;
     QPointer<dcc::datetime::TimeZoneChooser> m_dialog;
     QPointer<TimezoneList> m_timezonelist;//timezonelist in other page, need exchangle data from this page
+    DatetimeWidget *m_widget;
 
 Q_SIGNALS:
     void requestAddUserTimeZone(const QString &zone);

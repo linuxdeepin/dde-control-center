@@ -47,18 +47,17 @@ PowerWidget::~PowerWidget()
 
 void PowerWidget::initialize(bool hasBattery)
 {
+    //true : use battery
+    m_bhasBattery = hasBattery;
+
     m_listmodel = new QStandardItemModel(m_listview);
-
-    QStringList menuList;
-    menuList << tr("General") << tr("Plugged In") << tr("On Battery");
-
-    QStandardItem *powerItem = nullptr;
-    for (auto strMenuItem : menuList) {
-        powerItem = new QStandardItem(strMenuItem);
-        powerItem->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
-        powerItem->setData(VListViewItemMargin, Dtk::MarginsRole);
-        m_listmodel->appendRow(powerItem);
-    }
+    //~ contents_path /power/General
+    m_listmodel->appendRow(new QStandardItem(QIcon::fromTheme("dcc_general_purpose"), tr("General")));
+    //~ contents_path /power/Plugged In
+    m_listmodel->appendRow(new QStandardItem(QIcon::fromTheme("dcc_using_electric"), tr("Plugged In")));
+    //~ contents_path /power/On Battery
+    m_listmodel->appendRow(new QStandardItem(QIcon::fromTheme("dcc_battery"), tr("On Battery")));
+    m_listview->setModel(m_listmodel);
 
     m_listview->setFrameShape(QFrame::NoFrame);
     m_listview->setModel(m_listmodel);
@@ -89,6 +88,16 @@ void PowerWidget::requestDefaultWidget()
         m_listview->setCurrentIndex(m_defaultIndex);
         m_listview->pressed(m_defaultIndex);
     });
+}
+
+QListView *PowerWidget::getListViewPointer()
+{
+    return m_listview;
+}
+
+bool PowerWidget::getIsUseBattety()
+{
+    return m_bhasBattery;
 }
 
 void PowerWidget::onItemClieck(const QModelIndex &index)

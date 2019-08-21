@@ -36,6 +36,7 @@ DatetimeModule::DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frameProxy)
     , m_timezonelist(nullptr)
+    , m_widget(nullptr)
 {
 
 }
@@ -62,12 +63,41 @@ const QString DatetimeModule::name() const
 
 void DatetimeModule::active()
 {
-    DatetimeWidget* widget = new DatetimeWidget;
-    connect(widget, &DatetimeWidget::requestPushWidget, this, &DatetimeModule::onPushWidget);
-    widget->setModel(m_model);
+    m_widget= new DatetimeWidget;
+    connect(m_widget, &DatetimeWidget::requestPushWidget, this, &DatetimeModule::onPushWidget);
+    m_widget->setModel(m_model);
     m_work->activate(); //refresh data
 
-    m_frameProxy->pushWidget(this, widget);
+    m_frameProxy->pushWidget(this, m_widget);
+}
+
+void DatetimeModule::load(QString path)
+{
+    if (!m_widget) {
+        active();
+        return;
+    }
+
+    QListView *list = m_widget->getListViewPointer();
+    datetimeType type = DEFAULT;
+
+    if (!list) {
+        return;
+    }
+
+    if (path == "Timezone List") {
+        type = TIMEZONELIST;
+    } else if (path == "System Timezone") {
+        type = SYSTEMTIMEZONE;
+    } else if (path == "Time Setting") {
+        type = TIMESETTING;
+    }
+
+    if (type > DEFAULT && type < COUNT) {
+        QModelIndex index = list->model()->index(type, 0);
+        list->setCurrentIndex(index);
+        list->pressed(index);
+    }
 }
 
 void DatetimeModule::createWidget(int index)
@@ -136,7 +166,7 @@ void DatetimeModule::showTimezoneList()
             m_dialog->setIsAddZone(true);
             m_dialog->show();
         });
-        connect(m_timezonelist->getTimezoneContentListPtr(),&TimezoneContentList::requestRemoveUserTimeZone,
+        connect(m_timezonelist->getTimezoneContentListPtr(), &TimezoneContentList::requestRemoveUserTimeZone,
                 this, &DatetimeModule::requestRemoveUserTimeZone);
         connect(m_timezonelist, &TimezoneList::requestAddUserTimeZone,
                 this, &DatetimeModule::requestAddUserTimeZone);

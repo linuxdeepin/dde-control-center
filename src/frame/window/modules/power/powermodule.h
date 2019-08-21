@@ -54,6 +54,7 @@ public:
     virtual void initialize() override;
     virtual const QString name() const override;
     virtual void active() override;
+    virtual void load(QString path) override;
 
 private:
     void showGeneral();
@@ -64,6 +65,7 @@ private:
     dcc::power::PowerModel *m_model;
     dcc::power::PowerWorker *m_work;
     QTimer *m_timer;
+    PowerWidget *m_widget;
 
 Q_SIGNALS:
 
