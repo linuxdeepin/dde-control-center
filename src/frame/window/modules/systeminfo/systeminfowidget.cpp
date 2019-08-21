@@ -55,14 +55,15 @@ void SystemInfoWidget::initWidget()
 void SystemInfoWidget::initData()
 {
     m_itemList = {
-        {":/frame/themes/dark/icons/notify_close_press.png", tr("About this machine"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowAboutNative)},
-        {":/frame/themes/dark/icons/notify_close_press.png", tr("Version Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowVersionProtocol)},
-        {":/frame/themes/dark/icons/notify_close_press.png", tr("End User License Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowEndUserLicenseAgreement)},
+        {"dcc_on_sel", tr("About this machine"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowAboutNative)},
+        {"dcc_version", tr("Version Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowVersionProtocol)},
+        {"dcc_protocol", tr("End User License Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowEndUserLicenseAgreement)},
     };
 
     for (auto m : m_itemList) {
         QStandardItem *item = new QStandardItem;
-        item->setIcon(QIcon(m.icon));
+
+        item->setIcon(QIcon::fromTheme(m.icon));
         item->setText(m.text);
         item->setEditable(false);
         m_itemModel->appendRow(item);
