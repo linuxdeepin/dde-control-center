@@ -30,6 +30,8 @@
 #include "widgets/contentwidget.h"
 #include "window/namespace.h"
 
+#include <DStyleOption>
+
 #include <QMap>
 #include <QTimer>
 #include <QPointer>
@@ -58,7 +60,6 @@ namespace DCC_NAMESPACE {
 namespace network {
 
 class ConnectionWirelessEditPage;
-class AccessPointWidget;
 
 struct APSortInfo {
     int signalstrength;
@@ -80,6 +81,7 @@ class APItem : public QStandardItem {
 public:
     explicit APItem(const QString &text);
     void setSignalStrength(int ss);
+    int signalStrength() const;
     void setConnected(bool connected);
     void setSortInfo(const APSortInfo &si);
     void setPath(const QString &p);
@@ -87,8 +89,8 @@ public:
 
     bool operator<(const QStandardItem &other) const override;
 
-    static const int SortRole = Qt::ItemDataRole::UserRole + 0x100;
-    static const int PathRole = Qt::ItemDataRole::UserRole + 0x101;
+    static const int SortRole = Dtk::UserRole + 0x100;
+    static const int PathRole = Dtk::UserRole + 0x101;
 };
 
 class WirelessPage : public dcc::ContentWidget
@@ -132,6 +134,7 @@ private Q_SLOTS:
 private:
     void updateActiveAp();
     QString connectionUuid(const QString &ssid);
+    QString connectionSsid(const QString &uuid);
 
 private:
     dde::network::WirelessDevice *m_device;
@@ -139,11 +142,8 @@ private:
 
     dcc::widgets::SwitchWidget *m_switch;
 
-    dcc::widgets::SettingsGroup *m_listGroup;
     dcc::widgets::SettingsGroup *m_tipsGroup;
-    AccessPointWidget *m_connectHideSSID;
     QPushButton *m_closeHotspotBtn;
-    AccessPointWidget *m_currentClickApw;
     QListView *m_lvAP;
     QStandardItemModel *m_modelAP;
 
@@ -152,8 +152,7 @@ private:
     QString m_editingUuid;
     QTimer *m_sortDelayTimer;
     QTimer *m_indicatorDelayTimer;
-    QMap<QString, AccessPointWidget *> m_apItems;
-    QMap<QString, APItem *> m_apItems2;
+    QMap<QString, APItem *> m_apItems;
 };
 
 }   // namespace dcc

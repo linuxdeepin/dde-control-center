@@ -827,8 +827,6 @@ set(NETWORK_FILES
                 window/modules/network/settings/abstractsettings.h
                 window/modules/network/connectionvpneditpage.h
                 window/modules/network/connectionwirelesseditpage.h
-                window/modules/network/accesspointwidget.cpp
-                window/modules/network/accesspointwidget.h
                 window/modules/network/chainsproxypage.cpp
                 window/modules/network/chainsproxypage.h
                 window/modules/network/chainstypepage.cpp

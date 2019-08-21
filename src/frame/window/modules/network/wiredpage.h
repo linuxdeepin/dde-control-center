@@ -99,7 +99,6 @@ private:
     QPointer<ConnectionEditPage> m_editPage;
 
     QPushButton *m_createBtn;
-    dcc::widgets::SettingsGroup *m_settingsGrp;
     dcc::widgets::SettingsGroup *m_tipsGrp;
 
     QMap<dcc::widgets::NextPageWidget *, QString> m_connectionPath;

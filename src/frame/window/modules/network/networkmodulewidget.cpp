@@ -174,7 +174,7 @@ QStandardItem* NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
         }
         else
         {
-            text = tr("Wired Network").arg(number);
+            text = tr("Wired Network");
         }
     }
     else if (dev->type() == NetworkDevice::Wireless)
@@ -200,7 +200,7 @@ QStandardItem* NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
         }
         else
         {
-            text = tr("Wireless Network").arg(number);
+            text = tr("Wireless Network");
         }
     }
     QStandardItem *ret = new QStandardItem(text);

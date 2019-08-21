@@ -57,9 +57,6 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 {
     m_lvProfiles = new QListView();
     m_lvProfiles->setModel(m_modelprofiles = new QStandardItemModel());
-    m_settingsGrp = new SettingsGroup;
-    m_settingsGrp->setHeaderVisible(true);
-    m_settingsGrp->headerItem()->setTitle(tr("Setting List"));
 
     TipsItem *tips = new TipsItem;
     tips->setFixedHeight(80);
@@ -80,7 +77,6 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     centralLayout->addSpacing(10);
     centralLayout->addWidget(m_switch);
     centralLayout->addWidget(m_tipsGrp);
-    centralLayout->addWidget(m_settingsGrp);
     centralLayout->addWidget(m_lvProfiles);
     centralLayout->addWidget(m_createBtn);
     centralLayout->addStretch();
@@ -147,7 +143,6 @@ void WiredPage::refreshConnectionList()
     QSet<QString> availableWiredConns;
     availableWiredConns.reserve(wiredConns.size());
 
-    m_settingsGrp->clear();
     m_modelprofiles->clear();
     qDeleteAll(m_connectionPath.keys());
     m_connectionPath.clear();
@@ -175,14 +170,6 @@ void WiredPage::refreshConnectionList()
         it->setData(path, Dtk::UserRole + 1);
         it->setCheckState(path == m_device->activeWiredConnSettingPath() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
         m_modelprofiles->appendRow(it);
-        NextPageWidget *w = new NextPageWidget;
-        w->setTitle(m_model->connectionNameByPath(path));
-
-        connect(w, &NextPageWidget::acceptNextPage, this, &WiredPage::editConnection);
-        connect(w, &NextPageWidget::selected, this, &WiredPage::activateConnection);
-
-        m_settingsGrp->appendItem(w);
-        m_connectionPath.insert(w, path);
     }
 
     // clear removed items
