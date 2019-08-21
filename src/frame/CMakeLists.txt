@@ -1120,6 +1120,7 @@ set(QRC
         modules/sync/sync.qrc
         window/search/translator/languages.qrc
         window/icons/dde-control-center-icons.qrc
+        window/modules/datetime/datetime.qrc
 )
 
 # Find the library

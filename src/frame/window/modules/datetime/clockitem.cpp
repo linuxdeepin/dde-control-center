@@ -38,7 +38,7 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay) :
     m_labelDate(new NormalLabel),
     m_bIs24HourType(0)
 {
-    m_clock->setFixedSize(160, 160);
+    m_clock->setFixedSize(224, 224);
     m_clock->setAutoNightMode(false);
     updateDateTime();
 

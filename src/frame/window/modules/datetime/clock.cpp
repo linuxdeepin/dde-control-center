@@ -48,75 +48,41 @@ void Clock::paintEvent(QPaintEvent *)
     datetime = datetime.addSecs(m_timeZone.getUTCOffset());
 
     const QTime time(datetime.time());
-    const QRect rct(rect());
-    const int rWidth = 30;
-    const int rHeight = 30;
 
     QPainter painter(this);
     painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
 
     // draw plate
-    const bool nightMode = !(6 < time.hour() && time.hour() < 18);
-    painter.setPen(Qt::transparent);
-    painter.setBrush(nightMode && autoNightMode() ? Qt::black : Qt::white);
-    painter.drawRoundedRect(rct, rct.width() / 2.0, rct.height() / 2.0);
+    painter.translate(0, 0);
+    painter.drawPixmap(0, 0, width(), height(), QPixmap(":/icons/actions/datetime/dcc_clock_black.svg"));
 
-    // draw ticks
-    if (m_drawTicks) {
-        QStringList ticks;
-        ticks << "1" << "2" << "3" << "4" << "5" << "6";
-        ticks << "7" << "8" << "9" << "10" << "11" << "12";
-
-        QPainterPath path(QPointF(rct.width() / 2.0, 0));
-        for (int i = 1; i <= ticks.length(); i++) {
-            QRect innerRect(rct.adjusted(rWidth / 2, rHeight / 2, - rWidth / 2, - rHeight / 2));
-
-            path.arcMoveTo(innerRect, 90 - 30 * i);
-            QPointF pos = path.currentPosition();
-            QRect r(pos.x() - rWidth / 2, pos.y() - rHeight / 2, rWidth, rHeight);
-
-            painter.setPen(Qt::black);
-            painter.drawText(r, Qt::AlignCenter, ticks.at(i - 1));
-        }
-    }
-
-    QPen pen(painter.pen());
+    QPixmap pix;
 
     // draw hour hand
-    const qreal hourAngle = qreal(time.hour()) * 30 + time.minute() * 30 / 60 + time.second() * 30 / 60 / 60;
+    const qreal hourAngle = qreal(time.hour() * 30 + time.minute() * 30 / 60 + time.second() * 30 / 60 / 60);
     painter.save();
-    painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
-    painter.translate(rct.width() / 2.0, rct.height() / 2.0);
+    painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(hourAngle);
-    pen.setColor(QColor("black"));
-    pen.setWidth(3);
-    painter.setPen(pen);
-    painter.drawLine(QPointF(0, 0), QPointF(0, -rct.width() / 2 * 0.5));
+    pix.load(":/icons/actions/datetime/dcc_noun_hour.svg");
+    painter.drawPixmap(-pix.width() / 2, -pix.height() / 2, pix);
     painter.restore();
 
     // draw minute hand
-    const int minuteAngle = time.minute() * 6 + time.second() * 6 / 60;
+    const qreal minuteAngle = qreal(time.minute() * 6 + time.second() * 6 / 60);
     painter.save();
-    painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
-    painter.translate(rct.width() / 2.0, rct.height() / 2.0);
+    painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(minuteAngle);
-//    pen.setColor(QColor("#f97676"));
-    pen.setColor(QColor("gray"));
-    pen.setWidth(2);
-    painter.setPen(pen);
-    painter.drawLine(QPointF(0, 0), QPointF(0, -rct.width() / 2 * 0.65));
+    pix.load(":/icons/actions/datetime/dcc_noun_minute.svg");
+    painter.drawPixmap(-pix.width() / 2, -pix.height() / 2, pix);
     painter.restore();
 
     // draw second hand
-    const qreal secondAngle = time.second() * 6;
+    const qreal secondAngle = qreal(time.second() * 6);
     painter.save();
-    painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
-    painter.translate(rct.width() / 2.0, rct.height() / 2.0);
+    painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(secondAngle);
-    pen.setColor(QColor("#f97676"));
-    pen.setWidth(1.5);
-    painter.setPen(pen);
-    painter.drawLine(QPointF(0, 0), QPointF(0, -rct.width() / 2 * 0.8));
+    pix.load(":/icons/actions/datetime/dcc_noun_second.svg");
+    painter.drawPixmap(-pix.width() / 2, -pix.height() / 2, pix);
     painter.restore();
 
     painter.end();

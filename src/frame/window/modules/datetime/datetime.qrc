@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>../../icons/actions/datetime/dcc_clock_white.svg</file>
+        <file>../../icons/actions/datetime/dcc_noun_minute.svg</file>
+        <file>../../icons/actions/datetime/dcc_noun_hour.svg</file>
+        <file>../../icons/actions/datetime/dcc_clock_black.svg</file>
+        <file>../../icons/actions/datetime/dcc_noun_second.svg</file>
+    </qresource>
+</RCC>
