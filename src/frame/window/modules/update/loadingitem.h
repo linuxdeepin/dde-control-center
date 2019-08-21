@@ -26,9 +26,9 @@
 #include <QLabel>
 
 namespace dcc {
-    namespace widgets {
-        class NormalLabel;
-    }
+namespace widgets {
+class NormalLabel;
+}
 }
 
 namespace DCC_NAMESPACE {

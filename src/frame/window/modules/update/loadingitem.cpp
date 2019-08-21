@@ -49,7 +49,8 @@ LoadingItem::LoadingItem(QFrame *parent)
     m_image = new QImage;
     m_labelImage = new QLabel;
     m_labelImage->setPixmap(QPixmap::fromImage(*m_image));
-    imgLayout->addWidget(m_labelImage);
+    m_labelImage->setMinimumSize(96, 96);
+    imgLayout->addWidget(m_labelImage, 0, Qt::AlignTop);
 
     QHBoxLayout *txtLayout = new QHBoxLayout;
     txtLayout->setAlignment(Qt::AlignCenter);
@@ -64,7 +65,6 @@ LoadingItem::LoadingItem(QFrame *parent)
     layout->addStretch();
 
     setLayout(layout);
-    setFixedHeight(100);
 }
 
 void LoadingItem::setProgressValue(int value)
@@ -86,12 +86,6 @@ void LoadingItem::setMessage(const QString &message)
 void LoadingItem::setVersionVisible(bool state)
 {
     m_labelText->setVisible(state);
-
-    if (state) {
-        setFixedHeight(120);
-    } else {
-        setFixedHeight(100);
-    }
 }
 
 void LoadingItem::setSystemVersion(QString version)
@@ -118,9 +112,9 @@ void LoadingItem::setImageOrTextVisible(bool state)
     setImageVisible(true);
 
     if (state) {
-        m_image->load(":/update/themes/common/icons/success.svg");//need exchange the two picture
+        m_image->load(":/update/updatev20/dcc_all_updated.svg");
     } else {
-        m_image->load(":/update/themes/common/icons/failed.svg");
+        m_image->load(":/update/updatev20/dcc_checking_update.svg");
     }
 
     m_labelImage->setPixmap(QPixmap::fromImage(*m_image));
