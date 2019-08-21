@@ -116,7 +116,14 @@ void AccountsWidget::addUser(User *user)
     connect(user, &User::fullnameChanged, this, [ = ](const QString & name) {
         item->setText(user->displayName());
     });
-    item->setIcon(QIcon(user->currentAvatar()));
+
+    if (user->currentAvatar().startsWith("file://")) {
+        item->setIcon(QIcon(QUrl(user->currentAvatar()).toLocalFile()));
+        m_isShowFirstUserInfo = true;
+    } else {
+        item->setIcon(QIcon(user->currentAvatar()));
+    }
+
     item->setText(user->displayName());
     item->setTextAlignment(Qt::AlignLeft);
     item->setEditable(false);
