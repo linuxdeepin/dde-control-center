@@ -76,8 +76,10 @@ public Q_SLOTS:
 private:
     dcc::accounts::User *m_newUser;
     QVBoxLayout *m_mainContentLayout;
+    QHBoxLayout *m_titleLayout;
     QVBoxLayout *m_inputLayout;
     QHBoxLayout *m_selectLayout;
+    QLabel *m_title;
     DCC_NAMESPACE::accounts::AvatarListWidget *m_avatarListWidget;
     QLabel *m_nameLabel;
     QLabel *m_fullnameLabel;

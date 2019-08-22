@@ -105,7 +105,7 @@ void ModifyPasswdPage::initData()
     m_repeatPasswdLabel->setText(tr("Repeat Password"));
     m_repeatPasswordEdit->setPlaceholderText(tr("Necessary Filling"));
 
-    m_cancleBtn->setText(tr("Cancle"));
+    m_cancleBtn->setText(tr("Cancel"));
     m_saveBtn->setText(tr("Save"));
 
     connect(m_cancleBtn, &QPushButton::clicked, this, &ModifyPasswdPage::requestBack);

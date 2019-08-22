@@ -41,8 +41,10 @@ using namespace DCC_NAMESPACE::accounts;
 CreateAccountPage::CreateAccountPage(QWidget *parent)
     : QWidget(parent)
     , m_mainContentLayout(new QVBoxLayout)
+    , m_titleLayout(new QHBoxLayout)
     , m_inputLayout(new QVBoxLayout)
     , m_selectLayout(new QHBoxLayout)
+    , m_title(new QLabel)
     , m_avatarListWidget(new AvatarListWidget)
     , m_nameLabel(new QLabel)
     , m_fullnameLabel(new QLabel)
@@ -67,6 +69,8 @@ CreateAccountPage::~CreateAccountPage()
 
 void CreateAccountPage::initWidgets()
 {
+    m_titleLayout->addWidget(m_title, 0, Qt::AlignCenter);
+
     m_inputLayout->setSpacing(3);
 
     m_inputLayout->addWidget(m_nameLabel);
@@ -84,6 +88,7 @@ void CreateAccountPage::initWidgets()
     m_selectLayout->addWidget(m_cancleBtn, 0, Qt::AlignCenter);
     m_selectLayout->addWidget(m_addBtn, 0, Qt::AlignCenter);
 
+    m_mainContentLayout->addLayout(m_titleLayout);
     m_mainContentLayout->addWidget(m_avatarListWidget);
     m_mainContentLayout->addLayout(m_inputLayout);
     m_mainContentLayout->addLayout(m_selectLayout);
@@ -117,6 +122,7 @@ void CreateAccountPage::initDatas()
         }
     });
 
+    m_title->setText(tr("New Account"));
     m_nameLabel->setText(tr("Username"));
     m_nameEdit->setPlaceholderText(tr("Necessary Filling"));
     m_fullnameLabel->setText(tr("Full Name"));
@@ -126,8 +132,8 @@ void CreateAccountPage::initDatas()
     m_repeatpasswdLabel->setText(tr("Repeat Password"));
     m_repeatpasswdEdit->setPlaceholderText(tr("Necessary Filling"));
 
-    m_cancleBtn->setText(tr("Cancle"));
-    m_addBtn->setText(tr("Add"));
+    m_cancleBtn->setText(tr("Cancel"));
+    m_addBtn->setText(tr("Create"));
 }
 
 void CreateAccountPage::setModel(User *user)
@@ -223,10 +229,10 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
     case CreationResult::UserNameError:
         showErrorTip(m_nameEdit, result->message());
         break;
-    case CreationResult::PasswordMatchError:
-        showErrorTip(m_nameEdit, result->message());
-        break;
     case CreationResult::PasswordError:
+        showErrorTip(m_passwdEdit, result->message());
+        break;
+    case CreationResult::PasswordMatchError:
         showErrorTip(m_repeatpasswdEdit, result->message());
         break; // reserved for future server edition feature.
     case CreationResult::UnknownError:

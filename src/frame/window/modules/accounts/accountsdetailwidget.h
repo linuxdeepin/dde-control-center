@@ -98,8 +98,8 @@ private:
     QHBoxLayout *m_fingepasswdLayout;
 
     QVBoxLayout *m_mainContentLayout;
+    QHBoxLayout *m_shortnameLayout;
     QHBoxLayout *m_fullnameLayout;
-    QHBoxLayout *m_inputlineLayout;
     dcc::accounts::AvatarWidget *m_avatar;//账户图片
     QLabel *m_shortName;
     QLabel *m_fullName;
@@ -110,8 +110,8 @@ private:
     dcc::widgets::SwitchWidget *m_autoLogin;//自动登录
     dcc::widgets::SwitchWidget *m_nopasswdLogin;//无密码登录
     AvatarListWidget *m_avatarListWidget;
+    DTK_WIDGET_NAMESPACE::DImageButton *m_shortnameBtn;
     DTK_WIDGET_NAMESPACE::DImageButton *m_fullnameBtn;
-    DTK_WIDGET_NAMESPACE::DImageButton *m_inputeditBtn;
     dcc::widgets::SettingsGroup *m_listGrp;//指纹列表
     dcc::accounts::FingerModel *m_model;
     QLabel *m_fingetitleLabel;

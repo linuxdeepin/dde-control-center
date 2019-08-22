@@ -46,8 +46,8 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_setfingeLayout(new QVBoxLayout)
     , m_fingepasswdLayout(new QHBoxLayout)
     , m_mainContentLayout(new QVBoxLayout(this))
+    , m_shortnameLayout(new QHBoxLayout)
     , m_fullnameLayout(new QHBoxLayout)
-    , m_inputlineLayout(new QHBoxLayout)
     , m_avatar(new AvatarWidget)
     , m_shortName(new QLabel)
     , m_fullName(new QLabel)
@@ -57,8 +57,8 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_autoLogin(new SwitchWidget)
     , m_nopasswdLogin(new SwitchWidget)
     , m_avatarListWidget(new AvatarListWidget)
+    , m_shortnameBtn(new DImageButton)
     , m_fullnameBtn(new DImageButton)
-    , m_inputeditBtn(new DImageButton)
     , m_listGrp(new SettingsGroup)
     , m_fingetitleLabel(new QLabel)
     , m_addBtn(new QCommandLinkButton)
@@ -72,24 +72,24 @@ void AccountsDetailWidget::initWidgets()
 {
     setLayout(m_mainContentLayout);
 
-    m_fullnameBtn->setNormalPic(":/widgets/themes/dark/icons/edit_normal@2x.png");
-    m_fullnameBtn->setHoverPic(":/widgets/themes/dark/icons/edit_hover@2x.png");
-    m_fullnameBtn->setPressPic(":/widgets/themes/dark/icons/edit_press@2x.png");
+    m_shortnameBtn->setNormalPic(":/icons/deepin-app-light/actions/12/dcc_avatar.svg");
+    m_shortnameBtn->setHoverPic(":/icons/deepin-app-light/actions/12/dcc_avatar.svg");
+    m_shortnameBtn->setPressPic(":/icons/deepin-app-light/actions/12/dcc_avatar.svg");
 
-    m_inputeditBtn->setNormalPic(":/widgets/themes/dark/icons/edit_normal@2x.png");
-    m_inputeditBtn->setHoverPic(":/widgets/themes/dark/icons/edit_hover@2x.png");
-    m_inputeditBtn->setPressPic(":/widgets/themes/dark/icons/edit_press@2x.png");
+    m_fullnameBtn->setNormalPic(":/icons/deepin-app-light/actions/12/dcc_edit_normal.svg");
+    m_fullnameBtn->setHoverPic(":/icons/deepin-app-light/actions/12/dcc_edit_normal.svg");
+    m_fullnameBtn->setPressPic(":/icons/deepin-app-light/actions/12/dcc_edit_normal.svg");
+
+    m_shortnameLayout->addWidget(m_shortnameBtn, 0, Qt::AlignRight);
+    m_shortnameLayout->addWidget(m_shortName, 0, Qt::AlignLeft);
+
+    m_fullnameLayout->addWidget(m_fullName, 2, Qt::AlignRight);
+    m_fullnameLayout->addWidget(m_fullnameBtn, 1, Qt::AlignLeft);
 
     m_headLayout->addWidget(m_avatar, 0, Qt::AlignHCenter);
-    m_headLayout->addWidget(m_shortName, 0, Qt::AlignHCenter);
+    m_headLayout->addLayout(m_shortnameLayout);
     m_headLayout->addLayout(m_fullnameLayout);
-    m_headLayout->addLayout(m_inputlineLayout);
-
-    m_fullnameLayout->addWidget(m_fullName, 0, Qt::AlignHCenter);
-    m_fullnameLayout->addWidget(m_fullnameBtn, 0, Qt::AlignHCenter);
-
-    m_inputlineLayout->addWidget(m_inputLineEdit, 0, Qt::AlignHCenter);
-    m_inputlineLayout->addWidget(m_inputeditBtn, 0, Qt::AlignHCenter);
+    m_headLayout->addWidget(m_inputLineEdit, 0, Qt::AlignHCenter);
 
     m_modifydelLayout->addWidget(m_modifyPassword);
     m_modifydelLayout->addWidget(m_deleteAccount);
@@ -110,6 +110,9 @@ void AccountsDetailWidget::initWidgets()
     m_mainContentLayout->addLayout(m_setfingeLayout);
     m_mainContentLayout->addStretch();
 
+    m_headLayout->setContentsMargins(0, 0, 0, 0);
+    m_headLayout->setMargin(0);
+
     m_shortName->setFixedHeight(20);
     m_fullName->setFixedHeight(20);
     m_avatar->setAlignment(Qt::AlignHCenter);
@@ -129,8 +132,9 @@ void AccountsDetailWidget::initWidgets()
     m_autoLogin->setDisabled(!isOnline);
     m_nopasswdLogin->setDisabled(!isOnline);
 
+    m_inputLineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    setFocusPolicy(Qt::FocusPolicy::StrongFocus);
     m_inputLineEdit->setVisible(false);
-    m_inputeditBtn->setVisible(false);
 }
 
 void AccountsDetailWidget::initDatas()
@@ -156,14 +160,13 @@ void AccountsDetailWidget::initDatas()
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar, this, [ = ](const QString & avatarPath) {
         Q_EMIT requestSetAvatar(m_curUser, avatarPath);
         setAvatarListWgtVisible(false);
-        setFingerWgtsVisible(true);
+        setFingerWgtsVisible(m_model->isVaild());
     });
     connect(m_curUser, &User::currentAvatarChanged, m_avatar, &AvatarWidget::setAvatarPath);
     connect(m_curUser, &User::nameChanged, m_shortName, &QLabel::setText);
     connect(m_curUser, &User::fullnameChanged, m_fullName, &QLabel::setText);
-    connect(m_fullnameBtn, &DImageButton::clicked, this, &AccountsDetailWidget::updateLineEditDisplayStyle);
-    connect(m_inputeditBtn, &DImageButton::clicked, this, [ = ]() {
-        Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text());
+    connect(m_fullnameBtn, &DImageButton::clicked, this, [ = ]() {
+        m_inputLineEdit->setFocus();
         updateLineEditDisplayStyle();
     });
     connect(m_addBtn, &QCommandLinkButton::clicked, this, [ = ] {
@@ -175,22 +178,27 @@ void AccountsDetailWidget::initDatas()
     connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
 
+    connect(m_inputLineEdit, &QLineEdit::editingFinished, this, [ = ](){
+        Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text());
+        updateLineEditDisplayStyle();
+    });
+
     //use m_curUser fill widget data
     m_avatar->setAvatarPath(m_curUser->currentAvatar());
     m_shortName->setText(m_curUser->name());
     m_fullName->setText(m_curUser->fullname());
 
-    m_modifyPassword->setText(tr("Modify the password"));
-    m_deleteAccount->setText(tr("Delete account"));
+    m_modifyPassword->setText(tr("Change Password"));
+    m_deleteAccount->setText(tr("Delete Account"));
 
-    m_autoLogin->setTitle(tr("Automatic login"));
+    m_autoLogin->setTitle(tr("Auto Login"));
     m_autoLogin->setChecked(m_curUser->autoLogin());
-    m_nopasswdLogin->setTitle(tr("No password login"));
+    m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
     m_fingetitleLabel->setText(tr("Fingerprint Password"));
     m_addBtn->setText(tr("Add fingerprint"));
-    m_clearBtn->setText(tr("Clear Fingerprint"));
+    m_clearBtn->setText(tr("Delete fingerprint"));
 }
 
 void AccountsDetailWidget::updateLineEditDisplayStyle()
@@ -200,7 +208,6 @@ void AccountsDetailWidget::updateLineEditDisplayStyle()
     m_fullName->setVisible(visible);
     m_fullnameBtn->setVisible(visible);
     m_inputLineEdit->setVisible(!visible);
-    m_inputeditBtn->setVisible(!visible);
 
     if (!visible) {
         m_inputLineEdit->setText(m_fullName->text());
