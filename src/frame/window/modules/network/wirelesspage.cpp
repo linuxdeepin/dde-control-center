@@ -45,9 +45,13 @@ using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
 using namespace dde::network;
 
-APItem::APItem(const QString &text) : QStandardItem (text)
+APItem::APItem(const QString &text) : DStandardItem (text)
 {
     setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
+
+    DViewItemAction* editaction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
+    editaction->setIcon(QIcon::fromTheme("arrow-right"));
+    setActionList(Qt::Edge::RightEdge, {editaction});
 }
 
 void APItem::setSignalStrength(int ss)
@@ -92,6 +96,11 @@ QString APItem::path() const
     return data(PathRole).toString();
 }
 
+QAction *APItem::action() const
+{
+    return actionList(Qt::Edge::RightEdge).front();
+}
+
 bool APItem::operator<(const QStandardItem &other) const
 {
     return data(SortRole).value<APSortInfo>() < other.data(SortRole).value<APSortInfo>();
@@ -104,7 +113,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
       m_closeHotspotBtn(new QPushButton),
       m_sortDelayTimer(new QTimer(this)),
       m_indicatorDelayTimer(new QTimer(this)),
-      m_lvAP(new QListView(this)),
+      m_lvAP(new DListView(this)),
       m_modelAP(new QStandardItemModel(m_lvAP)),
       m_switch(new SwitchWidget())
 {
@@ -157,31 +166,12 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     setTitle(tr("WLAN"));
 #endif
 
-    //Contains dirty hacks until we get custom actions in items...
-    QTimer *t = new QTimer(this);
-    t->setSingleShot(true);
-    QTime *ct = new QTime();
-    ct->start();
-    connect(t, &QTimer::timeout, this,
-            [this, t] {
-                QModelIndex idx = t->property("idx").value<QModelIndex>();
+    connect(m_lvAP, &QListView::clicked, this,
+            [this](const QModelIndex &idx) {
                 if (idx.data(APItem::PathRole).toString().length() == 0) {
                     this->showConnectHidePage();
                     return;
                 }
-                this->onApWidgetEditRequested(idx.data(APItem::PathRole).toString(), idx.data(Qt::ItemDataRole::DisplayRole).toString());
-            });
-    connect(m_lvAP, &QListView::clicked, this,
-            [t, ct](const QModelIndex &idx) {
-                if (ct && ct->elapsed() > 100) {
-                    t->setProperty("idx", QVariant::fromValue(idx));
-                    t->start(100);
-                }
-            });
-    connect(m_lvAP, &QListView::doubleClicked, this,
-            [this, t, ct](const QModelIndex &idx) {
-                t->stop();
-                if (ct) ct->start();
                 this->onApWidgetConnectRequested(idx.data(APItem::PathRole).toString(), idx.data(Qt::ItemDataRole::DisplayRole).toString());
             });
 
@@ -233,8 +223,12 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
         APItem *i = new APItem(ssid);
         m_apItems[ssid] = i;
         m_modelAP->appendRow(i);
+        i->setPath(apInfo.value("Path").toString());
         i->setConnected(ssid == m_device->activeApSsid());
         i->setSignalStrength(apInfo.value("Strength").toInt());
+        connect(i->action(), &QAction::triggered, [this, i] {
+            this->onApWidgetEditRequested(i->data(APItem::PathRole).toString(), i->data(Qt::ItemDataRole::DisplayRole).toString());
+        });
     }
 
     onAPChanged(apInfo);

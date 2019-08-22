@@ -32,8 +32,9 @@
 #include "connectioneditpage.h"
 #include "window/namespace.h"
 
+#include <DListView>
+
 #include <QPointer>
-#include <QListView>
 #include <QStandardItemModel>
 #include <wireddevice.h>
 
@@ -78,11 +79,9 @@ private Q_SLOTS:
     void initUI();
 
     void refreshConnectionList();
-    void editConnection();
-    void editConnection1(const QModelIndex &idx);
+    void editConnection(const QString &connectionPath);
     void createNewConnection();
-    void activateConnection();
-    void activateConnection1(const QModelIndex &idx);
+    void activateConnection(const QString &connectionPath);
     void checkActivatedConnection();
     void onDeviceStatusChanged(const dde::network::WiredDevice::DeviceStatus stat);
     void onDeviceRemoved();
@@ -93,7 +92,7 @@ private:
 
     dcc::widgets::SwitchWidget *m_switch;
 
-    QListView *m_lvProfiles;
+    DListView *m_lvProfiles;
     QStandardItemModel *m_modelprofiles;
 
     QPointer<ConnectionEditPage> m_editPage;
@@ -102,6 +101,8 @@ private:
     dcc::widgets::SettingsGroup *m_tipsGrp;
 
     QMap<dcc::widgets::NextPageWidget *, QString> m_connectionPath;
+
+    static const int PathRole = Dtk::UserRole + 0x100;
 };
 
 }

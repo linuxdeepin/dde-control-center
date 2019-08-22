@@ -31,12 +31,12 @@
 #include "window/namespace.h"
 
 #include <DStyleOption>
+#include <DListView>
 
 #include <QMap>
 #include <QTimer>
 #include <QPointer>
 #include <QJsonObject>
-#include <QListView>
 #include <QStandardItem>
 #include <QStandardItemModel>
 
@@ -77,7 +77,7 @@ struct APSortInfo {
     }
 };
 
-class APItem : public QStandardItem {
+class APItem : public DStandardItem {
 public:
     explicit APItem(const QString &text);
     void setSignalStrength(int ss);
@@ -86,6 +86,7 @@ public:
     void setSortInfo(const APSortInfo &si);
     void setPath(const QString &p);
     QString path() const;
+    QAction *action() const;
 
     bool operator<(const QStandardItem &other) const override;
 
@@ -144,7 +145,7 @@ private:
 
     dcc::widgets::SettingsGroup *m_tipsGroup;
     QPushButton *m_closeHotspotBtn;
-    QListView *m_lvAP;
+    DListView *m_lvAP;
     QStandardItemModel *m_modelAP;
 
     QPointer<ConnectionWirelessEditPage> m_apEditPage;

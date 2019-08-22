@@ -53,9 +53,9 @@ using namespace dde::network;
 WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     : ContentWidget(parent),
       m_device(dev),
-      m_switch(new SwitchWidget())
+      m_switch(new SwitchWidget()),
+      m_lvProfiles(new DListView())
 {
-    m_lvProfiles = new QListView();
     m_lvProfiles->setModel(m_modelprofiles = new QStandardItemModel());
 
     TipsItem *tips = new TipsItem;
@@ -89,28 +89,9 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     setContent(centralWidget);
     setTitle(tr("Select Settings"));
 
-    //Contains dirty hacks until we get custom actions in items...
-    QTimer *t = new QTimer(this);
-    t->setSingleShot(true);
-    QTime *ct = new QTime();
-    ct->start();
-    connect(t, &QTimer::timeout, this,
-            [this, t] {
-                QModelIndex idx = t->property("idx").value<QModelIndex>();
-                this->editConnection1(idx);
-            });
     connect(m_lvProfiles, &QListView::clicked, this,
-            [t, ct](const QModelIndex &idx) {
-                if (ct && ct->elapsed() > 100) {
-                    t->setProperty("idx", QVariant::fromValue(idx));
-                    t->start(100);
-                }
-            });
-    connect(m_lvProfiles, &QListView::doubleClicked, this,
-            [this, t, ct](const QModelIndex &idx) {
-                t->stop();
-                if (ct) ct->start();
-                this->activateConnection1(idx);
+            [this](const QModelIndex &idx) {
+                this->activateConnection(idx.data(PathRole).toString());
             });
 
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
@@ -166,9 +147,15 @@ void WiredPage::refreshConnectionList()
         if (m_connectionPath.values().contains(path))
             continue;
 
-        QStandardItem *it = new QStandardItem(m_model->connectionNameByPath(path));
-        it->setData(path, Dtk::UserRole + 1);
+        DStandardItem *it = new DStandardItem(m_model->connectionNameByPath(path));
+        it->setData(path, PathRole);
         it->setCheckState(path == m_device->activeWiredConnSettingPath() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+
+        DViewItemAction* editaction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
+        editaction->setIcon(QIcon::fromTheme("arrow-right"));
+        connect(editaction, &QAction::triggered, [this, path] {this->editConnection(path);});
+        it->setActionList(Qt::Edge::RightEdge, {editaction});
+
         m_modelprofiles->appendRow(it);
     }
 
@@ -187,27 +174,11 @@ void WiredPage::refreshConnectionList()
     checkActivatedConnection();
 }
 
-void WiredPage::editConnection()
+void WiredPage::editConnection(const QString &connectionPath)
 {
-    NextPageWidget *w = qobject_cast<NextPageWidget *>(sender());
-    Q_ASSERT(w);
-
-    const QString connPath = m_connectionPath[w];
 
     m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection,
-            m_device->path(), m_model->connectionUuidByPath(connPath));
-    m_editPage->initSettingsWidget();
-    connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
-    connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
-    Q_EMIT requestNextPage(m_editPage);
-}
-
-void WiredPage::editConnection1(const QModelIndex &idx)
-{
-    const QString connPath = idx.data(Dtk::UserRole + 1).toString();
-
-    m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection,
-            m_device->path(), m_model->connectionUuidByPath(connPath));
+            m_device->path(), m_model->connectionUuidByPath(connectionPath));
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
@@ -223,21 +194,9 @@ void WiredPage::createNewConnection()
     Q_EMIT requestNextPage(m_editPage);
 }
 
-void WiredPage::activateConnection()
+void WiredPage::activateConnection(const QString &connectionPath)
 {
-    NextPageWidget *w = qobject_cast<NextPageWidget *>(sender());
-    Q_ASSERT(w);
-
-    const QString connPath = m_connectionPath[w];
-
-    Q_EMIT requestActiveConnection(m_device->path(), m_model->connectionUuidByPath(connPath));
-}
-
-void WiredPage::activateConnection1(const QModelIndex &idx)
-{
-    const QString connPath = idx.data(Dtk::UserRole + 1).toString();
-
-    Q_EMIT requestActiveConnection(m_device->path(), m_model->connectionUuidByPath(connPath));
+    Q_EMIT requestActiveConnection(m_device->path(), m_model->connectionUuidByPath(connectionPath));
 }
 
 void WiredPage::checkActivatedConnection()
