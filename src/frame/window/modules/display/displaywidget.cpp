@@ -132,14 +132,12 @@ void DisplayWidget::initMenuUI()
     QStandardItem *btn{nullptr};
     for (auto menu : m_multMenuList) {
         btn = new QStandardItem(menu.menuText);
-        btn->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
         btn->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_multiModel->appendRow(btn);
     }
 
     for (auto menu : m_singleMenuList) {
         btn = new QStandardItem(menu.menuText);
-        btn->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
         btn->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_singleModel->appendRow(btn);
     }

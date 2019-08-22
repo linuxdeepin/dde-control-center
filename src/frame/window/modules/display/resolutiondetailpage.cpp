@@ -146,7 +146,6 @@ void ResolutionDetailPage::initResoList()
                 item->setText(res);
             }
             item->setCheckable(true);
-            item->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
             item->setData(VListViewItemMargin, Dtk::MarginsRole);
 
             if (curMode == m)

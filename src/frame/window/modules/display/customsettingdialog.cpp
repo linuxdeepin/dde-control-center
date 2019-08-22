@@ -20,8 +20,6 @@
  */
 
 #include "customsettingdialog.h"
-#include "monitorinfodelegate.h"
-#include "monitorinfomodel.h"
 
 #include "modules/display/displaymodel.h"
 #include "modules/display/monitor.h"
@@ -78,15 +76,15 @@ void CustomSettingDialog::init()
     m_layout->addWidget(resoLabel);
 
     if (m_isPrimary) {
-        m_baseListView = new BasicListView();
-        m_baseListView->installEventFilter(this);
-        m_layout->addWidget(m_baseListView);
+        m_moniList = new DListView;
+        m_moniList->installEventFilter(this);
+        m_moniList->setIconSize(QSize(42, 42));
+        m_layout->addWidget(m_moniList);
     }
 
-    m_resolutionList = new QListView;
+    m_resolutionList = new DListView;
     m_layout->addWidget(m_resolutionList);
     setLayout(m_layout);
-    m_layout->addStretch(1);
 
     QHBoxLayout *hlayout = new QHBoxLayout();
     m_layout->addLayout(hlayout);
@@ -101,7 +99,6 @@ void CustomSettingDialog::init()
         Q_EMIT CustomSettingDialog::requestShowRotateDialog(m_monitor);
     });
 
-    hlayout->addStretch(1);
     hlayout->setMargin(10);
 
     if (m_isPrimary) {
@@ -153,9 +150,8 @@ void CustomSettingDialog::initWithModel()
 
         m_layout->insertWidget(1, m_monitroControlWidget);
 
-        Q_ASSERT(m_baseListView);
-        m_baseListView->setModel(new MonitorInfoModel(m_model));
-        m_baseListView->setItemDelegate(new MonitorInfoDelegate);
+        Q_ASSERT(m_moniList);
+        initMoniList();
     }
 
     move(m_monitor->rect().center() - QPoint(width() / 2, height() / 2));
@@ -202,7 +198,7 @@ void CustomSettingDialog::initResolutionList()
 
         if (first) {
             first = false;
-            item->setText(res + tr(" (Recommended)"));
+            item->setText(res + QString(" (%1)").arg(tr("Recommended")));
         } else {
             item->setText(res);
         }
@@ -228,6 +224,32 @@ void CustomSettingDialog::initResolutionList()
             return;
         Q_EMIT requestSetResolution(m_monitor, modes[idx.row()].id());
     });
+}
+
+void CustomSettingDialog::initMoniList()
+{
+    auto listModel = new QStandardItemModel;
+    m_moniList->setModel(listModel);
+
+    auto moniList = m_model->monitorList();
+    for (int idx = 0; idx < moniList.size(); ++idx) {
+        auto item = new DStandardItem;
+        item->setIcon(QIcon::fromTheme(idx % 2 ? "dcc_display_vga1" : "dcc_display_lvds1"));
+
+        auto moni = moniList[idx];
+        auto *titleAction = new DViewItemAction;
+        titleAction->setText(moni->name());
+
+        auto *subTitleAction = new DViewItemAction;
+        QString str = QString("%1 %2 %3%4x%5").arg(moni->w()).arg(tr("inch"))
+                      .arg(tr("Resolution").arg(QString::number(moni->w())).arg(QString::number(moni->h())));
+        subTitleAction->setText(str);
+
+        DViewItemActionList actionList;
+        actionList << titleAction << subTitleAction;
+        item->setTextActionList(actionList);
+        listModel->appendRow(item);
+    }
 }
 
 void CustomSettingDialog::onMonitorPress(Monitor *mon)

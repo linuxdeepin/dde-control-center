@@ -20,10 +20,6 @@
  */
 
 #include "multiscreensettingpage.h"
-
-#include "widgets/basiclistview.h"
-#include "displaycontrolmodel.h"
-#include "displayitemdelegate.h"
 #include "modules/display/displaymodel.h"
 
 #include <QVBoxLayout>
@@ -32,63 +28,93 @@
 using namespace DCC_NAMESPACE::display;
 using namespace dcc::widgets;
 using namespace dcc::display;
+DWIDGET_USE_NAMESPACE
 
 MultiScreenSettingPage::MultiScreenSettingPage(QWidget *parent)
     : QWidget(parent)
-    , m_baseListView(new BasicListView)
+    , m_modeList(new DListView)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addStretch();
     mainLayout->setMargin(0);
 
-    m_baseListView->installEventFilter(this);
-    mainLayout->addWidget(m_baseListView);
+    m_modeList->installEventFilter(this);
+    mainLayout->addWidget(m_modeList);
 
     //~ contents_path /display/Customize
     QPushButton *btn = new QPushButton(tr("Customize"), this);
     mainLayout->addSpacing(10);
     mainLayout->addWidget(btn);
 
-    mainLayout->addStretch(1);
     setLayout(mainLayout);
-    setMinimumWidth(300);
 
     connect(btn, &QPushButton::clicked, this, &MultiScreenSettingPage::onCustomClicked);
-    connect(m_baseListView, &BasicListView::clicked,
-            this, &MultiScreenSettingPage::onItemClicked);
+    connect(m_modeList, &DListView::clicked, this, &MultiScreenSettingPage::onItemClicked);
 }
 
 void MultiScreenSettingPage::setModel(dcc::display::DisplayModel *model)
 {
     m_model = model;
-    m_baseListView->setModel(new DisplayControlModel(model));
-    m_baseListView->setItemDelegate(new DisplayItemDelegate);
+    m_modeList->setModel(new QStandardItemModel());
+    m_modeList->setIconSize(QSize(42, 42));
+
+    initModeList();
 }
 
 void MultiScreenSettingPage::onItemClicked(const QModelIndex &index)
 {
-    const DisplayControlModel::ItemType type =
-        index.data(DisplayControlModel::ItemTypeRole).value<DisplayControlModel::ItemType>();
-
-    switch (type) {
-    case DisplayControlModel::Duplicate:
+    switch (index.row()) {
+    case 0:
         Q_EMIT requestDuplicateMode();
         return;
-    case DisplayControlModel::Extend:
+    case 1:
         Q_EMIT requestExtendMode();
         return;
-    case DisplayControlModel::Custom:
-        Q_EMIT requestConfig(index.data(DisplayControlModel::ItemConfigNameRole).toString());
-        return;
-    case DisplayControlModel::NewConfig:
-        Q_EMIT requestCustom();
-        return;
-    default:;
+    default:
+        break;
     }
 
-    Q_ASSERT(type == DisplayControlModel::Specified);
+    auto moniName = m_model->monitorList()[index.row() - 2]->name();
+    Q_EMIT requestOnlyMonitor(moniName);
+}
 
-    Q_EMIT requestOnlyMonitor(index.data(DisplayControlModel::ItemNameRole).toString());
+void MultiScreenSettingPage::initModeList()
+{
+    auto listModel = qobject_cast<QStandardItemModel * >(m_modeList->model());
+    Q_ASSERT(listModel);
+
+    QStringList titleList;
+    titleList << tr("Duplicate") << tr("Extend");
+
+    QStringList subTitleList;
+    subTitleList << tr("Show the same image on other screens")
+                 << tr("Expand the desktop across the screens");
+
+    QStringList iconList;
+    iconList << tr("dcc_display_copy") << tr("dcc_display_expansion");
+
+    auto moniList = m_model->monitorList();
+    for (int i = 0; i < moniList.size(); ++i) {
+        auto moniNmae = moniList[i]->name();
+        titleList << tr("%1 only").arg(moniNmae);
+        subTitleList << tr("Show the screen content only on %1").arg(moniNmae);
+        iconList << (i % 2 ? "dcc_display_vga1" : "dcc_display_lvds1");
+    }
+
+    for (int idx = 0; idx < titleList.size(); ++idx) {
+        auto *titleAction = new DViewItemAction;
+        titleAction->setText(titleList[idx]);
+
+        auto *subTitleAction = new DViewItemAction;
+        subTitleAction->setText(subTitleList[idx]);
+
+        DViewItemActionList actionList;
+        actionList << titleAction << subTitleAction;
+
+        auto item = new DStandardItem;
+        item->setIcon(QIcon::fromTheme(iconList[idx]));
+        item->setTextActionList(actionList);
+        listModel->appendRow(item);
+    }
 }
 
 void MultiScreenSettingPage::onCustomClicked()

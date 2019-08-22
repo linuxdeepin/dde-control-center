@@ -24,6 +24,8 @@
 
 #include "window/namespace.h"
 
+#include <DListView>
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -72,7 +74,10 @@ private Q_SLOTS:
     void onItemClicked(const QModelIndex &);
 
 private:
-    dcc::widgets::BasicListView *m_baseListView{nullptr};
+    void initModeList();
+
+private:
+    DTK_WIDGET_NAMESPACE::DListView *m_modeList{nullptr};
     dcc::display::DisplayModel *m_model{nullptr};
 };
 

@@ -84,7 +84,6 @@ void SoundWidget::initMenuUI()
     QStandardItemModel *listModel = new QStandardItemModel(this);
     for (auto mm : m_menuMethod) {
         QStandardItem *item = new QStandardItem(mm.menuText);
-        item->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         listModel->appendRow(item);
     }

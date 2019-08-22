@@ -165,11 +165,7 @@ set(WINDOW_FILES
     window/modules/display/brightnesspage.cpp
     window/modules/display/rotatedialog.cpp
     window/modules/display/multiscreensettingpage.cpp
-    window/modules/display/displayitemdelegate.cpp
-    window/modules/display/displaycontrolmodel.cpp
     window/modules/display/customsettingdialog.cpp
-    window/modules/display/monitorinfomodel.cpp
-    window/modules/display/monitorinfodelegate.cpp
     window/modules/power/powermodule.cpp
     window/modules/power/powerwidget.cpp
     window/modules/power/generalwidget.cpp

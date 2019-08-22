@@ -24,7 +24,10 @@
 
 #include "window/namespace.h"
 
+#include <DListView>
+
 #include <QDialog>
+
 #include <memory>
 
 QT_BEGIN_NAMESPACE
@@ -78,16 +81,17 @@ private:
     void initWithModel();
     void initOtherDialog();
     void initResolutionList();
+    void initMoniList();
 
 private:
     bool m_isPrimary{false};
     dcc::display::Monitor *m_monitor{nullptr};
     dcc::display::DisplayModel *m_model{nullptr};
-    QListView *m_resolutionList{nullptr};
+    DTK_WIDGET_NAMESPACE::DListView *m_resolutionList{nullptr};
     QVBoxLayout *m_layout{nullptr};
     std::unique_ptr<dcc::display::MonitorIndicator> m_fullIndication;
     dcc::display::MonitorControlWidget *m_monitroControlWidget{nullptr};
-    dcc::widgets::BasicListView *m_baseListView{nullptr};
+    DTK_WIDGET_NAMESPACE::DListView *m_moniList{nullptr};
     QList<CustomSettingDialog *> m_otherDialog;
 };
 }
