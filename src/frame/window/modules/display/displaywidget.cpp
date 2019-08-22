@@ -111,40 +111,43 @@ void DisplayWidget::initMenuUI()
 {
     m_multMenuList = {
         //~ contents_path /display/Multiple Displays
-        {tr("Multiple Displays"), QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiScreenPage)},
+        {tr("Multiple Displays"), "dcc_display", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiScreenPage)},
         //~ contents_path /display/Resolution
-        {tr("Resolution"), QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
+        {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
         //~ contents_path /display/Brightness
-        {tr("Brightness"), QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
+        {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
         //~ contents_path /display/Display Scaling
-        {tr("Display Scaling"), QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)}
+        {tr("Display Scaling"), "dcc_screen", QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)}
     };
 
     m_singleMenuList = {
         //~ contents_path /display/Resolution
-        {tr("Resolution"), QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
+        {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
         //~ contents_path /display/Brightness
-        {tr("Brightness"), QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
+        {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
         //~ contents_path /display/Display Scaling
-        {tr("Display Scaling"), QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)}
+        {tr("Display Scaling"), "dcc_screen", QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)}
     };
 
     QStandardItem *btn{nullptr};
     for (auto menu : m_multMenuList) {
         btn = new QStandardItem(menu.menuText);
         btn->setData(VListViewItemMargin, Dtk::MarginsRole);
+        btn->setIcon(QIcon::fromTheme(menu.iconName));
         m_multiModel->appendRow(btn);
     }
 
     for (auto menu : m_singleMenuList) {
         btn = new QStandardItem(menu.menuText);
         btn->setData(VListViewItemMargin, Dtk::MarginsRole);
+        btn->setIcon(QIcon::fromTheme(menu.iconName));
         m_singleModel->appendRow(btn);
     }
 
     m_menuList->setMinimumWidth(230);
     m_menuList->setFrameShape(QFrame::NoFrame);
-    m_centralLayout->addWidget(m_menuList);
+    m_menuList->setIconSize(QSize(32, 32));
+    m_centralLayout->addWidget(m_menuList, 1);
     connect(m_menuList, &QListView::clicked, this, &DisplayWidget::onMenuClicked);
 
     m_centralLayout->addStretch(1);

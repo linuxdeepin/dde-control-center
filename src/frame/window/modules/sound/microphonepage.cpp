@@ -52,8 +52,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , m_sw(new SwitchWidget)
-    , m_inputSlider(new TitledSliderItem("Input Volume"))
-
+    , m_inputSlider(new TitledSliderItem(tr("Input Volume")))
 {
     setMinimumWidth(400);
 
@@ -113,7 +112,7 @@ void MicrophonePage::initSlider()
     m_layout->insertWidget(1, m_inputSlider);
 
 
-    m_feedbackSlider = (new TitledSliderItem("Feedback Volume"));
+    m_feedbackSlider = (new TitledSliderItem("Input Level"));
     DCCSlider *slider2 = m_feedbackSlider->slider();
     slider2->setRange(0, 100);
     slider2->setEnabled(false);

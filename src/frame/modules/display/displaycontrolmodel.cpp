@@ -36,12 +36,23 @@ DisplayControlModel::DisplayControlModel(DisplayModel *model, QObject *parent)
 
       m_displayModel(model)
 {
-    connect(m_displayModel, &DisplayModel::displayModeChanged, this, &DisplayControlModel::onDisplayModeChanged, Qt::QueuedConnection);
-    connect(m_displayModel, &DisplayModel::monitorListChanged, this, [=] { Q_EMIT layoutChanged(); }, Qt::QueuedConnection);
-    connect(m_displayModel, &DisplayModel::configListChanged, this, [=] { Q_EMIT layoutChanged(); }, Qt::QueuedConnection);
-    connect(m_displayModel, &DisplayModel::primaryScreenChanged, this, [=] { onDisplayModeChanged(m_displayModel->displayMode()); }, Qt::QueuedConnection);
-    connect(m_displayModel, &DisplayModel::currentConfigChanged, this, [=] { onDisplayModeChanged(m_displayModel->displayMode()); }, Qt::QueuedConnection);
-    connect(this, &DisplayControlModel::layoutChanged, this, [=] { onDisplayModeChanged(m_displayModel->displayMode()); }, Qt::QueuedConnection);
+    connect(m_displayModel, &DisplayModel::displayModeChanged,
+            this, &DisplayControlModel::onDisplayModeChanged, Qt::QueuedConnection);
+    connect(m_displayModel, &DisplayModel::monitorListChanged,
+            this, [ = ] { Q_EMIT layoutChanged(); }, Qt::QueuedConnection);
+    connect(m_displayModel, &DisplayModel::monitorListChanged,
+            this, [ = ] { Q_EMIT layoutChanged(); }, Qt::QueuedConnection);
+    connect(m_displayModel, &DisplayModel::configListChanged,
+            this, [ = ] { Q_EMIT layoutChanged(); }, Qt::QueuedConnection);
+    connect(m_displayModel, &DisplayModel::primaryScreenChanged,
+            this, [ = ] { onDisplayModeChanged(m_displayModel->displayMode()); },
+            Qt::QueuedConnection);
+    connect(m_displayModel, &DisplayModel::currentConfigChanged,
+            this, [ = ] { onDisplayModeChanged(m_displayModel->displayMode()); },
+            Qt::QueuedConnection);
+    connect(this, &DisplayControlModel::layoutChanged,
+            this, [ = ] { onDisplayModeChanged(m_displayModel->displayMode()); },
+            Qt::QueuedConnection);
 
     onDisplayModeChanged(m_displayModel->displayMode());
 }
@@ -84,7 +95,7 @@ QVariant DisplayControlModel::data(const QModelIndex &index, int role) const
 const QString DisplayControlModel::optionName(const int index) const
 {
     if (index == 0)
-        return tr("Copy");
+        return tr("Duplicate");
     else if (index == 1)
         return tr("Extend");
     else if (index < m_displayModel->monitorList().size() + 2)
@@ -96,11 +107,11 @@ const QString DisplayControlModel::optionName(const int index) const
 const QString DisplayControlModel::optionDescription(const int index) const
 {
     if (index == 0)
-        return tr("Copy the screen contents to one or more screens");
+        return tr("Show the same image on other screens");
     else if (index == 1)
-        return tr("Extend the screen contents to display different contents on different screens");
+        return tr("Expand the desktop across the screens");
     else if (index < m_displayModel->monitorList().size() + 2)
-        return tr("Screen contents are only displayed on %1").arg(m_displayModel->monitorList()[index - 2]->name());
+        return tr("Show the screen content only on %1").arg(m_displayModel->monitorList()[index - 2]->name());
     else
         return QString();
 }
@@ -148,18 +159,23 @@ DisplayControlModel::ItemType DisplayControlModel::optionType(const int index) c
     return NewConfig;
 }
 
-const QPixmap DisplayControlModel::optionIcon(const int index) const
+const QIcon DisplayControlModel::optionIcon(const int index) const
 {
     const ItemType type = optionType(index);
 
     switch (type)
     {
-    case Duplicate:     return QPixmap(":/frame/themes/dark/icons/copy_mode.png");
-    case Extend:        return QPixmap(":/frame/themes/dark/icons/extend_mode.png");
+    switch (type) {
+    case Duplicate:
+        return QIcon::fromTheme("dcc_display_copy");
+    case Extend:
+        return QIcon::fromTheme("dcc_display_expansion");
     case NewConfig:
-    case Custom:        return QPixmap(":/frame/themes/dark/icons/custom.png");
-    case Specified:     return QPixmap(index > 2 ? ":/frame/themes/dark/icons/only2.png" : ":/frame/themes/dark/icons/only1.png");
-    default:;
+    case Custom:
+        return QIcon::fromTheme("dcc_custome");
+    case Specified:
+        return index > 2 ? QIcon::fromTheme("dcc_display_lvds1")
+                       : QIcon::fromTheme("dcc_display_vga1");
     }
 
     Q_UNREACHABLE();

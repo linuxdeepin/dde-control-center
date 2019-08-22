@@ -43,8 +43,8 @@ void DisplayItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     if (!index.data(DisplayControlModel::ItemIsLastRole).toBool())
         painter->drawLine(QPoint(60, option.rect.bottom()), QPoint(option.rect.right() - 30, option.rect.bottom()));
 
-    const QPixmap &iconPix = index.data(DisplayControlModel::ItemIconRole).value<QPixmap>();
-
+    const QIcon &icon = index.data(DisplayControlModel::ItemIconRole).value<QIcon>();
+    auto iconPix = icon.pixmap(42,42);
     const int icon_x = 15;
     const int icon_y = option.rect.top() + (option.rect.height() - iconPix.height() / qApp->devicePixelRatio()) / 2;
     painter->drawPixmap(icon_x, icon_y, iconPix);

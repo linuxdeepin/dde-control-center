@@ -64,7 +64,7 @@ public:
 
 private:
     ItemType optionType(const int index) const;
-    const QPixmap optionIcon(const int index) const;
+    const QIcon optionIcon(const int index) const;
     const QString optionName(const int index) const;
     const QString optionDescription(const int index) const;
 

@@ -150,7 +150,8 @@ void RotateDialog::paintEvent(QPaintEvent *e)
     QRect destHRect(0, 0, width(), margin);
     QRect destVRect(0, 0, height(), margin);
 
-    QString tips(tr("Left click to rotate, right click to restore and exit, press Ctrl+S to save."));
+    QString tips(tr("Left click to rotate, right click to restore and exit, \
+                            press Ctrl+S to save."));
 
     // bottom
     painter.translate(0, height() - margin);

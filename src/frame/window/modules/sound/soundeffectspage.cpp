@@ -44,7 +44,7 @@ DWIDGET_USE_NAMESPACE
 SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
-    , m_sw(new SwitchWidget(tr("System Sound Effect")))
+    , m_sw(new SwitchWidget(tr("Sound Effects")))
     , m_effectList(new HoverListView)
     , m_sound(nullptr)
 {
