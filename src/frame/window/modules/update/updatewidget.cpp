@@ -57,8 +57,8 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 {
     //~ contents_path /update/Update
     m_topSwitchWidgetBtn->addSegmented(QIcon::fromTheme("dcc_sync_update"), tr("Update"));
-    //~ contents_path /update/Update Setting
-    m_topSwitchWidgetBtn->addSegmented(QIcon::fromTheme("dcc_setting"), tr("Update Setting"));
+    //~ contents_path /update/Update Settings
+    m_topSwitchWidgetBtn->addSegmented(QIcon::fromTheme("dcc_setting"), tr("Update Settings"));
     m_topSwitchWidgetBtn->setMinimumSize(240, 36);
 
     connect(m_topSwitchWidgetBtn, &DSegmentedControl::currentChanged, [ = ]() {

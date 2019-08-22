@@ -86,11 +86,11 @@ void UpdateModule::active()
 void UpdateModule::load(QString path)
 {
     if (m_updateWidget) {
-        if (path == "Update Setting") {
+        if (path == "Update Settings") {
             m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateSetting);
         } else if (path == "Update") {
             m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateCheck);
-        } else if (path == "Update Setting/Switch Mirror") {
+        } else if (path == "Update Settings/Switch Mirror") {
             m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateSettingMir);
         }
     }

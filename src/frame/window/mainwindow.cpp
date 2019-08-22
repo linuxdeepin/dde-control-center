@@ -462,7 +462,7 @@ void MainWindow::linkTopBackSignal(QString moduleName, QWidget *w)
     };
 
     //link update::MirrorsWidget backButton
-    if (moduleName == tr("update")) {
+    if (moduleName == "update") {
         DCC_NAMESPACE::update::MirrorsWidget *widget = dynamic_cast<DCC_NAMESPACE::update::MirrorsWidget *>(w);
         connect(widget, &DCC_NAMESPACE::update::MirrorsWidget::notifyBackpage, this, slotDeletefunc);
     }

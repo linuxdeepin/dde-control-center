@@ -89,7 +89,7 @@ void DatetimeModule::load(QString path)
         type = TIMEZONELIST;
     } else if (path == "System Timezone") {
         type = SYSTEMTIMEZONE;
-    } else if (path == "Time Setting") {
+    } else if (path == "Time Settings") {
         type = TIMESETTING;
     }
 
