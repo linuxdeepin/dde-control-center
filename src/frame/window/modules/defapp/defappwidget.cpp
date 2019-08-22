@@ -63,7 +63,8 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
           << "dcc_text"
           << "dcc_music"
           << "dcc_video"
-          << "dcc_photo";
+          << "dcc_photo"
+          << "dcc_terminal";
 
     //Initialize second page view and model
     QStandardItemModel *model = new QStandardItemModel(this);
