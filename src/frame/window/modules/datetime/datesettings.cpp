@@ -118,6 +118,7 @@ DateSettings::DateSettings(QWidget *parent)
     connect(confirmButton, &QPushButton::clicked, this, &DateSettings::onConfirmButtonClicked);
 
     connect(m_monthWidget, &DateWidget::editingFinished, this, &DateSettings::updateDayRange);
+    connect(m_yearWidget, &DateWidget::editingFinished, this, &DateSettings::updateDayRange);
 }
 
 void DateSettings::setCurrentTimeZone(const ZoneInfo &info)
@@ -149,6 +150,10 @@ void DateSettings::updateDayRange()
 
     QDate date(year, month, 1);
     m_dayWidget->setRange(1, date.daysInMonth());
+
+    if (m_dayWidget->maximum() < m_dayWidget->getCurrentText().toInt()) {
+        m_dayWidget->setCurrentText(QString(m_dayWidget->maximum()));
+    }
 }
 
 void DateSettings::updateRealAutoSyncCheckState(const bool &state)

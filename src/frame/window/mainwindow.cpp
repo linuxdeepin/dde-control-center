@@ -405,8 +405,8 @@ void MainWindow::pushFinalWidget(ModuleInterface *const inter, QWidget *const w)
     m_rightContentLayout->addWidget(w);
 
     if (m_contentStack.size() == 2) {
-        m_contentStack.at(0).second->setFixedWidth(second_widget_min_width);
-        m_contentStack.at(1).second->setFixedWidth(third_widget_min_width);
+        m_contentStack.at(0).second->setMinimumWidth(second_widget_min_width);
+        m_contentStack.at(1).second->setMinimumWidth(third_widget_min_width);
     }
 }
 
@@ -422,8 +422,8 @@ void MainWindow::pushNormalWidget(ModuleInterface *const inter, QWidget *const w
     m_rightContentLayout->addWidget(w);
 
     if (m_contentStack.size() == 2) {
-        m_contentStack.at(0).second->setFixedWidth(second_widget_min_width);
-        m_contentStack.at(1).second->setFixedWidth(third_widget_min_width);
+        m_contentStack.at(0).second->setMinimumWidth(second_widget_min_width);
+        m_contentStack.at(1).second->setMinimumWidth(third_widget_min_width);
     }
 
     resetNavList(m_contentStack.empty());

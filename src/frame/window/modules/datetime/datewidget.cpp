@@ -120,6 +120,7 @@ int DateWidget::value() const
 void DateWidget::slotAdd()
 {
     int value = m_lineEdit->text().toInt() + 1;
+    m_lineEdit->setFocus();
 
     if (value < m_minimum) {
         value = m_maximum;
@@ -133,6 +134,7 @@ void DateWidget::slotAdd()
 void DateWidget::slotReduced()
 {
     int value = m_lineEdit->text().toInt() - 1;
+    m_lineEdit->setFocus();
 
     if (value < m_minimum) {
         value = m_maximum;
@@ -164,6 +166,16 @@ void DateWidget::setRange(int minimum, int maximum)
     m_lineEdit->setValidator(validator);
 
     fixup();
+}
+
+const QString DateWidget::getCurrentText() const
+{
+    return m_lineEdit->text();
+}
+
+void DateWidget::setCurrentText(QString text)
+{
+    m_lineEdit->setText(text);
 }
 
 bool DateWidget::eventFilter(QObject *watched, QEvent *event)

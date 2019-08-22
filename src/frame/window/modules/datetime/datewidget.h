@@ -57,6 +57,8 @@ public:
     int minimum() const;
     int maximum() const;
     void setRange(int minimum, int maximum);
+    const QString getCurrentText() const;
+    void setCurrentText(QString text);
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event);
