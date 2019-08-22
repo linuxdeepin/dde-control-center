@@ -67,6 +67,7 @@ public:
     void setModel(const dcc::datetime::DatetimeModel *model);
     QListView *getListViewPointer();
     void setCurrentTimeZone(const ZoneInfo &info);
+    void setDefault();
 
 private:
     QVBoxLayout *layout;

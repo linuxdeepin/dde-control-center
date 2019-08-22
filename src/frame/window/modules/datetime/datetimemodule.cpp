@@ -77,6 +77,8 @@ void DatetimeModule::active()
     m_widget->onHourTypeChanged(m_model->get24HourFormat());
 
     m_frameProxy->pushWidget(this, m_widget);
+
+    m_widget->setDefault();
 }
 
 void DatetimeModule::load(QString path)

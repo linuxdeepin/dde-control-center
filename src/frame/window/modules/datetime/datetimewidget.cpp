@@ -101,6 +101,14 @@ void DatetimeWidget::setCurrentTimeZone(const ZoneInfo &info)
     m_clockItem->setTimeZone(info);
 }
 
+void DatetimeWidget::setDefault()
+{
+    if (m_listview) {
+        m_listview->setCurrentIndex(m_listview->model()->index(0, 0));
+        m_listview->pressed(m_listview->model()->index(0, 0));
+    }
+}
+
 void DatetimeWidget::onItemClieck(const QModelIndex &index)
 {
     Q_EMIT requestPushWidget(index.row());
