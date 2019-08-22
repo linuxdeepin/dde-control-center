@@ -193,6 +193,12 @@ void MainWindow::modulePreInitialize()
 
 void MainWindow::popWidget()
 {
+    if (m_topWidget) {
+        m_topWidget->deleteLater();
+        m_topWidget = nullptr;
+        return;
+    }
+
     if (!m_contentStack.size())
         return;
 
