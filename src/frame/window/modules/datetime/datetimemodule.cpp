@@ -63,10 +63,15 @@ const QString DatetimeModule::name() const
 
 void DatetimeModule::active()
 {
-    m_widget= new DatetimeWidget;
+    m_widget = new DatetimeWidget;
     connect(m_widget, &DatetimeWidget::requestPushWidget, this, &DatetimeModule::onPushWidget);
+    connect(m_widget, &DatetimeWidget::requestSetHourType, m_work, &DatetimeWork::set24HourType);
+    connect(m_model,  &DatetimeModel::hourTypeChanged, m_widget, &DatetimeWidget::onHourTypeChanged);
     m_widget->setModel(m_model);
     m_work->activate(); //refresh data
+
+    //set dbus data to 24 hour format
+    m_widget->onHourTypeChanged(m_model->get24HourFormat());
 
     m_frameProxy->pushWidget(this, m_widget);
 }

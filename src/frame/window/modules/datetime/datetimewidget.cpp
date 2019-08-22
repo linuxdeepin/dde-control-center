@@ -50,9 +50,8 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
     SettingsGroup *timezoneGroup = new SettingsGroup;
 
     //default open 24 hour type : set hourTypeSwitch(true) , then set ClockItem TimeHourType
-    SwitchWidget *hourTypeSwitch = new SwitchWidget(tr("24 Hour Time"));
-    hourTypeSwitch->setChecked(true);
-    m_clockItem->setTimeHourType(hourTypeSwitch->checked());
+    m_hourTypeSwitch = new SwitchWidget(tr("24 Hour Time"));
+    m_clockItem->setTimeHourType(m_hourTypeSwitch->checked());
 
     timezoneGroup->appendItem(m_clockItem);
 
@@ -69,13 +68,12 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
 
     layout = new QVBoxLayout;
     layout->addWidget(timezoneGroup);
-    layout->addWidget(hourTypeSwitch);
+    layout->addWidget(m_hourTypeSwitch);
     layout->addWidget(m_listview);
     this->setLayout(layout);
 
     // true : 24 hour type  ,  false : 12 hour type ; All use the system time can recive DatetimeWidget::requestSetHourType signal
-    connect(hourTypeSwitch, &SwitchWidget::checkedChanged, this, &DatetimeWidget::requestSetHourType);
-    connect(this, &DatetimeWidget::requestSetHourType, this, &DatetimeWidget::onHourTypeChanged);
+    connect(m_hourTypeSwitch, &SwitchWidget::checkedChanged, this, &DatetimeWidget::requestSetHourType);
 }
 
 DatetimeWidget::~DatetimeWidget()
@@ -100,13 +98,13 @@ QListView *DatetimeWidget::getListViewPointer()
 
 void DatetimeWidget::onItemClieck(const QModelIndex &index)
 {
-//    qDebug() << " index : " << index.row();
     Q_EMIT requestPushWidget(index.row());
 }
 
-void DatetimeWidget::onHourTypeChanged(const bool &ntp)
+void DatetimeWidget::onHourTypeChanged(const bool &type)
 {
     if (m_clockItem) {
-        m_clockItem->setTimeHourType(ntp);
+        m_hourTypeSwitch->setChecked(type);
+        m_clockItem->setTimeHourType(type);
     }
 }

@@ -48,7 +48,7 @@ static Timedate *timedateInter(QObject *parent = nullptr)
     return TimedateInter;
 }
 
-static ZoneInfo GetZoneInfo (const QString &zoneId)
+static ZoneInfo GetZoneInfo(const QString &zoneId)
 {
     return timedateInter()->GetZoneInfo(zoneId);
 }
@@ -65,8 +65,10 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     connect(m_timedateInter, &__Timedate::TimezoneChanged, m_model, &DatetimeModel::setSystemTimeZoneId);
 #endif
     connect(m_timedateInter, &__Timedate::NTPChanged, m_model, &DatetimeModel::setNTP);
+    connect(m_timedateInter, &__Timedate::Use24HourFormatChanged, m_model, &DatetimeModel::set24HourFormat);
 
     m_model->setCurrentTimeZone(GetZoneInfo(QTimeZone::systemTimeZoneId()));
+    m_model->set24HourFormat(m_timedateInter->use24HourFormat());
 }
 
 DatetimeWork::~DatetimeWork()
@@ -97,7 +99,7 @@ void DatetimeWork::setNTP(bool ntp)
 
     QDBusPendingCall call = m_timedateInter->SetNTP(ntp);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
         // If the call failed, revert the UI change.
         if (call.isError()) {
             Q_EMIT m_model->NTPChanged(m_model->nTP());
@@ -113,14 +115,14 @@ void DatetimeWork::setDatetime(const QDateTime &datetime)
 
     QDBusPendingCall call = m_timedateInter->SetNTP(false);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
         if (!call.isError()) {
             const QDate date = datetime.date();
             const QTime time = datetime.time();
 
             QDBusPendingCall call1 = m_timedateInter->SetDate(date.year(), date.month(), date.day(), time.hour(), time.minute(), 0, 0);
             QDBusPendingCallWatcher *watcher1 = new QDBusPendingCallWatcher(call1, this);
-            connect(watcher1, &QDBusPendingCallWatcher::finished, this, [=] {
+            connect(watcher1, &QDBusPendingCallWatcher::finished, this, [ = ] {
                 if (!call1.isError()) {
                     Q_EMIT m_model->systemTimeChanged();
                 }
@@ -133,6 +135,11 @@ void DatetimeWork::setDatetime(const QDateTime &datetime)
         Q_EMIT requestSetAutoHide(true);
         watcher->deleteLater();
     });
+}
+
+void DatetimeWork::set24HourType(bool state)
+{
+    m_timedateInter->setUse24HourFormat(state);
 }
 
 #ifndef DCC_DISABLE_TIMEZONE

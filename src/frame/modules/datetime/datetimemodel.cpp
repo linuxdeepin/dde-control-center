@@ -32,8 +32,9 @@ namespace dcc {
 namespace datetime {
 
 DatetimeModel::DatetimeModel(QObject *parent)
-    :QObject(parent),
-      m_ntp(true)
+    : QObject(parent)
+    , m_ntp(true)
+    , m_bUse24HourType(true)
 {
 
 }
@@ -43,6 +44,14 @@ void DatetimeModel::setNTP(bool ntp)
     if (m_ntp != ntp) {
         m_ntp = ntp;
         Q_EMIT NTPChanged(ntp);
+    }
+}
+
+void DatetimeModel::set24HourFormat(bool state)
+{
+    if (m_bUse24HourType != state) {
+        m_bUse24HourType = state;
+        Q_EMIT hourTypeChanged(state);
     }
 }
 

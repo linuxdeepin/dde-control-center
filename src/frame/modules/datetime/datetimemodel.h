@@ -38,10 +38,12 @@ class DatetimeModel : public QObject
     Q_OBJECT
 
 public:
-    explicit DatetimeModel(QObject* parent =0);
+    explicit DatetimeModel(QObject *parent = nullptr);
 
     inline bool nTP() const { return m_ntp; }
     void setNTP(bool ntp);
+    inline bool get24HourFormat() const { return m_bUse24HourType; }
+    void set24HourFormat(bool state);
 
     QList<ZoneInfo> userTimeZones() const;
     void addUserTimeZone(const ZoneInfo &zone);
@@ -55,6 +57,7 @@ public:
 
 Q_SIGNALS:
     void NTPChanged(bool value);
+    void hourTypeChanged(bool value);
     void userTimeZoneAdded(const ZoneInfo &zone);
     void userTimeZoneRemoved(const ZoneInfo &zone);
     void systemTimeZoneIdChanged(const QString &zone);
@@ -63,6 +66,7 @@ Q_SIGNALS:
 
 private:
     bool m_ntp;
+    bool m_bUse24HourType;
     QStringList m_userZoneIds;
 #ifndef DCC_DISABLE_TIMEZONE
     QString m_systemTimeZoneId;

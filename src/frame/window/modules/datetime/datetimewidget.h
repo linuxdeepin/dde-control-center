@@ -76,10 +76,11 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void onItemClieck(const QModelIndex &index);
-    void onHourTypeChanged(const bool &ntp);
+    void onHourTypeChanged(const bool &type);
 
 private:
     const dcc::datetime::DatetimeModel *m_model;
+    dcc::widgets::SwitchWidget *m_hourTypeSwitch;
 };
 
 }// namespace datetime

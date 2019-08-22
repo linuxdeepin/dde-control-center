@@ -40,7 +40,7 @@ class DatetimeWork : public QObject
 {
     Q_OBJECT
 public:
-    explicit DatetimeWork(DatetimeModel* model, QObject *parent = 0);
+    explicit DatetimeWork(DatetimeModel *model, QObject *parent = nullptr);
     ~DatetimeWork();
 
     void activate();
@@ -52,8 +52,9 @@ Q_SIGNALS:
 public Q_SLOTS:
     void setNTP(bool ntp);
     void setDatetime(const QDateTime &time);
+    void set24HourType(bool state);
 #ifndef DCC_DISABLE_TIMEZONE
-    void setTimezone(const QString& timezone);
+    void setTimezone(const QString &timezone);
     void removeUserTimeZone(const ZoneInfo &info);
     void addUserTimeZone(const QString &zone);
 #endif
@@ -64,8 +65,8 @@ private Q_SLOTS:
 #endif
 
 private:
-    DatetimeModel* m_model;
-    Timedate* m_timedateInter;
+    DatetimeModel *m_model;
+    Timedate *m_timedateInter;
 };
 }
 }
