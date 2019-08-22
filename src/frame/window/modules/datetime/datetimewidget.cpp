@@ -96,6 +96,11 @@ QListView *DatetimeWidget::getListViewPointer()
     return m_listview;
 }
 
+void DatetimeWidget::setCurrentTimeZone(const ZoneInfo &info)
+{
+    m_clockItem->setTimeZone(info);
+}
+
 void DatetimeWidget::onItemClieck(const QModelIndex &index)
 {
     Q_EMIT requestPushWidget(index.row());

@@ -22,6 +22,7 @@
 #include "modules/datetime/timezoneitem.h"
 #include "modules/datetime/timezone_dialog/timezone.h"
 #include "modules/datetime/timezone_dialog/timezonechooser.h"
+#include "modules/datetime/datetimemodel.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsitem.h"
 #include "widgets/settingshead.h"
@@ -44,6 +45,7 @@ TimezoneList::TimezoneList(QWidget *parent)
     m_headItem->setEditEnable(true);
     m_headItem->setVisible(true);
     m_headItem->setTitle(tr("Timezone List"));
+    m_headItem->setFixedHeight(34);
     m_headGroup->appendItem(m_headItem);
 
     m_centralLayout->setMargin(0);
@@ -79,4 +81,20 @@ TimezoneList::~TimezoneList()
 TimezoneContentList *TimezoneList::getTimezoneContentListPtr()
 {
     return m_contentList;
+}
+
+void TimezoneList::setMode(DatetimeModel *model)
+{
+    // we need to update all the timezone items after the system time has changed.
+    connect(model, &DatetimeModel::NTPChanged, [this](const bool & ntp) {
+        Q_UNUSED(ntp)
+        if (m_contentList) {
+            m_contentList->updateTimezoneItems();
+        }
+    });
+    connect(model, &DatetimeModel::systemTimeChanged, [this] {
+        if (m_contentList) {
+            m_contentList->updateTimezoneItems();
+        }
+    });
 }

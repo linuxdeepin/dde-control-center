@@ -29,10 +29,11 @@
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
 
-Clock::Clock(QWidget *parent) :
-    QWidget(parent),
-    m_drawTicks(true),
-    m_autoNightMode(true)
+Clock::Clock(QWidget *parent)
+    : QWidget(parent)
+    , m_drawTicks(true)
+    , m_autoNightMode(true)
+    , n_bIsUseBlackPlat(true)
 {
 
 }
@@ -54,12 +55,19 @@ void Clock::paintEvent(QPaintEvent *)
 
     // draw plate
     painter.translate(0, 0);
-    painter.drawPixmap(0, 0, width(), height(), QPixmap(":/icons/actions/datetime/dcc_clock_black.svg"));
+    if (n_bIsUseBlackPlat) {
+        painter.drawPixmap(0, 0, width(), height(), QPixmap(":/icons/actions/datetime/dcc_clock_black.svg"));
+    } else {
+        painter.drawPixmap(0, 0, width(), height(), QPixmap(":/icons/actions/datetime/dcc_clock_white.svg"));
+    }
 
     QPixmap pix;
 
+    int nHour = (time.hour() >= 12) ? (time.hour() - 12) : time.hour();
+    int nStartAngle = 90;//The image from 0 start , but the clock need from -90 start
+
     // draw hour hand
-    const qreal hourAngle = qreal(time.hour() * 30 + time.minute() * 30 / 60 + time.second() * 30 / 60 / 60);
+    const qreal hourAngle = qreal(nHour * 30 + time.minute() * 30 / 60 + time.second() * 30 / 60 / 60 - nStartAngle);
     painter.save();
     painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(hourAngle);
@@ -68,7 +76,7 @@ void Clock::paintEvent(QPaintEvent *)
     painter.restore();
 
     // draw minute hand
-    const qreal minuteAngle = qreal(time.minute() * 6 + time.second() * 6 / 60);
+    const qreal minuteAngle = qreal(time.minute() * 6 + time.second() * 6 / 60 - nStartAngle);
     painter.save();
     painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(minuteAngle);
@@ -77,7 +85,7 @@ void Clock::paintEvent(QPaintEvent *)
     painter.restore();
 
     // draw second hand
-    const qreal secondAngle = qreal(time.second() * 6);
+    const qreal secondAngle = qreal(time.second() * 6 - nStartAngle);
     painter.save();
     painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(secondAngle);
@@ -97,6 +105,14 @@ void Clock::setAutoNightMode(bool autoNightMode)
 {
     if (m_autoNightMode != autoNightMode) {
         m_autoNightMode = autoNightMode;
+        update();
+    }
+}
+
+void Clock::setPlate(bool isBlack)
+{
+    if (n_bIsUseBlackPlat != isBlack) {
+        n_bIsUseBlackPlat = isBlack;
         update();
     }
 }

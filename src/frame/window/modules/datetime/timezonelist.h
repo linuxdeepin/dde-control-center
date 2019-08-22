@@ -55,6 +55,7 @@ public:
     virtual ~TimezoneList();
 
     TimezoneContentList *getTimezoneContentListPtr();
+    void setMode(dcc::datetime::DatetimeModel *model);
 
 private:
     QVBoxLayout *m_centralLayout;

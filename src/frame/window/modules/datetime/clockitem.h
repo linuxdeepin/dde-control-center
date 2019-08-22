@@ -45,6 +45,7 @@ public:
 
     void setTimeZone(const ZoneInfo &zone);
     void setTimeHourType(bool type);
+    void setPlate(bool state);
 
 private:
     void translateHourType();

@@ -31,6 +31,8 @@
 #include <QEvent>
 #include <QFrame>
 
+#include <types/zoneinfo.h>
+
 class QStandardItem;
 
 namespace dcc {
@@ -64,6 +66,7 @@ public:
     void init();
     void setModel(const dcc::datetime::DatetimeModel *model);
     QListView *getListViewPointer();
+    void setCurrentTimeZone(const ZoneInfo &info);
 
 private:
     QVBoxLayout *layout;

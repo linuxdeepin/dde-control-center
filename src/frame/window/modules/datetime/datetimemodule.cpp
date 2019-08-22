@@ -20,12 +20,14 @@
  */
 #include "datetimemodule.h"
 #include "datetimewidget.h"
+#include "timezonelist.h"
+#include "datesettings.h"
+#include "clockitem.h"
+
 #include "modules/datetime/datetimework.h"
 #include "modules/datetime/datetimemodel.h"
-#include "timezonelist.h"
 #include "modules/datetime/timezone_dialog/timezone.h"
 #include "modules/datetime/timezone_dialog/timezonechooser.h"
-#include "datesettings.h"
 #include "modules/datetime/datesettings.h"
 
 using namespace dcc::datetime;
@@ -69,6 +71,7 @@ void DatetimeModule::active()
     connect(m_model,  &DatetimeModel::hourTypeChanged, m_widget, &DatetimeWidget::onHourTypeChanged);
     m_widget->setModel(m_model);
     m_work->activate(); //refresh data
+    m_widget->setCurrentTimeZone(m_model->currentTimeZone());
 
     //set dbus data to 24 hour format
     m_widget->onHourTypeChanged(m_model->get24HourFormat());
@@ -123,8 +126,10 @@ void DatetimeModule::updateSystemTimezone(const QString &timezone)
     }
 
     if (m_timezonelist && m_model) {
-        m_timezonelist->getTimezoneContentListPtr()->updateTimezones(m_model->userTimeZones());
+        m_timezonelist->getTimezoneContentListPtr()->updateTimezones(m_model->userTimeZones()); 
     }
+
+    m_widget->setCurrentTimeZone(m_model->currentTimeZone());
 }
 
 void DatetimeModule::ensureZoneChooserDialog()
@@ -152,6 +157,7 @@ void DatetimeModule::showTimezoneList()
 {
     if (!m_timezonelist) {
         m_timezonelist = new TimezoneList;
+        m_timezonelist->setMode(m_model);
 
         //first into this page, update timezonelist data
         m_timezonelist->getTimezoneContentListPtr()->addTimezones(m_model->userTimeZones());
@@ -161,11 +167,6 @@ void DatetimeModule::showTimezoneList()
                 m_timezonelist->getTimezoneContentListPtr(), &TimezoneContentList::addTimezone);
         connect(m_model, &DatetimeModel::userTimeZoneRemoved,
                 m_timezonelist->getTimezoneContentListPtr(), &TimezoneContentList::removeTimezone);
-        // we need to update all the timezone items after the system time has changed.
-        connect(m_model, &DatetimeModel::NTPChanged,
-                m_timezonelist->getTimezoneContentListPtr(), &TimezoneContentList::updateTimezoneItems);
-        connect(m_model, &DatetimeModel::systemTimeChanged,
-                m_timezonelist->getTimezoneContentListPtr(), &TimezoneContentList::updateTimezoneItems);
         connect(m_timezonelist, &TimezoneList::requestAddTimeZone, this, [this] {
             ensureZoneChooserDialog();
             m_dialog->setIsAddZone(true);
@@ -200,6 +201,10 @@ void DatetimeModule::showTimeSetting()
     connect(m_model, &dcc::datetime::DatetimeModel::NTPChanged, setting, &DateSettings::updateRealAutoSyncCheckState);
 
     setting->updateRealAutoSyncCheckState(m_model->nTP());
+
+    //fit the two clocks's point to same
+    setting->setCurrentTimeZone(m_model->currentTimeZone());
+    m_widget->setCurrentTimeZone(m_model->currentTimeZone());
 
     m_frameProxy->pushWidget(this, setting);
 }

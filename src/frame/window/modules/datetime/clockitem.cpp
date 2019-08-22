@@ -38,12 +38,9 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay) :
     m_labelDate(new NormalLabel),
     m_bIs24HourType(0)
 {
-    m_clock->setFixedSize(224, 224);
+    m_clock->setMinimumSize(224, 224);
     m_clock->setAutoNightMode(false);
     updateDateTime();
-
-    QLabel *test = new QLabel;
-    test->setStyleSheet("background: #f8f8f8");
 
     QVBoxLayout *layout = new QVBoxLayout;
 
@@ -92,6 +89,13 @@ void ClockItem::setTimeHourType(bool type)
     }
 }
 
+void ClockItem::setPlate(bool state)
+{
+    if (m_clock) {
+        m_clock->setPlate(state);
+    }
+}
+
 void ClockItem::translateHourType()
 {
     QTime currentTime = QTime::currentTime();
@@ -102,10 +106,11 @@ void ClockItem::translateHourType()
         nHour -= 12;
     }
 
-    m_labelTime->setText(QString("%1:%2:%3")
+    m_labelTime->setText(QString("%1:%2:%3 %4")
                          .arg(nHour, 2, 10, QLatin1Char('0'))
                          .arg(currentTime.minute(), 2, 10, QLatin1Char('0'))
-                         .arg(currentTime.second(), 2, 10, QLatin1Char('0')));
+                         .arg(currentTime.second(), 2, 10, QLatin1Char('0'))
+                         .arg(currentTime.hour() > 12 ? "PM" : "AM"));
 }
 
 void ClockItem::updateDateTime()

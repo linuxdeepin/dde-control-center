@@ -38,11 +38,10 @@ public:
 
     bool drawTicks() const;
     void setDrawTicks(bool drawTicks);
-
     void setTimeZone(const ZoneInfo &timeZone);
-
     bool autoNightMode() const;
     void setAutoNightMode(bool autoNightMode);
+    void setPlate(bool isBlack = true);
 
 protected:
     void paintEvent(QPaintEvent *event);
@@ -50,6 +49,7 @@ protected:
 private:
     bool m_drawTicks;
     bool m_autoNightMode;
+    bool n_bIsUseBlackPlat;
     ZoneInfo m_timeZone;
 };
 }// namespace datetime

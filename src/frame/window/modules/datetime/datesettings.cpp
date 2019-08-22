@@ -63,6 +63,9 @@ DateSettings::DateSettings(QWidget *parent)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
+    //set clock plate to white
+    m_clock->setPlate(false);
+
     QPushButton *cancelButton = m_buttonTuple->leftButton();
     QPushButton *confirmButton = m_buttonTuple->rightButton();
 
@@ -77,12 +80,9 @@ DateSettings::DateSettings(QWidget *parent)
     m_monthWidget->setValue(date.month());
     m_dayWidget->setValue(date.day());
 
-    TranslucentFrame *widget = new TranslucentFrame;
-    QVBoxLayout *layout = new QVBoxLayout(widget);
+    QVBoxLayout *layout = new QVBoxLayout;
     layout->setSpacing(0);
     layout->setMargin(0);
-
-//    m_autoSyncTimeSwitch->setChecked(true);
 
     QFont font;
     font.setPointSizeF(24);
@@ -91,19 +91,14 @@ DateSettings::DateSettings(QWidget *parent)
     label->setFont(font);
     label->setContextMenuPolicy(Qt::NoContextMenu);
 
-    QLabel *PlaceholderLeft = new QLabel;
-    PlaceholderLeft->setFixedWidth(80);
-
-    QLabel *PlaceholderRight = new QLabel;
-    PlaceholderRight->setFixedWidth(80);
-
     QHBoxLayout *timeLayout = new QHBoxLayout;
-    timeLayout->addWidget(PlaceholderLeft);
+    timeLayout->addStretch();
     timeLayout->addWidget(m_timeHourWidget);
     timeLayout->addWidget(label);
     timeLayout->addWidget(m_timeMinWidget);
-    timeLayout->addWidget(PlaceholderRight);
+    timeLayout->addStretch();
 
+    layout->addSpacing(12);
     layout->addWidget(m_clock);
     layout->addLayout(timeLayout);
 
@@ -112,12 +107,9 @@ DateSettings::DateSettings(QWidget *parent)
     m_datetimeGroup->appendItem(m_monthWidget);
     m_datetimeGroup->appendItem(m_dayWidget);
 
-    layout->addSpacing(10);
     layout->addWidget(m_datetimeGroup);
-    layout->addSpacing(10);
     layout->addWidget(m_buttonTuple);
 
-//    setContent(widget);
     setLayout(layout);
 
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &DateSettings::requestSetAutoSyncdate);
