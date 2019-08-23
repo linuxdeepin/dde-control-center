@@ -112,8 +112,6 @@ void DisplayWidget::initMenuUI()
     m_multMenuList = {
         //~ contents_path /display/Multiple Displays
         {tr("Multiple Displays"), "dcc_display", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiScreenPage)},
-        //~ contents_path /display/Resolution
-        {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
         //~ contents_path /display/Brightness
         {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
         //~ contents_path /display/Display Scaling

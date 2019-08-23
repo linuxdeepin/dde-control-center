@@ -34,8 +34,6 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QListView>
-#include <QStandardItemModel>
-#include <QStandardItem>
 #include <QLabel>
 
 using namespace dcc::widgets;
@@ -122,22 +120,22 @@ void ResolutionDetailPage::initResoList()
             m_resoListLayout->addWidget(label);
         }
 
-        QListView *rlist = new QListView();
+        DListView *rlist = new DListView();
         rlist->setAutoScroll(false);
         rlist->setFrameShape(QFrame::NoFrame);
         rlist->setSpacing(5);
-        rlist->setSelectionMode(QListView::NoSelection);
+        rlist->setSelectionMode(DListView::NoSelection);
 
         auto itemModel = new QStandardItemModel(this);
         rlist->setModel(itemModel);
 
         bool first = true;
-        QStandardItem *curIdx{nullptr};
+        DStandardItem *curIdx{nullptr};
         const auto &modes = monitors[idx]->modeList();
         const auto curMode = monitors[idx]->currentMode();
         for (auto m : modes) {
             const QString res = QString("%1x%2").arg(m.width()).arg(m.height());
-            QStandardItem *item = new QStandardItem();
+            DStandardItem *item = new DStandardItem();
 
             if (first) {
                 first = false;
@@ -161,7 +159,7 @@ void ResolutionDetailPage::initResoList()
             m_curIdxs.push_back(QModelIndex());
         }
 
-        connect(rlist, &QListView::clicked, this, &ResolutionDetailPage::onListClick);
+        connect(rlist, &DListView::clicked, this, &ResolutionDetailPage::onListClick);
         connect(monitors.at(idx), &Monitor::currentModeChanged, this,
         [ = ](const Resolution & resolution) {
             refreshCurrentResolution(resolution, idx);
@@ -173,7 +171,7 @@ void ResolutionDetailPage::initResoList()
 
 }
 
-void ResolutionDetailPage::checkedChange(const QModelIndex &idx, QListView *list)
+void ResolutionDetailPage::checkedChange(const QModelIndex &idx, DListView *list)
 {
     int listIdx = m_resoList.indexOf(list);
 
@@ -206,10 +204,9 @@ void ResolutionDetailPage::checkedChange(const QModelIndex &idx, QListView *list
 
 void ResolutionDetailPage::onListClick(const QModelIndex &idx)
 {
-    auto list = qobject_cast<QListView *>(sender());
+    auto list = qobject_cast<DListView *>(sender());
     if (!list)
         return;
-
 
     int listIdx = m_resoList.indexOf(list);
     if (idx == m_curIdxs[listIdx])

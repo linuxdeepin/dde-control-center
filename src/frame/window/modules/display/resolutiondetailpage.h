@@ -29,11 +29,12 @@
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
 
+#include <DListView>
+
 #include <QModelIndex>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
-class QListView;
 class QPushButton;
 QT_END_NAMESPACE
 
@@ -77,13 +78,13 @@ private Q_SLOTS:
     void initResoList();
 
 private:
-    void checkedChange(const QModelIndex &idx, QListView *list);
+    void checkedChange(const QModelIndex &idx, DListView *list);
 
 private:
     QVBoxLayout *m_resoListLayout{nullptr};
     dcc::display::DisplayModel *m_model{nullptr};
 
-    QList<QListView *> m_resoList;
+    QList<DListView *> m_resoList;
     QList<QModelIndex> m_curIdxs;
     QList<QModelIndex> m_initialIdxs;
 
