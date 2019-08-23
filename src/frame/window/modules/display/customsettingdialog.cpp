@@ -159,10 +159,11 @@ void CustomSettingDialog::initWithModel()
 
 void CustomSettingDialog::initOtherDialog()
 {
-    for (int i = 0; i < m_otherDialog.size(); ++i) {
-        m_otherDialog[i]->deleteLater();
-    }
+    qDeleteAll(m_otherDialog);
     m_otherDialog.clear();
+
+    if (m_model->isMerge())
+        return;
 
     for (auto mon : m_model->monitorList()) {
         if (mon == m_model->primaryMonitor())
@@ -184,7 +185,7 @@ void CustomSettingDialog::initResolutionList()
 {
     QStandardItemModel *itemModel = qobject_cast<QStandardItemModel *>(m_resolutionList->model());
     if (itemModel)
-        itemModel->clear();
+        itemModel->deleteLater();
 
     bool first = true;
     auto modes = m_monitor->modeList();
@@ -193,6 +194,20 @@ void CustomSettingDialog::initResolutionList()
     itemModel = new QStandardItemModel(this);
     QStandardItem *curIdx{nullptr};
     for (auto m : modes) {
+        if (m_model->isMerge()) {
+            bool isComm = true;
+            for (auto moni : m_model->monitorList()) {
+                if (-1 == moni->modeList().indexOf(m)) {
+                    isComm = false;
+                    break;
+                }
+            }
+
+            if (!isComm) {
+                continue;
+            }
+        }
+
         const QString res = QString::number(m.width()) + "×" + QString::number(m.height());
         QStandardItem *item = new QStandardItem();
 
@@ -207,6 +222,7 @@ void CustomSettingDialog::initResolutionList()
             curIdx = item;
         itemModel->appendRow(item);
     }
+
     m_resolutionList->setModel(itemModel);
     if (nullptr != curIdx)
         m_resolutionList->setCurrentIndex(curIdx->index());
