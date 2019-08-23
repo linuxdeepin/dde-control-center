@@ -41,6 +41,7 @@
 #include "constant.h"
 #include "search/searchwidget.h"
 #include "dtitlebar.h"
+#include "utils.h"
 
 #include <DBackgroundGroup>
 
@@ -110,15 +111,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     DTitlebar *titlebar = this->titlebar();
     titlebar->setMinimumHeight(50);
-    titlebar->setCustomWidget(m_searchWidget, Qt::AlignCenter, true);
+    titlebar->addWidget(m_searchWidget, Qt::AlignCenter);
     m_searchWidget->setLanguage(QLocale::system().name());
     connect(m_searchWidget, &SearchWidget::notifyModuleSearch, this, &MainWindow::onEnterSearchWidget);
 
     auto thlayout = new QHBoxLayout(this);
     thlayout->setSpacing(0);
     DBackgroundGroup *btnGroup = new DBackgroundGroup(thlayout, this);
-    auto titleLayout = qobject_cast<QHBoxLayout *>(titlebar->layout());
-    titleLayout->insertWidget(0, btnGroup);
+    titlebar->addWidget(btnGroup, Qt::AlignLeft);
     QPushButton *backwardBtn = new QPushButton("<");
     thlayout->addWidget(backwardBtn);
     connect(backwardBtn, &QPushButton::clicked, this, [this] {
@@ -175,9 +175,7 @@ void MainWindow::initAllModule()
         DStandardItem *item = new DStandardItem;
         item->setIcon(it->first->icon());
         item->setText(it->second);
-        item->setData(isIcon ? Dtk::RoundedBackground : QVariant(),
-                      Dtk::BackgroundTypeRole);
-        item->setSizeHint(isIcon ? QSize(170, 168) : QSize(168, 48));
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_navModel->appendRow(item);
     }
 
