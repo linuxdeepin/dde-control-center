@@ -386,6 +386,8 @@ set(BLUETOOTH_FILES
 
                 window/modules/bluetooth/titleedit.h
                 window/modules/bluetooth/titleedit.cpp
+                window/modules/bluetooth/devicesettingsitem.h
+                window/modules/bluetooth/devicesettingsitem.cpp
                 window/modules/bluetooth/detailpage.h
                 window/modules/bluetooth/detailpage.cpp
                 window/modules/bluetooth/adapterwidget.h

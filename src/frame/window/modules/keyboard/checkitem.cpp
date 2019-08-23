@@ -53,7 +53,6 @@ CheckItem::CheckItem(QFrame *parent)
     m_hLayout->addSpacerItem(new QSpacerItem(10, 36));
     m_hLayout->setAlignment(m_checkBtn, Qt::AlignVCenter);
     setLayout(m_hLayout);
-
     setFixedHeight(36);
 
     connect(m_checkBtn, SIGNAL(clicked()), this, SLOT(onClick()));

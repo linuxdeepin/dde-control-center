@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
+ * Copyright (C) 2019 Deepin Technology Co., Ltd.
  *
  * Author:     andywang <andywang_cm@deepin.com>
  *
@@ -22,10 +22,14 @@
 #pragma once
 
 #include "window/namespace.h"
+
+#include <DListView>
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
 class QLabel;
+class QStandardItemModel;
 QT_END_NAMESPACE
 
 namespace dcc {
@@ -45,6 +49,7 @@ class DeviceSettingsItem;
 namespace DCC_NAMESPACE {
 namespace bluetooth {
 class TitleEdit;
+class DeviceSettingsItem;
 class AdapterWidget : public QWidget
 {
     Q_OBJECT
@@ -53,6 +58,9 @@ public:
 
     void setAdapter(const dcc::bluetooth::Adapter *adapter);
     const dcc::bluetooth::Adapter *adapter() const;
+
+private:
+    void updateHeight();
 
 public Q_SLOTS:
     void toggleSwitch(const bool &checked);
@@ -72,12 +80,16 @@ private:
     TitleEdit *m_titleEdit;
     dcc::widgets::SwitchWidget *m_switch;
     dcc::widgets::SettingsGroup *m_titleGroup;
-    dcc::widgets::SettingsGroup *m_myDevicesGroup;
-    dcc::widgets::SettingsGroup *m_otherDevicesGroup;
     QLabel        *m_tip;
     dcc::widgets::LoadingIndicator *m_refreshIndicator;
-    QList<dcc::bluetooth::DeviceSettingsItem *> m_deviceLists;
-    QList<dcc::bluetooth::DeviceSettingsItem *> m_myDevices;
+    QList<DeviceSettingsItem *> m_deviceLists;
+    QList<DeviceSettingsItem *> m_myDevices;
+    QLabel *m_myDeviceLabel;
+    DTK_WIDGET_NAMESPACE::DListView *m_myDeviceListView;
+    QStandardItemModel *m_myDeviceModel;
+    QLabel *m_otherDeviceLabel;
+    DTK_WIDGET_NAMESPACE::DListView *m_otherDeviceListView;
+    QStandardItemModel *m_otherDeviceModel;
 };
 }
 }

@@ -22,44 +22,49 @@
 #pragma once
 
 #include "window/namespace.h"
-#include "widgets/contentwidget.h"
+#include "modules/bluetooth/device.h"
 
-QT_BEGIN_NAMESPACE
-class QLabel;
-class QLineEdit;
-class QPushButton;
-QT_END_NAMESPACE
+#include <DListView>
+
+#include <QObject>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace bluetooth {
 class Device;
-class Adapter;
 }
 }
 
 namespace DCC_NAMESPACE {
 namespace bluetooth {
-class DetailPage : public dcc::ContentWidget
+class DeviceSettingsItem : public QObject
 {
     Q_OBJECT
 public:
-    explicit DetailPage(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
-
-Q_SIGNALS:
-    void requestIgnoreDevice(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
-    void requestDisconnectDevice(const dcc::bluetooth::Device *device);
-    void requestSetDevAlias(const dcc::bluetooth::Device *device, QString &devAlias);
-
-private Q_SLOTS:
-    void onDeviceNameChanged();
+    explicit DeviceSettingsItem(const dcc::bluetooth::Device *device, QStyle *style);
+    DStandardItem *getStandardItem();
+    DStandardItem *createStandardItem();
+    const dcc::bluetooth::Device *device() const;
 
 private:
-    const dcc::bluetooth::Adapter *m_adapter;
+    void setDevice(const dcc::bluetooth::Device *device);
+    void initItemActionList(QStyle *style);
+
+Q_SIGNALS:
+    void requestConnectDevice(const dcc::bluetooth::Device *device) const;
+    void requestShowDetail(const dcc::bluetooth::Device *device) const;
+
+private Q_SLOTS:
+    void onDeviceStateChanged(const dcc::bluetooth::Device::State &state);
+    void onDevicePairedChanged(const bool &paired);
+
+private:
     const dcc::bluetooth::Device *m_device;
-    QPushButton *m_ignoreButton;
-    QPushButton *m_disconnectButton;
-    QLabel *m_devNameLabel;
-    QLineEdit *m_editDevName;
+    DStandardItem *m_deviceItem;
+    DViewItemActionList m_dActionList;
+    DViewItemAction *m_iconAction;
+    DViewItemAction *m_textAction;
 };
-}
-}
+} // namespace bluetooth
+} // namespace dcc

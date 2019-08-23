@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
+ * Copyright (C) 2019 Deepin Technology Co., Ltd.
  *
  * Author:     andywang <andywang_cm@deepin.com>
  *
@@ -43,6 +43,9 @@ TitleEdit::TitleEdit(QWidget *parent)
     mainlayout->addWidget(m_lineEdit);
     mainlayout->addSpacing(5);
     DImageButton *editWidget = new DImageButton;
+    editWidget->setNormalPic(":/bluetooth/themes/light/icons/edit_normal.png");
+    editWidget->setHoverPic(":/bluetooth/themes/light/icons/edit_hover.png");
+    editWidget->setPressPic(":/bluetooth/themes/light/icons/edit_press.png");
     mainlayout->addWidget(editWidget);
     mainlayout->addStretch();
     mainlayout->setMargin(0);

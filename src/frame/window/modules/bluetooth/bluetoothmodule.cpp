@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
+ * Copyright (C) 2019 Deepin Technology Co., Ltd.
  *
  * Author:     andywang <andywang_cm@deepin.com>
  *
