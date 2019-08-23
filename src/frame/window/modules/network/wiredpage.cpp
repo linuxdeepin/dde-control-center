@@ -149,6 +149,7 @@ void WiredPage::refreshConnectionList()
 
         DStandardItem *it = new DStandardItem(m_model->connectionNameByPath(path));
         it->setData(path, PathRole);
+        it->setCheckable(true);
         it->setCheckState(path == m_device->activeWiredConnSettingPath() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
 
         DViewItemAction* editaction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);

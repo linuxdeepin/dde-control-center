@@ -48,6 +48,7 @@ using namespace dde::network;
 APItem::APItem(const QString &text) : DStandardItem (text)
 {
     setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
+    setCheckable(true);
 
     DViewItemAction* editaction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
     editaction->setIcon(QIcon::fromTheme("arrow-right"));

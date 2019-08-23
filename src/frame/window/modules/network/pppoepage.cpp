@@ -45,15 +45,18 @@ using namespace DCC_NAMESPACE::network;
 using namespace dde::network;
 
 PppoePage::PppoePage(QWidget *parent)
-    : ContentWidget(parent),
-      m_settingsGrp(new SettingsGroup),
-      m_createBtn(new QPushButton)
+    : ContentWidget(parent)
+      , m_createBtn(new QPushButton)
+      , m_lvsettings(new DListView)
+      , m_modelSettings(new QStandardItemModel)
 {
     m_createBtn->setText(tr("Create PPPoE Connection"));
 
+    m_lvsettings->setModel(m_modelSettings);
+
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addSpacing(10);
-    mainLayout->addWidget(m_settingsGrp);
+    mainLayout->addWidget(m_lvsettings);
     mainLayout->addWidget(m_createBtn);
     mainLayout->setSpacing(10);
     mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -66,6 +69,9 @@ PppoePage::PppoePage(QWidget *parent)
     setTitle(tr("PPP"));
 
     connect(m_createBtn, &QPushButton::clicked, this, &PppoePage::createPPPoEConnection);
+    connect(m_lvsettings, &QListView::clicked, this, [this](const QModelIndex &idx) {
+        this->onPPPoESelected(idx.data(UuidRole).toString());
+    });
 }
 
 PppoePage::~PppoePage()
@@ -96,36 +102,36 @@ void PppoePage::createPPPoEConnection()
 
 void PppoePage::onConnectionListChanged()
 {
-    m_settingsGrp->clear();
-    qDeleteAll(m_connUuid.keys());
-    m_connUuid.clear();
+    m_items.clear();
+    m_modelSettings->clear();
 
     for (const auto &pppoe : m_model->pppoes())
     {
         const auto name = pppoe.value("Id").toString();
         const auto uuid = pppoe.value("Uuid").toString();
 
-        LoadingNextPageWidget *w = new LoadingNextPageWidget;
-        w->setTitle(name);
+        DStandardItem *it = new DStandardItem();
+        it->setText(name);
+        it->setData(uuid, UuidRole);
+        it->setCheckable(true);
 
-        connect(w, &LoadingNextPageWidget::acceptNextPage,  this, &PppoePage::onConnectionDetailClicked);
-        connect(w, &LoadingNextPageWidget::selected, this, &PppoePage::onPPPoESelected);
+        DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
+        editaction->setIcon(QIcon::fromTheme("arrow-right"));
+        connect(editaction, &QAction::triggered, [this, uuid] {
+            this->onConnectionDetailClicked(uuid);
+        });
+        it->setActionList(Qt::Edge::RightEdge, {editaction});
+        m_items[uuid] = it;
 
-        m_settingsGrp->appendItem(w);
-        m_connUuid[w] = uuid;
+        m_modelSettings->appendRow(it);
     }
 
     onActiveConnectionChanged(m_model->activeConns());
 }
 
-void PppoePage::onConnectionDetailClicked()
+void PppoePage::onConnectionDetailClicked(const QString &connectionUuid)
 {
-    LoadingNextPageWidget *w = static_cast<LoadingNextPageWidget *>(sender());
-    Q_ASSERT(w && m_connUuid.contains(w));
-
-    m_editingUuid = m_connUuid[w];
-
-    m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, "/", m_editingUuid);
+    m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, "/", connectionUuid);
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
@@ -133,37 +139,32 @@ void PppoePage::onConnectionDetailClicked()
     Q_EMIT requestNextPage(m_editPage);
 }
 
-void PppoePage::onPPPoESelected()
+void PppoePage::onPPPoESelected(const QString &connectionUuid)
 {
-    LoadingNextPageWidget *w = static_cast<LoadingNextPageWidget *>(sender());
-    Q_ASSERT(w && m_connUuid.contains(w));
-
-    m_editingUuid = m_connUuid[w];
-    Q_EMIT requestActivateConnection("/", m_editingUuid);
+    Q_EMIT requestActivateConnection("/", connectionUuid);
 }
 
 void PppoePage::onActiveConnectionChanged(const QList<QJsonObject> &conns)
 {
-    for (LoadingNextPageWidget *widget : m_connUuid.keys()) {
-        widget->setIcon(QPixmap());
-        widget->setLoading(false);
+    for (int i = 0; i < m_modelSettings->rowCount(); ++i) {
+        m_modelSettings->item(i)->setCheckState(Qt::CheckState::Unchecked);
     }
-
     for (const QJsonObject &connObj : conns) {
         const QString &uuid = connObj.value("Uuid").toString();
-        LoadingNextPageWidget *w = m_connUuid.key(uuid);
+        if (!m_items.contains(uuid)) {
+            continue;
+        }
         // the State of Active Connection
         // 0:Unknow, 1:Activating, 2:Activated, 3:Deactivating, 4:Deactivated
-        if (w) {
-            int state = m_model->activeConnObjectByUuid(uuid).value("State").toInt(0);
-            if(state == 2) {
-                w->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));
-                w->setLoading(false);
-            } else if(state == 1) {
-                w->setLoading(true);
-            } else {
-                w->setLoading(false);
-            }
+        int state = m_model->activeConnObjectByUuid(uuid).value("State").toInt(0);
+        if(state == 2) {
+            m_items[uuid]->setCheckState(Qt::CheckState::Checked);
+            //w->setLoading(false);
+        } else if(state == 1) {
+            //TODO: connecting indicator?
+            //w->setLoading(true);
+        } else {
+            //w->setLoading(false);
         }
     }
 }

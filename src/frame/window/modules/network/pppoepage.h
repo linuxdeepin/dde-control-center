@@ -30,7 +30,10 @@
 #include "connectioneditpage.h"
 #include "window/namespace.h"
 
+#include <DListView>
+
 #include <QMap>
+#include <QStandardItemModel>
 #include <QPointer>
 
 class QVBoxLayout;
@@ -70,19 +73,21 @@ Q_SIGNALS:
 private Q_SLOTS:
     void createPPPoEConnection();
     void onConnectionListChanged();
-    void onConnectionDetailClicked();
-    void onPPPoESelected();
+    void onConnectionDetailClicked(const QString &connectionUuid);
+    void onPPPoESelected(const QString &connectionUuid);
     void onActiveConnectionChanged(const QList<QJsonObject> &conns);
 
 private:
     dde::network::NetworkModel *m_model;
 
-    dcc::widgets::SettingsGroup *m_settingsGrp;
-    QPushButton *m_createBtn;
-    QMap<dcc::widgets::LoadingNextPageWidget *, QString> m_connUuid;
-    QPointer<ConnectionEditPage> m_editPage;
+    DListView *m_lvsettings;
+    QStandardItemModel *m_modelSettings;
 
-    QString m_editingUuid;
+    QPushButton *m_createBtn;
+    QPointer<ConnectionEditPage> m_editPage;
+    QMap<QString, DStandardItem *> m_items;
+
+    static const int UuidRole = Dtk::UserRole + 1;
 };
 
 }
