@@ -231,6 +231,8 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
+    DMainWindow::resizeEvent(event);
+
     if (m_topWidget) {
         m_topWidget->setFixedSize(event->size());
     }

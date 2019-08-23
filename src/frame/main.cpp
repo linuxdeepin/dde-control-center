@@ -30,6 +30,8 @@
 #include <DApplication>
 #include <DDBusSender>
 #include <DLog>
+
+#include <QScreen>
 #include <QStyle>
 
 DWIDGET_USE_NAMESPACE
@@ -186,9 +188,14 @@ int main(int argc, char *argv[])
 
 #ifdef WINDOW_MODE
     app.setStyle("chameleon");
-    DCC_NAMESPACE::MainWindow mw;
 
-    mw.resize(MainWidgetWidget, MainWidgetHeight);
+    auto screen = app.primaryScreen();
+    QRect mwRect(0, 0, MainWidgetWidget, MainWidgetHeight);
+    mwRect.moveCenter(screen->geometry().center());
+
+    DCC_NAMESPACE::MainWindow mw;
+    mw.setGeometry(mwRect);
+    mw.setMinimumSize(QSize(MainWidgetWidget, MainWidgetHeight));
     mw.show();
 #else
     const QString &reqModule = parser.value(moduleOption);
