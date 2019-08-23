@@ -127,10 +127,12 @@ void AccountsDetailWidget::initWidgets()
     m_avatarListWidget->setUserModel(m_curUser);
 
     const bool isOnline = m_curUser->online();
-    m_deleteAccount->setDisabled(isOnline);
-    m_modifyPassword->setDisabled(!isOnline);
-    m_autoLogin->setDisabled(!isOnline);
-    m_nopasswdLogin->setDisabled(!isOnline);
+    m_deleteAccount->setEnabled(!isOnline);
+
+    bool isCurUser = m_curUser->isCurrentUser();
+    m_modifyPassword->setEnabled(isCurUser);
+    m_autoLogin->setEnabled(isCurUser);
+    m_nopasswdLogin->setEnabled(isCurUser);
 
     m_inputLineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     setFocusPolicy(Qt::FocusPolicy::StrongFocus);
