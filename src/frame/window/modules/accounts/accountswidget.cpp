@@ -26,24 +26,24 @@
 #include "accountsdetailwidget.h"
 
 #include <DStyleOption>
+#include <DStandardItem>
 
 #include <QWidget>
 #include <QVBoxLayout>
-#include <QListView>
-#include <QStandardItem>
 #include <QStandardItemModel>
 #include <QTimer>
 #include <QDebug>
 #include <QIcon>
 #include <QSize>
 
+DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
 
 AccountsWidget::AccountsWidget(QWidget *parent)
     : QWidget(parent)
     , m_createBtn(new DFloatingButton("+", this))
-    , m_userlistView(new QListView)
+    , m_userlistView(new DListView)
     , m_userItemModel(new QStandardItemModel)
 {
     setObjectName("Accounts");
@@ -100,7 +100,7 @@ void AccountsWidget::setShowFirstUserInfo(bool show)
 
 void AccountsWidget::addUser(User *user)
 {
-    QStandardItem *item = new QStandardItem;
+    DStandardItem *item = new DStandardItem;
     connect(user, &User::currentAvatarChanged, this, [ = ](const QString & avatar) {
         if (avatar.startsWith("file://")) {
             QString iconpath = QUrl(avatar).toLocalFile();

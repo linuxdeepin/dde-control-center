@@ -24,13 +24,12 @@
 #include "window/namespace.h"
 
 #include <DFloatingButton>
+#include <DListView>
 
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
-class QListView;
-class QStandardItem;
 class QStandardItemModel;
 QT_END_NAMESPACE
 
@@ -66,8 +65,8 @@ Q_SIGNALS:
     void requestCreateAccount();
 
 private:
-    Dtk::Widget::DFloatingButton *m_createBtn;
-    QListView *m_userlistView;
+    DTK_WIDGET_NAMESPACE::DFloatingButton *m_createBtn;
+    DTK_WIDGET_NAMESPACE::DListView *m_userlistView;
     QStandardItemModel *m_userItemModel;
     QList<dcc::accounts::User *> m_userList;
     bool m_isShowFirstUserInfo = false;
