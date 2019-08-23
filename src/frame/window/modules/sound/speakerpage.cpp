@@ -79,7 +79,7 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
 
 void SpeakerPage::initSlider()
 {
-    auto outputSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
+    auto outputSlider = new TitledSliderItem(tr("Output Volume"), this);
     DCCSlider *slider = outputSlider->slider();
 
     slider->setRange(0, 100);

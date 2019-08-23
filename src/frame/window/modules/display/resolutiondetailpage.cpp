@@ -55,7 +55,7 @@ ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
     mainLayout->addLayout(m_resoListLayout);
 
     QHBoxLayout *hlayout = new QHBoxLayout;
-    m_cancelBtn = new QPushButton(tr("cancel"));
+    m_cancelBtn = new QPushButton(tr("Cancel"));
     m_cancelBtn->setEnabled(false);
     connect(m_cancelBtn, &QPushButton::clicked, this, [ this ] {
         Q_EMIT this->requestReset();
@@ -65,7 +65,7 @@ ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
     });
     hlayout->addWidget(m_cancelBtn);
 
-    m_saveBtn = new QPushButton(tr("save"));
+    m_saveBtn = new QPushButton(tr("Save"));
     m_saveBtn->setEnabled(false);
     connect(m_saveBtn, &QPushButton::clicked, this, [ this ] {
         Q_EMIT this->requestSave();
@@ -166,7 +166,7 @@ void ResolutionDetailPage::initResoList()
         [ = ](const Resolution & resolution) {
             refreshCurrentResolution(resolution, idx);
         });
-        m_resoListLayout->addWidget(rlist);
+        m_resoListLayout->addWidget(rlist, 1);
         m_resoListLayout->addSpacing(20);
         m_resoList.append(rlist);
     }

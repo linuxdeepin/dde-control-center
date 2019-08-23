@@ -52,8 +52,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , m_sw(new SwitchWidget)
-    , m_inputSlider(new TitledSliderItem("Input Volume"))
-
+    , m_inputSlider(new TitledSliderItem(tr("Input Volume")))
 {
     setMinimumWidth(400);
 
@@ -96,11 +95,12 @@ void MicrophonePage::setModel(SoundModel *model)
 void MicrophonePage::initSlider()
 {
     DCCSlider *slider = m_inputSlider->slider();
+    m_layout->insertWidget(1, m_inputSlider);
     slider->setRange(0, 100);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::TicksBelow);
     slider->setTickInterval(1);
-    slider->setSliderPosition(m_model->microphoneVolume() * 100);
+    slider->setSliderPosition(int(m_model->microphoneVolume() * 100));
     slider->setPageStep(1);
 
     auto slotfunc1 = [ = ](int pos) {
@@ -110,10 +110,7 @@ void MicrophonePage::initSlider()
     connect(slider, &DCCSlider::valueChanged, this, slotfunc1);
     connect(slider, &DCCSlider::sliderMoved, this, slotfunc1);
 
-    m_layout->insertWidget(1, m_inputSlider);
-
-
-    m_feedbackSlider = (new TitledSliderItem("Feedback Volume"));
+    m_feedbackSlider = (new TitledSliderItem("Input Level"));
     DCCSlider *slider2 = m_feedbackSlider->slider();
     slider2->setRange(0, 100);
     slider2->setEnabled(false);
@@ -123,7 +120,7 @@ void MicrophonePage::initSlider()
     slider2->setPageStep(1);
 
     m_conn = connect(m_model, &SoundModel::microphoneFeedbackChanged, [ = ](double vol2) {
-        slider2->setSliderPosition(vol2 * 100);
+        slider2->setSliderPosition(int(vol2 * 100));
     });
 
     m_layout->insertWidget(2, m_feedbackSlider);

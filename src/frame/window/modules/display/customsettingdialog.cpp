@@ -103,11 +103,11 @@ void CustomSettingDialog::init()
 
     if (m_isPrimary) {
         QPushButton *btn{nullptr};
-        btn = new QPushButton("cancel", this);
+        btn = new QPushButton(tr("Cancel"), this);
         connect(btn, &QPushButton::clicked, this, &CustomSettingDialog::reject);
         hlayout->addWidget(btn);
 
-        btn = new QPushButton("save", this);
+        btn = new QPushButton(tr("Save"), this);
         connect(btn, &QPushButton::clicked, this, &CustomSettingDialog::accept);
         hlayout->addWidget(btn);
     }
