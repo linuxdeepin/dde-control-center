@@ -23,6 +23,8 @@
 
 #include "window/namespace.h"
 
+#include <DListView>
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -59,7 +61,7 @@ Q_SIGNALS:
     void showTrackPointSetting();
 private:
     MouseModel *m_mouseModel;
-    QListView *m_mouseListView;
+    DTK_WIDGET_NAMESPACE::DListView *m_mouseListView;
     QVBoxLayout *m_contentLayout;
     QStandardItemModel *m_listviewModel;
 };

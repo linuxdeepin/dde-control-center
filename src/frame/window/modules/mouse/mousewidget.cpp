@@ -29,14 +29,8 @@
 #include "modules/mouse/widget/palmdetectsetting.h"
 #include "modules/mouse/widget/doutestwidget.h"
 
-#include <DStyleOption>
-
-#include <QDebug>
-#include <QStandardItemModel>
-#include <QStandardItem>
-#include <QPainter>
 #include <QVBoxLayout>
-#include <QListView>
+#include <QList>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::mouse;
@@ -47,11 +41,10 @@ MouseWidget::MouseWidget(QWidget *parent)
 {
     setObjectName("Mouse");
     m_contentLayout = new QVBoxLayout(this);
-    m_mouseListView = new QListView(this);
+    m_mouseListView = new DListView(this);
     m_contentLayout->addWidget(m_mouseListView);
     init();
     setLayout(m_contentLayout);
-    //setStyleSheet("MouseWidget{background: red}");
 }
 
 void MouseWidget::init()
@@ -69,10 +62,9 @@ void MouseWidget::init()
         //~ contents_path /mouse/TrackPoint
         { QIcon::fromTheme("dcc_trackpoint"), tr("TrackPoint")}
     };
-    QStandardItem *mouseItem = nullptr;
+    DStandardItem *mouseItem = nullptr;
     for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {
-        mouseItem = new QStandardItem(it->first, it->second);
-        mouseItem->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
+        mouseItem = new DStandardItem(it->first, it->second);
         mouseItem->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_listviewModel->appendRow(mouseItem);
     }
@@ -81,7 +73,7 @@ void MouseWidget::init()
     m_mouseListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_mouseListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_mouseListView->setCurrentIndex(m_listviewModel->index(0, 0));
-    connect(m_mouseListView, &QListView::clicked, this, &MouseWidget::onItemClieck);
+    connect(m_mouseListView, &DListView::clicked, this, &MouseWidget::onItemClieck);
 }
 
 void MouseWidget::initSetting(const int settingIndex)
@@ -92,7 +84,6 @@ void MouseWidget::initSetting(const int settingIndex)
 
 void MouseWidget::onItemClieck(const QModelIndex &index)
 {
-    // qDebug() << "row: " << index.row() << " column: " << index.column();
     switch (index.row()) {
     case 0:
         Q_EMIT showGeneralSetting();

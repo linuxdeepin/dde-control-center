@@ -22,6 +22,9 @@
 #pragma once
 
 #include "window/namespace.h"
+
+#include <DListView>
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -61,7 +64,7 @@ Q_SIGNALS:
     void showShortCutSetting();
 private:
     dcc::keyboard::KeyboardModel *m_keyboardModel;
-    QListView *m_keyboardListView;
+    DTK_WIDGET_NAMESPACE::DListView *m_keyboardListView;
     QVBoxLayout *m_contentLayout;
     QStandardItemModel *m_listviewModel;
 };
