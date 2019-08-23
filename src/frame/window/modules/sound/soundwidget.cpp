@@ -49,7 +49,7 @@ SoundWidget::SoundWidget(QWidget *parent)
     layout->addSpacing(10);
 
     m_menuList->setFrameShape(QFrame::NoFrame);
-    layout->addWidget(m_menuList, 1);
+    layout->addWidget(m_menuList);
     initMenuUI();
 
     layout->addStretch(1);
@@ -72,25 +72,23 @@ void SoundWidget::initMenuUI()
 {
     m_menuMethod = {
         //~ contents_path /sound/Speaker
-        { tr("Speaker"), "dcc_speaker", QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage)},
+        { tr("Speaker"), QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage)},
         //~ contents_path /sound/Microphone
-        { tr("Microphone"), "dcc_noun", QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage)},
+        { tr("Microphone"), QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage)},
         //~ contents_path /sound/Advanced
-        { tr("Advanced"), "dcc_setting", QMetaMethod::fromSignal(&SoundWidget::requestAdvancedPage)},
+        { tr("Advanced"), QMetaMethod::fromSignal(&SoundWidget::requestAdvancedPage)},
         //~ contents_path /sound/Sound Effects
-        { tr("Sound Effects"), "dcc_sound_effect", QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage)}
+        { tr("Sound Effects"), QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage)}
     };
 
     QStandardItemModel *listModel = new QStandardItemModel(this);
     for (auto mm : m_menuMethod) {
         QStandardItem *item = new QStandardItem(mm.menuText);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
-        item->setIcon(QIcon::fromTheme(mm.iconName));
         listModel->appendRow(item);
     }
     m_menuList->setMinimumWidth(230);
     m_menuList->setModel(listModel);
-    m_menuList->setIconSize(QSize(32, 32));
     m_menuList->setCurrentIndex(listModel->index(0, 0));
     m_currentIdx = m_menuList->currentIndex();
     connect(m_menuList, &QListView::clicked, [ = ](const QModelIndex & idx) {

@@ -51,8 +51,8 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_centralLayout->setSpacing(10);
     m_centralLayout->addSpacing(10);
 
-    m_nightTips = new QLabel(tr("The screen tone will be auto adjusted \
-                                    according to your location"));
+    m_nightTips = new QLabel(tr("The screen tone will be auto adjusted by \
+                                help of figuring out your location to protect eyes"));
     m_nightTips->setWordWrap(true);
     m_nightTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     m_nightTips->adjustSize();
@@ -101,9 +101,12 @@ void BrightnessPage::addSlider()
 {
     auto monList = m_displayModel->monitorList();
 
+    QString title = tr("Display scaling for all monitors");
     for (int i = 0; i < monList.size(); ++i) {
         //单独显示每个亮度调节名
-        TitledSliderItem *slideritem = new TitledSliderItem(monList[i]->name());
+        title = 1 == monList.size() ? title : tr("Display scaling for %1").arg(monList[i]->name());
+
+        TitledSliderItem *slideritem = new TitledSliderItem(title);
         QStringList annoList;
         annoList << "0%" << "20%" << "40%" << "60%" << "80%" << "100%";
         slideritem->setAnnotations(annoList);

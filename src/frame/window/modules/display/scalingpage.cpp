@@ -46,8 +46,7 @@ ScalingPage::ScalingPage(QWidget *parent)
     m_centralLayout->setSpacing(10);
     m_centralLayout->addSpacing(10);
 
-    QLabel *tip = new QLabel(tr("Some applications cannot be scaled with the \
-                                specified settings in multi-display environment."), this);
+    QLabel *tip = new QLabel(tr("Some applications in multi-screens may not scale as the settings."), this);
 
     tip->setWordWrap(true);
     tip->setAlignment(Qt::AlignTop | Qt::AlignLeft);
@@ -88,7 +87,12 @@ void ScalingPage::setupSliders()
 void ScalingPage::addSlider(int monitorID)
 {
     qDebug() << "set scaling" << ~monitorID;
-    m_sliders.push_back(new TitledSliderItem(m_displayModel->monitorList()[monitorID]->name()));
+    m_sliders.push_back(
+        new TitledSliderItem(
+            ~monitorID ? tr("Display scaling for %1").arg(m_displayModel->monitorList()[monitorID]->name())
+            : tr("Display scaling for all monitors")
+        )
+    );
     QStringList scaleList;
     scaleList << "1.0"
               << "1.25"

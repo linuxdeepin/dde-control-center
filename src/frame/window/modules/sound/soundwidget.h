@@ -55,7 +55,6 @@ private:
 private:
     struct MenuMethod {
         QString menuText;
-        QString iconName;
         QMetaMethod method;
     };
 
