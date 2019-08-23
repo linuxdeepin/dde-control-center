@@ -27,7 +27,7 @@
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::defapp;
 
-DefAppListView::DefAppListView(QWidget *parent) : QListView(parent)
+DefAppListView::DefAppListView(QWidget *parent) : DListView(parent)
 {
     setFrameStyle(QFrame::NoFrame);
     setMouseTracking(true);

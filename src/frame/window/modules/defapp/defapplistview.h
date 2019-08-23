@@ -22,13 +22,11 @@
 
 #include "window/namespace.h"
 
-#include <DStyleOption>
-
-#include <QListView>
+#include <DListView>
 
 namespace DCC_NAMESPACE {
 namespace defapp {
-class DefAppListView : public QListView
+class DefAppListView : public DTK_WIDGET_NAMESPACE::DListView
 {
     Q_OBJECT
 

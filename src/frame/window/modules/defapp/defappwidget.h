@@ -24,11 +24,16 @@
 #include "window/namespace.h"
 #include "modules/defapp/defappworker.h"
 
+#include <dtkwidget_global.h>
+
 #include <QWidget>
 
+DWIDGET_BEGIN_NAMESPACE
+class DListView;
+DWIDGET_END_NAMESPACE
+
 QT_BEGIN_NAMESPACE
-class QListView;
-class QStandardItemModel;
+class QModelIndex;
 class QVBoxLayout;
 QT_END_NAMESPACE
 
@@ -48,7 +53,7 @@ public Q_SLOTS:
     void onCategoryClicked(const QModelIndex &index);
 
 private:
-    QListView  *m_defAppCatView;
+    DTK_WIDGET_NAMESPACE::DListView *m_defAppCatView;
     QVBoxLayout *m_centralLayout;
 };
 }

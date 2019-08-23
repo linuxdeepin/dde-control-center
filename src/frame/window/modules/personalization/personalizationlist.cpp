@@ -20,7 +20,9 @@
  */
 #include "personalizationlist.h"
 
-#include <DStyleOption>
+#include <DListView>
+
+#include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -31,7 +33,7 @@ Q_DECLARE_METATYPE(QMargins)
 
 PersonalizationList::PersonalizationList(QWidget *parent)
     : QWidget(parent)
-    , m_categoryListView(new QListView())
+    , m_categoryListView(new DListView())
     , m_model(new QStandardItemModel(this))
     , m_centralLayout(new QVBoxLayout())
 {
@@ -55,9 +57,8 @@ PersonalizationList::PersonalizationList(QWidget *parent)
           << "dcc_Font";
 
     for (int i = 0; i < menus.size(); ++i) {
-        QStandardItem* item = new QStandardItem(QIcon::fromTheme(icons.at(i)), menus.at(i));
+        DStandardItem *item = new DStandardItem(QIcon::fromTheme(icons.at(i)), menus.at(i));
 
-        item->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
         item->setSizeHint(QSize(230, 48));
         item->setData(QVariant::fromValue(QMargins(10, 10, 10, 0)), Dtk::MarginsRole);
 

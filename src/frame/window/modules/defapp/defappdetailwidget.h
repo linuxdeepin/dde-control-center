@@ -65,6 +65,7 @@ private:
     QIcon getAppIcon(const dcc::defapp::App &app);
     dcc::defapp::App getAppById(const QString &appId);
     void appendItemData(const dcc::defapp::App &app);
+    bool isDesktopOrBinaryFile(const QString &fileName);
 
 Q_SIGNALS:
     void requestSetDefaultApp(const QString &category, const dcc::defapp::App &item);
@@ -88,7 +89,7 @@ private:
     QVBoxLayout *m_centralLayout;
     DefAppListView *m_defApps;
     QStandardItemModel *m_model;
-    Dtk::Widget::DFloatingButton *m_addBtn;
+    DTK_WIDGET_NAMESPACE::DFloatingButton *m_addBtn;
     QString m_categoryName;
     int m_categoryValue;
     dcc::defapp::Category *m_category;

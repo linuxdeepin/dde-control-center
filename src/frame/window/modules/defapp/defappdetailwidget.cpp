@@ -31,7 +31,6 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QDebug>
-#include <QListView>
 #include <QStandardItemModel>
 #include <QPushButton>
 #include <QIcon>
@@ -252,7 +251,9 @@ dcc::defapp::App DefappDetailWidget::getAppById(const QString &appId) {
 
 void DefappDetailWidget::appendItemData(const dcc::defapp::App &app)
 {
-    QStandardItem *item = new QStandardItem(getAppIcon(app), app.Name);
+    QString appName = (!app.isUser || isDesktopOrBinaryFile(app.Exec))
+            ? app.Name : QString("%1(%2)").arg(app.Name).arg(tr("Invalid"));
+    DStandardItem *item = new DStandardItem(getAppIcon(app), appName);
 
     item->setData(app.isUser, DefAppListView::DefAppIsUserRole);
     item->setData(app.Id, DefAppListView::DefAppIdRole);
@@ -260,4 +261,29 @@ void DefappDetailWidget::appendItemData(const dcc::defapp::App &app)
     item->setSizeHint(QSize(340, 48));
     item->setData(QVariant::fromValue(QMargins(10, 10, 10, 0)), Dtk::MarginsRole);
     m_model->appendRow(item);
+}
+
+bool DefappDetailWidget::isDesktopOrBinaryFile(const QString &fileName)
+{
+    if (QFileInfo(fileName).suffix() == "desktop")
+        return true;
+
+    QFile file(fileName);
+    if (!file.open(QFile::ReadOnly))
+        return false;
+
+    long text_char_count = 0;
+    unsigned char byte;
+
+    while (file.read((char *)(&byte), 1) > 0) {
+        if (byte == 9 || byte == 10 || byte == 13 || (byte >= 32)) {
+            text_char_count++;
+        } else if ((byte <= 6) || (byte >= 14 && byte <= 31)) {
+            file.close();
+            return true;
+        }
+    }
+
+    file.close();
+    return (text_char_count >= 1) ? false : true;
 }

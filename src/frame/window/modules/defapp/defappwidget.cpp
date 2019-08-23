@@ -21,11 +21,9 @@
 
 #include "defappwidget.h"
 
-#include <DStyleOption>
+#include <DListView>
 
-#include <QListView>
 #include <QStandardItemModel>
-#include <QStandardItem>
 #include <QVBoxLayout>
 #include <QTimer>
 #include <QDebug>
@@ -38,7 +36,7 @@ Q_DECLARE_METATYPE(QMargins)
 
 DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     : QWidget(parent)
-    , m_defAppCatView(new QListView(this))
+    , m_defAppCatView(new DListView(this))
     , m_centralLayout(new QVBoxLayout(this))
 {
     setObjectName("Defapp");
@@ -70,9 +68,8 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     QStandardItemModel *model = new QStandardItemModel(this);
 
     for (int i = 0; i < icons.size(); i++) {
-        QStandardItem* item = new QStandardItem(QIcon::fromTheme(icons.at(i)), titles.at(i));
+        DStandardItem *item = new DStandardItem(QIcon::fromTheme(icons.at(i)), titles.at(i));
 
-        item->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
         item->setSizeHint(QSize(230, 48));
         item->setData(QVariant::fromValue(QMargins(10, 10, 10, 0)), Dtk::MarginsRole);
         model->appendRow(item);

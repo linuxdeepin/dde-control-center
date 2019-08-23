@@ -22,10 +22,18 @@
 
 #include "window/namespace.h"
 
+#include <dtkwidget_global.h>
+
 #include <QWidget>
-#include <QListView>
-#include <QStandardItemModel>
-#include <QVBoxLayout>
+
+DWIDGET_BEGIN_NAMESPACE
+class DListView;
+DWIDGET_END_NAMESPACE
+
+QT_BEGIN_NAMESPACE
+class QStandardItemModel;
+class QVBoxLayout;
+QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 namespace personalization {
@@ -45,7 +53,7 @@ public Q_SLOTS:
     void onCategoryClicked(const QModelIndex &index);
 
 private:
-    QListView  *m_categoryListView;
+    DTK_WIDGET_NAMESPACE::DListView *m_categoryListView;
     QStandardItemModel *m_model;
     QVBoxLayout *m_centralLayout;
 };
