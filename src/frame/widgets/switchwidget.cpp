@@ -61,7 +61,7 @@ SwitchWidget::SwitchWidget(QWidget *widget, QFrame *parent):
     //set a vertical margin instead of a fixed height,
     //as we are now dealing with multi-line labels as well.
     int vertical_margin = 0;
-    QLabel *label = qobject_cast<QLabel*>(m_leftWidget);
+    QLabel *label = qobject_cast<QLabel *>(m_leftWidget);
     if (label) {
         label->setWordWrap(true);
         vertical_margin = (36 - label->fontMetrics().height()) / 2;
@@ -89,7 +89,7 @@ void SwitchWidget::setChecked(const bool checked)
 
 void SwitchWidget::setTitle(const QString &title)
 {
-    QLabel *label = qobject_cast<QLabel*>(m_leftWidget);
+    QLabel *label = qobject_cast<QLabel *>(m_leftWidget);
     if (label) {
         label->setWordWrap(true);
         label->setText(title);
@@ -110,6 +110,12 @@ void SwitchWidget::mouseReleaseEvent(QMouseEvent *event)
     }
 
     return SettingsItem::mouseReleaseEvent(event);
+}
+
+//rewrite the function for bug : https://pms.deepin.cn/task-view-7449.html
+void SwitchWidget::mouseMoveEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event)
 }
 
 }

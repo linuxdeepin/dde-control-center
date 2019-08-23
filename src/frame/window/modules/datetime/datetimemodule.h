@@ -44,12 +44,12 @@ class DatetimeModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
 public:
-    enum datetimeType {
-        DEFAULT = -1,
-        TIMEZONELIST,
-        SYSTEMTIMEZONE,
-        TIMESETTING,
-        COUNT
+    enum DatetimeType {
+        Default = -1,
+        ETimezoneList,
+        SystemTimezone,
+        TimeSetting,
+        Count
     };
 
 public:

@@ -90,6 +90,13 @@ int TimeWidget::getEditValue() const
     return m_lineEdit->text().toInt();
 }
 
+void TimeWidget::setEditText(QString txt)
+{
+    if (m_lineEdit) {
+        m_lineEdit->setText(txt);
+    }
+}
+
 void TimeWidget::slotAdd()
 {
     if (m_bType) { // hour

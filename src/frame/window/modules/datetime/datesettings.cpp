@@ -133,13 +133,10 @@ void DateSettings::onCancelButtonClicked()
 
 void DateSettings::onConfirmButtonClicked()
 {
-    QDate date; date.setDate(m_yearWidget->value(), m_monthWidget->value(), m_dayWidget->value());
-    QTime time; time.setHMS(m_timeHourWidget->getEditValue(), m_timeMinWidget->getEditValue(), 0);
+    if (!m_autoSyncTimeSwitch->checked()) {
+        Q_EMIT requestSetTime(getDatetime());
+    }
 
-    QDateTime datetime(date, time);
-    Q_EMIT requestSetTime(datetime);
-
-    m_autoSyncTimeSwitch->setChecked(false);
     Q_EMIT requestBack();
 }
 
@@ -156,10 +153,31 @@ void DateSettings::updateDayRange()
     }
 }
 
+QDateTime DateSettings::getDatetime() const
+{
+    QDate date;
+    date.setDate(m_yearWidget->value(), m_monthWidget->value(), m_dayWidget->value());
+    QTime time;
+    time.setHMS(m_timeHourWidget->getEditValue(), m_timeMinWidget->getEditValue(), 0);
+    QDateTime datetime(date, time);
+
+    m_yearWidget->setValue(date.year());
+    m_monthWidget->setValue(date.month());
+    m_dayWidget->setValue(date.day());
+    m_timeHourWidget->setEditText(QString("%1").arg(time.hour()));
+    m_timeMinWidget->setEditText(QString("%1").arg(time.minute()));
+
+    return datetime;
+}
+
 void DateSettings::updateRealAutoSyncCheckState(const bool &state)
 {
     if (m_autoSyncTimeSwitch->checked() != state) {
         m_autoSyncTimeSwitch->setChecked(state);
+
+        if (state) {
+            getDatetime();
+        }
     }
 }
 

@@ -49,6 +49,7 @@ public:
     explicit TimeWidget(QFrame *parent = 0, bool bType = true);
 
     int getEditValue() const;
+    void setEditText(QString txt);
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event);

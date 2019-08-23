@@ -89,21 +89,21 @@ void DatetimeModule::load(QString path)
     }
 
     QListView *list = m_widget->getListViewPointer();
-    datetimeType type = DEFAULT;
+    DatetimeType type = Default;
 
     if (!list) {
         return;
     }
 
     if (path == "Timezone List") {
-        type = TIMEZONELIST;
+        type = ETimezoneList;
     } else if (path == "System Timezone") {
-        type = SYSTEMTIMEZONE;
+        type = SystemTimezone;
     } else if (path == "Time Settings") {
-        type = TIMESETTING;
+        type = TimeSetting;
     }
 
-    if (type > DEFAULT && type < COUNT) {
+    if (type > Default && type < Count) {
         QModelIndex index = list->model()->index(type, 0);
         list->setCurrentIndex(index);
         list->pressed(index);
@@ -159,7 +159,6 @@ void DatetimeModule::showTimezoneList()
 {
     if (!m_timezonelist) {
         m_timezonelist = new TimezoneList;
-        m_timezonelist->setMode(m_model);
 
         //first into this page, update timezonelist data
         m_timezonelist->getTimezoneContentListPtr()->addTimezones(m_model->userTimeZones());
@@ -213,14 +212,14 @@ void DatetimeModule::showTimeSetting()
 
 void DatetimeModule::onPushWidget(const int &index)
 {
-    switch (static_cast<datetimeType>(index)) {
-    case TIMEZONELIST:
+    switch (static_cast<DatetimeType>(index)) {
+    case ETimezoneList:
         showTimezoneList();
         break;
-    case SYSTEMTIMEZONE:
+    case SystemTimezone:
         showSystemTimezone();
         break;
-    case TIMESETTING:
+    case TimeSetting:
         showTimeSetting();
         break;
     default:

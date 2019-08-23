@@ -31,7 +31,6 @@
 
 namespace dcc {
 namespace datetime {
-class DatetimeModel;
 class TimeZoneChooser;
 class TimezoneItem;
 }
@@ -55,7 +54,6 @@ public:
     virtual ~TimezoneList();
 
     TimezoneContentList *getTimezoneContentListPtr();
-    void setMode(dcc::datetime::DatetimeModel *model);
 
 private:
     QVBoxLayout *m_centralLayout;

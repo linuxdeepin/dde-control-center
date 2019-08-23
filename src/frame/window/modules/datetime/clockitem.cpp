@@ -68,7 +68,7 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay) :
     timer->setSingleShot(false);
     connect(timer, &QTimer::timeout, this, &ClockItem::updateDateTime, Qt::DirectConnection);
 
-    timer->start(1000);
+    timer->start(500);
 }
 
 void ClockItem::setTimeZone(const ZoneInfo &zone)

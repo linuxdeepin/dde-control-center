@@ -70,6 +70,7 @@ private Q_SLOTS:
     void onCancelButtonClicked();
     void onConfirmButtonClicked();
     void updateDayRange();
+    QDateTime getDatetime() const;
 
 public Q_SLOTS:
     void updateRealAutoSyncCheckState(const bool &state);
