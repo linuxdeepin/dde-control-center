@@ -80,6 +80,7 @@ UseElectricWidget::UseElectricWidget(QWidget *parent)
     connect(m_monitorSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetScreenBlackDelayOnPower);
     connect(m_computerSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetSleepDelayOnPower);
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetAutoLockScreenOnPower);
+    connect(m_suspendOnLidClose, &SwitchWidget::checkedChanged, this, &UseElectricWidget::requestSetSleepOnLidOnPowerClosed);
 }
 
 UseElectricWidget::~UseElectricWidget()
@@ -91,9 +92,11 @@ void UseElectricWidget::setModel(const PowerModel *model)
 {
     connect(model, &PowerModel::screenBlackDelayChangedOnPower, this, &UseElectricWidget::setScreenBlackDelayOnPower);
     connect(model, &PowerModel::sleepDelayChangedOnPower, this, &UseElectricWidget::setSleepDelayOnPower);
+    connect(model, &PowerModel::sleepOnLidOnPowerCloseChanged, m_suspendOnLidClose, &SwitchWidget::setChecked);
 
     setScreenBlackDelayOnPower(model->screenBlackDelayOnPower());
     setSleepDelayOnPower(model->sleepDelayOnPower());
+    m_suspendOnLidClose->setChecked(model->sleepOnLidOnPowerClose());
 }
 
 void UseElectricWidget::setScreenBlackDelayOnPower(const int delay)
