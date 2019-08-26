@@ -42,7 +42,7 @@ CustomSettingDialog::CustomSettingDialog(QWidget *parent)
     : QDialog(parent)
     , m_isPrimary(true)
 {
-    init();
+    initUI();
 }
 
 CustomSettingDialog::CustomSettingDialog(dcc::display::Monitor *mon,
@@ -53,7 +53,7 @@ CustomSettingDialog::CustomSettingDialog(dcc::display::Monitor *mon,
     m_monitor(mon),
     m_model(model)
 {
-    init();
+    initUI();
 }
 
 
@@ -62,18 +62,12 @@ CustomSettingDialog::~CustomSettingDialog()
     qDeleteAll(m_otherDialog);
 }
 
-void CustomSettingDialog::init()
+void CustomSettingDialog::initUI()
 {
-    setMinimumSize(640, 800);
+    setMinimumWidth(480);
     setWindowFlags(windowFlags() | Qt::X11BypassWindowManagerHint);
 
     m_layout = new QVBoxLayout(this);
-    QLabel *resoLabel = new QLabel;
-    resoLabel->setObjectName("Resolution");
-    //~ contents_path /display/Multiple Displays
-    resoLabel->setText(tr("Resolution"));
-    m_layout->addWidget(resoLabel);
-
     if (m_isPrimary) {
         m_moniList = new DListView;
         m_moniList->installEventFilter(this);
@@ -117,9 +111,12 @@ void CustomSettingDialog::setModel(DisplayModel *model)
 
     m_monitor = model->primaryMonitor();
     m_isPrimary = true;
+    initPrimaryDialog();
 
     initWithModel();
     initOtherDialog();
+
+    connect(m_model, &DisplayModel::primaryScreenChanged, this, &CustomSettingDialog::onPrimaryMonitorChanged);
 }
 
 void CustomSettingDialog::initWithModel()
@@ -127,30 +124,11 @@ void CustomSettingDialog::initWithModel()
     Q_ASSERT(m_model);
 
     initResolutionList();
-    if (m_isPrimary) {
-        m_monitroControlWidget = new MonitorControlWidget();
-        m_monitroControlWidget->setDisplayModel(m_model);
 
-        connect(m_monitroControlWidget, &MonitorControlWidget::requestMonitorPress,
-                this, &CustomSettingDialog::onMonitorPress);
-        connect(m_monitroControlWidget, &MonitorControlWidget::requestMonitorRelease,
-                this, &CustomSettingDialog::onMonitorRelease);
-        connect(m_monitroControlWidget, &MonitorControlWidget::requestRecognize,
-                this, &CustomSettingDialog::requestRecognize);
-        connect(m_monitroControlWidget, &MonitorControlWidget::requestMerge,
-                this, &CustomSettingDialog::requestMerge);
-        connect(m_monitroControlWidget, &MonitorControlWidget::requestSplit,
-                this, &CustomSettingDialog::requestSplit);
-        connect(m_monitroControlWidget, &MonitorControlWidget::requestSetMonitorPosition,
-                this, &CustomSettingDialog::requestSetMonitorPosition);
+    connect(m_model, &DisplayModel::screenWidthChanged, this, &CustomSettingDialog::resetDialog);
+    connect(m_model, &DisplayModel::screenWidthChanged, this, &CustomSettingDialog::resetDialog);
 
-        m_layout->insertWidget(1, m_monitroControlWidget);
-
-        Q_ASSERT(m_moniList);
-        initMoniList();
-    }
-
-    move(m_monitor->rect().center() - QPoint(width() / 2, height() / 2));
+    resetDialog();
 }
 
 void CustomSettingDialog::initOtherDialog()
@@ -262,7 +240,39 @@ void CustomSettingDialog::initMoniList()
         actionList << titleAction << subTitleAction;
         item->setTextActionList(actionList);
         listModel->appendRow(item);
+
+        if (moni->isPrimary())
+            m_moniList->setCurrentIndex(listModel->indexFromItem(item));
     }
+
+    connect(m_moniList, static_cast<void (DListView::*)(const QModelIndex &)>(&DListView::currentChanged),
+    this, [this] {
+        this->requestSetPrimaryMonitor(m_moniList->currentIndex().row());
+    });
+}
+
+void CustomSettingDialog::initPrimaryDialog()
+{
+    Q_ASSERT(m_moniList);
+    initMoniList();
+
+    m_monitroControlWidget = new MonitorControlWidget();
+    m_monitroControlWidget->setDisplayModel(m_model);
+
+    connect(m_monitroControlWidget, &MonitorControlWidget::requestMonitorPress,
+            this, &CustomSettingDialog::onMonitorPress);
+    connect(m_monitroControlWidget, &MonitorControlWidget::requestMonitorRelease,
+            this, &CustomSettingDialog::onMonitorRelease);
+    connect(m_monitroControlWidget, &MonitorControlWidget::requestRecognize,
+            this, &CustomSettingDialog::requestRecognize);
+    connect(m_monitroControlWidget, &MonitorControlWidget::requestMerge,
+            this, &CustomSettingDialog::requestMerge);
+    connect(m_monitroControlWidget, &MonitorControlWidget::requestSplit,
+            this, &CustomSettingDialog::requestSplit);
+    connect(m_monitroControlWidget, &MonitorControlWidget::requestSetMonitorPosition,
+            this, &CustomSettingDialog::requestSetMonitorPosition);
+
+    m_layout->insertWidget(1, m_monitroControlWidget);
 }
 
 void CustomSettingDialog::onMonitorPress(Monitor *mon)
@@ -273,5 +283,23 @@ void CustomSettingDialog::onMonitorPress(Monitor *mon)
 
 void CustomSettingDialog::onMonitorRelease(Monitor *mon)
 {
+    Q_UNUSED(mon)
+
     m_fullIndication->hide();
+}
+
+void CustomSettingDialog::resetDialog()
+{
+    adjustSize();
+    move(m_monitor->rect().center() - QPoint(width() / 2, height() / 2));
+}
+
+void CustomSettingDialog::onPrimaryMonitorChanged()
+{
+    m_monitor = m_model->primaryMonitor();
+
+    initWithModel();
+    initOtherDialog();
+
+    resetDialog();
 }
