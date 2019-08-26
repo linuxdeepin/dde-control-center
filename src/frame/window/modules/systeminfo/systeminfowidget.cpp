@@ -21,18 +21,20 @@
 
 #include "systeminfowidget.h"
 
+#include <DStandardItem>
+
 #include <QVBoxLayout>
-#include <QListView>
 #include <QStandardItemModel>
 #include <QIcon>
 #include <QList>
 
+DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE::systeminfo;
 
 SystemInfoWidget::SystemInfoWidget(QWidget *parent)
     : QWidget(parent)
     , m_mainContentLayout(new QVBoxLayout)
-    , m_listView(new QListView)
+    , m_listView(new DListView)
     , m_itemModel(new QStandardItemModel)
 {
     initWidget();
@@ -42,6 +44,7 @@ SystemInfoWidget::SystemInfoWidget(QWidget *parent)
 void SystemInfoWidget::initWidget()
 {
     m_listView->setFrameShape(QFrame::NoFrame);
+    m_listView->setEditTriggers(QListView::NoEditTriggers);
     m_listView->setIconSize(QSize(50, 50));
     m_listView->setModel(m_itemModel);
 
@@ -62,17 +65,13 @@ void SystemInfoWidget::initData()
     };
 
     for (auto m : m_itemList) {
-        QStandardItem *item = new QStandardItem;
-
+        DStandardItem *item = new DStandardItem;
         item->setIcon(QIcon::fromTheme(m.icon));
         item->setText(m.text);
-        item->setEditable(false);
         m_itemModel->appendRow(item);
     }
 
-    connect(m_listView, &QListView::clicked, this, [&](const QModelIndex &index){
+    connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
         m_itemList[index.row()].method.invoke(this);
     });
 }
-
-

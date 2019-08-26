@@ -23,6 +23,8 @@
 
 #include "window/namespace.h"
 
+#include <DListView>
+
 #include <QWidget>
 #include <QMetaMethod>
 
@@ -65,7 +67,7 @@ private:
 
 private:
     QVBoxLayout *m_mainContentLayout;
-    QListView *m_listView;
+    DTK_WIDGET_NAMESPACE::DListView *m_listView;
     QStandardItemModel *m_itemModel;
     QList<ListMethod> m_itemList;
 };
