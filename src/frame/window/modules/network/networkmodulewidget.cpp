@@ -43,7 +43,7 @@ using namespace dde::network;
 
 NetworkModuleWidget::NetworkModuleWidget()
     : QWidget()
-    , m_lvnmpages(new QListView(this))
+    , m_lvnmpages(new DListView(this))
     , m_modelpages(new QStandardItemModel)
 {
     setObjectName("Network");
@@ -57,35 +57,35 @@ NetworkModuleWidget::NetworkModuleWidget()
 
 #if !defined(DISABLE_NETWORK_PROXY) || !defined(DISABLE_NETWORK_VPN) || !defined(DISABLE_NETWORK_PPPOE)
 #ifndef DISABLE_NETWORK_PPPOE
-    QStandardItem *pppit = new QStandardItem(tr("DSL"));
+    DStandardItem *pppit = new DStandardItem(tr("DSL"));
     pppit->setData("ppp", SectionRole);
+    pppit->setIcon(QIcon::fromTheme("dcc_dsl"));
     m_modelpages->appendRow(pppit);
 #endif
 
 #ifndef DISABLE_NETWORK_VPN
-    QStandardItem *vpnit = new QStandardItem(tr("VPN"));
+    DStandardItem *vpnit = new DStandardItem(tr("VPN"));
     vpnit->setData("vpn", SectionRole);
+    vpnit->setIcon(QIcon::fromTheme("dcc_vpn"));
     m_modelpages->appendRow(vpnit);
 #endif
 
 #ifndef DISABLE_NETWORK_PROXY
-    QStandardItem *prxyit = new QStandardItem(tr("System Proxy"));
+    DStandardItem *prxyit = new DStandardItem(tr("System Proxy"));
     prxyit->setData("prxy", SectionRole);
+    prxyit->setIcon(QIcon::fromTheme("dcc_system_agent"));
     m_modelpages->appendRow(prxyit);
-    QStandardItem *aprxit = new QStandardItem(tr("Application Proxy"));
+    DStandardItem *aprxit = new DStandardItem(tr("Application Proxy"));
     aprxit->setData("aprx", SectionRole);
+    aprxit->setIcon(QIcon::fromTheme("dcc_app_proxy"));
     m_modelpages->appendRow(aprxit);
 #endif
 #endif
-    QStandardItem *infoit = new QStandardItem(tr("Network Details"));
+    DStandardItem *infoit = new DStandardItem(tr("Network Details"));
     infoit->setData("info", SectionRole);
+    infoit->setIcon(QIcon::fromTheme("dcc_network"));
     m_modelpages->appendRow(infoit);
     m_centralLayout->addWidget(m_lvnmpages);
-
-    for (int i = 0; i < m_modelpages->rowCount(); ++i) {
-        m_modelpages->item(i)->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
-        m_modelpages->item(i)->setData(DCC_NAMESPACE::VListViewItemMargin, Dtk::MarginsRole);
-    }
 
     connect(m_lvnmpages, &QListView::clicked, this, [this](const QModelIndex &idx) {
         QString type = idx.data(SectionRole).toString();
@@ -203,11 +203,11 @@ QStandardItem* NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
             text = tr("Wireless Network");
         }
     }
-    QStandardItem *ret = new QStandardItem(text);
+    DStandardItem *ret = new DStandardItem(text);
     ret->setData(dev->type() == NetworkDevice::Wireless ? "dev_wireless" : "dev_ether", SectionRole);
+    //TODO: add icon for ethernet
+    ret->setIcon(QIcon::fromTheme(dev->type() == NetworkDevice::Wireless ? "dcc_wifi" : ""));
     ret->setData(QVariant::fromValue(dev), DeviceRole);
-    ret->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
-    ret->setData(DCC_NAMESPACE::VListViewItemMargin, Dtk::MarginsRole);
 
     return ret;
 }

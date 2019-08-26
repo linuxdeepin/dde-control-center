@@ -27,8 +27,8 @@
 #define NETWORKMODULEWIDGET_H
 
 #include <DStyleOption>
+#include <DListView>
 
-#include <QListView>
 #include <QStandardItemModel>
 #include "modules/modulewidget.h"
 #include "widgets/nextpagewidget.h"
@@ -78,7 +78,7 @@ private:
 
 private:
     QVBoxLayout *m_centralLayout;
-    QListView *m_lvnmpages;
+    DListView *m_lvnmpages;
     QStandardItemModel *m_modelpages;
 
     static const int SectionRole = Dtk::UserRole + 1;
