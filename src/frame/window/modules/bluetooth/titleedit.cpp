@@ -21,7 +21,7 @@
 
 #include "titleedit.h"
 
-#include <dimagebutton.h>
+#include <DIconButton>
 
 #include <QLabel>
 #include <QLineEdit>
@@ -42,10 +42,9 @@ TitleEdit::TitleEdit(QWidget *parent)
     mainlayout->addWidget(m_name);
     mainlayout->addWidget(m_lineEdit);
     mainlayout->addSpacing(5);
-    DImageButton *editWidget = new DImageButton;
-    editWidget->setNormalPic(":/bluetooth/themes/light/icons/edit_normal.png");
-    editWidget->setHoverPic(":/bluetooth/themes/light/icons/edit_hover.png");
-    editWidget->setPressPic(":/bluetooth/themes/light/icons/edit_press.png");
+    DIconButton *editWidget = new DIconButton(this);
+    editWidget->setFlat(true);
+    editWidget->setIcon(QIcon::fromTheme("dcc_edit"));
     mainlayout->addWidget(editWidget);
     mainlayout->addStretch();
     mainlayout->setMargin(0);
@@ -53,7 +52,7 @@ TitleEdit::TitleEdit(QWidget *parent)
     setLayout(mainlayout);
 
     connect(m_lineEdit, &QLineEdit::editingFinished, this, &TitleEdit::setName);
-    connect(editWidget, &DImageButton::clicked, this, &TitleEdit::setEdit);
+    connect(editWidget, &DIconButton::clicked, this, &TitleEdit::setEdit);
 }
 
 void TitleEdit::setName()

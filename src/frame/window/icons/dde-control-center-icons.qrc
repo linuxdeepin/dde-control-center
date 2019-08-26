@@ -90,6 +90,6 @@
         <file>icons/84/dcc_nav_sound.svg</file>
         <file>index.theme</file>
         <file>actions/12/dcc_avatar.svg</file>
-        <file>actions/12/dcc_edit_normal.svg</file>
+        <file>actions/12/dcc_edit.svg</file>
     </qresource>
 </RCC>
