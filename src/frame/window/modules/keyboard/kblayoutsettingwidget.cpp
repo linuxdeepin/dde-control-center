@@ -98,7 +98,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     content->setLayout(layout);
     setContent(content);
 
-    DFloatingButton *addLayout = new DFloatingButton(QString("+"), this);
+    DFloatingButton *addLayout = new DFloatingButton(DStyle::SP_IncreaseElement, this);
     DAnchors<DFloatingButton> anchors(addLayout);
     anchors.setAnchor(Qt::AnchorBottom, this, Qt::AnchorBottom);
     anchors.setBottomMargin(2);

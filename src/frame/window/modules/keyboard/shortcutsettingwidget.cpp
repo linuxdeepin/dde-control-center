@@ -86,7 +86,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_widget->setLayout(m_layout);
     setContent(m_widget);
 
-    DFloatingButton *addCustomShortcut = new DFloatingButton(QString("+"), this);
+    DFloatingButton *addCustomShortcut = new DFloatingButton(DStyle::SP_IncreaseElement, this);
     DAnchors<DFloatingButton> anchors(addCustomShortcut);
     anchors.setAnchor(Qt::AnchorBottom, this, Qt::AnchorBottom);
     anchors.setBottomMargin(2);
