@@ -150,8 +150,9 @@ void DisplayWidget::initMenuUI()
 
     m_centralLayout->addStretch(1);
     m_rotate->setIcon(QIcon::fromTheme("dcc_rotate"));
+    m_rotate->setIconSize(QSize(32, 32));
 
-    m_centralLayout->addWidget(m_rotate);
+    m_centralLayout->addWidget(m_rotate, 0, Qt::AlignCenter);
     connect(m_rotate, &DFloatingButton::clicked, this, &DisplayWidget::requestRotate);
 }
 

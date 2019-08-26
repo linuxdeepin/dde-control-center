@@ -27,8 +27,6 @@
 #include "modules/display/monitorindicator.h"
 #include "widgets/basiclistview.h"
 
-#include <DFloatingButton>
-
 #include <QLabel>
 #include <QListView>
 #include <QVBoxLayout>
@@ -89,11 +87,11 @@ void CustomSettingDialog::init()
     QHBoxLayout *hlayout = new QHBoxLayout();
     m_layout->addLayout(hlayout);
 
-    DFloatingButton *rotate = new DFloatingButton(this);
+    QPushButton *rotate = new QPushButton(this);
     rotate->setIcon(QIcon::fromTheme("dcc_rotate"));
 
-    hlayout->addWidget(rotate);
-    connect(rotate, &DFloatingButton::clicked, this, [this]() {
+    hlayout->addWidget(rotate, 0, Qt::AlignLeft);
+    connect(rotate, &QPushButton::clicked, this, [this]() {
         Q_EMIT CustomSettingDialog::requestShowRotateDialog(m_monitor);
     });
 
