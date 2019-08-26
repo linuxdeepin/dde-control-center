@@ -39,7 +39,7 @@ DWIDGET_USE_NAMESPACE
 
 DisplayWidget::DisplayWidget(QWidget *parent)
     : QWidget(parent)
-    , m_rotate(new DImageButton(this))
+    , m_rotate(new DFloatingButton(this))
     , m_centralLayout(new QVBoxLayout(this))
     , m_menuList(new QListView(this))
     , m_multiModel(new QStandardItemModel(this))
@@ -149,12 +149,10 @@ void DisplayWidget::initMenuUI()
     connect(m_menuList, &QListView::clicked, this, &DisplayWidget::onMenuClicked);
 
     m_centralLayout->addStretch(1);
-    m_rotate->setNormalPic(":/display/themes/dark/icons/rotate_normal.png");
-    m_rotate->setHoverPic(":/display/themes/dark/icons/rotate_hover.png");
-    m_rotate->setPressPic(":/display/themes/dark/icons/rotate_press.png");
+    m_rotate->setIcon(QIcon::fromTheme("dcc_rotate"));
 
     m_centralLayout->addWidget(m_rotate);
-    connect(m_rotate, &DImageButton::clicked, this, &DisplayWidget::requestRotate);
+    connect(m_rotate, &DFloatingButton::clicked, this, &DisplayWidget::requestRotate);
 }
 
 void DisplayWidget::onMenuClicked(const QModelIndex &idx)

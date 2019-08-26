@@ -22,8 +22,6 @@
 #include "soundeffectsdelegate.h"
 #include "soundeffectsmodel.h"
 
-#include <dimagebutton.h>
-
 #include <QPainter>
 #include <QDebug>
 #include <QPushButton>

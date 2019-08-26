@@ -44,7 +44,7 @@ class MonitorControlWidget;
 class MonitorIndicator;
 }
 
-namespace widgets{
+namespace widgets {
 class BasicListView;
 }
 }
