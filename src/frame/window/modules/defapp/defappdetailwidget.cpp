@@ -47,7 +47,7 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     , m_centralLayout(new QVBoxLayout)
     , m_defApps(new DefAppListView(this))
     , m_model(new QStandardItemModel(this))
-    , m_addBtn(new DFloatingButton("+", this))
+    , m_addBtn(new DFloatingButton(DStyle::SP_IncreaseElement, this))
     , m_categoryValue(category)
     , m_category(nullptr)
     , m_delItemDelegate(new DelAppDelegate(this))
@@ -257,7 +257,6 @@ void DefappDetailWidget::appendItemData(const dcc::defapp::App &app)
 
     item->setData(app.isUser, DefAppListView::DefAppIsUserRole);
     item->setData(app.Id, DefAppListView::DefAppIdRole);
-    item->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
     item->setSizeHint(QSize(340, 48));
     item->setData(QVariant::fromValue(QMargins(10, 10, 10, 0)), Dtk::MarginsRole);
     m_model->appendRow(item);
