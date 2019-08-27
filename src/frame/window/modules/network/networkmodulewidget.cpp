@@ -206,7 +206,7 @@ QStandardItem* NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
     DStandardItem *ret = new DStandardItem(text);
     ret->setData(dev->type() == NetworkDevice::Wireless ? "dev_wireless" : "dev_ether", SectionRole);
     //TODO: add icon for ethernet
-    ret->setIcon(QIcon::fromTheme(dev->type() == NetworkDevice::Wireless ? "dcc_wifi" : ""));
+    ret->setIcon(QIcon::fromTheme(dev->type() == NetworkDevice::Wireless ? "dcc_wifi" : "dcc_ethernet"));
     ret->setData(QVariant::fromValue(dev), DeviceRole);
 
     return ret;
