@@ -115,7 +115,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_searchWidget->setLanguage(QLocale::system().name());
     connect(m_searchWidget, &SearchWidget::notifyModuleSearch, this, &MainWindow::onEnterSearchWidget);
 
-    auto thlayout = new QHBoxLayout(this);
+    auto thlayout = new QHBoxLayout();
     thlayout->setSpacing(0);
     DBackgroundGroup *btnGroup = new DBackgroundGroup(thlayout, this);
     titlebar->addWidget(btnGroup, Qt::AlignLeft);
@@ -361,18 +361,19 @@ void MainWindow::replaceThirdWidget(ModuleInterface *const inter, QWidget *const
 
 void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
 {
+    Q_UNUSED(inter)
+
     QWidget *topWidget = new QWidget;
-    QPalette pe;
-    pe.setColor(QPalette::Background, QColor(238, 238, 238, 51));
-    topWidget->setPalette(pe);
+    DPalette pa = DPalette::get(topWidget);
+    pa.setBrush(DPalette::ItemBackground, pa.base());
+    DPalette::set(topWidget, pa);
     topWidget->setFixedSize(this->width(), this->height());
 
     QHBoxLayout *layout = new QHBoxLayout;
     w->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    pe.setColor(QPalette::Background, QColor(0, 0, 0, 255));
-    w->setPalette(pe);
-
-    linkTopBackSignal(inter->name(), w);
+    pa = DPalette::get(w);
+    pa.setBrush(DPalette::ItemBackground, pa.base());
+    DPalette::set(w, pa);
 
     layout->setMargin(0);
     layout->setSpacing(0);
@@ -388,6 +389,7 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
     }
 
     m_topWidget = topWidget;
+    m_topWidget->move(0, this->titlebar()->height());
     resetNavList(m_contentStack.empty());
 }
 
@@ -397,8 +399,6 @@ void MainWindow::pushFinalWidget(ModuleInterface *const inter, QWidget *const w)
     pe.setColor(QPalette::Background, QColor(0, 0, 0, 255));
     w->setPalette(pe);
     w->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-
-    linkTopBackSignal(inter->name(), w);//link back signal
 
     w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_contentStack.push({inter, w});
@@ -452,28 +452,6 @@ void MainWindow::linkReplaceBackSignal(QString moduleName, QWidget *w)
 //        DCC_NAMESPACE::xxx::xxxWidget *widget = dynamic_cast<DCC_NAMESPACE::xxx::xxxWidget *>(w);
 //        connect(widget, &DCC_NAMESPACE::xxx::xxxWidget::notifyBackpage, this, slotDeletefunc);
 //    }
-}
-
-void MainWindow::linkTopBackSignal(QString moduleName, QWidget *w)
-{
-    auto slotDeletefunc = [ = ]() {
-        if (m_bIsFinalWidget) {
-            popWidget();
-        } else {
-            if (m_topWidget) {
-                m_topWidget->deleteLater();
-                m_topWidget = nullptr;
-            }
-        }
-    };
-
-    //link update::MirrorsWidget backButton
-    if (moduleName == "update") {
-        DCC_NAMESPACE::update::MirrorsWidget *widget = dynamic_cast<DCC_NAMESPACE::update::MirrorsWidget *>(w);
-        connect(widget, &DCC_NAMESPACE::update::MirrorsWidget::notifyBackpage, this, slotDeletefunc);
-    }
-
-    //if some module need from topRight widget back normal widget need imitate up
 }
 
 void MainWindow::judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *const w)

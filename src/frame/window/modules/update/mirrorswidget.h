@@ -57,7 +57,6 @@ protected:
 Q_SIGNALS:
     void requestSetDefaultMirror(const MirrorInfo &mirror);
     void requestTestMirrorSpeed();
-    void notifyBackpage();
 
 private Q_SLOTS:
     void setCurItem(dcc::update::MirrorItem *item);

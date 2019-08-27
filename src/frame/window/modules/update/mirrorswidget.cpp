@@ -41,7 +41,6 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     , m_testButton(new QPushButton(tr("Test Speed")))
     , m_mirrorListGroup(new SettingsGroup)
     , m_layout(new QVBoxLayout)
-    , m_backBtn(new DImageButton)
 {
     setTitle(tr("Switch Mirror"));
 
@@ -61,17 +60,9 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     m_testButton->setFixedSize(120, 48);
     m_testButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
-    m_backBtn->setNormalPic(":/frame/themes/dark/icons/notifications_toggle_normal.svg");
-    m_backBtn->setPressPic(":/frame/themes/dark/icons/notifications_toggle_checked.svg");
-    m_backBtn->setHoverPic(":/frame/themes/dark/icons/notifications_toggle_hover.svg");
-
-    QHBoxLayout *topLayout = new QHBoxLayout;
-    topLayout->addWidget(m_backBtn, 0, Qt::AlignLeft);
-    topLayout->addWidget(title, 1, Qt::AlignHCenter);
-
     m_layout->setMargin(0);
     m_layout->setSpacing(0);
-    m_layout->addLayout(topLayout);
+    m_layout->addWidget(title, 0, Qt::AlignHCenter);
     m_layout->addSpacing(5);
     m_layout->addWidget(m_testButton, 0, Qt::AlignCenter);
     m_layout->addSpacing(5);
@@ -86,8 +77,6 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
 
     connect(m_testButton, &QPushButton::clicked,
             this, &MirrorsWidget::testButtonClicked);
-
-    connect(m_backBtn, &DImageButton::clicked, this, &MirrorsWidget::notifyBackpage);
 }
 
 void MirrorsWidget::setModel(UpdateModel *model)
