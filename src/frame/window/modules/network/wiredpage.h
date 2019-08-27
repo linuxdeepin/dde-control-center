@@ -40,6 +40,12 @@
 
 class QPushButton;
 
+namespace Dtk {
+namespace Widget {
+class DFloatingButton;
+}
+}
+
 namespace dde {
 namespace network {
 class NetworkModel;
@@ -97,7 +103,7 @@ private:
 
     QPointer<ConnectionEditPage> m_editPage;
 
-    QPushButton *m_createBtn;
+    DFloatingButton *m_createBtn;
     dcc::widgets::SettingsGroup *m_tipsGrp;
 
     QMap<dcc::widgets::NextPageWidget *, QString> m_connectionPath;

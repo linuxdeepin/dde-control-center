@@ -30,13 +30,15 @@
 #include "widgets/nextpagewidget.h"
 #include "widgets/tipsitem.h"
 
+#include <DFloatingButton>
+#include <DHiDPIHelper>
+#include <DStyleOption>
+
 #include <QTimer>
 #include <QDebug>
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QPointer>
-#include <DHiDPIHelper>
-#include <DStyleOption>
 
 #include <networkmodel.h>
 #include <wireddevice.h>
@@ -70,15 +72,15 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     connect(m_switch, &SwitchWidget::checkedChanged, this, std::bind(&WiredPage::requestDeviceEnabled, this, dev->path(), std::placeholders::_1));
     connect(m_device, &NetworkDevice::enableChanged, m_switch, &SwitchWidget::setChecked);
 
-    m_createBtn = new QPushButton;
-    m_createBtn->setText(tr("Add Settings"));
+    m_createBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement);
+    m_createBtn->setMinimumSize(QSize(47, 47));
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addSpacing(10);
     centralLayout->addWidget(m_switch);
     centralLayout->addWidget(m_tipsGrp);
     centralLayout->addWidget(m_lvProfiles);
-    centralLayout->addWidget(m_createBtn);
+    centralLayout->addWidget(m_createBtn, 0, Qt::AlignmentFlag::AlignHCenter);
     centralLayout->setSpacing(10);
     centralLayout->setMargin(0);
 

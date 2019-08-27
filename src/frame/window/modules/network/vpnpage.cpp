@@ -33,14 +33,17 @@
 #include "widgets/loadingnextpagewidget.h"
 
 #include <networkmodel.h>
+
+#include <DFloatingButton>
+#include <DHiDPIHelper>
+#include <ddialog.h>
+
 #include <QDebug>
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QJsonObject>
 #include <QFileDialog>
 #include <QMessageBox>
-#include <DHiDPIHelper>
-#include <ddialog.h>
 #include <QProcess>
 #include <QRegularExpression>
 
@@ -75,11 +78,18 @@ VpnPage::VpnPage(QWidget *parent)
     m_lvprofiles->setModel(m_modelprofiles);
     m_vpnSwitch->setTitle(tr("VPN Status"));
 
-    QPushButton *createVpnBtn = new QPushButton;
-    createVpnBtn->setText(tr("Create VPN"));
+    QHBoxLayout *buttonsLayout = new QHBoxLayout;
+    buttonsLayout->addStretch();
 
-    QPushButton *importVpnBtn = new QPushButton;
-    importVpnBtn->setText(tr("Import VPN"));
+    DFloatingButton *createVpnBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement);
+    createVpnBtn->setMinimumSize(QSize(47, 47));
+    buttonsLayout->addWidget(createVpnBtn);
+
+    DFloatingButton *importVpnBtn = new DFloatingButton("\342\206\223");
+    importVpnBtn->setMinimumSize(QSize(47, 47));
+    buttonsLayout->addWidget(importVpnBtn);
+
+    buttonsLayout->addStretch();
 
     SettingsGroup *switchGrp = new SettingsGroup;
     switchGrp->appendItem(m_vpnSwitch);
@@ -88,8 +98,7 @@ VpnPage::VpnPage(QWidget *parent)
     mainLayout->addSpacing(10);
     mainLayout->addWidget(switchGrp);
     mainLayout->addWidget(m_lvprofiles);
-    mainLayout->addWidget(createVpnBtn);
-    mainLayout->addWidget(importVpnBtn);
+    mainLayout->addLayout(buttonsLayout);
     mainLayout->setSpacing(10);
     mainLayout->setContentsMargins(0, 0, 0, 0);
 

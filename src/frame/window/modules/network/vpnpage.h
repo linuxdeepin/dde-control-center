@@ -39,6 +39,12 @@
 #include <QMap>
 #include <QPointer>
 
+namespace Dtk {
+namespace Widget {
+class DFloatingButton;
+}
+}
+
 namespace dde {
 namespace network {
 class NetworkModel;

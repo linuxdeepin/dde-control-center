@@ -39,6 +39,12 @@
 class QVBoxLayout;
 class QPushButton;
 
+namespace Dtk {
+namespace Widget {
+class DFloatingButton;
+}
+}
+
 namespace dde {
 namespace network {
 class NetworkModel;
@@ -83,7 +89,7 @@ private:
     DListView *m_lvsettings;
     QStandardItemModel *m_modelSettings;
 
-    QPushButton *m_createBtn;
+    DFloatingButton *m_createBtn;
     QPointer<ConnectionEditPage> m_editPage;
     QMap<QString, DStandardItem *> m_items;
 
