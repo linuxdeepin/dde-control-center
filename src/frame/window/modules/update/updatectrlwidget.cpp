@@ -205,7 +205,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_progress->setVisible(true);
         m_summaryGroup->setVisible(true);
         m_summary->setVisible(true);
-        m_progress->setValue(m_progress->minimum());
+        m_progress->setValue(m_progress->value());
         m_progress->setMessage(tr("%1% downloaded (Click to pause)").arg(m_progress->value()));
         break;
     case UpdatesStatus::DownloadPaused:
@@ -275,6 +275,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         break;
     default:
         qWarning() << "unknown status!!!";
+        break;
     }
 }
 

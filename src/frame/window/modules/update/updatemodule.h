@@ -38,9 +38,7 @@ class MirrorsWidget;
 
 namespace DCC_NAMESPACE {
 namespace update {
-
 class UpdateWidget;
-class UpdateCtrlWidget;
 
 class UpdateModule : public QObject, public ModuleInterface
 {
