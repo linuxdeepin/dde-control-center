@@ -22,9 +22,12 @@
 
 #include "window/namespace.h"
 
+#include <DListView>
+
 #include <QWidget>
-#include <utility>
 #include <QMap>
+
+#include <utility>
 
 QT_BEGIN_NAMESPACE
 class QListView;
@@ -35,21 +38,22 @@ class QLabel;
 QT_END_NAMESPACE
 
 namespace dcc {
-    namespace widgets {
-        class SwitchWidget;
-    }
+namespace widgets {
+class SwitchWidget;
+}
 
-    namespace cloudsync {
-        class SyncModel;
-        class SyncStateIcon;
-        enum SyncType : int;
-        enum SyncState : int;
-    }
+namespace cloudsync {
+class SyncModel;
+class SyncStateIcon;
+enum SyncType : int;
+enum SyncState : int;
+}
 }
 
 namespace DCC_NAMESPACE {
 namespace sync {
-class IndexPage : public QWidget {
+class IndexPage : public QWidget
+{
     Q_OBJECT
 public:
     IndexPage(QWidget *parent = nullptr);
@@ -62,7 +66,7 @@ Q_SIGNALS:
 
 private:
     void onListViewClicked(const QModelIndex &index);
-    void onUserInfoChanged(const QVariantMap& infos);
+    void onUserInfoChanged(const QVariantMap &infos);
     void onStateChanged(const std::pair<qint32, QString> &state);
     void onLastSyncTimeChanged(const qlonglong lastSyncTime);
     void onModuleStateChanged(std::pair<dcc::cloudsync::SyncType, bool> state);
@@ -72,15 +76,15 @@ private:
 private:
     QVBoxLayout *m_mainLayout;
     dcc::cloudsync::SyncModel *m_model;
-    QLabel* m_avatar;
-    QLabel* m_username;
-    dcc::widgets::SwitchWidget* m_autoSyncSwitch;
-    QListView *m_listView;
-    dcc::cloudsync::SyncStateIcon* m_stateIcon;
-    QLabel* m_stateLbl;
-    QLabel* m_lastSyncTimeLbl;
+    QLabel *m_avatar;
+    QLabel *m_username;
+    dcc::widgets::SwitchWidget *m_autoSyncSwitch;
+    DTK_WIDGET_NAMESPACE::DListView *m_listView;
+    dcc::cloudsync::SyncStateIcon *m_stateIcon;
+    QLabel *m_stateLbl;
+    QLabel *m_lastSyncTimeLbl;
     QStandardItemModel *m_listModel;
-    QMap<dcc::cloudsync::SyncType, QStandardItem*> m_itemMap;
+    QMap<dcc::cloudsync::SyncType, QStandardItem *> m_itemMap;
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE

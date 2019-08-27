@@ -1,21 +1,18 @@
 #include "index.h"
 
 #include "modules/sync/syncmodel.h"
+#include "modules/sync/syncstateicon.h"
 
 #include "widgets/settingsgroup.h"
 #include "widgets/switchwidget.h"
 
-#include "modules/sync/syncstateicon.h"
-
 #include <QScrollArea>
 #include <QLabel>
-#include <QListView>
 #include <QStandardItemModel>
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QPushButton>
 #include <QDateTime>
-#include <DHiDPIHelper>
 #include <QMap>
 
 DWIDGET_USE_NAMESPACE
@@ -32,7 +29,7 @@ IndexPage::IndexPage(QWidget *parent)
     , m_avatar(new QLabel)
     , m_username(new QLabel)
     , m_autoSyncSwitch(new SwitchWidget(tr("Auto Sync")))
-    , m_listView(new QListView)
+    , m_listView(new DListView)
     , m_stateIcon(new SyncStateIcon)
     , m_stateLbl(new QLabel(tr("Syncing...")))
     , m_lastSyncTimeLbl(new QLabel)
@@ -45,15 +42,16 @@ IndexPage::IndexPage(QWidget *parent)
     m_listView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_listView->setVerticalScrollMode(QListView::ScrollPerPixel);
     m_listView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_listView->setFrameShape(QFrame::NoFrame);
     m_listView->setSpacing(5);
 
-    SettingsGroup* autoSyncGrp = new SettingsGroup;
+    SettingsGroup *autoSyncGrp = new SettingsGroup;
     autoSyncGrp->appendItem(m_autoSyncSwitch);
 
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
 
-    QScrollArea* scrollArea = new QScrollArea;
+    QScrollArea *scrollArea = new QScrollArea;
     scrollArea->setWidgetResizable(true);
     scrollArea->setFrameStyle(QFrame::NoFrame);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -61,10 +59,10 @@ IndexPage::IndexPage(QWidget *parent)
     scrollArea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     scrollArea->setContentsMargins(0, 0, 0, 0);
 
-    QWidget* backgroundWidget = new QWidget;
+    QWidget *backgroundWidget = new QWidget;
     backgroundWidget->setFixedWidth(340);
     scrollArea->setFixedWidth(340);
-    QVBoxLayout* backgroundLayout = new QVBoxLayout;
+    QVBoxLayout *backgroundLayout = new QVBoxLayout;
     backgroundWidget->setLayout(backgroundLayout);
 
     scrollArea->setWidget(backgroundWidget);
@@ -75,12 +73,13 @@ IndexPage::IndexPage(QWidget *parent)
     m_avatar->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_username->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
-    QPushButton* logoutBtn = new QPushButton;
+    QPushButton *logoutBtn = new QPushButton;
     logoutBtn->setText(tr("Sign Out"));
 
-    QHBoxLayout* bottomLayout = new QHBoxLayout;
+    QHBoxLayout *bottomLayout = new QHBoxLayout;
     bottomLayout->setSpacing(0);
     bottomLayout->setMargin(0);
+    bottomLayout->setContentsMargins(10, 2, 10, 2);
     bottomLayout->addWidget(m_stateIcon, 0, Qt::AlignLeft);
     bottomLayout->addWidget(m_stateLbl, 0, Qt::AlignCenter);
     bottomLayout->addWidget(m_lastSyncTimeLbl, 0, Qt::AlignCenter);
@@ -115,26 +114,27 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     connect(model, &dcc::cloudsync::SyncModel::lastSyncTimeChanged, this, &IndexPage::onLastSyncTimeChanged);
     connect(model, &dcc::cloudsync::SyncModel::moduleSyncStateChanged, this, &IndexPage::onModuleStateChanged);
 
-    QMap<SyncType, QString> moduleTs{
-        { SyncType::Network, tr("Network Settings") },
-        { SyncType::Sound, tr("Sound Settings") },
-        { SyncType::Mouse, tr("Mouse Settings") },
-        { SyncType::Update, tr("Update Settings") },
-        { SyncType::Dock, tr("Dock") },
-        { SyncType::Launcher, tr("Launcher") },
-        { SyncType::Wallpaper, tr("Wallpaper") },
-        { SyncType::Theme, tr("Theme") },
-        { SyncType::Power, tr("Power Settings") },
-        { SyncType::Corner, tr("Corner Settings") }
+    QMap<SyncType, QPair<QString, QString>> moduleTs{
+        { SyncType::Network, {("dcc_sync_internet"), tr("Network Settings") }},
+        { SyncType::Sound, {("dcc_sync_sound"), tr("Sound Settings") }},
+        { SyncType::Mouse, {("dcc_sync_mouse"), tr("Mouse Settings") }},
+        { SyncType::Update, {("dcc_sync_update"), tr("Update Settings") }},
+        { SyncType::Dock, {("dcc_sync_taskbar"), tr("Dock") }},
+        { SyncType::Launcher, {("dcc_sync_launcher"), tr("Launcher") }},
+        { SyncType::Wallpaper, {("dcc_sync_wallpaper"), tr("Wallpaper") }},
+        { SyncType::Theme, {("dcc_sync_theme"), tr("Theme") }},
+        { SyncType::Power, {("dcc_sync_supply"), tr("Power Settings") }},
+        { SyncType::Corner, {("dcc_sync_hot_zone"), tr("Corner Settings") }}
     };
 
     m_listModel->clear(); // will delete all items
 
     const std::list<std::pair<SyncType, QStringList>> list = m_model->moduleMap();
     for (auto it = list.cbegin(); it != list.cend(); ++it) {
-        QStandardItem *item = new QStandardItem;
+        DStandardItem *item = new DStandardItem;
         item->setCheckable(true);
-        item->setText(moduleTs[it->first]);
+        item->setIcon(QIcon::fromTheme(moduleTs[it->first].first));
+        item->setText(moduleTs[it->first].second);
         item->setData(it->first, Qt::WhatsThisPropertyRole);
         m_listModel->appendRow(item);
         m_itemMap[it->first] = item;
@@ -154,7 +154,7 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
 
 void IndexPage::onListViewClicked(const QModelIndex &index)
 {
-    QStandardItem* item = (m_itemMap.begin() + index.row()).value();
+    QStandardItem *item = (m_itemMap.begin() + index.row()).value();
     const bool enable = item->checkState() == Qt::Checked;
     Q_EMIT requestSetModuleState(std::pair<SyncType, bool>(item->data(Qt::WhatsThisPropertyRole).value<SyncType>(), enable));
 }
@@ -198,24 +198,24 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
     } while (false);
 
     switch (syncState) {
-        case SyncState::Succeed:
-            m_lastSyncTimeLbl->show();
-            m_stateLbl->hide();
-            m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_sync_ok").pixmap(QSize(24, 24)));
-            m_stateIcon->stop();
-            break;
-        case SyncState::Syncing:
-            m_lastSyncTimeLbl->hide();
-            m_stateLbl->show();
-            m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_syncing").pixmap(QSize(24, 24)));
-            m_stateIcon->play();
-            break;
-        case SyncState::Failed:
-            m_lastSyncTimeLbl->show();
-            m_stateLbl->hide();
-            m_stateIcon->setRotatePixmap(QPixmap());
-            m_stateIcon->stop();
-            break;
+    case SyncState::Succeed:
+        m_lastSyncTimeLbl->show();
+        m_stateLbl->hide();
+        m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_sync_ok").pixmap(QSize(24, 24)));
+        m_stateIcon->stop();
+        break;
+    case SyncState::Syncing:
+        m_lastSyncTimeLbl->hide();
+        m_stateLbl->show();
+        m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_syncing").pixmap(QSize(24, 24)));
+        m_stateIcon->play();
+        break;
+    case SyncState::Failed:
+        m_lastSyncTimeLbl->show();
+        m_stateLbl->hide();
+        m_stateIcon->setRotatePixmap(QPixmap());
+        m_stateIcon->stop();
+        break;
     }
 }
 
@@ -223,13 +223,13 @@ void IndexPage::onLastSyncTimeChanged(const qlonglong lastSyncTime)
 {
     m_lastSyncTimeLbl->setText(
         tr("Last Sync: %1")
-            .arg(QDateTime::fromMSecsSinceEpoch(lastSyncTime * 1000)
-                     .toString(tr("yyyy-MM-dd hh:mm"))));
+        .arg(QDateTime::fromMSecsSinceEpoch(lastSyncTime * 1000)
+             .toString(tr("yyyy-MM-dd hh:mm"))));
 }
 
 void IndexPage::onModuleStateChanged(std::pair<SyncType, bool> state)
 {
-    QStandardItem* item = m_itemMap[state.first];
+    QStandardItem *item = m_itemMap[state.first];
     Q_ASSERT(item);
 
     item->setCheckState(state.second ? Qt::Checked : Qt::Unchecked);
