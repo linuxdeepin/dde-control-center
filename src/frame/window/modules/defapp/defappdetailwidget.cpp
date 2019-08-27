@@ -20,19 +20,17 @@
  */
 
 #include "defappdetailwidget.h"
-#include "defapplistview.h"
-#include "delappdelegate.h"
 #include "modules/defapp/model/category.h"
 #include "modules/defapp/defappmodel.h"
+#include "window/utils.h"
 
-#include <DStyleOption>
 #include <DFloatingButton>
+#include <DListView>
 
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QStandardItemModel>
-#include <QPushButton>
 #include <QIcon>
 #include <QFileDialog>
 
@@ -40,17 +38,14 @@ using namespace DCC_NAMESPACE::defapp;
 
 DWIDGET_USE_NAMESPACE
 
-Q_DECLARE_METATYPE(QMargins)
-
 DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category, QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout)
-    , m_defApps(new DefAppListView(this))
+    , m_defApps(new DListView(this))
     , m_model(new QStandardItemModel(this))
     , m_addBtn(new DFloatingButton(DStyle::SP_IncreaseElement, this))
     , m_categoryValue(category)
     , m_category(nullptr)
-    , m_delItemDelegate(new DelAppDelegate(this))
 {
     const QMap<dcc::defapp::DefAppWorker::DefaultAppsCategory, QString> names {
         {dcc::defapp::DefAppWorker::Browser, tr("Webpage")},
@@ -70,10 +65,8 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     m_defApps->setMovement(QListView::Static);
     m_defApps->setSelectionMode(QListView::SingleSelection);
     m_defApps->setFrameShape(QFrame::NoFrame);
-    m_defApps->setContentsMargins(10, 10, 10, 10);
-    m_defApps->setMinimumWidth(360);
+    m_defApps->setMinimumWidth(500);
     m_defApps->setModel(m_model);
-    m_defApps->setItemDelegate(m_delItemDelegate);
 
     m_addBtn->setMinimumSize(47, 47);
 
@@ -83,7 +76,6 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     setLayout(m_centralLayout);
 
     connect(m_addBtn, &Dtk::Widget::DFloatingButton::clicked, this, &DefappDetailWidget::onAddBtnClicked);
-    connect(m_delItemDelegate, &DelAppDelegate::removeBtnClicked, this, &DefappDetailWidget::onDelBtnClicked);
 }
 
 void DefappDetailWidget::setModel(dcc::defapp::DefAppModel *const model)
@@ -147,7 +139,7 @@ void DefappDetailWidget::removeItem(const dcc::defapp::App &item)
     //update model
     int cnt = m_model->rowCount();
     for (int row = 0; row < cnt; row++) {
-        QString id = m_model->data(m_model->index(row, 0), DefAppListView::DefAppIdRole).toString();
+        QString id = m_model->data(m_model->index(row, 0), DefAppIdRole).toString();
         if (id == item.Id) {
             m_model->removeRow(row);
             break;
@@ -161,15 +153,48 @@ void DefappDetailWidget::setCategoryName(const QString &name)
     m_categoryName = name;
 }
 
-void DefappDetailWidget::updateListView(const dcc::defapp::App &app) {
+void DefappDetailWidget::updateListView(const dcc::defapp::App &defaultApp) {
     int cnt = m_model->rowCount();
     for (int row = 0; row < cnt; row++) {
-        QString id = m_model->data(m_model->index(row, 0), DefAppListView::DefAppIdRole).toString();
-        QStandardItem *modelItem = m_model->item(row);
-        if (id == app.Id) {
+        QString id = m_model->data(m_model->index(row, 0), DefAppIdRole).toString();
+        DStandardItem *modelItem = dynamic_cast<DStandardItem *>(m_model->item(row));
+
+        if (id == defaultApp.Id) {
             modelItem->setCheckState(Qt::Checked);
+            //remove user clear button
+            if (!m_model->data(m_model->index(row, 0), DefAppIsUserRole).toBool())
+                continue;
+
+            DViewItemActionList actions = modelItem->actionList(Qt::RightEdge);
+            if (actions.size() <= 0)
+                continue;
+
+            for (DViewItemAction *action : actions) {
+                if (!action)
+                    continue;
+                actions.removeOne(action);
+                m_actionMap.remove(action);
+                delete action;
+            }
+
+            actions.clear();
+            modelItem->setActionList(Qt::RightEdge, actions);
         } else {
             modelItem->setCheckState(Qt::Unchecked);
+            //add user clear button
+            if (!m_model->data(m_model->index(row, 0), DefAppIsUserRole).toBool())
+                continue;
+
+            DViewItemActionList btnActList;
+            int iconSize = style()->pixelMetric(QStyle::PM_SmallIconSize, nullptr, this);
+            DViewItemAction *delAction = new DViewItemAction(Qt::AlignVCenter|Qt::AlignRight, QSize(iconSize, iconSize),
+                                                             QSize(iconSize, iconSize), true);
+
+            delAction->setIcon(QIcon::fromTheme("dcc_button_tab_close"));
+            connect(delAction, &QAction::triggered, this, &DefappDetailWidget::onDelBtnClicked);
+            btnActList << delAction;
+            modelItem->setActionList(Qt::RightEdge, btnActList);
+            m_actionMap.insert(delAction, id);
         }
     }
 }
@@ -188,13 +213,15 @@ void DefappDetailWidget::AppsItemChanged(const QList<dcc::defapp::App> &list)
         appendItemData(app);
     }
 
-    connect(m_defApps, &DefAppListView::clicked, this, &DefappDetailWidget::onListViewClicked);
+    connect(m_defApps, &DListView::clicked, this, &DefappDetailWidget::onListViewClicked);
 }
 
 void DefappDetailWidget::onListViewClicked(const QModelIndex& index) {
     if (!index.isValid()) return;
-    QString id = m_defApps->model()->data(m_defApps->currentIndex(), DefAppListView::DefAppIdRole).toString();
+    QString id = m_defApps->model()->data(m_defApps->currentIndex(), DefAppIdRole).toString();
     dcc::defapp::App app = getAppById(id);
+    if (!isValid(app))
+        return;
     qDebug()  <<  "set default app "  << app.Name;
     updateListView(app);
     //set default app
@@ -229,11 +256,16 @@ void DefappDetailWidget::onAddBtnClicked() {
     Q_EMIT requestFrameAutoHide(true);
 }
 
-void  DefappDetailWidget::onDelBtnClicked(const QModelIndex &index) {
-    QString id = m_model->data(index, DefAppListView::DefAppIdRole).toString();
+void  DefappDetailWidget::onDelBtnClicked() {
+    DViewItemAction *action = qobject_cast<DViewItemAction *>(sender());
+    if (!m_actionMap.contains(action))
+        return;
+
+    QString id = m_actionMap[action];
 
     dcc::defapp::App app = getAppById(id);
-    if (!app.isUser)  return;
+    if (!isValid(app) || !app.isUser)
+        return;
     qDebug() << "delete app " << app.Id;
     //delete user app
     Q_EMIT requestDelUserApp(m_categoryName, app);
@@ -246,19 +278,23 @@ dcc::defapp::App DefappDetailWidget::getAppById(const QString &appId) {
         }
     }
 
-    Q_UNREACHABLE();
+    dcc::defapp::App app;
+    app.Id = nullptr;
+    return app;
 }
 
 void DefappDetailWidget::appendItemData(const dcc::defapp::App &app)
 {
+    DStandardItem *item = new DStandardItem;
     QString appName = (!app.isUser || isDesktopOrBinaryFile(app.Exec))
             ? app.Name : QString("%1(%2)").arg(app.Name).arg(tr("Invalid"));
-    DStandardItem *item = new DStandardItem(getAppIcon(app), appName);
 
-    item->setData(app.isUser, DefAppListView::DefAppIsUserRole);
-    item->setData(app.Id, DefAppListView::DefAppIdRole);
-    item->setSizeHint(QSize(340, 48));
-    item->setData(QVariant::fromValue(QMargins(10, 10, 10, 0)), Dtk::MarginsRole);
+    item->setText(appName);
+    item->setIcon(getAppIcon(app));
+    item->setData(app.Id, DefAppIdRole);
+    item->setData(app.isUser, DefAppIsUserRole);
+    item->setData(VListViewItemMargin, Dtk::MarginsRole);
+
     m_model->appendRow(item);
 }
 
@@ -285,4 +321,9 @@ bool DefappDetailWidget::isDesktopOrBinaryFile(const QString &fileName)
 
     file.close();
     return (text_char_count >= 1) ? false : true;
+}
+
+bool DefappDetailWidget::isValid(const dcc::defapp::App &app)
+{
+    return (!app.Id.isNull() && !app.Id.isEmpty());
 }

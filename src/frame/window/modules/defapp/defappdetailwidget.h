@@ -23,9 +23,10 @@
 #include "window/namespace.h"
 #include "modules/defapp/defappworker.h"
 
-#include <dtkwidget_global.h>
+#include <DStyleOption>
 
 #include <QWidget>
+#include <QMap>
 
 namespace dcc {
 namespace defapp {
@@ -37,6 +38,8 @@ struct App;
 
 DWIDGET_BEGIN_NAMESPACE
 class DFloatingButton;
+class DListView;
+class DViewItemAction;
 DWIDGET_END_NAMESPACE
 
 QT_BEGIN_NAMESPACE
@@ -50,8 +53,6 @@ QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 namespace defapp {
-class DefAppListView;
-class DelAppDelegate;
 class DefappDetailWidget : public QWidget
 {
     Q_OBJECT
@@ -61,11 +62,16 @@ public:
     void setCategory(dcc::defapp::Category *const category);
 
 private:
-    void updateListView(const dcc::defapp::App &app);
+    void updateListView(const dcc::defapp::App &defaultApp);
     QIcon getAppIcon(const dcc::defapp::App &app);
     dcc::defapp::App getAppById(const QString &appId);
     void appendItemData(const dcc::defapp::App &app);
     bool isDesktopOrBinaryFile(const QString &fileName);
+    bool isValid(const dcc::defapp::App &app);
+    enum DefAppDataRole{
+        DefAppIsUserRole = Dtk::UserRole + 1,
+        DefAppIdRole,
+    };
 
 Q_SIGNALS:
     void requestSetDefaultApp(const QString &category, const dcc::defapp::App &item);
@@ -78,7 +84,7 @@ public Q_SLOTS:
     void setCategoryName(const QString &name);
     void onListViewClicked(const QModelIndex &index);
     void onAddBtnClicked();
-    void onDelBtnClicked(const QModelIndex &index);
+    void onDelBtnClicked();
 
 private:
     void AppsItemChanged(const QList<dcc::defapp::App> &list);
@@ -87,13 +93,13 @@ private:
 
 private:
     QVBoxLayout *m_centralLayout;
-    DefAppListView *m_defApps;
+    DTK_WIDGET_NAMESPACE::DListView *m_defApps;
     QStandardItemModel *m_model;
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_addBtn;
     QString m_categoryName;
     int m_categoryValue;
     dcc::defapp::Category *m_category;
-    DelAppDelegate *m_delItemDelegate;
+    QMap<DTK_WIDGET_NAMESPACE::DViewItemAction *, QString> m_actionMap;
 };
 }
 }

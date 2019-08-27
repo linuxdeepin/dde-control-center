@@ -462,8 +462,6 @@ set(DEFAPP_FILES
                 window/modules/defapp/defappwidget.cpp
                 window/modules/defapp/defaultappsmodule.cpp
                 window/modules/defapp/defappdetailwidget.cpp
-                window/modules/defapp/delappdelegate.cpp
-                window/modules/defapp/defapplistview.cpp
 )
 
 # load display

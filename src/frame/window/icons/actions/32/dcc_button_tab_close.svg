@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="32" viewBox="0 0 30 32">
+  <defs>
+    <circle id="button_tab_close_normal-b" cx="10" cy="10" r="10"/>
+    <filter id="button_tab_close_normal-a" width="220%" height="220%" x="-60%" y="-40%" filterUnits="objectBoundingBox">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadOuter1"/>
+      <feOffset dy="4" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="3"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(5 6)">
+    <use fill="#000" filter="url(#button_tab_close_normal-a)" xlink:href="#button_tab_close_normal-b"/>
+    <circle cx="10" cy="10" r="10.5" fill="#FFF" stroke="#000" stroke-opacity=".05"/>
+    <path fill="#536076" d="M6.64644661,6.64643911 C6.84170876,6.45117696 7.15829124,6.45117696 7.35355339,6.64643911 L7.35355339,6.64643911 L10,9.2929925 L12.6464466,6.64643911 C12.820013,6.47287276 13.0894374,6.45358761 13.2843055,6.58858366 L13.3535534,6.64643911 C13.5488155,6.84170126 13.5488155,7.15828374 13.3535534,7.35354589 L13.3535534,7.35354589 L10.707,9.9999925 L13.3535534,12.6464391 C13.5271197,12.8200055 13.5464049,13.0894299 13.4114088,13.284298 L13.3535534,13.3535459 C13.1582912,13.548808 12.8417088,13.548808 12.6464466,13.3535459 L12.6464466,13.3535459 L10,10.7069925 L7.35355339,13.3535459 C7.17998704,13.5271122 6.91056264,13.5463974 6.7156945,13.4114013 L6.64644661,13.3535459 C6.45118446,13.1582837 6.45118446,12.8417013 6.64644661,12.6464391 L6.64644661,12.6464391 L9.293,9.9999925 L6.64644661,7.35354589 C6.47288026,7.17997954 6.45359511,6.91055514 6.58859116,6.715687 Z"/>
+  </g>
+</svg>
