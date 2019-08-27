@@ -31,7 +31,6 @@
 #include <QSettings>
 #include <QApplication>
 #include <QTimer>
-#include <QKeyEvent>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -98,11 +97,6 @@ void CreateAccountPage::initWidgets()
 
     m_errorTip->setWindowFlags(Qt::ToolTip);
     m_errorTip->hide();
-
-    m_nameEdit->installEventFilter(this);
-    m_fullnameEdit->installEventFilter(this);
-    m_passwdEdit->installEventFilter(this);
-    m_repeatpasswdEdit->installEventFilter(this);
 }
 
 void CreateAccountPage::initDatas()
@@ -110,6 +104,9 @@ void CreateAccountPage::initDatas()
     connect(m_cancleBtn, &QPushButton::clicked, this, &CreateAccountPage::requestBack);
     connect(m_addBtn, &QPushButton::clicked, this, &CreateAccountPage::createUser);
     connect(m_nameEdit, &QLineEdit::editingFinished, this, &CreateAccountPage::checkInputNameLenth);
+    connect(m_nameEdit, &QLineEdit::textEdited, this, [ = ](const QString & str) {
+        m_nameEdit->setText(str.toLower());
+    });
 
     connect(m_passwdEdit, &DPasswordEdit::editingFinished, this, [ = ] {
         onEditFinished(m_passwdEdit);
@@ -266,20 +263,6 @@ void CreateAccountPage::onEditFinished(DPasswordEdit *edit)
     } else {
         m_errorTip->hide();
     }
-}
-
-bool CreateAccountPage::eventFilter(QObject *watched, QEvent *event)
-{
-    QLineEdit *obj = qobject_cast<QLineEdit *>(watched);
-
-    if (event->type() == QEvent::KeyPress) {
-        if (obj == m_nameEdit || obj == m_fullnameEdit || obj == m_passwdEdit || obj == m_repeatpasswdEdit) {
-            FakeKeyEvent *tmp_event = static_cast<FakeKeyEvent *>(event);
-            tmp_event->txt = tmp_event->txt.toLower();
-        }
-    }
-
-    return  false;
 }
 
 void CreateAccountPage::checkInputNameLenth()
