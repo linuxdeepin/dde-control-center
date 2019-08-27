@@ -248,7 +248,6 @@ void NetworkModule::showChainsProxyPage()
     chains->setModel(m_networkModel);
 
     connect(chains, &ChainsProxyPage::requestSet, m_networkWorker, &NetworkWorker::setChainsProxy);
-    connect(chains, &ChainsProxyPage::requestShowTypePage, this, &NetworkModule::showChainsProxyTypePage);
 
     m_frameProxy->pushWidget(this, chains);
 }
@@ -266,16 +265,6 @@ void NetworkModule::showProxyPage()
     p->setModel(m_networkModel);
 
     m_frameProxy->pushWidget(this, p);
-}
-
-void NetworkModule::showChainsProxyTypePage()
-{
-    ChainsTypePage *page = new ChainsTypePage;
-    page->setDefault(m_networkModel->getChainsProxy().type);
-
-    connect(page, &ChainsTypePage::requestTypeChanged, m_networkWorker, &NetworkWorker::onChainsTypeChanged);
-
-    m_frameProxy->pushWidget(this, page);
 }
 
 void NetworkModule::showDetailPage()

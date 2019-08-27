@@ -41,7 +41,7 @@ struct ProxyConfig;
 namespace dcc {
 
 namespace widgets {
-class NextPageWidget;
+class ComboxWidget;
 class LineEditWidget;
 }
 }
@@ -66,7 +66,7 @@ private Q_SLOTS:
 
 private:
     dde::network::NetworkModel *m_model;
-    dcc::widgets::NextPageWidget *m_proxyType;
+    dcc::widgets::ComboxWidget *m_proxyType;
     dcc::widgets::LineEditWidget *m_addr;
     dcc::widgets::LineEditWidget *m_port;
     dcc::widgets::LineEditWidget *m_username;

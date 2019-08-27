@@ -826,8 +826,6 @@ set(NETWORK_FILES
                 window/modules/network/connectionwirelesseditpage.h
                 window/modules/network/chainsproxypage.cpp
                 window/modules/network/chainsproxypage.h
-                window/modules/network/chainstypepage.cpp
-                window/modules/network/chainstypepage.h
                 window/modules/network/connectioneditpage.cpp
                 window/modules/network/connectioneditpage.h
                 window/modules/network/connectionhotspoteditpage.cpp

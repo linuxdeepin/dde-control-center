@@ -24,12 +24,14 @@
  */
 
 #include "chainsproxypage.h"
+#include "widgets/comboxwidget.h"
 #include "widgets/nextpagewidget.h"
 #include "widgets/lineeditwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/translucentframe.h"
 #include "widgets/buttontuple.h"
 
+#include <QComboBox>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QRegularExpression>
@@ -45,8 +47,13 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
 {
     setTitle(tr("Application Proxy"));
 
-    m_proxyType = new NextPageWidget;
+    m_proxyType = new ComboxWidget;
     m_proxyType->setTitle(tr("Proxy Type"));
+
+    QComboBox *cb = m_proxyType->comboBox();
+    cb->addItem("http");
+    cb->addItem("socks4");
+    cb->addItem("socks5");
 
     m_addr = new LineEditWidget;
     m_addr->setTitle(tr("IP address"));
@@ -99,14 +106,13 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
 
     connect(btns->leftButton(), &QPushButton::clicked, this, &ChainsProxyPage::back);
     connect(btns->rightButton(), &QPushButton::clicked, this, &ChainsProxyPage::onCheckValue);
-    connect(m_proxyType, &NextPageWidget::clicked, this, &ChainsProxyPage::requestShowTypePage);
 }
 
 void ChainsProxyPage::setModel(NetworkModel *model)
 {
     m_model = model;
 
-    connect(model, &NetworkModel::chainsTypeChanged, m_proxyType, &NextPageWidget::setValue);
+    connect(model, &NetworkModel::chainsTypeChanged, m_proxyType->comboBox(), &QComboBox::setCurrentText);
     connect(model, &NetworkModel::chainsAddrChanged, m_addr, &LineEditWidget::setText);
     connect(model, &NetworkModel::chainsPortChanged, this, [=](const uint port) { m_port->setText(QString::number(port)); });
     connect(model, &NetworkModel::chainsUsernameChanged, m_username, &LineEditWidget::setText);
@@ -114,7 +120,7 @@ void ChainsProxyPage::setModel(NetworkModel *model)
 
     ProxyConfig config = model->getChainsProxy();
 
-    m_proxyType->setValue(config.type);
+    m_proxyType->comboBox()->setCurrentText(config.type);
     m_addr->setText(config.url);
     m_port->setText(QString::number(config.port));
     m_username->setText(config.username);
@@ -162,7 +168,7 @@ void ChainsProxyPage::onCheckValue()
     }
 
     ProxyConfig config;
-    config.type = m_proxyType->value();
+    config.type = m_proxyType->comboBox()->currentText();
     config.url = addr;
     config.port = port;
     config.username = username;

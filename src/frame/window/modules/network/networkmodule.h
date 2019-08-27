@@ -68,7 +68,6 @@ private Q_SLOTS:
     void showPppPage();
     void showChainsProxyPage();
     void showProxyPage();
-    void showChainsProxyTypePage();
     void showDetailPage();
     void showHotspotPage(dde::network::WirelessDevice *wdev);
     void showDeviceDetailPage(dde::network::NetworkDevice *dev);
