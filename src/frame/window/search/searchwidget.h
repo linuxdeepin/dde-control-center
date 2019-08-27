@@ -31,7 +31,6 @@
 #include <QStandardItemModel>
 
 QT_BEGIN_NAMESPACE
-class QLineEdit;
 class QListWidget;
 class QListWidgetItem;
 class QPushButton;
@@ -74,7 +73,6 @@ private:
     QString getXmlFilePath();
 
 private:
-    QLineEdit *m_inputEdit;
     QStandardItemModel *m_model;
     QCompleter *m_completer;
     QList<SearchBoxStruct> m_EnterNewPagelist;

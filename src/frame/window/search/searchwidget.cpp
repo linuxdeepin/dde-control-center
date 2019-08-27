@@ -33,27 +33,21 @@ using namespace DCC_NAMESPACE::search;
 
 SearchWidget::SearchWidget(QWidget *parent)
     : DTK_WIDGET_NAMESPACE::DSearchEdit(parent)
-    , m_inputEdit(nullptr)
     , m_xmlExplain("")
     , m_xmlFilePath("")
 {
-    m_inputEdit = getLineEdit();
     m_model = new QStandardItemModel(this);
-    m_completer = new QCompleter(m_model, m_inputEdit);
-    m_inputEdit->setCompleter(m_completer);
+    m_completer = new QCompleter(m_model, this);
+    setCompleter(m_completer);
 
-    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::returnPressed, this, [this]() {
-        QString txt = m_inputEdit->text();
-
-        if (txt != "") {
-            bool bResult = jumpContentPathWidget(txt);
-
+    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::returnPressed, this, [=] {
+        if (!text().isEmpty()) {
             //enter defalt set first
-            if (!bResult) {
-                QString currentCompletion = m_inputEdit->completer()->currentCompletion();
+            if (!jumpContentPathWidget(text())) {
+                const QString& currentCompletion = completer()->currentCompletion();
                 qDebug() << Q_FUNC_INFO << " currentCompletion : " << currentCompletion;
 
-                m_inputEdit->setText(currentCompletion);
+                setText(currentCompletion);
                 jumpContentPathWidget(currentCompletion);
             }
         }

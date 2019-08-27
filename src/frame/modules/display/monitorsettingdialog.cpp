@@ -89,9 +89,6 @@ void MonitorSettingDialog::init()
 
     m_fullIndication = std::unique_ptr<MonitorIndicator>(new MonitorIndicator(this));
 
-    setBackgroundColor(QColor(Qt::white));
-    setBorderColor(QColor(0, 0, 0, 0.2 * 255));
-
     m_resolutionsModel = new BasicListModel;
 
     BasicListView *resolutionView = new BasicListView;
