@@ -28,6 +28,8 @@
 
 #include <types/zoneinfo.h>
 
+#include <QSpinBox>
+
 class QPushButton;
 
 namespace dcc {
@@ -51,7 +53,6 @@ namespace DCC_NAMESPACE {
 namespace datetime {
 
 class ClockItem;
-class TimeWidget;
 class DateWidget;
 
 class DateSettings : public QWidget
@@ -61,6 +62,9 @@ public:
     explicit DateSettings(QWidget *parent = 0);
     void setCurrentTimeZone(const ZoneInfo &info);
     QDateTime getDatetime() const;
+
+private:
+    QSpinBox *createDSpinBox(QWidget *parent, int min, int max);
 
 Q_SIGNALS:
     void requestSetTime(const QDateTime &time);
@@ -80,8 +84,8 @@ private:
     dcc::widgets::SettingsGroup *m_datetimeGroup;
     ClockItem *m_clock;
     dcc::widgets::SwitchWidget *m_autoSyncTimeSwitch;
-    TimeWidget *m_timeHourWidget;
-    TimeWidget *m_timeMinWidget;
+    QSpinBox *m_timeHourWidget;
+    QSpinBox *m_timeMinWidget;
     DateWidget *m_yearWidget;
     DateWidget *m_monthWidget;
     DateWidget *m_dayWidget;

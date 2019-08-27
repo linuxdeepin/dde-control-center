@@ -40,7 +40,6 @@
 #include "modules/datetime/timezone_dialog/timezonechooser.h"
 #include "widgets/buttontuple.h"
 #include "datewidget.h"
-#include "timewidget.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -54,8 +53,6 @@ DateSettings::DateSettings(QWidget *parent)
     , m_datetimeGroup(new SettingsGroup)
     , m_clock(new ClockItem(this, false))
     , m_autoSyncTimeSwitch(new SwitchWidget(tr("Auto Sync")))
-    , m_timeHourWidget(new TimeWidget)
-    , m_timeMinWidget(new TimeWidget(nullptr, false))
     , m_yearWidget(new DateWidget(DateWidget::Year, 1970, 9999))
     , m_monthWidget(new DateWidget(DateWidget::Month, 1, 12))
     , m_dayWidget(new DateWidget(DateWidget::Day, 1, 31))
@@ -91,6 +88,12 @@ DateSettings::DateSettings(QWidget *parent)
     QLabel *label = new QLabel(" : ");
     label->setFont(font);
     label->setContextMenuPolicy(Qt::NoContextMenu);
+
+    QTime time(QTime::currentTime());
+    m_timeHourWidget = createDSpinBox(this, 0, 23);
+    m_timeMinWidget = createDSpinBox(this, 0, 59);
+    m_timeHourWidget->setValue(time.hour());
+    m_timeMinWidget->setValue(time.minute());
 
     QHBoxLayout *timeLayout = new QHBoxLayout;
     timeLayout->addStretch();
@@ -164,10 +167,22 @@ QDateTime DateSettings::getDatetime() const
     QDate date;
     date.setDate(m_yearWidget->value(), m_monthWidget->value(), m_dayWidget->value());
     QTime time;
-    time.setHMS(m_timeHourWidget->getEditValue(), m_timeMinWidget->getEditValue(), 0);
+    time.setHMS(m_timeHourWidget->text().toInt(), m_timeMinWidget->text().toInt(), 0);
     QDateTime datetime(date, time);
 
     return datetime;
+}
+
+QSpinBox *DateSettings::createDSpinBox(QWidget *parent, int min, int max)
+{
+    QSpinBox *spinBox = new QSpinBox(parent);
+    spinBox->setFixedSize(93, 60);
+    spinBox->setRange(min, max);
+    spinBox->setSingleStep(1);
+    spinBox->setWrapping(true);
+    spinBox->setValue(0);
+
+    return spinBox;
 }
 
 void DateSettings::updateRealAutoSyncCheckState(const bool &state)
@@ -181,8 +196,8 @@ void DateSettings::updateRealAutoSyncCheckState(const bool &state)
         m_yearWidget->setValue(datetime.date().year());
         m_monthWidget->setValue(datetime.date().month());
         m_dayWidget->setValue(datetime.date().day());
-        m_timeHourWidget->setEditText(QString("%1").arg(datetime.time().hour()));
-        m_timeMinWidget->setEditText(QString("%1").arg(datetime.time().minute()));
+        m_timeHourWidget->setValue(datetime.time().hour());
+        m_timeMinWidget->setValue(datetime.time().minute());
     }
 
     if (m_bIsConfirmSetTime) {
