@@ -205,9 +205,22 @@ QStandardItem* NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
     }
     DStandardItem *ret = new DStandardItem(text);
     ret->setData(dev->type() == NetworkDevice::Wireless ? "dev_wireless" : "dev_ether", SectionRole);
-    //TODO: add icon for ethernet
     ret->setIcon(QIcon::fromTheme(dev->type() == NetworkDevice::Wireless ? "dcc_wifi" : "dcc_ethernet"));
     ret->setData(QVariant::fromValue(dev), DeviceRole);
+
+    DViewItemAction *dummystatus = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(32, 32));
+    ret->setActionList(Qt::Edge::RightEdge, {dummystatus});
+
+    if (dev->enabled()) {
+        dummystatus->setText(dev->statusString());
+    }
+
+    connect(dev, &NetworkDevice::enableChanged, [dev, dummystatus](const bool enabled) {
+        dummystatus->setText(enabled ? dev->statusString() : "");
+    });
+    connect(dev, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), this, [dev, dummystatus] {
+        dummystatus->setText(dev->statusString());
+    }, Qt::QueuedConnection);
 
     return ret;
 }

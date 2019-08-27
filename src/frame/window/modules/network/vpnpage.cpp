@@ -79,6 +79,7 @@ VpnPage::VpnPage(QWidget *parent)
     m_vpnSwitch->setTitle(tr("VPN Status"));
 
     QHBoxLayout *buttonsLayout = new QHBoxLayout;
+    buttonsLayout->setSpacing(30);
     buttonsLayout->addStretch();
 
     DFloatingButton *createVpnBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement);
