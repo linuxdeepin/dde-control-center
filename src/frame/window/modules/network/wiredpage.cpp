@@ -79,7 +79,6 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     centralLayout->addWidget(m_tipsGrp);
     centralLayout->addWidget(m_lvProfiles);
     centralLayout->addWidget(m_createBtn);
-    centralLayout->addStretch();
     centralLayout->setSpacing(10);
     centralLayout->setMargin(0);
 

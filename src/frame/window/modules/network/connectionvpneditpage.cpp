@@ -27,9 +27,11 @@
 #include "settings/vpn/vpnstrongswansettings.h"
 #include "settings/vpn/vpnopenconnectsettings.h"
 #include "settings/vpn/vpnsstpsettings.h"
+#include "widgets/comboxwidget.h"
 
 #include <networkmanagerqt/vpnsetting.h>
 
+#include <QComboBox>
 #include <QDebug>
 #include <QFileDialog>
 #include <QProcess>
@@ -94,6 +96,35 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
 {
     if (!m_connectionSettings) {
         qDebug() << "ConnectionSettings of base class is invalid..." << m_connectionSettings;
+        return;
+    }
+
+    if (vpnType == VpnType::UNSET) {
+        QLabel *lbcaption = new QLabel("New VPN");
+        ComboxWidget *cbvpntype = new ComboxWidget("VPN Type");
+        QComboBox *cb = cbvpntype->comboBox();
+        cb->addItem(tr("L2TP"), VpnType::L2TP);
+        cb->addItem(tr("PPTP"), VpnType::PPTP);
+        cb->addItem(tr("VPNC"), VpnType::VPNC);
+        cb->addItem(tr("OpenVPN"), VpnType::OPENVPN);
+        cb->addItem(tr("StrongSwan"), VpnType::STRONGSWAN);
+        cb->addItem(tr("OpenConnect"), VpnType::OPENCONNECT);
+        cb->addItem(tr("SSTP"), VpnType::SSTP);
+
+        cb->setCurrentIndex(0);
+
+        connect(cb, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [this, cb]() {
+            m_settingsWidget->deleteLater();
+            m_settingsWidget = nullptr;
+            VpnType vpnType = VpnType(cb->currentData().toInt());
+            resetConnectionIdByType(vpnType);
+            initSettingsWidgetByType(vpnType);
+        });
+
+        m_settingsLayout->addWidget(lbcaption);
+        m_settingsLayout->addWidget(cbvpntype);
+
+        initSettingsWidgetByType(VpnType::L2TP);
         return;
     }
 

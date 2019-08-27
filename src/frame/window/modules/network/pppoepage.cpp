@@ -46,9 +46,9 @@ using namespace dde::network;
 
 PppoePage::PppoePage(QWidget *parent)
     : ContentWidget(parent)
-      , m_createBtn(new QPushButton)
-      , m_lvsettings(new DListView)
-      , m_modelSettings(new QStandardItemModel)
+    , m_createBtn(new QPushButton)
+    , m_lvsettings(new DListView)
+    , m_modelSettings(new QStandardItemModel)
 {
     m_createBtn->setText(tr("Create PPPoE Connection"));
 

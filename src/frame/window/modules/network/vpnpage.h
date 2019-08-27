@@ -31,6 +31,9 @@
 #include "connectionvpneditpage.h"
 #include "window/namespace.h"
 
+#include <DListView>
+
+#include <QStandardItemModel>
 #include <QList>
 #include <QJsonObject>
 #include <QMap>
@@ -75,26 +78,25 @@ public Q_SLOTS:
     void refreshVpnList(const QList<QJsonObject> &vpnList);
 
 private Q_SLOTS:
-    void onVpnDetailClicked();
-    void onVpnSelected();
-    void onVpnEditFinished();
+    void onVpnDetailClicked(const QString &connectionUuid);
+    void onVpnSelected(const QModelIndex &idx);
     void onActiveConnsInfoChanged(const QList<QJsonObject> &infos);
 
     void importVPN();
-    void createVPNSession();
-    void createVPN(ConnectionVpnEditPage::VpnType vpnType);
+    void createVPN();
 
 private:
     dde::network::NetworkModel *m_model;
 
     dcc::widgets::SwitchWidget *m_vpnSwitch;
-    dcc::widgets::SettingsGroup *m_vpnGroup;
 
     QPointer<ConnectionVpnEditPage> m_editPage;
     QString m_editingConnUuid;
-    dcc::ContentWidget *m_vpnTypePage;
 
-    QMap<dcc::widgets::LoadingNextPageWidget *, QJsonObject> m_vpns;
+    DListView *m_lvprofiles;
+    QStandardItemModel *m_modelprofiles;
+
+    static const int VpnInfoRole = Dtk::UserRole + 1;
 };
 
 }
