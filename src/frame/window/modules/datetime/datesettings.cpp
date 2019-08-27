@@ -50,16 +50,17 @@ namespace DCC_NAMESPACE {
 namespace datetime {
 
 DateSettings::DateSettings(QWidget *parent)
-    : QWidget(parent),
-      m_datetimeGroup(new SettingsGroup),
-      m_clock(new ClockItem(this, false)),
-      m_autoSyncTimeSwitch(new SwitchWidget(tr("Auto Sync"))),
-      m_timeHourWidget(new TimeWidget),
-      m_timeMinWidget(new TimeWidget(nullptr, false)),
-      m_yearWidget(new DateWidget(DateWidget::Year, 1970, 9999)),
-      m_monthWidget(new DateWidget(DateWidget::Month, 1, 12)),
-      m_dayWidget(new DateWidget(DateWidget::Day, 1, 31)),
-      m_buttonTuple(new ButtonTuple)
+    : QWidget(parent)
+    , m_datetimeGroup(new SettingsGroup)
+    , m_clock(new ClockItem(this, false))
+    , m_autoSyncTimeSwitch(new SwitchWidget(tr("Auto Sync")))
+    , m_timeHourWidget(new TimeWidget)
+    , m_timeMinWidget(new TimeWidget(nullptr, false))
+    , m_yearWidget(new DateWidget(DateWidget::Year, 1970, 9999))
+    , m_monthWidget(new DateWidget(DateWidget::Month, 1, 12))
+    , m_dayWidget(new DateWidget(DateWidget::Day, 1, 31))
+    , m_buttonTuple(new ButtonTuple)
+    , m_bIsConfirmSetTime(false)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -133,11 +134,16 @@ void DateSettings::onCancelButtonClicked()
 
 void DateSettings::onConfirmButtonClicked()
 {
-    if (!m_autoSyncTimeSwitch->checked()) {
+    if (m_autoSyncTimeSwitch->checked()) {//1 -> 0
+        Q_EMIT requestSetAutoSyncdate(false);
+
+        //wait sync response, then set datetime
+        if (!m_bIsConfirmSetTime) {
+            m_bIsConfirmSetTime = true;
+        }
+    } else {
         Q_EMIT requestSetTime(getDatetime());
     }
-
-    Q_EMIT requestBack();
 }
 
 void DateSettings::updateDayRange()
@@ -161,23 +167,28 @@ QDateTime DateSettings::getDatetime() const
     time.setHMS(m_timeHourWidget->getEditValue(), m_timeMinWidget->getEditValue(), 0);
     QDateTime datetime(date, time);
 
-    m_yearWidget->setValue(date.year());
-    m_monthWidget->setValue(date.month());
-    m_dayWidget->setValue(date.day());
-    m_timeHourWidget->setEditText(QString("%1").arg(time.hour()));
-    m_timeMinWidget->setEditText(QString("%1").arg(time.minute()));
-
     return datetime;
 }
 
 void DateSettings::updateRealAutoSyncCheckState(const bool &state)
 {
+    QDateTime datetime = getDatetime();
+
     if (m_autoSyncTimeSwitch->checked() != state) {
         m_autoSyncTimeSwitch->setChecked(state);
 
-        if (state) {
-            getDatetime();
-        }
+        //sync display current datetime
+        m_yearWidget->setValue(datetime.date().year());
+        m_monthWidget->setValue(datetime.date().month());
+        m_dayWidget->setValue(datetime.date().day());
+        m_timeHourWidget->setEditText(QString("%1").arg(datetime.time().hour()));
+        m_timeMinWidget->setEditText(QString("%1").arg(datetime.time().minute()));
+    }
+
+    if (m_bIsConfirmSetTime) {
+        m_bIsConfirmSetTime = false;
+
+        Q_EMIT requestSetTime(datetime);
     }
 }
 

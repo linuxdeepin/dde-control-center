@@ -60,17 +60,18 @@ class DateSettings : public QWidget
 public:
     explicit DateSettings(QWidget *parent = 0);
     void setCurrentTimeZone(const ZoneInfo &info);
+    QDateTime getDatetime() const;
 
 Q_SIGNALS:
     void requestSetTime(const QDateTime &time);
     void requestSetAutoSyncdate(const bool &state);
     void requestBack();
+    void notifyBtnClickSetDatetime();
 
 private Q_SLOTS:
     void onCancelButtonClicked();
     void onConfirmButtonClicked();
     void updateDayRange();
-    QDateTime getDatetime() const;
 
 public Q_SLOTS:
     void updateRealAutoSyncCheckState(const bool &state);
@@ -85,6 +86,7 @@ private:
     DateWidget *m_monthWidget;
     DateWidget *m_dayWidget;
     dcc::widgets::ButtonTuple *m_buttonTuple;
+    bool m_bIsConfirmSetTime;
 };
 
 }// namespace datetime
