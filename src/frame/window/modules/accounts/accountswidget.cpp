@@ -42,7 +42,7 @@ using namespace DCC_NAMESPACE::accounts;
 
 AccountsWidget::AccountsWidget(QWidget *parent)
     : QWidget(parent)
-    , m_createBtn(new DFloatingButton("+", this))
+    , m_createBtn(new DFloatingButton(DStyle::SP_IncreaseElement, this))
     , m_userlistView(new DListView)
     , m_userItemModel(new QStandardItemModel)
 {
