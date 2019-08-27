@@ -23,7 +23,7 @@
 #include "accounntfingeitem.h"
 #include "modules/accounts/removeuserdialog.h"
 
-#include <dimagebutton.h>
+#include <DIconButton>
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -57,8 +57,8 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_autoLogin(new SwitchWidget)
     , m_nopasswdLogin(new SwitchWidget)
     , m_avatarListWidget(new AvatarListWidget)
-    , m_shortnameBtn(new DImageButton)
-    , m_fullnameBtn(new DImageButton)
+    , m_shortnameBtn(new QLabel)
+    , m_fullnameBtn(new DIconButton(this))
     , m_listGrp(new SettingsGroup)
     , m_fingetitleLabel(new QLabel)
     , m_addBtn(new QCommandLinkButton)
@@ -72,13 +72,9 @@ void AccountsDetailWidget::initWidgets()
 {
     setLayout(m_mainContentLayout);
 
-    m_shortnameBtn->setNormalPic(":/icons/deepin-app-light/actions/12/dcc_avatar.svg");
-    m_shortnameBtn->setHoverPic(":/icons/deepin-app-light/actions/12/dcc_avatar.svg");
-    m_shortnameBtn->setPressPic(":/icons/deepin-app-light/actions/12/dcc_avatar.svg");
-
-    m_fullnameBtn->setNormalPic(":/icons/deepin-app-light/actions/12/dcc_edit_normal.svg");
-    m_fullnameBtn->setHoverPic(":/icons/deepin-app-light/actions/12/dcc_edit_normal.svg");
-    m_fullnameBtn->setPressPic(":/icons/deepin-app-light/actions/12/dcc_edit_normal.svg");
+    m_shortnameBtn->setPixmap(QIcon::fromTheme("dcc_avatar").pixmap(QSize(12, 12)));
+    m_fullnameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
+    m_fullnameBtn->setIconSize(QSize(12, 12));
 
     m_shortnameLayout->addWidget(m_shortnameBtn, 0, Qt::AlignRight);
     m_shortnameLayout->addWidget(m_shortName, 0, Qt::AlignLeft);
@@ -167,7 +163,7 @@ void AccountsDetailWidget::initDatas()
     connect(m_curUser, &User::currentAvatarChanged, m_avatar, &AvatarWidget::setAvatarPath);
     connect(m_curUser, &User::nameChanged, m_shortName, &QLabel::setText);
     connect(m_curUser, &User::fullnameChanged, m_fullName, &QLabel::setText);
-    connect(m_fullnameBtn, &DImageButton::clicked, this, [ = ]() {
+    connect(m_fullnameBtn, &DIconButton::clicked, this, [ = ]() {
         m_inputLineEdit->setFocus();
         updateLineEditDisplayStyle();
     });
@@ -180,7 +176,7 @@ void AccountsDetailWidget::initDatas()
     connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
 
-    connect(m_inputLineEdit, &QLineEdit::editingFinished, this, [ = ](){
+    connect(m_inputLineEdit, &QLineEdit::editingFinished, this, [ = ]() {
         Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text());
         updateLineEditDisplayStyle();
     });

@@ -34,7 +34,7 @@
 #include <com_deepin_daemon_fprintd_device.h>
 
 DWIDGET_BEGIN_NAMESPACE
-class DImageButton;
+class DIconButton;
 DWIDGET_END_NAMESPACE
 
 QT_BEGIN_NAMESPACE
@@ -110,8 +110,8 @@ private:
     dcc::widgets::SwitchWidget *m_autoLogin;//自动登录
     dcc::widgets::SwitchWidget *m_nopasswdLogin;//无密码登录
     AvatarListWidget *m_avatarListWidget;
-    DTK_WIDGET_NAMESPACE::DImageButton *m_shortnameBtn;
-    DTK_WIDGET_NAMESPACE::DImageButton *m_fullnameBtn;
+    QLabel *m_shortnameBtn;
+    DTK_WIDGET_NAMESPACE::DIconButton *m_fullnameBtn;
     dcc::widgets::SettingsGroup *m_listGrp;//指纹列表
     dcc::accounts::FingerModel *m_model;
     QLabel *m_fingetitleLabel;
