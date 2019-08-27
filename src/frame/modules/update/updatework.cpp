@@ -620,9 +620,13 @@ void UpdateWorker::onUpgradeStatusChanged(const QString &status)
 
 void UpdateWorker::checkDiskSpace(JobInter *job)
 {
-    if (job->description().contains("You don't have enough free space") ||
+    QString jobDescription = job->description();
+    qDebug() << "job description: " << jobDescription;
+    if (jobDescription.contains("You don't have enough free space") ||
             !m_lastoresessionHelper->IsDiskSpaceSufficient()) {
         m_model->setStatus(UpdatesStatus::NoSpace);
+    } else if (jobDescription.contains("Temporary failure resolving", Qt::CaseInsensitive)) {
+        m_model->setStatus(UpdatesStatus::NoNetwork);
     } else {
         m_model->setStatus(UpdatesStatus::UpdateFailed);
     }
