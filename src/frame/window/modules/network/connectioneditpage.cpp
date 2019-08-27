@@ -100,13 +100,13 @@ void ConnectionEditPage::initUI()
 
     QPushButton *cancelBtn = m_buttonTuple->leftButton();
     QPushButton *acceptBtn = m_buttonTuple->rightButton();
+    m_buttonTuple->setAutoFillBackground(true);
     cancelBtn->setText(tr("Cancel"));
     acceptBtn->setText(tr("Save"));
 
     m_mainLayout->addSpacing(10);
     m_mainLayout->addWidget(m_buttonTuple_conn);
     m_mainLayout->addLayout(m_settingsLayout);
-    m_mainLayout->addWidget(m_buttonTuple);
     m_mainLayout->addStretch();
     m_mainLayout->setSpacing(10);
     m_mainLayout->setContentsMargins(0, 0, 0, 0);
@@ -115,6 +115,7 @@ void ConnectionEditPage::initUI()
     mainWidget->setLayout(m_mainLayout);
 
     setContent(mainWidget);
+    this->layout()->addWidget(m_buttonTuple);
     setMinimumWidth(380);
 }
 
