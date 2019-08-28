@@ -53,7 +53,7 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     , m_delItemDelegate(new DelAppDelegate(this))
 {
     const QMap<dcc::defapp::DefAppWorker::DefaultAppsCategory, QString> names {
-        {dcc::defapp::DefAppWorker::Browser, tr("Browser")},
+        {dcc::defapp::DefAppWorker::Browser, tr("Webpage")},
         {dcc::defapp::DefAppWorker::Mail, tr("Mail")},
         {dcc::defapp::DefAppWorker::Text, tr("Text")},
         {dcc::defapp::DefAppWorker::Music, tr("Music")},
