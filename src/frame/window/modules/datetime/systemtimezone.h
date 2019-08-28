@@ -21,52 +21,40 @@
 #pragma once
 
 #include "window/namespace.h"
-#include "timezonecontentlist.h"
-
-#include <QWidget>
-#include <QVBoxLayout>
 
 #include <types/zoneinfo.h>
-#include <DFloatingButton>
+#include <QWidget>
+
+QT_BEGIN_NAMESPACE
+class QVBoxLayout;
+class QPushButton;
+QT_END_NAMESPACE
 
 namespace dcc {
 namespace datetime {
-class TimeZoneChooser;
 class TimezoneItem;
-}
-
-namespace widgets {
-class SettingsGroup;
-class SettingsItem;
-class SettingsHead;
 }
 }
 
 namespace DCC_NAMESPACE {
 namespace datetime {
 
-class TimezoneList : public QWidget
+class SystemTimezone : public QWidget
 {
-public:
     Q_OBJECT
 public:
-    explicit TimezoneList(QWidget *parent = nullptr);
-    virtual ~TimezoneList();
-
-    TimezoneContentList *getTimezoneContentListPtr();
-
-private:
-    QVBoxLayout *m_centralLayout;
-    DTK_WIDGET_NAMESPACE::DFloatingButton *m_addTimezoneButton;
-    dcc::widgets::SettingsGroup *m_headGroup;
-    dcc::widgets::SettingsHead *m_headItem;
-    TimezoneContentList *m_contentList;
+    explicit SystemTimezone(QWidget *parent = nullptr);
 
 Q_SIGNALS:
-    void requestAddUserTimeZone(const QString &zone);
-    void requestAddTimeZone();
+    void requestSetSystemTimezone();
 
 public Q_SLOTS:
+    void setSystemTimezone(const ZoneInfo &zone);
+
+private:
+    QVBoxLayout *m_layout;
+    dcc::datetime::TimezoneItem *m_systemTimezone;
+    QPushButton *m_setSystemTimezone;
 };
 
 }// namespace datetime

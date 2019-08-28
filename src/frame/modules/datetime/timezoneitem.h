@@ -29,12 +29,12 @@
 #include "widgets/settingsitem.h"
 #include "clock.h"
 
+#include <types/zoneinfo.h>
+#include <DFloatingButton>
+
 #include <QLabel>
 #include <QString>
-#include <dimagebutton.h>
 #include <QHBoxLayout>
-
-#include <types/zoneinfo.h>
 
 DWIDGET_USE_NAMESPACE
 
@@ -46,7 +46,7 @@ class TimezoneItem : public dcc::widgets::SettingsItem
     Q_OBJECT
 
 public:
-    explicit TimezoneItem(QFrame *parent =0);
+    explicit TimezoneItem(QFrame *parent = nullptr);
 
     inline ZoneInfo timeZone() const { return m_timezone; }
     void setTimeZone(const ZoneInfo &info);
@@ -55,6 +55,7 @@ public:
     void toNormalMode();
 
     void updateInfo();
+    void setDetailVisible(bool state);
 
 Q_SIGNALS:
     void removeClicked();
@@ -65,7 +66,7 @@ private:
     QLabel *m_city;
     QLabel *m_details;
     Clock *m_clock;
-    DImageButton* m_removeBtn;
+    DFloatingButton *m_removeBtn;
 };
 }
 }

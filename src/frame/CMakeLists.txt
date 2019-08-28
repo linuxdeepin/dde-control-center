@@ -157,6 +157,7 @@ set(WINDOW_FILES
     window/modules/datetime/clock.cpp
     window/modules/datetime/timezonelist.cpp
     window/modules/datetime/timezonecontentlist.cpp
+    window/modules/datetime/systemtimezone.cpp
     window/modules/datetime/datesettings.cpp
     window/modules/display/displaymodule.cpp
     window/modules/display/scalingpage.cpp

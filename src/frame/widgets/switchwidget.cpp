@@ -112,11 +112,5 @@ void SwitchWidget::mouseReleaseEvent(QMouseEvent *event)
     return SettingsItem::mouseReleaseEvent(event);
 }
 
-//rewrite the function for bug : https://pms.deepin.cn/task-view-7449.html
-void SwitchWidget::mouseMoveEvent(QMouseEvent *event)
-{
-    Q_UNUSED(event)
-}
-
 }
 }

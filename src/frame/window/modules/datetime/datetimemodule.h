@@ -37,7 +37,6 @@ class TimeZoneChooser;
 namespace DCC_NAMESPACE {
 namespace datetime {
 class TimezoneList;
-
 class DatetimeWidget;
 
 class DatetimeModule : public QObject, public ModuleInterface
@@ -47,7 +46,6 @@ public:
     enum DatetimeType {
         Default = -1,
         ETimezoneList,
-        SystemTimezone,
         TimeSetting,
         Count
     };
@@ -62,19 +60,6 @@ public:
 
     void createWidget(int index);
 
-private:
-    void showTimezoneList();
-    void showSystemTimezone();
-    void showTimeSetting();
-    void ensureZoneChooserDialog();
-
-private:
-    dcc::datetime::DatetimeWork *m_work;
-    dcc::datetime::DatetimeModel *m_model;
-    QPointer<dcc::datetime::TimeZoneChooser> m_dialog;
-    QPointer<TimezoneList> m_timezonelist;//timezonelist in other page, need exchangle data from this page
-    DatetimeWidget *m_widget;
-
 Q_SIGNALS:
     void requestAddUserTimeZone(const QString &zone);
     void requestRemoveUserTimeZone(const ZoneInfo &zone);
@@ -84,6 +69,19 @@ public Q_SLOTS:
     void onPushWidget(const int &index);
     void onPopWidget();
     void updateSystemTimezone(const QString &timezone);
+    void showSystemTimezone();
+
+private:
+    void showTimezoneList();
+    void showTimeSetting();
+    void ensureZoneChooserDialog();
+
+private:
+    dcc::datetime::DatetimeWork *m_work;
+    dcc::datetime::DatetimeModel *m_model;
+    QPointer<dcc::datetime::TimeZoneChooser> m_dialog;
+    QPointer<TimezoneList> m_timezonelist;//timezonelist in other page, need exchangle data from this page
+    DatetimeWidget *m_widget;
 };
 
 }// namespace datetime

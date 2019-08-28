@@ -57,9 +57,7 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
 
     auto model = new QStandardItemModel(this);
     //~ contents_path /datetime/Timezone List
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dcc_nav_datetime"), tr("Timezone List")));
-    //~ contents_path /datetime/System Timezone
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dcc_time_zone"), tr("System Timezone")));
+    model->appendRow(new QStandardItem(QIcon::fromTheme("dcc_time_zone"), tr("Timezone List")));
     //~ contents_path /datetime/Time Settings
     model->appendRow(new QStandardItem(QIcon::fromTheme("dcc_setting"), tr("Time Settings")));
     m_listview->setModel(model);

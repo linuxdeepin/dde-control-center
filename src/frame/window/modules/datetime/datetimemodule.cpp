@@ -23,6 +23,8 @@
 #include "timezonelist.h"
 #include "datesettings.h"
 #include "clockitem.h"
+#include "systemtimezone.h"
+#include <types/zoneinfo.h>
 
 #include "modules/datetime/datetimework.h"
 #include "modules/datetime/datetimemodel.h"
@@ -97,8 +99,6 @@ void DatetimeModule::load(QString path)
 
     if (path == "Timezone List") {
         type = ETimezoneList;
-    } else if (path == "System Timezone") {
-        type = SystemTimezone;
     } else if (path == "Time Settings") {
         type = TimeSetting;
     }
@@ -157,6 +157,11 @@ void DatetimeModule::ensureZoneChooserDialog()
 
 void DatetimeModule::showTimezoneList()
 {
+    SystemTimezone *sysTimezoneWidget = new SystemTimezone;
+    connect(sysTimezoneWidget, &SystemTimezone::requestSetSystemTimezone, this, &DatetimeModule::showSystemTimezone);
+    connect(m_model, &DatetimeModel::currentSystemTimeZoneChanged, sysTimezoneWidget, &SystemTimezone::setSystemTimezone);
+    sysTimezoneWidget->setSystemTimezone(m_model->currentSystemTimeZone());
+
     if (!m_timezonelist) {
         m_timezonelist = new TimezoneList;
 
@@ -177,9 +182,14 @@ void DatetimeModule::showTimezoneList()
                 this, &DatetimeModule::requestRemoveUserTimeZone);
         connect(m_timezonelist, &TimezoneList::requestAddUserTimeZone,
                 this, &DatetimeModule::requestAddUserTimeZone);
-
-        m_frameProxy->pushWidget(this, m_timezonelist);
     }
+
+    QWidget *widget = new QWidget;
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->addWidget(sysTimezoneWidget);
+    layout->addWidget(m_timezonelist);
+    widget->setLayout(layout);
+    m_frameProxy->pushWidget(this, widget);
 }
 
 void DatetimeModule::showSystemTimezone()
@@ -215,9 +225,6 @@ void DatetimeModule::onPushWidget(const int &index)
     switch (static_cast<DatetimeType>(index)) {
     case ETimezoneList:
         showTimezoneList();
-        break;
-    case SystemTimezone:
-        showSystemTimezone();
         break;
     case TimeSetting:
         showTimeSetting();

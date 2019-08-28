@@ -37,11 +37,11 @@ namespace dcc {
 namespace datetime {
 
 TimezoneItem::TimezoneItem(QFrame *parent)
-    :SettingsItem(parent),
-      m_city(new NormalLabel),
-      m_details(new TipsLabel),
-      m_clock(new Clock),
-      m_removeBtn(new DImageButton)
+    : SettingsItem(parent)
+    , m_city(new NormalLabel)
+    , m_details(new TipsLabel)
+    , m_clock(new Clock)
+    , m_removeBtn(new DFloatingButton(this))
 {
     setFixedHeight(60);
 
@@ -59,6 +59,8 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     vlayout->addStretch();
 
     m_removeBtn->setObjectName("DCC-Datetime-TimezoneItem-Remove");
+    m_removeBtn->setIcon(QIcon::fromTheme("dcc_edit"));
+    m_removeBtn->setFixedSize(QSize(48,48));
     m_removeBtn->setVisible(false);
 
     m_clock->setDrawTicks(false);
@@ -74,7 +76,7 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     hlayout->addWidget(m_removeBtn);
     setLayout(hlayout);
 
-    connect(m_removeBtn, &DImageButton::clicked, this, &TimezoneItem::removeClicked);
+    connect(m_removeBtn, &DFloatingButton::clicked, this, &TimezoneItem::removeClicked);
 }
 
 void TimezoneItem::setTimeZone(const ZoneInfo &info)
@@ -121,6 +123,13 @@ void TimezoneItem::updateInfo()
     m_details->setText(QString("%1, %2").arg(dateLiteral).arg(compareLiteral));
     m_city->setText(m_timezone.getZoneCity());
     m_clock->setTimeZone(m_timezone);
+}
+
+void TimezoneItem::setDetailVisible(bool state)
+{
+    if (m_details) {
+        m_details->setVisible(state);
+    }
 }
 
 }

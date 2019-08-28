@@ -99,11 +99,22 @@ void DatetimeModel::removeUserTimeZone(const ZoneInfo &zone)
 
 void DatetimeModel::setCurrentTimeZone(const ZoneInfo &currentTimeZone)
 {
-    if (m_currentTimeZone == currentTimeZone) return;
+    if (m_currentTimeZone == currentTimeZone)
+        return;
 
     m_currentTimeZone = currentTimeZone;
 
     Q_EMIT currentTimeZoneChanged(currentTimeZone);
+}
+
+void DatetimeModel::setCurrentUseTimeZone(const ZoneInfo &currentSysTimeZone)
+{
+    if (m_currentSystemTimeZone == currentSysTimeZone)
+        return;
+
+    m_currentSystemTimeZone = currentSysTimeZone;
+
+    Q_EMIT currentSystemTimeZoneChanged(currentSysTimeZone);
 }
 
 }

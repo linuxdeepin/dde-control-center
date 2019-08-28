@@ -34,7 +34,7 @@ using namespace DCC_NAMESPACE::datetime;
 TimezoneList::TimezoneList(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout)
-    , m_addTimezoneButton(new DImageButton)
+    , m_addTimezoneButton(new DFloatingButton(DStyle::SP_IncreaseElement, this))
     , m_headGroup(new SettingsGroup)
     , m_headItem(new SettingsHead)
     , m_contentList(new TimezoneContentList)
@@ -52,18 +52,13 @@ TimezoneList::TimezoneList(QWidget *parent)
     m_centralLayout->addWidget(m_headGroup);
     m_centralLayout->addWidget(m_contentList);
 
-    //modify the button image
-    m_addTimezoneButton->setNormalPic(":/datetime/themes/light/icons/add_normal.png");
-    m_addTimezoneButton->setHoverPic(":/datetime/themes/light/icons/add_hover.png");
-    m_addTimezoneButton->setPressPic(":/datetime/themes/light/icons/add_press.png");
-
     QHBoxLayout *btnLayout = new QHBoxLayout;
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
     btnLayout->addWidget(m_addTimezoneButton);
     m_centralLayout->addLayout(btnLayout);
     setLayout(m_centralLayout);
 
-    connect(m_addTimezoneButton, &DImageButton::clicked, this, &TimezoneList::requestAddTimeZone);
+    connect(m_addTimezoneButton, &QPushButton::clicked, this, &TimezoneList::requestAddTimeZone);
     connect(m_headItem, &SettingsHead::editChanged, m_contentList, &TimezoneContentList::onEditClicked);
     connect(m_contentList, &TimezoneContentList::requestRemoveUserTimeZone, this, [this]() {
         //refresh right button to edit
