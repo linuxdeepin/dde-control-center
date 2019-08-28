@@ -155,7 +155,7 @@ void IndexPage::onListViewClicked(const QModelIndex &index)
 {
     QStandardItem* item = (m_itemMap.begin() + index.row()).value();
     const bool enable = item->checkState() == Qt::Checked;
-    Q_EMIT requestSetModuleState(std::pair<SyncType, bool>(item->data(Qt::WhatsThisPropertyRole).value<SyncType>(), !enable));
+    Q_EMIT requestSetModuleState(std::pair<SyncType, bool>(item->data(Qt::WhatsThisPropertyRole).value<SyncType>(), enable));
 }
 
 void IndexPage::onUserInfoChanged(const QVariantMap &infos)
