@@ -55,7 +55,6 @@ void MultiScreenSettingPage::setModel(dcc::display::DisplayModel *model)
 {
     m_model = model;
     m_modeList->setModel(new QStandardItemModel());
-    m_modeList->setIconSize(QSize(42, 42));
 
     initModeList();
 }

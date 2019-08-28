@@ -41,14 +41,12 @@ DisplayWidget::DisplayWidget(QWidget *parent)
     : QWidget(parent)
     , m_rotate(new DFloatingButton(this))
     , m_centralLayout(new QVBoxLayout(this))
-    , m_menuList(new QListView(this))
+    , m_menuList(new DListView(this))
     , m_multiModel(new QStandardItemModel(this))
     , m_singleModel(new QStandardItemModel(this))
 {
     setObjectName("Display");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    setMaximumWidth(500);
-    setMinimumWidth(300);
 
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
@@ -127,30 +125,27 @@ void DisplayWidget::initMenuUI()
         {tr("Display Scaling"), "dcc_screen", QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)}
     };
 
-    QStandardItem *btn{nullptr};
+    DStandardItem *btn{nullptr};
     for (auto menu : m_multMenuList) {
-        btn = new QStandardItem(menu.menuText);
+        btn = new DStandardItem(menu.menuText);
         btn->setData(VListViewItemMargin, Dtk::MarginsRole);
         btn->setIcon(QIcon::fromTheme(menu.iconName));
         m_multiModel->appendRow(btn);
     }
 
     for (auto menu : m_singleMenuList) {
-        btn = new QStandardItem(menu.menuText);
+        btn = new DStandardItem(menu.menuText);
         btn->setData(VListViewItemMargin, Dtk::MarginsRole);
         btn->setIcon(QIcon::fromTheme(menu.iconName));
         m_singleModel->appendRow(btn);
     }
 
-    m_menuList->setMinimumWidth(230);
     m_menuList->setFrameShape(QFrame::NoFrame);
-    m_menuList->setIconSize(QSize(32, 32));
     m_centralLayout->addWidget(m_menuList, 1);
     connect(m_menuList, &QListView::clicked, this, &DisplayWidget::onMenuClicked);
 
     m_centralLayout->addStretch(1);
     m_rotate->setIcon(QIcon::fromTheme("dcc_rotate"));
-    m_rotate->setIconSize(QSize(32, 32));
 
     m_centralLayout->addWidget(m_rotate, 0, Qt::AlignCenter);
     connect(m_rotate, &DFloatingButton::clicked, this, &DisplayWidget::requestRotate);

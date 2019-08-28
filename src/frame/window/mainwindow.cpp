@@ -58,7 +58,7 @@ DTK_USE_NAMESPACE
 
 const int first_widget_min_width = 190;
 const int second_widget_min_width = 250;
-const int third_widget_min_width = 370;
+const int third_widget_min_width = 360;
 const int widget_total_min_width = 820;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -87,7 +87,6 @@ MainWindow::MainWindow(QWidget *parent)
     m_navView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_navView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_navView);
     m_contentLayout->setSpacing(0);
     m_contentLayout->addWidget(m_rightView);

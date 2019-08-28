@@ -48,7 +48,6 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     , m_effectList(new HoverListView)
     , m_sound(nullptr)
 {
-    setMinimumWidth(400);
     m_layout->addWidget(m_sw);
     m_layout->addSpacing(20);
 

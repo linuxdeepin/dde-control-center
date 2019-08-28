@@ -35,18 +35,12 @@ using namespace DCC_NAMESPACE::sound;
 
 SoundWidget::SoundWidget(QWidget *parent)
     : QWidget(parent)
-    , m_menuList(new QListView)
+    , m_menuList(new DListView)
 {
     setObjectName("Display");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    setMaximumWidth(500);
-    setMinimumWidth(300);
-
     QVBoxLayout *layout = new QVBoxLayout;
-    layout->setMargin(0);
-    layout->setSpacing(10);
-    layout->addSpacing(10);
 
     m_menuList->setFrameShape(QFrame::NoFrame);
     layout->addWidget(m_menuList, 1);
@@ -83,14 +77,13 @@ void SoundWidget::initMenuUI()
 
     QStandardItemModel *listModel = new QStandardItemModel(this);
     for (auto mm : m_menuMethod) {
-        QStandardItem *item = new QStandardItem(mm.menuText);
+        DStandardItem *item = new DStandardItem(mm.menuText);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         item->setIcon(QIcon::fromTheme(mm.iconName));
         listModel->appendRow(item);
     }
-    m_menuList->setMinimumWidth(230);
+
     m_menuList->setModel(listModel);
-    m_menuList->setIconSize(QSize(32, 32));
     m_menuList->setCurrentIndex(listModel->index(0, 0));
     m_currentIdx = m_menuList->currentIndex();
     connect(m_menuList, &QListView::clicked, [ = ](const QModelIndex & idx) {

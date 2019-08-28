@@ -24,6 +24,8 @@
 
 #include "window/namespace.h"
 
+#include <DListView>
+
 #include <QWidget>
 #include <QMetaMethod>
 #include <QModelIndex>
@@ -61,7 +63,7 @@ private:
 
 private:
     QList<MenuMethod> m_menuMethod;
-    QListView *m_menuList{nullptr};
+    DTK_WIDGET_NAMESPACE::DListView *m_menuList{nullptr};
     QModelIndex m_currentIdx;
 };
 }

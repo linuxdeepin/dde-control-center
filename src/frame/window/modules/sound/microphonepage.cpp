@@ -54,8 +54,6 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_sw(new SwitchWidget)
     , m_inputSlider(new TitledSliderItem(tr("Input Volume")))
 {
-    setMinimumWidth(400);
-
     QHBoxLayout *hlayout = new QHBoxLayout;
     hlayout->addWidget(new QLabel(tr("Speaker")));
     hlayout->addStretch(1);

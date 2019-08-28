@@ -43,8 +43,6 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_balanceSlider(new TitledSliderItem(tr("Left/Right Balance")))
     , m_layout(new QVBoxLayout)
 {
-    setMinimumWidth(400);
-
     QHBoxLayout *hlayout = new QHBoxLayout;
     hlayout->addWidget(new QLabel(tr("Speaker")));
     hlayout->addStretch(1);

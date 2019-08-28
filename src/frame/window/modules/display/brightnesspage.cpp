@@ -67,7 +67,6 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_autoLightMode->setTitle(tr("Auto Brightness"));
     m_centralLayout->addWidget(m_autoLightMode);
 
-    setMinimumWidth(300);
     setLayout(m_centralLayout);
 }
 

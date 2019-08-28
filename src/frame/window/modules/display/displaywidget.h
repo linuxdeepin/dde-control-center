@@ -25,6 +25,7 @@
 #include "window/namespace.h"
 
 #include <DFloatingButton>
+#include <DListView>
 
 #include <QModelIndex>
 
@@ -85,7 +86,7 @@ private:
     dcc::display::DisplayModel *m_model{nullptr};
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_rotate{nullptr};
     QVBoxLayout *m_centralLayout{nullptr};
-    QListView *m_menuList{nullptr};
+    DTK_WIDGET_NAMESPACE::DListView *m_menuList{nullptr};
     QModelIndex m_currentIdx;
 
     QStandardItemModel *m_multiModel{nullptr};

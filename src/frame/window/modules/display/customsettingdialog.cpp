@@ -76,7 +76,6 @@ void CustomSettingDialog::init()
     if (m_isPrimary) {
         m_moniList = new DListView;
         m_moniList->installEventFilter(this);
-        m_moniList->setIconSize(QSize(42, 42));
         m_layout->addWidget(m_moniList);
     }
 
