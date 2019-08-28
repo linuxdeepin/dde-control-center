@@ -125,7 +125,6 @@ void AccountsWidget::addUser(User *user)
 
     item->setText(user->displayName());
     item->setEditable(false);
-    item->setData(Dtk::RoundedBackground, Dtk::BackgroundTypeRole);
     m_userItemModel->appendRow(item);
     m_userList << user;
 
