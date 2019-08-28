@@ -70,7 +70,7 @@ private:
     DisplayModel *m_model;
     QTimer *m_adjustDelayTimer;
     QTimer *m_resetOperationTimer;
-    Dtk::Widget::DWindowManagerHelper *m_wmHelper;
+    Dtk::Gui::DWindowManagerHelper *m_wmHelper;
 
     QString m_tips;
     bool m_mouseLeftHand;

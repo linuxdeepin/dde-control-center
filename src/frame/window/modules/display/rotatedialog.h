@@ -69,7 +69,7 @@ private:
     bool m_changed{false};
     dcc::display::DisplayModel *m_model{nullptr};
     dcc::display::Monitor *m_mon{nullptr};
-    Dtk::Widget::DWindowManagerHelper *m_wmHelper;
+    Dtk::Gui::DWindowManagerHelper *m_wmHelper;
 };
 
 } // namespace display
