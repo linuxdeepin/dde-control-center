@@ -82,7 +82,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     m_shortcutEdit = new QLineEdit;
     m_shortcutEdit->setReadOnly(true);
     layout->addWidget(m_shortcutEdit, 0, Qt::AlignVCenter | Qt::AlignRight);
-    m_shortcutEdit->setPlaceholderText(tr("Please enter a new shortcut"));
+    m_shortcutEdit->setPlaceholderText(tr("Enter a new shortcut"));
     m_shortcutEdit->hide();
 
     setLayout(layout);

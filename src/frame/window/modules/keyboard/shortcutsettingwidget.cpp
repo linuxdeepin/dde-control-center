@@ -54,7 +54,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
 
     m_systemGroup = new SettingsGroup(tr("System"));
     m_windowGroup = new SettingsGroup(tr("Window"));
-    m_workspaceGroup = new SettingsGroup(tr("WorkSpace"));
+    m_workspaceGroup = new SettingsGroup(tr("Workspace"));
     m_customGroup = new SettingsGroup();
     m_searchGroup = new SettingsGroup();
     m_searchInput = new SearchInput();
@@ -96,7 +96,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     connect(resetBtn, &QPushButton::clicked, this, &ShortCutSettingWidget::requestReset);
     connect(m_searchInput, &QLineEdit::textChanged, this, &ShortCutSettingWidget::onSearchTextChanged);
     connect(m_searchDelayTimer, &QTimer::timeout, this, &ShortCutSettingWidget::prepareSearchKeys);
-    setTitle(tr("Shortcuts"));
+    setTitle(tr("Shortcut"));
 
     connect(m_model, &ShortcutModel::addCustomInfo, this, &ShortCutSettingWidget::onCustomAdded);
     connect(m_model, &ShortcutModel::listChanged, this, &ShortCutSettingWidget::addShortcut);

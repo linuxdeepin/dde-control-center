@@ -50,8 +50,8 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     , m_titleEdit(new TitleEdit)
     , m_switch(new SwitchWidget(m_titleEdit))
     , m_titleGroup(new SettingsGroup)
-    , m_myDeviceLabel(new QLabel(tr("My devices")))
-    , m_otherDeviceLabel(new QLabel(tr("Other devices")))
+    , m_myDeviceLabel(new QLabel(tr("My Device")))
+    , m_otherDeviceLabel(new QLabel(tr("Other Devices")))
 {
     m_switch->setFixedHeight(36);
 
@@ -61,7 +61,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
 
     m_titleGroup->appendItem(m_switch);
 
-    m_tip = new QLabel(tr("Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)"));
+    m_tip = new QLabel(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
     m_tip->setVisible(!m_switch->checked());
     m_tip->setWordWrap(true);
     m_tip->setContentsMargins(16, 0, 10, 0);

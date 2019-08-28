@@ -30,9 +30,9 @@ using namespace dcc::widgets;
 
 PalmDetectSetting::PalmDetectSetting(QWidget *parent)
     : TranslucentFrame(parent)
-    , m_detectSwitchBtn(new SwitchWidget(tr("Palm Detect"), this))
-    , m_contactSlider(new TitledSliderItem(tr("Minimum contact surface"), this))
-    , m_pressureSlider(new TitledSliderItem(tr("Minimum pressure value"), this))
+    , m_detectSwitchBtn(new SwitchWidget(tr("Palm Detection"), this))
+    , m_contactSlider(new TitledSliderItem(tr("Minimum Contact Surface"), this))
+    , m_pressureSlider(new TitledSliderItem(tr("Minimum Pressure Value"), this))
 {
     QStringList contactList;
     for (int i(1); i <= 10; ++i) {
@@ -70,7 +70,7 @@ PalmDetectSetting::PalmDetectSetting(QWidget *parent)
     SettingsGroup *detectSwitchGrp = new SettingsGroup;
     detectSwitchGrp->appendItem(m_detectSwitchBtn);
 
-    TipsLabel *tip = new TipsLabel(tr("Please disable the option if touchpad doesn't work after enabled"), this);
+    TipsLabel *tip = new TipsLabel(tr("Disable the option if touchpad doesn't work after enabled"), this);
     tip->setWordWrap(true);
     tip->setContentsMargins(16, 5, 10, 5);
 

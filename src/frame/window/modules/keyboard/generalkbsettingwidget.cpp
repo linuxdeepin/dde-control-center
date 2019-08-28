@@ -68,7 +68,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
 
     SearchInput *testArea = new SearchInput();
     testArea->setFixedWidth(200);
-    testArea->setSearchText(tr("Please Test Here"));
+    testArea->setSearchText(tr("Test here"));
     testArea->setIconVisible(false);
     testArea->setStyleSheet("border: 0px");
 
@@ -82,7 +82,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_generalSettingsGrp->appendItem(speedItem);
 
     m_numLock = new SwitchWidget;
-    m_numLock->setTitle(tr("Enable Numeric Keyboard"));
+    m_numLock->setTitle(tr("Numeric Keypad"));
     m_generalSettingsGrp->appendItem(m_numLock);
 
     m_upper = new SwitchWidget();

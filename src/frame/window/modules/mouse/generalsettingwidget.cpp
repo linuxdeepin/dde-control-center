@@ -43,7 +43,7 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     m_generalSettingsGrp = new SettingsGroup;
     m_leftHand = new SwitchWidget(tr("Left Hand"));
     m_disInTyping = new SwitchWidget(tr("Disable the touchpad while typing"));
-    m_scrollSpeedSlider = new TitledSliderItem(tr("Scroll Speed"));
+    m_scrollSpeedSlider = new TitledSliderItem(tr("Scrolling Speed"));
     m_doubleSlider = new TitledSliderItem(tr("Double-click Speed"));
     m_doubleTest = new DouTestWidget;
 

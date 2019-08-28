@@ -39,7 +39,7 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     : ContentWidget()
     , m_adapter(adapter)
     , m_device(device)
-    , m_ignoreButton(new QPushButton(tr("Ignore")))
+    , m_ignoreButton(new QPushButton(tr("Ignore this device")))
     , m_disconnectButton(new QPushButton(tr("Disconnect")))
 {
     setTitle(device->name());

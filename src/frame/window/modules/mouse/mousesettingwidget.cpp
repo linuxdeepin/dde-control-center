@@ -41,7 +41,7 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
 
     m_mouseMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
     m_adaptiveAccelProfile = new SwitchWidget(tr("Mouse Acceleration"));
-    m_disTchStn = new SwitchWidget(tr("Disable the touchpad when inserting the mouse"));
+    m_disTchStn = new SwitchWidget(tr("Disable touchpad when a mouse is connected"));
     m_mouseNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
 
     QStringList speedList;
