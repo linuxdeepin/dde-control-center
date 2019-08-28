@@ -66,7 +66,7 @@ Q_SIGNALS:
     void requestShowProxyPage() const;
     void requestShowInfomation() const;
     void requestShowChainsPage() const;
-    void requestHotspotPage(dde::network::WirelessDevice *wdev) const;
+    void requestHotspotPage() const;
     void requestShowDeviceDetail(dde::network::NetworkDevice *device) const;
     void requestDeviceEnable(const QString &devPath, const bool enable) const;
 

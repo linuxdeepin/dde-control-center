@@ -23,7 +23,7 @@
 #define SECRETHOTSPOTSECTION_H
 
 #include "abstractsection.h"
-#include "widgets/comboboxwidget.h"
+#include "widgets/comboxwidget.h"
 #include "widgets/passwdeditwidget.h"
 
 #include <networkmanagerqt/wirelesssecuritysetting.h>
@@ -52,7 +52,7 @@ private:
 private:
     QMap<QString, NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtStrMap;
 
-    dcc::widgets::ComboBoxWidget *m_keyMgmtChooser;
+    dcc::widgets::ComboxWidget *m_keyMgmtChooser;
     dcc::widgets::PasswdEditWidget *m_passwdEdit;
 
     NetworkManager::WirelessSecuritySetting::KeyMgmt m_currentKeyMgmt;

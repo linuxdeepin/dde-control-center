@@ -81,6 +81,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     m_modelpages->appendRow(aprxit);
 #endif
 #endif
+
     DStandardItem *infoit = new DStandardItem(tr("Network Details"));
     infoit->setData("info", SectionRole);
     infoit->setIcon(QIcon::fromTheme("dcc_network"));
@@ -100,6 +101,9 @@ NetworkModuleWidget::NetworkModuleWidget()
         }
         if (type == "aprx") {
             Q_EMIT this->requestShowChainsPage();
+        }
+        if (type == "ap") {
+            Q_EMIT this->requestHotspotPage();
         }
         if (type == "info") {
             Q_EMIT this->requestShowInfomation();
@@ -124,6 +128,17 @@ void NetworkModuleWidget::setModel(NetworkModel *model)
 
 void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devices)
 {
+    while (m_modelpages->item(0)->data(SectionRole).toString().startsWith("dev_")) {
+        m_modelpages->removeRow(0);
+    }
+
+    for (int i = 0; i < m_modelpages->rowCount(); ++i) {
+        if (m_modelpages->item(i)->data(SectionRole).toString() == "ap") {
+            m_modelpages->removeRow(i);
+            break;
+        }
+    }
+
     QList<QStandardItem*> devits;
 
     int wiredDevice = 0;
@@ -148,15 +163,27 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
 
     // add wireless device list
     count = 0;
+    bool have_ap = false;
     for (auto const dev : devices)
     {
         if (dev->type() != NetworkDevice::Wireless)
             continue;
 
+        if (qobject_cast<WirelessDevice *>(dev)->supportHotspot()) {
+            have_ap = true;
+        }
+
         devits.push_back(createDeviceGroup(dev, ++count, wirelessDevice > 1));
     }
     for (auto it = devits.rbegin(); it!=devits.rend(); ++it) {
         m_modelpages->insertRow(0, *it);
+    }
+
+    if (have_ap) {
+        DStandardItem *hotspotit = new DStandardItem(tr("Personal Hotspot"));
+        hotspotit->setData("ap", SectionRole);
+        hotspotit->setIcon(QIcon::fromTheme("dcc_hotspot"));
+        m_modelpages->insertRow(m_modelpages->rowCount() - 1, hotspotit);
     }
 }
 
@@ -166,43 +193,20 @@ QStandardItem* NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
 
     Q_EMIT dev->statusChanged(dev->statusString());
 
-    if (dev->type() == NetworkDevice::Wired)
-    {
-        if (multiple)
-        {
+    if (dev->type() == NetworkDevice::Wired) {
+        if (multiple) {
             text = tr("Wired Network%1").arg(number);
-        }
-        else
-        {
+        } else {
             text = tr("Wired Network");
         }
-    }
-    else if (dev->type() == NetworkDevice::Wireless)
-    {
-        /*WirelessDevice *wdev = static_cast<WirelessDevice *>(dev);
-        if (wdev->supportHotspot())
-        {
-            NextPageWidget *hotspot = new NextPageWidget;
-            hotspot->setTitle(tr("Hotspot"));
-
-            connect(dev, &NetworkDevice::enableChanged, hotspot, &NextPageWidget::setVisible);
-            connect(wdev, &WirelessDevice::hotspotEnabledChanged, this, &NetworkModuleWidget::onDevStatusChanged, Qt::QueuedConnection);
-            connect(wdev, &WirelessDevice::hotspotEnabledChanged, hotspot, [=] (const bool enabled) { hotspot->setValue(enabled ? tr("Shared") : QString()); });
-            connect(hotspot, &NextPageWidget::clicked, this, [=] { Q_EMIT requestHotspotPage(wdev); });
-
-            hotspot->setVisible(devEnabled);
-            Q_EMIT wdev->hotspotEnabledChanged(wdev->hotspotEnabled());
-        }*/
-
-        if (multiple)
-        {
+    } else if (dev->type() == NetworkDevice::Wireless) {
+        if (multiple) {
             text = tr("Wireless Network%1").arg(number);
-        }
-        else
-        {
+        } else {
             text = tr("Wireless Network");
         }
     }
+
     DStandardItem *ret = new DStandardItem(text);
     ret->setData(dev->type() == NetworkDevice::Wireless ? "dev_wireless" : "dev_ether", SectionRole);
     ret->setIcon(QIcon::fromTheme(dev->type() == NetworkDevice::Wireless ? "dcc_wifi" : "dcc_ethernet"));

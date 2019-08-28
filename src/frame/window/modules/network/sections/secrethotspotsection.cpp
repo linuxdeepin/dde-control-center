@@ -24,6 +24,8 @@
 
 #include <networkmanagerqt/utils.h>
 
+#include <QComboBox>
+
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 
@@ -35,7 +37,7 @@ static const QList<NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtList
 
 SecretHotspotSection::SecretHotspotSection(NetworkManager::WirelessSecuritySetting::Ptr wsSeting, QFrame *parent)
     : AbstractSection(parent),
-      m_keyMgmtChooser(new ComboBoxWidget(this)),
+      m_keyMgmtChooser(new ComboxWidget(this)),
       m_passwdEdit(new PasswdEditWidget(this)),
       m_currentKeyMgmt(NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone),
       m_wsSetting(wsSeting)
@@ -109,11 +111,12 @@ void SecretHotspotSection::initStrMaps()
 
 void SecretHotspotSection::initUI()
 {
+    QComboBox *cb = m_keyMgmtChooser->comboBox();
     m_keyMgmtChooser->setTitle(tr("Security"));
     for (auto keyMgmt : KeyMgmtList) {
-        m_keyMgmtChooser->appendOption(KeyMgmtStrMap.key(keyMgmt), keyMgmt);
+        cb->addItem(KeyMgmtStrMap.key(keyMgmt), keyMgmt);
     }
-    m_keyMgmtChooser->setCurrent(m_currentKeyMgmt);
+    cb->setCurrentIndex(cb->findData(m_currentKeyMgmt));
 
     m_passwdEdit->setPlaceholderText(tr("Required"));
 
@@ -123,9 +126,8 @@ void SecretHotspotSection::initUI()
 
 void SecretHotspotSection::initConnection()
 {
-    connect(m_keyMgmtChooser, &ComboBoxWidget::requestPage, this, &SecretHotspotSection::requestNextPage);
-    connect(m_keyMgmtChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
-        onKeyMgmtChanged(data.value<NetworkManager::WirelessSecuritySetting::KeyMgmt>());
+    connect(m_keyMgmtChooser->comboBox(), static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [this] {
+        onKeyMgmtChanged(this->m_keyMgmtChooser->comboBox()->currentData().value<NetworkManager::WirelessSecuritySetting::KeyMgmt>());
     });
 
     connect(m_passwdEdit->textEdit(), &QLineEdit::editingFinished, this, &SecretHotspotSection::saveUserInputPassword);

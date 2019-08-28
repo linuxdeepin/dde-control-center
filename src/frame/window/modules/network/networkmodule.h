@@ -69,7 +69,7 @@ private Q_SLOTS:
     void showChainsProxyPage();
     void showProxyPage();
     void showDetailPage();
-    void showHotspotPage(dde::network::WirelessDevice *wdev);
+    void showHotspotPage();
     void showDeviceDetailPage(dde::network::NetworkDevice *dev);
     void onSetFrameAutoHide(const bool autoHide);
 

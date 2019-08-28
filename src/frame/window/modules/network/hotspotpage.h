@@ -30,12 +30,22 @@
 #include "widgets/contentwidget.h"
 #include "window/namespace.h"
 
+#include <DListView>
+
+#include <QStandardItemModel>
 #include <QPointer>
 #include <QJsonObject>
+
+namespace Dtk {
+namespace Widget {
+class DFloatingButton;
+}
+}
 
 namespace dde {
 namespace network {
 class NetworkModel;
+class NetworkDevice;
 class WirelessDevice;
 }
 }
@@ -52,33 +62,28 @@ class SwitchWidget;
 namespace DCC_NAMESPACE {
 namespace network {
 
-class HotspotPage : public dcc::ContentWidget
+class HotspotPage;
+
+class HotspotDeviceWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit HotspotPage(dde::network::WirelessDevice *wdev, QWidget *parent = nullptr);
+    explicit HotspotDeviceWidget(dde::network::WirelessDevice *wdev, bool showcreatebtn = true, QWidget *parent = nullptr);
 
     void setModel(dde::network::NetworkModel *model);
-
-Q_SIGNALS:
-    void requestNextPage(ContentWidget * const w) const;
-    void requestDeviceRemanage(const QString &devPath) const;
-    void requestDisconnectConnection(const QString &uuid) const;
-    void requestActivateConnection(const QString &devPath, const QString &uuid) const;
-    void requestFrameKeepAutoHide(const bool autoHide) const;
+    void setPage(HotspotPage *p);
 
 private:
     void closeHotspot();
     void openHotspot();
     void openEditPage(const QString &uuid = QString());
-    QString uuidByConnWidget(QObject *connWidget);
 
 private Q_SLOTS:
     void onDeviceRemoved();
     void onSwitchToggled(const bool checked);
-    void onConnWidgetSelected();
-    void onConnWidgetNextPage();
+    void onConnWidgetSelected(const QModelIndex &idx);
+    void onConnEditRequested(const QString &uuid);
     void onHotsportEnabledChanged();
     void refreshHotspotConnectionList();
     void refreshActiveConnection();
@@ -87,16 +92,43 @@ private:
     dde::network::WirelessDevice * const m_wdev;
     dde::network::NetworkModel *m_model;
     dcc::widgets::SwitchWidget *m_hotspotSwitch;
-    dcc::widgets::SettingsGroup *m_connectionsGroup;
+    DListView *m_lvprofiles;
+    QStandardItemModel *m_modelprofiles;
 
     QPushButton *m_createBtn;
     QPointer<DCC_NAMESPACE::network::ConnectionHotspotEditPage> m_editPage;
 
     QTimer *m_refreshActiveTimer;
 
-    QMap<dcc::widgets::NextPageWidget *, QString> m_connWidgetUuidMap;
+    HotspotPage *m_page;
+
+    static const int UuidRole = Dtk::UserRole + 1;
+
+    friend class HotspotPage;
 };
 
+class HotspotPage : public dcc::ContentWidget
+{
+    Q_OBJECT
+public:
+    explicit HotspotPage(QWidget *parent = nullptr);
+    void setModel(dde::network::NetworkModel *model);
+
+Q_SIGNALS:
+    void requestNextPage(dcc::ContentWidget * const w) const;
+    void requestDeviceRemanage(const QString &devPath) const;
+    void requestDisconnectConnection(const QString &uuid) const;
+    void requestActivateConnection(const QString &devPath, const QString &uuid) const;
+
+private Q_SLOTS:
+    void deviceListChanged(const QList<dde::network::NetworkDevice *> devices);
+
+private:
+    dde::network::NetworkModel *m_model;
+    QWidget *m_contents;
+    DFloatingButton *m_newprofile;
+    QList<HotspotDeviceWidget *> m_listdevw;
+};
 }
 
 }

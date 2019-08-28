@@ -28,6 +28,8 @@
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 
+#include <DFloatingButton>
+
 #include <QVBoxLayout>
 #include <QDebug>
 
@@ -48,18 +50,22 @@ const QString defaultHotspotName()
     return getlogin();
 }
 
-HotspotPage::HotspotPage(WirelessDevice *wdev, QWidget *parent)
-    : ContentWidget(parent),
-      m_wdev(wdev),
-      m_hotspotSwitch(new SwitchWidget),
-      m_connectionsGroup(new SettingsGroup),
-      m_createBtn(new QPushButton),
-      m_refreshActiveTimer(new QTimer)
+HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebtn, QWidget *parent)
+    : QWidget(parent)
+    , m_wdev(wdev)
+    , m_hotspotSwitch(new SwitchWidget)
+    , m_createBtn(new QPushButton)
+    , m_refreshActiveTimer(new QTimer)
+    , m_lvprofiles(new DListView)
+    , m_modelprofiles(new QStandardItemModel)
 {
     Q_ASSERT(m_wdev->supportHotspot());
 
+    m_lvprofiles->setModel(m_modelprofiles);
+
     m_hotspotSwitch->setTitle(tr("Hotspot"));
     m_createBtn->setText(tr("Add Settings"));
+    m_createBtn->setVisible(showcreatebtn);
 
     m_refreshActiveTimer->setInterval(300);
     m_refreshActiveTimer->setSingleShot(true);
@@ -72,45 +78,47 @@ HotspotPage::HotspotPage(WirelessDevice *wdev, QWidget *parent)
     centralLayout->setContentsMargins(0, 10, 0, 0);
 
     centralLayout->addWidget(sgrp);
-    centralLayout->addWidget(m_connectionsGroup);
+    centralLayout->addWidget(m_lvprofiles);
     centralLayout->addWidget(m_createBtn);
     centralLayout->addStretch();
 
-    QWidget *centralWidget = new TranslucentFrame;
-    centralWidget->setLayout(centralLayout);
+    setLayout(centralLayout);
 
-    setContent(centralWidget);
-    setTitle(tr("Hotspot"));
-
+    connect(m_lvprofiles, &QListView::clicked, this, &HotspotDeviceWidget::onConnWidgetSelected);
     connect(m_createBtn, &QPushButton::clicked, this, [=] {openEditPage();});
 
-    connect(m_refreshActiveTimer, &QTimer::timeout, this, &HotspotPage::refreshActiveConnection);
+    connect(m_refreshActiveTimer, &QTimer::timeout, this, &HotspotDeviceWidget::refreshActiveConnection);
 
-    connect(m_wdev, &WirelessDevice::removed, this, &HotspotPage::onDeviceRemoved);
-    connect(m_wdev, &WirelessDevice::hotspotEnabledChanged, this, &HotspotPage::onHotsportEnabledChanged);
-    connect(m_wdev, &WirelessDevice::hostspotConnectionsChanged, this, &HotspotPage::refreshHotspotConnectionList);
+    connect(m_wdev, &WirelessDevice::removed, this, &HotspotDeviceWidget::onDeviceRemoved);
+    connect(m_wdev, &WirelessDevice::hotspotEnabledChanged, this, &HotspotDeviceWidget::onHotsportEnabledChanged);
+    connect(m_wdev, &WirelessDevice::hostspotConnectionsChanged, this, &HotspotDeviceWidget::refreshHotspotConnectionList);
 
-    connect(m_hotspotSwitch, &SwitchWidget::checkedChanged, this, &HotspotPage::onSwitchToggled);
+    connect(m_hotspotSwitch, &SwitchWidget::checkedChanged, this, &HotspotDeviceWidget::onSwitchToggled);
 }
 
-void HotspotPage::setModel(NetworkModel *model)
+void HotspotDeviceWidget::setModel(NetworkModel *model)
 {
     m_model = model;
 
-    QTimer::singleShot(0, this, &HotspotPage::onHotsportEnabledChanged);
-    QTimer::singleShot(0, this, &HotspotPage::refreshHotspotConnectionList);
+    QTimer::singleShot(0, this, &HotspotDeviceWidget::onHotsportEnabledChanged);
+    QTimer::singleShot(0, this, &HotspotDeviceWidget::refreshHotspotConnectionList);
 }
 
-void HotspotPage::closeHotspot()
+void HotspotDeviceWidget::setPage(HotspotPage *p)
+{
+    m_page = p;
+}
+
+void HotspotDeviceWidget::closeHotspot()
 {
     const QString uuid = m_wdev->activeHotspotUuid();
     Q_ASSERT(!uuid.isEmpty());
 
-    Q_EMIT requestDisconnectConnection(uuid);
-    Q_EMIT requestDeviceRemanage(m_wdev->path());
+    Q_EMIT m_page->requestDisconnectConnection(uuid);
+    Q_EMIT m_page->requestDeviceRemanage(m_wdev->path());
 }
 
-void HotspotPage::openHotspot()
+void HotspotDeviceWidget::openHotspot()
 {
     const QList<QJsonObject> &connsObj = m_wdev->hotspotConnections();
 
@@ -119,38 +127,19 @@ void HotspotPage::openHotspot()
         openEditPage(QString());
     } else {
         // use the first connection of the hotspot connection list
-        requestActivateConnection(m_wdev->path(), connsObj.first().value("Uuid").toString());
+        m_page->requestActivateConnection(m_wdev->path(), connsObj.first().value("Uuid").toString());
     }
 }
 
-void HotspotPage::openEditPage(const QString &uuid)
+void HotspotDeviceWidget::openEditPage(const QString &uuid)
 {
     m_editPage = new ConnectionHotspotEditPage(m_wdev->path(), uuid);
     m_editPage->initSettingsWidget();
 
-    connect(m_editPage, &ConnectionHotspotEditPage::requestNextPage, this, &HotspotPage::requestNextPage);
-
-    Q_EMIT requestNextPage(m_editPage);
+    Q_EMIT m_page->requestNextPage(m_editPage);
 }
 
-QString HotspotPage::uuidByConnWidget(QObject *connWidget)
-{
-    QString uuid;
-
-    NextPageWidget *cw = dynamic_cast<NextPageWidget *>(connWidget);
-    if (cw) {
-        uuid = m_connWidgetUuidMap.value(cw);
-        if (uuid.isEmpty()) {
-            qDebug() << "Warning: can not find UUID of the clicked connection";
-        }
-    } else {
-        qDebug() << "Warning: can not find the clicked connection wdiget";
-    }
-
-    return uuid;
-}
-
-void HotspotPage::onDeviceRemoved()
+void HotspotDeviceWidget::onDeviceRemoved()
 {
     // back if ap edit page exist
     if (!m_editPage.isNull()) {
@@ -158,10 +147,10 @@ void HotspotPage::onDeviceRemoved()
     }
 
     // destroy self page
-    Q_EMIT back();
+    this->deleteLater();
 }
 
-void HotspotPage::onSwitchToggled(const bool checked)
+void HotspotDeviceWidget::onSwitchToggled(const bool checked)
 {
     if (checked)
         openHotspot();
@@ -169,68 +158,62 @@ void HotspotPage::onSwitchToggled(const bool checked)
         closeHotspot();
 }
 
-void HotspotPage::onConnWidgetSelected()
+void HotspotDeviceWidget::onConnWidgetSelected(const QModelIndex &idx)
 {
-    const QString uuid = uuidByConnWidget(sender());
+    const QString uuid = idx.data(UuidRole).toString();
     if (uuid.isEmpty()) {
         return;
     }
 
-    requestActivateConnection(m_wdev->path(), uuid);
+    m_page->requestActivateConnection(m_wdev->path(), uuid);
 }
 
-void HotspotPage::onConnWidgetNextPage()
+void HotspotDeviceWidget::onConnEditRequested(const QString &uuid)
 {
-    const QString uuid = uuidByConnWidget(sender());
-    if (uuid.isEmpty()) {
-        return;
-    }
-
     m_editPage = new ConnectionHotspotEditPage(m_wdev->path(), uuid);
     m_editPage->initSettingsWidget();
 
-    connect(m_editPage, &ConnectionHotspotEditPage::requestNextPage, this, &HotspotPage::requestNextPage);
+    connect(m_editPage, &ConnectionHotspotEditPage::requestNextPage, m_page, &HotspotPage::requestNextPage);
 
-    Q_EMIT requestNextPage(m_editPage);
+    Q_EMIT m_page->requestNextPage(m_editPage);
 }
 
-void HotspotPage::onHotsportEnabledChanged()
+void HotspotDeviceWidget::onHotsportEnabledChanged()
 {
     m_hotspotSwitch->setChecked(m_wdev->hotspotEnabled());
 
     m_refreshActiveTimer->start();
 }
 
-void HotspotPage::refreshHotspotConnectionList()
+void HotspotDeviceWidget::refreshHotspotConnectionList()
 {
     if (!m_wdev || !m_wdev->enabled()) {
         return;
     }
 
-    const QList<dcc::widgets::NextPageWidget *> &connWidgetList = m_connWidgetUuidMap.keys();
-    m_connWidgetUuidMap.clear();
-    m_connectionsGroup->clear();
-    qDeleteAll(connWidgetList);
-
+    m_modelprofiles->clear();
 
     for (auto connObj : m_wdev->hotspotConnections()) {
         const QString &ssid = connObj.value("Ssid").toString();
         const QString &uuid = connObj.value("Uuid").toString();
 
-        NextPageWidget *conn = new NextPageWidget;
-        conn->setTitle(ssid);
+        DStandardItem *it = new DStandardItem;
+        it->setText(m_model->connectionNameByPath(connObj.value("Path").toString()));
+        it->setData(uuid, UuidRole);
+        it->setCheckable(true);
 
-        connect(conn, &NextPageWidget::selected, this, &HotspotPage::onConnWidgetSelected);
-        connect(conn, &NextPageWidget::acceptNextPage, this, &HotspotPage::onConnWidgetNextPage);
+        DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
+        editaction->setIcon(QIcon::fromTheme("arrow-right"));
+        it->setActionList(Qt::Edge::RightEdge, {editaction});
+        connect(editaction, &QAction::triggered, std::bind(&HotspotDeviceWidget::onConnEditRequested, this, uuid));
 
-        m_connectionsGroup->appendItem(conn);
-        m_connWidgetUuidMap.insert(conn, uuid);
+        m_modelprofiles->appendRow(it);
     }
 
     m_refreshActiveTimer->start();
 }
 
-void HotspotPage::refreshActiveConnection()
+void HotspotDeviceWidget::refreshActiveConnection()
 {
     QString activeHotspotUuid;
 
@@ -242,15 +225,79 @@ void HotspotPage::refreshActiveConnection()
         }
     }
 
-    for (auto it = m_connWidgetUuidMap.begin(); it != m_connWidgetUuidMap.end(); ++it) {
-        const QString &uuid = it.value();
-        NextPageWidget *widget = it.key();
+    for (int i = 0; i < m_modelprofiles->rowCount(); ++i) {
+        QStandardItem *it = m_modelprofiles->item(i);
+        it->setCheckState(it->data(UuidRole).toString() == activeHotspotUuid ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+    }
+}
 
-        if (uuid == activeHotspotUuid) {
-            widget->setIcon(QPixmap(":/network/themes/dark/icons/select.svg"));
-        } else {
-            widget->setIcon(QPixmap());
+HotspotPage::HotspotPage(QWidget *parent)
+    : ContentWidget(parent)
+    , m_contents(new QWidget)
+    , m_newprofile(new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement))
+{
+    setContent(m_contents);
+
+    QVBoxLayout *layout(new QVBoxLayout);
+    m_contents->setLayout(layout);
+
+    connect(m_newprofile, &QAbstractButton::clicked, [this] {
+        if (this->m_listdevw.empty()) {
+            return;
         }
+        this->m_listdevw.front()->openEditPage();
+    });
+}
+
+void HotspotPage::setModel(dde::network::NetworkModel *model)
+{
+    m_model = model;
+    deviceListChanged(model->devices());
+    connect(m_model, &NetworkModel::deviceListChanged, this, &HotspotPage::deviceListChanged);
+    connect(m_model, &NetworkModel::deviceEnableChanged, [this] {
+        this->deviceListChanged(this->m_model->devices());
+    });
+}
+
+void HotspotPage::deviceListChanged(const QList<dde::network::NetworkDevice *> devices)
+{
+    QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(m_contents->layout());
+    layout->removeWidget(m_newprofile);
+
+    qDeleteAll(m_listdevw);
+    m_listdevw.clear();
+
+    int ap_devices = 0;
+
+    for (auto d : devices) {
+        if (d->type() != NetworkDevice::DeviceType::Wireless) {
+            continue;
+        }
+        if (static_cast<WirelessDevice *>(d)->supportHotspot() && d->enabled()) {
+            ++ap_devices;
+        }
+    }
+
+    if (ap_devices == 0) {
+        Q_EMIT back();
+    }
+
+    for (auto d : devices) {
+        WirelessDevice *wd(static_cast<WirelessDevice *>(d));
+        if (d->type() != NetworkDevice::DeviceType::Wireless) {
+            continue;
+        }
+        if (wd->supportHotspot() && wd->enabled()) {
+            HotspotDeviceWidget *w = new HotspotDeviceWidget(wd, ap_devices > 1, this);
+            w->setPage(this);
+            w->setModel(m_model);
+            layout->addWidget(w);
+            m_listdevw.append(w);
+        }
+    }
+
+    if (ap_devices == 1) {
+        layout->addWidget(m_newprofile, 0, Qt::AlignmentFlag::AlignHCenter);
     }
 }
 

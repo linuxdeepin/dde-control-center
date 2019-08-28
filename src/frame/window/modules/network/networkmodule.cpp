@@ -276,15 +276,15 @@ void NetworkModule::showDetailPage()
     m_frameProxy->pushWidget(this, p);
 }
 
-void NetworkModule::showHotspotPage(WirelessDevice *wdev)
+void NetworkModule::showHotspotPage()
 {
-    HotspotPage *p = new HotspotPage(wdev);
+    HotspotPage *p = new HotspotPage();
 
     p->setModel(m_networkModel);
     connect(p, &HotspotPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
     connect(p, &HotspotPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
     connect(p, &HotspotPage::requestDeviceRemanage, m_networkWorker, &NetworkWorker::remanageDevice, Qt::QueuedConnection);
-    connect(p, &HotspotPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w); });
+    connect(p, &HotspotPage::requestNextPage, [=](ContentWidget * const w) { m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop); });
 
     m_frameProxy->pushWidget(this, p);
 }
