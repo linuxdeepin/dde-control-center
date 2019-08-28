@@ -125,13 +125,14 @@ const QString MouseModule::name() const
 
 void MouseModule::load(QString path)
 {
-    if (path == QStringLiteral("General")) {
+    QString loadPath = path.split("/").at(0);
+    if (loadPath == QStringLiteral("General")) {
         m_mouseWidget->initSetting(0);
-    } else if (path == QStringLiteral("Mouse")) {
+    } else if (loadPath == QStringLiteral("Mouse")) {
         m_mouseWidget->initSetting(1);
-    } else if (path == QStringLiteral("TouchPad")) {
+    } else if (loadPath == QStringLiteral("TouchPad")) {
         m_mouseWidget->initSetting(2);
-    } else if (path == QStringLiteral("TrackPoint")) {
+    } else if (loadPath == QStringLiteral("TrackPoint")) {
         m_mouseWidget->initSetting(3);
     }
 }

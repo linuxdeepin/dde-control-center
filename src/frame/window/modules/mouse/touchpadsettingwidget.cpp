@@ -39,14 +39,19 @@ using namespace dcc::widgets;
 TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidget(parent)
 {
     m_touchpadSettingsGrp = new SettingsGroup;
-
+    //~ contents_path /mouse/TouchPad/Pointer Speed
     m_touchMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
+    //~ contents_path /mouse/TouchPad/Tap to Click
     m_touchClickStn = new SwitchWidget(tr("Tap to Click"));
+    //~ contents_path /mouse/TouchPad/Natural Scrolling
     m_touchNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
     m_palmDetectSetting = new PalmDetectSetting;
 
     QStringList touchMoveList;
-    touchMoveList << tr("Slow") << "" << "" << "" << "" << "" << tr("Fast");
+    //~ contents_path /mouse/TouchPad/Slow
+    touchMoveList << tr("Slow") << "" << "" << "" << "" << "";
+    //~ contents_path /mouse/TouchPad/Fast
+    touchMoveList << tr("Fast");
 
     DCCSlider *touchSlider = m_touchMoveSlider->slider();
     touchSlider->setType(DCCSlider::Vernier);

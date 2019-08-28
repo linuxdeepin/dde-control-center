@@ -77,14 +77,21 @@ void KeyboardModule::active()
 
 void KeyboardModule::load(QString path)
 {
-    if (path == QStringLiteral("General")) {
+    QStringList pathList = path.split("/");
+    QString loadPath = pathList.at(0);
+    if (loadPath == QStringLiteral("General")) {
         m_keyboardWidget->initSetting(0);
-    } else if (path == QStringLiteral("Keyboard Layout")) {
+    } else if (loadPath == QStringLiteral("Keyboard Layout")) {
         m_keyboardWidget->initSetting(1);
-    } else if (path == QStringLiteral("System Language")) {
+    } else if (loadPath == QStringLiteral("System Language")) {
         m_keyboardWidget->initSetting(2);
-    } else if (path == QStringLiteral("ShortCut")) {
-        m_keyboardWidget->initSetting(3);
+    } else if (loadPath == QStringLiteral("ShortCut")) {
+        if ((pathList.length() > 1) && (pathList.at(1) == QStringLiteral("Custom Shortcut"))) {
+            showShortCutSetting();
+            m_shortcutSettingWidget->showCustomShotcut();
+        } else {
+            m_keyboardWidget->initSetting(3);
+        }
     }
 }
 
@@ -195,6 +202,7 @@ void KeyboardModule::showShortCutSetting()
 void KeyboardModule::onPushCustomShortcut()
 {
     m_customContent = new CustomContent(m_shortcutModel);
+    m_customContent->setAccessibleName(tr("Custom Shortcut"));
     connect(m_customContent, &CustomContent::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
     connect(m_customContent, &CustomContent::requestAddKey, m_work, &KeyboardWorker::addCustomShortcut);
     connect(m_customContent, &CustomContent::requestForceSubs, m_work, &KeyboardWorker::onDisableShortcut);

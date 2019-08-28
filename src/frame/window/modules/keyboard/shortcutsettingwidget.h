@@ -25,6 +25,7 @@
 #include "widgets/contentwidget.h"
 #include "modules/keyboard/shortcutmodel.h"
 
+#include <DFloatingButton>
 #include <com_deepin_daemon_search.h>
 
 using SearchInter = com::deepin::daemon::Search;
@@ -54,7 +55,7 @@ public:
     explicit ShortCutSettingWidget(dcc::keyboard::ShortcutModel *model, QWidget *parent = nullptr);
     void addShortcut(QList<dcc::keyboard::ShortcutInfo *> list, dcc::keyboard::ShortcutModel::InfoType type);
     dcc::widgets::SettingsHead *getHead() const;
-
+    void showCustomShotcut();
 protected:
     void modifyStatus(bool status);
 
@@ -87,6 +88,7 @@ private:
     QString m_searchText;
     QVBoxLayout *m_layout;
     QVBoxLayout *m_searchLayout;
+    DFloatingButton *m_addCustomShortcut;
 
     dcc::widgets::SettingsHead *m_head;
     dcc::widgets::SettingsGroup *m_systemGroup;

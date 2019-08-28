@@ -41,6 +41,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     , m_model(model)
 {
     m_generalSettingsGrp = new SettingsGroup();
+    //~ contents_path /keyboard/General/Repeat Delay
     TitledSliderItem *delayItem =  new TitledSliderItem(tr("Repeat Delay"));
     m_delaySlider = delayItem->slider();
     m_delaySlider->setType(DCCSlider::Vernier);
@@ -50,7 +51,10 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_delaySlider->setPageStep(1);
     m_delaySlider->setTickPosition(QSlider::TicksBelow);
     QStringList delays;
-    delays << tr("Short") << "" << "" << "" << "" << "" << tr("Long");
+    //~ contents_path /keyboard/General/Short
+    delays << tr("Short") << "" << "" << "" << "" << "";
+    //~ contents_path /keyboard/General/Long
+    delays << tr("Long");
     delayItem->setAnnotations(delays);
     m_generalSettingsGrp->appendItem(delayItem);
 
@@ -63,11 +67,15 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_speedSlider->setPageStep(1);
     m_speedSlider->setTickPosition(QSlider::TicksBelow);
     QStringList speeds;
-    speeds << tr("Slow") << "" << "" << "" << "" << "" << tr("Fast");
+    //~ contents_path /keyboard/General/Slow
+    speeds << tr("Slow") << "" << "" << "" << "" << "";
+    //~ contents_path /keyboard/General/Fast
+    speeds << tr("Fast");
     speedItem->setAnnotations(speeds);
 
     SearchInput *testArea = new SearchInput();
     testArea->setFixedWidth(200);
+    //~ contents_path /keyboard/General/Test here
     testArea->setSearchText(tr("Test here"));
     testArea->setIconVisible(false);
     testArea->setStyleSheet("border: 0px");
@@ -82,10 +90,12 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_generalSettingsGrp->appendItem(speedItem);
 
     m_numLock = new SwitchWidget;
+    //~ contents_path /keyboard/General/Numeric Keypad
     m_numLock->setTitle(tr("Numeric Keypad"));
     m_generalSettingsGrp->appendItem(m_numLock);
 
     m_upper = new SwitchWidget();
+    //~ contents_path /keyboard/General/Caps Lock Prompt
     m_upper->setTitle(tr("Caps Lock Prompt"));
     m_generalSettingsGrp->appendItem(m_upper);
 

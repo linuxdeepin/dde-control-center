@@ -38,14 +38,20 @@ using namespace dcc::widgets;
 MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(parent)
 {
     m_mouseSettingsGrp = new SettingsGroup;
-
+    //~ contents_path /mouse/Mouse/Pointer Speed
     m_mouseMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
+    //~ contents_path /mouse/Mouse/Mouse Acceleration
     m_adaptiveAccelProfile = new SwitchWidget(tr("Mouse Acceleration"));
+    //~ contents_path /mouse/Mouse/Disable touchpad when a mouse is connected
     m_disTchStn = new SwitchWidget(tr("Disable touchpad when a mouse is connected"));
+    //~ contents_path /mouse/Mouse/Natural Scrolling
     m_mouseNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
 
     QStringList speedList;
-    speedList << tr("Slow") << "" << "" << "" << "" << "" << tr("Fast");
+    //~ contents_path /mouse/Mouse/Slow
+    speedList << tr("Slow") << "" << "" << "" << "" << "";
+    //~ contents_path /mouse/Mouse/Fast
+    speedList << tr("Fast");
     DCCSlider *speedSlider = m_mouseMoveSlider->slider();
     speedSlider->setType(DCCSlider::Vernier);
     speedSlider->setTickPosition(QSlider::TicksBelow);

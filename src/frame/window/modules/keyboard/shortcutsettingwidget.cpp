@@ -28,7 +28,6 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/searchinput.h"
 
-#include <DFloatingButton>
 #include <DAnchors>
 
 #include <QLineEdit>
@@ -51,9 +50,11 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
 
     m_widget = new TranslucentFrame();
     m_searchText = QString();
-
+    //~ contents_path /keyboard/ShortCut/System
     m_systemGroup = new SettingsGroup(tr("System"));
+    //~ contents_path /keyboard/ShortCut/Window
     m_windowGroup = new SettingsGroup(tr("Window"));
+    //~ contents_path /keyboard/ShortCut/Workspace
     m_workspaceGroup = new SettingsGroup(tr("Workspace"));
     m_customGroup = new SettingsGroup();
     m_searchGroup = new SettingsGroup();
@@ -66,6 +67,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_head = new SettingsHead();
     m_head->setEditEnable(true);
     m_head->setVisible(false);
+    //~ contents_path /keyboard/ShortCut/Custom Shortcut
     m_head->setTitle(tr("Custom Shortcut"));
     m_customGroup->insertItem(0, m_head);
 
@@ -78,7 +80,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->addWidget(m_windowGroup);
     m_layout->addWidget(m_workspaceGroup);
     m_layout->addWidget(m_customGroup);
-
+    //~ contents_path /keyboard/ShortCut/Restore Defaults
     QPushButton* resetBtn = new QPushButton(tr("Restore Defaults"));
 
     m_layout->addWidget(resetBtn);
@@ -86,16 +88,17 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_widget->setLayout(m_layout);
     setContent(m_widget);
 
-    DFloatingButton *addCustomShortcut = new DFloatingButton(DStyle::SP_IncreaseElement, this);
-    DAnchors<DFloatingButton> anchors(addCustomShortcut);
+    m_addCustomShortcut = new DFloatingButton(DStyle::SP_IncreaseElement, this);
+    DAnchors<DFloatingButton> anchors(m_addCustomShortcut);
     anchors.setAnchor(Qt::AnchorBottom, this, Qt::AnchorBottom);
     anchors.setBottomMargin(2);
     anchors.setAnchor(Qt::AnchorHorizontalCenter, this, Qt::AnchorHorizontalCenter);
 
-    connect(addCustomShortcut, &DFloatingButton::clicked, this, &ShortCutSettingWidget::customShortcut);
+    connect(m_addCustomShortcut, &DFloatingButton::clicked, this, &ShortCutSettingWidget::customShortcut);
     connect(resetBtn, &QPushButton::clicked, this, &ShortCutSettingWidget::requestReset);
     connect(m_searchInput, &QLineEdit::textChanged, this, &ShortCutSettingWidget::onSearchTextChanged);
     connect(m_searchDelayTimer, &QTimer::timeout, this, &ShortCutSettingWidget::prepareSearchKeys);
+    //~ contents_path /keyboard/ShortCut/Shortcut
     setTitle(tr("Shortcut"));
 
     connect(m_model, &ShortcutModel::addCustomInfo, this, &ShortCutSettingWidget::onCustomAdded);
@@ -107,6 +110,11 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     addShortcut(m_model->windowInfo(), ShortcutModel::Window);
     addShortcut(m_model->workspaceInfo(), ShortcutModel::Workspace);
     addShortcut(m_model->customInfo(), ShortcutModel::Custom);
+}
+
+void ShortCutSettingWidget::showCustomShotcut()
+{
+    m_addCustomShortcut->click();
 }
 
 void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::InfoType type)
@@ -234,7 +242,7 @@ void ShortCutSettingWidget::onCustomAdded(ShortcutInfo *info)
         m_allList << item;
 
         m_head->setVisible(true);
-        connect(m_head, SIGNAL(editChanged(bool)), item, SLOT(onEditMode(bool)));
+        connect(m_head, &SettingsHead::editChanged, item, &ShortcutItem::onEditMode);
         m_customGroup->appendItem(item);
         m_customList.append(item);
 
