@@ -36,7 +36,7 @@
  */
 
 #include "dbuscontrolcenterservice.h"
-#include "frame.h"
+#include "window/mainwindow.h"
 
 #include <QtCore/QMetaObject>
 #include <QtCore/QByteArray>
@@ -54,9 +54,11 @@
  * Implementation of adaptor class DBusControlCenter
  */
 
-DBusControlCenterService::DBusControlCenterService(Frame *parent)
-    : QDBusAbstractAdaptor(parent),
-      m_toggleProcessed(true)
+using namespace DCC_NAMESPACE;
+
+DBusControlCenterService::DBusControlCenterService(MainWindow *parent)
+    : QDBusAbstractAdaptor(parent)
+    , m_toggleProcessed(true)
 {
     // constructor
 
@@ -71,8 +73,8 @@ DBusControlCenterService::DBusControlCenterService(Frame *parent)
 
 //    connect(parent, &Frame::hideInLeftChanged, parent, &Frame::xChanged);
 
-    connect(parent, &Frame::rectChanged, this, &DBusControlCenterService::rectChanged, Qt::QueuedConnection);
-    connect(parent, &Frame::destRectChanged, this, &DBusControlCenterService::destRectChanged, Qt::QueuedConnection);
+//    connect(parent, &MainWindow::rectChanged, this, &DBusControlCenterService::rectChanged, Qt::QueuedConnection);
+//    connect(parent, &MainWindow::destRectChanged, this, &DBusControlCenterService::destRectChanged, Qt::QueuedConnection);
 }
 
 DBusControlCenterService::~DBusControlCenterService()
@@ -80,9 +82,9 @@ DBusControlCenterService::~DBusControlCenterService()
     // destructor
 }
 
-Frame *DBusControlCenterService::parent() const
+MainWindow *DBusControlCenterService::parent() const
 {
-    return static_cast<Frame *>(QObject::parent());
+    return static_cast<MainWindow *>(QObject::parent());
 }
 
 bool DBusControlCenterService::showInRight() const
@@ -119,7 +121,7 @@ void DBusControlCenterService::Hide()
 void DBusControlCenterService::HideImmediately()
 {
     // handle method call com.deepin.dde.ControlCenter.HideImmediately
-    parent()->hideImmediately();
+//    parent()->hideImmediately();
 }
 
 void DBusControlCenterService::Show()
@@ -144,7 +146,7 @@ void DBusControlCenterService::ShowImmediately()
 
 void DBusControlCenterService::ShowHome()
 {
-    parent()->backToHome();
+//    parent()->backToHome();
 }
 
 void DBusControlCenterService::ShowModule(const QString &module)
@@ -154,13 +156,14 @@ void DBusControlCenterService::ShowModule(const QString &module)
 
 void DBusControlCenterService::ShowPage(const QString &module, const QString &page)
 {
+    parent()->showModulePage(module, page, false);
     // handle method call com.deepin.dde.ControlCenter.ShowModule
-    parent()->showSettingsPage(module, page);
+//    parent()->showSettingsPage(module, page);
 }
 
 void DBusControlCenterService::SetAutoHide(const bool autoHide)
 {
-    parent()->setDebugAutoHide(autoHide);
+//    parent()->setDebugAutoHide(autoHide);
 }
 
 void DBusControlCenterService::Toggle()
@@ -172,7 +175,7 @@ void DBusControlCenterService::Toggle()
     if (m_toggleProcessed) {
 
         QTimer::singleShot(0, this, [this] {
-            parent()->toggle();
+//            parent()->toggle();
             m_toggleProcessed = true;
         });
 

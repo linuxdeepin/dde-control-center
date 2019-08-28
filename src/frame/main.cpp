@@ -81,8 +81,7 @@ static const QString styleSheetFromTheme(const QString &theme)
     QString ret;
 
     const QString resources = ":/%1/themes/" + theme;
-    for (auto module : moduleList)
-    {
+    for (auto module : moduleList) {
         QString dir = resources.arg(module);
         ret.append(getStyleSheetFromDir(dir));
     }
@@ -104,9 +103,10 @@ static void onThemeChange(const QString &theme)
     qApp->setStyleSheet(qss);
 }
 
-static void onFontSizeChanged(const float pointSizeF) {
+static void onFontSizeChanged(const float pointSizeF)
+{
     // TODO(hualet): DPI default to 96.
-    auto PxToPt = [] (int px) -> float {
+    auto PxToPt = [](int px) -> float {
         return px * 72.0 / 96;
     };
 
@@ -186,7 +186,7 @@ int main(int argc, char *argv[])
     parser.addOption(pageOption);
     parser.process(app);
 
-#ifdef WINDOW_MODE
+//#ifdef WINDOW_MODE
     app.setStyle("chameleon");
 
     auto screen = app.primaryScreen();
@@ -196,49 +196,48 @@ int main(int argc, char *argv[])
     DCC_NAMESPACE::MainWindow mw;
     mw.setGeometry(mwRect);
     mw.setMinimumSize(QSize(MainWidgetWidget, MainWidgetHeight));
-    mw.show();
-#else
+
     const QString &reqModule = parser.value(moduleOption);
     const QString &reqPage = parser.value(pageOption);
 
-    app.setTheme("semidark");
-    onThemeChange("dark");
+//    app.setTheme("semidark");
+//    onThemeChange("dark");
 
     QTimer::singleShot(0, [] { onFontSizeChanged(qApp->font().pointSizeF()); });
 
-    Frame f;
-    DBusControlCenterService adaptor(&f);
+//    Frame f;
+    DBusControlCenterService adaptor(&mw);
     Q_UNUSED(adaptor);
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService("com.deepin.dde.ControlCenter") ||
-        !conn.registerObject("/com/deepin/dde/ControlCenter", &f)) {
+            !conn.registerObject("/com/deepin/dde/ControlCenter", &mw)) {
         qDebug() << "dbus service already registered!";
 
         if (parser.isSet(toggleOption))
             DDBusSender()
-                    .service("com.deepin.dde.ControlCenter")
-                    .interface("com.deepin.dde.ControlCenter")
-                    .path("/com/deepin/dde/ControlCenter")
-                    .method("Toggle")
-                    .call();
+            .service("com.deepin.dde.ControlCenter")
+            .interface("com.deepin.dde.ControlCenter")
+            .path("/com/deepin/dde/ControlCenter")
+            .method("Toggle")
+            .call();
 
         if (!reqModule.isEmpty())
             DDBusSender()
-                    .service("com.deepin.dde.ControlCenter")
-                    .interface("com.deepin.dde.ControlCenter")
-                    .path("/com/deepin/dde/ControlCenter")
-                    .method("ShowPage")
-                    .arg(reqModule)
-                    .arg(reqPage)
-                    .call();
+            .service("com.deepin.dde.ControlCenter")
+            .interface("com.deepin.dde.ControlCenter")
+            .path("/com/deepin/dde/ControlCenter")
+            .method("ShowPage")
+            .arg(reqModule)
+            .arg(reqPage)
+            .call();
 
         else if (parser.isSet(showOption))
             DDBusSender()
-                    .service("com.deepin.dde.ControlCenter")
-                    .interface("com.deepin.dde.ControlCenter")
-                    .path("/com/deepin/dde/ControlCenter")
-                    .method("Show")
-                    .call();
+            .service("com.deepin.dde.ControlCenter")
+            .interface("com.deepin.dde.ControlCenter")
+            .path("/com/deepin/dde/ControlCenter")
+            .method("Show")
+            .call();
 
 #ifndef QT_DEBUG
         return 0;
@@ -248,15 +247,15 @@ int main(int argc, char *argv[])
 #ifndef QT_DEBUG
     if (parser.isSet(showOption) || parser.isSet(toggleOption))
 #endif
-        QTimer::singleShot(1, &f, &Frame::startup);
+        QTimer::singleShot(1, &mw, &DMainWindow::show);
 
     if (!reqModule.isEmpty())
-        QTimer::singleShot(10, &f, [&] { f.showSettingsPage(reqModule, reqPage); });
+        QTimer::singleShot(10, &mw, [&] { mw.showModulePage(reqModule, reqPage, false); });
 
-    QObject::connect(&f, &Frame::fontSizeChanged, &f, [=] {
-        onFontSizeChanged(qApp->font().pointSizeF());
-    });
-#endif
+//    QObject::connect(&mw, &Frame::fontSizeChanged, &mw, [=] {
+//        onFontSizeChanged(qApp->font().pointSizeF());
+//    });
+//#endif
 
     return app.exec();
 }

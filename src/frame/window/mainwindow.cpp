@@ -224,9 +224,14 @@ void MainWindow::popWidget(ModuleInterface *const inter)
 
 void MainWindow::showModulePage(const QString &module, const QString &page, bool animation)
 {
-    Q_UNUSED(module)
-    Q_UNUSED(page)
-    Q_UNUSED(animation)
+    if (isMinimized())
+        setWindowState(Qt::WindowActive);
+
+    for (auto ite : m_contentStack) {
+        if (ite.first->name() == module) {
+            ite.first->showPage(page);
+        }
+    }
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)

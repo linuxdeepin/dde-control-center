@@ -39,8 +39,11 @@
 #ifndef DBUSCONTROLCENTER_H_1439447183
 #define DBUSCONTROLCENTER_H_1439447183
 
+#include "window/namespace.h"
+
 #include <QtCore/QObject>
 #include <QtDBus/QtDBus>
+
 QT_BEGIN_NAMESPACE
 class QByteArray;
 template<class T> class QList;
@@ -53,17 +56,21 @@ QT_END_NAMESPACE
 /*
  * Adaptor class for interface com.deepin.dde.ControlCenter
  */
-class Frame;
+namespace DCC_NAMESPACE
+{
+class MainWindow;
+}
+
 class DBusControlCenterService: public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "com.deepin.dde.ControlCenter")
 
 public:
-    explicit DBusControlCenterService(Frame *parent);
+    explicit DBusControlCenterService(DCC_NAMESPACE::MainWindow *parent);
     virtual ~DBusControlCenterService();
 
-    inline Frame *parent() const;
+    inline DCC_NAMESPACE::MainWindow *parent() const;
 
 public: // PROPERTIES
     Q_PROPERTY(bool ShowInRight READ showInRight)
