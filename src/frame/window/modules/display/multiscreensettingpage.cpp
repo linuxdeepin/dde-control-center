@@ -89,7 +89,7 @@ void MultiScreenSettingPage::initModeList()
                  << tr("Expand the desktop across the screens");
 
     QStringList iconList;
-    iconList << tr("dcc_display_copy") << tr("dcc_display_expansion");
+    iconList << "dcc_display_copy" << "dcc_display_expansion";
 
     auto moniList = m_model->monitorList();
     for (int i = 0; i < moniList.size(); ++i) {

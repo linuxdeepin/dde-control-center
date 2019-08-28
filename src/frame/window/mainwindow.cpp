@@ -156,16 +156,16 @@ void MainWindow::initAllModule()
         { new DisplayModule(this), tr("Display")},
         { new DefaultAppsModule(this), tr("Default Applications")},
         { new NetworkModule(this), tr("Network")},
-        { new DatetimeModule(this), tr("Time and Date")},
+        { new DatetimeModule(this), tr("Date and Time")},
         { new MouseModule(this), tr("Mouse")},
-        { new KeyboardModule(this), tr("Keyboard")},
+        { new KeyboardModule(this), tr("Keyboard and Language")},
         { new BluetoothModule(this), tr("Bluetooth")},
         { new SoundModule(this), tr("Sound")},
         { new PersonalizationModule(this), tr("Personalization")},
         { new PowerModule(this), tr("Power")},
         { new UpdateModule(this), tr("Update")},
-        { new WacomModule(this), tr("Wacom")},
-        { new SystemInfoModule(this), tr("Systeminfo")},
+        { new WacomModule(this), tr("Drawing Tablet")},
+        { new SystemInfoModule(this), tr("System Info")},
     };
 
     bool isIcon = m_contentStack.empty();
