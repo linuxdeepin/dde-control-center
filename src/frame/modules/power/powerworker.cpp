@@ -46,6 +46,8 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerInter, &PowerInter::LinePowerSleepDelayChanged, this, &PowerWorker::setSleepDelayToModelOnPower);
     connect(m_powerInter, &PowerInter::BatteryScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModelOnBattery);
     connect(m_powerInter, &PowerInter::BatterySleepDelayChanged, this, &PowerWorker::setSleepDelayToModelOnBattery);
+    connect(m_powerInter, &PowerInter::BatteryLockDelayChanged, this, &PowerWorker::setResponseBatteryLockScreenDelay);
+    connect(m_powerInter, &PowerInter::LinePowerLockDelayChanged, this, &PowerWorker::setResponsePowerLockScreenDelay);
 #ifndef DCC_DISABLE_POWERSAVE
     connect(m_sysPowerInter, &SysPowerInter::PowerSavingModeAutoChanged, m_powerModel, &PowerModel::setAutoPowerSaveMode);
     connect(m_sysPowerInter, &SysPowerInter::PowerSavingModeEnabledChanged, m_powerModel, &PowerModel::setPowerSaveMode);
@@ -70,6 +72,9 @@ void PowerWorker::active()
 
     setScreenBlackDelayToModelOnBattery(m_powerInter->batteryScreenBlackDelay());
     setSleepDelayToModelOnBattery(m_powerInter->batterySleepDelay());
+
+    setResponseBatteryLockScreenDelay(m_powerInter->batteryLockDelay());
+    setResponsePowerLockScreenDelay(m_powerInter->linePowerLockDelay());
 
 #ifndef DCC_DISABLE_POWERSAVE
     m_powerModel->setAutoPowerSaveMode(m_sysPowerInter->powerSavingModeAuto());
@@ -137,9 +142,29 @@ void PowerWorker::setSleepDelayToModelOnBattery(const int delay)
     m_powerModel->setSleepDelayOnBattery(converToDelayModel(delay));
 }
 
+void PowerWorker::setResponseBatteryLockScreenDelay(const int delay)
+{
+    m_powerModel->setBatteryLockScreenDelay(converToDelayModel(delay));
+}
+
+void PowerWorker::setResponsePowerLockScreenDelay(const int delay)
+{
+    m_powerModel->setPowerLockScreenDelay(converToDelayModel(delay));
+}
+
 void PowerWorker::setScreenBlackDelayToModelOnBattery(const int delay)
 {
     m_powerModel->setScreenBlackDelayOnBattery(converToDelayModel(delay));
+}
+
+void PowerWorker::setLockScreenDelayOnBattery(const int delay)
+{
+    m_powerInter->setBatteryLockDelay(converToDelayDBus(delay));
+}
+
+void PowerWorker::setLockScreenDelayOnPower(const int delay)
+{
+    m_powerInter->setLinePowerLockDelay(converToDelayDBus(delay));
 }
 
 #ifndef DCC_DISABLE_POWERSAVE

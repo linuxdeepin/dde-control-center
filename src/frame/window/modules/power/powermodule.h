@@ -66,11 +66,15 @@ private:
     dcc::power::PowerWorker *m_work;
     QTimer *m_timer;
     PowerWidget *m_widget;
+    int m_nPowerLockScreenDelay;
+    int m_nBatteryLockScreenDelay;
 
 Q_SIGNALS:
 
 public Q_SLOTS:
     void onPushWidget(int index);
+    void onSetBatteryDefault(const int value);
+    void onSetPowerDefault(const int value);
 };
 
 

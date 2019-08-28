@@ -68,6 +68,12 @@ public:
     inline bool sleepOnLidOnBatteryClose() const { return m_sleepOnLidOnBatteryClose; }
     void setSleepOnLidOnBatteryClose(bool sleepOnLidOnBatteryClose);
 
+    inline bool getBatteryLockScreenDelay() const { return m_batteryLockScreenDelay; }
+    void setBatteryLockScreenDelay(const int value);
+
+    inline bool getPowerLockScreenDelay() const { return m_powerLockScreenDelay; }
+    void setPowerLockScreenDelay(const int value);
+
 #ifndef DCC_DISABLE_POWERSAVE
     inline bool autoPowerSaveMode() const { return m_autoPowerSaveMode; }
     void setAutoPowerSaveMode(bool autoPowerSaveMode);
@@ -94,6 +100,8 @@ Q_SIGNALS:
     void powerSaveModeChanged(bool powerSaveMode);
 #endif
     void haveBettaryChanged(bool haveBettary);
+    void batteryLockScreenDelayChanged(const int batteryLockScreenTime);
+    void powerLockScreenDelayChanged(const int powerLockScreenTime);
 
 private:
     bool m_lidPresent;
@@ -110,6 +118,8 @@ private:
     bool m_powerSaveMode;
 #endif
     bool m_haveBettary;
+    int m_batteryLockScreenDelay;
+    int m_powerLockScreenDelay;
 };
 
 }

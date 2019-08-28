@@ -108,6 +108,24 @@ void PowerModel::setSleepOnLidOnBatteryClose(bool sleepOnLidClose)
     }
 }
 
+void PowerModel::setBatteryLockScreenDelay(const int value)
+{
+    if (value != m_batteryLockScreenDelay) {
+        m_batteryLockScreenDelay = value;
+
+        Q_EMIT batteryLockScreenDelayChanged(value);
+    }
+}
+
+void PowerModel::setPowerLockScreenDelay(const int value)
+{
+    if (value != m_powerLockScreenDelay) {
+        m_powerLockScreenDelay = value;
+
+        Q_EMIT powerLockScreenDelayChanged(value);
+    }
+}
+
 #ifndef DCC_DISABLE_POWERSAVE
 void PowerModel::setAutoPowerSaveMode(bool autoPowerSavingMode)
 {

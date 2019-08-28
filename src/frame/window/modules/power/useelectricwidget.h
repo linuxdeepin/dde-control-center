@@ -66,13 +66,14 @@ private:
 Q_SIGNALS:
     void requestSetScreenBlackDelayOnPower(const int delay) const;
     void requestSetSleepDelayOnPower(const int delay) const;
-    void requestSetAutoLockScreenOnPower(const bool state) const;
+    void requestSetAutoLockScreenOnPower(const int delay) const;
     void requestSetSleepOnLidOnPowerClosed(const bool sleep) const;
 
 public Q_SLOTS:
     void setScreenBlackDelayOnPower(const int delay);
     void setSleepDelayOnPower(const int delay);
     void setAutoLockScreenOnBattery(const int delay);
+    void setLockScreenAfter(const int delay);
 };
 
 }// namespace datetime

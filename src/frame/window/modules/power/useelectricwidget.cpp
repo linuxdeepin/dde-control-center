@@ -93,10 +93,12 @@ void UseElectricWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::screenBlackDelayChangedOnPower, this, &UseElectricWidget::setScreenBlackDelayOnPower);
     connect(model, &PowerModel::sleepDelayChangedOnPower, this, &UseElectricWidget::setSleepDelayOnPower);
     connect(model, &PowerModel::sleepOnLidOnPowerCloseChanged, m_suspendOnLidClose, &SwitchWidget::setChecked);
+    connect(model, &PowerModel::powerLockScreenDelayChanged, this, &UseElectricWidget::setLockScreenAfter);
 
     setScreenBlackDelayOnPower(model->screenBlackDelayOnPower());
     setSleepDelayOnPower(model->sleepDelayOnPower());
     m_suspendOnLidClose->setChecked(model->sleepOnLidOnPowerClose());
+    setLockScreenAfter(model->getPowerLockScreenDelay());
 }
 
 void UseElectricWidget::setScreenBlackDelayOnPower(const int delay)
@@ -113,6 +115,14 @@ void UseElectricWidget::setSleepDelayOnPower(const int delay)
     m_computerSleepOnPower->slider()->setValue(delay);
     m_computerSleepOnPower->setValueLiteral(delayToLiteralString(delay));
     m_computerSleepOnPower->slider()->blockSignals(false);
+}
+
+void UseElectricWidget::setLockScreenAfter(const int delay)
+{
+    m_autoLockScreen->slider()->blockSignals(true);
+    m_autoLockScreen->slider()->setValue(delay);
+    m_autoLockScreen->setValueLiteral(delayToLiteralString(delay));
+    m_autoLockScreen->slider()->blockSignals(false);
 }
 
 void UseElectricWidget::setAutoLockScreenOnBattery(const int delay)

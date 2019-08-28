@@ -40,6 +40,8 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
     , m_work(nullptr)
     , m_timer(new QTimer(this))
     , m_widget(nullptr)
+    , m_nPowerLockScreenDelay(0)
+    , m_nBatteryLockScreenDelay(0)
 {
 
 }
@@ -47,6 +49,9 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
 void PowerModule::initialize()
 {
     m_model = new PowerModel;
+    connect(m_model, &PowerModel::batteryLockScreenDelayChanged, this, &PowerModule::onSetBatteryDefault);
+    connect(m_model, &PowerModel::powerLockScreenDelayChanged, this, &PowerModule::onSetPowerDefault);
+
     m_work = new PowerWorker(m_model);
     m_work->active(); //refresh data
 
@@ -132,9 +137,11 @@ void PowerModule::showUseElectric()
     electric->setModel(m_model);
     m_frameProxy->pushWidget(this, electric);
 
+    electric->setAutoLockScreenOnBattery(m_nPowerLockScreenDelay);
     connect(electric, &UseElectricWidget::requestSetScreenBlackDelayOnPower, m_work, &PowerWorker::setScreenBlackDelayOnPower);
     connect(electric, &UseElectricWidget::requestSetSleepDelayOnPower, m_work, &PowerWorker::setSleepDelayOnPower);
     connect(electric, &UseElectricWidget::requestSetSleepOnLidOnPowerClosed, m_work, &PowerWorker::setSleepOnLidOnPowerClosed);//Suspend on lid close
+    connect(electric, &UseElectricWidget::requestSetAutoLockScreenOnPower, m_work, &PowerWorker::setLockScreenDelayOnPower);
 }
 
 void PowerModule::showUseBattery()
@@ -145,9 +152,10 @@ void PowerModule::showUseBattery()
     battery->setModel(m_model);
     m_frameProxy->pushWidget(this, battery);
 
+    battery->setAutoLockScreenOnBattery(m_nBatteryLockScreenDelay);
     connect(battery, &UseBatteryWidget::requestSetScreenBlackDelayOnBattery, m_work, &PowerWorker::setScreenBlackDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetSleepDelayOnBattery, m_work, &PowerWorker::setSleepDelayOnBattery);
-//    connect(battery, &UseBatteryWidget::requestSetSleepOnLidOnBatteryClosed, m_work, &PowerWorker::setSleepOnLidOnBatteryClosed);
+    connect(battery, &UseBatteryWidget::requestSetAutoLockScreenOnBattery, m_work, &PowerWorker::setLockScreenDelayOnBattery);
 }
 
 void PowerModule::onPushWidget(int index)
@@ -164,5 +172,19 @@ void PowerModule::onPushWidget(int index)
         break;
     default:
         break;
+    }
+}
+
+void PowerModule::onSetBatteryDefault(const int value)
+{
+    if (m_nBatteryLockScreenDelay != value) {
+        m_nBatteryLockScreenDelay = value;
+    }
+}
+
+void PowerModule::onSetPowerDefault(const int value)
+{
+    if (m_nPowerLockScreenDelay != value) {
+        m_nPowerLockScreenDelay = value;
     }
 }
