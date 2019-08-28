@@ -1119,6 +1119,7 @@ set(QRC
 # Find the library
 find_package(PkgConfig REQUIRED)
 find_package(DtkWidget REQUIRED)
+find_package(DtkGui REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
 find_package(DtkCMake REQUIRED)
 find_package(Qt5 COMPONENTS

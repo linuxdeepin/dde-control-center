@@ -33,6 +33,7 @@ find_package(PkgConfig REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5DBus REQUIRED)
 find_package(DtkWidget REQUIRED)
+find_package(DtkGui REQUIRED)
 
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 
