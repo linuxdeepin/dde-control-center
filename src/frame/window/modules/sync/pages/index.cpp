@@ -89,10 +89,11 @@ IndexPage::IndexPage(QWidget *parent)
     backgroundLayout->addWidget(m_avatar, 0, Qt::AlignHCenter);
     backgroundLayout->addWidget(m_username, 0, Qt::AlignHCenter);
     backgroundLayout->addWidget(autoSyncGrp, 0, Qt::AlignTop);
-    backgroundLayout->addWidget(m_listView);
-    backgroundLayout->addLayout(bottomLayout);
+    backgroundLayout->addWidget(m_listView, 0, Qt::AlignHCenter);
+
 
     m_mainLayout->addWidget(scrollArea, 0, Qt::AlignHCenter);
+    m_mainLayout->addLayout(bottomLayout, 1);
 
     m_listView->setModel(m_listModel);
 
