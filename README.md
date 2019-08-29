@@ -1,4 +1,4 @@
-# DDE Control Center
+## DDE Control Center
 
 DDE Control Center is the control panel of Deepin Desktop Environment.
 
