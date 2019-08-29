@@ -64,7 +64,7 @@ SettingsHead::SettingsHead(QFrame *parent)
     mainLayout->addWidget(m_edit);
     mainLayout->addWidget(m_cancel);
 
-    setFixedHeight(24);
+    //setFixedHeight(24);
     setLayout(mainLayout);
 
     connect(m_edit, &QPushButton::clicked, this, &SettingsHead::toEdit);

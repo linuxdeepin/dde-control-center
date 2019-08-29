@@ -73,7 +73,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
 
     layout->addSpacing(10);
     layout->addWidget(m_switchKBLayout);
-
+    layout->addStretch();
     QMap<int, QStringList> shortCutMap;
     shortCutMap.insert(1, QStringList() << "Ctrl" << "Shift");
     shortCutMap.insert(2, QStringList() << "Alt" << "Shift");
