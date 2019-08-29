@@ -38,11 +38,14 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     : ContentWidget(parent)
     , m_curItem(nullptr)
     , m_testProgress(NotStarted)
-    , m_testButton(new QPushButton(tr("Test Speed")))
+    , m_testButton(new QPushButton)
     , m_mirrorListGroup(new SettingsGroup)
     , m_layout(new QVBoxLayout)
 {
-    setTitle(tr("Switch Mirror"));
+    setTitle(tr("Mirror List"));
+
+    //~ contents_path /update/Update Settings/Mirror List
+    m_testButton->setText(tr("Test Speed"));
 
     TranslucentFrame *widget = new TranslucentFrame();
 
@@ -55,7 +58,8 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     QFont font;
     font.setPointSizeF(16);
     title->setFont(font);
-    title->setText(tr("Mirror source list"));
+    //~ contents_path /update/Update Settings/Mirror List
+    title->setText(tr("Mirror List"));
 
     m_testButton->setFixedSize(120, 48);
     m_testButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
@@ -152,6 +156,7 @@ void MirrorsWidget::setCurItem(MirrorItem *item)
 void MirrorsWidget::onSpeedInfoAvailable(const QMap<QString, int> &info)
 {
     m_testProgress = Done;
+    //~ contents_path /update/Update Settings/Mirror List
     m_testButton->setText(tr("Retest"));
 
     QList<MirrorItem *> items = findChildren<MirrorItem *>();

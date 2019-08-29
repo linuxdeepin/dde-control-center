@@ -72,6 +72,8 @@ MainWindow::MainWindow(QWidget *parent)
     , m_bIsFromSecondAddWidget(false)
     , m_topWidget(nullptr)
     , m_searchWidget(nullptr)
+    , m_firstCount(-1)
+    , m_widgetName("")
 {
     //Initialize view and layout structure
     QWidget *content = new QWidget(this);
@@ -290,12 +292,16 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
             m_navView->setCurrentIndex(m_navView->model()->index(firstCount, 0));
             m_navView->clicked(m_navView->model()->index(firstCount, 0));
 
+            m_firstCount = firstCount;
+            m_widgetName = widget;
+
             //notify related module load widget
-            m_modules[firstCount].first->load(widget);
+            QTimer::singleShot(0, this, [this] { //avoid default and load sequence in time
+                m_modules[m_firstCount].first->load(m_widgetName);
+            });
             break;
         }
     }
-
 }
 
 void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visible)

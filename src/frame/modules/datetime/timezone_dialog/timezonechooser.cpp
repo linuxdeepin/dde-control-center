@@ -173,7 +173,13 @@ void TimeZoneChooser::setIsAddZone(const bool isAdd)
 {
     m_isAddZone = isAdd;
 
-    m_title->setText(isAdd ? tr("Add Timezone") : tr("Change Timezone"));
+    if (isAdd) {
+        //~ contents_path /datetime/Timezone List/Add Timezone
+        m_title->setText(tr("Add Timezone"));
+    } else {
+        //~ contents_path /datetime/Timezone List/Change System Timezone
+        m_title->setText(tr("Change Timezone"));
+    }
 }
 
 void TimeZoneChooser::setCurrentTimeZoneText(const QString &zone)

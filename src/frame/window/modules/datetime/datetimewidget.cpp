@@ -25,8 +25,12 @@
 #include "widgets/labels/normallabel.h"
 #include "clockitem.h"
 #include "modules/datetime/datetimemodel.h"
+#include "modules/mouse/widget/palmdetectsetting.h"
+#include "modules/mouse/widget/doutestwidget.h"
+#include "window/utils.h"
 
 #include <QStandardItemModel>
+#include <QVBoxLayout>
 
 using namespace dcc;
 using namespace dcc::datetime;
@@ -36,42 +40,13 @@ using namespace DCC_NAMESPACE::datetime;
 
 DatetimeWidget::DatetimeWidget(QWidget *parent)
     : QWidget(parent)
-    , m_listview(new QListView)
-    , m_clockItem(new ClockItem)
+    , m_listview(new DListView(this))
+    , m_clockItem(new ClockItem(this))
     , m_model(nullptr)
 {
     setObjectName("Datetime");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    m_listview->setViewMode(QListView::ListMode);
-    m_listview->setResizeMode(QListView::Adjust);
-    m_listview->setSpacing(10);
-
-    SettingsGroup *timezoneGroup = new SettingsGroup;
-
-    //default open 24 hour type : set hourTypeSwitch(true) , then set ClockItem TimeHourType
-    m_hourTypeSwitch = new SwitchWidget(tr("24 Hour Time"));
-    m_clockItem->setTimeHourType(m_hourTypeSwitch->checked());
-
-    timezoneGroup->appendItem(m_clockItem);
-
-    auto model = new QStandardItemModel(this);
-    //~ contents_path /datetime/Timezone List
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dcc_time_zone"), tr("Timezone List")));
-    //~ contents_path /datetime/Time Settings
-    model->appendRow(new QStandardItem(QIcon::fromTheme("dcc_setting"), tr("Time Settings")));
-    m_listview->setModel(model);
-
-    connect(m_listview, &QListView::pressed, this, &DatetimeWidget::onItemClieck);
-
-    layout = new QVBoxLayout;
-    layout->addWidget(timezoneGroup);
-    layout->addWidget(m_hourTypeSwitch);
-    layout->addWidget(m_listview);
-    this->setLayout(layout);
-
-    // true : 24 hour type  ,  false : 12 hour type ; All use the system time can recive DatetimeWidget::requestSetHourType signal
-    connect(m_hourTypeSwitch, &SwitchWidget::checkedChanged, this, &DatetimeWidget::requestSetHourType);
+    init();
 }
 
 DatetimeWidget::~DatetimeWidget()
@@ -81,7 +56,48 @@ DatetimeWidget::~DatetimeWidget()
 
 void DatetimeWidget::init()
 {
+    QList<QPair<QIcon, QString>> menuIconText;
+    menuIconText = {
+        //~ contents_path /datetime/Timezone List
+        { QIcon::fromTheme("dcc_time_zone"), tr("Timezone List")},
+        //~ contents_path /datetime/Time Settings
+        { QIcon::fromTheme("dcc_setting"), tr("Time Settings")}
+    };
 
+    DStandardItem *item = nullptr;
+    auto model = new QStandardItemModel(this);
+    for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {
+        item = new DStandardItem(it->first, it->second);
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
+        model->appendRow(item);
+    }
+    m_listview->setFrameShape(QFrame::NoFrame);
+    m_listview->setModel(model);
+    m_listview->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_listview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_listview->setCurrentIndex(model->index(0, 0));
+
+    SettingsGroup *timezoneGroup = new SettingsGroup;
+
+    //default open 24 hour type : set hourTypeSwitch(true) , then set ClockItem TimeHourType
+    m_hourTypeSwitch = new SwitchWidget(tr("24-hour Time"));
+    m_clockItem->setTimeHourType(m_hourTypeSwitch->checked());
+    timezoneGroup->appendItem(m_clockItem);
+
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->addWidget(timezoneGroup);
+    layout->addWidget(m_hourTypeSwitch);
+    layout->addWidget(m_listview);
+    setLayout(layout);
+
+    connect(m_listview, &DListView::clicked, this, &DatetimeWidget::onItemClieck);
+    // true : 24 hour type  ,  false : 12 hour type ; All use the system time can recive DatetimeWidget::requestSetHourType signal
+    connect(m_hourTypeSwitch, &SwitchWidget::checkedChanged, this, &DatetimeWidget::requestSetHourType);
+
+    QTimer::singleShot(0, this, [this] {
+        m_listview->setCurrentIndex(m_listview->model()->index(0, 0));
+        m_listview->clicked(m_listview->model()->index(0, 0));
+    });
 }
 
 void DatetimeWidget::setModel(const DatetimeModel *model)
@@ -89,7 +105,7 @@ void DatetimeWidget::setModel(const DatetimeModel *model)
     m_model = model;
 }
 
-QListView *DatetimeWidget::getListViewPointer()
+DListView *DatetimeWidget::getListViewPointer()
 {
     return m_listview;
 }
@@ -101,10 +117,7 @@ void DatetimeWidget::setCurrentTimeZone(const ZoneInfo &info)
 
 void DatetimeWidget::setDefault()
 {
-    if (m_listview) {
-        m_listview->setCurrentIndex(m_listview->model()->index(0, 0));
-        m_listview->pressed(m_listview->model()->index(0, 0));
-    }
+
 }
 
 void DatetimeWidget::onItemClieck(const QModelIndex &index)

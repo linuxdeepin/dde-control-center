@@ -47,6 +47,8 @@ public:
         Default = -1,
         ETimezoneList,
         TimeSetting,
+        ESystemTimezone,
+        AddTimeZone,
         Count
     };
 
@@ -57,8 +59,6 @@ public:
     virtual const QString name() const override;
     virtual void active() override;
     virtual void load(QString path) override;
-
-    void createWidget(int index);
 
 Q_SIGNALS:
     void requestAddUserTimeZone(const QString &zone);

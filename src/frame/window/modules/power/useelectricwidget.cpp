@@ -38,9 +38,13 @@ using namespace DCC_NAMESPACE::power;
 UseElectricWidget::UseElectricWidget(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
+    //~ contents_path /power/Plugged In
     , m_monitorSleepOnPower(new TitledSliderItem(tr("Monitor will suspend after")))
+    //~ contents_path /power/Plugged In
     , m_computerSleepOnPower(new TitledSliderItem(tr("Computer will suspend after")))
+    //~ contents_path /power/Plugged In
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
+    //~ contents_path /power/Plugged In
     , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -99,6 +103,11 @@ void UseElectricWidget::setModel(const PowerModel *model)
     setSleepDelayOnPower(model->sleepDelayOnPower());
     m_suspendOnLidClose->setChecked(model->sleepOnLidOnPowerClose());
     setLockScreenAfter(model->getPowerLockScreenDelay());
+}
+
+void UseElectricWidget::setLidClose(bool state)
+{
+    m_suspendOnLidClose->setVisible(state);
 }
 
 void UseElectricWidget::setScreenBlackDelayOnPower(const int delay)

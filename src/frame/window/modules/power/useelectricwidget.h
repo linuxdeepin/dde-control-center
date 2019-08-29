@@ -52,16 +52,7 @@ public:
     virtual ~UseElectricWidget();
 
     void setModel(const dcc::power::PowerModel *model);
-
-private:
-    QString delayToLiteralString(const int delay) const;
-
-private:
-    QVBoxLayout *m_layout;
-    dcc::widgets::TitledSliderItem *m_monitorSleepOnPower;
-    dcc::widgets::TitledSliderItem *m_computerSleepOnPower;
-    dcc::widgets::TitledSliderItem *m_autoLockScreen;
-    dcc::widgets::SwitchWidget *m_suspendOnLidClose;
+    void setLidClose(bool state);
 
 Q_SIGNALS:
     void requestSetScreenBlackDelayOnPower(const int delay) const;
@@ -74,6 +65,16 @@ public Q_SLOTS:
     void setSleepDelayOnPower(const int delay);
     void setAutoLockScreenOnBattery(const int delay);
     void setLockScreenAfter(const int delay);
+
+private:
+    QString delayToLiteralString(const int delay) const;
+
+private:
+    QVBoxLayout *m_layout;
+    dcc::widgets::TitledSliderItem *m_monitorSleepOnPower;
+    dcc::widgets::TitledSliderItem *m_computerSleepOnPower;
+    dcc::widgets::TitledSliderItem *m_autoLockScreen;
+    dcc::widgets::SwitchWidget *m_suspendOnLidClose;
 };
 
 }// namespace datetime

@@ -22,10 +22,9 @@
 
 #include "window/namespace.h"
 
+#include <DListView>
+
 #include <QWidget>
-#include <QVBoxLayout>
-#include <QListView>
-#include <QStandardItemModel>
 
 namespace dcc {
 namespace power {
@@ -36,8 +35,6 @@ class PowerModel;
 namespace DCC_NAMESPACE {
 namespace power {
 
-const unsigned int power_default_index = 0;
-
 class PowerWidget : public QWidget
 {
     Q_OBJECT
@@ -47,17 +44,8 @@ public:
 
     void initialize(bool hasBattery);
     void setModel(const dcc::power::PowerModel *model);
-    void requestDefaultWidget();
-    QListView *getListViewPointer();
+    DTK_WIDGET_NAMESPACE::DListView *getListViewPointer();
     bool getIsUseBattety();
-
-private:
-    QVBoxLayout *layout;
-    QListView *m_listview;
-    const dcc::power::PowerModel *m_model;
-    QModelIndex m_defaultIndex;
-    QStandardItemModel *m_listmodel;
-    bool m_bhasBattery;
 
 Q_SIGNALS:
     void requestPushWidget(int index);
@@ -65,6 +53,11 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void onItemClieck(const QModelIndex &index);
+
+private:
+    DTK_WIDGET_NAMESPACE::DListView *m_listview;
+    const dcc::power::PowerModel *m_model;
+    bool m_bhasBattery;
 };
 
 }// namespace datetime

@@ -63,14 +63,17 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     SettingsGroup *ug = new SettingsGroup;
 
     m_autoCleanCache = new SwitchWidget;
+    //~ contents_path /update/Update Settings
     m_autoCleanCache->setTitle(tr("Auto Clear Package Cache"));
 
     m_autoCheckUpdate = new SwitchWidget;
+    //~ contents_path /update/Update Settings
     m_autoCheckUpdate->setTitle(tr("Updates Notification"));
 
     m_autoDownloadSwitch = new SwitchWidget;
-    m_autoDownloadSwitch->setTitle(tr("Auto-download Updates"));
+    m_autoDownloadSwitch->setTitle(tr("Auto Download Updates"));
 
+    //~ contents_path /update/Update Settings
     m_updateLbl = new TipsLabel(tr("Switch it on to automatically download the updates in wireless or wired network"));
     m_updateLbl->setWordWrap(true);
     m_updateLbl->setContentsMargins(20, 0, 20, 0);
@@ -78,11 +81,13 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     SettingsGroup *sourceCheckGrp = new SettingsGroup;
     m_sourceCheck = new SwitchWidget;
-    m_sourceCheck->setTitle(tr("System Source Detection"));
+    //~ contents_path /update/Update Settings
+    m_sourceCheck->setTitle(tr("System Repository Detection"));
     sourceCheckGrp->appendItem(m_sourceCheck);
     layout->addWidget(sourceCheckGrp);
     layout->addSpacing(8);
-    TipsLabel *sourceCheckLbl = new TipsLabel(tr("Prompt the notification if system update mirror has been modified"));
+    //~ contents_path /update/Update Settings
+    TipsLabel *sourceCheckLbl = new TipsLabel(tr("Show a notification if system update repository has been modified"));
     sourceCheckLbl->setWordWrap(true);
     sourceCheckLbl->setContentsMargins(20, 0, 20, 0);
     layout->addWidget(sourceCheckLbl);
@@ -100,12 +105,14 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 
     if (!m_isProfessional) {
         m_smartMirrorBtn = new SwitchWidget;
+        //~ contents_path /update/Update Settings
         m_smartMirrorBtn->setTitle(tr("Smart Mirror Switch"));
 
         SettingsGroup *smartMirrorGrp = new SettingsGroup;
         smartMirrorGrp->appendItem(m_smartMirrorBtn);
 
         TipsLabel *smartTips = new TipsLabel;
+        //~ contents_path /update/Update Settings
         smartTips->setText(tr("Switch it on to connect to the quickest mirror site automatically"));
         smartTips->setWordWrap(true);
         smartTips->setContentsMargins(20, 0, 20, 0);
@@ -115,8 +122,8 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
         layout->addSpacing(15);
 
         m_updateMirrors = new NextPageWidget;
-        //~ contents_path /update/Update Settings/Switch Mirror
-        m_updateMirrors->setTitle(tr("Switch Mirror"));
+        //~ contents_path /update/Update Settings/Mirror List
+        m_updateMirrors->setTitle(tr("Mirror List"));
         m_mirrorGrp = new SettingsGroup;
         m_mirrorGrp->appendItem(m_updateMirrors);
         layout->addWidget(m_mirrorGrp);

@@ -36,8 +36,11 @@ using namespace DCC_NAMESPACE::power;
 UseBatteryWidget::UseBatteryWidget(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
+    //~ contents_path /power/On Battery
     , m_monitorSleepOnBattery(new TitledSliderItem(tr("Monitor will suspend after")))
+    //~ contents_path /power/On Battery
     , m_computerSleepOnBattery(new TitledSliderItem(tr("Computer will suspend after")))
+    //~ contents_path /power/On Battery
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);

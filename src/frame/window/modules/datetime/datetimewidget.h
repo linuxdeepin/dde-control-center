@@ -22,18 +22,12 @@
 
 #include "window/namespace.h"
 
-#include <dimagebutton.h>
-
-#include <QVBoxLayout>
-#include <QListView>
-#include <QLineEdit>
-#include <QLabel>
-#include <QEvent>
-#include <QFrame>
-
 #include <types/zoneinfo.h>
+#include <DListView>
 
-class QStandardItem;
+QT_BEGIN_NAMESPACE
+class QVBoxLayout;
+QT_END_NAMESPACE
 
 namespace dcc {
 namespace widgets {
@@ -65,14 +59,9 @@ public:
     virtual ~DatetimeWidget();
     void init();
     void setModel(const dcc::datetime::DatetimeModel *model);
-    QListView *getListViewPointer();
+    DTK_WIDGET_NAMESPACE::DListView *getListViewPointer();
     void setCurrentTimeZone(const ZoneInfo &info);
     void setDefault();
-
-private:
-    QVBoxLayout *layout;
-    QListView *m_listview;
-    ClockItem *m_clockItem;
 
 Q_SIGNALS:
     void requestSetHourType(const bool &type);
@@ -83,6 +72,8 @@ public Q_SLOTS:
     void onHourTypeChanged(const bool &type);
 
 private:
+    DTK_WIDGET_NAMESPACE::DListView *m_listview;
+    ClockItem *m_clockItem;
     const dcc::datetime::DatetimeModel *m_model;
     dcc::widgets::SwitchWidget *m_hourTypeSwitch;
 };

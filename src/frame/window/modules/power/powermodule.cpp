@@ -68,7 +68,6 @@ void PowerModule::active()
 {
     m_widget = new PowerWidget;;
     m_widget->initialize(m_model->haveBettary());
-    m_widget->requestDefaultWidget();//after into second then into General
 
     connect(m_widget, &PowerWidget::requestPushWidget, this, &PowerModule::onPushWidget);
     connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::requestRemoveBattery);
@@ -108,7 +107,7 @@ void PowerModule::load(QString path)
     if (type > DEFAULT && type < COUNT) {
         QModelIndex index = list->model()->index(type, 0);
         list->setCurrentIndex(index);
-        list->pressed(index);
+        list->clicked(index);
     }
 }
 
@@ -137,6 +136,10 @@ void PowerModule::showUseElectric()
     electric->setModel(m_model);
     m_frameProxy->pushWidget(this, electric);
 
+    //When use power : false -> hide (default : show)
+    if (!m_widget->getIsUseBattety()) {
+        electric->setLidClose(m_widget->getIsUseBattety());
+    }
     electric->setAutoLockScreenOnBattery(m_nPowerLockScreenDelay);
     connect(electric, &UseElectricWidget::requestSetScreenBlackDelayOnPower, m_work, &PowerWorker::setScreenBlackDelayOnPower);
     connect(electric, &UseElectricWidget::requestSetSleepDelayOnPower, m_work, &PowerWorker::setSleepDelayOnPower);

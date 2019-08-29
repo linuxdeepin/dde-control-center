@@ -43,6 +43,7 @@ TimezoneList::TimezoneList(QWidget *parent)
 
     m_headItem->setEditEnable(true);
     m_headItem->setVisible(true);
+    //~ contents_path /datetime/Timezone List
     m_headItem->setTitle(tr("Timezone List"));
     m_headItem->setFixedHeight(34);
     m_headGroup->appendItem(m_headItem);

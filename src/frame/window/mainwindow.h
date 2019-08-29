@@ -77,6 +77,8 @@ private:
     bool m_bIsFromSecondAddWidget;//used to save the third widget is load from final widget
     QWidget *m_topWidget;
     DCC_NAMESPACE::search::SearchWidget *m_searchWidget;
+    int m_firstCount;
+    QString m_widgetName;
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);

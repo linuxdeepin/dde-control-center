@@ -50,7 +50,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     , m_label(new QLabel)
     , m_historyBtn(new UpdateHistoryButton)
     , m_updateState(UpdatesStatus::Default)
-    , m_updateHistoryText(new QLabel(tr("Recently updated")))
+    , m_updateHistoryText(new QLabel)
     , m_applistGroup(new SettingsGroup)
     , m_recentHistoryApplist(new RecentHistoryApplist)
     , m_topSwitchWidgetBtn(new DSegmentedControl)
@@ -60,6 +60,9 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     //~ contents_path /update/Update Settings
     m_topSwitchWidgetBtn->addSegmented(QIcon::fromTheme("dcc_setting"), tr("Update Settings"));
     m_topSwitchWidgetBtn->setMinimumSize(240, 36);
+
+    //~ contents_path /update/Update
+    m_updateHistoryText->setText(tr("Last Update"));
 
     connect(m_topSwitchWidgetBtn, &DSegmentedControl::currentChanged, [ = ]() {
         refreshWidget(static_cast<UpdateType>(m_topSwitchWidgetBtn->currentIndex()));
@@ -134,6 +137,7 @@ void UpdateWidget::setSystemVersion(QString version)
         m_systemVersion = version.remove('"');
     }
 
+    //~ contents_path /update/Update
     m_label->setText(QString("%1 :  V%2").arg(tr("Current Edition")).arg(version.remove('"')));
 }
 
@@ -143,6 +147,7 @@ void UpdateWidget::resetUpdateCheckState(bool state)
     m_historyBtn->setVisible(state);
     m_centerWidget->setVisible(false);
     m_updateHistoryText->setVisible(false);
+    //~ contents_path /update/Update
     m_historyBtn->setLabelText(tr("Update History"));
     m_recentHistoryApplist->setVisible(false);
 }
@@ -247,6 +252,7 @@ void UpdateWidget::displayUpdateContent(UpdateType index)
     while ((item = m_centerLayout->layout()->takeAt(0)) != nullptr) {
         item->widget()->deleteLater();
         delete item;
+        item = nullptr;
     }
 
     switch (static_cast<UpdateType>(index)) {

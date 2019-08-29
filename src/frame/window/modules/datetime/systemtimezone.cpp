@@ -33,9 +33,11 @@ SystemTimezone::SystemTimezone(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , m_systemTimezone(new TimezoneItem)
-    //~ contents_path /datetime/Timezone List/Change System Timezone
-    , m_setSystemTimezone(new QPushButton(tr("Change System Timezone")))
+    , m_setSystemTimezone(new QPushButton)
 {
+    //~ contents_path /datetime/Timezone List/Change System Timezone
+    m_setSystemTimezone->setText(tr("Change System Timezone"));
+
     //~ contents_path /datetime/Timezone List
     QLabel *title = new QLabel(tr("System Timezone"));
     QFont font;

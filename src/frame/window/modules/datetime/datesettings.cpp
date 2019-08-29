@@ -52,13 +52,16 @@ DateSettings::DateSettings(QWidget *parent)
     : QWidget(parent)
     , m_datetimeGroup(new SettingsGroup)
     , m_clock(new ClockItem(this, false))
-    , m_autoSyncTimeSwitch(new SwitchWidget(tr("Auto Sync")))
+    , m_autoSyncTimeSwitch(new SwitchWidget)
     , m_yearWidget(new DateWidget(DateWidget::Year, 1970, 9999))
     , m_monthWidget(new DateWidget(DateWidget::Month, 1, 12))
     , m_dayWidget(new DateWidget(DateWidget::Day, 1, 31))
     , m_buttonTuple(new ButtonTuple)
     , m_bIsConfirmSetTime(false)
 {
+    //~ contents_path /datetime/Time Settings
+    m_autoSyncTimeSwitch->setTitle(tr("Auto Sync"));
+
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     //set clock plate to white
@@ -67,7 +70,9 @@ DateSettings::DateSettings(QWidget *parent)
     QPushButton *cancelButton = m_buttonTuple->leftButton();
     QPushButton *confirmButton = m_buttonTuple->rightButton();
 
+    //~ contents_path /datetime/Time Settings
     cancelButton->setText(tr("Cancel"));
+    //~ contents_path /datetime/Time Settings
     confirmButton->setText(tr("Confirm"));
 
     cancelButton->setAccessibleName("TimeCancel");

@@ -24,6 +24,7 @@
 #include "datesettings.h"
 #include "clockitem.h"
 #include "systemtimezone.h"
+
 #include <types/zoneinfo.h>
 
 #include "modules/datetime/datetimework.h"
@@ -79,8 +80,6 @@ void DatetimeModule::active()
     m_widget->onHourTypeChanged(m_model->get24HourFormat());
 
     m_frameProxy->pushWidget(this, m_widget);
-
-    m_widget->setDefault();
 }
 
 void DatetimeModule::load(QString path)
@@ -99,20 +98,60 @@ void DatetimeModule::load(QString path)
 
     if (path == "Timezone List") {
         type = ETimezoneList;
+    } else if (path == "Timezone List/Change System Timezone") {
+        type = ESystemTimezone;
     } else if (path == "Time Settings") {
         type = TimeSetting;
+    } else if (path == "Timezone List/Add Timezone") {
+        type = AddTimeZone;
     }
 
-    if (type > Default && type < Count) {
-        QModelIndex index = list->model()->index(type, 0);
+    QModelIndex index = list->model()->index(type, 0);
+    switch (type) {
+    case ETimezoneList:
+    case TimeSetting:
         list->setCurrentIndex(index);
-        list->pressed(index);
-    }
-}
+        list->clicked(index);
+        break;
+    case ESystemTimezone:
+        //First enter timezoneList
+        index = list->model()->index(ETimezoneList, 0);
+        list->setCurrentIndex(index);
+        list->clicked(index);
 
-void DatetimeModule::createWidget(int index)
-{
-    Q_UNUSED(index);
+        //Then enter systemTimezone
+        showSystemTimezone();
+        break;
+    case AddTimeZone:
+        //First enter timezoneList
+        index = list->model()->index(ETimezoneList, 0);
+        list->setCurrentIndex(index);
+        list->clicked(index);
+
+        //Then enter addTimezone
+        showSystemTimezone();
+        Q_EMIT m_timezonelist->requestAddTimeZone();
+        break;
+    default:
+        break;
+    }
+
+//    if (type > Default && type < Count) {
+//        QModelIndex index;
+//        if (type != ESystemTimezone) {
+//            index = list->model()->index(type, 0);
+//            list->setCurrentIndex(index);
+//            list->clicked(index);
+//        } else {
+//            //First enter timezoneList
+//            index = list->model()->index(ETimezoneList, 0);
+//            list->setCurrentIndex(index);
+//            list->clicked(index);
+
+//            //Then enter systemTimezone
+//            showSystemTimezone();
+//        }
+//    }
 }
 
 void DatetimeModule::updateSystemTimezone(const QString &timezone)

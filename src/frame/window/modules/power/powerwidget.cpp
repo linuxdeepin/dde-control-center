@@ -22,10 +22,14 @@
 #include "powerwidget.h"
 #include "window/utils.h"
 #include "modules/power/powermodel.h"
+#include "modules/mouse/widget/palmdetectsetting.h"
+#include "modules/mouse/widget/doutestwidget.h"
 
 #include <DStyleOption>
 
 #include <QTimer>
+#include <QVBoxLayout>
+#include <QStandardItemModel>
 
 using namespace dcc::power;
 using namespace DCC_NAMESPACE;
@@ -33,8 +37,7 @@ using namespace DCC_NAMESPACE::power;
 
 PowerWidget::PowerWidget(QWidget *parent)
     : QWidget(parent)
-    , layout(new QVBoxLayout)
-    , m_listview(new QListView)
+    , m_listview(new DListView(this))
     , m_model(nullptr)
 {
 
@@ -47,34 +50,44 @@ PowerWidget::~PowerWidget()
 
 void PowerWidget::initialize(bool hasBattery)
 {
-    //true : use battery
     m_bhasBattery = hasBattery;
 
-    m_listmodel = new QStandardItemModel(m_listview);
-    //~ contents_path /power/General
-    m_listmodel->appendRow(new QStandardItem(QIcon::fromTheme("dcc_general_purpose"), tr("General")));
-    //~ contents_path /power/Plugged In
-    m_listmodel->appendRow(new QStandardItem(QIcon::fromTheme("dcc_using_electric"), tr("Plugged In")));
-    //~ contents_path /power/On Battery
-    m_listmodel->appendRow(new QStandardItem(QIcon::fromTheme("dcc_battery"), tr("On Battery")));
-    m_listview->setModel(m_listmodel);
+    QList<QPair<QIcon, QString>> menuIconText;
+    menuIconText = {
+        //~ contents_path /power/General
+        { QIcon::fromTheme("dcc_general_purpose"), tr("General")},
+        //~ contents_path /power/Plugged In
+        { QIcon::fromTheme("dcc_using_electric"), tr("Plugged In")},
+        //~ contents_path /power/On Battery
+        { QIcon::fromTheme("dcc_battery"), tr("On Battery")},
+    };
 
+    auto model = new QStandardItemModel(this);
+    DStandardItem *item = nullptr;
+    for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {
+        item = new DStandardItem(it->first, it->second);
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
+        model->appendRow(item);
+    }
     m_listview->setFrameShape(QFrame::NoFrame);
-    m_listview->setModel(m_listmodel);
+    m_listview->setModel(model);
     m_listview->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_listview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_listview->setCurrentIndex(m_listmodel->index(0, 0));
     m_listview->setRowHidden(2, !hasBattery);
 
-    connect(m_listview, &QListView::pressed, this, &PowerWidget::onItemClieck);
+    connect(m_listview, &DListView::clicked, this, &PowerWidget::onItemClieck);
     connect(this, &PowerWidget::requestRemoveBattery, this, [this](bool state) {
         m_listview->setRowHidden(2, !state);
     });
 
+    QVBoxLayout *layout = new QVBoxLayout(this);
     layout->addWidget(m_listview);
-    this->setLayout(layout);
+    setLayout(layout);
 
-    m_defaultIndex = m_listmodel->index(0, power_default_index);
+    QTimer::singleShot(0, this, [this] {
+        m_listview->setCurrentIndex(m_listview->model()->index(0, 0));
+        m_listview->clicked(m_listview->model()->index(0, 0));
+    });
 }
 
 void PowerWidget::setModel(const PowerModel *model)
@@ -82,15 +95,7 @@ void PowerWidget::setModel(const PowerModel *model)
     m_model = model;
 }
 
-void PowerWidget::requestDefaultWidget()
-{
-    QTimer::singleShot(0, this, [this] {
-        m_listview->setCurrentIndex(m_defaultIndex);
-        m_listview->pressed(m_defaultIndex);
-    });
-}
-
-QListView *PowerWidget::getListViewPointer()
+DListView *PowerWidget::getListViewPointer()
 {
     return m_listview;
 }
