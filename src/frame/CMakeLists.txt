@@ -189,6 +189,10 @@ set(WINDOW_FILES
     window/modules/update/recenthistoryapplist.cpp
     window/modules/update/mirrorswidget.cpp
     window/search/searchwidget.cpp
+    window/modules/commoninfo/commoninfomodule.cpp
+    window/modules/commoninfo/commoninfowidget.cpp
+    window/modules/commoninfo/commoninfomodel.cpp
+    window/modules/commoninfo/commoninfowork.cpp
      )
 
 # load interfaces

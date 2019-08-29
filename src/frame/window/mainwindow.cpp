@@ -20,6 +20,7 @@
  */
 #include "modules/accounts/accountsmodule.h"
 #include "modules/bluetooth/bluetoothmodule.h"
+#include "modules/commoninfo/commoninfomodule.h"
 #include "modules/datetime/datetimemodule.h"
 #include "modules/defapp/defaultappsmodule.h"
 #include "modules/keyboard/keyboardmodule.h"
@@ -151,6 +152,7 @@ void MainWindow::initAllModule()
     using namespace keyboard;
     using namespace wacom;
     using namespace systeminfo;
+    using namespace commoninfo;
 
     m_modules = {
         { new AccountsModule(this), tr("Account")},
@@ -168,6 +170,7 @@ void MainWindow::initAllModule()
         { new UpdateModule(this), tr("Update")},
         { new WacomModule(this), tr("Drawing Tablet")},
         { new SystemInfoModule(this), tr("System Info")},
+        { new CommonInfoModule(this), tr("Common Info")},
     };
 
     bool isIcon = m_contentStack.empty();

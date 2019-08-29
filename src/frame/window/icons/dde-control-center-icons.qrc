@@ -96,5 +96,10 @@
         <file>actions/12/dcc_edit.svg</file>
         <file>actions/12/dcc_syncing.svg</file>
         <file>actions/12/dcc_sync_ok.svg</file>
+        <file>icons/42/dcc_nav_commoninfo.svg</file>
+        <file>icons/84/dcc_nav_commoninfo.svg</file>
+        <file>actions/32/dcc_boot_menu.svg</file>
+        <file>actions/32/dcc_developer_mode.svg</file>
+        <file>actions/32/dcc_ue_plan.svg</file>
     </qresource>
 </RCC>
