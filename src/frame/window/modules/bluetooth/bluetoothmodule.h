@@ -51,6 +51,7 @@ public:
     void active() override;
     const QString name() const override;
     void contentPopped(QWidget *const w) override;
+    void load(QString path) override;
 
 public Q_SLOTS:
     void showPinCode(const QDBusObjectPath &device, const QString &code);
@@ -58,7 +59,7 @@ public Q_SLOTS:
     void showDeviceDetail(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
     void popPage();
 private:
-    BluetoothWidget *m_bluetoothView;
+    BluetoothWidget *m_bluetoothWidget;
     dcc::bluetooth::BluetoothModel *m_bluetoothModel;
     dcc::bluetooth::BluetoothWorker *m_bluetoothWorker;
     QMap<QDBusObjectPath, dcc::bluetooth::PinCodeDialog *> m_dialogs;

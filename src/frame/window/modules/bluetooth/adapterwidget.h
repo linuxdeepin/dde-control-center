@@ -58,7 +58,7 @@ public:
 
     void setAdapter(const dcc::bluetooth::Adapter *adapter);
     const dcc::bluetooth::Adapter *adapter() const;
-
+    void loadDetailPage();
 private:
     void updateHeight();
 

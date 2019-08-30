@@ -45,7 +45,7 @@ class BluetoothWidget : public dcc::ContentWidget
 public:
     explicit BluetoothWidget(dcc::bluetooth::BluetoothModel *model);
     void setModel(dcc::bluetooth::BluetoothModel *model);
-
+    void loadDetailPage();
 Q_SIGNALS:
     void showBluetoothDetail(const dcc::bluetooth::Adapter *adapter) const;
     void requestModuleVisible(const bool visible) const;

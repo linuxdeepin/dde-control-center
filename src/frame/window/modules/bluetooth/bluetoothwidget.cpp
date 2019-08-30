@@ -57,6 +57,14 @@ void BluetoothWidget::setModel(BluetoothModel *model)
         addAdapter(adapter);
 }
 
+void BluetoothWidget::loadDetailPage()
+{
+    if (m_valueMap.count() == 0) {
+        return;
+    }
+    m_valueMap.begin().value()->loadDetailPage();
+}
+
 AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
 {
     AdapterWidget *adpWidget = new AdapterWidget(adapter);

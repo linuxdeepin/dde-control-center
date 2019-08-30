@@ -35,7 +35,7 @@ using namespace dcc::bluetooth;
 BluetoothModule::BluetoothModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frame)
-    , m_bluetoothView(nullptr)
+    , m_bluetoothWidget(nullptr)
     , m_bluetoothModel(nullptr)
     , m_bluetoothWorker(nullptr)
 {
@@ -70,21 +70,30 @@ void BluetoothModule::reset()
 
 void BluetoothModule::active()
 {
-    m_bluetoothView = new BluetoothWidget(m_bluetoothModel);
+    m_bluetoothWidget = new BluetoothWidget(m_bluetoothModel);
 
-    connect(m_bluetoothView, &BluetoothWidget::requestSetToggleAdapter, m_bluetoothWorker, &BluetoothWorker::setAdapterPowered);
-    connect(m_bluetoothView, &BluetoothWidget::requestConnectDevice, m_bluetoothWorker, &BluetoothWorker::connectDevice);
-    connect(m_bluetoothView, &BluetoothWidget::requestSetAlias, m_bluetoothWorker, &BluetoothWorker::setAlias);
-    connect(m_bluetoothView, &BluetoothWidget::showDeviceDetail, this, &BluetoothModule::showDeviceDetail);
-    connect(m_bluetoothView, &BluetoothWidget::requestModuleVisible, [this](const bool visible) {
+    connect(m_bluetoothWidget, &BluetoothWidget::requestSetToggleAdapter, m_bluetoothWorker, &BluetoothWorker::setAdapterPowered);
+    connect(m_bluetoothWidget, &BluetoothWidget::requestConnectDevice, m_bluetoothWorker, &BluetoothWorker::connectDevice);
+    connect(m_bluetoothWidget, &BluetoothWidget::requestSetAlias, m_bluetoothWorker, &BluetoothWorker::setAlias);
+    connect(m_bluetoothWidget, &BluetoothWidget::showDeviceDetail, this, &BluetoothModule::showDeviceDetail);
+    connect(m_bluetoothWidget, &BluetoothWidget::requestModuleVisible, [this](const bool visible) {
         m_frameProxy->setModuleVisible(this, visible);
     });
-    m_frameProxy->pushWidget(this, m_bluetoothView);
+    m_frameProxy->pushWidget(this, m_bluetoothWidget);
 }
 
 const QString BluetoothModule::name() const
 {
     return QStringLiteral("bluetooth");
+}
+
+void BluetoothModule::load(QString path)
+{
+    if ((path == QStringLiteral("Ignore this device"))
+            || (path == QStringLiteral("Disconnect"))
+            || (path == QStringLiteral("Change Name"))) {
+        m_bluetoothWidget->loadDetailPage();
+    }
 }
 
 void BluetoothModule::contentPopped(QWidget *const w)

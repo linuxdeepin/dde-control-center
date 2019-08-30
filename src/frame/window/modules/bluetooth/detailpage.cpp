@@ -39,14 +39,17 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     : ContentWidget()
     , m_adapter(adapter)
     , m_device(device)
-    , m_ignoreButton(new QPushButton(tr("Ignore this device")))
-    , m_disconnectButton(new QPushButton(tr("Disconnect")))
 {
+    //~ contents_path /bluetooth/Ignore this device
+    m_ignoreButton = new QPushButton(tr("Ignore this device"));
+    //~ contents_path /bluetooth/Disconnect
+    m_disconnectButton = new QPushButton(tr("Disconnect"));
     setTitle(device->name());
     dcc::widgets::TranslucentFrame *frame = new dcc::widgets::TranslucentFrame;
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setSpacing(0);
     layout->setMargin(0);
+    //~ contents_path /bluetooth/Change Name
     m_devNameLabel = new QLabel(tr("Change Name"));
     layout->addWidget(m_devNameLabel);
     layout->addSpacing(10);

@@ -50,9 +50,12 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     , m_titleEdit(new TitleEdit)
     , m_switch(new SwitchWidget(m_titleEdit))
     , m_titleGroup(new SettingsGroup)
-    , m_myDeviceLabel(new QLabel(tr("My Device")))
-    , m_otherDeviceLabel(new QLabel(tr("Other Devices")))
 {
+    //~ contents_path /bluetooth/My Device
+    m_myDeviceLabel = new QLabel(tr("My Device"));
+    //~ contents_path /bluetooth/Other Devices
+    m_otherDeviceLabel = new QLabel(tr("Other Devices"));
+
     m_switch->setFixedHeight(36);
 
     QVBoxLayout *layout = new QVBoxLayout;
@@ -60,7 +63,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     layout->setSpacing(10);
 
     m_titleGroup->appendItem(m_switch);
-
+    //~ contents_path /bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)
     m_tip = new QLabel(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
     m_tip->setVisible(!m_switch->checked());
     m_tip->setWordWrap(true);
@@ -123,6 +126,14 @@ void AdapterWidget::updateHeight()
     }
 }
 
+void AdapterWidget::loadDetailPage()
+{
+    if (m_myDevices.count() == 0) {
+        return;
+    }
+    Q_EMIT requestShowDetail(m_adapter, m_myDevices.at(0)->device());
+}
+
 void AdapterWidget::setAdapter(const Adapter *adapter)
 {
     connect(adapter, &Adapter::nameChanged, m_titleEdit, &TitleEdit::setTitle, Qt::QueuedConnection);
@@ -168,7 +179,9 @@ void AdapterWidget::addDevice(const Device *device)
             m_otherDeviceModel->appendRow(dListItem);
         }
         updateHeight();
-        m_myDeviceListView->setVisible(!m_myDevices.isEmpty() && m_switch->checked());
+        bool isVisible = !m_myDevices.isEmpty() && m_switch->checked();
+        m_myDeviceLabel->setVisible(isVisible);
+        m_myDeviceListView->setVisible(isVisible);
     };
     CategoryDevice(device->paired());
 
@@ -189,7 +202,9 @@ void AdapterWidget::addDevice(const Device *device)
             m_otherDeviceModel->appendRow(dListItem);
         }
         updateHeight();
-        m_myDeviceListView->setVisible(!m_myDevices.isEmpty() && m_switch->checked());
+        bool isVisible = !m_myDevices.isEmpty() && m_switch->checked();
+        m_myDeviceLabel->setVisible(isVisible);
+        m_myDeviceListView->setVisible(isVisible);
     });
     connect(deviceItem, &DeviceSettingsItem::requestShowDetail, [this](const Device *device) {
         Q_EMIT requestShowDetail(m_adapter, device);
@@ -224,6 +239,7 @@ void AdapterWidget::removeDevice(const QString &deviceId)
     }
     updateHeight();
     if (m_myDevices.isEmpty()) {
+        m_myDeviceLabel->hide();
         m_myDeviceListView->hide();
     }
 }

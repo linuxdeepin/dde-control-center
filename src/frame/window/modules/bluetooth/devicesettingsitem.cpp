@@ -91,18 +91,19 @@ void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state)
 {
     qDebug() << "device state changed: " << m_device;
     if (state == Device::StateAvailable) {
+        // TODO setLoading(true);
         return;
     }
     QString tip;
     switch (state) {
     case Device::StateConnected: {
         tip = tr("Connected");
-        m_iconAction->setVisible(true);
+        // TODO setLoading(false);
         break;
     }
     case Device::StateUnavailable:
         tip = tr("Not connected");
-        m_iconAction->setVisible(false);
+        // TODO setLoading(false);
         break;
     default:
         break;
@@ -113,7 +114,9 @@ void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state)
 void DeviceSettingsItem::onDevicePairedChanged(const bool &paired)
 {
     if (paired) {
+        m_iconAction->setVisible(true);
     } else {
+        m_iconAction->setVisible(false);
     }
 }
 
