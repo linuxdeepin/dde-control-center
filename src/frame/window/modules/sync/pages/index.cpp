@@ -60,6 +60,7 @@ IndexPage::IndexPage(QWidget *parent)
     scrollArea->setContentsMargins(0, 0, 0, 0);
 
     QWidget *backgroundWidget = new QWidget;
+    backgroundWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     backgroundWidget->setFixedWidth(340);
     scrollArea->setFixedWidth(340);
     QVBoxLayout *backgroundLayout = new QVBoxLayout;
@@ -88,7 +89,7 @@ IndexPage::IndexPage(QWidget *parent)
     backgroundLayout->addWidget(m_avatar, 0, Qt::AlignHCenter);
     backgroundLayout->addWidget(m_username, 0, Qt::AlignHCenter);
     backgroundLayout->addWidget(autoSyncGrp, 0, Qt::AlignTop);
-    backgroundLayout->addWidget(m_listView, 0, Qt::AlignHCenter);
+    backgroundLayout->addWidget(m_listView, 1);
 
 
     m_mainLayout->addWidget(scrollArea, 0, Qt::AlignHCenter);
