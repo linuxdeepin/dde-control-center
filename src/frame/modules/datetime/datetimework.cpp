@@ -32,31 +32,15 @@
 namespace dcc {
 namespace datetime {
 
-static Timedate *TimedateInter = nullptr;
-static Timedate *timedateInter(QObject *parent = nullptr)
+static ZoneInfo callbackZoneInfo(const QString &zoneId)
 {
-    static QMutex mutex;
-    mutex.lock();
-    if (!TimedateInter) {
-        TimedateInter = new Timedate("com.deepin.daemon.Timedate",
-                                     "/com/deepin/daemon/Timedate",
-                                     QDBusConnection::sessionBus(),
-                                     parent);
-    }
-    mutex.unlock();
-
-    return TimedateInter;
-}
-
-static ZoneInfo GetZoneInfo(const QString &zoneId)
-{
-    return timedateInter()->GetZoneInfo(zoneId);
+    return DatetimeWork::getInstance().getTimedate()->GetZoneInfo(zoneId);
 }
 
 DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
-    : QObject(parent),
-      m_model(model),
-      m_timedateInter(timedateInter(this))
+    : QObject(parent)
+    , m_model(model)
+    , m_timedateInter(new Timedate("com.deepin.daemon.Timedate", "/com/deepin/daemon/Timedate", QDBusConnection::sessionBus(), this))
 {
     m_timedateInter->setSync(false);
 
@@ -71,16 +55,18 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
         m_model->setCurrentUseTimeZone(GetZoneInfo(QTimeZone::systemTimeZoneId()));
     });
 
+    connect(m_timedateInter, &__Timedate::NTPServerChanged, m_model, &DatetimeModel::setNtpServerAddress);
+
     m_model->setCurrentTimeZone(GetZoneInfo(QTimeZone::systemTimeZoneId()));
     m_model->setCurrentUseTimeZone(GetZoneInfo(QTimeZone::systemTimeZoneId()));
     m_model->set24HourFormat(m_timedateInter->use24HourFormat());
+    refreshNtpServerList();
+    m_model->setNtpServerAddress(m_timedateInter->nTPServer());
 }
 
 DatetimeWork::~DatetimeWork()
 {
-    if (TimedateInter)
-        TimedateInter->deleteLater();
-    TimedateInter = nullptr;
+
 }
 
 void DatetimeWork::activate()
@@ -90,12 +76,22 @@ void DatetimeWork::activate()
     m_model->setSystemTimeZoneId(m_timedateInter->timezone());
     onTimezoneListChanged(m_timedateInter->userTimezones());
 #endif
-
 }
 
 void DatetimeWork::deactivate()
 {
 
+}
+
+Timedate *DatetimeWork::getTimedate()
+{
+    return m_timedateInter;
+}
+
+DatetimeWork &DatetimeWork::getInstance()
+{
+    static DatetimeWork worker(new DatetimeModel);
+    return worker;
 }
 
 void DatetimeWork::setNTP(bool ntp)
@@ -163,6 +159,22 @@ void DatetimeWork::addUserTimeZone(const QString &zone)
     m_timedateInter->AddUserTimezone(zone);
 }
 
+void DatetimeWork::setNtpServer(QString server)
+{
+    if (server == m_timedateInter->nTPServer())
+        return;
+
+    QDBusPendingCall call = m_timedateInter->SetNTPServer(server);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        // If the call failed, revert the UI change.
+        if (call.isError()) {
+            Q_EMIT m_model->NTPServerChanged(m_timedateInter->nTPServer());
+        }
+        watcher->deleteLater();
+    });
+}
+
 void DatetimeWork::onTimezoneListChanged(const QStringList &timezones)
 {
     QFutureWatcher<ZoneInfo> *watcher = new QFutureWatcher<ZoneInfo>;
@@ -185,10 +197,30 @@ void DatetimeWork::onTimezoneListChanged(const QStringList &timezones)
         watcher->deleteLater();
     });
 
-    QFuture<ZoneInfo> future = QtConcurrent::mapped(timezones, GetZoneInfo);
+    QFuture<ZoneInfo> future = QtConcurrent::mapped(timezones, callbackZoneInfo);
     watcher->setFuture(future);
 }
 #endif
+
+void DatetimeWork::refreshNtpServerList()
+{
+    QDBusPendingCall call = m_timedateInter->GetSampleNTPServers();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
+        if (call.isError()) {
+            qWarning() << Q_FUNC_INFO << " Failed to get ntpserver list.";
+        } else {
+            QDBusReply<QStringList> reply = call.reply();
+            m_model->setNTPServerList(reply.value());
+        }
+        watcher->deleteLater();
+    });
+}
+
+ZoneInfo DatetimeWork::GetZoneInfo(const QString &zoneId)
+{
+    return m_timedateInter->GetZoneInfo(zoneId);
+}
 
 }
 }

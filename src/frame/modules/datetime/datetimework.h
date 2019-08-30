@@ -28,8 +28,9 @@
 
 #include "datetimemodel.h"
 
-#include <QObject>
 #include <com_deepin_daemon_timedate.h>
+
+#include <QObject>
 
 namespace dcc {
 namespace datetime {
@@ -45,6 +46,9 @@ public:
 
     void activate();
     void deactivate();
+    Timedate *getTimedate();
+    static DatetimeWork &getInstance();
+    DatetimeModel *model() { return m_model; }
 
 Q_SIGNALS:
     void requestSetAutoHide(const bool visible) const;
@@ -58,11 +62,15 @@ public Q_SLOTS:
     void removeUserTimeZone(const ZoneInfo &info);
     void addUserTimeZone(const QString &zone);
 #endif
+    void setNtpServer(QString server);
 
 private Q_SLOTS:
 #ifndef DCC_DISABLE_TIMEZONE
     void onTimezoneListChanged(const QStringList &timezones);
 #endif
+private:
+    void refreshNtpServerList();
+    ZoneInfo GetZoneInfo(const QString &zoneId);
 
 private:
     DatetimeModel *m_model;

@@ -31,7 +31,6 @@
 #include "modules/datetime/datetimemodel.h"
 #include "modules/datetime/timezone_dialog/timezone.h"
 #include "modules/datetime/timezone_dialog/timezonechooser.h"
-#include "modules/datetime/datesettings.h"
 
 using namespace dcc::datetime;
 using namespace DCC_NAMESPACE;
@@ -48,8 +47,8 @@ DatetimeModule::DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent)
 
 void DatetimeModule::initialize()
 {
-    m_model = new dcc::datetime::DatetimeModel;
-    m_work = new dcc::datetime::DatetimeWork(m_model);
+    m_work = &DatetimeWork::getInstance();
+    m_model = m_work->model();
 
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
@@ -150,7 +149,7 @@ void DatetimeModule::updateSystemTimezone(const QString &timezone)
     }
 
     if (m_timezonelist && m_model) {
-        m_timezonelist->getTimezoneContentListPtr()->updateTimezones(m_model->userTimeZones()); 
+        m_timezonelist->getTimezoneContentListPtr()->updateTimezones(m_model->userTimeZones());
     }
 
     m_widget->setCurrentTimeZone(m_model->currentTimeZone());
@@ -226,20 +225,29 @@ void DatetimeModule::showSystemTimezone()
 
 void DatetimeModule::showTimeSetting()
 {
-    DateSettings *setting = new DateSettings;
+    m_setting = new DateSettings;
 
-    connect(setting, &DateSettings::requestSetAutoSyncdate, m_work, &dcc::datetime::DatetimeWork::setNTP);
-    connect(setting, &DateSettings::requestSetTime, m_work, &dcc::datetime::DatetimeWork::setDatetime);
-    connect(setting, &DateSettings::requestBack, this, &DatetimeModule::onPopWidget);
-    connect(m_model, &dcc::datetime::DatetimeModel::NTPChanged, setting, &DateSettings::updateRealAutoSyncCheckState);
+    connect(m_setting, &DateSettings::requestSetAutoSyncdate, m_work, &dcc::datetime::DatetimeWork::setNTP);
+    connect(m_setting, &DateSettings::requestSetTime, m_work, &dcc::datetime::DatetimeWork::setDatetime);
+    connect(m_setting, &DateSettings::requestBack, this, &DatetimeModule::onPopWidget);
+    connect(m_setting, &DateSettings::requestNTPServer, m_work, &DatetimeWork::setNtpServer);
+    connect(m_model, &dcc::datetime::DatetimeModel::NTPChanged, m_setting, &DateSettings::updateRealAutoSyncCheckState);
+    connect(m_model, &dcc::datetime::DatetimeModel::NTPServerListChanged, m_setting, &DateSettings::updateNTPServerList);
+    connect(m_model, &DatetimeModel::NTPServerChanged, this, [ = ](QString server) {
+        if (m_setting) {
+            m_setting->setNtpServerAddress(server);
+        }
+    });
 
-    setting->updateRealAutoSyncCheckState(m_model->nTP());
+    m_setting->updateRealAutoSyncCheckState(m_model->nTP());
+    m_setting->updateNTPServerList(m_model->ntpServerList());
+    m_setting->setNtpServerAddress(m_model->ntpServerAddress());
 
     //fit the two clocks's point to same
-    setting->setCurrentTimeZone(m_model->currentTimeZone());
+    m_setting->setCurrentTimeZone(m_model->currentTimeZone());
     m_widget->setCurrentTimeZone(m_model->currentTimeZone());
 
-    m_frameProxy->pushWidget(this, setting);
+    m_frameProxy->pushWidget(this, m_setting);
 }
 
 void DatetimeModule::onPushWidget(const int &index)

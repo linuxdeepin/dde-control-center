@@ -36,7 +36,6 @@ namespace datetime {
 class DatetimeModel : public QObject
 {
     Q_OBJECT
-
 public:
     explicit DatetimeModel(QObject *parent = nullptr);
 
@@ -58,6 +57,12 @@ public:
     inline ZoneInfo currentSystemTimeZone() const { return m_currentSystemTimeZone; }
     void setCurrentUseTimeZone(const ZoneInfo &currentTimeZone);
 
+    inline QString ntpServerAddress() const { return  m_strNtpServerAddress; }
+    void setNtpServerAddress(const QString &ntpServer);
+
+    inline QStringList ntpServerList() const { return  m_NtpServerList; }
+    void setNTPServerList(QStringList list);
+
 Q_SIGNALS:
     void NTPChanged(bool value);
     void hourTypeChanged(bool value);
@@ -67,6 +72,8 @@ Q_SIGNALS:
     void systemTimeChanged();
     void currentTimeZoneChanged(const ZoneInfo &zone) const;
     void currentSystemTimeZoneChanged(const ZoneInfo &zone) const;
+    void NTPServerChanged(QString server);
+    void NTPServerListChanged(QStringList list);
 
 private:
     bool m_ntp;
@@ -78,6 +85,9 @@ private:
     QList<ZoneInfo> m_userTimeZones;
     ZoneInfo m_currentTimeZone;
     ZoneInfo m_currentSystemTimeZone;
+    bool m_bSystemIsServer;
+    QString m_strNtpServerAddress;
+    QStringList m_NtpServerList;
 };
 
 }

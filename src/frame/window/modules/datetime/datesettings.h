@@ -23,18 +23,17 @@
 
 #include "window/namespace.h"
 #include "widgets/contentwidget.h"
-
-#include <QWidget>
+#include "datetimecombox.h"
 
 #include <types/zoneinfo.h>
 
+#include <QWidget>
 #include <QSpinBox>
-
-class QPushButton;
 
 namespace dcc {
 namespace widgets {
 class SettingsGroup;
+class SettingsItem;
 class NextPageWidget;
 class ButtonTuple;
 class SwitchWidget;
@@ -59,26 +58,31 @@ class DateSettings : public QWidget
 {
     Q_OBJECT
 public:
-    explicit DateSettings(QWidget *parent = 0);
+    explicit DateSettings(QWidget *parent = nullptr);
     void setCurrentTimeZone(const ZoneInfo &info);
     QDateTime getDatetime() const;
-
-private:
-    QSpinBox *createDSpinBox(QWidget *parent, int min, int max);
+    void setNtpServerAddress(QString address);
 
 Q_SIGNALS:
     void requestSetTime(const QDateTime &time);
     void requestSetAutoSyncdate(const bool &state);
     void requestBack();
     void notifyBtnClickSetDatetime();
+    void requestNTPServer(QString server);
+
+public Q_SLOTS:
+    void updateRealAutoSyncCheckState(const bool &state);
+    void updateNTPServerList(const QStringList list);
 
 private Q_SLOTS:
     void onCancelButtonClicked();
     void onConfirmButtonClicked();
     void updateDayRange();
+    void onProcessComboBox(const int &value);
+    void isUserOperate();
 
-public Q_SLOTS:
-    void updateRealAutoSyncCheckState(const bool &state);
+private:
+    QSpinBox *createDSpinBox(QWidget *parent, int min, int max);
 
 private:
     dcc::widgets::SettingsGroup *m_datetimeGroup;
@@ -91,6 +95,13 @@ private:
     DateWidget *m_dayWidget;
     dcc::widgets::ButtonTuple *m_buttonTuple;
     bool m_bIsConfirmSetTime;
+    datetimeCombox *m_ntpServerList;
+    dcc::widgets::SettingsItem *m_ntpSrvItem;
+    dcc::widgets::SettingsItem *m_address;
+    QLineEdit *m_addressContent;
+    QString m_ntpServerAddress;
+    bool m_bIsUserOperate;
+    bool m_bSystemIsServer;
 };
 
 }// namespace datetime

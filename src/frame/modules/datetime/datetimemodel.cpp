@@ -27,6 +27,7 @@
 
 #include <QDateTime>
 #include <QTimeZone>
+#include <QSettings>
 
 namespace dcc {
 namespace datetime {
@@ -36,7 +37,9 @@ DatetimeModel::DatetimeModel(QObject *parent)
     , m_ntp(true)
     , m_bUse24HourType(true)
 {
-
+    QSettings setting("/etc/deepin-version", QSettings::IniFormat);
+    setting.beginGroup("Release");
+    m_bSystemIsServer = (setting.value("Type").toString() == "Server");
 }
 
 void DatetimeModel::setNTP(bool ntp)
@@ -115,6 +118,22 @@ void DatetimeModel::setCurrentUseTimeZone(const ZoneInfo &currentSysTimeZone)
     m_currentSystemTimeZone = currentSysTimeZone;
 
     Q_EMIT currentSystemTimeZoneChanged(currentSysTimeZone);
+}
+
+void DatetimeModel::setNtpServerAddress(const QString &ntpServer)
+{
+    if (m_bSystemIsServer && m_strNtpServerAddress != ntpServer) {
+        m_strNtpServerAddress = ntpServer;
+        Q_EMIT NTPServerChanged(ntpServer);
+    }
+}
+
+void DatetimeModel::setNTPServerList(QStringList list)
+{
+    if (m_bSystemIsServer && m_NtpServerList != list) {
+        m_NtpServerList = list;
+        Q_EMIT NTPServerListChanged(list);
+    }
 }
 
 }

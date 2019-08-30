@@ -38,6 +38,7 @@ namespace DCC_NAMESPACE {
 namespace datetime {
 class TimezoneList;
 class DatetimeWidget;
+class DateSettings;
 
 class DatetimeModule : public QObject, public ModuleInterface
 {
@@ -82,6 +83,7 @@ private:
     QPointer<dcc::datetime::TimeZoneChooser> m_dialog;
     QPointer<TimezoneList> m_timezonelist;//timezonelist in other page, need exchangle data from this page
     QPointer<DatetimeWidget> m_widget;
+    QPointer<DateSettings> m_setting;
 };
 
 }// namespace datetime
