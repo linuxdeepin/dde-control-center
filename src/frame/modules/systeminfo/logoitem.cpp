@@ -31,7 +31,7 @@
 #include "widgets/labels/tipslabel.h"
 #include "../frame/frame.h"
 
-namespace dcc{
+namespace dcc {
 namespace systeminfo {
 
 LogoItem::LogoItem(QFrame *parent)
@@ -43,7 +43,7 @@ LogoItem::LogoItem(QFrame *parent)
     m_description->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
     m_description->setMinimumWidth(FRAME_WIDTH - NAVBAR_WIDTH - 20);
 
-    QVBoxLayout* layout = new QVBoxLayout;
+    QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(m_logo);
     layout->addWidget(m_description);
     layout->setSpacing(15);
@@ -64,6 +64,11 @@ void LogoItem::setDescription(const QString &des)
 void LogoItem::setLogo(const QString &logo)
 {
     m_logo->setPixmap(loadPixmap(logo));
+}
+
+void LogoItem::setLogo(const QIcon &icon, int w, int h)
+{
+    m_logo->setPixmap(icon.pixmap(w, h));
 }
 
 }

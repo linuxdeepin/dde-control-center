@@ -56,6 +56,7 @@ VersionProtocolWidget::VersionProtocolWidget(QWidget *parent)
     m_mainLayout->addWidget(m_title, 0, Qt::AlignCenter);
     m_mainLayout->addSpacing(20);
     m_mainLayout->addWidget(m_body);
+    m_mainLayout->addStretch();
 
     widget->setLayout(m_mainLayout);
     setContent(widget);

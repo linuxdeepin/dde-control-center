@@ -76,16 +76,6 @@ void AccountsModule::showPage(const QString &pageName)
     Q_UNUSED(pageName);
 }
 
-QWidget *AccountsModule::moduleWidget()
-{
-    AccountsWidget *accountsWidget = new AccountsWidget;
-    accountsWidget->setModel(m_userList);
-    connect(accountsWidget, &AccountsWidget::requestShowAccountsDetail, this, &AccountsModule::onShowAccountsDetailWidget);
-    connect(accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::onShowCreateAccountPage);
-
-    return accountsWidget;
-}
-
 void AccountsModule::contentPopped(QWidget *const w)
 {
     Q_UNUSED(w)
@@ -93,8 +83,11 @@ void AccountsModule::contentPopped(QWidget *const w)
 
 void AccountsModule::active()
 {
-    m_accountsWidget = qobject_cast<AccountsWidget *>(moduleWidget());
+    m_accountsWidget = new AccountsWidget;
+    m_accountsWidget->setModel(m_userList);
     m_accountsWidget->setShowFirstUserInfo(true);
+    connect(m_accountsWidget, &AccountsWidget::requestShowAccountsDetail, this, &AccountsModule::onShowAccountsDetailWidget);
+    connect(m_accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::onShowCreateAccountPage);
     m_frameProxy->pushWidget(this, m_accountsWidget);
 }
 

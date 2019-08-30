@@ -27,6 +27,7 @@
 #include <QVBoxLayout>
 #include <QApplication>
 #include <QSettings>
+#include <QIcon>
 
 using namespace dcc::widgets;
 using namespace dcc::systeminfo;
@@ -49,7 +50,7 @@ void NativeInfoWidget::initWidget()
 
     LogoItem *logo = new LogoItem;
     logo->setDescription(systemCopyright());
-    logo->setLogo(systemLogo());
+    logo->setLogo(QIcon::fromTheme("dcc_deepin_logo"), 164, 42);
 
     m_version = new TitleValueItem();
     m_version->setTitle(tr("Edition:"));
@@ -78,6 +79,7 @@ void NativeInfoWidget::initWidget()
     infoGroup->appendItem(m_disk);
     infoGroup->setSpacing(3);
     m_mainLayout->addWidget(infoGroup);
+    m_mainLayout->addStretch();
     setLayout(m_mainLayout);
 
     connect(m_model, &SystemInfoModel::versionChanged, this, &NativeInfoWidget::setEdition);

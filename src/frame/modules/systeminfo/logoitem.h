@@ -37,8 +37,8 @@ class TipsLabel;
 
 using namespace dcc::widgets;
 
-namespace dcc{
-namespace systeminfo{
+namespace dcc {
+namespace systeminfo {
 
 class LogoItem : public SettingsItem
 {
@@ -47,14 +47,15 @@ class LogoItem : public SettingsItem
     Q_PROPERTY(QString logo READ logo WRITE setLogo DESIGNABLE true SCRIPTABLE true)
 
 public:
-    explicit LogoItem(QFrame* parent = 0);
-    void setDescription(const QString& des);
-    void setLogo(const QString& logo);
+    explicit LogoItem(QFrame *parent = 0);
+    void setDescription(const QString &des);
+    void setLogo(const QString &logo);
     const QString logo() const { return m_logo->text(); }
+    void setLogo(const QIcon &icon, int w, int h);
 
 private:
-    QLabel* m_logo;
-    TipsLabel* m_description;
+    QLabel *m_logo;
+    TipsLabel *m_description;
 };
 
 }

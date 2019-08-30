@@ -59,8 +59,11 @@ void SystemInfoWidget::initWidget()
 void SystemInfoWidget::initData()
 {
     m_itemList = {
+        //~ contents_path /systeminfo/About This PC
         {"dcc_on_sel", tr("About This PC"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowAboutNative)},
+        //~ contents_path /systeminfo/Edition License
         {"dcc_version", tr("Edition License"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowVersionProtocol)},
+        //~ contents_path /systeminfo/End User License Agreement
         {"dcc_protocol", tr("End User License Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowEndUserLicenseAgreement)},
     };
 
@@ -74,4 +77,12 @@ void SystemInfoWidget::initData()
     connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
         m_itemList[index.row()].method.invoke(this);
     });
+}
+
+void SystemInfoWidget::setCurrentIndex(int index)
+{
+    QModelIndex mindex = m_itemModel->index(index, 0);
+    m_listView->setFocus();
+    m_listView->setCurrentIndex(mindex);
+    Q_EMIT m_listView->clicked(mindex);
 }

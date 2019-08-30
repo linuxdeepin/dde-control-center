@@ -37,6 +37,7 @@ class SystemInfoWork;
 
 namespace DCC_NAMESPACE {
 namespace systeminfo {
+class SystemInfoWidget;
 class SystemInfoModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -47,9 +48,9 @@ public:
     void initialize() override;
     void reset() override;
     const QString name() const override;
-    QWidget *moduleWidget();
     void contentPopped(QWidget *const w) override;
     void active() override;
+    virtual void load(QString path) override;
 
 public Q_SLOTS:
     void onShowAboutNativePage();
@@ -59,6 +60,7 @@ public Q_SLOTS:
 private:
     dcc::systeminfo::SystemInfoWork *m_work;
     dcc::systeminfo::SystemInfoModel *m_model;
+    SystemInfoWidget *m_sysinfoWidget;
 };
 
 }

@@ -48,6 +48,7 @@ class SystemInfoWidget : public QWidget
     Q_OBJECT
 public:
     explicit SystemInfoWidget(QWidget *parent = nullptr);
+    void setCurrentIndex(int index);
 
 private:
     void initWidget();

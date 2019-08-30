@@ -49,7 +49,6 @@ public:
     void reset();
     const QString name() const;
     void showPage(const QString &pageName);
-    QWidget *moduleWidget();
     void contentPopped(QWidget *const w);
     void active() override;
 

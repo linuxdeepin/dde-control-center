@@ -56,15 +56,6 @@ void SystemInfoModule::reset()
 {
 }
 
-QWidget *SystemInfoModule::moduleWidget()
-{
-    SystemInfoWidget *w = new SystemInfoWidget;
-    connect(w, &SystemInfoWidget::requestShowAboutNative, this, &SystemInfoModule::onShowAboutNativePage);
-    connect(w, &SystemInfoWidget::requestShowVersionProtocol, this, &SystemInfoModule::onVersionProtocolPage);
-    connect(w, &SystemInfoWidget::requestShowEndUserLicenseAgreement, this, &SystemInfoModule::onShowEndUserLicenseAgreementPage);
-    return w;
-}
-
 void SystemInfoModule::contentPopped(QWidget *const w)
 {
     Q_UNUSED(w);
@@ -72,13 +63,31 @@ void SystemInfoModule::contentPopped(QWidget *const w)
 
 void SystemInfoModule::active()
 {
-    QWidget *w = moduleWidget();
-    m_frameProxy->pushWidget(this, w);
+    m_sysinfoWidget = new SystemInfoWidget;
+    connect(m_sysinfoWidget, &SystemInfoWidget::requestShowAboutNative, this, &SystemInfoModule::onShowAboutNativePage);
+    connect(m_sysinfoWidget, &SystemInfoWidget::requestShowVersionProtocol, this, &SystemInfoModule::onVersionProtocolPage);
+    connect(m_sysinfoWidget, &SystemInfoWidget::requestShowEndUserLicenseAgreement, this, &SystemInfoModule::onShowEndUserLicenseAgreementPage);
+    m_frameProxy->pushWidget(this, m_sysinfoWidget);
 }
 
 const QString SystemInfoModule::name() const
 {
     return QStringLiteral("systeminfo");
+}
+
+void SystemInfoModule::load(QString path)
+{
+    if (!m_sysinfoWidget) {
+        active();
+    }
+
+    if (path == "About This PC") {
+        m_sysinfoWidget->setCurrentIndex(0);
+    } else if (path == "Edition License") {
+        m_sysinfoWidget->setCurrentIndex(1);
+    } else if (path == "End User License Agreement") {
+        m_sysinfoWidget->setCurrentIndex(2);
+    }
 }
 
 void SystemInfoModule::onShowAboutNativePage()

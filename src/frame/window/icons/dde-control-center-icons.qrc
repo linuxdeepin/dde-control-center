@@ -101,5 +101,6 @@
         <file>actions/32/dcc_boot_menu.svg</file>
         <file>actions/32/dcc_developer_mode.svg</file>
         <file>actions/32/dcc_ue_plan.svg</file>
+        <file>icons/164/dcc_deepin_logo.svg</file>
     </qresource>
 </RCC>
