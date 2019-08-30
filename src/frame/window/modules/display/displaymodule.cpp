@@ -82,7 +82,12 @@ void DisplayModule::active()
             this, &DisplayModule::showCustomSettingDialog);
 
     m_frameProxy->pushWidget(this, m_displayWidget);
-    showMultiScreenSettingPage();
+
+    if (m_displayModel->monitorList().size() > 1) {
+        showMultiScreenSettingPage();
+    } else {
+        showResolutionDetailPage();
+    }
 }
 
 void DisplayModule::load(QString path)
