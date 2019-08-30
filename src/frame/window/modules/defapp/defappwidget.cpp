@@ -20,6 +20,7 @@
  */
 
 #include "defappwidget.h"
+#include "window/utils.h"
 
 #include <DListView>
 
@@ -31,8 +32,6 @@
 using namespace DCC_NAMESPACE::defapp;
 
 DWIDGET_USE_NAMESPACE
-
-Q_DECLARE_METATYPE(QMargins)
 
 DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     : QWidget(parent)
@@ -77,8 +76,7 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     for (int i = 0; i < icons.size(); i++) {
         DStandardItem *item = new DStandardItem(QIcon::fromTheme(icons.at(i)), titles.at(i));
 
-        item->setSizeHint(QSize(230, 48));
-        item->setData(QVariant::fromValue(QMargins(10, 10, 10, 0)), Dtk::MarginsRole);
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
         model->appendRow(item);
     }
 
@@ -91,7 +89,14 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     connect(m_defAppCatView, &QListView::clicked, this, &DefaultAppsWidget::onCategoryClicked);
 
     setAccessibleName(tr("Default Applications"));
-    setMinimumSize(262, 564);
+}
+
+void DefaultAppsWidget::setCurrentIndex(int row)
+{
+    if (row > m_defAppCatView->model()->rowCount())
+        row = 0;
+
+    m_defAppCatView->setCurrentIndex(qobject_cast<QStandardItemModel *>(m_defAppCatView->model())->index(row, 0));
 }
 
 void DefaultAppsWidget::onCategoryClicked(const QModelIndex &index) {

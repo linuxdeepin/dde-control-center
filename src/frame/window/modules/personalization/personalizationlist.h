@@ -48,9 +48,11 @@ Q_SIGNALS:
     void requestShowIconTheme();
     void requestShowCursorTheme();
     void requestShowFonts();
+    void requestCategoryClicked(int category);
 
 public Q_SLOTS:
     void onCategoryClicked(const QModelIndex &index);
+    void setCurrentIndex(int row);
 
 private:
     DTK_WIDGET_NAMESPACE::DListView *m_categoryListView;

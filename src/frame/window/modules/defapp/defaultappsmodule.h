@@ -44,13 +44,17 @@ public:
     virtual const QString name() const override;
     virtual void active() override;
     virtual void contentPopped(QWidget *const w) override;
+    virtual void load(QString path) override;
+
+Q_SIGNALS:
+    void requestSetDefappCategory(dcc::defapp::DefAppWorker::DefaultAppsCategory category);
 
 private Q_SLOTS:
     void showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category = dcc::defapp::DefAppWorker::Browser);
 
 private:
-    dcc::defapp::DefAppModel       *m_defAppModel;
-    dcc::defapp::DefAppWorker      *m_defAppWorker;
+    dcc::defapp::DefAppModel *m_defAppModel;
+    dcc::defapp::DefAppWorker *m_defAppWorker;
 };
 }
 }

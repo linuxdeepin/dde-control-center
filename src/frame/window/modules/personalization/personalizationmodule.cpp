@@ -67,6 +67,7 @@ void PersonalizationModule::active()
     connect(firstWidget, &PersonalizationList::requestShowIconTheme, this, &PersonalizationModule::showIconThemeWidget);
     connect(firstWidget, &PersonalizationList::requestShowCursorTheme, this, &PersonalizationModule::showCursorThemeWidget);
     connect(firstWidget, &PersonalizationList::requestShowFonts, this, &PersonalizationModule::showFontThemeWidget);
+    connect(this, &PersonalizationModule::requestSetCurrentIndex, firstWidget, &PersonalizationList::setCurrentIndex);
     m_frameProxy->pushWidget(this, firstWidget);
     //显示默认页
     showGenaralWidget();
@@ -75,6 +76,25 @@ void PersonalizationModule::active()
 void PersonalizationModule::contentPopped(QWidget *const w)
 {
     Q_UNUSED(w);
+}
+
+void PersonalizationModule::load(QString path)
+{
+    QString loadPath = path.split("/").at(0);
+    int row = 0;
+    if (loadPath == QStringLiteral("General")) {
+        return;
+    } else if (loadPath == QStringLiteral("Icon Theme")) {
+        showIconThemeWidget();
+        row = 1;
+    } else if (loadPath == QStringLiteral("Cursor Theme")) {
+        showCursorThemeWidget();
+        row = 2;
+    } else if (loadPath == QStringLiteral("Font")) {
+        showFontThemeWidget();
+        row = 3;
+    }
+    Q_EMIT requestSetCurrentIndex(row);
 }
 
 void PersonalizationModule::showGenaralWidget()

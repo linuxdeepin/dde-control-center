@@ -98,3 +98,11 @@ void PersonalizationList::onCategoryClicked(const QModelIndex &index)
         break;
     }
 }
+
+void PersonalizationList::setCurrentIndex(int row)
+{
+    if (row > m_model->rowCount())
+        row = 0;
+
+    m_categoryListView->setCurrentIndex(m_model->indexFromItem(m_model->item(row)));
+}

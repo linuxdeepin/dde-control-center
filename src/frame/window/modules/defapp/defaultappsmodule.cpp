@@ -60,10 +60,11 @@ void DefaultAppsModule::active()
 {
     DefaultAppsWidget* defaultappsWidget = new DefaultAppsWidget;
 
+    connect(this, &DefaultAppsModule::requestSetDefappCategory, defaultappsWidget, &DefaultAppsWidget::setCurrentIndex);
     connect(defaultappsWidget, &DefaultAppsWidget::requestCategoryClicked, this, &DefaultAppsModule::showDetailWidget);
     m_frameProxy->pushWidget(this, defaultappsWidget);
     //显示默认页
-    showDetailWidget();
+    showDetailWidget(dcc::defapp::DefAppWorker::Browser);
 }
 
 const QString DefaultAppsModule::name() const
@@ -74,6 +75,31 @@ const QString DefaultAppsModule::name() const
 void DefaultAppsModule::contentPopped(QWidget *const w)
 {
     Q_UNUSED(w);
+}
+
+void DefaultAppsModule::load(QString path)
+{
+    dcc::defapp::DefAppWorker::DefaultAppsCategory currentCategory = dcc::defapp::DefAppWorker::Browser;
+    QString loadPath = path.split("/").at(0);
+
+    if (loadPath == QStringLiteral("Webpage")) {
+        return;
+    } else if (loadPath == QStringLiteral("Mail")) {
+        currentCategory = dcc::defapp::DefAppWorker::Mail;
+    } else if (loadPath == QStringLiteral("Text")) {
+        currentCategory = dcc::defapp::DefAppWorker::Text;
+    } else if (loadPath == QStringLiteral("Music")) {
+        currentCategory = dcc::defapp::DefAppWorker::Music;
+    } else if (loadPath == QStringLiteral("Video")) {
+        currentCategory = dcc::defapp::DefAppWorker::Video;
+    } else if (loadPath == QStringLiteral("Picture")) {
+        currentCategory = dcc::defapp::DefAppWorker::Picture;
+    } else if (loadPath == QStringLiteral("Terminal")) {
+        currentCategory = dcc::defapp::DefAppWorker::Terminal;
+    }
+
+    showDetailWidget(currentCategory);
+    Q_EMIT requestSetDefappCategory(currentCategory);
 }
 
 void DefaultAppsModule::showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category) {
