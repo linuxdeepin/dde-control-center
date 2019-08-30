@@ -57,8 +57,8 @@ void MouseWidget::init()
         { QIcon::fromTheme("dcc_general_purpose"), tr("General")},
         //~ contents_path /mouse/Mouse
         { QIcon::fromTheme("dcc_mouse"), tr("Mouse")},
-        //~ contents_path /mouse/TouchPad
-        { QIcon::fromTheme("dcc_touchpad"), tr("TouchPad")},
+        //~ contents_path /mouse/Touchpad
+        { QIcon::fromTheme("dcc_touchpad"), tr("Touchpad")},
         //~ contents_path /mouse/TrackPoint
         { QIcon::fromTheme("dcc_trackpoint"), tr("TrackPoint")}
     };

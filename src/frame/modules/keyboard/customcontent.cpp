@@ -168,7 +168,7 @@ void CustomContent::onOpenFile()
 {
     Q_EMIT requestFrameAutoHide(false);
 
-    QString file = QFileDialog::getOpenFileName(this, tr("Choose File"), "/usr/bin");
+    QString file = QFileDialog::getOpenFileName(this, "", "/usr/bin");
     m_command->setText(file);
 
     Q_EMIT requestFrameAutoHide(true);

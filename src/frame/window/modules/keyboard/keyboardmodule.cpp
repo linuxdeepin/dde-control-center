@@ -85,7 +85,7 @@ void KeyboardModule::load(QString path)
         m_keyboardWidget->initSetting(1);
     } else if (loadPath == QStringLiteral("System Language")) {
         m_keyboardWidget->initSetting(2);
-    } else if (loadPath == QStringLiteral("ShortCut")) {
+    } else if (loadPath == QStringLiteral("Shortcuts")) {
         if ((pathList.length() > 1) && (pathList.at(1) == QStringLiteral("Custom Shortcut"))) {
             showShortCutSetting();
             m_shortcutSettingWidget->showCustomShotcut();

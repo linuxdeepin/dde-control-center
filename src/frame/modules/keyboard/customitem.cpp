@@ -45,7 +45,7 @@ CustomItem::CustomItem(QWidget *parent)
     layout->setSpacing(2);
 
     m_title = new QLabel();
-    m_title->setText(tr("Shortcuts"));
+    m_title->setText(tr("Shortcut"));
     m_title->setAlignment(Qt::AlignCenter);
 
     layout->addWidget(m_title);

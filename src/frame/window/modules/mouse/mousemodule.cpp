@@ -130,7 +130,7 @@ void MouseModule::load(QString path)
         m_mouseWidget->initSetting(0);
     } else if (loadPath == QStringLiteral("Mouse")) {
         m_mouseWidget->initSetting(1);
-    } else if (loadPath == QStringLiteral("TouchPad")) {
+    } else if (loadPath == QStringLiteral("Touchpad")) {
         m_mouseWidget->initSetting(2);
     } else if (loadPath == QStringLiteral("TrackPoint")) {
         m_mouseWidget->initSetting(3);

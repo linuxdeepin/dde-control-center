@@ -53,8 +53,8 @@ void KeyboardWidget::init()
         { QIcon::fromTheme("dcc_keyboard"), tr("Keyboard Layout")},
         //~ contents_path /keyboard/System Language
         { QIcon::fromTheme("dcc_language"), tr("System Language")},
-        //~ contents_path /keyboard/ShortCut
-        { QIcon::fromTheme("dcc_hot_key"), tr("ShortCut")}
+        //~ contents_path /keyboard/Shortcuts
+        { QIcon::fromTheme("dcc_hot_key"), tr("Shortcuts")}
     };
     DStandardItem *keyboardItem = nullptr;
     for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {

@@ -96,7 +96,7 @@ void keyboard::CustomEdit::setShortcut(keyboard::ShortcutInfo *info)
 {
     m_info = info;
 
-    m_short->setTitle(tr("Shortcuts"));
+    m_short->setTitle(tr("Shortcut"));
     m_short->setShortcut(info->accels);
 
     m_name->setTitle(tr("Name"));
@@ -158,7 +158,7 @@ void keyboard::CustomEdit::onOpenFile()
 {
     Q_EMIT requestFrameAutoHide(false);
 
-    QString file = QFileDialog::getOpenFileName(this, tr("Choose File"), "/usr/bin");
+    QString file = QFileDialog::getOpenFileName(this, "", "/usr/bin");
     m_command->setText(file);
 
     Q_EMIT requestFrameAutoHide(true);

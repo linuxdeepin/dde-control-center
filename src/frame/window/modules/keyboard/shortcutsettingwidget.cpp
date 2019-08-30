@@ -50,11 +50,11 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
 
     m_widget = new TranslucentFrame();
     m_searchText = QString();
-    //~ contents_path /keyboard/ShortCut/System
+    //~ contents_path /keyboard/Shortcuts/System
     m_systemGroup = new SettingsGroup(tr("System"));
-    //~ contents_path /keyboard/ShortCut/Window
+    //~ contents_path /keyboard/Shortcuts/Window
     m_windowGroup = new SettingsGroup(tr("Window"));
-    //~ contents_path /keyboard/ShortCut/Workspace
+    //~ contents_path /keyboard/Shortcuts/Workspace
     m_workspaceGroup = new SettingsGroup(tr("Workspace"));
     m_customGroup = new SettingsGroup();
     m_searchGroup = new SettingsGroup();
@@ -67,7 +67,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_head = new SettingsHead();
     m_head->setEditEnable(true);
     m_head->setVisible(false);
-    //~ contents_path /keyboard/ShortCut/Custom Shortcut
+    //~ contents_path /keyboard/Shortcuts/Custom Shortcut
     m_head->setTitle(tr("Custom Shortcut"));
     m_customGroup->insertItem(0, m_head);
 
@@ -80,7 +80,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->addWidget(m_windowGroup);
     m_layout->addWidget(m_workspaceGroup);
     m_layout->addWidget(m_customGroup);
-    //~ contents_path /keyboard/ShortCut/Restore Defaults
+    //~ contents_path /keyboard/Shortcuts/Restore Defaults
     QPushButton* resetBtn = new QPushButton(tr("Restore Defaults"));
 
     m_layout->addWidget(resetBtn);
@@ -98,7 +98,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     connect(resetBtn, &QPushButton::clicked, this, &ShortCutSettingWidget::requestReset);
     connect(m_searchInput, &QLineEdit::textChanged, this, &ShortCutSettingWidget::onSearchTextChanged);
     connect(m_searchDelayTimer, &QTimer::timeout, this, &ShortCutSettingWidget::prepareSearchKeys);
-    //~ contents_path /keyboard/ShortCut/Shortcut
+    //~ contents_path /keyboard/Shortcuts/Shortcut
     setTitle(tr("Shortcut"));
 
     connect(m_model, &ShortcutModel::addCustomInfo, this, &ShortCutSettingWidget::onCustomAdded);
