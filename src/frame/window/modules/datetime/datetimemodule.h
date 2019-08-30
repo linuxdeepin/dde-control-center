@@ -81,7 +81,7 @@ private:
     dcc::datetime::DatetimeModel *m_model;
     QPointer<dcc::datetime::TimeZoneChooser> m_dialog;
     QPointer<TimezoneList> m_timezonelist;//timezonelist in other page, need exchangle data from this page
-    DatetimeWidget *m_widget;
+    QPointer<DatetimeWidget> m_widget;
 };
 
 }// namespace datetime

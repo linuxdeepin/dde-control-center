@@ -285,6 +285,13 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
 {
     qDebug() << Q_FUNC_INFO << " moduleName : " << moduleName << " , widget :" << widget;
 
+    if (!m_contentStack.isEmpty()
+            && (m_contentStack.top().first->name() == moduleName)
+            && (m_widgetName == widget)) {
+        qDebug() << Q_FUNC_INFO << " Search widget is current display widget.";
+        return;
+    }
+
     for (int firstCount = 0; firstCount < m_modules.count(); firstCount++) {
         //Compare moduleName and m_modules.second(module name)
         if (moduleName == m_modules[firstCount].first->name()) {
@@ -405,9 +412,10 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
 
 void MainWindow::pushFinalWidget(ModuleInterface *const inter, QWidget *const w)
 {
-    QPalette pe;
-    pe.setColor(QPalette::Background, QColor(0, 0, 0, 255));
-    w->setPalette(pe);
+    DPalette pa = DPalette::get(w);
+    pa.setBrush(DPalette::ItemBackground, pa.base());
+    DPalette::set(w, pa);
+
     w->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
     w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -466,7 +474,7 @@ void MainWindow::linkReplaceBackSignal(QString moduleName, QWidget *w)
 
 void MainWindow::judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *const w)
 {
-    int totalWidth = m_navView->minimumWidth() + 10;//10 is first and second widget space
+    int totalWidth = m_navView->minimumWidth() + 20;//10 is first and second widget space　, other 10 is last widget with right box space
     int contentCount = m_contentStack.count();
 
     if (m_bIsFinalWidget) {

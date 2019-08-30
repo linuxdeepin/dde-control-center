@@ -57,7 +57,7 @@ private:
 private:
     dcc::update::UpdateModel *m_model;
     dcc::update::UpdateWorker *m_work;
-    UpdateWidget *m_updateWidget;
+    QPointer<UpdateWidget> m_updateWidget;
 
 Q_SIGNALS:
 

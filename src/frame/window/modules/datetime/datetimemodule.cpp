@@ -135,23 +135,6 @@ void DatetimeModule::load(QString path)
     default:
         break;
     }
-
-//    if (type > Default && type < Count) {
-//        QModelIndex index;
-//        if (type != ESystemTimezone) {
-//            index = list->model()->index(type, 0);
-//            list->setCurrentIndex(index);
-//            list->clicked(index);
-//        } else {
-//            //First enter timezoneList
-//            index = list->model()->index(ETimezoneList, 0);
-//            list->setCurrentIndex(index);
-//            list->clicked(index);
-
-//            //Then enter systemTimezone
-//            showSystemTimezone();
-//        }
-//    }
 }
 
 void DatetimeModule::updateSystemTimezone(const QString &timezone)

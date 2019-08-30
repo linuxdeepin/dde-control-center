@@ -65,7 +65,7 @@ private:
     dcc::power::PowerModel *m_model;
     dcc::power::PowerWorker *m_work;
     QTimer *m_timer;
-    PowerWidget *m_widget;
+    QPointer<PowerWidget> m_widget;
     int m_nPowerLockScreenDelay;
     int m_nBatteryLockScreenDelay;
 
