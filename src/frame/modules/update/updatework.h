@@ -33,6 +33,7 @@
 #include <com_deepin_lastore_job.h>
 #include <com_deepin_lastore_jobmanager.h>
 #include <com_deepin_daemon_power.h>
+#include <com_deepin_system_systempower.h>
 #include <com_deepin_daemon_network.h>
 #include <com_deepin_lastoresessionhelper.h>
 #include <com_deepin_lastore_smartmirror.h>
@@ -43,6 +44,7 @@ using UpdateInter=com::deepin::lastore::Updater;
 using JobInter=com::deepin::lastore::Job;
 using ManagerInter=com::deepin::lastore::Manager;
 using PowerInter=com::deepin::daemon::Power;
+using PowerSystemInter=com::deepin::system::Power;
 using Network=com::deepin::daemon::Network;
 using LastoressionHelper=com::deepin::LastoreSessionHelper;
 using SmartMirrorInter = com::deepin::lastore::Smartmirror;
@@ -52,15 +54,13 @@ namespace update{
 class UpdateWorker : public QObject
 {
     Q_OBJECT
-
 public:
-    explicit UpdateWorker(UpdateModel *model, QObject *parent = 0);
-
+    explicit UpdateWorker(UpdateModel *model, QObject *parent = nullptr);
     void activate();
     void deactivate();
-
     void setOnBattery(bool onBattery);
     void setBatteryPercentage(const BatteryPercentageInfo &info);
+    void setSystemBatteryPercentage(const double &value);
 
 public Q_SLOTS:
     void checkForUpdates();
@@ -78,7 +78,6 @@ public Q_SLOTS:
     void testMirrorSpeed();
     void checkNetselect();
     void setSmartMirror(bool enable);
-
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     void refreshMirrors();
 #endif
@@ -87,14 +86,11 @@ private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
     void setDownloadJob(const QString &jobPath);
     void setDistUpgradeJob(const QString &jobPath);
-
     void onJobListChanged(const QList<QDBusObjectPath> &jobs);
     void onAppUpdateInfoFinished(QDBusPendingCallWatcher *w);
     void onDownloadStatusChanged(const QString &status);
     void onUpgradeStatusChanged(const QString &status);
-
     void checkDiskSpace(JobInter *job);
-
     DownloadInfo *calculateDownloadInfo(const AppUpdateInfoList &list);
 
 private:
@@ -116,14 +112,13 @@ private:
     UpdateInter* m_updateInter;
     ManagerInter* m_managerInter;
     PowerInter *m_powerInter;
+    PowerSystemInter *m_powerSystemInter;
     Network *m_networkInter;
     SmartMirrorInter *m_smartMirrorInter;
-
     bool m_onBattery;
     double m_batteryPercentage;
-
+    double m_batterySystemPercentage;
     double m_baseProgress;
-
     QList<QString> m_updatableApps;
     QList<QString> m_updatablePackages;
 };

@@ -28,6 +28,8 @@
 #include "useelectricwidget.h"
 #include "usebatterywidget.h"
 
+#include <DNotifySender>
+
 using namespace dcc;
 using namespace dcc::power;
 using namespace DCC_NAMESPACE;
@@ -71,6 +73,7 @@ void PowerModule::active()
 
     connect(m_widget, &PowerWidget::requestPushWidget, this, &PowerModule::onPushWidget);
     connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::requestRemoveBattery);
+    connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
 
     m_frameProxy->pushWidget(this, m_widget);
 }
@@ -189,5 +192,26 @@ void PowerModule::onSetPowerDefault(const int value)
 {
     if (m_nPowerLockScreenDelay != value) {
         m_nPowerLockScreenDelay = value;
+    }
+}
+
+void PowerModule::onBatteryPercentageChanged(const double value)
+{
+    if (!m_model->getDoubleCompare(m_nBatteryPercentage, value)) {
+        m_nBatteryPercentage = value;
+
+        QString remindData = "";
+        if (m_model->getDoubleCompare(value, 20.0)
+                || m_model->getDoubleCompare(value, 15.0)
+                || m_model->getDoubleCompare(value, 10.0)) {
+            remindData = tr("Battery low, please plug in");
+        } else if (m_model->getDoubleCompare(value, 5.0)) {
+            remindData = tr("Battery critically low");
+        }
+
+        //send system info
+        if ("" != remindData) {
+            Dtk::Core::DUtil::DNotifySender(remindData.toLatin1().data());
+        }
     }
 }

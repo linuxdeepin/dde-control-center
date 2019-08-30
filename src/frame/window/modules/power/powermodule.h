@@ -56,10 +56,19 @@ public:
     virtual void active() override;
     virtual void load(QString path) override;
 
+Q_SIGNALS:
+
+public Q_SLOTS:
+    void onPushWidget(int index);
+    void onSetBatteryDefault(const int value);
+    void onSetPowerDefault(const int value);
+    void onBatteryPercentageChanged(const double value);
+
 private:
     void showGeneral();
     void showUseElectric();
     void showUseBattery();
+    bool getDoubleCompare(const double value1, const double value2);
 
 private:
     dcc::power::PowerModel *m_model;
@@ -68,13 +77,7 @@ private:
     QPointer<PowerWidget> m_widget;
     int m_nPowerLockScreenDelay;
     int m_nBatteryLockScreenDelay;
-
-Q_SIGNALS:
-
-public Q_SLOTS:
-    void onPushWidget(int index);
-    void onSetBatteryDefault(const int value);
-    void onSetPowerDefault(const int value);
+    double m_nBatteryPercentage;
 };
 
 

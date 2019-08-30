@@ -53,6 +53,7 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_sysPowerInter, &SysPowerInter::PowerSavingModeEnabledChanged, m_powerModel, &PowerModel::setPowerSaveMode);
 #endif
     connect(m_sysPowerInter, &SysPowerInter::HasBatteryChanged, m_powerModel, &PowerModel::setHaveBettary);
+    connect(m_sysPowerInter, &SysPowerInter::BatteryPercentageChanged, m_powerModel, &PowerModel::setBatteryPercentage);
 }
 
 void PowerWorker::active()

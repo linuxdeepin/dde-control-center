@@ -68,15 +68,18 @@ UpdateWorker::UpdateWorker(UpdateModel* model, QObject *parent)
     , m_updateInter(new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this))
     , m_managerInter(new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this))
     , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
+    , m_powerSystemInter(new PowerSystemInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::sessionBus(), this))
     , m_networkInter(new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this))
     , m_smartMirrorInter(new SmartMirrorInter("com.deepin.lastore.Smartmirror", "/com/deepin/lastore/Smartmirror", QDBusConnection::systemBus(), this))
     , m_onBattery(true)
     , m_batteryPercentage(0)
+    , m_batterySystemPercentage(0)
     , m_baseProgress(0)
 {
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
     m_powerInter->setSync(false);
+    m_powerSystemInter->setSync(false);
     m_lastoresessionHelper->setSync(false);
     m_smartMirrorInter->setSync(true, false);
 
@@ -89,6 +92,9 @@ UpdateWorker::UpdateWorker(UpdateModel* model, QObject *parent)
 
     connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWorker::setOnBattery);
     connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWorker::setBatteryPercentage);
+
+    connect(m_powerSystemInter, &__SystemPower::BatteryPercentageChanged, this, &UpdateWorker::setSystemBatteryPercentage);
+
     connect(m_smartMirrorInter, &SmartMirrorInter::EnableChanged, m_model, &UpdateModel::setSmartMirrorSwitch);
     connect(m_smartMirrorInter, &SmartMirrorInter::serviceValidChanged, this, &UpdateWorker::onSmartMirrorServiceIsValid);
     connect(m_smartMirrorInter, &SmartMirrorInter::serviceStartFinished, this, [=] {
@@ -102,6 +108,7 @@ UpdateWorker::UpdateWorker(UpdateModel* model, QObject *parent)
 #endif
     setOnBattery(m_powerInter->onBattery());
     setBatteryPercentage(m_powerInter->batteryPercentage());
+    setSystemBatteryPercentage(m_powerSystemInter->batteryPercentage());
     onJobListChanged(m_managerInter->jobList());
 }
 
@@ -715,10 +722,19 @@ void UpdateWorker::setBatteryPercentage(const BatteryPercentageInfo &info)
     m_model->setLowBattery(low);
 }
 
+//Now D-Bus only in system power have BatteryPercentage data
+void UpdateWorker::setSystemBatteryPercentage(const double &value)
+{
+    m_batterySystemPercentage = value;
+    const bool low = m_onBattery ? m_batterySystemPercentage < 50 : false;
+    m_model->setLowBattery(low);
+}
+
 void UpdateWorker::setOnBattery(bool onBattery)
 {
     m_onBattery = onBattery;
-    const bool low = m_onBattery ? m_batteryPercentage < 50 : false;
+//    const bool low = m_onBattery ? m_batteryPercentage < 50 : false;
+    const bool low = m_onBattery ? m_batterySystemPercentage < 50 : false;
     m_model->setLowBattery(low);
 }
 

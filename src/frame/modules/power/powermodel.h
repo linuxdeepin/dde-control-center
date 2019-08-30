@@ -84,6 +84,9 @@ public:
 
     inline bool haveBettary() const { return m_haveBettary; }
     void setHaveBettary(bool haveBettary);
+    void setBatteryPercentage(double batteryPercentage);
+
+    bool getDoubleCompare(const double value1, const double value2);
 
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
@@ -102,6 +105,7 @@ Q_SIGNALS:
     void haveBettaryChanged(bool haveBettary);
     void batteryLockScreenDelayChanged(const int batteryLockScreenTime);
     void powerLockScreenDelayChanged(const int powerLockScreenTime);
+    void batteryPercentageChanged(double batteryPercentage);
 
 private:
     bool m_lidPresent;
@@ -120,6 +124,7 @@ private:
     bool m_haveBettary;
     int m_batteryLockScreenDelay;
     int m_powerLockScreenDelay;
+    double m_batteryPercentage;
 };
 
 }

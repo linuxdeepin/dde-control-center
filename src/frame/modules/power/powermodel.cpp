@@ -30,9 +30,12 @@
 using namespace dcc;
 using namespace dcc::power;
 
+const double EPSINON = 1e-6;
+
 PowerModel::PowerModel(QObject *parent)
     : QObject(parent)
     , m_haveBettary(false)
+    , m_batteryPercentage(0.0)
 {
 }
 
@@ -129,7 +132,8 @@ void PowerModel::setPowerLockScreenDelay(const int value)
 #ifndef DCC_DISABLE_POWERSAVE
 void PowerModel::setAutoPowerSaveMode(bool autoPowerSavingMode)
 {
-    if (m_autoPowerSaveMode == autoPowerSavingMode) return;
+    if (m_autoPowerSaveMode == autoPowerSavingMode)
+        return;
 
     m_autoPowerSaveMode = autoPowerSavingMode;
 
@@ -138,7 +142,8 @@ void PowerModel::setAutoPowerSaveMode(bool autoPowerSavingMode)
 
 void PowerModel::setPowerSaveMode(bool powerSaveMode)
 {
-    if (m_powerSaveMode == powerSaveMode) return;
+    if (m_powerSaveMode == powerSaveMode)
+        return;
 
     m_powerSaveMode = powerSaveMode;
 
@@ -148,11 +153,27 @@ void PowerModel::setPowerSaveMode(bool powerSaveMode)
 
 void PowerModel::setHaveBettary(bool haveBettary)
 {
-    if (haveBettary == m_haveBettary) return;
+    if (haveBettary == m_haveBettary)
+        return;
 
     m_haveBettary = haveBettary;
 
     Q_EMIT haveBettaryChanged(haveBettary);
+}
+
+void PowerModel::setBatteryPercentage(double batteryPercentage)
+{
+    if (!getDoubleCompare(batteryPercentage, m_batteryPercentage))
+        return;
+
+    m_batteryPercentage = batteryPercentage;
+
+    Q_EMIT batteryPercentageChanged(batteryPercentage);
+}
+
+bool PowerModel::getDoubleCompare(const double value1, const double value2)
+{
+    return ((value1 - value2 >= -EPSINON) && (value1 - value2 <= EPSINON));
 }
 
 void PowerModel::setSleepLock(bool sleepLock)
