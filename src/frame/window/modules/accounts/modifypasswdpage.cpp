@@ -97,13 +97,13 @@ void ModifyPasswdPage::initData()
     m_titleLabel->setText(tr("Change Password"));
 
     m_oldPasswdLabel->setText(tr("Current Password"));
-    m_oldPasswordEdit->setPlaceholderText(tr("Necessary Filling"));
+    m_oldPasswordEdit->setPlaceholderText(tr("Required"));
 
     m_newPasswdLabel->setText(tr("New Password"));
-    m_newPasswordEdit->setPlaceholderText(tr("Necessary Filling"));
+    m_newPasswordEdit->setPlaceholderText(tr("Required"));
 
     m_repeatPasswdLabel->setText(tr("Repeat Password"));
-    m_repeatPasswordEdit->setPlaceholderText(tr("Necessary Filling"));
+    m_repeatPasswordEdit->setPlaceholderText(tr("Required"));
 
     m_cancleBtn->setText(tr("Cancel"));
     m_saveBtn->setText(tr("Save"));
@@ -137,12 +137,12 @@ void ModifyPasswdPage::clickSaveBtn()
     }
 
     if (m_newPasswordEdit->text().isEmpty()) {
-        showErrorTip(m_newPasswordEdit, tr("The new password is empty"));
+        showErrorTip(m_newPasswordEdit, tr("Password cannot be empty"));
         return;
     }
 
     if (m_repeatPasswordEdit->text().isEmpty()) {
-        showErrorTip(m_repeatPasswordEdit, tr("Repeat password is empty"));
+        showErrorTip(m_repeatPasswordEdit, tr("Password cannot be empty"));
         return;
     }
 
@@ -249,7 +249,7 @@ void ModifyPasswdPage::onEditFinished(Dtk::Widget::DPasswordEdit *t)
     }
 
     if (!validatePassword(password)) {
-        showErrorTip(t, tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"));
+        showErrorTip(t, tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
     } else {
         m_errorTip->hide();
     }

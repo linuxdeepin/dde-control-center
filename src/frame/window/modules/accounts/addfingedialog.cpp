@@ -112,16 +112,16 @@ void AddFingeDialog::onEnrollStatusChanged(FingerModel::EnrollStatus status)
         m_fingeWidget->setFrequency(tr("Identifying fingerprint"));
         break;
     case FingerModel::EnrollStatus::Retry:
-        m_fingeWidget->setFrequency(tr("Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release"));
+        m_fingeWidget->setFrequency(tr("Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off"));
         break;
     case FingerModel::EnrollStatus::Finished:
         m_fingeWidget->finished();
-        m_fingeWidget->setFrequency(tr("Added successfully"));
+        m_fingeWidget->setFrequency(tr("Fingerprint added"));
         break;
     }
 }
 
 void AddFingeDialog::onViewPlayEnd()
 {
-    m_fingeWidget->setFrequency(tr("Place your finger on the fingerprint reader, swipe upwards, then repeat"));
+    m_fingeWidget->setFrequency(tr("Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off"));
 }

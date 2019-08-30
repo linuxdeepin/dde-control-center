@@ -59,8 +59,8 @@ void SystemInfoWidget::initWidget()
 void SystemInfoWidget::initData()
 {
     m_itemList = {
-        {"dcc_on_sel", tr("About this machine"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowAboutNative)},
-        {"dcc_version", tr("Version Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowVersionProtocol)},
+        {"dcc_on_sel", tr("About This PC"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowAboutNative)},
+        {"dcc_version", tr("Edition License"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowVersionProtocol)},
         {"dcc_protocol", tr("End User License Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowEndUserLicenseAgreement)},
     };
 

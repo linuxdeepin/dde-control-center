@@ -96,7 +96,7 @@ void NativeInfoWidget::setEdition(const QString &edition)
 
 void NativeInfoWidget::setType(const QString &type)
 {
-    m_type->setValue(tr("%1Bit").arg(type));
+    m_type->setValue(tr("%1-bit").arg(type));
 }
 
 void NativeInfoWidget::setProcessor(const QString &processor)

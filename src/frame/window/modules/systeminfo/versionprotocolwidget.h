@@ -48,7 +48,6 @@ public:
 
 private:
     QVBoxLayout *m_mainLayout;
-    QLabel *m_thanks;
     dcc::widgets::TipsLabel *m_title;
     dcc::widgets::TipsLabel *m_body;
 };

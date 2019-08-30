@@ -43,11 +43,9 @@ QPair<QString, QString> loadLicenses()
 VersionProtocolWidget::VersionProtocolWidget(QWidget *parent)
     : ContentWidget(parent)
     , m_mainLayout(new QVBoxLayout)
-    , m_thanks(new QLabel)
     , m_title(new TipsLabel)
     , m_body(new TipsLabel)
 {
-    m_thanks->setText(tr("express oneundefineds thanks"));
     m_body->setWordWrap(true);
 
     TranslucentFrame *widget = new TranslucentFrame;
@@ -55,8 +53,6 @@ VersionProtocolWidget::VersionProtocolWidget(QWidget *parent)
     m_mainLayout->setContentsMargins(0, 0, 0, 0);
     m_mainLayout->setMargin(0);
     m_mainLayout->addSpacing(15);
-    m_mainLayout->addWidget(m_thanks, 0, Qt::AlignHCenter);
-    m_mainLayout->addSpacing(20);
     m_mainLayout->addWidget(m_title, 0, Qt::AlignCenter);
     m_mainLayout->addSpacing(20);
     m_mainLayout->addWidget(m_body);

@@ -121,13 +121,13 @@ void CreateAccountPage::initDatas()
 
     m_title->setText(tr("New Account"));
     m_nameLabel->setText(tr("Username"));
-    m_nameEdit->setPlaceholderText(tr("Necessary Filling"));
+    m_nameEdit->setPlaceholderText(tr("Required"));
     m_fullnameLabel->setText(tr("Full Name"));
-    m_fullnameEdit->setPlaceholderText(tr("Necessary Filling"));
+    m_fullnameEdit->setPlaceholderText(tr("Required"));
     m_passwdLabel->setText(tr("Password"));
-    m_passwdEdit->setPlaceholderText(tr("Necessary Filling"));
+    m_passwdEdit->setPlaceholderText(tr("Required"));
     m_repeatpasswdLabel->setText(tr("Repeat Password"));
-    m_repeatpasswdEdit->setPlaceholderText(tr("Necessary Filling"));
+    m_repeatpasswdEdit->setPlaceholderText(tr("Required"));
 
     m_cancleBtn->setText(tr("Cancel"));
     m_addBtn->setText(tr("Create"));
@@ -256,9 +256,9 @@ void CreateAccountPage::onEditFinished(DPasswordEdit *edit)
 
     if (!validatePassword(password)) {
         if (edit == m_passwdEdit) {
-            showErrorTip(m_passwdEdit, tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"));
+            showErrorTip(m_passwdEdit, tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
         } else {
-            showErrorTip(m_repeatpasswdEdit, tr("The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"));
+            showErrorTip(m_repeatpasswdEdit, tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
         }
     } else {
         m_errorTip->hide();
