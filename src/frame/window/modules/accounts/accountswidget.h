@@ -25,11 +25,13 @@
 
 #include <DFloatingButton>
 #include <DListView>
+#include <DStandardItem>
 
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
+class QStandardItem;
 class QStandardItemModel;
 QT_END_NAMESPACE
 
@@ -54,6 +56,8 @@ public:
     void showDefaultAccountInfo();
     void showLastAccountInfo();
     void setShowFirstUserInfo(bool show);
+    void doTopCurrentUser(dcc::accounts::User *user);
+    void connectUserWithItem(dcc::accounts::User *user);
 
 public Q_SLOTS:
     void addUser(dcc::accounts::User *user);

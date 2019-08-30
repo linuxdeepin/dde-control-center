@@ -29,6 +29,7 @@ using namespace dcc::accounts;
 
 User::User(QObject *parent)
     : QObject(parent)
+    , m_isCurrentUser(false)
 {
 }
 

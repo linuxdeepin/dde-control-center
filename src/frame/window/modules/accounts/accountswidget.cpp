@@ -30,6 +30,7 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include <QStandardItem>
 #include <QStandardItemModel>
 #include <QTimer>
 #include <QDebug>
@@ -101,20 +102,6 @@ void AccountsWidget::setShowFirstUserInfo(bool show)
 void AccountsWidget::addUser(User *user)
 {
     DStandardItem *item = new DStandardItem;
-    connect(user, &User::currentAvatarChanged, this, [ = ](const QString & avatar) {
-        if (avatar.startsWith("file://")) {
-            QString iconpath = QUrl(avatar).toLocalFile();
-            item->setIcon(QIcon(iconpath));
-        } else {
-            item->setIcon(QIcon(avatar));
-        }
-    });
-    connect(user, &User::nameChanged, this, [ = ](const QString & ) {
-        item->setText(user->displayName());
-    });
-    connect(user, &User::fullnameChanged, this, [ = ](const QString & ) {
-        item->setText(user->displayName());
-    });
 
     if (user->currentAvatar().startsWith("file://")) {
         item->setIcon(QIcon(QUrl(user->currentAvatar()).toLocalFile()));
@@ -127,6 +114,19 @@ void AccountsWidget::addUser(User *user)
     item->setEditable(false);
     m_userItemModel->appendRow(item);
     m_userList << user;
+
+    if (user->isCurrentUser()) {
+        doTopCurrentUser(user);
+    }
+
+    connectUserWithItem(user);
+
+    connect(user, &User::isCurrentUserChanged, this, [ = ](bool isCurrentUser) {
+        if (isCurrentUser) {
+            doTopCurrentUser(user);
+            showDefaultAccountInfo();
+        }
+    });
 
     //The first line in the default selection when the user list is loaded
     if (m_isShowFirstUserInfo) {
@@ -145,4 +145,55 @@ void AccountsWidget::removeUser(User *user)
 void AccountsWidget::onItemClicked(const QModelIndex &index)
 {
     Q_EMIT requestShowAccountsDetail(m_userList[index.row()]);
+}
+
+void AccountsWidget::doTopCurrentUser(User *user)
+{
+    //判断是不是位于第一个
+    int currentRow = m_userList.indexOf(user);
+    if (currentRow == 0)
+        return;
+
+    QString name_zero = m_userItemModel->index(0, 0).data(Qt::DisplayRole).toString();
+    QIcon pic_zero = m_userItemModel->index(0, 0).data(Qt::DecorationRole).value<QIcon>();
+
+    QString name_clickrow = m_userItemModel->index(currentRow, 0).data(Qt::DisplayRole).toString();
+    QIcon pic_clickrow = m_userItemModel->index(currentRow, 0).data(Qt::DecorationRole).value<QIcon>();
+
+    m_userItemModel->item(0, 0)->setText(name_clickrow);
+    m_userItemModel->item(0, 0)->setIcon(pic_clickrow);
+    m_userItemModel->item(currentRow, 0)->setText(name_zero);
+    m_userItemModel->item(currentRow, 0)->setIcon(pic_zero);
+
+    m_userList[currentRow] = m_userList[0];
+    m_userList[0] = user;
+
+    for (auto & temp : m_userList) {
+        int index = m_userList.indexOf(temp);
+        if (index == 0 || index == currentRow) {
+            temp->disconnect(SIGNAL(nameChanged(const QString &)));
+            temp->disconnect(SIGNAL(fullnameChanged(const QString &)));
+            temp->disconnect(SIGNAL(currentAvatarChanged(const QString &)));
+            connectUserWithItem(temp);
+        }
+    }
+}
+
+void AccountsWidget::connectUserWithItem(User *user)
+{
+    int index = m_userList.indexOf(user);
+    auto item = m_userItemModel->item(index);
+    connect(user, &User::nameChanged, this, [ = ](const QString &) {
+        item->setText(user->displayName());
+    });
+    connect(user, &User::fullnameChanged, this, [ = ](const QString &) {
+        item->setText(user->displayName());
+    });
+    connect(user, &User::currentAvatarChanged, this, [ = ](const QString & avatar) {
+        if (avatar.startsWith("file://")) {
+            item->setIcon(QIcon(QUrl(avatar).toLocalFile()));
+        } else {
+            item->setIcon(QIcon(avatar));
+        }
+    });
 }
