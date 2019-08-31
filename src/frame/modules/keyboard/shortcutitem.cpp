@@ -25,18 +25,18 @@
 
 #include "shortcutitem.h"
 #include "shortcutmodel.h"
+#include "keylabel.h"
+
+#include <DStyle>
+
 #include <QLabel>
 #include <QMouseEvent>
 #include <QLineEdit>
-#include <QApplication>
-#include <QPainter>
-
-#include "keylabel.h"
+#include <QTimer>
 
 using namespace dcc;
-
-namespace dcc {
-namespace keyboard {
+DWIDGET_USE_NAMESPACE
+using namespace dcc::keyboard;
 
 ShortcutItem::ShortcutItem(QFrame *parent)
     : SettingsItem(parent)
@@ -59,22 +59,12 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     layout->addWidget(m_title);
     layout->setAlignment(m_title, Qt::AlignLeft);
 
-    m_editBtn = new DImageButton;
-    m_editBtn->setNormalPic(":/keyboard/themes/common/icons/edit_normal.svg");
-    m_editBtn->setPressPic(":/keyboard/themes/common/icons/edit_press.svg");
-    m_editBtn->setHoverPic(":/keyboard/themes/common/icons/edit_hover.svg");
+    m_editBtn = new DIconButton(this);
+    m_editBtn->setIcon(DStyle::StandardPixmap::SP_DeleteButton);
     m_editBtn->hide();
-    layout->addWidget(m_editBtn, 1, Qt::AlignLeft);
-
-    m_checkBtn = new DImageButton();
-    m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/list_delete_normal.svg");
-    m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/list_delete_hover.svg");
-    m_checkBtn->setPressPic(":/keyboard/themes/dark/icons/list_delete_press.svg");
+    layout->addWidget(m_editBtn, Qt::AlignLeft);
 
     layout->addStretch();
-    layout->addWidget(m_checkBtn);
-    layout->setAlignment(m_checkBtn, Qt::AlignVCenter | Qt::AlignRight);
-    m_checkBtn->hide();
 
     m_key = new ShortcutKey;
     layout->addWidget(m_key);
@@ -87,8 +77,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 
     setLayout(layout);
 
-    connect(m_checkBtn, &DImageButton::clicked, this, &ShortcutItem::onRemoveClick);
-    connect(m_editBtn, &DImageButton::clicked, this, &ShortcutItem::onShortcutEdit);
+    connect(m_editBtn, &DIconButton::clicked, this, &ShortcutItem::onShortcutEdit);
 }
 
 void ShortcutItem::setShortcutInfo(ShortcutInfo *info)
@@ -124,11 +113,9 @@ void ShortcutItem::setShortcut(const QString &shortcut)
 void ShortcutItem::onEditMode(bool value)
 {
     if (value) {
-        m_checkBtn->show();
         m_editBtn->show();
         m_key->hide();
     } else {
-        m_checkBtn->hide();
         m_editBtn->hide();
         m_key->show();
     }
@@ -161,7 +148,7 @@ void ShortcutItem::updateTitleSize()
 
 void ShortcutItem::mouseReleaseEvent(QMouseEvent *e)
 {
-    if (m_checkBtn->isVisible())
+    if (m_editBtn->isVisible())
         return;
 
     if (!m_shortcutEdit->isVisible() && m_key->rect().contains(m_key->mapFromParent(e->pos()))) {
@@ -174,7 +161,4 @@ void ShortcutItem::mouseReleaseEvent(QMouseEvent *e)
         m_shortcutEdit->hide();
         m_key->show();
     }
-}
-
-}
 }

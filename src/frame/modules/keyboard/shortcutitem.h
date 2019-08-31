@@ -29,13 +29,11 @@
 #include "widgets/settingsitem.h"
 #include "shortcutkey.h"
 
+#include <DIconButton>
+
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
-#include <dimagebutton.h>
-#include <com_deepin_daemon_keybinding.h>
-
-DWIDGET_USE_NAMESPACE
 
 using namespace dcc::widgets;
 
@@ -43,7 +41,6 @@ namespace dcc {
 namespace keyboard {
 
 struct ShortcutInfo;
-using KeybingdingInter = com::deepin::daemon::Keybinding;
 
 class ShortcutItem : public SettingsItem
 {
@@ -79,8 +76,7 @@ private:
     QLineEdit *m_shortcutEdit;
     QLabel *m_title;
     ShortcutInfo *m_info;
-    DImageButton *m_checkBtn;
-    DImageButton *m_editBtn;
+    DTK_WIDGET_NAMESPACE::DIconButton *m_editBtn;
     ShortcutKey *m_key;
 };
 }

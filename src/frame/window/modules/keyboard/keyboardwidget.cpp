@@ -95,5 +95,4 @@ void KeyboardWidget::onItemClick(const QModelIndex &index)
         Q_EMIT showGeneralSetting();
         break;
     }
-
 }

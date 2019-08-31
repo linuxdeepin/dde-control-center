@@ -21,6 +21,9 @@
 
 #pragma once
 #include "window/namespace.h"
+
+#include <dfilechooseredit.h>
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -64,14 +67,11 @@ public Q_SLOTS:
     void keyEvent(bool press, const QString &shortcut);
     void updateKey();
 
-private Q_SLOTS:
-    void onOpenFile();
-
 private:
     dcc::keyboard::KeyboardWorker *m_work;
     dcc::keyboard::CustomItem *m_shortcut;
     QLineEdit *m_shortCutNameEdit;
-    QLineEdit *m_shortCutCmdEdit;
+    DTK_WIDGET_NAMESPACE::DFileChooserEdit *m_shortCutCmdEdit;
     QLabel *m_bottomTip;
     dcc::keyboard::ShortcutInfo *m_conflict;
     dcc::keyboard::ShortcutModel *m_model;

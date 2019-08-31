@@ -30,7 +30,7 @@
 #include "widgets/lineeditwidget.h"
 #include "widgets/settingsgroup.h"
 
-#include <dimagebutton.h>
+#include <dfilechooseredit.h>
 
 #include <QMap>
 #include <QHBoxLayout>
@@ -71,17 +71,10 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     //~ contents_path /keyboard/Shortcuts/Custom Shortcut
     QLabel *shortCutCmd = new QLabel(tr("Command"));
     mainLayout->addWidget(shortCutCmd);
-    QHBoxLayout *cmdHLayout = new QHBoxLayout;
-    m_shortCutCmdEdit = new QLineEdit;
-    m_shortCutCmdEdit->setPlaceholderText(tr("Required"));
-    cmdHLayout->addWidget(m_shortCutCmdEdit);
 
-    DImageButton *pushbutton = new DImageButton;
-    pushbutton->setNormalPic(":/keyboard/themes/dark/icons/loadfile_normal.svg");
-    pushbutton->setHoverPic(":/keyboard/themes/dark/icons/loadfile_hover.svg");
-    pushbutton->setPressPic(":/keyboard/themes/dark/icons/loadfile_press.svg");
-    cmdHLayout->addWidget(pushbutton);
-    mainLayout->addLayout(cmdHLayout);
+    m_shortCutCmdEdit = new DFileChooserEdit(this);
+    m_shortCutCmdEdit->setPlaceholderText(tr("Required"));
+    mainLayout->addWidget(m_shortCutCmdEdit);
 
     m_shortcut = new CustomItem;
     m_shortcut->setShortcut("");
@@ -105,7 +98,6 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
 
     connect(cancel, &QPushButton::clicked, this, &CustomContent::back);
     connect(ok, &QPushButton::clicked, this, &CustomContent::onShortcut);
-    connect(pushbutton, &DImageButton::clicked, this, &CustomContent::onOpenFile);
     connect(m_shortcut, &CustomItem::requestUpdateKey, this, &CustomContent::updateKey);
     connect(model, &ShortcutModel::keyEvent, this, &CustomContent::keyEvent);
 }
@@ -165,10 +157,4 @@ void CustomContent::keyEvent(bool press, const QString &shortcut)
 void CustomContent::updateKey()
 {
     Q_EMIT requestUpdateKey(nullptr);
-}
-
-void CustomContent::onOpenFile()
-{
-    QString file = QFileDialog::getOpenFileName(this, "", "/usr/bin");
-    m_shortCutCmdEdit->setText(file);
 }

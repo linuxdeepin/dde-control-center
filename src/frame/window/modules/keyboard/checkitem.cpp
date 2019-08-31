@@ -22,14 +22,16 @@
 #include "checkitem.h"
 #include "modules/keyboard/keylabel.h"
 
-#include <dimagebutton.h>
+#include <DIconButton>
+#include <DStyle>
+
 #include <QHBoxLayout>
 #include <QMouseEvent>
 #include <QPushButton>
 #include <QLabel>
 
 using namespace dcc;
-
+DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::keyboard;
 
@@ -43,7 +45,8 @@ CheckItem::CheckItem(QFrame *parent)
     m_hLayout = new QHBoxLayout();
     m_hLayout->setContentsMargins(20, 0, 10, 0);
     m_title = new QLabel();
-    m_checkBtn = new DTK_WIDGET_NAMESPACE::DImageButton();
+    m_checkBtn = new DIconButton(this);
+    m_checkBtn->setFlat(true);
 
     m_hLayout->setSpacing(1);
     m_hLayout->addWidget(m_title);
@@ -55,7 +58,7 @@ CheckItem::CheckItem(QFrame *parent)
     setLayout(m_hLayout);
     setFixedHeight(36);
 
-    connect(m_checkBtn, SIGNAL(clicked()), this, SLOT(onClick()));
+    connect(m_checkBtn, &DIconButton::clicked, this, &CheckItem::onClick);
 }
 
 void CheckItem::setKeyLabelEffect(const QStringList &shortCutKeys)
@@ -94,9 +97,7 @@ void CheckItem::setChecked(bool checked)
 
     m_checked = checked;
     if (m_checked) {
-        m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/select.svg");
-        m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/select.svg");
-        m_checkBtn->setPressPic(":/keyboard/themes/dark/icons/select.svg");
+        m_checkBtn->setIcon(DStyle::StandardPixmap::SP_IndicatorChecked);
         m_checkBtn->show();
     } else {
         m_checkBtn->hide();
@@ -121,9 +122,7 @@ void CheckItem::onEditMode(bool value)
     }
 
     if (m_bEdit) {
-        m_checkBtn->setNormalPic(":/keyboard/themes/dark/icons/list_delete_normal.svg");
-        m_checkBtn->setHoverPic(":/keyboard/themes/dark/icons/list_delete_hover.svg");
-        m_checkBtn->setPressPic(":/keyboard/themes/dark/icons/list_delete_press.svg");
+        m_checkBtn->setIcon(DStyle::StandardPixmap::SP_DeleteButton);
         m_checkBtn->show();
     } else {
         m_checkBtn->hide();

@@ -23,7 +23,8 @@
 
 #include "window/namespace.h"
 #include "widgets/settingsitem.h"
-#include <dimagebutton.h>
+
+#include <DIconButton>
 
 QT_BEGIN_NAMESPACE
 class QLabel;
@@ -68,7 +69,7 @@ private:
     bool m_checked;
     bool m_bEdit;
     QLabel *m_title;
-    DTK_WIDGET_NAMESPACE::DImageButton *m_checkBtn;
+    DTK_WIDGET_NAMESPACE::DIconButton *m_checkBtn;
     int m_circle;
     bool m_multiple;
 };
