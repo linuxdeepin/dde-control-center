@@ -79,24 +79,17 @@ void DefaultAppsModule::contentPopped(QWidget *const w)
 
 void DefaultAppsModule::load(QString path)
 {
-    dcc::defapp::DefAppWorker::DefaultAppsCategory currentCategory = dcc::defapp::DefAppWorker::Browser;
+    QMap<QString, dcc::defapp::DefAppWorker::DefaultAppsCategory> maps = {
+        { QStringLiteral("Webpage"), dcc::defapp::DefAppWorker::Browser},
+        { QStringLiteral("Mail"), dcc::defapp::DefAppWorker::Mail},
+        { QStringLiteral("Text"), dcc::defapp::DefAppWorker::Text},
+        { QStringLiteral("Music"), dcc::defapp::DefAppWorker::Music},
+        { QStringLiteral("Video"), dcc::defapp::DefAppWorker::Video},
+        { QStringLiteral("Picture"), dcc::defapp::DefAppWorker::Picture},
+        { QStringLiteral("Terminal"), dcc::defapp::DefAppWorker::Terminal},
+    };
     QString loadPath = path.split("/").at(0);
-
-    if (loadPath == QStringLiteral("Webpage")) {
-        return;
-    } else if (loadPath == QStringLiteral("Mail")) {
-        currentCategory = dcc::defapp::DefAppWorker::Mail;
-    } else if (loadPath == QStringLiteral("Text")) {
-        currentCategory = dcc::defapp::DefAppWorker::Text;
-    } else if (loadPath == QStringLiteral("Music")) {
-        currentCategory = dcc::defapp::DefAppWorker::Music;
-    } else if (loadPath == QStringLiteral("Video")) {
-        currentCategory = dcc::defapp::DefAppWorker::Video;
-    } else if (loadPath == QStringLiteral("Picture")) {
-        currentCategory = dcc::defapp::DefAppWorker::Picture;
-    } else if (loadPath == QStringLiteral("Terminal")) {
-        currentCategory = dcc::defapp::DefAppWorker::Terminal;
-    }
+    dcc::defapp::DefAppWorker::DefaultAppsCategory currentCategory = maps.value(loadPath, dcc::defapp::DefAppWorker::Browser);
 
     showDetailWidget(currentCategory);
     Q_EMIT requestSetDefappCategory(currentCategory);

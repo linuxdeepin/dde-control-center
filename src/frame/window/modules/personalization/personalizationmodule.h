@@ -42,7 +42,7 @@ class PersonalizationModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
 public:
-    explicit PersonalizationModule(FrameProxyInterface *frame, QObject *parent = 0);
+    explicit PersonalizationModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     ~PersonalizationModule();
 
     virtual void initialize() override;

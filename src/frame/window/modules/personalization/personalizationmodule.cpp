@@ -83,7 +83,7 @@ void PersonalizationModule::load(QString path)
     QString loadPath = path.split("/").at(0);
     int row = 0;
     if (loadPath == QStringLiteral("General")) {
-        return;
+        showGenaralWidget();
     } else if (loadPath == QStringLiteral("Icon Theme")) {
         showIconThemeWidget();
         row = 1;
