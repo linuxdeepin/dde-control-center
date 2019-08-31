@@ -46,6 +46,7 @@ ScalingPage::ScalingPage(QWidget *parent)
     m_centralLayout->setSpacing(10);
     m_centralLayout->addSpacing(10);
 
+    //~ contents_path /display/Display Scaling
     QLabel *tip = new QLabel(tr("Some applications cannot be scaled with the specified settings in multi-display environment."), this);
 
     tip->setWordWrap(true);

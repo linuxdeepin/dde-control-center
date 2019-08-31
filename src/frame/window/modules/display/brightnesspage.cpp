@@ -51,6 +51,7 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_centralLayout->setSpacing(10);
     m_centralLayout->addSpacing(10);
 
+    //~ contents_path /display/Brightness
     m_nightTips = new QLabel(tr("The screen tone will be auto adjusted according to your location"));
     m_nightTips->setWordWrap(true);
     m_nightTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
@@ -59,10 +60,12 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_centralLayout->addWidget(m_nightTips);
 
     m_nightShift = new SwitchWidget;
+    //~ contents_path /display/Brightness
     m_nightShift->setTitle(tr("Night Shift"));
     m_centralLayout->addWidget(m_nightShift);
 
     m_autoLightMode = new SwitchWidget;
+    //~ contents_path /display/Brightness
     m_autoLightMode->setTitle(tr("Auto Brightness"));
     m_centralLayout->addWidget(m_autoLightMode);
 

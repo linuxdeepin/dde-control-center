@@ -70,6 +70,7 @@ void CustomSettingDialog::init()
     m_layout = new QVBoxLayout(this);
     QLabel *resoLabel = new QLabel;
     resoLabel->setObjectName("Resolution");
+    //~ contents_path /display/Multiple Displays
     resoLabel->setText(tr("Resolution"));
     m_layout->addWidget(resoLabel);
 
@@ -252,6 +253,7 @@ void CustomSettingDialog::initMoniList()
         titleAction->setText(moni->name());
 
         auto *subTitleAction = new DViewItemAction;
+        //~ contents_path /display/Multiple Displays
         QString str = QString("%1 %2 %3%4x%5").arg(moni->w()).arg(tr("inch"))
                       .arg(tr("Resolution").arg(QString::number(moni->w())).arg(QString::number(moni->h())));
         subTitleAction->setText(str);

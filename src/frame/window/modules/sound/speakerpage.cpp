@@ -39,11 +39,14 @@ using namespace DCC_NAMESPACE::sound;
 SpeakerPage::SpeakerPage(QWidget *parent)
     : QWidget(parent)
     , m_sw(new SwitchWidget)
+    //~ contents_path /sound/Speaker
     , m_outputSlider(new TitledSliderItem(tr("Output Volume")))
+    //~ contents_path /sound/Speaker
     , m_balanceSlider(new TitledSliderItem(tr("Left/Right Balance")))
     , m_layout(new QVBoxLayout)
 {
     QHBoxLayout *hlayout = new QHBoxLayout;
+    //~ contents_path /sound/Speaker
     hlayout->addWidget(new QLabel(tr("Speaker")));
     hlayout->addStretch(1);
     hlayout->addWidget(m_sw);

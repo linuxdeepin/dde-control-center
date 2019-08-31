@@ -52,10 +52,12 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , m_sw(new SwitchWidget)
+    //~ contents_path /sound/Microphone
     , m_inputSlider(new TitledSliderItem(tr("Input Volume")))
 {
     QHBoxLayout *hlayout = new QHBoxLayout;
-    hlayout->addWidget(new QLabel(tr("Speaker")));
+    //~ contents_path /sound/Microphone
+    hlayout->addWidget(new QLabel(tr("Microphone")));
     hlayout->addStretch(1);
     hlayout->addWidget(m_sw);
 
@@ -108,6 +110,7 @@ void MicrophonePage::initSlider()
     connect(slider, &DCCSlider::valueChanged, this, slotfunc1);
     connect(slider, &DCCSlider::sliderMoved, this, slotfunc1);
 
+    //~ contents_path /sound/Microphone
     m_feedbackSlider = (new TitledSliderItem("Input Level"));
     DCCSlider *slider2 = m_feedbackSlider->slider();
     slider2->setRange(0, 100);

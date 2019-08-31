@@ -36,11 +36,13 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     , m_outputGroup(new SettingsGroup)
 {
     m_layout->setMargin(10);
+    //~ contents_path /sound/Advanced
     QLabel *label = new QLabel(tr("Output"));
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     m_layout->addWidget(label);
     m_layout->addWidget(m_outputGroup);
 
+    //~ contents_path /sound/Advanced
     label = new QLabel(tr("Input"));
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     m_layout->addWidget(label);
