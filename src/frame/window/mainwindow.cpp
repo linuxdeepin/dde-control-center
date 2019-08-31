@@ -228,14 +228,12 @@ void MainWindow::popWidget(ModuleInterface *const inter)
 
 void MainWindow::showModulePage(const QString &module, const QString &page, bool animation)
 {
+    Q_UNUSED(animation)
+
     if (isMinimized())
         setWindowState(Qt::WindowActive);
 
-    for (auto ite : m_contentStack) {
-        if (ite.first->name() == module) {
-            ite.first->showPage(page);
-        }
-    }
+    onEnterSearchWidget(module, page);
 }
 
 void MainWindow::toggle()

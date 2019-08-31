@@ -243,7 +243,7 @@ int main(int argc, char *argv[])
 #ifndef QT_DEBUG
     if (parser.isSet(showOption) || parser.isSet(toggleOption))
 #endif
-        QTimer::singleShot(1, &mw, &DMainWindow::show);
+//        QTimer::singleShot(1, &mw, &DMainWindow::show);
 
     if (!reqModule.isEmpty())
         QTimer::singleShot(10, &mw, [&] { mw.showModulePage(reqModule, reqPage, false); });
