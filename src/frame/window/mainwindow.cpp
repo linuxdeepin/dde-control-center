@@ -238,6 +238,11 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     }
 }
 
+void MainWindow::toggle()
+{
+    show();
+}
+
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
     DMainWindow::resizeEvent(event);

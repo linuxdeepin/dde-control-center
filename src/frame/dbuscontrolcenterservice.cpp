@@ -146,7 +146,7 @@ void DBusControlCenterService::ShowImmediately()
 
 void DBusControlCenterService::ShowHome()
 {
-//    parent()->backToHome();
+    parent()->popWidget();
 }
 
 void DBusControlCenterService::ShowModule(const QString &module)
@@ -175,7 +175,7 @@ void DBusControlCenterService::Toggle()
     if (m_toggleProcessed) {
 
         QTimer::singleShot(0, this, [this] {
-//            parent()->toggle();
+            parent()->toggle();
             m_toggleProcessed = true;
         });
 

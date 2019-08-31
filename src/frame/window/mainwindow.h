@@ -57,6 +57,10 @@ public:
     void setModuleVisible(ModuleInterface *const inter, const bool visible) override;
     void showModulePage(const QString &module, const QString &page, bool animation) override;
 
+public:
+    void toggle();
+    void popWidget();
+
 protected:
     void resizeEvent(QResizeEvent *event) override;
 
@@ -89,7 +93,6 @@ private Q_SLOTS:
 private:
     void initAllModule();
     void modulePreInitialize();
-    void popWidget();
     void popAllWidgets(int place = 0);//place is Remain count
     void onFirstItemClick(const QModelIndex &index);
     void pushNormalWidget(ModuleInterface *const inter, QWidget *const w);  //exchange third widget : push new widget
