@@ -27,7 +27,6 @@
 #include <QHBoxLayout>
 #include <QMouseEvent>
 #include <QTimer>
-#include <QApplication>
 
 using namespace dcc::widgets;
 using namespace dcc;
@@ -38,7 +37,12 @@ using namespace DCC_NAMESPACE::bluetooth;
 DeviceSettingsItem::DeviceSettingsItem(const Device *device, QStyle *style)
     : m_device(device)
     , m_deviceItem(new DStandardItem)
+    , m_parentDListView(nullptr)
 {
+    m_loadingIndicator = new LoadingIndicator();
+    m_loadingIndicator->setTheme("dark");
+    m_loadingIndicator->setFixedSize(QSize(24, 24));
+    m_loadingIndicator->hide();
     initItemActionList(style);
     setDevice(device);
     m_deviceItem->setText(m_device->name());
@@ -47,11 +51,32 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device, QStyle *style)
 
 void DeviceSettingsItem::initItemActionList(QStyle *style)
 {
+    m_loadingAction = new DViewItemAction(Qt::AlignCenter, QSize(), QSize(), false, this);
+    m_loadingAction->setWidget(m_loadingIndicator);
     m_iconAction = new DViewItemAction(Qt::AlignRight, QSize(), QSize(), true, this);
     m_textAction = new DViewItemAction(Qt::AlignLeft, QSize(), QSize(), true, this);
     m_iconAction->setIcon(style->standardIcon(QStyle::SP_ArrowRight));
+    m_dActionList.append(m_loadingAction);
     m_dActionList.append(m_textAction);
     m_dActionList.append(m_iconAction);
+}
+
+void DeviceSettingsItem::setLoading(const bool loading)
+{
+    if (loading) {
+        m_loadingIndicator->play();
+        m_loadingIndicator->show();
+        m_loadingAction->setVisible(true);
+        m_textAction->setVisible(false);
+    } else {
+        m_loadingIndicator->stop();
+        m_loadingIndicator->hide();
+        m_loadingAction->setVisible(false);
+        m_textAction->setVisible(true);
+    }
+    if (m_parentDListView) {
+        m_parentDListView->update();
+    }
 }
 
 void DeviceSettingsItem::setDevice(const Device *device)
@@ -74,13 +99,21 @@ void DeviceSettingsItem::setDevice(const Device *device)
     onDevicePairedChanged(device->paired());
 }
 
-DStandardItem *DeviceSettingsItem::getStandardItem()
+DStandardItem *DeviceSettingsItem::getStandardItem(DListView *parent)
 {
+    if (parent != nullptr) {
+        m_parentDListView = parent;
+        m_loadingIndicator->setParent(parent->viewport());
+    }
     return m_deviceItem;
 }
 
-DStandardItem *DeviceSettingsItem::createStandardItem()
+DStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
 {
+    if (parent != nullptr) {
+        m_parentDListView = parent;
+        m_loadingIndicator->setParent(parent->viewport());
+    }
     m_deviceItem = new DStandardItem;
     m_deviceItem->setText(m_device->name());
     m_deviceItem->setActionList(Qt::RightEdge, m_dActionList);
@@ -91,19 +124,19 @@ void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state)
 {
     qDebug() << "device state changed: " << m_device;
     if (state == Device::StateAvailable) {
-        // TODO setLoading(true);
+        setLoading(true);
         return;
     }
     QString tip;
     switch (state) {
     case Device::StateConnected: {
         tip = tr("Connected");
-        // TODO setLoading(false);
+        setLoading(false);
         break;
     }
     case Device::StateUnavailable:
         tip = tr("Not connected");
-        // TODO setLoading(false);
+        setLoading(false);
         break;
     default:
         break;

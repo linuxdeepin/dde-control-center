@@ -34,6 +34,10 @@ namespace dcc {
 namespace bluetooth {
 class Device;
 }
+
+namespace widgets {
+class LoadingIndicator;
+}
 }
 
 namespace DCC_NAMESPACE {
@@ -43,10 +47,10 @@ class DeviceSettingsItem : public QObject
     Q_OBJECT
 public:
     explicit DeviceSettingsItem(const dcc::bluetooth::Device *device, QStyle *style);
-    DStandardItem *getStandardItem();
-    DStandardItem *createStandardItem();
+    DStandardItem *getStandardItem(DTK_WIDGET_NAMESPACE::DListView *parent = nullptr);
+    DStandardItem *createStandardItem(DTK_WIDGET_NAMESPACE::DListView *parent = nullptr);
     const dcc::bluetooth::Device *device() const;
-
+    void setLoading(const bool loading);
 private:
     void setDevice(const dcc::bluetooth::Device *device);
     void initItemActionList(QStyle *style);
@@ -61,10 +65,13 @@ private Q_SLOTS:
 
 private:
     const dcc::bluetooth::Device *m_device;
+    dcc::widgets::LoadingIndicator *m_loadingIndicator;
     DStandardItem *m_deviceItem;
+    DTK_WIDGET_NAMESPACE::DListView *m_parentDListView;
     DViewItemActionList m_dActionList;
-    DViewItemAction *m_iconAction;
+    DViewItemAction *m_loadingAction;
     DViewItemAction *m_textAction;
+    DViewItemAction *m_iconAction;
 };
-} // namespace bluetooth
+} // namespace DCC_NAMESPACE
 } // namespace dcc

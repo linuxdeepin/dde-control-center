@@ -52,9 +52,11 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     , m_titleGroup(new SettingsGroup)
 {
     //~ contents_path /bluetooth/My Device
-    m_myDeviceLabel = new QLabel(tr("My Device"));
+    m_myDevicesGroup = new SettingsGroup(tr("My devices"));
     //~ contents_path /bluetooth/Other Devices
-    m_otherDeviceLabel = new QLabel(tr("Other Devices"));
+    m_otherDevicesGroup = new SettingsGroup(tr("Other devices"));
+
+    m_myDevicesGroup->setVisible(false);
 
     m_switch->setFixedHeight(36);
 
@@ -91,10 +93,10 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     layout->addWidget(m_titleGroup);
     layout->addWidget(m_tip, 0, Qt::AlignTop);
     layout->addSpacing(10);
-    layout->addWidget(m_myDeviceLabel);
+    layout->addWidget(m_myDevicesGroup);
     layout->addWidget(m_myDeviceListView);
     layout->addSpacing(10);
-    layout->addWidget(m_otherDeviceLabel);
+    layout->addWidget(m_otherDevicesGroup);
     layout->addWidget(m_otherDeviceListView);
     layout->addStretch();
 
@@ -158,8 +160,8 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
 
 void AdapterWidget::toggleSwitch(const bool &checked)
 {
-    m_myDeviceLabel->setVisible(checked && !m_myDevices.isEmpty());
-    m_otherDeviceLabel->setVisible(checked);
+    m_myDevicesGroup->setVisible(checked && !m_myDevices.isEmpty());
+    m_otherDevicesGroup->setVisible(checked);
     m_myDeviceListView->setVisible(checked && !m_myDevices.isEmpty());
     m_otherDeviceListView->setVisible(checked);
 
@@ -171,16 +173,16 @@ void AdapterWidget::addDevice(const Device *device)
     DeviceSettingsItem *deviceItem = new DeviceSettingsItem(device, style());
     auto CategoryDevice = [this, deviceItem](const bool paired) {
         if (paired) {
-            DStandardItem *dListItem = deviceItem->getStandardItem();
+            DStandardItem *dListItem = deviceItem->getStandardItem(m_myDeviceListView);
             m_myDevices << deviceItem;
             m_myDeviceModel->appendRow(dListItem);
         } else {
-            DStandardItem *dListItem = deviceItem->getStandardItem();
+            DStandardItem *dListItem = deviceItem->getStandardItem(m_otherDeviceListView);
             m_otherDeviceModel->appendRow(dListItem);
         }
         updateHeight();
         bool isVisible = !m_myDevices.isEmpty() && m_switch->checked();
-        m_myDeviceLabel->setVisible(isVisible);
+        m_myDevicesGroup->setVisible(isVisible);
         m_myDeviceListView->setVisible(isVisible);
     };
     CategoryDevice(device->paired());
@@ -191,19 +193,19 @@ void AdapterWidget::addDevice(const Device *device)
             DStandardItem *item = deviceItem->getStandardItem();
             QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
             m_otherDeviceModel->removeRow(otherDeviceIndex.row());
-            DStandardItem *dListItem = deviceItem->createStandardItem();
+            DStandardItem *dListItem = deviceItem->createStandardItem(m_myDeviceListView);
             m_myDevices << deviceItem;
             m_myDeviceModel->appendRow(dListItem);
         } else {
             DStandardItem *item = deviceItem->getStandardItem();
             QModelIndex myDeviceIndex = m_myDeviceModel->indexFromItem(item);
             m_myDeviceModel->removeRow(myDeviceIndex.row());
-            DStandardItem *dListItem = deviceItem->createStandardItem();
+            DStandardItem *dListItem = deviceItem->createStandardItem(m_otherDeviceListView);
             m_otherDeviceModel->appendRow(dListItem);
         }
         updateHeight();
         bool isVisible = !m_myDevices.isEmpty() && m_switch->checked();
-        m_myDeviceLabel->setVisible(isVisible);
+        m_myDevicesGroup->setVisible(isVisible);
         m_myDeviceListView->setVisible(isVisible);
     });
     connect(deviceItem, &DeviceSettingsItem::requestShowDetail, [this](const Device *device) {
@@ -239,7 +241,7 @@ void AdapterWidget::removeDevice(const QString &deviceId)
     }
     updateHeight();
     if (m_myDevices.isEmpty()) {
-        m_myDeviceLabel->hide();
+        m_myDevicesGroup->hide();
         m_myDeviceListView->hide();
     }
 }

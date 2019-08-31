@@ -84,10 +84,10 @@ private:
     dcc::widgets::LoadingIndicator *m_refreshIndicator;
     QList<DeviceSettingsItem *> m_deviceLists;
     QList<DeviceSettingsItem *> m_myDevices;
-    QLabel *m_myDeviceLabel;
+    dcc::widgets::SettingsGroup *m_myDevicesGroup;
     DTK_WIDGET_NAMESPACE::DListView *m_myDeviceListView;
     QStandardItemModel *m_myDeviceModel;
-    QLabel *m_otherDeviceLabel;
+    dcc::widgets::SettingsGroup *m_otherDevicesGroup;
     DTK_WIDGET_NAMESPACE::DListView *m_otherDeviceListView;
     QStandardItemModel *m_otherDeviceModel;
 };
