@@ -54,7 +54,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
 
     m_group = new SettingsGroup();
     m_head = new SettingsHead();
-    //~ contents_path /keyboard/Keyboard Layout/Keyboard Layout
+    //~ contents_path /keyboard/Keyboard Layout
     m_head->setTitle(tr("Keyboard Layout"));
     m_head->setEditEnable(false);
 
@@ -65,7 +65,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
 
     m_switchKBLayout = new SettingsGroup;
     SettingsHead *head = new SettingsHead;
-    //~ contents_path /keyboard/Keyboard Layout/Switch Layouts (Multiple)
+    //~ contents_path /keyboard/Keyboard Layout
     head->setTitle(tr("Switch Layouts (Multiple)"));
     head->setEditEnable(false);
 
@@ -91,7 +91,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     }
 
     ComboxWidget *comboWidget = new ComboxWidget;
-    //~ contents_path /keyboard/Keyboard Layout/Applies to
+    //~ contents_path /keyboard/Keyboard Layout
     comboWidget->setTitle(tr("Applies to"));
     QStringList comboxOptions;
     comboxOptions << tr("System") << tr("Application");

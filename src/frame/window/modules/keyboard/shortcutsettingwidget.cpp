@@ -50,11 +50,11 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
 
     m_widget = new TranslucentFrame();
     m_searchText = QString();
-    //~ contents_path /keyboard/Shortcuts/System
+    //~ contents_path /keyboard/Shortcuts
     m_systemGroup = new SettingsGroup(tr("System"));
-    //~ contents_path /keyboard/Shortcuts/Window
+    //~ contents_path /keyboard/Shortcuts
     m_windowGroup = new SettingsGroup(tr("Window"));
-    //~ contents_path /keyboard/Shortcuts/Workspace
+    //~ contents_path /keyboard/Shortcuts
     m_workspaceGroup = new SettingsGroup(tr("Workspace"));
     m_customGroup = new SettingsGroup();
     m_searchGroup = new SettingsGroup();
@@ -80,7 +80,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->addWidget(m_windowGroup);
     m_layout->addWidget(m_workspaceGroup);
     m_layout->addWidget(m_customGroup);
-    //~ contents_path /keyboard/Shortcuts/Restore Defaults
+    //~ contents_path /keyboard/Shortcuts
     QPushButton* resetBtn = new QPushButton(tr("Restore Defaults"));
 
     m_layout->addWidget(resetBtn);
@@ -98,7 +98,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     connect(resetBtn, &QPushButton::clicked, this, &ShortCutSettingWidget::requestReset);
     connect(m_searchInput, &QLineEdit::textChanged, this, &ShortCutSettingWidget::onSearchTextChanged);
     connect(m_searchDelayTimer, &QTimer::timeout, this, &ShortCutSettingWidget::prepareSearchKeys);
-    //~ contents_path /keyboard/Shortcuts/Shortcut
+    //~ contents_path /keyboard/Shortcuts
     setTitle(tr("Shortcut"));
 
     connect(m_model, &ShortcutModel::addCustomInfo, this, &ShortCutSettingWidget::onCustomAdded);

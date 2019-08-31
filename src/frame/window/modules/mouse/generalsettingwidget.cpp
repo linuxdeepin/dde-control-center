@@ -41,13 +41,13 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     , m_generalSettingsGrp(nullptr)
 {
     m_generalSettingsGrp = new SettingsGroup;
-    //~ contents_path /mouse/General/Left Hand
+    //~ contents_path /mouse/General
     m_leftHand = new SwitchWidget(tr("Left Hand"));
-    //~ contents_path /mouse/General/Disable touchpad while typing
+    //~ contents_path /mouse/General
     m_disInTyping = new SwitchWidget(tr("Disable touchpad while typing"));
-    //~ contents_path /mouse/General/Scrolling Speed
+    //~ contents_path /mouse/General
     m_scrollSpeedSlider = new TitledSliderItem(tr("Scrolling Speed"));
-    //~ contents_path /mouse/General/Double-click Speed
+    //~ contents_path /mouse/General
     m_doubleSlider = new TitledSliderItem(tr("Double-click Speed"));
     m_doubleTest = new DouTestWidget;
 
@@ -64,9 +64,9 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     m_scrollSpeedSlider->setAnnotations(speedList);
 
     QStringList doublelist;
-    //~ contents_path /mouse/General/Slow
+    //~ contents_path /mouse/General
     doublelist << tr("Slow") << "" << "" << "" << "" << "";
-    //~ contents_path /mouse/General/Fast
+    //~ contents_path /mouse/General
     doublelist << tr("Fast");
     DCCSlider *doubleSlider = m_doubleSlider->slider();
     doubleSlider->setType(DCCSlider::Vernier);

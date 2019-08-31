@@ -34,12 +34,12 @@ using namespace dcc::widgets;
 TrackPointSettingWidget::TrackPointSettingWidget(QWidget *parent) : dcc::ContentWidget(parent)
 {
     m_trackPointSettingsGrp = new SettingsGroup;
-    //~ contents_path /mouse/TrackPoint/Pointer Speed
+    //~ contents_path /mouse/TrackPoint
     m_trackMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
     QStringList trackPointlist;
-    //~ contents_path /mouse/TrackPoint/Slow
+    //~ contents_path /mouse/TrackPoint
     trackPointlist << tr("Slow") << "" << "" << "" << "" << "";
-    //~ contents_path /mouse/TrackPoint/Fast
+    //~ contents_path /mouse/TrackPoint
     trackPointlist << tr("Fast");
     DCCSlider *pointSlider = m_trackMoveSlider->slider();
     pointSlider->setType(DCCSlider::Vernier);

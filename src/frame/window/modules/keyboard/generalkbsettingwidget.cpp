@@ -41,7 +41,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     , m_model(model)
 {
     m_generalSettingsGrp = new SettingsGroup();
-    //~ contents_path /keyboard/General/Repeat Delay
+    //~ contents_path /keyboard/General
     TitledSliderItem *delayItem =  new TitledSliderItem(tr("Repeat Delay"));
     m_delaySlider = delayItem->slider();
     m_delaySlider->setType(DCCSlider::Vernier);
@@ -51,13 +51,13 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_delaySlider->setPageStep(1);
     m_delaySlider->setTickPosition(QSlider::TicksBelow);
     QStringList delays;
-    //~ contents_path /keyboard/General/Short
+    //~ contents_path /keyboard/General
     delays << tr("Short") << "" << "" << "" << "" << "";
-    //~ contents_path /keyboard/General/Long
+    //~ contents_path /keyboard/General
     delays << tr("Long");
     delayItem->setAnnotations(delays);
     m_generalSettingsGrp->appendItem(delayItem);
-
+    //~ contents_path /keyboard/General
     TitledSliderItem *speedItem =  new TitledSliderItem(tr("Repeat Rate"));
     m_speedSlider = speedItem->slider();
     m_speedSlider->setType(DCCSlider::Vernier);
@@ -67,15 +67,15 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_speedSlider->setPageStep(1);
     m_speedSlider->setTickPosition(QSlider::TicksBelow);
     QStringList speeds;
-    //~ contents_path /keyboard/General/Slow
+    //~ contents_path /keyboard/General
     speeds << tr("Slow") << "" << "" << "" << "" << "";
-    //~ contents_path /keyboard/General/Fast
+    //~ contents_path /keyboard/General
     speeds << tr("Fast");
     speedItem->setAnnotations(speeds);
 
     SearchInput *testArea = new SearchInput();
     testArea->setFixedWidth(200);
-    //~ contents_path /keyboard/General/Test here
+    //~ contents_path /keyboard/General
     testArea->setSearchText(tr("Test here"));
     testArea->setIconVisible(false);
     testArea->setStyleSheet("border: 0px");
@@ -90,12 +90,12 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_generalSettingsGrp->appendItem(speedItem);
 
     m_numLock = new SwitchWidget;
-    //~ contents_path /keyboard/General/Numeric Keypad
+    //~ contents_path /keyboard/General
     m_numLock->setTitle(tr("Numeric Keypad"));
     m_generalSettingsGrp->appendItem(m_numLock);
 
     m_upper = new SwitchWidget();
-    //~ contents_path /keyboard/General/Caps Lock Prompt
+    //~ contents_path /keyboard/General
     m_upper->setTitle(tr("Caps Lock Prompt"));
     m_generalSettingsGrp->appendItem(m_upper);
 
