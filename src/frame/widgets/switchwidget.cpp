@@ -77,7 +77,7 @@ SwitchWidget::SwitchWidget(QWidget *widget, QFrame *parent):
 
     setLayout(mainLayout);
 
-    connect(m_switchBtn, &DSwitchButton::checkedChanged, this, &SwitchWidget::checkedChanged);
+    connect(m_switchBtn, &DSwitchButton::toggled, this, &SwitchWidget::checkedChanged);
 }
 
 void SwitchWidget::setChecked(const bool checked)
