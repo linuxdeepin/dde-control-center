@@ -34,10 +34,11 @@ namespace commoninfo {
 class CommonInfoModel;
 class CommonInfoWork;
 class CommonInfoWidget;
-//class BootWidget;
+class BootWidget;
 //class DeveloperModeWidget;
-//class TabletModeWidget;
 //class UserExperienceProgramWidget;
+// 以下内容为平板模式做预留
+//class TabletModeWidget;
 
 class CommonInfoModule : public QObject, public ModuleInterface
 {
@@ -58,6 +59,7 @@ public Q_SLOTS:
     void onShowBootWidget(); // for bootmenu
     void onShowDeveloperWidget(); // for developer mode
     void onShowUEPlanWidget(); // for user exprience program
+    // 以下内容为平板模式做预留
     //void onShowTabletModeWidget(); // for tablet mode
 private:
     void initBootWidget();
@@ -65,9 +67,10 @@ private:
     CommonInfoWork *m_commonWork;
     CommonInfoModel *m_commonModel;
     CommonInfoWidget *m_commonWidget; // main widget
-    //BootWidget *mBootWidget; // for bootmenu
-    //DeveloperModeWidget* mDeveloperWidget;
-    //UserExperienceProgramWidget* mUEProgramWidget;
+    BootWidget *m_bootWidget; // for bootmenu
+    //DeveloperModeWidget *mDeveloperWidget;
+    //UserExperienceProgramWidget *mUEProgramWidget;
+    // 以下内容为平板模式做预留
     //TabletModeWidget* mTabletModeWidget;
 };
 

@@ -20,10 +20,10 @@
  */
 #include "commoninfomodule.h"
 
-//#include "window/modules/commoninfo/bootwidget.h"
 #include "window/modules/commoninfo/commoninfomodel.h"
 #include "window/modules/commoninfo/commoninfowork.h"
 #include "window/modules/commoninfo/commoninfowidget.h"
+#include "window/modules/commoninfo/bootwidget.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::commoninfo;
@@ -32,7 +32,7 @@ CommonInfoModule::CommonInfoModule(dccV20::FrameProxyInterface *frame, QObject *
     : QObject(parent)
     , ModuleInterface(frame)
     , m_commonWidget(nullptr)
-      //, mBootWidget(nullptr)
+    , m_bootWidget(nullptr)
 {
 }
 
@@ -65,9 +65,10 @@ void CommonInfoModule::active()
 {
 //    mCommonWork->activate();
     m_commonWidget = new CommonInfoWidget();
-    connect(m_commonWidget, SIGNAL(requestShowBootWidget()), this, SLOT(onShowBootWidget()));
-    connect(m_commonWidget, SIGNAL(requestShowDeveloperModeWidget()), this, SLOT(onShowDeveloperWidget()));
-    connect(m_commonWidget, SIGNAL(requestShowUEPlanWidget()), this, SLOT(onShowUEPlanWidget()));
+    connect(m_commonWidget, &CommonInfoWidget::requestShowBootWidget, this, &CommonInfoModule::onShowBootWidget);
+    connect(m_commonWidget, &CommonInfoWidget::requestShowDeveloperModeWidget, this, &CommonInfoModule::onShowDeveloperWidget);
+    connect(m_commonWidget, &CommonInfoWidget::requestShowUEPlanWidget, this, &CommonInfoModule::onShowUEPlanWidget);
+    // 以下内容为平板模式做预留
     //connect(mCommonWidget, SIGNAL(requestShowTabletModeWidget()), this, SLOT(onShowTabletModeWidget()));
     m_frameProxy->pushWidget(this, m_commonWidget);
 }
@@ -79,17 +80,17 @@ void CommonInfoModule::deactive()
 
 void CommonInfoModule::load(QString path)
 {
-
+    Q_UNUSED(path);
 }
 
 void CommonInfoModule::onShowBootWidget()
 {
-//    mCommonWork->loadGrubSettings();
-//    initBootWidget();
-//    if (!mBootWidget) {
-//        return;
-//    }
-//    m_frameProxy->pushWidget(this, mBootWidget);
+    m_commonWork->loadGrubSettings();
+    initBootWidget();
+    if (!m_bootWidget) {
+        return;
+    }
+    m_frameProxy->pushWidget(this, m_bootWidget);
 }
 
 void CommonInfoModule::onShowDeveloperWidget()
@@ -102,6 +103,7 @@ void CommonInfoModule::onShowUEPlanWidget()
 
 }
 
+// 以下内容为平板模式做预留
 //void CommonInfoModule::onShowTabletModeWidget()
 //{
 
@@ -109,11 +111,11 @@ void CommonInfoModule::onShowUEPlanWidget()
 
 void CommonInfoModule::initBootWidget()
 {
-//    mBootWidget = new BootWidget;
-//    mBootWidget->setModel(mCommonModel);
+    m_bootWidget = new BootWidget;
+    m_bootWidget->setModel(m_commonModel);
 
-//    connect(mBootWidget, SIGNAL(bootdelay(bool)), mCommonWork, SLOT(setBootDelay(bool)));
-//    connect(mBootWidget, SIGNAL(enableTheme(bool)),mCommonWork, SLOT(setEnableTheme(bool)));
-//    connect(mBootWidget, SIGNAL(defaultEntry(QString)), mCommonWork, SLOT(setDefaultEntry(QString)));
-//    connect(mBootWidget, &BootWidget::requestSetBackground, mCommonWork, &CommonInfoWork::setBackground);
+    connect(m_bootWidget, &BootWidget::bootdelay, m_commonWork, &CommonInfoWork::setBootDelay);
+    connect(m_bootWidget, &BootWidget::enableTheme, m_commonWork, &CommonInfoWork::setEnableTheme);
+    connect(m_bootWidget, &BootWidget::defaultEntry, m_commonWork, &CommonInfoWork::setDefaultEntry);
+    connect(m_bootWidget, &BootWidget::requestSetBackground, m_commonWork, &CommonInfoWork::setBackground);
 }

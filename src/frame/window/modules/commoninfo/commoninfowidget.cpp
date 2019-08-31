@@ -72,6 +72,11 @@ void CommonInfoWidget::initData()
             "dcc_ue_plan", tr("User Experience Program"),
             QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget)
         },
+// 以下内容为平板模式做预留
+//        {
+//            "", tr("Tablet Plan"),
+//            QMetaMethod::fromSignal(&CommonInfoWidget::requestShowTabletModeWidget)
+//        },
     };
 
     for (auto m : m_itemList) {

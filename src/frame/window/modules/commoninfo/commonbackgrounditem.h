@@ -22,51 +22,36 @@
 #pragma once
 #include "window/namespace.h"
 
-#include <DListView>
-
-#include <QWidget>
-#include <QMetaMethod>
-
-QT_BEGIN_NAMESPACE
-class QVBoxLayout;
-class QListView;
-class QStandardItemModel;
-class QModelIndex;
-
-template <typename T>
-class QList;
-QT_END_NAMESPACE
+#include "widgets/settingsitem.h"
 
 namespace DCC_NAMESPACE {
 namespace commoninfo {
-class CommonInfoWidget : public QWidget
+class CommonBackgroundItem : public dcc::widgets::SettingsItem
 {
     Q_OBJECT
 
 public:
-    explicit CommonInfoWidget(QWidget *parent = nullptr);
+    explicit CommonBackgroundItem(QFrame *parent = nullptr);
 
 Q_SIGNALS:
-    void requestShowBootWidget();
-    void requestShowDeveloperModeWidget();
-    void requestShowUEPlanWidget();
-    void requestShowTabletModeWidget();
+    void requestEnableTheme(const bool state);
+    void requestSetBackground(const QString &path);
+
+public Q_SLOTS:
+    void setThemeEnable(const bool state);
+    void updateBackground(const QPixmap &pixmap);
+
+protected:
+    void paintEvent(QPaintEvent *e) override;
+    void dragEnterEvent(QDragEnterEvent *e) override;
+    void dragLeaveEvent(QDragLeaveEvent *e) override;
+    void dropEvent(QDropEvent *e) override;
+    void dragMoveEvent(QDragMoveEvent *event) override;
 
 private:
-    void initWidget();
-    void initData();
-
-private:
-    struct ListSubItem {
-        QString itemIcon;
-        QString itemText;
-        QMetaMethod itemSignal;
-    };
-    QVBoxLayout *m_vBoxLayout;
-    DTK_WIDGET_NAMESPACE::DListView *m_listView;
-    QStandardItemModel *m_itemModel;
-    QList<ListSubItem> m_itemList;
+    QPixmap m_background;
+    bool m_isDrop;
+    bool m_themeEnable;
 };
-}
-}
-
+} // namespace commoninfo
+} // namespace DCC_NAMESPACE
