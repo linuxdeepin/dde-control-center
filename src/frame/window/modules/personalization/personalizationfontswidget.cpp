@@ -45,6 +45,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     , m_isAppend(false)
 {
     //font size
+    //~ contents_path /personalization/Font
     m_centralLayout->addWidget(new QLabel(tr("Size"), this));
     m_fontSizeSlider->setObjectName("fontsizeslider");
     m_fontSizeSlider->slider()->setOrientation(Qt::Horizontal);
@@ -63,6 +64,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
 
     //standard font
     QHBoxLayout *sfontLayout = new QHBoxLayout();
+    //~ contents_path /personalization/Font
     sfontLayout->addWidget(new QLabel(tr("Standard Font"), this));
     sfontLayout->addWidget(m_standardFontsCbBox);
 
@@ -71,6 +73,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
 
     //mono font
     QHBoxLayout *mfontLayout = new QHBoxLayout();
+    //~ contents_path /personalization/Font
     mfontLayout->addWidget(new QLabel(tr("Monospaced Font"), this));
     mfontLayout->addWidget(m_monoFontsCbBox);
     m_monoFontsCbBox->setModel(new QStandardItemModel(this));

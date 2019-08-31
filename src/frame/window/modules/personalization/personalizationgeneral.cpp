@@ -54,12 +54,14 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 {
 
     //appearance
+    //~ contents_path /personalization/General
     m_centralLayout->addWidget(new QLabel(tr("Theme")));
     //pictures and types
     m_Themes->setMainLayout(new QHBoxLayout(), true);
     m_centralLayout->addWidget(m_Themes);
 
     //active colors
+    //~ contents_path /personalization/General
     m_centralLayout->addWidget(new QLabel(tr("Accent Color")));
 
     QHBoxLayout *colorsLayout = new QHBoxLayout();
@@ -75,6 +77,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     //transparancy switch
     QVBoxLayout *transparancyLayout = new QVBoxLayout();
+    //~ contents_path /personalization/General
     transparancyLayout->addWidget(new QLabel(tr("Transparency"), this));
     m_transparentSlider->slider()->setOrientation(Qt::Horizontal);
     m_transparentSlider->setObjectName("Transparency");
@@ -93,6 +96,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     //sw switch
     QHBoxLayout *swswitchLayout = new QHBoxLayout();
+    //~ contents_path /personalization/General
     swswitchLayout->addWidget(new QLabel(tr("Window Effect")));
     swswitchLayout->addStretch();
     swswitchLayout->addWidget(m_wmSwitch);
