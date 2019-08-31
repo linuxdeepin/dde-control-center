@@ -161,6 +161,7 @@ int main(int argc, char *argv[])
     app.loadTranslator();
 //    app.loadTranslator(QList<QLocale>() << QLocale::Chinese);
     app.setTheme("light");
+    app.setStyle("chameleon");
 
     // load dde-network-utils translator
     QTranslator translator;
@@ -186,8 +187,6 @@ int main(int argc, char *argv[])
     parser.addOption(pageOption);
     parser.process(app);
 
-//#ifdef WINDOW_MODE
-    app.setStyle("chameleon");
 
     auto screen = app.primaryScreen();
     QRect mwRect(0, 0, MainWidgetWidget, MainWidgetHeight);
@@ -196,16 +195,13 @@ int main(int argc, char *argv[])
     DCC_NAMESPACE::MainWindow mw;
     mw.setGeometry(mwRect);
     mw.setMinimumSize(QSize(MainWidgetWidget, MainWidgetHeight));
+    mw.show();
 
     const QString &reqModule = parser.value(moduleOption);
     const QString &reqPage = parser.value(pageOption);
 
-//    app.setTheme("semidark");
-//    onThemeChange("dark");
+    QTimer::singleShot(0, [] { onFontSizeChanged(float(qApp->font().pointSizeF())); });
 
-    QTimer::singleShot(0, [] { onFontSizeChanged(qApp->font().pointSizeF()); });
-
-//    Frame f;
     DBusControlCenterService adaptor(&mw);
     Q_UNUSED(adaptor);
     QDBusConnection conn = QDBusConnection::sessionBus();
