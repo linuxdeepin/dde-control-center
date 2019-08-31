@@ -25,6 +25,8 @@
 #include "modules/sound/portitem.h"
 #include "modules/sound/soundmodel.h"
 
+#include <QScrollArea>
+
 using namespace dcc::sound;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::sound;
@@ -36,19 +38,34 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     , m_outputGroup(new SettingsGroup)
 {
     m_layout->setMargin(10);
+
+    auto scrollarea = new QScrollArea;
+    scrollarea->setWidgetResizable(true);
+    scrollarea->installEventFilter(this);
+    scrollarea->setFrameStyle(QFrame::NoFrame);
+    scrollarea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollarea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollarea->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    scrollarea->setContentsMargins(0, 0, 0, 0);
+
+    auto contentWidget = new QWidget;
+    auto contentLayout = new QVBoxLayout;
+    contentWidget->setLayout(contentLayout);
+    scrollarea->setWidget(contentWidget);
+
     //~ contents_path /sound/Advanced
     QLabel *label = new QLabel(tr("Output"));
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    m_layout->addWidget(label);
-    m_layout->addWidget(m_outputGroup);
+    contentLayout->addWidget(label);
+    contentLayout->addWidget(m_outputGroup);
 
     //~ contents_path /sound/Advanced
     label = new QLabel(tr("Input"));
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-    m_layout->addWidget(label);
-    m_layout->addWidget(m_inputGroup);
+    contentLayout->addWidget(label);
+    contentLayout->addWidget(m_inputGroup);
 
-    m_layout->addStretch(1);
+    m_layout->addWidget(scrollarea);
     setLayout(m_layout);
 }
 
