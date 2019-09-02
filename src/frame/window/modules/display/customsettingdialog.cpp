@@ -68,14 +68,32 @@ void CustomSettingDialog::initUI()
     setWindowFlags(windowFlags() | Qt::X11BypassWindowManagerHint);
 
     m_layout = new QVBoxLayout(this);
+    m_listLayout = new QVBoxLayout(this);
+
+    m_segmentBtn = new DSegmentedControl(this);
+    m_layout->addWidget(m_segmentBtn, 0, Qt::AlignHCenter);
+
     if (m_isPrimary) {
         m_moniList = new DListView;
         m_moniList->installEventFilter(this);
-        m_layout->addWidget(m_moniList);
+        m_listLayout->addWidget(m_moniList);
+        m_segmentBtn->addSegmented(tr("Main Screen"));
     }
 
     m_resolutionList = new DListView;
-    m_layout->addWidget(m_resolutionList);
+    m_resolutionList->setVisible(!m_isPrimary);
+    m_segmentBtn->addSegmented(tr("Resolution"));
+    m_listLayout->addWidget(m_resolutionList);
+
+    m_rateList = new DListView;
+    m_rateList->setVisible(false);
+    m_segmentBtn->addSegmented(tr("Refresh Rate"));
+    m_listLayout->addWidget(m_rateList);
+
+    connect(m_segmentBtn, &DSegmentedControl::currentChanged,
+            this, &CustomSettingDialog::onChangList);
+
+    m_layout->addLayout(m_listLayout);
     setLayout(m_layout);
 
     QHBoxLayout *hlayout = new QHBoxLayout();
@@ -272,7 +290,37 @@ void CustomSettingDialog::initPrimaryDialog()
     connect(m_monitroControlWidget, &MonitorControlWidget::requestSetMonitorPosition,
             this, &CustomSettingDialog::requestSetMonitorPosition);
 
-    m_layout->insertWidget(1, m_monitroControlWidget);
+    m_layout->insertWidget(0, m_monitroControlWidget);
+}
+
+void CustomSettingDialog::onChangList()
+{
+    if (m_moniList)
+        m_moniList->setVisible(false);
+    m_resolutionList->setVisible(false);
+    m_rateList->setVisible(false);
+
+    switch (m_segmentBtn->currentIndex()) {
+    case 0:
+        if (m_isPrimary) {
+            m_moniList->setVisible(true);
+        } else {
+            m_resolutionList->setVisible(true);
+        }
+        break;
+    case 1:
+        if (m_isPrimary) {
+            m_resolutionList->setVisible(true);
+        } else {
+            m_rateList->setVisible(true);
+        }
+        break;
+    case 2:
+        m_rateList->setVisible(true);
+        break;
+    default:
+        break;
+    }
 }
 
 void CustomSettingDialog::onMonitorPress(Monitor *mon)

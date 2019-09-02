@@ -25,6 +25,7 @@
 #include "window/namespace.h"
 
 #include <DListView>
+#include <DSegmentedControl>
 
 #include <QDialog>
 
@@ -79,6 +80,7 @@ private Q_SLOTS:
     void onMonitorRelease(dcc::display::Monitor *mon);
     void resetDialog();
     void onPrimaryMonitorChanged();
+    void onChangList();
 
 private:
     void initUI();
@@ -93,11 +95,15 @@ private:
     bool m_isPrimary{false};
     dcc::display::Monitor *m_monitor{nullptr};
     dcc::display::DisplayModel *m_model{nullptr};
-    DTK_WIDGET_NAMESPACE::DListView *m_resolutionList{nullptr};
     QVBoxLayout *m_layout{nullptr};
     std::unique_ptr<dcc::display::MonitorIndicator> m_fullIndication;
     dcc::display::MonitorControlWidget *m_monitroControlWidget{nullptr};
+
+    QVBoxLayout *m_listLayout{nullptr};
+    DTK_WIDGET_NAMESPACE::DSegmentedControl *m_segmentBtn{nullptr};
     DTK_WIDGET_NAMESPACE::DListView *m_moniList{nullptr};
+    DTK_WIDGET_NAMESPACE::DListView *m_resolutionList{nullptr};
+    DTK_WIDGET_NAMESPACE::DListView *m_rateList{nullptr};
     QList<CustomSettingDialog *> m_otherDialog;
 };
 }
