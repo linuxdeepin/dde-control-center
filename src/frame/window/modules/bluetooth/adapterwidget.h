@@ -34,7 +34,6 @@ QT_END_NAMESPACE
 
 namespace dcc {
 namespace widgets {
-class LoadingIndicator;
 class SwitchWidget;
 class SettingsGroup;
 }
@@ -81,7 +80,6 @@ private:
     dcc::widgets::SwitchWidget *m_switch;
     dcc::widgets::SettingsGroup *m_titleGroup;
     QLabel        *m_tip;
-    dcc::widgets::LoadingIndicator *m_refreshIndicator;
     QList<DeviceSettingsItem *> m_deviceLists;
     QList<DeviceSettingsItem *> m_myDevices;
     dcc::widgets::SettingsGroup *m_myDevicesGroup;

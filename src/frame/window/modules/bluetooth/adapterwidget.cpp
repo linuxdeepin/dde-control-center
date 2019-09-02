@@ -27,7 +27,6 @@
 #include "modules/bluetooth/adapter.h"
 #include "widgets/translucentframe.h"
 #include "widgets/settingsheaderitem.h"
-#include "widgets/loadingindicator.h"
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 

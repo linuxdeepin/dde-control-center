@@ -25,6 +25,7 @@
 #include "modules/bluetooth/device.h"
 
 #include <DListView>
+#include <DSpinner>
 
 #include <QObject>
 
@@ -33,10 +34,6 @@ DWIDGET_USE_NAMESPACE
 namespace dcc {
 namespace bluetooth {
 class Device;
-}
-
-namespace widgets {
-class LoadingIndicator;
 }
 }
 
@@ -65,7 +62,7 @@ private Q_SLOTS:
 
 private:
     const dcc::bluetooth::Device *m_device;
-    dcc::widgets::LoadingIndicator *m_loadingIndicator;
+    DTK_WIDGET_NAMESPACE::DSpinner *m_loadingIndicator;
     DStandardItem *m_deviceItem;
     DTK_WIDGET_NAMESPACE::DListView *m_parentDListView;
     DViewItemActionList m_dActionList;

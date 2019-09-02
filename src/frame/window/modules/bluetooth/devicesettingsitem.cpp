@@ -21,7 +21,6 @@
 
 #include "devicesettingsitem.h"
 #include "modules/bluetooth/device.h"
-#include "widgets/loadingindicator.h"
 #include "widgets/labels/normallabel.h"
 
 #include <QHBoxLayout>
@@ -39,9 +38,8 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device, QStyle *style)
     , m_deviceItem(new DStandardItem)
     , m_parentDListView(nullptr)
 {
-    m_loadingIndicator = new LoadingIndicator();
-    m_loadingIndicator->setTheme("dark");
-    m_loadingIndicator->setFixedSize(QSize(24, 24));
+    m_loadingIndicator = new DSpinner();
+    m_loadingIndicator->setFixedSize(24, 24);
     m_loadingIndicator->hide();
     initItemActionList(style);
     setDevice(device);
@@ -64,7 +62,7 @@ void DeviceSettingsItem::initItemActionList(QStyle *style)
 void DeviceSettingsItem::setLoading(const bool loading)
 {
     if (loading) {
-        m_loadingIndicator->play();
+        m_loadingIndicator->start();
         m_loadingIndicator->show();
         m_loadingAction->setVisible(true);
         m_textAction->setVisible(false);
