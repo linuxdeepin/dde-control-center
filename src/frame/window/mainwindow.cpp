@@ -247,6 +247,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 
     if (m_topWidget) {
         m_topWidget->setFixedSize(event->size());
+        m_topWidget->setFixedHeight(height() - this->titlebar()->height());
     }
 }
 
@@ -413,6 +414,7 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
 
     m_topWidget = topWidget;
     m_topWidget->move(0, this->titlebar()->height());
+    m_topWidget->setFixedHeight(height() - this->titlebar()->height());
     resetNavList(m_contentStack.empty());
 }
 
