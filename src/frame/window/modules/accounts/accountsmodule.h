@@ -26,13 +26,13 @@
 #include <com_deepin_daemon_accounts.h>
 
 namespace dcc {
-    namespace accounts {
-        class User;
-        class AccountsWorker;
-        class UserModel;
-        class FingerWorker;
-        class FingerModel;
-    }
+namespace accounts {
+class User;
+class AccountsWorker;
+class UserModel;
+class FingerWorker;
+class FingerModel;
+}
 }
 
 namespace DCC_NAMESPACE {
@@ -51,6 +51,7 @@ public:
     void showPage(const QString &pageName);
     void contentPopped(QWidget *const w);
     void active() override;
+    void load(QString path) override;
 
 public Q_SLOTS:
     void onShowAccountsDetailWidget(dcc::accounts::User *account);

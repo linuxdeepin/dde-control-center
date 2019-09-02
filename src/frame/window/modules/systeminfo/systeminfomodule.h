@@ -50,7 +50,7 @@ public:
     const QString name() const override;
     void contentPopped(QWidget *const w) override;
     void active() override;
-    virtual void load(QString path) override;
+    void load(QString path) override;
 
 public Q_SLOTS:
     void onShowAboutNativePage();

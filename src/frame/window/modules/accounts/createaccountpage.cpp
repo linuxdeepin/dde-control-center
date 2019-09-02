@@ -119,6 +119,7 @@ void CreateAccountPage::initDatas()
         }
     });
 
+    //~ contents_path /accounts/New Account
     m_title->setText(tr("New Account"));
     m_nameLabel->setText(tr("Username"));
     m_nameEdit->setPlaceholderText(tr("Required"));

@@ -31,6 +31,7 @@
 #include "modules/accounts/fingermodel.h"
 #include "addfingedialog.h"
 
+#include <QStringList>
 #include <QDebug>
 
 using namespace dcc::accounts;
@@ -89,6 +90,36 @@ void AccountsModule::active()
     connect(m_accountsWidget, &AccountsWidget::requestShowAccountsDetail, this, &AccountsModule::onShowAccountsDetailWidget);
     connect(m_accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::onShowCreateAccountPage);
     m_frameProxy->pushWidget(this, m_accountsWidget);
+}
+
+void AccountsModule::load(QString path)
+{
+    if (!m_accountsWidget) {
+        active();
+    }
+
+    QStringList searchList;
+    searchList << "Change Password"
+               << "Delete Account"
+               << "Auto Login"
+               << "Login Without Password"
+               << "New Account";
+
+    User *pUser = nullptr;
+    for (auto &user : m_userList->userList()) {
+        if (user->isCurrentUser()) {
+            pUser = user;
+            break;
+        }
+    }
+
+    if (path == searchList[0]) {
+        onShowPasswordPage(pUser);
+    } else if (path == searchList[1] || path == searchList[2] || path == searchList[3]) {
+        onShowAccountsDetailWidget(pUser);
+    } else if (path == searchList[4]) {
+        onShowCreateAccountPage();
+    }
 }
 
 //显示账户信息

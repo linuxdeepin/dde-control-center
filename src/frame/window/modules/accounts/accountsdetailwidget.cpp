@@ -186,11 +186,16 @@ void AccountsDetailWidget::initDatas()
     m_shortName->setText(m_curUser->name());
     m_fullName->setText(m_curUser->fullname());
 
+    //~ contents_path /accounts/Change Password
     m_modifyPassword->setText(tr("Change Password"));
+    //~ contents_path /accounts/Delete Account
     m_deleteAccount->setText(tr("Delete Account"));
 
+    //~ contents_path /accounts/Auto Login
     m_autoLogin->setTitle(tr("Auto Login"));
     m_autoLogin->setChecked(m_curUser->autoLogin());
+
+    //~ contents_path /accounts/Login Without Password
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
