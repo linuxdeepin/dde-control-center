@@ -48,7 +48,7 @@ PinCodeDialog::PinCodeDialog(const QString &pinCode, const bool &cancelable) :
     if (cancelable) {
         btns << tr("Cancel") ;
     }
-    btns << tr("OK");
+    btns << tr("Confirm");
     addButtons(btns);
 
     setPinCode(pinCode);
