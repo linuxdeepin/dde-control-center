@@ -27,7 +27,6 @@
 
 #include <QImageReader>
 #include <QVBoxLayout>
-#include <DThemeManager>
 #include <QDebug>
 #include <DHiDPIHelper>
 

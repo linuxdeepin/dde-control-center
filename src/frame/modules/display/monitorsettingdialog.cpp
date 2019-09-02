@@ -30,7 +30,6 @@
 #include "widgets/basiclistmodel.h"
 #include "widgets/basiclistview.h"
 #include "widgets/basiclistdelegate.h"
-#include "dthememanager.h"
 #include <QVBoxLayout>
 #include <QTimer>
 #include <QMouseEvent>
@@ -84,8 +83,6 @@ void MonitorSettingDialog::mouseMoveEvent(QMouseEvent *e)
 void MonitorSettingDialog::init()
 {
     setWindowFlags(windowFlags() | Qt::X11BypassWindowManagerHint);
-
-    DThemeManager::instance()->setTheme(this, "light");
 
     m_fullIndication = std::unique_ptr<MonitorIndicator>(new MonitorIndicator(this));
 
