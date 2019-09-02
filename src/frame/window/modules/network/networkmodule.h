@@ -53,15 +53,16 @@ class NetworkModule : public QObject, public ModuleInterface
 public:
     explicit NetworkModule(FrameProxyInterface *frame, QObject *parent = 0);
     ~NetworkModule();
-    void showPage(const QString &jsonData);
+    void showPage(const QString &jsonData) override;
 
 private:
-    void initialize();
+    void initialize() override;
     void moduleActive();
     void moduleDeactive();
-    const QString name() const;
+    const QString name() const override;
 public:
     void active() override;
+    void load(QString path) override;
 
 private Q_SLOTS:
     void showVpnPage();

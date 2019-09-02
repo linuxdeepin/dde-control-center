@@ -156,6 +156,17 @@ void NetworkModule::active()
     m_frameProxy->pushWidget(this, m_networkWidget);
 }
 
+void NetworkModule::load(QString path)
+{
+    if (path == QStringLiteral("Network Details")) {
+        showDetailPage();
+    } else if (path == QStringLiteral("Application Proxy")) {
+        showChainsProxyPage();
+    } else if (path == QStringLiteral("System Proxy")) {
+        showProxyPage();
+    }
+}
+
 void NetworkModule::moduleActive()
 {
     m_networkWorker->active();

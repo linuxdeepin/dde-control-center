@@ -57,6 +57,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 
 #if !defined(DISABLE_NETWORK_PROXY) || !defined(DISABLE_NETWORK_VPN) || !defined(DISABLE_NETWORK_PPPOE)
 #ifndef DISABLE_NETWORK_PPPOE
+    //~ contents_path /network/DSL
     DStandardItem *pppit = new DStandardItem(tr("DSL"));
     pppit->setData("ppp", SectionRole);
     pppit->setIcon(QIcon::fromTheme("dcc_dsl"));
@@ -64,6 +65,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 #endif
 
 #ifndef DISABLE_NETWORK_VPN
+    //~ contents_path /network/VPN
     DStandardItem *vpnit = new DStandardItem(tr("VPN"));
     vpnit->setData("vpn", SectionRole);
     vpnit->setIcon(QIcon::fromTheme("dcc_vpn"));
@@ -71,10 +73,13 @@ NetworkModuleWidget::NetworkModuleWidget()
 #endif
 
 #ifndef DISABLE_NETWORK_PROXY
+    //~ contents_path /network/System Proxy
     DStandardItem *prxyit = new DStandardItem(tr("System Proxy"));
     prxyit->setData("prxy", SectionRole);
     prxyit->setIcon(QIcon::fromTheme("dcc_system_agent"));
     m_modelpages->appendRow(prxyit);
+
+    //~ contents_path /network/Application Proxy
     DStandardItem *aprxit = new DStandardItem(tr("Application Proxy"));
     aprxit->setData("aprx", SectionRole);
     aprxit->setIcon(QIcon::fromTheme("dcc_app_proxy"));
@@ -82,6 +87,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 #endif
 #endif
 
+    //~ contents_path /network/Network Details
     DStandardItem *infoit = new DStandardItem(tr("Network Details"));
     infoit->setData("info", SectionRole);
     infoit->setIcon(QIcon::fromTheme("dcc_network"));
@@ -195,14 +201,18 @@ QStandardItem* NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
 
     if (dev->type() == NetworkDevice::Wired) {
         if (multiple) {
+            //~ contents_path /network/Wired Network
             text = tr("Wired Network%1").arg(number);
         } else {
+            //~ contents_path /network/Wired Network
             text = tr("Wired Network");
         }
     } else if (dev->type() == NetworkDevice::Wireless) {
         if (multiple) {
+            //~ contents_path /network/Wireless Network
             text = tr("Wireless Network%1").arg(number);
         } else {
+            //~ contents_path /network/Wireless Network
             text = tr("Wireless Network");
         }
     }

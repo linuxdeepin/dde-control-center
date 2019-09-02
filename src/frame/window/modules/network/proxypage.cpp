@@ -65,23 +65,31 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_proxyType->setFixedHeight(30);
 
     m_httpAddr = new LineEditWidget;
+    //~ contents_path /network/System Proxy
     m_httpAddr->setTitle(tr("HTTP Proxy"));
     m_httpPort = new LineEditWidget;
+    //~ contents_path /network/System Proxy
     m_httpPort->setTitle(tr("Port"));
 
     m_httpsAddr = new LineEditWidget;
+    //~ contents_path /network/System Proxy
     m_httpsAddr->setTitle(tr("HTTPS Proxy"));
     m_httpsPort = new LineEditWidget;
+    //~ contents_path /network/System Proxy
     m_httpsPort->setTitle(tr("Port"));
 
     m_ftpAddr = new LineEditWidget;
+    //~ contents_path /network/System Proxy
     m_ftpAddr->setTitle(tr("FTP Proxy"));
     m_ftpPort = new LineEditWidget;
+    //~ contents_path /network/System Proxy
     m_ftpPort->setTitle(tr("Port"));
 
     m_socksAddr = new LineEditWidget;
+    //~ contents_path /network/System Proxy
     m_socksAddr->setTitle(tr("SOCKS Proxy"));
     m_socksPort = new LineEditWidget;
+    //~ contents_path /network/System Proxy
     m_socksPort->setTitle(tr("Port"));
 
     m_ignoreList = new PlainTextItem;
@@ -89,9 +97,11 @@ ProxyPage::ProxyPage(QWidget *parent)
     ignoreTips->setWordWrap(true);
     ignoreTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     ignoreTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    //~ contents_path /network/System Proxy
     ignoreTips->setText(tr("Ignore the proxy configurations for the above hosts and domains"));
 
     m_autoUrl = new LineEditWidget;
+    //~ contents_path /network/System Proxy
     m_autoUrl->setTitle(tr("Configuration URL"));
 
     SettingsGroup *httpGroup = new SettingsGroup;
