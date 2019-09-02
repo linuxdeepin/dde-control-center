@@ -67,9 +67,11 @@ BootWidget::BootWidget(QWidget *parent)
     m_background->setLayout(listLayout);
 
     m_boot = new SwitchWidget();
+    //~ contents_path /commoninfo/Boot Menu
     m_boot->setTitle(tr("Startup Delay"));
 
     m_theme = new SwitchWidget();
+    //~ contents_path /commoninfo/Boot Menu
     m_theme->setTitle(tr("Theme"));
 
     TipsLabel *backgroundLabel = new TipsLabel(tr("Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background."));
@@ -96,6 +98,7 @@ BootWidget::BootWidget(QWidget *parent)
     layout->addStretch();
 
     setLayout(layout);
+    //~ contents_path /commoninfo/Boot Menu
     setWindowTitle(tr("Boot Menu"));
 
     connect(m_theme, &SwitchWidget::checkedChanged, this, &BootWidget::enableTheme);

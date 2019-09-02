@@ -80,7 +80,24 @@ void CommonInfoModule::deactive()
 
 void CommonInfoModule::load(QString path)
 {
-    Q_UNUSED(path);
+    if (!m_commonWidget) {
+        active();
+    }
+
+    QListView *list = m_commonWidget->getCommonListView();
+    if (!list) {
+        return;
+    }
+
+    if (path == "Boot Menu") {
+        QModelIndex idx = list->model()->index(0, 0);
+        list->setCurrentIndex(idx);
+        list->clicked(idx);
+    } else if (path == "Developer Mode") {
+        // 为开发者设计的search预留
+    } else if (path == "User Experience Program") {
+        // 为用户体验计划的search预留
+    }
 }
 
 void CommonInfoModule::onShowBootWidget()

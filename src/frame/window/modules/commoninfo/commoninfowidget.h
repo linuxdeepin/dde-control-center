@@ -45,7 +45,7 @@ class CommonInfoWidget : public QWidget
 
 public:
     explicit CommonInfoWidget(QWidget *parent = nullptr);
-
+    DTK_WIDGET_NAMESPACE::DListView *getCommonListView();
 Q_SIGNALS:
     void requestShowBootWidget();
     void requestShowDeveloperModeWidget();

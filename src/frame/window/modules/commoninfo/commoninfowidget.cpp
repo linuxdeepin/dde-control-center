@@ -44,6 +44,11 @@ CommonInfoWidget::CommonInfoWidget(QWidget *parent)
     initData();
 }
 
+DListView *CommonInfoWidget::getCommonListView()
+{
+    return m_listView;
+}
+
 void CommonInfoWidget::initWidget()
 {
     m_listView->setFrameShape(QFrame::NoFrame);
@@ -61,15 +66,21 @@ void CommonInfoWidget::initData()
 {
     m_itemList = {
         {
-            "dcc_boot_menu", tr("Boot Menu"),
+            "dcc_boot_menu",
+            //~ contents_path /commoninfo/Boot Menu
+            tr("Boot Menu"),
             QMetaMethod::fromSignal(&CommonInfoWidget::requestShowBootWidget)
         },
         {
-            "dcc_developer_mode", tr("Developer Mode"),
+            "dcc_developer_mode",
+            //~ contents_path /commoninfo/Developer Mode
+            tr("Developer Mode"),
             QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)
         },
         {
-            "dcc_ue_plan", tr("User Experience Program"),
+            "dcc_ue_plan",
+            //~ contents_path /commoninfo/User Experience Program
+            tr("User Experience Program"),
             QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget)
         },
 // 以下内容为平板模式做预留
