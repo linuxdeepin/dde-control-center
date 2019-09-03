@@ -94,6 +94,7 @@ void CreateAccountPage::initWidgets()
     m_mainContentLayout->addStretch();
 
     setLayout(m_mainContentLayout);
+    setFocusPolicy(Qt::StrongFocus);
 
     m_errorTip->setWindowFlags(Qt::ToolTip);
     m_errorTip->hide();
@@ -167,45 +168,21 @@ void CreateAccountPage::createUser()
 
 bool CreateAccountPage::validatePassword(const QString &password)
 {
-    QSettings setting("/etc/deepin/dde-control-center.conf", QSettings::IniFormat);
-    setting.beginGroup("Password");
-    bool strong_password_check = setting.value("STRONG_PASSWORD", false).toBool();
+    QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
+        QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("~!@#$%^&*()[]{}\\|/?,.<>");
 
-    if (!strong_password_check) {
-        return true;
-    }
-
-    if (password.size() < 7 || password.size() > 16) {
-        return false;
-    }
-
-    uint success_num = 0;
-
-    const QStringList strong_policy_list {
-        "1234567890",
-        "abcdefghijklmnopqrstuvwxyz",
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        "~!@#$%^&*()[]{}\\|/?,.<>"
-    };
-
-    for (const QString &policy : strong_policy_list) {
-        if (containsChar(password, policy)) {
-            ++success_num;
-        }
-    }
-
-    return success_num > 1;
+    return containsChar(password, validate_policy);
 }
 
 bool CreateAccountPage::containsChar(const QString &password, const QString &validate)
 {
-    for (const QString &p : password) {
-        if (validate.contains(p)) {
-            return true;
+    for (const QChar &p : password) {
+        if (!validate.contains(p)) {
+            return false;
         }
     }
 
-    return false;
+    return true;
 }
 
 void CreateAccountPage::showErrorTip(QLineEdit *edit, const QString &error)
@@ -243,26 +220,26 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
 
 void CreateAccountPage::onEditFinished(DPasswordEdit *edit)
 {
-    QSettings setting("/etc/deepin/dde-control-center.conf", QSettings::IniFormat);
-    setting.beginGroup("Password");
-    if (!setting.value("STRONG_PASSWORD", false).toBool()) {
-        return m_errorTip->hide();
-    }
-
     const QString &password = edit->text();
-    if (m_nameEdit->text().toLower() == password.toLower()) {
-        showErrorTip(m_passwdEdit, tr("The password should be different from the username"));
+    if (password.isEmpty()) {
+        showErrorTip(edit, tr("Password cannot be empty"));
         return;
     }
 
-    if (!validatePassword(password)) {
-        if (edit == m_passwdEdit) {
-            showErrorTip(m_passwdEdit, tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
-        } else {
-            showErrorTip(m_repeatpasswdEdit, tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
-        }
+    if (m_nameEdit->text().toLower() == password.toLower()) {
+        showErrorTip(edit, tr("The password should be different from the username"));
+        return;
+    }
+
+    bool result = validatePassword(password);
+    if (!result) {
+        showErrorTip(edit, tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
+        m_addBtn->setEnabled(false);
     } else {
-        m_errorTip->hide();
+        if (m_errorTip->isVisible()) {
+            m_errorTip->hide();
+        }
+        m_addBtn->setEnabled(true);
     }
 }
 
