@@ -25,120 +25,129 @@
 <context>
     <name>DCC_NAMESPACE::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="155"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="158"/>
         <source>Account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="156"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="159"/>
         <source>Cloud Sync</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="157"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="160"/>
         <source>Display</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="158"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
         <source>Default Applications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="159"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="162"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="160"/>
-        <source>Time and Date</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
-        <source>Mouse</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="162"/>
-        <source>Keyboard</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="163"/>
-        <source>Bluetooth</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="164"/>
-        <source>Sound</source>
+        <source>Date and Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="165"/>
-        <source>Personalization</source>
+        <source>Keyboard and Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="171"/>
+        <source>Drawing Tablet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="172"/>
+        <source>System Info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="173"/>
+        <source>Common Info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="164"/>
+        <source>Mouse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="166"/>
-        <source>Power</source>
+        <source>Bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="167"/>
-        <source>Update</source>
+        <source>Sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="168"/>
-        <source>Wacom</source>
+        <source>Personalization</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="169"/>
-        <source>Systeminfo</source>
+        <source>Power</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="170"/>
+        <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="190"/>
         <source>Change Password</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="190"/>
-        <source>Delete Account</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="192"/>
+        <source>Delete Account</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/accounts/Delete Account</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="195"/>
         <source>Auto Login</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/accounts/Auto Login</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="199"/>
         <source>Login Without Password</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="202"/>
         <source>Fingerprint Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="203"/>
         <source>Add fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="204"/>
         <source>Delete fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="279"/>
         <source>Fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
@@ -167,93 +176,100 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="115"/>
-        <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="126"/>
+        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="119"/>
-        <source>Added successfully</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="126"/>
-        <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
+        <source>Fingerprint added</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::accounts::CreateAccountPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="125"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="124"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="126"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="130"/>
-        <source>Necessary Filling</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="127"/>
         <source>Full Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="129"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="131"/>
         <source>Repeat Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="124"/>
         <source>New Account</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="132"/>
+        <source>Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="134"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="135"/>
         <source>Create</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="148"/>
         <source>Username cannot be empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="225"/>
         <source>Password cannot be empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="156"/>
         <source>Passwords do not match</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="230"/>
         <source>The password should be different from the username</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="259"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
-        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="236"/>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="266"/>
+        <source>The first character must be in lower case</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="272"/>
+        <source>Username must only contain a~z, 0~9, - or _</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="259"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation type="unfinished"></translation>
     </message>
@@ -274,7 +290,7 @@
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="100"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="103"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="106"/>
-        <source>Necessary Filling</source>
+        <source>Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -305,12 +321,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="140"/>
-        <source>The new password is empty</source>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="145"/>
+        <source>Password cannot be empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="145"/>
-        <source>Repeat password is empty</source>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="252"/>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -328,115 +345,202 @@
         <source>The password should be different from the username</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="252"/>
-        <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="54"/>
         <source>My devices</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/bluetooth/My Device</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="56"/>
         <source>Other devices</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="64"/>
-        <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="68"/>
+        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::bluetooth::DetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="42"/>
-        <source>Ignore</source>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="44"/>
+        <source>Ignore this device</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/bluetooth/Ignore this device</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="43"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="46"/>
         <source>Disconnect</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/bluetooth/Disconnect</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="53"/>
         <source>Change Name</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/bluetooth/Change Name</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="131"/>
         <source>Connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="136"/>
         <source>Not connected</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
+    <name>DCC_NAMESPACE::commoninfo::BootWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="59"/>
+        <source>Updating...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="71"/>
+        <source>Startup Delay</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="75"/>
+        <source>Theme</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="77"/>
+        <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="81"/>
+        <source>Switch theme on to view it in boot menu</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
+        <source>Boot Menu</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>DCC_NAMESPACE::commoninfo::CommonInfoWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="71"/>
+        <source>Boot Menu</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="77"/>
+        <source>Developer Mode</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="83"/>
+        <source>User Experience Program</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+</context>
+<context>
     <name>DCC_NAMESPACE::datetime::DateSettings</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="80"/>
         <source>Auto Sync</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="91"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="93"/>
         <source>Confirm</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="127"/>
+        <source>Server</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="135"/>
+        <source>Address</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="138"/>
+        <source>Required</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="337"/>
+        <source>Customize</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::datetime::DateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="63"/>
         <source>Year</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="67"/>
         <source>Month</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="71"/>
         <source>Day</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::datetime::DatetimeWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="53"/>
-        <source>24 Hour Time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Timezone List</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="62"/>
-        <source>System Timezone</source>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="83"/>
+        <source>24-hour Time</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/datetime/System Timezone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="64"/>
@@ -446,57 +550,73 @@
     </message>
 </context>
 <context>
+    <name>DCC_NAMESPACE::datetime::SystemTimezone</name>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="39"/>
+        <source>Change System Timezone</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="42"/>
+        <source>System Timezone</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
     <name>DCC_NAMESPACE::datetime::TimezoneList</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="47"/>
         <source>Timezone List</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::defapp::DefappDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="56"/>
-        <source>Browser</source>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="51"/>
+        <source>Webpage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="52"/>
         <source>Mail</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="53"/>
         <source>Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="54"/>
         <source>Music</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="55"/>
         <source>Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="56"/>
         <source>Picture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="57"/>
         <source>Terminal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="238"/>
         <source>Open Desktop file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="290"/>
         <source>Invalid</source>
         <translation type="unfinished"></translation>
     </message>
@@ -507,39 +627,46 @@
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="50"/>
         <source>Webpage</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="51"/>
-        <source>Mail</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="52"/>
-        <source>Text</source>
+        <source>Mail</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="53"/>
-        <source>Music</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/defapp/Mail</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="54"/>
-        <source>Video</source>
+        <source>Text</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="55"/>
-        <source>Picture</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/defapp/Text</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="56"/>
-        <source>Terminal</source>
+        <source>Music</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/defapp/Music</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="58"/>
+        <source>Video</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/defapp/Video</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="60"/>
+        <source>Picture</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/defapp/Picture</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="62"/>
+        <source>Terminal</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/defapp/Terminal</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="91"/>
         <source>Default Applications</source>
         <translation type="unfinished"></translation>
     </message>
@@ -547,74 +674,88 @@
 <context>
     <name>DCC_NAMESPACE::display::BrightnessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="54"/>
-        <source>The screen tone will be auto adjusted                                     according to your location</source>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="55"/>
+        <source>The screen tone will be auto adjusted according to your location</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="64"/>
         <source>Night Shift</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="69"/>
         <source>Auto Brightness</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::display::CustomSettingDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="73"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="80"/>
+        <source>Main Screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="256"/>
         <source>Resolution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="90"/>
+        <source>Refresh Rate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="114"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="118"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="210"/>
         <source>Recommended</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="255"/>
         <source>inch</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::display::DisplayWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="112"/>
         <source>Multiple Displays</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="118"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="125"/>
         <source>Display Scaling</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="121"/>
         <source>Resolution</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="123"/>
         <source>Brightness</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
@@ -629,42 +770,32 @@
         <extra-contents_path>/display/Customize</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="85"/>
         <source>Duplicate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="85"/>
         <source>Extend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="88"/>
         <source>Show the same image on other screens</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="89"/>
         <source>Expand the desktop across the screens</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="93"/>
-        <source>dcc_display_copy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="93"/>
-        <source>dcc_display_expansion</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="97"/>
         <source>%1 only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="98"/>
         <source>Show the screen content only on %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -682,9 +813,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="143"/>
         <source>Recommended</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
 <context>
@@ -698,9 +830,10 @@
 <context>
     <name>DCC_NAMESPACE::display::ScalingPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="49"/>
-        <source>Some applications cannot be scaled with the                                 specified settings in multi-display environment.</source>
+        <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="50"/>
+        <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
 </context>
 <context>
@@ -709,117 +842,137 @@
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="59"/>
         <source>Add Custom Shortcut</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="65"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="67"/>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="76"/>
         <source>Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="72"/>
         <source>Command</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="85"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="88"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="116"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="168"/>
-        <source>Choose File</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::keyboard::GeneralKBSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="45"/>
         <source>Repeat Delay</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="55"/>
         <source>Short</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="53"/>
-        <source>Long</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="57"/>
+        <source>Long</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="61"/>
         <source>Repeat Rate</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="66"/>
-        <source>Slow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="66"/>
-        <source>Fast</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="71"/>
-        <source>Please Test Here</source>
+        <source>Slow</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="85"/>
-        <source>Enable Numeric Keyboard</source>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="73"/>
+        <source>Fast</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="79"/>
+        <source>Test here</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="94"/>
+        <source>Numeric Keypad</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="99"/>
         <source>Caps Lock Prompt</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::keyboard::KBLayoutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="58"/>
         <source>Keyboard Layout</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="69"/>
         <source>Switch Layouts (Multiple)</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="95"/>
         <source>Applies to</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="97"/>
         <source>System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="97"/>
         <source>Application</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DCC_NAMESPACE::keyboard::KeyboardModule</name>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="205"/>
+        <source>Custom Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -845,75 +998,87 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="57"/>
-        <source>ShortCut</source>
+        <source>Shortcuts</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/keyboard/ShortCut</extra-contents_path>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::keyboard::ShortCutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="54"/>
         <source>System</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="56"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="57"/>
-        <source>WorkSpace</source>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="58"/>
+        <source>Workspace</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="102"/>
+        <source>Shortcut</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="71"/>
         <source>Custom Shortcut</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="84"/>
         <source>Restore Defaults</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="99"/>
-        <source>Shortcuts</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::mouse::GeneralSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="45"/>
         <source>Left Hand</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="45"/>
-        <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="46"/>
-        <source>Scroll Speed</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="47"/>
+        <source>Disable touchpad while typing</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="49"/>
+        <source>Scrolling Speed</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="51"/>
         <source>Double-click Speed</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="68"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="70"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
 </context>
 <context>
@@ -922,31 +1087,37 @@
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="42"/>
         <source>Pointer Speed</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="43"/>
-        <source>Mouse Acceleration</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="44"/>
-        <source>Disable the touchpad when inserting the mouse</source>
+        <source>Mouse Acceleration</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="46"/>
+        <source>Disable touchpad when a mouse is connected</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="48"/>
         <source>Natural Scrolling</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="52"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="54"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
 </context>
 <context>
@@ -965,9 +1136,9 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="61"/>
-        <source>TouchPad</source>
+        <source>Touchpad</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/mouse/TouchPad</extra-contents_path>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="63"/>
@@ -982,44 +1153,52 @@
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="43"/>
         <source>Pointer Speed</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="44"/>
-        <source>Tap to Click</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="45"/>
+        <source>Tap to Click</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="47"/>
         <source>Natural Scrolling</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="49"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="52"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="49"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="54"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::mouse::TrackPointSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="37"/>
+        <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="38"/>
         <source>Pointer Speed</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="39"/>
+        <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="41"/>
         <source>Slow</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="39"/>
+        <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="43"/>
         <source>Fast</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1030,54 +1209,59 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="52"/>
         <source>Proxy Type</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="61"/>
         <source>IP address</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="60"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="67"/>
         <source>Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="66"/>
         <source>Port</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
         <source>Username</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="68"/>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="77"/>
         <source>Optional</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="76"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="95"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="100"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="101"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1279,15 +1463,14 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::HotspotPage</name>
+    <name>DCC_NAMESPACE::network::HotspotDeviceWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="61"/>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="66"/>
         <source>Hotspot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="67"/>
         <source>Add Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1446,49 +1629,63 @@
 <context>
     <name>DCC_NAMESPACE::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="61"/>
         <source>DSL</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="69"/>
         <source>VPN</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="77"/>
         <source>System Proxy</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="83"/>
         <source>Application Proxy</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="91"/>
         <source>Network Details</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="189"/>
+        <source>Personal Hotspot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="205"/>
         <source>Wired Network%1</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="208"/>
         <source>Wired Network</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="213"/>
         <source>Wireless Network%1</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="216"/>
         <source>Wireless Network</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1634,45 +1831,52 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="69"/>
         <source>HTTP Proxy</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="70"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="80"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="93"/>
         <source>Port</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="76"/>
         <source>HTTPS Proxy</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="78"/>
-        <source>FTP Proxy</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="83"/>
+        <source>FTP Proxy</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="90"/>
         <source>SOCKS Proxy</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="101"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="105"/>
         <source>Configuration URL</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="162"/>
         <source>System Proxy</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1845,37 +2049,37 @@
 <context>
     <name>DCC_NAMESPACE::network::SecretHotspotSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="106"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="107"/>
         <source>WEP 40/128-bit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="108"/>
         <source>WPA/WPA2 Personal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="115"/>
         <source>Security</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="121"/>
         <source>Required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="150"/>
         <source>Key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="156"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2945,22 +3149,25 @@
 <context>
     <name>DCC_NAMESPACE::personalization::PersonalizationFontsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="49"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="68"/>
         <source>Standard Font</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="77"/>
         <source>Monospaced Font</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="180"/>
         <source> (Unsupported font)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2968,68 +3175,79 @@
 <context>
     <name>DCC_NAMESPACE::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="58"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="65"/>
         <source>Accent Color</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="81"/>
         <source>Transparency</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="100"/>
         <source>Window Effect</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::personalization::PersonalizationList</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="49"/>
         <source>General</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="49"/>
-        <source>Icon Theme</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="50"/>
-        <source>Cursor Theme</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="51"/>
+        <source>Icon Theme</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="53"/>
+        <source>Cursor Theme</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="55"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::personalization::PerssonalizationThemeWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="77"/>
         <source>Light</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="78"/>
-        <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="80"/>
-        <source>Auto</source>
+        <source>Dark</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="83"/>
+        <source>Auto</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="88"/>
         <source>Default</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3038,41 +3256,62 @@
     <name>DCC_NAMESPACE::power::GeneralWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="39"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="47"/>
         <source>Power Saving Mode</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="40"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="49"/>
         <source>Auto Mode Switch</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="41"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="51"/>
         <source>Password is required to wake up the computer</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="42"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="53"/>
         <source>Password is required to wake up the monitor</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>DCC_NAMESPACE::power::PowerModule</name>
+    <message>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="207"/>
+        <source>Battery low, please plug in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="209"/>
+        <source>Battery critically low</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::power::PowerWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="58"/>
         <source>General</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="60"/>
         <source>Plugged In</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="62"/>
         <source>On Battery</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
@@ -3082,41 +3321,47 @@
     <name>DCC_NAMESPACE::power::UseBatteryWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="39"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="46"/>
         <source>Monitor will suspend after</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="40"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="48"/>
         <source>Computer will suspend after</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="41"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
         <source>Lock screen after</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="53"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="160"/>
         <source>Never</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="142"/>
         <source>1 Minute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="131"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="134"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="137"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="163"/>
         <source>%1 Minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="157"/>
         <source>1 Hour</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3125,46 +3370,54 @@
     <name>DCC_NAMESPACE::power::UseElectricWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="41"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="49"/>
         <source>Monitor will suspend after</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="42"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="51"/>
         <source>Computer will suspend after</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="43"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="53"/>
         <source>Lock screen after</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="55"/>
         <source>Suspend on lid close</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="57"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="174"/>
         <source>Never</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="156"/>
         <source>1 Minute</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="135"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="138"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="144"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="177"/>
         <source>%1 Minutes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="171"/>
         <source>1 Hour</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3172,33 +3425,36 @@
 <context>
     <name>DCC_NAMESPACE::sound::AdvancedPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="39"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="57"/>
         <source>Output</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="63"/>
         <source>Input</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::sound::MicrophonePage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="56"/>
         <source>Input Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="60"/>
-        <source>Speaker</source>
+        <source>Microphone</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::sound::SoundEffectsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="48"/>
         <source>Sound Effects</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3206,25 +3462,25 @@
 <context>
     <name>DCC_NAMESPACE::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="69"/>
         <source>Speaker</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="71"/>
         <source>Microphone</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="73"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="75"/>
         <source>Sound Effects</source>
         <translation type="unfinished"></translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
@@ -3233,21 +3489,22 @@
 <context>
     <name>DCC_NAMESPACE::sound::SpeakerPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="42"/>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="43"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="83"/>
         <source>Output Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="43"/>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="101"/>
         <source>Left/Right Balance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="49"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="50"/>
         <source>Speaker</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
 </context>
 <context>
@@ -3271,96 +3528,86 @@
 <context>
     <name>DCC_NAMESPACE::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="56"/>
         <source>Edition:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="60"/>
         <source>Type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="63"/>
         <source>Processor:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="67"/>
         <source>Memory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="71"/>
         <source>Disk:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="99"/>
-        <source>%1Bit</source>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="101"/>
+        <source>%1-bit</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="62"/>
-        <source>About this machine</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="63"/>
-        <source>Version Agreement</source>
+        <source>About This PC</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="65"/>
+        <source>Edition License</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="67"/>
         <source>End User License Agreement</source>
         <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>DCC_NAMESPACE::systeminfo::VersionProtocolWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/versionprotocolwidget.cpp" line="50"/>
-        <source>express oneundefineds thanks</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::update::MirrorsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="41"/>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="62"/>
+        <source>Mirror List</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="48"/>
         <source>Test Speed</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="45"/>
-        <source>Switch Mirror</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="58"/>
-        <source>Mirror source list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="160"/>
         <source>Retest</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="60"/>
-        <source>Please restart to use the system and applications properly after updated</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="70"/>
         <source>Network disconnected, please retry after connected</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="64"/>
@@ -3368,101 +3615,125 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="89"/>
-        <source>This update may take a long time, please do not shut down or reboot during the process</source>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="68"/>
+        <source>Restart the computer to use the system and the applications properly</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="192"/>
-        <source>Checking for updates, please wait...</source>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="95"/>
+        <source>This update may take a long time, please do not shut down or reboot during the process</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="199"/>
+        <source>Checking for updates, please wait...</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="207"/>
         <source>Download and install updates</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="209"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="350"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="225"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="233"/>
         <source>Install updates</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="241"/>
         <source>Your system is up to date</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="252"/>
         <source>Updating, please wait...</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="269"/>
         <source>The newest system installed, restart to take effect</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="265"/>
-        <source>Insufficient disk space, unable to update system.</source>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="280"/>
+        <source>Update failed: insufficient disk space</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="314"/>
+        <source>%n application update(s) available</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="320"/>
+        <source>New system edition available</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message numerus="yes">
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="323"/>
+        <source>New system edition and %n application update(s) available</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+        </translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="334"/>
+        <source>Size: %1</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="288"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="297"/>
-        <source>%n application update(s) detected</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="302"/>
-        <source>New system edition detected</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="304"/>
-        <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished">
-            <numerusform></numerusform>
-            <numerusform></numerusform>
-        </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="331"/>
         <source>Downloaded</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
-        <source>Download size: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="359"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="362"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
 <context>
@@ -3473,59 +3744,61 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="67"/>
         <source>Auto Clear Package Cache</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="71"/>
         <source>Updates Notification</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="72"/>
-        <source>Auto-download Updates</source>
-        <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="74"/>
-        <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="81"/>
-        <source>System Source Detection</source>
+        <source>Auto Download Updates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
-        <source>Prompt the notification if system update mirror has been modified</source>
+        <source>System Repository Detection</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
-        <source>Smart Mirror Switch</source>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="90"/>
+        <source>Show a notification if system update repository has been modified</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="126"/>
+        <source>Mirror List</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="77"/>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="109"/>
-        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <source>Smart Mirror Switch</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="119"/>
-        <source>Switch Mirror</source>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="116"/>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
         <translation type="unfinished"></translation>
-        <extra-contents_path>/update/Update Settings/Switch Mirror</extra-contents_path>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::update::UpdateWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="53"/>
-        <source>Recently updated</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="59"/>
         <source>Update</source>
@@ -3539,20 +3812,28 @@
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="65"/>
+        <source>Last Update</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="114"/>
         <source>Return</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="131"/>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="141"/>
         <source>Current Edition</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="151"/>
         <source>Update History</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
 <context>
@@ -3630,77 +3911,77 @@
 <context>
     <name>IndexPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="34"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="31"/>
         <source>Auto Sync</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="37"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="34"/>
         <source>Syncing...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="78"/>
         <source>Sign Out</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="119"/>
         <source>Network Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="120"/>
         <source>Sound Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="121"/>
         <source>Mouse Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="122"/>
         <source>Update Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="123"/>
         <source>Dock</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="124"/>
         <source>Launcher</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="125"/>
         <source>Wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="126"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="127"/>
         <source>Power Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="128"/>
         <source>Corner Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="226"/>
         <source>Last Sync: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="228"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3795,7 +4076,7 @@
 <context>
     <name>RotateDialog</name>
     <message>
-        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="136"/>
+        <location filename="../src/frame/modules/display/rotatedialog.cpp" line="137"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
 If no operation, the display will be restored after %1s.</source>
         <translation type="unfinished"></translation>
@@ -4014,32 +4295,32 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::ADDialog</name>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="54"/>
+        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="53"/>
         <source>Leave domain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="54"/>
+        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="53"/>
         <source>Join domain</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="62"/>
+        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="61"/>
         <source>Domain Server</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="63"/>
+        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="62"/>
         <source>Admin account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="64"/>
+        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="73"/>
+        <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="72"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4446,7 +4727,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="51"/>
-        <source>OK</source>
+        <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4641,40 +4922,42 @@ If no operation, the display will be restored after %1s.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="176"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="178"/>
         <source>Add Timezone</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="176"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="181"/>
         <source>Change Timezone</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dcc::datetime::TimezoneItem</name>
     <message>
-        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="107"/>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="109"/>
         <source>Tomorrow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="109"/>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="111"/>
         <source>Yesterday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="111"/>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="113"/>
         <source>Today</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="116"/>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="118"/>
         <source>%1 hours earlier than local</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="118"/>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="120"/>
         <source>%1 hours late than local</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4902,27 +5185,27 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::MonitorSettingDialog</name>
     <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="110"/>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="107"/>
         <source>Resolution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="173"/>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="170"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="175"/>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="172"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="182"/>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="179"/>
         <source>Primary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="349"/>
+        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="346"/>
         <source> (Recommended)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4998,12 +5281,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="116"/>
-        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="171"/>
-        <source>Choose File</source>
+        <source>This shortcut conflicts with %1, click on Save to make this shortcut effective immediately</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5011,7 +5289,6 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::keyboard::CustomEdit</name>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="50"/>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="99"/>
         <source>Shortcuts</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5031,6 +5308,11 @@ If no operation, the display will be restored after %1s.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="99"/>
+        <source>Shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="102"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
@@ -5045,17 +5327,12 @@ If no operation, the display will be restored after %1s.</source>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="161"/>
-        <source>Choose File</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>dcc::keyboard::CustomItem</name>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="48"/>
-        <source>Shortcuts</source>
+        <source>Shortcut</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5200,8 +5477,8 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="85"/>
-        <source>Please enter a new shortcut</source>
+        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="75"/>
+        <source>Enter a new shortcut</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5338,22 +5615,22 @@ If no operation, the display will be restored after %1s.</source>
     <name>dcc::mouse::PalmDetectSetting</name>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
-        <source>Palm Detect</source>
+        <source>Palm Detection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
-        <source>Minimum contact surface</source>
+        <source>Minimum Contact Surface</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
-        <source>Minimum pressure value</source>
+        <source>Minimum Pressure Value</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
-        <source>Please disable the option if touchpad doesn&apos;t work after enabled</source>
+        <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7393,29 +7670,29 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="77"/>
+        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="79"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
         <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Personalization</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="46"/>
+        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="48"/>
         <source>Transparency</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="68"/>
+        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
         <source>Window Effect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
+        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="72"/>
         <source>Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="71"/>
+        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="73"/>
         <source>Font</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7675,7 +7952,7 @@ If no operation, the display will be restored after %1s.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="125"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8002,12 +8279,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="238"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="245"/>
         <source>Patches</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="239"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="246"/>
         <source>System patches</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8079,9 +8356,10 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dccV20::update::UpdateHistoryButton</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatehistorybutton.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/update/updatehistorybutton.cpp" line="49"/>
         <source>Update History</source>
         <translation type="unfinished"></translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
 </TS>
