@@ -38,16 +38,21 @@ using namespace DCC_NAMESPACE::power;
 UseElectricWidget::UseElectricWidget(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
-    //~ contents_path /power/Plugged In
     , m_monitorSleepOnPower(new TitledSliderItem(tr("Monitor will suspend after")))
-    //~ contents_path /power/Plugged In
     , m_computerSleepOnPower(new TitledSliderItem(tr("Computer will suspend after")))
-    //~ contents_path /power/Plugged In
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
-    //~ contents_path /power/Plugged In
     , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    //~ contents_path /power/Plugged In
+    m_monitorSleepOnPower->setAccessibleName(tr("Monitor will suspend after"));
+    //~ contents_path /power/Plugged In
+    m_computerSleepOnPower->setAccessibleName(tr("Computer will suspend after"));
+    //~ contents_path /power/Plugged In
+    m_autoLockScreen->setAccessibleName(tr("Lock screen after"));
+    //~ contents_path /power/Plugged In
+    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
     m_layout->addWidget(m_monitorSleepOnPower);
     m_layout->addWidget(m_computerSleepOnPower);

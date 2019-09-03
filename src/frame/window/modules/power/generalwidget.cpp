@@ -36,16 +36,21 @@ using namespace DCC_NAMESPACE::power;
 GeneralWidget::GeneralWidget(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
-    //~ contents_path /power/General
     , m_lowBatteryMode(new SwitchWidget(tr("Power Saving Mode")))
-    //~ contents_path /power/General
     , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto Mode Switch")))
-    //~ contents_path /power/General
     , m_wakeComputerNeedPassword(new SwitchWidget(tr("Password is required to wake up the computer")))
-    //~ contents_path /power/General
     , m_wakeDisplayNeedPassword(new SwitchWidget(tr("Password is required to wake up the monitor")))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    //~ contents_path /power/General
+    m_lowBatteryMode->setTitle(tr("Power Saving Mode"));
+    //~ contents_path /power/General
+    m_autoIntoSaveEnergyMode->setTitle(tr("Auto Mode Switch"));
+    //~ contents_path /power/General
+    m_wakeComputerNeedPassword->setTitle(tr("Password is required to wake up the computer"));
+    //~ contents_path /power/General
+    m_wakeDisplayNeedPassword->setTitle(tr("Password is required to wake up the monitor"));
 
     m_layout->addWidget(m_lowBatteryMode);
     m_layout->setSpacing(0);

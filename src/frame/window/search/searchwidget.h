@@ -40,6 +40,7 @@ QT_END_NAMESPACE
 #define DEBUG_XML_SWITCH 0
 
 const QString RES_TS_PATH = ":/translations/";
+const QString XML_Source = "source";
 const QString XML_Title = "translation";
 const QString XML_Explain_Path = "extra-contents_path";
 

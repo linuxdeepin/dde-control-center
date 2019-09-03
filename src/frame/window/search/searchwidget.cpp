@@ -40,11 +40,11 @@ SearchWidget::SearchWidget(QWidget *parent)
     m_completer = new QCompleter(m_model, this);
     setCompleter(m_completer);
 
-    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::returnPressed, this, [=] {
+    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::returnPressed, this, [ = ] {
         if (!text().isEmpty()) {
             //enter defalt set first
             if (!jumpContentPathWidget(text())) {
-                const QString& currentCompletion = completer()->currentCompletion();
+                const QString &currentCompletion = completer()->currentCompletion();
                 qDebug() << Q_FUNC_INFO << " currentCompletion : " << currentCompletion;
 
                 setText(currentCompletion);
@@ -62,15 +62,18 @@ SearchWidget::~SearchWidget()
 bool SearchWidget::jumpContentPathWidget(QString path)
 {
     qDebug() << Q_FUNC_INFO << path;
-
     bool bResult = false;
 
     if (m_EnterNewPagelist.count() > 0) {
         SearchBoxStruct data = getModuleBtnString(path);
-
         if (data.title != "" && data.explain != "") {
-            bResult = true;
-            Q_EMIT notifyModuleSearch(data.title, data.explain);
+            for (int i = 0; i < m_EnterNewPagelist.count(); i++) {
+                if (m_EnterNewPagelist[i].title == data.explain) {
+                    Q_EMIT notifyModuleSearch(data.title, m_EnterNewPagelist[i].explain.section('/', 2, -1));//explain need delete moduleName
+                    bResult = true;
+                    break;
+                }
+            }
         }
     } else {
         qWarning() << "QList is nullptr.";
@@ -154,8 +157,11 @@ void SearchWidget::loadxml()
 #if DEBUG_XML_SWITCH
                         qDebug() << "  xmlRead.text : " << xmlRead.text().toString();
 #endif
-                        if (m_xmlExplain == XML_Title) {
+                        if (m_xmlExplain == XML_Source) { //get xml source date
                             m_searchBoxStruct.title = xmlRead.text().toString();
+                        } else if (m_xmlExplain == XML_Title) {
+                            if (xmlRead.text().toString() != "") //translation not nullptr can set it
+                                m_searchBoxStruct.title = xmlRead.text().toString();
 #if DEBUG_XML_SWITCH
                             qDebug() << "---------- m_searchBoxStruct.title : " << m_searchBoxStruct.title;
 #endif
@@ -165,7 +171,7 @@ void SearchWidget::loadxml()
 
                             //Add search result content
                             m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(m_searchBoxStruct.explain.section('/', 1, 1)),
-                                                                 QString("%1 --> %2").arg(m_searchBoxStruct.title).arg(m_searchBoxStruct.explain)));
+                                                                 QString("%1 --> %2").arg(m_searchBoxStruct.explain.section('/', 1, 1)).arg(m_searchBoxStruct.title)));
 
                             m_searchBoxStruct.title = "";
                             m_searchBoxStruct.explain = "";
@@ -207,8 +213,8 @@ SearchWidget::SearchBoxStruct SearchWidget::getModuleBtnString(QString value)
 {
     SearchBoxStruct data;
 
-    data.title = value.section('/', 1, 1).remove('/');
-    data.explain = value.section('/', 2, 3);
+    data.title = value.section(' ', 0, 0).remove(' ');
+    data.explain = value.section(' ', 2, -1);
 
 #if DEBUG_XML_SWITCH
     qDebug() << Q_FUNC_INFO << "data.title : " << data.title << "   ,  data.explain : " << data.explain;
