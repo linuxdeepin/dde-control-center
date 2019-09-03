@@ -23,16 +23,21 @@
 #include "window/modules/commoninfo/commonbackgrounditem.h"
 #include "window/modules/commoninfo/commoninfomodel.h"
 
+#include "window/utils.h"
+
+#include "widgets/switchwidget.h"
+#include "widgets/labels/tipslabel.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/translucentframe.h"
 #include "widgets/basiclistdelegate.h"
 
 #include <QVBoxLayout>
 #include <QScrollBar>
+#include <QListView>
 
 using namespace dcc;
 using namespace widgets;
-
+using namespace DTK_WIDGET_NAMESPACE;
 using namespace DCC_NAMESPACE;
 using namespace commoninfo;
 
@@ -49,13 +54,15 @@ BootWidget::BootWidget(QWidget *parent)
     listLayout->setSpacing(0);
     listLayout->setMargin(0);
 
-    m_bootList = new QListWidget;
-    m_bootList->setDragDropMode(QListWidget::DragDrop);
+    m_bootList = new DListView();
+    m_bootList->setAutoScroll(false);
+    m_bootList->setFrameShape(QFrame::NoFrame);
+    m_bootList->setDragDropMode(QListView::DragDrop);
     m_bootList->setDefaultDropAction(Qt::MoveAction);
-    m_bootList->setPalette(Qt::transparent);
-    m_bootList->setWordWrap(true);
     m_bootList->setDragEnabled(false);
     m_bootList->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
+    m_bootList->setSelectionMode(DListView::SingleSelection); // 单选
+
     m_updatingLabel = new TipsLabel(tr("Updating..."));
     m_updatingLabel->setVisible(false);
 
@@ -66,9 +73,9 @@ BootWidget::BootWidget(QWidget *parent)
     listLayout->addSpacing(10);
     m_background->setLayout(listLayout);
 
-    m_boot = new SwitchWidget();
+    m_bootDelay = new SwitchWidget();
     //~ contents_path /commoninfo/Boot Menu
-    m_boot->setTitle(tr("Startup Delay"));
+    m_bootDelay->setTitle(tr("Startup Delay"));
 
     m_theme = new SwitchWidget();
     //~ contents_path /commoninfo/Boot Menu
@@ -83,7 +90,7 @@ BootWidget::BootWidget(QWidget *parent)
     themeLbl->setContentsMargins(16, 0, 10, 0);
 
     groupBackground->appendItem(m_background);
-    groupOther->appendItem(m_boot);
+    groupOther->appendItem(m_bootDelay);
     groupOther->appendItem(m_theme);
 
     layout->setMargin(0);
@@ -102,8 +109,9 @@ BootWidget::BootWidget(QWidget *parent)
     setWindowTitle(tr("Boot Menu"));
 
     connect(m_theme, &SwitchWidget::checkedChanged, this, &BootWidget::enableTheme);
-    connect(m_boot, &SwitchWidget::checkedChanged, this, &BootWidget::bootdelay);
-    connect(m_bootList, &QListWidget::currentItemChanged, this, &BootWidget::onCurrentItem);
+    connect(m_bootDelay, &SwitchWidget::checkedChanged, this, &BootWidget::bootdelay);
+    connect(m_bootList, static_cast<void (DListView::*)(const QModelIndex &previous)>(&DListView::currentChanged),
+            this, &BootWidget::onCurrentItem);
     connect(m_background, &CommonBackgroundItem::requestEnableTheme, this, &BootWidget::enableTheme);
     connect(m_background, &CommonBackgroundItem::requestSetBackground, this, &BootWidget::requestSetBackground);
 }
@@ -114,9 +122,11 @@ void BootWidget::setDefaultEntry(const QString &value)
 
     blockSignals(true);
     for (int i = 0; i < m_bootList->count(); i++) {
-        QListWidgetItem *item = m_bootList->item(i);
-        if (item->text() == value) {
-            m_bootList->setCurrentRow(i);
+        QModelIndex itemIndex = m_bootList->model()->index(i, 0);
+        QString itemText = itemIndex.data().toString();
+        if (itemText == value) {
+            m_bootList->setCurrentIndex(itemIndex);
+            m_bootList->model()->setData(itemIndex, Qt::CheckState::Checked, Qt::CheckStateRole);
             break;
         }
     }
@@ -125,7 +135,7 @@ void BootWidget::setDefaultEntry(const QString &value)
 
 void BootWidget::setModel(CommonInfoModel *model)
 {
-    connect(model, &CommonInfoModel::bootDelayChanged, m_boot, &SwitchWidget::setChecked);
+    connect(model, &CommonInfoModel::bootDelayChanged, m_bootDelay, &SwitchWidget::setChecked);
     connect(model, &CommonInfoModel::themeEnabledChanged, m_theme, &SwitchWidget::setChecked);
     connect(model, &CommonInfoModel::defaultEntryChanged, this, &BootWidget::setDefaultEntry);
     connect(model, &CommonInfoModel::updatingChanged, m_updatingLabel, &SmallLabel::setVisible);
@@ -133,7 +143,7 @@ void BootWidget::setModel(CommonInfoModel *model)
     connect(model, &CommonInfoModel::themeEnabledChanged, m_background, &CommonBackgroundItem::setThemeEnable);
     connect(model, &CommonInfoModel::backgroundChanged, m_background, &CommonBackgroundItem::updateBackground);
 
-    m_boot->setChecked(model->bootDelay());
+    m_bootDelay->setChecked(model->bootDelay());
     m_theme->setChecked(model->themeEnabled());
     m_updatingLabel->setVisible(model->updating());
     m_background->setThemeEnable(model->themeEnabled());
@@ -146,45 +156,44 @@ void BootWidget::setModel(CommonInfoModel *model)
 
 void BootWidget::setEntryList(const QStringList &list)
 {
-    int currentIndex = 0;
+    auto itemModel = new QStandardItemModel(this);
+    m_bootList->setModel(itemModel);
 
+    QModelIndex currentIndex;
     for (int i = 0; i < list.count(); i++) {
         const QString entry = list.at(i);
 
-        QListWidgetItem *item = new QListWidgetItem(entry);
-        item->setBackground(Qt::transparent);
-        item->setSizeHint(QSize(200, 30));
-        onCurrentItem(nullptr, item);
-        m_bootList->addItem(item);
+        DStandardItem *item = new DStandardItem();
+        item->setText(entry);
+        item->setCheckable(true);
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
+
+        onCurrentItem(item->index());
+
+        itemModel->appendRow(item);
 
         if (m_defaultEntry == entry) {
-            currentIndex = i;
+            currentIndex = item->index();
         }
     }
-
-    m_bootList->setCurrentRow(currentIndex);
+    m_bootList->setCurrentIndex(currentIndex);
 }
 
-void BootWidget::onCurrentItem(QListWidgetItem *cur, QListWidgetItem *pre)
+void BootWidget::onCurrentItem(const QModelIndex &previousIdx)
 {
-    if (pre) {
-        QPixmap pix(16, 16);
-        pix.fill(Qt::transparent);
-        pre->setIcon(pix);
+    QString preText = previousIdx.data().toString();
+    if (preText.isEmpty())
+        return;
+
+    // 获取当前被选项
+    QModelIndex curIndex = m_bootList->currentIndex();
+    QString curText = curIndex.data().toString();
+    if (curText.isEmpty())
+        return;
+    if (curText != preText) {
+        Q_EMIT defaultEntry(curText);
     }
 
-    if (cur) {
-        //以下注释为勾的图标预留
-        //QIcon::fromTheme("dcc_common_select");
-        //cur->setIcon(loadPixmap(":/systeminfo/themes/common/icons/select.svg"));
-        // m_defaultEntry is empty means the data is being initialized.
-        //cur->setCheckState(Qt::Checked);
-        //cur->setSelected(true);
-
-        if (!m_defaultEntry.isEmpty()) {
-            Q_EMIT defaultEntry(cur->text());
-        }
-        cur->setSelected(true);
-
-    }
+    m_bootList->model()->setData(previousIdx, Qt::CheckState::Unchecked, Qt::CheckStateRole);
+    m_bootList->model()->setData(curIndex, Qt::CheckState::Checked, Qt::CheckStateRole);
 }

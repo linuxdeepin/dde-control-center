@@ -22,10 +22,14 @@
 #pragma once
 #include "window/namespace.h"
 
-#include "widgets/switchwidget.h"
-#include "widgets/labels/tipslabel.h"
+#include <DListView>
 
-#include <QListWidget>
+namespace dcc {
+namespace widgets {
+class SwitchWidget;
+class TipsLabel;
+}
+}
 
 namespace DCC_NAMESPACE {
 namespace commoninfo {
@@ -49,15 +53,15 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void setEntryList(const QStringList &list);
-    void onCurrentItem(QListWidgetItem *cur, QListWidgetItem *pre);
+    void onCurrentItem(const QModelIndex &previousIdx);
 
 private:
-    QString m_defaultEntry;
-    dcc::widgets::SwitchWidget *m_boot;
-    dcc::widgets::SwitchWidget *m_theme;
-    QListWidget *m_bootList;
-    dcc::widgets::TipsLabel *m_updatingLabel;
-    CommonBackgroundItem *m_background;
+    QString m_defaultEntry;                      // 默认启动项
+    dcc::widgets::SwitchWidget *m_bootDelay;     // 延时启动功能
+    dcc::widgets::SwitchWidget *m_theme;         // 主题功能
+    DTK_WIDGET_NAMESPACE::DListView *m_bootList; // 启动项目列表
+    dcc::widgets::TipsLabel *m_updatingLabel;    // Updating标签
+    CommonBackgroundItem *m_background;          // 背景项
 };
 
 } // namespace commoninfo
