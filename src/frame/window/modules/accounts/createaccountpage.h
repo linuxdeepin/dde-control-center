@@ -49,15 +49,18 @@ class CreateAccountPage : public QWidget
 public:
     explicit CreateAccountPage(QWidget *parent = nullptr);
     ~CreateAccountPage();
+    void setModel(dcc::accounts::User *user);
+
+private:
     void initWidgets();
     void initDatas();
-    void setModel(dcc::accounts::User *user);
     void createUser();
     void onEditFinished(DPasswordEdit *edit);
     bool validatePassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
     void showErrorTip(QLineEdit *edit, const QString &error);
-    void checkInputNameLenth();
+    bool validateUsername(const QString &username);
+    void onNameEditFinished();
 
 Q_SIGNALS:
     void requestCreateUser(const dcc::accounts::User *user);

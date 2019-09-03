@@ -104,7 +104,7 @@ void CreateAccountPage::initDatas()
 {
     connect(m_cancleBtn, &QPushButton::clicked, this, &CreateAccountPage::requestBack);
     connect(m_addBtn, &QPushButton::clicked, this, &CreateAccountPage::createUser);
-    connect(m_nameEdit, &QLineEdit::editingFinished, this, &CreateAccountPage::checkInputNameLenth);
+    connect(m_nameEdit, &QLineEdit::editingFinished, this, &CreateAccountPage::onNameEditFinished);
     connect(m_nameEdit, &QLineEdit::textEdited, this, [ = ](const QString & str) {
         m_nameEdit->setText(str.toLower());
     });
@@ -169,7 +169,7 @@ void CreateAccountPage::createUser()
 bool CreateAccountPage::validatePassword(const QString &password)
 {
     QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
-        QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("~!@#$%^&*()[]{}\\|/?,.<>");
+                              QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("~!@#$%^&*()[]{}\\|/?,.<>");
 
     return containsChar(password, validate_policy);
 }
@@ -243,14 +243,38 @@ void CreateAccountPage::onEditFinished(DPasswordEdit *edit)
     }
 }
 
-void CreateAccountPage::checkInputNameLenth()
+bool CreateAccountPage::validateUsername(const QString &username)
+{
+    const QString name_validate = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") + QString("-_");
+    return containsChar(username, name_validate);
+}
+
+void CreateAccountPage::onNameEditFinished()
 {
     QLineEdit *edit = qobject_cast<QLineEdit *>(sender());
+    QString username = edit->text();
 
     if (edit->text().size() < 3 || edit->text().size() > 32) {
         m_addBtn->setEnabled(false);
         showErrorTip(edit, tr("Username must be between 3 and 32 characters"));
-    } else {
-        m_addBtn->setEnabled(true);
+        return;
     }
+
+    const QString compStr = "abcdefghijklmnopqrstuvwxyz";
+    if (!compStr.contains(username.at(0))) {
+        m_addBtn->setEnabled(false);
+        showErrorTip(edit, tr("The first character must be in lower case"));
+        return;
+    }
+
+    if (!validateUsername(username)) {
+        m_addBtn->setEnabled(false);
+        showErrorTip(edit, tr("Username must only contain a~z, 0~9, - or _"));
+        return;
+    }
+
+    if (m_errorTip->isVisible()) {
+        m_errorTip->hide();
+    }
+    m_addBtn->setEnabled(true);
 }
