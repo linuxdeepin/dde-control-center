@@ -88,6 +88,7 @@ private:
     void initOtherDialog();
     void initResolutionList();
     void initMoniList();
+    void initMoniControlWidget();
     //初始化主屏窗口中的　屏幕代理　及　屏幕列表　部分．
     void initPrimaryDialog();
 

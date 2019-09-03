@@ -180,7 +180,7 @@ void MonitorSettingDialog::initPrimary()
     m_mainLayout->insertWidget(1, m_primarySettingsWidget);
 
     m_ctrlWidget = new MonitorControlWidget;
-    m_ctrlWidget->setDisplayModel(m_model);
+    m_ctrlWidget->setDisplayModel(m_model, nullptr);
 
     m_mainLayout->insertWidget(1, m_ctrlWidget);
 

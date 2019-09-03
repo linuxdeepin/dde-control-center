@@ -60,14 +60,13 @@ MonitorsGround::~MonitorsGround()
     qDeleteAll(m_monitors.keys());
 }
 
-void MonitorsGround::setDisplayModel(DisplayModel *model)
+void MonitorsGround::setDisplayModel(DisplayModel *model, Monitor *moni)
 {
     m_model = model;
     m_viewPortWidth = model->screenWidth();
     m_viewPortHeight = model->screenHeight();
 
-    for (auto mon : model->monitorList())
-    {
+    auto initMW = [ this ](Monitor * mon) {
         MonitorProxyWidget *pw = new MonitorProxyWidget(mon, this);
         m_monitors[pw] = mon;
 
@@ -75,7 +74,15 @@ void MonitorsGround::setDisplayModel(DisplayModel *model)
         connect(pw, &MonitorProxyWidget::requestMonitorPress, this, &MonitorsGround::requestMonitorPress);
         connect(pw, &MonitorProxyWidget::requestMonitorRelease, this, &MonitorsGround::requestMonitorRelease);
         connect(mon, &Monitor::geometryChanged, m_refershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-        connect(model, &DisplayModel::primaryScreenChanged, pw, static_cast<void (MonitorProxyWidget::*)()>(&MonitorProxyWidget::update), Qt::QueuedConnection);
+        connect(m_model, &DisplayModel::primaryScreenChanged, pw, static_cast<void (MonitorProxyWidget::*)()>(&MonitorProxyWidget::update), Qt::QueuedConnection);
+    };
+
+    if (!moni) {
+        for (auto mon : model->monitorList()) {
+            initMW(mon);
+        }
+    } else {
+        initMW(moni);
     }
 
     QTimer::singleShot(1, this, &MonitorsGround::resetMonitorsView);
@@ -89,7 +96,7 @@ void MonitorsGround::resetMonitorsView()
     for (auto pw : m_monitors.keys())
         adjust(pw);
 
-    Monitor* firstMonitor = m_monitors.values().first();
+    Monitor *firstMonitor = m_monitors.values().first();
     for (auto it = m_monitors.cbegin(); it != m_monitors.cend(); ++it) {
         if (firstMonitor->rect() == it.value()->rect()) {
             m_model->setIsMerge(true);
@@ -126,13 +133,11 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
     // clear global offset
     int minX = INT_MAX;
     int minY = INT_MAX;
-    for (auto w : m_monitors.keys())
-    {
+    for (auto w : m_monitors.keys()) {
         minX = std::min(minX, w->x());
         minY = std::min(minY, w->y());
     }
-    for (auto w : m_monitors.keys())
-    {
+    for (auto w : m_monitors.keys()) {
         w->setMovedX(w->x() - minX);
         w->setMovedY(w->y() - minY);
     }
@@ -169,10 +174,8 @@ void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
         return;
 
     MonitorProxyWidget *other = nullptr;
-    for (auto w : m_monitors.keys())
-    {
-        if (w != pw)
-        {
+    for (auto w : m_monitors.keys()) {
+        if (w != pw) {
             other = w;
             break;
         }
@@ -255,10 +258,8 @@ const QPoint MonitorsGround::bestMoveOffset(MonitorProxyWidget *pw0, MonitorProx
     // TODO: check screen rect contains another screen and size not equal
     QPoint bestOffset;
     int min = INT_MAX;
-    for (auto p1 : selfPoints)
-    {
-        for (auto p2 : otherPoints)
-        {
+    for (auto p1 : selfPoints) {
+        for (auto p2 : otherPoints) {
             const int m = (p2 - p1).manhattanLength();
             if (m >= min)
                 continue;

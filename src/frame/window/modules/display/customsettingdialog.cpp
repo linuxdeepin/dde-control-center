@@ -141,6 +141,8 @@ void CustomSettingDialog::initWithModel()
 {
     Q_ASSERT(m_model);
 
+    initMoniControlWidget();
+
     initResolutionList();
 
     connect(m_model, &DisplayModel::screenWidthChanged, this, &CustomSettingDialog::resetDialog);
@@ -269,13 +271,10 @@ void CustomSettingDialog::initMoniList()
     });
 }
 
-void CustomSettingDialog::initPrimaryDialog()
+void CustomSettingDialog::initMoniControlWidget()
 {
-    Q_ASSERT(m_moniList);
-    initMoniList();
-
     m_monitroControlWidget = new MonitorControlWidget();
-    m_monitroControlWidget->setDisplayModel(m_model);
+    m_monitroControlWidget->setDisplayModel(m_model, m_isPrimary ? nullptr : m_monitor);
 
     connect(m_monitroControlWidget, &MonitorControlWidget::requestMonitorPress,
             this, &CustomSettingDialog::onMonitorPress);
@@ -291,6 +290,12 @@ void CustomSettingDialog::initPrimaryDialog()
             this, &CustomSettingDialog::requestSetMonitorPosition);
 
     m_layout->insertWidget(0, m_monitroControlWidget);
+}
+
+void CustomSettingDialog::initPrimaryDialog()
+{
+    Q_ASSERT(m_moniList);
+    initMoniList();
 }
 
 void CustomSettingDialog::onChangList()

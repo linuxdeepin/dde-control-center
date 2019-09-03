@@ -90,9 +90,9 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     connect(m_screensGround, &MonitorsGround::requestMonitorRelease, this, &MonitorControlWidget::requestMonitorRelease);
 }
 
-void MonitorControlWidget::setDisplayModel(DisplayModel *model)
+void MonitorControlWidget::setDisplayModel(DisplayModel *model, Monitor *moni)
 {
-    m_screensGround->setDisplayModel(model);
+    m_screensGround->setDisplayModel(model, moni);
 }
 
 void MonitorControlWidget::setScreensMerged(const bool merged)

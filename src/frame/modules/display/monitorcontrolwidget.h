@@ -42,9 +42,9 @@ class MonitorControlWidget : public QFrame
     Q_OBJECT
 
 public:
-    explicit MonitorControlWidget(QWidget *parent = 0);
+    explicit MonitorControlWidget(QWidget *parent = nullptr);
 
-    void setDisplayModel(DisplayModel *model);
+    void setDisplayModel(DisplayModel *model, Monitor *moni);
     void setScreensMerged(const bool merged);
 
 Q_SIGNALS:

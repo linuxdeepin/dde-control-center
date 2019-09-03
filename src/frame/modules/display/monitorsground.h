@@ -41,10 +41,10 @@ class MonitorsGround : public QFrame
     Q_OBJECT
 
 public:
-    explicit MonitorsGround(QWidget *parent = 0);
+    explicit MonitorsGround(QWidget *parent = nullptr);
     ~MonitorsGround();
 
-    void setDisplayModel(DisplayModel *model);
+    void setDisplayModel(DisplayModel *model, Monitor *moni);
 
 Q_SIGNALS:
     void requestApplySettings(Monitor *mon, const int x, const int y);
