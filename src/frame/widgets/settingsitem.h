@@ -26,6 +26,8 @@
 #ifndef SETTINGSITEM_H
 #define SETTINGSITEM_H
 
+#include <DBackgroundGroup>
+
 #include <QFrame>
 
 namespace dcc {
@@ -50,10 +52,17 @@ public:
     bool isErr() const;
     void setIsErr(const bool err = true);
 
+    void addBackground();
+
+protected:
+    void resizeEvent(QResizeEvent *event) override;
+
 private:
     bool m_isHead;
     bool m_isTail;
     bool m_isErr;
+
+    DTK_WIDGET_NAMESPACE::DBackgroundGroup *m_bgGroup{nullptr};
 };
 
 }

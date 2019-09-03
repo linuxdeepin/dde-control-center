@@ -27,15 +27,18 @@
 #include "widgets/settingsitem.h"
 #include "widgets/settingsheaderitem.h"
 
+#include <DBackgroundGroup>
+
 #include <QVBoxLayout>
 #include <QEvent>
 #include <QDebug>
 
+DWIDGET_USE_NAMESPACE
+
 namespace dcc {
 namespace widgets {
 
-
-SettingsGroup::SettingsGroup(QFrame *parent) :
+SettingsGroup::SettingsGroup(QFrame *parent, BackgroupStyle bgStyle) :
     TranslucentFrame(parent),
     m_layout(new QVBoxLayout),
     m_headerItem(nullptr),
@@ -54,7 +57,18 @@ SettingsGroup::SettingsGroup(QFrame *parent) :
     connect(m_updateHeightTimer, &QTimer::timeout, this, &SettingsGroup::updateHeight, Qt::QueuedConnection);
     connect(m_updateHeadTailTimer, &QTimer::timeout, this, &SettingsGroup::updateHeadTail, Qt::QueuedConnection);
 
-    setLayout(m_layout);
+    QVBoxLayout *vLayout = nullptr;
+    if (GroupBackgroud == bgStyle) {
+        DBackgroundGroup *bggroup = new DBackgroundGroup(m_layout);
+        bggroup->setBackgroundRole(QPalette::Window);
+        vLayout = new QVBoxLayout;
+        vLayout->addWidget(bggroup);
+    } else {
+        vLayout = m_layout;
+    }
+
+    m_bgStyle = bgStyle;
+    setLayout(vLayout);
 }
 
 SettingsGroup::SettingsGroup(const QString &title, QFrame *parent)
@@ -74,14 +88,12 @@ SettingsGroup::~SettingsGroup()
 
 void SettingsGroup::setHeaderVisible(const bool visible)
 {
-    if (visible)
-    {
+    if (visible) {
         if (!m_headerItem)
             m_headerItem = new SettingsHeaderItem;
         insertItem(0, m_headerItem);
     } else {
-        if (m_headerItem)
-        {
+        if (m_headerItem) {
             m_headerItem->deleteLater();
             m_headerItem = nullptr;
         }
@@ -90,6 +102,11 @@ void SettingsGroup::setHeaderVisible(const bool visible)
 
 void SettingsGroup::insertItem(const int index, SettingsItem *item)
 {
+    if (ItemBackground == m_bgStyle) {
+        //当SettingsItem 被加入　SettingsGroup　时，为其加入背景
+        item->addBackground();
+    }
+
     m_layout->insertWidget(index, item);
     item->installEventFilter(this);
 
@@ -122,7 +139,7 @@ void SettingsGroup::moveItem(SettingsItem *item, const int index)
 
     const int max = m_layout->count() - 1;
     if (index == 0 || index == max ||
-        oldIndex == 0 || oldIndex == max)
+            oldIndex == 0 || oldIndex == max)
         m_updateHeadTailTimer->start();
 }
 
@@ -143,8 +160,7 @@ void SettingsGroup::clear()
     const int index = m_headerItem ? 1 : 0;
     const int count = m_layout->count();
 
-    for (int i(index); i != count; ++i)
-    {
+    for (int i(index); i != count; ++i) {
         QLayoutItem *item = m_layout->takeAt(index);
         QWidget *w = item->widget();
         w->removeEventFilter(this);
@@ -158,15 +174,14 @@ void SettingsGroup::clear()
 
 SettingsItem *SettingsGroup::getItem(int index)
 {
-    if(index < 0)
-        return NULL;
+    if (index < 0)
+        return nullptr;
 
-    if(index < itemCount())
-    {
+    if (index < itemCount()) {
         return qobject_cast<SettingsItem *>(m_layout->itemAt(index)->widget());
     }
 
-    return NULL;
+    return nullptr;
 }
 
 bool SettingsGroup::eventFilter(QObject *, QEvent *event)
@@ -174,8 +189,7 @@ bool SettingsGroup::eventFilter(QObject *, QEvent *event)
 //    if (event->type() == QEvent::Resize || event->type() == QEvent::Show || event->type() == QEvent::Hide)
 //        m_updateHeightTimer->start();
 
-    switch (event->type())
-    {
+    switch (event->type()) {
     case QEvent::Show:
     case QEvent::Hide:          m_updateHeadTailTimer->start();     // not break
 
@@ -192,8 +206,7 @@ void SettingsGroup::updateHeadTail()
     SettingsItem *tail = nullptr;
 
     const int count = m_layout->count();
-    for (int i(0); i != count; ++i)
-    {
+    for (int i(0); i != count; ++i) {
         SettingsItem *item = qobject_cast<SettingsItem *>(m_layout->itemAt(i)->widget());
         Q_ASSERT(item);
 

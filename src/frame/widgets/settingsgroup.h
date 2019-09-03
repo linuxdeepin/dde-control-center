@@ -44,17 +44,22 @@ class SettingsGroup : public TranslucentFrame
     Q_OBJECT
 
 public:
-    explicit SettingsGroup(QFrame *parent = 0);
-    explicit SettingsGroup(const QString &title, QFrame *parent = 0);
+    enum BackgroupStyle {
+        ItemBackground = 0,
+        GroupBackgroud
+    };
+
+    explicit SettingsGroup(QFrame *parent = nullptr, BackgroupStyle bgStyle = ItemBackground);
+    explicit SettingsGroup(const QString &title, QFrame *parent = nullptr);
     ~SettingsGroup();
 
     SettingsHeaderItem *headerItem() const { return m_headerItem; }
     void setHeaderVisible(const bool visible);
 
-    SettingsItem* getItem(int index);
-    void insertItem(const int index, SettingsItem * item);
-    void appendItem(SettingsItem * item);
-    void removeItem(SettingsItem * item);
+    SettingsItem *getItem(int index);
+    void insertItem(const int index, SettingsItem *item);
+    void appendItem(SettingsItem *item);
+    void removeItem(SettingsItem *item);
     void moveItem(SettingsItem *item, const int index);
     void setSpacing(const int spaceing);
 
@@ -69,6 +74,7 @@ private Q_SLOTS:
     void updateHeight();
 
 private:
+    BackgroupStyle m_bgStyle{ItemBackground};
     QVBoxLayout *m_layout;
     SettingsHeaderItem *m_headerItem;
 

@@ -26,6 +26,10 @@
 #include "widgets/settingsitem.h"
 
 #include <QStyle>
+#include <QVBoxLayout>
+#include <QResizeEvent>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace widgets {
@@ -81,5 +85,36 @@ void SettingsItem::setIsErr(const bool err)
     style()->polish(this);
 }
 
+void SettingsItem::addBackground()
+{
+    //当 SettingsItem 被　appendItem　加入　SettingsGroup　时被调用
+    QMargins mg(0, 0, 0, 0);
+
+    //因为需要SettingsItem 整体为一个圆角，所有用一个　widget　当背景
+    auto bgWidget = new QWidget();
+
+    //将　widget　加入到一个新建的　DBackgroundGroup中
+    auto bglayout = new QVBoxLayout;
+    bglayout->setContentsMargins(mg);
+    m_bgGroup = new DBackgroundGroup(bglayout, this);
+    m_bgGroup->setBackgroundRole(QPalette::Window);
+    bglayout->addWidget(bgWidget);
+
+    //将 m_bgGroup 沉底
+    m_bgGroup->lower();
+
+    //设置m_bgGroup 的大小
+    m_bgGroup->setFixedSize(size());
+}
+
+void SettingsItem::resizeEvent(QResizeEvent *event)
+{
+    QFrame::resizeEvent(event);
+
+    //设置m_bgGroup 的大小
+    if (m_bgGroup)
+        m_bgGroup->setFixedSize(size());
 }
 }
+}
+
