@@ -52,8 +52,9 @@ class SearchWidget : public DTK_WIDGET_NAMESPACE::DSearchEdit
     Q_OBJECT
 public:
     struct SearchBoxStruct {
-        QString title;
-        QString explain;
+        QString translateContent;
+        QString actualModuleName;
+        QString fullPagePath;
     };
 
     struct EnterPageStruct {
@@ -67,11 +68,13 @@ public:
 
     bool jumpContentPathWidget(QString path);
     void setLanguage(QString type);
+    void addModulesName(QString moduleName, QString searchName);
 
 private:
     void loadxml();
     SearchBoxStruct getModuleBtnString(QString value);
     QString getXmlFilePath();
+    QString getModulesName(QString name, bool state = true);
 
 private:
     QStandardItemModel *m_model;
@@ -80,6 +83,7 @@ private:
     SearchBoxStruct m_searchBoxStruct;
     QString m_xmlExplain;
     QString m_xmlFilePath;
+    QList<QPair<QString, QString>> m_moduleNameList;
 
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);

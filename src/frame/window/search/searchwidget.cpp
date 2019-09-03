@@ -66,10 +66,15 @@ bool SearchWidget::jumpContentPathWidget(QString path)
 
     if (m_EnterNewPagelist.count() > 0) {
         SearchBoxStruct data = getModuleBtnString(path);
-        if (data.title != "" && data.explain != "") {
+        if (data.translateContent != "" && data.fullPagePath != "") {
             for (int i = 0; i < m_EnterNewPagelist.count(); i++) {
-                if (m_EnterNewPagelist[i].title == data.explain) {
-                    Q_EMIT notifyModuleSearch(data.title, m_EnterNewPagelist[i].explain.section('/', 2, -1));//explain need delete moduleName
+                if (m_EnterNewPagelist[i].translateContent == data.fullPagePath) {
+#if DEBUG_XML_SWITCH
+                    qDebug() << "---- m_EnterNewPagelist[i].translateContent : " << m_EnterNewPagelist[i].translateContent << " , fullPagePath : " << m_EnterNewPagelist[i].fullPagePath << " , actualModuleName: " << m_EnterNewPagelist[i].actualModuleName;
+                    qDebug() << "---- data.translateContent : " << data.translateContent << " , data.fullPagePath : " << data.fullPagePath << " , data.actualModuleName: " << data.actualModuleName;
+#endif
+                    //the data.actualModuleName had translate to All lowercase
+                    Q_EMIT notifyModuleSearch(data.actualModuleName, m_EnterNewPagelist[i].fullPagePath.section('/', 2, -1));//fullPagePath need delete moduleName
                     bResult = true;
                     break;
                 }
@@ -158,23 +163,26 @@ void SearchWidget::loadxml()
                         qDebug() << "  xmlRead.text : " << xmlRead.text().toString();
 #endif
                         if (m_xmlExplain == XML_Source) { //get xml source date
-                            m_searchBoxStruct.title = xmlRead.text().toString();
+                            m_searchBoxStruct.translateContent = xmlRead.text().toString();
                         } else if (m_xmlExplain == XML_Title) {
                             if (xmlRead.text().toString() != "") //translation not nullptr can set it
-                                m_searchBoxStruct.title = xmlRead.text().toString();
+                                m_searchBoxStruct.translateContent = xmlRead.text().toString();
 #if DEBUG_XML_SWITCH
-                            qDebug() << "---------- m_searchBoxStruct.title : " << m_searchBoxStruct.title;
+                            qDebug() << "---------- m_searchBoxStruct.translateContent : " << m_searchBoxStruct.translateContent;
 #endif
                         } else if (m_xmlExplain == XML_Explain_Path) {
-                            m_searchBoxStruct.explain = xmlRead.text().toString();
+                            m_searchBoxStruct.fullPagePath = xmlRead.text().toString();
+                            //follow path module name to get actual module name  ->  Left module dispaly can support mulLanguages
+                            m_searchBoxStruct.actualModuleName = getModulesName(m_searchBoxStruct.fullPagePath.section('/', 1, 1));
                             m_EnterNewPagelist.append(m_searchBoxStruct);
 
                             //Add search result content
-                            m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(m_searchBoxStruct.explain.section('/', 1, 1)),
-                                                                 QString("%1 --> %2").arg(m_searchBoxStruct.explain.section('/', 1, 1)).arg(m_searchBoxStruct.title)));
+                            m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(m_searchBoxStruct.fullPagePath.section('/', 1, 1)),
+                                                                 QString("%1 --> %2").arg(m_searchBoxStruct.actualModuleName).arg(m_searchBoxStruct.translateContent)));
 
-                            m_searchBoxStruct.title = "";
-                            m_searchBoxStruct.explain = "";
+                            m_searchBoxStruct.translateContent = "";
+                            m_searchBoxStruct.actualModuleName = "";
+                            m_searchBoxStruct.fullPagePath = "";
                         } else {
                             //donthing
                         }
@@ -196,8 +204,9 @@ void SearchWidget::loadxml()
             }
 
             m_xmlExplain = "";
-            m_searchBoxStruct.title = "";
-            m_searchBoxStruct.explain = "";
+            m_searchBoxStruct.translateContent = "";
+            m_searchBoxStruct.actualModuleName = "";
+            m_searchBoxStruct.fullPagePath = "";
             qDebug() << "   m_EnterNewPagelist.count : " << m_EnterNewPagelist.count();
         } else {
             qWarning() << "-------- File open failed" ;
@@ -209,15 +218,18 @@ void SearchWidget::loadxml()
     }
 }
 
+//Follow display content to Analysis SearchBoxStruct data
 SearchWidget::SearchBoxStruct SearchWidget::getModuleBtnString(QString value)
 {
     SearchBoxStruct data;
 
-    data.title = value.section(' ', 0, 0).remove(' ');
-    data.explain = value.section(' ', 2, -1);
+    data.translateContent = value.section('-', 0, 1).remove('-').trimmed();
+    //follow actual module name to get path module name
+    data.actualModuleName = getModulesName(data.translateContent, false);
+    data.fullPagePath = value.section('>', 1, -1).remove('>').trimmed();
 
 #if DEBUG_XML_SWITCH
-    qDebug() << Q_FUNC_INFO << "data.title : " << data.title << "   ,  data.explain : " << data.explain;
+    qDebug() << Q_FUNC_INFO << "data.translateContent : " << data.translateContent << "   ,  data.fullPagePath : " << data.fullPagePath;
 #endif
 
     return data;
@@ -228,6 +240,28 @@ QString SearchWidget::getXmlFilePath()
     return m_xmlFilePath;
 }
 
+//tranlate the path name to tr("name")
+QString SearchWidget::getModulesName(QString name, bool state)
+{
+    QString strResult = "";
+
+    for (auto it : m_moduleNameList) {
+        if (state) { //true : follow first search second (use pathName translate to actual moduleName)
+            if (it.first == name) {
+                strResult = it.second;
+                break;
+            }
+        } else { //false : follow second search first (use actual moduleName translate to pathName)
+            if (it.second == name) {
+                strResult = it.first;
+                break;
+            }
+        }
+    }
+
+    return strResult;
+}
+
 void SearchWidget::setLanguage(QString type)
 {
     QString xmlPath = RES_TS_PATH + QString("dde-control-center_%1.ts").arg(type);;
@@ -236,4 +270,18 @@ void SearchWidget::setLanguage(QString type)
     }
 
     loadxml();
+}
+
+//save all modules moduleInteface name and actual moduleName
+//moduleName : moduleInteface name  (used to path module to translate searchName)
+//searchName : actual module
+void SearchWidget::addModulesName(QString moduleName, QString searchName)
+{
+    QPair<QString, QString> data;
+    data.first = moduleName;
+    data.second = searchName;
+    m_moduleNameList.append(data);
+#if DEBUG_XML_SWITCH
+    qDebug() << "---- moduleName : " << moduleName << " , searchName : " << searchName;
+#endif
 }

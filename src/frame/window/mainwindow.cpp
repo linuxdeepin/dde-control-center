@@ -114,7 +114,6 @@ MainWindow::MainWindow(QWidget *parent)
     DTitlebar *titlebar = this->titlebar();
     titlebar->setMinimumHeight(50);
     titlebar->addWidget(m_searchWidget, Qt::AlignCenter);
-    m_searchWidget->setLanguage(QLocale::system().name());
     connect(m_searchWidget, &SearchWidget::notifyModuleSearch, this, &MainWindow::onEnterSearchWidget);
 
     auto thlayout = new QHBoxLayout();
@@ -133,6 +132,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     QTimer::singleShot(0, this, &MainWindow::initAllModule);
     QTimer::singleShot(0, this, &MainWindow::modulePreInitialize);
+    QTimer::singleShot(0, this, [ = ]() {
+        //after initAllModule to load ts data
+        m_searchWidget->setLanguage(QLocale::system().name());
+    });
 }
 
 void MainWindow::initAllModule()
@@ -181,6 +184,7 @@ void MainWindow::initAllModule()
         item->setText(it->second);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_navModel->appendRow(item);
+        m_searchWidget->addModulesName(it->first->name(), it->second);
     }
 
     resetNavList(isIcon);
