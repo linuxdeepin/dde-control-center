@@ -213,6 +213,14 @@ void MainWindow::popWidget()
     m_rightContentLayout->removeWidget(w);
     w->setParent(nullptr);
     w->deleteLater();
+
+    //delete replace widget : first delete replace widget(up code) , then pass pushWidget to set last widget
+    if (m_lastThirdPage.second) {
+        m_lastThirdPage.second->setVisible(true);
+        pushWidget(m_lastThirdPage.first, m_lastThirdPage.second);
+        //only set two pointer to nullptr , but not delete memory
+        memset(&m_lastThirdPage, 0, sizeof(m_lastThirdPage));
+    }
 }
 
 //Only used to from third page to top page can use it
@@ -369,9 +377,8 @@ void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w, Push
 //Finally when in the new third level page clicked "pop" button , return to the old three level page
 void MainWindow::replaceThirdWidget(ModuleInterface *const inter, QWidget *const w)
 {
-    if (m_contentStack.count() != 2)    return;
-
-    linkReplaceBackSignal(inter->name(), w);
+    if (m_contentStack.count() != 2)
+        return;
 
     if (m_lastThirdPage.second) {
         memset(&m_lastThirdPage, 0, sizeof(m_lastThirdPage));
@@ -457,31 +464,6 @@ void MainWindow::pushNormalWidget(ModuleInterface *const inter, QWidget *const w
     }
 
     resetNavList(m_contentStack.empty());
-}
-
-void MainWindow::linkReplaceBackSignal(QString moduleName, QWidget *w)
-{
-    //if need pop the replace widget and set old widget : link the function of slotfunc
-    auto slotfunc = [ = ]() {
-        popWidget();
-
-        if (m_lastThirdPage.second) {
-            m_lastThirdPage.second->setVisible(true);
-            pushWidget(m_lastThirdPage.first, m_lastThirdPage.second);
-        }
-
-        memset(&m_lastThirdPage, 0, sizeof(m_lastThirdPage));
-    };
-
-    Q_UNUSED(slotfunc)
-    Q_UNUSED(moduleName)
-    Q_UNUSED(w)
-
-    //link widget backButton , For example like down place
-//    if (moduleName == tr("xxx")) {
-//        DCC_NAMESPACE::xxx::xxxWidget *widget = dynamic_cast<DCC_NAMESPACE::xxx::xxxWidget *>(w);
-//        connect(widget, &DCC_NAMESPACE::xxx::xxxWidget::notifyBackpage, this, slotDeletefunc);
-//    }
 }
 
 void MainWindow::judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *const w)

@@ -99,7 +99,6 @@ private:
     void replaceThirdWidget(ModuleInterface *const inter, QWidget *const w);  //replace(hide) third widget : Can recover
     void pushTopWidget(ModuleInterface *const inter, QWidget *const w);  //Covere the top
     void pushFinalWidget(ModuleInterface *const inter, QWidget *const w);  //Insert after the finalWidget
-    void linkReplaceBackSignal(QString moduleName, QWidget *w);
     void judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *const w);
 };
 }
