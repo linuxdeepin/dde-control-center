@@ -88,6 +88,8 @@ void ModifyPasswdPage::initWidget()
     m_passeditList.push_back(m_newPasswordEdit);
     m_passeditList.push_back(m_repeatPasswordEdit);
 
+    setFocusPolicy(Qt::StrongFocus);
+
     m_errorTip->setWindowFlags(Qt::ToolTip);
     m_errorTip->hide();
 }
@@ -174,45 +176,21 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
 
 bool ModifyPasswdPage::validatePassword(const QString &password)
 {
-    QSettings setting("/etc/deepin/dde-control-center.conf", QSettings::IniFormat);
-    setting.beginGroup("Password");
-    bool strong_password_check = setting.value("STRONG_PASSWORD", false).toBool();
+    QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
+                              QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("~!@#$%^&*()[]{}\\|/?,.<>");
 
-    if (!strong_password_check) {
-        return true;
-    }
-
-    if (password.size() < 7 || password.size() > 16) {
-        return false;
-    }
-
-    uint success_num = 0;
-
-    const QStringList strong_policy_list {
-        "1234567890",
-        "abcdefghijklmnopqrstuvwxyz",
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-        "~!@#$%^&*()[]{}\\|/?,.<>"
-    };
-
-    for (const QString &policy : strong_policy_list) {
-        if (containsChar(password, policy)) {
-            ++success_num;
-        }
-    }
-
-    return success_num > 1;
+    return containsChar(password, validate_policy);
 }
 
 bool ModifyPasswdPage::containsChar(const QString &password, const QString &validate)
 {
-    for (auto p : password) {
-        if (validate.contains(p)) {
-            return true;
+    for (const QChar &p : password) {
+        if (!validate.contains(p)) {
+            return false;
         }
     }
 
-    return false;
+    return true;
 }
 
 void ModifyPasswdPage::showErrorTip(QLineEdit *edit, const QString &error)
@@ -234,23 +212,19 @@ void ModifyPasswdPage::onDoEditFinish()
 
 void ModifyPasswdPage::onEditFinished(Dtk::Widget::DPasswordEdit *t)
 {
-    QSettings setting("/etc/deepin/dde-control-center.conf", QSettings::IniFormat);
-    setting.beginGroup("Password");
-
-    if (!setting.value("STRONG_PASSWORD", false).toBool()) {
-        return m_errorTip->hide();
-    }
-
     const QString &password = t->text();
 
     if (m_curUser->name().toLower() == password.toLower()) {
+        m_saveBtn->setEnabled(false);
         showErrorTip(t, tr("The password should be different from the username"));
         return;
     }
 
     if (!validatePassword(password)) {
+        m_saveBtn->setEnabled(false);
         showErrorTip(t, tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
     } else {
         m_errorTip->hide();
+        m_saveBtn->setEnabled(true);
     }
 }
