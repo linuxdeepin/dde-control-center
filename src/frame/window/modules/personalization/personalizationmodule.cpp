@@ -24,8 +24,7 @@
 #include "modules/personalization/personalizationwork.h"
 #include "personalizationgeneral.h"
 #include "perssonalizationthemewidget.h"
-#include "personalizationicontheme.h"
-#include "personalizationcursortheme.h"
+#include "personalizationthemelist.h"
 #include "personalizationfontswidget.h"
 
 using namespace DCC_NAMESPACE;
@@ -117,9 +116,9 @@ void PersonalizationModule::showIconThemeWidget()
 {
     m_work->refreshTheme();
 
-    PersonalizationIconTheme *widget = new PersonalizationIconTheme;
+    PerssonalizationThemeList *widget = new PerssonalizationThemeList;
     widget->setModel(m_model->getIconModel());
-    connect(widget, &PersonalizationIconTheme::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
+    connect(widget, &PerssonalizationThemeList::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
     m_work->active();
 
     m_frameProxy->pushWidget(this, widget);
@@ -129,9 +128,9 @@ void PersonalizationModule::showCursorThemeWidget()
 {
     m_work->refreshTheme();
 
-    PersonalizationCursorTheme *widget = new PersonalizationCursorTheme;
+    PerssonalizationThemeList *widget = new PerssonalizationThemeList;
     widget->setModel(m_model->getMouseModel());
-    connect(widget, &PersonalizationCursorTheme::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
+    connect(widget, &PerssonalizationThemeList::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
     m_work->active();
 
     m_frameProxy->pushWidget(this, widget);

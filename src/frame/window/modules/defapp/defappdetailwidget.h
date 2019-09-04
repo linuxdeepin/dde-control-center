@@ -69,7 +69,7 @@ private:
     bool isDesktopOrBinaryFile(const QString &fileName);
     bool isValid(const dcc::defapp::App &app);
     enum DefAppDataRole{
-        DefAppIsUserRole = Dtk::UserRole + 1,
+        DefAppIsUserRole = DTK_NAMESPACE::UserRole + 1,
         DefAppIdRole,
     };
 

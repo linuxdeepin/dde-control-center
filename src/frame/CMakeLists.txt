@@ -899,12 +899,8 @@ set(PERSONALIZATION_FILES
                 window/modules/personalization/perssonalizationthemewidget.cpp
                 window/modules/personalization/themeitem.h
                 window/modules/personalization/themeitem.cpp
-                window/modules/personalization/personalizationicontheme.h
-                window/modules/personalization/personalizationicontheme.cpp
-                window/modules/personalization/personalizationcursortheme.h
-                window/modules/personalization/personalizationcursortheme.cpp
-                window/modules/personalization/personalizationfontswidget.h
                 window/modules/personalization/personalizationfontswidget.cpp
+                window/modules/personalization/personalizationthemelist.cpp
 )
 
 # load power
