@@ -37,7 +37,6 @@ ShortcutKey::ShortcutKey(QWidget *parent) : QWidget(parent)
     m_mainLayout->setSpacing(5);
 
     setLayout(m_mainLayout);
-    setStyleSheet("background: transparent;");
 }
 
 void ShortcutKey::setTextList(const QStringList &list)
