@@ -141,7 +141,7 @@ void VpnStrongSwanSection::initStrMaps()
     AuthTypeStrMap = {
         {tr("Private Key"), "key"},
         {tr("SSH Agent"), "agent"},
-        {tr("Smartcard"), "smartcard"},
+        {tr("Smart Card"), "smartcard"},
         {tr("EAP"), "eap"},
         {tr("Pre-Shared Key"), "psk"},
     };

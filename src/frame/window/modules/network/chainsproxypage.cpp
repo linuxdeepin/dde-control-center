@@ -58,7 +58,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
 
     m_addr = new LineEditWidget;
     //~ contents_path /network/Application Proxy
-    m_addr->setTitle(tr("IP address"));
+    m_addr->setTitle(tr("IP Address"));
     m_addr->setPlaceholderText(tr("Required"));
 
     m_port = new LineEditWidget;

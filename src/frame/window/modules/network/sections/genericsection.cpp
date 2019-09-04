@@ -62,7 +62,7 @@ void GenericSection::initUI()
     m_connIdItem->setTitle(tr("Name"));
     m_connIdItem->setText(m_connSettings->id());
 
-    m_autoConnItem->setTitle(tr("Auto connect"));
+    m_autoConnItem->setTitle(tr("Auto Connect"));
     m_autoConnItem->setChecked(m_connSettings->autoconnect());
 
     appendItem(m_connIdItem);
