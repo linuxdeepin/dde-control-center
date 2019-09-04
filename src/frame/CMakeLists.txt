@@ -196,6 +196,7 @@ set(WINDOW_FILES
     window/modules/commoninfo/commoninfowork.cpp
     window/modules/commoninfo/bootwidget.cpp
     window/modules/commoninfo/commonbackgrounditem.cpp
+    window/modules/commoninfo/userexperienceprogramwidget.cpp
      )
 
 # load interfaces

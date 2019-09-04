@@ -62,6 +62,14 @@ void CommonInfoModel::setUpdating(bool updating)
     }
 }
 
+void CommonInfoModel::setUeProgram(const bool ueProgram)
+{
+    if (m_joinUeProgram != ueProgram) {
+        m_joinUeProgram = ueProgram;
+        Q_EMIT ueProgramChanged(ueProgram);
+    }
+}
+
 bool CommonInfoModel::bootDelay() const
 {
     return m_bootDelay;
@@ -86,4 +94,9 @@ void CommonInfoModel::setBackground(const QPixmap &background)
     m_background = background;
 
     Q_EMIT backgroundChanged(background);
+}
+
+bool CommonInfoModel::ueProgram() const
+{
+    return m_joinUeProgram;
 }

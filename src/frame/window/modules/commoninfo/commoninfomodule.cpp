@@ -18,12 +18,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 #include "commoninfomodule.h"
 
 #include "window/modules/commoninfo/commoninfomodel.h"
 #include "window/modules/commoninfo/commoninfowork.h"
 #include "window/modules/commoninfo/commoninfowidget.h"
 #include "window/modules/commoninfo/bootwidget.h"
+#include "window/modules/commoninfo/userexperienceprogramwidget.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::commoninfo;
@@ -33,6 +35,7 @@ CommonInfoModule::CommonInfoModule(dccV20::FrameProxyInterface *frame, QObject *
     , ModuleInterface(frame)
     , m_commonWidget(nullptr)
     , m_bootWidget(nullptr)
+    , m_ueProgramWidget(nullptr)
 {
 }
 
@@ -88,25 +91,24 @@ void CommonInfoModule::load(QString path)
     if (!list) {
         return;
     }
-
+    QModelIndex idx;
     if (path == "Boot Menu") {
-        QModelIndex idx = list->model()->index(0, 0);
-        list->setCurrentIndex(idx);
-        list->clicked(idx);
+        idx = list->model()->index(0, 0);
     } else if (path == "Developer Mode") {
         // 为开发者设计的search预留
+        idx = list->model()->index(1, 0);
     } else if (path == "User Experience Program") {
         // 为用户体验计划的search预留
+        idx = list->model()->index(2, 0);
     }
+    list->setCurrentIndex(idx);
+    list->clicked(idx);
 }
 
 void CommonInfoModule::onShowBootWidget()
 {
     m_commonWork->loadGrubSettings();
     initBootWidget();
-    if (!m_bootWidget) {
-        return;
-    }
     m_frameProxy->pushWidget(this, m_bootWidget);
 }
 
@@ -117,7 +119,8 @@ void CommonInfoModule::onShowDeveloperWidget()
 
 void CommonInfoModule::onShowUEPlanWidget()
 {
-
+    initUeProgramWidget();
+    m_frameProxy->pushWidget(this, m_ueProgramWidget);
 }
 
 // 以下内容为平板模式做预留
@@ -135,4 +138,11 @@ void CommonInfoModule::initBootWidget()
     connect(m_bootWidget, &BootWidget::enableTheme, m_commonWork, &CommonInfoWork::setEnableTheme);
     connect(m_bootWidget, &BootWidget::defaultEntry, m_commonWork, &CommonInfoWork::setDefaultEntry);
     connect(m_bootWidget, &BootWidget::requestSetBackground, m_commonWork, &CommonInfoWork::setBackground);
+}
+
+void CommonInfoModule::initUeProgramWidget()
+{
+    m_ueProgramWidget = new UserExperienceProgramWidget();
+    m_ueProgramWidget->setModel(m_commonModel);
+    connect(m_ueProgramWidget, &UserExperienceProgramWidget::enableDevelopMode, m_commonWork, &CommonInfoWork::setUeProgram);
 }

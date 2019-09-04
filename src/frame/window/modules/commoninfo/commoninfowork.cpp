@@ -164,6 +164,11 @@ void CommonInfoWork::setBackground(const QString &path)
     });
 }
 
+void CommonInfoWork::setUeProgram(bool enabled)
+{
+    m_commomModel->setUeProgram(enabled);
+}
+
 void CommonInfoWork::getEntryTitles()
 {
     QDBusPendingCall call = m_dBusGrub->GetSimpleEntryTitles();

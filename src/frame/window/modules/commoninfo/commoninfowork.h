@@ -56,6 +56,7 @@ public Q_SLOTS:
     void grubServerFinished();
     void onBackgroundChanged();
     void setBackground(const QString &path);
+    void setUeProgram(bool enabled);
 
 private:
     void getEntryTitles();

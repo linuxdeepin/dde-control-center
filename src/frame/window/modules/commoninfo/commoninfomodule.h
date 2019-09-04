@@ -35,8 +35,9 @@ class CommonInfoModel;
 class CommonInfoWork;
 class CommonInfoWidget;
 class BootWidget;
+// 为开发者模式预留
 //class DeveloperModeWidget;
-//class UserExperienceProgramWidget;
+class UserExperienceProgramWidget;
 // 以下内容为平板模式做预留
 //class TabletModeWidget;
 
@@ -63,13 +64,15 @@ public Q_SLOTS:
     //void onShowTabletModeWidget(); // for tablet mode
 private:
     void initBootWidget();
+    void initUeProgramWidget(); // for user experience program
 private:
     CommonInfoWork *m_commonWork;
     CommonInfoModel *m_commonModel;
     CommonInfoWidget *m_commonWidget; // main widget
     BootWidget *m_bootWidget; // for bootmenu
-    //DeveloperModeWidget *mDeveloperWidget;
-    //UserExperienceProgramWidget *mUEProgramWidget;
+    UserExperienceProgramWidget *m_ueProgramWidget; // for user experience program
+    // 为开发者模式预留
+//    DeveloperModeWidget *m_developerWidget; // for developer mode
     // 以下内容为平板模式做预留
     //TabletModeWidget* mTabletModeWidget;
 };

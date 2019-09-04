@@ -42,6 +42,7 @@ public:
     inline bool updating() const { return m_updating; }
     QPixmap background() const;
     void setBackground(const QPixmap &background);
+    bool ueProgram() const; // for user experience program
 
 Q_SIGNALS:
     void bootDelayChanged(const int timeout) const;
@@ -50,17 +51,20 @@ Q_SIGNALS:
     void defaultEntryChanged(const QString &entry);
     void updatingChanged(const bool &updating);
     void backgroundChanged(const QPixmap &pixmap);
+    void ueProgramChanged(const bool enable) const; // for user experience program
 
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
     void setThemeEnabled(const bool enabled);
     void setDefaultEntry(const QString &entry);
     void setUpdating(bool updating);
+    void setUeProgram(const bool ueProgram); // for user experience program
 
 private:
     bool m_bootDelay;
     bool m_themeEnabled;
     bool m_updating;
+    bool m_joinUeProgram;   // for user experience program
     QStringList m_entryLists;
     QString m_defaultEntry;
     QPixmap m_background;
