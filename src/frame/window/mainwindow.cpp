@@ -45,6 +45,7 @@
 #include "utils.h"
 
 #include <DBackgroundGroup>
+#include <DIconButton>
 
 #include <QHBoxLayout>
 #include <QMetaEnum>
@@ -87,8 +88,6 @@ MainWindow::MainWindow(QWidget *parent)
     m_navView->setEditTriggers(QListView::NoEditTriggers);
     m_navView->setResizeMode(QListView::Adjust);
     m_navView->setAutoScroll(false);
-    m_navView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_navView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     m_contentLayout->addWidget(m_navView);
     m_contentLayout->setSpacing(0);
@@ -120,15 +119,14 @@ MainWindow::MainWindow(QWidget *parent)
     thlayout->setSpacing(0);
     DBackgroundGroup *btnGroup = new DBackgroundGroup(thlayout, this);
     titlebar->addWidget(btnGroup, Qt::AlignLeft);
-    QPushButton *backwardBtn = new QPushButton("<");
+    DIconButton *backwardBtn = new DIconButton(this);
+    backwardBtn->setFlat(false);
+    backwardBtn->setIcon(QStyle::SP_ArrowBack);
     thlayout->addWidget(backwardBtn);
-    connect(backwardBtn, &QPushButton::clicked, this, [this] {
+    connect(backwardBtn, &DIconButton::clicked, this, [this] {
         popWidget();
         resetNavList(m_contentStack.isEmpty());
     });
-
-    QPushButton *forwardBtn = new QPushButton(">");
-    thlayout->addWidget(forwardBtn);
 
     QTimer::singleShot(0, this, &MainWindow::initAllModule);
     QTimer::singleShot(0, this, &MainWindow::modulePreInitialize);
