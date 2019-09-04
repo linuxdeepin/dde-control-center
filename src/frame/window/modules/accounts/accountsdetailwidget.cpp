@@ -288,6 +288,9 @@ void AccountsDetailWidget::onThumbsListChanged(const QList<FingerModel::UserThum
             m_notUseThumb = thumb.first();
         }
 
+        if (i == 10) {
+            m_addBtn->setVisible(false);
+        }
         return;
     }
 
