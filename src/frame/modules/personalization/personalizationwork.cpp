@@ -44,6 +44,10 @@ static const std::vector<int> OPACITY_SLIDER {
     100
 };
 
+#ifdef WINDOW_MODE
+const QList<int> FontSizeList {11, 12, 13, 15, 16, 18, 20};
+#endif
+
 PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *parent)
     : QObject(parent),
       m_model(model),
@@ -165,8 +169,7 @@ void PersonalizationWork::onGetFontFinished(QDBusPendingCallWatcher *w)
         const QString &category = w->property("category").toString();
 
         setFontList(m_fontModels[category], category, reply.value());
-    }
-    else {
+    } else {
         qWarning() << reply.error();
     }
 
@@ -182,8 +185,7 @@ void PersonalizationWork::onGetThemeFinished(QDBusPendingCallWatcher *w)
         const QJsonArray &array = QJsonDocument::fromJson(reply.value().toUtf8()).array();
 
         addList(m_themeModels[category], category, array);
-    }
-    else {
+    } else {
         qWarning() << reply.error();
     }
 
@@ -199,8 +201,7 @@ void PersonalizationWork::onGetPicFinished(QDBusPendingCallWatcher *w)
         const QString &id = w->property("id").toString();
 
         m_themeModels[category]->addPic(id, reply.value());
-    }
-    else {
+    } else {
         qWarning() << reply.error();
     }
 
@@ -242,8 +243,7 @@ void PersonalizationWork::onGetCurrentWMFinished(QDBusPendingCallWatcher *w)
 
     if (!reply.isError()) {
         onToggleWM(reply.value());
-    }
-    else {
+    } else {
         qWarning() << reply.error();
     }
 
@@ -275,8 +275,7 @@ void PersonalizationWork::setFontList(FontModel *model, const QString &type, con
             });
 
             model->setFontList(list);
-        }
-        else {
+        } else {
             qWarning() << w->error();
         }
 
@@ -286,7 +285,7 @@ void PersonalizationWork::setFontList(FontModel *model, const QString &type, con
 
 void PersonalizationWork::refreshTheme()
 {
-    for (QMap<QString, ThemeModel*>::ConstIterator it = m_themeModels.begin(); it != m_themeModels.end(); it++) {
+    for (QMap<QString, ThemeModel *>::ConstIterator it = m_themeModels.begin(); it != m_themeModels.end(); it++) {
         refreshThemeByType(it.key());
     }
 }
@@ -301,14 +300,15 @@ void PersonalizationWork::refreshThemeByType(const QString &type)
 
 void PersonalizationWork::refreshFont()
 {
-    for (QMap<QString, FontModel*>::const_iterator it = m_fontModels.begin(); it != m_fontModels.end(); it++) {
+    for (QMap<QString, FontModel *>::const_iterator it = m_fontModels.begin(); it != m_fontModels.end(); it++) {
         refreshFontByType(it.key());
     }
 
     FontSizeChanged(m_dbus->fontSize());
 }
 
-void PersonalizationWork::refreshFontByType(const QString &type) {
+void PersonalizationWork::refreshFontByType(const QString &type)
+{
     QDBusPendingReply<QString> font = m_dbus->List(type);
     QDBusPendingCallWatcher *fontWatcher = new QDBusPendingCallWatcher(font, this);
     fontWatcher->setProperty("category", type);
@@ -327,6 +327,25 @@ void PersonalizationWork::refreshOpacity(double opacity)
     m_model->setOpacity(std::pair<int, double>(slider, opacity));
 }
 
+#ifdef WINDOW_MODE
+//字体大小通过点击刻度调整字体大小，可选刻度为：11px、12px、13px、15px、16px、18px、20px;
+//社区版默认值为12px；专业版默认值为12px；
+int PersonalizationWork::sizeToSliderValue(const int value) const
+{
+    if (FontSizeList.contains(value))
+        return FontSizeList.indexOf(value);
+
+    return 1;
+}
+
+float PersonalizationWork::sliderValueToSize(const int value) const
+{
+    if (value >= 0 && value < FontSizeList.length())
+        return FontSizeList.at(value);
+
+    return FontSizeList[1];
+}
+#else
 int PersonalizationWork::sizeToSliderValue(const double value) const
 {
     if (value <= 8.2) {
@@ -369,6 +388,7 @@ float PersonalizationWork::sliderValueToSize(const int value) const
         return 9;
     }
 }
+#endif
 
 double PersonalizationWork::sliderValutToOpacity(const int value) const
 {

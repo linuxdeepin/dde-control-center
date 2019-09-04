@@ -74,7 +74,11 @@ private Q_SLOTS:
     void setFontList(FontModel* model, const QString &type, const QString &list);
 
 private:
+#ifdef WINDOW_MODE
+    int sizeToSliderValue(const int value) const;
+#else
     int sizeToSliderValue(const double value) const;
+#endif
     float sliderValueToSize(const int value) const;
     double sliderValutToOpacity(const int value) const;
     QList<QJsonObject> converToList(const QString &type, const QJsonArray &array);
