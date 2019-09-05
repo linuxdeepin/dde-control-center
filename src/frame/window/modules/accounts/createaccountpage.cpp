@@ -255,20 +255,20 @@ void CreateAccountPage::onNameEditFinished()
     QString username = edit->text();
 
     if (edit->text().size() < 3 || edit->text().size() > 32) {
-        m_addBtn->setEnabled(false);
+        doNextStep(false);
         showErrorTip(edit, tr("Username must be between 3 and 32 characters"));
         return;
     }
 
     const QString compStr = "abcdefghijklmnopqrstuvwxyz";
     if (!compStr.contains(username.at(0))) {
-        m_addBtn->setEnabled(false);
+        doNextStep(false);
         showErrorTip(edit, tr("The first character must be in lower case"));
         return;
     }
 
     if (!validateUsername(username)) {
-        m_addBtn->setEnabled(false);
+        doNextStep(false);
         showErrorTip(edit, tr("Username must only contain a~z, 0~9, - or _"));
         return;
     }
@@ -276,5 +276,12 @@ void CreateAccountPage::onNameEditFinished()
     if (m_errorTip->isVisible()) {
         m_errorTip->hide();
     }
-    m_addBtn->setEnabled(true);
+    doNextStep(true);
+}
+
+void CreateAccountPage::doNextStep(const bool ok)
+{
+    m_passwdEdit->setEnabled(ok);
+    m_repeatpasswdEdit->setEnabled(ok);
+    m_addBtn->setEnabled(ok);
 }
