@@ -25,6 +25,7 @@
 
 #include <DIconButton>
 
+#include <QStackedWidget>
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QEvent>
@@ -40,29 +41,22 @@ using namespace DCC_NAMESPACE::accounts;
 AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
-    , m_headLayout(new QVBoxLayout)
-    , m_modifydelLayout(new QHBoxLayout)
-    , m_setloginLayout(new QVBoxLayout)
-    , m_setfingeLayout(new QVBoxLayout)
-    , m_fingepasswdLayout(new QHBoxLayout)
-    , m_mainContentLayout(new QVBoxLayout(this))
-    , m_shortnameLayout(new QHBoxLayout)
-    , m_fullnameLayout(new QHBoxLayout)
     , m_avatar(new AvatarWidget)
+    , m_shortnameBtn(new QLabel)
     , m_shortName(new QLabel)
     , m_fullName(new QLabel)
+    , m_fullnameBtn(new DIconButton(this))
     , m_inputLineEdit(new QLineEdit)
+    , m_mainStackedWidget(new QStackedWidget)
     , m_modifyPassword(new QPushButton)
     , m_deleteAccount(new QPushButton)
     , m_autoLogin(new SwitchWidget)
     , m_nopasswdLogin(new SwitchWidget)
-    , m_avatarListWidget(new AvatarListWidget)
-    , m_shortnameBtn(new QLabel)
-    , m_fullnameBtn(new DIconButton(this))
     , m_listGrp(new SettingsGroup)
     , m_fingetitleLabel(new QLabel)
     , m_addBtn(new QCommandLinkButton)
     , m_clearBtn(new QCommandLinkButton)
+    , m_avatarListWidget(new AvatarListWidget)
 {
     initWidgets();
     initDatas();
@@ -70,55 +64,91 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 
 void AccountsDetailWidget::initWidgets()
 {
-    setLayout(m_mainContentLayout);
-
     m_shortnameBtn->setPixmap(QIcon::fromTheme("dcc_avatar").pixmap(QSize(12, 12)));
     m_fullnameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
     m_fullnameBtn->setIconSize(QSize(12, 12));
 
-    m_shortnameLayout->addWidget(m_shortnameBtn, 0, Qt::AlignRight);
-    m_shortnameLayout->addWidget(m_shortName, 0, Qt::AlignLeft);
+    QHBoxLayout *shortnameLayout = new QHBoxLayout;
+    shortnameLayout->addWidget(m_shortnameBtn, 0, Qt::AlignRight);
+    shortnameLayout->addWidget(m_shortName, 0, Qt::AlignLeft);
 
-    m_fullnameLayout->addWidget(m_fullName, 2, Qt::AlignRight);
-    m_fullnameLayout->addWidget(m_fullnameBtn, 1, Qt::AlignLeft);
+    QHBoxLayout *fullnameLayout = new QHBoxLayout;
+    fullnameLayout->addWidget(m_fullName, 2, Qt::AlignRight);
+    fullnameLayout->addWidget(m_fullnameBtn, 1, Qt::AlignLeft);
 
-    m_headLayout->addWidget(m_avatar, 0, Qt::AlignHCenter);
-    m_headLayout->addLayout(m_shortnameLayout);
-    m_headLayout->addLayout(m_fullnameLayout);
-    m_headLayout->addWidget(m_inputLineEdit, 0, Qt::AlignHCenter);
+    QVBoxLayout *headLayout = new QVBoxLayout;
+    headLayout->addWidget(m_avatar, 0, Qt::AlignHCenter);
+    headLayout->addLayout(shortnameLayout);
+    headLayout->addLayout(fullnameLayout);
+    headLayout->addWidget(m_inputLineEdit, 0, Qt::AlignHCenter);
 
-    m_modifydelLayout->addWidget(m_modifyPassword);
-    m_modifydelLayout->addWidget(m_deleteAccount);
+    QHBoxLayout *modifydelLayout = new QHBoxLayout;
+    modifydelLayout->addWidget(m_modifyPassword);
+    modifydelLayout->addWidget(m_deleteAccount);
 
-    m_setloginLayout->addWidget(m_autoLogin);
-    m_setloginLayout->addWidget(m_nopasswdLogin);
+    QVBoxLayout *setloginLayout = new QVBoxLayout;
+    setloginLayout->addWidget(m_autoLogin);
+    setloginLayout->addWidget(m_nopasswdLogin);
 
-    m_fingepasswdLayout->addWidget(m_fingetitleLabel, 0, Qt::AlignLeft);
-    m_fingepasswdLayout->addWidget(m_clearBtn, 0, Qt::AlignRight);
+    QHBoxLayout *passwdcancelLayout = new QHBoxLayout;
+    passwdcancelLayout->addWidget(m_fingetitleLabel, 0, Qt::AlignLeft);
+    passwdcancelLayout->addWidget(m_clearBtn, 0, Qt::AlignRight);
 
-    m_setfingeLayout->addLayout(m_fingepasswdLayout);
-    m_setfingeLayout->addWidget(m_listGrp);
-    m_setfingeLayout->addWidget(m_addBtn, 0, Qt::AlignLeft);
+    QVBoxLayout *setfingeLayout = new QVBoxLayout;
+    setfingeLayout->addLayout(passwdcancelLayout);
+    setfingeLayout->addWidget(m_listGrp);
+    setfingeLayout->addWidget(m_addBtn, 0, Qt::AlignLeft);
 
-    m_mainContentLayout->addLayout(m_headLayout);
-    m_mainContentLayout->addLayout(m_modifydelLayout);
-    m_mainContentLayout->addLayout(m_setloginLayout);
-    m_mainContentLayout->addLayout(m_setfingeLayout);
-    m_mainContentLayout->addStretch();
+    QVBoxLayout *normalMainLayout = new QVBoxLayout;
+    normalMainLayout->addLayout(modifydelLayout);
+    normalMainLayout->addLayout(setloginLayout);
+    normalMainLayout->addLayout(setfingeLayout);
+    normalMainLayout->addStretch();
 
-    m_headLayout->setContentsMargins(0, 0, 0, 0);
-    m_headLayout->setMargin(0);
+    QVBoxLayout *pictureMainLayout = new QVBoxLayout;
+    pictureMainLayout->addWidget(m_avatarListWidget);
 
+    QWidget *normalWidget = new QWidget;
+    QWidget *pictureWidget = new QWidget;
+    normalWidget->setLayout(normalMainLayout);
+    pictureWidget->setLayout(pictureMainLayout);
+
+    m_mainStackedWidget->insertWidget(0, normalWidget);
+    m_mainStackedWidget->insertWidget(1, pictureWidget);
+
+    QVBoxLayout *bodyLayout = new QVBoxLayout;
+    bodyLayout->addWidget(m_mainStackedWidget);
+
+    //整体布局
+    QVBoxLayout *mainContentLayout = new QVBoxLayout;
+    mainContentLayout->addLayout(headLayout);
+    mainContentLayout->addLayout(bodyLayout);
+    setLayout(mainContentLayout);
+
+    headLayout->setContentsMargins(0, 0, 0, 0);
+    headLayout->setMargin(0);
+
+    bodyLayout->setContentsMargins(0, 0, 0, 0);
+    bodyLayout->setMargin(0);
+
+    normalMainLayout->setContentsMargins(0, 0, 0, 0);
+    normalMainLayout->setMargin(0);
+
+    pictureMainLayout->setContentsMargins(0, 0, 0, 0);
+    pictureMainLayout->setMargin(0);
+
+    m_mainStackedWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_shortName->setFixedHeight(20);
     m_fullName->setFixedHeight(20);
     m_avatar->setAlignment(Qt::AlignHCenter);
-    m_setloginLayout->setContentsMargins(0, 0, 0, 0);
-    m_setloginLayout->setSpacing(0);
-    m_setloginLayout->setMargin(0);
 
-    m_modifydelLayout->setContentsMargins(1, 0, 1, 0);
-    m_modifydelLayout->setSpacing(10);
-    m_modifydelLayout->setMargin(3);
+    setloginLayout->setContentsMargins(0, 0, 0, 0);
+    setloginLayout->setSpacing(0);
+    setloginLayout->setMargin(0);
+
+    modifydelLayout->setContentsMargins(1, 0, 1, 0);
+    modifydelLayout->setSpacing(10);
+    modifydelLayout->setMargin(3);
 
     m_avatarListWidget->setUserModel(m_curUser);
 
@@ -133,6 +163,8 @@ void AccountsDetailWidget::initWidgets()
     m_inputLineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     setFocusPolicy(Qt::FocusPolicy::StrongFocus);
     m_inputLineEdit->setVisible(false);
+
+    m_mainStackedWidget->setCurrentIndex(0);
 }
 
 void AccountsDetailWidget::initDatas()
@@ -152,12 +184,12 @@ void AccountsDetailWidget::initDatas()
     });
     connect(m_avatar, &AvatarWidget::clicked, this, [ = ](const QString & iconPath) {
         Q_UNUSED(iconPath)
-        setAvatarListWgtVisible(true);
-        setFingerWgtsVisible(false);
+        int index = m_mainStackedWidget->currentIndex() == 0 ? 1 : 0;
+        m_mainStackedWidget->setCurrentIndex(index);
     });
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar, this, [ = ](const QString & avatarPath) {
         Q_EMIT requestSetAvatar(m_curUser, avatarPath);
-        setAvatarListWgtVisible(false);
+        m_mainStackedWidget->setCurrentIndex(0);
         setFingerWgtsVisible(m_model->isVaild());
     });
     connect(m_curUser, &User::currentAvatarChanged, m_avatar, &AvatarWidget::setAvatarPath);
@@ -181,7 +213,6 @@ void AccountsDetailWidget::initDatas()
         updateLineEditDisplayStyle();
     });
 
-    //use m_curUser fill widget data
     m_avatar->setAvatarPath(m_curUser->currentAvatar());
     m_shortName->setText(m_curUser->name());
     m_fullName->setText(m_curUser->fullname());
@@ -233,20 +264,6 @@ void AccountsDetailWidget::setFingerWgtsVisible(bool visible)
     m_listGrp->setVisible(visible);
     m_addBtn->setVisible(visible);
     m_clearBtn->setVisible(visible);
-}
-
-void AccountsDetailWidget::setAvatarListWgtVisible(bool visible)
-{
-    m_avatarListWidget->setVisible(visible);
-    if (visible) {
-        m_modifydelLayout->addWidget(m_avatarListWidget);
-    } else {
-        m_modifydelLayout->removeWidget(m_avatarListWidget);
-    }
-    m_modifyPassword->setVisible(!visible);
-    m_deleteAccount->setVisible(!visible);
-    m_autoLogin->setVisible(!visible);
-    m_nopasswdLogin->setVisible(!visible);
 }
 
 //删除账户

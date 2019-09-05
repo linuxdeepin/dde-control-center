@@ -45,6 +45,7 @@ class QLabel;
 class QLineEdit;
 class QEvent;
 class QCommandLinkButton;
+class QStackedWidget;
 QT_END_NAMESPACE
 
 namespace dcc {
@@ -68,7 +69,6 @@ public:
     void updateLineEditDisplayStyle();
     void setFingerModel(dcc::accounts::FingerModel *model);
     void setFingerWgtsVisible(bool visible = false);
-    void setAvatarListWgtVisible(bool visible = false);
 
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);
@@ -90,34 +90,24 @@ private Q_SLOTS:
 
 private:
     dcc::accounts::User *m_curUser;
-    QVBoxLayout *m_headLayout;
-    QHBoxLayout *m_modifydelLayout;
-    QVBoxLayout *m_setloginLayout;
-
-    QVBoxLayout *m_setfingeLayout;
-    QHBoxLayout *m_fingepasswdLayout;
-
-    QVBoxLayout *m_mainContentLayout;
-    QHBoxLayout *m_shortnameLayout;
-    QHBoxLayout *m_fullnameLayout;
     dcc::accounts::AvatarWidget *m_avatar;//账户图片
-    QLabel *m_shortName;
-    QLabel *m_fullName;
-    QLineEdit *m_inputLineEdit;
+    QLabel *m_shortnameBtn;//账户名小图标
+    QLabel *m_shortName;//账户名
+    QLabel *m_fullName;//账户全名
+    DTK_WIDGET_NAMESPACE::DIconButton *m_fullnameBtn;//账户全名编辑按钮
+    QLineEdit *m_inputLineEdit;//账户全名编辑框
+    QStackedWidget *m_mainStackedWidget;
     QPushButton *m_modifyPassword;//修改密码
     QPushButton *m_deleteAccount;//删除账户
-
     dcc::widgets::SwitchWidget *m_autoLogin;//自动登录
     dcc::widgets::SwitchWidget *m_nopasswdLogin;//无密码登录
-    AvatarListWidget *m_avatarListWidget;
-    QLabel *m_shortnameBtn;
-    DTK_WIDGET_NAMESPACE::DIconButton *m_fullnameBtn;
-    dcc::widgets::SettingsGroup *m_listGrp;//指纹列表
     dcc::accounts::FingerModel *m_model;
+    dcc::widgets::SettingsGroup *m_listGrp;//指纹列表
     QLabel *m_fingetitleLabel;
     QCommandLinkButton *m_addBtn;
     QCommandLinkButton *m_clearBtn;
     QString m_notUseThumb;
+    AvatarListWidget *m_avatarListWidget;//图像列表
 };
 
 }   // namespace accounts
