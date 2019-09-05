@@ -30,12 +30,13 @@
 using namespace dcc::sound;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::sound;
+DWIDGET_USE_NAMESPACE
+
+Q_DECLARE_METATYPE(const dcc::sound::Port *)
 
 AdvancedPage::AdvancedPage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
-    , m_inputGroup(new SettingsGroup)
-    , m_outputGroup(new SettingsGroup)
 {
     m_layout->setMargin(10);
 
@@ -57,13 +58,33 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     QLabel *label = new QLabel(tr("Output"));
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     contentLayout->addWidget(label);
-    contentLayout->addWidget(m_outputGroup);
+
+    auto setListFucn = [](DListView * listView) {
+        listView->setEditTriggers(DListView::NoEditTriggers);
+        listView->setAutoScroll(false);
+        listView->setSelectionMode(QAbstractItemView::NoSelection);
+        listView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        listView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    };
+
+    m_outputList = new DListView;
+    setListFucn(m_outputList);
+    contentLayout->addWidget(m_outputList);
 
     //~ contents_path /sound/Advanced
     label = new QLabel(tr("Input"));
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     contentLayout->addWidget(label);
-    contentLayout->addWidget(m_inputGroup);
+    m_inputList = new DListView;
+    setListFucn(m_inputList);
+    contentLayout->addWidget(m_inputList);
+
+    connect(m_inputList, &DListView::clicked, this, [this](const QModelIndex & idx) {
+        this->requestSetPort(m_inputList->model()->data(idx, Qt::WhatsThisPropertyRole).value<const Port *>());
+    });
+    connect(m_outputList, &DListView::clicked, this, [this](const QModelIndex & idx) {
+        this->requestSetPort(m_outputList->model()->data(idx, Qt::WhatsThisPropertyRole).value<const Port *>());
+    });
 
     m_layout->addWidget(scrollarea);
     setLayout(m_layout);
@@ -85,11 +106,10 @@ void AdvancedPage::setModel(dcc::sound::SoundModel *model)
 
 void AdvancedPage::initList()
 {
-    if (m_portItemList.size()) {
-        for (auto item : m_portItemList)
-            item->deleteLater();
-    }
-    m_portItemList.clear();
+    m_inputModel = new QStandardItemModel(m_inputList);
+    m_inputList->setModel(m_inputModel);
+    m_outputModel = new QStandardItemModel(m_outputList);
+    m_outputList->setModel(m_outputModel);
 
     auto ports = m_model->ports();
     for (auto port : ports) {
@@ -99,32 +119,50 @@ void AdvancedPage::initList()
 
 void AdvancedPage::addPort(const Port *port)
 {
-    PortItem *pi = new PortItem(port);
-    pi->setContentsMargins(20, 0, 10, 0);
-    connect(pi, &PortItem::selectedChanged, [this, port] {
-        Q_EMIT requestSetPort(port);
+    DStandardItem *pi = new DStandardItem;
+
+    DViewItemActionList actionList;
+    auto portAction = new DViewItemAction();
+    portAction->setText(port->name());
+    auto cardAction = new DViewItemAction();
+    portAction->setText(port->cardName());
+    actionList << portAction << cardAction;
+    pi->setTextActionList(actionList);
+    pi->setData(QVariant::fromValue<const Port *>(port), Qt::WhatsThisPropertyRole);
+
+    connect(port, &Port::nameChanged, portAction, &DViewItemAction::setText);
+    connect(port, &Port::cardNameChanged, cardAction, &DViewItemAction::setText);
+    connect(port, &Port::isActiveChanged, this, [ = ](bool isActive) {
+        pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
     });
 
+    if (port->isActive())
+        pi->setCheckState(Qt::CheckState::Checked);
+
     if (port->direction() == Port::Out) {
-        m_outputGroup->appendItem(pi);
+        m_outputModel->appendRow(pi);
     } else {
-        m_inputGroup->appendItem(pi);
+        m_inputModel->appendRow(pi);
     }
-    m_portItemList.append(pi);
 }
 
 void AdvancedPage::removePort(const QString &portId, const uint &cardId)
 {
-    for (PortItem *item : m_portItemList) {
-        if (item->port()->id() == portId && item->port()->cardId() == cardId) {
-
-            if (item->direction() == Port::Out)
-                m_outputGroup->removeItem(item);
-            else
-                m_inputGroup->removeItem(item);
-
-            m_portItemList.removeOne(item);
-            item->deleteLater();
+    auto rmFunc = [ = ](QStandardItemModel * model)->bool{
+        for (int i = 0; model->rowCount(); ++i)
+        {
+            auto item = model->item(i);
+            auto port = item->data(Qt::WhatsThisPropertyRole).value<const Port *>();
+            if (port->id() == portId && cardId == port->cardId()) {
+                model->removeRow(i);
+                return true;
+            }
         }
-    }
+        return false;
+    };
+
+    if (rmFunc(m_inputModel))
+        return;
+
+    rmFunc(m_outputModel);
 }

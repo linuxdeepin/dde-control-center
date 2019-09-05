@@ -25,6 +25,7 @@
 #include "window/namespace.h"
 
 #include <QWidget>
+#include <DListView>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -69,9 +70,10 @@ private:
 private:
     QVBoxLayout *m_layout;
     dcc::sound::SoundModel *m_model{nullptr};
-    dcc::widgets::SettingsGroup *m_inputGroup{nullptr};
-    dcc::widgets::SettingsGroup *m_outputGroup{nullptr};
-    QList<dcc::sound::PortItem *> m_portItemList;
+    DTK_WIDGET_NAMESPACE::DListView *m_inputList{nullptr};
+    DTK_WIDGET_NAMESPACE::DListView *m_outputList{nullptr};
+    QStandardItemModel *m_inputModel{nullptr};
+    QStandardItemModel *m_outputModel{nullptr};
 };
 
 }
