@@ -38,7 +38,6 @@ SettingsItem::SettingsItem(QWidget *parent)
     : QFrame(parent)
     , m_isErr(false)
 {
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 }
 
 

@@ -38,7 +38,7 @@ DWIDGET_USE_NAMESPACE
 namespace dcc {
 namespace widgets {
 
-SettingsGroup::SettingsGroup(QFrame *parent, BackgroupStyle bgStyle)
+SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
     : TranslucentFrame(parent)
     , m_layout(new QVBoxLayout)
     , m_headerItem(nullptr)
@@ -46,14 +46,12 @@ SettingsGroup::SettingsGroup(QFrame *parent, BackgroupStyle bgStyle)
     m_layout->setMargin(0);
     m_layout->setSpacing(1);
 
-    QVBoxLayout *vLayout = nullptr;
-    if (GroupBackgroud == bgStyle) {
+    QVBoxLayout *vLayout = m_layout;
+    if (GroupBackground == bgStyle) {
         DBackgroundGroup *bggroup = new DBackgroundGroup(m_layout);
         bggroup->setBackgroundRole(QPalette::Window);
         vLayout = new QVBoxLayout;
         vLayout->addWidget(bggroup);
-    } else {
-        vLayout = m_layout;
     }
 
     m_bgStyle = bgStyle;

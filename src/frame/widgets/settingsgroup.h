@@ -44,12 +44,13 @@ class SettingsGroup : public TranslucentFrame
     Q_OBJECT
 
 public:
-    enum BackgroupStyle {
+    enum BackgroundStyle {
         ItemBackground = 0,
-        GroupBackgroud
+        GroupBackground,
+        NoneBackground
     };
 
-    explicit SettingsGroup(QFrame *parent = nullptr, BackgroupStyle bgStyle = ItemBackground);
+    explicit SettingsGroup(QFrame *parent = nullptr, BackgroundStyle bgStyle = ItemBackground);
     explicit SettingsGroup(const QString &title, QFrame *parent = nullptr);
     ~SettingsGroup();
 
@@ -67,7 +68,7 @@ public:
     void clear();
 
 private:
-    BackgroupStyle m_bgStyle{ItemBackground};
+    BackgroundStyle m_bgStyle{ItemBackground};
     QVBoxLayout *m_layout;
     SettingsHeaderItem *m_headerItem;
 };
