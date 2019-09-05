@@ -42,6 +42,7 @@ public:
     explicit ComboxWidget(QWidget *widget, QFrame *parent = nullptr);
 
     void setComboxOption(const QStringList &options);
+    void setCurrentText(const QString &curText);
     void setTitle(const QString &title);
 
     QComboBox *comboBox();

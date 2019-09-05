@@ -25,7 +25,7 @@
 #include "../abstractsection.h"
 #include "widgets/contentwidget.h"
 #include "widgets/switchwidget.h"
-#include "widgets/comboboxwidget.h"
+#include "widgets/comboxwidget.h"
 
 #include <networkmanagerqt/vpnsetting.h>
 
@@ -50,17 +50,17 @@ private:
     void initUI();
     void initConnection();
     void onMppeEnableChanged(const bool checked);
-    void onMppeMethodChanged(const QString &method);
+    void onMppeMethodChanged(const QString &methodKey);
 
 private:
-    QMap<QString, QString> MppeMethodStrMap;
+    QList<QPair<QString, QString>> MppeMethodStrMap;
     QMap<QString, QString> OptionsStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 
     dcc::widgets::SwitchWidget *m_mppeEnable;
-    dcc::widgets::ComboBoxWidget *m_mppeChooser;
+    dcc::widgets::ComboxWidget *m_mppeChooser;
     dcc::widgets::SwitchWidget *m_mppeStateful;
 
     QString m_currentMppeMethod;

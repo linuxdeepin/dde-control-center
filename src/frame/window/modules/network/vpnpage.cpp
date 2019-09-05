@@ -33,7 +33,6 @@
 #include "widgets/loadingnextpagewidget.h"
 
 #include <networkmodel.h>
-
 #include <DFloatingButton>
 #include <DHiDPIHelper>
 #include <ddialog.h>
@@ -112,7 +111,7 @@ VpnPage::VpnPage(QWidget *parent)
     connect(m_vpnSwitch, &SwitchWidget::checkedChanged, this, &VpnPage::requestVpnEnabled);
     connect(createVpnBtn, &QPushButton::clicked, this, &VpnPage::createVPN);
     connect(importVpnBtn, &QPushButton::clicked, this, &VpnPage::importVPN);
-    connect(m_lvprofiles, &QListView::clicked, this, &VpnPage::onVpnSelected);
+    connect(m_lvprofiles, &DListView::clicked, this, &VpnPage::onVpnSelected);
 }
 
 VpnPage::~VpnPage()
@@ -127,7 +126,7 @@ void VpnPage::setModel(NetworkModel *model)
 
     connect(m_model, &NetworkModel::vpnEnabledChanged, m_vpnSwitch, &SwitchWidget::setChecked);
     connect(m_model, &NetworkModel::activeConnInfoChanged, this, &VpnPage::onActiveConnsInfoChanged);
-    connect(m_model, &NetworkModel::connectionListChanged, this, [=] { refreshVpnList(m_model->vpns()); });
+    connect(m_model, &NetworkModel::connectionListChanged, this, [ = ] { refreshVpnList(m_model->vpns()); });
 
     m_vpnSwitch->setChecked(m_model->vpnEnabled());
 
@@ -142,8 +141,7 @@ void VpnPage::refreshVpnList(const QList<QJsonObject> &vpnList)
 
     m_modelprofiles->clear();
 
-    for (const auto &vpn : vpnList)
-    {
+    for (const auto &vpn : vpnList) {
         const QString uuid = vpn.value("Uuid").toString();
 
         DStandardItem *it = new DStandardItem();
@@ -184,8 +182,7 @@ void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
 {
     QMap<QString, int> activeVpnStates;
 
-    for (const auto &info : infos)
-    {
+    for (const auto &info : infos) {
         const QString &type = info.value("ConnectionType").toString();
         if (!type.startsWith("vpn"))
             continue;
@@ -229,8 +226,7 @@ void VpnPage::importVPN()
 
     qDebug() << stat << output << error;
 
-    if (stat)
-    {
+    if (stat) {
         const auto ratio = devicePixelRatioF();
         QPixmap icon = QIcon::fromTheme("dialog-error").pixmap(QSize(48, 48) * ratio);
         icon.setDevicePixelRatio(ratio);
@@ -248,8 +244,7 @@ void VpnPage::importVPN()
     const QRegularExpression regexp("\\(([-\\w]+)\\)");
     const auto match = regexp.match(output);
 
-    if (match.hasMatch())
-    {
+    if (match.hasMatch()) {
         m_editingConnUuid = match.captured(1);
     }
 }

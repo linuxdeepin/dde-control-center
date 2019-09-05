@@ -57,8 +57,6 @@ public:
 
 private:
     void initialize() override;
-    void moduleActive();
-    void moduleDeactive();
     const QString name() const override;
 public:
     void active() override;

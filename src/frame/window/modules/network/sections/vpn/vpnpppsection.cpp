@@ -28,11 +28,11 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 VpnPPPSection::VpnPPPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
-    : AbstractSection(tr("VPN PPP"), parent),
-      m_vpnSetting(vpnSetting),
-      m_mppeEnable(new SwitchWidget(this)),
-      m_mppeChooser(new ComboBoxWidget(this)),
-      m_mppeStateful(new SwitchWidget(this))
+    : AbstractSection(tr("VPN PPP"), parent)
+    , m_vpnSetting(vpnSetting)
+    , m_mppeEnable(new SwitchWidget(this))
+    , m_mppeChooser(new ComboxWidget(this))
+    , m_mppeStateful(new SwitchWidget(this))
 {
     m_dataMap = vpnSetting->data();
 
@@ -42,9 +42,9 @@ VpnPPPSection::VpnPPPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame 
     bool mppeEnable = true;
     // means this is a exist connection
     if (!m_dataMap.isEmpty()) {
-        for (auto mppeMethod : MppeMethodStrMap.values()) {
-            if (m_dataMap.contains(mppeMethod)) {
-                m_currentMppeMethod = mppeMethod;
+        for (auto it = MppeMethodStrMap.cbegin(); it != MppeMethodStrMap.cend(); ++it) {
+            if (m_dataMap.contains(it->second)) {
+                m_currentMppeMethod = it->second;
                 mppeEnable = true;
                 break;
             } else {
@@ -75,11 +75,11 @@ void VpnPPPSection::saveSettings()
     // retrieve the data map
     m_dataMap = m_vpnSetting->data();
 
-    for (auto method : MppeMethodStrMap.values()) {
-        if (m_mppeEnable->checked() && m_currentMppeMethod == method) {
-            m_dataMap.insert(method, "yes");
+    for (auto it = MppeMethodStrMap.cbegin(); it != MppeMethodStrMap.cend(); ++it) {
+        if (m_mppeEnable->checked() && m_currentMppeMethod == it->second) {
+            m_dataMap.insert(it->second, "yes");
         } else {
-            m_dataMap.remove(method);
+            m_dataMap.remove(it->second);
         }
     }
 
@@ -160,12 +160,18 @@ void VpnPPPSection::initStrMaps()
 void VpnPPPSection::initUI()
 {
     m_mppeEnable->setTitle(tr("Use MPPE"));
-
     m_mppeChooser->setTitle(tr("Security"));
-    for (const QString &key : MppeMethodStrMap.keys()) {
-        m_mppeChooser->appendOption(key, MppeMethodStrMap.value(key));
+    QStringList comboxOptions;
+    QString curOption = "";
+    for (auto it = MppeMethodStrMap.cbegin(); it != MppeMethodStrMap.cend(); ++it) {
+        comboxOptions << it->first;
+        if (it->second == m_currentMppeMethod) {
+            curOption = it->first;
+        }
     }
-    m_mppeChooser->setCurrent(m_currentMppeMethod);
+
+    m_mppeChooser->setComboxOption(comboxOptions);
+    m_mppeChooser->setCurrentText(curOption);
 
     m_mppeStateful->setTitle(tr("Stateful MPPE"));
     m_mppeStateful->setChecked(m_dataMap.value("mppe-stateful") == "yes");
@@ -178,11 +184,7 @@ void VpnPPPSection::initUI()
 void VpnPPPSection::initConnection()
 {
     connect(m_mppeEnable, &SwitchWidget::checkedChanged, this, &VpnPPPSection::onMppeEnableChanged);
-
-    connect(m_mppeChooser, &ComboBoxWidget::requestPage, this, &VpnPPPSection::requestNextPage);
-    connect(m_mppeChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
-        onMppeMethodChanged(data.value<QString>());
-    });
+    connect(m_mppeChooser, &ComboxWidget::onSelectChanged, this, &VpnPPPSection::onMppeMethodChanged);
 }
 
 void VpnPPPSection::onMppeEnableChanged(const bool checked)
@@ -191,9 +193,12 @@ void VpnPPPSection::onMppeEnableChanged(const bool checked)
     m_mppeStateful->setVisible(checked);
 }
 
-void VpnPPPSection::onMppeMethodChanged(const QString &method)
+void VpnPPPSection::onMppeMethodChanged(const QString &methodKey)
 {
-    if (!method.isEmpty()) {
-        m_currentMppeMethod = method;
+    for (auto it = MppeMethodStrMap.cbegin(); it != MppeMethodStrMap.cend(); ++it) {
+        if (it->first == methodKey) {
+            m_currentMppeMethod = it->second;
+            break;
+        }
     }
 }

@@ -30,12 +30,11 @@
 #include "widgets/switchwidget.h"
 
 #include <DStyleOption>
-
-#include <QDebug>
-
 #include <networkmodel.h>
 #include <networkdevice.h>
 #include <wirelessdevice.h>
+
+#include <QDebug>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;

@@ -83,6 +83,13 @@ void ComboxWidget::setComboxOption(const QStringList &options)
     m_switchComboBox->blockSignals(false);
 }
 
+void ComboxWidget::setCurrentText(const QString &curText)
+{
+    m_switchComboBox->blockSignals(true);
+    m_switchComboBox->setCurrentText(curText);
+    m_switchComboBox->blockSignals(false);
+}
+
 void ComboxWidget::setTitle(const QString &title)
 {
     QLabel *label = qobject_cast<QLabel *>(m_leftWidget);
@@ -94,7 +101,7 @@ void ComboxWidget::setTitle(const QString &title)
     setAccessibleName(title);
 }
 
-QComboBox* ComboxWidget::comboBox()
+QComboBox *ComboxWidget::comboBox()
 {
     return m_switchComboBox;
 }

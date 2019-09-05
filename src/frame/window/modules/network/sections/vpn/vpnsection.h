@@ -25,7 +25,7 @@
 #include "../abstractsection.h"
 #include "widgets/contentwidget.h"
 #include "widgets/lineeditwidget.h"
-#include "widgets/comboboxwidget.h"
+#include "widgets/comboxwidget.h"
 #include "widgets/passwdeditwidget.h"
 
 #include <networkmanagerqt/vpnsetting.h>
@@ -51,7 +51,7 @@ private:
     void onPasswordFlagsChanged(NetworkManager::Setting::SecretFlagType type);
 
 private:
-    QMap<QString, NetworkManager::Setting::SecretFlagType> PasswordFlagsStrMap;
+    QList<QPair<QString, NetworkManager::Setting::SecretFlagType>> PasswordFlagsStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NetworkManager::Setting::SecretFlagType m_currentPasswordType;
@@ -60,7 +60,7 @@ private:
 
     dcc::widgets::LineEditWidget *m_gateway;
     dcc::widgets::LineEditWidget *m_userName;
-    dcc::widgets::ComboBoxWidget *m_passwordFlagsChooser;
+    dcc::widgets::ComboxWidget *m_passwordFlagsChooser;
     dcc::widgets::PasswdEditWidget *m_password;
     dcc::widgets::LineEditWidget *m_domain;
 };

@@ -23,6 +23,7 @@
 #define SECRET8021xSECTION_H
 
 #include "abstractsection.h"
+#include "widgets/comboxwidget.h"
 #include "widgets/comboboxwidget.h"
 #include "widgets/lineeditwidget.h"
 #include "widgets/passwdeditwidget.h"
@@ -37,13 +38,14 @@ class Secret8021xEnableWatcher : public QObject
     Q_OBJECT
 
 public:
-    Secret8021xEnableWatcher (QObject *parent = 0) : QObject(parent) {}
-    virtual ~Secret8021xEnableWatcher () {}
+    Secret8021xEnableWatcher(QObject *parent = 0) : QObject(parent) {}
+    virtual ~Secret8021xEnableWatcher() {}
 
     inline bool secretEnabled() {return m_secretEnabled;}
 
 public Q_SLOTS:
-    inline void setSecretEnable(const bool enabled) {
+    inline void setSecretEnable(const bool enabled)
+    {
         if (m_secretEnabled != enabled) {
             m_secretEnabled = enabled;
             Q_EMIT secretEnableChanged(m_secretEnabled);
@@ -101,16 +103,16 @@ private:
     void savePeapItems();
 
 private:
-    QMap<QString, NetworkManager::Security8021xSetting::EapMethod> EapMethodStrMap;
-    QMap<QString, NetworkManager::Setting::SecretFlagType> PasswordFlagsStrMap;
+    QList<QPair<QString, NetworkManager::Security8021xSetting::EapMethod>> EapMethodStrMap;
+    QList<QPair<QString, NetworkManager::Setting::SecretFlagType>> PasswordFlagsStrMap;
     QMap<QString, NetworkManager::Security8021xSetting::FastProvisioning> FastrProvisioningStrMap;
     QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapFast;
     QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapTtls;
     QMap<QString, NetworkManager::Security8021xSetting::PeapVersion> PeapVersionStrMap;
     QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapPeap;
 
-    dcc::widgets::ComboBoxWidget *m_eapMethmodChooser;
-    dcc::widgets::ComboBoxWidget *m_passwordFlagsChooser;
+    dcc::widgets::ComboxWidget *m_eapMethmodChooser;
+    dcc::widgets::ComboxWidget *m_passwordFlagsChooser;
     dcc::widgets::LineEditWidget *m_identity;
     dcc::widgets::PasswdEditWidget *m_password;
     Secret8021xEnableWatcher *m_enableWatcher;

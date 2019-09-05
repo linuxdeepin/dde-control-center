@@ -22,20 +22,21 @@
 #include "secret8021xsection.h"
 #include "widgets/filechoosewidget.h"
 #include "widgets/contentwidget.h"
+#include "widgets/comboboxwidget.h"
 
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
 using namespace dcc::widgets;
 
 Secret8021xSection::Secret8021xSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent)
-    : AbstractSection(tr("Security"), parent),
-      m_eapMethmodChooser(new ComboBoxWidget(this)),
-      m_passwordFlagsChooser(new ComboBoxWidget(this)),
-      m_identity(new LineEditWidget(this)),
-      m_password(new PasswdEditWidget(this)),
-      m_enableWatcher(nullptr),
-      m_currentPasswordType(NetworkManager::Setting::None),
-      m_secretSetting(sSetting)
+    : AbstractSection(tr("Security"), parent)
+    , m_eapMethmodChooser(new ComboxWidget(this))
+    , m_passwordFlagsChooser(new ComboxWidget(this))
+    , m_identity(new LineEditWidget(this))
+    , m_password(new PasswdEditWidget(this))
+    , m_enableWatcher(nullptr)
+    , m_currentPasswordType(NetworkManager::Setting::None)
+    , m_secretSetting(sSetting)
 {
     initStrMaps();
 
@@ -45,9 +46,9 @@ Secret8021xSection::Secret8021xSection(NetworkManager::Security8021xSetting::Ptr
 
     // init password type
     NetworkManager::Setting::SecretFlags passwordFlags = m_secretSetting->passwordFlags();
-    for (auto i : PasswordFlagsStrMap.values()) {
-        if (passwordFlags.testFlag(i)) {
-            m_currentPasswordType = i;
+    for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+        if (passwordFlags.testFlag(it->second)) {
+            m_currentPasswordType = it->second;
             break;
         }
     }
@@ -66,32 +67,32 @@ bool Secret8021xSection::allInputValid()
 
         // md5, leap has no special item
         switch (m_currentEapMethod) {
-            case NetworkManager::Security8021xSetting::EapMethodTls: {
-                if (!tlsItemsInputValid()) {
-                    valid = false;
-                }
-                break;
+        case NetworkManager::Security8021xSetting::EapMethodTls: {
+            if (!tlsItemsInputValid()) {
+                valid = false;
             }
-            case NetworkManager::Security8021xSetting::EapMethodFast: {
-                if (!fastItemsInputValid()) {
-                    valid = false;
-                }
-                break;
+            break;
+        }
+        case NetworkManager::Security8021xSetting::EapMethodFast: {
+            if (!fastItemsInputValid()) {
+                valid = false;
             }
-            case NetworkManager::Security8021xSetting::EapMethodTtls: {
-                if (!ttlsItemsInputValid()) {
-                    valid = false;
-                }
-                break;
+            break;
+        }
+        case NetworkManager::Security8021xSetting::EapMethodTtls: {
+            if (!ttlsItemsInputValid()) {
+                valid = false;
             }
-            case NetworkManager::Security8021xSetting::EapMethodPeap: {
-                if (!peapItemsInputValid()) {
-                    valid = false;
-                }
-                break;
+            break;
+        }
+        case NetworkManager::Security8021xSetting::EapMethodPeap: {
+            if (!peapItemsInputValid()) {
+                valid = false;
             }
-            default:
-                break;
+            break;
+        }
+        default:
+            break;
         }
     }
 
@@ -109,27 +110,27 @@ void Secret8021xSection::saveSettings()
     saveCommonItems();
 
     switch (m_currentEapMethod) {
-        case NetworkManager::Security8021xSetting::EapMethodTls:
-            saveTlsItems();
-            break;
-        case NetworkManager::Security8021xSetting::EapMethodFast:
-            saveFastItems();
-            break;
-        case NetworkManager::Security8021xSetting::EapMethodTtls:
-            saveTtlsItems();
-            break;
-        case NetworkManager::Security8021xSetting::EapMethodPeap:
-            savePeapItems();
-            break;
-        default:
-            break;
+    case NetworkManager::Security8021xSetting::EapMethodTls:
+        saveTlsItems();
+        break;
+    case NetworkManager::Security8021xSetting::EapMethodFast:
+        saveFastItems();
+        break;
+    case NetworkManager::Security8021xSetting::EapMethodTtls:
+        saveTtlsItems();
+        break;
+    case NetworkManager::Security8021xSetting::EapMethodPeap:
+        savePeapItems();
+        break;
+    default:
+        break;
     }
 
     m_secretSetting->setInitialized(true);
 }
 
 void Secret8021xSection::init(Secret8021xEnableWatcher *watcher,
-        QList<NetworkManager::Security8021xSetting::EapMethod> eapMethodsSupportList)
+                              QList<NetworkManager::Security8021xSetting::EapMethod> eapMethodsSupportList)
 {
     if (m_enableWatcher) {
         qDebug() << "Secret8021x enable watcher has been initialized";
@@ -200,26 +201,44 @@ void Secret8021xSection::initStrMaps()
 void Secret8021xSection::initUI()
 {
     m_eapMethmodChooser->setTitle(tr("EAP Auth"));
+    QStringList eapComboxOptions;
+    QString     eapOptionText;
     for (auto eapMethodWanted : m_eapMethodsWantedList) {
-        const QString &eapMethodStr = EapMethodStrMap.key(eapMethodWanted);
+        QString eapMethodStr = "";
+        for (auto it = EapMethodStrMap.cbegin(); it != EapMethodStrMap.cend(); ++it) {
+            if (it->second == eapMethodWanted) {
+                eapMethodStr = it->first;
+                break;
+            }
+        }
         if (eapMethodStr.isEmpty()) {
             qDebug() << "EAP method do not supported, removing it:" << eapMethodWanted;
             m_eapMethodsWantedList.removeAll(eapMethodWanted);
             continue;
         }
-        m_eapMethmodChooser->appendOption(eapMethodStr, eapMethodWanted);
+        eapComboxOptions << eapMethodStr;
+        if (m_currentEapMethod == eapMethodWanted) {
+            eapOptionText = eapMethodWanted;
+        }
     }
-    m_eapMethmodChooser->setCurrent(m_currentEapMethod);
+    m_eapMethmodChooser->setComboxOption(eapComboxOptions);
+    m_eapMethmodChooser->setCurrentText(eapOptionText);
 
     m_identity->setTitle(tr("Identity"));
     m_identity->setText(m_secretSetting->identity());
     m_identity->setPlaceholderText(tr("Required"));
 
     m_passwordFlagsChooser->setTitle(tr("Pwd Options"));
-    for (const QString &key : PasswordFlagsStrMap.keys()) {
-        m_passwordFlagsChooser->appendOption(key, PasswordFlagsStrMap.value(key));
+    QStringList pwdComboxOptions;
+    QString pwdOptionText;
+    for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+        pwdComboxOptions << it->first;
+        if (it->second == m_currentPasswordType) {
+            pwdOptionText = it->first;
+        }
     }
-    m_passwordFlagsChooser->setCurrent(m_currentPasswordType);
+    m_passwordFlagsChooser->setComboxOption(pwdComboxOptions);
+    m_passwordFlagsChooser->setCurrentText(pwdOptionText);
 
     m_password->setPlaceholderText(tr("Required"));
     if (m_currentEapMethod == NetworkManager::Security8021xSetting::EapMethodTls) {
@@ -244,14 +263,22 @@ void Secret8021xSection::initConnection()
 
     connect(m_enableWatcher, &Secret8021xEnableWatcher::secretEnableChanged, this, &Secret8021xSection::onSecretEnableChanged);
 
-    connect(m_eapMethmodChooser, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestNextPage);
-    connect(m_eapMethmodChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
-        onEapMethodChanged(data.value<NetworkManager::Security8021xSetting::EapMethod>());
+    connect(m_eapMethmodChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &methodKey) {
+        for (auto it = EapMethodStrMap.cbegin(); it != EapMethodStrMap.cend(); ++it) {
+            if (it->first == methodKey) {
+                onEapMethodChanged(it->second);
+                break;
+            }
+        }
     });
 
-    connect(m_passwordFlagsChooser, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestNextPage);
-    connect(m_passwordFlagsChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
-        onPasswordFlagsChanged(data.value<NetworkManager::Setting::SecretFlagType>());
+    connect(m_passwordFlagsChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &passwordKey) {
+        for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+            if (it->first == passwordKey) {
+                onPasswordFlagsChanged(it->second);
+                break;
+            }
+        }
     });
 }
 
@@ -264,33 +291,33 @@ void Secret8021xSection::initEapItems(NetworkManager::Security8021xSetting::EapM
     QList<SettingsItem *> itemList;
 
     switch (method) {
-        case NetworkManager::Security8021xSetting::EapMethodTls: {
-            initEapMethodTlsItems(&itemList);
-            break;
-        }
-        case NetworkManager::Security8021xSetting::EapMethodMd5: {
-            // md5 has no special item
-            break;
-        }
-        case NetworkManager::Security8021xSetting::EapMethodLeap: {
-            // leap has no special item
-            break;
-        }
-        case NetworkManager::Security8021xSetting::EapMethodFast: {
-            initEapMethodFastItems(&itemList);
-            break;
-        }
-        case NetworkManager::Security8021xSetting::EapMethodTtls: {
-            initEapMethodTtlsItems(&itemList);
-            break;
-        }
-        case NetworkManager::Security8021xSetting::EapMethodPeap: {
-            initEapMethodPeapItems(&itemList);
-            break;
-        }
-        default:
-            qDebug() << "init EapItems failed! unhandled EapMethod" << method;
-            break;
+    case NetworkManager::Security8021xSetting::EapMethodTls: {
+        initEapMethodTlsItems(&itemList);
+        break;
+    }
+    case NetworkManager::Security8021xSetting::EapMethodMd5: {
+        // md5 has no special item
+        break;
+    }
+    case NetworkManager::Security8021xSetting::EapMethodLeap: {
+        // leap has no special item
+        break;
+    }
+    case NetworkManager::Security8021xSetting::EapMethodFast: {
+        initEapMethodFastItems(&itemList);
+        break;
+    }
+    case NetworkManager::Security8021xSetting::EapMethodTtls: {
+        initEapMethodTtlsItems(&itemList);
+        break;
+    }
+    case NetworkManager::Security8021xSetting::EapMethodPeap: {
+        initEapMethodPeapItems(&itemList);
+        break;
+    }
+    default:
+        qDebug() << "init EapItems failed! unhandled EapMethod" << method;
+        break;
     }
 
     m_eapMethodItemsMap.insert(method, itemList);
@@ -396,8 +423,7 @@ void Secret8021xSection::initEapMethodTtlsItems(QList<SettingsItem *> *itemList)
         authMethod->setCurrent(AuthMethodStrMapTtls.first());
     } else if (AuthMethodStrMapTtls.values().contains(m_secretSetting->phase2AuthMethod())) {
         authMethod->setCurrent(m_secretSetting->phase2AuthMethod());
-    }
-    else {
+    } else {
         authMethod->setCurrent(AuthMethodStrMapTtls.first());
     }
 
@@ -443,8 +469,7 @@ void Secret8021xSection::initEapMethodPeapItems(QList<SettingsItem *> *itemList)
         authMethod->setCurrent(AuthMethodStrMapPeap.first());
     } else if (AuthMethodStrMapPeap.values().contains(m_secretSetting->phase2AuthMethod())) {
         authMethod->setCurrent(m_secretSetting->phase2AuthMethod());
-    }
-    else {
+    } else {
         authMethod->setCurrent(AuthMethodStrMapPeap.first());
     }
 
