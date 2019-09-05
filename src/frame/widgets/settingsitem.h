@@ -36,18 +36,10 @@ namespace widgets {
 class SettingsItem : public QFrame
 {
     Q_OBJECT
-    Q_PROPERTY(bool isHead READ isHead DESIGNABLE true SCRIPTABLE true)
-    Q_PROPERTY(bool isTail READ isTail DESIGNABLE true SCRIPTABLE true)
     Q_PROPERTY(bool isErr READ isErr DESIGNABLE true SCRIPTABLE true)
 
 public:
-    explicit SettingsItem(QWidget *parent = 0);
-
-    bool isHead() const;
-    void setIsHead(bool head = true);
-
-    bool isTail() const;
-    void setIsTail(bool tail = true);
+    explicit SettingsItem(QWidget *parent = nullptr);
 
     bool isErr() const;
     void setIsErr(const bool err = true);
@@ -58,8 +50,6 @@ protected:
     void resizeEvent(QResizeEvent *event) override;
 
 private:
-    bool m_isHead;
-    bool m_isTail;
     bool m_isErr;
 
     DTK_WIDGET_NAMESPACE::DBackgroundGroup *m_bgGroup{nullptr};

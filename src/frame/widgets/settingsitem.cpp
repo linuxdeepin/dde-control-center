@@ -35,41 +35,12 @@ namespace dcc {
 namespace widgets {
 
 SettingsItem::SettingsItem(QWidget *parent)
-    : QFrame(parent),
-      m_isHead(false),
-      m_isTail(false),
-      m_isErr(false)
+    : QFrame(parent)
+    , m_isErr(false)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 }
 
-bool SettingsItem::isHead() const
-{
-    return m_isHead;
-}
-
-void SettingsItem::setIsHead(bool head)
-{
-    if (head == m_isHead) return;
-    m_isHead = head;
-
-    style()->unpolish(this);
-    style()->polish(this);
-}
-
-bool SettingsItem::isTail() const
-{
-    return m_isTail;
-}
-
-void SettingsItem::setIsTail(bool tail)
-{
-    if (tail == m_isTail) return;
-    m_isTail = tail;
-
-    style()->unpolish(this);
-    style()->polish(this);
-}
 
 bool SettingsItem::isErr() const
 {

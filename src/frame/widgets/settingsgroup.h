@@ -67,19 +67,9 @@ public:
     void clear();
 
 private:
-    bool eventFilter(QObject *, QEvent *event);
-    void updateHeadTail();
-
-private Q_SLOTS:
-    void updateHeight();
-
-private:
     BackgroupStyle m_bgStyle{ItemBackground};
     QVBoxLayout *m_layout;
     SettingsHeaderItem *m_headerItem;
-
-    QTimer *m_updateHeightTimer;
-    QTimer *m_updateHeadTailTimer;
 };
 
 }
