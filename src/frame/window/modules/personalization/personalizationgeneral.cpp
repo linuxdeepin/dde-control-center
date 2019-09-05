@@ -48,7 +48,7 @@ const QList<QString> ACTIVE_COLORS = {
 PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout())
-    , m_wmSwitch(new Dtk::Widget::DSwitchButton())
+    , m_wmSwitch(new DTK_WIDGET_NAMESPACE::DSwitchButton())
     , m_transparentSlider(new dcc::widgets::DCCSliderAnnotated())
     , m_Themes(new PerssonalizationThemeWidget())
 {
@@ -101,12 +101,8 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     swswitchLayout->addStretch();
     swswitchLayout->addWidget(m_wmSwitch);
     m_centralLayout->addLayout(swswitchLayout);
-    connect(m_wmSwitch, &Dtk::Widget::DSwitchButton::checkedChanged, this,
+    connect(m_wmSwitch, &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this,
             &PersonalizationGeneral::requestSwitchWM);
-    connect(m_wmSwitch, &Dtk::Widget::DSwitchButton::checkedChanged, this, [this] {
-        // reset switch state
-        m_wmSwitch->setChecked(m_model->is3DWm());
-    });
 
     setLayout(m_centralLayout);
 
