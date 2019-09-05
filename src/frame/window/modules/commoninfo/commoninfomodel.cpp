@@ -66,8 +66,8 @@ void CommonInfoModel::setUeProgram(const bool ueProgram)
 {
     if (m_joinUeProgram != ueProgram) {
         m_joinUeProgram = ueProgram;
-        Q_EMIT ueProgramChanged(ueProgram);
     }
+    Q_EMIT ueProgramChanged(m_joinUeProgram);
 }
 
 bool CommonInfoModel::bootDelay() const

@@ -25,11 +25,13 @@
 #include <com_deepin_daemon_systeminfo.h>
 #include <com_deepin_daemon_grub2.h>
 #include <com_deepin_daemon_grub2_theme.h>
+#include <com_deepin_system_userexperience_daemon.h>
 
 #include <QObject>
 
 using GrubDbus = com::deepin::daemon::Grub2;
 using GrubThemeDbus = com::deepin::daemon::grub2::Theme;
+using UeProgramDbus = com::deepin::userexperience::Daemon;
 
 namespace DCC_NAMESPACE {
 namespace commoninfo {
@@ -45,7 +47,7 @@ public:
     void deactivate();
 
     void loadGrubSettings();
-
+    bool defaultUeProgram();
 Q_SIGNALS:
     void requestSetAutoHideDCC(const bool visible) const;
 
@@ -57,7 +59,6 @@ public Q_SLOTS:
     void onBackgroundChanged();
     void setBackground(const QString &path);
     void setUeProgram(bool enabled);
-
 private:
     void getEntryTitles();
     void getBackgroundFinished(QDBusPendingCallWatcher *w);
@@ -66,6 +67,7 @@ private:
     CommonInfoModel *m_commomModel;
     GrubDbus *m_dBusGrub;
     GrubThemeDbus *m_dBusGrubTheme;
+    UeProgramDbus *m_dBusUeProgram; // for user experience program
 };
 } // namespace commoninfo
 } // namespace DCC_NAMESPACE

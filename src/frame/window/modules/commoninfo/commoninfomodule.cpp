@@ -144,5 +144,7 @@ void CommonInfoModule::initUeProgramWidget()
 {
     m_ueProgramWidget = new UserExperienceProgramWidget();
     m_ueProgramWidget->setModel(m_commonModel);
-    connect(m_ueProgramWidget, &UserExperienceProgramWidget::enableDevelopMode, m_commonWork, &CommonInfoWork::setUeProgram);
+    m_ueProgramWidget->setDefaultUeProgram(m_commonWork->defaultUeProgram());
+    connect(m_ueProgramWidget, &UserExperienceProgramWidget::enableUeProgram,
+            m_commonWork, &CommonInfoWork::setUeProgram);
 }

@@ -23,6 +23,7 @@
 #include "window/modules/commoninfo/commoninfomodel.h"
 
 #include "widgets/basiclistdelegate.h"
+#include "widgets/utils.h"
 
 #include <DSysInfo>
 
@@ -31,6 +32,9 @@ using namespace commoninfo;
 
 static const int ItemWidth = 334;
 static const int ItemHeight = 177;
+
+const QString UeProgramInterface("com.deepin.userexperience.Daemon");
+const QString UeProgramObjPath("/com/deepin/userexperience/Daemon");
 
 CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     : QObject(parent)
@@ -44,6 +48,8 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     m_dBusGrubTheme = new GrubThemeDbus("com.deepin.daemon.Grub2",
                                        "/com/deepin/daemon/Grub2/Theme",
                                        QDBusConnection::systemBus(), this);
+
+    m_dBusUeProgram = new UeProgramDbus(UeProgramInterface, UeProgramObjPath, QDBusConnection::systemBus(), this);
 
     m_dBusGrub->setSync(false, false);
     m_dBusGrubTheme->setSync(false, false);
@@ -77,6 +83,11 @@ void CommonInfoWork::loadGrubSettings()
     } else {
         m_dBusGrub->startServiceProcess();
     }
+}
+
+bool CommonInfoWork::defaultUeProgram()
+{
+    return m_dBusUeProgram->IsEnabled();
 }
 
 void CommonInfoWork::setBootDelay(bool value)
@@ -166,7 +177,47 @@ void CommonInfoWork::setBackground(const QString &path)
 
 void CommonInfoWork::setUeProgram(bool enabled)
 {
-    m_commomModel->setUeProgram(enabled);
+    if (enabled && (m_dBusUeProgram->IsEnabled() != enabled)) {
+        QProcess *process = new QProcess(this);
+
+        // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
+        QString title = "User Experience Program";
+        QString allowContent = "Agree and Join User Experience Program";
+
+        // license内容
+        QString content = getLicense(":/systeminfo/license/deepin-end-user-license-agreement_community_%1.txt", "");
+        QString contentPath("/tmp/tempLic.txt"); // 临时存储路径
+        QFile file(contentPath);
+        // 如果文件不存在，则创建文件
+        if (!file.exists()) {
+            file.open(QIODevice::WriteOnly);
+            file.close();
+        }
+        // 写入文件内容
+        if (!file.open(QFile::ReadWrite | QIODevice::Text | QIODevice::Truncate))
+            return;
+        file.write(content.toLocal8Bit());
+        file.close();
+
+        int result = process->execute("dde-license-dialog",
+                                      QStringList() << "-t" << title << "-c" << contentPath << "-a" << allowContent);
+        if (96 == result) {
+            if (!m_commomModel->ueProgram()) {
+                m_commomModel->setUeProgram(enabled);
+            }
+            m_dBusUeProgram->Enable(enabled);
+        } else {
+            m_commomModel->setUeProgram(m_dBusUeProgram->IsEnabled());
+        }
+        file.remove();
+    } else {
+        if (m_dBusUeProgram->IsEnabled() != enabled) {
+            m_dBusUeProgram->Enable(enabled);
+        }
+        if (m_commomModel->ueProgram() != enabled) {
+            m_commomModel->setUeProgram(enabled);
+        }
+    }
 }
 
 void CommonInfoWork::getEntryTitles()

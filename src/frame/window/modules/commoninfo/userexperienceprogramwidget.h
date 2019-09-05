@@ -41,9 +41,9 @@ public:
     explicit UserExperienceProgramWidget(QWidget *parent = nullptr);
 
     void setModel(CommonInfoModel *model);
-
+    void setDefaultUeProgram(const bool enabled);
 Q_SIGNALS:
-    void enableDevelopMode(bool value);
+    void enableUeProgram(bool enabled);
 
 private:
     dcc::widgets::SwitchWidget *m_joinUeProgram;

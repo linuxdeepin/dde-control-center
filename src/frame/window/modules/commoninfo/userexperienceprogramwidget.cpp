@@ -53,12 +53,15 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
 
     setLayout(vBoxLayout);
 
-    connect(m_joinUeProgram, &SwitchWidget::checkedChanged, this, &UserExperienceProgramWidget::enableDevelopMode);
+    connect(m_joinUeProgram, &SwitchWidget::checkedChanged, this, &UserExperienceProgramWidget::enableUeProgram);
 }
 
 void UserExperienceProgramWidget::setModel(CommonInfoModel *model)
 {
     connect(model, &CommonInfoModel::ueProgramChanged, m_joinUeProgram, &SwitchWidget::setChecked);
+}
 
-    m_joinUeProgram->setChecked(model->ueProgram());
+void UserExperienceProgramWidget::setDefaultUeProgram(const bool enabled)
+{
+    m_joinUeProgram->setChecked(enabled);
 }
