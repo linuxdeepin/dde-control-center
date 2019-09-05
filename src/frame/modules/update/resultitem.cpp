@@ -52,7 +52,7 @@ ResultItem::ResultItem(QFrame *parent)
 
     layout->addSpacing(15);
     layout->addWidget(m_icon, 0, Qt::AlignHCenter);
-    layout->addSpacing(10);
+    layout->addSpacing(15);
     layout->addWidget(m_message, 0, Qt::AlignHCenter);
     layout->addSpacing(15);
 

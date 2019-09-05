@@ -31,7 +31,7 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::update;
 
 LoadingItem::LoadingItem(QFrame *parent)
-    : SettingsItem(parent)
+    : QWidget(parent)
     , m_messageLabel(new NormalLabel)
     , m_progress(new QProgressBar(this))
 {
@@ -60,6 +60,7 @@ LoadingItem::LoadingItem(QFrame *parent)
     layout->addStretch();
     layout->addLayout(imgLayout);
     layout->addLayout(txtLayout);
+    layout->addSpacing(15);
     layout->addWidget(m_progress, 0, Qt::AlignHCenter);
     layout->addWidget(m_messageLabel, 0, Qt::AlignHCenter);
     layout->addStretch();

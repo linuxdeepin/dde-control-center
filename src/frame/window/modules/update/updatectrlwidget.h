@@ -82,10 +82,7 @@ private:
 private:
     dcc::update::UpdateModel *m_model;
     dcc::update::UpdatesStatus m_status;
-
-    dcc::widgets::SettingsGroup *m_checkGroup;
     LoadingItem *m_checkUpdateItem;
-    dcc::widgets::SettingsGroup *m_resultGroup;
     dcc::update::ResultItem *m_resultItem;
     dcc::update::DownloadProgressBar *m_progress;
     dcc::widgets::SettingsGroup *m_summaryGroup;
@@ -95,15 +92,8 @@ private:
     dcc::widgets::TipsLabel *m_powerTip;
     dcc::widgets::TipsLabel *m_reminderTip;
     dcc::widgets::TipsLabel *m_noNetworkTip;
-
     QSettings *m_qsettings;
     QString m_systemVersion;
-
-    QLabel *m_PlaceholderLabel;
-
-    int m_layoutSpaceDistance = 85;
-
-    bool m_display = false;
 };
 
 }// namespace datetime

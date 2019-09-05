@@ -36,7 +36,6 @@ TimezoneContentList::TimezoneContentList(QWidget *parent)
     , m_timezoneGroup(new SettingsGroup)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    setStyleSheet("background-color: rgba(255, 255, 255, 7.65);");
 
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(0);

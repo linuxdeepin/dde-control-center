@@ -24,6 +24,7 @@
 #include "widgets/dccslider.h"
 #include "widgets/dccsliderannotated.h"
 #include "widgets/optionitem.h"
+#include "widgets/settingsgroup.h"
 #include "modules/power/powermodel.h"
 
 #include <QPushButton>
@@ -49,9 +50,12 @@ UseBatteryWidget::UseBatteryWidget(QWidget *parent)
     //~ contents_path /power/On Battery
     m_autoLockScreen->setAccessibleName(tr("Lock screen after"));
 
-    m_layout->addWidget(m_monitorSleepOnBattery);
-    m_layout->addWidget(m_computerSleepOnBattery);
-    m_layout->addWidget(m_autoLockScreen);
+    SettingsGroup *batterySettingsGrp = new SettingsGroup;
+    batterySettingsGrp->appendItem(m_monitorSleepOnBattery);
+    batterySettingsGrp->appendItem(m_computerSleepOnBattery);
+    batterySettingsGrp->appendItem(m_autoLockScreen);
+
+    m_layout->addWidget(batterySettingsGrp);
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(10);
     setLayout(m_layout);

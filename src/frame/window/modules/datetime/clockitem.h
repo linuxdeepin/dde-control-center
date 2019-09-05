@@ -37,7 +37,7 @@ namespace datetime {
 
 class Clock;
 
-class ClockItem : public dcc::widgets::SettingsItem
+class ClockItem : public QWidget
 {
     Q_OBJECT
 public:

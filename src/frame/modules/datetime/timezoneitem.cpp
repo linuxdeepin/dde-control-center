@@ -41,7 +41,7 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     , m_city(new NormalLabel)
     , m_details(new TipsLabel)
     , m_clock(new Clock)
-    , m_removeBtn(new DFloatingButton(this))
+    , m_removeBtn(new DFloatingButton(DStyle::SP_DeleteButton, this))
 {
     setFixedHeight(60);
 
@@ -59,7 +59,7 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     vlayout->addStretch();
 
     m_removeBtn->setObjectName("DCC-Datetime-TimezoneItem-Remove");
-    m_removeBtn->setIcon(QIcon::fromTheme("dcc_edit"));
+    m_removeBtn->setBackgroundRole(QPalette::ColorRole::Window);
     m_removeBtn->setFixedSize(QSize(48,48));
     m_removeBtn->setVisible(false);
 

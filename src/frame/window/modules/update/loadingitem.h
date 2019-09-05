@@ -34,7 +34,7 @@ class NormalLabel;
 namespace DCC_NAMESPACE {
 namespace update {
 
-class LoadingItem : public dcc::widgets::SettingsItem
+class LoadingItem : public QWidget
 {
     Q_OBJECT
 public:

@@ -77,15 +77,12 @@ void DatetimeWidget::init()
     m_listview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_listview->setCurrentIndex(model->index(0, 0));
 
-    SettingsGroup *timezoneGroup = new SettingsGroup;
-
     //default open 24 hour type : set hourTypeSwitch(true) , then set ClockItem TimeHourType
     m_hourTypeSwitch = new SwitchWidget(tr("24-hour Time"));
     m_clockItem->setTimeHourType(m_hourTypeSwitch->checked());
-    timezoneGroup->appendItem(m_clockItem);
 
     QVBoxLayout *layout = new QVBoxLayout;
-    layout->addWidget(timezoneGroup);
+    layout->addWidget(m_clockItem);
     layout->addWidget(m_hourTypeSwitch);
     layout->addWidget(m_listview);
     setLayout(layout);

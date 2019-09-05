@@ -47,9 +47,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     : ContentWidget(parent)
     , m_model(nullptr)
     , m_status(UpdatesStatus::Updated)
-    , m_checkGroup(new SettingsGroup)
     , m_checkUpdateItem(new LoadingItem)
-    , m_resultGroup(new SettingsGroup)
     , m_resultItem(new ResultItem)
     , m_progress(new DownloadProgressBar)
     , m_summaryGroup(new SettingsGroup)
@@ -68,12 +66,6 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_reminderTip->setText(tr("Restart the computer to use the system and the applications properly"));
     //~ contents_path /update/Update
     m_noNetworkTip->setText(tr("Network disconnected, please retry after connected"));
-
-    m_checkGroup->setVisible(false);
-    m_checkGroup->appendItem(m_checkUpdateItem);
-
-    m_resultGroup->setVisible(false);
-    m_resultGroup->appendItem(m_resultItem);
 
     m_progress->setVisible(false);
 
@@ -97,17 +89,13 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_upgradeWarningGroup->setVisible(false);
     m_upgradeWarningGroup->appendItem(m_upgradeWarning);
 
-    m_PlaceholderLabel = new QLabel;//used to holder place
-
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
-    layout->setSpacing(10);
+    layout->setSpacing(0);
     layout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     layout->addStretch();
-//    layout->addSpacing(10);
-    layout->addWidget(m_PlaceholderLabel);
-    layout->addWidget(m_resultGroup);
-    layout->addWidget(m_checkGroup);
+    layout->addWidget(m_resultItem);
+    layout->addWidget(m_checkUpdateItem);
     layout->addWidget(m_upgradeWarningGroup);
     layout->addWidget(m_powerTip);
     layout->addWidget(m_reminderTip);
@@ -176,23 +164,22 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 
     Q_EMIT notifyUpdateState(m_status);
 
+    m_powerTip->setVisible(false);
     m_noNetworkTip->setVisible(false);
-    m_resultGroup->setVisible(false);
+    m_resultItem->setVisible(false);
     m_progress->setVisible(false);
     m_summaryGroup->setVisible(false);
     m_upgradeWarningGroup->setVisible(false);
     m_reminderTip->setVisible(false);
-    m_checkGroup->setVisible(false);
+    m_checkUpdateItem->setVisible(false);
     m_checkUpdateItem->setVisible(false);
     m_checkUpdateItem->setProgressBarVisible(false);
     m_checkUpdateItem->setImageAndTextVisible(false);
-    m_PlaceholderLabel->setVisible(false);
-    m_PlaceholderLabel->setFixedHeight(0);
     m_summary->setVisible(false);
 
     switch (status) {
     case UpdatesStatus::Checking:
-        m_checkGroup->setVisible(true);
+        m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setProgressBarVisible(true);
         //~ contents_path /update/Update
@@ -235,14 +222,12 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         setLowBattery(m_model->lowBattery());
         break;
     case UpdatesStatus::Updated:
-        m_checkGroup->setVisible(true);
+        m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setVisible(true);
         //~ contents_path /update/Update
         m_checkUpdateItem->setMessage(tr("Your system is up to date"));
         m_checkUpdateItem->setImageOrTextVisible(true);
         m_checkUpdateItem->setSystemVersion(m_systemVersion);
-        m_PlaceholderLabel->setVisible(true);
-        m_PlaceholderLabel->setFixedHeight(75);
         break;
     case UpdatesStatus::Installing:
         m_progress->setVisible(true);
@@ -252,42 +237,35 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_progress->setMessage(tr("Updating, please wait..."));
         break;
     case UpdatesStatus::UpdateSucceeded:
+        m_resultItem->setVisible(true);
         m_resultItem->setSuccess(true);
-        m_resultGroup->setVisible(true);
         m_reminderTip->setVisible(true);
         break;
     case UpdatesStatus::UpdateFailed:
-        m_resultGroup->setVisible(true);
+        m_resultItem->setVisible(true);
         m_resultItem->setSuccess(false);
-        m_PlaceholderLabel->setVisible(true);
-        m_PlaceholderLabel->setFixedHeight(95);
         break;
     case UpdatesStatus::NeedRestart:
-        m_checkGroup->setVisible(true);
         m_checkUpdateItem->setVisible(true);
         //~ contents_path /update/Update
         m_checkUpdateItem->setMessage(tr("The newest system installed, restart to take effect"));
         break;
     case UpdatesStatus::NoNetwork:
-        m_resultGroup->setVisible(true);
+        m_resultItem->setVisible(true);
         m_resultItem->setSuccess(false);
         m_noNetworkTip->setVisible(true);
         break;
     case UpdatesStatus::NoSpace:
-        m_resultGroup->setVisible(true);
+        m_resultItem->setVisible(true);
         m_resultItem->setSuccess(false);
         //~ contents_path /update/Update
         m_resultItem->setMessage(tr("Update failed: insufficient disk space"));
-        m_PlaceholderLabel->setVisible(true);
-        m_PlaceholderLabel->setFixedHeight(20);
         break;
     case UpdatesStatus::DeependenciesBrokenError:
-        m_resultGroup->setVisible(true);
+        m_resultItem->setVisible(true);
         m_resultItem->setSuccess(false);
         //~ contents_path /update/Update
         m_resultItem->setMessage(tr("Dependency error, failed to detect the updates"));
-        m_PlaceholderLabel->setVisible(true);
-        m_PlaceholderLabel->setFixedHeight(20);
         break;
     default:
         qWarning() << "unknown status!!!";

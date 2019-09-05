@@ -27,12 +27,10 @@
 #define MIRRORITEM_H
 
 #include "widgets/settingsitem.h"
-#include <QLabel>
-#include <QDebug>
-#include <dimagebutton.h>
-#include <types/mirrorinfolist.h>
-
 #include "widgets/labels/smalllabel.h"
+
+#include <types/mirrorinfolist.h>
+#include <DFloatingButton>
 
 DWIDGET_USE_NAMESPACE
 
@@ -40,8 +38,8 @@ class QHBoxLayout;
 
 using namespace dcc::widgets;
 
-namespace dcc{
-namespace update{
+namespace dcc {
+namespace update {
 
 class MirrorItem : public SettingsItem
 {
@@ -49,9 +47,9 @@ class MirrorItem : public SettingsItem
     Q_PROPERTY(bool checked READ selected WRITE setSelected NOTIFY selectStateChanged)
 
 public:
-    explicit MirrorItem(QFrame *parent = 0);
+    explicit MirrorItem(QFrame *parent = nullptr);
 
-    void setMirrorInfo(const MirrorInfo& info);
+    void setMirrorInfo(const MirrorInfo &info);
     MirrorInfo mirrorInfo() const { return m_info;}
 
     inline bool selected() const {return m_selected;}
@@ -68,24 +66,23 @@ public:
 
 Q_SIGNALS:
     void selectStateChanged(bool state) const;
-    void clicked(MirrorItem* item) const;
+    void clicked(MirrorItem *item) const;
 
 protected:
     void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
     void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
 
 private:
+    int calcSpeedTextWidth() const;
+
+private:
     bool m_selected = false;
     int m_speed = 0;
     MirrorInfo m_info;
-
-    DImageButton *m_selectedBtn;
+    DFloatingButton *m_selectedBtn;
     SmallLabel *m_mirrorName;
     SmallLabel *m_mirrorSpeed;
-
     QHBoxLayout *m_layout;
-
-    int calcSpeedTextWidth() const;
 };
 
 }

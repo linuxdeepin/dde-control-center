@@ -28,6 +28,7 @@
 #include "widgets/dccsliderannotated.h"
 #include "widgets/optionitem.h"
 #include "widgets/switchwidget.h"
+#include "widgets/settingsgroup.h"
 #include "modules/power/powermodel.h"
 
 using namespace dcc::widgets;
@@ -54,10 +55,13 @@ UseElectricWidget::UseElectricWidget(QWidget *parent)
     //~ contents_path /power/Plugged In
     m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
-    m_layout->addWidget(m_monitorSleepOnPower);
-    m_layout->addWidget(m_computerSleepOnPower);
-    m_layout->addWidget(m_autoLockScreen);
-    m_layout->addWidget(m_suspendOnLidClose);
+    SettingsGroup *powerSettingsGrp = new SettingsGroup;
+    powerSettingsGrp->appendItem(m_monitorSleepOnPower);
+    powerSettingsGrp->appendItem(m_computerSleepOnPower);
+    powerSettingsGrp->appendItem(m_autoLockScreen);
+    powerSettingsGrp->appendItem(m_suspendOnLidClose);
+
+    m_layout->addWidget(powerSettingsGrp);
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(10);
     setLayout(m_layout);

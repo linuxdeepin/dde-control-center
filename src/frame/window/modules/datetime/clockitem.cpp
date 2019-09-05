@@ -30,19 +30,19 @@ using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
 
-ClockItem::ClockItem(QWidget *parent, bool isDisplay) :
-    SettingsItem(parent),
-    m_clock(new Clock),
-    m_label(new NormalLabel),
-    m_labelTime(new NormalLabel),
-    m_labelDate(new NormalLabel),
-    m_bIs24HourType(0)
+ClockItem::ClockItem(QWidget *parent, bool isDisplay)
+    : QWidget(parent)
+    , m_clock(new Clock)
+    , m_label(new NormalLabel)
+    , m_labelTime(new NormalLabel)
+    , m_labelDate(new NormalLabel)
+    , m_bIs24HourType(0)
 {
     m_clock->setMinimumSize(224, 224);
     m_clock->setAutoNightMode(false);
     updateDateTime();
 
-    QVBoxLayout *layout = new QVBoxLayout;
+    QVBoxLayout *layout = new QVBoxLayout(this);
 
     layout->setMargin(0);
     layout->setSpacing(0);
@@ -52,13 +52,19 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay) :
     layout->addSpacing(20);
 
     if (isDisplay) {
-        layout->addWidget(m_labelTime, 1, Qt::AlignHCenter);
-        layout->addSpacing(20);
-
         QHBoxLayout *timeLayout = new QHBoxLayout;
         timeLayout->addWidget(m_label, 0, Qt::AlignLeft);
         timeLayout->addWidget(m_labelDate, 1, Qt::AlignRight);
-        layout->addLayout(timeLayout);
+
+        SettingsItem *item = new SettingsItem;
+        QVBoxLayout *itemLayout = new QVBoxLayout;
+        itemLayout->addWidget(m_labelTime, 0, Qt::AlignHCenter);
+        itemLayout->addSpacing(20);
+        itemLayout->addLayout(timeLayout);
+        item->addBackground();
+        item->setLayout(itemLayout);
+        layout->addSpacing(10);
+        layout->addWidget(item);
     }
 
     layout->addSpacing(20);

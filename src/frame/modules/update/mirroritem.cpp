@@ -28,23 +28,29 @@
 #include <QHBoxLayout>
 #include <QResizeEvent>
 
-namespace dcc{
-namespace update{
+namespace dcc {
+namespace update {
 MirrorItem::MirrorItem(QFrame *parent)
-    :SettingsItem(parent),
-      m_selectedBtn(new DImageButton(this)),
-      m_mirrorName(new SmallLabel),
-      m_mirrorSpeed(new SmallLabel(tr("Untested")))
+    : SettingsItem(parent)
+    , m_selected(false)
+    , m_speed(0)
+    , m_selectedBtn(new DFloatingButton(DStyle::SP_DialogYesButton, this))
+    , m_mirrorName(new SmallLabel)
+    , m_mirrorSpeed(new SmallLabel(tr("Untested")))
+    , m_layout(new QHBoxLayout(this))
 {
     setMinimumHeight(36);
 
     m_mirrorName->setWordWrap(true);
 
+    DPalette pa = DPalette::get(m_selectedBtn);
+    pa.setBrush(DPalette::ItemBackground, pa.base());
+    DPalette::set(m_selectedBtn, pa);
+
     m_selectedBtn->setObjectName("DCC-Update-MirrorItem-SelectedBtn");
-    m_selectedBtn->setFixedSize(16, 16);
+    m_selectedBtn->setFixedSize(24, 24);
     m_selectedBtn->setVisible(false);
 
-    m_layout = new QHBoxLayout;
     m_layout->setSpacing(0);
     m_layout->setMargin(0);
     m_layout->setContentsMargins(20, 10, 20, 10);

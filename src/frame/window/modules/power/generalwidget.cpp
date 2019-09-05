@@ -20,6 +20,7 @@
  */
 #include "generalwidget.h"
 #include "widgets/switchwidget.h"
+#include "widgets/settingsgroup.h"
 #include "widgets/labels/normallabel.h"
 #include "modules/power/powermodel.h"
 
@@ -43,6 +44,8 @@ GeneralWidget::GeneralWidget(QWidget *parent)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
+    SettingsGroup *generalSettingsGrp = new SettingsGroup;
+
     //~ contents_path /power/General
     m_lowBatteryMode->setTitle(tr("Power Saving Mode"));
     //~ contents_path /power/General
@@ -52,11 +55,12 @@ GeneralWidget::GeneralWidget(QWidget *parent)
     //~ contents_path /power/General
     m_wakeDisplayNeedPassword->setTitle(tr("Password is required to wake up the monitor"));
 
-    m_layout->addWidget(m_lowBatteryMode);
-    m_layout->setSpacing(0);
-    m_layout->addWidget(m_autoIntoSaveEnergyMode);
-    m_layout->addWidget(m_wakeComputerNeedPassword);
-    m_layout->addWidget(m_wakeDisplayNeedPassword);
+    generalSettingsGrp->appendItem(m_lowBatteryMode);
+    generalSettingsGrp->appendItem(m_autoIntoSaveEnergyMode);
+    generalSettingsGrp->appendItem(m_wakeComputerNeedPassword);
+    generalSettingsGrp->appendItem(m_wakeDisplayNeedPassword);
+
+    m_layout->addWidget(generalSettingsGrp);
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(5);
     setLayout(m_layout);

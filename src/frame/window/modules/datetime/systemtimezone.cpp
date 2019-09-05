@@ -35,14 +35,18 @@ SystemTimezone::SystemTimezone(QWidget *parent)
     , m_systemTimezone(new TimezoneItem)
     , m_setSystemTimezone(new QPushButton)
 {
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+
     //~ contents_path /datetime/Timezone List/Change System Timezone
     m_setSystemTimezone->setText(tr("Change System Timezone"));
+    m_systemTimezone->addBackground();
 
     //~ contents_path /datetime/Timezone List
     QLabel *title = new QLabel(tr("System Timezone"));
     QFont font;
     font.setBold(true);
     title->setFont(font);
+
     m_layout->addWidget(title, 0, Qt::AlignLeft);
     m_layout->addWidget(m_systemTimezone);
     m_layout->addWidget(m_setSystemTimezone);
