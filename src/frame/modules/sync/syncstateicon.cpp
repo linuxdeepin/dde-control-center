@@ -26,6 +26,7 @@ SyncStateIcon::~SyncStateIcon() {}
 void SyncStateIcon::setRotatePixmap(const QPixmap& pixmap)
 {
     m_rotatePixmap = pixmap;
+    setFixedSize(pixmap.size());
     update();
 }
 

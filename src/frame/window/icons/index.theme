@@ -10,6 +10,11 @@ Size=12
 Context=Actions
 Type=Scalable
 
+[actions/16]
+Size=16
+Context=Actions
+Type=Scalable
+
 [actions/24]
 Size=24
 Context=Actions

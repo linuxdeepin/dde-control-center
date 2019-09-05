@@ -202,13 +202,13 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
     case SyncState::Succeed:
         m_lastSyncTimeLbl->show();
         m_stateLbl->hide();
-        m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_sync_ok").pixmap(QSize(24, 24)));
+        m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_sync_ok").pixmap(QSize(16, 16)));
         m_stateIcon->stop();
         break;
     case SyncState::Syncing:
         m_lastSyncTimeLbl->hide();
         m_stateLbl->show();
-        m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_syncing").pixmap(QSize(24, 24)));
+        m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_syncing").pixmap(QSize(16, 16)));
         m_stateIcon->play();
         break;
     case SyncState::Failed:
