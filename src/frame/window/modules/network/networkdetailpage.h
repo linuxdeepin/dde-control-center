@@ -29,9 +29,6 @@
 #include "widgets/contentwidget.h"
 #include "window/namespace.h"
 
-#include <QList>
-#include <QJsonObject>
-
 namespace dde {
 namespace network {
 class NetworkModel;
@@ -39,7 +36,6 @@ class NetworkModel;
 }
 
 namespace DCC_NAMESPACE {
-
 namespace network {
 
 class NetworkDetailPage : public dcc::ContentWidget
@@ -57,9 +53,6 @@ private Q_SLOTS:
 private:
     QVBoxLayout *m_groupsLayout;
 };
-
 }
-
 }
-
 #endif // NETWORKDETAILPAGE_H

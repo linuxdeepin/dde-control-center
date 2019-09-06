@@ -29,8 +29,6 @@
 
 #include "window/interface/moduleinterface.h"
 #include "window/namespace.h"
-#include "interfaces/frameproxyinterface.h"
-#include "connectioneditpage.h"
 
 namespace dde {
 namespace network {
@@ -41,10 +39,9 @@ class NetworkModel;
 }
 }
 
-
 namespace DCC_NAMESPACE {
 namespace network {
-
+class ConnectionEditPage;
 class NetworkModuleWidget;
 class NetworkModule : public QObject, public ModuleInterface
 {
@@ -83,7 +80,6 @@ private:
 
     ConnectionEditPage *m_connEditPage;
 };
-
 } // namespace network
 } // namespace dcc
 

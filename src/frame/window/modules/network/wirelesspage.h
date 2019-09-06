@@ -33,12 +33,14 @@
 #include <DStyleOption>
 #include <DListView>
 
-#include <QMap>
-#include <QTimer>
 #include <QPointer>
-#include <QJsonObject>
-#include <QStandardItem>
-#include <QStandardItemModel>
+
+QT_BEGIN_NAMESPACE
+class QTimer;
+class QListView;
+class QVBoxLayout;
+class QStandardItemModel;
+QT_END_NAMESPACE
 
 namespace dde {
 namespace network {
@@ -49,7 +51,6 @@ class WirelessDevice;
 }
 
 namespace dcc {
-
 namespace widgets {
 class SettingsGroup;
 class SwitchWidget;
@@ -58,9 +59,7 @@ class SwitchWidget;
 
 namespace DCC_NAMESPACE {
 namespace network {
-
 class ConnectionWirelessEditPage;
-
 struct APSortInfo {
     int signalstrength;
     QString ssid;
@@ -77,7 +76,8 @@ struct APSortInfo {
     }
 };
 
-class APItem : public DStandardItem {
+class APItem : public DStandardItem
+{
 public:
     explicit APItem(const QString &text);
     void setSignalStrength(int ss);
@@ -87,9 +87,7 @@ public:
     void setPath(const QString &p);
     QString path() const;
     QAction *action() const;
-
     bool operator<(const QStandardItem &other) const override;
-
     static const int SortRole = Dtk::UserRole + 0x100;
     static const int PathRole = Dtk::UserRole + 0x101;
 };
@@ -107,7 +105,7 @@ public:
 Q_SIGNALS:
     void requestConnectAp(const QString &devPath, const QString &apPath, const QString &uuid) const;
     void requestDisconnectConnection(const QString &uuid);
-    void requestNextPage(ContentWidget * const w) const;
+    void requestNextPage(ContentWidget *const w) const;
     void requestDeviceRemanage(const QString &devPath) const;
     void requestDeviceAPList(const QString &devPath) const;
     void requestWirelessScan();
@@ -142,7 +140,6 @@ private:
     dde::network::NetworkModel *m_model;
 
     dcc::widgets::SwitchWidget *m_switch;
-
     dcc::widgets::SettingsGroup *m_tipsGroup;
     QPushButton *m_closeHotspotBtn;
     DListView *m_lvAP;
@@ -155,9 +152,7 @@ private:
     QTimer *m_indicatorDelayTimer;
     QMap<QString, APItem *> m_apItems;
 };
-
 }   // namespace dcc
-
 }   // namespace network
 
 Q_DECLARE_METATYPE(DCC_NAMESPACE::network::APSortInfo)

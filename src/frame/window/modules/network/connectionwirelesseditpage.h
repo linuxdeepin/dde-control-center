@@ -22,8 +22,8 @@
 #ifndef CONNECTIONWIRELESSEDITPAGE_H
 #define CONNECTIONWIRELESSEDITPAGE_H
 
-#include "connectioneditpage.h"
 #include "window/namespace.h"
+#include "connectioneditpage.h"
 
 #include <networkmanagerqt/accesspoint.h>
 
@@ -45,7 +45,7 @@ private:
     void initApSecretType(NetworkManager::AccessPoint::Ptr nmAp);
 };
 
-} /* network */ 
-} /* dcc */ 
+} /* network */
+} /* dcc */
 
 #endif /* CONNECTIONWIRELESSEDITPAGE_H */

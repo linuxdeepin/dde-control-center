@@ -62,7 +62,7 @@ void ConnectionWirelessEditPage::initSettingsWidgetFromAp(const QString &apPath)
     initApSecretType(nmAp);
 
     m_connectionSettings->setting(NetworkManager::Setting::SettingType::Wireless)
-        .staticCast<NetworkManager::WirelessSetting>()->setSsid(nmAp->rawSsid());
+            .staticCast<NetworkManager::WirelessSetting>()->setSsid(nmAp->rawSsid());
 
     m_settingsWidget = new WirelessSettings(m_connectionSettings, this);
 
@@ -75,7 +75,7 @@ void ConnectionWirelessEditPage::initApSecretType(NetworkManager::AccessPoint::P
 {
     NetworkManager::WirelessSecuritySetting::Ptr wirelessSecuritySetting;
     wirelessSecuritySetting = m_connectionSettings->setting(NetworkManager::Setting::SettingType::WirelessSecurity)
-        .staticCast<NetworkManager::WirelessSecuritySetting>();
+                              .staticCast<NetworkManager::WirelessSecuritySetting>();
 
     NetworkManager::AccessPoint::Capabilities capabilities = nmAp->capabilities();
     NetworkManager::AccessPoint::WpaFlags wpaFlags = nmAp->wpaFlags();

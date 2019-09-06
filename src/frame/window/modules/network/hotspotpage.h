@@ -26,21 +26,13 @@
 #ifndef HOTSPOTPAGE_H
 #define HOTSPOTPAGE_H
 
-#include "connectionhotspoteditpage.h"
 #include "widgets/contentwidget.h"
 #include "window/namespace.h"
 
 #include <DListView>
+#include <DFloatingButton>
 
-#include <QStandardItemModel>
 #include <QPointer>
-#include <QJsonObject>
-
-namespace Dtk {
-namespace Widget {
-class DFloatingButton;
-}
-}
 
 namespace dde {
 namespace network {
@@ -52,18 +44,15 @@ class WirelessDevice;
 
 namespace dcc {
 namespace widgets {
-
 class NextPageWidget;
 class SwitchWidget;
-
 }
 }
 
 namespace DCC_NAMESPACE {
 namespace network {
-
 class HotspotPage;
-
+class ConnectionHotspotEditPage;
 class HotspotDeviceWidget : public QWidget
 {
     Q_OBJECT
@@ -96,7 +85,7 @@ private:
     QStandardItemModel *m_modelprofiles;
 
     QPushButton *m_createBtn;
-    QPointer<DCC_NAMESPACE::network::ConnectionHotspotEditPage> m_editPage;
+    QPointer<ConnectionHotspotEditPage> m_editPage;
 
     QTimer *m_refreshActiveTimer;
 
@@ -126,7 +115,7 @@ private Q_SLOTS:
 private:
     dde::network::NetworkModel *m_model;
     QWidget *m_contents;
-    DFloatingButton *m_newprofile;
+    DTK_WIDGET_NAMESPACE::DFloatingButton *m_newprofile;
     QList<HotspotDeviceWidget *> m_listdevw;
 };
 }

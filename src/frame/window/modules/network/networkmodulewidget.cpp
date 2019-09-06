@@ -35,6 +35,7 @@
 #include <wirelessdevice.h>
 
 #include <QDebug>
+#include <QVBoxLayout>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
@@ -114,7 +115,7 @@ NetworkModuleWidget::NetworkModuleWidget()
             Q_EMIT this->requestShowInfomation();
         }
         if (type == "dev_wireless" || type == "dev_ether") {
-            Q_EMIT this->requestShowDeviceDetail(idx.data(DeviceRole).value<NetworkDevice*>());
+            Q_EMIT this->requestShowDeviceDetail(idx.data(DeviceRole).value<NetworkDevice *>());
         }
     });
 }
@@ -144,22 +145,26 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         }
     }
 
-    QList<QStandardItem*> devits;
+    QList<QStandardItem *> devits;
 
     int wiredDevice = 0;
     int wirelessDevice = 0;
-    for (auto const dev : devices)
-        switch (dev->type())
-        {
-        case NetworkDevice::Wired:      ++wiredDevice;      break;
-        case NetworkDevice::Wireless:   ++wirelessDevice;   break;
-        default:;
+    for (auto const dev : devices) {
+        switch (dev->type()) {
+        case NetworkDevice::Wired:
+            ++wiredDevice;
+            break;
+        case NetworkDevice::Wireless:
+            ++wirelessDevice;
+            break;
+        default:
+            break;
         }
+    }
 
     // add wired device list
     int count = 0;
-    for (auto const dev : devices)
-    {
+    for (auto const dev : devices) {
         if (dev->type() != NetworkDevice::Wired)
             continue;
 
@@ -169,8 +174,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     // add wireless device list
     count = 0;
     bool have_ap = false;
-    for (auto const dev : devices)
-    {
+    for (auto const dev : devices) {
         if (dev->type() != NetworkDevice::Wireless)
             continue;
 
@@ -180,7 +184,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
 
         devits.push_back(createDeviceGroup(dev, ++count, wirelessDevice > 1));
     }
-    for (auto it = devits.rbegin(); it!=devits.rend(); ++it) {
+    for (auto it = devits.rbegin(); it != devits.rend(); ++it) {
         m_modelpages->insertRow(0, *it);
     }
 
@@ -192,7 +196,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     }
 }
 
-QStandardItem* NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number, const bool multiple)
+QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number, const bool multiple)
 {
     QString text;
 

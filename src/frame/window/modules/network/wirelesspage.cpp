@@ -26,31 +26,38 @@
 
 #include "wirelesspage.h"
 #include "accesspointwidget.h"
+#include "connectionwirelesseditpage.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/switchwidget.h"
 #include "widgets/translucentframe.h"
 #include "widgets/tipsitem.h"
-#include "connectionwirelesseditpage.h"
 
 #include <networkmodel.h>
 #include <wirelessdevice.h>
+
+#include <QMap>
+#include <QTimer>
 #include <QDebug>
 #include <QVBoxLayout>
+#include <QPointer>
 #include <QPushButton>
 #include <DDBusSender>
 #include <QJsonDocument>
 #include <DHiDPIHelper>
+#include <QJsonObject>
+#include <QStandardItem>
+#include <QStandardItemModel>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
 using namespace dde::network;
 
-APItem::APItem(const QString &text) : DStandardItem (text)
+APItem::APItem(const QString &text) : DStandardItem(text)
 {
     setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
     setCheckable(true);
 
-    DViewItemAction* editaction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
+    DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
     editaction->setIcon(QIcon::fromTheme("arrow-right"));
     setActionList(Qt::Edge::RightEdge, {editaction});
 }
@@ -108,15 +115,15 @@ bool APItem::operator<(const QStandardItem &other) const
 }
 
 WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
-    : ContentWidget(parent),
-      m_device(dev),
-      m_tipsGroup(new SettingsGroup),
-      m_closeHotspotBtn(new QPushButton),
-      m_sortDelayTimer(new QTimer(this)),
-      m_indicatorDelayTimer(new QTimer(this)),
-      m_lvAP(new DListView(this)),
-      m_modelAP(new QStandardItemModel(m_lvAP)),
-      m_switch(new SwitchWidget())
+    : ContentWidget(parent)
+    , m_device(dev)
+    , m_tipsGroup(new SettingsGroup)
+    , m_closeHotspotBtn(new QPushButton)
+    , m_sortDelayTimer(new QTimer(this))
+    , m_indicatorDelayTimer(new QTimer(this))
+    , m_lvAP(new DListView(this))
+    , m_modelAP(new QStandardItemModel(m_lvAP))
+    , m_switch(new SwitchWidget())
 {
     qRegisterMetaType<APSortInfo>();
     m_lvAP->setModel(m_modelAP);
@@ -166,14 +173,14 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     setTitle(tr("WLAN"));
 #endif
 
-    connect(m_lvAP, &QListView::clicked, this,
-            [this](const QModelIndex &idx) {
-                if (idx.data(APItem::PathRole).toString().length() == 0) {
-                    this->showConnectHidePage();
-                    return;
-                }
-                this->onApWidgetConnectRequested(idx.data(APItem::PathRole).toString(), idx.data(Qt::ItemDataRole::DisplayRole).toString());
-            });
+    connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex &idx) {
+        if (idx.data(APItem::PathRole).toString().length() == 0) {
+            this->showConnectHidePage();
+            return;
+        }
+        this->onApWidgetConnectRequested(idx.data(APItem::PathRole).toString(),
+                                         idx.data(Qt::ItemDataRole::DisplayRole).toString());
+    });
 
     connect(m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
     connect(m_indicatorDelayTimer, &QTimer::timeout, this, &WirelessPage::refreshLoadingIndicator);
@@ -185,7 +192,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_device, &WirelessDevice::hotspotEnabledChanged, this, &WirelessPage::onHotspotEnableChanged);
     connect(m_device, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
     connect(m_device, &WirelessDevice::activateAccessPointFailed, this, &WirelessPage::onActivateApFailed);
-    connect(m_device, &WirelessDevice::activeConnectionsChanged, m_indicatorDelayTimer, static_cast<void (QTimer::*) ()>(&QTimer::start));
+    connect(m_device, &WirelessDevice::activeConnectionsChanged, m_indicatorDelayTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
 
     // init data
     const QJsonArray mApList = m_device->apList();
@@ -194,7 +201,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
             onAPAdded(ap.toObject());
         }
     }
-    QTimer::singleShot(100, this, [=] {
+    QTimer::singleShot(100, this, [ = ] {
         Q_EMIT requestDeviceAPList(m_device->path());
         Q_EMIT requestWirelessScan();
     });
@@ -207,11 +214,8 @@ WirelessPage::~WirelessPage()
 void WirelessPage::setModel(NetworkModel *model)
 {
     m_model = model;
-
 //    connect(m_model, &NetworkModel::activeConnInfoChanged, this, &WirelessPage::onActiveConnInfoChanged);
-
 //    onActiveConnInfoChanged(m_model->activeConnInfos());
-
     onHotspotEnableChanged(m_device->hotspotEnabled());
 }
 
@@ -227,7 +231,8 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
         i->setConnected(ssid == m_device->activeApSsid());
         i->setSignalStrength(apInfo.value("Strength").toInt());
         connect(i->action(), &QAction::triggered, [this, i] {
-            this->onApWidgetEditRequested(i->data(APItem::PathRole).toString(), i->data(Qt::ItemDataRole::DisplayRole).toString());
+            this->onApWidgetEditRequested(i->data(APItem::PathRole).toString(),
+                                          i->data(Qt::ItemDataRole::DisplayRole).toString());
         });
     }
 
@@ -248,12 +253,9 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 
     m_apItems[ssid]->setSortInfo(si);
 
-    if (it->path() == path)
-    {
+    if (it->path() == path) {
         m_apItems[ssid]->setSignalStrength(strength);
-    }
-    else if (strength > it->signalStrength())
-    {
+    } else if (strength > it->signalStrength()) {
         m_apItems[ssid]->setSignalStrength(strength);
         m_apItems[ssid]->setPath(path);
     }
@@ -306,7 +308,7 @@ void WirelessPage::onActivateApFailed(const QString &apPath, const QString &uuid
     Q_UNUSED(uuid);
 
     qDebug() << "wireless connect failed and may require more configuration,"
-        << "path:" << apPath << "ssid" << connectionSsid(uuid);
+             << "path:" << apPath << "ssid" << connectionSsid(uuid);
 
     onApWidgetEditRequested(apPath, connectionSsid(uuid));
 }
@@ -326,7 +328,6 @@ void WirelessPage::refreshLoadingIndicator()
         activeSsid = activeConnObj.value("Id").toString();
         break;
     }
-
     //TODO (legacy feature): loading indicator?
 }
 
@@ -343,10 +344,8 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
 
     m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), uuid);
 
-    if (!uuid.isEmpty())
-    {
+    if (!uuid.isEmpty()) {
         m_editingUuid = uuid;
-
         m_apEditPage->initSettingsWidget();
     } else {
         m_apEditPage->initSettingsWidgetFromAp(apPath);
@@ -361,10 +360,8 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
 void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString &ssid)
 {
     const QString uuid = connectionUuid(ssid);
-
     // uuid could be empty
-//    Q_ASSERT(!uuid.isEmpty());
-
+    // Q_ASSERT(!uuid.isEmpty());
     Q_EMIT requestConnectAp(m_device->path(), path, uuid);
 }
 
@@ -389,17 +386,14 @@ void WirelessPage::updateActiveAp()
 QString WirelessPage::connectionUuid(const QString &ssid)
 {
     QString uuid;
-
     QList<QJsonObject> connections = m_device->connections();
     for (auto item : connections) {
         if (item.value("Ssid").toString() != ssid)
             continue;
-
         uuid = item.value("Uuid").toString();
         if (!uuid.isEmpty())
             break;
     }
-
     return uuid;
 }
 

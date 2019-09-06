@@ -24,16 +24,17 @@
  */
 
 #include "proxypage.h"
+#include "widgets/buttontuple.h"
 #include "widgets/translucentframe.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsheaderitem.h"
 #include "widgets/lineeditwidget.h"
 #include "widgets/plantextitem.h"
 
+#include <networkmodel.h>
+
 #include <QVBoxLayout>
 #include <QDebug>
-
-#include <networkmodel.h>
 
 DWIDGET_USE_NAMESPACE
 
@@ -41,19 +42,15 @@ using namespace dcc::widgets;
 using namespace dde::network;
 
 namespace DCC_NAMESPACE {
-
 namespace network {
-
 const QStringList ProxyMethodList = { "none", "manual", "auto" };
 
 ProxyPage::ProxyPage(QWidget *parent)
-    : ContentWidget(parent),
-
-      m_manualWidget(new TranslucentFrame),
-      m_autoWidget(new TranslucentFrame),
-      m_buttonTuple(new ButtonTuple),
-
-      m_proxyType(new DSegmentedControl)
+    : ContentWidget(parent)
+    , m_manualWidget(new TranslucentFrame)
+    , m_autoWidget(new TranslucentFrame)
+    , m_buttonTuple(new ButtonTuple)
+    , m_proxyType(new DSegmentedControl)
 {
     m_buttonTuple->leftButton()->setText(tr("Cancel"));
     m_buttonTuple->rightButton()->setText(tr("Confirm"));
@@ -178,7 +175,9 @@ ProxyPage::ProxyPage(QWidget *parent)
 //    connect(m_socksPort->textEdit(), &QLineEdit::editingFinished, [=] { applyProxy("socks"); });
 //    connect(m_autoUrl->textEdit(), &QLineEdit::editingFinished, [=] { Q_EMIT requestSetAutoProxy(m_autoUrl->text()); });
 
-    QTimer::singleShot(1, this, [=] { Q_EMIT requestQueryProxyData(); });
+    QTimer::singleShot(1, this, [ = ] {
+        Q_EMIT requestQueryProxyData();
+    });
 }
 
 void ProxyPage::setModel(NetworkModel *model)
@@ -244,20 +243,20 @@ void ProxyPage::onIgnoreHostsChanged(const QString &hosts)
 
 void ProxyPage::applyProxy(const QString &type)
 {
-    if (type == "http")
+    if (type == "http") {
         Q_EMIT requestSetProxy("http", m_httpAddr->text(), m_httpPort->text());
-    else if (type == "https")
+    } else if (type == "https") {
         Q_EMIT requestSetProxy("https", m_httpsAddr->text(), m_httpsPort->text());
-    else if (type == "ftp")
+    } else if (type == "ftp") {
         Q_EMIT requestSetProxy("ftp", m_ftpAddr->text(), m_ftpPort->text());
-    else if (type == "socks")
+    } else if (type == "socks") {
         Q_EMIT requestSetProxy("socks", m_socksAddr->text(), m_socksPort->text());
+    }
 }
 
 void ProxyPage::onProxyChanged(const QString &type, const ProxyConfig &config)
 {
-    if (type == "http")
-    {
+    if (type == "http") {
         m_httpAddr->setText(config.url);
         m_httpPort->setText(QString::number(config.port));
     } else if (type == "https") {
@@ -271,7 +270,5 @@ void ProxyPage::onProxyChanged(const QString &type, const ProxyConfig &config)
         m_socksPort->setText(QString::number(config.port));
     }
 }
-
 }
-
 }

@@ -25,38 +25,35 @@
  */
 
 #include "wiredpage.h"
+#include "connectioneditpage.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsheaderitem.h"
+#include "widgets/switchwidget.h"
 #include "widgets/nextpagewidget.h"
 #include "widgets/tipsitem.h"
 
-#include <DFloatingButton>
 #include <DHiDPIHelper>
 #include <DStyleOption>
+
+#include <networkmodel.h>
 
 #include <QTimer>
 #include <QDebug>
 #include <QVBoxLayout>
 #include <QPushButton>
-#include <QPointer>
-
-#include <networkmodel.h>
-#include <wireddevice.h>
 
 DWIDGET_USE_NAMESPACE
 
 namespace DCC_NAMESPACE {
-
 namespace network {
-
 using namespace dcc::widgets;
 using namespace dde::network;
 
 WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
-    : ContentWidget(parent),
-      m_device(dev),
-      m_switch(new SwitchWidget()),
-      m_lvProfiles(new DListView())
+    : ContentWidget(parent)
+    , m_device(dev)
+    , m_switch(new SwitchWidget())
+    , m_lvProfiles(new DListView())
 {
     m_lvProfiles->setModel(m_modelprofiles = new QStandardItemModel());
 
@@ -90,15 +87,15 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     setContent(centralWidget);
     setTitle(tr("Select Settings"));
 
-    connect(m_lvProfiles, &QListView::clicked, this,
-            [this](const QModelIndex &idx) {
-                this->activateConnection(idx.data(PathRole).toString());
-            });
+    connect(m_lvProfiles, &QListView::clicked, this, [this](const QModelIndex &idx) {
+        this->activateConnection(idx.data(PathRole).toString());
+    });
 
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
     connect(m_device, &WiredDevice::connectionsChanged, this, &WiredPage::refreshConnectionList);
     connect(m_device, &WiredDevice::activeWiredConnectionInfoChanged, this, &WiredPage::checkActivatedConnection);
-    connect(m_device, static_cast<void (WiredDevice::*)(WiredDevice::DeviceStatus) const>(&WiredDevice::statusChanged), this, &WiredPage::onDeviceStatusChanged);
+    connect(m_device, static_cast<void (WiredDevice::*)(WiredDevice::DeviceStatus) const>(&WiredDevice::statusChanged),
+            this, &WiredPage::onDeviceStatusChanged);
     connect(m_device, &WiredDevice::removed, this, &WiredPage::onDeviceRemoved);
 
     onDeviceStatusChanged(m_device->status());
@@ -129,8 +126,7 @@ void WiredPage::refreshConnectionList()
     qDeleteAll(m_connectionPath.keys());
     m_connectionPath.clear();
 
-    for (const auto &wiredConn : wiredConns)
-    {
+    for (const auto &wiredConn : wiredConns) {
         const QString path = wiredConn.value("Path").toString();
         if (!path.isEmpty())
             availableWiredConns << path;
@@ -153,7 +149,7 @@ void WiredPage::refreshConnectionList()
         it->setCheckable(true);
         it->setCheckState(path == m_device->activeWiredConnSettingPath() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
 
-        DViewItemAction* editaction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
+        DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
         editaction->setIcon(QIcon::fromTheme("arrow-right"));
         connect(editaction, &QAction::triggered, [this, path] {this->editConnection(path);});
         it->setActionList(Qt::Edge::RightEdge, {editaction});
@@ -162,10 +158,8 @@ void WiredPage::refreshConnectionList()
     }
 
     // clear removed items
-    for (auto it(m_connectionPath.begin()); it != m_connectionPath.end();)
-    {
-        if (!connPaths.contains(it.value()))
-        {
+    for (auto it(m_connectionPath.begin()); it != m_connectionPath.end();) {
+        if (!connPaths.contains(it.value())) {
             it.key()->deleteLater();
             it = m_connectionPath.erase(it);
         } else {
@@ -180,7 +174,7 @@ void WiredPage::editConnection(const QString &connectionPath)
 {
 
     m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection,
-            m_device->path(), m_model->connectionUuidByPath(connectionPath));
+                                        m_device->path(), m_model->connectionUuidByPath(connectionPath));
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
@@ -215,7 +209,6 @@ void WiredPage::checkActivatedConnection()
 void WiredPage::onDeviceStatusChanged(const NetworkDevice::DeviceStatus stat)
 {
     const bool unavailable = stat <= NetworkDevice::Unavailable;
-
     m_tipsGrp->setVisible(unavailable);
 }
 
@@ -227,7 +220,5 @@ void WiredPage::onDeviceRemoved()
 
     Q_EMIT back();
 }
-
 }
-
 }

@@ -24,18 +24,19 @@
  */
 
 #include "hotspotpage.h"
+#include "connectionhotspoteditpage.h"
 #include "widgets/nextpagewidget.h"
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 
 #include <DFloatingButton>
 
-#include <QVBoxLayout>
-#include <QDebug>
-
-#include <unistd.h>
 #include <networkmodel.h>
 #include <wirelessdevice.h>
+
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QDebug>
 
 using namespace dde::network;
 
@@ -85,7 +86,9 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     setLayout(centralLayout);
 
     connect(m_lvprofiles, &QListView::clicked, this, &HotspotDeviceWidget::onConnWidgetSelected);
-    connect(m_createBtn, &QPushButton::clicked, this, [=] {openEditPage();});
+    connect(m_createBtn, &QPushButton::clicked, this, [ = ] {
+        openEditPage();
+    });
 
     connect(m_refreshActiveTimer, &QTimer::timeout, this, &HotspotDeviceWidget::refreshActiveConnection);
 
@@ -152,10 +155,11 @@ void HotspotDeviceWidget::onDeviceRemoved()
 
 void HotspotDeviceWidget::onSwitchToggled(const bool checked)
 {
-    if (checked)
+    if (checked) {
         openHotspot();
-    else
+    } else {
         closeHotspot();
+    }
 }
 
 void HotspotDeviceWidget::onConnWidgetSelected(const QModelIndex &idx)
@@ -261,7 +265,7 @@ void HotspotPage::setModel(dde::network::NetworkModel *model)
 
 void HotspotPage::deviceListChanged(const QList<dde::network::NetworkDevice *> devices)
 {
-    QVBoxLayout *layout = qobject_cast<QVBoxLayout*>(m_contents->layout());
+    QVBoxLayout *layout = qobject_cast<QVBoxLayout *>(m_contents->layout());
     layout->removeWidget(m_newprofile);
 
     qDeleteAll(m_listdevw);
@@ -300,7 +304,5 @@ void HotspotPage::deviceListChanged(const QList<dde::network::NetworkDevice *> d
         layout->addWidget(m_newprofile, 0, Qt::AlignmentFlag::AlignHCenter);
     }
 }
-
 }
-
 }

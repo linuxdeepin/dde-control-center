@@ -28,22 +28,11 @@
 #define VPNPAGE_H
 
 #include "widgets/contentwidget.h"
-#include "connectionvpneditpage.h"
 #include "window/namespace.h"
 
 #include <DListView>
 
-#include <QStandardItemModel>
-#include <QList>
-#include <QJsonObject>
-#include <QMap>
 #include <QPointer>
-
-namespace Dtk {
-namespace Widget {
-class DFloatingButton;
-}
-}
 
 namespace dde {
 namespace network {
@@ -53,18 +42,15 @@ class NetworkModel;
 
 namespace dcc {
 namespace widgets {
-
 class SettingsGroup;
 class SwitchWidget;
 class LoadingNextPageWidget;
-
 }
-
 }
 
 namespace DCC_NAMESPACE {
 namespace network {
-
+class ConnectionVpnEditPage;
 class VpnPage : public dcc::ContentWidget
 {
     Q_OBJECT
@@ -74,7 +60,7 @@ public:
     ~VpnPage();
 
 Q_SIGNALS:
-    void requestNextPage(dcc::ContentWidget * const w) const;
+    void requestNextPage(dcc::ContentWidget *const w) const;
     void requestVpnEnabled(const bool enabled) const;
     void requestActivateConnection(const QString &devPath, const QString &uuid) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
@@ -99,14 +85,12 @@ private:
     QPointer<ConnectionVpnEditPage> m_editPage;
     QString m_editingConnUuid;
 
-    DListView *m_lvprofiles;
+    DTK_WIDGET_NAMESPACE::DListView *m_lvprofiles;
     QStandardItemModel *m_modelprofiles;
 
     static const int VpnInfoRole = Dtk::UserRole + 1;
 };
-
 }
-
 }
 
 #endif // VPNPAGE_H

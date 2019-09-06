@@ -26,8 +26,6 @@
 
 #include "networkmodule.h"
 #include "networkmodulewidget.h"
-#include "widgets/contentwidget.h"
-#include "modules/modulewidget.h"
 #include "wirelesspage.h"
 #include "vpnpage.h"
 #include "pppoepage.h"
@@ -38,6 +36,9 @@
 #include "chainsproxypage.h"
 #include "chainstypepage.h"
 #include "connectionwirelesseditpage.h"
+#include "connectioneditpage.h"
+#include "widgets/contentwidget.h"
+#include "modules/modulewidget.h"
 
 #include <networkworker.h>
 #include <networkmodel.h>

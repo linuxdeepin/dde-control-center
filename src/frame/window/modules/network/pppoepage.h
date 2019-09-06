@@ -27,23 +27,12 @@
 #define PPPOEPAGE_H
 
 #include "widgets/contentwidget.h"
-#include "connectioneditpage.h"
 #include "window/namespace.h"
 
 #include <DListView>
+#include <DFloatingButton>
 
-#include <QMap>
-#include <QStandardItemModel>
 #include <QPointer>
-
-class QVBoxLayout;
-class QPushButton;
-
-namespace Dtk {
-namespace Widget {
-class DFloatingButton;
-}
-}
 
 namespace dde {
 namespace network {
@@ -53,15 +42,15 @@ class NetworkModel;
 
 namespace dcc {
 namespace widgets {
-    class SettingsGroup;
-    class SwitchWidget;
-    class LoadingNextPageWidget;
+class SettingsGroup;
+class SwitchWidget;
+class LoadingNextPageWidget;
 }
 }
 
 namespace DCC_NAMESPACE {
 namespace network {
-
+class ConnectionEditPage;
 class PppoePage : public dcc::ContentWidget
 {
     Q_OBJECT
@@ -72,7 +61,7 @@ public:
     void setModel(dde::network::NetworkModel *model);
 
 Q_SIGNALS:
-    void requestNextPage(ContentWidget * const w) const;
+    void requestNextPage(ContentWidget *const w) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
     void requestActivateConnection(const QString &devPath, const QString &uuid) const;
 
@@ -86,18 +75,15 @@ private Q_SLOTS:
 private:
     dde::network::NetworkModel *m_model;
 
-    DListView *m_lvsettings;
+    DTK_WIDGET_NAMESPACE::DListView *m_lvsettings;
     QStandardItemModel *m_modelSettings;
 
-    DFloatingButton *m_createBtn;
+    DTK_WIDGET_NAMESPACE::DFloatingButton *m_createBtn;
     QPointer<ConnectionEditPage> m_editPage;
     QMap<QString, DStandardItem *> m_items;
 
     static const int UuidRole = Dtk::UserRole + 1;
 };
-
 }
-
 }
-
 #endif // PPPOEPAGE_H

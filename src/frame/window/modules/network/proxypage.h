@@ -27,7 +27,6 @@
 #define PROXYPAGE_H
 
 #include "widgets/contentwidget.h"
-#include "widgets/buttontuple.h"
 #include "window/namespace.h"
 
 #include <dsegmentedcontrol.h>
@@ -40,12 +39,10 @@ struct ProxyConfig;
 }
 
 namespace dcc {
-
 namespace widgets {
-
 class LineEditWidget;
 class PlainTextItem;
-
+class ButtonTuple;
 }
 }
 
@@ -98,11 +95,9 @@ private:
 
     dcc::widgets::LineEditWidget *m_autoUrl;
 
-    Dtk::Widget::DSegmentedControl *m_proxyType;
+    DTK_WIDGET_NAMESPACE::DSegmentedControl *m_proxyType;
 };
-
 }
-
 }
 
 #endif // PROXYPAGE_H

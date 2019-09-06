@@ -25,6 +25,7 @@
  */
 
 #include "vpnpage.h"
+#include "connectionvpneditpage.h"
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/translucentframe.h"
@@ -38,6 +39,8 @@
 #include <ddialog.h>
 
 #include <QDebug>
+#include <QList>
+#include <QMap>
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QJsonObject>
@@ -45,6 +48,7 @@
 #include <QMessageBox>
 #include <QProcess>
 #include <QRegularExpression>
+#include <QStandardItemModel>
 
 DWIDGET_USE_NAMESPACE
 

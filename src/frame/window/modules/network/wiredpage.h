@@ -28,23 +28,14 @@
 #define WIREDPAGE_H
 
 #include "widgets/contentwidget.h"
-#include "widgets/switchwidget.h"
-#include "connectioneditpage.h"
 #include "window/namespace.h"
 
 #include <DListView>
+#include <DFloatingButton>
 
-#include <QPointer>
-#include <QStandardItemModel>
 #include <wireddevice.h>
 
-class QPushButton;
-
-namespace Dtk {
-namespace Widget {
-class DFloatingButton;
-}
-}
+#include <QPointer>
 
 namespace dde {
 namespace network {
@@ -54,16 +45,15 @@ class NetworkModel;
 
 namespace dcc {
 namespace widgets {
+class SwitchWidget;
 class SettingsGroup;
 class NextPageWidget;
 }
-
 }
 
 namespace DCC_NAMESPACE {
-
 namespace network {
-
+class ConnectionEditPage;
 class WiredPage : public dcc::ContentWidget
 {
     Q_OBJECT
@@ -98,21 +88,18 @@ private:
 
     dcc::widgets::SwitchWidget *m_switch;
 
-    DListView *m_lvProfiles;
+    DTK_WIDGET_NAMESPACE::DListView *m_lvProfiles;
     QStandardItemModel *m_modelprofiles;
 
     QPointer<ConnectionEditPage> m_editPage;
 
-    DFloatingButton *m_createBtn;
+    DTK_WIDGET_NAMESPACE::DFloatingButton *m_createBtn;
     dcc::widgets::SettingsGroup *m_tipsGrp;
 
     QMap<dcc::widgets::NextPageWidget *, QString> m_connectionPath;
 
-    static const int PathRole = Dtk::UserRole + 0x100;
+    static const int PathRole = Dtk::UserRole + 1;
 };
-
 }
-
 }
-
 #endif // WIREDPAGE_H

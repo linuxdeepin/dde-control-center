@@ -26,13 +26,16 @@
 #ifndef NETWORKMODULEWIDGET_H
 #define NETWORKMODULEWIDGET_H
 
+#include "window/namespace.h"
+
 #include <DStyleOption>
 #include <DListView>
 
-#include <QStandardItemModel>
-#include "modules/modulewidget.h"
-#include "widgets/nextpagewidget.h"
-#include "window/namespace.h"
+QT_BEGIN_NAMESPACE
+class QListView;
+class QVBoxLayout;
+class QStandardItemModel;
+QT_END_NAMESPACE
 
 namespace dde {
 namespace network {
@@ -78,15 +81,12 @@ private:
 
 private:
     QVBoxLayout *m_centralLayout;
-    DListView *m_lvnmpages;
+    DTK_WIDGET_NAMESPACE::DListView *m_lvnmpages;
     QStandardItemModel *m_modelpages;
 
     static const int SectionRole = Dtk::UserRole + 1;
     static const int DeviceRole = Dtk::UserRole + 2;
 };
-
 }   // namespace network
-
 }   // namespace dcc
-
 #endif // NETWORKMODULEWIDGET_H

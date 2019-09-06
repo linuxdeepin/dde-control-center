@@ -25,6 +25,7 @@
  */
 
 #include "pppoepage.h"
+#include "connectioneditpage.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsheaderitem.h"
 #include "widgets/translucentframe.h"
@@ -36,7 +37,6 @@
 
 #include <DFloatingButton>
 #include <DHiDPIHelper>
-
 #include <QPushButton>
 #include <QDebug>
 #include <QVBoxLayout>
@@ -107,8 +107,7 @@ void PppoePage::onConnectionListChanged()
     m_items.clear();
     m_modelSettings->clear();
 
-    for (const auto &pppoe : m_model->pppoes())
-    {
+    for (const auto &pppoe : m_model->pppoes()) {
         const auto name = pppoe.value("Id").toString();
         const auto uuid = pppoe.value("Uuid").toString();
 
@@ -159,10 +158,10 @@ void PppoePage::onActiveConnectionChanged(const QList<QJsonObject> &conns)
         // the State of Active Connection
         // 0:Unknow, 1:Activating, 2:Activated, 3:Deactivating, 4:Deactivated
         int state = m_model->activeConnObjectByUuid(uuid).value("State").toInt(0);
-        if(state == 2) {
+        if (state == 2) {
             m_items[uuid]->setCheckState(Qt::CheckState::Checked);
             //w->setLoading(false);
-        } else if(state == 1) {
+        } else if (state == 1) {
             //TODO: connecting indicator?
             //w->setLoading(true);
         } else {
