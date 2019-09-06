@@ -27,6 +27,7 @@
 #include "widgets/titledslideritem.h"
 #include "widgets/dccslider.h"
 
+#include <QAction>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QLabel>
@@ -38,20 +39,16 @@ using namespace DCC_NAMESPACE::sound;
 
 SpeakerPage::SpeakerPage(QWidget *parent)
     : QWidget(parent)
-    , m_sw(new SwitchWidget)
     //~ contents_path /sound/Speaker
     , m_outputSlider(new TitledSliderItem(tr("Output Volume")))
     //~ contents_path /sound/Speaker
     , m_balanceSlider(new TitledSliderItem(tr("Left/Right Balance")))
     , m_layout(new QVBoxLayout)
 {
-    QHBoxLayout *hlayout = new QHBoxLayout;
     //~ contents_path /sound/Speaker
-    hlayout->addWidget(new QLabel(tr("Speaker")));
-    hlayout->addStretch(1);
-    hlayout->addWidget(m_sw);
+    m_sw = new SwitchWidget(tr("Speaker"));
 
-    m_layout->addLayout(hlayout);
+    m_layout->addWidget(m_sw);
     m_layout->addStretch(1);
     setLayout(m_layout);
 }
@@ -81,11 +78,17 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
 void SpeakerPage::initSlider()
 {
     auto outputSlider = new TitledSliderItem(tr("Output Volume"), this);
+    outputSlider->addBackground();
     DCCSlider *slider = outputSlider->slider();
 
     slider->setRange(0, 100);
     slider->setType(DCCSlider::Vernier);
-    slider->setTickPosition(QSlider::TicksBelow);
+    slider->setTickPosition(QSlider::NoTicks);
+    QAction *leftIcon = new QAction(slider);
+    outputSlider->setLeftIcon(QIcon::fromTheme("dcc_set_sound"), QSize(24, 24));
+    outputSlider->setRightIcon(QIcon::fromTheme("dcc_set_sound"), QSize(24, 24));
+//    leftIcon->setIcon();
+    slider->addAction(leftIcon);
     slider->setTickInterval(1);
     slider->setSliderPosition(static_cast<int>(m_model->speakerVolume() * 100.0));
     slider->setPageStep(1);
@@ -99,6 +102,7 @@ void SpeakerPage::initSlider()
     m_layout->insertWidget(1, outputSlider);
 
     auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
+    balanceSlider->addBackground();
     DCCSlider *slider2 = balanceSlider->slider();
     slider2->setRange(-100, 100);
     slider2->setType(DCCSlider::Vernier);

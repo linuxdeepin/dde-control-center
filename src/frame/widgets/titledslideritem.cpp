@@ -32,6 +32,7 @@
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QFile>
+#include <QTimer>
 
 #include "widgets/labels/normallabel.h"
 #include "widgets/dccslider.h"
@@ -41,23 +42,19 @@
 namespace dcc {
 namespace widgets {
 
-TitledSliderItem::TitledSliderItem(QString title, QWidget *parent) :
-    SettingsItem(parent),
-    m_titleLabel(new NormalLabel(title)),
-    m_valueLabel(new NormalLabel),
-    m_slider(new DCCSliderAnnotated),
-    m_leftIconLabel(new QLabel),
-    m_rightIconLabel(new QLabel)
+TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
+    : SettingsItem(parent)
+    , m_titleLabel(new NormalLabel(title))
+    , m_valueLabel(new NormalLabel)
+    , m_slider(new DCCSliderAnnotated)
 {
     m_slider->slider()->setOrientation(Qt::Horizontal);
     m_slider->slider()->setAccessibleName(title);
 
-    m_leftIconLabel->setObjectName("SliderLeftIcon");
-    m_rightIconLabel->setObjectName("SliderRightIcon");
-    m_leftIconLabel->setVisible(false);
-    m_rightIconLabel->setVisible(false);
+    QMargins zeroMg(8, 8, 8, 8);
 
     QHBoxLayout *topLayout = new QHBoxLayout;
+    topLayout->setContentsMargins(zeroMg);
     topLayout->addWidget(m_titleLabel);
     topLayout->addStretch();
     topLayout->addWidget(m_valueLabel);
@@ -65,9 +62,8 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent) :
     topLayout->setSpacing(0);
 
     QHBoxLayout *bottomLayout = new QHBoxLayout;
-    bottomLayout->addWidget(m_leftIconLabel, 0, Qt::AlignTop);
+    bottomLayout->setContentsMargins(zeroMg);
     bottomLayout->addWidget(m_slider, 0);
-    bottomLayout->addWidget(m_rightIconLabel, 0, Qt::AlignTop);
     bottomLayout->setMargin(0);
     bottomLayout->setSpacing(0);
 
@@ -75,8 +71,9 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent) :
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(20, 10, 20, 0);
+    mainLayout->setContentsMargins(8, 8, 8, 8);
     mainLayout->addLayout(topLayout);
+    mainLayout->addSpacing(10);
     mainLayout->addLayout(bottomLayout);
 
     setFixedHeight(mainLayout->sizeHint().height());
@@ -93,42 +90,6 @@ void TitledSliderItem::setAnnotations(const QStringList &annotations)
     m_slider->setAnnotations(annotations);
 }
 
-QString TitledSliderItem::leftIcon() const
-{
-    return m_leftIcon;
-}
-
-void TitledSliderItem::setLeftIcon(const QString &leftIcon)
-{
-    if (leftIcon != m_leftIcon) {
-        m_leftIcon = leftIcon;
-
-        QPixmap pix = loadPixmap(m_leftIcon);
-        m_leftIconLabel->setPixmap(pix);
-        m_leftIconLabel->setVisible(!pix.isNull());
-
-        Q_EMIT leftIconChanged();
-    }
-}
-
-QString TitledSliderItem::rightIcon() const
-{
-    return m_rightIcon;
-}
-
-void TitledSliderItem::setRightIcon(const QString &rightIcon)
-{
-    if (rightIcon != m_rightIcon) {
-        m_rightIcon = rightIcon;
-
-        QPixmap pix = loadPixmap(m_rightIcon);
-        m_rightIconLabel->setPixmap(pix);
-        m_rightIconLabel->setVisible(!pix.isNull());
-
-        Q_EMIT rightIconChanged();
-    }
-}
-
 QString TitledSliderItem::valueLiteral() const
 {
     return m_valueLiteral;
@@ -140,6 +101,26 @@ void TitledSliderItem::setValueLiteral(const QString &valueLiteral)
         m_valueLiteral = valueLiteral;
         m_valueLabel->setText(m_valueLiteral);
     }
+}
+
+void TitledSliderItem::setLeftIcon(const QString &leftIcon)
+{
+    m_slider->setLeftIcon(leftIcon);
+}
+void TitledSliderItem::setLeftIcon(const QIcon &leftIcon, const QSize &iconSize)
+{
+    m_slider->setLeftIcon(leftIcon, iconSize);
+}
+
+//    QString rightIcon() const;
+void TitledSliderItem::setRightIcon(const QString &rightIcon)
+{
+    m_slider->setRightIcon(rightIcon);
+}
+
+void TitledSliderItem::setRightIcon(const QIcon &rightIcon, const QSize &iconSize)
+{
+    m_slider->setRightIcon(rightIcon, iconSize);
 }
 
 } // namespace widgets

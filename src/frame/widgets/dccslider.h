@@ -41,9 +41,11 @@ public:
         Progress
     };
 
-    explicit DCCSlider(SliderType type = Normal, QWidget *parent = 0);
+public:
+    explicit DCCSlider(SliderType type = Normal, QWidget *parent = nullptr);
 
     void setType(SliderType type);
+    using QSlider::initStyleOption;
 
 protected:
     void wheelEvent(QWheelEvent *e);

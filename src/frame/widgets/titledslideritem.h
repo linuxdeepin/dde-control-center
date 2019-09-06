@@ -42,36 +42,24 @@ class TitledSliderItem : public SettingsItem
 {
     Q_OBJECT
 public:
-    TitledSliderItem(QString title, QWidget *parent = 0);
-
-    Q_PROPERTY(QString leftIcon READ leftIcon WRITE setLeftIcon NOTIFY leftIconChanged)
-    Q_PROPERTY(QString rightIcon READ rightIcon WRITE setRightIcon NOTIFY rightIconChanged)
+    TitledSliderItem(QString title, QWidget *parent = nullptr);
 
     DCCSlider *slider() const;
     void setAnnotations(const QStringList &annotations);
 
-    QString leftIcon() const;
-    void setLeftIcon(const QString &leftIcon);
-
-    QString rightIcon() const;
-    void setRightIcon(const QString &rightIcon);
-
     QString valueLiteral() const;
     void setValueLiteral(const QString &valueLiteral);
 
-Q_SIGNALS:
-    void leftIconChanged();
-    void rightIconChanged();
+    void setLeftIcon(const QString &leftIcon);
+    void setLeftIcon(const QIcon &leftIcon, const QSize &iconSize);
+
+    void setRightIcon(const QString &rightIcon);
+    void setRightIcon(const QIcon &rightIcon, const QSize &iconSize);
 
 private:
     NormalLabel *m_titleLabel;
     NormalLabel *m_valueLabel;
     DCCSliderAnnotated *m_slider;
-    QLabel *m_leftIconLabel;
-    QLabel *m_rightIconLabel;
-
-    QString m_leftIcon;
-    QString m_rightIcon;
     QString m_valueLiteral;
 };
 
