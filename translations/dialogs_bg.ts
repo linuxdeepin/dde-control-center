@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Updates installed! A restart is required, restart now?</source>
-        <translation>Актуализациите са инсталирани! Изисква се рестартиране, рестартирайте сега?</translation>
+        <translation>Актуализациите са инсталирани! Изисква се рестартиране, рестартиране сега?</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
