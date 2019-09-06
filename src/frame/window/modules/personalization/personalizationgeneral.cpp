@@ -19,19 +19,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "personalizationgeneral.h"
-#include "widgets/dccsliderannotated.h"
-#include "widgets/dccslider.h"
 #include "perssonalizationthemewidget.h"
 #include "roundcolorwidget.h"
 
+#include "widgets/dccslider.h"
+#include "widgets/dccsliderannotated.h"
+#include "widgets/settingsitem.h"
+
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <QButtonGroup>
 #include <QColor>
 
-DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
+using namespace dcc::widgets;
+DWIDGET_USE_NAMESPACE
 
 const QList<QString> ACTIVE_COLORS = {
     "#D8316C",
@@ -65,6 +67,9 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     m_centralLayout->addWidget(new QLabel(tr("Accent Color")));
 
     QHBoxLayout *colorsLayout = new QHBoxLayout();
+    SettingsItem *item = new dcc::widgets::SettingsItem;
+    item->addBackground();
+    item->setLayout(colorsLayout);
 
     for (QString aColor : ACTIVE_COLORS) {
         RoundColorWidget *colorItem = new RoundColorWidget(aColor, this);
@@ -73,10 +78,15 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         connect(colorItem, &RoundColorWidget::clicked, this, &PersonalizationGeneral::onActiveColorClicked);
         m_activeColorsList.append(colorItem);
     }
-    m_centralLayout->addLayout(colorsLayout);
+
+    m_centralLayout->addWidget(item);
 
     //transparancy switch
     QVBoxLayout *transparancyLayout = new QVBoxLayout();
+    SettingsItem *transitem = new dcc::widgets::SettingsItem;
+    transitem->addBackground();
+    transitem->setLayout(transparancyLayout);
+
     //~ contents_path /personalization/General
     transparancyLayout->addWidget(new QLabel(tr("Transparency"), this));
     m_transparentSlider->slider()->setOrientation(Qt::Horizontal);
@@ -92,15 +102,20 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     slider->setTickInterval(1);
     slider->setPageStep(1);
     transparancyLayout->addWidget(m_transparentSlider);
-    m_centralLayout->addLayout(transparancyLayout);
+    m_centralLayout->addWidget(transitem);
 
     //sw switch
     QHBoxLayout *swswitchLayout = new QHBoxLayout();
+    SettingsItem *switem = new dcc::widgets::SettingsItem;
+    switem->addBackground();
+    switem->setLayout(swswitchLayout);
+
     //~ contents_path /personalization/General
     swswitchLayout->addWidget(new QLabel(tr("Window Effect")));
     swswitchLayout->addStretch();
     swswitchLayout->addWidget(m_wmSwitch);
-    m_centralLayout->addLayout(swswitchLayout);
+    m_centralLayout->addWidget(switem);
+
     connect(m_wmSwitch, &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this,
             &PersonalizationGeneral::requestSwitchWM);
 
