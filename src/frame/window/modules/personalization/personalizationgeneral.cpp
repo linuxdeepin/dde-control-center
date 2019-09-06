@@ -73,7 +73,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     for (QString aColor : ACTIVE_COLORS) {
         RoundColorWidget *colorItem = new RoundColorWidget(aColor, this);
-        colorItem->setFixedSize(40, 40);
+        colorItem->setMinimumSize(40, 40);
         colorsLayout->addWidget(colorItem);
         connect(colorItem, &RoundColorWidget::clicked, this, &PersonalizationGeneral::onActiveColorClicked);
         m_activeColorsList.append(colorItem);
