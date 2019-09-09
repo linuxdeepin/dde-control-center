@@ -25,8 +25,12 @@
 
 #include "mirroritem.h"
 
+#include <DApplicationHelper>
+
 #include <QHBoxLayout>
 #include <QResizeEvent>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace update {
@@ -43,9 +47,9 @@ MirrorItem::MirrorItem(QFrame *parent)
 
     m_mirrorName->setWordWrap(true);
 
-    DPalette pa = DPalette::get(m_selectedBtn);
+    DPalette pa = DApplicationHelper::instance()->palette(m_selectedBtn);
     pa.setBrush(DPalette::ItemBackground, pa.base());
-    DPalette::set(m_selectedBtn, pa);
+    DApplicationHelper::instance()->setPalette(m_selectedBtn, pa);
 
     m_selectedBtn->setObjectName("DCC-Update-MirrorItem-SelectedBtn");
     m_selectedBtn->setFixedSize(24, 24);

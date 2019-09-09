@@ -46,6 +46,7 @@
 
 #include <DBackgroundGroup>
 #include <DIconButton>
+#include <DApplicationHelper>
 
 #include <QHBoxLayout>
 #include <QMetaEnum>
@@ -280,9 +281,9 @@ void MainWindow::resetNavList(bool isIconMode)
         m_navView->setSpacing(20);
         m_rightView->hide();
 
-        DPalette pa = DPalette::get(m_navView);
+        DPalette pa = DApplicationHelper::instance()->palette(m_navView);
         pa.setBrush(DPalette::ItemBackground, pa.base());
-        DPalette::set(m_navView, pa);
+        DApplicationHelper::instance()->setPalette(m_navView, pa);
     } else {
         //The second page will Covered with fill blank areas
         m_navView->setViewMode(QListView::ListMode);
@@ -397,16 +398,16 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
     Q_UNUSED(inter)
 
     QWidget *topWidget = new QWidget;
-    DPalette pa = DPalette::get(topWidget);
+    DPalette pa = DApplicationHelper::instance()->palette(topWidget);
     pa.setBrush(DPalette::ItemBackground, pa.base());
-    DPalette::set(topWidget, pa);
+    DApplicationHelper::instance()->setPalette(topWidget, pa);
     topWidget->setFixedSize(this->width(), this->height());
 
     QHBoxLayout *layout = new QHBoxLayout;
     w->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    pa = DPalette::get(w);
+    pa = DApplicationHelper::instance()->palette(w);
     pa.setBrush(DPalette::ItemBackground, pa.base());
-    DPalette::set(w, pa);
+    DApplicationHelper::instance()->setPalette(w, pa);
 
     layout->setMargin(0);
     layout->setSpacing(0);
@@ -429,9 +430,9 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
 
 void MainWindow::pushFinalWidget(ModuleInterface *const inter, QWidget *const w)
 {
-    DPalette pa = DPalette::get(w);
+    DPalette pa = DApplicationHelper::instance()->palette(w);
     pa.setBrush(DPalette::ItemBackground, pa.base());
-    DPalette::set(w, pa);
+    DApplicationHelper::instance()->setPalette(w, pa);
 
     w->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
