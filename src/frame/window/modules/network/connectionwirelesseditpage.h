@@ -35,7 +35,7 @@ class ConnectionWirelessEditPage : public ConnectionEditPage
     Q_OBJECT
 
 public:
-    explicit ConnectionWirelessEditPage(const QString &devPath, const QString &connUuid = QString(), QWidget *parent = 0);
+    explicit ConnectionWirelessEditPage(const QString &devPath, const QString &connUuid = QString(), QWidget *parent = nullptr);
     virtual ~ConnectionWirelessEditPage();
 
     // This method must be called after initialization

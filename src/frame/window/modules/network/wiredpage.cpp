@@ -87,7 +87,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     setContent(centralWidget);
     setTitle(tr("Select Settings"));
 
-    connect(m_lvProfiles, &QListView::clicked, this, [this](const QModelIndex &idx) {
+    connect(m_lvProfiles, &DListView::clicked, this, [this](const QModelIndex &idx) {
         this->activateConnection(idx.data(PathRole).toString());
     });
 
@@ -151,7 +151,9 @@ void WiredPage::refreshConnectionList()
 
         DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
         editaction->setIcon(QIcon::fromTheme("arrow-right"));
-        connect(editaction, &QAction::triggered, [this, path] {this->editConnection(path);});
+        connect(editaction, &QAction::triggered, [this, path] {
+            this->editConnection(path);
+        });
         it->setActionList(Qt::Edge::RightEdge, {editaction});
 
         m_modelprofiles->appendRow(it);

@@ -54,7 +54,7 @@ class AccessPointWidget : public dcc::widgets::SettingsItem
     Q_OBJECT
 
 public:
-    explicit AccessPointWidget(QWidget *parent = 0);
+    explicit AccessPointWidget(QWidget *parent = nullptr);
 
     int strength() const { return m_strength; }
     bool encrypt() const { return m_encrypt; }

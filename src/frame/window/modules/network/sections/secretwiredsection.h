@@ -33,7 +33,7 @@ class SecretWiredSection : public Secret8021xSection
     Q_OBJECT
 
 public:
-    SecretWiredSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent = 0);
+    SecretWiredSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent = nullptr);
     virtual ~SecretWiredSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;

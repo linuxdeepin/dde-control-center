@@ -36,7 +36,7 @@ class SecretHotspotSection : public AbstractSection
     Q_OBJECT
 
 public:
-    SecretHotspotSection(NetworkManager::WirelessSecuritySetting::Ptr wsSeting, QFrame *parent = 0);
+    SecretHotspotSection(NetworkManager::WirelessSecuritySetting::Ptr wsSeting, QFrame *parent = nullptr);
     virtual ~SecretHotspotSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;

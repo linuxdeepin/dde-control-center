@@ -55,7 +55,7 @@ class PppoePage : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
-    explicit PppoePage(QWidget *parent = 0);
+    explicit PppoePage(QWidget *parent = nullptr);
     ~PppoePage();
 
     void setModel(dde::network::NetworkModel *model);

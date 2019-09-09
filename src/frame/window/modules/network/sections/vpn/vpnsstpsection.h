@@ -36,7 +36,7 @@ class VpnSSTPSection : public VpnSection
     Q_OBJECT
 
 public:
-    explicit VpnSSTPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = 0);
+    explicit VpnSSTPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = nullptr);
     virtual ~VpnSSTPSection();
 
     void saveSettings() Q_DECL_OVERRIDE;

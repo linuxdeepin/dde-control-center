@@ -24,32 +24,27 @@
 
 #include <networkmanagerqt/utils.h>
 
+#include <QComboBox>
+
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 
-static const QList<NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtList {
-    NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone,
-    NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep,
-    NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk,
-    NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap
-};
-
 SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySetting::Ptr wsSeting,
-        NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent)
-    : Secret8021xSection(sSetting, parent),
-      m_keyMgmtChooser(new ComboBoxWidget(this)),
-      m_passwdEdit(new PasswdEditWidget(this)),
-      m_enableWatcher(new Secret8021xEnableWatcher(this)),
-      m_currentKeyMgmt(NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone),
-      m_wsSetting(wsSeting),
-      m_s8Setting(sSetting)
+                                             NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent)
+    : Secret8021xSection(sSetting, parent)
+    , m_keyMgmtChooser(new ComboxWidget(this))
+    , m_passwdEdit(new PasswdEditWidget(this))
+    , m_enableWatcher(new Secret8021xEnableWatcher(this))
+    , m_currentKeyMgmt(NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone)
+    , m_wsSetting(wsSeting)
+    , m_s8Setting(sSetting)
 {
     initStrMaps();
 
     // init KeyMgmt
     const NetworkManager::WirelessSecuritySetting::KeyMgmt &keyMgmt = m_wsSetting->keyMgmt();
     m_currentKeyMgmt = (keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown) ?
-        NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone : keyMgmt;
+                       NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone : keyMgmt;
 
     initUI();
     initConnection();
@@ -67,7 +62,7 @@ bool SecretWirelessSection::allInputValid()
 
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
         valid = NetworkManager::wepKeyIsValid(m_passwdEdit->text(),
-                NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
+                                              NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
         m_passwdEdit->setIsErr(!valid);
     }
 
@@ -113,10 +108,14 @@ void SecretWirelessSection::initStrMaps()
 void SecretWirelessSection::initUI()
 {
     m_keyMgmtChooser->setTitle(tr("Security"));
-    for (auto keyMgmt : KeyMgmtList) {
-        m_keyMgmtChooser->appendOption(KeyMgmtStrMap.key(keyMgmt), keyMgmt);
+    QString curMgmtOption = KeyMgmtStrMap.at(0).first;
+    for (auto it = KeyMgmtStrMap.cbegin(); it != KeyMgmtStrMap.cend(); ++it) {
+        m_keyMgmtChooser->comboBox()->addItem(it->first, it->second);
+        if (m_currentKeyMgmt == it->second) {
+            curMgmtOption = it->first;
+        }
     }
-    m_keyMgmtChooser->setCurrent(m_currentKeyMgmt);
+    m_keyMgmtChooser->setCurrentText(curMgmtOption);
 
     m_passwdEdit->setPlaceholderText(tr("Required"));
 
@@ -137,9 +136,13 @@ void SecretWirelessSection::initUI()
 
 void SecretWirelessSection::initConnection()
 {
-    connect(m_keyMgmtChooser, &ComboBoxWidget::requestPage, this, &SecretWirelessSection::requestNextPage);
-    connect(m_keyMgmtChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
-        onKeyMgmtChanged(data.value<NetworkManager::WirelessSecuritySetting::KeyMgmt>());
+    connect(m_keyMgmtChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &dataSelected) {
+        for (auto it = KeyMgmtStrMap.cbegin(); it != KeyMgmtStrMap.cend(); ++it) {
+            if (it->first == dataSelected) {
+                onKeyMgmtChanged(it->second);
+                break;
+            }
+        }
     });
 
     connect(m_passwdEdit->textEdit(), &QLineEdit::editingFinished, this, &SecretWirelessSection::saveUserInputPassword);
@@ -153,32 +156,32 @@ void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySet
     }
 
     switch (m_currentKeyMgmt) {
-        case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone: {
-            m_passwdEdit->setVisible(false);
-            m_enableWatcher->setSecretEnable(false);
-            break;
-        }
-        case NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep: {
-            m_passwdEdit->setText(m_wsSetting->wepKey0());
-            m_passwdEdit->setTitle(tr("Key"));
-            m_passwdEdit->setVisible(true);
-            m_enableWatcher->setSecretEnable(false);
-            break;
-        }
-        case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk: {
-            m_passwdEdit->setText(m_wsSetting->psk());
-            m_passwdEdit->setTitle(tr("Password"));
-            m_passwdEdit->setVisible(true);
-            m_enableWatcher->setSecretEnable(false);
-            break;
-        }
-        case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap: {
-            m_passwdEdit->setVisible(false);
-            m_enableWatcher->setSecretEnable(true);
-            break;
-        }
-        default:
-            break;
+    case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone: {
+        m_passwdEdit->setVisible(false);
+        m_enableWatcher->setSecretEnable(false);
+        break;
+    }
+    case NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep: {
+        m_passwdEdit->setText(m_wsSetting->wepKey0());
+        m_passwdEdit->setTitle(tr("Key"));
+        m_passwdEdit->setVisible(true);
+        m_enableWatcher->setSecretEnable(false);
+        break;
+    }
+    case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk: {
+        m_passwdEdit->setText(m_wsSetting->psk());
+        m_passwdEdit->setTitle(tr("Password"));
+        m_passwdEdit->setVisible(true);
+        m_enableWatcher->setSecretEnable(false);
+        break;
+    }
+    case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap: {
+        m_passwdEdit->setVisible(false);
+        m_enableWatcher->setSecretEnable(true);
+        break;
+    }
+    default:
+        break;
     }
 
     if (m_userInputPasswordMap.contains(m_currentKeyMgmt)) {

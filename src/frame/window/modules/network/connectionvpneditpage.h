@@ -45,7 +45,7 @@ class ConnectionVpnEditPage : public ConnectionEditPage
 public:
     enum VpnType {UNSET, L2TP, PPTP, VPNC, OPENVPN, STRONGSWAN, OPENCONNECT, SSTP};
 
-    explicit ConnectionVpnEditPage(const QString &connUuid = QString(), QWidget *parent = 0);
+    explicit ConnectionVpnEditPage(const QString &connUuid = QString(), QWidget *parent = nullptr);
     virtual ~ConnectionVpnEditPage();
 
     // one of the following two methods must be called after initialization

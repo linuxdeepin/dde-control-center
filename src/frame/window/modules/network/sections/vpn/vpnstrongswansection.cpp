@@ -21,28 +21,28 @@
 
 #include "vpnstrongswansection.h"
 
+#include <QComboBox>
+
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
 VpnStrongSwanSection::VpnStrongSwanSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
-    : AbstractSection(tr("VPN"), parent),
-      m_vpnSetting(vpnSetting),
-      m_gateway(new LineEditWidget(this)),
-      m_caCert(new FileChooseWidget(this)),
-      m_authTypeChooser(new ComboBoxWidget(this)),
-
-      m_userCert(new FileChooseWidget(this)),
-      m_userKey(new FileChooseWidget(this)),
-      m_userName(new LineEditWidget(this)),
-      m_password(new PasswdEditWidget(this)),
-
-      m_requestInnerIp(new SwitchWidget(this)),
-      m_enforceUDP(new SwitchWidget(this)),
-      m_useIPComp(new SwitchWidget(this)),
-      m_enableCustomCipher(new SwitchWidget(this)),
-      m_ike(new LineEditWidget(this)),
-      m_esp(new LineEditWidget(this))
+    : AbstractSection(tr("VPN"), parent)
+    , m_vpnSetting(vpnSetting)
+    , m_gateway(new LineEditWidget(this))
+    , m_caCert(new FileChooseWidget(this))
+    , m_authTypeChooser(new ComboxWidget(this))
+    , m_userCert(new FileChooseWidget(this))
+    , m_userKey(new FileChooseWidget(this))
+    , m_userName(new LineEditWidget(this))
+    , m_password(new PasswdEditWidget(this))
+    , m_requestInnerIp(new SwitchWidget(this))
+    , m_enforceUDP(new SwitchWidget(this))
+    , m_useIPComp(new SwitchWidget(this))
+    , m_enableCustomCipher(new SwitchWidget(this))
+    , m_ike(new LineEditWidget(this))
+    , m_esp(new LineEditWidget(this))
 {
     m_dataMap = vpnSetting->data();
     m_secretMap = vpnSetting->secrets();
@@ -158,13 +158,15 @@ void VpnStrongSwanSection::initUI()
 
     m_authTypeChooser->setTitle(tr("Auth Type"));
     m_currentAuthType = "key";
-    for (auto value : AuthTypeStrMap.values()) {
-        if (value == m_dataMap.value("method")) {
-            m_currentAuthType = value;
+    QString curAuthOption = AuthTypeStrMap.at(0).first;
+    for (auto it = AuthTypeStrMap.cbegin(); it != AuthTypeStrMap.cend(); ++it) {
+        m_authTypeChooser->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_dataMap.value("method")) {
+            m_currentAuthType = it->second;
+            curAuthOption = it->first;
         }
-        m_authTypeChooser->appendOption(AuthTypeStrMap.key(value), value);
     }
-    m_authTypeChooser->setCurrent(m_currentAuthType);
+    m_authTypeChooser->setCurrentText(curAuthOption);
 
     m_userCert->setTitle(tr("User Cert"));
     m_userCert->edit()->setText(m_dataMap.value("usercert"));
@@ -216,9 +218,13 @@ void VpnStrongSwanSection::initUI()
 void VpnStrongSwanSection::initConnection()
 {
     connect(m_gateway->textEdit(), &QLineEdit::editingFinished, this, &VpnStrongSwanSection::allInputValid);
-    connect(m_authTypeChooser, &ComboBoxWidget::requestPage, this, &VpnStrongSwanSection::requestNextPage);
-    connect(m_authTypeChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
-        onAuthTypeChanged(data.toString());
+    connect(m_authTypeChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &dataSelected) {
+        for (auto it = AuthTypeStrMap.cbegin(); it != AuthTypeStrMap.cend(); ++it) {
+            if (it->first == dataSelected) {
+                onAuthTypeChanged(it->second);
+                break;
+            }
+        }
     });
     connect(m_enableCustomCipher, &SwitchWidget::checkedChanged,
             this, &VpnStrongSwanSection::onCustomCipherEnableChanged);

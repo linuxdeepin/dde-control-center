@@ -21,18 +21,20 @@
 
 #include "vpntlssection.h"
 
+#include <QComboBox>
+
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
 VpnTLSSection::VpnTLSSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
-    : AbstractSection(tr("VPN TLS Authentication"), parent),
-      m_vpnSetting(vpnSetting),
-    m_remote(new LineEditWidget(this)),
-    m_remoteCertTypeChooser(new ComboBoxWidget(this)),
-    m_caCert(new FileChooseWidget(this)),
-    m_customKeyDirection(new SwitchWidget(this)),
-    m_keyDirectionChooser(new ComboBoxWidget(this))
+    : AbstractSection(tr("VPN TLS Authentication"), parent)
+    , m_vpnSetting(vpnSetting)
+    , m_remote(new LineEditWidget(this))
+    , m_remoteCertTypeChooser(new ComboxWidget(this))
+    , m_caCert(new FileChooseWidget(this))
+    , m_customKeyDirection(new SwitchWidget(this))
+    , m_keyDirectionChooser(new ComboxWidget(this))
 {
     m_dataMap = vpnSetting->data();
 
@@ -89,13 +91,15 @@ void VpnTLSSection::initUI()
 
     m_remoteCertTypeChooser->setTitle(tr("Remote Cert Type"));
     m_currentRemoteCertType = "default";
-    for (auto value : RemoteCertTypeStrMap.values()) {
-        if (value == m_dataMap.value("remote-cert-tls")) {
-            m_currentRemoteCertType = value;
+    QString curRemoteCertOption = RemoteCertTypeStrMap.at(0).first;
+    for (auto it = RemoteCertTypeStrMap.cbegin(); it != RemoteCertTypeStrMap.cend(); ++it) {
+        m_remoteCertTypeChooser->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_dataMap.value("remote-cert-tls")) {
+            m_currentRemoteCertType = it->second;
+            curRemoteCertOption = it->first;
         }
-        m_remoteCertTypeChooser->appendOption(RemoteCertTypeStrMap.key(value), value);
     }
-    m_remoteCertTypeChooser->setCurrent(m_currentRemoteCertType);
+    m_remoteCertTypeChooser->setCurrentText(curRemoteCertOption);
 
     m_caCert->setTitle(tr("Key File"));
     m_caCert->edit()->setText(m_dataMap.value("ta"));
@@ -104,10 +108,10 @@ void VpnTLSSection::initUI()
     m_customKeyDirection->setChecked(m_dataMap.keys().contains("ta-dir"));
 
     m_keyDirectionChooser->setTitle(tr("Key Direction"));
-    m_keyDirectionChooser->appendOption("0", "0");
-    m_keyDirectionChooser->appendOption("1", "1");
+    m_keyDirectionChooser->comboBox()->addItem("0", "0");
+    m_keyDirectionChooser->comboBox()->addItem("1", "1");
     m_currentKeyDirection = m_dataMap.value("ta-dir", "0");
-    m_keyDirectionChooser->setCurrent(m_currentKeyDirection);
+    m_keyDirectionChooser->setCurrentText(m_currentKeyDirection);
     m_keyDirectionChooser->setVisible(m_customKeyDirection->checked());
 
     appendItem(m_remote);
@@ -119,16 +123,19 @@ void VpnTLSSection::initUI()
 
 void VpnTLSSection::initConnection()
 {
-    connect(m_remoteCertTypeChooser, &ComboBoxWidget::requestPage, this, &VpnTLSSection::requestNextPage);
-    connect(m_remoteCertTypeChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
-        m_currentRemoteCertType = data.toString();
+    connect(m_remoteCertTypeChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &dataSelected) {
+        for (auto it = RemoteCertTypeStrMap.cbegin(); it != RemoteCertTypeStrMap.cend(); ++it) {
+            if (it->first == dataSelected) {
+                m_currentRemoteCertType = it->second;
+                break;
+            }
+        }
     });
 
-    connect(m_customKeyDirection, &SwitchWidget::checkedChanged, m_keyDirectionChooser, &ComboBoxWidget::setVisible);
+    connect(m_customKeyDirection, &SwitchWidget::checkedChanged, m_keyDirectionChooser, &ComboxWidget::setVisible);
 
-    connect(m_keyDirectionChooser, &ComboBoxWidget::requestPage, this, &VpnTLSSection::requestNextPage);
-    connect(m_keyDirectionChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
-        m_currentKeyDirection = data.toString();
+    connect(m_keyDirectionChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &dataSelected) {
+        m_currentKeyDirection = dataSelected;
     });
 
     connect(m_caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnTLSSection::requestFrameAutoHide);

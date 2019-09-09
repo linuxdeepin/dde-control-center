@@ -38,7 +38,7 @@ class VpnOpenConnectSection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit VpnOpenConnectSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = 0);
+    explicit VpnOpenConnectSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = nullptr);
     virtual ~VpnOpenConnectSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;

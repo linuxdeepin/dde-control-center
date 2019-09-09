@@ -35,7 +35,7 @@ class GenericHotspotSection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit GenericHotspotSection(NetworkManager::ConnectionSettings::Ptr connSettings, QFrame *parent = 0);
+    explicit GenericHotspotSection(NetworkManager::ConnectionSettings::Ptr connSettings, QFrame *parent = nullptr);
     virtual ~GenericHotspotSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;

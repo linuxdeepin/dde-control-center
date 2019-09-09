@@ -37,7 +37,7 @@ class PPPSection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit PPPSection(NetworkManager::PppSetting::Ptr pppSetting, QFrame *parent = 0);
+    explicit PPPSection(NetworkManager::PppSetting::Ptr pppSetting, QFrame *parent = nullptr);
     virtual ~PPPSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;

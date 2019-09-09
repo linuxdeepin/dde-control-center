@@ -43,8 +43,8 @@ class IpvxSection : public AbstractSection
 public:
     enum Ipvx {Ipv4, Ipv6};
 
-    explicit IpvxSection(NetworkManager::Ipv4Setting::Ptr ipv4Setting, QFrame *parent = 0);
-    explicit IpvxSection(NetworkManager::Ipv6Setting::Ptr ipv6Setting, QFrame *parent = 0);
+    explicit IpvxSection(NetworkManager::Ipv4Setting::Ptr ipv4Setting, QFrame *parent = nullptr);
+    explicit IpvxSection(NetworkManager::Ipv6Setting::Ptr ipv6Setting, QFrame *parent = nullptr);
     virtual ~IpvxSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;

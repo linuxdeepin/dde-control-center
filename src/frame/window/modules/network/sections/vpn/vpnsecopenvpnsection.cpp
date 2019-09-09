@@ -21,15 +21,17 @@
 
 #include "vpnsecopenvpnsection.h"
 
+#include <QComboBox>
+
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
 VpnSecOpenVPNSection::VpnSecOpenVPNSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
-    : AbstractSection(tr("VPN Security"), parent),
-      m_vpnSetting(vpnSetting),
-      m_cipherChooser(new ComboBoxWidget(this)),
-      m_hmacChooser(new ComboBoxWidget(this))
+    : AbstractSection(tr("VPN Security"), parent)
+    , m_vpnSetting(vpnSetting)
+    , m_cipherChooser(new ComboxWidget(this))
+    , m_hmacChooser(new ComboxWidget(this))
 {
     m_dataMap = vpnSetting->data();
 
@@ -110,23 +112,27 @@ void VpnSecOpenVPNSection::initUI()
 {
     m_cipherChooser->setTitle(tr("Cipher"));
     m_currentCipher = "default";
-    for (auto cipher : CipherStrMap.values()) {
-        if (cipher == m_dataMap.value("cipher")) {
-            m_currentCipher = cipher;
+    QString curCipherOption = CipherStrMap.at(0).first;
+    for (auto it = CipherStrMap.cbegin(); it != CipherStrMap.cend(); ++it) {
+        m_cipherChooser->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_dataMap.value("cipher")) {
+            m_currentCipher = it->second;
+            curCipherOption = it->first;
         }
-        m_cipherChooser->appendOption(CipherStrMap.key(cipher), cipher);
     }
-    m_cipherChooser->setCurrent(m_currentCipher);
+    m_cipherChooser->setCurrentText(curCipherOption);
 
     m_hmacChooser->setTitle(tr("HMAC Auth"));
     m_currentHMAC = "default";
-    for (auto hmac : HMACStrMap.values()) {
-        if (hmac == m_dataMap.value("auth")) {
-            m_currentHMAC = hmac;
+    QString curHMACOption = HMACStrMap.at(0).first;
+    for (auto it = HMACStrMap.cbegin(); it != HMACStrMap.cend(); ++it) {
+        m_hmacChooser->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_dataMap.value("auth")) {
+            m_currentHMAC = it->second;
+            curHMACOption = it->first;
         }
-        m_hmacChooser->appendOption(HMACStrMap.key(hmac), hmac);
     }
-    m_hmacChooser->setCurrent(m_currentHMAC);
+    m_hmacChooser->setCurrentText(curHMACOption);
 
     appendItem(m_cipherChooser);
     appendItem(m_hmacChooser);
@@ -134,13 +140,20 @@ void VpnSecOpenVPNSection::initUI()
 
 void VpnSecOpenVPNSection::initConnection()
 {
-    connect(m_cipherChooser, &ComboBoxWidget::requestPage, this, &VpnSecOpenVPNSection::requestNextPage);
-    connect(m_cipherChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
-        m_currentCipher = data.toString();
+    connect(m_cipherChooser, &ComboxWidget::onSelectChanged, this, [=](const QString &dataSelected) {
+        for (auto it = CipherStrMap.cbegin(); it != CipherStrMap.cend(); ++it) {
+            if (it->first == dataSelected) {
+                m_currentCipher = it->second;
+                break;
+            }
+        }
     });
-
-    connect(m_hmacChooser, &ComboBoxWidget::requestPage, this, &VpnSecOpenVPNSection::requestNextPage);
-    connect(m_hmacChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
-        m_currentHMAC = data.toString();
+    connect(m_hmacChooser, &ComboxWidget::onSelectChanged, this, [=](const QString &dataSelected) {
+        for (auto it = HMACStrMap.cbegin(); it != HMACStrMap.cend(); ++it) {
+            if (it->first == dataSelected) {
+                m_currentHMAC = it->second;
+                break;
+            }
+        }
     });
 }

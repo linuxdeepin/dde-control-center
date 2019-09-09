@@ -34,8 +34,8 @@ class AbstractSection : public dcc::widgets::SettingsGroup
     Q_OBJECT
 
 public:
-    explicit AbstractSection(QFrame *parent = 0);
-    explicit AbstractSection(const QString &title, QFrame *parent = 0);
+    explicit AbstractSection(QFrame *parent = nullptr);
+    explicit AbstractSection(const QString &title, QFrame *parent = nullptr);
     virtual ~AbstractSection();
 
     virtual bool allInputValid() = 0;

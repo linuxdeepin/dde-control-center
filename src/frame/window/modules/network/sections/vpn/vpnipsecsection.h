@@ -37,7 +37,7 @@ class VpnIpsecSection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit VpnIpsecSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = 0);
+    explicit VpnIpsecSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = nullptr);
     virtual ~VpnIpsecSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;

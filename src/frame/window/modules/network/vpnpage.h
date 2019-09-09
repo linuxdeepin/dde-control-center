@@ -56,7 +56,7 @@ class VpnPage : public dcc::ContentWidget
     Q_OBJECT
 
 public:
-    explicit VpnPage(QWidget *parent = 0);
+    explicit VpnPage(QWidget *parent = nullptr);
     ~VpnPage();
 
 Q_SIGNALS:

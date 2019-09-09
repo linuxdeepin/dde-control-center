@@ -25,7 +25,7 @@
 #include "../abstractsection.h"
 #include "widgets/contentwidget.h"
 #include "widgets/lineeditwidget.h"
-#include "widgets/comboboxwidget.h"
+#include "widgets/comboxwidget.h"
 #include "widgets/passwdeditwidget.h"
 #include "widgets/switchwidget.h"
 #include "widgets/spinboxwidget.h"
@@ -40,7 +40,7 @@ class VpnProxySection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit VpnProxySection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = 0);
+    explicit VpnProxySection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = nullptr);
     virtual ~VpnProxySection();
 
     bool allInputValid() Q_DECL_OVERRIDE;
@@ -53,13 +53,13 @@ private:
     void onProxyTypeChanged(const QString &type);
 
 private:
-    QMap<QString, QString> ProxyTypeStrMap;
+    QList<QPair<QString, QString>> ProxyTypeStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
     NMStringMap m_secretMap;
 
-    dcc::widgets::ComboBoxWidget *m_proxyTypeChooser;
+    dcc::widgets::ComboxWidget *m_proxyTypeChooser;
     dcc::widgets::LineEditWidget *m_server;
     dcc::widgets::SpinBoxWidget *m_port;
     dcc::widgets::SwitchWidget *m_retry;

@@ -37,7 +37,7 @@ class PPPOESection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit PPPOESection(NetworkManager::PppoeSetting::Ptr pppoeSetting, QFrame *parent = 0);
+    explicit PPPOESection(NetworkManager::PppoeSetting::Ptr pppoeSetting, QFrame *parent = nullptr);
     virtual ~PPPOESection();
 
     bool allInputValid() Q_DECL_OVERRIDE;

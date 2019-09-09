@@ -26,7 +26,7 @@
 #include "widgets/contentwidget.h"
 #include "widgets/lineeditwidget.h"
 #include "widgets/filechoosewidget.h"
-#include "widgets/comboboxwidget.h"
+#include "widgets/comboxwidget.h"
 #include "widgets/passwdeditwidget.h"
 #include "widgets/switchwidget.h"
 
@@ -40,7 +40,7 @@ class VpnStrongSwanSection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit VpnStrongSwanSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = 0);
+    explicit VpnStrongSwanSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = nullptr);
     virtual ~VpnStrongSwanSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;
@@ -54,7 +54,7 @@ private:
     void onCustomCipherEnableChanged(const bool enabled);
 
 private:
-    QMap<QString, QString> AuthTypeStrMap;
+    QList<QPair<QString, QString>> AuthTypeStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
@@ -62,7 +62,7 @@ private:
 
     dcc::widgets::LineEditWidget *m_gateway;
     dcc::widgets::FileChooseWidget *m_caCert;
-    dcc::widgets::ComboBoxWidget *m_authTypeChooser;
+    dcc::widgets::ComboxWidget *m_authTypeChooser;
 
     dcc::widgets::FileChooseWidget *m_userCert;
     dcc::widgets::FileChooseWidget *m_userKey;

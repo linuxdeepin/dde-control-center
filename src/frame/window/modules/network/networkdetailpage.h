@@ -43,7 +43,7 @@ class NetworkDetailPage : public dcc::ContentWidget
     Q_OBJECT
 
 public:
-    explicit NetworkDetailPage(QWidget *parent = 0);
+    explicit NetworkDetailPage(QWidget *parent = nullptr);
 
     void setModel(dde::network::NetworkModel *model);
 

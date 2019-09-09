@@ -24,7 +24,6 @@
 
 #include "abstractsection.h"
 #include "widgets/comboxwidget.h"
-#include "widgets/comboboxwidget.h"
 #include "widgets/lineeditwidget.h"
 #include "widgets/passwdeditwidget.h"
 
@@ -38,7 +37,7 @@ class Secret8021xEnableWatcher : public QObject
     Q_OBJECT
 
 public:
-    Secret8021xEnableWatcher(QObject *parent = 0) : QObject(parent) {}
+    Secret8021xEnableWatcher(QObject *parent = nullptr) : QObject(parent) {}
     virtual ~Secret8021xEnableWatcher() {}
 
     inline bool secretEnabled() {return m_secretEnabled;}
@@ -70,7 +69,7 @@ public:
     void saveSettings() Q_DECL_OVERRIDE;
 
 protected:
-    explicit Secret8021xSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent = 0);
+    explicit Secret8021xSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent = nullptr);
     // This method must be called by subclass after initialization
     void init(Secret8021xEnableWatcher *watcher, QList<NetworkManager::Security8021xSetting::EapMethod> eapMethodsSupportList);
 
@@ -105,11 +104,11 @@ private:
 private:
     QList<QPair<QString, NetworkManager::Security8021xSetting::EapMethod>> EapMethodStrMap;
     QList<QPair<QString, NetworkManager::Setting::SecretFlagType>> PasswordFlagsStrMap;
-    QMap<QString, NetworkManager::Security8021xSetting::FastProvisioning> FastrProvisioningStrMap;
-    QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapFast;
-    QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapTtls;
-    QMap<QString, NetworkManager::Security8021xSetting::PeapVersion> PeapVersionStrMap;
-    QMap<QString, NetworkManager::Security8021xSetting::AuthMethod> AuthMethodStrMapPeap;
+    QList<QPair<QString, NetworkManager::Security8021xSetting::FastProvisioning>> FastrProvisioningStrMap;
+    QList<QPair<QString, NetworkManager::Security8021xSetting::AuthMethod>> AuthMethodStrMapFast;
+    QList<QPair<QString, NetworkManager::Security8021xSetting::AuthMethod>> AuthMethodStrMapTtls;
+    QList<QPair<QString, NetworkManager::Security8021xSetting::PeapVersion>> PeapVersionStrMap;
+    QList<QPair<QString, NetworkManager::Security8021xSetting::AuthMethod>> AuthMethodStrMapPeap;
 
     dcc::widgets::ComboxWidget *m_eapMethmodChooser;
     dcc::widgets::ComboxWidget *m_passwordFlagsChooser;

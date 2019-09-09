@@ -23,7 +23,7 @@
 #define SECRETWIRELESSSECTION_H
 
 #include "secret8021xsection.h"
-#include "widgets/comboboxwidget.h"
+#include "widgets/comboxwidget.h"
 #include "widgets/passwdeditwidget.h"
 
 #include <networkmanagerqt/wirelesssecuritysetting.h>
@@ -37,7 +37,7 @@ class SecretWirelessSection : public Secret8021xSection
 
 public:
     SecretWirelessSection(NetworkManager::WirelessSecuritySetting::Ptr wsSeting,
-            NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent = 0);
+            NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent = nullptr);
     virtual ~SecretWirelessSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;
@@ -51,9 +51,9 @@ private:
     void saveUserInputPassword();
 
 private:
-    QMap<QString, NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtStrMap;
+    QList<QPair<QString, NetworkManager::WirelessSecuritySetting::KeyMgmt>> KeyMgmtStrMap;
 
-    dcc::widgets::ComboBoxWidget *m_keyMgmtChooser;
+    dcc::widgets::ComboxWidget *m_keyMgmtChooser;
     dcc::widgets::PasswdEditWidget *m_passwdEdit;
     Secret8021xEnableWatcher *m_enableWatcher;
 

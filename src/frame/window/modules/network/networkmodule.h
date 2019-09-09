@@ -48,7 +48,7 @@ class NetworkModule : public QObject, public ModuleInterface
     Q_OBJECT
 
 public:
-    explicit NetworkModule(FrameProxyInterface *frame, QObject *parent = 0);
+    explicit NetworkModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     ~NetworkModule();
     void showPage(const QString &jsonData) override;
 

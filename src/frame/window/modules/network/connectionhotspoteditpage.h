@@ -33,7 +33,7 @@ class ConnectionHotspotEditPage : public ConnectionEditPage
     Q_OBJECT
 
 public:
-    explicit ConnectionHotspotEditPage(const QString &devPath, const QString &connUuid = QString(), QWidget *parent = 0);
+    explicit ConnectionHotspotEditPage(const QString &devPath, const QString &connUuid = QString(), QWidget *parent = nullptr);
     virtual ~ConnectionHotspotEditPage();
 
     void initSettingsWidget() Q_DECL_OVERRIDE;

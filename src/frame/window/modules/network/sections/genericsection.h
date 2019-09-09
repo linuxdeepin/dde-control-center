@@ -37,7 +37,7 @@ class GenericSection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit GenericSection(NetworkManager::ConnectionSettings::Ptr connSettings, QFrame *parent = 0);
+    explicit GenericSection(NetworkManager::ConnectionSettings::Ptr connSettings, QFrame *parent = nullptr);
     virtual ~GenericSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;

@@ -21,22 +21,24 @@
 
 #include "vpnvpncsection.h"
 
+#include <QComboBox>
+
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
 VpnVPNCSection::VpnVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
-    : AbstractSection(tr("VPN"), parent),
-      m_vpnSetting(vpnSetting),
-      m_gateway(new LineEditWidget(this)),
-      m_userName(new LineEditWidget(this)),
-      m_passwordFlagsChooser(new ComboBoxWidget(this)),
-      m_password(new PasswdEditWidget(this)),
-      m_groupName(new LineEditWidget(this)),
-      m_groupPasswordFlagsChooser(new ComboBoxWidget(this)),
-      m_groupPassword(new PasswdEditWidget(this)),
-      m_userHybrid(new SwitchWidget(this)),
-      m_caFile(new FileChooseWidget(this))
+    : AbstractSection(tr("VPN"), parent)
+    , m_vpnSetting(vpnSetting)
+    , m_gateway(new LineEditWidget(this))
+    , m_userName(new LineEditWidget(this))
+    , m_passwordFlagsChooser(new ComboxWidget(this))
+    , m_password(new PasswdEditWidget(this))
+    , m_groupName(new LineEditWidget(this))
+    , m_groupPasswordFlagsChooser(new ComboxWidget(this))
+    , m_groupPassword(new PasswdEditWidget(this))
+    , m_userHybrid(new SwitchWidget(this))
+    , m_caFile(new FileChooseWidget(this))
 {
     m_dataMap = vpnSetting->data();
     m_secretMap = vpnSetting->secrets();
@@ -173,10 +175,14 @@ void VpnVPNCSection::initUI()
     m_userName->setText(m_dataMap.value("Xauth username"));
 
     m_passwordFlagsChooser->setTitle(tr("Pwd Options"));
-    for (const QString &key : PasswordFlagsStrMap.keys()) {
-        m_passwordFlagsChooser->appendOption(key, PasswordFlagsStrMap.value(key));
+    QString curPasswordOption = PasswordFlagsStrMap.at(0).first;
+    for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+        m_passwordFlagsChooser->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_currentPasswordType) {
+            curPasswordOption = it->first;
+        }
     }
-    m_passwordFlagsChooser->setCurrent(m_currentPasswordType);
+    m_passwordFlagsChooser->setCurrentText(curPasswordOption);
 
     m_password->setTitle(tr("Password"));
     m_password->setPlaceholderText(tr("Required"));
@@ -187,10 +193,15 @@ void VpnVPNCSection::initUI()
     m_groupName->setText(m_dataMap.value("IPSec ID"));
 
     m_groupPasswordFlagsChooser->setTitle(tr("Pwd Options"));
-    for (const QString &key : PasswordFlagsStrMap.keys()) {
-        m_groupPasswordFlagsChooser->appendOption(key, PasswordFlagsStrMap.value(key));
+
+    QString curGroupPasswordOption = PasswordFlagsStrMap.at(0).first;
+    for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+        m_groupPasswordFlagsChooser->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_currentGroupPasswordType) {
+            curGroupPasswordOption = it->first;
+        }
     }
-    m_groupPasswordFlagsChooser->setCurrent(m_currentGroupPasswordType);
+    m_groupPasswordFlagsChooser->setCurrentText(curGroupPasswordOption);
 
     m_groupPassword->setTitle(tr("Group Pwd"));
     m_groupPassword->setPlaceholderText(tr("Required"));
@@ -219,14 +230,22 @@ void VpnVPNCSection::initConnection()
     connect(m_gateway->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
     connect(m_userName->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
     connect(m_password->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
-    connect(m_passwordFlagsChooser, &ComboBoxWidget::requestPage, this, &VpnVPNCSection::requestNextPage);
-    connect(m_passwordFlagsChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
-        onPasswordFlagsChanged(data.value<NetworkManager::Setting::SecretFlagType>());
+    connect(m_passwordFlagsChooser, &ComboxWidget::onSelectChanged, this, [=](const QString &dataSelected) {
+        for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+            if (it->first == dataSelected) {
+                onPasswordFlagsChanged(it->second);
+                break;
+            }
+        }
     });
     connect(m_groupName->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
-    connect(m_groupPasswordFlagsChooser, &ComboBoxWidget::requestPage, this, &VpnVPNCSection::requestNextPage);
-    connect(m_groupPasswordFlagsChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
-        onGroupPasswordFlagsChanged(data.value<NetworkManager::Setting::SecretFlagType>());
+    connect(m_groupPasswordFlagsChooser, &ComboxWidget::onSelectChanged, this, [=](const QString &dataSelected) {
+        for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+            if (it->first == dataSelected) {
+                onGroupPasswordFlagsChanged(it->second);
+                break;
+            }
+        }
     });
     connect(m_groupPassword->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
     connect(m_userHybrid, &SwitchWidget::checkedChanged, this, [=](const bool checked) {

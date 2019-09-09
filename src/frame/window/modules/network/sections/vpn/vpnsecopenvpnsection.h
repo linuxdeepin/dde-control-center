@@ -24,7 +24,7 @@
 
 #include "../abstractsection.h"
 #include "widgets/contentwidget.h"
-#include "widgets/comboboxwidget.h"
+#include "widgets/comboxwidget.h"
 
 #include <networkmanagerqt/vpnsetting.h>
 
@@ -36,7 +36,7 @@ class VpnSecOpenVPNSection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit VpnSecOpenVPNSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = 0);
+    explicit VpnSecOpenVPNSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = nullptr);
     virtual ~VpnSecOpenVPNSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;
@@ -48,14 +48,14 @@ private:
     void initConnection();
 
 private:
-    QMap<QString, QString> CipherStrMap;
-    QMap<QString, QString> HMACStrMap;
+    QList<QPair<QString, QString>> CipherStrMap;
+    QList<QPair<QString, QString>> HMACStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 
-    dcc::widgets::ComboBoxWidget *m_cipherChooser;
-    dcc::widgets::ComboBoxWidget *m_hmacChooser;
+    dcc::widgets::ComboxWidget *m_cipherChooser;
+    dcc::widgets::ComboxWidget *m_hmacChooser;
 
     QString m_currentCipher;
     QString m_currentHMAC;

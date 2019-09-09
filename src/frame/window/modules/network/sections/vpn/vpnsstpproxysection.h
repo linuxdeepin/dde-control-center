@@ -39,7 +39,7 @@ class VpnSstpProxySection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit VpnSstpProxySection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = 0);
+    explicit VpnSstpProxySection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = nullptr);
     virtual ~VpnSstpProxySection();
 
     bool allInputValid() Q_DECL_OVERRIDE;

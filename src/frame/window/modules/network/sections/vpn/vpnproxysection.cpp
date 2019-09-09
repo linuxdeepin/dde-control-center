@@ -23,19 +23,21 @@
 
 #include <dspinbox.h>
 
+#include <QComboBox>
+
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
 VpnProxySection::VpnProxySection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
-    : AbstractSection(tr("VPN Proxy"), parent),
-      m_vpnSetting(vpnSetting),
-    m_proxyTypeChooser(new ComboBoxWidget(this)),
-    m_server(new LineEditWidget(this)),
-    m_port(new SpinBoxWidget(this)),
-    m_retry(new SwitchWidget(this)),
-    m_userName(new LineEditWidget(this)),
-    m_password(new PasswdEditWidget(this))
+    : AbstractSection(tr("VPN Proxy"), parent)
+    , m_vpnSetting(vpnSetting)
+    , m_proxyTypeChooser(new ComboxWidget(this))
+    , m_server(new LineEditWidget(this))
+    , m_port(new SpinBoxWidget(this))
+    , m_retry(new SwitchWidget(this))
+    , m_userName(new LineEditWidget(this))
+    , m_password(new PasswdEditWidget(this))
 {
     m_dataMap = vpnSetting->data();
     m_secretMap = vpnSetting->secrets();
@@ -142,13 +144,15 @@ void VpnProxySection::initUI()
 {
     m_proxyTypeChooser->setTitle(tr("Proxy Type"));
     m_currentProxyType = "none";
-    for (auto value : ProxyTypeStrMap.values()) {
-        if (value == m_dataMap.value("proxy-type")) {
-            m_currentProxyType = value;
+    QString curProxyTypeOption = ProxyTypeStrMap.at(0).first;
+    for (auto it = ProxyTypeStrMap.cbegin(); it != ProxyTypeStrMap.cend(); ++it) {
+        m_proxyTypeChooser->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_dataMap.value("proxy-type")) {
+            m_currentProxyType = it->second;
+            curProxyTypeOption = it->first;
         }
-        m_proxyTypeChooser->appendOption(ProxyTypeStrMap.key(value), value);
     }
-    m_proxyTypeChooser->setCurrent(m_currentProxyType);
+    m_proxyTypeChooser->setCurrentText(curProxyTypeOption);
 
     m_server->setTitle(tr("Server IP"));
     m_server->setPlaceholderText(tr("Required"));
@@ -180,11 +184,14 @@ void VpnProxySection::initUI()
 
 void VpnProxySection::initConnection()
 {
-    connect(m_proxyTypeChooser, &ComboBoxWidget::requestPage, this, &VpnProxySection::requestNextPage);
-    connect(m_proxyTypeChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
-        onProxyTypeChanged(data.toString());
+    connect(m_proxyTypeChooser, &ComboxWidget::onSelectChanged, this, [=](const QString &dataSelected) {
+        for (auto it = ProxyTypeStrMap.cbegin(); it != ProxyTypeStrMap.cend(); ++it) {
+            if (it->first == dataSelected) {
+                onProxyTypeChanged(it->second);
+                break;
+            }
+        }
     });
-
     connect(m_server->textEdit(), &QLineEdit::editingFinished, this, &VpnProxySection::allInputValid);
     connect(m_userName->textEdit(), &QLineEdit::editingFinished, this, &VpnProxySection::allInputValid);
     connect(m_password->textEdit(), &QLineEdit::editingFinished, this, &VpnProxySection::allInputValid);

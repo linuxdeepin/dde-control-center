@@ -54,7 +54,7 @@ class ProxyPage : public dcc::ContentWidget
     Q_OBJECT
 
 public:
-    explicit ProxyPage(QWidget *parent = 0);
+    explicit ProxyPage(QWidget *parent = nullptr);
 
     void setModel(dde::network::NetworkModel *model);
 

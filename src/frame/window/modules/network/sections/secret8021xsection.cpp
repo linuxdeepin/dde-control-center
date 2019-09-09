@@ -22,7 +22,9 @@
 #include "secret8021xsection.h"
 #include "widgets/filechoosewidget.h"
 #include "widgets/contentwidget.h"
-#include "widgets/comboboxwidget.h"
+#include "widgets/comboxwidget.h"
+
+#include <QComboBox>
 
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
@@ -359,37 +361,32 @@ void Secret8021xSection::initEapMethodFastItems(QList<SettingsItem *> *itemList)
     anonymousID->setTitle(tr("Anonymous ID"));
     anonymousID->setText(m_secretSetting->anonymousIdentity());
 
-    ComboBoxWidget *provisioning = new ComboBoxWidget(this);
+    ComboxWidget *provisioning = new ComboxWidget(this);
     provisioning->setTitle(tr("Provisioning"));
-    for (const QString &key : FastrProvisioningStrMap.keys()) {
-        provisioning->appendOption(key, FastrProvisioningStrMap.value(key));
+    QComboBox *fastCombox = provisioning->comboBox();
+    QString curFastOption = FastrProvisioningStrMap.at(0).first;
+    for (auto it = FastrProvisioningStrMap.cbegin(); it != FastrProvisioningStrMap.cend(); ++it) {
+        fastCombox->addItem(it->first, it->second);
+        if (m_secretSetting->phase1FastProvisioning() == it->second) {
+            curFastOption = it->first;
+        }
     }
-    if (m_secretSetting->phase1FastProvisioning() ==
-            NetworkManager::Security8021xSetting::FastProvisioning::FastProvisioningUnknown) {
-        provisioning->setCurrent(FastrProvisioningStrMap.first());
-    } else {
-        provisioning->setCurrent(m_secretSetting->phase1FastProvisioning());
-    }
+    provisioning->setCurrentText(curFastOption);
 
     FileChooseWidget *pacFile = new FileChooseWidget(this);
     pacFile->setTitle(tr("PAC file"));
     pacFile->edit()->setText(m_secretSetting->pacFile());
 
-    ComboBoxWidget *authMethod = new ComboBoxWidget(this);
+    ComboxWidget *authMethod = new ComboxWidget(this);
     authMethod->setTitle(tr("Inner Auth"));
-    for (const QString &key : AuthMethodStrMapFast.keys()) {
-        authMethod->appendOption(key, AuthMethodStrMapFast.value(key));
+    QString authMethodOption = AuthMethodStrMapFast.at(0).first;
+    for (auto it = AuthMethodStrMapFast.cbegin(); it != AuthMethodStrMapFast.cend(); ++it) {
+        authMethod->comboBox()->addItem(it->first, it->second);
+        if (m_secretSetting->phase2AuthMethod() == it->second) {
+            authMethodOption = it->first;
+        }
     }
-    if (m_secretSetting->phase2AuthMethod() == NetworkManager::Security8021xSetting::AuthMethod::AuthMethodUnknown) {
-        authMethod->setCurrent(AuthMethodStrMapFast.first());
-    } else if (AuthMethodStrMapFast.values().contains(m_secretSetting->phase2AuthMethod())) {
-        authMethod->setCurrent(m_secretSetting->phase2AuthMethod());
-    } else {
-        authMethod->setCurrent(AuthMethodStrMapFast.first());
-    }
-
-    connect(provisioning, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestNextPage);
-    connect(authMethod, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestNextPage);
+    authMethod->setCurrentText(authMethodOption);
 
     connect(pacFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
 
@@ -414,20 +411,17 @@ void Secret8021xSection::initEapMethodTtlsItems(QList<SettingsItem *> *itemList)
     caCert->setTitle(tr("CA Cert"));
     caCert->edit()->setText(m_secretSetting->caCertificate());
 
-    ComboBoxWidget *authMethod = new ComboBoxWidget(this);
+    ComboxWidget *authMethod = new ComboxWidget(this);
     authMethod->setTitle(tr("Inner Auth"));
-    for (const QString &key : AuthMethodStrMapTtls.keys()) {
-        authMethod->appendOption(key, AuthMethodStrMapTtls.value(key));
+    QString curAuthMethodTlsOption = AuthMethodStrMapTtls.at(0).first;
+    for (auto it = AuthMethodStrMapTtls.cbegin(); it != AuthMethodStrMapTtls.cend(); ++it) {
+        authMethod->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_secretSetting->phase2AuthMethod()) {
+            curAuthMethodTlsOption = it->first;
+        }
     }
-    if (m_secretSetting->phase2AuthMethod() == NetworkManager::Security8021xSetting::AuthMethod::AuthMethodUnknown) {
-        authMethod->setCurrent(AuthMethodStrMapTtls.first());
-    } else if (AuthMethodStrMapTtls.values().contains(m_secretSetting->phase2AuthMethod())) {
-        authMethod->setCurrent(m_secretSetting->phase2AuthMethod());
-    } else {
-        authMethod->setCurrent(AuthMethodStrMapTtls.first());
-    }
+    authMethod->setCurrentText(curAuthMethodTlsOption);
 
-    connect(authMethod, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestNextPage);
     connect(caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
 
     appendItem(anonymousID);
@@ -449,32 +443,27 @@ void Secret8021xSection::initEapMethodPeapItems(QList<SettingsItem *> *itemList)
     caCert->setTitle(tr("CA Cert"));
     caCert->edit()->setText(m_secretSetting->caCertificate());
 
-    ComboBoxWidget *peapVersion = new ComboBoxWidget(this);
+    ComboxWidget *peapVersion = new ComboxWidget(this);
     peapVersion->setTitle(tr("PEAP Version"));
-    for (const QString &key : PeapVersionStrMap.keys()) {
-        peapVersion->appendOption(key, PeapVersionStrMap.value(key));
+    QString curPeapVerOption = PeapVersionStrMap.at(0).first;
+    for (auto it = PeapVersionStrMap.cbegin(); it != PeapVersionStrMap.cend(); ++it) {
+        peapVersion->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_secretSetting->phase1PeapVersion()) {
+            curPeapVerOption = it->second;
+        }
     }
-    if (m_secretSetting->phase1PeapVersion() == NetworkManager::Security8021xSetting::PeapVersion::PeapVersionUnknown) {
-        peapVersion->setCurrent(PeapVersionStrMap.first());
-    } else {
-        peapVersion->setCurrent(m_secretSetting->phase1PeapVersion());
-    }
+    peapVersion->setCurrentText(curPeapVerOption);
 
-    ComboBoxWidget *authMethod = new ComboBoxWidget(this);
+    ComboxWidget *authMethod = new ComboxWidget(this);
     authMethod->setTitle(tr("Inner Auth"));
-    for (const QString &key : AuthMethodStrMapPeap.keys()) {
-        authMethod->appendOption(key, AuthMethodStrMapPeap.value(key));
+    QString curAuthMethodPeapOption = AuthMethodStrMapPeap.at(0).first;
+    for (auto it = AuthMethodStrMapPeap.cbegin(); it != AuthMethodStrMapPeap.cend(); ++it) {
+        authMethod->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_secretSetting->phase2AuthMethod()) {
+            curAuthMethodPeapOption = it->first;
+        }
     }
-    if (m_secretSetting->phase2AuthMethod() == NetworkManager::Security8021xSetting::AuthMethod::AuthMethodUnknown) {
-        authMethod->setCurrent(AuthMethodStrMapPeap.first());
-    } else if (AuthMethodStrMapPeap.values().contains(m_secretSetting->phase2AuthMethod())) {
-        authMethod->setCurrent(m_secretSetting->phase2AuthMethod());
-    } else {
-        authMethod->setCurrent(AuthMethodStrMapPeap.first());
-    }
-
-    connect(peapVersion, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestNextPage);
-    connect(authMethod, &ComboBoxWidget::requestPage, this, &Secret8021xSection::requestNextPage);
+    authMethod->setCurrentText(curAuthMethodPeapOption);
 
     connect(caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
 
@@ -689,14 +678,16 @@ void Secret8021xSection::saveFastItems()
 {
     const QList<SettingsItem *> &itemsList = m_eapMethodItemsMap.value(NetworkManager::Security8021xSetting::EapMethodFast);
     LineEditWidget *anonymousID = static_cast<LineEditWidget *>(itemsList.at(0));
-    ComboBoxWidget *provisioning = static_cast<ComboBoxWidget *>(itemsList.at(1));
+    ComboxWidget *provisioning = static_cast<ComboxWidget *>(itemsList.at(1));
     FileChooseWidget *pacFile = static_cast<FileChooseWidget *>(itemsList.at(2));
-    ComboBoxWidget *authMethod = static_cast<ComboBoxWidget *>(itemsList.at(3));
+    ComboxWidget *authMethod = static_cast<ComboxWidget *>(itemsList.at(3));
 
     m_secretSetting->setAnonymousIdentity(anonymousID->text());
-    m_secretSetting->setPhase1FastProvisioning(FastrProvisioningStrMap.value(provisioning->value()));
+    NetworkManager::Security8021xSetting::FastProvisioning curFast = provisioning->comboBox()->currentData().value<NetworkManager::Security8021xSetting::FastProvisioning>();
+    m_secretSetting->setPhase1FastProvisioning(curFast);
     m_secretSetting->setPacFile(pacFile->edit()->text());
-    m_secretSetting->setPhase2AuthMethod(AuthMethodStrMapFast.value(authMethod->value()));
+    NetworkManager::Security8021xSetting::AuthMethod curAuthMethod = authMethod->comboBox()->currentData().value<NetworkManager::Security8021xSetting::AuthMethod>();
+    m_secretSetting->setPhase2AuthMethod(curAuthMethod);
 }
 
 void Secret8021xSection::saveTtlsItems()
@@ -704,11 +695,12 @@ void Secret8021xSection::saveTtlsItems()
     const QList<SettingsItem *> &itemsList = m_eapMethodItemsMap.value(NetworkManager::Security8021xSetting::EapMethodTtls);
     LineEditWidget *anonymousID = static_cast<LineEditWidget *>(itemsList.at(0));
     FileChooseWidget *caCert = static_cast<FileChooseWidget *>(itemsList.at(1));
-    ComboBoxWidget *authMethod = static_cast<ComboBoxWidget *>(itemsList.at(2));
+    ComboxWidget *authMethod = static_cast<ComboxWidget *>(itemsList.at(2));
 
     m_secretSetting->setAnonymousIdentity(anonymousID->text());
     m_secretSetting->setCaCertificate(formatFileUriForNMPath(caCert->edit()->text()));
-    m_secretSetting->setPhase2AuthMethod(AuthMethodStrMapTtls.value(authMethod->value()));
+    NetworkManager::Security8021xSetting::AuthMethod curAuthMethod = authMethod->comboBox()->currentData().value<NetworkManager::Security8021xSetting::AuthMethod>();
+    m_secretSetting->setPhase2AuthMethod(curAuthMethod);
 }
 
 void Secret8021xSection::savePeapItems()
@@ -716,11 +708,13 @@ void Secret8021xSection::savePeapItems()
     const QList<SettingsItem *> &itemsList = m_eapMethodItemsMap.value(NetworkManager::Security8021xSetting::EapMethodPeap);
     LineEditWidget *anonymousID = static_cast<LineEditWidget *>(itemsList.at(0));
     FileChooseWidget *caCert = static_cast<FileChooseWidget *>(itemsList.at(1));
-    ComboBoxWidget *peapVersion = static_cast<ComboBoxWidget *>(itemsList.at(2));
-    ComboBoxWidget *authMethod = static_cast<ComboBoxWidget *>(itemsList.at(3));
+    ComboxWidget *peapVersion = static_cast<ComboxWidget *>(itemsList.at(2));
+    ComboxWidget *authMethod = static_cast<ComboxWidget *>(itemsList.at(3));
 
     m_secretSetting->setAnonymousIdentity(anonymousID->text());
     m_secretSetting->setCaCertificate(formatFileUriForNMPath(caCert->edit()->text()));
-    m_secretSetting->setPhase1PeapVersion(PeapVersionStrMap.value(peapVersion->value()));
-    m_secretSetting->setPhase2AuthMethod(AuthMethodStrMapPeap.value(authMethod->value()));
+    NetworkManager::Security8021xSetting::PeapVersion curPeapVer = peapVersion->comboBox()->currentData().value<NetworkManager::Security8021xSetting::PeapVersion>();
+    m_secretSetting->setPhase1PeapVersion(curPeapVer);
+    NetworkManager::Security8021xSetting::AuthMethod curAuthMethod = authMethod->comboBox()->currentData().value<NetworkManager::Security8021xSetting::AuthMethod>();
+    m_secretSetting->setPhase2AuthMethod(curAuthMethod);
 }

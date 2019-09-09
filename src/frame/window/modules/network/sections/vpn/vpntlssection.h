@@ -25,7 +25,7 @@
 #include "../abstractsection.h"
 #include "widgets/contentwidget.h"
 #include "widgets/lineeditwidget.h"
-#include "widgets/comboboxwidget.h"
+#include "widgets/comboxwidget.h"
 #include "widgets/filechoosewidget.h"
 #include "widgets/switchwidget.h"
 
@@ -39,7 +39,7 @@ class VpnTLSSection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit VpnTLSSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = 0);
+    explicit VpnTLSSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent = nullptr);
     virtual ~VpnTLSSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;
@@ -51,16 +51,16 @@ private:
     void initConnection();
 
 private:
-    QMap<QString, QString> RemoteCertTypeStrMap;
+    QList<QPair<QString, QString>> RemoteCertTypeStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 
     dcc::widgets::LineEditWidget *m_remote;
-    dcc::widgets::ComboBoxWidget *m_remoteCertTypeChooser;
+    dcc::widgets::ComboxWidget *m_remoteCertTypeChooser;
     dcc::widgets::FileChooseWidget *m_caCert;
     dcc::widgets::SwitchWidget *m_customKeyDirection;
-    dcc::widgets::ComboBoxWidget *m_keyDirectionChooser;
+    dcc::widgets::ComboxWidget *m_keyDirectionChooser;
 
     QString m_currentRemoteCertType;
     QString m_currentKeyDirection;
