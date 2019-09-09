@@ -33,8 +33,8 @@
 
 #define MIN_NM_ACTIVE 50
 
-namespace dcc{
-namespace update{
+namespace dcc {
+namespace update {
 
 static int TestMirrorSpeedInternal(const QString &url)
 {
@@ -57,7 +57,7 @@ static int TestMirrorSpeedInternal(const QString &url)
     return 10000;
 }
 
-UpdateWorker::UpdateWorker(UpdateModel* model, QObject *parent)
+UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
     , m_downloadJob(nullptr)
@@ -71,6 +71,7 @@ UpdateWorker::UpdateWorker(UpdateModel* model, QObject *parent)
     , m_powerSystemInter(new PowerSystemInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::sessionBus(), this))
     , m_networkInter(new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this))
     , m_smartMirrorInter(new SmartMirrorInter("com.deepin.lastore.Smartmirror", "/com/deepin/lastore/Smartmirror", QDBusConnection::systemBus(), this))
+    , m_abRecoveryInter(new RecoveryInter("com.deepin.ABRecovery", "/com/deepin/ABRecovery", QDBusConnection::systemBus(), this))
     , m_onBattery(true)
     , m_batteryPercentage(0)
     , m_batterySystemPercentage(0)
@@ -97,11 +98,30 @@ UpdateWorker::UpdateWorker(UpdateModel* model, QObject *parent)
 
     connect(m_smartMirrorInter, &SmartMirrorInter::EnableChanged, m_model, &UpdateModel::setSmartMirrorSwitch);
     connect(m_smartMirrorInter, &SmartMirrorInter::serviceValidChanged, this, &UpdateWorker::onSmartMirrorServiceIsValid);
-    connect(m_smartMirrorInter, &SmartMirrorInter::serviceStartFinished, this, [=] {
-        QTimer::singleShot(100, this, [=] {
+    connect(m_smartMirrorInter, &SmartMirrorInter::serviceStartFinished, this, [ = ] {
+        QTimer::singleShot(100, this, [ = ] {
             m_model->setSmartMirrorSwitch(m_smartMirrorInter->enable());
         });
     }, Qt::UniqueConnection);
+
+    connect(m_abRecoveryInter, &RecoveryInter::JobEnd, this, [ = ](const QString & kind, bool success, const QString & errMsg) {
+        //kind 在备份时为 "backup"，在恢复时为 "restore" (此处为备份)
+        if ("backup" == kind) {
+            //成功:开始下载  ,  失败:提示失败
+            if (success) {
+                m_baseProgress = 0;
+                distUpgradeInstallUpdates();
+            } else {
+                m_model->setStatus(UpdatesStatus::RecoveryBackupFailed);
+                qWarning() << Q_FUNC_INFO << " Recovery failed , errMsg : " << errMsg;
+            }
+        }
+    });
+
+    connect(m_abRecoveryInter, &RecoveryInter::BackingUpChanged, m_model, &UpdateModel::setRecoverBackingUp);
+    connect(m_abRecoveryInter, &RecoveryInter::ConfigValidChanged, m_model, &UpdateModel::setRecoverConfigValid);
+    connect(m_abRecoveryInter, &RecoveryInter::RestoringChanged, m_model, &UpdateModel::setRecoverRestoring);
+    m_model->setRecoverConfigValid(m_abRecoveryInter->configValid());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     connect(m_lastoresessionHelper, &LastoressionHelper::SourceCheckEnabledChanged, m_model, &UpdateModel::setSourceCheck);
@@ -227,21 +247,20 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
         // If there's no actual package dde update, but there're system patches available,
         // then fake one dde update item.
 
-        auto it = std::find_if(infos.constBegin(), infos.constEnd(), [=] (const AppUpdateInfo &info) {
+        auto it = std::find_if(infos.constBegin(), infos.constEnd(), [ = ](const AppUpdateInfo & info) {
             return info.m_packageId == "dde";
         });
 
         AppUpdateInfo dde;
         if (it == infos.constEnd()) {
             dde = getDDEInfo();
-        }
-        else {
+        } else {
             dde = *it;
             infos.removeAt(it - infos.constBegin());
         }
 
         AppUpdateInfo ddeUpdateInfo = getInfo(dde, dde.m_currentVersion, dde.m_avilableVersion);
-        if(ddeUpdateInfo.m_changelog.isEmpty()) {
+        if (ddeUpdateInfo.m_changelog.isEmpty()) {
             ddeUpdateInfo.m_avilableVersion = tr("Patches");
             ddeUpdateInfo.m_changelog = tr("System patches");
         }
@@ -307,9 +326,18 @@ void UpdateWorker::onSmartMirrorServiceIsValid(bool isvalid)
 {
     if (isvalid) {
         m_model->setSmartMirrorSwitch(m_smartMirrorInter->enable());
-    }
-    else {
+    } else {
         m_smartMirrorInter->startServiceProcess();
+    }
+}
+
+void UpdateWorker::startRecoveryBackup()
+{
+    if (m_model->recoverConfigValid()) { //系统环境配置为可以恢复,在收到jobEnd()后,且"backup",成功,后才会继续到下一步下载数据
+        recoveryCanBackup();
+    } else { //系统环境配置不满足,则直接跳到下一步下载数据
+        m_baseProgress = 0;
+        distUpgradeInstallUpdates();
     }
 }
 
@@ -330,9 +358,9 @@ void UpdateWorker::resumeDownload()
 }
 
 void UpdateWorker::distUpgrade()
-{
-    m_baseProgress = 0;
-    distUpgradeInstallUpdates();
+{   
+    //First start backupRecovery , then to load(in RecoveryInter::JobEnd Lemon function)
+    startRecoveryBackup();
 }
 
 void UpdateWorker::downloadAndDistUpgrade()
@@ -377,10 +405,10 @@ void UpdateWorker::testMirrorSpeed()
     }
 
     // reset the data;
-    m_model->setMirrorSpeedInfo(QMap<QString,int>());
+    m_model->setMirrorSpeedInfo(QMap<QString, int>());
 
     QFutureWatcher<int> *watcher = new QFutureWatcher<int>(this);
-    connect(watcher, &QFutureWatcher<int>::resultReadyAt, [this, urlList, watcher, mirrors] (int index) {
+    connect(watcher, &QFutureWatcher<int>::resultReadyAt, [this, urlList, watcher, mirrors](int index) {
         QMap<QString, int> speedInfo = m_model->mirrorSpeedInfo();
 
         int result = watcher->resultAt(index);
@@ -409,7 +437,7 @@ void UpdateWorker::setSmartMirror(bool enable)
 {
     m_smartMirrorInter->SetEnable(enable);
 
-    QTimer::singleShot(100, this, [=] {
+    QTimer::singleShot(100, this, [ = ] {
         Q_EMIT m_smartMirrorInter->serviceValidChanged(m_smartMirrorInter->isValid());
     });
 }
@@ -433,6 +461,33 @@ void UpdateWorker::refreshMirrors()
 }
 #endif
 
+void UpdateWorker::recoveryCanBackup()
+{
+    QDBusPendingCall call = m_abRecoveryInter->CanBackup();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+        if (!call.isError()) {
+            QDBusReply<bool> reply = call.reply();
+            bool value = reply.value();
+            m_model->setRecoverBackingUp(value);
+            if (value) {
+                m_abRecoveryInter->StartBackup();
+            } else {
+                //返回值:false , 不能备份 : 跳过备份直接下载
+                m_baseProgress = 0;
+                distUpgradeInstallUpdates();
+            }
+        } else {
+            qWarning() << "recovery CanBackup error: " << call.error().message();
+        }
+    });
+}
+
+void UpdateWorker::recoveryStartRestore()
+{
+    m_abRecoveryInter->StartRestore();
+}
+
 void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
 {
     if (!m_checkUpdateJob.isNull())
@@ -441,7 +496,7 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
     m_model->setStatus(UpdatesStatus::Checking);
 
     m_checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
-    connect(m_checkUpdateJob, &__Job::StatusChanged, [this] (const QString & status) {
+    connect(m_checkUpdateJob, &__Job::StatusChanged, [this](const QString & status) {
         if (status == "failed") {
             qWarning() << "check for updates job failed";
             m_managerInter->CleanJob(m_checkUpdateJob->id());
@@ -449,7 +504,7 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
             checkDiskSpace(m_checkUpdateJob);
 
             m_checkUpdateJob->deleteLater();
-        } else if (status == "success" || status == "succeed"){
+        } else if (status == "success" || status == "succeed") {
             m_checkUpdateJob->deleteLater();
 
             QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()), this);
@@ -474,7 +529,7 @@ void UpdateWorker::setDownloadJob(const QString &jobPath)
                                  jobPath,
                                  QDBusConnection::systemBus(), this);
 
-    connect(m_downloadJob, &__Job::ProgressChanged, [this] (double value){
+    connect(m_downloadJob, &__Job::ProgressChanged, [this](double value) {
         DownloadInfo *info = m_model->downloadInfo();
         info->setDownloadProgress(value);
         m_model->setUpgradeProgress(value);
@@ -494,10 +549,10 @@ void UpdateWorker::setDistUpgradeJob(const QString &jobPath)
     setAppUpdateInfo(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()));
 
     m_distUpgradeJob = new JobInter("com.deepin.lastore",
-                                 jobPath,
-                                 QDBusConnection::systemBus(), this);
+                                    jobPath,
+                                    QDBusConnection::systemBus(), this);
 
-    connect(m_distUpgradeJob, &__Job::ProgressChanged, [this] (double value){
+    connect(m_distUpgradeJob, &__Job::ProgressChanged, [this](double value) {
         m_model->setUpgradeProgress(m_baseProgress + (1 - m_baseProgress) * value);
     });
 
@@ -514,10 +569,9 @@ void UpdateWorker::setAutoCleanCache(const bool autoCleanCache)
     m_managerInter->SetAutoClean(autoCleanCache);
 }
 
-void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> & jobs)
+void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
 {
-    for (const auto &job : jobs)
-    {
+    for (const auto &job : jobs) {
         const QString &path = job.path();
         qDebug() << path;
 
@@ -551,8 +605,7 @@ void UpdateWorker::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
 
         if (obj["Type"].toString().contains("dependenciesBroken")) {
             m_model->setStatus(UpdatesStatus::DeependenciesBrokenError);
-        }
-        else {
+        } else {
             m_model->setStatus(UpdatesStatus::UpdateFailed);
         }
 
@@ -583,11 +636,12 @@ void UpdateWorker::onDownloadStatusChanged(const QString &status)
             distUpgradeInstallUpdates();
         else {
             // lastore not have download dbus
-            QTimer::singleShot(0, this, [=] {
-                if (m_model->downloadInfo()->downloadSize()) {
+            QTimer::singleShot(0, this, [ = ] {
+                if (m_model->downloadInfo()->downloadSize())
+                {
                     checkForUpdates();
-                }
-                else {
+                } else
+                {
                     m_model->setStatus(UpdatesStatus::Downloaded);
                 }
             });

@@ -40,6 +40,7 @@ add_definitions(-DWINDOW_MODE)
 
 add_subdirectory("src/frame")
 add_subdirectory("src/dialogs")
+add_subdirectory("abrecovery")
 
 file(GLOB DOCS_FILES "docs/*")
 

@@ -28,11 +28,11 @@
 namespace dcc{
 namespace update{
 
-DownloadInfo::DownloadInfo(const qlonglong &downloadSize, const QList<AppUpdateInfo> &appInfos, QObject *parent) :
-    QObject(parent),
-    m_downloadSize(downloadSize),
-    m_downloadProgress(0),
-    m_appInfos(appInfos)
+DownloadInfo::DownloadInfo(const qlonglong &downloadSize, const QList<AppUpdateInfo> &appInfos, QObject *parent)
+    : QObject(parent)
+    , m_downloadSize(downloadSize)
+    , m_downloadProgress(0)
+    , m_appInfos(appInfos)
 {
 
 }
@@ -46,14 +46,17 @@ void DownloadInfo::setDownloadProgress(double downloadProgress)
 }
 
 
-UpdateModel::UpdateModel(QObject *parent) :
-    QObject(parent),
-    m_status(UpdatesStatus::Checking),
-    m_downloadInfo(nullptr),
-    m_upgradeProgress(0),
-    m_lowBattery(false),
-    m_autoDownloadUpdates(true),
-    m_mirrorId("")
+UpdateModel::UpdateModel(QObject *parent)
+    : QObject(parent)
+    , m_status(UpdatesStatus::Checking)
+    , m_downloadInfo(nullptr)
+    , m_upgradeProgress(0)
+    , m_lowBattery(false)
+    , m_autoDownloadUpdates(true)
+    , m_mirrorId("")
+    , m_bRecoverBackingUp(false)
+    , m_bRecoverConfigValid(false)
+    , m_bRecoverRestoring(false)
 {
 
 }
@@ -233,6 +236,36 @@ void UpdateModel::setSmartMirrorSwitch(bool smartMirrorSwitch)
     m_smartMirrorSwitch = smartMirrorSwitch;
 
     Q_EMIT smartMirrorSwitchChanged(smartMirrorSwitch);
+}
+
+void UpdateModel::setRecoverBackingUp(bool recoverBackingUp)
+{
+    if (m_bRecoverBackingUp == recoverBackingUp)
+        return;
+
+    m_bRecoverBackingUp = recoverBackingUp;
+
+    Q_EMIT recoverBackingUpChanged(recoverBackingUp);
+}
+
+void UpdateModel::setRecoverConfigValid(bool recoverConfigValid)
+{
+    if (m_bRecoverConfigValid == recoverConfigValid)
+        return;
+
+    m_bRecoverConfigValid = recoverConfigValid;
+
+    Q_EMIT recoverConfigValidChanged(recoverConfigValid);
+}
+
+void UpdateModel::setRecoverRestoring(bool recoverRestoring)
+{
+    if (m_bRecoverRestoring == recoverRestoring)
+        return;
+
+    m_bRecoverRestoring = recoverRestoring;
+
+    Q_EMIT recoverRestoringChanged(recoverRestoring);
 }
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK

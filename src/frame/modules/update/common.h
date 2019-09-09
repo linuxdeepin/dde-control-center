@@ -44,6 +44,7 @@ enum UpdatesStatus {
     NoNetwork,
     NoSpace,
     DeependenciesBrokenError,
+    RecoveryBackupFailed
 };
 
 static inline QString formatCap(qulonglong cap, const int size = 1024)

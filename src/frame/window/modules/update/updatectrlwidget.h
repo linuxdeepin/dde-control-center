@@ -78,6 +78,9 @@ private:
     void setProgressValue(const double value);
     void setLowBattery(const bool &lowBattery);
     void setUpdateProgress(const double value);
+    void setRecoverBackingUp(const bool value);
+    void setRecoverConfigValid(const bool value);
+    void setRecoverRestoring(const bool value);
 
 private:
     dcc::update::UpdateModel *m_model;
@@ -94,6 +97,9 @@ private:
     dcc::widgets::TipsLabel *m_noNetworkTip;
     QSettings *m_qsettings;
     QString m_systemVersion;
+    bool m_bRecoverBackingUp;
+    bool m_bRecoverConfigValid;
+    bool m_bRecoverRestoring;
 };
 
 }// namespace datetime

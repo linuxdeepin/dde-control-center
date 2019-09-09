@@ -58,6 +58,9 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     , m_reminderTip(new TipsLabel)
     , m_noNetworkTip(new TipsLabel)
     , m_qsettings(new QSettings(this))
+    , m_bRecoverBackingUp(false)
+    , m_bRecoverConfigValid(false)
+    , m_bRecoverRestoring(false)
 {
     setTitle(tr("Update"));
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -267,6 +270,12 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         //~ contents_path /update/Update
         m_resultItem->setMessage(tr("Dependency error, failed to detect the updates"));
         break;
+    case UpdatesStatus::RecoveryBackupFailed:
+        m_resultItem->setVisible(true);
+        m_resultItem->setSuccess(false);
+        //~ contents_path /update/Update
+        m_resultItem->setMessage(tr("System backup failed"));
+        break;
     default:
         qWarning() << "unknown status!!!";
         break;
@@ -350,6 +359,27 @@ void UpdateCtrlWidget::setUpdateProgress(const double value)
     m_checkUpdateItem->setProgressValue(value * 100);
 }
 
+void UpdateCtrlWidget::setRecoverBackingUp(const bool value)
+{
+    if (m_bRecoverBackingUp != value) {
+        m_bRecoverBackingUp = value;
+    }
+}
+
+void UpdateCtrlWidget::setRecoverConfigValid(const bool value)
+{
+    if (m_bRecoverConfigValid != value) {
+        m_bRecoverConfigValid = value;
+    }
+}
+
+void UpdateCtrlWidget::setRecoverRestoring(const bool value)
+{
+    if (m_bRecoverRestoring != value) {
+        m_bRecoverRestoring = value;
+    }
+}
+
 void UpdateCtrlWidget::setModel(UpdateModel *model)
 {
     m_model = model;
@@ -359,6 +389,10 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     connect(m_model, &UpdateModel::downloadInfoChanged, this, &UpdateCtrlWidget::setDownloadInfo);
     connect(m_model, &UpdateModel::upgradeProgressChanged, this, &UpdateCtrlWidget::setProgressValue);
     connect(m_model, &UpdateModel::updateProgressChanged, this, &UpdateCtrlWidget::setUpdateProgress);
+    connect(m_model, &UpdateModel::recoverBackingUpChanged, this, &UpdateCtrlWidget::setRecoverBackingUp);
+    connect(m_model, &UpdateModel::recoverConfigValidChanged, this, &UpdateCtrlWidget::setRecoverConfigValid);
+    connect(m_model, &UpdateModel::recoverRestoringChanged, this, &UpdateCtrlWidget::setRecoverRestoring);
+
 
     setUpdateProgress(m_model->updateProgress());
     setProgressValue(m_model->upgradeProgress());

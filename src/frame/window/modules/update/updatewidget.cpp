@@ -175,7 +175,7 @@ QList<AppUpdateInfo> UpdateWidget::getTestApplistInfo()
     AppUpdateInfo date;
     for (int i = 0; i < 10; i++) {
         date.m_avilableVersion = "雷鸟邮件";
-        date.m_changelog = "雷鸟邮件wubowen test now I'm in deepin work on update module";
+        date.m_changelog = "雷鸟邮件";
         date.m_currentVersion = "15.11.19";
         date.m_icon = "/lastore/metadata/thunderbird/meta/icons/thunderbird.svg";
         date.m_name = "Deepin";
@@ -210,6 +210,7 @@ void UpdateWidget::showCheckUpdate()
     connect(updateWidget, &UpdateCtrlWidget::requestResumeDownload, m_work, &UpdateWorker::resumeDownload);
     connect(updateWidget, &UpdateCtrlWidget::requestInstallUpdates, m_work, &UpdateWorker::distUpgrade);
     connect(updateWidget, &UpdateCtrlWidget::notifyUpdateState, this, &UpdateWidget::onNotifyUpdateState);
+
     updateWidget->setSystemVersion(m_systemVersion);
 
     m_centerLayout->addWidget(updateWidget);

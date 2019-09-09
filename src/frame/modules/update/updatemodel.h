@@ -105,6 +105,15 @@ public:
     bool smartMirrorSwitch() const { return m_smartMirrorSwitch; }
     void setSmartMirrorSwitch(bool smartMirrorSwitch);
 
+    inline bool recoverBackingUp() const { return m_bRecoverBackingUp; }
+    void setRecoverBackingUp(bool recoverBackingUp);
+
+    inline bool recoverConfigValid() const { return m_bRecoverConfigValid; }
+    void setRecoverConfigValid(bool recoverConfigValid);
+
+    inline bool recoverRestoring() const { return m_bRecoverRestoring; }
+    void setRecoverRestoring(bool recoverRestoring);
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
@@ -125,6 +134,9 @@ Q_SIGNALS:
     void autoCleanCacheChanged(const bool autoCleanCache);
     void netselectExistChanged(const bool netselectExist);
     void autoCheckUpdatesChanged(const bool autoCheckUpdates);
+    void recoverBackingUpChanged(bool recoverBackingUp);
+    void recoverConfigValidChanged(bool recoverConfigValid);
+    void recoverRestoringChanged(bool recoverRestoring);
 
 private:
     UpdatesStatus m_status;
@@ -146,6 +158,9 @@ private:
     QString m_mirrorId;
     MirrorInfoList m_mirrorList;
     QMap<QString, int> m_mirrorSpeedInfo;
+    bool m_bRecoverBackingUp;
+    bool m_bRecoverConfigValid;
+    bool m_bRecoverRestoring;
 };
 
 }

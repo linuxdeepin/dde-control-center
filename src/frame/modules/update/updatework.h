@@ -37,6 +37,7 @@
 #include <com_deepin_daemon_network.h>
 #include <com_deepin_lastoresessionhelper.h>
 #include <com_deepin_lastore_smartmirror.h>
+#include <com_deepin_abrecovery.h>
 
 #include "common.h"
 
@@ -48,6 +49,7 @@ using PowerSystemInter=com::deepin::system::Power;
 using Network=com::deepin::daemon::Network;
 using LastoressionHelper=com::deepin::LastoreSessionHelper;
 using SmartMirrorInter = com::deepin::lastore::Smartmirror;
+using RecoveryInter = com::deepin::ABRecovery;
 
 namespace dcc{
 namespace update{
@@ -81,6 +83,8 @@ public Q_SLOTS:
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     void refreshMirrors();
 #endif
+    void recoveryCanBackup();
+    void recoveryStartRestore();
 
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
@@ -101,6 +105,7 @@ private:
     void setAppUpdateInfo(const AppUpdateInfoList &list);
     inline bool checkDbusIsValid();
     void onSmartMirrorServiceIsValid(bool isvalid);
+    void startRecoveryBackup();
 
 private:
     UpdateModel* m_model;
@@ -115,6 +120,7 @@ private:
     PowerSystemInter *m_powerSystemInter;
     Network *m_networkInter;
     SmartMirrorInter *m_smartMirrorInter;
+    RecoveryInter *m_abRecoveryInter;
     bool m_onBattery;
     double m_batteryPercentage;
     double m_batterySystemPercentage;
