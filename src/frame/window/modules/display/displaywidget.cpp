@@ -140,6 +140,7 @@ void DisplayWidget::initMenuUI()
         m_singleModel->appendRow(btn);
     }
 
+    m_menuList->setEditTriggers(DListView::NoEditTriggers);
     m_menuList->setFrameShape(QFrame::NoFrame);
     m_centralLayout->addWidget(m_menuList, 1);
     connect(m_menuList, &QListView::clicked, this, &DisplayWidget::onMenuClicked);

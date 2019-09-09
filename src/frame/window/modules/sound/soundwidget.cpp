@@ -42,6 +42,7 @@ SoundWidget::SoundWidget(QWidget *parent)
 
     QVBoxLayout *layout = new QVBoxLayout;
 
+    m_menuList->setEditTriggers(DListView::NoEditTriggers);
     m_menuList->setFrameShape(QFrame::NoFrame);
     layout->addWidget(m_menuList, 1);
     initMenuUI();

@@ -45,6 +45,7 @@ ScalingPage::ScalingPage(QWidget *parent)
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
     m_centralLayout->addSpacing(10);
+    m_centralLayout->setContentsMargins(10, 10, 10, 10);
 
     //~ contents_path /display/Display Scaling
     QLabel *tip = new QLabel(tr("Some applications cannot be scaled with the specified settings in multi-display environment."), this);
@@ -100,6 +101,8 @@ void ScalingPage::addSlider(int monitorID)
               << "2.75"
               << "3.0";
     TitledSliderItem *slideritem = m_sliders.back();
+    slideritem->addBackground();
+
     DCCSlider *slider = slideritem->slider();
     slider->setRange(1, 9);
     slider->setType(DCCSlider::Vernier);

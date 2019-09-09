@@ -50,6 +50,7 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
     m_centralLayout->addSpacing(10);
+    m_centralLayout->setContentsMargins(10, 10, 10, 10);
 
     //~ contents_path /display/Brightness
     m_nightTips = new QLabel(tr("The screen tone will be auto adjusted according to your location"));
@@ -105,6 +106,8 @@ void BrightnessPage::addSlider()
     for (int i = 0; i < monList.size(); ++i) {
         //单独显示每个亮度调节名
         TitledSliderItem *slideritem = new TitledSliderItem(monList[i]->name());
+        slideritem->addBackground();
+
         QStringList annoList;
         annoList << "0%" << "20%" << "40%" << "60%" << "80%" << "100%";
         slideritem->setAnnotations(annoList);

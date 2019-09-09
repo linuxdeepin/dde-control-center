@@ -68,8 +68,6 @@ private:
 private:
     dcc::sound::SoundModel *m_model{nullptr};
     dcc::widgets::SwitchWidget *m_sw{nullptr};
-    dcc::widgets::TitledSliderItem *m_outputSlider{nullptr};
-    dcc::widgets::TitledSliderItem *m_balanceSlider{nullptr};
     QVBoxLayout *m_layout{nullptr};
 };
 

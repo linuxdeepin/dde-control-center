@@ -39,10 +39,6 @@ using namespace DCC_NAMESPACE::sound;
 
 SpeakerPage::SpeakerPage(QWidget *parent)
     : QWidget(parent)
-    //~ contents_path /sound/Speaker
-    , m_outputSlider(new TitledSliderItem(tr("Output Volume")))
-    //~ contents_path /sound/Speaker
-    , m_balanceSlider(new TitledSliderItem(tr("Left/Right Balance")))
     , m_layout(new QVBoxLayout)
 {
     //~ contents_path /sound/Speaker
@@ -77,6 +73,7 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
 
 void SpeakerPage::initSlider()
 {
+    //~ contents_path /sound/Speaker
     auto outputSlider = new TitledSliderItem(tr("Output Volume"), this);
     outputSlider->addBackground();
     DCCSlider *slider = outputSlider->slider();
@@ -84,11 +81,8 @@ void SpeakerPage::initSlider()
     slider->setRange(0, 100);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::NoTicks);
-    QAction *leftIcon = new QAction(slider);
     outputSlider->setLeftIcon(QIcon::fromTheme("dcc_set_sound"), QSize(24, 24));
     outputSlider->setRightIcon(QIcon::fromTheme("dcc_set_sound"), QSize(24, 24));
-//    leftIcon->setIcon();
-    slider->addAction(leftIcon);
     slider->setTickInterval(1);
     slider->setSliderPosition(static_cast<int>(m_model->speakerVolume() * 100.0));
     slider->setPageStep(1);
@@ -101,12 +95,13 @@ void SpeakerPage::initSlider()
     connect(slider, &DCCSlider::sliderMoved, slotfunc1);
     m_layout->insertWidget(1, outputSlider);
 
+    //~ contents_path /sound/Speaker
     auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
     balanceSlider->addBackground();
     DCCSlider *slider2 = balanceSlider->slider();
     slider2->setRange(-100, 100);
     slider2->setType(DCCSlider::Vernier);
-    slider2->setTickPosition(QSlider::TicksBelow);
+    slider2->setTickPosition(QSlider::NoTicks);
     slider2->setTickInterval(1);
     slider2->setSliderPosition(static_cast<int>(m_model->speakerBalance() * 100));
     slider2->setPageStep(1);

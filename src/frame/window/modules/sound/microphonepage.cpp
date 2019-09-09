@@ -61,6 +61,8 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     hlayout->addStretch(1);
     hlayout->addWidget(m_sw);
 
+    m_inputSlider->addBackground();
+
     m_layout->addLayout(hlayout);
     m_layout->addStretch(1);
     setLayout(m_layout);
@@ -98,7 +100,7 @@ void MicrophonePage::initSlider()
     m_layout->insertWidget(1, m_inputSlider);
     slider->setRange(0, 100);
     slider->setType(DCCSlider::Vernier);
-    slider->setTickPosition(QSlider::TicksBelow);
+    slider->setTickPosition(QSlider::NoTicks);
     slider->setTickInterval(1);
     slider->setSliderPosition(int(m_model->microphoneVolume() * 100));
     slider->setPageStep(1);
@@ -112,11 +114,12 @@ void MicrophonePage::initSlider()
 
     //~ contents_path /sound/Microphone
     m_feedbackSlider = (new TitledSliderItem("Input Level"));
+    m_feedbackSlider->addBackground();
     DCCSlider *slider2 = m_feedbackSlider->slider();
     slider2->setRange(0, 100);
     slider2->setEnabled(false);
     slider2->setType(DCCSlider::Vernier);
-    slider2->setTickPosition(QSlider::TicksBelow);
+    slider2->setTickPosition(QSlider::NoTicks);
     slider2->setTickInterval(1);
     slider2->setPageStep(1);
 
