@@ -24,6 +24,7 @@
 #include "window/utils.h"
 
 #include "widgets/switchwidget.h"
+#include "widgets/titlelabel.h"
 #include "widgets/titledslideritem.h"
 #include "widgets/dccslider.h"
 
@@ -52,14 +53,12 @@ using namespace DCC_NAMESPACE::sound;
 MicrophonePage::MicrophonePage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
-    , m_sw(new SwitchWidget)
     //~ contents_path /sound/Microphone
     , m_inputSlider(new TitledSliderItem(tr("Input Volume")))
 {
     QHBoxLayout *hlayout = new QHBoxLayout;
     //~ contents_path /sound/Microphone
-    hlayout->addWidget(new QLabel(tr("Microphone")));
-    hlayout->addStretch(1);
+    m_sw = new SwitchWidget(new TitleLabel(tr("Microphone")));
     hlayout->addWidget(m_sw);
 
     m_inputSlider->addBackground();

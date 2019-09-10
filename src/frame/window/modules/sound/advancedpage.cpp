@@ -23,6 +23,7 @@
 #include "window/utils.h"
 
 #include "widgets/settingsgroup.h"
+#include "widgets/titlelabel.h"
 #include "modules/sound/portitem.h"
 #include "modules/sound/soundmodel.h"
 
@@ -56,7 +57,7 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     scrollarea->setWidget(contentWidget);
 
     //~ contents_path /sound/Advanced
-    QLabel *label = new QLabel(tr("Output"));
+    TitleLabel *label = new TitleLabel(tr("Output"));
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     contentLayout->addWidget(label);
 
@@ -73,7 +74,7 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     contentLayout->addWidget(m_outputList);
 
     //~ contents_path /sound/Advanced
-    label = new QLabel(tr("Input"));
+    label = new TitleLabel(tr("Input"));
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     contentLayout->addWidget(label);
     m_inputList = new DListView;

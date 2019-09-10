@@ -250,6 +250,7 @@ set(WIDGETS_FILES
                 widgets/spinboxwidget.h
                 widgets/tipsitem.cpp
                 widgets/tipsitem.h
+                widgets/titlelabel.cpp
                 widgets/titlevalueitem.cpp
                 widgets/titlevalueitem.h
                 widgets/translucentframe.cpp

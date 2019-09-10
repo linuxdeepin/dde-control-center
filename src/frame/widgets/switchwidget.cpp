@@ -37,37 +37,26 @@ DWIDGET_USE_NAMESPACE
 namespace dcc {
 namespace widgets {
 
-SwitchWidget::SwitchWidget(QFrame *parent)
+SwitchWidget::SwitchWidget(QWidget *parent)
     : SwitchWidget(new NormalLabel, parent)
 {
 
 }
 
-SwitchWidget::SwitchWidget(const QString &title, QFrame *parent) :
-    SwitchWidget(new NormalLabel(title), parent)
+SwitchWidget::SwitchWidget(const QString &title, QFrame *parent)
+    : SwitchWidget(new NormalLabel(title), parent)
 {
 
 }
 
-SwitchWidget::SwitchWidget(QWidget *widget, QFrame *parent):
-    SettingsItem(parent),
-    m_leftWidget(widget),
-    m_switchBtn(new DSwitchButton)
+SwitchWidget::SwitchWidget(QLabel *widget, QWidget *parent)
+    : SettingsItem(parent)
+    , m_leftWidget(widget)
+    , m_switchBtn(new DSwitchButton)
 {
-    QHBoxLayout *mainLayout = new QHBoxLayout;
+    QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
-
-    //set a vertical margin instead of a fixed height,
-    //as we are now dealing with multi-line labels as well.
-    int vertical_margin = 0;
-    QLabel *label = qobject_cast<QLabel *>(m_leftWidget);
-    if (label) {
-        label->setWordWrap(true);
-        vertical_margin = (36 - label->fontMetrics().height()) / 2;
-    }
-
-    mainLayout->setContentsMargins(20, vertical_margin, 10, vertical_margin);
 
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
     mainLayout->addStretch();
