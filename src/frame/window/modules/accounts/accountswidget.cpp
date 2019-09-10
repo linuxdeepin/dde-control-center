@@ -46,6 +46,7 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     , m_createBtn(new DFloatingButton(DStyle::SP_IncreaseElement, this))
     , m_userlistView(new DListView)
     , m_userItemModel(new QStandardItemModel)
+    , m_proxyModel(new MySortFilterProxyModel)
 {
     setObjectName("Accounts");
 
@@ -57,9 +58,16 @@ AccountsWidget::AccountsWidget(QWidget *parent)
 
     m_userlistView->setFrameShape(QFrame::NoFrame);
     m_userlistView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_userlistView->setEditTriggers(QListView::NoEditTriggers);
+    m_userlistView->setDragEnabled(false);
     m_userlistView->setIconSize(QSize(30, 30));
     m_userlistView->setLayoutDirection(Qt::LeftToRight);
-    m_userlistView->setModel(m_userItemModel);
+//    m_userlistView->setModel(m_userItemModel);
+
+    m_proxyModel->setSourceModel(m_userItemModel);
+    m_proxyModel->setSortRole(AccountsWidget::ItemDataRole);
+    m_proxyModel->sort(0, Qt::AscendingOrder);
+    m_userlistView->setModel(m_proxyModel);
 
     setLayout(mainContentLayout);
 
@@ -151,32 +159,36 @@ void AccountsWidget::doTopCurrentUser(User *user)
 {
     //判断是不是位于第一个
     int currentRow = m_userList.indexOf(user);
-    if (currentRow == 0)
+    if (currentRow == 0) {
         return;
+    }
 
-    QString name_zero = m_userItemModel->index(0, 0).data(Qt::DisplayRole).toString();
-    QIcon pic_zero = m_userItemModel->index(0, 0).data(Qt::DecorationRole).value<QIcon>();
+    //用户列表中必须更新当前与item关联user的位置
+    User *user_clickrow = m_userList.at(currentRow);
+    m_userList.removeOne(user_clickrow);
+    m_userList.push_front(user_clickrow);
 
+    //获取当前选中item上面的所有数据
     QString name_clickrow = m_userItemModel->index(currentRow, 0).data(Qt::DisplayRole).toString();
     QIcon pic_clickrow = m_userItemModel->index(currentRow, 0).data(Qt::DecorationRole).value<QIcon>();
+    quint64 data_clickrow = m_userItemModel->index(currentRow, 0).data(AccountsWidget::ItemDataRole).toULongLong();
 
-    m_userItemModel->item(0, 0)->setText(name_clickrow);
-    m_userItemModel->item(0, 0)->setIcon(pic_clickrow);
-    m_userItemModel->item(currentRow, 0)->setText(name_zero);
-    m_userItemModel->item(currentRow, 0)->setIcon(pic_zero);
+    //创建新的item，设置数据。
+    QStandardItem *newItem = new QStandardItem;
+    newItem->setText(name_clickrow);
+    newItem->setIcon(pic_clickrow);
+    newItem->setData(QVariant::fromValue(data_clickrow), AccountsWidget::ItemDataRole);
 
-    m_userList[currentRow] = m_userList[0];
-    m_userList[0] = user;
+    //在首行新增item，删除旧item
+    m_userItemModel->removeRow(currentRow);
+    m_userItemModel->insertRow(0, newItem);
 
-    for (auto & temp : m_userList) {
-        int index = m_userList.indexOf(temp);
-        if (index == 0 || index == currentRow) {
-            temp->disconnect(SIGNAL(nameChanged(const QString &)));
-            temp->disconnect(SIGNAL(fullnameChanged(const QString &)));
-            temp->disconnect(SIGNAL(currentAvatarChanged(const QString &)));
-            connectUserWithItem(temp);
-        }
-    }
+    //重新给第一个item关联user信号
+    user_clickrow->disconnect(SIGNAL(nameChanged(const QString &)));
+    user_clickrow->disconnect(SIGNAL(fullnameChanged(const QString &)));
+    user_clickrow->disconnect(SIGNAL(currentAvatarChanged(const QString &)));
+    user_clickrow->disconnect(SIGNAL(createdTimeChanged(const quint64 &)));
+    connectUserWithItem(user_clickrow);
 }
 
 void AccountsWidget::connectUserWithItem(User *user)
@@ -201,5 +213,8 @@ void AccountsWidget::connectUserWithItem(User *user)
         } else {
             item->setIcon(QIcon(avatar));
         }
+    });
+    connect(user, &User::createdTimeChanged, this, [ = ](const quint64 & createdtime){
+        item->setData(QVariant::fromValue(createdtime), AccountsWidget::ItemDataRole);
     });
 }

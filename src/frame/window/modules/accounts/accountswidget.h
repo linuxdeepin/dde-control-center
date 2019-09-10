@@ -22,6 +22,7 @@
 #pragma once
 
 #include "window/namespace.h"
+#include "mysortfilterproxymodel.h"
 
 #include <DFloatingButton>
 #include <DListView>
@@ -45,6 +46,7 @@ class UserModel;
 namespace DCC_NAMESPACE {
 namespace accounts {
 class AccountsDetailWidget;
+class MySortFilterProxyModel;
 //显示用户列表
 class AccountsWidget : public QWidget
 {
@@ -58,6 +60,10 @@ public:
     void setShowFirstUserInfo(bool show);
     void doTopCurrentUser(dcc::accounts::User *user);
     void connectUserWithItem(dcc::accounts::User *user);
+
+    enum AccountRole {
+        ItemDataRole = Dtk::UserRole + 1
+    };
 
 public Q_SLOTS:
     void addUser(dcc::accounts::User *user);
@@ -74,6 +80,7 @@ private:
     QStandardItemModel *m_userItemModel;
     QList<dcc::accounts::User *> m_userList;
     bool m_isShowFirstUserInfo = false;
+    MySortFilterProxyModel *m_proxyModel;
 };
 
 }   // namespace accounts

@@ -139,3 +139,14 @@ void User::setPasswordStatus(const QString& status)
 
     Q_EMIT passwordStatusChanged(status);
 }
+
+void User::setCreatedTime(const quint64 & createdtime)
+{
+    if (m_createdTime == createdtime) {
+        return;
+    }
+
+    m_createdTime = createdtime;
+
+    Q_EMIT createdTimeChanged(createdtime);
+}

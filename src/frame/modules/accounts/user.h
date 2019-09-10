@@ -80,6 +80,9 @@ public:
     inline QString passwordStatus() const { return m_passwordStatus; }
     void setPasswordStatus(const QString& status);
 
+    inline quint64 createdTime() const { return m_createdTime; }
+    void setCreatedTime(const quint64 & createdtime);
+
 Q_SIGNALS:
     void passwordModifyFinished(const int exitCode) const;
     void nameChanged(const QString &name) const;
@@ -91,6 +94,7 @@ Q_SIGNALS:
     void nopasswdLoginChanged(const bool nopasswdLogin) const;
     void isCurrentUserChanged(bool isCurrentUser);
     void passwordStatusChanged(const QString& password) const;
+    void createdTimeChanged(const quint64 & createtime);
 
 private:
     bool m_isCurrentUser;
@@ -104,6 +108,7 @@ private:
     QString m_currentAvatar;
     QString m_passwordStatus; // NP: no password, P have a password, L user is locked
     QList<QString> m_avatars;
+    quint64 m_createdTime;
 };
 
 } // namespace accounts

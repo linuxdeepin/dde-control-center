@@ -246,6 +246,7 @@ void AccountsWorker::addUser(const QString &userPath)
     connect(userInter, &AccountsUser::FullNameChanged, user, &User::setFullname);
     connect(userInter, &AccountsUser::NoPasswdLoginChanged, user, &User::setNopasswdLogin);
     connect(userInter, &AccountsUser::PasswordStatusChanged, user, &User::setPasswordStatus);
+    connect(userInter, &AccountsUser::CreatedTimeChanged, user, &User::setCreatedTime);
 
     user->setName(userInter->userName());
     user->setFullname(userInter->fullName());
@@ -254,6 +255,7 @@ void AccountsWorker::addUser(const QString &userPath)
     user->setCurrentAvatar(userInter->iconFile());
     user->setNopasswdLogin(userInter->noPasswdLogin());
     user->setPasswordStatus(userInter->passwordStatus());
+    user->setCreatedTime(userInter->createdTime());
 
     m_userInters[user] = userInter;
     m_userModel->addUser(userPath, user);
