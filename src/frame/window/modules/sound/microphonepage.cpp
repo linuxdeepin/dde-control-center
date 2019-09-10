@@ -21,6 +21,7 @@
 
 #include "microphonepage.h"
 #include "modules/sound/soundmodel.h"
+#include "window/utils.h"
 
 #include "widgets/switchwidget.h"
 #include "widgets/titledslideritem.h"
@@ -63,6 +64,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
 
     m_inputSlider->addBackground();
 
+    m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addLayout(hlayout);
     m_layout->addStretch(1);
     setLayout(m_layout);

@@ -23,6 +23,7 @@
 #include "modules/display/displaymodel.h"
 #include "modules/display/monitor.h"
 #include "modules/display/brightnessitem.h"
+#include "window/utils.h"
 
 #include "widgets/labels/tipslabel.h"
 #include "widgets/settingsheaderitem.h"
@@ -50,7 +51,7 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
     m_centralLayout->addSpacing(10);
-    m_centralLayout->setContentsMargins(10, 10, 10, 10);
+    m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
 
     //~ contents_path /display/Brightness
     m_nightTips = new QLabel(tr("The screen tone will be auto adjusted according to your location"));

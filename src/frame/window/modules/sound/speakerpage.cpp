@@ -26,6 +26,7 @@
 #include "widgets/switchwidget.h"
 #include "widgets/titledslideritem.h"
 #include "widgets/dccslider.h"
+#include "window/utils.h"
 
 #include <QAction>
 #include <QHBoxLayout>
@@ -44,6 +45,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     //~ contents_path /sound/Speaker
     m_sw = new SwitchWidget(tr("Speaker"));
 
+    m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addWidget(m_sw);
     m_layout->addStretch(1);
     setLayout(m_layout);

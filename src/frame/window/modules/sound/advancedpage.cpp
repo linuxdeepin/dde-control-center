@@ -20,6 +20,7 @@
  */
 
 #include "advancedpage.h"
+#include "window/utils.h"
 
 #include "widgets/settingsgroup.h"
 #include "modules/sound/portitem.h"
@@ -47,7 +48,7 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     scrollarea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollarea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollarea->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    scrollarea->setContentsMargins(0, 0, 0, 0);
+    scrollarea->setContentsMargins(ThirdPageContentsMargins);
 
     auto contentWidget = new QWidget;
     auto contentLayout = new QVBoxLayout;

@@ -23,6 +23,7 @@
 #include "soundeffectsmodel.h"
 #include "soundeffectsdelegate.h"
 #include "hoverlistview.h"
+#include "window/utils.h"
 
 #include "modules/sound/soundmodel.h"
 #include "widgets/switchwidget.h"
@@ -51,6 +52,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
 {
     m_layout->addWidget(m_sw);
     m_layout->addSpacing(20);
+    m_layout->setContentsMargins(ThirdPageContentsMargins);
 
     m_effectList->setMaximumHeight(800);
     m_effectList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);

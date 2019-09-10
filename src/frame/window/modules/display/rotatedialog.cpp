@@ -24,6 +24,7 @@
  */
 
 #include "rotatedialog.h"
+#include "window/utils.h"
 
 #include "modules/display/displaymodel.h"
 #include "widgets/basiclistdelegate.h"
@@ -69,6 +70,7 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
     l->setAlignment(osd, Qt::AlignCenter);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
+    centralLayout->setContentsMargins(ThirdPageContentsMargins);
     centralLayout->addWidget(blurWidget, Qt::AlignHCenter);
     centralLayout->setAlignment(blurWidget, Qt::AlignCenter);
     setLayout(centralLayout);

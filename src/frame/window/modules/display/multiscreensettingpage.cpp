@@ -21,6 +21,7 @@
 
 #include "multiscreensettingpage.h"
 #include "modules/display/displaymodel.h"
+#include "window/utils.h"
 
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -36,6 +37,7 @@ MultiScreenSettingPage::MultiScreenSettingPage(QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
+    mainLayout->setContentsMargins(ThirdPageContentsMargins);
 
     m_modeList->installEventFilter(this);
     mainLayout->addWidget(m_modeList);

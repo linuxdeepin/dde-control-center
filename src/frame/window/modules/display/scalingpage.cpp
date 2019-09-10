@@ -21,6 +21,7 @@
 
 #include "scalingpage.h"
 #include "displaywidget.h"
+#include "window/utils.h"
 
 #include "modules/display/displaymodel.h"
 #include "modules/display/monitor.h"
@@ -45,7 +46,7 @@ ScalingPage::ScalingPage(QWidget *parent)
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
     m_centralLayout->addSpacing(10);
-    m_centralLayout->setContentsMargins(10, 10, 10, 10);
+    m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
 
     //~ contents_path /display/Display Scaling
     QLabel *tip = new QLabel(tr("Some applications cannot be scaled with the specified settings in multi-display environment."), this);
