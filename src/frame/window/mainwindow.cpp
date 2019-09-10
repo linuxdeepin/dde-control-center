@@ -172,7 +172,7 @@ void MainWindow::initAllModule()
         { new UpdateModule(this), tr("Update")},
         { new WacomModule(this), tr("Drawing Tablet")},
         { new SystemInfoModule(this), tr("System Info")},
-        { new CommonInfoModule(this), tr("Common Info")},
+        { new CommonInfoModule(this), tr("General Settings")},
     };
 
     bool isIcon = m_contentStack.empty();
