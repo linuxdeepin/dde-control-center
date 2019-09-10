@@ -140,7 +140,7 @@ void VpnSecOpenVPNSection::initUI()
 
 void VpnSecOpenVPNSection::initConnection()
 {
-    connect(m_cipherChooser, &ComboxWidget::onSelectChanged, this, [=](const QString &dataSelected) {
+    connect(m_cipherChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &dataSelected) {
         for (auto it = CipherStrMap.cbegin(); it != CipherStrMap.cend(); ++it) {
             if (it->first == dataSelected) {
                 m_currentCipher = it->second;
@@ -148,7 +148,7 @@ void VpnSecOpenVPNSection::initConnection()
             }
         }
     });
-    connect(m_hmacChooser, &ComboxWidget::onSelectChanged, this, [=](const QString &dataSelected) {
+    connect(m_hmacChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &dataSelected) {
         for (auto it = HMACStrMap.cbegin(); it != HMACStrMap.cend(); ++it) {
             if (it->first == dataSelected) {
                 m_currentHMAC = it->second;

@@ -25,7 +25,7 @@
 #include "../abstractsection.h"
 #include "widgets/contentwidget.h"
 #include "widgets/lineeditwidget.h"
-#include "widgets/comboboxwidget.h"
+#include "widgets/comboxwidget.h"
 #include "widgets/spinboxwidget.h"
 #include "widgets/switchwidget.h"
 
@@ -51,22 +51,22 @@ private:
     void initConnection();
 
 private:
-    QMap<QString, QString> VendorStrMap;
-    QMap<QString, QString> EncryptionStrMap;
-    QMap<QString, QString> NATTravModeStrMap;
-    QMap<QString, QString> IKEDHGroupStrMap;
-    QMap<QString, QString> ForwardSecrecyStrMap;
+    QList<QPair<QString, QString>> VendorStrMap;
+    QList<QPair<QString, QString>> EncryptionStrMap;
+    QList<QPair<QString, QString>> NATTravModeStrMap;
+    QList<QPair<QString, QString>> IKEDHGroupStrMap;
+    QList<QPair<QString, QString>> ForwardSecrecyStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 
     dcc::widgets::LineEditWidget *m_domain;
-    dcc::widgets::ComboBoxWidget *m_vendorChooser;
+    dcc::widgets::ComboxWidget *m_vendorChooser;
     dcc::widgets::LineEditWidget *m_version;
-    dcc::widgets::ComboBoxWidget *m_encryptionChooser;
-    dcc::widgets::ComboBoxWidget *m_natTravModeChooser;
-    dcc::widgets::ComboBoxWidget *m_ikeDHGroupChooser;
-    dcc::widgets::ComboBoxWidget *m_forwordSecrecyChooser;
+    dcc::widgets::ComboxWidget *m_encryptionChooser;
+    dcc::widgets::ComboxWidget *m_natTravModeChooser;
+    dcc::widgets::ComboxWidget *m_ikeDHGroupChooser;
+    dcc::widgets::ComboxWidget *m_forwordSecrecyChooser;
     dcc::widgets::SpinBoxWidget *m_localPort;
     dcc::widgets::SwitchWidget *m_disableDPD;
 

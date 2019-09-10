@@ -79,6 +79,7 @@ VpnPage::VpnPage(QWidget *parent)
     , m_modelprofiles(new QStandardItemModel)
 {
     m_lvprofiles->setModel(m_modelprofiles);
+    m_lvprofiles->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_vpnSwitch->setTitle(tr("VPN Status"));
 
     QHBoxLayout *buttonsLayout = new QHBoxLayout;
@@ -130,7 +131,9 @@ void VpnPage::setModel(NetworkModel *model)
 
     connect(m_model, &NetworkModel::vpnEnabledChanged, m_vpnSwitch, &SwitchWidget::setChecked);
     connect(m_model, &NetworkModel::activeConnInfoChanged, this, &VpnPage::onActiveConnsInfoChanged);
-    connect(m_model, &NetworkModel::connectionListChanged, this, [ = ] { refreshVpnList(m_model->vpns()); });
+    connect(m_model, &NetworkModel::connectionListChanged, this, [ = ] {
+        refreshVpnList(m_model->vpns());
+    });
 
     m_vpnSwitch->setChecked(m_model->vpnEnabled());
 

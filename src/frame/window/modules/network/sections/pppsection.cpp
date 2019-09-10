@@ -28,20 +28,20 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 PPPSection::PPPSection(NetworkManager::PppSetting::Ptr pppSetting, QFrame *parent)
-    : AbstractSection(tr("PPP"), parent),
-      m_pppSetting(pppSetting),
-      m_mppeEnable(new SwitchWidget(this)),
-      m_mppe128(new SwitchWidget(this)),
-      m_mppeStateful(new SwitchWidget(this)),
-      m_refuseEAP(new SwitchWidget(this)),
-      m_refusePAP(new SwitchWidget(this)),
-      m_refuseCHAP(new SwitchWidget(this)),
-      m_refuseMSCHAP(new SwitchWidget(this)),
-      m_refuseMSCHAP2(new SwitchWidget(this)),
-      m_noBSDComp(new SwitchWidget(this)),
-      m_noDeflate(new SwitchWidget(this)),
-      m_noVJComp(new SwitchWidget(this)),
-      m_lcpEchoInterval(new SwitchWidget(this))
+    : AbstractSection(tr("PPP"), parent)
+    , m_pppSetting(pppSetting)
+    , m_mppeEnable(new SwitchWidget(this))
+    , m_mppe128(new SwitchWidget(this))
+    , m_mppeStateful(new SwitchWidget(this))
+    , m_refuseEAP(new SwitchWidget(this))
+    , m_refusePAP(new SwitchWidget(this))
+    , m_refuseCHAP(new SwitchWidget(this))
+    , m_refuseMSCHAP(new SwitchWidget(this))
+    , m_refuseMSCHAP2(new SwitchWidget(this))
+    , m_noBSDComp(new SwitchWidget(this))
+    , m_noDeflate(new SwitchWidget(this))
+    , m_noVJComp(new SwitchWidget(this))
+    , m_lcpEchoInterval(new SwitchWidget(this))
 {
     initStrMaps();
     initUI();
@@ -139,7 +139,7 @@ void PPPSection::initUI()
         m_lcpEchoInterval->setChecked(true);
     } else {
         m_lcpEchoInterval->setChecked(
-                m_pppSetting->lcpEchoInterval() == 30 && m_pppSetting->lcpEchoFailure() == 5);
+            m_pppSetting->lcpEchoInterval() == 30 && m_pppSetting->lcpEchoFailure() == 5);
     }
 
     appendItem(m_mppeEnable);

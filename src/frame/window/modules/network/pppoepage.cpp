@@ -56,6 +56,7 @@ PppoePage::PppoePage(QWidget *parent)
     m_createBtn->setMinimumSize(QSize(47, 47));
 
     m_lvsettings->setModel(m_modelSettings);
+    m_lvsettings->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addSpacing(10);

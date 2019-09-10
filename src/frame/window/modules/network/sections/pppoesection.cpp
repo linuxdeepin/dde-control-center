@@ -28,11 +28,11 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 PPPOESection::PPPOESection(NetworkManager::PppoeSetting::Ptr pppoeSetting, QFrame *parent)
-    : AbstractSection(tr("PPPoE"), parent),
-      m_pppoeSetting(pppoeSetting),
-      m_userName(new LineEditWidget(this)),
-      m_service(new LineEditWidget(this)),
-      m_password(new PasswdEditWidget(this))
+    : AbstractSection(tr("PPPoE"), parent)
+    , m_pppoeSetting(pppoeSetting)
+    , m_userName(new LineEditWidget(this))
+    , m_service(new LineEditWidget(this))
+    , m_password(new PasswdEditWidget(this))
 {
     initUI();
     initConnection();

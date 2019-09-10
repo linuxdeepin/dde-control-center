@@ -34,13 +34,13 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 WirelessSection::WirelessSection(NetworkManager::WirelessSetting::Ptr wiredSetting, QFrame *parent)
-    : AbstractSection("Wi-Fi", parent),
-      m_apSsid(new LineEditWidget(this)),
-      m_deviceMacLine(new ComboxWidget(this)),
-      //m_clonedMac(new LineEditWidget(this)),
-      m_customMtuSwitch(new SwitchWidget(this)),
-      m_customMtu(new SpinBoxWidget(this)),
-      m_wirelessSetting(wiredSetting)
+    : AbstractSection("Wi-Fi", parent)
+    , m_apSsid(new LineEditWidget(this))
+    , m_deviceMacLine(new ComboxWidget(this))
+    //, m_clonedMac(new LineEditWidget(this))
+    , m_customMtuSwitch(new SwitchWidget(this))
+    , m_customMtu(new SpinBoxWidget(this))
+    , m_wirelessSetting(wiredSetting)
 {
     // get the macAddress list from all wireless devices
     for (auto device : NetworkManager::networkInterfaces()) {

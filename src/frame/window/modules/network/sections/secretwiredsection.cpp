@@ -25,9 +25,9 @@ using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 
 SecretWiredSection::SecretWiredSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent)
-    : Secret8021xSection(sSetting, parent),
-      m_secretEnable(new SwitchWidget(this)),
-      m_enableWatcher(new Secret8021xEnableWatcher(this))
+    : Secret8021xSection(sSetting, parent)
+    , m_secretEnable(new SwitchWidget(this))
+    , m_enableWatcher(new Secret8021xEnableWatcher(this))
 {
     m_secretEnable->setTitle(tr("Security Required"));
     m_secretEnable->setChecked(!sSetting->toMap().isEmpty());

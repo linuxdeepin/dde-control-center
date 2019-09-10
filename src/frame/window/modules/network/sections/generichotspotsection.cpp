@@ -28,9 +28,9 @@ using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
 
 GenericHotspotSection::GenericHotspotSection(NetworkManager::ConnectionSettings::Ptr connSettings, QFrame *parent)
-    : AbstractSection(tr("General"), parent),
-      m_connIdItem(new LineEditWidget(this)),
-      m_connSettings(connSettings)
+    : AbstractSection(tr("General"), parent)
+    , m_connIdItem(new LineEditWidget(this))
+    , m_connSettings(connSettings)
 {
     initUI();
 }

@@ -23,16 +23,18 @@
 #include "widgets/passwdeditwidget.h"
 #include "widgets/switchwidget.h"
 
+#include <QComboBox>
+
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
 VpnOpenVPNSection::VpnOpenVPNSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
-    : AbstractSection(tr("VPN"), parent),
-      m_vpnSetting(vpnSetting),
-      m_gateway(new LineEditWidget(this)),
-      m_authTypeChooser(new ComboBoxWidget(this)),
-      m_caFile(new FileChooseWidget(this))
+    : AbstractSection(tr("VPN"), parent)
+    , m_vpnSetting(vpnSetting)
+    , m_gateway(new LineEditWidget(this))
+    , m_authTypeChooser(new ComboxWidget(this))
+    , m_caFile(new FileChooseWidget(this))
 {
     m_dataMap = vpnSetting->data();
     m_secretMap = vpnSetting->secrets();
@@ -132,15 +134,17 @@ void VpnOpenVPNSection::initUI()
     m_gateway->setPlaceholderText(tr("Required"));
     m_gateway->setText(m_dataMap.value("remote"));
 
-    m_currentAuthType = "tls";
-    for (auto type : AuthTypeStrMap) {
-        if (type == m_dataMap.value("connection-type")) {
-            m_currentAuthType = type;
-        }
-        m_authTypeChooser->appendOption(AuthTypeStrMap.key(type), type);
-    }
     m_authTypeChooser->setTitle(tr("Auth Type"));
-    m_authTypeChooser->setCurrent(m_currentAuthType);
+    m_currentAuthType = "tls";
+    QString curAuthOption = AuthTypeStrMap.at(0).first;
+    for (auto it = AuthTypeStrMap.cbegin(); it != AuthTypeStrMap.cend(); ++it) {
+        m_authTypeChooser->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_dataMap.value("connection-type")) {
+            m_currentAuthType = it->second;
+            curAuthOption = it->first;
+        }
+    }
+    m_authTypeChooser->setCurrentText(curAuthOption);
 
     m_caFile->setTitle(tr("CA Cert"));
     m_caFile->edit()->setText(m_dataMap.value("ca"));
@@ -181,16 +185,18 @@ void VpnOpenVPNSection::initTLSItems()
     priKeyFile->setTitle(tr("Private Key"));
     priKeyFile->edit()->setText(m_dataMap.value("key"));
 
-    ComboBoxWidget *certPasswordFlagsChooser = new ComboBoxWidget(this);
+    ComboxWidget *certPasswordFlagsChooser = new ComboxWidget(this);
     certPasswordFlagsChooser->setTitle(tr("Pwd Options"));
     m_currentCertPasswordType = NetworkManager::Setting::SecretFlagType::None;
-    for (auto flag : PasswordFlagsStrMap.values()) {
-        if (flag == m_dataMap.value("cert-pass-flags").toInt()) {
-            m_currentCertPasswordType = flag;
+    QString curCertPasswordOption = PasswordFlagsStrMap.at(0).first;
+    for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+        certPasswordFlagsChooser->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_dataMap.value("cert-pass-flags").toInt()) {
+            m_currentCertPasswordType = it->second;
+            curCertPasswordOption = it->first;
         }
-        certPasswordFlagsChooser->appendOption(PasswordFlagsStrMap.key(flag), flag);
     }
-    certPasswordFlagsChooser->setCurrent(m_currentCertPasswordType);
+    certPasswordFlagsChooser->setCurrentText(curCertPasswordOption);
 
     PasswdEditWidget *priKeyPassword = new PasswdEditWidget(this);
     priKeyPassword->setTitle(tr("Private Pwd"));
@@ -199,8 +205,7 @@ void VpnOpenVPNSection::initTLSItems()
     connect(userCertFile->edit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
     connect(priKeyFile->edit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
     connect(priKeyPassword->textEdit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
-    connect(certPasswordFlagsChooser, &ComboBoxWidget::requestPage, this, &VpnOpenVPNSection::requestNextPage);
-    connect(certPasswordFlagsChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
+    connect(certPasswordFlagsChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentCertPasswordType = data.value<NetworkManager::Setting::SecretFlagType>();
         priKeyPassword->setVisible(m_currentCertPasswordType == NetworkManager::Setting::SecretFlagType::None);
     });
@@ -228,16 +233,18 @@ void VpnOpenVPNSection::initPasswordItems()
     userName->setText(m_dataMap.value("username"));
     userName->setPlaceholderText(tr("Required"));
 
-    ComboBoxWidget *passwordFlagsChooser = new ComboBoxWidget(this);
+    ComboxWidget *passwordFlagsChooser = new ComboxWidget(this);
     passwordFlagsChooser->setTitle(tr("Pwd Options"));
     m_currentPasswordType = NetworkManager::Setting::SecretFlagType::None;
-    for (auto flag : PasswordFlagsStrMap.values()) {
-        if (flag == m_dataMap.value("password-flags").toInt()) {
-            m_currentPasswordType = flag;
+    QString curPasswordOption = PasswordFlagsStrMap.at(0).first;
+    for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
+        passwordFlagsChooser->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_dataMap.value("password-flags").toInt()) {
+            m_currentPasswordType = it->second;
+            curPasswordOption = it->first;
         }
-        passwordFlagsChooser->appendOption(PasswordFlagsStrMap.key(flag), flag);
     }
-    passwordFlagsChooser->setCurrent(m_currentPasswordType);
+    passwordFlagsChooser->setCurrentText(curPasswordOption);
 
     PasswdEditWidget *password = new PasswdEditWidget(this);
     password->setTitle(tr("Password"));
@@ -246,8 +253,7 @@ void VpnOpenVPNSection::initPasswordItems()
 
     connect(userName->textEdit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
     connect(password->textEdit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
-    connect(passwordFlagsChooser, &ComboBoxWidget::requestPage, this, &VpnOpenVPNSection::requestNextPage);
-    connect(passwordFlagsChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
+    connect(passwordFlagsChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentPasswordType = data.value<NetworkManager::Setting::SecretFlagType>();
         password->setVisible(m_currentPasswordType == NetworkManager::Setting::SecretFlagType::None);
     });
@@ -276,11 +282,11 @@ void VpnOpenVPNSection::initStaticKeyItems()
     customizeKeyDirection->setTitle(tr("Customize Key Direction"));
     customizeKeyDirection->setChecked(m_dataMap.keys().contains("static-key-direction"));
 
-    ComboBoxWidget *keyDirectionChooser = new ComboBoxWidget(this);
+    ComboxWidget *keyDirectionChooser = new ComboxWidget(this);
     keyDirectionChooser->setTitle(tr("Key Direction"));
-    keyDirectionChooser->appendOption("0", "0");
-    keyDirectionChooser->appendOption("1", "1");
-    keyDirectionChooser->setCurrent(m_dataMap.value("static-key-direction", "0"));
+    keyDirectionChooser->comboBox()->addItem("0", "0");
+    keyDirectionChooser->comboBox()->addItem("1", "1");
+    keyDirectionChooser->setCurrentText(m_dataMap.value("static-key-direction", "0"));
     keyDirectionChooser->setVisible(customizeKeyDirection->checked());
 
     LineEditWidget *remoteIp = new LineEditWidget(this);
@@ -297,9 +303,8 @@ void VpnOpenVPNSection::initStaticKeyItems()
     connect(remoteIp->textEdit(), &QLineEdit::textChanged, this, &VpnOpenVPNSection::allInputValid);
     connect(localIp->textEdit(), &QLineEdit::textChanged, this, &VpnOpenVPNSection::allInputValid);
     connect(customizeKeyDirection, &SwitchWidget::checkedChanged,
-            keyDirectionChooser, &ComboBoxWidget::setVisible);
-    connect(keyDirectionChooser, &ComboBoxWidget::requestPage, this, &VpnOpenVPNSection::requestNextPage);
-    connect(keyDirectionChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
+            keyDirectionChooser, &ComboxWidget::setVisible);
+    connect(keyDirectionChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentKeyDirection = data.toString();
     });
     connect(staticKey, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenVPNSection::requestFrameAutoHide);
@@ -316,11 +321,10 @@ void VpnOpenVPNSection::initStaticKeyItems()
 
 void VpnOpenVPNSection::initConnection()
 {
-    connect(m_authTypeChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
+    connect(m_authTypeChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
+        qDebug() << "dataChanged is :" << data.toString();
         onAuthTypeChanged(data.toString());
     });
-    connect(m_authTypeChooser, &ComboBoxWidget::requestPage, this, &VpnOpenVPNSection::requestNextPage);
-
     connect(m_caFile, &FileChooseWidget::requestFrameKeepAutoHide, this, &VpnOpenVPNSection::requestFrameAutoHide);
 }
 
@@ -367,10 +371,10 @@ void VpnOpenVPNSection::setItemsVisible(const QString &itemsType, const bool vis
 
     // refresh special items visivle
     if (itemsType == "tls") {
-        ComboBoxWidget *tlsPasswordFlagsChooser = static_cast<ComboBoxWidget *>(itemsList.at(2));
+        ComboxWidget *tlsPasswordFlagsChooser = static_cast<ComboxWidget *>(itemsList.at(2));
         Q_EMIT tlsPasswordFlagsChooser->dataChanged(m_currentCertPasswordType);
     } else if (itemsType == "password") {
-        ComboBoxWidget *passwordFlagsChooser = static_cast<ComboBoxWidget *>(itemsList.at(1));
+        ComboxWidget *passwordFlagsChooser = static_cast<ComboxWidget *>(itemsList.at(1));
         Q_EMIT passwordFlagsChooser->dataChanged(m_currentPasswordType);
     } else if (itemsType == "static-key") {
         SwitchWidget *customizeKeyDirection = static_cast<SwitchWidget *>(itemsList.at(1));

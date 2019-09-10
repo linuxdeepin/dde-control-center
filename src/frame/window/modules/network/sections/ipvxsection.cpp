@@ -29,17 +29,17 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 IpvxSection::IpvxSection(NetworkManager::Ipv4Setting::Ptr ipv4Setting, QFrame *parent)
-    : AbstractSection(tr("IPv4"), parent),
-      m_methodLine(new ComboxWidget(this)),
-      m_ipAddress (new LineEditWidget(this)),
-      m_netmaskIpv4 (new LineEditWidget(this)),
-      m_prefixIpv6 (nullptr),
-      m_gateway (new LineEditWidget(this)),
-      m_dnsPrimary (new LineEditWidget(this)),
-      m_dnsSecond (new LineEditWidget(this)),
-      m_neverDefault(new SwitchWidget(this)),
-      m_currentIpvx(Ipv4),
-      m_ipvxSetting(ipv4Setting)
+    : AbstractSection(tr("IPv4"), parent)
+    , m_methodLine(new ComboxWidget(this))
+    , m_ipAddress(new LineEditWidget(this))
+    , m_netmaskIpv4(new LineEditWidget(this))
+    , m_prefixIpv6(nullptr)
+    , m_gateway(new LineEditWidget(this))
+    , m_dnsPrimary(new LineEditWidget(this))
+    , m_dnsSecond(new LineEditWidget(this))
+    , m_neverDefault(new SwitchWidget(this))
+    , m_currentIpvx(Ipv4)
+    , m_ipvxSetting(ipv4Setting)
 {
     initStrMaps();
     initUI();
@@ -49,17 +49,17 @@ IpvxSection::IpvxSection(NetworkManager::Ipv4Setting::Ptr ipv4Setting, QFrame *p
 }
 
 IpvxSection::IpvxSection(NetworkManager::Ipv6Setting::Ptr ipv6Setting, QFrame *parent)
-    : AbstractSection(tr("IPv6"), parent),
-      m_methodLine(new ComboxWidget(this)),
-      m_ipAddress (new LineEditWidget(this)),
-      m_netmaskIpv4 (nullptr),
-      m_prefixIpv6 (new SpinBoxWidget(this)),
-      m_gateway (new LineEditWidget(this)),
-      m_dnsPrimary (new LineEditWidget(this)),
-      m_dnsSecond (new LineEditWidget(this)),
-      m_neverDefault(new SwitchWidget(this)),
-      m_currentIpvx(Ipv6),
-      m_ipvxSetting(ipv6Setting)
+    : AbstractSection(tr("IPv6"), parent)
+    , m_methodLine(new ComboxWidget(this))
+    , m_ipAddress(new LineEditWidget(this))
+    , m_netmaskIpv4(nullptr)
+    , m_prefixIpv6(new SpinBoxWidget(this))
+    , m_gateway(new LineEditWidget(this))
+    , m_dnsPrimary(new LineEditWidget(this))
+    , m_dnsSecond(new LineEditWidget(this))
+    , m_neverDefault(new SwitchWidget(this))
+    , m_currentIpvx(Ipv6)
+    , m_ipvxSetting(ipv6Setting)
 {
     initStrMaps();
     initUI();
@@ -78,14 +78,14 @@ bool IpvxSection::allInputValid()
     bool valid = true;
 
     switch (m_currentIpvx) {
-        case Ipv4:
-            valid = ipv4InputIsValid();
-            break;
-        case Ipv6:
-            valid = ipv6InputIsValid();
-            break;
-        default:
-            break;
+    case Ipv4:
+        valid = ipv4InputIsValid();
+        break;
+    case Ipv6:
+        valid = ipv6InputIsValid();
+        break;
+    default:
+        break;
     }
 
     return valid;
@@ -96,14 +96,14 @@ void IpvxSection::saveSettings()
     bool initialized = true;
 
     switch (m_currentIpvx) {
-        case Ipv4:
-            initialized = saveIpv4Settings();
-            break;
-        case Ipv6:
-            initialized = saveIpv6Settings();
-            break;
-        default:
-            break;
+    case Ipv4:
+        initialized = saveIpv4Settings();
+        break;
+    case Ipv6:
+        initialized = saveIpv6Settings();
+        break;
+    default:
+        break;
     }
 
     m_ipvxSetting->setInitialized(initialized);
@@ -239,14 +239,14 @@ void IpvxSection::initUI()
     appendItem(m_ipAddress);
 
     switch (m_currentIpvx) {
-        case Ipv4:
-            initForIpv4();
-            break;
-        case Ipv6:
-            initForIpv6();
-            break;
-        default:
-            break;
+    case Ipv4:
+        initForIpv4();
+        break;
+    case Ipv6:
+        initForIpv6();
+        break;
+    default:
+        break;
     }
 
     appendItem(m_gateway);
@@ -353,68 +353,68 @@ void IpvxSection::initConnection()
     connect(m_dnsSecond->textEdit(), &QLineEdit::editingFinished, this, &IpvxSection::allInputValid);
 
     switch (m_currentIpvx) {
-        case Ipv4:
-            connect(m_methodChooser, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=] {
-                onIpv4MethodChanged(m_methodChooser->currentData().value<NetworkManager::Ipv4Setting::ConfigMethod>());
-            });
-            connect(m_netmaskIpv4->textEdit(), &QLineEdit::editingFinished, this, &IpvxSection::allInputValid);
-            break;
-        case Ipv6:
-            connect(m_methodChooser, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=] {
-                onIpv6MethodChanged(m_methodChooser->currentData().value<NetworkManager::Ipv6Setting::ConfigMethod>());
-            });
-            connect(m_prefixIpv6->spinBox(), static_cast<void (QSpinBox:: *) (int)>(&QSpinBox::valueChanged),
-                    this, &IpvxSection::allInputValid);
-            break;
-        default:
-            break;
+    case Ipv4:
+        connect(m_methodChooser, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [ = ] {
+            onIpv4MethodChanged(m_methodChooser->currentData().value<NetworkManager::Ipv4Setting::ConfigMethod>());
+        });
+        connect(m_netmaskIpv4->textEdit(), &QLineEdit::editingFinished, this, &IpvxSection::allInputValid);
+        break;
+    case Ipv6:
+        connect(m_methodChooser, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [ = ] {
+            onIpv6MethodChanged(m_methodChooser->currentData().value<NetworkManager::Ipv6Setting::ConfigMethod>());
+        });
+        connect(m_prefixIpv6->spinBox(), static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged),
+                this, &IpvxSection::allInputValid);
+        break;
+    default:
+        break;
     }
 }
 
 void IpvxSection::onIpv4MethodChanged(NetworkManager::Ipv4Setting::ConfigMethod method)
 {
     switch (method) {
-        case NetworkManager::Ipv4Setting::Automatic:
-            m_ipAddress->setVisible(false);
-            m_netmaskIpv4->setVisible(false);
-            m_gateway->setVisible(false);
-            break;
-        case NetworkManager::Ipv4Setting::Manual:
-            m_ipAddress->setVisible(true);
-            m_netmaskIpv4->setVisible(true);
-            m_gateway->setVisible(true);
-            break;
-        default:
-            break;
+    case NetworkManager::Ipv4Setting::Automatic:
+        m_ipAddress->setVisible(false);
+        m_netmaskIpv4->setVisible(false);
+        m_gateway->setVisible(false);
+        break;
+    case NetworkManager::Ipv4Setting::Manual:
+        m_ipAddress->setVisible(true);
+        m_netmaskIpv4->setVisible(true);
+        m_gateway->setVisible(true);
+        break;
+    default:
+        break;
     }
 }
 
 void IpvxSection::onIpv6MethodChanged(NetworkManager::Ipv6Setting::ConfigMethod method)
 {
     switch (method) {
-        case NetworkManager::Ipv6Setting::Automatic:
-            m_ipAddress->setVisible(false);
-            m_prefixIpv6->setVisible(false);
-            m_gateway->setVisible(false);
-            m_dnsPrimary->setVisible(true);
-            m_dnsSecond->setVisible(true);
-            break;
-        case NetworkManager::Ipv6Setting::Manual:
-            m_ipAddress->setVisible(true);
-            m_prefixIpv6->setVisible(true);
-            m_gateway->setVisible(true);
-            m_dnsPrimary->setVisible(true);
-            m_dnsSecond->setVisible(true);
-            break;
-        case NetworkManager::Ipv6Setting::Ignored:
-            m_ipAddress->setVisible(false);
-            m_prefixIpv6->setVisible(false);
-            m_gateway->setVisible(false);
-            m_dnsPrimary->setVisible(false);
-            m_dnsSecond->setVisible(false);
-            break;
-        default:
-            break;
+    case NetworkManager::Ipv6Setting::Automatic:
+        m_ipAddress->setVisible(false);
+        m_prefixIpv6->setVisible(false);
+        m_gateway->setVisible(false);
+        m_dnsPrimary->setVisible(true);
+        m_dnsSecond->setVisible(true);
+        break;
+    case NetworkManager::Ipv6Setting::Manual:
+        m_ipAddress->setVisible(true);
+        m_prefixIpv6->setVisible(true);
+        m_gateway->setVisible(true);
+        m_dnsPrimary->setVisible(true);
+        m_dnsSecond->setVisible(true);
+        break;
+    case NetworkManager::Ipv6Setting::Ignored:
+        m_ipAddress->setVisible(false);
+        m_prefixIpv6->setVisible(false);
+        m_gateway->setVisible(false);
+        m_dnsPrimary->setVisible(false);
+        m_dnsSecond->setVisible(false);
+        break;
+    default:
+        break;
     }
 }
 
@@ -548,8 +548,8 @@ bool IpvxSection::isIpv4SubnetMask(const QString &ip)
         return false;
     }
 
-    for (;mask != 0; mask <<= 1) {
-        if ((mask & (1<<31)) == 0)
+    for (; mask != 0; mask <<= 1) {
+        if ((mask & (1 << 31)) == 0)
             return false; // Highest bit is now zero, but mask is non-zero.
     }
     return true; // Mask was, or became 0.

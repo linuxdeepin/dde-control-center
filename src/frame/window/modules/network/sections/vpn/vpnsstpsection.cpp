@@ -26,11 +26,11 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 VpnSSTPSection::VpnSSTPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
-    : VpnSection(vpnSetting, parent),
-      m_vpnSetting(vpnSetting),
-      m_caFile(new FileChooseWidget(this)),
-      m_ignoreCAWarnings(new SwitchWidget(this)),
-      m_useTLSExt(new SwitchWidget(this))
+    : VpnSection(vpnSetting, parent)
+    , m_vpnSetting(vpnSetting)
+    , m_caFile(new FileChooseWidget(this))
+    , m_ignoreCAWarnings(new SwitchWidget(this))
+    , m_useTLSExt(new SwitchWidget(this))
 {
     m_dataMap = vpnSetting->data();
 

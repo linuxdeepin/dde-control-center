@@ -26,16 +26,16 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 VpnOpenConnectSection::VpnOpenConnectSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
-    : AbstractSection(tr("VPN"), parent),
-      m_vpnSetting(vpnSetting),
-      m_gateway(new LineEditWidget(this)),
-      m_caCert(new FileChooseWidget(this)),
-      m_proxy(new LineEditWidget(this)),
-      m_enableCSDTrojan(new SwitchWidget(this)),
-      m_csdScript(new LineEditWidget(this)),
-      m_userCert(new FileChooseWidget(this)),
-      m_userKey(new FileChooseWidget(this)),
-      m_useFSID(new SwitchWidget(this))
+    : AbstractSection(tr("VPN"), parent)
+    , m_vpnSetting(vpnSetting)
+    , m_gateway(new LineEditWidget(this))
+    , m_caCert(new FileChooseWidget(this))
+    , m_proxy(new LineEditWidget(this))
+    , m_enableCSDTrojan(new SwitchWidget(this))
+    , m_csdScript(new LineEditWidget(this))
+    , m_userCert(new FileChooseWidget(this))
+    , m_userKey(new FileChooseWidget(this))
+    , m_useFSID(new SwitchWidget(this))
 {
     m_dataMap = vpnSetting->data();
 
@@ -53,7 +53,7 @@ VpnOpenConnectSection::~VpnOpenConnectSection()
 bool VpnOpenConnectSection::allInputValid()
 {
     bool valid = true;
-    
+
     if (m_gateway->text().isEmpty()) {
         valid = false;
         m_gateway->setIsErr(true);

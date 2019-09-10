@@ -43,15 +43,15 @@ void DslPppoeSettings::initSections()
 {
     GenericSection *genericSection = new GenericSection(m_connSettings);
     PPPOESection *pppoeSection = new PPPOESection(
-            m_connSettings->setting(Setting::Pppoe).staticCast<NetworkManager::PppoeSetting>());
+        m_connSettings->setting(Setting::Pppoe).staticCast<NetworkManager::PppoeSetting>());
     IpvxSection *ipv4Section = new IpvxSection(
-            m_connSettings->setting(Setting::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
+        m_connSettings->setting(Setting::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     //IpvxSection *ipv6Section = new IpvxSection(
-            //m_connSettings->setting(Setting::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
+    //m_connSettings->setting(Setting::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
     EthernetSection *etherNetSection = new EthernetSection(
-            m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>());
+        m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>());
     PPPSection *pppSection = new PPPSection(
-            m_connSettings->setting(Setting::Ppp).staticCast<NetworkManager::PppSetting>());
+        m_connSettings->setting(Setting::Ppp).staticCast<NetworkManager::PppSetting>());
 
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);
     //connect(ipv6Section, &IpvxSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);

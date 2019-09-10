@@ -184,7 +184,7 @@ void VpnProxySection::initUI()
 
 void VpnProxySection::initConnection()
 {
-    connect(m_proxyTypeChooser, &ComboxWidget::onSelectChanged, this, [=](const QString &dataSelected) {
+    connect(m_proxyTypeChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &dataSelected) {
         for (auto it = ProxyTypeStrMap.cbegin(); it != ProxyTypeStrMap.cend(); ++it) {
             if (it->first == dataSelected) {
                 onProxyTypeChanged(it->second);

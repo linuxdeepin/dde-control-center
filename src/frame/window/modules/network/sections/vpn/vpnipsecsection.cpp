@@ -26,14 +26,14 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 VpnIpsecSection::VpnIpsecSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
-    : AbstractSection(tr("VPN IPsec"), parent),
-      m_vpnSetting(vpnSetting),
-      m_ipsecEnable(new SwitchWidget(this)),
-      m_groupName(new LineEditWidget(this)),
-      m_gatewayId(new LineEditWidget(this)),
-      m_psk(new LineEditWidget(this)),
-      m_ike(new LineEditWidget(this)),
-      m_esp(new LineEditWidget(this))
+    : AbstractSection(tr("VPN IPsec"), parent)
+    , m_vpnSetting(vpnSetting)
+    , m_ipsecEnable(new SwitchWidget(this))
+    , m_groupName(new LineEditWidget(this))
+    , m_gatewayId(new LineEditWidget(this))
+    , m_psk(new LineEditWidget(this))
+    , m_ike(new LineEditWidget(this))
+    , m_esp(new LineEditWidget(this))
 {
     m_dataMap = vpnSetting->data();
 

@@ -65,7 +65,7 @@ public:
     static void setFrameProxy(dccV20::FrameProxyInterface *_frame);
 
 Q_SIGNALS:
-    void requestNextPage(ContentWidget * const page);
+    void requestNextPage(ContentWidget *const page);
     void requestFrameAutoHide(const bool autoHide) const;
 
     // private signals
@@ -92,7 +92,7 @@ private:
     void setSecretsFromMapMap(NetworkManager::Setting::SettingType settingType, NMVariantMapMap secretsMapMap);
 
 protected Q_SLOTS:
-    void onRequestNextPage(ContentWidget * const page);
+    void onRequestNextPage(ContentWidget *const page);
 
 protected:
     QVBoxLayout *m_settingsLayout;
@@ -102,7 +102,7 @@ protected:
 
     DCC_NAMESPACE::network::AbstractSettings *m_settingsWidget;
 
-    static DCC_NAMESPACE::FrameProxyInterface* m_frame;
+    static DCC_NAMESPACE::FrameProxyInterface *m_frame;
 
 private:
     QVBoxLayout *m_mainLayout;

@@ -28,12 +28,12 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 VpnSstpProxySection::VpnSstpProxySection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
-    : AbstractSection(tr("VPN Proxy"), parent),
-      m_vpnSetting(vpnSetting),
-    m_server(new LineEditWidget(this)),
-    m_port(new SpinBoxWidget(this)),
-    m_userName(new LineEditWidget(this)),
-    m_password(new PasswdEditWidget(this))
+    : AbstractSection(tr("VPN Proxy"), parent)
+    , m_vpnSetting(vpnSetting)
+    , m_server(new LineEditWidget(this))
+    , m_port(new SpinBoxWidget(this))
+    , m_userName(new LineEditWidget(this))
+    , m_password(new PasswdEditWidget(this))
 {
     m_dataMap = vpnSetting->data();
     m_secretMap = vpnSetting->secrets();
@@ -125,7 +125,7 @@ void VpnSstpProxySection::initUI()
 void VpnSstpProxySection::initConnection()
 {
     connect(m_server->textEdit(), &QLineEdit::editingFinished, this, &VpnSstpProxySection::allInputValid);
-    connect(m_port->spinBox(), static_cast<void (DSpinBox::*) (int)>(&DSpinBox::valueChanged), this, &VpnSstpProxySection::allInputValid);
+    connect(m_port->spinBox(), static_cast<void (DSpinBox::*)(int)>(&DSpinBox::valueChanged), this, &VpnSstpProxySection::allInputValid);
 //    connect(m_userName->textEdit(), &QLineEdit::editingFinished, this, &VpnSstpProxySection::allInputValid);
 //    connect(m_password->textEdit(), &QLineEdit::editingFinished, this, &VpnSstpProxySection::allInputValid);
 }

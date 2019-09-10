@@ -28,21 +28,21 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 VpnAdvOpenVPNSection::VpnAdvOpenVPNSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
-    : AbstractSection(tr("VPN Advanced"), parent),
-      m_vpnSetting(vpnSetting),
-      m_portSwitch(new SwitchWidget(this)),
-      m_renegIntervalSwitch(new SwitchWidget(this)),
-      m_compLZOSwitch(new SwitchWidget(this)),
-      m_tcpProtoSwitch(new SwitchWidget(this)),
-      m_useTapSwitch(new SwitchWidget(this)),
-      m_tunnelMTUSwitch(new SwitchWidget(this)),
-      m_udpFragSizeSwitch(new SwitchWidget(this)),
-      m_restrictMSSSwitch(new SwitchWidget(this)),
-      m_randomRemoteSwitch(new SwitchWidget(this)),
-      m_port(new SpinBoxWidget(this)),
-      m_renegInterval(new SpinBoxWidget(this)),
-      m_tunnelMTU(new SpinBoxWidget(this)),
-      m_udpFragSize(new SpinBoxWidget(this))
+    : AbstractSection(tr("VPN Advanced"), parent)
+    , m_vpnSetting(vpnSetting)
+    , m_portSwitch(new SwitchWidget(this))
+    , m_renegIntervalSwitch(new SwitchWidget(this))
+    , m_compLZOSwitch(new SwitchWidget(this))
+    , m_tcpProtoSwitch(new SwitchWidget(this))
+    , m_useTapSwitch(new SwitchWidget(this))
+    , m_tunnelMTUSwitch(new SwitchWidget(this))
+    , m_udpFragSizeSwitch(new SwitchWidget(this))
+    , m_restrictMSSSwitch(new SwitchWidget(this))
+    , m_randomRemoteSwitch(new SwitchWidget(this))
+    , m_port(new SpinBoxWidget(this))
+    , m_renegInterval(new SpinBoxWidget(this))
+    , m_tunnelMTU(new SpinBoxWidget(this))
+    , m_udpFragSize(new SpinBoxWidget(this))
 {
     m_dataMap = vpnSetting->data();
 

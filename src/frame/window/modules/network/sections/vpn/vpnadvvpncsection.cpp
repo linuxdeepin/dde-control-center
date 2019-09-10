@@ -23,36 +23,38 @@
 
 #include <dspinbox.h>
 
+#include <QComboBox>
+
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
 VpnAdvVPNCSection::VpnAdvVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
-    : AbstractSection(tr("VPN Advanced"), parent),
-      m_vpnSetting(vpnSetting),
-      m_domain(new LineEditWidget(this)),
-      m_vendorChooser(new ComboBoxWidget(this)),
-      m_version(new LineEditWidget(this)),
-      m_encryptionChooser(new ComboBoxWidget(this)),
-      m_natTravModeChooser(new ComboBoxWidget(this)),
-      m_ikeDHGroupChooser(new ComboBoxWidget(this)),
-      m_forwordSecrecyChooser(new ComboBoxWidget(this)),
-      m_localPort(new SpinBoxWidget(this)),
-      m_disableDPD(new SwitchWidget(this)),
-      m_currentVendor("cisco"),
-      m_currentEncryption("secure"),
-      m_currentNatTravMod("natt"),
-      m_currentIkeDHGroup("dh2"),
-      m_currentForwordSecrecy("server")
+    : AbstractSection(tr("VPN Advanced"), parent)
+    , m_vpnSetting(vpnSetting)
+    , m_domain(new LineEditWidget(this))
+    , m_vendorChooser(new ComboxWidget(this))
+    , m_version(new LineEditWidget(this))
+    , m_encryptionChooser(new ComboxWidget(this))
+    , m_natTravModeChooser(new ComboxWidget(this))
+    , m_ikeDHGroupChooser(new ComboxWidget(this))
+    , m_forwordSecrecyChooser(new ComboxWidget(this))
+    , m_localPort(new SpinBoxWidget(this))
+    , m_disableDPD(new SwitchWidget(this))
+    , m_currentVendor("cisco")
+    , m_currentEncryption("secure")
+    , m_currentNatTravMod("natt")
+    , m_currentIkeDHGroup("dh2")
+    , m_currentForwordSecrecy("server")
 {
     m_dataMap = vpnSetting->data();
 
     initStrMaps();
 
     // init chooser current values
-    for (auto vendor : VendorStrMap.values()) {
-        if (m_dataMap.value("Vendor") == vendor) {
-            m_currentVendor = vendor;
+    for (auto it = VendorStrMap.cbegin(); it != VendorStrMap.cend(); ++it) {
+        if (it->second == m_dataMap.value("Vendor")) {
+            m_currentVendor = it->second;
             break;
         }
     }
@@ -65,23 +67,23 @@ VpnAdvVPNCSection::VpnAdvVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting,
         m_currentEncryption = "secure";
     }
 
-    for (auto mode : NATTravModeStrMap.values()) {
-        if (m_dataMap.value("NAT Traversal Mode") == mode) {
-            m_currentNatTravMod = mode;
+    for (auto it = NATTravModeStrMap.cbegin(); it != NATTravModeStrMap.cend(); ++it) {
+        if (it->second == m_dataMap.value("NAT Traversal Mode")) {
+            m_currentNatTravMod = it->second;
             break;
         }
     }
 
-    for (auto ike : IKEDHGroupStrMap.values()) {
-        if (m_dataMap.value("IKE DH Group") == ike) {
-            m_currentIkeDHGroup = ike;
+    for (auto it = NATTravModeStrMap.cbegin(); it != NATTravModeStrMap.cend(); ++it) {
+        if (it->second == m_dataMap.value("IKE DH Group")) {
+            m_currentIkeDHGroup = it->second;
             break;
         }
     }
 
-    for (auto secrecy : ForwardSecrecyStrMap.values()) {
-        if (m_dataMap.value("Perfect Forward Secrecy") == secrecy) {
-            m_currentForwordSecrecy = secrecy;
+    for (auto it = ForwardSecrecyStrMap.cbegin(); it != ForwardSecrecyStrMap.cend(); ++it) {
+        if (it->second == m_dataMap.value("Perfect Forward Secrecy")) {
+            m_currentForwordSecrecy = it->second;
             break;
         }
     }
@@ -171,37 +173,57 @@ void VpnAdvVPNCSection::initUI()
     m_domain->setText(m_dataMap.value("Domain"));
 
     m_vendorChooser->setTitle(tr("Vendor"));
-    for (auto vendor : VendorStrMap.values()) {
-        m_vendorChooser->appendOption(VendorStrMap.key(vendor), vendor);
+    QString curVendorOption = VendorStrMap.at(0).first;
+    for (auto it = VendorStrMap.cbegin(); it != VendorStrMap.cend(); ++it) {
+        m_vendorChooser->comboBox()->addItem(it->first, it->second);
+        if (m_currentVendor == it->second) {
+            curVendorOption = it->first;
+        }
     }
-    m_vendorChooser->setCurrent(m_currentVendor);
+    m_vendorChooser->setCurrentText(curVendorOption);
 
     m_version->setTitle(tr("Version"));
     m_version->setText(m_dataMap.value("Application Version"));
 
     m_encryptionChooser->setTitle(tr("Encryption"));
-    for (auto encryption : EncryptionStrMap.values()) {
-        m_encryptionChooser->appendOption(EncryptionStrMap.key(encryption), encryption);
+    QString curEncryptionOption = EncryptionStrMap.at(0).first;
+    for (auto it = EncryptionStrMap.cbegin(); it != EncryptionStrMap.cend(); ++it) {
+        m_encryptionChooser->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_currentEncryption) {
+            curEncryptionOption = it->first;
+        }
     }
-    m_encryptionChooser->setCurrent(m_currentEncryption);
+    m_encryptionChooser->setCurrentText(curEncryptionOption);
 
     m_natTravModeChooser->setTitle(tr("NAT Traversal Mode"));
-    for (auto mode : NATTravModeStrMap.values()) {
-        m_natTravModeChooser->appendOption(NATTravModeStrMap.key(mode), mode);
+    QString curNatTravOption = NATTravModeStrMap.at(0).first;
+    for (auto it = NATTravModeStrMap.cbegin(); it != NATTravModeStrMap.cend(); ++it) {
+        m_natTravModeChooser->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_currentNatTravMod) {
+            curNatTravOption = it->first;
+        }
     }
-    m_natTravModeChooser->setCurrent(m_currentNatTravMod);
+    m_natTravModeChooser->setCurrentText(curNatTravOption);
 
     m_ikeDHGroupChooser->setTitle(tr("IKE DH Group"));
-    for (auto ike : IKEDHGroupStrMap.values()) {
-        m_ikeDHGroupChooser->appendOption(IKEDHGroupStrMap.key(ike), ike);
+    QString curIKEOption = IKEDHGroupStrMap.at(0).first;
+    for (auto it = IKEDHGroupStrMap.cbegin(); it != IKEDHGroupStrMap.cend(); ++it) {
+        m_ikeDHGroupChooser->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_currentIkeDHGroup) {
+            curIKEOption = it->first;
+        }
     }
-    m_ikeDHGroupChooser->setCurrent(m_currentIkeDHGroup);
+    m_ikeDHGroupChooser->setCurrentText(curIKEOption);
 
     m_forwordSecrecyChooser->setTitle(tr("Forward Secrecy"));
-    for (auto secrecy : ForwardSecrecyStrMap.values()) {
-        m_forwordSecrecyChooser->appendOption(ForwardSecrecyStrMap.key(secrecy), secrecy);
+    QString curForwardSecrecyOption = ForwardSecrecyStrMap.at(0).first;
+    for (auto it = IKEDHGroupStrMap.cbegin(); it != IKEDHGroupStrMap.cend(); ++it) {
+        m_forwordSecrecyChooser->comboBox()->addItem(it->first, it->second);
+        if (it->second == m_currentForwordSecrecy) {
+            curForwardSecrecyOption = it->first;
+        }
     }
-    m_forwordSecrecyChooser->setCurrent(m_currentForwordSecrecy);
+    m_forwordSecrecyChooser->setCurrentText(curForwardSecrecyOption);
 
     m_localPort->setTitle(tr("Local Port"));
     m_localPort->spinBox()->setMinimum(0);
@@ -224,28 +246,23 @@ void VpnAdvVPNCSection::initUI()
 
 void VpnAdvVPNCSection::initConnection()
 {
-    connect(m_vendorChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestNextPage);
-    connect(m_vendorChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
+    connect(m_vendorChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentVendor = data.value<QString>();
     });
 
-    connect(m_encryptionChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestNextPage);
-    connect(m_encryptionChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
+    connect(m_encryptionChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentEncryption = data.value<QString>();
     });
 
-    connect(m_natTravModeChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestNextPage);
-    connect(m_natTravModeChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
+    connect(m_natTravModeChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentNatTravMod = data.value<QString>();
     });
 
-    connect(m_ikeDHGroupChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestNextPage);
-    connect(m_ikeDHGroupChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
+    connect(m_ikeDHGroupChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentIkeDHGroup = data.value<QString>();
     });
 
-    connect(m_forwordSecrecyChooser, &ComboBoxWidget::requestPage, this, &VpnAdvVPNCSection::requestNextPage);
-    connect(m_forwordSecrecyChooser, &ComboBoxWidget::dataChanged, this, [=](const QVariant &data) {
+    connect(m_forwordSecrecyChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentForwordSecrecy = data.value<QString>();
     });
 }

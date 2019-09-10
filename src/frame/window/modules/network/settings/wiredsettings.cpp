@@ -42,13 +42,13 @@ void WiredSettings::initSections()
 {
     GenericSection *genericSection = new GenericSection(m_connSettings);
     Secret8021xSection *secretSection = new SecretWiredSection(
-            m_connSettings->setting(Setting::Security8021x).staticCast<NetworkManager::Security8021xSetting>());
+        m_connSettings->setting(Setting::Security8021x).staticCast<NetworkManager::Security8021xSetting>());
     IpvxSection *ipv4Section = new IpvxSection(
-            m_connSettings->setting(Setting::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
+        m_connSettings->setting(Setting::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     IpvxSection *ipv6Section = new IpvxSection(
-            m_connSettings->setting(Setting::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
+        m_connSettings->setting(Setting::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
     EthernetSection *etherNetSection = new EthernetSection(
-            m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>());
+        m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>());
 
     connect(secretSection, &Secret8021xSection::requestNextPage, this, &WiredSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &WiredSettings::requestNextPage);

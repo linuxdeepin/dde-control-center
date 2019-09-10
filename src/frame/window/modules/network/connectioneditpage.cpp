@@ -38,12 +38,12 @@ using namespace NetworkManager;
 
 static QString DevicePath = "";
 
-dccV20::FrameProxyInterface* ConnectionEditPage::m_frame = nullptr;
+dccV20::FrameProxyInterface *ConnectionEditPage::m_frame = nullptr;
 
 ConnectionEditPage::ConnectionEditPage(ConnectionType connType,
                                        const QString &devPath,
                                        const QString &connUuid,
-                                       QWidget *      parent)
+                                       QWidget *parent)
     : ContentWidget(parent)
     , m_settingsLayout(new QVBoxLayout)
     , m_connection(nullptr)
@@ -143,20 +143,20 @@ void ConnectionEditPage::initSettingsWidget()
     }
 
     switch (m_connType) {
-        case NetworkManager::ConnectionSettings::ConnectionType::Wired: {
-            m_settingsWidget = new WiredSettings(m_connectionSettings, this);
-            break;
-        }
-        case NetworkManager::ConnectionSettings::ConnectionType::Wireless: {
-            m_settingsWidget = new WirelessSettings(m_connectionSettings, this);
-            break;
-        }
-        case NetworkManager::ConnectionSettings::ConnectionType::Pppoe: {
-            m_settingsWidget = new DslPppoeSettings(m_connectionSettings, this);
-            break;
-        }
-        default:
-            break;
+    case NetworkManager::ConnectionSettings::ConnectionType::Wired: {
+        m_settingsWidget = new WiredSettings(m_connectionSettings, this);
+        break;
+    }
+    case NetworkManager::ConnectionSettings::ConnectionType::Wireless: {
+        m_settingsWidget = new WirelessSettings(m_connectionSettings, this);
+        break;
+    }
+    case NetworkManager::ConnectionSettings::ConnectionType::Pppoe: {
+        m_settingsWidget = new DslPppoeSettings(m_connectionSettings, this);
+        break;
+    }
+    default:
+        break;
     }
 
     connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionEditPage::onRequestNextPage);
@@ -190,12 +190,12 @@ void ConnectionEditPage::initConnection()
         connect(this, &ConnectionEditPage::back, std::bind(&dccV20::FrameProxyInterface::popWidget, m_frame, nullptr));
     }
 
-    connect(m_removeBtn, &QPushButton::clicked, this, [=]() {
+    connect(m_removeBtn, &QPushButton::clicked, this, [ = ]() {
         m_connection->remove();
         Q_EMIT back();
     });
 
-    connect(m_disconnectBtn, &QPushButton::clicked, this, [=]() {
+    connect(m_disconnectBtn, &QPushButton::clicked, this, [ = ]() {
         deactivateConnection(m_disconnectBtn->property("activeConnectionPath").toString());
         Q_EMIT back();
     });
@@ -221,7 +221,7 @@ void ConnectionEditPage::setSecretsFromMapMap(NetworkManager::Setting::SettingTy
     setting->secretsFromMap(secretsMapMap.value(setting->name()));
 }
 
-void ConnectionEditPage::onRequestNextPage(dcc::ContentWidget * const page)
+void ConnectionEditPage::onRequestNextPage(dcc::ContentWidget *const page)
 {
     m_subPage = page;
 
@@ -234,45 +234,45 @@ void ConnectionEditPage::initConnectionSecrets()
     NMVariantMapMap sSecretsMapMap;
 
     switch (m_connType) {
-        case NetworkManager::ConnectionSettings::ConnectionType::Wired: {
+    case NetworkManager::ConnectionSettings::ConnectionType::Wired: {
+        sType = NetworkManager::Setting::SettingType::Security8021x;
+        if (!m_connectionSettings->setting(sType).staticCast<NetworkManager::Security8021xSetting>()->eapMethods().isEmpty()) {
+            sSecretsMapMap = secretsMapMapBySettingType(sType);
+            setSecretsFromMapMap<NetworkManager::Security8021xSetting>(sType, sSecretsMapMap);
+        }
+        break;
+    }
+    case NetworkManager::ConnectionSettings::ConnectionType::Wireless: {
+        sType = NetworkManager::Setting::SettingType::WirelessSecurity;
+
+        NetworkManager::WirelessSecuritySetting::KeyMgmt keyMgmt =
+            m_connectionSettings->setting(sType).staticCast<NetworkManager::WirelessSecuritySetting>()->keyMgmt();
+        if (keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone
+                || keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown) {
+            break;
+        }
+
+        if (keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap) {
             sType = NetworkManager::Setting::SettingType::Security8021x;
-            if (!m_connectionSettings->setting(sType).staticCast<NetworkManager::Security8021xSetting>()->eapMethods().isEmpty()) {
-                sSecretsMapMap = secretsMapMapBySettingType(sType);
-                setSecretsFromMapMap<NetworkManager::Security8021xSetting>(sType, sSecretsMapMap);
-            }
-            break;
         }
-        case NetworkManager::ConnectionSettings::ConnectionType::Wireless: {
-            sType = NetworkManager::Setting::SettingType::WirelessSecurity;
-
-            NetworkManager::WirelessSecuritySetting::KeyMgmt keyMgmt =
-                m_connectionSettings->setting(sType).staticCast<NetworkManager::WirelessSecuritySetting>()->keyMgmt();
-            if (keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone
-                    || keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown) {
-                break;
-            }
-
-            if (keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap) {
-                sType = NetworkManager::Setting::SettingType::Security8021x;
-            }
-            sSecretsMapMap = secretsMapMapBySettingType(sType);
-            setSecretsFromMapMap<NetworkManager::WirelessSecuritySetting>(sType, sSecretsMapMap);
-            break;
-        }
-        case NetworkManager::ConnectionSettings::ConnectionType::Vpn: {
-            sType = NetworkManager::Setting::SettingType::Vpn;
-            sSecretsMapMap = secretsMapMapBySettingType(sType);
-            setSecretsFromMapMap<NetworkManager::VpnSetting>(sType, sSecretsMapMap);
-            break;
-        }
-        case NetworkManager::ConnectionSettings::ConnectionType::Pppoe: {
-            sType = NetworkManager::Setting::SettingType::Pppoe;
-            sSecretsMapMap = secretsMapMapBySettingType(sType);
-            setSecretsFromMapMap<NetworkManager::PppoeSetting>(sType, sSecretsMapMap);
-            break;
-        }
-        default:
-            break;
+        sSecretsMapMap = secretsMapMapBySettingType(sType);
+        setSecretsFromMapMap<NetworkManager::WirelessSecuritySetting>(sType, sSecretsMapMap);
+        break;
+    }
+    case NetworkManager::ConnectionSettings::ConnectionType::Vpn: {
+        sType = NetworkManager::Setting::SettingType::Vpn;
+        sSecretsMapMap = secretsMapMapBySettingType(sType);
+        setSecretsFromMapMap<NetworkManager::VpnSetting>(sType, sSecretsMapMap);
+        break;
+    }
+    case NetworkManager::ConnectionSettings::ConnectionType::Pppoe: {
+        sType = NetworkManager::Setting::SettingType::Pppoe;
+        sSecretsMapMap = secretsMapMapBySettingType(sType);
+        setSecretsFromMapMap<NetworkManager::PppoeSetting>(sType, sSecretsMapMap);
+        break;
+    }
+    default:
+        break;
     }
 }
 
@@ -346,25 +346,25 @@ void ConnectionEditPage::updateConnection()
 void ConnectionEditPage::createConnSettings()
 {
     m_connectionSettings = QSharedPointer<NetworkManager::ConnectionSettings>(
-            new NetworkManager::ConnectionSettings(m_connType));
+                               new NetworkManager::ConnectionSettings(m_connType));
 
     // do not handle vpn name here
     QString connName;
     switch (m_connType) {
-        case NetworkManager::ConnectionSettings::ConnectionType::Wired: {
-            connName = tr("Wired Connection %1");
-            break;
-        }
-        case NetworkManager::ConnectionSettings::ConnectionType::Wireless: {
-            connName = tr("Wireless Connection %1");
-            break;
-        }
-        case NetworkManager::ConnectionSettings::ConnectionType::Pppoe: {
-            connName = tr("PPPoE Connection %1");
-            break;
-        }
-        default:
-            break;
+    case NetworkManager::ConnectionSettings::ConnectionType::Wired: {
+        connName = tr("Wired Connection %1");
+        break;
+    }
+    case NetworkManager::ConnectionSettings::ConnectionType::Wireless: {
+        connName = tr("Wireless Connection %1");
+        break;
+    }
+    case NetworkManager::ConnectionSettings::ConnectionType::Pppoe: {
+        connName = tr("PPPoE Connection %1");
+        break;
+    }
+    default:
+        break;
     }
 
     if (!connName.isEmpty()) {

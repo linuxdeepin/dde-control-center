@@ -46,9 +46,9 @@ VpnVPNCSection::VpnVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFram
     initStrMaps();
 
     m_currentPasswordType = (NetworkManager::Setting::SecretFlagType)m_dataMap
-        .value("Xauth password-flags", "0").toInt();
+                            .value("Xauth password-flags", "0").toInt();
     m_currentGroupPasswordType = (NetworkManager::Setting::SecretFlagType)m_dataMap
-        .value("IPSec secret-flags", "0").toInt();
+                                 .value("IPSec secret-flags", "0").toInt();
 
     initUI();
     initConnection();
@@ -230,7 +230,7 @@ void VpnVPNCSection::initConnection()
     connect(m_gateway->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
     connect(m_userName->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
     connect(m_password->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
-    connect(m_passwordFlagsChooser, &ComboxWidget::onSelectChanged, this, [=](const QString &dataSelected) {
+    connect(m_passwordFlagsChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &dataSelected) {
         for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
             if (it->first == dataSelected) {
                 onPasswordFlagsChanged(it->second);
@@ -239,7 +239,7 @@ void VpnVPNCSection::initConnection()
         }
     });
     connect(m_groupName->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
-    connect(m_groupPasswordFlagsChooser, &ComboxWidget::onSelectChanged, this, [=](const QString &dataSelected) {
+    connect(m_groupPasswordFlagsChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &dataSelected) {
         for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
             if (it->first == dataSelected) {
                 onGroupPasswordFlagsChanged(it->second);
@@ -248,7 +248,7 @@ void VpnVPNCSection::initConnection()
         }
     });
     connect(m_groupPassword->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
-    connect(m_userHybrid, &SwitchWidget::checkedChanged, this, [=](const bool checked) {
+    connect(m_userHybrid, &SwitchWidget::checkedChanged, this, [ = ](const bool checked) {
         m_caFile->setVisible(checked);
         allInputValid();
     });
@@ -259,11 +259,11 @@ void VpnVPNCSection::initConnection()
 void VpnVPNCSection::onPasswordFlagsChanged(NetworkManager::Setting::SecretFlagType type)
 {
     m_currentPasswordType = type;
-    m_password->setVisible(m_currentPasswordType ==NetworkManager::Setting::SecretFlagType::None);
+    m_password->setVisible(m_currentPasswordType == NetworkManager::Setting::SecretFlagType::None);
 }
 
 void VpnVPNCSection::onGroupPasswordFlagsChanged(NetworkManager::Setting::SecretFlagType type)
 {
     m_currentGroupPasswordType = type;
-    m_groupPassword->setVisible(m_currentGroupPasswordType ==NetworkManager::Setting::SecretFlagType::None);
+    m_groupPassword->setVisible(m_currentGroupPasswordType == NetworkManager::Setting::SecretFlagType::None);
 }

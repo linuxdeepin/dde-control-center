@@ -72,6 +72,9 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     setLayout(mainLayout);
 
     connect(m_switchComboBox, &QComboBox::currentTextChanged, this, &ComboxWidget::onSelectChanged);
+    connect(m_switchComboBox, &QComboBox::currentTextChanged, [this] {
+        Q_EMIT dataChanged(m_switchComboBox->currentData());
+    });
 }
 
 void ComboxWidget::setComboxOption(const QStringList &options)

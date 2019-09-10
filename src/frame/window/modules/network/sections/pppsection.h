@@ -25,7 +25,6 @@
 #include "abstractsection.h"
 #include "widgets/contentwidget.h"
 #include "widgets/switchwidget.h"
-#include "widgets/comboboxwidget.h"
 
 #include <networkmanagerqt/pppsetting.h>
 

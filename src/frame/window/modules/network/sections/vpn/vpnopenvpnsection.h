@@ -25,7 +25,7 @@
 #include "../abstractsection.h"
 #include "widgets/contentwidget.h"
 #include "widgets/lineeditwidget.h"
-#include "widgets/comboboxwidget.h"
+#include "widgets/comboxwidget.h"
 #include "widgets/filechoosewidget.h"
 
 #include <networkmanagerqt/vpnsetting.h>
@@ -67,15 +67,15 @@ private:
     void saveStaticKeyItems();
 
 private:
-    QMap<QString, QString> AuthTypeStrMap;
-    QMap<QString, NetworkManager::Setting::SecretFlagType> PasswordFlagsStrMap;
+    QList<QPair<QString, QString>> AuthTypeStrMap;
+    QList<QPair<QString, NetworkManager::Setting::SecretFlagType>> PasswordFlagsStrMap;
 
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
     NMStringMap m_secretMap;
 
     dcc::widgets::LineEditWidget *m_gateway;
-    dcc::widgets::ComboBoxWidget *m_authTypeChooser;
+    dcc::widgets::ComboxWidget *m_authTypeChooser;
     dcc::widgets::FileChooseWidget *m_caFile;
 
     QMap<QString, QList<dcc::widgets::SettingsItem *>> m_settingItemsMap;

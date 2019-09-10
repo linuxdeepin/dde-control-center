@@ -56,6 +56,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     , m_lvProfiles(new DListView())
 {
     m_lvProfiles->setModel(m_modelprofiles = new QStandardItemModel());
+    m_lvProfiles->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     TipsItem *tips = new TipsItem;
     tips->setFixedHeight(80);

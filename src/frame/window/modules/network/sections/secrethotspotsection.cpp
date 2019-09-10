@@ -36,18 +36,18 @@ static const QList<NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtList
 };
 
 SecretHotspotSection::SecretHotspotSection(NetworkManager::WirelessSecuritySetting::Ptr wsSeting, QFrame *parent)
-    : AbstractSection(parent),
-      m_keyMgmtChooser(new ComboxWidget(this)),
-      m_passwdEdit(new PasswdEditWidget(this)),
-      m_currentKeyMgmt(NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone),
-      m_wsSetting(wsSeting)
+    : AbstractSection(parent)
+    , m_keyMgmtChooser(new ComboxWidget(this))
+    , m_passwdEdit(new PasswdEditWidget(this))
+    , m_currentKeyMgmt(NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone)
+    , m_wsSetting(wsSeting)
 {
     initStrMaps();
 
     // init KeyMgmt
     const NetworkManager::WirelessSecuritySetting::KeyMgmt &keyMgmt = m_wsSetting->keyMgmt();
     m_currentKeyMgmt = (keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown) ?
-        NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone : keyMgmt;
+                       NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone : keyMgmt;
 
     initUI();
     initConnection();
@@ -65,7 +65,7 @@ bool SecretHotspotSection::allInputValid()
 
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
         valid = NetworkManager::wepKeyIsValid(m_passwdEdit->text(),
-                NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
+                                              NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
         m_passwdEdit->setIsErr(!valid);
     }
 
@@ -141,24 +141,24 @@ void SecretHotspotSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySett
     }
 
     switch (m_currentKeyMgmt) {
-        case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone: {
-            m_passwdEdit->setVisible(false);
-            break;
-        }
-        case NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep: {
-            m_passwdEdit->setText(m_wsSetting->wepKey0());
-            m_passwdEdit->setTitle(tr("Key"));
-            m_passwdEdit->setVisible(true);
-            break;
-        }
-        case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk: {
-            m_passwdEdit->setText(m_wsSetting->psk());
-            m_passwdEdit->setTitle(tr("Password"));
-            m_passwdEdit->setVisible(true);
-            break;
-        }
-        default:
-            break;
+    case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone: {
+        m_passwdEdit->setVisible(false);
+        break;
+    }
+    case NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep: {
+        m_passwdEdit->setText(m_wsSetting->wepKey0());
+        m_passwdEdit->setTitle(tr("Key"));
+        m_passwdEdit->setVisible(true);
+        break;
+    }
+    case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk: {
+        m_passwdEdit->setText(m_wsSetting->psk());
+        m_passwdEdit->setTitle(tr("Password"));
+        m_passwdEdit->setVisible(true);
+        break;
+    }
+    default:
+        break;
     }
 
     if (m_userInputPasswordMap.contains(m_currentKeyMgmt)) {

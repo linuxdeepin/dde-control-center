@@ -28,10 +28,10 @@ using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
 
 GenericSection::GenericSection(NetworkManager::ConnectionSettings::Ptr connSettings, QFrame *parent)
-    : AbstractSection(tr("General"), parent),
-      m_connIdItem(new LineEditWidget(this)),
-      m_autoConnItem(new SwitchWidget(this)),
-      m_connSettings(connSettings)
+    : AbstractSection(tr("General"), parent)
+    , m_connIdItem(new LineEditWidget(this))
+    , m_autoConnItem(new SwitchWidget(this))
+    , m_connSettings(connSettings)
 {
     initUI();
 }

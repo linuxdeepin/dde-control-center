@@ -44,17 +44,17 @@ void WirelessSettings::initSections()
     genericSection->setConnectionNameEditable(false);
 
     SecretWirelessSection *secretSection = new SecretWirelessSection(
-            m_connSettings->setting(Setting::SettingType::WirelessSecurity).staticCast<NetworkManager::WirelessSecuritySetting>(),
-            m_connSettings->setting(Setting::SettingType::Security8021x).staticCast<NetworkManager::Security8021xSetting>());
+        m_connSettings->setting(Setting::SettingType::WirelessSecurity).staticCast<NetworkManager::WirelessSecuritySetting>(),
+        m_connSettings->setting(Setting::SettingType::Security8021x).staticCast<NetworkManager::Security8021xSetting>());
 
     IpvxSection *ipv4Section = new IpvxSection(
-            m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
+        m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
 
     IpvxSection *ipv6Section = new IpvxSection(
-            m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
-    
+        m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
+
     WirelessSection *wirelessSection = new WirelessSection(
-            m_connSettings->setting(Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>());
+        m_connSettings->setting(Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>());
     // we need enable ssid text edit since it is a hidden wifi edit page if ssid is empty
     if (!wirelessSection->ssid().isEmpty()) {
         wirelessSection->setSsidEditable(false);

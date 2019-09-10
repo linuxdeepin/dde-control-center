@@ -32,9 +32,9 @@ using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
 
 AbstractSettings::AbstractSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent)
-    : QWidget(parent),
-      m_connSettings(connSettings),
-      m_sectionsLayout(new QVBoxLayout)
+    : QWidget(parent)
+    , m_connSettings(connSettings)
+    , m_sectionsLayout(new QVBoxLayout)
 {
     m_sectionsLayout->setSpacing(10);
     m_sectionsLayout->setMargin(0);

@@ -127,6 +127,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 {
     qRegisterMetaType<APSortInfo>();
     m_lvAP->setModel(m_modelAP);
+    m_lvAP->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_modelAP->setSortRole(APItem::SortRole);
     m_sortDelayTimer->setInterval(100);
     m_sortDelayTimer->setSingleShot(true);

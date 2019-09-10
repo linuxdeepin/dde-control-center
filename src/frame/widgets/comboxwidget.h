@@ -49,6 +49,7 @@ public:
 
 Q_SIGNALS:
     void onSelectChanged(const QString &selected);
+    void dataChanged(const QVariant &data);
     void clicked();
 
 protected:

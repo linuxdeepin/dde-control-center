@@ -119,7 +119,9 @@ void ChainsProxyPage::setModel(NetworkModel *model)
 
     connect(model, &NetworkModel::chainsTypeChanged, m_proxyType->comboBox(), &QComboBox::setCurrentText);
     connect(model, &NetworkModel::chainsAddrChanged, m_addr, &LineEditWidget::setText);
-    connect(model, &NetworkModel::chainsPortChanged, this, [=](const uint port) { m_port->setText(QString::number(port)); });
+    connect(model, &NetworkModel::chainsPortChanged, this, [ = ](const uint port) {
+        m_port->setText(QString::number(port));
+    });
     connect(model, &NetworkModel::chainsUsernameChanged, m_username, &LineEditWidget::setText);
     connect(model, &NetworkModel::chainsPasswdChanged, m_password, &LineEditWidget::setText);
 
