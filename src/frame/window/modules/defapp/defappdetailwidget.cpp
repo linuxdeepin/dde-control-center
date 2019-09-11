@@ -26,6 +26,7 @@
 
 #include <DFloatingButton>
 #include <DListView>
+#include <DStyle>
 
 #include <QLabel>
 #include <QVBoxLayout>
@@ -65,7 +66,6 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     m_defApps->setMovement(QListView::Static);
     m_defApps->setSelectionMode(QListView::SingleSelection);
     m_defApps->setFrameShape(QFrame::NoFrame);
-    m_defApps->setMinimumWidth(500);
     m_defApps->setModel(m_model);
 
     m_addBtn->setMinimumSize(47, 47);
@@ -186,11 +186,11 @@ void DefappDetailWidget::updateListView(const dcc::defapp::App &defaultApp) {
                 continue;
 
             DViewItemActionList btnActList;
-            int iconSize = style()->pixelMetric(QStyle::PM_SmallIconSize, nullptr, this);
-            DViewItemAction *delAction = new DViewItemAction(Qt::AlignVCenter|Qt::AlignRight, QSize(iconSize, iconSize),
-                                                             QSize(iconSize, iconSize), true);
+            QSize size(style()->pixelMetric(QStyle::PM_SmallIconSize, nullptr, this),
+                                     style()->pixelMetric(QStyle::PM_SmallIconSize, nullptr, this));
+            DViewItemAction *delAction = new DViewItemAction(Qt::AlignVCenter | Qt::AlignRight, size, size, true);
 
-            delAction->setIcon(QIcon::fromTheme("dcc_button_tab_close"));
+            delAction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_CloseButton, nullptr, this));
             connect(delAction, &QAction::triggered, this, &DefappDetailWidget::onDelBtnClicked);
             btnActList << delAction;
             modelItem->setActionList(Qt::RightEdge, btnActList);
