@@ -36,12 +36,14 @@
 #include <QFileInfo>
 #include <QFileInfoList>
 
+DWIDGET_USE_NAMESPACE
+using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
 
 AvatarListWidget::AvatarListWidget(QWidget *parent)
     : QWidget(parent)
     , m_mainContentLayout(new QVBoxLayout())
-    , m_avatarListView(new QListView())
+    , m_avatarListView(new DListView())
     , m_avatarItemModel(new QStandardItemModel())
     , m_avatarItemDelegate(new AvatarItemDelegate())
     , m_prevSelectIndex(-1)
@@ -58,9 +60,7 @@ void AvatarListWidget::initWidgets()
     m_avatarListView->setViewMode(QListView::IconMode);
     m_avatarListView->setDragDropMode(QAbstractItemView::NoDragDrop);
     m_avatarListView->setDragEnabled(false);
-    m_avatarListView->setFlow(QListView::LeftToRight);
     m_avatarListView->setWordWrap(true);
-    m_avatarListView->setWrapping(true);
     m_avatarListView->setSpacing(15);
     m_avatarListView->setResizeMode(QListView::Adjust);
     m_avatarListView->setFrameShape(QFrame::NoFrame);
@@ -86,9 +86,31 @@ void AvatarListWidget::setUserModel(dcc::accounts::User *user)
     m_curUser = user;
 }
 
+void AvatarListWidget::setCurrentAvatarChecked(const QString &avatar)
+{
+    QString currentAvatar;
+    if (avatar.startsWith("file://")) {
+        currentAvatar = QUrl(avatar).toLocalFile();
+    }
+    for (int i = 0; i< m_avatarItemModel->rowCount(); ++i) {
+        QString itemAvatar = m_avatarItemModel->index(i, 0).data(AvatarListWidget::SaveAvatarRole).value<QString>();
+        if (!currentAvatar.isEmpty() && !itemAvatar.isEmpty() && currentAvatar == itemAvatar) {
+            if (m_prevSelectIndex != -1) {
+                m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
+            }
+            m_prevSelectIndex = i;
+            m_avatarItemModel->item(i)->setCheckState(Qt::Checked);
+            break;
+        }
+    }
+}
+
 void AvatarListWidget::onItemClicked(const QModelIndex &index)
 {
     if (index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().isDrawLast == true) {
+        if (m_prevSelectIndex != -1) {
+            m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
+        }
         Q_EMIT requestAddNewAvatar(m_curUser);
         m_avatarItemModel->removeRow(index.row());
         addLastItem();
@@ -120,6 +142,7 @@ void AvatarListWidget::addItemFromDefaultDir()
         m_iconpathList.push_back(iconpath);
         QStandardItem *item = new QStandardItem();
         item->setData(QVariant::fromValue(QPixmap(iconpath)), Qt::DecorationRole);
+        item->setData(QVariant::fromValue(iconpath), AvatarListWidget::SaveAvatarRole);
         m_avatarItemModel->appendRow(item);
     }
 }

@@ -32,7 +32,7 @@
 #include <QPixmap>
 #include <QPen>
 #include <QSize>
-#include <QPoint>
+#include <QRect>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE::accounts;
@@ -40,7 +40,6 @@ using namespace DCC_NAMESPACE::accounts;
 AvatarItemDelegate::AvatarItemDelegate(QObject *parent)
     : QStyledItemDelegate(parent)
 {
-
 }
 
 void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -60,6 +59,17 @@ void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
             painter->setPen(QPen(option.palette.highlight(), borderWidth));
             painter->setBrush(Qt::NoBrush);
             painter->drawEllipse(option.rect.adjusted(1, 1, -1, -1));
+
+            //在中间绘制选中小图标
+            QStyleOptionViewItem opt(option);
+            initStyleOption(&opt, index);
+            int radius = 8;
+            int cx = option.rect.marginsRemoved(margins).center().x();
+            int cy = option.rect.marginsRemoved(margins).center().y();
+            QRect crect(QPoint(cx - radius, cy - radius), QPoint(cx + radius, cy + radius));
+            opt.rect = crect;
+            opt.state |= QStyle::State_On;
+            option.widget->style()->drawPrimitive(DStyle::PE_IndicatorItemViewItemCheck, &opt, painter, nullptr);
             return;
         }
         // draw + in the end

@@ -192,7 +192,10 @@ void AccountsDetailWidget::initDatas()
         m_mainStackedWidget->setCurrentIndex(0);
         setFingerWgtsVisible(m_model->isVaild());
     });
-    connect(m_curUser, &User::currentAvatarChanged, m_avatar, &AvatarWidget::setAvatarPath);
+    connect(m_curUser, &User::currentAvatarChanged, this, [ = ](const QString & avatar) {
+        m_avatar->setAvatarPath(avatar);
+        m_avatarListWidget->setCurrentAvatarChecked(avatar);
+    });
     connect(m_curUser, &User::nameChanged, m_shortName, &QLabel::setText);
     connect(m_curUser, &User::fullnameChanged, m_fullName, &QLabel::setText);
     connect(m_fullnameBtn, &DIconButton::clicked, this, [ = ]() {
@@ -214,6 +217,7 @@ void AccountsDetailWidget::initDatas()
     });
 
     m_avatar->setAvatarPath(m_curUser->currentAvatar());
+    m_avatarListWidget->setCurrentAvatarChecked(m_curUser->currentAvatar());
     m_shortName->setText(m_curUser->name());
     m_fullName->setText(m_curUser->fullname());
 

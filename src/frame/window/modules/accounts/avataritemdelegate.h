@@ -19,8 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef AVATARITEMDELEGATE_H
-#define AVATARITEMDELEGATE_H
+#pragma once
 
 #include "window/namespace.h"
 
@@ -60,5 +59,3 @@ public:
 
 }
 }
-
-#endif // AVATARITEMDELEGATE_H

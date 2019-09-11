@@ -24,7 +24,10 @@
 #include "window/namespace.h"
 #include "modules/accounts/user.h"
 
+#include <DStyle>
 #include <DStyleOption>
+#include <DIconButton>
+#include <DListView>
 
 #include <QWidget>
 
@@ -47,9 +50,11 @@ public:
     void initWidgets();
     void initDatas();
     void setUserModel(dcc::accounts::User *user);
+    void setCurrentAvatarChecked(const QString &avatar);
 
     enum ItemRole {
         AddAvatarRole = Dtk::UserRole + 1,
+        SaveAvatarRole,
     };
 
     void addItemFromDefaultDir();
@@ -65,7 +70,7 @@ public Q_SLOTS:
 private:
     dcc::accounts::User *m_curUser;
     QVBoxLayout *m_mainContentLayout;
-    QListView *m_avatarListView;
+    DTK_WIDGET_NAMESPACE::DListView *m_avatarListView;
     QStandardItemModel *m_avatarItemModel;
     AvatarItemDelegate *m_avatarItemDelegate;
     QList<QString> m_iconpathList;
