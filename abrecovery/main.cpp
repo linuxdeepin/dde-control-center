@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     a.setQuitOnLastWindowClosed(false);
 
     QTranslator translator;
-    translator.load("/usr/share/dde-control-center/translations/abrecovery_" + QLocale::system().name());
+    translator.load("/usr/local/share/dde-control-center/translations/recovery_" + QLocale::system().name());
     a.installTranslator(&translator);
 
     Manage *recovery = new Manage;
