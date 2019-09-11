@@ -88,6 +88,7 @@ private:
     void refreshFontByType(const QString &type);
     void refreshOpacity(double opacity);
     void refreshActiveColor(const QString &color);
+    bool allowSwitchWM();
 
     template<typename T>
     T toSliderValue(std::vector<T> list, T value);

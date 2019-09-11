@@ -320,6 +320,19 @@ void PersonalizationWork::refreshActiveColor(const QString &color)
     m_model->setActiveColor(color);
 }
 
+bool PersonalizationWork::allowSwitchWM()
+{
+    QDBusPendingReply<bool> reply  = m_wmSwitcher->AllowSwitch();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=](QDBusPendingCallWatcher *w) {
+        if (w->isError())
+            qDebug() << watcher->error();
+        watcher->deleteLater();
+    });
+    return reply.value();
+}
+
 void PersonalizationWork::refreshOpacity(double opacity)
 {
     int slider { toSliderValue<int>(OPACITY_SLIDER, static_cast<int>(opacity * 100)) };
@@ -408,6 +421,11 @@ void PersonalizationWork::setFontSize(const int value)
 
 void PersonalizationWork::switchWM()
 {
+    //check is allowed to switch wm
+    bool allow = allowSwitchWM();
+    if (!allow)
+        return;
+
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_wmSwitcher->RequestSwitchWM(), this);
 
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
