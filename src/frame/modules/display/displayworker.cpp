@@ -431,7 +431,7 @@ void DisplayWorker::setNightMode(const bool nightmode)
                    .arg(serverCmd)
                    .arg(cmd));
 
-    m_model->setRedshiftSetting(true);
+    m_model->setRedshiftSetting(nightmode);
 }
 
 //void DisplayWorker::loadRotations(Monitor * const mon)
