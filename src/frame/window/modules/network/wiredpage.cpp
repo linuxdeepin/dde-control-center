@@ -32,7 +32,6 @@
 #include "widgets/nextpagewidget.h"
 #include "widgets/tipsitem.h"
 
-#include <DHiDPIHelper>
 #include <DStyleOption>
 
 #include <networkmodel.h>
@@ -67,7 +66,8 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 
     m_switch->setTitle(tr("Wired Network Adapter"));
     m_switch->setChecked(dev->enabled());
-    connect(m_switch, &SwitchWidget::checkedChanged, this, std::bind(&WiredPage::requestDeviceEnabled, this, dev->path(), std::placeholders::_1));
+    connect(m_switch, &SwitchWidget::checkedChanged, this,
+            std::bind(&WiredPage::requestDeviceEnabled, this, dev->path(), std::placeholders::_1));
     connect(m_device, &NetworkDevice::enableChanged, m_switch, &SwitchWidget::setChecked);
 
     m_createBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement);
@@ -202,7 +202,8 @@ void WiredPage::checkActivatedConnection()
 {
     for (auto it(m_connectionPath.cbegin()); it != m_connectionPath.cend(); ++it) {
         if (it.value() == m_device->activeWiredConnSettingPath()) {
-            it.key()->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));
+            // it.key()->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));
+            it.key()->setIcon(QIcon::fromTheme("dcc_select").pixmap(QSize(16,16)));
         } else {
             it.key()->clearValue();
         }

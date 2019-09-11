@@ -25,13 +25,14 @@
  */
 
 #include "wirelesspage.h"
-#include "accesspointwidget.h"
 #include "connectionwirelesseditpage.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/switchwidget.h"
 #include "widgets/translucentframe.h"
 #include "widgets/tipsitem.h"
 
+#include <DStyle>
+#include <DStyleHelper>
 #include <networkmodel.h>
 #include <wirelessdevice.h>
 
@@ -43,23 +44,43 @@
 #include <QPushButton>
 #include <DDBusSender>
 #include <QJsonDocument>
-#include <DHiDPIHelper>
 #include <QJsonObject>
 #include <QStandardItem>
 #include <QStandardItemModel>
 
+DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
 using namespace dde::network;
 
-APItem::APItem(const QString &text) : DStandardItem(text)
+APItem::APItem(const QString &text, QStyle *style)
+    : DStandardItem(text)
 {
     setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
     setCheckable(true);
 
-    DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
-    editaction->setIcon(QIcon::fromTheme("arrow-right"));
-    setActionList(Qt::Edge::RightEdge, {editaction});
+    DStyleHelper dstyle(style);
+    m_secureAction = new DViewItemAction(Qt::AlignCenter, QSize(11, 11), QSize(), false);
+    m_secureAction->setIcon(dstyle.standardIcon(DStyle::SP_LockElement, nullptr, nullptr));
+    m_secureAction->setVisible(false);
+    setActionList(Qt::Edge::LeftEdge, { m_secureAction });
+
+    DViewItemAction *editAction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
+    editAction->setIcon(QIcon::fromTheme("arrow-right"));
+    setActionList(Qt::Edge::RightEdge, { editAction });
+}
+
+void APItem::setSecure(bool isSecure)
+{
+    if (m_secureAction) {
+        m_secureAction->setVisible(isSecure);
+    }
+    setData(isSecure, SecureRole);
+}
+
+bool APItem::secure() const
+{
+    return data(SecureRole).toBool();
 }
 
 void APItem::setSignalStrength(int ss)
@@ -68,12 +89,7 @@ void APItem::setSignalStrength(int ss)
         setIcon(QPixmap());
         return;
     }
-    //TODO: move icon resources to their new location
-    QPixmap pm = DHiDPIHelper::loadNxPixmap(QString(":/network/themes/dark/icons/wireless/wireless-%1-symbolic.svg").arg(ss / 10 & ~1));
-    QImage im = pm.toImage();
-    im.invertPixels();
-    pm = QPixmap::fromImage(im);
-    setIcon(pm);
+    setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(ss / 10 & ~1)));
     APSortInfo si = data(SortRole).value<APSortInfo>();
     si.signalstrength = ss;
     setData(QVariant::fromValue(si), SortRole);
@@ -94,9 +110,9 @@ void APItem::setSortInfo(const APSortInfo &si)
     setData(QVariant::fromValue(si), SortRole);
 }
 
-void APItem::setPath(const QString &p)
+void APItem::setPath(const QString &path)
 {
-    setData(p, PathRole);
+    setData(path, PathRole);
 }
 
 QString APItem::path() const
@@ -135,7 +151,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_indicatorDelayTimer->setInterval(300);
     m_indicatorDelayTimer->setSingleShot(true);
 
-    APItem *nonbc = new APItem(tr("Connect to hidden network"));
+    APItem *nonbc = new APItem(tr("Connect to hidden network"), style());
     nonbc->setSignalStrength(-1);
     nonbc->setPath("");
     nonbc->setSortInfo({-1, "", false});
@@ -143,7 +159,8 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     m_switch->setTitle(tr("Wireless Network Adapter"));
     m_switch->setChecked(dev->enabled());
-    connect(m_switch, &SwitchWidget::checkedChanged, this, std::bind(&WirelessPage::requestDeviceEnabled, this, dev->path(), std::placeholders::_1));
+    connect(m_switch, &SwitchWidget::checkedChanged, this,
+            std::bind(&WirelessPage::requestDeviceEnabled, this, dev->path(), std::placeholders::_1));
     connect(m_device, &NetworkDevice::enableChanged, m_switch, &SwitchWidget::setChecked);
 
     m_closeHotspotBtn->setText(tr("Close Hotspot"));
@@ -225,15 +242,16 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
     const QString &ssid = apInfo.value("Ssid").toString();
 
     if (!m_apItems.contains(ssid)) {
-        APItem *i = new APItem(ssid);
-        m_apItems[ssid] = i;
-        m_modelAP->appendRow(i);
-        i->setPath(apInfo.value("Path").toString());
-        i->setConnected(ssid == m_device->activeApSsid());
-        i->setSignalStrength(apInfo.value("Strength").toInt());
-        connect(i->action(), &QAction::triggered, [this, i] {
-            this->onApWidgetEditRequested(i->data(APItem::PathRole).toString(),
-                                          i->data(Qt::ItemDataRole::DisplayRole).toString());
+        APItem *apItem = new APItem(ssid, style());
+        m_apItems[ssid] = apItem;
+        m_modelAP->appendRow(apItem);
+        apItem->setSecure(apInfo.value("Secured").toBool());
+        apItem->setPath(apInfo.value("Path").toString());
+        apItem->setConnected(ssid == m_device->activeApSsid());
+        apItem->setSignalStrength(apInfo.value("Strength").toInt());
+        connect(apItem->action(), &QAction::triggered, [this, apItem] {
+            this->onApWidgetEditRequested(apItem->data(APItem::PathRole).toString(),
+                                          apItem->data(Qt::ItemDataRole::DisplayRole).toString());
         });
     }
 
@@ -248,6 +266,7 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 
     const QString &path = apInfo.value("Path").toString();
     const int strength = apInfo.value("Strength").toInt();
+    const bool isSecure = apInfo.value("Secured").toBool();
 
     APItem *it = m_apItems[ssid];
     APSortInfo si{strength, ssid, ssid == m_device->activeApSsid()};

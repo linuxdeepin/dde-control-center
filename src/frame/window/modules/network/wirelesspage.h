@@ -79,17 +79,25 @@ struct APSortInfo {
 class APItem : public DStandardItem
 {
 public:
-    explicit APItem(const QString &text);
+    explicit APItem(const QString &text, QStyle *style);
+    void setSecure(bool isSecure);
+    bool secure() const;
     void setSignalStrength(int ss);
     int signalStrength() const;
     void setConnected(bool connected);
     void setSortInfo(const APSortInfo &si);
-    void setPath(const QString &p);
+    void setPath(const QString &path);
     QString path() const;
     QAction *action() const;
     bool operator<(const QStandardItem &other) const override;
-    static const int SortRole = Dtk::UserRole + 0x100;
-    static const int PathRole = Dtk::UserRole + 0x101;
+public:
+    enum {
+        SortRole = Dtk::UserRole + 1,
+        PathRole ,
+        SecureRole
+    };
+private:
+    DViewItemAction *m_secureAction;
 };
 
 class WirelessPage : public dcc::ContentWidget

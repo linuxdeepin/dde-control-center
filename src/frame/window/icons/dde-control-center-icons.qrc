@@ -101,5 +101,12 @@
         <file>texts/dcc_sync_ok_16px.svg</file>
         <file>texts/dcc_syncing_16px.svg</file>
         <file>texts/dcc_update_32px.svg</file>
+        <file>texts/dcc_wireless-8_16px.svg</file>
+        <file>texts/dcc_wireless-4_16px.svg</file>
+        <file>texts/dcc_wireless-0_16px.svg</file>
+        <file>texts/dcc_wireless-10_16px.svg</file>
+        <file>texts/dcc_wireless-2_16px.svg</file>
+        <file>texts/dcc_wireless-6_16px.svg</file>
+        <file>texts/dcc_reset_16px.svg</file>
     </qresource>
 </RCC>

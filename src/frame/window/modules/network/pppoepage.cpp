@@ -34,9 +34,8 @@
 
 #include <networkmodel.h>
 #include <wireddevice.h>
-
 #include <DFloatingButton>
-#include <DHiDPIHelper>
+
 #include <QPushButton>
 #include <QDebug>
 #include <QVBoxLayout>
