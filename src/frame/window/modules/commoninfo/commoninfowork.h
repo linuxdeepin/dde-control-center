@@ -48,8 +48,6 @@ public:
 
     void loadGrubSettings();
     bool defaultUeProgram();
-Q_SIGNALS:
-    void requestSetAutoHideDCC(const bool visible) const;
 
 public Q_SLOTS:
     void setBootDelay(bool value);

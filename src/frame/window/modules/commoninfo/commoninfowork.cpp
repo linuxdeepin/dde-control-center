@@ -92,8 +92,6 @@ bool CommonInfoWork::defaultUeProgram()
 
 void CommonInfoWork::setBootDelay(bool value)
 {
-    Q_EMIT requestSetAutoHideDCC(false);
-
     QDBusPendingCall call = m_dBusGrub->SetTimeout(value ? 5 : 1);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
@@ -101,15 +99,12 @@ void CommonInfoWork::setBootDelay(bool value)
             Q_EMIT m_commomModel->bootDelayChanged(m_commomModel->bootDelay());
         }
 
-        Q_EMIT requestSetAutoHideDCC(true);
         w->deleteLater();
     });
 }
 
 void CommonInfoWork::setEnableTheme(bool value)
 {
-    Q_EMIT requestSetAutoHideDCC(false);
-
     QDBusPendingCall call = m_dBusGrub->SetEnableTheme(value);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
@@ -117,15 +112,12 @@ void CommonInfoWork::setEnableTheme(bool value)
             Q_EMIT m_commomModel->themeEnabledChanged(m_commomModel->themeEnabled());
         }
 
-        Q_EMIT requestSetAutoHideDCC(true);
         w->deleteLater();
     });
 }
 
 void CommonInfoWork::setDefaultEntry(const QString &entry)
 {
-    Q_EMIT requestSetAutoHideDCC(false);
-
     QDBusPendingCall call = m_dBusGrub->SetDefaultEntry(entry);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
@@ -133,7 +125,6 @@ void CommonInfoWork::setDefaultEntry(const QString &entry)
             Q_EMIT m_commomModel->defaultEntryChanged(m_commomModel->defaultEntry());
         }
 
-        Q_EMIT requestSetAutoHideDCC(true);
         w->deleteLater();
     });
 }
@@ -158,12 +149,9 @@ void CommonInfoWork::onBackgroundChanged()
 
 void CommonInfoWork::setBackground(const QString &path)
 {
-    Q_EMIT requestSetAutoHideDCC(false);
-
     QDBusPendingCall call = m_dBusGrubTheme->SetBackgroundSourceFile(path);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
-        Q_EMIT requestSetAutoHideDCC(true);
 
         if (w->isError()) {
             onBackgroundChanged();
