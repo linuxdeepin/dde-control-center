@@ -79,6 +79,7 @@ void DatetimeWidget::init()
 
     //default open 24 hour type : set hourTypeSwitch(true) , then set ClockItem TimeHourType
     m_hourTypeSwitch = new SwitchWidget(tr("24-hour Time"));
+    m_hourTypeSwitch->addBackground();
     m_clockItem->setTimeHourType(m_hourTypeSwitch->checked());
 
     QVBoxLayout *layout = new QVBoxLayout;

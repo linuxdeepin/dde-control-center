@@ -28,17 +28,22 @@ using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
 
+DWIDGET_USE_NAMESPACE
+
 DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
-    : SettingsItem(parent),
-      m_type(type),
-      m_minimum(minimum),
-      m_maximum(maximum),
-      m_lineEdit(new QLineEdit),
-      m_label(new NormalLabel),
-      m_addBtn(new DImageButton),
-      m_reducedBtn(new DImageButton)
+    : SettingsItem(parent)
+    , m_type(type)
+    , m_minimum(minimum)
+    , m_maximum(maximum)
+    , m_lineEdit(new QLineEdit)
+    , m_label(new NormalLabel)
+    , m_addBtn(new DIconButton(this))
+    , m_reducedBtn(new DIconButton(this))
 {
     setFixedHeight(36);
+
+    m_addBtn->setIcon(DStyle::StandardPixmap::SP_IncreaseElement);
+    m_reducedBtn->setIcon(DStyle::StandardPixmap::SP_DecreaseElement);
 
     m_lineEdit->setContextMenuPolicy(Qt::NoContextMenu);
     m_lineEdit->setObjectName("DCC-Datetime-QLineEdit");
@@ -49,14 +54,6 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
     m_label->move(0, 0);
     m_addBtn->setParent(m_lineEdit);
     m_reducedBtn->setParent(m_lineEdit);
-
-    m_addBtn->setNormalPic(":/datetime/themes/light/icons/add_normal.png");
-    m_addBtn->setHoverPic(":/datetime/themes/light/icons/add_hover.png");
-    m_addBtn->setPressPic(":/datetime/themes/light/icons/add_press.png");
-
-    m_reducedBtn->setNormalPic(":/datetime/themes/light/icons/reduce_normal.png");
-    m_reducedBtn->setHoverPic(":/datetime/themes/light/icons/reduce_hover.png");
-    m_reducedBtn->setPressPic(":/datetime/themes/light/icons/reduce_press.png");
 
     if (m_type == Year) {
         //~ contents_path /datetime/Time Settings
@@ -99,8 +96,8 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
     layout->addLayout(rLayout);
     setLayout(layout);
 
-    connect(m_addBtn, &DImageButton::clicked, this, &DateWidget::slotAdd);
-    connect(m_reducedBtn, &DImageButton::clicked, this, &DateWidget::slotReduced);
+    connect(m_addBtn, &DIconButton::clicked, this, &DateWidget::slotAdd);
+    connect(m_reducedBtn, &DIconButton::clicked, this, &DateWidget::slotReduced);
 
     connect(m_lineEdit, &QLineEdit::editingFinished, [this] {
         fixup();

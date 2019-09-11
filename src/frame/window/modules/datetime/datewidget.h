@@ -23,13 +23,11 @@
 #include "window/namespace.h"
 #include "widgets/settingsitem.h"
 
+#include <DIconButton>
+
 #include <QObject>
 #include <QLineEdit>
 #include <QEvent>
-
-#include <dimagebutton.h>
-
-DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace widgets {
@@ -77,8 +75,8 @@ private:
     int m_maximum;
     QLineEdit *m_lineEdit;
     dcc::widgets::NormalLabel *m_label;
-    DImageButton *m_addBtn;
-    DImageButton *m_reducedBtn;
+    DTK_WIDGET_NAMESPACE::DIconButton *m_addBtn;
+    DTK_WIDGET_NAMESPACE::DIconButton *m_reducedBtn;
 };
 
 }// namespace datetime

@@ -111,6 +111,8 @@ DateSettings::DateSettings(QWidget *parent)
     m_timeMinWidget = createDSpinBox(this, 0, 59);
     m_timeHourWidget->setValue(time.hour());
     m_timeMinWidget->setValue(time.minute());
+    m_timeHourWidget->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    m_timeMinWidget->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
     SettingsItem *timeItem = new SettingsItem;
     QHBoxLayout *timeLayout = new QHBoxLayout;
@@ -299,6 +301,16 @@ QSpinBox *DateSettings::createDSpinBox(QWidget *parent, int min, int max)
     spinBox->setSingleStep(1);
     spinBox->setWrapping(true);
     spinBox->setValue(0);
+
+    DIconButton *btnUp = new DIconButton(spinBox);
+    DIconButton *btnDown = new DIconButton(spinBox);
+    btnUp->setIcon(DStyle::SP_ArrowUp);
+    btnDown->setIcon(DStyle::SP_ArrowDown);
+    btnUp->move(57, 3);
+    btnDown->move(57, 28);
+
+    connect(btnUp, &DIconButton::clicked, spinBox, &QSpinBox::stepUp);
+    connect(btnDown, &DIconButton::clicked, spinBox, &QSpinBox::stepDown);
 
     return spinBox;
 }
