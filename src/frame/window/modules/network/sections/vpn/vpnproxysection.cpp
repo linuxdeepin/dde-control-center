@@ -20,6 +20,11 @@
  */
 
 #include "vpnproxysection.h"
+#include "widgets/contentwidget.h"
+#include "widgets/lineeditwidget.h"
+#include "widgets/comboxwidget.h"
+#include "widgets/spinboxwidget.h"
+#include "widgets/switchwidget.h"
 
 #include <dspinbox.h>
 
@@ -37,7 +42,7 @@ VpnProxySection::VpnProxySection(NetworkManager::VpnSetting::Ptr vpnSetting, QFr
     , m_port(new SpinBoxWidget(this))
     , m_retry(new SwitchWidget(this))
     , m_userName(new LineEditWidget(this))
-    , m_password(new PasswdEditWidget(this))
+    , m_password(new LineEditWidget(true, this))
 {
     m_dataMap = vpnSetting->data();
     m_secretMap = vpnSetting->secrets();

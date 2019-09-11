@@ -25,7 +25,6 @@
 #include "abstractsection.h"
 #include "widgets/contentwidget.h"
 #include "widgets/lineeditwidget.h"
-#include "widgets/passwdeditwidget.h"
 
 #include <networkmanagerqt/pppoesetting.h>
 

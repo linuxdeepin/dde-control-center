@@ -35,7 +35,7 @@ Secret8021xSection::Secret8021xSection(NetworkManager::Security8021xSetting::Ptr
     , m_eapMethmodChooser(new ComboxWidget(this))
     , m_passwordFlagsChooser(new ComboxWidget(this))
     , m_identity(new LineEditWidget(this))
-    , m_password(new PasswdEditWidget(this))
+    , m_password(new LineEditWidget(true, this))
     , m_enableWatcher(nullptr)
     , m_currentPasswordType(NetworkManager::Setting::None)
     , m_secretSetting(sSetting)

@@ -25,7 +25,6 @@
 #include "abstractsection.h"
 #include "widgets/comboxwidget.h"
 #include "widgets/lineeditwidget.h"
-#include "widgets/passwdeditwidget.h"
 
 #include <networkmanagerqt/security8021xsetting.h>
 
@@ -113,7 +112,7 @@ private:
     dcc::widgets::ComboxWidget *m_eapMethmodChooser;
     dcc::widgets::ComboxWidget *m_passwordFlagsChooser;
     dcc::widgets::LineEditWidget *m_identity;
-    dcc::widgets::PasswdEditWidget *m_password;
+    dcc::widgets::LineEditWidget *m_password;
     Secret8021xEnableWatcher *m_enableWatcher;
 
     NetworkManager::Security8021xSetting::EapMethod m_currentEapMethod;

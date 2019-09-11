@@ -27,7 +27,6 @@
 #include "widgets/lineeditwidget.h"
 #include "widgets/filechoosewidget.h"
 #include "widgets/comboxwidget.h"
-#include "widgets/passwdeditwidget.h"
 #include "widgets/switchwidget.h"
 
 #include <networkmanagerqt/vpnsetting.h>
@@ -67,7 +66,7 @@ private:
     dcc::widgets::FileChooseWidget *m_userCert;
     dcc::widgets::FileChooseWidget *m_userKey;
     dcc::widgets::LineEditWidget *m_userName;
-    dcc::widgets::PasswdEditWidget *m_password;
+    dcc::widgets::LineEditWidget *m_password;
 
     dcc::widgets::SwitchWidget *m_requestInnerIp;
     dcc::widgets::SwitchWidget *m_enforceUDP;

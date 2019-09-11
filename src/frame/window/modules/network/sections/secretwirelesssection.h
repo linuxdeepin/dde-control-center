@@ -24,7 +24,6 @@
 
 #include "secret8021xsection.h"
 #include "widgets/comboxwidget.h"
-#include "widgets/passwdeditwidget.h"
 
 #include <networkmanagerqt/wirelesssecuritysetting.h>
 
@@ -54,7 +53,7 @@ private:
     QList<QPair<QString, NetworkManager::WirelessSecuritySetting::KeyMgmt>> KeyMgmtStrMap;
 
     dcc::widgets::ComboxWidget *m_keyMgmtChooser;
-    dcc::widgets::PasswdEditWidget *m_passwdEdit;
+    dcc::widgets::LineEditWidget *m_passwdEdit;
     Secret8021xEnableWatcher *m_enableWatcher;
 
     NetworkManager::WirelessSecuritySetting::KeyMgmt m_currentKeyMgmt;

@@ -32,7 +32,7 @@ PPPOESection::PPPOESection(NetworkManager::PppoeSetting::Ptr pppoeSetting, QFram
     , m_pppoeSetting(pppoeSetting)
     , m_userName(new LineEditWidget(this))
     , m_service(new LineEditWidget(this))
-    , m_password(new PasswdEditWidget(this))
+    , m_password(new LineEditWidget(true, this))
 {
     initUI();
     initConnection();

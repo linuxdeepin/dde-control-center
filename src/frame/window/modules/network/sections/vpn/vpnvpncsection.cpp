@@ -33,10 +33,10 @@ VpnVPNCSection::VpnVPNCSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFram
     , m_gateway(new LineEditWidget(this))
     , m_userName(new LineEditWidget(this))
     , m_passwordFlagsChooser(new ComboxWidget(this))
-    , m_password(new PasswdEditWidget(this))
+    , m_password(new LineEditWidget(true, this))
     , m_groupName(new LineEditWidget(this))
     , m_groupPasswordFlagsChooser(new ComboxWidget(this))
-    , m_groupPassword(new PasswdEditWidget(this))
+    , m_groupPassword(new LineEditWidget(true, this))
     , m_userHybrid(new SwitchWidget(this))
     , m_caFile(new FileChooseWidget(this))
 {

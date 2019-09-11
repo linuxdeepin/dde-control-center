@@ -25,7 +25,6 @@
 #include "../abstractsection.h"
 #include "widgets/contentwidget.h"
 #include "widgets/lineeditwidget.h"
-#include "widgets/passwdeditwidget.h"
 #include "widgets/switchwidget.h"
 #include "widgets/spinboxwidget.h"
 
@@ -57,7 +56,7 @@ private:
     dcc::widgets::LineEditWidget *m_server;
     dcc::widgets::SpinBoxWidget *m_port;
     dcc::widgets::LineEditWidget *m_userName;
-    dcc::widgets::PasswdEditWidget *m_password;
+    dcc::widgets::LineEditWidget *m_password;
 };
 
 } /* network */

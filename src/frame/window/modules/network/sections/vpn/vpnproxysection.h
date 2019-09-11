@@ -23,14 +23,17 @@
 #define VPNPROXYSECTION_H
 
 #include "../abstractsection.h"
-#include "widgets/contentwidget.h"
-#include "widgets/lineeditwidget.h"
-#include "widgets/comboxwidget.h"
-#include "widgets/passwdeditwidget.h"
-#include "widgets/switchwidget.h"
-#include "widgets/spinboxwidget.h"
 
 #include <networkmanagerqt/vpnsetting.h>
+
+namespace dcc {
+namespace widgets {
+class SwitchWidget;
+class LineEditWidget;
+class ComboxWidget;
+class SpinBoxWidget;
+}
+}
 
 namespace DCC_NAMESPACE {
 namespace network {
@@ -64,7 +67,7 @@ private:
     dcc::widgets::SpinBoxWidget *m_port;
     dcc::widgets::SwitchWidget *m_retry;
     dcc::widgets::LineEditWidget *m_userName;
-    dcc::widgets::PasswdEditWidget *m_password;
+    dcc::widgets::LineEditWidget *m_password;
 
     QString m_currentProxyType;
 };

@@ -249,7 +249,6 @@ set(WIDGETS_FILES
                 widgets/translucentframe.cpp
                 widgets/translucentframe.h
                 widgets/settingsgroup.cpp
-                widgets/passwdeditwidget.cpp
                 widgets/switchwidget.cpp
                 widgets/comboxwidget.cpp
                 widgets/comboxwidget.h
@@ -278,7 +277,6 @@ set(WIDGETS_FILES
                 widgets/optionitem.cpp
                 widgets/optionitem.h
                 widgets/optionlistpage.h
-                widgets/passwdeditwidget.h
                 widgets/settingsgroup.h
                 widgets/settingshead.cpp
                 widgets/settingshead.h

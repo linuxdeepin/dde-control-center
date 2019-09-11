@@ -33,7 +33,7 @@ SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySet
                                              NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent)
     : Secret8021xSection(sSetting, parent)
     , m_keyMgmtChooser(new ComboxWidget(this))
-    , m_passwdEdit(new PasswdEditWidget(this))
+    , m_passwdEdit(new LineEditWidget(true, this))
     , m_enableWatcher(new Secret8021xEnableWatcher(this))
     , m_currentKeyMgmt(NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone)
     , m_wsSetting(wsSeting)

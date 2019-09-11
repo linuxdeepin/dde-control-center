@@ -33,7 +33,7 @@ VpnSstpProxySection::VpnSstpProxySection(NetworkManager::VpnSetting::Ptr vpnSett
     , m_server(new LineEditWidget(this))
     , m_port(new SpinBoxWidget(this))
     , m_userName(new LineEditWidget(this))
-    , m_password(new PasswdEditWidget(this))
+    , m_password(new LineEditWidget(true, this))
 {
     m_dataMap = vpnSetting->data();
     m_secretMap = vpnSetting->secrets();

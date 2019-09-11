@@ -26,7 +26,6 @@
 #include "widgets/contentwidget.h"
 #include "widgets/lineeditwidget.h"
 #include "widgets/comboxwidget.h"
-#include "widgets/passwdeditwidget.h"
 
 #include <networkmanagerqt/vpnsetting.h>
 
@@ -61,7 +60,7 @@ private:
     dcc::widgets::LineEditWidget *m_gateway;
     dcc::widgets::LineEditWidget *m_userName;
     dcc::widgets::ComboxWidget *m_passwordFlagsChooser;
-    dcc::widgets::PasswdEditWidget *m_password;
+    dcc::widgets::LineEditWidget *m_password;
     dcc::widgets::LineEditWidget *m_domain;
 };
 

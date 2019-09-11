@@ -21,6 +21,8 @@
 
 #include "secrethotspotsection.h"
 #include "widgets/contentwidget.h"
+#include "widgets/comboxwidget.h"
+#include "widgets/lineeditwidget.h"
 
 #include <networkmanagerqt/utils.h>
 
@@ -38,7 +40,7 @@ static const QList<NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtList
 SecretHotspotSection::SecretHotspotSection(NetworkManager::WirelessSecuritySetting::Ptr wsSeting, QFrame *parent)
     : AbstractSection(parent)
     , m_keyMgmtChooser(new ComboxWidget(this))
-    , m_passwdEdit(new PasswdEditWidget(this))
+    , m_passwdEdit(new LineEditWidget(true, this))
     , m_currentKeyMgmt(NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone)
     , m_wsSetting(wsSeting)
 {

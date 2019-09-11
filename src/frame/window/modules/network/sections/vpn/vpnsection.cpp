@@ -31,7 +31,7 @@ VpnSection::VpnSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *paren
     , m_gateway(new LineEditWidget(this))
     , m_userName(new LineEditWidget(this))
     , m_passwordFlagsChooser(new ComboxWidget(this))
-    , m_password(new PasswdEditWidget(this))
+    , m_password(new LineEditWidget(true, this))
     , m_domain(new LineEditWidget(this))
 {
     m_dataMap = vpnSetting->data();

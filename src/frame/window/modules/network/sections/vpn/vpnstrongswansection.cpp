@@ -36,7 +36,7 @@ VpnStrongSwanSection::VpnStrongSwanSection(NetworkManager::VpnSetting::Ptr vpnSe
     , m_userCert(new FileChooseWidget(this))
     , m_userKey(new FileChooseWidget(this))
     , m_userName(new LineEditWidget(this))
-    , m_password(new PasswdEditWidget(this))
+    , m_password(new LineEditWidget(true, this))
     , m_requestInnerIp(new SwitchWidget(this))
     , m_enforceUDP(new SwitchWidget(this))
     , m_useIPComp(new SwitchWidget(this))

@@ -59,7 +59,8 @@ class LineEditWidget : public SettingsItem
     Q_OBJECT
 
 public:
-    explicit LineEditWidget(QFrame *parent = 0);
+    explicit LineEditWidget(QFrame *parent = nullptr);
+    explicit LineEditWidget(bool isPasswordMode, QWidget *parent = nullptr);
 
     inline QLineEdit *textEdit() const { return m_edit; }
     inline QString text() const { return m_edit->text(); }

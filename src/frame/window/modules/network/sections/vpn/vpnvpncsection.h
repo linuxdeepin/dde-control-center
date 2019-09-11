@@ -26,7 +26,6 @@
 #include "widgets/contentwidget.h"
 #include "widgets/lineeditwidget.h"
 #include "widgets/comboxwidget.h"
-#include "widgets/passwdeditwidget.h"
 #include "widgets/switchwidget.h"
 #include "widgets/filechoosewidget.h"
 
@@ -65,11 +64,11 @@ private:
     dcc::widgets::LineEditWidget *m_gateway;
     dcc::widgets::LineEditWidget *m_userName;
     dcc::widgets::ComboxWidget *m_passwordFlagsChooser;
-    dcc::widgets::PasswdEditWidget *m_password;
+    dcc::widgets::LineEditWidget *m_password;
 
     dcc::widgets::LineEditWidget *m_groupName;
     dcc::widgets::ComboxWidget *m_groupPasswordFlagsChooser;
-    dcc::widgets::PasswdEditWidget *m_groupPassword;
+    dcc::widgets::LineEditWidget *m_groupPassword;
     dcc::widgets::SwitchWidget *m_userHybrid;
     dcc::widgets::FileChooseWidget *m_caFile;
 };

@@ -20,7 +20,6 @@
  */
 
 #include "vpnopenvpnsection.h"
-#include "widgets/passwdeditwidget.h"
 #include "widgets/switchwidget.h"
 
 #include <QComboBox>
@@ -198,7 +197,7 @@ void VpnOpenVPNSection::initTLSItems()
     }
     certPasswordFlagsChooser->setCurrentText(curCertPasswordOption);
 
-    PasswdEditWidget *priKeyPassword = new PasswdEditWidget(this);
+    LineEditWidget *priKeyPassword = new LineEditWidget(true, this);
     priKeyPassword->setTitle(tr("Private Pwd"));
     priKeyPassword->setText(m_secretMap.value("cert-pass"));
 
@@ -246,7 +245,7 @@ void VpnOpenVPNSection::initPasswordItems()
     }
     passwordFlagsChooser->setCurrentText(curPasswordOption);
 
-    PasswdEditWidget *password = new PasswdEditWidget(this);
+    LineEditWidget *password = new LineEditWidget(true, this);
     password->setTitle(tr("Password"));
     password->setText(m_secretMap.value("password"));
     password->setPlaceholderText(tr("Required"));
@@ -389,7 +388,7 @@ bool VpnOpenVPNSection::tlsItemsInputValid()
     const QList<SettingsItem *> &itemsList = m_settingItemsMap.value("tls");
     FileChooseWidget *userCertFile = static_cast<FileChooseWidget *>(itemsList.at(0));
     FileChooseWidget *priKeyFile = static_cast<FileChooseWidget *>(itemsList.at(1));
-    PasswdEditWidget *priKeyPassword = static_cast<PasswdEditWidget *>(itemsList.at(3));
+    LineEditWidget *priKeyPassword = static_cast<LineEditWidget *>(itemsList.at(3));
 
     if (userCertFile->edit()->text().isEmpty()) {
         valid = false;
@@ -423,7 +422,7 @@ bool VpnOpenVPNSection::passwordItemsInputValid()
 
     const QList<SettingsItem *> &itemsList = m_settingItemsMap.value("password");
     LineEditWidget *userName = static_cast<LineEditWidget *>(itemsList.at(0));
-    PasswdEditWidget *password = static_cast<PasswdEditWidget *>(itemsList.at(2));
+    LineEditWidget *password = static_cast<LineEditWidget *>(itemsList.at(2));
 
     if (userName->text().isEmpty()) {
         valid = false;
@@ -482,7 +481,7 @@ void VpnOpenVPNSection::saveTlsItems()
     const QList<SettingsItem *> &itemsList = m_settingItemsMap.value("tls");
     FileChooseWidget *userCertFile = static_cast<FileChooseWidget *>(itemsList.at(0));
     FileChooseWidget *priKeyFile = static_cast<FileChooseWidget *>(itemsList.at(1));
-    PasswdEditWidget *priKeyPassword = static_cast<PasswdEditWidget *>(itemsList.at(3));
+    LineEditWidget *priKeyPassword = static_cast<LineEditWidget *>(itemsList.at(3));
 
     m_dataMap.insert("cert", userCertFile->edit()->text());
     m_dataMap.insert("key", priKeyFile->edit()->text());
@@ -495,7 +494,7 @@ void VpnOpenVPNSection::savePasswordItems()
 {
     const QList<SettingsItem *> &itemsList = m_settingItemsMap.value("password");
     LineEditWidget *userName = static_cast<LineEditWidget *>(itemsList.at(0));
-    PasswdEditWidget *password = static_cast<PasswdEditWidget *>(itemsList.at(2));
+    LineEditWidget *password = static_cast<LineEditWidget *>(itemsList.at(2));
 
     m_dataMap.insert("username", userName->text());
     m_dataMap.insert("password-flags", QString::number(m_currentPasswordType));

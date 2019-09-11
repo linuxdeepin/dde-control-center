@@ -25,6 +25,8 @@
 
 #include "widgets/lineeditwidget.h"
 
+#include <dpasswordedit.h>
+
 #include <QVBoxLayout>
 
 namespace dcc {
@@ -67,12 +69,38 @@ void ErrorTip::appearIfNotEmpty()
 }
 
 LineEditWidget::LineEditWidget(QFrame *parent)
-    : SettingsItem(parent),
-
-      m_title(new QLabel),
-      m_edit(new QLineEdit),
-      m_errTip(new ErrorTip(this))
+    : SettingsItem(parent)
+    , m_title(new QLabel)
+    , m_edit(new QLineEdit)
+    , m_errTip(new ErrorTip(this))
 {
+    m_title->setFixedWidth(140);
+    m_edit->setContextMenuPolicy(Qt::NoContextMenu);
+
+    m_mainLayout = new QHBoxLayout;
+    m_mainLayout->addSpacing(20);
+    m_mainLayout->addWidget(m_title);
+    m_mainLayout->addWidget(m_edit);
+    m_mainLayout->setSpacing(0);
+    m_mainLayout->setMargin(0);
+
+    setLayout(m_mainLayout);
+    setObjectName("LineEditWidget");
+    setFixedHeight(36);
+
+    connect(m_edit, &QLineEdit::textChanged, this, &LineEditWidget::hideAlertMessage);
+}
+
+LineEditWidget::LineEditWidget(bool isPasswordMode, QWidget *parent)
+    : SettingsItem(parent)
+    , m_title(new QLabel)
+    , m_errTip(new ErrorTip(this))
+{
+    if (isPasswordMode) {
+        m_edit = new DPasswordEdit;
+    } else {
+        m_edit = new QLineEdit;
+    }
     m_title->setFixedWidth(140);
     m_edit->setContextMenuPolicy(Qt::NoContextMenu);
 

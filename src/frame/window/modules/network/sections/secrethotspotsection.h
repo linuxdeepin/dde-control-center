@@ -23,10 +23,15 @@
 #define SECRETHOTSPOTSECTION_H
 
 #include "abstractsection.h"
-#include "widgets/comboxwidget.h"
-#include "widgets/passwdeditwidget.h"
 
 #include <networkmanagerqt/wirelesssecuritysetting.h>
+
+namespace dcc {
+namespace widgets {
+class ComboxWidget;
+class LineEditWidget;
+}
+}
 
 namespace DCC_NAMESPACE {
 namespace network {
@@ -53,7 +58,7 @@ private:
     QMap<QString, NetworkManager::WirelessSecuritySetting::KeyMgmt> KeyMgmtStrMap;
 
     dcc::widgets::ComboxWidget *m_keyMgmtChooser;
-    dcc::widgets::PasswdEditWidget *m_passwdEdit;
+    dcc::widgets::LineEditWidget *m_passwdEdit;
 
     NetworkManager::WirelessSecuritySetting::KeyMgmt m_currentKeyMgmt;
 
