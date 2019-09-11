@@ -143,7 +143,13 @@ void BootWidget::setModel(CommonInfoModel *model)
     connect(model, &CommonInfoModel::themeEnabledChanged, m_background, &CommonBackgroundItem::setThemeEnable);
     connect(model, &CommonInfoModel::backgroundChanged, m_background, &CommonBackgroundItem::updateBackground);
 
-    m_bootDelay->setChecked(model->bootDelay());
+    // modified by wuchuanfei 20190909 for 8613
+    if (model->entryLists().count() == 1) {
+        m_bootDelay->setChecked(false);
+    } else {
+        m_bootDelay->setChecked(model->bootDelay());
+    }
+
     m_theme->setChecked(model->themeEnabled());
     m_updatingLabel->setVisible(model->updating());
     m_background->setThemeEnable(model->themeEnabled());
