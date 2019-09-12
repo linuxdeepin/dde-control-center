@@ -56,13 +56,12 @@ void Manage::showDialog()
 
     connect(m_dialog, &RecoveryDialog::notifyButtonClicked, m_sessionManager, [ = ](bool state) {
         //能够进入到弹框页面,说明是满足一切版本回退的条件
-        //false: 取消 , 要恢复旧版本,需要重启
-        if (!state) {
+        //true: 确认 , 要恢复旧版本
+        if (state) {
             m_systemRecovery->StartRestore();
         } else {
-            //true: 确认, 使用升级后的新版本,退出当前进程
-            qDebug() << "Update successed.";
-            exitApp();
+            //false: 取消, 使用升级后的版本,需要重启
+            requestReboot();
         }
     });
 
@@ -70,14 +69,15 @@ void Manage::showDialog()
         if ("restore" != kind)
             return ;
 
-        //恢复成功,重启
+        //恢复成功,打印log
         if (success) {
-            requestReboot();
+            qDebug() << "Restore successed.";
         } else {
             //恢复失败,不做处理并退出当前进程
             qWarning() << Q_FUNC_INFO << " , Recovery restore failed. errMsg : " << errMsg;
-            exitApp();
         }
+
+        exitApp();
     });
 
 }
