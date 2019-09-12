@@ -59,10 +59,10 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     layout->addWidget(m_title);
     layout->setAlignment(m_title, Qt::AlignLeft);
 
-    m_editBtn = new DIconButton(this);
-    m_editBtn->setIcon(DStyle::StandardPixmap::SP_DeleteButton);
-    m_editBtn->hide();
-    layout->addWidget(m_editBtn, Qt::AlignLeft);
+    m_delBtn = new DIconButton(this);
+    m_delBtn->setIcon(DStyle::StandardPixmap::SP_DeleteButton);
+    m_delBtn->hide();
+    layout->addWidget(m_delBtn, Qt::AlignLeft);
 
     layout->addStretch();
 
@@ -77,7 +77,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 
     setLayout(layout);
 
-    connect(m_editBtn, &DIconButton::clicked, this, &ShortcutItem::onShortcutEdit);
+    connect(m_delBtn, &DIconButton::clicked, this, &ShortcutItem::onRemoveClick);
 }
 
 void ShortcutItem::setShortcutInfo(ShortcutInfo *info)
@@ -113,10 +113,10 @@ void ShortcutItem::setShortcut(const QString &shortcut)
 void ShortcutItem::onEditMode(bool value)
 {
     if (value) {
-        m_editBtn->show();
+        m_delBtn->show();
         m_key->hide();
     } else {
-        m_editBtn->hide();
+        m_delBtn->hide();
         m_key->show();
     }
     update();
@@ -148,7 +148,7 @@ void ShortcutItem::updateTitleSize()
 
 void ShortcutItem::mouseReleaseEvent(QMouseEvent *e)
 {
-    if (m_editBtn->isVisible())
+    if (m_delBtn->isVisible())
         return;
 
     if (!m_shortcutEdit->isVisible() && m_key->rect().contains(m_key->mapFromParent(e->pos()))) {

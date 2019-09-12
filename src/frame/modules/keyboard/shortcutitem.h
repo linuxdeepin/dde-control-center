@@ -76,7 +76,7 @@ private:
     QLineEdit *m_shortcutEdit;
     QLabel *m_title;
     ShortcutInfo *m_info;
-    DTK_WIDGET_NAMESPACE::DIconButton *m_editBtn;
+    DTK_WIDGET_NAMESPACE::DIconButton *m_delBtn;
     ShortcutKey *m_key;
 };
 }
