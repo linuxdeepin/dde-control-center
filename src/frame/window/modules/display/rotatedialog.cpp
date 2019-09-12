@@ -75,6 +75,17 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
     centralLayout->setAlignment(blurWidget, Qt::AlignCenter);
     setLayout(centralLayout);
 
+    m_resetOperationTimer = new QTimer(this);
+    m_resetOperationTimer->setInterval(1000);
+    connect(m_resetOperationTimer, &QTimer::timeout, this, [=] {
+        m_resetTimeout--;
+        update();
+        if (m_resetTimeout < 1) {
+            m_resetTimeout = 15;
+            reject();
+        }
+    });
+
     qApp->setOverrideCursor(Qt::BlankCursor);
 }
 
@@ -153,7 +164,8 @@ void RotateDialog::paintEvent(QPaintEvent *e)
     QRect destVRect(0, 0, height(), margin);
 
     QString tips(tr("Left click to rotate, right click to restore and exit, press Ctrl+S to save."));
-
+    tips += "\n";
+    tips += tr("Save the display settings? If no operation occurs, the display will be restored in %1s.").arg(m_resetTimeout);
     // bottom
     painter.translate(0, height() - margin);
     painter.drawText(destHRect, Qt::AlignHCenter, tips);
@@ -198,6 +210,7 @@ void RotateDialog::rotate()
     else
         Q_EMIT RotateDialog::requestRotateAll(nextValue);
 
+    m_resetOperationTimer->start();
     update();
 }
 

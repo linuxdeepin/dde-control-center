@@ -70,6 +70,8 @@ private:
     dcc::display::DisplayModel *m_model{nullptr};
     dcc::display::Monitor *m_mon{nullptr};
     Dtk::Gui::DWindowManagerHelper *m_wmHelper;
+    QTimer *m_resetOperationTimer{nullptr};
+    int m_resetTimeout{15};
 };
 
 } // namespace display
