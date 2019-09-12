@@ -101,6 +101,24 @@ void GeneralSettingWidget::setModel(dcc::mouse::MouseModel *const model)
     m_mouseModel = model;
     connect(model, &MouseModel::leftHandStateChanged, m_leftHand, &SwitchWidget::setChecked);
     connect(model, &MouseModel::disIfTypingStateChanged, m_disInTyping, &SwitchWidget::setChecked);
+    connect(model, &MouseModel::doubleSpeedChanged, this, &GeneralSettingWidget::onDoubleClickSpeedChanged);
+    connect(model, &MouseModel::scrollSpeedChanged, this, &GeneralSettingWidget::onScrollSpeedChanged);
     m_leftHand->setChecked(model->leftHandState());
     m_disInTyping->setChecked(model->disIfTyping());
+    onDoubleClickSpeedChanged(model->doubleSpeed());
+    onScrollSpeedChanged(model->scrollSpeed());
+}
+
+void GeneralSettingWidget::onDoubleClickSpeedChanged(int speed)
+{
+    m_doubleSlider->slider()->blockSignals(true);
+    m_doubleSlider->slider()->setValue(speed);
+    m_doubleSlider->slider()->blockSignals(false);
+}
+
+void GeneralSettingWidget::onScrollSpeedChanged(int speed)
+{
+    m_scrollSpeedSlider->slider()->blockSignals(true);
+    m_scrollSpeedSlider->slider()->setValue(speed);
+    m_scrollSpeedSlider->slider()->blockSignals(false);
 }
