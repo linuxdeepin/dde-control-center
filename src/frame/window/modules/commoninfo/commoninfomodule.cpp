@@ -72,6 +72,8 @@ void CommonInfoModule::active()
     connect(m_commonWidget, &CommonInfoWidget::requestShowUEPlanWidget, this, &CommonInfoModule::onShowUEPlanWidget);
     connect(m_commonWidget, &CommonInfoWidget::requestShowTabletModeWidget, this, &CommonInfoModule::onShowTabletModeWidget);
     m_frameProxy->pushWidget(this, m_commonWidget);
+
+    onShowBootWidget();
 }
 
 void CommonInfoModule::deactive()
