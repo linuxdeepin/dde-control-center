@@ -62,7 +62,7 @@ class ResolutionDetailPage : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
-    explicit ResolutionDetailPage(QWidget *parent = 0);
+    explicit ResolutionDetailPage(QWidget *parent = nullptr);
 
 public:
     void setModel(dcc::display::DisplayModel *mode);
@@ -73,23 +73,14 @@ Q_SIGNALS:
     void requestSave();
 
 private Q_SLOTS:
-    void refreshCurrentResolution(const Resolution &reso, int listIdx);
-    void onListClick(const QModelIndex &idx);
     void initResoList();
 
 private:
-    void checkedChange(const QModelIndex &idx, DListView *list);
-
-private:
-    QVBoxLayout *m_resoListLayout{nullptr};
+    QVBoxLayout *m_mainLayout{nullptr};
     dcc::display::DisplayModel *m_model{nullptr};
 
-    QList<DListView *> m_resoList;
-    QList<QModelIndex> m_curIdxs;
-    QList<QModelIndex> m_initialIdxs;
-
-    QPushButton *m_saveBtn{nullptr};
-    QPushButton *m_cancelBtn{nullptr};
+    DListView *m_resoList{nullptr};
+    QModelIndex m_curIdxs;
 };
 
 }   // namespace dcc

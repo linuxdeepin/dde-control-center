@@ -131,8 +131,8 @@ void DisplayModule::showResolutionDetailPage()
     ResolutionDetailPage *page = new ResolutionDetailPage;
     page->setModel(m_displayModel);
 
-    connect(page, &ResolutionDetailPage::requestSetResolution, m_displayWorker,
-            &DisplayWorker::setMonitorResolution);
+    connect(page, &ResolutionDetailPage::requestSetResolution, this,
+            &DisplayModule::onCustomPageRequestSetResolution);
     connect(page, &ResolutionDetailPage::requestReset, m_displayWorker,
             &DisplayWorker::restore);
     connect(page, &ResolutionDetailPage::requestSave, this, [ this ]() {
@@ -218,9 +218,6 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, const int mod
 {
     auto lastMode = mon->currentMode().id();
     m_displayWorker->setMonitorResolution(mon, mode);
-
-    if (m_displayModel->isMerge())
-        return;
 
     if (showTimeoutDialog(mon) != QDialog::Accepted)
         m_displayWorker->setMonitorResolution(mon, lastMode);

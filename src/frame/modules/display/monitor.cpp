@@ -146,4 +146,6 @@ void Monitor::setModeList(const ResolutionList &modeList)
     for (auto m : modeList)
         if (m.width() >= 1024 && m.height() >= 768)
             m_modeList.append(m);
+
+    Q_EMIT modelListChanged(m_modeList);
 }

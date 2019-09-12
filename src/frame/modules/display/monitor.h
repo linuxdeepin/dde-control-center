@@ -71,6 +71,7 @@ Q_SIGNALS:
     void rotateChanged(const quint16 rotate) const;
     void brightnessChanged(const double brightness) const;
     void currentModeChanged(const Resolution &resolution) const;
+    void modelListChanged(const QList<Resolution> &resolution) const;
 
 private Q_SLOTS:
     void setX(const int x);

@@ -42,41 +42,15 @@ using namespace DCC_NAMESPACE::display;
 
 ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
     : dcc::ContentWidget(parent)
-    , m_resoListLayout(new QVBoxLayout)
+    , m_mainLayout(new QVBoxLayout)
 {
-    auto mainLayout(new QVBoxLayout);
-    mainLayout->setMargin(0);
-    mainLayout->addSpacing(10);
-    mainLayout->setContentsMargins(ThirdPageContentsMargins);
+    m_mainLayout->setMargin(0);
+    m_mainLayout->addSpacing(10);
+    m_mainLayout->setContentsMargins(ThirdPageContentsMargins);
 
     QWidget *centralWidget = new TranslucentFrame;
-    centralWidget->setLayout(mainLayout);
-    mainLayout->addLayout(m_resoListLayout);
-
-    QHBoxLayout *hlayout = new QHBoxLayout;
-    m_cancelBtn = new QPushButton(tr("Cancel"));
-    m_cancelBtn->setEnabled(false);
-    connect(m_cancelBtn, &QPushButton::clicked, this, [ this ] {
-        Q_EMIT this->requestReset();
-
-        m_saveBtn->setEnabled(false);
-        m_cancelBtn->setEnabled(false);
-    });
-    hlayout->addWidget(m_cancelBtn);
-
-    m_saveBtn = new QPushButton(tr("Save"));
-    m_saveBtn->setEnabled(false);
-    connect(m_saveBtn, &QPushButton::clicked, this, [ this ] {
-        Q_EMIT this->requestSave();
-
-        m_saveBtn->setEnabled(false);
-        m_cancelBtn->setEnabled(false);
-        m_initialIdxs = m_curIdxs;
-    });
-    hlayout->addWidget(m_saveBtn);
-
-    mainLayout->addStretch(1);
-    mainLayout->addLayout(hlayout);
+    centralWidget->setLayout(m_mainLayout);
+//    mainLayout->addLayout(m_resoListLayout);
 
     setContent(centralWidget);
 }
@@ -87,133 +61,83 @@ void ResolutionDetailPage::setModel(DisplayModel *model)
 
     connect(m_model, &DisplayModel::monitorListChanged,
             this, &ResolutionDetailPage::initResoList);
+
+    auto monitors = m_model->monitorList();
+    if(!monitors.size())
+        return;
+
+    connect(monitors.first(), &Monitor::modelListChanged,
+            this, &ResolutionDetailPage::initResoList);
     initResoList();
-}
-
-void ResolutionDetailPage::refreshCurrentResolution(const Resolution &reso, int listIdx)
-{
-    if (!m_model)
-        return;
-
-    if (listIdx >= m_curIdxs.size())
-        return;
-
-    auto list = m_model->monitorList()[listIdx]->modeList();
-    int idx = list.indexOf(reso);
-    auto model = m_resoList[listIdx]->model();
-    auto modelIdx = model->index(idx, 0);
-    checkedChange(modelIdx, m_resoList[listIdx]);
 }
 
 void ResolutionDetailPage::initResoList()
 {
+    if (m_resoList)
+        m_resoList->deleteLater();
+
     auto monitors = m_model->monitorList();
+    if(!monitors.size()) {
+        return;
+    } else {
+        disconnect(monitors.first(), &Monitor::modelListChanged,
+                    this, &ResolutionDetailPage::initResoList);
 
-    qDeleteAll(m_resoList);
-    m_resoList.clear();
-    m_curIdxs.clear();
+        connect(monitors.first(), &Monitor::modelListChanged,
+                this, &ResolutionDetailPage::initResoList);
+    }
 
-    for (int idx = 0; idx < monitors.size(); ++idx) {
-        if (monitors.size() > 1) {
-            m_resoListLayout->addSpacing(10);
-            QLabel *label = new QLabel(monitors.at(idx)->name());
-            label->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-            m_resoListLayout->addWidget(label);
-        }
+    auto moni = monitors.first();
 
-        DListView *rlist = new DListView();
-        rlist->setAutoScroll(false);
-        rlist->setFrameShape(QFrame::NoFrame);
-        rlist->setSpacing(5);
-        rlist->setSelectionMode(DListView::NoSelection);
+    DListView *rlist = new DListView();
+    rlist->setAutoScroll(false);
+    rlist->setFrameShape(QFrame::NoFrame);
+    rlist->setSpacing(5);
+    rlist->setSelectionMode(DListView::NoSelection);
 
-        auto itemModel = new QStandardItemModel(this);
-        rlist->setModel(itemModel);
+    auto itemModel = new QStandardItemModel(this);
+    rlist->setModel(itemModel);
 
-        bool first = true;
-        DStandardItem *curIdx{nullptr};
-        const auto &modes = monitors[idx]->modeList();
-        const auto curMode = monitors[idx]->currentMode();
-        for (auto m : modes) {
-            const QString res = QString("%1x%2").arg(m.width()).arg(m.height());
-            DStandardItem *item = new DStandardItem();
+    bool first = true;
+    DStandardItem *curIdx{nullptr};
+    const auto &modes = moni->modeList();
+    const auto curMode = moni->currentMode();
+    for (auto m : modes) {
+        const QString res = QString("%1x%2").arg(m.width()).arg(m.height());
+        DStandardItem *item = new DStandardItem();
 
-            if (first) {
-                first = false;
-                //~ contents_path /display/Resolution
-                item->setText(QString("%1 (%2)").arg(res).arg(tr("Recommended")));
-            } else {
-                item->setText(res);
-            }
-            item->setCheckable(true);
-            item->setData(VListViewItemMargin, Dtk::MarginsRole);
-
-            if (curMode == m)
-                curIdx = item;
-            itemModel->appendRow(item);
-        }
-
-        if (nullptr != curIdx) {
-            itemModel->setData(curIdx->index(), Qt::CheckState::Checked, Qt::CheckStateRole);
-            m_curIdxs.push_back(curIdx->index());
-            m_initialIdxs.push_back(curIdx->index());
+        if (first) {
+            first = false;
+            //~ contents_path /display/Resolution
+            item->setText(QString("%1 (%2)").arg(res).arg(tr("Recommended")));
         } else {
-            m_curIdxs.push_back(QModelIndex());
+            item->setText(res);
         }
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
 
-        connect(rlist, &DListView::clicked, this, &ResolutionDetailPage::onListClick);
-        connect(monitors.at(idx), &Monitor::currentModeChanged, this,
-        [ = ](const Resolution & resolution) {
-            refreshCurrentResolution(resolution, idx);
-        });
-        m_resoListLayout->addWidget(rlist, 1);
-        m_resoListLayout->addSpacing(20);
-        m_resoList.append(rlist);
+        if (curMode == m)
+            curIdx = item;
+        itemModel->appendRow(item);
     }
 
-}
-
-void ResolutionDetailPage::checkedChange(const QModelIndex &idx, DListView *list)
-{
-    int listIdx = m_resoList.indexOf(list);
-
-    if (idx == m_curIdxs[listIdx])
-        return;
-
-    auto listModel = m_resoList[listIdx]->model();
-    listModel->setData(m_curIdxs[listIdx], Qt::CheckState::Unchecked, Qt::CheckStateRole);
-    listModel->setData(idx, Qt::CheckState::Checked, Qt::CheckStateRole);
-    m_curIdxs[listIdx] = idx;
-
-    if (idx != m_initialIdxs[listIdx]) {
-        m_saveBtn->setEnabled(true);
-        m_cancelBtn->setEnabled(true);
-        return;
+    if (nullptr != curIdx) {
+        itemModel->setData(curIdx->index(), Qt::CheckState::Checked, Qt::CheckStateRole);
+        m_curIdxs = curIdx->index();
     }
 
-    Q_ASSERT(m_curIdxs.size() == m_initialIdxs.size());
-    for (int i = 0; i < m_initialIdxs.size() ; ++i) {
-        if (m_curIdxs[i] != m_initialIdxs[i]) {
-            m_saveBtn->setEnabled(true);
-            m_cancelBtn->setEnabled(true);
+    connect(rlist, &DListView::clicked, this, [ = ](const QModelIndex & idx) {
+        requestSetResolution(moni, moni->modeList()[idx.row()].id());
+    });
+    connect(moni, &Monitor::currentModeChanged, this, [ = ](const Resolution & resolution) {
+        auto idx = moni->modeList().indexOf(resolution);
+        if (-1 == idx)
             return;
-        }
-    }
 
-    m_saveBtn->setEnabled(false);
-    m_cancelBtn->setEnabled(false);
-}
-
-void ResolutionDetailPage::onListClick(const QModelIndex &idx)
-{
-    auto list = qobject_cast<DListView *>(sender());
-    if (!list)
-        return;
-
-    int listIdx = m_resoList.indexOf(list);
-    if (idx == m_curIdxs[listIdx])
-        return;
-
-    auto moni = m_model->monitorList()[listIdx];
-    Q_EMIT this->requestSetResolution(moni, moni->modeList()[idx.row()].id());
+        auto cidx = itemModel->index(idx, 0);
+        itemModel->setData(cidx, Qt::Checked, Qt::CheckStateRole);
+        itemModel->setData(m_curIdxs, Qt::Unchecked, Qt::CheckStateRole);
+        m_curIdxs = cidx;
+    });
+    m_mainLayout->addWidget(rlist, 1);
+    m_resoList = rlist;
 }
