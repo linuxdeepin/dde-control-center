@@ -77,6 +77,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_searchWidget(nullptr)
     , m_firstCount(-1)
     , m_widgetName("")
+    , m_backwardBtn(nullptr)
 {
     //Initialize view and layout structure
     QWidget *content = new QWidget(this);
@@ -122,12 +123,13 @@ MainWindow::MainWindow(QWidget *parent)
     thlayout->setSpacing(0);
     DBackgroundGroup *btnGroup = new DBackgroundGroup(thlayout, this);
     titlebar->addWidget(btnGroup, Qt::AlignLeft);
-    DIconButton *backwardBtn = new DIconButton(this);
-    backwardBtn->setFlat(false);
-    backwardBtn->setIcon(QStyle::SP_ArrowBack);
-    thlayout->addWidget(backwardBtn);
-    connect(backwardBtn, &DIconButton::clicked, this, [this] {
-        popAllWidgets();
+    m_backwardBtn = new DIconButton(this);
+    m_backwardBtn->setEnabled(false);
+    m_backwardBtn->setFlat(false);
+    m_backwardBtn->setIcon(QStyle::SP_ArrowBack);
+    thlayout->addWidget(m_backwardBtn);
+    connect(m_backwardBtn, &DIconButton::clicked, this, [this] {
+        popWidget();
         resetNavList(m_contentStack.isEmpty());
     });
 
@@ -286,7 +288,7 @@ void MainWindow::resetNavList(bool isIconMode)
         m_navView->setItemSize(QSize(170, 168));
         m_navView->setSpacing(20);
         m_rightView->hide();
-
+        m_backwardBtn->setEnabled(false);
         DPalette pa = DApplicationHelper::instance()->palette(m_navView);
         pa.setBrush(DPalette::ItemBackground, pa.base());
         DApplicationHelper::instance()->setPalette(m_navView, pa);
@@ -299,6 +301,7 @@ void MainWindow::resetNavList(bool isIconMode)
         m_navView->setItemSize(QSize(168, 48));
         m_navView->setSpacing(0);
         m_rightView->show();
+        m_backwardBtn->setEnabled(true);
         m_contentStack.top().second->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     }
 

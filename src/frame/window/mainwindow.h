@@ -28,6 +28,7 @@
 #include <DMainWindow>
 #include <DBackgroundGroup>
 #include <DListView>
+#include <DIconButton>
 
 #include <QStack>
 #include <QPair>
@@ -83,6 +84,7 @@ private:
     DCC_NAMESPACE::search::SearchWidget *m_searchWidget;
     int m_firstCount;
     QString m_widgetName;
+    DIconButton *m_backwardBtn;
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);
