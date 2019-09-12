@@ -35,6 +35,7 @@ public:
     explicit RoundColorWidget(const QColor &color, QWidget *parent = nullptr);
     bool isSelected();
     void setSelected(bool selected);
+    static const int EXTRA = 2; //2px extra space to avoid line cutted off
 
 Q_SIGNALS:
     void clicked();

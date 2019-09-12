@@ -141,6 +141,7 @@ void PerssonalizationThemeWidget::onRemoveItem(const QString &id)
 void PerssonalizationThemeWidget::setMainLayout(QBoxLayout *layout, bool titleBelowPic)
 {
     m_centerLayout = layout;
+    m_centerLayout->setMargin(0);
     setLayout(m_centerLayout);
     m_titleBelowPic = titleBelowPic;
 }

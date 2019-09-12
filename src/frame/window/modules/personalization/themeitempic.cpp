@@ -26,8 +26,11 @@
 #include <QPalette>
 #include <QDebug>
 
+#include <DStyle>
+
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
+DWIDGET_USE_NAMESPACE
 
 ThemeItemPic::ThemeItemPic(QWidget *parent)
     : QWidget(parent)
@@ -49,7 +52,10 @@ void ThemeItemPic::setSelected(bool selected)
 void ThemeItemPic::setPixmap(const QPixmap &pixmap)
 {
     m_pixmap = pixmap;
-    setFixedSize(pixmap.width() + 20, pixmap.height() + 20); //extra space from picture to rect edge : 20
+    int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, nullptr);
+    int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, nullptr);
+    int totalSpace = borderWidth + borderSpacing;
+    setFixedSize(pixmap.width() + 2 * totalSpace, pixmap.height() + 2 * totalSpace); //extra space from picture to rect edge : 20
     update();
 }
 
@@ -63,20 +69,26 @@ void ThemeItemPic::mousePressEvent(QMouseEvent* event)
 
 void ThemeItemPic::paintEvent(QPaintEvent *event)
 {
+    int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, nullptr);
+    int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, nullptr);
+    int totalSpace = borderWidth + borderSpacing;
+
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+    int radius = 8;
     if (m_isSelected) {
         //draw blue rectangle
         QPen pen;
         pen.setBrush(palette().highlight());
-        pen.setWidth(2);  //pen width
+        pen.setWidth(borderWidth);  //pen width
         painter.setPen(pen);
-        QRect r = rect().adjusted(5, 5, -5, -5);
-        painter.drawRoundedRect(r, 20, 20);  //radius : 20
+        QRect r = rect();
+        painter.drawRoundedRect(r, radius, radius);
     }
+
     QPainterPath path;
-    QRect r = rect().adjusted(10, 10, -10, -10);
-    path.addRoundedRect(r, 20, 20);  //radius : 20
+    QRect r = rect().adjusted(totalSpace, totalSpace, -totalSpace, -totalSpace);
+    path.addRoundedRect(r, radius, radius);
     painter.setClipPath(path);
     painter.drawPixmap(r, m_pixmap);
 }

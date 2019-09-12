@@ -23,7 +23,6 @@
 
 #include <QVBoxLayout>
 #include <QLabel>
-#include <QCheckBox>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -37,7 +36,6 @@ ThemeItem::ThemeItem(bool titleBelowPic, QWidget *parent)
     m_mainLayout->setMargin(0);
 
     m_title = new QLabel(this);
-    m_title->setFixedHeight(20);
     m_itemPic = new ThemeItemPic(this);
     connect(m_itemPic, &ThemeItemPic::clicked, this, [=] {
         Q_EMIT selectedChanged(true);
@@ -46,7 +44,6 @@ ThemeItem::ThemeItem(bool titleBelowPic, QWidget *parent)
     if (m_titleBelowPic) {
         m_mainLayout->addWidget(m_itemPic);
         m_mainLayout->addWidget(m_title);
-        m_mainLayout->setAlignment(m_title, Qt::AlignCenter);
     } else {
         //icon themes and cursor thems
         QHBoxLayout *titlebuttonLayout = new QHBoxLayout();
@@ -62,7 +59,7 @@ ThemeItem::ThemeItem(bool titleBelowPic, QWidget *parent)
         m_mainLayout->addWidget(m_itemPic);
     }
 
-    m_mainLayout->setSpacing(10);
+    m_mainLayout->setSpacing(5);
 
     setLayout(m_mainLayout);
 }
@@ -70,6 +67,7 @@ ThemeItem::ThemeItem(bool titleBelowPic, QWidget *parent)
 void ThemeItem::setTitle(const QString &title)
 {
     m_title->setText(title);
+    m_mainLayout->setAlignment(m_title, Qt::AlignCenter);
 }
 
 void ThemeItem::setSelected(bool selected)
@@ -85,9 +83,16 @@ void ThemeItem::setSelected(bool selected)
 void ThemeItem::setPic(const QString &picPath)
 {
     m_itemPic->setPixmap(QPixmap(picPath));
+    m_mainLayout->setAlignment(m_title, Qt::AlignCenter);
 }
 
 void ThemeItem::setId(const QVariant &id)
 {
     m_id = id;
+}
+
+void ThemeItem::resizeEvent(QResizeEvent *event)
+{
+    m_mainLayout->setAlignment(m_title, Qt::AlignCenter);
+    m_mainLayout->setAlignment(m_itemPic, Qt::AlignCenter);
 }

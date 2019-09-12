@@ -19,13 +19,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "roundcolorwidget.h"
+
+#include <DStyle>
+
 #include <QColor>
 #include <QPainter>
 #include <QMouseEvent>
 #include <QApplication>
+#include <QDebug>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
+DWIDGET_USE_NAMESPACE
 
 RoundColorWidget::RoundColorWidget(const QColor &color, QWidget *parent)
     : QWidget(parent)
@@ -68,24 +73,28 @@ void RoundColorWidget::paintEvent(QPaintEvent *event)
     Q_UNUSED(event)
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+
+    int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, this);
+    int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, this);
+    int totalSpace = borderWidth + borderSpacing;
     QRect squareRect = rect();
     int delta = (squareRect.width() - squareRect.height())/2;
 
     if (delta != 0)
-        squareRect = (delta > 0) ? squareRect.adjusted(delta, 0, -delta, 0) : squareRect.adjusted(0, -delta, 0, delta); //adjust it to square
+        squareRect = (delta > 0) ? squareRect.adjusted(delta + EXTRA, EXTRA, -delta - EXTRA, -EXTRA)
+                                 : squareRect.adjusted(EXTRA, -delta + EXTRA , -EXTRA, delta - EXTRA); //adjust it to square
 
     if (m_isSelected) {
-        //draw blue rectangle
+        //draw select circle
         QPen pen;
         pen.setBrush(palette().highlight());
-        pen.setWidth(2);  //pen width
+        pen.setWidth(borderWidth);  //pen width
         painter.setPen(pen);
-        QRect r = squareRect.adjusted(5, 5, -5, -5);
-
-        painter.drawEllipse(r);
+        painter.drawEllipse(squareRect);
     }
+
     QPainterPath path;
-    QRect r = squareRect.adjusted(10, 10, -10, -10);
+    QRect r = squareRect.adjusted(totalSpace, totalSpace, -totalSpace, -totalSpace);
     path.addEllipse(r);
     painter.setClipPath(path);
     painter.drawPath(path);

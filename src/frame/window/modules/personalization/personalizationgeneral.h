@@ -53,6 +53,9 @@ public:
     void setModel(dcc::personalization::PersonalizationModel *model);
     inline PerssonalizationThemeWidget *getThemeWidget() { return m_Themes; }
 
+protected:
+    void paintEvent(QPaintEvent *event);
+
 private:
     void updateActiveColors(RoundColorWidget *selectedWidget);
 
@@ -75,6 +78,7 @@ private:
     dcc::personalization::PersonalizationModel *m_model;
     PerssonalizationThemeWidget *m_Themes;
     QList<RoundColorWidget *> m_activeColorsList;
+    QHBoxLayout *m_colorLayout = nullptr;
 };
 }
 }

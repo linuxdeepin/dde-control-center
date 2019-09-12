@@ -21,14 +21,17 @@
 #include "personalizationgeneral.h"
 #include "perssonalizationthemewidget.h"
 #include "roundcolorwidget.h"
-
 #include "widgets/dccslider.h"
 #include "widgets/dccsliderannotated.h"
 #include "widgets/settingsitem.h"
 
+#include <DStyle>
+
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QColor>
+#include <QRect>
+#include <QPalette>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -54,7 +57,6 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     , m_transparentSlider(new dcc::widgets::DCCSliderAnnotated())
     , m_Themes(new PerssonalizationThemeWidget())
 {
-
     //appearance
     //~ contents_path /personalization/General
     m_centralLayout->addWidget(new QLabel(tr("Theme")));
@@ -66,20 +68,21 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     //~ contents_path /personalization/General
     m_centralLayout->addWidget(new QLabel(tr("Accent Color")));
 
-    QHBoxLayout *colorsLayout = new QHBoxLayout();
-    SettingsItem *item = new dcc::widgets::SettingsItem;
-    item->addBackground();
-    item->setLayout(colorsLayout);
+    m_colorLayout = new QHBoxLayout();
+    m_colorLayout->setSpacing(0);
+    int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, this);
+    int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, this);
+    int totalSpace = borderWidth + borderSpacing + RoundColorWidget::EXTRA; //2px extra space to avoid line cutted off
 
     for (QString aColor : ACTIVE_COLORS) {
         RoundColorWidget *colorItem = new RoundColorWidget(aColor, this);
-        colorItem->setMinimumSize(40, 40);
-        colorsLayout->addWidget(colorItem);
+        colorItem->setFixedSize(20 + 2 * totalSpace, 40);
+        m_colorLayout->addWidget(colorItem);
         connect(colorItem, &RoundColorWidget::clicked, this, &PersonalizationGeneral::onActiveColorClicked);
         m_activeColorsList.append(colorItem);
     }
 
-    m_centralLayout->addWidget(item);
+    m_centralLayout->addLayout(m_colorLayout);
 
     //transparancy switch
     QVBoxLayout *transparancyLayout = new QVBoxLayout();
@@ -119,11 +122,12 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     connect(m_wmSwitch, &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this,
             &PersonalizationGeneral::requestSwitchWM);
 
+    m_centralLayout->setSpacing(20);
+    m_centralLayout->addStretch();
     setLayout(m_centralLayout);
 
     connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this,
             &PersonalizationGeneral::requestSetOpacity);
-    setMinimumWidth(360);
 }
 
 void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel *model)
@@ -147,6 +151,23 @@ void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel
     connect(model, &dcc::personalization::PersonalizationModel::onActiveColorChanged, this,
             &PersonalizationGeneral::onActiveColorChanged);
     onActiveColorChanged(model->getActiveColor());
+}
+
+void PersonalizationGeneral::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event)
+    DStylePainter painter(this);
+    if (m_colorLayout == nullptr || !m_colorLayout->geometry().isValid())
+        return;
+
+    QRect r = m_colorLayout->geometry();
+    int frame_radius = 18;
+    QPalette pal = palette();
+
+    painter.setBrush(pal.background());
+    painter.setPen(Qt::NoPen);
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.drawRoundedRect(r, frame_radius, frame_radius);
 }
 
 void PersonalizationGeneral::updateActiveColors(RoundColorWidget *selectedWidget)

@@ -47,6 +47,9 @@ public:
     void setId(const QVariant &id);
     inline const QVariant id() const { return m_id; }
 
+protected:
+    void resizeEvent(QResizeEvent *event);
+
 Q_SIGNALS:
     void selectedChanged(const bool selected) const;
 

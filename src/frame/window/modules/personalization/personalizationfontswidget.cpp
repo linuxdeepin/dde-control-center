@@ -22,6 +22,7 @@
 
 #include "widgets/dccsliderannotated.h"
 #include "widgets/dccslider.h"
+#include "widgets/settingsitem.h"
 #include "modules/personalization/personalizationmodel.h"
 #include "modules/personalization/model/fontsizemodel.h"
 #include "modules/personalization/model/fontmodel.h"
@@ -35,49 +36,63 @@
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
+using namespace dcc::widgets;
 
 PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout())
-    , m_fontSizeSlider(new dcc::widgets::DCCSliderAnnotated(this))
+    , m_fontSizeSlider(new DCCSliderAnnotated(this))
     , m_standardFontsCbBox(new QComboBox(this))
     , m_monoFontsCbBox(new QComboBox(this))
     , m_isAppend(false)
 {
     //font size
     //~ contents_path /personalization/Font
-    m_centralLayout->addWidget(new QLabel(tr("Size"), this));
+    QVBoxLayout *sizeLayout = new QVBoxLayout;
+    SettingsItem *sizeitem = new SettingsItem;
+    sizeitem->addBackground();
+    sizeitem->setLayout(sizeLayout);
+
+    sizeLayout->addWidget(new QLabel(tr("Size"), this));
     m_fontSizeSlider->setObjectName("fontsizeslider");
     m_fontSizeSlider->slider()->setOrientation(Qt::Horizontal);
 
-    dcc::widgets::DCCSlider *slider = m_fontSizeSlider->slider();
+    DCCSlider *slider = m_fontSizeSlider->slider();
     QStringList annotions;
     annotions << "11" << "12" << "13" << "14" << "15" << "16" << "17";
     m_fontSizeSlider->setAnnotations(annotions);
     slider->setRange(0, 6);
-    slider->setType(dcc::widgets::DCCSlider::Vernier);
+    slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::TicksBelow);
     slider->setTickInterval(1);
     slider->setPageStep(1);
 
-    m_centralLayout->addWidget(m_fontSizeSlider);
+    sizeLayout->addWidget(m_fontSizeSlider);
+    m_centralLayout->addWidget(sizeitem);
 
     //standard font
     QHBoxLayout *sfontLayout = new QHBoxLayout();
+    SettingsItem *sfontitem = new SettingsItem;
+    sfontitem->addBackground();
+    sfontitem->setLayout(sfontLayout);
     //~ contents_path /personalization/Font
     sfontLayout->addWidget(new QLabel(tr("Standard Font"), this));
     sfontLayout->addWidget(m_standardFontsCbBox);
 
     m_standardFontsCbBox->setModel(new QStandardItemModel(this));
-    m_centralLayout->addLayout(sfontLayout);
+    m_centralLayout->addWidget(sfontitem);
 
     //mono font
     QHBoxLayout *mfontLayout = new QHBoxLayout();
+    SettingsItem *mfontitem = new SettingsItem;
+    mfontitem->addBackground();
+    mfontitem->setLayout(mfontLayout);
     //~ contents_path /personalization/Font
     mfontLayout->addWidget(new QLabel(tr("Monospaced Font"), this));
     mfontLayout->addWidget(m_monoFontsCbBox);
     m_monoFontsCbBox->setModel(new QStandardItemModel(this));
-    m_centralLayout->addLayout(mfontLayout);
+    m_centralLayout->addWidget(mfontitem);
+    m_centralLayout->addStretch();
     setLayout(m_centralLayout);
 
     connect(slider, &QSlider::valueChanged, this, &PersonalizationFontsWidget::requestSetFontSize);
