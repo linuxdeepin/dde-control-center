@@ -25,66 +25,36 @@
 
 #include "spinboxwidget.h"
 
-#include <dspinbox.h>
-
 #include <QLabel>
 #include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
-
-namespace dcc {
-
-namespace widgets {
+using namespace dcc;
+using namespace dcc::widgets;
 
 SpinBoxWidget::SpinBoxWidget(QWidget *parent)
-    : SettingsItem(parent),
-      m_title(new QLabel),
-      m_spinBox(new DSpinBox)
+    : SettingsItem(parent)
+    , m_title(new QLabel)
+    , m_spinBox(new DSpinBox)
+    , m_resetBtn(new DIconButton(this))
 {
     m_spinBox->setContextMenuPolicy(Qt::NoContextMenu);
-    m_spinBox->setStyleSheet("DSpinBox {"
-                             "background-color: transparent;"
-                             "}"
-                             ""
-                             "QWidget {"
-                             "border: none;"
-                             "background-color: transparent;"
-                             "}"
-                             ""
-                             "QAbstractSpinBox::up-button {"
-                             "border: none;"
-                             "background: transparent;"
-                             "}"
-                             ""
-                             "QAbstractSpinBox::up-arrow {"
-                             "border: none;"
-                             "background: transparent;"
-                             "}"
-                             ""
-                             "QAbstractSpinBox::down-button {"
-                             "border: none;"
-                             "background: transparent;"
-                             "}"
-                             ""
-                             "QAbstractSpinBox::down-arrow {"
-                             "border: none;"
-                             "background: transparent;"
-                             "}");
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setContentsMargins(20, 7, 10, 7);
     mainLayout->setSpacing(0);
     mainLayout->addWidget(m_title);
     mainLayout->addWidget(m_spinBox);
-
+    m_resetBtn->setIcon(QIcon::fromTheme("dcc_reset"));
+    m_resetBtn->setFixedSize(16, 16);
+    mainLayout->addWidget(m_resetBtn);
+    connect(m_resetBtn, &DIconButton::clicked, [this] {
+        m_spinBox->setValue(0);
+    });
     setLayout(mainLayout);
 }
 
 void SpinBoxWidget::setTitle(const QString &title)
 {
     m_title->setText(title);
-}
-
-}
-
 }
