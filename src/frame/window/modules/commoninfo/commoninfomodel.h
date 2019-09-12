@@ -64,10 +64,10 @@ private:
     bool m_bootDelay;
     bool m_themeEnabled;
     bool m_updating;
-    bool m_joinUeProgram;   // for user experience program
     QStringList m_entryLists;
     QString m_defaultEntry;
     QPixmap m_background;
+    bool m_joinUeProgram;   // for user experience program
 };
 
 } // namespace commoninfo

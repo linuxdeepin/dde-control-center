@@ -60,8 +60,7 @@ public Q_SLOTS:
     void onShowBootWidget(); // for bootmenu
     void onShowDeveloperWidget(); // for developer mode
     void onShowUEPlanWidget(); // for user exprience program
-    // 以下内容为平板模式做预留
-    //void onShowTabletModeWidget(); // for tablet mode
+    void onShowTabletModeWidget(); // for tablet mode
 private:
     void initBootWidget();
     void initUeProgramWidget(); // for user experience program

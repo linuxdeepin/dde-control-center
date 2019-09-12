@@ -152,7 +152,6 @@ void CommonInfoWork::setBackground(const QString &path)
     QDBusPendingCall call = m_dBusGrubTheme->SetBackgroundSourceFile(path);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
-
         if (w->isError()) {
             onBackgroundChanged();
         } else {

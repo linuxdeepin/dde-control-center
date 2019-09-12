@@ -56,7 +56,6 @@ void CommonInfoModule::initialize()
 
     m_commonWork->moveToThread(qApp->thread());
     m_commonModel->moveToThread(qApp->thread());
-
 }
 
 const QString CommonInfoModule::name() const
@@ -71,8 +70,7 @@ void CommonInfoModule::active()
     connect(m_commonWidget, &CommonInfoWidget::requestShowBootWidget, this, &CommonInfoModule::onShowBootWidget);
     connect(m_commonWidget, &CommonInfoWidget::requestShowDeveloperModeWidget, this, &CommonInfoModule::onShowDeveloperWidget);
     connect(m_commonWidget, &CommonInfoWidget::requestShowUEPlanWidget, this, &CommonInfoModule::onShowUEPlanWidget);
-    // 以下内容为平板模式做预留
-    //connect(mCommonWidget, SIGNAL(requestShowTabletModeWidget()), this, SLOT(onShowTabletModeWidget()));
+    connect(m_commonWidget, &CommonInfoWidget::requestShowTabletModeWidget, this, &CommonInfoModule::onShowTabletModeWidget);
     m_frameProxy->pushWidget(this, m_commonWidget);
 }
 
@@ -100,6 +98,8 @@ void CommonInfoModule::load(QString path)
     } else if (path == "User Experience Program") {
         // 为用户体验计划的search预留
         idx = list->model()->index(2, 0);
+    } else if (path == "Tablet Plan") {
+        idx = list->model()->index(3, 0);
     }
     list->setCurrentIndex(idx);
     list->clicked(idx);
@@ -124,10 +124,10 @@ void CommonInfoModule::onShowUEPlanWidget()
 }
 
 // 以下内容为平板模式做预留
-//void CommonInfoModule::onShowTabletModeWidget()
-//{
+void CommonInfoModule::onShowTabletModeWidget()
+{
 
-//}
+}
 
 void CommonInfoModule::initBootWidget()
 {

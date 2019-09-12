@@ -28,8 +28,6 @@
 #include "widgets/switchwidget.h"
 #include "widgets/labels/tipslabel.h"
 #include "widgets/settingsgroup.h"
-#include "widgets/translucentframe.h"
-#include "widgets/basiclistdelegate.h"
 
 #include <QVBoxLayout>
 #include <QScrollBar>
@@ -45,7 +43,6 @@ BootWidget::BootWidget(QWidget *parent)
     : QWidget(parent)
 {
     QVBoxLayout *layout = new QVBoxLayout;
-    SettingsGroup *groupBackground = new SettingsGroup;
     SettingsGroup *groupOther = new SettingsGroup;
 
     m_background = new CommonBackgroundItem();
@@ -59,6 +56,7 @@ BootWidget::BootWidget(QWidget *parent)
     m_bootList->setFrameShape(QFrame::NoFrame);
     m_bootList->setDragDropMode(QListView::DragDrop);
     m_bootList->setDefaultDropAction(Qt::MoveAction);
+    m_bootList->setAutoFillBackground(false);
     m_bootList->setDragEnabled(false);
     m_bootList->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_bootList->setSelectionMode(DListView::SingleSelection); // 单选
@@ -89,14 +87,13 @@ BootWidget::BootWidget(QWidget *parent)
     themeLbl->setWordWrap(true);
     themeLbl->setContentsMargins(16, 0, 10, 0);
 
-    groupBackground->appendItem(m_background);
     groupOther->appendItem(m_bootDelay);
     groupOther->appendItem(m_theme);
 
     layout->setMargin(0);
     layout->setSpacing(0);
     layout->addSpacing(10);
-    layout->addWidget(groupBackground);
+    layout->addWidget(m_background);
     layout->addSpacing(8);
     layout->addWidget(backgroundLabel);
     layout->addSpacing(8);

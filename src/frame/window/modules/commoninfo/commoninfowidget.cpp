@@ -78,16 +78,15 @@ void CommonInfoWidget::initData()
             QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)
         },
         {
-            "dcc_ue_plan",
+            "dcc_ue_plan", // 小图标
             //~ contents_path /commoninfo/User Experience Program
             tr("User Experience Program"),
             QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget)
         },
-// 以下内容为平板模式做预留
-//        {
-//            "", tr("Tablet Plan"),
-//            QMetaMethod::fromSignal(&CommonInfoWidget::requestShowTabletModeWidget)
-//        },
+        {
+            "", tr("Tablet Plan"),
+            QMetaMethod::fromSignal(&CommonInfoWidget::requestShowTabletModeWidget)
+        },
     };
 
     for (auto m : m_itemList) {
