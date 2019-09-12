@@ -88,7 +88,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_navView->setFrameShape(QFrame::Shape::NoFrame);
     m_navView->setEditTriggers(QListView::NoEditTriggers);
     m_navView->setResizeMode(QListView::Adjust);
-    m_navView->setAutoScroll(false);
+    m_navView->setAutoScroll(true);
+    m_navView->setTabKeyNavigation(true);
 
     m_contentLayout->addWidget(m_navView);
     m_contentLayout->setSpacing(0);
@@ -106,7 +107,8 @@ MainWindow::MainWindow(QWidget *parent)
     //Initialize top page view and model
     m_navModel = new QStandardItemModel(m_navView);
     m_navView->setModel(m_navModel);
-    connect(m_navView, &DListView::clicked, this, &MainWindow::onFirstItemClick);
+    connect(m_navView, &DListView::activated, this, &MainWindow::onFirstItemClick);
+    connect(m_navView, &DListView::clicked, m_navView, &DListView::activated);
 
     m_searchWidget = new SearchWidget(this);
     m_searchWidget->setMinimumSize(350, 36);
