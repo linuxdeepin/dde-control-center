@@ -96,7 +96,7 @@ private:
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_createBtn;
     dcc::widgets::SettingsGroup *m_tipsGrp;
 
-    QMap<dcc::widgets::NextPageWidget *, QString> m_connectionPath;
+    QMap<DTK_WIDGET_NAMESPACE::DStandardItem *, QString> m_connectionPath;
 
     static const int PathRole = Dtk::UserRole + 1;
 };

@@ -124,7 +124,6 @@ void WiredPage::refreshConnectionList()
     availableWiredConns.reserve(wiredConns.size());
 
     m_modelprofiles->clear();
-    qDeleteAll(m_connectionPath.keys());
     m_connectionPath.clear();
 
     for (const auto &wiredConn : wiredConns) {
@@ -158,16 +157,7 @@ void WiredPage::refreshConnectionList()
         it->setActionList(Qt::Edge::RightEdge, {editaction});
 
         m_modelprofiles->appendRow(it);
-    }
-
-    // clear removed items
-    for (auto it(m_connectionPath.begin()); it != m_connectionPath.end();) {
-        if (!connPaths.contains(it.value())) {
-            it.key()->deleteLater();
-            it = m_connectionPath.erase(it);
-        } else {
-            ++it;
-        }
+        m_connectionPath.insert(it, path);
     }
 
     checkActivatedConnection();
@@ -202,10 +192,9 @@ void WiredPage::checkActivatedConnection()
 {
     for (auto it(m_connectionPath.cbegin()); it != m_connectionPath.cend(); ++it) {
         if (it.value() == m_device->activeWiredConnSettingPath()) {
-            // it.key()->setIcon(DHiDPIHelper::loadNxPixmap(":/network/themes/dark/icons/select.svg"));
-            it.key()->setIcon(QIcon::fromTheme("dcc_select").pixmap(QSize(16,16)));
+            it.key()->setCheckState(Qt::CheckState::Checked);
         } else {
-            it.key()->clearValue();
+            it.key()->setCheckState(Qt::CheckState::Unchecked);
         }
     }
 }
