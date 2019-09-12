@@ -68,6 +68,7 @@ void SystemInfoModule::active()
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowVersionProtocol, this, &SystemInfoModule::onVersionProtocolPage);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowEndUserLicenseAgreement, this, &SystemInfoModule::onShowEndUserLicenseAgreementPage);
     m_frameProxy->pushWidget(this, m_sysinfoWidget);
+    m_sysinfoWidget->setCurrentIndex(0);
 }
 
 const QString SystemInfoModule::name() const

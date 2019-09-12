@@ -29,15 +29,10 @@
 #include <QMetaMethod>
 
 QT_BEGIN_NAMESPACE
-
 class QVBoxLayout;
 class QListView;
 class QStandardItemModel;
 class QModelIndex;
-
-template <typename T>
-class QList;
-
 QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
