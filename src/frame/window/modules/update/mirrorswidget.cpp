@@ -90,12 +90,11 @@ void MirrorsWidget::setModel(UpdateModel *model)
     }
 
     setMirrorInfoList(model->mirrorInfos());
-    m_testButton->setVisible(model->netselectExist());
 
     connect(model, &UpdateModel::defaultMirrorChanged, this, &MirrorsWidget::setDefaultMirror);
     connect(model, &UpdateModel::mirrorSpeedInfoAvaiable, this, &MirrorsWidget::onSpeedInfoAvailable);
-
     connect(model, &UpdateModel::netselectExistChanged, m_testButton, &QPushButton::setVisible);
+    m_testButton->setVisible(model->netselectExist());
 }
 
 //close the window can do it

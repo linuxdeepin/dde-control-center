@@ -43,14 +43,6 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     , m_model(nullptr)
     , m_isProfessional(false)
 {
-#ifndef DISABLE_SYS_UPDATE_MIRRORS
-    if (DSysInfo::deepinType() == DSysInfo::DeepinType::DeepinProfessional) {
-        m_isProfessional = true;
-    }
-#else
-    m_isProfessional = true;
-#endif
-
     setTitle(tr("Update Settings"));
 
     TranslucentFrame *widget = new TranslucentFrame;

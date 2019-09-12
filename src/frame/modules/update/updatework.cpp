@@ -457,6 +457,10 @@ void UpdateWorker::checkNetselect()
 
     const bool isNetselectExist = process->execute("netselect", QStringList() << "127.0.0.1") == 0;
 
+    if (!isNetselectExist) {
+        qWarning() << "[wubw UpdateWorker] netselect 127.0.0.1 : " << isNetselectExist;
+    }
+
     m_model->setNetselectExist(isNetselectExist);
 
     process->deleteLater();
