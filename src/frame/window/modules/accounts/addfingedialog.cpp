@@ -24,7 +24,6 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
-#include <QTimer>
 
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
@@ -95,10 +94,7 @@ void AddFingeDialog::setUsername(const QString &name)
 void AddFingeDialog::saveThumb()
 {
     Q_EMIT requestSaveThumb(m_username);
-
-    QTimer::singleShot(1 * 1000, this, [&](){
-        Q_EMIT requestReEnrollStart(m_thumb);
-    });
+    this->close();
 }
 
 void AddFingeDialog::onEnrollStatusChanged(FingerModel::EnrollStatus status)
