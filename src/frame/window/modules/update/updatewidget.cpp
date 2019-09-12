@@ -295,7 +295,8 @@ void UpdateWidget::onNotifyUpdateState(int state)
     case Updated:
     case UpdateSucceeded:
     case NeedRestart:
-        m_historyBtn->setVisible(true);
+        //更新历史,暂时屏蔽显示入口,待后期再觉得是否需要此功能
+//        m_historyBtn->setVisible(true);
         break;
     case UpdatesAvailable:
     case Downloading:
