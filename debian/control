@@ -42,7 +42,7 @@ Depends: ${shlibs:Depends},
  xkb-data,
  deepin-installer-timezones,
  passwd
-Recommends: netselect
+Recommends: netselect, deepin-ab-recovery
 Suggests: redshift
 Conflicts:
  dde-control-center-plugin-weather,
