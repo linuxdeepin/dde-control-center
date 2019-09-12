@@ -330,7 +330,7 @@ void DateSettings::updateRealAutoSyncCheckState(const bool &state)
         m_timeMinWidget->setValue(datetime.time().minute());
     }
 
-    if (m_bIsConfirmSetTime) {
+    if (m_bIsConfirmSetTime && !state) {
         m_bIsConfirmSetTime = false;
 
         Q_EMIT requestSetTime(datetime);
