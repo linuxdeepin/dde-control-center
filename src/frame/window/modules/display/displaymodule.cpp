@@ -106,6 +106,8 @@ void DisplayModule::preInitialize()
 
     m_displayModel->moveToThread(qApp->thread());
     m_displayWorker->moveToThread(qApp->thread());
+
+    m_displayWorker->active();
 }
 
 void DisplayModule::showBrightnessPage()
