@@ -56,9 +56,9 @@ void Clock::paintEvent(QPaintEvent *)
     // draw plate
     painter.translate(0, 0);
     if (n_bIsUseBlackPlat) {
-        painter.drawPixmap(0, 0, width(), height(), QPixmap(":/icons/actions/datetime/dcc_clock_black.svg"));
+        painter.drawPixmap(0, 0, width(), height(), QPixmap(":/datetime/icons/dcc_clock_black.svg"));
     } else {
-        painter.drawPixmap(0, 0, width(), height(), QPixmap(":/icons/actions/datetime/dcc_clock_white.svg"));
+        painter.drawPixmap(0, 0, width(), height(), QPixmap(":/datetime/icons/dcc_clock_white.svg"));
     }
 
     QPixmap pix;
@@ -71,7 +71,7 @@ void Clock::paintEvent(QPaintEvent *)
     painter.save();
     painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(hourAngle);
-    pix.load(":/icons/actions/datetime/dcc_noun_hour.svg");
+    pix.load(":/datetime/icons/dcc_noun_hour.svg");
     painter.drawPixmap(-pix.width() / 2, -pix.height() / 2, pix);
     painter.restore();
 
@@ -80,7 +80,7 @@ void Clock::paintEvent(QPaintEvent *)
     painter.save();
     painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(minuteAngle);
-    pix.load(":/icons/actions/datetime/dcc_noun_minute.svg");
+    pix.load(":/datetime/icons/dcc_noun_minute.svg");
     painter.drawPixmap(-pix.width() / 2, -pix.height() / 2, pix);
     painter.restore();
 
@@ -89,7 +89,7 @@ void Clock::paintEvent(QPaintEvent *)
     painter.save();
     painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(secondAngle);
-    pix.load(":/icons/actions/datetime/dcc_noun_second.svg");
+    pix.load(":/datetime/icons/dcc_noun_second.svg");
     painter.drawPixmap(-pix.width() / 2, -pix.height() / 2, pix);
     painter.restore();
 
