@@ -92,6 +92,8 @@ void APItem::setSignalStrength(int ss)
     setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(ss / 10 & ~1)));
     APSortInfo si = data(SortRole).value<APSortInfo>();
     si.signalstrength = ss;
+    si.ssid = text();
+    qDebug() << "setSignalStrength: " << text() << " signal: " << ss << ":" <<(ss / 10 & ~1);
     setData(QVariant::fromValue(si), SortRole);
 }
 
@@ -127,7 +129,13 @@ QAction *APItem::action() const
 
 bool APItem::operator<(const QStandardItem &other) const
 {
-    return data(SortRole).value<APSortInfo>() < other.data(SortRole).value<APSortInfo>();
+    APSortInfo thisApInfo = data(SortRole).value<APSortInfo>();
+    APSortInfo otherApInfo = other.data(SortRole).value<APSortInfo>();
+    bool bRet = thisApInfo < otherApInfo;
+    qDebug() << "ssid: " << thisApInfo.ssid << " signal: " << thisApInfo.signalstrength;
+    qDebug() << "ssid: " << otherApInfo.ssid << " signal: " << otherApInfo.signalstrength;
+    qDebug() << "result is " << bRet;
+    return bRet;
 }
 
 WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
@@ -277,13 +285,12 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 
     APItem *it = m_apItems[ssid];
     APSortInfo si{strength, ssid, ssid == m_device->activeApSsid()};
-
+    qDebug() << "ssid: " << ssid << "old: " << it->signalStrength() << "new:" << strength
+             << "path1: " << it->path() << "path2: " << path;
     m_apItems[ssid]->setSortInfo(si);
 
-    if (it->path() == path) {
-        m_apItems[ssid]->setSignalStrength(strength);
-    } else if (strength > it->signalStrength()) {
-        m_apItems[ssid]->setSignalStrength(strength);
+    m_apItems[ssid]->setSignalStrength(strength);
+    if (it->path() != path) {
         m_apItems[ssid]->setPath(path);
     }
     it->setSecure(isSecure);
