@@ -125,7 +125,7 @@ MainWindow::MainWindow(QWidget *parent)
     backwardBtn->setIcon(QStyle::SP_ArrowBack);
     thlayout->addWidget(backwardBtn);
     connect(backwardBtn, &DIconButton::clicked, this, [this] {
-        popWidget();
+        popAllWidgets();
         resetNavList(m_contentStack.isEmpty());
     });
 
