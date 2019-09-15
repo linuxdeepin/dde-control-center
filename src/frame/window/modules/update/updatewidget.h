@@ -30,6 +30,7 @@
 
 #include <dimagebutton.h>
 #include <DSegmentedControl>
+#include <DButtonBox>
 
 class AppUpdateInfo;
 
@@ -111,7 +112,8 @@ private:
     QLabel *m_updateHistoryText;
     dcc::widgets::SettingsGroup *m_applistGroup;
     RecentHistoryApplist *m_recentHistoryApplist;
-    DSegmentedControl *m_topSwitchWidgetBtn;
+    DButtonBox *m_topSwitchWidgetBtn;
+    QList<DButtonBoxButton *> m_btnlist;
 };
 
 }// namespace datetime

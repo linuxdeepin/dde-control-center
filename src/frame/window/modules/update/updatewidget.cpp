@@ -53,19 +53,25 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     , m_updateHistoryText(new QLabel)
     , m_applistGroup(new SettingsGroup)
     , m_recentHistoryApplist(new RecentHistoryApplist)
-    , m_topSwitchWidgetBtn(new DSegmentedControl)
+    , m_topSwitchWidgetBtn(new DButtonBox)
 {
     //~ contents_path /update/Update
-    m_topSwitchWidgetBtn->addSegmented(QIcon::fromTheme("dcc_sync_update"), tr("Update"));
+    DButtonBoxButton *btnUpdate = new DButtonBoxButton(QIcon::fromTheme("dcc_sync_update"), tr("Update"));
     //~ contents_path /update/Update Settings
-    m_topSwitchWidgetBtn->addSegmented(QIcon::fromTheme("dcc_setting"), tr("Update Settings"));
+    DButtonBoxButton *btnSetting = new DButtonBoxButton(QIcon::fromTheme("dcc_setting"), tr("Update Settings"));
+    m_btnlist.append(btnUpdate);
+    m_btnlist.append(btnSetting);
+    m_topSwitchWidgetBtn->setButtonList(m_btnlist, true);
+    m_btnlist.first()->setChecked(true);
+    m_topSwitchWidgetBtn->setId(btnUpdate, 0);
+    m_topSwitchWidgetBtn->setId(btnSetting, 1);
     m_topSwitchWidgetBtn->setMinimumSize(240, 36);
 
     //~ contents_path /update/Update
     m_updateHistoryText->setText(tr("Last Update"));
 
-    connect(m_topSwitchWidgetBtn, &DSegmentedControl::currentChanged, [ = ]() {
-        refreshWidget(static_cast<UpdateType>(m_topSwitchWidgetBtn->currentIndex()));
+    connect(m_topSwitchWidgetBtn, &DButtonBox::buttonClicked, [this](QAbstractButton *value) {
+        refreshWidget(static_cast<UpdateType>(m_topSwitchWidgetBtn->id(value)));
     });
 
     m_layout->setAlignment(Qt::AlignTop);
@@ -259,12 +265,12 @@ void UpdateWidget::displayUpdateContent(UpdateType index)
     switch (static_cast<UpdateType>(index)) {
     case UpdateCheck:
         showCheckUpdate();
-        m_topSwitchWidgetBtn->setCurrentIndex(0);
+        m_btnlist.at(0)->setChecked(true);
         break;
     case UpdateSetting:
     case UpdateSettingMir:
         showUpdateSetting();
-        m_topSwitchWidgetBtn->setCurrentIndex(1);
+        m_btnlist.at(1)->setChecked(true);
         break;
     default:
         break;
