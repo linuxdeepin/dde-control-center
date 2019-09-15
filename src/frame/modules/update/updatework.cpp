@@ -76,6 +76,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_batteryPercentage(0)
     , m_batterySystemPercentage(0)
     , m_baseProgress(0)
+    , m_bDownAndUpdate(false)
 {
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
@@ -105,17 +106,26 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     }, Qt::UniqueConnection);
 
     connect(m_abRecoveryInter, &RecoveryInter::JobEnd, this, [ = ](const QString & kind, bool success, const QString & errMsg) {
-        qDebug() << " ----- RecoveryInter::JobEnd , kind : " << kind << " , success : " << success << " , errMsg : " << errMsg;
+        qDebug() << " [abRecovery] RecoveryInter::JobEnd 备份结果 -> kind : " << kind << " , success : " << success << " , errMsg : " << errMsg;
         //kind 在备份时为 "backup"，在恢复时为 "restore" (此处为备份)
         if ("backup" == kind) {
-            //成功:开始下载  ,  失败:提示失败
-            if (success) {
-                qDebug() << " ----- Recovery successed. Start to Update ...";
+            //失败:提示失败,不再进行更新进行
+            if (!success) {
+                m_model->setStatus(UpdatesStatus::RecoveryBackupFailed);
+                qWarning() << Q_FUNC_INFO << " [abRecovery] 备份失败 , errMsg : " << errMsg;
+                return;
+            }
+
+            //开始下载(只有成功才会继续更新)
+            //区分 升级/下载并升级
+            if (m_bDownAndUpdate) {
+                qDebug() << " [abRecovery] 备份成功, 开始下载并更新 ...";
+                m_baseProgress = 0.5;
+                distUpgradeDownloadUpdates();
+            } else {
+                qDebug() << " [abRecovery] 备份成功. 开始更新 ...";
                 m_baseProgress = 0;
                 distUpgradeInstallUpdates();
-            } else {
-                m_model->setStatus(UpdatesStatus::RecoveryBackupFailed);
-                qWarning() << Q_FUNC_INFO << " Recovery failed , errMsg : " << errMsg;
             }
         }
     });
@@ -333,19 +343,6 @@ void UpdateWorker::onSmartMirrorServiceIsValid(bool isvalid)
     }
 }
 
-void UpdateWorker::startRecoveryBackup()
-{
-    bool bConfigVlid = m_model->recoverConfigValid();
-    qDebug() << Q_FUNC_INFO << " -----Recovery bConfigVlid : " << bConfigVlid;
-
-    if (bConfigVlid) { //系统环境配置为可以恢复,在收到jobEnd()后,且"backup",成功,后才会继续到下一步下载数据
-        recoveryCanBackup();
-    } else { //系统环境配置不满足,则直接跳到下一步下载数据
-        m_baseProgress = 0;
-        distUpgradeInstallUpdates();
-    }
-}
-
 void UpdateWorker::pauseDownload()
 {
     if (!m_downloadJob.isNull()) {
@@ -364,14 +361,37 @@ void UpdateWorker::resumeDownload()
 
 void UpdateWorker::distUpgrade()
 {   
+    if (m_bDownAndUpdate)
+        m_bDownAndUpdate = false;
+
     //First start backupRecovery , then to load(in RecoveryInter::JobEnd Lemon function)
-    startRecoveryBackup();
+    bool bConfigVlid = m_model->recoverConfigValid();
+    qDebug() << Q_FUNC_INFO << " [abRecovery] 更新前,检查备份配置是否满足(true:满足) : " << bConfigVlid;
+
+    if (bConfigVlid) { //系统环境配置为可以恢复,在收到jobEnd()后,且"backup",成功,后才会继续到下一步下载数据
+        recoveryCanBackup();
+    } else { //系统环境配置不满足,则直接跳到下一步下载数据
+        qDebug() << Q_FUNC_INFO << " [abRecovery] 备份配置环境不满足,继续更新.";
+        m_baseProgress = 0;
+        distUpgradeInstallUpdates();
+    }
 }
 
 void UpdateWorker::downloadAndDistUpgrade()
 {
-    m_baseProgress = 0.5;
-    distUpgradeDownloadUpdates();
+    if (!m_bDownAndUpdate)
+        m_bDownAndUpdate = true;
+
+    bool bConfigVlid = m_model->recoverConfigValid();
+    qDebug() << Q_FUNC_INFO << " [abRecovery] 下载并更新前,检查备份配置是否满足(true:满足) : " << bConfigVlid;
+
+    if (bConfigVlid) { //系统环境配置为可以恢复,在收到jobEnd()后,且"backup",成功,后才会继续到下一步下载数据
+        recoveryCanBackup();
+    } else { //系统环境配置不满足,则直接跳到下一步下载数据
+        qDebug() << Q_FUNC_INFO << " [abRecovery] 备份配置环境不满足,继续下载并更新.";
+        m_baseProgress = 0.5;
+        distUpgradeDownloadUpdates();
+    }
 }
 
 void UpdateWorker::setAutoCheckUpdates(const bool autocheckUpdates)
@@ -468,7 +488,7 @@ void UpdateWorker::refreshMirrors()
 
 void UpdateWorker::recoveryCanBackup()
 {
-    qDebug() << Q_FUNC_INFO << " start judge CanBackup. ";
+    qDebug() << Q_FUNC_INFO << " [abRecovery] 开始检查是否能备份... ";
     QDBusPendingCall call = m_abRecoveryInter->CanBackup();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
@@ -477,16 +497,14 @@ void UpdateWorker::recoveryCanBackup()
             bool value = reply.value();
             m_model->setRecoverBackingUp(value);
             if (value) {
-                qDebug() << Q_FUNC_INFO << " Start Backup. ";
+                qDebug() << Q_FUNC_INFO << " [abRecovery] 可以备份, 开始备份...";
                 m_abRecoveryInter->StartBackup();
             } else {
-                qWarning() << Q_FUNC_INFO << " recovery CanBackup : false. ";
-                //返回值:false , 不能备份 : 跳过备份直接下载
-                m_baseProgress = 0;
-                distUpgradeInstallUpdates();
+                m_model->setStatus(UpdatesStatus::RecoveryBackupFailed);
+                qWarning() << Q_FUNC_INFO << " [abRecovery] 是否能备份(CanBackup)的环境不满足 -> 备份失败 ";
             }
         } else {
-            qWarning() << "recovery CanBackup error: " << call.error().message();
+            qWarning() << " [abRecovery] recovery CanBackup error: " << call.error().message();
         }
     });
 }

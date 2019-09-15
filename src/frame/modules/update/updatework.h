@@ -105,7 +105,6 @@ private:
     void setAppUpdateInfo(const AppUpdateInfoList &list);
     inline bool checkDbusIsValid();
     void onSmartMirrorServiceIsValid(bool isvalid);
-    void startRecoveryBackup();
 
 private:
     UpdateModel* m_model;
@@ -127,6 +126,7 @@ private:
     double m_baseProgress;
     QList<QString> m_updatableApps;
     QList<QString> m_updatablePackages;
+    bool m_bDownAndUpdate;
 };
 }
 }
