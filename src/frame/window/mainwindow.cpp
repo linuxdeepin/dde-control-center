@@ -390,6 +390,23 @@ void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w, Push
         pushNormalWidget(inter, w);
         break;
     }
+
+    if (m_contentStack.size() > 0) {
+        setTabOrder(this->titlebar(), m_navView);
+        m_navView->setFocus();
+
+        QWidget *secondWidget = qobject_cast<QWidget *>(m_contentStack.at(0).second);
+        if (secondWidget != nullptr) {
+            setTabOrder(m_navView, secondWidget);
+        }
+        if (m_contentStack.size() > 1) {
+            QWidget *thirdWidget = qobject_cast<QWidget *>(m_contentStack.at(1).second);
+            if (thirdWidget != nullptr) {
+                setTabOrder(secondWidget, thirdWidget);
+                setTabOrder(thirdWidget, this->titlebar());
+            }
+        }
+    }
 }
 
 //First save the third level page, Then pop the third level page
@@ -555,6 +572,7 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
         m_initList << inter;
     }
     inter->active();
+
 }
 
 DFourthColWidget::DFourthColWidget(QWidget *parent)
