@@ -80,14 +80,12 @@ void DisplayModule::active()
             this, &DisplayModule::showMultiScreenSettingPage);
     connect(m_displayWidget, &DisplayWidget::requestShowCustomConfigPage,
             this, &DisplayModule::showCustomSettingDialog);
+    connect(m_displayModel, &DisplayModel::monitorListChanged,
+            this, &DisplayModule::onMonitorListChanged);
 
     m_frameProxy->pushWidget(this, m_displayWidget);
 
-    if (m_displayModel->monitorList().size() > 1) {
-        showMultiScreenSettingPage();
-    } else {
-        showResolutionDetailPage();
-    }
+    onMonitorListChanged();
 }
 
 void DisplayModule::load(QString path)
@@ -206,6 +204,7 @@ void DisplayModule::showCustomSettingDialog()
             m_displayWorker, &DisplayWorker::setPrimary);
     connect(dlg, &CustomSettingDialog::requestApplySave,
             m_displayWorker, &DisplayWorker::saveChanges);
+    connect(m_displayModel, &DisplayModel::monitorListChanged, dlg, &QDialog::reject);
 
     dlg->setModel(m_displayModel);
     if (dlg->exec() != QDialog::Accepted) {
@@ -268,4 +267,13 @@ void DisplayModule::showRecognize()
 {
     RecognizeDialog dialog(m_displayModel);
     dialog.exec();
+}
+
+void DisplayModule::onMonitorListChanged()
+{
+    if (m_displayModel->monitorList().size() > 1) {
+        showMultiScreenSettingPage();
+    } else {
+        showResolutionDetailPage();
+    }
 }

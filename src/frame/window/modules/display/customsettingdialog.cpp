@@ -32,6 +32,7 @@
 #include <QVBoxLayout>
 #include <QStandardItemModel>
 #include <QStandardItem>
+#include <QDebug>
 
 using namespace dcc::display;
 using namespace dcc::widgets;
@@ -68,8 +69,8 @@ void CustomSettingDialog::initUI()
     setMinimumWidth(480);
     setWindowFlags(windowFlags() | Qt::X11BypassWindowManagerHint);
 
-    m_layout = new QVBoxLayout(this);
-    m_listLayout = new QVBoxLayout(this);
+    m_layout = new QVBoxLayout();
+    m_listLayout = new QVBoxLayout();
 
     m_segmentBtn = new DSegmentedControl(this);
     m_layout->addWidget(m_segmentBtn, 0, Qt::AlignHCenter);
@@ -135,8 +136,6 @@ void CustomSettingDialog::setModel(DisplayModel *model)
 
     initWithModel();
     initOtherDialog();
-
-    connect(m_model, &DisplayModel::primaryScreenChanged, this, &CustomSettingDialog::onPrimaryMonitorChanged);
 }
 
 void CustomSettingDialog::initWithModel()
@@ -144,36 +143,65 @@ void CustomSettingDialog::initWithModel()
     Q_ASSERT(m_model);
 
     initMoniControlWidget();
-
     initResolutionList();
 
+    if (m_isPrimary) {
+        disconnect(m_model, &DisplayModel::primaryScreenChanged,
+                   this, &CustomSettingDialog::onPrimaryMonitorChanged);
+        disconnect(m_model, &DisplayModel::monitorListChanged,
+                   this, &CustomSettingDialog::onPrimaryMonitorChanged);
+        disconnect(m_monitor, &Monitor::currentModeChanged,
+                   this, &CustomSettingDialog::onPrimaryMonitorChanged);
+
+        connect(m_model, &DisplayModel::primaryScreenChanged,
+                this, &CustomSettingDialog::onPrimaryMonitorChanged);
+        connect(m_monitor, &Monitor::currentModeChanged,
+                this, &CustomSettingDialog::onPrimaryMonitorChanged);
+    }
+    disconnect(m_model, &DisplayModel::screenWidthChanged, this, &CustomSettingDialog::resetDialog);
+    disconnect(m_model, &DisplayModel::screenHeightChanged, this, &CustomSettingDialog::resetDialog);
+
     connect(m_model, &DisplayModel::screenWidthChanged, this, &CustomSettingDialog::resetDialog);
-    connect(m_model, &DisplayModel::screenWidthChanged, this, &CustomSettingDialog::resetDialog);
+    connect(m_model, &DisplayModel::screenHeightChanged, this, &CustomSettingDialog::resetDialog);
 
     resetDialog();
 }
 
 void CustomSettingDialog::initOtherDialog()
 {
-    qDeleteAll(m_otherDialog);
-    m_otherDialog.clear();
+//    //当存在三个屏幕或以上时，需要下列代码
+//    if(m_otherDialog.size()) {
+//        for(auto dlg : m_otherDialog) {
+//            dlg->setVisible(false);
+//        }
+//    }
 
-    if (m_model->isMerge())
+    if (m_model->monitorsIsIntersect())
         return;
 
-    for (auto mon : m_model->monitorList()) {
+    int dlgIdx = 0;
+    for (int idx = 0; idx < m_model->monitorList().size(); ++idx) {
+        auto mon = m_model->monitorList()[idx];
         if (mon == m_model->primaryMonitor())
             continue;
-        CustomSettingDialog *dlg = new CustomSettingDialog(mon, m_model, this);
+        CustomSettingDialog *dlg = nullptr;
+        if(dlgIdx < m_otherDialog.size()) {
+            dlg = m_otherDialog[dlgIdx];
+            dlg->m_monitor = mon;
+//            dlg->setVisible(true);
+            ++dlgIdx;
+        } else {
+            dlg = new CustomSettingDialog(mon, m_model, this);
+            m_otherDialog.append(dlg);
+            dlg->show();
 
-        connect(dlg, &CustomSettingDialog::requestSetResolution, this,
-                &CustomSettingDialog::requestSetResolution);
-        connect(dlg, &CustomSettingDialog::requestShowRotateDialog, this,
-                &CustomSettingDialog::requestShowRotateDialog);
+            connect(dlg, &CustomSettingDialog::requestSetResolution, this,
+                    &CustomSettingDialog::requestSetResolution);
+            connect(dlg, &CustomSettingDialog::requestShowRotateDialog, this,
+                    &CustomSettingDialog::requestShowRotateDialog);
+        }
 
         dlg->initWithModel();
-        dlg->show();
-        m_otherDialog.append(dlg);
     }
 }
 
@@ -190,7 +218,7 @@ void CustomSettingDialog::initResolutionList()
     itemModel = new QStandardItemModel(this);
     QStandardItem *curIdx{nullptr};
     for (auto m : modes) {
-        if (m_model->isMerge()) {
+        if (m_model->monitorsIsIntersect()) {
             bool isComm = true;
             for (auto moni : m_model->monitorList()) {
                 if (-1 == moni->modeList().indexOf(m)) {
@@ -255,7 +283,9 @@ void CustomSettingDialog::initMoniList()
         auto *subTitleAction = new DViewItemAction;
         //~ contents_path /display/Multiple Displays
         QString str = QString("%1 %2 %3%4x%5").arg(moni->w()).arg(tr("inch"))
-                      .arg(tr("Resolution").arg(QString::number(moni->w())).arg(QString::number(moni->h())));
+                      .arg(tr("Resolution")
+                           .arg(QString::number(moni->w()))
+                           .arg(QString::number(moni->h())));
         subTitleAction->setText(str);
 
         DViewItemActionList actionList;
@@ -275,7 +305,10 @@ void CustomSettingDialog::initMoniList()
 
 void CustomSettingDialog::initMoniControlWidget()
 {
+    if (m_monitroControlWidget)
+        m_monitroControlWidget->deleteLater();
     m_monitroControlWidget = new MonitorControlWidget();
+    m_monitroControlWidget->setScreensMerged(m_model->monitorsIsIntersect());
     m_monitroControlWidget->setDisplayModel(m_model, m_isPrimary ? nullptr : m_monitor);
 
     connect(m_monitroControlWidget, &MonitorControlWidget::requestMonitorPress,
@@ -290,6 +323,10 @@ void CustomSettingDialog::initMoniControlWidget()
             this, &CustomSettingDialog::requestSplit);
     connect(m_monitroControlWidget, &MonitorControlWidget::requestSetMonitorPosition,
             this, &CustomSettingDialog::requestSetMonitorPosition);
+    connect(m_model, &DisplayModel::monitorListChanged, this, [ = ]{
+            m_monitroControlWidget->deleteLater();
+            m_monitroControlWidget = nullptr;
+    });
 
     m_layout->insertWidget(0, m_monitroControlWidget);
 }

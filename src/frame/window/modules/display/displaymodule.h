@@ -48,6 +48,13 @@ public:
     explicit DisplayModule(DCC_NAMESPACE::FrameProxyInterface *frame, QObject *parent = 0);
     ~DisplayModule();
 
+public:
+    void initialize() override;
+    const QString name() const override;
+    void active() override;
+    void load(QString path) override;
+    void preInitialize() override;
+
 private Q_SLOTS:
     void showScalingPage();
     void showResolutionDetailPage();
@@ -58,13 +65,7 @@ private Q_SLOTS:
     void showCustomSettingDialog();
     int showTimeoutDialog(dcc::display::Monitor *mon);
     void showRecognize();
-
-public:
-    void initialize() override;
-    const QString name() const override;
-    void active() override;
-    void load(QString path) override;
-    void preInitialize() override;
+    void onMonitorListChanged();
 
 private:
     dcc::display::DisplayModel *m_displayModel{nullptr};
