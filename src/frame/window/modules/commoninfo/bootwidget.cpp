@@ -168,7 +168,7 @@ void BootWidget::setEntryList(const QStringList &list)
 
         DStandardItem *item = new DStandardItem();
         item->setText(entry);
-        item->setCheckable(true);
+        item->setCheckable(false); // for Bug 2449
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
 
         onCurrentItem(item->index());
