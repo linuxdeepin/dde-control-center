@@ -63,6 +63,7 @@ private Q_SLOTS:
     void showRotate(dcc::display::Monitor *mon = nullptr);
     void showMultiScreenSettingPage();
     void showCustomSettingDialog();
+    void showRefreshRotePage();
     int showTimeoutDialog(dcc::display::Monitor *mon);
     void showRecognize();
     void onMonitorListChanged();

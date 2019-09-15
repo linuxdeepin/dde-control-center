@@ -122,7 +122,9 @@ void DisplayWidget::initMenuUI()
         //~ contents_path /display/Brightness
         {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
         //~ contents_path /display/Display Scaling
-        {tr("Display Scaling"), "dcc_screen", QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)}
+        {tr("Display Scaling"), "dcc_screen", QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)},
+        //~ contents_path /display/Refresh Rate
+        {tr("Refresh Rate"), "dcc_screen", QMetaMethod::fromSignal(&DisplayWidget::requestShowRefreshRatePage)}
     };
 
     DStandardItem *btn{nullptr};

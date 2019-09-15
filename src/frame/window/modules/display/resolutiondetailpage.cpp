@@ -102,7 +102,12 @@ void ResolutionDetailPage::initResoList()
     DStandardItem *curIdx{nullptr};
     const auto &modes = moni->modeList();
     const auto curMode = moni->currentMode();
+    Resolution prevM;
     for (auto m : modes) {
+        if (Monitor::isSameResolution(m, prevM)) {
+            continue;
+        }
+        prevM = m;
         const QString res = QString("%1x%2").arg(m.width()).arg(m.height());
         DStandardItem *item = new DStandardItem();
 
@@ -113,6 +118,8 @@ void ResolutionDetailPage::initResoList()
         } else {
             item->setText(res);
         }
+
+        item->setData(QVariant(m.id()), Qt::WhatsThisPropertyRole);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
 
         if (curMode == m)
@@ -126,18 +133,19 @@ void ResolutionDetailPage::initResoList()
     }
 
     connect(rlist, &DListView::clicked, this, [ = ](const QModelIndex & idx) {
-        requestSetResolution(moni, moni->modeList()[idx.row()].id());
+        requestSetResolution(moni, itemModel->itemData(idx)[Qt::WhatsThisPropertyRole].toInt());
     });
-    connect(moni, &Monitor::currentModeChanged, this, [ = ](const Resolution & resolution) {
-        auto idx = moni->modeList().indexOf(resolution);
-        if (-1 == idx)
-            return;
-
-        auto cidx = itemModel->index(idx, 0);
-        itemModel->setData(cidx, Qt::Checked, Qt::CheckStateRole);
+    connect(moni, &Monitor::currentModeChanged, this, [ = ](const Resolution & r) {
         itemModel->setData(m_curIdxs, Qt::Unchecked, Qt::CheckStateRole);
-        m_curIdxs = cidx;
+        for(int i = 0; i < itemModel->rowCount(); ++i) {
+            auto tItem = itemModel->item(i);
+            if(tItem->data(Qt::WhatsThisPropertyRole).toInt() == r.id()) {
+                m_curIdxs = tItem->index();
+                tItem->setData(Qt::CheckState::Checked, Qt::CheckStateRole);
+            }
+        }
     });
+
     m_mainLayout->addWidget(rlist, 1);
     m_resoList = rlist;
 }

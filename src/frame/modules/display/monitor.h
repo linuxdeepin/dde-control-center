@@ -73,6 +73,10 @@ Q_SIGNALS:
     void currentModeChanged(const Resolution &resolution) const;
     void modelListChanged(const QList<Resolution> &resolution) const;
 
+public:
+    static bool isSameResolution(const Resolution &r1,const Resolution &r2);
+    static bool isSameRatefresh(const Resolution &r1,const Resolution &r2);
+
 private Q_SLOTS:
     void setX(const int x);
     void setY(const int y);
@@ -101,6 +105,8 @@ private:
     QString m_primary;
     Resolution m_currentMode;
     QList<quint16> m_rotateList;
+//    QList<QPair<int, int>> m_resolutionList;
+//    QList<double> m_refreshList;
     QList<Resolution> m_modeList;
 };
 

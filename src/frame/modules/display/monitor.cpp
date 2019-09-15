@@ -142,10 +142,24 @@ void Monitor::setModeList(const ResolutionList &modeList)
 {
     m_modeList.clear();
 
+    Resolution preResolution;
     // NOTE: ignore resolution less than 1024x768
-    for (auto m : modeList)
-        if (m.width() >= 1024 && m.height() >= 768)
+    for (auto m : modeList) {
+        if (m.width() >= 1024 && m.height() >= 768) {
             m_modeList.append(m);
+        }
+    }
 
     Q_EMIT modelListChanged(m_modeList);
+}
+
+
+bool Monitor::isSameResolution(const Resolution &r1, const Resolution &r2)
+{
+    return r1.width() == r2.width() && r1.height() == r2.height();
+}
+
+bool Monitor::isSameRatefresh(const Resolution &r1, const Resolution &r2)
+{
+    return fabs(r1.rate() - r2.rate()) < 0.000001;
 }

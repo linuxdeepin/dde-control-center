@@ -72,6 +72,7 @@ Q_SIGNALS:
     void requestShowScalingPage() const;
     void requestShowCustomConfigPage() const;
     void requestRotate() const;
+    void requestShowRefreshRatePage() const;
 
 private:
     void initMenuUI();

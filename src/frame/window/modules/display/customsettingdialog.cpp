@@ -92,6 +92,8 @@ void CustomSettingDialog::initUI()
     m_segmentBtn->addSegmented(tr("Refresh Rate"));
     m_listLayout->addWidget(m_rateList);
 
+    adjustSize();
+
     connect(m_segmentBtn, &DSegmentedControl::currentChanged,
             this, &CustomSettingDialog::onChangList);
 
@@ -144,6 +146,7 @@ void CustomSettingDialog::initWithModel()
 
     initMoniControlWidget();
     initResolutionList();
+    initRefreshrateList();
 
     if (m_isPrimary) {
         disconnect(m_model, &DisplayModel::primaryScreenChanged,
@@ -185,7 +188,7 @@ void CustomSettingDialog::initOtherDialog()
         if (mon == m_model->primaryMonitor())
             continue;
         CustomSettingDialog *dlg = nullptr;
-        if(dlgIdx < m_otherDialog.size()) {
+        if (dlgIdx < m_otherDialog.size()) {
             dlg = m_otherDialog[dlgIdx];
             dlg->m_monitor = mon;
 //            dlg->setVisible(true);
@@ -205,6 +208,58 @@ void CustomSettingDialog::initOtherDialog()
     }
 }
 
+void CustomSettingDialog::initRefreshrateList()
+{
+    QStandardItemModel *listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
+    if (listModel)
+        listModel->deleteLater();
+
+    auto modes = m_monitor->modeList();
+    listModel = new QStandardItemModel(this);
+    m_rateList->setModel(listModel);
+    Resolution pevR;
+
+    auto moni = m_monitor;
+    QList<double> rateList;
+    bool isFirst = true;
+    for (auto m : moni->modeList()) {
+        if (!Monitor::isSameResolution(m, moni->currentMode()))
+            continue;
+        auto trate = m.rate();
+        DStandardItem *item = new DStandardItem;
+        listModel->appendRow(item);
+
+        auto tstr = QString::number(trate, 'g', 4) + tr("Hz");
+        if (isFirst) {
+            tstr += QString(" (%1)").arg(tr("Recommended"));
+            isFirst = false;
+        }
+        if (fabs(trate - moni->currentMode().rate()) < 0.000001) {
+            item->setCheckState(Qt::CheckState::Checked);
+        } else {
+            item->setCheckState(Qt::CheckState::Unchecked);
+        }
+        item->setData(QVariant(m.id()), Qt::WhatsThisPropertyRole);
+        item->setText(tstr);
+    }
+
+    connect(m_rateList, &DListView::clicked, this, [ = ](const QModelIndex & idx) {
+        this->requestSetResolution(m_monitor, listModel->data(idx, Qt::WhatsThisPropertyRole).toInt());
+    });
+
+    connect(m_monitor, &Monitor::currentModeChanged, this, [ = ](const Resolution & r) {
+        for (int i = 0; i < listModel->rowCount(); ++i) {
+            auto tItem = listModel->item(i);
+
+            if (tItem->data(Qt::WhatsThisPropertyRole).toInt() == r.id()) {
+                tItem->setData(Qt::CheckState::Checked, Qt::CheckStateRole);
+            } else {
+                tItem->setData(Qt::CheckState::Unchecked, Qt::CheckStateRole);
+            }
+        }
+    });
+}
+
 void CustomSettingDialog::initResolutionList()
 {
     QStandardItemModel *itemModel = qobject_cast<QStandardItemModel *>(m_resolutionList->model());
@@ -217,7 +272,13 @@ void CustomSettingDialog::initResolutionList()
 
     itemModel = new QStandardItemModel(this);
     QStandardItem *curIdx{nullptr};
+    Resolution pevR;
     for (auto m : modes) {
+        if (Monitor::isSameResolution(pevR, m)) {
+            continue;
+        }
+
+        pevR = m;
         if (m_model->monitorsIsIntersect()) {
             bool isComm = true;
             for (auto moni : m_model->monitorList()) {
@@ -323,9 +384,9 @@ void CustomSettingDialog::initMoniControlWidget()
             this, &CustomSettingDialog::requestSplit);
     connect(m_monitroControlWidget, &MonitorControlWidget::requestSetMonitorPosition,
             this, &CustomSettingDialog::requestSetMonitorPosition);
-    connect(m_model, &DisplayModel::monitorListChanged, this, [ = ]{
-            m_monitroControlWidget->deleteLater();
-            m_monitroControlWidget = nullptr;
+    connect(m_model, &DisplayModel::monitorListChanged, this, [ = ] {
+        m_monitroControlWidget->deleteLater();
+        m_monitroControlWidget = nullptr;
     });
 
     m_layout->insertWidget(0, m_monitroControlWidget);

@@ -87,6 +87,7 @@ private:
     void initUI();
     void initWithModel();
     void initOtherDialog();
+    void initRefreshrateList();
     void initResolutionList();
     void initMoniList();
     void initMoniControlWidget();

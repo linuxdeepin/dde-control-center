@@ -165,6 +165,7 @@ set(WINDOW_FILES
     window/modules/display/resolutiondetailpage.cpp
     window/modules/display/brightnesspage.cpp
     window/modules/display/rotatedialog.cpp
+    window/modules/display/refreshratepage.cpp
     window/modules/display/multiscreensettingpage.cpp
     window/modules/display/customsettingdialog.cpp
     window/modules/power/powermodule.cpp

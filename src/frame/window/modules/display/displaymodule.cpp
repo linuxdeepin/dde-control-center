@@ -27,6 +27,7 @@
 #include "scalingpage.h"
 #include "multiscreensettingpage.h"
 #include "customsettingdialog.h"
+#include "refreshratepage.h"
 
 #include "widgets/timeoutdialog.h"
 #include "modules/display/displaymodel.h"
@@ -73,6 +74,8 @@ void DisplayModule::active()
             this, &DisplayModule::showResolutionDetailPage);
     connect(m_displayWidget, &DisplayWidget::requestShowBrightnessPage,
             this, &DisplayModule::showBrightnessPage);
+    connect(m_displayWidget, &DisplayWidget::requestShowRefreshRatePage,
+            this, &DisplayModule::showRefreshRotePage);
     connect(m_displayWidget, &DisplayWidget::requestRotate, this, [ this ] {
         showRotate();
     });
@@ -212,6 +215,18 @@ void DisplayModule::showCustomSettingDialog()
     }
 
     dlg->deleteLater();
+}
+
+void DisplayModule::showRefreshRotePage()
+{
+    auto page = new RefreshRatePage();
+    page->setModel(m_displayModel);
+
+    connect(page, &RefreshRatePage::requestSetResolution,
+            m_displayWorker, &DisplayWorker::setMonitorResolution);
+
+    m_frameProxy->pushWidget(this, page);
+
 }
 
 void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, const int mode)
