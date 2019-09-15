@@ -21,7 +21,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::MainWindow</name>
+    <name>dccV20::MainWindow</name>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="158"/>
         <source>Account</source>
@@ -104,7 +104,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::AccountsDetailWidget</name>
+    <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="190"/>
         <source>Change Password</source>
@@ -151,7 +151,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::AddFingeDialog</name>
+    <name>dccV20::accounts::AddFingeDialog</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="73"/>
         <source>Add Fingerprint</source>
@@ -185,7 +185,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::CreateAccountPage</name>
+    <name>dccV20::accounts::CreateAccountPage</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="125"/>
         <source>Username</source>
@@ -273,7 +273,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::accounts::ModifyPasswdPage</name>
+    <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="97"/>
         <source>Change Password</source>
@@ -345,7 +345,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::bluetooth::AdapterWidget</name>
+    <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="54"/>
         <source>My devices</source>
@@ -366,7 +366,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::bluetooth::DetailPage</name>
+    <name>dccV20::bluetooth::DetailPage</name>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Ignore this device</source>
@@ -387,7 +387,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::bluetooth::DeviceSettingsItem</name>
+    <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="131"/>
         <source>Connected</source>
@@ -400,7 +400,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::commoninfo::BootWidget</name>
+    <name>dccV20::commoninfo::BootWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="59"/>
         <source>Updating...</source>
@@ -436,7 +436,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::commoninfo::CommonInfoWidget</name>
+    <name>dccV20::commoninfo::CommonInfoWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="71"/>
         <source>Boot Menu</source>
@@ -457,7 +457,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::DateSettings</name>
+    <name>dccV20::datetime::DateSettings</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="80"/>
         <source>Auto Sync</source>
@@ -507,7 +507,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::DateWidget</name>
+    <name>dccV20::datetime::DateWidget</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="63"/>
         <source>Year</source>
@@ -528,7 +528,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::DatetimeWidget</name>
+    <name>dccV20::datetime::DatetimeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Timezone List</source>
@@ -548,7 +548,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::SystemTimezone</name>
+    <name>dccV20::datetime::SystemTimezone</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="39"/>
         <source>Change System Timezone</source>
@@ -563,7 +563,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::datetime::TimezoneList</name>
+    <name>dccV20::datetime::TimezoneList</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="47"/>
         <source>Timezone List</source>
@@ -572,7 +572,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::defapp::DefappDetailWidget</name>
+    <name>dccV20::defapp::DefappDetailWidget</name>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="51"/>
         <source>Webpage</source>
@@ -620,7 +620,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::defapp::DefaultAppsWidget</name>
+    <name>dccV20::defapp::DefaultAppsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="50"/>
         <source>Webpage</source>
@@ -670,7 +670,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::BrightnessPage</name>
+    <name>dccV20::display::BrightnessPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="55"/>
         <source>The screen tone will be auto adjusted according to your location</source>
@@ -691,7 +691,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::CustomSettingDialog</name>
+    <name>dccV20::display::CustomSettingDialog</name>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="80"/>
         <source>Main Screen</source>
@@ -731,7 +731,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::DisplayWidget</name>
+    <name>dccV20::display::DisplayWidget</name>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="112"/>
         <source>Multiple Displays</source>
@@ -760,7 +760,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::MultiScreenSettingPage</name>
+    <name>dccV20::display::MultiScreenSettingPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="44"/>
         <source>Customize</source>
@@ -799,7 +799,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::ResolutionDetailPage</name>
+    <name>dccV20::display::ResolutionDetailPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="56"/>
         <source>Cancel</source>
@@ -818,7 +818,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::RotateDialog</name>
+    <name>dccV20::display::RotateDialog</name>
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="153"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
@@ -826,7 +826,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::display::ScalingPage</name>
+    <name>dccV20::display::ScalingPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="50"/>
         <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
@@ -835,7 +835,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::CustomContent</name>
+    <name>dccV20::keyboard::CustomContent</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="59"/>
         <source>Add Custom Shortcut</source>
@@ -879,7 +879,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::GeneralKBSettingWidget</name>
+    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="45"/>
         <source>Repeat Delay</source>
@@ -936,7 +936,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::KBLayoutSettingWidget</name>
+    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="58"/>
         <source>Keyboard Layout</source>
@@ -967,15 +967,15 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::KeyboardModule</name>
+    <name>dccV20::keyboard::KeyboardModule</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="205"/>
         <source>Custom Shortcut</source>
-        <translation>Mukautettu pikanäppäin</translation>
+        <translation>Mukautettu pikakuvake</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::KeyboardWidget</name>
+    <name>dccV20::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="51"/>
         <source>General</source>
@@ -1002,7 +1002,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::keyboard::ShortCutSettingWidget</name>
+    <name>dccV20::keyboard::ShortCutSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="54"/>
         <source>System</source>
@@ -1041,7 +1041,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::GeneralSettingWidget</name>
+    <name>dccV20::mouse::GeneralSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="45"/>
         <source>Left Hand</source>
@@ -1080,7 +1080,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::MouseSettingWidget</name>
+    <name>dccV20::mouse::MouseSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="42"/>
         <source>Pointer Speed</source>
@@ -1119,7 +1119,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::MouseWidget</name>
+    <name>dccV20::mouse::MouseWidget</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="57"/>
         <source>General</source>
@@ -1146,7 +1146,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::TouchPadSettingWidget</name>
+    <name>dccV20::mouse::TouchPadSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="43"/>
         <source>Pointer Speed</source>
@@ -1179,7 +1179,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::mouse::TrackPointSettingWidget</name>
+    <name>dccV20::mouse::TrackPointSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="38"/>
         <source>Pointer Speed</source>
@@ -1200,7 +1200,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ChainsProxyPage</name>
+    <name>dccV20::network::ChainsProxyPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="48"/>
         <source>Application Proxy</source>
@@ -1265,7 +1265,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ChainsTypePage</name>
+    <name>dccV20::network::ChainsTypePage</name>
     <message>
         <location filename="../src/frame/window/modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
@@ -1273,7 +1273,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ConnectionEditPage</name>
+    <name>dccV20::network::ConnectionEditPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="96"/>
         <source>Disconnect</source>
@@ -1311,7 +1311,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ConnectionHotspotEditPage</name>
+    <name>dccV20::network::ConnectionHotspotEditPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/connectionhotspoteditpage.cpp" line="47"/>
         <source>hotspot</source>
@@ -1319,7 +1319,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ConnectionVpnEditPage</name>
+    <name>dccV20::network::ConnectionVpnEditPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="106"/>
         <source>L2TP</source>
@@ -1397,7 +1397,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::EthernetSection</name>
+    <name>dccV20::network::EthernetSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="37"/>
         <source>Ethernet</source>
@@ -1430,7 +1430,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::GenericHotspotSection</name>
+    <name>dccV20::network::GenericHotspotSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="31"/>
         <source>General</source>
@@ -1443,7 +1443,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::GenericSection</name>
+    <name>dccV20::network::GenericSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="31"/>
         <source>General</source>
@@ -1461,7 +1461,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::HotspotDeviceWidget</name>
+    <name>dccV20::network::HotspotDeviceWidget</name>
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="66"/>
         <source>Hotspot</source>
@@ -1474,7 +1474,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::IpvxSection</name>
+    <name>dccV20::network::IpvxSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="32"/>
         <source>IPv4</source>
@@ -1550,7 +1550,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::NetworkDetailPage</name>
+    <name>dccV20::network::NetworkDetailPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="94"/>
         <source>Network Details</source>
@@ -1625,7 +1625,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::NetworkModuleWidget</name>
+    <name>dccV20::network::NetworkModuleWidget</name>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="61"/>
         <source>DSL</source>
@@ -1687,7 +1687,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::PPPOESection</name>
+    <name>dccV20::network::PPPOESection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="31"/>
         <source>PPPoE</source>
@@ -1716,7 +1716,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::PPPSection</name>
+    <name>dccV20::network::PPPSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="31"/>
         <source>PPP</source>
@@ -1794,7 +1794,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::PppoePage</name>
+    <name>dccV20::network::PppoePage</name>
     <message>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="71"/>
         <source>PPP</source>
@@ -1802,7 +1802,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::ProxyPage</name>
+    <name>dccV20::network::ProxyPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
         <source>Cancel</source>
@@ -1880,7 +1880,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::Secret8021xSection</name>
+    <name>dccV20::network::Secret8021xSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="31"/>
         <source>Security</source>
@@ -2045,7 +2045,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::SecretHotspotSection</name>
+    <name>dccV20::network::SecretHotspotSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="106"/>
         <source>None</source>
@@ -2083,7 +2083,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::SecretWiredSection</name>
+    <name>dccV20::network::SecretWiredSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwiredsection.cpp" line="32"/>
         <source>Security Required</source>
@@ -2091,7 +2091,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::SecretWirelessSection</name>
+    <name>dccV20::network::SecretWirelessSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="106"/>
         <source>None</source>
@@ -2134,7 +2134,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnAdvOpenVPNSection</name>
+    <name>dccV20::network::VpnAdvOpenVPNSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
@@ -2207,7 +2207,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnAdvVPNCSection</name>
+    <name>dccV20::network::VpnAdvVPNCSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
         <source>VPN Advanced</source>
@@ -2333,7 +2333,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnIpsecSection</name>
+    <name>dccV20::network::VpnIpsecSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
         <source>VPN IPsec</source>
@@ -2362,16 +2362,16 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
         <source>Phase1 Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Phase1 -algoritmit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
         <source>Phase2 Algorithms</source>
-        <translation type="unfinished"/>
+        <translation>Vaihe2 -algoritmit</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnOpenConnectSection</name>
+    <name>dccV20::network::VpnOpenConnectSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
         <source>VPN</source>
@@ -2395,17 +2395,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
         <source>Proxy</source>
-        <translation type="unfinished"/>
+        <translation>Välityspalvelin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation type="unfinished"/>
+        <translation>Salli Cisco Secure Desktop Trojan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
         <source>CSD Script</source>
-        <translation type="unfinished"/>
+        <translation>CSD Script</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
@@ -2420,11 +2420,11 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
         <source>Use FSID for Key Passphrase</source>
-        <translation type="unfinished"/>
+        <translation>Käytä FSID-tunnusta avaimena</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnOpenVPNSection</name>
+    <name>dccV20::network::VpnOpenVPNSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
         <source>VPN</source>
@@ -2433,7 +2433,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="115"/>
         <source>Certificates (TLS)</source>
-        <translation type="unfinished"/>
+        <translation>Sertifikaatit (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
@@ -2444,13 +2444,13 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
         <source>Certificates with Password (TLS)</source>
-        <translation type="unfinished"/>
+        <translation>Varmenteet salasanalla (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="272"/>
         <source>Static Key</source>
-        <translation type="unfinished"/>
+        <translation>Staattinen avain</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="123"/>
@@ -2484,7 +2484,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="142"/>
         <source>Auth Type</source>
-        <translation type="unfinished"/>
+        <translation>Tunnistautumistapa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="145"/>
@@ -2505,7 +2505,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="232"/>
         <source>Pwd Options</source>
-        <translation>Salasanavalinnat</translation>
+        <translation>Salasanan valinnat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
@@ -2520,45 +2520,45 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="276"/>
         <source>Customize Key Direction</source>
-        <translation type="unfinished"/>
+        <translation>Määritä avaimen suunta</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="280"/>
         <source>Key Direction</source>
-        <translation type="unfinished"/>
+        <translation>Avaimen suunta</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
         <source>Remote IP</source>
-        <translation type="unfinished"/>
+        <translation>Ulkoinen IP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
         <source>Local IP</source>
-        <translation type="unfinished"/>
+        <translation>Paikallinen IP</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnPPPSection</name>
+    <name>dccV20::network::VpnPPPSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
         <source>VPN PPP</source>
-        <translation type="unfinished"/>
+        <translation>VPN PPP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
-        <translation type="unfinished"/>
+        <translation>Kaikki käytettävissä (oletus)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
         <source>40-bit (less secure)</source>
-        <translation type="unfinished"/>
+        <translation>40-bit (vähemmän turvallinen)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
         <source>128-bit (most secure)</source>
-        <translation type="unfinished"/>
+        <translation>128-bit (turvallisin)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
@@ -2632,11 +2632,11 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnPage</name>
+    <name>dccV20::network::VpnPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="79"/>
         <source>VPN Status</source>
-        <translation type="unfinished"/>
+        <translation>VPN tila</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="110"/>
@@ -2646,7 +2646,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="239"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>Tuontivirhe</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="241"/>
@@ -2655,11 +2655,11 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnProxySection</name>
+    <name>dccV20::network::VpnProxySection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation type="unfinished"/>
+        <translation>VPN välityspalvelin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="135"/>
@@ -2669,12 +2669,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="136"/>
         <source>HTTP</source>
-        <translation type="unfinished"/>
+        <translation>HTTP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="137"/>
         <source>SOCKS</source>
-        <translation type="unfinished"/>
+        <translation>SOCKS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
@@ -2684,7 +2684,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
         <source>Server IP</source>
-        <translation type="unfinished"/>
+        <translation>Palvelimen IP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="154"/>
@@ -2701,7 +2701,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
         <source>Retry Indefinitely When Failed</source>
-        <translation type="unfinished"/>
+        <translation>Yritä uudelleen virheen sattuessa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
@@ -2715,29 +2715,29 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnSSTPSection</name>
+    <name>dccV20::network::VpnSSTPSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="79"/>
         <source>CA File</source>
-        <translation type="unfinished"/>
+        <translation>Varmennetiedosto</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
-        <translation type="unfinished"/>
+        <translation>Ohita varmenne varoitukset</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation type="unfinished"/>
+        <translation>Käytä TLS-isäntänimen laajennuksia</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnSecOpenVPNSection</name>
+    <name>dccV20::network::VpnSecOpenVPNSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
         <source>VPN Security</source>
-        <translation type="unfinished"/>
+        <translation>VPN-suojaus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="75"/>
@@ -2754,16 +2754,16 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="111"/>
         <source>Cipher</source>
-        <translation type="unfinished"/>
+        <translation>Salakirjoitus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="121"/>
         <source>HMAC Auth</source>
-        <translation type="unfinished"/>
+        <translation>HMAC tunnistus</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnSection</name>
+    <name>dccV20::network::VpnSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="29"/>
         <source>VPN</source>
@@ -2804,7 +2804,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation>Salasanavalinnat</translation>
+        <translation>Salasanan valinnat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="128"/>
@@ -2814,20 +2814,20 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="132"/>
         <source>NT Domain</source>
-        <translation type="unfinished"/>
+        <translation>NT-toimialue</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnSstpProxySection</name>
+    <name>dccV20::network::VpnSstpProxySection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation type="unfinished"/>
+        <translation>VPN välityspalvelin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
         <source>Server IP</source>
-        <translation type="unfinished"/>
+        <translation>Palvelimen IP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
@@ -2846,7 +2846,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnStrongSwanSection</name>
+    <name>dccV20::network::VpnStrongSwanSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="29"/>
         <source>VPN</source>
@@ -2861,17 +2861,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
         <source>SSH Agent</source>
-        <translation type="unfinished"/>
+        <translation>SSH-agentti</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
         <source>Smartcard</source>
-        <translation type="unfinished"/>
+        <translation>Älykortti</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
         <source>EAP</source>
-        <translation type="unfinished"/>
+        <translation>EAP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="146"/>
@@ -2896,7 +2896,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
         <source>Auth Type</source>
-        <translation type="unfinished"/>
+        <translation>Tunnistautumistapa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="169"/>
@@ -2916,22 +2916,22 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="181"/>
         <source>Request an Inner IP Address</source>
-        <translation type="unfinished"/>
+        <translation>Pyydä sisäinen IP-osoite</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="184"/>
         <source>Enforce UDP Encapsulation</source>
-        <translation type="unfinished"/>
+        <translation>Pakota UDP-kapselointi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="187"/>
         <source>Use IP Compression</source>
-        <translation type="unfinished"/>
+        <translation>Käytä IP-pakkausta</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable Custom Cipher Proposals</source>
-        <translation type="unfinished"/>
+        <translation>Ota mukautetut salauslausekkeet käyttöön</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
@@ -2945,11 +2945,11 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnTLSSection</name>
+    <name>dccV20::network::VpnTLSSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
         <source>VPN TLS Authentication</source>
-        <translation type="unfinished"/>
+        <translation>VPN TLS tunnistus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="79"/>
@@ -2969,31 +2969,31 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="87"/>
         <source>Subject Match</source>
-        <translation type="unfinished"/>
+        <translation>Kohde täsmää</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
         <source>Remote Cert Type</source>
-        <translation type="unfinished"/>
+        <translation>Ulkoisen varmenteen tyyppi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="100"/>
         <source>Key File</source>
-        <translation type="unfinished"/>
+        <translation>Avaintiedosto</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="103"/>
         <source>Customize Key Direction</source>
-        <translation type="unfinished"/>
+        <translation>Määritä avaimen suunta</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="106"/>
         <source>Key Direction</source>
-        <translation type="unfinished"/>
+        <translation>Avaimen suunta</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::VpnVPNCSection</name>
+    <name>dccV20::network::VpnVPNCSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="29"/>
         <source>VPN</source>
@@ -3037,7 +3037,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Pwd Options</source>
-        <translation>Salasanavalinnat</translation>
+        <translation>Salasanan valinnat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
@@ -3052,58 +3052,58 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="195"/>
         <source>Group Pwd</source>
-        <translation type="unfinished"/>
+        <translation>Ryhmän salasana</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="199"/>
         <source>Use Hybrid Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Käytä hybriditodennusta</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
         <source>CA File</source>
-        <translation type="unfinished"/>
+        <translation>Varmennetiedosto</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::WiredPage</name>
+    <name>dccV20::network::WiredPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="65"/>
         <source>Plug in the network cable first</source>
-        <translation type="unfinished"/>
+        <translation>Kytke ensin verkkokaapeli</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="70"/>
         <source>Wired Network Adapter</source>
-        <translation type="unfinished"/>
+        <translation>Verkkokortti</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="91"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>Valitse asetukset</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::WirelessPage</name>
+    <name>dccV20::network::WirelessPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="130"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistä piilotettuun verkkoon</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="136"/>
         <source>Wireless Network Adapter</source>
-        <translation type="unfinished"/>
+        <translation>Langaton verkkokortti</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="141"/>
         <source>Close Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Sulje yhteyspiste</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="144"/>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation type="unfinished"/>
+        <translation>Poista esin yhteyden jakaminen käytöstä, jos haluat muodostaa yhteyden langattomaan verkkoon</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="166"/>
@@ -3112,7 +3112,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::network::WirelessSection</name>
+    <name>dccV20::network::WirelessSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="55"/>
         <source>Not Bind</source>
@@ -3145,7 +3145,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PersonalizationFontsWidget</name>
+    <name>dccV20::personalization::PersonalizationFontsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="49"/>
         <source>Size</source>
@@ -3155,23 +3155,23 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="68"/>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>Vakio fontti</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="77"/>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Tasaleveä fontti</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="180"/>
         <source> (Unsupported font)</source>
-        <translation type="unfinished"/>
+        <translation>(Epäsopiva fontti)</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PersonalizationGeneral</name>
+    <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="58"/>
         <source>Theme</source>
@@ -3181,24 +3181,24 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="65"/>
         <source>Accent Color</source>
-        <translation type="unfinished"/>
+        <translation>Korostusväri</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="81"/>
         <source>Transparency</source>
-        <translation type="unfinished"/>
+        <translation>Läpinäkyvyys</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="100"/>
         <source>Window Effect</source>
-        <translation type="unfinished"/>
+        <translation>Ikkunatehosteet</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PersonalizationList</name>
+    <name>dccV20::personalization::PersonalizationList</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="49"/>
         <source>General</source>
@@ -3208,13 +3208,13 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="51"/>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>Kuvake teema</translation>
         <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="53"/>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>Kohdistin teema</translation>
         <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
     </message>
     <message>
@@ -3225,7 +3225,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::personalization::PerssonalizationThemeWidget</name>
+    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="77"/>
         <source>Light</source>
@@ -3251,7 +3251,7 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::power::GeneralWidget</name>
+    <name>dccV20::power::GeneralWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="39"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="47"/>
@@ -3263,26 +3263,26 @@
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="40"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="49"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen tilan vaihto</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="41"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="51"/>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Tietokoneen herääminen edellyttää salasanan</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="42"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="53"/>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Näytön herääminen edellyttää salasanan</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::power::PowerModule</name>
+    <name>dccV20::power::PowerModule</name>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="207"/>
         <source>Battery low, please plug in</source>
@@ -3291,11 +3291,11 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="209"/>
         <source>Battery critically low</source>
-        <translation type="unfinished"/>
+        <translation>Akku kriittisesti alhainen</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::power::PowerWidget</name>
+    <name>dccV20::power::PowerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="58"/>
         <source>General</source>
@@ -3305,37 +3305,37 @@
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="60"/>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Kytketty</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="62"/>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Akulla</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::power::UseBatteryWidget</name>
+    <name>dccV20::power::UseBatteryWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="39"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="46"/>
         <source>Monitor will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Näyttö lepotilaan jälkeen</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="40"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="48"/>
         <source>Computer will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Tietokone lepotilaan jälkeen</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="41"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>Lukitse näyttö jälkeen</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
@@ -3347,7 +3347,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="142"/>
         <source>1 Minute</source>
-        <translation type="unfinished"/>
+        <translation>1 minuutti</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="145"/>
@@ -3356,42 +3356,42 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="154"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="163"/>
         <source>%1 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>%1 minuuttia</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="157"/>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
+        <translation>1 tunti</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::power::UseElectricWidget</name>
+    <name>dccV20::power::UseElectricWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="41"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="49"/>
         <source>Monitor will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Näyttö lepotilaan jälkeen</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="42"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="51"/>
         <source>Computer will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Tietokone lepotilaan jälkeen</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="43"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="53"/>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>Lukitse näyttö jälkeen</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="55"/>
         <source>Suspend on lid close</source>
-        <translation type="unfinished"/>
+        <translation>Lepotila kansi suljettuna</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
@@ -3403,7 +3403,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="156"/>
         <source>1 Minute</source>
-        <translation type="unfinished"/>
+        <translation>1 minuutti</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="159"/>
@@ -3412,35 +3412,35 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="168"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="177"/>
         <source>%1 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>%1 minuuttia</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="171"/>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
+        <translation>1 tunti</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::AdvancedPage</name>
+    <name>dccV20::sound::AdvancedPage</name>
     <message>
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="57"/>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Ulostulo</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="63"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Sisääntulo</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::MicrophonePage</name>
+    <name>dccV20::sound::MicrophonePage</name>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="56"/>
         <source>Input Volume</source>
-        <translation type="unfinished"/>
+        <translation>Sisääntulon voimakkuus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="60"/>
@@ -3450,15 +3450,15 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::SoundEffectsPage</name>
+    <name>dccV20::sound::SoundEffectsPage</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="48"/>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Äänitehosteet</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::SoundWidget</name>
+    <name>dccV20::sound::SoundWidget</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="69"/>
         <source>Speaker</source>
@@ -3468,35 +3468,35 @@
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="71"/>
         <source>Microphone</source>
-        <translation type="unfinished"/>
+        <translation>Mikrofoni</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="73"/>
         <source>Advanced</source>
-        <translation type="unfinished"/>
+        <translation>Lisäasetukset</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="75"/>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Äänitehosteet</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sound::SpeakerPage</name>
+    <name>dccV20::sound::SpeakerPage</name>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="43"/>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="83"/>
         <source>Output Volume</source>
-        <translation type="unfinished"/>
+        <translation>Lähdön äänenvoimakkuus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="45"/>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="101"/>
         <source>Left/Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>Vasen/Oikea tasapaino</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="50"/>
@@ -3506,62 +3506,62 @@
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::sync::LoginPage</name>
+    <name>dccV20::sync::LoginPage</name>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="17"/>
         <source>Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu sisään</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="19"/>
         <source>Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu sisään Deepin ID:llä ja ota Cloud Sync käyttöön synkronoidaksesi tietyt järjestelmäasetukset.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="24"/>
         <source>Deepin ID Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu Deepin ID</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::systeminfo::NativeInfoWidget</name>
+    <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="56"/>
         <source>Edition:</source>
-        <translation type="unfinished"/>
+        <translation>Versio:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="60"/>
         <source>Type:</source>
-        <translation type="unfinished"/>
+        <translation>Tyyppi:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="63"/>
         <source>Processor:</source>
-        <translation type="unfinished"/>
+        <translation>Prosessori:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="67"/>
         <source>Memory:</source>
-        <translation type="unfinished"/>
+        <translation>Muisti:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="71"/>
         <source>Disk:</source>
-        <translation type="unfinished"/>
+        <translation>Levy:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="101"/>
         <source>%1-bit</source>
-        <translation type="unfinished"/>
+        <translation>%1-bit</translation>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::systeminfo::SystemInfoWidget</name>
+    <name>dccV20::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="63"/>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Tietoja tästä tietokoneesta</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -3573,38 +3573,38 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="67"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Loppukäyttäjän lisenssisopimus</translation>
         <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::MirrorsWidget</name>
+    <name>dccV20::update::MirrorsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="45"/>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="62"/>
         <source>Mirror List</source>
-        <translation type="unfinished"/>
+        <translation>Peili luettelo</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="48"/>
         <source>Test Speed</source>
-        <translation type="unfinished"/>
+        <translation>Testaa nopeus</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="160"/>
         <source>Retest</source>
-        <translation type="unfinished"/>
+        <translation>Uudestaan</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::UpdateCtrlWidget</name>
+    <name>dccV20::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="70"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
+        <translation>Verkko irrotettu, yritä uudelleen kytkemisen jälkeen</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -3615,38 +3615,38 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="68"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistä järjestelmä päivityksen jälkeen uudelleen</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="95"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="unfinished"/>
+        <translation>Tämä päivitys voi kestää kauan, älä sammuta tai käynnistä uudelleen prosessin aikana.</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="199"/>
         <source>Checking for updates, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Tarkistaa päivityksiä, odota ...</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="207"/>
         <source>Download and install updates</source>
-        <translation type="unfinished"/>
+        <translation>Lataa ja asenna päivitykset</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="218"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="350"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1% ladattu (keskeytä klikkaamalla)</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="225"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
+        <translation>%1% ladattu (klikkaa jatkaaksesi)</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -3658,43 +3658,43 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="241"/>
         <source>Your system is up to date</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmäsi on päivitetty</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="252"/>
         <source>Updating, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Päivitetään, odota ...</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="269"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Uusin järjestelmä on asennettu, käynnistä uudelleen</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="280"/>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Päivitys epäonnistui: levytilaa ei ole</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="314"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n sovellusten päivitykset saatavilla</numerusform><numerusform> %n sovellusten päivityksiä havaittu</numerusform></translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="320"/>
         <source>New system edition available</source>
-        <translation type="unfinished"/>
+        <translation>Uusi järjestelmän julkaisu havaittu</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="323"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>a</numerusform><numerusform>Uusi versio järjestelmästä ja %n sovellusten päivitykset saatavilla</numerusform></translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -3706,91 +3706,91 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="288"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <translation>Riippuvuusvirhe, päivityksiä ei havaittu</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="331"/>
         <source>Downloaded</source>
-        <translation type="unfinished"/>
+        <translation>Ladattu</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="359"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation type="unfinished"/>
+        <translation>Akku varaus on alle 50%, kytke virta jatkaaksesi</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="362"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="unfinished"/>
+        <translation>Varmista, että sinulla on riittävästi virtaa uudelleenkäynnistystä varten. Älä katkaise virtaa koneesta</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::UpdateSettings</name>
+    <name>dccV20::update::UpdateSettings</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Päivityksen asetukset</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="67"/>
         <source>Auto Clear Package Cache</source>
-        <translation type="unfinished"/>
+        <translation>Tyhjennä pakettivälimuisti automaattisesti</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="71"/>
         <source>Updates Notification</source>
-        <translation type="unfinished"/>
+        <translation>Päivitysten ilmoitus</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="74"/>
         <source>Auto Download Updates</source>
-        <translation type="unfinished"/>
+        <translation>Päivitysten automaattinen lataaminen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
         <source>System Repository Detection</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmän lähteiden tunnistus</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="90"/>
         <source>Show a notification if system update repository has been modified</source>
-        <translation type="unfinished"/>
+        <translation>Näytä ilmoitus, jos järjestelmän pakettivarastoa on muokattu</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="126"/>
         <source>Mirror List</source>
-        <translation type="unfinished"/>
+        <translation>Peili luettelo</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="77"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="unfinished"/>
+        <translation>Kytke automaattisesti lataamaan päivitykset langattomassa tai langallisessa verkossa</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="109"/>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>Älykäs pakettivaraston vaihto</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="116"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation type="unfinished"/>
+        <translation>Kytke, jotta voit muodostaa yhteyden nopeimmille pakettivarastoille automaattisesti</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::update::UpdateWidget</name>
+    <name>dccV20::update::UpdateWidget</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="59"/>
         <source>Update</source>
@@ -3800,13 +3800,13 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="61"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Päivityksen asetukset</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="65"/>
         <source>Last Update</source>
-        <translation type="unfinished"/>
+        <translation>Viimeisin päivitys</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -3818,22 +3818,22 @@
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="134"/>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="141"/>
         <source>Current Edition</source>
-        <translation type="unfinished"/>
+        <translation>Nykyinen versio</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="151"/>
         <source>Update History</source>
-        <translation type="unfinished"/>
+        <translation>Päivitys historia</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>DCC_NAMESPACE::wacom::WacomWidget</name>
+    <name>dccV20::wacom::WacomWidget</name>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="46"/>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Tila</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="68"/>
@@ -3910,7 +3910,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="34"/>
         <source>Syncing...</source>
-        <translation type="unfinished"/>
+        <translation>Synkronoidaan...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="78"/>
@@ -3920,22 +3920,22 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="119"/>
         <source>Network Settings</source>
-        <translation type="unfinished"/>
+        <translation>Verkon asetukset</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="120"/>
         <source>Sound Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ääni asetukset</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="121"/>
         <source>Mouse Settings</source>
-        <translation type="unfinished"/>
+        <translation>Hiiri asetukset</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="122"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Päivityksen asetukset</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="123"/>
@@ -3970,12 +3970,12 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="226"/>
         <source>Last Sync: %1</source>
-        <translation type="unfinished"/>
+        <translation>Viimeisin synkronointi: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="228"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>dd-MM-yyyy hh:mm</translation>
     </message>
 </context>
 <context>
@@ -5272,7 +5272,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="116"/>
         <source>This shortcut conflicts with %1, click on Save to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Tämä pikakuvake on ristiriidassa %1 kanssa, napsauta Tallenna-painiketta, jotta pikakuvake tulee voimaan heti</translation>
     </message>
 </context>
 <context>
@@ -5469,7 +5469,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="75"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Tee uusi pikakuvake</translation>
     </message>
 </context>
 <context>
@@ -5611,17 +5611,17 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <source>Minimum Contact Surface</source>
-        <translation type="unfinished"/>
+        <translation>Pienin kosketuspinta</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <source>Minimum Pressure Value</source>
-        <translation type="unfinished"/>
+        <translation>Pienin paineen arvo</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>Poista asetus käytöstä, jos kosketuslevy ei toimi käyttöönoton jälkeen</translation>
     </message>
 </context>
 <context>
@@ -8342,7 +8342,7 @@ Jos toimintoa ei käytetä, näyttö palautetaan %1s jälkeen.</translation>
     <message>
         <location filename="../src/frame/window/modules/update/updatehistorybutton.cpp" line="49"/>
         <source>Update History</source>
-        <translation type="unfinished"/>
+        <translation>Päivitys historia</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
