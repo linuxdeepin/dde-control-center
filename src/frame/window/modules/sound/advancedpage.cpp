@@ -126,7 +126,7 @@ void AdvancedPage::addPort(const Port *port)
     auto portAction = new DViewItemAction();
     portAction->setText(port->name());
     auto cardAction = new DViewItemAction();
-    cardAction->setText(port->cardName());
+    cardAction->setText(tr("Sound Card:") + port->cardName());
     actionList << portAction << cardAction;
     pi->setTextActionList(actionList);
     pi->setData(QVariant::fromValue<const Port *>(port), Qt::WhatsThisPropertyRole);
