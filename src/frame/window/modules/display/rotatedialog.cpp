@@ -164,6 +164,9 @@ void RotateDialog::paintEvent(QPaintEvent *e)
     QRect destVRect(0, 0, height(), margin);
 
     QString tips(tr("Left click to rotate, right click to restore and exit, press Ctrl+S to save."));
+    if(m_model && m_model->mouseLeftHand())
+        tips = tr("Right click to rotate, left click to restore and exit, press Ctrl+S to save.");
+
     tips += "\n";
     tips += tr("Save the display settings? If no operation occurs, the display will be restored in %1s.").arg(m_resetTimeout);
     // bottom

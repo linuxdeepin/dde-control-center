@@ -72,6 +72,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
             m_model, &DisplayModel::autoLightAdjustVaildChanged);
     connect(m_powerInter, &PowerInter::AmbientLightAdjustBrightnessChanged,
             m_model, &DisplayModel::autoLightAdjustSettingChanged);
+    connect(m_mouseInter, &MouseInter::LeftHandedChanged, m_model, &DisplayModel::setMouseLeftHand);
 
     onMonitorListChanged(m_displayInter.monitors());
     onMonitorsBrightnessChanged(m_displayInter.brightness());
@@ -83,6 +84,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     model->setDisplayMode(m_displayInter.displayMode());
 
     m_model->setAutoLightAdjustIsValid(m_powerInter->hasAmbientLightSensor());
+
     m_model->setMouseLeftHand(m_mouseInter->leftHanded());
 
     const bool isRedshiftValid = QProcess::execute("which", QStringList() << "redshift") == 0;
