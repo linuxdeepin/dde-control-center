@@ -58,6 +58,7 @@ private:
     dcc::widgets::NormalLabel *m_label;
     dcc::widgets::NormalLabel *m_labelTime;
     dcc::widgets::NormalLabel *m_labelDate;
+    dcc::widgets::NormalLabel *m_timeType;
     ZoneInfo m_zoneInfo;
     bool m_bIs24HourType;
 };

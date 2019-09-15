@@ -24,6 +24,7 @@
 
 #include <QVBoxLayout>
 #include <QTimer>
+#include <QFontDatabase>
 
 using namespace dcc::widgets;
 
@@ -33,9 +34,10 @@ using namespace DCC_NAMESPACE::datetime;
 ClockItem::ClockItem(QWidget *parent, bool isDisplay)
     : QWidget(parent)
     , m_clock(new Clock)
-    , m_label(new NormalLabel)
-    , m_labelTime(new NormalLabel)
-    , m_labelDate(new NormalLabel)
+    , m_label(nullptr)
+    , m_labelTime(nullptr)
+    , m_labelDate(nullptr)
+    , m_timeType(nullptr)
     , m_bIs24HourType(0)
 {
     m_clock->setMinimumSize(224, 224);
@@ -52,14 +54,22 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
     layout->addSpacing(20);
 
     if (isDisplay) {
+        m_label = new NormalLabel;
+        m_labelTime = new NormalLabel;
+        m_labelDate = new NormalLabel;
+        m_timeType = new NormalLabel;
+
         QHBoxLayout *timeLayout = new QHBoxLayout;
         timeLayout->addWidget(m_label, 0, Qt::AlignLeft);
         timeLayout->addWidget(m_labelDate, 1, Qt::AlignRight);
 
+        QHBoxLayout *topLayout = new QHBoxLayout;
+        topLayout->addWidget(m_labelTime, 0, Qt::AlignHCenter);
+        topLayout->addWidget(m_timeType, 0, Qt::AlignRight);
+
         SettingsItem *item = new SettingsItem;
         QVBoxLayout *itemLayout = new QVBoxLayout;
-        itemLayout->addWidget(m_labelTime, 0, Qt::AlignHCenter);
-        itemLayout->addSpacing(20);
+        itemLayout->addLayout(topLayout);
         itemLayout->addLayout(timeLayout);
         item->addBackground();
         item->setLayout(itemLayout);
@@ -104,6 +114,9 @@ void ClockItem::setPlate(bool state)
 
 void ClockItem::translateHourType()
 {
+    if (!(m_labelTime && m_timeType))
+        return;
+
     QTime currentTime = QTime::currentTime();
     int nHour = currentTime.hour();
 
@@ -112,11 +125,23 @@ void ClockItem::translateHourType()
         nHour -= 12;
     }
 
-    m_labelTime->setText(QString("%1:%2:%3 %4")
+    int nIndex = QFontDatabase::addApplicationFont(":/datetime/resource/deepindigitaltimes-Regular.ttf");
+    if (nIndex != -1) {
+        QStringList strList(QFontDatabase::applicationFontFamilies(nIndex));
+        if (strList.count() > 0) {
+            QFont fontThis(strList.at(0));
+            fontThis.setPointSize(33);
+            m_labelTime->setFont(fontThis);
+        }
+    }
+
+    m_labelTime->setText(QString("%1:%2:%3")
                          .arg(nHour, 2, 10, QLatin1Char('0'))
                          .arg(currentTime.minute(), 2, 10, QLatin1Char('0'))
-                         .arg(currentTime.second(), 2, 10, QLatin1Char('0'))
-                         .arg(currentTime.hour() > 12 ? "PM" : "AM"));
+                         .arg(currentTime.second(), 2, 10, QLatin1Char('0')));
+
+    m_timeType->setText(currentTime.hour() > 12 ? "PM" : "AM");
+    m_timeType->setVisible(true);
 }
 
 void ClockItem::updateDateTime()
@@ -124,8 +149,12 @@ void ClockItem::updateDateTime()
     m_clock->setTimeZone(m_zoneInfo);
     m_clock->update();
 
+    if (!(m_labelTime && m_timeType && m_label && m_labelDate))
+        return;
+
     if (m_bIs24HourType) {
         m_labelTime->setText(QDateTime::currentDateTime().toString("HH:mm:ss"));
+        m_timeType->setVisible(false);
     } else {
         translateHourType();
     }

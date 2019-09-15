@@ -1,9 +1,10 @@
 <RCC>
     <qresource prefix="/datetime">
-        <file>icons/dcc_noun_hour.svg</file>
+        <file>icons/dcc_clock_white.svg</file>
         <file>icons/dcc_noun_minute.svg</file>
+        <file>icons/dcc_noun_hour.svg</file>
         <file>icons/dcc_clock_black.svg</file>
         <file>icons/dcc_noun_second.svg</file>
-        <file>icons/dcc_clock_white.svg</file>
+        <file>resource/deepindigitaltimes-Regular.ttf</file>
     </qresource>
 </RCC>
