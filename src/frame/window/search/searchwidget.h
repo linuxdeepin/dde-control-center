@@ -42,6 +42,7 @@ QT_END_NAMESPACE
 const QString RES_TS_PATH = ":/translations/";
 const QString XML_Source = "source";
 const QString XML_Title = "translation";
+const QString XML_Numerusform = "numerusform";
 const QString XML_Explain_Path = "extra-contents_path";
 
 namespace DCC_NAMESPACE {
@@ -57,9 +58,9 @@ public:
         QString fullPagePath;
     };
 
-    struct EnterPageStruct {
-        QString source;
-        bool b_enter_new_page;
+    struct SearchDataStruct {
+        QString chiese;
+        QString pinyin;
     };
 
 public:
@@ -70,11 +71,15 @@ public:
     void setLanguage(QString type);
     void addModulesName(QString moduleName, QString searchName);
 
+Q_SIGNALS:
+    void notifyModuleSearch(QString, QString);
+
 private:
     void loadxml();
     SearchBoxStruct getModuleBtnString(QString value);
     QString getXmlFilePath();
     QString getModulesName(QString name, bool state = true);
+    QString removeDigital(QString input);
 
 private:
     QStandardItemModel *m_model;
@@ -83,12 +88,9 @@ private:
     SearchBoxStruct m_searchBoxStruct;
     QString m_xmlExplain;
     QString m_xmlFilePath;
-    QList<QPair<QString, QString>> m_moduleNameList;
-
-Q_SIGNALS:
-    void notifyModuleSearch(QString, QString);
-
-private Q_SLOTS:
+    QList<QPair<QString, QString>> m_moduleNameList;//用于存储如 "update"和"Update"
+    QList<SearchDataStruct> m_inputList;
+    bool m_bIsChinese;
 };
 
 }// namespace search
