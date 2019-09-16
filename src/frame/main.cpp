@@ -30,6 +30,7 @@
 #include <DApplication>
 #include <DDBusSender>
 #include <DLog>
+#include <DApplicationSettings>
 
 #include <QScreen>
 #include <QStyle>
@@ -163,6 +164,7 @@ int main(int argc, char *argv[])
     app.setTheme("light");
     app.setStyle("chameleon");
 
+    DApplicationSettings settings;
     // load dde-network-utils translator
     QTranslator translator;
     translator.load("/usr/share/dde-network-utils/translations/dde-network-utils_" + QLocale::system().name());
