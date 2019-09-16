@@ -46,6 +46,8 @@
 #include <wirelessdevice.h>
 #include <wireddevice.h>
 
+#include <QTimer>
+
 using namespace dcc;
 using namespace DCC_NAMESPACE;
 using namespace dcc::widgets;
@@ -152,8 +154,11 @@ void NetworkModule::active()
     connect(m_networkWidget, &NetworkModuleWidget::requestHotspotPage, this, &NetworkModule::showHotspotPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowInfomation, this, &NetworkModule::showDetailPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestDeviceEnable, m_networkWorker, &NetworkWorker::setDeviceEnable);
-
     m_frameProxy->pushWidget(this, m_networkWidget);
+    QTimer::singleShot(100, this, [ = ] {
+        m_networkWidget->initSetting(0);
+    });
+
 }
 
 void NetworkModule::load(QString path)

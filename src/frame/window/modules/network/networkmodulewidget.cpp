@@ -123,13 +123,17 @@ NetworkModuleWidget::NetworkModuleWidget()
 void NetworkModuleWidget::setModel(NetworkModel *model)
 {
     connect(model, &NetworkModel::deviceListChanged, this, &NetworkModuleWidget::onDeviceListChanged);
-
 #ifndef DISABLE_NETWORK_PROXY
     //connect(model, &NetworkModel::appProxyExistChanged, m_appProxy, &NextPageWidget::setVisible);
     //m_appProxy->setVisible(model->appProxyExist());
 #endif
-
     onDeviceListChanged(model->devices());
+}
+
+void NetworkModuleWidget::initSetting(const int settingIndex)
+{
+    m_lvnmpages->setCurrentIndex(m_modelpages->index(settingIndex, 0));
+    m_lvnmpages->clicked(m_modelpages->index(settingIndex, 0));
 }
 
 void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devices)

@@ -62,7 +62,7 @@ public:
     explicit NetworkModuleWidget();
 
     void setModel(dde::network::NetworkModel *model);
-
+    void initSetting(const int settingIndex);
 Q_SIGNALS:
     void requestShowVpnPage() const;
     void requestShowPppPage() const;
@@ -75,7 +75,6 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onDeviceListChanged(const QList<dde::network::NetworkDevice *> &devices);
-
 private:
     QStandardItem *createDeviceGroup(dde::network::NetworkDevice *dev, const int number, const bool multiple);
 
@@ -83,9 +82,10 @@ private:
     QVBoxLayout *m_centralLayout;
     DTK_WIDGET_NAMESPACE::DListView *m_lvnmpages;
     QStandardItemModel *m_modelpages;
-
-    static const int SectionRole = Dtk::UserRole + 1;
-    static const int DeviceRole = Dtk::UserRole + 2;
+    enum {
+        SectionRole = Dtk::UserRole + 1,
+        DeviceRole
+    };
 };
 }   // namespace network
 }   // namespace dcc
