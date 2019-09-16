@@ -32,6 +32,7 @@
 #include "addfingedialog.h"
 
 #include <QStringList>
+#include <QTimer>
 #include <QDebug>
 
 using namespace dcc::accounts;
@@ -59,7 +60,17 @@ void AccountsModule::initialize()
     m_fingerWorker->moveToThread(qApp->thread());
 
     m_accountsWorker->active();
+    m_fingerWorker->refreshDevice();
     connect(m_fingerWorker, &FingerWorker::requestShowAddThumb, this, &AccountsModule::onShowAddThumb);
+    connect(m_fingerModel, &FingerModel::vaildChanged, [ = ](const bool isVaild) {
+        if (isVaild) {
+            initFingerData();
+        } else {
+            for (const auto &user : m_userList->userList()) {
+                disconnect(user, &User::nameChanged, m_fingerWorker, &FingerWorker::refreshUserEnrollList);
+            }
+        }
+    });
 }
 
 void AccountsModule::reset()
@@ -127,7 +138,10 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
 {
     AccountsDetailWidget *w = new AccountsDetailWidget(account);
     w->setFingerModel(m_fingerModel);
-    m_fingerWorker->refreshDevice();
+
+    if (m_fingerModel->isVaild()) {
+        initFingerData();
+    }
 
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
@@ -180,7 +194,6 @@ void AccountsModule::onShowPasswordPage(User *account)
 //添加指纹界面
 void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
 {
-    m_fingerWorker->refreshUserEnrollList(name);
     AddFingeDialog *dlg = new AddFingeDialog(thumb);
     dlg->setFingerModel(m_fingerModel);
     dlg->setUsername(name);
@@ -189,4 +202,14 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     connect(dlg, &AddFingeDialog::requestReEnrollStart, m_fingerWorker, &FingerWorker::reEnrollStart);
 
     dlg->exec();//Note:destroy this object when this window is closed
+}
+
+void AccountsModule::initFingerData()
+{
+    connect(m_userList, &UserModel::userAdded, this, [ & ](User * user) {
+        connect(user, &User::nameChanged, m_fingerWorker, &FingerWorker::refreshUserEnrollList);
+    });
+    for (const auto &user : m_userList->userList()) {
+        connect(user, &User::nameChanged, m_fingerWorker, &FingerWorker::refreshUserEnrollList);
+    }
 }

@@ -43,7 +43,8 @@ class AccountsModule : public QObject, public ModuleInterface
     Q_OBJECT
 
 public:
-    explicit AccountsModule(FrameProxyInterface *frame, QObject *parent = 0);
+    explicit AccountsModule(FrameProxyInterface *frame, QObject *parent = nullptr);
+    void initFingerData();
 
     void initialize();
     void reset();

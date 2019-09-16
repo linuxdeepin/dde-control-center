@@ -159,8 +159,9 @@ void AccountsDetailWidget::initWidgets()
     m_modifyPassword->setEnabled(isCurUser);
     m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
-    m_addBtn->setEnabled(isCurUser);
-    m_clearBtn->setEnabled(isCurUser);
+
+    //只有当前用户才显示指纹这块
+    setFingerWgtsVisible(isCurUser);
 
     m_inputLineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     setFocusPolicy(Qt::FocusPolicy::StrongFocus);
@@ -171,7 +172,7 @@ void AccountsDetailWidget::initWidgets()
 
 void AccountsDetailWidget::initDatas()
 {
-    connect(m_avatarListWidget, &AvatarListWidget::requestDeleteAvatar, this, [ = ](const QString &iconPath) {
+    connect(m_avatarListWidget, &AvatarListWidget::requestDeleteAvatar, this, [ = ](const QString & iconPath) {
         Q_EMIT requestDeleteAvatar(m_curUser, iconPath);
     });
     connect(m_avatarListWidget, &AvatarListWidget::requestAddNewAvatar, this, &AccountsDetailWidget::requestAddNewAvatar);
@@ -268,8 +269,15 @@ void AccountsDetailWidget::updateLineEditDisplayStyle()
 void AccountsDetailWidget::setFingerModel(FingerModel *model)
 {
     m_model = model;
-    connect(model, &FingerModel::vaildChanged, this, &AccountsDetailWidget::setFingerWgtsVisible);
-    setFingerWgtsVisible(model->isVaild());
+    connect(model, &FingerModel::vaildChanged, this, [&](const bool isVaild) {
+        if (m_curUser->isCurrentUser()) {
+            setFingerWgtsVisible(isVaild);
+        }
+    });
+
+    if (m_curUser->isCurrentUser()) {
+        setFingerWgtsVisible(model->isVaild());
+    }
     connect(model, &FingerModel::thumbsListChanged, this, &AccountsDetailWidget::onThumbsListChanged);
     onThumbsListChanged(model->thumbsList());
 }
@@ -308,11 +316,9 @@ void AccountsDetailWidget::onThumbsListChanged(const QList<FingerModel::UserThum
 
         int i = 1;//record fingerprint number
         Q_FOREACH (const QString &title, u.userThumbs) {
-            AccounntFingeItem *item = new AccounntFingeItem;
+            AccounntFingeItem *item = new AccounntFingeItem(this);
             item->setTitle(tr("Fingerprint") + QString::number(i++));
-            connect(item, &AccounntFingeItem::deleteItem, this, [&]() {
-                Q_EMIT requestCleanThumbs(m_curUser);
-            });
+
             m_listGrp->appendItem(item);
             thumb.removeOne(title);
         }
