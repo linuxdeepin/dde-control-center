@@ -187,7 +187,13 @@ void AccountsWidget::connectUserWithItem(User *user)
         item->setText(user->displayName());
     });
     connect(user, &User::fullnameChanged, this, [ = ](const QString &) {
-        item->setText(user->displayName());
+        //对用户全名做限制，如果长度超过32，就在后面显示...
+        QString fullname = user->displayName();
+        if (fullname.length() > 32) {
+            QString newfullname = fullname.left(32) + QString("...");
+            item->setText(newfullname);
+        }
+        item->setText(fullname);
     });
     connect(user, &User::currentAvatarChanged, this, [ = ](const QString & avatar) {
         if (avatar.startsWith("file://")) {

@@ -219,7 +219,14 @@ void AccountsDetailWidget::initDatas()
     m_avatar->setAvatarPath(m_curUser->currentAvatar());
     m_avatarListWidget->setCurrentAvatarChecked(m_curUser->currentAvatar());
     m_shortName->setText(m_curUser->name());
-    m_fullName->setText(m_curUser->fullname());
+
+    //对用户全名做限制，如果长度超过32，就在后面显示...
+    QString fullname = m_curUser->fullname();
+    if (fullname.length() > 32) {
+        QString newfullname = fullname.left(32) + QString("...");
+        m_fullName->setText(newfullname);
+    }
+    m_fullName->setText(fullname);
 
     //~ contents_path /accounts/Change Password
     m_modifyPassword->setText(tr("Change Password"));
