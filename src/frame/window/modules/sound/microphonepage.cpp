@@ -53,15 +53,13 @@ using namespace DCC_NAMESPACE::sound;
 MicrophonePage::MicrophonePage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
-    //~ contents_path /sound/Microphone
-    , m_inputSlider(new TitledSliderItem(tr("Input Volume")))
+    , m_sw(new SwitchWidget)
 {
     QHBoxLayout *hlayout = new QHBoxLayout;
     //~ contents_path /sound/Microphone
     m_sw = new SwitchWidget(new TitleLabel(tr("Microphone")));
     hlayout->addWidget(m_sw);
 
-    m_inputSlider->addBackground();
 
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addLayout(hlayout);
@@ -97,8 +95,13 @@ void MicrophonePage::setModel(SoundModel *model)
 
 void MicrophonePage::initSlider()
 {
-    DCCSlider *slider = m_inputSlider->slider();
+    //~ contents_path /sound/Microphone
+    m_inputSlider = new TitledSliderItem(tr("Input Volume"));
+    m_inputSlider->addBackground();
+    m_inputSlider->setVisible(m_model->microphoneOn());
     m_layout->insertWidget(1, m_inputSlider);
+
+    DCCSlider *slider = m_inputSlider->slider();
     slider->setRange(0, 100);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::NoTicks);
@@ -112,10 +115,12 @@ void MicrophonePage::initSlider()
     };
     connect(slider, &DCCSlider::valueChanged, this, slotfunc1);
     connect(slider, &DCCSlider::sliderMoved, this, slotfunc1);
+    connect(m_model, &SoundModel::microphoneOnChanged, m_inputSlider, &TitledSliderItem::setVisible);
 
     //~ contents_path /sound/Microphone
     m_feedbackSlider = (new TitledSliderItem("Input Level"));
     m_feedbackSlider->addBackground();
+    m_feedbackSlider->setVisible(m_model->microphoneOn());
     DCCSlider *slider2 = m_feedbackSlider->slider();
     slider2->setRange(0, 100);
     slider2->setEnabled(false);
@@ -124,6 +129,7 @@ void MicrophonePage::initSlider()
     slider2->setTickInterval(1);
     slider2->setPageStep(1);
 
+    connect(m_model, &SoundModel::microphoneOnChanged, m_feedbackSlider, &TitledSliderItem::setVisible);
     m_conn = connect(m_model, &SoundModel::microphoneFeedbackChanged, [ = ](double vol2) {
         slider2->setSliderPosition(int(vol2 * 100));
     });

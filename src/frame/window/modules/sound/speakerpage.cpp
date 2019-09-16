@@ -61,13 +61,6 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
 
     m_sw->setChecked(m_model->speakerOn());
     connect(m_sw, &SwitchWidget::checkedChanged, this, &SpeakerPage::requestSwitchSpeaker);
-    connect(m_sw, &SwitchWidget::checkedChanged, this, [ = ](bool checked) {
-        if (checked) {
-            //enable slider
-        } else {
-            //disable slider
-        }
-    });
     connect(m_model, &SoundModel::speakerOnChanged, m_sw, &SwitchWidget::setChecked);
 
     initSlider();
@@ -78,6 +71,7 @@ void SpeakerPage::initSlider()
     //~ contents_path /sound/Speaker
     auto outputSlider = new TitledSliderItem(tr("Output Volume"), this);
     outputSlider->addBackground();
+    outputSlider->setVisible(m_model->speakerOn());
     DCCSlider *slider = outputSlider->slider();
 
     slider->setRange(0, 150);
@@ -95,16 +89,19 @@ void SpeakerPage::initSlider()
     };
     connect(slider, &DCCSlider::valueChanged, slotfunc1);
     connect(slider, &DCCSlider::sliderMoved, slotfunc1);
+    connect(m_model, &SoundModel::speakerOnChanged, outputSlider, &TitledSliderItem::setVisible);
     connect(m_model, &SoundModel::speakerVolumeChanged, this, [=](double v) {
         slider->blockSignals(true);
         slider->setSliderPosition(static_cast<int>(v * 100));
         slider->blockSignals(false);
     });
+
     m_layout->insertWidget(1, outputSlider);
 
     //~ contents_path /sound/Speaker
     auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
     balanceSlider->addBackground();
+    balanceSlider->setVisible(m_model->speakerOn());
     DCCSlider *slider2 = balanceSlider->slider();
     slider2->setRange(-100, 100);
     slider2->setType(DCCSlider::Vernier);
@@ -119,6 +116,7 @@ void SpeakerPage::initSlider()
     };
     connect(slider2, &DCCSlider::valueChanged, slotfunc2);
     connect(slider2, &DCCSlider::sliderMoved, slotfunc2);
+    connect(m_model, &SoundModel::speakerOnChanged, balanceSlider, &TitledSliderItem::setVisible);
     connect(m_model, &SoundModel::speakerBalanceChanged, this, [=](double v) {
         slider2->blockSignals(true);
         slider2->setSliderPosition(static_cast<int>(v * 100));
