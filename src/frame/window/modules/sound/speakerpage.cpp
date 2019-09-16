@@ -80,7 +80,7 @@ void SpeakerPage::initSlider()
     outputSlider->addBackground();
     DCCSlider *slider = outputSlider->slider();
 
-    slider->setRange(0, 100);
+    slider->setRange(0, 150);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::NoTicks);
     outputSlider->setLeftIcon(QIcon::fromTheme("dcc_set_sound"), QSize(24, 24));
@@ -95,6 +95,11 @@ void SpeakerPage::initSlider()
     };
     connect(slider, &DCCSlider::valueChanged, slotfunc1);
     connect(slider, &DCCSlider::sliderMoved, slotfunc1);
+    connect(m_model, &SoundModel::speakerVolumeChanged, this, [=](double v) {
+        slider->blockSignals(true);
+        slider->setSliderPosition(static_cast<int>(v * 100));
+        slider->blockSignals(false);
+    });
     m_layout->insertWidget(1, outputSlider);
 
     //~ contents_path /sound/Speaker
@@ -114,6 +119,11 @@ void SpeakerPage::initSlider()
     };
     connect(slider2, &DCCSlider::valueChanged, slotfunc2);
     connect(slider2, &DCCSlider::sliderMoved, slotfunc2);
+    connect(m_model, &SoundModel::speakerBalanceChanged, this, [=](double v) {
+        slider2->blockSignals(true);
+        slider2->setSliderPosition(static_cast<int>(v * 100));
+        slider2->blockSignals(false);
+    });
 
     m_layout->insertWidget(2, balanceSlider);
 }
