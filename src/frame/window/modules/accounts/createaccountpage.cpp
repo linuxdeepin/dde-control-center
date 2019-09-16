@@ -21,6 +21,7 @@
 
 #include "createaccountpage.h"
 
+#include <QtGlobal>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
@@ -157,6 +158,9 @@ void CreateAccountPage::createUser()
         return;
     }
 
+    //随机分配图像 [0, 13]
+    int random = qrand() % 14;
+    m_newUser->setCurrentAvatar(m_avatarListWidget->getAvatarPath(random));
     m_newUser->setName(m_nameEdit->text());
     m_newUser->setFullname(m_fullnameEdit->text());
     m_newUser->setPassword(m_passwdEdit->text());

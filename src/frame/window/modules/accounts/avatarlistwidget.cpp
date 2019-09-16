@@ -171,3 +171,8 @@ void AvatarListWidget::addLastItem()
     item->setData(QVariant::fromValue(lastItemData), AvatarListWidget::AddAvatarRole);
     m_avatarItemModel->appendRow(item);
 }
+
+QString AvatarListWidget::getAvatarPath(int n)
+{
+    return  m_iconpathList.at(n);
+}

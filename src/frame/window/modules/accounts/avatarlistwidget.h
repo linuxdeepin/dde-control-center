@@ -59,6 +59,7 @@ public:
 
     void addItemFromDefaultDir();
     void addLastItem();
+    QString getAvatarPath(int n);
 
 Q_SIGNALS:
     void requestSetAvatar(const QString &avatarPath);
