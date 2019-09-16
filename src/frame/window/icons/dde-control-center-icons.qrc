@@ -108,5 +108,7 @@
         <file>texts/dcc_wireless-2_16px.svg</file>
         <file>texts/dcc_wireless-6_16px.svg</file>
         <file>texts/dcc_reset_16px.svg</file>
+        <file>icons/dcc_nav_wacom_42px.svg</file>
+        <file>icons/dcc_nav_wacom_84px.svg</file>
     </qresource>
 </RCC>

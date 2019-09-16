@@ -21,10 +21,12 @@
 
 #ifndef WACOMMODULE_H_V20
 #define WACOMMODULE_H_V20
+#include "window/namespace.h"
 
 #include "window/interface/moduleinterface.h"
 #include "window/interface/frameproxyinterface.h"
-#include "window/namespace.h"
+
+#include <QObject>
 
 namespace dcc {
 namespace wacom {
@@ -32,30 +34,27 @@ class WacomWorker;
 class WacomModel;
 }
 }
-class ComboBoxWidget;
+
 namespace DCC_NAMESPACE {
 namespace wacom {
+
 class WacomWidget;
+
 class WacomModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
 
 public:
-    explicit WacomModule(FrameProxyInterface *frame, QObject *parent = 0);
-    void initialize();
-    void moduleActive();
-    void moduleDeactive();
-    void reset();
-    void preInitialize();
-    QWidget *moduleWidget();
-    const QString name() const;
+    explicit WacomModule(FrameProxyInterface *frame, QObject *parent = nullptr);
+    ~WacomModule();
+
+    virtual void initialize() override;
+    virtual void active() override;
+    virtual void deactive() override;
+    virtual const QString name() const override;
 
 private Q_SLOTS:
     void showModePage();
-
-private:
-    ~WacomModule();
-    void contentPopped(QWidget *const w);
 
 private:
     WacomWidget *m_wacomWidget;

@@ -22,7 +22,8 @@
 #include "wacommodule.h"
 #include "widgets/contentwidget.h"
 
-#include "wacomwidget.h"
+#include "window/modules/wacom/wacomwidget.h"
+
 #include "modules/wacom/wacommodel.h"
 #include "modules/wacom/wacomworker.h"
 #include "modules/wacom/wacommodepage.h"
@@ -38,17 +39,24 @@ WacomModule::WacomModule(FrameProxyInterface *frame, QObject *parent)
 {
 }
 
-void WacomModule::initialize()
+WacomModule::~WacomModule()
 {
+    m_model->deleteLater();
+    m_worker->deleteLater();
 
+    if (m_wacomWidget) {
+        m_wacomWidget->deleteLater();
+    }
 }
 
-void WacomModule::preInitialize()
+void WacomModule::initialize()
 {
     m_model  = new WacomModel(this);
     m_worker = new WacomWorker(m_model);
+
     m_model->moveToThread(qApp->thread());
     m_worker->moveToThread(qApp->thread());
+
     m_frameProxy->setModuleVisible(this, m_model->exist());
 
     connect(m_model, &WacomModel::existChanged, this, [this](const bool exist) {
@@ -60,23 +68,9 @@ void WacomModule::preInitialize()
     });
 }
 
-void WacomModule::moduleActive()
+void WacomModule::active()
 {
     m_worker->active();
-}
-
-void WacomModule::moduleDeactive()
-{
-    m_worker->deactive();
-}
-
-void WacomModule::reset()
-{
-
-}
-
-QWidget *WacomModule::moduleWidget()
-{
     m_wacomWidget = new WacomWidget;
 
     connect(m_wacomWidget, &WacomWidget::requestSetPressureValue, m_worker, &WacomWorker::onPressureSensitiveChanged);
@@ -84,8 +78,12 @@ QWidget *WacomModule::moduleWidget()
 
     m_wacomWidget->setModel(m_model);
     m_frameProxy->setModuleVisible(this, m_model->exist());
+    m_frameProxy->pushWidget(this, m_wacomWidget);
+}
 
-    return m_wacomWidget;
+void WacomModule::deactive()
+{
+    m_worker->deactive();
 }
 
 const QString WacomModule::name() const
@@ -100,14 +98,4 @@ void WacomModule::showModePage()
 
     connect(page, &WacomModePage::requestSetMode, m_worker, &WacomWorker::setCursorMode);
     m_frameProxy->pushWidget(this, page);
-}
-
-WacomModule::~WacomModule()
-{
-    m_worker->deleteLater();
-}
-
-void WacomModule::contentPopped(QWidget *const w)
-{
-
 }
