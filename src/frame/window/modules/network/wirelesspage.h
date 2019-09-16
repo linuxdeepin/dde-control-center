@@ -137,6 +137,7 @@ private Q_SLOTS:
     void onDeviceRemoved();
     void onActivateApFailed(const QString &apPath, const QString &uuid);
     void refreshLoadingIndicator();
+    void onNetworkAdapterChanged(bool checked);
 
 private:
     void updateActiveAp();

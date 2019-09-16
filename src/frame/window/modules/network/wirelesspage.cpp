@@ -159,8 +159,8 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     m_switch->setTitle(tr("Wireless Network Adapter"));
     m_switch->setChecked(dev->enabled());
-    connect(m_switch, &SwitchWidget::checkedChanged, this,
-            std::bind(&WirelessPage::requestDeviceEnabled, this, dev->path(), std::placeholders::_1));
+    m_lvAP->setVisible(dev->enabled());
+    connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
     connect(m_device, &NetworkDevice::enableChanged, m_switch, &SwitchWidget::setChecked);
 
     m_closeHotspotBtn->setText(tr("Close Hotspot"));
@@ -232,9 +232,16 @@ WirelessPage::~WirelessPage()
 void WirelessPage::setModel(NetworkModel *model)
 {
     m_model = model;
+    m_lvAP->setVisible(m_switch->checked());
 //    connect(m_model, &NetworkModel::activeConnInfoChanged, this, &WirelessPage::onActiveConnInfoChanged);
 //    onActiveConnInfoChanged(m_model->activeConnInfos());
     onHotspotEnableChanged(m_device->hotspotEnabled());
+}
+
+void WirelessPage::onNetworkAdapterChanged(bool checked)
+{
+    Q_EMIT requestDeviceEnabled(m_device->path(), checked);
+    m_lvAP->setVisible(checked);
 }
 
 void WirelessPage::onAPAdded(const QJsonObject &apInfo)
@@ -279,9 +286,7 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
         m_apItems[ssid]->setSignalStrength(strength);
         m_apItems[ssid]->setPath(path);
     }
-
-    //TODO: Wireless security icon
-
+    it->setSecure(isSecure);
     m_sortDelayTimer->start();
 }
 
@@ -303,7 +308,7 @@ void WirelessPage::onHotspotEnableChanged(const bool enabled)
 {
     m_closeHotspotBtn->setVisible(enabled);
     m_tipsGroup->setVisible(enabled);
-    m_lvAP->setVisible(!enabled);
+    m_lvAP->setVisible(!enabled && m_device->enabled());
 }
 
 void WirelessPage::onCloseHotspotClicked()
