@@ -126,7 +126,7 @@ void CreateAccountPage::initDatas()
     m_nameLabel->setText(tr("Username"));
     m_nameEdit->setPlaceholderText(tr("Required"));
     m_fullnameLabel->setText(tr("Full Name"));
-    m_fullnameEdit->setPlaceholderText(tr("Required"));
+    m_fullnameEdit->setPlaceholderText(tr("Selected"));//选填
     m_passwdLabel->setText(tr("Password"));
     m_passwdEdit->setPlaceholderText(tr("Required"));
     m_repeatpasswdLabel->setText(tr("Repeat Password"));
