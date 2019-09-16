@@ -204,6 +204,8 @@ void DisplayModule::showCustomSettingDialog()
             &DisplayModule::showRecognize);
     connect(dlg, &CustomSettingDialog::requestSetPrimaryMonitor,
             m_displayWorker, &DisplayWorker::setPrimary);
+    connect(dlg, &CustomSettingDialog::requestApplySave,
+            m_displayWorker, &DisplayWorker::saveChanges);
 
     dlg->setModel(m_displayModel);
     if (dlg->exec() != QDialog::Accepted) {

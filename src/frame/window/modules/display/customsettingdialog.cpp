@@ -117,6 +117,7 @@ void CustomSettingDialog::initUI()
 
         btn = new QPushButton(tr("Save"), this);
         connect(btn, &QPushButton::clicked, this, &CustomSettingDialog::accept);
+        connect(btn, &QPushButton::clicked, this, &CustomSettingDialog::requestApplySave);
         hlayout->addWidget(btn);
     }
 
