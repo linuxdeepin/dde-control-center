@@ -84,8 +84,6 @@ void ConnectionVpnEditPage::initSettingsWidget()
         initSettingsWidgetByType(ConnectionVpnEditPage::VpnType::STRONGSWAN);
     } else if (serviceType == ServiceTypeOpenConnect) {
         initSettingsWidgetByType(ConnectionVpnEditPage::VpnType::OPENCONNECT);
-    } else if (serviceType == ServiceTypeSSTP) {
-        initSettingsWidgetByType(ConnectionVpnEditPage::VpnType::SSTP);
     } else {
         qDebug() << "Unsupport vpn service type...";
         return;
@@ -109,7 +107,6 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
         cb->addItem(tr("OpenVPN"), VpnType::OPENVPN);
         cb->addItem(tr("StrongSwan"), VpnType::STRONGSWAN);
         cb->addItem(tr("OpenConnect"), VpnType::OPENCONNECT);
-        cb->addItem(tr("SSTP"), VpnType::SSTP);
 
         cb->setCurrentIndex(0);
 
@@ -166,11 +163,6 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
             m_settingsWidget = new VpnOpenConnectSettings(m_connectionSettings, this);
             break;
         }
-        case VpnType::SSTP: {
-            vpnSetting->setServiceType(ServiceTypeSSTP);
-            m_settingsWidget = new VpnSSTPSettings(m_connectionSettings, this);
-            break;
-        }
         default:
             break;
     }
@@ -215,10 +207,6 @@ void ConnectionVpnEditPage::resetConnectionIdByType(ConnectionVpnEditPage::VpnTy
         }
         case VpnType::OPENCONNECT: {
             connName = tr("VPN OpenConnect %1");
-            break;
-        }
-        case VpnType::SSTP: {
-            connName = tr("VPN SSTP %1");
             break;
         }
         default:
