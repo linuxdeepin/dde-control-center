@@ -167,7 +167,7 @@ void CreateAccountPage::createUser()
     m_newUser->setRepeatPassword(m_repeatpasswdEdit->text());
 
     Q_EMIT requestCreateUser(m_newUser);
-    Q_EMIT requestBack();
+//    Q_EMIT requestBack();
 }
 
 bool CreateAccountPage::validatePassword(const QString &password)
