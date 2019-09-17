@@ -38,11 +38,17 @@ public:
     explicit RecoveryDialog(DDialog *parent = nullptr);
     ~RecoveryDialog();
 
+    void backupInfomation(QString version, QString time);
+
 Q_SIGNALS:
     void notifyButtonClicked(bool);
 
 private:
     void initUI();
+
+private:
+    QString m_backupVersion;
+    QString m_backupTime;
 };
 
 class Manage : public QObject
@@ -56,6 +62,7 @@ private:
     void recoveryCanRestore();
     void exitApp();
     void requestReboot();
+    QString getBackupTime();
 
 private:
     AbRecoveryInter *m_systemRecovery;

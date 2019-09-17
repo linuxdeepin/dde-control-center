@@ -53,6 +53,7 @@ void Manage::showDialog()
     m_dialog = new RecoveryDialog;
     m_dialog->setAttribute(Qt::WA_DeleteOnClose);
     m_dialog->setVisible(true);
+    m_dialog->backupInfomation(m_systemRecovery->backupVersion(), getBackupTime());
 
     connect(m_dialog, &RecoveryDialog::notifyButtonClicked, m_sessionManager, [ = ](bool state) {
         //能够进入到弹框页面,说明是满足一切版本回退的条件
@@ -104,6 +105,16 @@ void Manage::recoveryCanRestore()
     });
 }
 
+QString Manage::getBackupTime()
+{
+    struct tm *p;
+    time_t t = static_cast<time_t>(m_systemRecovery->backupTime());
+    //将time_t 转化为tm
+    p = gmtime(&t);
+
+    return QString("%1/%2/%3 %4:%5:%6").arg(1900+p->tm_year).arg(1+p->tm_mon).arg(p->tm_mday).arg(p->tm_hour).arg(p->tm_min).arg(p->tm_sec);
+}
+
 //退出进程
 void Manage::exitApp()
 {
@@ -126,8 +137,10 @@ void Manage::requestReboot()
 
 RecoveryDialog::RecoveryDialog(DDialog *parent)
     : DDialog(parent)
+    , m_backupVersion("")
+    , m_backupTime("")
 {
-    initUI();
+    setCloseButtonVisible(false);
 }
 
 RecoveryDialog::~RecoveryDialog()
@@ -135,10 +148,23 @@ RecoveryDialog::~RecoveryDialog()
 
 }
 
+void RecoveryDialog::backupInfomation(QString version, QString time)
+{
+    if (m_backupVersion != version) {
+        m_backupVersion = version;
+    }
+
+    if (m_backupTime != time) {
+        m_backupTime = time;
+    }
+
+    initUI();
+}
+
 void RecoveryDialog::initUI()
 {
-    DLabel *txt = new DLabel(tr("Are you sure you want to roll back to deepin %1 backed up on %2?").arg("V2.0.0").arg(QDate::currentDate().toString()));
-    txt->setMinimumHeight(80);
+    DLabel *txt = new DLabel(tr("Are you sure you want to roll back to deepin %1 backed up on %2?").arg(m_backupVersion).arg(m_backupTime));
+    txt->setMinimumHeight(120);
     txt->setWordWrap(true);
     DFontSizeManager::instance()->bind(txt, DFontSizeManager::T3);
 

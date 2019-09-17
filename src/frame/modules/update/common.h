@@ -44,6 +44,7 @@ enum UpdatesStatus {
     NoNetwork,
     NoSpace,
     DeependenciesBrokenError,
+    RecoveryBackingup,
     RecoveryBackupFailed
 };
 

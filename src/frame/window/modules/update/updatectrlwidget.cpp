@@ -270,6 +270,13 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         //~ contents_path /update/Update
         m_resultItem->setMessage(tr("Dependency error, failed to detect the updates"));
         break;
+    case UpdatesStatus::RecoveryBackingup:
+        m_progress->setVisible(true);
+        m_summaryGroup->setVisible(true);
+        m_summary->setVisible(true);
+        //~ contents_path /update/Update
+        m_progress->setMessage(tr("Backing up, please wait..."));
+        break;
     case UpdatesStatus::RecoveryBackupFailed:
         m_resultItem->setVisible(true);
         m_resultItem->setSuccess(false);

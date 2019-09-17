@@ -498,6 +498,8 @@ void UpdateWorker::recoveryCanBackup()
             m_model->setRecoverBackingUp(value);
             if (value) {
                 qDebug() << Q_FUNC_INFO << " [abRecovery] 可以备份, 开始备份...";
+                m_model->setUpgradeProgress(0.7);
+                m_model->setStatus(UpdatesStatus::RecoveryBackingup);
                 m_abRecoveryInter->StartBackup();
             } else {
                 m_model->setStatus(UpdatesStatus::RecoveryBackupFailed);
