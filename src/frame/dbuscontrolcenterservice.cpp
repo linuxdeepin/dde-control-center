@@ -130,7 +130,10 @@ void DBusControlCenterService::Show()
 #ifdef DISABLE_MAIN_PAGE
     parent()->showSettingsPage(QString(), QString());
 #else
-    parent()->show();
+    if (parent()->isMinimized())
+        parent()->show();
+
+    parent()->setWindowState(Qt::WindowActive);
 #endif
 }
 
@@ -140,7 +143,10 @@ void DBusControlCenterService::ShowImmediately()
 #ifdef DISABLE_MAIN_PAGE
     parent()->showSettingsPage(QString(), QString());
 #else
-    parent()->show();
+    if (parent()->isMinimized())
+        parent()->show();
+
+    parent()->setWindowState(Qt::WindowActive);
 #endif
 }
 

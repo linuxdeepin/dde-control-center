@@ -242,14 +242,18 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     Q_UNUSED(animation)
 
     if (isMinimized())
-        setWindowState(Qt::WindowActive);
+        show();
 
+    setWindowState(Qt::WindowActive);
     onEnterSearchWidget(module, page);
 }
 
 void MainWindow::toggle()
 {
-    show();
+    if (isMinimized())
+        show();
+
+    setWindowState(Qt::WindowActive);
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
