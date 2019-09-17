@@ -57,6 +57,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void saveThumb();
+    void reEnrollStart();
     void onEnrollStatusChanged(dcc::accounts::FingerModel::EnrollStatus status);
     void onViewPlayEnd();
 
@@ -65,8 +66,8 @@ private:
     QVBoxLayout *m_mainContentLayout;
     QHBoxLayout *m_cancleaddLayout;
     dcc::accounts::FingerWidget *m_fingeWidget;
-    QPushButton *m_cancleBtn;
-    QPushButton *m_addBtn;
+    QPushButton *m_scanBtn;
+    QPushButton *m_doneBtn;
     QString m_thumb;
     QString m_username;
 };

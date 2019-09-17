@@ -30,11 +30,12 @@ using namespace DCC_NAMESPACE::accounts;
 
 AddFingeDialog::AddFingeDialog(const QString &thumb, QDialog *parent)
     : QDialog(parent)
+    , m_thumb(thumb)
     , m_mainContentLayout(new QVBoxLayout)
     , m_cancleaddLayout(new QHBoxLayout)
     , m_fingeWidget(new FingerWidget)
-    , m_cancleBtn(new QPushButton)
-    , m_addBtn(new QPushButton)
+    , m_scanBtn(new QPushButton)
+    , m_doneBtn(new QPushButton)
 {
     initWidget();
     initData();
@@ -54,9 +55,9 @@ void AddFingeDialog::initWidget()
     m_mainContentLayout->setSpacing(0);
 
     m_cancleaddLayout->setContentsMargins(10, 0, 5, 10);
-    m_cancleaddLayout->addWidget(m_cancleBtn);
+    m_cancleaddLayout->addWidget(m_scanBtn);
     m_cancleaddLayout->addSpacing(10);
-    m_cancleaddLayout->addWidget(m_addBtn);
+    m_cancleaddLayout->addWidget(m_doneBtn);
 
     m_mainContentLayout->addSpacing(20);
     m_mainContentLayout->addWidget(m_fingeWidget);
@@ -71,11 +72,13 @@ void AddFingeDialog::initData()
 {
     setWindowTitle(tr("Add Fingerprint"));
 
-    m_cancleBtn->setText(tr("Cancel"));
-    m_addBtn->setText(tr("Add"));
+    m_scanBtn->setText(tr("Scan again"));
+    m_doneBtn->setText(tr("Done"));
 
-    connect(m_cancleBtn, &QPushButton::clicked, this, &QDialog::close);
-    connect(m_addBtn, &QPushButton::clicked, this, &AddFingeDialog::saveThumb);
+    m_doneBtn->setEnabled(false);
+
+    connect(m_scanBtn, &QPushButton::clicked, this, &AddFingeDialog::reEnrollStart);
+    connect(m_doneBtn, &QPushButton::clicked, this, &AddFingeDialog::saveThumb);
     connect(m_fingeWidget, &FingerWidget::playEnd, this, &AddFingeDialog::onViewPlayEnd);
 }
 
@@ -89,6 +92,15 @@ void AddFingeDialog::setFingerModel(FingerModel *model)
 void AddFingeDialog::setUsername(const QString &name)
 {
     m_username = name;
+}
+
+void AddFingeDialog::reEnrollStart()
+{
+    m_doneBtn->setEnabled(false);
+
+    Q_EMIT requestReEnrollStart(m_thumb);
+
+    m_fingeWidget->reEnter();
 }
 
 void AddFingeDialog::saveThumb()
@@ -113,6 +125,7 @@ void AddFingeDialog::onEnrollStatusChanged(FingerModel::EnrollStatus status)
     case FingerModel::EnrollStatus::Finished:
         m_fingeWidget->finished();
         m_fingeWidget->setFrequency(tr("Fingerprint added"));
+        m_doneBtn->setEnabled(true);
         break;
     }
 }
