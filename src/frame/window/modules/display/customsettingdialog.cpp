@@ -60,6 +60,7 @@ CustomSettingDialog::CustomSettingDialog(dcc::display::Monitor *mon,
 CustomSettingDialog::~CustomSettingDialog()
 {
     qDeleteAll(m_otherDialog);
+    m_fullIndication->deleteLater();
 }
 
 void CustomSettingDialog::initUI()
@@ -121,7 +122,7 @@ void CustomSettingDialog::initUI()
         hlayout->addWidget(btn);
     }
 
-    m_fullIndication = std::unique_ptr<MonitorIndicator>(new MonitorIndicator(this));
+    m_fullIndication = std::unique_ptr<MonitorIndicator>(new MonitorIndicator());
 }
 
 void CustomSettingDialog::setModel(DisplayModel *model)
