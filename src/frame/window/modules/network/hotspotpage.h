@@ -68,6 +68,10 @@ private:
     void openHotspot();
     void openEditPage(const QString &uuid = QString());
 
+Q_SIGNALS:
+    void requestDeviceRemanage(const QString &devPath) const;
+    void requestDisconnectConnection(const QString &uuid) const;
+
 private Q_SLOTS:
     void onDeviceRemoved();
     void onSwitchToggled(const bool checked);

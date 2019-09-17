@@ -117,8 +117,8 @@ void HotspotDeviceWidget::closeHotspot()
     const QString uuid = m_wdev->activeHotspotUuid();
     Q_ASSERT(!uuid.isEmpty());
 
-    Q_EMIT m_page->requestDisconnectConnection(uuid);
-    Q_EMIT m_page->requestDeviceRemanage(m_wdev->path());
+    Q_EMIT requestDisconnectConnection(uuid);
+    Q_EMIT requestDeviceRemanage(m_wdev->path());
 }
 
 void HotspotDeviceWidget::openHotspot()
@@ -258,7 +258,7 @@ void HotspotPage::setModel(dde::network::NetworkModel *model)
     m_model = model;
     deviceListChanged(model->devices());
     connect(m_model, &NetworkModel::deviceListChanged, this, &HotspotPage::deviceListChanged);
-    connect(m_model, &NetworkModel::deviceEnableChanged, [this] {
+    connect(m_model, &NetworkModel::deviceEnableChanged, this, [this] {
         this->deviceListChanged(this->m_model->devices());
     });
 }
@@ -293,6 +293,8 @@ void HotspotPage::deviceListChanged(const QList<dde::network::NetworkDevice *> d
         }
         if (wd->supportHotspot() && wd->enabled()) {
             HotspotDeviceWidget *w = new HotspotDeviceWidget(wd, ap_devices > 1, this);
+            connect(w, &HotspotDeviceWidget::requestDisconnectConnection, this, &HotspotPage::requestDisconnectConnection);
+            connect(w, &HotspotDeviceWidget::requestDeviceRemanage, this, &HotspotPage::requestDeviceRemanage);
             w->setPage(this);
             w->setModel(m_model);
             layout->addWidget(w);
