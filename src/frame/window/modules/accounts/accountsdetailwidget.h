@@ -80,7 +80,7 @@ Q_SIGNALS:
     void requestSetAvatar(dcc::accounts::User *user, const QString &filePath);
     void requestShowFullnameSettings(dcc::accounts::User *user, const QString &fullname);
     void requestShowFingerSettings(dcc::accounts::User *user);
-
+    void requestDeleteAvatar(dcc::accounts::User *user, const QString &iconPath);
     void requestAddThumbs(const QString &name, const QString &thumb);
     void requestCleanThumbs(dcc::accounts::User *user);
 

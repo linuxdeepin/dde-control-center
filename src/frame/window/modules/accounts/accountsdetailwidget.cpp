@@ -171,6 +171,9 @@ void AccountsDetailWidget::initWidgets()
 
 void AccountsDetailWidget::initDatas()
 {
+    connect(m_avatarListWidget, &AvatarListWidget::requestDeleteAvatar, this, [ = ](const QString &iconPath) {
+        Q_EMIT requestDeleteAvatar(m_curUser, iconPath);
+    });
     connect(m_avatarListWidget, &AvatarListWidget::requestAddNewAvatar, this, &AccountsDetailWidget::requestAddNewAvatar);
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
     connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);

@@ -64,6 +64,7 @@ public:
 Q_SIGNALS:
     void requestSetAvatar(const QString &avatarPath);
     void requestAddNewAvatar(dcc::accounts::User *user);
+    void requestDeleteAvatar(const QString &iconPath);
 
 public Q_SLOTS:
     void onItemClicked(const QModelIndex &index);

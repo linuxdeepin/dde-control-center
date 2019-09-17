@@ -136,6 +136,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requestBack, this, [&]() {
         m_frameProxy->popWidget(this);
     });
+    connect(w, &AccountsDetailWidget::requestDeleteAvatar, m_accountsWorker, &AccountsWorker::deleteUserIcon);
     connect(w, &AccountsDetailWidget::requestAddNewAvatar, m_accountsWorker, &AccountsWorker::addNewAvatar);
     connect(w, &AccountsDetailWidget::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
     connect(w, &AccountsDetailWidget::requestShowFullnameSettings, m_accountsWorker, &AccountsWorker::setFullname);
