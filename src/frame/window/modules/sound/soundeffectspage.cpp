@@ -45,19 +45,22 @@ DWIDGET_USE_NAMESPACE
 SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
-    //~ contents_path /sound/Sound Effects
+      //~ contents_path /sound/Sound Effects
     , m_sw(new SwitchWidget(tr("Sound Effects")))
     , m_effectList(new HoverListView)
     , m_sound(nullptr)
 {
-    m_layout->addWidget(m_sw);
-    m_layout->addSpacing(20);
     m_layout->setContentsMargins(ThirdPageContentsMargins);
+    m_layout->setSpacing(0);
+
+    m_layout->addWidget(m_sw, 0, Qt::AlignTop);
+    m_layout->addSpacing(10);
 
     m_effectList->setMaximumHeight(800);
     m_effectList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_effectList->setSelectionMode(QListView::SelectionMode::NoSelection);
     m_layout->addWidget(m_effectList);
+
     setLayout(m_layout);
 }
 
@@ -66,11 +69,19 @@ void SoundEffectsPage::setModel(dcc::sound::SoundModel *model)
     m_model = model;
 
     initList();
+    m_effectList->setVisible(m_model->enableSoundEffect());
 
-    connect(m_model, &SoundModel::soundEffectOnChanged, m_sw, &SwitchWidget::setChecked);
+    connect(m_model, &SoundModel::enableSoundEffectChanged, this, [this](bool on) {
+        m_sw->blockSignals(true);
+        m_sw->setChecked(on);
+        m_sw->blockSignals(false);
+        m_effectList->setVisible(on);
+
+    });
     connect(m_sw, &SwitchWidget::checkedChanged,
-            this, &SoundEffectsPage::requestSwitchSoundEffects);
-    connect(m_sw, &SwitchWidget::checkedChanged, m_effectList, &HoverListView::setVisible);
+            this, [=](bool on){
+        this->requestSwitchSoundEffects(on);
+    });
 }
 
 void SoundEffectsPage::startPlay(const QModelIndex &index)
