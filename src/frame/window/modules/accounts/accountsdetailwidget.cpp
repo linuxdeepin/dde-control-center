@@ -159,6 +159,8 @@ void AccountsDetailWidget::initWidgets()
     m_modifyPassword->setEnabled(isCurUser);
     m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
+    m_addBtn->setEnabled(isCurUser);
+    m_clearBtn->setEnabled(isCurUser);
 
     m_inputLineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     setFocusPolicy(Qt::FocusPolicy::StrongFocus);
