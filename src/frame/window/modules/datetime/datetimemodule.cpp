@@ -77,6 +77,7 @@ void DatetimeModule::active()
 
     //set dbus data to 24 hour format
     m_widget->onHourTypeChanged(m_model->get24HourFormat());
+    m_widget->setTimeType(QLocale::system().name());
 
     m_frameProxy->pushWidget(this, m_widget);
 }

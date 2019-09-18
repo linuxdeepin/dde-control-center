@@ -118,6 +118,16 @@ void DatetimeWidget::setDefault()
 
 }
 
+void DatetimeWidget::setTimeType(const QString &country)
+{
+    bool flg = false;
+
+    if (country.contains("en_", Qt::CaseInsensitive)) {
+        flg = true;
+    }
+    m_clockItem->setTimeEnglishType(flg);
+}
+
 void DatetimeWidget::onItemClieck(const QModelIndex &index)
 {
     Q_EMIT requestPushWidget(index.row());

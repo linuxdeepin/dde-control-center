@@ -39,6 +39,7 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
     , m_labelDate(nullptr)
     , m_timeType(nullptr)
     , m_bIs24HourType(0)
+    , m_bIsEnglishType(false)
 {
     m_clock->setMinimumSize(224, 224);
     m_clock->setAutoNightMode(false);
@@ -105,6 +106,14 @@ void ClockItem::setTimeHourType(bool type)
     }
 }
 
+void ClockItem::setTimeEnglishType(bool type)
+{
+    if (type != m_bIsEnglishType) {
+        m_bIsEnglishType = type;
+        updateDateTime();
+    }
+}
+
 void ClockItem::setPlate(bool state)
 {
     if (m_clock) {
@@ -158,6 +167,12 @@ void ClockItem::updateDateTime()
     } else {
         translateHourType();
     }
-    m_label->setText(QDate::currentDate().toString("yyyy-MM-dd"));
-    m_labelDate->setText(QDate::currentDate().toString("dddd"));
+
+    if (m_bIsEnglishType) {
+        m_label->setText(QDate::currentDate().toString("dddd"));
+        m_labelDate->setText(QDate::currentDate().toString("MM-dd-yyyy"));
+    } else {
+        m_label->setText(QDate::currentDate().toString("yyyy-MM-dd"));
+        m_labelDate->setText(QDate::currentDate().toString("dddd"));
+    }
 }

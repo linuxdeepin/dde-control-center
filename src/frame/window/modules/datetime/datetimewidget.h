@@ -62,6 +62,7 @@ public:
     DTK_WIDGET_NAMESPACE::DListView *getListViewPointer();
     void setCurrentTimeZone(const ZoneInfo &info);
     void setDefault();
+    void setTimeType(const QString &country);
 
 Q_SIGNALS:
     void requestSetHourType(const bool &type);

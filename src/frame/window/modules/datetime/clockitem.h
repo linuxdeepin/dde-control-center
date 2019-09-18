@@ -45,6 +45,7 @@ public:
 
     void setTimeZone(const ZoneInfo &zone);
     void setTimeHourType(bool type);
+    void setTimeEnglishType(bool type);
     void setPlate(bool state);
 
 private:
@@ -61,6 +62,7 @@ private:
     dcc::widgets::NormalLabel *m_timeType;
     ZoneInfo m_zoneInfo;
     bool m_bIs24HourType;
+    bool m_bIsEnglishType;
 };
 
 } // namespace datetime
