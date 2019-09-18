@@ -114,6 +114,9 @@ public:
     inline bool recoverRestoring() const { return m_bRecoverRestoring; }
     void setRecoverRestoring(bool recoverRestoring);
 
+    inline QString systemVersionInfo() const { return m_systemVersionInfo; }
+    void setSystemVersionInfo(QString systemVersionInfo);
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
@@ -137,6 +140,7 @@ Q_SIGNALS:
     void recoverBackingUpChanged(bool recoverBackingUp);
     void recoverConfigValidChanged(bool recoverConfigValid);
     void recoverRestoringChanged(bool recoverRestoring);
+    void systemVersionChanged(QString version);
 
 private:
     UpdatesStatus m_status;
@@ -161,6 +165,7 @@ private:
     bool m_bRecoverBackingUp;
     bool m_bRecoverConfigValid;
     bool m_bRecoverRestoring;
+    QString m_systemVersionInfo;
 };
 
 }

@@ -44,7 +44,7 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::update;
 
 UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
-    : ContentWidget(parent)
+    : QWidget(parent)
     , m_model(nullptr)
     , m_status(UpdatesStatus::Updated)
     , m_checkUpdateItem(new LoadingItem)
@@ -61,8 +61,8 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     , m_bRecoverBackingUp(false)
     , m_bRecoverConfigValid(false)
     , m_bRecoverRestoring(false)
+    , m_updateList(new ContentWidget)
 {
-    setTitle(tr("Update"));
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     //~ contents_path /update/Update
@@ -72,7 +72,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
 
     m_progress->setVisible(false);
 
-    m_summaryGroup->setVisible(false);
+    m_summaryGroup->setVisible(true);
 
     m_powerTip->setWordWrap(true);
     m_powerTip->setAlignment(Qt::AlignHCenter);
@@ -95,22 +95,28 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(0);
-    layout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
+    layout->setAlignment(Qt::AlignTop | Qt::AlignHCenter); 
+    layout->addWidget(m_upgradeWarningGroup);
+    layout->addWidget(m_powerTip);  
+    layout->addWidget(m_summary);
+    layout->addWidget(m_progress);
+    layout->addWidget(m_updateList ,1);
+
     layout->addStretch();
     layout->addWidget(m_resultItem);
     layout->addWidget(m_checkUpdateItem);
-    layout->addWidget(m_upgradeWarningGroup);
-    layout->addWidget(m_powerTip);
     layout->addWidget(m_reminderTip);
     layout->addWidget(m_noNetworkTip);
-    layout->addWidget(m_summary);
-    layout->addWidget(m_progress);
-    layout->addWidget(m_summaryGroup);
     layout->addStretch();
+    setLayout(layout);
 
-    TranslucentFrame *widget = new TranslucentFrame();
-    widget->setLayout(layout);
-    setContent(widget);
+    QWidget *contentWidget = new QWidget;
+    QVBoxLayout *contentLayout = new QVBoxLayout;
+    contentLayout->addWidget(m_summaryGroup);
+    contentWidget->setLayout(contentLayout);
+    m_updateList->setMinimumHeight(height() - 150);
+    m_updateList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_updateList->setContent(contentWidget);
 
     setModel(model);
 
@@ -171,7 +177,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     m_noNetworkTip->setVisible(false);
     m_resultItem->setVisible(false);
     m_progress->setVisible(false);
-    m_summaryGroup->setVisible(false);
+    m_updateList->setVisible(false);
     m_upgradeWarningGroup->setVisible(false);
     m_reminderTip->setVisible(false);
     m_checkUpdateItem->setVisible(false);
@@ -191,7 +197,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::UpdatesAvailable:
         m_progress->setVisible(true);
-        m_summaryGroup->setVisible(true);
+        m_updateList->setVisible(true);
         m_summary->setVisible(true);
         //~ contents_path /update/Update
         m_progress->setMessage(tr("Download and install updates"));
@@ -201,7 +207,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::Downloading:
         m_progress->setVisible(true);
-        m_summaryGroup->setVisible(true);
+        m_updateList->setVisible(true);
         m_summary->setVisible(true);
         m_progress->setValue(m_progress->value());
         //~ contents_path /update/Update
@@ -209,14 +215,14 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::DownloadPaused:
         m_progress->setVisible(true);
-        m_summaryGroup->setVisible(true);
+        m_updateList->setVisible(true);
         m_summary->setVisible(true);
         //~ contents_path /update/Update
         m_progress->setMessage(tr("%1% downloaded (Click to continue)").arg(m_progress->value()));
         break;
     case UpdatesStatus::Downloaded:
         m_progress->setVisible(true);
-        m_summaryGroup->setVisible(true);
+        m_updateList->setVisible(true);
         m_summary->setVisible(true);
         m_progress->setValue(m_progress->maximum());
         //~ contents_path /update/Update
@@ -234,7 +240,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::Installing:
         m_progress->setVisible(true);
-        m_summaryGroup->setVisible(true);
+        m_updateList->setVisible(true);
         m_summary->setVisible(true);
         //~ contents_path /update/Update
         m_progress->setMessage(tr("Updating, please wait..."));
@@ -272,7 +278,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::RecoveryBackingup:
         m_progress->setVisible(true);
-        m_summaryGroup->setVisible(true);
+        m_updateList->setVisible(true);
         m_summary->setVisible(true);
         //~ contents_path /update/Update
         m_progress->setMessage(tr("Backing up, please wait..."));
@@ -399,7 +405,6 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     connect(m_model, &UpdateModel::recoverBackingUpChanged, this, &UpdateCtrlWidget::setRecoverBackingUp);
     connect(m_model, &UpdateModel::recoverConfigValidChanged, this, &UpdateCtrlWidget::setRecoverConfigValid);
     connect(m_model, &UpdateModel::recoverRestoringChanged, this, &UpdateCtrlWidget::setRecoverRestoring);
-
 
     setUpdateProgress(m_model->updateProgress());
     setProgressValue(m_model->upgradeProgress());

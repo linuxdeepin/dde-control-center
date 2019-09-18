@@ -23,6 +23,9 @@
 #include <DLabel>
 #include <DFontSizeManager>
 
+#include <QDesktopWidget>
+#include <QApplication>
+
 //在"控制中心",进行"Install update"前,会先备份,备份成功后再升级,升级完成需要重启;(重启后在启动列表中选择更新的启动项)
 //然后启动该进程,根据构造函数中的条件逐渐往下判断,都满足则showDialog
 //弹框后,选择"取消并重启"则恢复到旧的版本 , 选择"确定"则使用新的版本
@@ -51,6 +54,9 @@ void Manage::showDialog()
         return;
 
     m_dialog = new RecoveryDialog;
+
+    QDesktopWidget *desktop = qApp->desktop();
+    m_dialog->move((desktop->width() - m_dialog->width()) / 2, (desktop->height() - m_dialog->height()) / 2);
     m_dialog->setAttribute(Qt::WA_DeleteOnClose);
     m_dialog->setVisible(true);
     m_dialog->backupInfomation(m_systemRecovery->backupVersion(), getBackupTime());
@@ -110,9 +116,9 @@ QString Manage::getBackupTime()
     struct tm *p;
     time_t t = static_cast<time_t>(m_systemRecovery->backupTime());
     //将time_t 转化为tm
-    p = gmtime(&t);
+    p = localtime(&t);
 
-    return QString("%1/%2/%3 %4:%5:%6").arg(1900+p->tm_year).arg(1+p->tm_mon).arg(p->tm_mday).arg(p->tm_hour).arg(p->tm_min).arg(p->tm_sec);
+    return QString("%1/%2/%3 %4:%5:%6").arg(1900 + p->tm_year).arg(1 + p->tm_mon).arg(p->tm_mday).arg(p->tm_hour).arg(p->tm_min).arg(p->tm_sec);
 }
 
 //退出进程

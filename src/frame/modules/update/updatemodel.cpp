@@ -57,6 +57,7 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_bRecoverBackingUp(false)
     , m_bRecoverConfigValid(false)
     , m_bRecoverRestoring(false)
+    , m_systemVersionInfo("")
 {
 
 }
@@ -266,6 +267,16 @@ void UpdateModel::setRecoverRestoring(bool recoverRestoring)
     m_bRecoverRestoring = recoverRestoring;
 
     Q_EMIT recoverRestoringChanged(recoverRestoring);
+}
+
+void UpdateModel::setSystemVersionInfo(QString systemVersionInfo)
+{
+    if (m_systemVersionInfo == systemVersionInfo)
+        return;
+
+    m_systemVersionInfo = systemVersionInfo;
+
+    Q_EMIT systemVersionChanged(systemVersionInfo);
 }
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK

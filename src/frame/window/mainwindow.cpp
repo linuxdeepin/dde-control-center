@@ -109,7 +109,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_navView, &DListView::clicked, this, &MainWindow::onFirstItemClick);
 
     m_searchWidget = new SearchWidget(this);
-    m_searchWidget->setMinimumSize(280, 36);
+    m_searchWidget->setMinimumSize(350, 36);
 
     DTitlebar *titlebar = this->titlebar();
     titlebar->setMinimumHeight(50);

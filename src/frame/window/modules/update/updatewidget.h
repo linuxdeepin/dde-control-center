@@ -28,7 +28,6 @@
 #include <QListView>
 #include <QList>
 
-#include <dimagebutton.h>
 #include <DSegmentedControl>
 #include <DButtonBox>
 
@@ -99,11 +98,9 @@ public Q_SLOTS:
     void onAppendApplist(const QList<AppUpdateInfo> &infos);
 
 private:
-    Dtk::Widget::DImageButton *m_bottomLabel;
     QVBoxLayout *m_layout;
     dcc::update::UpdateModel *m_model;
     dcc::update::UpdateWorker *m_work;
-    QWidget *m_centerWidget;
     QVBoxLayout *m_centerLayout;
     QLabel *m_label;//System Version display
     QString m_systemVersion;
@@ -114,6 +111,7 @@ private:
     RecentHistoryApplist *m_recentHistoryApplist;
     DButtonBox *m_topSwitchWidgetBtn;
     QList<DButtonBoxButton *> m_btnlist;
+    QStackedLayout *m_mainLayout;
 };
 
 }// namespace datetime

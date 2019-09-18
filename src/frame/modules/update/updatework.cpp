@@ -72,6 +72,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_networkInter(new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this))
     , m_smartMirrorInter(new SmartMirrorInter("com.deepin.lastore.Smartmirror", "/com/deepin/lastore/Smartmirror", QDBusConnection::systemBus(), this))
     , m_abRecoveryInter(new RecoveryInter("com.deepin.ABRecovery", "/com/deepin/ABRecovery", QDBusConnection::systemBus(), this))
+    , m_systemInfoInter(new SystemInfoInter("com.deepin.daemon.SystemInfo", "/com/deepin/daemon/SystemInfo", QDBusConnection::sessionBus(), this))
     , m_onBattery(true)
     , m_batteryPercentage(0)
     , m_batterySystemPercentage(0)
@@ -84,6 +85,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     m_powerSystemInter->setSync(false);
     m_lastoresessionHelper->setSync(false);
     m_smartMirrorInter->setSync(true, false);
+    m_model->setSystemVersionInfo(m_systemInfoInter->version());
 
     connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWorker::onJobListChanged);
     connect(m_managerInter, &ManagerInter::AutoCleanChanged, m_model, &UpdateModel::setAutoCleanCache);
@@ -115,6 +117,8 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
                 qWarning() << Q_FUNC_INFO << " [abRecovery] 备份失败 , errMsg : " << errMsg;
                 return;
             }
+
+            m_model->setUpgradeProgress(1.0);
 
             //开始下载(只有成功才会继续更新)
             //区分 升级/下载并升级

@@ -50,18 +50,11 @@ public:
     virtual const QString name() const override;
     virtual void active() override;
     virtual void load(QString path) override;
-    QString getSystemVersion();
-
-private:
 
 private:
     dcc::update::UpdateModel *m_model;
     dcc::update::UpdateWorker *m_work;
     QPointer<UpdateWidget> m_updateWidget;
-
-Q_SIGNALS:
-
-public Q_SLOTS:
 };
 
 }// namespace datetime

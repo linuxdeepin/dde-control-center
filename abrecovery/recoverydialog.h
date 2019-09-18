@@ -36,7 +36,7 @@ class RecoveryDialog : public DDialog
     Q_OBJECT
 public:
     explicit RecoveryDialog(DDialog *parent = nullptr);
-    ~RecoveryDialog();
+    ~RecoveryDialog() override;
 
     void backupInfomation(QString version, QString time);
 

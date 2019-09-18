@@ -62,7 +62,7 @@ void UpdateModule::active()
 {
     UpdateWidget *mainWidget = new UpdateWidget;
     mainWidget->initialize();
-    mainWidget->setSystemVersion(getSystemVersion());
+    mainWidget->setSystemVersion(m_model->systemVersionInfo());
     mainWidget->setModel(m_model, m_work);
     m_updateWidget = mainWidget;
 
@@ -94,13 +94,4 @@ void UpdateModule::load(QString path)
             m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateSettingMir);
         }
     }
-}
-
-QString UpdateModule::getSystemVersion()
-{
-    SystemInfoInter *systemInfoInter = new SystemInfoInter("com.deepin.daemon.SystemInfo",
-                                                           "/com/deepin/daemon/SystemInfo",
-                                                           QDBusConnection::sessionBus(), this);
-
-    return systemInfoInter->distroVer();
 }

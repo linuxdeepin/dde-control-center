@@ -24,6 +24,8 @@
 #include "widgets/contentwidget.h"
 #include "modules/update/common.h"
 
+#include <QWidget>
+
 class AppUpdateInfo;
 
 QT_BEGIN_NAMESPACE
@@ -50,7 +52,7 @@ namespace update {
 
 class LoadingItem;
 
-class UpdateCtrlWidget : public dcc::ContentWidget
+class UpdateCtrlWidget : public QWidget
 {
     Q_OBJECT
 
@@ -100,6 +102,7 @@ private:
     bool m_bRecoverBackingUp;
     bool m_bRecoverConfigValid;
     bool m_bRecoverRestoring;
+    dcc::ContentWidget *m_updateList;
 };
 
 }// namespace datetime

@@ -41,11 +41,9 @@ using namespace DCC_NAMESPACE::update;
 
 UpdateWidget::UpdateWidget(QWidget *parent)
     : QWidget(parent)
-    , m_bottomLabel(new Dtk::Widget::DImageButton)
     , m_layout(new QVBoxLayout)
     , m_model(nullptr)
     , m_work(nullptr)
-    , m_centerWidget(new QWidget)
     , m_centerLayout(new QVBoxLayout)
     , m_label(new QLabel)
     , m_historyBtn(new UpdateHistoryButton)
@@ -54,6 +52,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     , m_applistGroup(new SettingsGroup)
     , m_recentHistoryApplist(new RecentHistoryApplist)
     , m_topSwitchWidgetBtn(new DButtonBox)
+    , m_mainLayout(new QStackedLayout)
 {
     //~ contents_path /update/Update
     DButtonBoxButton *btnUpdate = new DButtonBoxButton(QIcon::fromTheme("dcc_sync_update"), tr("Update"));
@@ -77,11 +76,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(0);
     m_layout->addWidget(m_topSwitchWidgetBtn, 0, Qt::AlignHCenter);
-
-    m_centerWidget->setLayout(m_centerLayout);
-    m_centerWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_layout->addWidget(m_centerWidget);
-    m_centerWidget->setVisible(true);
+    m_layout->addLayout(m_mainLayout, 0);
 
     QWidget *recentHistoryWidget = new QWidget;
     QVBoxLayout *bottomLayout = new QVBoxLayout;
@@ -123,7 +118,6 @@ void UpdateWidget::initialize()
             m_recentHistoryApplist->setVisible(true);
             onAppendApplist(getTestApplistInfo());
         } else {
-            m_centerWidget->setVisible(true);
             m_applistGroup->setVisible(false);
         }
     });
@@ -133,25 +127,55 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
 {
     m_model = const_cast<UpdateModel *>(model);
     m_work = const_cast<UpdateWorker *>(work);
+
+    UpdateCtrlWidget *updateWidget = new UpdateCtrlWidget(m_model);
+    updateWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    connect(updateWidget, &UpdateCtrlWidget::requestDownloadUpdates, m_work, &UpdateWorker::downloadAndDistUpgrade);
+    connect(updateWidget, &UpdateCtrlWidget::requestPauseDownload, m_work, &UpdateWorker::pauseDownload);
+    connect(updateWidget, &UpdateCtrlWidget::requestResumeDownload, m_work, &UpdateWorker::resumeDownload);
+    connect(updateWidget, &UpdateCtrlWidget::requestInstallUpdates, m_work, &UpdateWorker::distUpgrade);
+    connect(updateWidget, &UpdateCtrlWidget::notifyUpdateState, this, &UpdateWidget::onNotifyUpdateState);
+    updateWidget->setSystemVersion(m_systemVersion);
+
+    UpdateSettings *updateSetting = new UpdateSettings(m_model);
+    updateSetting->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    connect(updateSetting, &UpdateSettings::requestSetAutoUpdate, m_work, &UpdateWorker::setAutoDownloadUpdates);
+    connect(updateSetting, &UpdateSettings::requestShowMirrorsView, this, &UpdateWidget::pushMirrorsView);
+    connect(updateSetting, &UpdateSettings::requestSetAutoCleanCache, m_work, &UpdateWorker::setAutoCleanCache);
+    connect(updateSetting, &UpdateSettings::requestSetAutoCheckUpdates, m_work, &UpdateWorker::setAutoCheckUpdates);
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
+    connect(updateSetting, &UpdateSettings::requestSetSourceCheck, m_work, &UpdateWorker::setSourceCheck);
+#endif
+    connect(updateSetting, &UpdateSettings::requestEnableSmartMirror, m_work, &UpdateWorker::setSmartMirror);
+
+    QWidget *updateOutWidget = new QWidget;
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->addStretch();
+    layout->addWidget(updateWidget, Qt::AlignTop);
+    updateWidget->setMinimumHeight(height());
+    layout->addStretch();
+    updateOutWidget->setLayout(layout);
+
+    m_mainLayout->addWidget(updateOutWidget);
+    m_mainLayout->addWidget(updateSetting);
 }
 
 void UpdateWidget::setSystemVersion(QString version)
 {
-    qDebug() << Q_FUNC_INFO << QString("%1 : %2").arg(tr("Current Edition")).arg(version.toLatin1().data());
+    qDebug() << Q_FUNC_INFO << QString("%1 %2").arg(tr("Current Edition")).arg(version.toLatin1().data());
 
     if (m_systemVersion != version) {
         m_systemVersion = version.remove('"');
     }
 
     //~ contents_path /update/Update
-    m_label->setText(QString("%1 :  V%2").arg(tr("Current Edition")).arg(version.remove('"')));
+    m_label->setText(QString("%1 V%2").arg(tr("Current Edition")).arg(version.remove('"')));
 }
 
 void UpdateWidget::resetUpdateCheckState(bool state)
 {
     m_label->setVisible(false);
     m_historyBtn->setVisible(state);
-    m_centerWidget->setVisible(false);
     m_updateHistoryText->setVisible(false);
     //~ contents_path /update/Update
     m_historyBtn->setLabelText(tr("Update History"));
@@ -206,21 +230,8 @@ void UpdateWidget::refreshWidget(UpdateType type)
 void UpdateWidget::showCheckUpdate()
 {
     qDebug() << Q_FUNC_INFO;
-
     m_work->checkForUpdates();
-
-    UpdateCtrlWidget *updateWidget = new UpdateCtrlWidget(m_model);
-    updateWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    connect(updateWidget, &UpdateCtrlWidget::requestDownloadUpdates, m_work, &UpdateWorker::downloadAndDistUpgrade);
-    connect(updateWidget, &UpdateCtrlWidget::requestPauseDownload, m_work, &UpdateWorker::pauseDownload);
-    connect(updateWidget, &UpdateCtrlWidget::requestResumeDownload, m_work, &UpdateWorker::resumeDownload);
-    connect(updateWidget, &UpdateCtrlWidget::requestInstallUpdates, m_work, &UpdateWorker::distUpgrade);
-    connect(updateWidget, &UpdateCtrlWidget::notifyUpdateState, this, &UpdateWidget::onNotifyUpdateState);
-
-    updateWidget->setSystemVersion(m_systemVersion);
-
-    m_centerLayout->addWidget(updateWidget);
-    updateWidget->show();
+    m_mainLayout->setCurrentIndex(0);
 
     // prohibit dde-offline-upgrader from showing while this page is showing.
     QDBusConnection::sessionBus().registerService(OfflineUpgraderService);
@@ -230,27 +241,11 @@ void UpdateWidget::showUpdateSetting()
 {
     qDebug() << Q_FUNC_INFO;
     resetUpdateCheckState(false);
-    m_centerWidget->setVisible(true);
-
     m_work->checkNetselect();
-
-    UpdateSettings *updateSetting = new UpdateSettings(m_model);
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     m_work->refreshMirrors();
 #endif
-    updateSetting = new UpdateSettings(m_model);
-    updateSetting->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    connect(updateSetting, &UpdateSettings::requestSetAutoUpdate, m_work, &UpdateWorker::setAutoDownloadUpdates);
-    connect(updateSetting, &UpdateSettings::requestShowMirrorsView, this, &UpdateWidget::pushMirrorsView);
-    connect(updateSetting, &UpdateSettings::requestSetAutoCleanCache, m_work, &UpdateWorker::setAutoCleanCache);
-    connect(updateSetting, &UpdateSettings::requestSetAutoCheckUpdates, m_work, &UpdateWorker::setAutoCheckUpdates);
-#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    connect(updateSetting, &UpdateSettings::requestSetSourceCheck, m_work, &UpdateWorker::setSourceCheck);
-#endif
-    connect(updateSetting, &UpdateSettings::requestEnableSmartMirror, m_work, &UpdateWorker::setSmartMirror);
-
-    m_centerLayout->addWidget(updateSetting);
-    updateSetting->show();
+    m_mainLayout->setCurrentIndex(1);
 }
 
 void UpdateWidget::displayUpdateContent(UpdateType index)
