@@ -197,6 +197,11 @@ set(WINDOW_FILES
     window/modules/commoninfo/bootwidget.cpp
     window/modules/commoninfo/commonbackgrounditem.cpp
     window/modules/commoninfo/userexperienceprogramwidget.cpp
+    window/modules/wacom/wacommodule.cpp
+    window/modules/wacom/wacomwidget.cpp
+    window/modules/wacom/wacomworker.cpp
+    window/modules/wacom/wacommodel.cpp
+    window/modules/wacom/pressuresettings.cpp
      )
 
 # load interfaces
@@ -1039,10 +1044,16 @@ set(WACOM_FILES
                 modules/wacom/wacomwidget.h
                 modules/wacom/wacomworker.h
                 #v20
-                window/modules/wacom/wacommodule.h
-                window/modules/wacom/wacommodule.cpp
-                window/modules/wacom/wacomwidget.h
-                window/modules/wacom/wacomwidget.cpp
+#                window/modules/wacom/wacommodule.h
+#                window/modules/wacom/wacommodule.cpp
+#                window/modules/wacom/wacomwidget.h
+#                window/modules/wacom/wacomwidget.cpp
+#                window/modules/wacom/wacomworker.h
+#                window/modules/wacom/wacomworker.cpp
+#                window/modules/wacom/wacommodel.h
+#                window/modules/wacom/wacommodel.cpp
+#                window/modules/wacom/pressuresettings.h
+#                window/modules/wacom/pressuresettings.cpp
 )
 
 # end load

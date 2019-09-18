@@ -1,9 +1,13 @@
 /*
- * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
  *
- * Author:     wp <wangpeng_cm@deepin.com>
+ * Author:     sbw <sbw@sbw.so>
+ *             kirigaya <kirigaya@mkacg.com>
+ *             Hualet <mr.asianwang@gmail.com>
  *
- * Maintainer: wp <wangpeng_cm@deepin.com>
+ * Maintainer: sbw <sbw@sbw.so>
+ *             kirigaya <kirigaya@mkacg.com>
+ *             Hualet <mr.asianwang@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,51 +23,47 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef WACOMWIDGET_H_V20
-#define WACOMWIDGET_H_V20
+#pragma once
 
 #include "window/namespace.h"
 
+#include "widgets/translucentframe.h"
+
+#include <QObject>
 #include <QVBoxLayout>
-#include <QWidget>
+#include <QSlider>
 
 namespace dcc {
 namespace widgets {
-class ComboxWidget;
+class SettingsGroup;
+class TitledSliderItem;
 }
 }
 
 namespace DCC_NAMESPACE {
 namespace wacom {
-
-class PressureSettings;
 class WacomModel;
 
-class WacomWidget : public QWidget
+class PressureSettings : public dcc::widgets::TranslucentFrame
 {
     Q_OBJECT
-
 public:
-    explicit WacomWidget(QWidget *parent = nullptr);
+    explicit PressureSettings(QWidget *parent = nullptr);
     void setModel(WacomModel *model);
 
 Q_SIGNALS:
-    void requestSetPressureValue(const int value);
-    void modeChanged(const bool curMode);
+    void requestSetPressureValue(const int &value);
+
+public Q_SLOTS:
+    void setPressureValue(const int &value);
 
 private:
-    QString getModeName(const bool curMode) const;
-
-private Q_SLOTS:
-    void onCursorModeChanged(const bool curMode);
-
-private:
-    PressureSettings *m_sensitivity;
-    QVBoxLayout *m_centralLayout;
-    dcc::widgets::ComboxWidget *m_selectWacomMode;
+    QVBoxLayout *m_mainLayout;
+    dcc::widgets::SettingsGroup *m_mainGroup;
+    WacomModel *m_model;
+    dcc::widgets::TitledSliderItem *m_pressureSlider;
+    QSlider *m_preSlider;
 };
+
 }
 }
-
-
-#endif // WACOMWIDGET_H_V20

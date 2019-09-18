@@ -21,66 +21,67 @@
 
 #include "wacomwidget.h"
 
-#include "widgets/settingsgroup.h"
-#include "widgets/nextpagewidget.h"
-#include "widgets/settingsgroup.h"
-#include "modules/wacom/wacommodel.h"
-#include "modules/wacom/widget/wacomsettings.h"
+#include "window/modules/wacom/wacommodel.h"
+#include "window/modules/wacom/pressuresettings.h"
 
-#include <QPushButton>
+#include "widgets/comboxwidget.h"
 
-using namespace dcc::wacom;
+#include <QComboBox>
+
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::wacom;
+
 WacomWidget::WacomWidget(QWidget *parent)
     : QWidget(parent)
-    , m_selectMode(new NextPageWidget())
+    , m_sensitivity(new PressureSettings)
     , m_centralLayout(new QVBoxLayout)
+    , m_selectWacomMode(new ComboxWidget)
 {
-    setObjectName("Wacom");
+    m_selectWacomMode->setTitle(tr("Mode"));
+    m_selectWacomMode->comboBox()->addItem(getModeName(true)); // 笔模式
+    m_selectWacomMode->comboBox()->addItem(getModeName(false));
+
+    m_selectWacomMode->comboBox()->setCurrentIndex(0);
+
+    m_centralLayout->addWidget(m_selectWacomMode);
+    m_centralLayout->addWidget(m_sensitivity);
+
     setLayout(m_centralLayout);
 
-    m_Sensitivity = new WacomSettings;
-    SettingsGroup *modeGrp = new SettingsGroup;
-    modeGrp->appendItem(m_selectMode);
-    m_selectMode->setTitle(tr("Mode"));
-
-    m_centralLayout->addWidget(modeGrp);
-    m_centralLayout->addWidget(m_Sensitivity);
-
-    connect(m_Sensitivity, &WacomSettings::requestSetPressureValue, this, &WacomWidget::requestSetPressureValue);
-    connect(m_selectMode, &NextPageWidget::clicked, this, &WacomWidget::requestShowMode);
+    connect(m_sensitivity, &PressureSettings::requestSetPressureValue, this, &WacomWidget::requestSetPressureValue);
+    connect(m_selectWacomMode, &ComboxWidget::onSelectChanged, this, [ = ](const QString curMode) {
+        bool isPen = false;
+        if (tr("Pen") == curMode) {
+            isPen = true;
+        }
+        Q_EMIT WacomWidget::onCursorModeChanged(isPen);
+    } );
 }
 
-void WacomWidget::setModel(WacomModel *const model)
+void WacomWidget::setModel(WacomModel *model)
 {
-    m_Sensitivity->setModel(model->getWacomModelBase());
+    m_sensitivity->setModel(model);
 
     connect(model, &WacomModel::cursorModeChanged, this, &WacomWidget::onCursorModeChanged);
     onCursorModeChanged(model->getCursorMode());
 }
 
-QString WacomWidget::getValue(const Mode mode) const
+QString WacomWidget::getModeName(const bool curMode) const
 {
-    QString strmode;
-    switch (mode) {
-    case Mode::MOUSE:
-        strmode = tr("Mouse");
-        break;
-    case Mode::PEN:
-        strmode = tr("Pen");
-        break;
+    if (curMode) {
+        return tr("Pen");
+    } else {
+        return tr("Mouse");
     }
-
-    return strmode;
 }
 
-void WacomWidget::onCursorModeChanged(const bool modeChanged)
+void WacomWidget::onCursorModeChanged(const bool curMode)
 {
-    if (modeChanged)
-        m_selectMode->setValue(getValue(Mode::MOUSE));
-    else
-        m_selectMode->setValue(getValue(Mode::PEN));
-
-    m_Sensitivity->setVisible(!modeChanged);
+    int index = 1;
+    if (curMode) {
+        index = 0;
+    }
+    m_sensitivity->setVisible(curMode);
+    m_selectWacomMode->comboBox()->setCurrentIndex(index);
+    Q_EMIT modeChanged(curMode);
 }

@@ -28,16 +28,10 @@
 
 #include <QObject>
 
-namespace dcc {
+namespace DCC_NAMESPACE {
 namespace wacom {
 class WacomWorker;
 class WacomModel;
-}
-}
-
-namespace DCC_NAMESPACE {
-namespace wacom {
-
 class WacomWidget;
 
 class WacomModule : public QObject, public ModuleInterface
@@ -46,20 +40,17 @@ class WacomModule : public QObject, public ModuleInterface
 
 public:
     explicit WacomModule(FrameProxyInterface *frame, QObject *parent = nullptr);
-    ~WacomModule();
+    virtual ~WacomModule() override;
 
     virtual void initialize() override;
     virtual void active() override;
     virtual void deactive() override;
     virtual const QString name() const override;
 
-private Q_SLOTS:
-    void showModePage();
-
 private:
     WacomWidget *m_wacomWidget;
-    dcc::wacom::WacomModel  *m_model;
-    dcc::wacom::WacomWorker *m_worker;
+    WacomModel  *m_model;
+    WacomWorker *m_worker;
 };
 }
 }
