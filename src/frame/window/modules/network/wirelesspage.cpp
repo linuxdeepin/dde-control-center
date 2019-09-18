@@ -141,13 +141,13 @@ bool APItem::operator<(const QStandardItem &other) const
 WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     : ContentWidget(parent)
     , m_device(dev)
+    , m_switch(new SwitchWidget())
     , m_tipsGroup(new SettingsGroup)
     , m_closeHotspotBtn(new QPushButton)
-    , m_sortDelayTimer(new QTimer(this))
-    , m_indicatorDelayTimer(new QTimer(this))
     , m_lvAP(new DListView(this))
     , m_modelAP(new QStandardItemModel(m_lvAP))
-    , m_switch(new SwitchWidget())
+    , m_sortDelayTimer(new QTimer(this))
+    , m_indicatorDelayTimer(new QTimer(this))
 {
     qRegisterMetaType<APSortInfo>();
     m_lvAP->setModel(m_modelAP);

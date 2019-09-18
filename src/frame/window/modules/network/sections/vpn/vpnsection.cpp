@@ -69,6 +69,7 @@ bool VpnSection::allInputValid()
             && m_password->text().isEmpty()) {
         valid = false;
         m_password->setIsErr(true);
+        m_password->showAlertMessage(tr("Invalid password"));
     } else {
         m_password->setIsErr(false);
     }

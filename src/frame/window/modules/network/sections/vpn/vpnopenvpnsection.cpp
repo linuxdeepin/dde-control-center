@@ -408,6 +408,7 @@ bool VpnOpenVPNSection::tlsItemsInputValid()
         if (priKeyPassword->text().isEmpty()) {
             valid = false;
             priKeyPassword->setIsErr(true);
+            priKeyPassword->showAlertMessage(tr("Invalid password"));
         }
     } else {
         priKeyPassword->setIsErr(false);
@@ -435,6 +436,7 @@ bool VpnOpenVPNSection::passwordItemsInputValid()
         if (password->text().isEmpty()) {
             valid = false;
             password->setIsErr(true);
+            password->showAlertMessage(tr("Invalid password"));
         }
     } else {
         password->setIsErr(false);
