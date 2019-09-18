@@ -52,19 +52,14 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
 
-    //set a vertical margin instead of a fixed height,
-    //as we are now dealing with multi-line labels as well.
-    int vertical_margin = 0;
     QLabel *label = qobject_cast<QLabel *>(m_leftWidget);
     if (label) {
+        label->setFixedWidth(140);
         label->setWordWrap(true);
-        vertical_margin = (36 - label->fontMetrics().height()) / 2;
     }
 
-    mainLayout->setContentsMargins(20, vertical_margin, 10, vertical_margin);
-
+    mainLayout->setContentsMargins(20, 0, 5, 0);
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
-    mainLayout->addStretch();
     mainLayout->addWidget(m_switchComboBox, 0, Qt::AlignVCenter);
 
     m_leftWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
@@ -72,7 +67,7 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     setLayout(mainLayout);
 
     connect(m_switchComboBox, &QComboBox::currentTextChanged, this, &ComboxWidget::onSelectChanged);
-    connect(m_switchComboBox, &QComboBox::currentTextChanged, [this] {
+    connect(m_switchComboBox, &QComboBox::currentTextChanged, this, [this] {
         Q_EMIT dataChanged(m_switchComboBox->currentData());
     });
 }
