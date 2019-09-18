@@ -28,10 +28,11 @@
 
 #include "widgets/settingsitem.h"
 
-#include <dimagebutton.h>
+#include <dfilechooseredit.h>
 
+QT_BEGIN_NAMESPACE
 class QLabel;
-class QLineEdit;
+QT_END_NAMESPACE
 
 namespace dcc {
 
@@ -44,19 +45,15 @@ class FileChooseWidget : public SettingsItem
 public:
     explicit FileChooseWidget(QWidget *parent = 0);
 
-    QLineEdit *edit() const { return m_edit; }
+    DTK_WIDGET_NAMESPACE::DFileChooserEdit *edit() const { return m_fileChooserEdit; }
     void setTitle(const QString &title);
 
 Q_SIGNALS:
     void requestFrameKeepAutoHide(const bool autoHide) const;
 
-private Q_SLOTS:
-    void chooseFile();
-
 private:
+    DTK_WIDGET_NAMESPACE::DFileChooserEdit *m_fileChooserEdit;
     QLabel *m_title;
-    QLineEdit *m_edit;
-    Dtk::Widget::DImageButton *m_btn;
 };
 
 }
