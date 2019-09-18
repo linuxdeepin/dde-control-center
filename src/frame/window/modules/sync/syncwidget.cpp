@@ -7,6 +7,7 @@
 
 #include <QVBoxLayout>
 #include <QStackedLayout>
+#include <QLabel>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::sync;
@@ -17,12 +18,17 @@ SyncWidget::SyncWidget(QWidget *parent)
     , m_model(nullptr)
     , m_loginPage(new LoginPage)
     , m_indexPage(new IndexPage)
+    //~ contents_path /cloudsync/Sorry, it is not supported in your region at present, and will be coming soon
+    , m_cnonlyTip(new QLabel(tr("Sorry, it is not supported in your region at present, and will be coming soon")))
 {
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
 
     m_mainLayout->addWidget(m_loginPage);
     m_mainLayout->addWidget(m_indexPage);
+    m_mainLayout->addWidget(m_cnonlyTip);
+    m_cnonlyTip->setWordWrap(true);
+    m_cnonlyTip->setAlignment(Qt::AlignCenter);
 
     setLayout(m_mainLayout);
 
@@ -45,9 +51,14 @@ void SyncWidget::setModel(dcc::cloudsync::SyncModel *model)
 void SyncWidget::onUserInfoChanged(const QVariantMap &userInfo)
 {
     const bool isLogind = !userInfo["Username"].toString().isEmpty();
+    const QString region = userInfo["Region"].toString();
 
     if (isLogind) {
-        m_mainLayout->setCurrentWidget(m_indexPage);
+        if (region == "CN") {
+            m_mainLayout->setCurrentWidget(m_indexPage);
+        } else {
+            m_mainLayout->setCurrentWidget(m_cnonlyTip);
+        }
     }
     else {
         m_mainLayout->setCurrentWidget(m_loginPage);

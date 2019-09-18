@@ -25,7 +25,10 @@
 
 #include <QWidget>
 
+QT_BEGIN_NAMESPACE
 class QStackedLayout;
+class QLabel;
+QT_END_NAMESPACE
 
 namespace dcc {
 namespace cloudsync {
@@ -44,7 +47,7 @@ class SyncWidget : public QWidget
     Q_OBJECT
 public:
     SyncWidget(QWidget *parent = nullptr);
-    void setModel(dcc::cloudsync::SyncModel* model);
+    void setModel(dcc::cloudsync::SyncModel *model);
 
 Q_SIGNALS:
     void requestLoginUser() const;
@@ -57,9 +60,10 @@ private:
 
 private:
     QStackedLayout *m_mainLayout;
-    dcc::cloudsync::SyncModel* m_model;
-    LoginPage* m_loginPage;
-    IndexPage* m_indexPage;
+    dcc::cloudsync::SyncModel *m_model;
+    LoginPage *m_loginPage;
+    IndexPage *m_indexPage;
+    QLabel *m_cnonlyTip;
 };
 } // namespace sync
 
