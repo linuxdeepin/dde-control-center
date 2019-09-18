@@ -33,6 +33,7 @@ QT_END_NAMESPACE
 namespace dcc {
 namespace widgets {
 class TitledSliderItem;
+class SwitchWidget;
 }
 
 namespace power {
@@ -60,11 +61,13 @@ private:
     dcc::widgets::TitledSliderItem *m_monitorSleepOnBattery;
     dcc::widgets::TitledSliderItem *m_computerSleepOnBattery;
     dcc::widgets::TitledSliderItem *m_autoLockScreen;
+    dcc::widgets::SwitchWidget *m_suspendOnLidClose;
 
 Q_SIGNALS:
     void requestSetScreenBlackDelayOnBattery(const int delay) const;
     void requestSetSleepDelayOnBattery(const int delay) const;
     void requestSetAutoLockScreenOnBattery(const int delay) const;
+    void requestSetSleepOnLidOnBatteryClosed(const bool sleep) const;
 
 public Q_SLOTS:
     void setScreenBlackDelayOnBattery(const int delay);

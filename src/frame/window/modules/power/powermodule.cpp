@@ -143,6 +143,7 @@ void PowerModule::showUseElectric()
     if (!m_widget->getIsUseBattety()) {
         electric->setLidClose(m_widget->getIsUseBattety());
     }
+
     electric->setAutoLockScreenOnBattery(m_nPowerLockScreenDelay);
     connect(electric, &UseElectricWidget::requestSetScreenBlackDelayOnPower, m_work, &PowerWorker::setScreenBlackDelayOnPower);
     connect(electric, &UseElectricWidget::requestSetSleepDelayOnPower, m_work, &PowerWorker::setSleepDelayOnPower);
@@ -162,6 +163,7 @@ void PowerModule::showUseBattery()
     connect(battery, &UseBatteryWidget::requestSetScreenBlackDelayOnBattery, m_work, &PowerWorker::setScreenBlackDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetSleepDelayOnBattery, m_work, &PowerWorker::setSleepDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetAutoLockScreenOnBattery, m_work, &PowerWorker::setLockScreenDelayOnBattery);
+    connect(battery, &UseBatteryWidget::requestSetSleepOnLidOnBatteryClosed, m_work, &PowerWorker::setSleepOnLidOnBatteryClosed);//Suspend on lid close
 }
 
 void PowerModule::onPushWidget(int index)

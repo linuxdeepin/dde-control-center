@@ -24,6 +24,7 @@
 #include "widgets/dccslider.h"
 #include "widgets/dccsliderannotated.h"
 #include "widgets/optionitem.h"
+#include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 #include "modules/power/powermodel.h"
 
@@ -40,6 +41,7 @@ UseBatteryWidget::UseBatteryWidget(QWidget *parent)
     , m_monitorSleepOnBattery(new TitledSliderItem(tr("Monitor will suspend after")))
     , m_computerSleepOnBattery(new TitledSliderItem(tr("Computer will suspend after")))
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
+    , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -49,11 +51,14 @@ UseBatteryWidget::UseBatteryWidget(QWidget *parent)
     m_computerSleepOnBattery->setAccessibleName(tr("Computer will suspend after"));
     //~ contents_path /power/On Battery
     m_autoLockScreen->setAccessibleName(tr("Lock screen after"));
+    //~ contents_path /power/On Battery
+    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
     SettingsGroup *batterySettingsGrp = new SettingsGroup;
     batterySettingsGrp->appendItem(m_monitorSleepOnBattery);
     batterySettingsGrp->appendItem(m_computerSleepOnBattery);
     batterySettingsGrp->appendItem(m_autoLockScreen);
+    batterySettingsGrp->appendItem(m_suspendOnLidClose);
 
     m_layout->addWidget(batterySettingsGrp);
     m_layout->setAlignment(Qt::AlignTop);
@@ -87,6 +92,7 @@ UseBatteryWidget::UseBatteryWidget(QWidget *parent)
     connect(m_monitorSleepOnBattery->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetScreenBlackDelayOnBattery);
     connect(m_computerSleepOnBattery->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetSleepDelayOnBattery);
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetAutoLockScreenOnBattery);
+    connect(m_suspendOnLidClose, &SwitchWidget::checkedChanged, this, &UseBatteryWidget::requestSetSleepOnLidOnBatteryClosed);
 }
 
 UseBatteryWidget::~UseBatteryWidget()
@@ -98,10 +104,12 @@ void UseBatteryWidget::setModel(const PowerModel *model)
 {
     connect(model, &PowerModel::sleepDelayChangedOnBattery, this, &UseBatteryWidget::setSleepDelayOnBattery);
     connect(model, &PowerModel::screenBlackDelayChangedOnBattery, this, &UseBatteryWidget::setScreenBlackDelayOnBattery);
+    connect(model, &PowerModel::sleepOnLidOnBatteryCloseChanged, m_suspendOnLidClose, &SwitchWidget::setChecked);
     connect(model, &PowerModel::batteryLockScreenDelayChanged, this, &UseBatteryWidget::setLockScreenAfter);
 
     setScreenBlackDelayOnBattery(model->screenBlackDelayOnBattery());
     setSleepDelayOnBattery(model->sleepDelayOnBattery());
+    m_suspendOnLidClose->setChecked(model->sleepOnLidOnBatteryClose());
     setLockScreenAfter(model->getBatteryLockScreenDelay());
 }
 
