@@ -150,21 +150,18 @@ void AdvancedPage::addPort(const Port *port)
 
 void AdvancedPage::removePort(const QString &portId, const uint &cardId)
 {
-    auto rmFunc = [ = ](QStandardItemModel * model)->bool{
-        for (int i = 0; model->rowCount(); ++i)
-        {
+    auto rmFunc = [ = ](QStandardItemModel * model) {
+        for (int i = 0; i < model->rowCount();) {
             auto item = model->item(i);
             auto port = item->data(Qt::WhatsThisPropertyRole).value<const Port *>();
             if (port->id() == portId && cardId == port->cardId()) {
                 model->removeRow(i);
-                return true;
+            } else {
+                ++i;
             }
         }
-        return false;
     };
 
-    if (rmFunc(m_inputModel))
-        return;
-
+    rmFunc(m_inputModel);
     rmFunc(m_outputModel);
 }
