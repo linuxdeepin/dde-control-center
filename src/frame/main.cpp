@@ -59,6 +59,7 @@ int main(int argc, char *argv[])
     QTranslator translator;
     translator.load("/usr/share/dde-network-utils/translations/dde-network-utils_" + QLocale::system().name());
     app.installTranslator(&translator);
+    app.setApplicationDescription(QApplication::translate("main", "Control Center provides all system settings for deepin users."));
 
     DLogManager::registerConsoleAppender();
     DLogManager::registerFileAppender();
