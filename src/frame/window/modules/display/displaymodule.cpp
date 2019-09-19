@@ -271,7 +271,7 @@ void DisplayModule::showRotate(Monitor *mon)
     } else {
         m_displayWorker->restore();
     }
-
+    QCursor::setPos(m_displayWidget->getRotateBtnPos());
     dialog->deleteLater();
 }
 

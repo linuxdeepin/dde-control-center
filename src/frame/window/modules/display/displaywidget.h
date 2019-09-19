@@ -28,6 +28,7 @@
 #include <DListView>
 
 #include <QModelIndex>
+#include <QPoint>
 
 QT_BEGIN_NAMESPACE
 class QListView;
@@ -56,6 +57,7 @@ public:
 public:
     void setModel(dcc::display::DisplayModel *model);
     void showPath(const QString &path);
+    QPoint getRotateBtnPos();
 
 private Q_SLOTS:
     void onMonitorListChanged();

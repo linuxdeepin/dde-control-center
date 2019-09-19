@@ -87,6 +87,12 @@ void DisplayWidget::showPath(const QString &path)
     }
 }
 
+QPoint DisplayWidget::getRotateBtnPos()
+{
+    QPoint curPoint = mapToGlobal(m_rotate->pos());
+    return QPoint(curPoint.x() + m_rotate->width()/2, curPoint.y() + m_rotate->height()/2);
+}
+
 void DisplayWidget::onMonitorListChanged()
 {
     const auto mons = m_model->monitorList();
