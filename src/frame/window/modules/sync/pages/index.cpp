@@ -37,6 +37,7 @@ IndexPage::IndexPage(QWidget *parent)
     , m_lastSyncTimeLbl(new QLabel)
     , m_listModel(new QStandardItemModel)
 {
+    m_stateLbl->hide();
     m_listView->setSelectionMode(QListView::NoSelection);
     m_listView->setSelectionBehavior(QAbstractItemView::SelectRows);
     m_listView->setEditTriggers(QListView::NoEditTriggers);
