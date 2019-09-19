@@ -24,7 +24,7 @@ execute_process(COMMAND dpkg-architecture -qDEB_BUILD_ARCH OUTPUT_VARIABLE ARCHI
 if (${EXIT_CODE} EQUAL 0)
     string(STRIP ${ARCHITECTURE} ARCHITECTURE)
 
-    if (${ARCHITECTURE} STREQUAL "sw_64")
+    if ("${ARCHITECTURE}" STREQUAL "sw_64")
         # add compiler flags -mieee for mathmatic
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mieee")
     endif()
@@ -36,7 +36,7 @@ set(AllowCloudSync true)
 
 configure_file(files/dde-control-center.conf.in files/dde-control-center.conf @ONLY)
 
-if (${CMAKE_BUILD_TYPE} STREQUAL Debug)
+if ("${CMAKE_BUILD_TYPE}" STREQUAL Debug)
     add_definitions(-DWINDOW_MODE)
 endif()
 
@@ -66,7 +66,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/files/dde-control-center.conf DESTINAT
 
 # polkit policy file
 if (OS_DEEPIN_PROFESSIONAL)
-    if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
+    if ("${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "x86_64")
         install(FILES com.deepin.controlcenter.addomain.policy DESTINATION share/polkit-1/actions)
     endif()
 endif()
