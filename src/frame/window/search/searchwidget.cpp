@@ -64,7 +64,6 @@ SearchWidget::SearchWidget(QWidget *parent)
                 const QString &currentCompletion = completer()->currentCompletion();
                 qDebug() << Q_FUNC_INFO << " [wubw SearchWidget] currentCompletion : " << currentCompletion;
 
-                setText(currentCompletion);
                 jumpContentPathWidget(currentCompletion);
             }
         }
