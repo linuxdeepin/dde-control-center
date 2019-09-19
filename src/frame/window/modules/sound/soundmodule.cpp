@@ -56,6 +56,7 @@ const QString SoundModule::name() const
 
 void SoundModule::active()
 {
+    m_worker->activate();
     m_soundWidget = new SoundWidget();
 
     connect(m_soundWidget, &SoundWidget::requsetSpeakerPage, this, &SoundModule::showSpeakerPage);
