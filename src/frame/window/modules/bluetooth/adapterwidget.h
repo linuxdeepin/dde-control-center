@@ -54,7 +54,7 @@ class AdapterWidget : public QWidget
     Q_OBJECT
 public:
     explicit AdapterWidget(const dcc::bluetooth::Adapter *adapter);
-
+    virtual ~AdapterWidget();
     void setAdapter(const dcc::bluetooth::Adapter *adapter);
     const dcc::bluetooth::Adapter *adapter() const;
     void loadDetailPage();
@@ -62,7 +62,7 @@ private:
     void updateHeight();
 
 public Q_SLOTS:
-    void toggleSwitch(const bool &checked);
+    void toggleSwitch(const bool checked);
 
 Q_SIGNALS:
     void requestSetToggleAdapter(const dcc::bluetooth::Adapter *adapter, const bool &toggled);

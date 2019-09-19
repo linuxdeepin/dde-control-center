@@ -100,15 +100,20 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     layout->addStretch();
 
     connect(m_switch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleSwitch);
-    connect(m_switch, &SwitchWidget::checkedChanged, [ = ](bool state) {
+    connect(m_switch, &SwitchWidget::checkedChanged, this, [ = ](bool state) {
         m_tip->setVisible(!state);
     });
-    connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, [ = ](const QString & alias) {
+    connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, this, [ = ](const QString &alias) {
         Q_EMIT requestSetAlias(adapter, alias);
     });
 
     setLayout(layout);
     setAdapter(adapter);
+}
+
+AdapterWidget::~AdapterWidget()
+{
+    qDeleteAll(m_deviceLists);
 }
 
 void AdapterWidget::updateHeight()
@@ -157,7 +162,7 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
     }
 }
 
-void AdapterWidget::toggleSwitch(const bool &checked)
+void AdapterWidget::toggleSwitch(const bool checked)
 {
     m_myDevicesGroup->setVisible(checked && !m_myDevices.isEmpty());
     m_otherDevicesGroup->setVisible(checked);
@@ -187,7 +192,7 @@ void AdapterWidget::addDevice(const Device *device)
     CategoryDevice(device->paired());
 
     connect(deviceItem, &DeviceSettingsItem::requestConnectDevice, this, &AdapterWidget::requestConnectDevice);
-    connect(device, &Device::pairedChanged, [this, deviceItem](const bool paired) {
+    connect(device, &Device::pairedChanged, this, [this, deviceItem](const bool paired) {
         if (paired) {
             DStandardItem *item = deviceItem->getStandardItem();
             QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
@@ -207,7 +212,7 @@ void AdapterWidget::addDevice(const Device *device)
         m_myDevicesGroup->setVisible(isVisible);
         m_myDeviceListView->setVisible(isVisible);
     });
-    connect(deviceItem, &DeviceSettingsItem::requestShowDetail, [this](const Device *device) {
+    connect(deviceItem, &DeviceSettingsItem::requestShowDetail, this, [this](const Device *device) {
         Q_EMIT requestShowDetail(m_adapter, device);
     });
 
@@ -220,7 +225,11 @@ void AdapterWidget::removeDevice(const QString &deviceId)
     for (auto it = m_myDevices.begin(); it != m_myDevices.end(); ++it) {
         if ((*it)->device()->id() == deviceId) {
             DStandardItem *item = (*it)->getStandardItem();
+            if (*it) {
+                delete *it;
+            }
             m_myDevices.removeOne(*it);
+            m_deviceLists.removeOne(*it);
             QModelIndex myDeviceIndex = m_myDeviceModel->indexFromItem(item);
             m_myDeviceModel->removeRow(myDeviceIndex.row());
             isFind = true;
@@ -233,7 +242,10 @@ void AdapterWidget::removeDevice(const QString &deviceId)
                 DStandardItem *item = (*it)->getStandardItem();
                 QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
                 m_otherDeviceModel->removeRow(otherDeviceIndex.row());
-                m_deviceLists.erase(it);
+                if (*it) {
+                    delete *it;
+                }
+                m_deviceLists.removeOne(*it);
                 break;
             }
         }

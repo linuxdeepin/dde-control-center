@@ -39,6 +39,7 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device, QStyle *style)
     , m_parentDListView(nullptr)
 {
     m_loadingIndicator = new DSpinner();
+    m_loadingIndicator->QObject::setParent(this);
     m_loadingIndicator->setFixedSize(24, 24);
     m_loadingIndicator->hide();
     initItemActionList(style);
@@ -82,14 +83,14 @@ void DeviceSettingsItem::setDevice(const Device *device)
     connect(device, &Device::stateChanged, this, &DeviceSettingsItem::onDeviceStateChanged);
     connect(device, &Device::pairedChanged, this, &DeviceSettingsItem::onDevicePairedChanged);
 
-    connect(m_textAction, &QAction::triggered, [this] {
+    connect(m_textAction, &QAction::triggered, this, [this] {
         Q_EMIT requestConnectDevice(m_device);
     });
 
-    connect(m_iconAction, &QAction::triggered, [this] {
+    connect(m_iconAction, &QAction::triggered, this, [this] {
         Q_EMIT requestShowDetail(m_device);
     });
-    connect(device, &Device::nameChanged, [this](const QString & name) {
+    connect(device, &Device::nameChanged, this, [this](const QString &name) {
         m_deviceItem->setText(name);
     });
 
@@ -120,7 +121,6 @@ DStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
 
 void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state)
 {
-    qDebug() << "device state changed: " << m_device;
     if (state == Device::StateAvailable) {
         setLoading(true);
         return;

@@ -73,7 +73,6 @@ bool SecretHotspotSection::allInputValid()
             m_passwdEdit->showAlertMessage(tr("Invalid password"));
         }
     }
-
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
         valid = NetworkManager::wpaPskIsValid(m_passwdEdit->text());
         m_passwdEdit->setIsErr(!valid);
