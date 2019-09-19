@@ -58,10 +58,14 @@ TitleEdit::TitleEdit(QWidget *parent)
 void TitleEdit::setName()
 {
     if (m_name->text() != m_lineEdit->text()) {
-        m_name->setText(m_lineEdit->text());
+        if (!m_lineEdit->text().isEmpty()) {
+            m_name->setText(m_lineEdit->text());
+        }
         m_lineEdit->setVisible(false);
         m_name->setVisible(true);
-        Q_EMIT requestSetBluetoothName(m_lineEdit->text());
+        if (!m_lineEdit->text().isEmpty()) {
+            Q_EMIT requestSetBluetoothName(m_lineEdit->text());
+        }
     }
 }
 
