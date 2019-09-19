@@ -37,7 +37,7 @@ IndexPage::IndexPage(QWidget *parent)
     , m_lastSyncTimeLbl(new QLabel)
     , m_listModel(new QStandardItemModel)
 {
-    m_listView->setSelectionMode(QListView::SingleSelection);
+    m_listView->setSelectionMode(QListView::NoSelection);
     m_listView->setSelectionBehavior(QAbstractItemView::SelectRows);
     m_listView->setEditTriggers(QListView::NoEditTriggers);
     m_listView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -170,7 +170,8 @@ void IndexPage::onListViewClicked(const QModelIndex &index)
 {
     QStandardItem *item = (m_itemMap.begin() + index.row()).value();
     const bool enable = item->checkState() == Qt::Checked;
-    Q_EMIT requestSetModuleState(std::pair<SyncType, bool>(item->data(Qt::WhatsThisPropertyRole).value<SyncType>(), enable));
+    Q_EMIT requestSetModuleState(std::pair<SyncType, bool>(item->data(Qt::WhatsThisPropertyRole).value<SyncType>()
+                                , !enable));
 }
 
 void IndexPage::onUserInfoChanged(const QVariantMap &infos)
