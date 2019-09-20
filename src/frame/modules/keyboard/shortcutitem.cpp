@@ -59,12 +59,19 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     layout->addWidget(m_title);
     layout->setAlignment(m_title, Qt::AlignLeft);
 
+    m_editBtn = new DIconButton(this);
+    m_editBtn->setIcon(QIcon::fromTheme("dcc_edit"));
+    m_editBtn->hide();
+    m_editBtn->setFixedSize(16, 16);
+    layout->addWidget(m_editBtn, Qt::AlignLeft);
+
+    layout->addStretch();
+
     m_delBtn = new DIconButton(this);
     m_delBtn->setIcon(DStyle::StandardPixmap::SP_DeleteButton);
     m_delBtn->hide();
+    m_delBtn->setFixedSize(16, 16);
     layout->addWidget(m_delBtn, Qt::AlignLeft);
-
-    layout->addStretch();
 
     m_key = new ShortcutKey;
     layout->addWidget(m_key);
@@ -77,6 +84,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 
     setLayout(layout);
 
+    connect(m_editBtn, &DIconButton::clicked, this, &ShortcutItem::onShortcutEdit);
     connect(m_delBtn, &DIconButton::clicked, this, &ShortcutItem::onRemoveClick);
 }
 
@@ -114,9 +122,11 @@ void ShortcutItem::onEditMode(bool value)
 {
     if (value) {
         m_delBtn->show();
+        m_editBtn->show();
         m_key->hide();
     } else {
         m_delBtn->hide();
+        m_editBtn->hide();
         m_key->show();
     }
     update();
