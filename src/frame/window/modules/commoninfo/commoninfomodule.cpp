@@ -91,18 +91,22 @@ void CommonInfoModule::load(QString path)
     if (!list) {
         return;
     }
-    QModelIndex idx;
+
+    int indexRow = 0;
     if (path == "Boot Menu") {
-        idx = list->model()->index(0, 0);
+        indexRow = 0;
     } else if (path == "Developer Mode") {
-        // 为开发者设计的search预留
-        idx = list->model()->index(1, 0);
+        // 为开发者模式的search预留
+        //indexRow = 1;
     } else if (path == "User Experience Program") {
         // 为用户体验计划的search预留
-        idx = list->model()->index(2, 0);
+        indexRow = 2;
     } else if (path == "Tablet Plan") {
-        idx = list->model()->index(3, 0);
+        // 为平板模式的search预留
+        //indexRow = 3;
     }
+
+    QModelIndex idx = list->model()->index(indexRow, 0);
     list->setCurrentIndex(idx);
     list->clicked(idx);
 }
