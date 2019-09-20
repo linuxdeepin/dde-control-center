@@ -89,6 +89,8 @@ void TimezoneContentList::addTimezone(const ZoneInfo &zone)
     }
 
     m_zoneList << item;
+
+    Q_EMIT notifyItemCount(m_zoneList.count());
 }
 
 void TimezoneContentList::addTimezones(const QList<ZoneInfo> &zones)
@@ -98,6 +100,9 @@ void TimezoneContentList::addTimezones(const QList<ZoneInfo> &zones)
     for (const ZoneInfo &zone : zones) {
         addTimezone(zone);
     }
+
+    if (zones.count() == 0)
+        Q_EMIT notifyItemCount(m_zoneList.count());
 }
 
 void TimezoneContentList::removeTimezone(const ZoneInfo &zone)
@@ -114,6 +119,8 @@ void TimezoneContentList::removeTimezone(const ZoneInfo &zone)
             ++it;
         }
     }
+
+    Q_EMIT notifyItemCount(m_zoneList.count());
 }
 
 void TimezoneContentList::updateTimezones(const QList<ZoneInfo> &zones)

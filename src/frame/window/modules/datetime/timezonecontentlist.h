@@ -59,6 +59,7 @@ private:
 
 Q_SIGNALS:
     void requestRemoveUserTimeZone(const ZoneInfo &zone);
+    void notifyItemCount(int);
 
 public Q_SLOTS:
     void addTimezone(const ZoneInfo &zone);

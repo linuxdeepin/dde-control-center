@@ -65,6 +65,10 @@ TimezoneList::TimezoneList(QWidget *parent)
         //refresh right button to edit
         m_headItem->toCancel();
     });
+
+    connect(m_contentList, &TimezoneContentList::notifyItemCount, this, [this](int value) {
+        m_headGroup->setVisible(value > 1);
+    });
 }
 
 TimezoneList::~TimezoneList()
