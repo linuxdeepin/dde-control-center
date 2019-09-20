@@ -60,6 +60,7 @@ class UpdateWorker : public QObject
     Q_OBJECT
 public:
     explicit UpdateWorker(UpdateModel *model, QObject *parent = nullptr);
+    ~UpdateWorker();
     void activate();
     void deactivate();
     void setOnBattery(bool onBattery);

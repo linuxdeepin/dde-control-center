@@ -36,14 +36,34 @@
 namespace dcc {
 namespace update {
 
-static int TestMirrorSpeedInternal(const QString &url)
+static int TestMirrorSpeedInternal(const QString &url, QPointer<QObject> baseObject)
 {
+    if (!baseObject || QCoreApplication::closingDown()) {
+        return -1;
+    }
+
     QStringList args;
     args << url << "-s" << "1";
 
     QProcess process;
     process.start("netselect", args);
-    process.waitForFinished();
+
+    if (!process.waitForStarted()) {
+        return 10000;
+    }
+
+    do {
+        if (!baseObject || QCoreApplication::closingDown()) {
+            process.kill();
+            process.terminate();
+            process.waitForFinished(1000);
+
+            return -1;
+        }
+
+        if (process.waitForFinished(500))
+            break;
+    } while (process.state() == QProcess::Running);
 
     const QString output = process.readAllStandardOutput().trimmed();
     const QStringList result = output.split(' ');
@@ -146,6 +166,11 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     setBatteryPercentage(m_powerInter->batteryPercentage());
     setSystemBatteryPercentage(m_powerSystemInter->batteryPercentage());
     onJobListChanged(m_managerInter->jobList());
+}
+
+UpdateWorker::~UpdateWorker()
+{
+
 }
 
 void UpdateWorker::activate()
@@ -447,7 +472,8 @@ void UpdateWorker::testMirrorSpeed()
         m_model->setMirrorSpeedInfo(speedInfo);
     });
 
-    QFuture<int> future = QtConcurrent::mapped(urlList, TestMirrorSpeedInternal);
+    QPointer<QObject> guest(this);
+    QFuture<int> future = QtConcurrent::mapped(urlList, std::bind(TestMirrorSpeedInternal, std::placeholders::_1, guest));
     watcher->setFuture(future);
 }
 

@@ -45,12 +45,7 @@ UpdateModule::UpdateModule(FrameProxyInterface *frameProxy, QObject *parent)
 
 void UpdateModule::initialize()
 {
-    m_model = new UpdateModel;
-    m_work = new UpdateWorker(m_model);
-    m_work->activate(); //refresh data
 
-    m_work->moveToThread(qApp->thread());
-    m_model->moveToThread(qApp->thread());
 }
 
 const QString UpdateModule::name() const
@@ -60,6 +55,17 @@ const QString UpdateModule::name() const
 
 void UpdateModule::active()
 {
+    if (!m_model)
+        m_model = new UpdateModel(this);
+
+    if (!m_work) {
+        m_work = new UpdateWorker(m_model);
+        m_work->moveToThread(qApp->thread());
+        m_model->moveToThread(qApp->thread());
+    }
+
+    m_work->activate(); //refresh data
+
     UpdateWidget *mainWidget = new UpdateWidget;
     mainWidget->initialize();
     mainWidget->setSystemVersion(m_model->systemVersionInfo());
@@ -81,6 +87,19 @@ void UpdateModule::active()
 
     m_frameProxy->pushWidget(this, mainWidget);
     mainWidget->refreshWidget(UpdateWidget::UpdateType::UpdateCheck);
+}
+
+void UpdateModule::deactive()
+{
+    if (m_model) {
+        m_model->deleteLater();
+        m_model = nullptr;
+    }
+
+    if (m_work) {
+        m_work->deleteLater();
+        m_work = nullptr;
+    }
 }
 
 void UpdateModule::load(QString path)

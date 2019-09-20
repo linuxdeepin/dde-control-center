@@ -49,11 +49,12 @@ public:
     virtual void initialize() override;
     virtual const QString name() const override;
     virtual void active() override;
+    virtual void deactive() override;
     virtual void load(QString path) override;
 
 private:
-    dcc::update::UpdateModel *m_model;
-    dcc::update::UpdateWorker *m_work;
+    dcc::update::UpdateModel *m_model = nullptr;
+    dcc::update::UpdateWorker *m_work = nullptr;
     QPointer<UpdateWidget> m_updateWidget;
 };
 
