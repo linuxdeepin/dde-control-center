@@ -213,7 +213,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="129"/>
-        <source>optional</source>
+        <source>Selected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -463,7 +463,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="87"/>
-        <source>Tablet Mode</source>
+        <source>Tablet Plan</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
