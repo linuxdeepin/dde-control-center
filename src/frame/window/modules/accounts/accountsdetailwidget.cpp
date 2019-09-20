@@ -203,7 +203,15 @@ void AccountsDetailWidget::initDatas()
         m_avatarListWidget->setCurrentAvatarChecked(avatar);
     });
     connect(m_curUser, &User::nameChanged, m_shortName, &QLabel::setText);
-    connect(m_curUser, &User::fullnameChanged, m_fullName, &QLabel::setText);
+    connect(m_curUser, &User::fullnameChanged, this, [ = ](const QString & fullname) {
+        //对用户全名做限制，如果长度超过32，就在后面显示...
+        if (fullname.length() > 32) {
+            QString newfullname = fullname.left(32) + QString("...");
+            m_fullName->setText(newfullname);
+        } else {
+            m_fullName->setText(fullname);
+        }
+    });
     connect(m_fullnameBtn, &DIconButton::clicked, this, [ = ]() {
         m_inputLineEdit->setFocus();
         updateLineEditDisplayStyle();
@@ -231,8 +239,9 @@ void AccountsDetailWidget::initDatas()
     if (fullname.length() > 32) {
         QString newfullname = fullname.left(32) + QString("...");
         m_fullName->setText(newfullname);
+    } else {
+        m_fullName->setText(fullname);
     }
-    m_fullName->setText(fullname);
 
     //~ contents_path /accounts/Change Password
     m_modifyPassword->setText(tr("Change Password"));

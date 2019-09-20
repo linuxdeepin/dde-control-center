@@ -118,7 +118,15 @@ void AccountsWidget::addUser(User *user)
         item->setIcon(QIcon(user->currentAvatar()));
     }
 
-    item->setText(user->displayName());
+    //对用户全名做限制，如果长度超过32，就在后面显示...
+    QString fullname = user->displayName();
+    if (fullname.length() > 32) {
+        QString newfullname = fullname.left(32) + QString("...");
+        item->setText(newfullname);
+    } else {
+        item->setText(fullname);
+    }
+
     item->setEditable(false);
     m_userItemModel->appendRow(item);
     m_userList << user;
@@ -204,8 +212,9 @@ void AccountsWidget::connectUserWithItem(User *user)
         if (fullname.length() > 32) {
             QString newfullname = fullname.left(32) + QString("...");
             item->setText(newfullname);
+        } else {
+            item->setText(fullname);
         }
-        item->setText(fullname);
     });
     connect(user, &User::currentAvatarChanged, this, [ = ](const QString & avatar) {
         if (avatar.startsWith("file://")) {
