@@ -44,7 +44,7 @@ BrightnessItem::BrightnessItem(QWidget *parent)
 
       m_leftIcon(new QLabel),
       m_rightIcon(new QLabel),
-      m_brightnessSlider(new DCCSlider(DCCSlider::Normal))
+      m_brightnessSlider((new DCCSlider(DCCSlider::Normal))->qtSlider())
 {
     m_leftIcon->setPixmap(DHiDPIHelper::loadNxPixmap(":/display/themes/dark/icons/light_low.png"));
     m_rightIcon->setPixmap(DHiDPIHelper::loadNxPixmap(":/display/themes/dark/icons/light_high.png"));

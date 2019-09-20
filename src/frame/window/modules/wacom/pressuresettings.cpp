@@ -56,7 +56,7 @@ PressureSettings::PressureSettings(QWidget *parent)
     m_mainLayout->setMargin(0);
     setLayout(m_mainLayout);
     setObjectName("WacomSettings");
-    m_preSlider = m_pressureSlider->slider();
+    m_preSlider = qobject_cast<QSlider *>(m_pressureSlider->slider());
     connect(m_preSlider, &QSlider::valueChanged, this, &PressureSettings::requestSetPressureValue);
 }
 

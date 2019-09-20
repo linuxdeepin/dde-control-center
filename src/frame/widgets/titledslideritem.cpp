@@ -32,6 +32,7 @@
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QFile>
+#include <QIcon>
 #include <QTimer>
 
 #include "widgets/labels/normallabel.h"
@@ -46,10 +47,10 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
     : SettingsItem(parent)
     , m_titleLabel(new NormalLabel(title))
     , m_valueLabel(new NormalLabel)
-    , m_slider(new DCCSliderAnnotated)
+    , m_slider(new DCCSlider)
 {
-    m_slider->slider()->setOrientation(Qt::Horizontal);
     m_slider->slider()->setAccessibleName(title);
+
 
     QMargins zeroMg(8, 8, 8, 8);
 
@@ -76,7 +77,6 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
     mainLayout->addSpacing(10);
     mainLayout->addLayout(bottomLayout);
 
-    setFixedHeight(mainLayout->sizeHint().height());
     setAccessibleName(title);
 }
 
@@ -105,22 +105,24 @@ void TitledSliderItem::setValueLiteral(const QString &valueLiteral)
 
 void TitledSliderItem::setLeftIcon(const QString &leftIcon)
 {
-    m_slider->setLeftIcon(leftIcon);
+    m_slider->setLeftIcon(QIcon(leftIcon));
 }
 void TitledSliderItem::setLeftIcon(const QIcon &leftIcon, const QSize &iconSize)
 {
-    m_slider->setLeftIcon(leftIcon, iconSize);
+    Q_UNUSED(iconSize)
+    m_slider->setLeftIcon(QIcon(leftIcon));
 }
 
 //    QString rightIcon() const;
 void TitledSliderItem::setRightIcon(const QString &rightIcon)
 {
-    m_slider->setRightIcon(rightIcon);
+    m_slider->setLeftIcon(QIcon(rightIcon));
 }
 
 void TitledSliderItem::setRightIcon(const QIcon &rightIcon, const QSize &iconSize)
 {
-    m_slider->setRightIcon(rightIcon, iconSize);
+    Q_UNUSED(iconSize)
+    m_slider->setLeftIcon(QIcon(rightIcon));
 }
 
 } // namespace widgets

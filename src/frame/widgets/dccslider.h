@@ -26,12 +26,12 @@
 #ifndef DCCSLIDER_H
 #define DCCSLIDER_H
 
-#include <QSlider>
+#include <DSlider>
 
 namespace dcc {
 namespace widgets {
 
-class DCCSlider : public QSlider
+class DCCSlider : public DTK_WIDGET_NAMESPACE::DSlider
 {
     Q_OBJECT
 public:
@@ -43,12 +43,27 @@ public:
 
 public:
     explicit DCCSlider(SliderType type = Normal, QWidget *parent = nullptr);
+    explicit DCCSlider(Qt::Orientation orientation = Qt::Horizontal, QWidget *parent = nullptr);
+
+    virtual ~DCCSlider();
+
+    inline DCCSlider *slider() const { return const_cast<DCCSlider *>(this); }
+    QSlider *qtSlider();
 
     void setType(SliderType type);
-    using QSlider::initStyleOption;
+    void setRange(int min, int max);
+    void setTickPosition(QSlider::TickPosition tick);
+    void setTickInterval(int ti);
+    void setSliderPosition(int Position);
+    void setAnnotations(const QStringList &annotations);
+    void setOrientation(Qt::Orientation orientation);
 
 protected:
     void wheelEvent(QWheelEvent *e);
+
+private:
+    QSlider::TickPosition tickPosition = QSlider::TicksBelow;
+
 };
 
 }

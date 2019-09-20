@@ -34,6 +34,8 @@
 #include <QStandardItemModel>
 #include <QDebug>
 
+#include <DSlider>
+
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
 using namespace dcc::widgets;
@@ -95,7 +97,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     m_centralLayout->addStretch();
     setLayout(m_centralLayout);
 
-    connect(slider, &QSlider::valueChanged, this, &PersonalizationFontsWidget::requestSetFontSize);
+    connect(slider, &DCCSlider::valueChanged, this, &PersonalizationFontsWidget::requestSetFontSize);
 }
 
 void PersonalizationFontsWidget::setModel(dcc::personalization::PersonalizationModel *const model)

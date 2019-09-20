@@ -54,7 +54,8 @@ FontSizeWidget::FontSizeWidget(QWidget *parent)
 
     setLayout(m_mainlayout);
 
-    m_fontSlider = m_sizeWidget->slider();
+    m_fontSlider = qobject_cast<QSlider *>(m_sizeWidget->slider());
+
     connect(m_fontSlider, &QSlider::valueChanged, this, &FontSizeWidget::requestSetFontSize);
     connect(m_fontSlider, &QSlider::valueChanged, this, &FontSizeWidget::setFontSizeTip);
 }

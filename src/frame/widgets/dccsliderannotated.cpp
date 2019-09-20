@@ -173,7 +173,7 @@ bool DCCSliderAnnotated::event(QEvent *evnet)
 {
     if (evnet->type() == QEvent::Resize && (m_leftIconLabel || m_rightIconLabel)) {
         QStyleOptionSlider styleoption;
-        slider()->initStyleOption(&styleoption);
+//        slider()->initStyleOption(&styleoption);
 
         auto ts = slider()->style();
         auto rect = ts->subControlRect(QStyle::CC_Slider, &styleoption, QStyle::SC_SliderGroove, slider());

@@ -36,7 +36,6 @@ namespace widgets {
 
 class NormalLabel;
 class DCCSlider;
-class DCCSliderAnnotated;
 
 class TitledSliderItem : public SettingsItem
 {
@@ -59,7 +58,7 @@ public:
 private:
     NormalLabel *m_titleLabel;
     NormalLabel *m_valueLabel;
-    DCCSliderAnnotated *m_slider;
+    DCCSlider *m_slider;
     QString m_valueLiteral;
 };
 
