@@ -308,9 +308,11 @@ void AccountsDetailWidget::onThumbsListChanged(const QList<FingerModel::UserThum
 
         int i = 1;//record fingerprint number
         Q_FOREACH (const QString &title, u.userThumbs) {
-            AccounntFingeItem *item = new AccounntFingeItem(this);
+            AccounntFingeItem *item = new AccounntFingeItem;
             item->setTitle(tr("Fingerprint") + QString::number(i++));
-
+            connect(item, &AccounntFingeItem::deleteItem, this, [&]() {
+                Q_EMIT requestCleanThumbs(m_curUser);
+            });
             m_listGrp->appendItem(item);
             thumb.removeOne(title);
         }
