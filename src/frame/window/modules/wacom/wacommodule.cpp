@@ -47,7 +47,7 @@ WacomModule::~WacomModule()
     }
 }
 
-void WacomModule::initialize()
+void WacomModule::preInitialize()
 {
     m_model  = new WacomModel(this);
     m_worker = new WacomWorker(m_model);
@@ -64,6 +64,10 @@ void WacomModule::initialize()
             m_frameProxy->popWidget(this);
         }
     });
+}
+
+void WacomModule::initialize()
+{
 }
 
 void WacomModule::active()
