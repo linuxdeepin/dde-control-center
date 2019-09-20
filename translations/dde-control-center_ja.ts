@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
         <source>Refresh</source>
-        <translation>再読込</translation>
+        <translation>再読み込み</translation>
     </message>
 </context>
 <context>
@@ -12,140 +12,140 @@
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation>Bluetoothを有効するにはアイコンをクリックしてください</translation>
+        <translation>Bluetooth を有効にするにはアイコンをクリックしてください</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
         <source>Connect to other devices</source>
-        <translation>他のデバイスに接続する</translation>
+        <translation>他のデバイスに接続</translation>
     </message>
 </context>
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="158"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="164"/>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>アカウント</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="159"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="165"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>クラウド同期</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="160"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="166"/>
         <source>Display</source>
         <translation>ディスプレイ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="161"/>
-        <source>Default Applications</source>
-        <translation>既定のアプリケーション</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="162"/>
-        <source>Network</source>
-        <translation>ネットワーク</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="163"/>
-        <source>Date and Time</source>
-        <translation>日時</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="165"/>
-        <source>Keyboard and Language</source>
-        <translation>キーボードと言語</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="171"/>
-        <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="172"/>
-        <source>System Info</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="173"/>
-        <source>Common Info</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="164"/>
-        <source>Mouse</source>
-        <translation>マウス</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="166"/>
-        <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="167"/>
-        <source>Sound</source>
-        <translation>サウンド</translation>
+        <source>Default Applications</source>
+        <translation>デフォルトのアプリケーション</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="168"/>
         <source>Personalization</source>
-        <translation>パーソナライズ</translation>
+        <translation>個人設定</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="169"/>
-        <source>Power</source>
-        <translation>パワー</translation>
+        <source>Network</source>
+        <translation>ネットワーク</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="170"/>
+        <source>Sound</source>
+        <translation>サウンド</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="171"/>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="172"/>
+        <source>Date and Time</source>
+        <translation>日付と時刻</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="173"/>
+        <source>Power</source>
+        <translation>電源</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="174"/>
+        <source>Mouse</source>
+        <translation>マウス</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="175"/>
+        <source>Drawing Tablet</source>
+        <translation>ペンタブレット</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="176"/>
+        <source>Keyboard and Language</source>
+        <translation>キーボードと言語</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="177"/>
         <source>Update</source>
         <translation>アップデート</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="178"/>
+        <source>System Info</source>
+        <translation>システム情報</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="179"/>
+        <source>General Settings</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="238"/>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>パスワードを変更</translation>
         <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="240"/>
         <source>Delete Account</source>
         <translation>アカウントを削除</translation>
         <extra-contents_path>/accounts/Delete Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="243"/>
         <source>Auto Login</source>
         <translation>自動ログイン</translation>
         <extra-contents_path>/accounts/Auto Login</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="247"/>
         <source>Login Without Password</source>
-        <translation>パスワード無しでログイン</translation>
+        <translation>パスワードなしでログイン</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="250"/>
         <source>Fingerprint Password</source>
         <translation>指紋パスワード</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="251"/>
         <source>Add fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>指紋を追加</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="252"/>
         <source>Delete fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>指紋を削除</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="320"/>
         <source>Fingerprint</source>
         <translation>指紋</translation>
     </message>
@@ -159,189 +159,193 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="75"/>
-        <source>Cancel</source>
-        <translation>キャンセル</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="76"/>
-        <source>Add</source>
-        <translation>追加</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="112"/>
-        <source>Identifying fingerprint</source>
+        <source>Scan again</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="115"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="76"/>
+        <source>Done</source>
+        <translation>完了</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="120"/>
+        <source>Identifying fingerprint</source>
+        <translation>指紋を認証しています</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="135"/>
         <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="127"/>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>指紋を追加しました</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="125"/>
-        <source>Username</source>
-        <translation>ユーザー名</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="127"/>
-        <source>Full Name</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="129"/>
-        <source>Password</source>
-        <translation>パスワード</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="131"/>
-        <source>Repeat Password</source>
-        <translation>パスワードを再入力</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="124"/>
         <source>New Account</source>
         <translation>新しいアカウント</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="126"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="130"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="132"/>
+        <source>Username</source>
+        <translation>ユーザー名</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="133"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="128"/>
+        <source>Full Name</source>
+        <translation>フルネーム</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="129"/>
+        <source>optional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="130"/>
+        <source>Password</source>
+        <translation>パスワード</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="132"/>
+        <source>Repeat Password</source>
+        <translation>パスワードを再入力</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="135"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="136"/>
         <source>Create</source>
         <translation>作成</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="149"/>
         <source>Username cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>ユーザー名は空欄にできません</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="152"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="229"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>パスワードは空欄にできません</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="157"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>パスワードが一致しません</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="234"/>
         <source>The password should be different from the username</source>
-        <translation>パスワードはユーザー名とはことなるパスワードにしてください</translation>
+        <translation>ユーザー名とは異なるパスワードにしてください</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="240"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>パスワードには英字 (大文字と小文字を区別します)、数字、特殊記号 (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) 以外の文字を使用できません</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="266"/>
-        <source>The first character must be in lower case</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="272"/>
-        <source>Username must only contain a~z, 0~9, - or _</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="263"/>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>ユーザー名は3文字以上32文字以下にする必要があります</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
+        <source>The first character must be in lower case</source>
+        <translation>最初の文字は小文字にする必要があります</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
+        <source>Username must only contain a~z, 0~9, - or _</source>
+        <translation>ユーザー名には a〜z、0〜9、-、_ 以外の文字を使用できません</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="99"/>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>パスワードを変更</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="101"/>
         <source>Current Password</source>
         <translation>現在のパスワード</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="100"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="103"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="108"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="104"/>
         <source>New Password</source>
         <translation>新しいパスワード</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="107"/>
         <source>Repeat Password</source>
         <translation>パスワードを再入力</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="110"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="111"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="135"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="170"/>
         <source>Wrong password</source>
-        <translation>パスワードが間違っています</translation>
+        <translation>パスワードが違います</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="147"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>パスワードは空欄にできません</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="252"/>
-        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="152"/>
         <source>New password should differ from the current one</source>
         <translation>新しいパスワードは現在とは異なるパスワードにしてください</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="157"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>パスワードが一致しません</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="219"/>
         <source>The password should be different from the username</source>
-        <translation>パスワードはユーザー名とはことなるパスワードにしてください</translation>
+        <translation>ユーザー名とは異なるパスワードにしてください</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="225"/>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
+        <translation>パスワードには英字 (大文字と小文字を区別します)、数字、特殊記号 (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) 以外の文字を使用できません</translation>
     </message>
 </context>
 <context>
@@ -349,7 +353,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="54"/>
         <source>My devices</source>
-        <translation> マイ デバイス</translation>
+        <translation>お使いのデバイス</translation>
         <extra-contents_path>/bluetooth/My Device</extra-contents_path>
     </message>
     <message>
@@ -361,7 +365,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="68"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>近くのデバイス (スピーカー、キーボード、マウス) を検索するには、Bluetooth を有効にしてください</translation>
         <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
     </message>
 </context>
@@ -370,7 +374,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Ignore this device</source>
-        <translation type="unfinished"/>
+        <translation>このデバイスを無視</translation>
         <extra-contents_path>/bluetooth/Ignore this device</extra-contents_path>
     </message>
     <message>
@@ -382,7 +386,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="53"/>
         <source>Change Name</source>
-        <translation type="unfinished"/>
+        <translation>名前を変更</translation>
         <extra-contents_path>/bluetooth/Change Name</extra-contents_path>
     </message>
 </context>
@@ -402,34 +406,34 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="64"/>
         <source>Updating...</source>
-        <translation>更新中...</translation>
+        <translation>アップデートしています…</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="76"/>
         <source>Startup Delay</source>
-        <translation type="unfinished"/>
+        <translation>起動時の遅延</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="80"/>
         <source>Theme</source>
         <translation>テーマ</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="82"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="86"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation type="unfinished"/>
+        <translation>テーマを有効にすると、起動メニューで表示されます</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="106"/>
         <source>Boot Menu</source>
         <translation>起動メニュー</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
@@ -446,14 +450,33 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="77"/>
         <source>Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>開発者モード</translation>
         <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="83"/>
         <source>User Experience Program</source>
+        <translation>ユーザーエクスペリエンスプログラム</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="87"/>
+        <source>Tablet Mode</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="41"/>
+        <source>Join User Experience Program</source>
         <translation type="unfinished"/>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="43"/>
+        <source>Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -461,7 +484,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="80"/>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>自動同期</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
@@ -477,51 +500,51 @@
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="129"/>
         <source>Server</source>
         <translation>サーバー</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="137"/>
         <source>Address</source>
         <translation>アドレス</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="140"/>
         <source>Required</source>
         <translation>必須</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="212"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="236"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="243"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="289"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="349"/>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>カスタマイズ</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::datetime::DateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="60"/>
         <source>Year</source>
         <translation>年</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="64"/>
         <source>Month</source>
         <translation>月</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="68"/>
         <source>Day</source>
         <translation>日</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
@@ -532,13 +555,8 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Timezone List</source>
-        <translation>タイムゾーンリスト</translation>
+        <translation>タイムゾーンの一覧</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="83"/>
-        <source>24-hour Time</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="64"/>
@@ -546,19 +564,24 @@
         <translation>時間設定</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="81"/>
+        <source>24-hour Time</source>
+        <translation>24時間表示</translation>
+    </message>
 </context>
 <context>
     <name>dccV20::datetime::SystemTimezone</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="39"/>
+        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="41"/>
         <source>Change System Timezone</source>
         <translation>システムのタイムゾーンを変更</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="42"/>
+        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="45"/>
         <source>System Timezone</source>
-        <translation type="unfinished"/>
+        <translation>システムのタイムゾーン</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -567,44 +590,44 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="47"/>
         <source>Timezone List</source>
-        <translation>タイムゾーンリスト</translation>
+        <translation>タイムゾーンの一覧</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::defapp::DefappDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="52"/>
         <source>Webpage</source>
-        <translation>Webページ</translation>
+        <translation>Web ページ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="53"/>
         <source>Mail</source>
         <translation>メール</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="54"/>
         <source>Text</source>
         <translation>テキスト</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="55"/>
         <source>Music</source>
         <translation>ミュージック</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="56"/>
         <source>Video</source>
         <translation>ビデオ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="57"/>
         <source>Picture</source>
         <translation>ピクチャー</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="58"/>
         <source>Terminal</source>
         <translation>ターミナル</translation>
     </message>
@@ -616,7 +639,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="290"/>
         <source>Invalid</source>
-        <translation type="unfinished"/>
+        <translation>無効</translation>
     </message>
 </context>
 <context>
@@ -624,7 +647,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="50"/>
         <source>Webpage</source>
-        <translation>Webページ</translation>
+        <translation>Web ページ</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
@@ -666,25 +689,25 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="91"/>
         <source>Default Applications</source>
-        <translation>既定のアプリケーション</translation>
+        <translation>デフォルトのアプリケーション</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::BrightnessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="60"/>
         <source>The screen tone will be auto adjusted according to your location</source>
         <translation type="unfinished"/>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="69"/>
         <source>Night Shift</source>
-        <translation>Night Shift</translation>
+        <translation>夜間モード</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="74"/>
         <source>Auto Brightness</source>
         <translation>明るさの自動調整</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
@@ -693,142 +716,167 @@
 <context>
     <name>dccV20::display::CustomSettingDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="82"/>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>メインスクリーン</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="347"/>
         <source>Resolution</source>
         <translation>解像度</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="92"/>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>リフレッシュレート</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="118"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="122"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="210"/>
-        <source>Recommended</source>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="232"/>
+        <source>Hz</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="234"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="301"/>
+        <source>Recommended</source>
+        <translation>推奨</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="346"/>
         <source>inch</source>
-        <translation type="unfinished"/>
+        <translation>インチ</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::display::DisplayWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="118"/>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>マルチディスプレイ</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="129"/>
+        <source>Brightness</source>
+        <translation>明るさ</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="131"/>
         <source>Display Scaling</source>
         <translation>ディスプレイスケーリング</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="127"/>
         <source>Resolution</source>
         <translation>解像度</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="114"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="123"/>
-        <source>Brightness</source>
-        <translation>明るさ</translation>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="133"/>
+        <source>Refresh Rate</source>
+        <translation>リフレッシュレート</translation>
+        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::display::MultiScreenSettingPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="46"/>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>カスタマイズ</translation>
         <extra-contents_path>/display/Customize</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="87"/>
         <source>Duplicate</source>
         <translation>複製</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="87"/>
         <source>Extend</source>
         <translation>拡張</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="90"/>
         <source>Show the same image on other screens</source>
-        <translation type="unfinished"/>
+        <translation>他のスクリーンにも同じ画面を表示します</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="91"/>
         <source>Expand the desktop across the screens</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="99"/>
         <source>%1 only</source>
+        <translation>%1 のみ</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="100"/>
+        <source>Show the screen content only on %1</source>
+        <translation>スクリーンの内容を %1 にのみ表示します</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RefreshRatePage</name>
+    <message>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="75"/>
+        <source>Hz</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="98"/>
-        <source>Show the screen content only on %1</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="77"/>
+        <source>Recommended</source>
+        <translation>推奨</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::ResolutionDetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="56"/>
-        <source>Cancel</source>
-        <translation>キャンセル</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="66"/>
-        <source>Save</source>
-        <translation>保存</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="117"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>推奨</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::display::RotateDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="166"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="168"/>
+        <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="171"/>
+        <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV20::display::ScalingPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="52"/>
         <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
         <translation type="unfinished"/>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
@@ -883,7 +931,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="45"/>
         <source>Repeat Delay</source>
-        <translation>リピート時間</translation>
+        <translation>繰り返し時間</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
@@ -901,7 +949,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="61"/>
         <source>Repeat Rate</source>
-        <translation>リピート率</translation>
+        <translation>繰り返し率</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
@@ -919,13 +967,13 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="79"/>
         <source>Test here</source>
-        <translation type="unfinished"/>
+        <translation>ここで確認</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="94"/>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>数字キーボード</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
@@ -946,13 +994,13 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="69"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>レイアウトを切り替え (複数)</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="95"/>
         <source>Applies to</source>
-        <translation type="unfinished"/>
+        <translation>適用先</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
@@ -1022,12 +1070,6 @@
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="102"/>
-        <source>Shortcut</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="71"/>
         <source>Custom Shortcut</source>
         <translation>カスタムショートカット</translation>
@@ -1036,7 +1078,13 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="84"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"/>
+        <translation>デフォルトを復元</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="102"/>
+        <source>Shortcut</source>
+        <translation>ショートカット</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
 </context>
@@ -1051,13 +1099,13 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="47"/>
         <source>Disable touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>入力中はタッチパッドを無効にする</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="49"/>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>スクロールの速度</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
@@ -1090,19 +1138,19 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="44"/>
         <source>Mouse Acceleration</source>
-        <translation>マウス加速</translation>
+        <translation>マウスの加速</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="46"/>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>マウス接続時はタッチパッドを無効にする</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="48"/>
         <source>Natural Scrolling</source>
-        <translation>ナチュラル スクロール</translation>
+        <translation>ナチュラルスクロール</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
@@ -1162,7 +1210,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="47"/>
         <source>Natural Scrolling</source>
-        <translation>ナチュラル スクロール</translation>
+        <translation>ナチュラルスクロール</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
@@ -1214,7 +1262,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="61"/>
-        <source>IP address</source>
+        <source>IP Address</source>
         <translation>IP アドレス</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
@@ -1240,7 +1288,7 @@
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="72"/>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="77"/>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>省略可能</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="76"/>
@@ -1297,17 +1345,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="355"/>
         <source>Wired Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>有線接続 %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="359"/>
         <source>Wireless Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>無線接続 %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="363"/>
         <source>PPPoE Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>PPPoE 接続 %1</translation>
     </message>
 </context>
 <context>
@@ -1321,79 +1369,69 @@
 <context>
     <name>dccV20::network::ConnectionVpnEditPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="104"/>
         <source>L2TP</source>
         <translation>L2TP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="105"/>
         <source>PPTP</source>
         <translation>PPTP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="106"/>
         <source>VPNC</source>
         <translation>VPNC</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="107"/>
         <source>OpenVPN</source>
         <translation>OpenVPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="108"/>
         <source>StrongSwan</source>
         <translation>StrongSwan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="109"/>
         <source>OpenConnect</source>
         <translation>OpenConnect</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="112"/>
-        <source>SSTP</source>
-        <translation>SSTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="178"/>
         <source>Export</source>
         <translation>エクスポート</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="189"/>
         <source>VPN L2TP %1</source>
         <translation>VPN L2TP %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="193"/>
         <source>VPN PPTP %1</source>
         <translation>VPN PPTP %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="197"/>
         <source>VPN VPNC %1</source>
         <translation>VPN VPNC %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="201"/>
         <source>VPN OpenVPN %1</source>
         <translation>VPN OpenVPN %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="205"/>
         <source>VPN StrongSwan %1</source>
         <translation>VPN StrongSwan %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="209"/>
         <source>VPN OpenConnect %1</source>
         <translation>VPN OpenConnect %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="221"/>
-        <source>VPN SSTP %1</source>
-        <translation>VPN SSTP %1</translation>
     </message>
 </context>
 <context>
@@ -1411,7 +1449,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="96"/>
         <source>Device MAC Addr</source>
-        <translation>デバイス MAC アドレス</translation>
+        <translation>デバイスの MAC アドレス</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="112"/>
@@ -1421,7 +1459,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="125"/>
         <source>Customize MTU</source>
-        <translation>カスタマイズ MTU</translation>
+        <translation>MTU をカスタマイズ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="128"/>
@@ -1456,19 +1494,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="65"/>
-        <source>Auto connect</source>
-        <translation>自動接続</translation>
+        <source>Auto Connect</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV20::network::HotspotDeviceWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="67"/>
         <source>Hotspot</source>
         <translation>ホットスポット</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="68"/>
         <source>Add Settings</source>
         <translation>設定を追加</translation>
     </message>
@@ -1495,7 +1533,7 @@
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="216"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="221"/>
         <source>Manual</source>
-        <translation>マニュアル</translation>
+        <translation>手動</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="222"/>
@@ -1531,7 +1569,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="233"/>
         <source>Only applied in corresponding resources</source>
-        <translation type="unfinished"/>
+        <translation>一致するリソースにのみ適用されます</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="237"/>
@@ -1552,74 +1590,74 @@
 <context>
     <name>dccV20::network::NetworkDetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="90"/>
         <source>Network Details</source>
         <translation>ネットワーク詳細</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="130"/>
         <source>Hotspot</source>
         <translation>ホットスポット</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="135"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="143"/>
         <source>Security</source>
         <translation>セキュリティ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="148"/>
         <source>Interface</source>
-        <translation>インターフェイス</translation>
+        <translation>インターフェース</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="152"/>
         <source>MAC</source>
         <translation>MAC</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="156"/>
         <source>Band</source>
         <translation>バンド</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="164"/>
         <source>IPv4</source>
         <translation>IPv4</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="188"/>
         <source>Gateway</source>
         <translation>ゲートウェイ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="190"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="192"/>
         <source>Primary DNS</source>
         <translation>プライマリ DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="176"/>
         <source>Netmask</source>
         <translation>ネットマスク</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="184"/>
         <source>IPv6</source>
         <translation>IPv6</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="196"/>
         <source>Prefix</source>
         <translation>プレフィックス</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="201"/>
         <source>Speed</source>
         <translation>速度</translation>
     </message>
@@ -1657,30 +1695,30 @@
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="196"/>
         <source>Personal Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>個人的なホットスポット</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="205"/>
-        <source>Wired Network%1</source>
-        <translation>有線ネットワーク%1</translation>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="212"/>
+        <source>Wired Network %1</source>
+        <translation type="unfinished"/>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="215"/>
         <source>Wired Network</source>
         <translation>有線ネットワーク</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="213"/>
-        <source>Wireless Network%1</source>
-        <translation>無線接続%1</translation>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="220"/>
+        <source>Wireless Network %1</source>
+        <translation>無線接続 %1</translation>
         <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="223"/>
         <source>Wireless Network</source>
         <translation>無線ネットワーク</translation>
         <extra-contents_path>/network/Wireless Network</extra-contents_path>
@@ -1694,23 +1732,28 @@
         <translation>PPPoE</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="59"/>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="79"/>
         <source>Username</source>
         <translation>ユーザー名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="79"/>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="87"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="83"/>
         <source>Service</source>
         <translation>サービス</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Password</source>
         <translation>パスワード</translation>
     </message>
@@ -1755,12 +1798,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
-        <translation>データを圧縮しない</translation>
+        <translation>デフレートデータを圧縮しない</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="93"/>
         <source>No TCP Header Compression</source>
-        <translation>TCP ヘッダーコンプレッションなし</translation>
+        <translation>TCP ヘッダーを圧縮しない</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="94"/>
@@ -1770,7 +1813,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
-        <translation>アドレス・コントロールを圧縮しない</translation>
+        <translation>アドレス／コントロールを圧縮しない</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="96"/>
@@ -1780,7 +1823,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
-        <translation>MPPE を使用</translation>
+        <translation>MPPE を使う</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="107"/>
@@ -1804,77 +1847,77 @@
 <context>
     <name>dccV20::network::ProxyPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="55"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="56"/>
         <source>Confirm</source>
         <translation>確認</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
         <source>None</source>
         <translation>なし</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="59"/>
         <source>Manual</source>
-        <translation>マニュアル</translation>
+        <translation>手動</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="60"/>
         <source>Auto</source>
         <translation>自動</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="66"/>
         <source>HTTP Proxy</source>
         <translation>HTTP プロキシ</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="72"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="79"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="86"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="90"/>
         <source>Port</source>
         <translation>ポート</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="73"/>
         <source>HTTPS Proxy</source>
         <translation>HTTPS プロキシ</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="80"/>
         <source>FTP Proxy</source>
         <translation>FTP プロキシ</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="87"/>
         <source>SOCKS Proxy</source>
-        <translation>SOCKSプロキシ</translation>
+        <translation>SOCKS プロキシ</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="unfinished"/>
+        <translation>上記のホストとドメインでプロキシ設定を無視</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="102"/>
         <source>Configuration URL</source>
         <translation>設定 URL</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="159"/>
         <source>System Proxy</source>
         <translation>システムプロキシ</translation>
     </message>
@@ -1882,202 +1925,213 @@
 <context>
     <name>dccV20::network::Secret8021xSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="31"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="34"/>
         <source>Security</source>
         <translation>セキュリティ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="156"/>
         <source>TLS</source>
         <translation>TLS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="157"/>
         <source>MD5</source>
         <translation>MD5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="158"/>
         <source>LEAP</source>
         <translation>LEAP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="159"/>
         <source>FAST</source>
         <translation>FAST</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="160"/>
         <source>Tunneled TLS</source>
         <translation>トンネル TLS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="161"/>
         <source>Protected EAP</source>
-        <translation>保護 EAP</translation>
+        <translation>保護された EAP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
         <source>Saved</source>
         <translation>保存済み</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="167"/>
         <source>Ask</source>
-        <translation>尋ねる</translation>
+        <translation>確認する</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
         <source>Not Required</source>
-        <translation>必須ではない</translation>
+        <translation>省略可能</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
         <source>Disabled</source>
-        <translation>無効化</translation>
+        <translation>無効</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="173"/>
         <source>Anonymous</source>
         <translation>匿名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="174"/>
         <source>Authenticated</source>
         <translation>認証済み</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="175"/>
         <source>Both</source>
         <translation>両方</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="191"/>
         <source>Automatic</source>
         <translation>自動</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="192"/>
         <source>Version 0</source>
         <translation>バージョン 0</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="193"/>
         <source>Version 1</source>
         <translation>バージョン 1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="205"/>
         <source>EAP Auth</source>
         <translation>EAP 認証</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="229"/>
         <source>Identity</source>
         <translation>アイデンティティ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="216"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="245"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="233"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>パスワードのオプション</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="331"/>
         <source>Private Key</source>
         <translation>プライベートキー</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="306"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="387"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="423"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="443"/>
         <source>CA Cert</source>
         <translation>CA 証明書</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="310"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="339"/>
         <source>User Cert</source>
         <translation>ユーザー認証</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="332"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="383"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="419"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="439"/>
         <source>Anonymous ID</source>
         <translation>匿名 ID</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="365"/>
         <source>Provisioning</source>
-        <translation>プロセス</translation>
+        <translation>プロビジョニング</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="377"/>
         <source>PAC file</source>
         <translation>PAC ファイル</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="352"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="391"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="438"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="415"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="458"/>
         <source>Inner Auth</source>
         <translation>Inner 認証</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="427"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="447"/>
         <source>PEAP Version</source>
         <translation>PEAP バージョン</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="523"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="537"/>
         <source>Private Pwd</source>
         <translation>プライベートパスワード</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="525"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="539"/>
         <source>Password</source>
         <translation>パスワード</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="576"/>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV20::network::SecretHotspotSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="81"/>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="114"/>
         <source>None</source>
         <translation>なし</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="107"/>
-        <source>WEP 40/128-bit</source>
-        <translation>WEP 40/128-bit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="108"/>
-        <source>WPA/WPA2 Personal</source>
-        <translation>WPA・WPA2 パーソナル</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="115"/>
+        <source>WEP 40/128-bit</source>
+        <translation>WEP 40／128 ビット</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="116"/>
+        <source>WPA/WPA2 Personal</source>
+        <translation>WPA／WPA2 パーソナル</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="123"/>
         <source>Security</source>
         <translation>セキュリティ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="129"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="158"/>
         <source>Key</source>
         <translation>キー</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="164"/>
         <source>Password</source>
         <translation>パスワード</translation>
     </message>
@@ -2093,42 +2147,48 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="76"/>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>None</source>
         <translation>なし</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="107"/>
-        <source>WEP 40/128-bit</source>
-        <translation>WEP 40/128-bit</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="108"/>
-        <source>WPA/WPA2 Personal</source>
-        <translation>WPA・WPA2 パーソナル</translation>
+        <source>WEP 40/128-bit</source>
+        <translation>WEP 40／128 ビット</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
-        <source>WPA/WPA2 Enterprise</source>
-        <translation>WPA/WPA2 エンタープライズ</translation>
+        <source>WPA/WPA2 Personal</source>
+        <translation>WPA／WPA2 パーソナル</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="110"/>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation>WPA／WPA2 エンタープライズ</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="116"/>
         <source>Security</source>
         <translation>セキュリティ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="126"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="172"/>
         <source>Key</source>
         <translation>キー</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="179"/>
         <source>Password</source>
         <translation>パスワード</translation>
     </message>
@@ -2138,7 +2198,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation>高度 VPN</translation>
+        <translation>高度な VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
@@ -2163,17 +2223,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation type="unfinished"/>
+        <translation>LZO データ圧縮を使う</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
-        <translation type="unfinished"/>
+        <translation>TCP 接続を使う</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
-        <translation type="unfinished"/>
+        <translation>TAP デバイスを使う</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
@@ -2209,125 +2269,125 @@
 <context>
     <name>dccV20::network::VpnAdvVPNCSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="33"/>
         <source>VPN Advanced</source>
-        <translation>高度 VPN</translation>
+        <translation>高度な VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="142"/>
         <source>Cisco (default)</source>
         <translation>Cisco (デフォルト)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="143"/>
         <source>Netscreen</source>
         <translation>ネットスクリーン</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
         <source>Secure (default)</source>
-        <translation>セキュア (デフォルト)</translation>
+        <translation>安全 (デフォルト)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="147"/>
         <source>Weak</source>
         <translation>弱い</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
         <source>None</source>
         <translation>なし</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
         <source>NAT-T When Available (default)</source>
         <translation>可能時は NAT-T (デフォルト)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
         <source>NAT-T Always</source>
         <translation>常に NAT-T</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="153"/>
         <source>Cisco UDP</source>
         <translation>Cisco UDP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="154"/>
         <source>Disabled</source>
-        <translation>無効化</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="155"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="162"/>
-        <source>DH Group 1</source>
-        <translation>DH グループ 1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="156"/>
-        <source>DH Group 2 (default)</source>
-        <translation>DH グループ 2 (デフォルト)</translation>
+        <translation>無効</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="164"/>
+        <source>DH Group 1</source>
+        <translation>DH グループ 1</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="158"/>
+        <source>DH Group 2 (default)</source>
+        <translation>DH グループ 2 (デフォルト)</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="166"/>
         <source>DH Group 5</source>
         <translation>DH グループ 5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="162"/>
         <source>Server (default)</source>
         <translation>サーバー (デフォルト)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="165"/>
         <source>DH Group 2</source>
         <translation>DH グループ 2</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="172"/>
         <source>Domain</source>
         <translation>ドメイン</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="175"/>
         <source>Vendor</source>
         <translation>ベンダー</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="185"/>
         <source>Version</source>
         <translation>バージョン</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="182"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
         <source>Encryption</source>
         <translation>暗号化</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="198"/>
         <source>NAT Traversal Mode</source>
         <translation>NATトラバースモード</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="208"/>
         <source>IKE DH Group</source>
         <translation>IKE DH グループ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="218"/>
         <source>Forward Secrecy</source>
         <translation>前方秘匿性</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="228"/>
         <source>Local Port</source>
         <translation>ローカルポート</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="233"/>
         <source>Disable Dead Peer Detection</source>
         <translation>デッドピア検知の無効</translation>
     </message>
@@ -2426,116 +2486,122 @@
 <context>
     <name>dccV20::network::VpnOpenVPNSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="32"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
         <source>Certificates (TLS)</source>
         <translation>認証 (TLS)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="249"/>
         <source>Password</source>
         <translation>パスワード</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
         <source>Certificates with Password (TLS)</source>
         <translation>パスワードで認証 (TLS)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="277"/>
         <source>Static Key</source>
         <translation>キーの固定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
         <source>Saved</source>
         <translation>保存済み</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
-        <source>Ask</source>
-        <translation>尋ねる</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
-        <source>Not Required</source>
-        <translation>必須ではない</translation>
+        <source>Ask</source>
+        <translation>確認する</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="126"/>
+        <source>Not Required</source>
+        <translation>省略可能</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
         <source>Gateway</source>
         <translation>ゲートウェイ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="229"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="251"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="298"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="136"/>
         <source>Auth Type</source>
         <translation>認証の種類</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="148"/>
         <source>CA Cert</source>
         <translation>CA 証明書</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="180"/>
         <source>User Cert</source>
         <translation>ユーザー認証</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="184"/>
         <source>Private Key</source>
         <translation>プライベートキー</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="236"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>パスワードのオプション</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="201"/>
         <source>Private Pwd</source>
         <translation>プライベートパスワード</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="231"/>
         <source>Username</source>
         <translation>ユーザー名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="281"/>
         <source>Customize Key Direction</source>
-        <translation>キー方向をカスタマイズ</translation>
+        <translation>キーの方向をカスタマイズ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="285"/>
         <source>Key Direction</source>
         <translation>キーの方向</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
         <source>Remote IP</source>
         <translation>リモート IP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="297"/>
         <source>Local IP</source>
         <translation>ローカル IP</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="439"/>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2553,7 +2619,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
         <source>40-bit (less secure)</source>
-        <translation>40 ビット (安全度が低い)</translation>
+        <translation>40 ビット (安全性が低い)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
@@ -2593,12 +2659,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
-        <translation>データを圧縮しない</translation>
+        <translation>デフレートデータを圧縮しない</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No TCP Header Compression</source>
-        <translation>TCP ヘッダーコンプレッションなし</translation>
+        <translation>TCP ヘッダーを圧縮しない</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
@@ -2608,7 +2674,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
-        <translation>アドレス・コントロールを圧縮しない</translation>
+        <translation>アドレス／コントロールを圧縮しない</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
@@ -2618,15 +2684,15 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
         <source>Use MPPE</source>
-        <translation>MPPE を使用</translation>
+        <translation>MPPE を使う</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="163"/>
         <source>Security</source>
         <translation>セキュリティ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="176"/>
         <source>Stateful MPPE</source>
         <translation>Stateful MPPE</translation>
     </message>
@@ -2634,22 +2700,22 @@
 <context>
     <name>dccV20::network::VpnPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="83"/>
         <source>VPN Status</source>
         <translation>VPN の状態</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="114"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="242"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>インポートエラー</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="244"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -2657,59 +2723,64 @@
 <context>
     <name>dccV20::network::VpnProxySection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="38"/>
         <source>VPN Proxy</source>
         <translation>VPN プロキシ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="135"/>
-        <source>Not Required</source>
-        <translation>必須ではない</translation>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="87"/>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
+        <source>Not Required</source>
+        <translation>省略可能</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="144"/>
         <source>HTTP</source>
         <translation>HTTP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="145"/>
         <source>SOCKS</source>
         <translation>SOCKS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="151"/>
         <source>Proxy Type</source>
         <translation>プロキシの種類</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="163"/>
         <source>Server IP</source>
         <translation>サーバー IP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="154"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="180"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="167"/>
         <source>Port</source>
         <translation>ポート</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="172"/>
         <source>Retry Indefinitely When Failed</source>
-        <translation>失敗時に再施行を繰り返す</translation>
+        <translation>失敗時に再試行</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="175"/>
         <source>Username</source>
         <translation>ユーザー名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="179"/>
         <source>Password</source>
         <translation>パスワード</translation>
     </message>
@@ -2724,40 +2795,40 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
-        <translation type="unfinished"/>
+        <translation>証明書の警告を無視</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation type="unfinished"/>
+        <translation>TLS ホスト名の拡張機能を使う</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnSecOpenVPNSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="31"/>
         <source>VPN Security</source>
         <translation>VPN セキュリティ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="75"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="98"/>
         <source>Default</source>
         <translation>デフォルト</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="99"/>
         <source>None</source>
         <translation>なし</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="113"/>
         <source>Cipher</source>
         <translation>Cipher</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="125"/>
         <source>HMAC Auth</source>
         <translation>HMAC 認証</translation>
     </message>
@@ -2770,6 +2841,11 @@
         <translation>VPN</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="72"/>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
         <source>Saved</source>
         <translation>保存済み</translation>
@@ -2777,12 +2853,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
         <source>Ask</source>
-        <translation>尋ねる</translation>
+        <translation>確認する</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
         <source>Not Required</source>
-        <translation>必須ではない</translation>
+        <translation>省略可能</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
@@ -2792,7 +2868,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="115"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="136"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
@@ -2804,15 +2880,15 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>パスワードのオプション</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="135"/>
         <source>Password</source>
         <translation>パスワード</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="139"/>
         <source>NT Domain</source>
         <translation>NT ドメイン</translation>
     </message>
@@ -2848,25 +2924,25 @@
 <context>
     <name>dccV20::network::VpnStrongSwanSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="29"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="31"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="142"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="174"/>
         <source>Private Key</source>
         <translation>プライベートキー</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
         <source>SSH Agent</source>
-        <translation>SSH Agent</translation>
+        <translation>SSH エージェント</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
-        <source>Smartcard</source>
-        <translation>Smartcard</translation>
+        <source>Smart Card</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
@@ -2899,47 +2975,47 @@
         <translation>認証の種類</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="171"/>
         <source>User Cert</source>
         <translation>ユーザー認証</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="177"/>
         <source>Username</source>
         <translation>ユーザー名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="180"/>
         <source>Password</source>
         <translation>パスワード</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="183"/>
         <source>Request an Inner IP Address</source>
         <translation>内部 IP アドレスを要求</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="186"/>
         <source>Enforce UDP Encapsulation</source>
         <translation>UDP カプセル化を強制</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="189"/>
         <source>Use IP Compression</source>
-        <translation>IP 圧縮の使用</translation>
+        <translation>IP 圧縮を使う</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="192"/>
         <source>Enable Custom Cipher Proposals</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="195"/>
         <source>IKE</source>
         <translation>IKE</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="198"/>
         <source>ESP</source>
         <translation>ESP</translation>
     </message>
@@ -2947,47 +3023,47 @@
 <context>
     <name>dccV20::network::VpnTLSSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
         <source>VPN TLS Authentication</source>
         <translation>VPN TLS 認証</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="81"/>
         <source>Default</source>
         <translation>デフォルト</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="82"/>
         <source>Client</source>
         <translation>クライアント</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="83"/>
         <source>Server</source>
         <translation>サーバー</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="89"/>
         <source>Subject Match</source>
         <translation>サブジェクトマッチ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="92"/>
         <source>Remote Cert Type</source>
-        <translation>リモート認証タイプ</translation>
+        <translation>リモート証明書の種類</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="104"/>
         <source>Key File</source>
-        <translation>キーのファイル</translation>
+        <translation>キーファイル</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="107"/>
         <source>Customize Key Direction</source>
-        <translation>キー方向をカスタマイズ</translation>
+        <translation>キーの方向をカスタマイズ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="110"/>
         <source>Key Direction</source>
         <translation>キーの方向</translation>
     </message>
@@ -2995,72 +3071,78 @@
 <context>
     <name>dccV20::network::VpnVPNCSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="29"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="31"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="98"/>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
         <source>Saved</source>
         <translation>保存済み</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="164"/>
         <source>Ask</source>
-        <translation>尋ねる</translation>
+        <translation>確認する</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="165"/>
         <source>Not Required</source>
-        <translation>必須ではない</translation>
+        <translation>省略可能</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
         <source>Gateway</source>
         <translation>ゲートウェイ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="168"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="182"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="209"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <source>Username</source>
         <translation>ユーザー名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="197"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>パスワードのオプション</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Password</source>
         <translation>パスワード</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="193"/>
         <source>Group Name</source>
         <translation>グループ名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="208"/>
         <source>Group Pwd</source>
         <translation>グループパスワード</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="212"/>
         <source>Use Hybrid Authentication</source>
         <translation>ハイブリッド認証を使用</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="215"/>
         <source>CA File</source>
         <translation>CA ファイル</translation>
     </message>
@@ -3068,45 +3150,45 @@
 <context>
     <name>dccV20::network::WiredPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="62"/>
         <source>Plug in the network cable first</source>
-        <translation type="unfinished"/>
+        <translation>始めに、ネットワークケーブルを接続してください</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="67"/>
         <source>Wired Network Adapter</source>
-        <translation type="unfinished"/>
+        <translation>有線ネットワークアダプター</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="89"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>設定を選択</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="162"/>
         <source>Connect to hidden network</source>
         <translation>非表示のネットワークへ接続</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="168"/>
         <source>Wireless Network Adapter</source>
-        <translation type="unfinished"/>
+        <translation>無線ネットワークアダプター</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="174"/>
         <source>Close Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>ホットスポットを閉じる</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="177"/>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation type="unfinished"/>
+        <translation>無線ネットワークに接続したい場合は、まずホットスポット共有を無効にしてください</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="199"/>
         <source>WLAN</source>
         <translation>WLAN</translation>
     </message>
@@ -3131,12 +3213,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="116"/>
         <source>Device MAC Addr</source>
-        <translation>デバイス MAC アドレス</translation>
+        <translation>デバイスの MAC アドレス</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="145"/>
         <source>Customize MTU</source>
-        <translation>カスタマイズ MTU</translation>
+        <translation>MTU をカスタマイズ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="148"/>
@@ -3147,25 +3229,24 @@
 <context>
     <name>dccV20::personalization::PersonalizationFontsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="49"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="56"/>
         <source>Size</source>
         <translation>サイズ</translation>
-        <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="79"/>
         <source>Standard Font</source>
         <translation>標準のフォント</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="91"/>
         <source>Monospaced Font</source>
         <translation>等幅フォント</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="195"/>
         <source> (Unsupported font)</source>
         <translation>(サポートされていないフォント)</translation>
     </message>
@@ -3173,25 +3254,25 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="62"/>
         <source>Theme</source>
         <translation>テーマ</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="69"/>
         <source>Accent Color</source>
-        <translation type="unfinished"/>
+        <translation>アクセントカラー</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="94"/>
         <source>Transparency</source>
         <translation>透明度</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="117"/>
         <source>Window Effect</source>
         <translation>ウィンドウ効果</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
@@ -3225,17 +3306,43 @@
     </message>
 </context>
 <context>
+    <name>dccV20::personalization::PerssonalizationThemeList</name>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="82"/>
+        <source>Light</source>
+        <translation>ライト</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="85"/>
+        <source>Dark</source>
+        <translation>ダーク</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="88"/>
+        <source>Auto</source>
+        <translation>自動</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="93"/>
+        <source>Default</source>
+        <translation>デフォルト</translation>
+    </message>
+</context>
+<context>
     <name>dccV20::personalization::PerssonalizationThemeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="77"/>
         <source>Light</source>
-        <translation>Light</translation>
+        <translation>ライト</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="80"/>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>ダーク</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
@@ -3253,45 +3360,45 @@
 <context>
     <name>dccV20::power::GeneralWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="39"/>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="40"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="50"/>
         <source>Power Saving Mode</source>
         <translation>省電力モード</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="40"/>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="49"/>
-        <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/power/General</extra-contents_path>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="41"/>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="51"/>
-        <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="52"/>
+        <source>Auto Mode Switch</source>
+        <translation>自動モードスイッチ</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="42"/>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="54"/>
+        <source>Password is required to wake up the computer</source>
+        <translation>コンピューターの復帰時にパスワードを要求</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="43"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="56"/>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>モニターの復帰時にパスワードを要求</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::power::PowerModule</name>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="209"/>
         <source>Battery low, please plug in</source>
-        <translation>バッテリが少なくなっています、電源に接続してください</translation>
+        <translation>バッテリーが少なくなっています。電源に接続してください</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="211"/>
         <source>Battery critically low</source>
-        <translation type="unfinished"/>
+        <translation>バッテリー残量がごくわずかです</translation>
     </message>
 </context>
 <context>
@@ -3305,61 +3412,68 @@
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="60"/>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>電源接続時</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="62"/>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>バッテリー時</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::power::UseBatteryWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="39"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="46"/>
-        <source>Monitor will suspend after</source>
-        <translation>以下の時間が経過したら画面をサスペントする</translation>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="40"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="48"/>
-        <source>Computer will suspend after</source>
-        <translation>以下の時間が経過したらコンピューターをサスペントする</translation>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="41"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
-        <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="49"/>
+        <source>Monitor will suspend after</source>
+        <translation>以下の時間が経過したら画面をサスペント</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="60"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="42"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
+        <source>Computer will suspend after</source>
+        <translation>以下の時間が経過したらコンピューターをサスペント</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="43"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="53"/>
+        <source>Lock screen after</source>
+        <translation>以下の時間が経過したら画面をロック</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="55"/>
+        <source>Suspend on lid close</source>
+        <translation>カバーを閉じたらサスペンド</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="172"/>
         <source>Never</source>
         <translation>しない</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="154"/>
         <source>1 Minute</source>
         <translation>1 分</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="145"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="151"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="160"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="175"/>
         <source>%1 Minutes</source>
         <translation>%1分</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="169"/>
         <source>1 Hour</source>
         <translation>1 時間</translation>
     </message>
@@ -3367,55 +3481,55 @@
 <context>
     <name>dccV20::power::UseElectricWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="41"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="49"/>
-        <source>Monitor will suspend after</source>
-        <translation>以下の時間が経過したら画面をサスペントする</translation>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="42"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="51"/>
-        <source>Computer will suspend after</source>
-        <translation>以下の時間が経過したらコンピューターをサスペントする</translation>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="50"/>
+        <source>Monitor will suspend after</source>
+        <translation>以下の時間が経過したら画面をサスペント</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="43"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="53"/>
-        <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="52"/>
+        <source>Computer will suspend after</source>
+        <translation>以下の時間が経過したらコンピューターをサスペント</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="44"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="55"/>
-        <source>Suspend on lid close</source>
-        <translation>カバーを閉じたらサスペンドする</translation>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="54"/>
+        <source>Lock screen after</source>
+        <translation>以下の時間が経過したら画面をロック</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="66"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="56"/>
+        <source>Suspend on lid close</source>
+        <translation>カバーを閉じたらサスペンド</translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="178"/>
         <source>Never</source>
         <translation>しない</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="160"/>
         <source>1 Minute</source>
         <translation>1 分</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="159"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="162"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="165"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="168"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="181"/>
         <source>%1 Minutes</source>
         <translation>%1分</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="175"/>
         <source>1 Hour</source>
         <translation>1 時間</translation>
     </message>
@@ -3423,36 +3537,42 @@
 <context>
     <name>dccV20::sound::AdvancedPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="60"/>
         <source>Output</source>
         <translation>出力</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="77"/>
         <source>Input</source>
         <translation>入力</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="130"/>
+        <source>Sound Card:</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV20::sound::MicrophonePage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="56"/>
-        <source>Input Volume</source>
-        <translation>入力音量</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="60"/>
         <source>Microphone</source>
-        <translation>マイクロフォン</translation>
+        <translation>マイク</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="99"/>
+        <source>Input Volume</source>
+        <translation>入力音量</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::sound::SoundEffectsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="49"/>
         <source>Sound Effects</source>
         <translation>音響効果</translation>
     </message>
@@ -3460,25 +3580,25 @@
 <context>
     <name>dccV20::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="70"/>
         <source>Speaker</source>
         <translation>スピーカー</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="72"/>
         <source>Microphone</source>
-        <translation>マイクロフォン</translation>
+        <translation>マイク</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="74"/>
         <source>Advanced</source>
-        <translation>高度</translation>
+        <translation>高度な設定</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
         <source>Sound Effects</source>
         <translation>音響効果</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
@@ -3487,40 +3607,49 @@
 <context>
     <name>dccV20::sound::SpeakerPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="43"/>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="83"/>
-        <source>Output Volume</source>
-        <translation>出力音量</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="45"/>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="101"/>
-        <source>Left/Right Balance</source>
-        <translation>左右のバランス</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="46"/>
         <source>Speaker</source>
         <translation>スピーカー</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="72"/>
+        <source>Output Volume</source>
+        <translation>出力音量</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="102"/>
+        <source>Left/Right Balance</source>
+        <translation>左右のバランス</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::sync::LoginPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="17"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="18"/>
         <source>Sign In</source>
         <translation>サインイン</translation>
+        <extra-contents_path>/cloudsync/Sign In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="19"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="21"/>
         <source>Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</source>
-        <translation type="unfinished"/>
+        <translation>Deepin ID でサインインしてクラウド同期を有効にして、特定のシステム設定を同期しましょう。</translation>
+        <extra-contents_path>/cloudsync/Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="24"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="27"/>
         <source>Deepin ID Sign In</source>
+        <translation>Deepin ID サインイン</translation>
+        <extra-contents_path>/cloudsync/Deepin ID Sign In</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="33"/>
+        <source>Only supported in Mainland China at present</source>
         <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Only supported in Mainland China at present</extra-contents_path>
     </message>
 </context>
 <context>
@@ -3553,7 +3682,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="101"/>
         <source>%1-bit</source>
-        <translation type="unfinished"/>
+        <translation>%1 ビット</translation>
     </message>
 </context>
 <context>
@@ -3561,7 +3690,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="63"/>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>この PC について</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -3573,7 +3702,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="67"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>使用許諾契約書</translation>
         <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
 </context>
@@ -3583,99 +3712,112 @@
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="45"/>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="62"/>
         <source>Mirror List</source>
-        <translation type="unfinished"/>
+        <translation>ミラーの一覧</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="48"/>
         <source>Test Speed</source>
-        <translation type="unfinished"/>
+        <translation>速度を試す</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="159"/>
         <source>Retest</source>
-        <translation type="unfinished"/>
+        <translation>再度試す</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="70"/>
-        <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="64"/>
-        <source>Update</source>
-        <translation>アップデート</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="69"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="unfinished"/>
+        <translation>システムとアプリケーションが正常に動作するよう再起動してください</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="71"/>
+        <source>Network disconnected, please retry after connected</source>
+        <translation>ネットワークに接続されていません。接続後に再度お試しください</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="90"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
         <translation>このアップデートには時間がかかる可能性があります。アップデート中にシャットダウンしたり再起動したりしないでください</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="195"/>
         <source>Checking for updates, please wait...</source>
         <translation>アップデートを確認しています。お待ちください…</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="203"/>
         <source>Download and install updates</source>
-        <translation>更新をダウンロードしてインストール</translation>
+        <translation>アップデートをダウンロードしてインストール</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="214"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="350"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1% ダウンロード済み (一時停止するにはクリック)</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="221"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
+        <translation>%1% ダウンロード済み (再開するにはクリック)</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="229"/>
         <source>Install updates</source>
         <translation>アップデートをインストール</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="237"/>
         <source>Your system is up to date</source>
         <translation>システムは最新です</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="246"/>
         <source>Updating, please wait...</source>
-        <translation>更新しています、しばらくお待ちください...</translation>
+        <translation>アップデートしています、しばらくお待ちください...</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="260"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>最新のシステムがインストールされました。再起動すると反映されます。</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>Update failed: insufficient disk space</source>
+        <translation>アップデートに失敗しました: ディスクの空き領域が不足しています</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="277"/>
+        <source>Dependency error, failed to detect the updates</source>
+        <translation>依存関係エラーが発生したため、アップデートを検出できませんでした</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="284"/>
+        <source>Backing up, please wait...</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="290"/>
+        <source>System backup failed</source>
         <translation type="unfinished"/>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
@@ -3688,7 +3830,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="320"/>
         <source>New system edition available</source>
-        <translation type="unfinished"/>
+        <translation>新しいエディションのシステムが利用可能です</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message numerus="yes">
@@ -3698,21 +3840,15 @@
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="334"/>
-        <source>Size: %1</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="288"/>
-        <source>Dependency error, failed to detect the updates</source>
-        <translation>依存関係エラーが発生したため、アップデートを検出できませんでした</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="331"/>
         <source>Downloaded</source>
         <translation>ダウンロード済み</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="334"/>
+        <source>Size: %1</source>
+        <translation>サイズ: %1</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -3724,126 +3860,145 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="362"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="unfinished"/>
+        <translation>再起動に十分なバッテリー残量があることを確認してください。また、電源を切ったり、プラグを抜かないでください</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::update::UpdateSettings</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="46"/>
         <source>Update Settings</source>
         <translation>アップデートの設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="59"/>
         <source>Auto Clear Package Cache</source>
         <translation>パッケージキャッシュを自動的に消去</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="63"/>
         <source>Updates Notification</source>
         <translation>アップデートの通知</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="66"/>
         <source>Auto Download Updates</source>
-        <translation type="unfinished"/>
+        <translation>アップデートを自動的にダウンロード</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
-        <source>System Repository Detection</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="90"/>
-        <source>Show a notification if system update repository has been modified</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="126"/>
-        <source>Mirror List</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="69"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
         <translation>無線または有線ネットワークでアップデートを自動的にダウンロードするにはオンにしてください</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="77"/>
+        <source>System Repository Detection</source>
+        <translation>システムリポジトリの検出</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
+        <source>Show a notification if system update repository has been modified</source>
+        <translation>システムアップデートのリポジトリが変更された場合に通知を表示します</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="101"/>
         <source>Smart Mirror Switch</source>
         <translation>効率的なミラーの切り替え</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="108"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
         <translation>最速のミラーに自動的に接続するにはオンにしてください</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="118"/>
+        <source>Mirror List</source>
+        <translation>ミラーの一覧</translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::update::UpdateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="58"/>
         <source>Update</source>
         <translation>アップデート</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="60"/>
         <source>Update Settings</source>
         <translation>アップデートの設定</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="70"/>
         <source>Last Update</source>
-        <translation type="unfinished"/>
+        <translation>最終更新</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="115"/>
         <source>Return</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="134"/>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="172"/>
         <source>Current Edition</source>
-        <translation type="unfinished"/>
+        <translation>現在のエディション</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="181"/>
         <source>Update History</source>
-        <translation type="unfinished"/>
+        <translation>履歴を更新</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::PressureSettings</name>
+    <message>
+        <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="43"/>
+        <source>Pressure Sensitivity</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="51"/>
+        <source>Light</source>
+        <translation>ライト</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="51"/>
+        <source>Heavy</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV20::wacom::WacomWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="40"/>
         <source>Mode</source>
         <translation>モード</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="68"/>
-        <source>Mouse</source>
-        <translation>マウス</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
         <translation>ペン</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="74"/>
+        <source>Mouse</source>
+        <translation>マウス</translation>
     </message>
 </context>
 <context>
@@ -3867,11 +4022,6 @@
         <translation>%1 にのみ表示されます</translation>
     </message>
     <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
-        <source>New Custom Settings</source>
-        <translation>新しいカスタム設定</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="99"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
@@ -3890,6 +4040,11 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
+        <source>New Custom Settings</source>
+        <translation>新しいカスタム設定</translation>
+    </message>
+    <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
         <source>Please enter Display module to set if you want to change the custom settings</source>
         <translation type="unfinished"/>
@@ -3903,79 +4058,91 @@
 <context>
     <name>IndexPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="31"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="32"/>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>自動同期</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="34"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="36"/>
         <source>Syncing...</source>
-        <translation type="unfinished"/>
+        <translation>同期しています…</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="81"/>
         <source>Sign Out</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="119"/>
-        <source>Network Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="120"/>
-        <source>Sound Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="121"/>
-        <source>Mouse Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="122"/>
-        <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>サインアウト</translation>
+        <extra-contents_path>/cloudsync/Sign Out</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="123"/>
-        <source>Dock</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="124"/>
-        <source>Launcher</source>
-        <translation type="unfinished"/>
+        <source>Network Settings</source>
+        <translation>ネットワークの設定</translation>
+        <extra-contents_path>/cloudsync/Network Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="125"/>
-        <source>Wallpaper</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="126"/>
-        <source>Theme</source>
-        <translation type="unfinished"/>
+        <source>Sound Settings</source>
+        <translation>サウンドの設定</translation>
+        <extra-contents_path>/cloudsync/Sound Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="127"/>
+        <source>Mouse Settings</source>
+        <translation>マウスの設定</translation>
+        <extra-contents_path>/cloudsync/Mouse Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="129"/>
+        <source>Update Settings</source>
+        <translation>アップデートの設定</translation>
+        <extra-contents_path>/cloudsync/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="131"/>
+        <source>Dock</source>
+        <translation>ドック</translation>
+        <extra-contents_path>/cloudsync/Dock</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="133"/>
+        <source>Launcher</source>
+        <translation>ランチャー</translation>
+        <extra-contents_path>/cloudsync/Launcher</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="135"/>
+        <source>Wallpaper</source>
+        <translation>壁紙</translation>
+        <extra-contents_path>/cloudsync/Wallpaper</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="137"/>
+        <source>Theme</source>
+        <translation>テーマ</translation>
+        <extra-contents_path>/cloudsync/Theme</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="139"/>
         <source>Power Settings</source>
-        <translation type="unfinished"/>
+        <translation>電源の設定</translation>
+        <extra-contents_path>/cloudsync/Power Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="141"/>
         <source>Corner Settings</source>
-        <translation type="unfinished"/>
+        <translation>コーナーの設定</translation>
+        <extra-contents_path>/cloudsync/Corner Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="241"/>
         <source>Last Sync: %1</source>
-        <translation type="unfinished"/>
+        <translation>最終同期日時: %1</translation>
+        <extra-contents_path>/cloudsync/Last Sync:</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="243"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>yyyy-MM-dd hh:mm</translation>
     </message>
 </context>
 <context>
@@ -4031,7 +4198,7 @@
     <message>
         <location filename="../src/frame/notify/notifywidget.cpp" line="35"/>
         <source>Clear all</source>
-        <translation>すべてをクリア</translation>
+        <translation>すべて消去</translation>
     </message>
 </context>
 <context>
@@ -4044,7 +4211,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
-        <translation type="unfinished"/>
+        <translation>実行前にすべてのデータが保存されていることを確認してください</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
@@ -4123,7 +4290,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
-        <translation type="unfinished"/>
+        <translation>起動</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
@@ -4138,12 +4305,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
-        <translation type="unfinished"/>
+        <translation>ウェイクアップ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
-        <translation type="unfinished"/>
+        <translation>音量の調整</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="21"/>
@@ -4158,7 +4325,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation type="unfinished"/>
+        <translation>ランチャーのアイコンをデスクトップに送る</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
@@ -4168,22 +4335,22 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="25"/>
         <source>Plug in</source>
-        <translation type="unfinished"/>
+        <translation>電源に接続</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Plug out</source>
-        <translation type="unfinished"/>
+        <translation>電源を切断</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
-        <translation type="unfinished"/>
+        <translation>リムーバブルデバイスの接続</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
-        <translation type="unfinished"/>
+        <translation>リムーバブルデバイスの取り外し</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="29"/>
@@ -4192,16 +4359,24 @@ If no operation, the display will be restored after %1s.</source>
     </message>
 </context>
 <context>
+    <name>SyncWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/sync/syncwidget.cpp" line="22"/>
+        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>TimeoutDialog</name>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
         <source>Do you want to save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>ディスプレイの設定を保存しますか？</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
         <source>If no operation, the display will be restored after %1s.</source>
-        <translation type="unfinished"/>
+        <translation>操作がない場合、%1 秒後にディスプレイは復元されます。</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
@@ -4242,7 +4417,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation>VPNを有効するにはアイコンをクリックしてください</translation>
+        <translation>VPN を有効するにはアイコンをクリックしてください</translation>
     </message>
 </context>
 <context>
@@ -4250,12 +4425,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="120"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>天気情報ロードが失敗した</translation>
+        <translation>申し訳ありませんが、天気情報を取得できません</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="127"/>
         <source>Loading weather...</source>
-        <translation>天気情報をロード中</translation>
+        <translation>天気情報を読み込んでいます…</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="197"/>
@@ -4268,17 +4443,17 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WIFI</source>
-        <translation>Wifiを有効するにはアイコンをクリックしてください</translation>
+        <translation>Wi-Fiを有効するにはアイコンをクリックしてください</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
         <source>Connect to hidden network</source>
-        <translation>隠されたネットワークへ接続</translation>
+        <translation>非表示のネットワークへ接続</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
         <source>Wireless Card %1</source>
-        <translation type="unfinished"/>
+        <translation>無線カード %1</translation>
     </message>
 </context>
 <context>
@@ -4286,7 +4461,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="53"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>ドメインを離れる</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="53"/>
@@ -4329,7 +4504,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="58"/>
         <source>Modify Password</source>
-        <translation>パスワードを変更する</translation>
+        <translation>パスワードを変更</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="61"/>
@@ -4339,7 +4514,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login Without Password</source>
-        <translation>パスワード無しでログイン</translation>
+        <translation>パスワードなしでログイン</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>
@@ -4360,6 +4535,11 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::accounts::AccountsWidget</name>
     <message>
+        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="43"/>
+        <source>Create Account</source>
+        <translation>アカウントを作成</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="149"/>
         <location filename="../src/frame/navigationbar.cpp" line="201"/>
@@ -4367,19 +4547,14 @@ If no operation, the display will be restored after %1s.</source>
         <translation>アカウント</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="43"/>
-        <source>Create Account</source>
-        <translation>アカウントを作成</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
-        <translation type="unfinished"/>
+        <translation>ドメインを離れる</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation type="unfinished"/>
+        <translation>ドメインに参加</translation>
     </message>
 </context>
 <context>
@@ -4390,34 +4565,34 @@ If no operation, the display will be restored after %1s.</source>
         <translation>画像</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="330"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="332"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="331"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="333"/>
         <source>Your host joins the domain server successfully</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="353"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="355"/>
         <source>Your host failed to leave the domain server</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="354"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="356"/>
         <source>Your host failed to join the domain server</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="426"/>
-        <source>Password not match</source>
-        <translation>パスワードが一致しません</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="357"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="359"/>
         <source>AD domain settings</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="428"/>
+        <source>Password not match</source>
+        <translation>パスワードが一致しません</translation>
     </message>
 </context>
 <context>
@@ -4440,7 +4615,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>指紋を認証しています</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
@@ -4448,14 +4623,14 @@ If no operation, the display will be restored after %1s.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
-        <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
-        <translation>指を指紋リーダーにおいて上にスワイプを繰り返します</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Added successfully</source>
         <translation>追加しました</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
+        <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
+        <translation>指を指紋リーダーにおいて上にスワイプを繰り返します</translation>
     </message>
 </context>
 <context>
@@ -4740,7 +4915,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>自動同期</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
@@ -4750,17 +4925,17 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="79"/>
         <source>Network Settings</source>
-        <translation type="unfinished"/>
+        <translation>ネットワークの設定</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="80"/>
         <source>Sound Settings</source>
-        <translation type="unfinished"/>
+        <translation>サウンドの設定</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="81"/>
         <source>Mouse Settings</source>
-        <translation type="unfinished"/>
+        <translation>マウスの設定</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="82"/>
@@ -4770,42 +4945,42 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>ドック</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
         <source>Launcher</source>
-        <translation type="unfinished"/>
+        <translation>ランチャー</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="85"/>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>壁紙</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="86"/>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>テーマ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="87"/>
         <source>Power Settings</source>
-        <translation type="unfinished"/>
+        <translation>電源の設定</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="88"/>
         <source>Corner Settings</source>
-        <translation type="unfinished"/>
+        <translation>コーナーの設定</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="214"/>
         <source>Last Sync: %1</source>
-        <translation type="unfinished"/>
+        <translation>最終同期日時: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="216"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation type="unfinished"/>
+        <translation>yyyy-MM-dd hh:mm</translation>
     </message>
 </context>
 <context>
@@ -4813,13 +4988,13 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="14"/>
         <source>Login</source>
-        <translation type="unfinished"/>
+        <translation>ログイン</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="150"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>クラウド同期</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
@@ -4866,13 +5041,6 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::datetime::Datetime</name>
     <message>
-        <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="157"/>
-        <location filename="../src/frame/navigationbar.cpp" line="210"/>
-        <source>Time and Date</source>
-        <translation>時間と日付</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
         <translation>自動同期</translation>
@@ -4881,6 +5049,13 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="51"/>
         <source>Add Timezone</source>
         <translation>タイムゾーンの追加</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="157"/>
+        <location filename="../src/frame/navigationbar.cpp" line="210"/>
+        <source>Time and Date</source>
+        <translation>時間と日付</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="61"/>
@@ -5075,13 +5250,6 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::display::DisplayWidget</name>
     <message>
-        <location filename="../src/frame/modules/display/displaywidget.cpp" line="115"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="151"/>
-        <location filename="../src/frame/navigationbar.cpp" line="203"/>
-        <source>Display</source>
-        <translation>ディスプレイ</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
         <source>Display Scaling</source>
         <translation>ディスプレイスケーリング</translation>
@@ -5110,6 +5278,13 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
         <source>Scaling Settings</source>
         <translation>スケーリング設定</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/display/displaywidget.cpp" line="115"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="151"/>
+        <location filename="../src/frame/navigationbar.cpp" line="203"/>
+        <source>Display</source>
+        <translation>ディスプレイ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
@@ -5299,7 +5474,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="99"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>ショートカット</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="102"/>
@@ -5322,7 +5497,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="48"/>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>ショートカット</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="105"/>
@@ -5341,7 +5516,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>レイアウトを切り替え (複数)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="88"/>
@@ -5399,7 +5574,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="79"/>
         <source>Please Test Here</source>
-        <translation>ここで試してください</translation>
+        <translation>ここで確認してください</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="93"/>
@@ -5501,7 +5676,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
         <source>Restore Defaults</source>
-        <translation type="unfinished"/>
+        <translation>デフォルトを復元</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
@@ -5520,16 +5695,16 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::mouse::MouseWidget</name>
     <message>
+        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="46"/>
+        <source>Mouse and Touchpad</source>
+        <translation>マウスとタッチパッド</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="159"/>
         <location filename="../src/frame/navigationbar.cpp" line="212"/>
         <source>Mouse</source>
         <translation>マウス</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="46"/>
-        <source>Mouse and Touchpad</source>
-        <translation>マウスとタッチパッド</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="50"/>
@@ -5660,7 +5835,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="61"/>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="65"/>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>省略可能</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="64"/>
@@ -5716,17 +5891,17 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="344"/>
         <source>Wired Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>無線接続 %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="348"/>
         <source>Wireless Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>無線接続 %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="352"/>
         <source>PPPoE Connection %1</source>
-        <translation type="unfinished"/>
+        <translation>PPPoE 接続 %1</translation>
     </message>
 </context>
 <context>
@@ -5861,6 +6036,16 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::IpvxSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="32"/>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="52"/>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="215"/>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="220"/>
         <source>Auto</source>
@@ -5876,16 +6061,6 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="222"/>
         <source>Ignore</source>
         <translation>無視</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="32"/>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="52"/>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="228"/>
@@ -5921,7 +6096,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="234"/>
         <source>Only applied in corresponding resources</source>
-        <translation type="unfinished"/>
+        <translation>一致するリソースにのみ適用されます</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
@@ -5977,11 +6152,6 @@ If no operation, the display will be restored after %1s.</source>
         <translation>IPv4</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="205"/>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="185"/>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="210"/>
         <source>Gateway</source>
@@ -5999,6 +6169,11 @@ If no operation, the display will be restored after %1s.</source>
         <translation>ネットマスク</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="205"/>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="220"/>
         <source>Prefix</source>
         <translation>プレフィックス</translation>
@@ -6011,13 +6186,6 @@ If no operation, the display will be restored after %1s.</source>
 </context>
 <context>
     <name>dcc::network::NetworkModuleWidget</name>
-    <message>
-        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="154"/>
-        <location filename="../src/frame/navigationbar.cpp" line="207"/>
-        <source>Network</source>
-        <translation>ネットワーク</translation>
-    </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="57"/>
         <source>DSL</source>
@@ -6042,6 +6210,13 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
         <source>Network Details</source>
         <translation>ネットワーク詳細</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="154"/>
+        <location filename="../src/frame/navigationbar.cpp" line="207"/>
+        <source>Network</source>
+        <translation>ネットワーク</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="237"/>
@@ -6126,6 +6301,11 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::PPPSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="31"/>
+        <source>PPP</source>
+        <translation>PPP</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
         <translation>EAP 認証を拒否</translation>
@@ -6181,16 +6361,6 @@ If no operation, the display will be restored after %1s.</source>
         <translation>PPP エコーパケットを送る</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="110"/>
-        <source>Stateful MPPE</source>
-        <translation>Stateful MPPE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="31"/>
-        <source>PPP</source>
-        <translation>PPP</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
         <translation>MPPE を使用</translation>
@@ -6199,6 +6369,11 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="107"/>
         <source>128-bit MPPE</source>
         <translation>128 ビット MPPE</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="110"/>
+        <source>Stateful MPPE</source>
+        <translation>Stateful MPPE</translation>
     </message>
 </context>
 <context>
@@ -6247,6 +6422,14 @@ If no operation, the display will be restored after %1s.</source>
         <translation>HTTP プロキシ</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="70"/>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="75"/>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="80"/>
+        <location filename="../src/frame/modules/network/proxypage.cpp" line="85"/>
+        <source>Port</source>
+        <translation>ポート</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="73"/>
         <source>HTTPS Proxy</source>
         <translation>HTTPS プロキシ</translation>
@@ -6262,17 +6445,9 @@ If no operation, the display will be restored after %1s.</source>
         <translation>SOCKSプロキシ</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="70"/>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="75"/>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="80"/>
-        <location filename="../src/frame/modules/network/proxypage.cpp" line="85"/>
-        <source>Port</source>
-        <translation>ポート</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="92"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="unfinished"/>
+        <translation>上記のホストとドメインでプロキシ設定を無視</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="95"/>
@@ -6287,6 +6462,11 @@ If no operation, the display will be restored after %1s.</source>
 </context>
 <context>
     <name>dcc::network::Secret8021xSection</name>
+    <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="31"/>
+        <source>Security</source>
+        <translation>セキュリティ</translation>
+    </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="153"/>
         <source>TLS</source>
@@ -6328,6 +6508,11 @@ If no operation, the display will be restored after %1s.</source>
         <translation>尋ねる</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="165"/>
+        <source>Not Required</source>
+        <translation>必須ではない</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="169"/>
         <source>Disabled</source>
         <translation>無効化</translation>
@@ -6353,26 +6538,6 @@ If no operation, the display will be restored after %1s.</source>
         <translation>自動</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="218"/>
-        <source>Pwd Options</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="31"/>
-        <source>Security</source>
-        <translation>セキュリティ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="202"/>
-        <source>EAP Auth</source>
-        <translation>EAP 認証</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="165"/>
-        <source>Not Required</source>
-        <translation>必須ではない</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="189"/>
         <source>Version 0</source>
         <translation>バージョン 0</translation>
@@ -6381,6 +6546,11 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="190"/>
         <source>Version 1</source>
         <translation>バージョン 1</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="202"/>
+        <source>EAP Auth</source>
+        <translation>EAP 認証</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="214"/>
@@ -6392,6 +6562,11 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="224"/>
         <source>Required</source>
         <translation>必須</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="218"/>
+        <source>Pwd Options</source>
+        <translation>パスワードのオプション</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="302"/>
@@ -6569,17 +6744,17 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation type="unfinished"/>
+        <translation>LZO データ圧縮を使う</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
-        <translation type="unfinished"/>
+        <translation>TCP 接続を使う</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
-        <translation type="unfinished"/>
+        <translation>TAP デバイスを使う</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
@@ -6614,6 +6789,11 @@ If no operation, the display will be restored after %1s.</source>
 </context>
 <context>
     <name>dcc::network::VpnAdvVPNCSection</name>
+    <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
+        <source>VPN Advanced</source>
+        <translation>高度 VPN</translation>
+    </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="140"/>
         <source>Cisco (default)</source>
@@ -6686,11 +6866,6 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
         <source>DH Group 2</source>
         <translation>DH グループ 2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
-        <source>VPN Advanced</source>
-        <translation>高度 VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="170"/>
@@ -6832,6 +7007,11 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnOpenVPNSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="115"/>
         <source>Certificates (TLS)</source>
         <translation>認証 (TLS)</translation>
@@ -6869,37 +7049,6 @@ If no operation, the display will be restored after %1s.</source>
         <translation>必須ではない</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="177"/>
-        <source>User Cert</source>
-        <translation>ユーザー認証</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
-        <source>Private Key</source>
-        <translation>プライベートキー</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="232"/>
-        <source>Pwd Options</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
-        <source>Remote IP</source>
-        <translation>リモート IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
-        <source>Local IP</source>
-        <translation>ローカル IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="31"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="131"/>
         <source>Gateway</source>
         <translation>ゲートウェイ</translation>
@@ -6924,6 +7073,22 @@ If no operation, the display will be restored after %1s.</source>
         <translation>CA 証明書</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="177"/>
+        <source>User Cert</source>
+        <translation>ユーザー認証</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
+        <source>Private Key</source>
+        <translation>プライベートキー</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="232"/>
+        <source>Pwd Options</source>
+        <translation>パスワードのオプション</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
         <source>Private Pwd</source>
         <translation>プライベートパスワード</translation>
@@ -6943,9 +7108,24 @@ If no operation, the display will be restored after %1s.</source>
         <source>Key Direction</source>
         <translation>キーの方向</translation>
     </message>
+    <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
+        <source>Remote IP</source>
+        <translation>リモート IP</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
+        <source>Local IP</source>
+        <translation>ローカル IP</translation>
+    </message>
 </context>
 <context>
     <name>dcc::network::VpnPPPSection</name>
+    <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
+        <source>VPN PPP</source>
+        <translation>VPN PPP</translation>
+    </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
@@ -7017,16 +7197,6 @@ If no operation, the display will be restored after %1s.</source>
         <translation>PPP エコーパケットを送る</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="170"/>
-        <source>Stateful MPPE</source>
-        <translation>Stateful MPPE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
-        <source>VPN PPP</source>
-        <translation>VPN PPP</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
         <source>Use MPPE</source>
         <translation>MPPE を使用</translation>
@@ -7035,6 +7205,11 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="164"/>
         <source>Security</source>
         <translation>セキュリティ</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="170"/>
+        <source>Stateful MPPE</source>
+        <translation>Stateful MPPE</translation>
     </message>
 </context>
 <context>
@@ -7062,7 +7237,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="242"/>
         <source>Import Error</source>
-        <translation type="unfinished"/>
+        <translation>インポートエラー</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="244"/>
@@ -7113,6 +7288,11 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnProxySection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
+        <source>VPN Proxy</source>
+        <translation>VPN プロキシ</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="135"/>
         <source>Not Required</source>
         <translation>必須ではない</translation>
@@ -7126,11 +7306,6 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="137"/>
         <source>SOCKS</source>
         <translation>SOCKS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
-        <source>VPN Proxy</source>
-        <translation>VPN プロキシ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
@@ -7180,16 +7355,21 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
-        <translation type="unfinished"/>
+        <translation>証明書の警告を無視</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation type="unfinished"/>
+        <translation>TLS ホスト名の拡張機能を使う</translation>
     </message>
 </context>
 <context>
     <name>dcc::network::VpnSecOpenVPNSection</name>
+    <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
+        <source>VPN Security</source>
+        <translation>VPN セキュリティ</translation>
+    </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="75"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="96"/>
@@ -7201,11 +7381,6 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="97"/>
         <source>None</source>
         <translation>なし</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
-        <source>VPN Security</source>
-        <translation>VPN セキュリティ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="111"/>
@@ -7221,6 +7396,11 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="29"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
         <source>Saved</source>
         <translation>保存済み</translation>
@@ -7234,11 +7414,6 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
         <source>Not Required</source>
         <translation>必須ではない</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
@@ -7260,7 +7435,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>パスワードのオプション</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="128"/>
@@ -7304,6 +7479,11 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnStrongSwanSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="29"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="142"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="172"/>
         <source>Private Key</source>
@@ -7328,11 +7508,6 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="146"/>
         <source>Pre-Shared Key</source>
         <translation>事前共有キー</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
@@ -7403,6 +7578,11 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnTLSSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
+        <source>VPN TLS Authentication</source>
+        <translation>VPN TLS 認証</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="79"/>
         <source>Default</source>
         <translation>デフォルト</translation>
@@ -7416,11 +7596,6 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="81"/>
         <source>Server</source>
         <translation>サーバー</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
-        <source>VPN TLS Authentication</source>
-        <translation>VPN TLS 認証</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="87"/>
@@ -7451,6 +7626,11 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::network::VpnVPNCSection</name>
     <message>
+        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="29"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="159"/>
         <source>Saved</source>
         <translation>保存済み</translation>
@@ -7464,11 +7644,6 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
         <source>Not Required</source>
         <translation>必須ではない</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="167"/>
@@ -7493,7 +7668,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"/>
+        <translation>パスワードのオプション</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
@@ -7531,7 +7706,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
         <source>Plug in the network cable first</source>
-        <translation type="unfinished"/>
+        <translation>始めに、ネットワークケーブルを接続してください</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
@@ -7541,7 +7716,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="84"/>
         <source>Select Settings</source>
-        <translation type="unfinished"/>
+        <translation>設定を選択</translation>
     </message>
 </context>
 <context>
@@ -7554,12 +7729,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
         <source>Close Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>ホットスポットを閉じる</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation type="unfinished"/>
+        <translation>無線ネットワークに接続したい場合は、まずホットスポット共有を無効にしてください</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
@@ -7659,13 +7834,6 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::personalization::PersonalizationWidget</name>
     <message>
-        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="79"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
-        <location filename="../src/frame/navigationbar.cpp" line="205"/>
-        <source>Personalization</source>
-        <translation>パーソナライズ</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="48"/>
         <source>Transparency</source>
         <translation>透明度</translation>
@@ -7684,6 +7852,13 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="73"/>
         <source>Font</source>
         <translation>フォント</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="79"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
+        <location filename="../src/frame/navigationbar.cpp" line="205"/>
+        <source>Personalization</source>
+        <translation>パーソナライズ</translation>
     </message>
 </context>
 <context>
@@ -7719,13 +7894,6 @@ If no operation, the display will be restored after %1s.</source>
 </context>
 <context>
     <name>dcc::power::PowerWidget</name>
-    <message>
-        <location filename="../src/frame/modules/power/powerwidget.cpp" line="122"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="158"/>
-        <location filename="../src/frame/navigationbar.cpp" line="211"/>
-        <source>Power Management</source>
-        <translation>電力管理</translation>
-    </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="46"/>
         <source>Plugged in</source>
@@ -7778,7 +7946,14 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="111"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>自動モードスイッチ</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/power/powerwidget.cpp" line="122"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="158"/>
+        <location filename="../src/frame/navigationbar.cpp" line="211"/>
+        <source>Power Management</source>
+        <translation>電力管理</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="190"/>
@@ -7834,13 +8009,6 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="156"/>
-        <location filename="../src/frame/navigationbar.cpp" line="209"/>
-        <source>Sound</source>
-        <translation>サウンド</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="43"/>
         <source>Output Volume</source>
         <translation>出力音量</translation>
@@ -7859,6 +8027,13 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="49"/>
         <source>Feedback Volume</source>
         <translation>フィードバック音量</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="156"/>
+        <location filename="../src/frame/navigationbar.cpp" line="209"/>
+        <source>Sound</source>
+        <translation>サウンド</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="60"/>
@@ -7886,7 +8061,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>クラウド同期</translation>
     </message>
 </context>
 <context>
@@ -7899,7 +8074,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="73"/>
         <source>Startup Delay</source>
-        <translation type="unfinished"/>
+        <translation>起動時の遅延</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="76"/>
@@ -7914,7 +8089,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="82"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation type="unfinished"/>
+        <translation>テーマを有効にすると、ブートメニューで表示されます</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="102"/>
@@ -7933,17 +8108,17 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="43"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="125"/>
+        <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
+        <translation>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="163"/>
         <location filename="../src/frame/navigationbar.cpp" line="217"/>
         <source>System Information</source>
         <translation>システム情報</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="125"/>
-        <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="81"/>
@@ -7988,7 +8163,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="122"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>使用許諾契約書</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="126"/>
@@ -8006,38 +8181,38 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/systeminfo/userlicense.cpp" line="15"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>使用許諾契約書</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::MirrorItem</name>
     <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="37"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="132"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="43"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="142"/>
         <source>Untested</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="80"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="128"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="90"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="138"/>
         <source>Timeout</source>
         <translation>タイムアウト</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="82"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="129"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="92"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="139"/>
         <source>Slow</source>
         <translation>遅い</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="84"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="130"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="94"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="140"/>
         <source>Medium</source>
         <translation>中</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="86"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="131"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="96"/>
+        <location filename="../src/frame/modules/update/mirroritem.cpp" line="141"/>
         <source>Fast</source>
         <translation>速い</translation>
     </message>
@@ -8047,7 +8222,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="42"/>
         <source>Test Speed</source>
-        <translation type="unfinished"/>
+        <translation>速度を試す</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="46"/>
@@ -8057,7 +8232,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="141"/>
         <source>Retest</source>
-        <translation type="unfinished"/>
+        <translation>再度試す</translation>
     </message>
 </context>
 <context>
@@ -8076,13 +8251,6 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="162"/>
-        <location filename="../src/frame/navigationbar.cpp" line="216"/>
-        <source>Update</source>
-        <translation>アップデート</translation>
-    </message>
-    <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="55"/>
         <source>Please restart to use the system and applications properly after updated</source>
         <translation>システムとアプリケーションが正常に動作するように、アップデート後は再起動してください</translation>
@@ -8090,7 +8258,14 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="56"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
+        <translation>ネットワークに接続されていません。接続後に再度お試しください</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
+        <location filename="../src/frame/navigation/navmodel.cpp" line="162"/>
+        <location filename="../src/frame/navigationbar.cpp" line="216"/>
+        <source>Update</source>
+        <translation>アップデート</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
@@ -8111,12 +8286,12 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="190"/>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="294"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1% ダウンロード済み (一時停止するにはクリック)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="195"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
+        <translation>%1% ダウンロード済み (再開するにはクリック)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="201"/>
@@ -8181,7 +8356,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="304"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="unfinished"/>
+        <translation>再起動に十分なバッテリー残量があることを確認してください。また、電源を切ったり、プラグを抜かないでください</translation>
     </message>
 </context>
 <context>
@@ -8200,6 +8375,11 @@ If no operation, the display will be restored after %1s.</source>
         <translation>アップデートの設定</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
+        <source>Auto Clear Package Cache</source>
+        <translation>パッケージキャッシュを自動的に消去</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="65"/>
         <source>Updates Notification</source>
         <translation>アップデートの通知</translation>
@@ -8213,11 +8393,6 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
         <translation>無線または有線ネットワークでアップデートを自動的にダウンロードするにはオンにしてください</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
-        <source>Auto Clear Package Cache</source>
-        <translation>パッケージキャッシュを自動的に消去</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
@@ -8262,12 +8437,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="245"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="280"/>
         <source>Patches</source>
         <translation>パッチ</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="246"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="281"/>
         <source>System patches</source>
         <translation>システムパッチ</translation>
     </message>
@@ -8306,16 +8481,16 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::wacom::WacomWidget</name>
     <message>
+        <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="50"/>
+        <source>Mode</source>
+        <translation>モード</translation>
+    </message>
+    <message>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="161"/>
         <location filename="../src/frame/navigationbar.cpp" line="215"/>
         <source>Wacom</source>
         <translation>Wacom</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="50"/>
-        <source>Mode</source>
-        <translation>モード</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="72"/>
@@ -8341,8 +8516,16 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatehistorybutton.cpp" line="49"/>
         <source>Update History</source>
-        <translation type="unfinished"/>
+        <translation>履歴を更新</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>main</name>
+    <message>
+        <location filename="../src/frame/main.cpp" line="62"/>
+        <source>Control Center provides all system settings for deepin users.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

@@ -19,7 +19,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
-        <translation>Atura</translation>
+        <translation>Atura&apos;t</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
