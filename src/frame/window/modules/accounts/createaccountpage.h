@@ -61,7 +61,6 @@ private:
     void showErrorTip(QLineEdit *edit, const QString &error);
     bool validateUsername(const QString &username);
     void onNameEditFinished();
-    void doNextStep(const bool ok);
 
 Q_SIGNALS:
     void requestCreateUser(const dcc::accounts::User *user);
