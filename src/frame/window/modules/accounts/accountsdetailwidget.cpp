@@ -167,7 +167,7 @@ void AccountsDetailWidget::initWidgets()
     setFingerWgtsVisible(isCurUser);
 
     m_inputLineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    setFocusPolicy(Qt::FocusPolicy::StrongFocus);
+    setFocusPolicy(Qt::FocusPolicy::ClickFocus);
     m_inputLineEdit->setVisible(false);
 
     m_mainStackedWidget->setCurrentIndex(0);
@@ -225,8 +225,8 @@ void AccountsDetailWidget::initDatas()
         }
     });
     connect(m_fullnameBtn, &DIconButton::clicked, this, [ = ]() {
-        m_inputLineEdit->setFocus();
         updateLineEditDisplayStyle();
+        m_inputLineEdit->setFocus();
     });
     connect(m_addBtn, &DCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestAddThumbs(m_curUser->name(), m_notUseThumb);
