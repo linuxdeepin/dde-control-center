@@ -38,6 +38,7 @@ namespace dcc {
 namespace widgets {
 class DCCSlider;
 class DCCSliderAnnotated;
+class SettingsItem;
 }
 }
 
@@ -58,6 +59,7 @@ protected:
 
 private:
     void updateActiveColors(RoundColorWidget *selectedWidget);
+    void updateWMSwitcher(bool checked);
 
 Q_SIGNALS:
     void showThemeWidget();
@@ -73,7 +75,9 @@ private:
 
 private:
     QVBoxLayout *m_centralLayout;             //主布局
-    Dtk::Widget::DSwitchButton *m_wmSwitch;  //是否开启特效
+    DTK_WIDGET_NAMESPACE::DSwitchButton *m_wmSwitch;  //是否开启特效
+    dcc::widgets::SettingsItem *m_transparanceyBg;
+    QLabel *m_transparancyTitle;
     dcc::widgets::DCCSliderAnnotated *m_transparentSlider;  //透明度调节
     dcc::personalization::PersonalizationModel *m_model;
     PerssonalizationThemeWidget *m_Themes;

@@ -86,12 +86,13 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     //transparancy switch
     QVBoxLayout *transparancyLayout = new QVBoxLayout();
-    SettingsItem *transitem = new dcc::widgets::SettingsItem;
-    transitem->addBackground();
-    transitem->setLayout(transparancyLayout);
+    m_transparanceyBg = new dcc::widgets::SettingsItem;
+    m_transparanceyBg->addBackground();
+    m_transparanceyBg->setLayout(transparancyLayout);
 
     //~ contents_path /personalization/General
-    transparancyLayout->addWidget(new QLabel(tr("Transparency"), this));
+    m_transparancyTitle = new QLabel(tr("Transparency"), this);
+    transparancyLayout->addWidget(m_transparancyTitle);
     m_transparentSlider->slider()->setOrientation(Qt::Horizontal);
     m_transparentSlider->setObjectName("Transparency");
 
@@ -105,7 +106,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     slider->setTickInterval(1);
     slider->setPageStep(1);
     transparancyLayout->addWidget(m_transparentSlider);
-    m_centralLayout->addWidget(transitem);
+    m_centralLayout->addWidget(m_transparanceyBg);
 
     //sw switch
     QHBoxLayout *swswitchLayout = new QHBoxLayout();
@@ -138,11 +139,11 @@ void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel
     connect(model, &dcc::personalization::PersonalizationModel::wmChanged, this,
             [this](bool checked) {
         m_wmSwitch->blockSignals(true);
-        m_wmSwitch->setChecked(checked);
+        updateWMSwitcher(checked);
         m_wmSwitch->blockSignals(false);
     });
 
-    m_wmSwitch->setChecked(model->is3DWm());
+    updateWMSwitcher(model->is3DWm());
     connect(model, &dcc::personalization::PersonalizationModel::onOpacityChanged, this,
             &PersonalizationGeneral::onOpacityChanged);
 
@@ -179,6 +180,14 @@ void PersonalizationGeneral::updateActiveColors(RoundColorWidget *selectedWidget
             item->setSelected(false);
         }
     }
+}
+
+void PersonalizationGeneral::updateWMSwitcher(bool checked)
+{
+    m_wmSwitch->setChecked(checked);
+    m_transparancyTitle->setVisible(checked);
+    m_transparentSlider->setVisible(checked);
+    m_transparanceyBg->setVisible(checked);
 }
 
 void PersonalizationGeneral::onOpacityChanged(std::pair<int, double> value)
