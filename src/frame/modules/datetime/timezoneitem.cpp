@@ -45,7 +45,7 @@ TimezoneItem::TimezoneItem(QFrame *parent)
 {
     setFixedHeight(60);
 
-    QVBoxLayout* vlayout = new QVBoxLayout();
+    QVBoxLayout *vlayout = new QVBoxLayout();
     vlayout->setMargin(0);
     vlayout->setSpacing(0);
 
@@ -60,13 +60,13 @@ TimezoneItem::TimezoneItem(QFrame *parent)
 
     m_removeBtn->setObjectName("DCC-Datetime-TimezoneItem-Remove");
     m_removeBtn->setBackgroundRole(QPalette::ColorRole::Window);
-    m_removeBtn->setFixedSize(QSize(48,48));
+    m_removeBtn->setFixedSize(QSize(48, 48));
     m_removeBtn->setVisible(false);
 
     m_clock->setDrawTicks(false);
-    m_clock->setFixedSize(QSize(48,48));
+    m_clock->setFixedSize(QSize(48, 48));
 
-    QHBoxLayout* hlayout = new QHBoxLayout();
+    QHBoxLayout *hlayout = new QHBoxLayout();
     hlayout->setMargin(0);
     hlayout->setSpacing(0);
     hlayout->setContentsMargins(20, 0, 10, 0);
@@ -100,7 +100,7 @@ void TimezoneItem::toNormalMode()
 
 void TimezoneItem::updateInfo()
 {
-    const QDateTime localTime( QDateTime::currentDateTime() );
+    const QDateTime localTime(QDateTime::currentDateTime());
 
     const double timeDelta = (m_timezone.getUTCOffset() - localTime.offsetFromUtc()) / 3600.0;
 
@@ -114,14 +114,22 @@ void TimezoneItem::updateInfo()
     }
 
     QString compareLiteral;
-    if(timeDelta > 0) {
+    if (timeDelta > 0) {
         compareLiteral = tr("%1 hours earlier than local").arg(QString::number(timeDelta, 'f', 1));
     } else {
         compareLiteral = tr("%1 hours late than local").arg(QString::number(-timeDelta, 'f', 1));
     }
 
+    QString gmData = "";
+    int utcOff = m_timezone.getUTCOffset() / 3600;
+    if (utcOff >= 0) {
+        gmData = QString("(GM+%1:00)").arg(utcOff, 2, 10, QLatin1Char('0'));
+    } else {
+        gmData = QString("(GM%1:00)").arg(utcOff, 3, 10, QLatin1Char('0'));
+    }
+
     m_details->setText(QString("%1, %2").arg(dateLiteral).arg(compareLiteral));
-    m_city->setText(m_timezone.getZoneCity());
+    m_city->setText(m_timezone.getZoneCity() + gmData);
     m_clock->setTimeZone(m_timezone);
 }
 
