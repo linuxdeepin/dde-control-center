@@ -47,6 +47,15 @@ class SearchWidget;
 }
 
 namespace DCC_NAMESPACE {
+class DFourthColWidget : public QWidget
+{
+public:
+    explicit DFourthColWidget(QWidget *parent = nullptr);
+    void initWidget(QWidget *showWidget);
+protected:
+    void paintEvent(QPaintEvent *event) override;
+};
+
 class MainWindow : public DMainWindow, public FrameProxyInterface
 {
     Q_OBJECT

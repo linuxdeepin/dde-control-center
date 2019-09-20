@@ -402,24 +402,8 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
 {
     Q_UNUSED(inter)
 
-    QWidget *topWidget = new QWidget;
-    DPalette pa = DApplicationHelper::instance()->palette(topWidget);
-    pa.setBrush(DPalette::ItemBackground, pa.base());
-    DApplicationHelper::instance()->setPalette(topWidget, pa);
-    topWidget->setFixedSize(this->width(), this->height());
-
-    QHBoxLayout *layout = new QHBoxLayout;
-    w->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    pa = DApplicationHelper::instance()->palette(w);
-    pa.setBrush(DPalette::ItemBackground, pa.base());
-    DApplicationHelper::instance()->setPalette(w, pa);
-
-    layout->setMargin(0);
-    layout->setSpacing(0);
-    layout->addWidget(w, 0, Qt::AlignRight);
-    topWidget->setLayout(layout);
-
-    topWidget->setParent(this);
+    DFourthColWidget *topWidget = new DFourthColWidget(this);
+    topWidget->initWidget(w);
     topWidget->setVisible(true);
 
     if (m_topWidget) {
@@ -532,4 +516,40 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
         m_initList << inter;
     }
     inter->active();
+}
+
+DFourthColWidget::DFourthColWidget(QWidget *parent)
+    : QWidget (parent)
+{
+}
+
+void DFourthColWidget::initWidget(QWidget *showWidget)
+{
+    DPalette pa = DApplicationHelper::instance()->palette(this);
+    pa.setBrush(DPalette::ItemBackground, pa.base());
+    DApplicationHelper::instance()->setPalette(this, pa);
+    this->setFixedSize(this->parentWidget()->width(), this->parentWidget()->height());
+
+    QHBoxLayout *layout = new QHBoxLayout;
+    showWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    pa = DApplicationHelper::instance()->palette(showWidget);
+    pa.setBrush(DPalette::ItemBackground, pa.base());
+    DApplicationHelper::instance()->setPalette(showWidget, pa);
+
+    layout->setMargin(0);
+    layout->setSpacing(0);
+    layout->addWidget(showWidget, 0, Qt::AlignRight);
+    this->setLayout(layout);
+
+    update();
+}
+
+void DFourthColWidget::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(QBrush(QColor(255,255,255,153)));
+    painter.drawRect(this->parentWidget()->rect());
+
+    QWidget::paintEvent(event);
 }
