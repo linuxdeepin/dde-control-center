@@ -51,12 +51,6 @@ void RoundColorWidget::setSelected(bool selected)
 
     m_isSelected = selected;
 
-    if (m_isSelected) {
-        QPalette palette = qApp->palette();
-        palette.setColor(QPalette::Highlight, m_color);
-        qApp->setPalette(palette);
-    }
-
     update();
 }
 
