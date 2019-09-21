@@ -29,9 +29,12 @@
 
 #include "widgets/translucentframe.h"
 
+#include <DSlider>
+
 #include <QObject>
 #include <QVBoxLayout>
-#include <QSlider>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace widgets {
@@ -62,7 +65,7 @@ private:
     dcc::widgets::SettingsGroup *m_mainGroup;
     WacomModel *m_model;
     dcc::widgets::TitledSliderItem *m_pressureSlider;
-    QSlider *m_preSlider;
+    DSlider *m_preSlider;
 };
 
 }
