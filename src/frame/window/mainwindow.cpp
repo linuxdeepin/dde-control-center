@@ -115,19 +115,15 @@ MainWindow::MainWindow(QWidget *parent)
     m_searchWidget->setMinimumSize(350, 36);
 
     DTitlebar *titlebar = this->titlebar();
-    titlebar->setMinimumHeight(50);
     titlebar->addWidget(m_searchWidget, Qt::AlignCenter);
     connect(m_searchWidget, &SearchWidget::notifyModuleSearch, this, &MainWindow::onEnterSearchWidget);
 
-    auto thlayout = new QHBoxLayout();
-    thlayout->setSpacing(0);
-    DBackgroundGroup *btnGroup = new DBackgroundGroup(thlayout, this);
-    titlebar->addWidget(btnGroup, Qt::AlignLeft);
     m_backwardBtn = new DIconButton(this);
     m_backwardBtn->setEnabled(false);
-    m_backwardBtn->setFlat(false);
     m_backwardBtn->setIcon(QStyle::SP_ArrowBack);
-    thlayout->addWidget(m_backwardBtn);
+    titlebar->addWidget(m_backwardBtn, Qt::AlignLeft | Qt::AlignVCenter);
+    titlebar->setIcon(QIcon::fromTheme("preferences-system"));
+
     connect(m_backwardBtn, &DIconButton::clicked, this, [this] {
         popWidget();
         resetNavList(m_contentStack.isEmpty());
