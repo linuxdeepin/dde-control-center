@@ -38,10 +38,9 @@ DCCSlider::DCCSlider(DCCSlider::SliderType type, QWidget *parent)
     DSlider::slider()->setTracking(false);
 }
 
-DCCSlider::DCCSlider(SliderType type, Qt::Orientation orientation, QWidget *parent)
+DCCSlider::DCCSlider(Qt::Orientation orientation, QWidget *parent)
     : DSlider(orientation, parent)
 {
-    setType(type);
     DSlider::slider()->setTracking(false);
 }
 

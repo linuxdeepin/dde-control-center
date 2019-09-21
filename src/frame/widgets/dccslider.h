@@ -43,9 +43,7 @@ public:
 
 public:
     explicit DCCSlider(SliderType type = Normal, QWidget *parent = nullptr);
-    explicit DCCSlider(Qt::Orientation orientation = Qt::Horizontal, QWidget *parent = nullptr);
-
-    virtual ~DCCSlider();
+    explicit DCCSlider(Qt::Orientation orientation, QWidget *parent = nullptr);
 
     inline DCCSlider *slider() const { return const_cast<DCCSlider *>(this); }
     QSlider *qtSlider();
