@@ -124,13 +124,13 @@ void CreateAccountPage::initDatas()
     //~ contents_path /accounts/New Account
     m_title->setText(tr("New Account"));
     m_nameLabel->setText(tr("Username"));
-    m_nameEdit->setPlaceholderText(tr("Required"));
+    m_nameEdit->setPlaceholderText(tr("Required"));//必填
     m_fullnameLabel->setText(tr("Full Name"));
-    m_fullnameEdit->setPlaceholderText(tr("Selected"));//选填
+    m_fullnameEdit->setPlaceholderText(tr("optional"));//选填
     m_passwdLabel->setText(tr("Password"));
-    m_passwdEdit->setPlaceholderText(tr("Required"));
+    m_passwdEdit->setPlaceholderText(tr("Required"));//必填
     m_repeatpasswdLabel->setText(tr("Repeat Password"));
-    m_repeatpasswdEdit->setPlaceholderText(tr("Required"));
+    m_repeatpasswdEdit->setPlaceholderText(tr("Required"));//必填
 
     m_cancleBtn->setText(tr("Cancel"));
     m_addBtn->setText(tr("Create"));
