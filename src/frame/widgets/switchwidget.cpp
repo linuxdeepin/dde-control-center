@@ -37,23 +37,19 @@ DWIDGET_USE_NAMESPACE
 namespace dcc {
 namespace widgets {
 
-SwitchWidget::SwitchWidget(QWidget *parent)
-    : SwitchWidget(new NormalLabel, parent)
+SwitchWidget::SwitchWidget(const QString &title, QWidget *parent)
+    : SwitchWidget(parent, new NormalLabel(title))
 {
 
 }
 
-SwitchWidget::SwitchWidget(const QString &title, QFrame *parent)
-    : SwitchWidget(new NormalLabel(title), parent)
-{
-
-}
-
-SwitchWidget::SwitchWidget(QLabel *widget, QWidget *parent)
+SwitchWidget::SwitchWidget(QWidget *parent, QWidget *widget)
     : SettingsItem(parent)
     , m_leftWidget(widget)
     , m_switchBtn(new DSwitchButton)
 {
+    if (!m_leftWidget)
+        m_leftWidget = new QLabel();
     QHBoxLayout *mainLayout = new QHBoxLayout(this);
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);

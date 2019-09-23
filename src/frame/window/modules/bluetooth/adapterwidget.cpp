@@ -47,7 +47,7 @@ DWIDGET_USE_NAMESPACE
 AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     : m_adapter(adapter)
     , m_titleEdit(new TitleEdit)
-    , m_switch(new SwitchWidget(m_titleEdit))
+    , m_switch(new SwitchWidget(nullptr, m_titleEdit))
     , m_titleGroup(new SettingsGroup)
 {
     //~ contents_path /bluetooth/My Device

@@ -42,15 +42,15 @@ class SwitchWidget : public SettingsItem
     Q_OBJECT
 
 public:
-    explicit SwitchWidget(QWidget *parent = nullptr);
-    explicit SwitchWidget(const QString &title, QFrame *parent = nullptr);
-    explicit SwitchWidget(QLabel *widget, QWidget *parent = nullptr);
+//    explicit SwitchWidget(QWidget *parent = nullptr);
+    explicit SwitchWidget(const QString &title, QWidget *parent = nullptr);
+    explicit SwitchWidget(QWidget *parent = nullptr, QWidget *widget = nullptr);
 
     void setChecked(const bool checked = true);
     void setTitle(const QString &title);
     bool checked() const;
 
-    QLabel *leftWidget() const { return m_leftWidget; }
+    QWidget *leftWidget() const { return m_leftWidget; }
 
 Q_SIGNALS:
     void checkedChanged(const bool checked) const;
@@ -60,7 +60,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 
 private:
-    QLabel *m_leftWidget;
+    QWidget *m_leftWidget;
     Dtk::Widget::DSwitchButton *m_switchBtn;
 };
 
