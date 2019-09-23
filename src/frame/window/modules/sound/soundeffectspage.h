@@ -25,7 +25,7 @@
 #include "window/namespace.h"
 
 #include <DDesktopServices>
-
+#include <DListView>
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -49,9 +49,6 @@ namespace DCC_NAMESPACE {
 
 namespace sound {
 
-class HoverListView;
-class SoundEffectsModel;
-
 class SoundEffectsPage : public QWidget
 {
     Q_OBJECT
@@ -63,11 +60,11 @@ public:
 
 Q_SIGNALS:
     void requestSwitchSoundEffects(bool isOn);
+    void requestRefreshList();
     void requestSetEffectAble(DTK_WIDGET_NAMESPACE::DDesktopServices::SystemSoundEffect effect, bool enable);
 
 public Q_SLOTS:
     void startPlay(const QModelIndex &index);
-    void onEffectChanged(DTK_WIDGET_NAMESPACE::DDesktopServices::SystemSoundEffect effect, const bool enable);
 
 private:
     void initList();
@@ -76,8 +73,8 @@ private:
     QVBoxLayout *m_layout{nullptr};
     dcc::widgets::SwitchWidget *m_sw{nullptr};
     dcc::sound::SoundModel *m_model{nullptr};
-    HoverListView *m_effectList{nullptr};
-    SoundEffectsModel *m_listModel{nullptr};
+    DTK_WIDGET_NAMESPACE::DListView *m_effectList{nullptr};
+    QStandardItemModel *m_listModel{nullptr};
     QScopedPointer<QSound> m_sound;
 };
 

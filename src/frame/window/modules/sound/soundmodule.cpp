@@ -112,6 +112,7 @@ void SoundModule::showSoundEffectsPage()
     m_worker->refreshSoundEffect();
     SoundEffectsPage *w = new SoundEffectsPage;
 
+    connect(w, &SoundEffectsPage::requestRefreshList, m_worker, &SoundWorker::refreshSoundEffect);
     connect(w, &SoundEffectsPage::requestSwitchSoundEffects, m_worker, &SoundWorker::enableAllSoundEffect);
     connect(w, &SoundEffectsPage::requestSetEffectAble, m_worker, &SoundWorker::setEffectEnable);
     w->setModel(m_model);

@@ -179,9 +179,6 @@ set(WINDOW_FILES
     window/modules/sound/microphonepage.cpp
     window/modules/sound/advancedpage.cpp
     window/modules/sound/soundeffectspage.cpp
-    window/modules/sound/soundeffectsmodel.cpp
-    window/modules/sound/soundeffectsdelegate.cpp
-    window/modules/sound/hoverlistview.cpp
     window/modules/update/updatemodule.cpp
     window/modules/update/updatewidget.cpp
     window/modules/update/updatectrlwidget.cpp

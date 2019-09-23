@@ -20,13 +20,12 @@
  */
 
 #include "soundeffectspage.h"
-#include "soundeffectsmodel.h"
-#include "soundeffectsdelegate.h"
-#include "hoverlistview.h"
 #include "window/utils.h"
 
 #include "modules/sound/soundmodel.h"
 #include "widgets/switchwidget.h"
+
+#include <DIconButton>
 
 #include <QVBoxLayout>
 #include <QListView>
@@ -47,7 +46,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     , m_layout(new QVBoxLayout)
       //~ contents_path /sound/Sound Effects
     , m_sw(new SwitchWidget(tr("Sound Effects")))
-    , m_effectList(new HoverListView)
+    , m_effectList(new DListView)
     , m_sound(nullptr)
 {
     m_layout->setContentsMargins(ThirdPageContentsMargins);
@@ -59,6 +58,8 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_effectList->setMaximumHeight(800);
     m_effectList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_effectList->setSelectionMode(QListView::SelectionMode::NoSelection);
+    m_effectList->setEditTriggers(DListView::NoEditTriggers);
+    m_effectList->setFrameShape(DListView::NoFrame);
     m_layout->addWidget(m_effectList);
 
     setLayout(m_layout);
@@ -76,10 +77,9 @@ void SoundEffectsPage::setModel(dcc::sound::SoundModel *model)
         m_sw->setChecked(on);
         m_sw->blockSignals(false);
         m_effectList->setVisible(on);
-
     });
     connect(m_sw, &SwitchWidget::checkedChanged,
-            this, [=](bool on){
+    this, [ = ](bool on) {
         this->requestSwitchSoundEffects(on);
     });
 }
@@ -93,53 +93,46 @@ void SoundEffectsPage::startPlay(const QModelIndex &index)
     m_sound->play();
 }
 
-void SoundEffectsPage::onEffectChanged(DDesktopServices::SystemSoundEffect effect,
-                                       const bool enable)
-{
-    if (!m_listModel)
-        return;
-    for (int i = 0; i < m_model->soundEffectMap().size(); ++i) {
-        auto eff = m_model->soundEffectMap()[i];
-        if (effect == eff.second) {
-            auto idx = m_listModel->index(i, 0);
-            m_listModel->setItemSelect(idx, enable);
-        }
-    }
-}
-
 void SoundEffectsPage::initList()
 {
-    m_listModel = new SoundEffectsModel(m_model, this);
-    m_effectList->setModel(m_listModel);
-    auto delegate = new SoundEffectsDelegate(this);
-    m_effectList->setItemDelegate(delegate);
     m_sw->setChecked(m_model->enableSoundEffect());
 
-    QStringList sl;
-    for (int i = 1; i <= 4; ++i) {
-        sl.append(QString(":/sound/themes/dark/sound_preview_%1.svg")
-                  .arg(i));
-    }
-    m_listModel->setAnimImg(sl);
-    m_listModel->setHoverBtnImg(":/sound/themes/dark/sound_preview_4.svg");
+    m_listModel = new QStandardItemModel();
+    m_effectList->setModel(m_listModel);
 
-    connect(delegate, &SoundEffectsDelegate::hoverItemChange,
-            m_listModel, &SoundEffectsModel::setHoverIndex);
-    connect(delegate, &SoundEffectsDelegate::playBtnClicked,
-            m_listModel, &SoundEffectsModel::startPlay);
-    connect(delegate, &SoundEffectsDelegate::playBtnClicked, this, &SoundEffectsPage::startPlay);
-    connect(m_effectList, &QListView::clicked, m_listModel, &SoundEffectsModel::switchItem);
-    connect(m_listModel, &SoundEffectsModel::itemSelectChanged,
-    [ this ](const QModelIndex & idx, bool isOn) {
-        Q_EMIT requestSetEffectAble(m_model->soundEffectMap()[idx.row()].second, isOn);
+    DStandardItem *item = nullptr;
+    for (auto se : m_model->soundEffectMap()) {
+        item = new DStandardItem(se.first);
+        auto action = new DViewItemAction(Qt::Alignment(), QSize(), QSize(), true);
+        auto checkstatus = m_model->queryEffectData(se.second) ?
+                           DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
+        auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
+        action->setIcon(icon);
+        item->setActionList(Qt::Edge::RightEdge, {action});
+        m_listModel->appendRow(item);
+
+        connect(action, &DViewItemAction::triggered, this, [ = ] {
+            auto isSelected = m_model->queryEffectData(se.second);
+            this->requestSetEffectAble(se.second, !isSelected);
+            requestRefreshList();
+        });
+    }
+
+    connect(m_effectList, &DListView::clicked, this, &SoundEffectsPage::startPlay);
+    connect(m_model, &SoundModel::soundEffectDataChanged, this,
+    [ = ](DDesktopServices::SystemSoundEffect effect, const bool enable) {
+        for (int idx = 0; idx < m_model->soundEffectMap().size(); ++idx) {
+            auto ite = m_model->soundEffectMap().at(idx);
+            if (ite.second == effect) {
+                auto item = static_cast<DStandardItem *>(m_listModel->item(idx));
+                auto action = item->actionList(Qt::Edge::RightEdge)[0];
+                auto checkstatus = enable ?
+                                   DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
+                auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
+                action->setIcon(icon);
+                m_effectList->update(item->index());
+                break;
+            }
+        }
     });
-    connect(m_model, &SoundModel::soundEffectDataChanged,
-            this, &SoundEffectsPage::onEffectChanged);
-
-    Q_ASSERT(m_listModel);
-    for (int i = 0; i < m_model->soundEffectMap().size(); ++i) {
-        auto eff = m_model->soundEffectMap()[i];
-        auto idx = m_listModel->index(i, 0);
-        m_listModel->setItemSelect(idx, m_model->queryEffectData(eff.second));
-    }
 }
