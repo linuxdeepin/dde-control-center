@@ -24,9 +24,7 @@
 #include "window/modules/wacom/wacommodel.h"
 #include "window/modules/wacom/pressuresettings.h"
 
-#include "widgets/comboxwidget.h"
-
-#include <QComboBox>
+#include "widgets/settingsitem.h"
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::wacom;
@@ -35,21 +33,15 @@ WacomWidget::WacomWidget(QWidget *parent)
     : QWidget(parent)
     , m_sensitivity(new PressureSettings)
     , m_centralLayout(new QVBoxLayout)
-    , m_selectWacomMode(new ComboxWidget)
+    , m_modeLayout(new QHBoxLayout)
+    , m_modeTitle(new QLabel)
+    , m_modeComboBox(new QComboBox)
+    , m_modeSetting(new SettingsItem)
 {
-    m_selectWacomMode->setTitle(tr("Mode"));
-    m_selectWacomMode->comboBox()->addItem(getModeName(true)); // 笔模式
-    m_selectWacomMode->comboBox()->addItem(getModeName(false));
-
-    m_selectWacomMode->comboBox()->setCurrentIndex(0);
-
-    m_centralLayout->addWidget(m_selectWacomMode);
-    m_centralLayout->addWidget(m_sensitivity);
-
-    setLayout(m_centralLayout);
+    initWidget();
 
     connect(m_sensitivity, &PressureSettings::requestSetPressureValue, this, &WacomWidget::requestSetPressureValue);
-    connect(m_selectWacomMode, &ComboxWidget::onSelectChanged, this, [ = ](const QString curMode) {
+    connect(m_modeComboBox, &QComboBox::currentTextChanged, this, [ = ](const QString curMode) {
         bool isPen = false;
         if (tr("Pen") == curMode) {
             isPen = true;
@@ -75,6 +67,31 @@ QString WacomWidget::getModeName(const bool curMode) const
     }
 }
 
+void WacomWidget::initWidget()
+{
+    m_modeLayout->setMargin(0);
+    m_modeLayout->setSpacing(0);
+
+    m_modeTitle->setText(tr("Mode"));
+
+    m_modeComboBox->addItem(getModeName(true));
+    m_modeComboBox->addItem(getModeName(false));
+    m_modeComboBox->setCurrentIndex(0);
+
+    m_modeLayout->setContentsMargins(8, 0, 20, 0);
+    m_modeLayout->addWidget(m_modeTitle, 1);
+    m_modeLayout->addWidget(m_modeComboBox, 1);
+
+    m_modeSetting->setLayout(m_modeLayout);
+    m_modeSetting->addBackground();
+
+    m_centralLayout->addWidget(m_modeSetting);
+    m_centralLayout->addWidget(m_sensitivity);
+    m_centralLayout->addStretch(0);
+
+    setLayout(m_centralLayout);
+}
+
 void WacomWidget::onCursorModeChanged(const bool curMode)
 {
     int index = 1;
@@ -82,6 +99,6 @@ void WacomWidget::onCursorModeChanged(const bool curMode)
         index = 0;
     }
     m_sensitivity->setVisible(curMode);
-    m_selectWacomMode->comboBox()->setCurrentIndex(index);
+    m_modeComboBox->setCurrentIndex(index);
     Q_EMIT modeChanged(curMode);
 }

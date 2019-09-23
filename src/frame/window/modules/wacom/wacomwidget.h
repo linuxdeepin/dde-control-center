@@ -26,10 +26,13 @@
 
 #include <QVBoxLayout>
 #include <QWidget>
+#include <QHBoxLayout>
+#include <QComboBox>
+#include <QLabel>
 
 namespace dcc {
 namespace widgets {
-class ComboxWidget;
+class SettingsItem;
 }
 }
 
@@ -53,6 +56,7 @@ Q_SIGNALS:
 
 private:
     QString getModeName(const bool curMode) const;
+    void initWidget();
 
 private Q_SLOTS:
     void onCursorModeChanged(const bool curMode);
@@ -60,7 +64,10 @@ private Q_SLOTS:
 private:
     PressureSettings *m_sensitivity;
     QVBoxLayout *m_centralLayout;
-    dcc::widgets::ComboxWidget *m_selectWacomMode;
+    QHBoxLayout *m_modeLayout;
+    QLabel *m_modeTitle;
+    QComboBox *m_modeComboBox;
+    dcc::widgets::SettingsItem *m_modeSetting;
 };
 }
 }
