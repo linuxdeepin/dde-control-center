@@ -2,6 +2,7 @@
 
 #include "pages/login.h"
 #include "pages/index.h"
+#include "pages/logout.h"
 
 #include "modules/sync/syncmodel.h"
 
@@ -19,16 +20,15 @@ SyncWidget::SyncWidget(QWidget *parent)
     , m_loginPage(new LoginPage)
     , m_indexPage(new IndexPage)
     //~ contents_path /cloudsync/Sorry, it is not supported in your region at present, and will be coming soon
-    , m_cnonlyTip(new QLabel(tr("Sorry, it is not supported in your region at present, and will be coming soon")))
+    , m_cnonlyPage(new LogoutPage)
 {
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
 
     m_mainLayout->addWidget(m_loginPage);
     m_mainLayout->addWidget(m_indexPage);
-    m_mainLayout->addWidget(m_cnonlyTip);
-    m_cnonlyTip->setWordWrap(true);
-    m_cnonlyTip->setAlignment(Qt::AlignCenter);
+    m_mainLayout->addWidget(m_cnonlyPage);
+
 
     setLayout(m_mainLayout);
 
@@ -36,6 +36,7 @@ SyncWidget::SyncWidget(QWidget *parent)
     connect(m_indexPage, &IndexPage::requestSetAutoSync, this, &SyncWidget::requestSetAutoSync);
     connect(m_indexPage, &IndexPage::requestLogout, this, &SyncWidget::requestLogoutUser);
     connect(m_indexPage, &IndexPage::requestSetModuleState, this, &SyncWidget::requestSetModuleState);
+    connect(m_cnonlyPage, &LogoutPage::requestLogout, this, &SyncWidget::requestLogoutUser);
 }
 
 void SyncWidget::setModel(dcc::cloudsync::SyncModel *model)
@@ -57,7 +58,7 @@ void SyncWidget::onUserInfoChanged(const QVariantMap &userInfo)
         if (region == "CN") {
             m_mainLayout->setCurrentWidget(m_indexPage);
         } else {
-            m_mainLayout->setCurrentWidget(m_cnonlyTip);
+            m_mainLayout->setCurrentWidget(m_cnonlyPage);
         }
     }
     else {

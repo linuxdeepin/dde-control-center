@@ -42,6 +42,7 @@ namespace DCC_NAMESPACE {
 namespace sync {
 class LoginPage;
 class IndexPage;
+class LogoutPage;
 class SyncWidget : public QWidget
 {
     Q_OBJECT
@@ -63,7 +64,7 @@ private:
     dcc::cloudsync::SyncModel *m_model;
     LoginPage *m_loginPage;
     IndexPage *m_indexPage;
-    QLabel *m_cnonlyTip;
+    LogoutPage *m_cnonlyPage;
 };
 } // namespace sync
 
