@@ -235,6 +235,8 @@ void MainWindow::popWidget(ModuleInterface *const inter)
     Q_UNUSED(inter)
 
     popWidget();
+    // modified for bug-3072 
+    resetNavList(m_contentStack.isEmpty());
 }
 
 void MainWindow::showModulePage(const QString &module, const QString &page, bool animation)
