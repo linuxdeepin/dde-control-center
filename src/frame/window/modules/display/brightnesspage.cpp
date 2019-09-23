@@ -57,7 +57,7 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
 
     //~ contents_path /display/Brightness
-    m_nightTips = new QLabel(tr("The screen tone will be auto adjusted according to your location"));
+    m_nightTips = new QLabel(tr("The screen hue will be auto adjusted according to your location"));
     m_nightTips->setWordWrap(true);
     m_nightTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     m_nightTips->adjustSize();
