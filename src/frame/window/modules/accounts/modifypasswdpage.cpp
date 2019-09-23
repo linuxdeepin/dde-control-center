@@ -144,7 +144,7 @@ void ModifyPasswdPage::clickSaveBtn()
 void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
 {
     if (exitCode == ModifyPasswdPage::ModifyNewPwdSuccess) {
-        Q_EMIT requestBack();
+        Q_EMIT requestBack(true);
         return;
     } if (exitCode == ModifyPasswdPage::InputOldPwdError) {
         m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));

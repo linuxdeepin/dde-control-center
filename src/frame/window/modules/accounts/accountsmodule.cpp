@@ -170,10 +170,7 @@ void AccountsModule::onShowCreateAccountPage()
     w->setModel(newUser);
     connect(w, &CreateAccountPage::requestCreateUser, m_accountsWorker, &AccountsWorker::createAccount);
     connect(m_accountsWorker, &AccountsWorker::accountCreationFinished, w, &CreateAccountPage::setCreationResult);
-    connect(w, &CreateAccountPage::requestBack, this, [&]() {
-        m_frameProxy->popWidget(this);
-        m_accountsWidget->setShowFirstUserInfo(false);
-    });
+    connect(w, &CreateAccountPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);
     m_frameProxy->pushWidget(this, w);
 }
 
@@ -188,9 +185,7 @@ void AccountsModule::onShowPasswordPage(User *account)
 {
     ModifyPasswdPage *w = new ModifyPasswdPage(account);
     connect(w, &ModifyPasswdPage::requestChangePassword, m_accountsWorker, &AccountsWorker::setPassword);
-    connect(w, &ModifyPasswdPage::requestBack, this, [&]() {
-        m_frameProxy->popWidget(this);
-    });
+    connect(w, &ModifyPasswdPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);
     m_frameProxy->pushWidget(this, w);
 }
 

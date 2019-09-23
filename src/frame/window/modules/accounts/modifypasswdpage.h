@@ -64,7 +64,7 @@ private:
 
 Q_SIGNALS:
     void requestChangePassword(dcc::accounts::User *userInter, const QString &oldPassword, const QString &password);
-    void requestBack();
+    void requestBack(bool t = false);
 
 private:
     dcc::accounts::User *m_curUser;

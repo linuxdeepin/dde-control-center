@@ -474,7 +474,7 @@ QString AccountsWorker::cryptUserPassword(const QString &password)
 
     std::random_device r;
     std::default_random_engine e1(r());
-    std::uniform_int_distribution<int> uniform_dist(0, seedchars.size());
+    std::uniform_int_distribution<int> uniform_dist(0, seedchars.size() - 1);//seedchars.size()是64，生成随机数的范围应该写成[0, 63]。
 
     // Random access to a character in a restricted list
     for (int i = 0; i != 16; i++) {

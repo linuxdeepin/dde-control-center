@@ -205,6 +205,7 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
         break;
     }
 
+    Q_EMIT requestBack(true);
     result->deleteLater();
 }
 

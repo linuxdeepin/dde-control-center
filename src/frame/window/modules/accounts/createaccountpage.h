@@ -64,7 +64,7 @@ private:
 
 Q_SIGNALS:
     void requestCreateUser(const dcc::accounts::User *user);
-    void requestBack();
+    void requestBack(bool t = false);
 
 public Q_SLOTS:
     void setCreationResult(dcc::accounts::CreationResult *result);

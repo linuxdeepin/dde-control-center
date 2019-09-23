@@ -46,6 +46,7 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     , m_createBtn(new DFloatingButton(DStyle::SP_IncreaseElement, this))
     , m_userlistView(new DListView)
     , m_userItemModel(new QStandardItemModel)
+    , m_saveClickedRow(0)
 {
     setObjectName("Accounts");
 
@@ -153,8 +154,6 @@ void AccountsWidget::addUser(User *user, bool t1)
         item->setText(fullname);
     }
 
-    qDebug() << "user name:" << user->name()
-             << " ---------create time:" << user->createdTime();
     if (user->isCurrentUser()) {
         //如果是当前用户
         auto tttitem = m_userItemModel->takeRow(m_userItemModel->rowCount() - 1);
@@ -196,6 +195,7 @@ void AccountsWidget::removeUser(User *user)
 
 void AccountsWidget::onItemClicked(const QModelIndex &index)
 {
+    m_saveClickedRow = index.row();
     Q_EMIT requestShowAccountsDetail(m_userList[index.row()]);
 }
 
@@ -236,10 +236,7 @@ void AccountsWidget::connectUserWithItem(User *user)
             titem->setIcon(QIcon(avatar));
         }
     });
-
     connect(user, &User::createdTimeChanged, this, [ = ](const quint64 & createdtime) {
-        qDebug() << "user name:" << user->name()
-                 << " ---------create time:" << createdtime;
         if (user->isCurrentUser())
             return;
 
@@ -264,4 +261,16 @@ void AccountsWidget::connectUserWithItem(User *user)
             }
         }
     });
+}
+
+void AccountsWidget::handleRequestBack(bool t)
+{
+    if (t) {
+        showLastAccountInfo();
+    } else {
+        QModelIndex qindex = m_userlistView->model()->index(m_saveClickedRow, 0);
+        m_userlistView->setFocus();
+        m_userlistView->setCurrentIndex(qindex);
+        onItemClicked(qindex);
+    }
 }

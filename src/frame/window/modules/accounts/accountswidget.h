@@ -63,6 +63,8 @@ public:
         ItemDataRole = Dtk::UserRole + 1
     };
 
+    void handleRequestBack(bool t = false);
+
 public Q_SLOTS:
     void addUser(dcc::accounts::User *user, bool t1 = true);
     void removeUser(dcc::accounts::User *user);
@@ -71,6 +73,7 @@ public Q_SLOTS:
 Q_SIGNALS:
     void requestShowAccountsDetail(dcc::accounts::User *account);
     void requestCreateAccount();
+    void requestShowLastClickedUserInfo(bool t = false);
 
 private:
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_createBtn;
@@ -79,6 +82,7 @@ private:
     dcc::accounts::UserModel *m_model;
     QList<dcc::accounts::User *> m_userList;
     bool m_isShowFirstUserInfo = false;
+    int m_saveClickedRow;
 };
 
 }   // namespace accounts
