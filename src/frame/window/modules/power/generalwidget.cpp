@@ -34,7 +34,7 @@ using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 
-GeneralWidget::GeneralWidget(QWidget *parent)
+GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , m_lowBatteryMode(new SwitchWidget(tr("Power Saving Mode")))
@@ -59,6 +59,9 @@ GeneralWidget::GeneralWidget(QWidget *parent)
     generalSettingsGrp->appendItem(m_autoIntoSaveEnergyMode);
     generalSettingsGrp->appendItem(m_wakeComputerNeedPassword);
     generalSettingsGrp->appendItem(m_wakeDisplayNeedPassword);
+
+    m_lowBatteryMode->setVisible(bIsBattery);
+    m_autoIntoSaveEnergyMode->setVisible(bIsBattery);
 
     m_layout->addWidget(generalSettingsGrp);
     m_layout->setAlignment(Qt::AlignTop);

@@ -118,7 +118,7 @@ void PowerModule::showGeneral()
 {
     qDebug() << Q_FUNC_INFO;
 
-    GeneralWidget *general = new GeneralWidget;
+    GeneralWidget *general = new GeneralWidget(m_widget, m_widget->getIsUseBattety());
     general->setModel(m_model);
     m_frameProxy->pushWidget(this, general);
 
@@ -135,7 +135,7 @@ void PowerModule::showUseElectric()
 {
     qDebug() << Q_FUNC_INFO;
 
-    UseElectricWidget *electric = new UseElectricWidget;
+    UseElectricWidget *electric = new UseElectricWidget(m_widget);
     electric->setModel(m_model);
     m_frameProxy->pushWidget(this, electric);
 

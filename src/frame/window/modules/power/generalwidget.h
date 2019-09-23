@@ -43,7 +43,7 @@ class GeneralWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit GeneralWidget(QWidget *parent = nullptr);
+    explicit GeneralWidget(QWidget *parent = nullptr, bool bIsBattery = false);
     virtual ~GeneralWidget();
 
     void setModel(const dcc::power::PowerModel *model);
