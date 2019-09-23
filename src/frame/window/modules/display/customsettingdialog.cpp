@@ -211,11 +211,12 @@ void CustomSettingDialog::initOtherDialog()
 void CustomSettingDialog::initRefreshrateList()
 {
     QStandardItemModel *listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
-    if (listModel)
-        listModel->deleteLater();
-
+    if (listModel) {
+        listModel->clear();
+    } else {
+        listModel = new QStandardItemModel(this);
+    }
     auto modes = m_monitor->modeList();
-    listModel = new QStandardItemModel(this);
     m_rateList->setModel(listModel);
     Resolution pevR;
 
@@ -262,16 +263,17 @@ void CustomSettingDialog::initRefreshrateList()
 
 void CustomSettingDialog::initResolutionList()
 {
-    QStandardItemModel *itemModel = qobject_cast<QStandardItemModel *>(m_resolutionList->model());
-    if (itemModel)
-        itemModel->deleteLater();
+    if (m_resolutionListModel)
+        m_resolutionListModel->clear();
+    else
+        m_resolutionListModel = new QStandardItemModel();
+    m_resolutionList->setModel(m_resolutionListModel);
 
     bool first = true;
     auto modes = m_monitor->modeList();
     const auto curMode = m_monitor->currentMode();
 
-    itemModel = new QStandardItemModel(this);
-    QStandardItem *curIdx{nullptr};
+    DStandardItem *curIdx{nullptr};
     Resolution pevR;
     for (auto m : modes) {
         if (Monitor::isSameResolution(pevR, m)) {
@@ -294,8 +296,9 @@ void CustomSettingDialog::initResolutionList()
         }
 
         const QString res = QString::number(m.width()) + "×" + QString::number(m.height());
-        QStandardItem *item = new QStandardItem();
+        auto *item = new DStandardItem();
 
+        item->setData(QVariant(m.id()), Qt::WhatsThisPropertyRole);
         if (first) {
             first = false;
             item->setText(res + QString(" (%1)").arg(tr("Recommended")));
@@ -305,25 +308,31 @@ void CustomSettingDialog::initResolutionList()
 
         if (curMode == m)
             curIdx = item;
-        itemModel->appendRow(item);
+        m_resolutionListModel->appendRow(item);
     }
 
-    m_resolutionList->setModel(itemModel);
+    m_resolutionList->setModel(m_resolutionListModel);
     if (nullptr != curIdx)
-        m_resolutionList->setCurrentIndex(curIdx->index());
+        curIdx->setCheckState(Qt::Checked);
 
-    connect(m_monitor, &Monitor::currentModeChanged, this, [ = ](const Resolution &) {
-        Q_ASSERT(m_model);
-        Q_ASSERT(m_monitor);
-
+    connect(m_monitor, &Monitor::currentModeChanged, this, [this](const Resolution &tr) {
         auto list = m_monitor->modeList();
-        int idx = list.indexOf(m_monitor->currentMode());
-        m_resolutionList->setCurrentIndex(m_resolutionList->model()->index(idx, 0));
+        for(auto idx = 0; idx < m_resolutionListModel->rowCount(); ++idx) {
+            auto item = m_resolutionListModel->item(idx);
+            auto id = item->data(Qt::WhatsThisPropertyRole);
+            if (id == tr.id()) {
+                item->setCheckState(Qt::Checked);
+            } else {
+                item->setCheckState(Qt::Unchecked);
+            }
+        }
     });
-    connect(m_resolutionList, &QListView::clicked, [ = ](QModelIndex idx) {
-        if (m_resolutionList->model()->index(modes.indexOf(m_monitor->currentMode()), 0) == idx)
+    connect(m_resolutionList, &QListView::clicked, [this](QModelIndex idx) {
+        auto id = m_resolutionListModel->data(idx, Qt::WhatsThisPropertyRole).toInt();
+        if (id == m_monitor->currentMode().id())
             return;
-        Q_EMIT requestSetResolution(m_monitor, modes[idx.row()].id());
+
+        Q_EMIT requestSetResolution(m_monitor, id);
     });
 }
 
@@ -343,10 +352,8 @@ void CustomSettingDialog::initMoniList()
 
         auto *subTitleAction = new DViewItemAction;
         //~ contents_path /display/Multiple Displays
-        QString str = QString("%1 %2 %3%4x%5").arg(moni->w()).arg(tr("inch"))
-                      .arg(tr("Resolution")
-                           .arg(QString::number(moni->w()))
-                           .arg(QString::number(moni->h())));
+        QString str = QString("%1 %2 ").arg(moni->w()).arg(tr("inch"));
+        str += (tr("Resolution %1x%2").arg(QString::number(moni->w())).arg(QString::number(moni->h())));
         subTitleAction->setText(str);
 
         DViewItemActionList actionList;
