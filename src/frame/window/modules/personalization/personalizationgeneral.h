@@ -36,9 +36,7 @@ class PersonalizationModel;
 
 namespace dcc {
 namespace widgets {
-class DCCSlider;
-class DCCSliderAnnotated;
-class SettingsItem;
+class TitledSliderItem;
 }
 }
 
@@ -76,9 +74,7 @@ private:
 private:
     QVBoxLayout *m_centralLayout;             //主布局
     DTK_WIDGET_NAMESPACE::DSwitchButton *m_wmSwitch;  //是否开启特效
-    dcc::widgets::SettingsItem *m_transparanceyBg;
-    QLabel *m_transparancyTitle;
-    dcc::widgets::DCCSliderAnnotated *m_transparentSlider;  //透明度调节
+    dcc::widgets::TitledSliderItem *m_transparentSlider;  //透明度调节
     dcc::personalization::PersonalizationModel *m_model;
     PerssonalizationThemeWidget *m_Themes;
     QList<RoundColorWidget *> m_activeColorsList;

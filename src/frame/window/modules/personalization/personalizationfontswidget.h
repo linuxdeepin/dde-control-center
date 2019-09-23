@@ -38,8 +38,7 @@ class FontModel;
 
 namespace dcc {
 namespace widgets {
-class DCCSlider;
-class DCCSliderAnnotated;
+class TitledSliderItem;
 }
 }
 
@@ -67,7 +66,7 @@ private Q_SLOTS:
 private:
     dcc::personalization::PersonalizationModel *m_model;
     QVBoxLayout *m_centralLayout;
-    dcc::widgets::DCCSliderAnnotated *m_fontSizeSlider;  //字号调节
+    dcc::widgets::TitledSliderItem *m_fontSizeSlider;  //字号调节
     QComboBox *m_standardFontsCbBox;
     QComboBox *m_monoFontsCbBox;
     bool m_isAppend; //true : comboBox is appending data, ignoring currentTextChange signal

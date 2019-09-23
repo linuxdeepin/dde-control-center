@@ -22,7 +22,7 @@
 #include "perssonalizationthemewidget.h"
 #include "roundcolorwidget.h"
 #include "widgets/dccslider.h"
-#include "widgets/dccsliderannotated.h"
+#include "widgets/titledslideritem.h"
 #include "widgets/settingsitem.h"
 
 #include <DStyle>
@@ -54,9 +54,11 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout())
     , m_wmSwitch(new DTK_WIDGET_NAMESPACE::DSwitchButton())
-    , m_transparentSlider(new dcc::widgets::DCCSliderAnnotated())
+    //~ contents_path /personalization/General
+    , m_transparentSlider(new dcc::widgets::TitledSliderItem(tr("Transparency")))
     , m_Themes(new PerssonalizationThemeWidget())
 {
+    m_centralLayout->setMargin(10);
     //appearance
     //~ contents_path /personalization/General
     m_centralLayout->addWidget(new QLabel(tr("Theme")));
@@ -85,28 +87,25 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     m_centralLayout->addLayout(m_colorLayout);
 
     //transparancy switch
-    QVBoxLayout *transparancyLayout = new QVBoxLayout();
-    m_transparanceyBg = new dcc::widgets::SettingsItem;
-    m_transparanceyBg->addBackground();
-    m_transparanceyBg->setLayout(transparancyLayout);
-
-    //~ contents_path /personalization/General
-    m_transparancyTitle = new QLabel(tr("Transparency"), this);
-    transparancyLayout->addWidget(m_transparancyTitle);
+    m_transparentSlider->addBackground();
     m_transparentSlider->slider()->setOrientation(Qt::Horizontal);
     m_transparentSlider->setObjectName("Transparency");
 
+    //设计效果图变更：增加左右图标
+    m_transparentSlider->slider()->setLeftIcon(QIcon::fromTheme("dcc_transparency_low"));
+    m_transparentSlider->slider()->setRightIcon(QIcon::fromTheme("dcc_transparency_high"));
     dcc::widgets::DCCSlider *slider = m_transparentSlider->slider();
-    QStringList annotions;
-    annotions << "0.1" << "0.2" << "0.4" << "0.5" << "0.65" << "0.8" << "1.0";
-    m_transparentSlider->setAnnotations(annotions);
-    slider->setRange(0, 6);
+    //设计效果图变更：去掉刻度数字显示
+//    QStringList annotions;
+//    annotions << "0.1" << "0.2" << "0.4" << "0.5" << "0.65" << "0.8" << "1.0";
+//    m_transparentSlider->setAnnotations(annotions);
+//    slider->setRange(0, 6);
+    slider->setRange(0, 100);
     slider->setType(dcc::widgets::DCCSlider::Vernier);
     slider->setTickPosition(QSlider::TicksBelow);
     slider->setTickInterval(1);
     slider->setPageStep(1);
-    transparancyLayout->addWidget(m_transparentSlider);
-    m_centralLayout->addWidget(m_transparanceyBg);
+    m_centralLayout->addWidget(m_transparentSlider);
 
     //sw switch
     QHBoxLayout *swswitchLayout = new QHBoxLayout();
@@ -129,6 +128,10 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this,
             &PersonalizationGeneral::requestSetOpacity);
+    connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this,
+            [this](int value){
+        m_transparentSlider->setValueLiteral(QString::number(1.0 * value/100));
+    });
 }
 
 void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel *model)
@@ -185,15 +188,14 @@ void PersonalizationGeneral::updateActiveColors(RoundColorWidget *selectedWidget
 void PersonalizationGeneral::updateWMSwitcher(bool checked)
 {
     m_wmSwitch->setChecked(checked);
-    m_transparancyTitle->setVisible(checked);
     m_transparentSlider->setVisible(checked);
-    m_transparanceyBg->setVisible(checked);
 }
 
 void PersonalizationGeneral::onOpacityChanged(std::pair<int, double> value)
 {
     m_transparentSlider->slider()->blockSignals(true);
     m_transparentSlider->slider()->setValue(value.first);
+    m_transparentSlider->setValueLiteral(QString::number(value.second));
     m_transparentSlider->slider()->blockSignals(false);
 }
 

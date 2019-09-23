@@ -335,7 +335,11 @@ bool PersonalizationWork::allowSwitchWM()
 
 void PersonalizationWork::refreshOpacity(double opacity)
 {
+#ifdef WINDOW_MODE
+    int slider { static_cast<int>(opacity * 100) };
+#else
     int slider { toSliderValue<int>(OPACITY_SLIDER, static_cast<int>(opacity * 100)) };
+#endif
     qDebug() << QString("opacity: %1, slider: %2").arg(opacity).arg(slider);
     m_model->setOpacity(std::pair<int, double>(slider, opacity));
 }
@@ -405,7 +409,11 @@ float PersonalizationWork::sliderValueToSize(const int value) const
 
 double PersonalizationWork::sliderValutToOpacity(const int value) const
 {
+#ifdef WINDOW_MODE
+    return static_cast<double>(value) / static_cast<double>(100);
+#else
     return static_cast<double>(OPACITY_SLIDER[value]) / static_cast<double>(100);
+#endif
 }
 
 void PersonalizationWork::setDefault(const QJsonObject &value)

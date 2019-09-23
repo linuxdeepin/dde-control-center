@@ -20,7 +20,7 @@
  */
 #include "personalizationfontswidget.h"
 
-#include "widgets/dccsliderannotated.h"
+#include "widgets/titledslideritem.h"
 #include "widgets/dccslider.h"
 #include "widgets/settingsitem.h"
 #include "modules/personalization/personalizationmodel.h"
@@ -43,19 +43,16 @@ using namespace dcc::widgets;
 PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout())
-    , m_fontSizeSlider(new DCCSliderAnnotated(this))
+    //~ contents_path /personalization/Font
+    , m_fontSizeSlider(new TitledSliderItem(tr("Size")))
     , m_standardFontsCbBox(new QComboBox(this))
     , m_monoFontsCbBox(new QComboBox(this))
     , m_isAppend(false)
 {
+    m_centralLayout->setMargin(10);
+    m_centralLayout->setSpacing(20);
     //font size
-    //~ contents_path /personalization/Font
-    QVBoxLayout *sizeLayout = new QVBoxLayout;
-    SettingsItem *sizeitem = new SettingsItem;
-    sizeitem->addBackground();
-    sizeitem->setLayout(sizeLayout);
-
-    sizeLayout->addWidget(new QLabel(tr("Size"), this));
+    m_fontSizeSlider->addBackground();
     m_fontSizeSlider->setObjectName("fontsizeslider");
     m_fontSizeSlider->slider()->setOrientation(Qt::Horizontal);
 
@@ -69,9 +66,10 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     slider->setTickInterval(1);
     slider->setPageStep(1);
 
-    sizeLayout->addWidget(m_fontSizeSlider);
-    m_centralLayout->addWidget(sizeitem);
+    m_centralLayout->addWidget(m_fontSizeSlider);
 
+    QVBoxLayout *fontsLayout  = new QVBoxLayout;
+    fontsLayout->setSpacing(10);
     //standard font
     QHBoxLayout *sfontLayout = new QHBoxLayout();
     SettingsItem *sfontitem = new SettingsItem;
@@ -82,7 +80,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     sfontLayout->addWidget(m_standardFontsCbBox);
 
     m_standardFontsCbBox->setModel(new QStandardItemModel(this));
-    m_centralLayout->addWidget(sfontitem);
+    fontsLayout->addWidget(sfontitem);
 
     //mono font
     QHBoxLayout *mfontLayout = new QHBoxLayout();
@@ -93,7 +91,8 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     mfontLayout->addWidget(new QLabel(tr("Monospaced Font"), this));
     mfontLayout->addWidget(m_monoFontsCbBox);
     m_monoFontsCbBox->setModel(new QStandardItemModel(this));
-    m_centralLayout->addWidget(mfontitem);
+    fontsLayout->addWidget(mfontitem);
+    m_centralLayout->addLayout(fontsLayout);
     m_centralLayout->addStretch();
     setLayout(m_centralLayout);
 
@@ -179,7 +178,6 @@ void PersonalizationFontsWidget::onSelectChanged(const QString &name)
         }
     }
 }
-
 
 void PersonalizationFontsWidget::onDefaultFontChanged(const QString &name, dcc::personalization::FontModel *sender)
 {
