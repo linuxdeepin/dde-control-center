@@ -696,7 +696,7 @@
     <name>dccV20::display::BrightnessPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="60"/>
-        <source>The screen tone will be auto adjusted according to your location</source>
+        <source>The screen hue will be auto adjusted according to your location</source>
         <translation>通过获取地理位置来辅助系统实现自动调节屏幕颜色色调</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
