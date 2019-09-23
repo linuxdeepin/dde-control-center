@@ -156,6 +156,12 @@ void AccountsWidget::removeUser(User *user)
 {
     m_userItemModel->removeRow(m_userList.indexOf(user)); // It will delete when remove
     m_userList.removeOne(user);
+
+    if (m_isShowFirstUserInfo) {
+        showDefaultAccountInfo();
+    } else {
+        showLastAccountInfo();
+    }
 }
 
 void AccountsWidget::onItemClicked(const QModelIndex &index)
