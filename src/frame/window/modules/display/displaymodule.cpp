@@ -223,7 +223,7 @@ void DisplayModule::showRefreshRotePage()
     page->setModel(m_displayModel);
 
     connect(page, &RefreshRatePage::requestSetResolution,
-            m_displayWorker, &DisplayWorker::setMonitorResolution);
+            this, &DisplayModule::onCustomPageRequestSetResolution);
 
     m_frameProxy->pushWidget(this, page);
 
