@@ -94,10 +94,12 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_abRecoveryInter(new RecoveryInter("com.deepin.ABRecovery", "/com/deepin/ABRecovery", QDBusConnection::systemBus(), this))
     , m_systemInfoInter(new SystemInfoInter("com.deepin.daemon.SystemInfo", "/com/deepin/daemon/SystemInfo", QDBusConnection::sessionBus(), this))
     , m_onBattery(true)
-    , m_batteryPercentage(0)
-    , m_batterySystemPercentage(0)
-    , m_baseProgress(0)
+    , m_batteryPercentage(0.0)
+    , m_batterySystemPercentage(0.0)
+    , m_baseProgress(0.0)
     , m_bDownAndUpdate(false)
+    , m_jobPath("")
+    , m_downloadProcess(0.0)
 {
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
@@ -211,7 +213,7 @@ void UpdateWorker::checkForUpdates()
             if (!m_checkUpdateJob.isNull()) {
                 m_managerInter->CleanJob(m_checkUpdateJob->id());
             }
-            qWarning() << "check for updates error: " << call.error().message();
+            qWarning() << "UpdateFailed, check for updates error: " << call.error().message();
         }
     });
 }
@@ -228,7 +230,7 @@ void UpdateWorker::distUpgradeDownloadUpdates()
             if (!m_distUpgradeJob.isNull()) {
                 m_managerInter->CleanJob(m_distUpgradeJob->id());
             }
-            qWarning() << "download updates error: " << watcher->error().message();
+            qWarning() << "UpdateFailed, download updates error: " << watcher->error().message();
         }
     });
 }
@@ -245,7 +247,7 @@ void UpdateWorker::distUpgradeInstallUpdates()
             if (!m_distUpgradeJob.isNull()) {
                 m_managerInter->CleanJob(m_distUpgradeJob->id());
             }
-            qWarning() << "install updates error: " << watcher->error().message();
+            qWarning() << "UpdateFailed, install updates error: " << watcher->error().message();
         }
     });
 }
@@ -318,7 +320,12 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
         m_model->setStatus(UpdatesStatus::Updated);
     } else {
         if (result->downloadSize()) {
-            m_model->setStatus(UpdatesStatus::UpdatesAvailable);
+            if (!compareDouble(m_downloadProcess, 0.0))
+                m_model->setStatus(UpdatesStatus::UpdatesAvailable);
+            else {
+                m_model->setUpgradeProgress(m_downloadProcess);
+                m_model->setStatus(UpdatesStatus::DownloadPaused);
+            }
         } else {
             m_model->setStatus(UpdatesStatus::Downloaded);
         }
@@ -377,6 +384,8 @@ void UpdateWorker::pauseDownload()
     if (!m_downloadJob.isNull()) {
         m_managerInter->PauseJob(m_downloadJob->id());
         m_model->setStatus(UpdatesStatus::DownloadPaused);
+    } else {
+        qWarning() << "m_downloadJob is nullptr";
     }
 }
 
@@ -385,6 +394,8 @@ void UpdateWorker::resumeDownload()
     if (!m_downloadJob.isNull()) {
         m_managerInter->StartJob(m_downloadJob->id());
         m_model->setStatus(UpdatesStatus::Downloading);
+    } else {
+        qWarning() << "m_downloadJob is nullptr";
     }
 }
 
@@ -592,6 +603,8 @@ void UpdateWorker::setDownloadJob(const QString &jobPath)
                                  QDBusConnection::systemBus(), this);
 
     connect(m_downloadJob, &__Job::ProgressChanged, [this](double value) {
+        qDebug() << "[wubw download] m_downloadJob, value : " << value;
+        m_downloadProcess = value;
         DownloadInfo *info = m_model->downloadInfo();
         info->setDownloadProgress(value);
         m_model->setUpgradeProgress(value);
@@ -615,6 +628,7 @@ void UpdateWorker::setDistUpgradeJob(const QString &jobPath)
                                     QDBusConnection::systemBus(), this);
 
     connect(m_distUpgradeJob, &__Job::ProgressChanged, [this](double value) {
+        qDebug() << "[wubw distUpgrade] Update, value : " << value;
         m_model->setUpgradeProgress(m_baseProgress + (1 - m_baseProgress) * value);
     });
 
@@ -634,10 +648,9 @@ void UpdateWorker::setAutoCleanCache(const bool autoCleanCache)
 void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
 {
     for (const auto &job : jobs) {
-        const QString &path = job.path();
-        qDebug() << path;
+        m_jobPath = job.path();
 
-        JobInter jobInter("com.deepin.lastore", path, QDBusConnection::systemBus());
+        JobInter jobInter("com.deepin.lastore", m_jobPath, QDBusConnection::systemBus());
 
         if (!jobInter.isValid())
             continue;
@@ -645,12 +658,20 @@ void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
         // id maybe scrapped
         const QString &id = jobInter.id();
 
-        if (id == "update_source")
-            setCheckUpdatesJob(path);
-        else if (id == "prepare_dist_upgrade")
-            setDownloadJob(path);
-        else if (id == "dist_upgrade")
-            setDistUpgradeJob(path);
+        qDebug() << "[wubw] onJobListChanged, id : " << id << " , m_jobPath : " << m_jobPath;
+        if (id == "update_source") {
+            QTimer::singleShot(0, this, [this]() {
+                setCheckUpdatesJob(m_jobPath);
+            });
+        } else if (id == "prepare_dist_upgrade") {
+            QTimer::singleShot(0, this, [this]() {
+                setDownloadJob(m_jobPath);
+            });
+        } else if (id == "dist_upgrade") {
+            QTimer::singleShot(0, this, [this]() {
+                setDistUpgradeJob(m_jobPath);
+            });
+        }
     }
 }
 
@@ -669,6 +690,7 @@ void UpdateWorker::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
             m_model->setStatus(UpdatesStatus::DeependenciesBrokenError);
         } else {
             m_model->setStatus(UpdatesStatus::UpdateFailed);
+            qWarning() << Q_FUNC_INFO << "UpdateFailed, error msg : " << obj["Type"].toString();
         }
 
         w->deleteLater();
@@ -699,11 +721,9 @@ void UpdateWorker::onDownloadStatusChanged(const QString &status)
         else {
             // lastore not have download dbus
             QTimer::singleShot(0, this, [ = ] {
-                if (m_model->downloadInfo()->downloadSize())
-                {
+                if (m_model->downloadInfo()->downloadSize()) {
                     checkForUpdates();
-                } else
-                {
+                } else {
                     m_model->setStatus(UpdatesStatus::Downloaded);
                 }
             });
@@ -752,6 +772,7 @@ void UpdateWorker::checkDiskSpace(JobInter *job)
         m_model->setStatus(UpdatesStatus::NoNetwork);
     } else {
         m_model->setStatus(UpdatesStatus::UpdateFailed);
+        qWarning() << Q_FUNC_INFO << "UpdateFailed , jobDescription : " << jobDescription;
     }
 }
 

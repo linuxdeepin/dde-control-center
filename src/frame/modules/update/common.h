@@ -26,8 +26,12 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#include <QString>
+
 namespace dcc {
 namespace update {
+
+const double Epsion = 1e-6;
 
 enum UpdatesStatus {
     Default,
@@ -47,6 +51,12 @@ enum UpdatesStatus {
     RecoveryBackingup,
     RecoveryBackupFailed
 };
+
+//equal : false
+static inline bool compareDouble(const double value1, const double value2)
+{
+    return !((value1 - value2 >= -Epsion) && (value1 - value2 <= Epsion));
+}
 
 static inline QString formatCap(qulonglong cap, const int size = 1024)
 {

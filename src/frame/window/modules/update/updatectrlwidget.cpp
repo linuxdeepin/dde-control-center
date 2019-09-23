@@ -50,6 +50,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     , m_checkUpdateItem(new LoadingItem)
     , m_resultItem(new ResultItem)
     , m_progress(new DownloadProgressBar)
+    , m_fullProcess(new DownloadProgressBar)
     , m_summaryGroup(new SettingsGroup)
     , m_upgradeWarningGroup(new SettingsGroup)
     , m_summary(new SummaryItem)
@@ -71,6 +72,8 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_noNetworkTip->setText(tr("Network disconnected, please retry after connected"));
 
     m_progress->setVisible(false);
+    m_fullProcess->setVisible(false);
+    m_fullProcess->setValue(100);
 
     m_summaryGroup->setVisible(true);
 
@@ -100,6 +103,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     layout->addWidget(m_powerTip);  
     layout->addWidget(m_summary);
     layout->addWidget(m_progress);
+    layout->addWidget(m_fullProcess);
     layout->addWidget(m_updateList ,1);
 
     layout->addStretch();
@@ -121,6 +125,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     setModel(model);
 
     connect(m_progress, &DownloadProgressBar::clicked, this, &UpdateCtrlWidget::onProgressBarClicked);
+    connect(m_fullProcess, &DownloadProgressBar::clicked, this, &UpdateCtrlWidget::onProgressBarClicked);
 }
 
 UpdateCtrlWidget::~UpdateCtrlWidget()
@@ -177,6 +182,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     m_noNetworkTip->setVisible(false);
     m_resultItem->setVisible(false);
     m_progress->setVisible(false);
+    m_fullProcess->setVisible(false);
     m_updateList->setVisible(false);
     m_upgradeWarningGroup->setVisible(false);
     m_reminderTip->setVisible(false);
@@ -196,22 +202,21 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_checkUpdateItem->setImageOrTextVisible(false);
         break;
     case UpdatesStatus::UpdatesAvailable:
-        m_progress->setVisible(true);
+        m_fullProcess->setVisible(true);
         m_updateList->setVisible(true);
         m_summary->setVisible(true);
         //~ contents_path /update/Update
-        m_progress->setMessage(tr("Download and install updates"));
+        m_fullProcess->setMessage(tr("Download and install updates"));
         setDownloadInfo(m_model->downloadInfo());
-        m_progress->setValue(100);
         setLowBattery(m_model->lowBattery());
         break;
     case UpdatesStatus::Downloading:
         m_progress->setVisible(true);
         m_updateList->setVisible(true);
         m_summary->setVisible(true);
-        m_progress->setValue(m_progress->value());
         //~ contents_path /update/Update
         m_progress->setMessage(tr("%1% downloaded (Click to pause)").arg(m_progress->value()));
+        m_progress->setValue(m_progress->value());
         break;
     case UpdatesStatus::DownloadPaused:
         m_progress->setVisible(true);
@@ -348,6 +353,8 @@ void UpdateCtrlWidget::setProgressValue(const double value)
     if (m_status == UpdatesStatus::Downloading) {
         //~ contents_path /update/Update
         m_progress->setMessage(tr("%1% downloaded (Click to pause)").arg(qFloor(value * 100)));
+    } else if (m_status == UpdatesStatus::DownloadPaused) {
+        m_progress->setMessage(tr("%1% downloaded (Click to continue)").arg(qFloor(value * 100)));
     }
 }
 

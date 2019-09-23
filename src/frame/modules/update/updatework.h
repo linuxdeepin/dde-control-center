@@ -131,6 +131,8 @@ private:
     QList<QString> m_updatableApps;
     QList<QString> m_updatablePackages;
     bool m_bDownAndUpdate;
+    QString m_jobPath;
+    double m_downloadProcess;
 };
 }
 }

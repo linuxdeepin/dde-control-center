@@ -90,6 +90,7 @@ private:
     LoadingItem *m_checkUpdateItem;
     dcc::update::ResultItem *m_resultItem;
     dcc::update::DownloadProgressBar *m_progress;
+    dcc::update::DownloadProgressBar *m_fullProcess;
     dcc::widgets::SettingsGroup *m_summaryGroup;
     dcc::widgets::SettingsGroup *m_upgradeWarningGroup;
     dcc::update::SummaryItem *m_summary;

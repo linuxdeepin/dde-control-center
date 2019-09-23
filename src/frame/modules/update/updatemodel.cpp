@@ -39,7 +39,7 @@ DownloadInfo::DownloadInfo(const qlonglong &downloadSize, const QList<AppUpdateI
 
 void DownloadInfo::setDownloadProgress(double downloadProgress)
 {
-    if (m_downloadProgress != downloadProgress) {
+    if (compareDouble(m_downloadProgress, downloadProgress)) {
         m_downloadProgress = downloadProgress;
         Q_EMIT downloadProgressChanged(downloadProgress);
     }
@@ -77,7 +77,8 @@ void UpdateModel::setMirrorInfos(const MirrorInfoList &list)
 
 void UpdateModel::setDefaultMirror(const QString &mirror)
 {
-    if (mirror == m_mirrorId) return;
+    if (mirror == "")
+        return;
     m_mirrorId = mirror;
 
     QList<MirrorInfo>::iterator it = m_mirrorList.begin();
@@ -179,7 +180,7 @@ double UpdateModel::upgradeProgress() const
 
 void UpdateModel::setUpgradeProgress(double upgradeProgress)
 {
-    if (m_upgradeProgress != upgradeProgress) {
+    if (compareDouble(m_upgradeProgress, upgradeProgress)) {
         m_upgradeProgress = upgradeProgress;
         Q_EMIT upgradeProgressChanged(upgradeProgress);
     }
@@ -206,7 +207,7 @@ double UpdateModel::updateProgress() const
 
 void UpdateModel::setUpdateProgress(double updateProgress)
 {
-    if (m_updateProgress != updateProgress) {
+    if (compareDouble(m_updateProgress, updateProgress)) {
         m_updateProgress = updateProgress;
         Q_EMIT updateProgressChanged(updateProgress);
     }
