@@ -25,6 +25,7 @@
 
 #include <QDesktopWidget>
 #include <QApplication>
+#include <QWindow>
 
 //在"控制中心",进行"Install update"前,会先备份,备份成功后再升级,升级完成需要重启;(重启后在启动列表中选择更新的启动项)
 //然后启动该进程,根据构造函数中的条件逐渐往下判断,都满足则showDialog
@@ -54,12 +55,46 @@ void Manage::showDialog()
         return;
 
     m_dialog = new RecoveryDialog;
-
-    QDesktopWidget *desktop = qApp->desktop();
-    m_dialog->move((desktop->width() - m_dialog->width()) / 2, (desktop->height() - m_dialog->height()) / 2);
     m_dialog->setAttribute(Qt::WA_DeleteOnClose);
     m_dialog->setVisible(true);
     m_dialog->backupInfomation(m_systemRecovery->backupVersion(), getBackupTime());
+
+    QTimer::singleShot(100, this, [this]() {
+        QDesktopWidget *desktop = qApp->desktop();
+        m_dialog->move((desktop->width() - m_dialog->width()) / 2, (desktop->height() - m_dialog->height()) / 2);
+
+        m_dialog->grab();
+        bool bGrabMouseState = m_dialog->windowHandle()->setMouseGrabEnabled(true);
+        bool bGrabKeyboardState = m_dialog->windowHandle()->setKeyboardGrabEnabled(true);
+        qDebug() << "抓取鼠标焦点(true : 成功)，setMouseGrabEnabled :" << bGrabMouseState;
+        qDebug() << "抓取键盘焦点(true : 成功)， d->setKeyboardGrabEnabled :" << bGrabKeyboardState;
+
+        //获取鼠标焦点失败后，重抓，最多重连3次
+        if (!bGrabMouseState) {
+            QTimer::singleShot(100, this, [this]() {
+                for (int i = 0; i < 3; i++) {
+                    bool state = m_dialog->windowHandle()->setMouseGrabEnabled(true);
+                    qDebug() << "抓取鼠标焦点(true : 成功)，setMouseGrabEnabled :" << state;
+                    if (state) {
+                        break;
+                    }
+                }
+            });
+        }
+
+        //获取键盘焦点失败后，重抓，最多重抓3次
+        if (!bGrabKeyboardState) {
+            QTimer::singleShot(100, this, [this]() {
+                for (int i = 0; i < 3; i++) {
+                    bool state = m_dialog->windowHandle()->setKeyboardGrabEnabled(true);
+                    qDebug() << "抓取键盘焦点(true : 成功)setKeyboardGrabEnabled :" << state;
+                    if (state) {
+                        break;
+                    }
+                }
+            });
+        }
+    });
 
     connect(m_dialog, &RecoveryDialog::notifyButtonClicked, m_sessionManager, [ = ](bool state) {
         //能够进入到弹框页面,说明是满足一切版本回退的条件
@@ -147,6 +182,10 @@ RecoveryDialog::RecoveryDialog(DDialog *parent)
     , m_backupTime("")
 {
     setCloseButtonVisible(false);
+
+    this->setWindowFlag(Qt::WindowStaysOnTopHint);
+    this->setMinimumSize(400, 180);
+    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
 
 RecoveryDialog::~RecoveryDialog()
