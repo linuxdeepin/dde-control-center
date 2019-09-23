@@ -118,7 +118,7 @@ void MicrophonePage::initSlider()
     connect(m_model, &SoundModel::microphoneOnChanged, m_inputSlider, &TitledSliderItem::setVisible);
 
     //~ contents_path /sound/Microphone
-    m_feedbackSlider = (new TitledSliderItem("Input Level"));
+    m_feedbackSlider = (new TitledSliderItem(tr("Input Level")));
     m_feedbackSlider->addBackground();
     m_feedbackSlider->setVisible(m_model->microphoneOn());
     DCCSlider *slider2 = m_feedbackSlider->slider();
