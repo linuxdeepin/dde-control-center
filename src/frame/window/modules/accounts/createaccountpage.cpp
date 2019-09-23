@@ -57,6 +57,7 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     , m_cancleBtn(new QPushButton)
     , m_addBtn(new QPushButton)
     , m_errorTip(new ErrorTip)
+    , m_errorEdit(nullptr)
 {
     initWidgets();
     initDatas();
@@ -105,19 +106,23 @@ void CreateAccountPage::initDatas()
 {
     connect(m_cancleBtn, &QPushButton::clicked, this, &CreateAccountPage::requestBack);
     connect(m_addBtn, &QPushButton::clicked, this, &CreateAccountPage::createUser);
-    connect(m_nameEdit, &QLineEdit::editingFinished, this, &CreateAccountPage::onNameEditFinished);
+
     connect(m_nameEdit, &QLineEdit::textEdited, this, [ = ](const QString & str) {
+        if (m_nameEdit == m_errorEdit && m_errorTip->isVisible()) {
+            m_errorTip->hide();
+        }
         m_nameEdit->setText(str.toLower());
     });
 
-    connect(m_passwdEdit, &DPasswordEdit::editingFinished, this, [ = ] {
-        onEditFinished(m_passwdEdit);
+    connect(m_passwdEdit, &DPasswordEdit::textEdited, this, [ = ] {
+        if (m_passwdEdit == m_errorEdit && m_errorTip->isVisible()) {
+            m_errorTip->hide();
+        }
     });
 
-    connect(m_repeatpasswdEdit, &DPasswordEdit::editingFinished, this, [ = ] {
-        if (!m_errorTip->isVisible())
-        {
-            onEditFinished(m_repeatpasswdEdit);
+    connect(m_repeatpasswdEdit, &DPasswordEdit::textEdited, this, [ = ] {
+        if (m_repeatpasswdEdit == m_errorEdit && m_errorTip->isVisible()) {
+            m_errorTip->hide();
         }
     });
 
@@ -145,18 +150,10 @@ void CreateAccountPage::setModel(User *user)
 
 void CreateAccountPage::createUser()
 {
-    if (m_nameEdit->text().isEmpty()) {
-        showErrorTip(m_nameEdit, tr("Username cannot be empty"));
-        return;
-    }
-    if (m_passwdEdit->text().isEmpty()) {
-        showErrorTip(m_passwdEdit, tr("Password cannot be empty"));
-        return;
-    }
-    if (m_passwdEdit->text() != m_repeatpasswdEdit->text()) {
-        showErrorTip(m_repeatpasswdEdit, tr("Passwords do not match"));
-        return;
-    }
+    //校验输入的用户名和密码
+    if (!onNameEditFinished()) { return; }
+    if (!onPasswordEditFinished(m_passwdEdit)) { return; }
+    if (!onPasswordEditFinished(m_repeatpasswdEdit)) { return; }
 
     //随机分配图像 [0, 13]
     int random = qrand() % 14;
@@ -167,7 +164,6 @@ void CreateAccountPage::createUser()
     m_newUser->setRepeatPassword(m_repeatpasswdEdit->text());
 
     Q_EMIT requestCreateUser(m_newUser);
-//    Q_EMIT requestBack();
 }
 
 bool CreateAccountPage::validatePassword(const QString &password)
@@ -195,9 +191,7 @@ void CreateAccountPage::showErrorTip(QLineEdit *edit, const QString &error)
     m_errorTip->setText(error);
     m_errorTip->show(globalStart.x() + edit->width() / 2,
                      globalStart.y() + edit->height() / 2 + 10);
-    QTimer::singleShot(1.5 * 1000, this, [&]() {
-        m_errorTip->hide();
-    });
+    m_errorEdit = edit;//记录当前是哪个输入框提示出错
 }
 
 void CreateAccountPage::setCreationResult(CreationResult *result)
@@ -222,29 +216,37 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
     result->deleteLater();
 }
 
-void CreateAccountPage::onEditFinished(DPasswordEdit *edit)
+bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
 {
-    const QString &password = edit->text();
-    if (password.isEmpty()) {
+    const QString &userpassword = edit->text();
+    if (userpassword.isEmpty()) {
         showErrorTip(edit, tr("Password cannot be empty"));
-        return;
+        return false;
     }
 
-    if (m_nameEdit->text().toLower() == password.toLower()) {
+    if (m_nameEdit->text().toLower() == userpassword.toLower()) {
         showErrorTip(edit, tr("The password should be different from the username"));
-        return;
+        return false;
     }
 
-    bool result = validatePassword(password);
+    bool result = validatePassword(userpassword);
     if (!result) {
         showErrorTip(edit, tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
-        m_addBtn->setEnabled(false);
-    } else {
-        if (m_errorTip->isVisible()) {
-            m_errorTip->hide();
-        }
-        m_addBtn->setEnabled(true);
+        return false;
     }
+
+    if (edit == m_repeatpasswdEdit) {
+        if (m_passwdEdit->text() != m_repeatpasswdEdit->text()) {
+            showErrorTip(m_repeatpasswdEdit, tr("Passwords do not match"));
+            return false;
+        }
+    }
+
+    if (m_errorTip->isVisible()) {
+        m_errorTip->hide();
+    }
+    m_errorEdit = nullptr;
+    return true;
 }
 
 bool CreateAccountPage::validateUsername(const QString &username)
@@ -253,28 +255,33 @@ bool CreateAccountPage::validateUsername(const QString &username)
     return containsChar(username, name_validate);
 }
 
-void CreateAccountPage::onNameEditFinished()
+bool CreateAccountPage::onNameEditFinished()
 {
-    QLineEdit *edit = qobject_cast<QLineEdit *>(sender());
-    QString username = edit->text();
+    QString username = m_nameEdit->text();
+    if (username.isEmpty()) {
+        showErrorTip(m_nameEdit, tr("Username cannot be empty"));
+        return false;
+    }
 
-    if (edit->text().size() < 3 || edit->text().size() > 32) {
-        showErrorTip(edit, tr("Username must be between 3 and 32 characters"));
-        return;
+    if (username.size() < 3 || username.size() > 32) {
+        showErrorTip(m_nameEdit, tr("Username must be between 3 and 32 characters"));
+        return false;
     }
 
     const QString compStr = "abcdefghijklmnopqrstuvwxyz";
     if (!compStr.contains(username.at(0))) {
-        showErrorTip(edit, tr("The first character must be in lower case"));
-        return;
+        showErrorTip(m_nameEdit, tr("The first character must be in lower case"));
+        return false;
     }
 
     if (!validateUsername(username)) {
-        showErrorTip(edit, tr("Username must only contain a~z, 0~9, - or _"));
-        return;
+        showErrorTip(m_nameEdit, tr("Username must only contain a~z, 0~9, - or _"));
+        return false;
     }
 
     if (m_errorTip->isVisible()) {
         m_errorTip->hide();
     }
+    m_errorEdit = nullptr;
+    return true;
 }

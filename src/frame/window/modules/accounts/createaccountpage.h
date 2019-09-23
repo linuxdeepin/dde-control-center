@@ -55,12 +55,12 @@ private:
     void initWidgets();
     void initDatas();
     void createUser();
-    void onEditFinished(DPasswordEdit *edit);
+    bool onPasswordEditFinished(DPasswordEdit *edit);
     bool validatePassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
     void showErrorTip(QLineEdit *edit, const QString &error);
     bool validateUsername(const QString &username);
-    void onNameEditFinished();
+    bool onNameEditFinished();
 
 Q_SIGNALS:
     void requestCreateUser(const dcc::accounts::User *user);
@@ -88,6 +88,7 @@ private:
     QPushButton *m_cancleBtn;
     QPushButton *m_addBtn;
     dcc::widgets::ErrorTip *m_errorTip;
+    QLineEdit *m_errorEdit;
 };
 
 }
