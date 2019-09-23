@@ -76,6 +76,8 @@ private:
     DTK_WIDGET_NAMESPACE::DListView *m_effectList{nullptr};
     QStandardItemModel *m_listModel{nullptr};
     QScopedPointer<QSound> m_sound;
+    QTimer *m_aniTimer{nullptr};
+    int m_aniDuration{0};
 };
 
 }

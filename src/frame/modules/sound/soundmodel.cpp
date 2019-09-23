@@ -216,6 +216,9 @@ void SoundModel::setAudioCards(const QString &audioCards)
 
 void SoundModel::setEffectData(DDesktopServices::SystemSoundEffect effect, const bool enable)
 {
+    if(m_soundEffectData[effect] == enable)
+        return;
+
     m_soundEffectData[effect] = enable;
 
     Q_EMIT soundEffectDataChanged(effect, enable);

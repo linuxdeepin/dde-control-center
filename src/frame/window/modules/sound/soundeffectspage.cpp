@@ -27,6 +27,7 @@
 
 #include <DIconButton>
 
+#include <QTimer>
 #include <QVBoxLayout>
 #include <QListView>
 #include <QLabel>
@@ -34,12 +35,12 @@
 #include <QStandardItem>
 #include <QSound>
 
-#include <QDebug>
-
 using namespace dcc::sound;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::sound;
 DWIDGET_USE_NAMESPACE
+
+const int AnimationDuration = 5000;
 
 SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     : QWidget(parent)
@@ -61,6 +62,9 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_effectList->setEditTriggers(DListView::NoEditTriggers);
     m_effectList->setFrameShape(DListView::NoFrame);
     m_layout->addWidget(m_effectList);
+
+    m_aniTimer = new QTimer(this);
+    m_aniTimer->setSingleShot(false);
 
     setLayout(m_layout);
 }
@@ -91,6 +95,29 @@ void SoundEffectsPage::startPlay(const QModelIndex &index)
 
     m_sound->stop();
     m_sound->play();
+
+    m_aniTimer->disconnect();
+    auto item = static_cast<DStandardItem *>(m_listModel->itemFromIndex(index));
+    auto aniAction = item->actionList(Qt::Edge::RightEdge)[0];
+    int intervalal = 300;
+    m_aniTimer->setInterval(intervalal);
+    aniAction->setVisible(true);
+    connect(m_aniTimer, &QTimer::timeout, this, [ = ] {
+        auto aniIdx = (m_aniDuration / intervalal) % 3 + 1;
+        auto icon = QIcon::fromTheme("dcc_volume" + QString::number(aniIdx));
+        aniAction->setIcon(icon);
+
+        m_aniDuration += intervalal;
+        if (m_aniDuration > AnimationDuration)
+        {
+            aniAction->setVisible(false);
+            m_aniTimer->stop();
+            m_aniDuration = 0;
+        }
+        m_effectList->update(index);
+    });
+
+    m_aniTimer->start();
 }
 
 void SoundEffectsPage::initList()
@@ -108,7 +135,9 @@ void SoundEffectsPage::initList()
                            DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
         auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
         action->setIcon(icon);
-        item->setActionList(Qt::Edge::RightEdge, {action});
+        auto aniAction = new DViewItemAction;
+        aniAction->setVisible(false);
+        item->setActionList(Qt::Edge::RightEdge, {aniAction, action});
         m_listModel->appendRow(item);
 
         connect(action, &DViewItemAction::triggered, this, [ = ] {
@@ -123,16 +152,18 @@ void SoundEffectsPage::initList()
     [ = ](DDesktopServices::SystemSoundEffect effect, const bool enable) {
         for (int idx = 0; idx < m_model->soundEffectMap().size(); ++idx) {
             auto ite = m_model->soundEffectMap().at(idx);
-            if (ite.second == effect) {
-                auto item = static_cast<DStandardItem *>(m_listModel->item(idx));
-                auto action = item->actionList(Qt::Edge::RightEdge)[0];
-                auto checkstatus = enable ?
-                                   DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
-                auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
-                action->setIcon(icon);
-                m_effectList->update(item->index());
-                break;
+            if (ite.second != effect) {
+                continue;
             }
+
+            auto item = static_cast<DStandardItem *>(m_listModel->item(idx));
+            auto action = item->actionList(Qt::Edge::RightEdge)[1];
+            auto checkstatus = enable ?
+                               DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
+            auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
+            action->setIcon(icon);
+            m_effectList->update(item->index());
+            break;
         }
     });
 }

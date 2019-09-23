@@ -112,5 +112,8 @@
         <file>texts/dcc_reset_16px.svg</file>
         <file>icons/dcc_nav_wacom_42px.svg</file>
         <file>icons/dcc_nav_wacom_84px.svg</file>
+        <file>actions/dcc_volume3_32px.svg</file>
+        <file>actions/dcc_volume2_32px.svg</file>
+        <file>actions/dcc_volume1_32px.svg</file>
     </qresource>
 </RCC>
