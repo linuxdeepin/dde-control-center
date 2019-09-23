@@ -36,7 +36,7 @@ const QString FprintService("com.deepin.daemon.Fprintd");
 FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
-    , m_fprintdInter(new Fprintd(FprintService, "/com/deepin/daemon/Fprintd", QDBusConnection::sessionBus(), this))
+    , m_fprintdInter(new Fprintd(FprintService, "/com/deepin/daemon/Fprintd", QDBusConnection::systemBus(), this))
     , m_fprDefaultInter(nullptr)
 {
     m_fprintdInter->setSync(false);
