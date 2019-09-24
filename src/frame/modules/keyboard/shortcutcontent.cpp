@@ -37,7 +37,7 @@ namespace keyboard{
 ShortcutContent::ShortcutContent(ShortcutModel *model, QWidget *parent)
     : ContentWidget(parent)
     , m_model(model)
-    , m_conflict(NULL)
+    , m_conflict(nullptr)
     , m_shortcutItem(new ShortcutItem)
     , m_buttonTuple(new ButtonTuple)
 {
@@ -46,10 +46,9 @@ ShortcutContent::ShortcutContent(ShortcutModel *model, QWidget *parent)
     layout->setMargin(0);
     layout->addSpacing(10);
 
-    SettingsGroup* group = new SettingsGroup();
     m_shortcutItem->setShortcut(tr("Please Reset Shortcut"));
-    group->appendItem(m_shortcutItem);
-    layout->addWidget(group);
+    m_shortcutItem->addBackground();
+    layout->addWidget(m_shortcutItem, 0, Qt::AlignTop);
 
     QPushButton *cancel = m_buttonTuple->leftButton();
     QPushButton *ok = m_buttonTuple->rightButton();
