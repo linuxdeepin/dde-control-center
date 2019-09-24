@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "personalizationlist.h"
+#include "window/utils.h"
 
 #include <DListView>
 
@@ -28,8 +29,6 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
 
 DWIDGET_USE_NAMESPACE
-
-Q_DECLARE_METATYPE(QMargins)
 
 PersonalizationList::PersonalizationList(QWidget *parent)
     : QWidget(parent)
@@ -63,9 +62,7 @@ PersonalizationList::PersonalizationList(QWidget *parent)
     for (int i = 0; i < menus.size(); ++i) {
         DStandardItem *item = new DStandardItem(QIcon::fromTheme(icons.at(i)), menus.at(i));
 
-        item->setSizeHint(QSize(230, 48));
-        item->setData(QVariant::fromValue(QMargins(10, 10, 10, 0)), Dtk::MarginsRole);
-
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_model->appendRow(item);
     }
 
