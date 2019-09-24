@@ -126,7 +126,7 @@ void FingerWorker::onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w)
     if (path.path().isEmpty())
         return;
 
-    m_fprDefaultInter = new Device(FprintService, path.path(), QDBusConnection::sessionBus(), this);
+    m_fprDefaultInter = new Device(FprintService, path.path(), QDBusConnection::systemBus(), this);
 
     m_model->setIsVaild(m_fprDefaultInter->isValid());
 
