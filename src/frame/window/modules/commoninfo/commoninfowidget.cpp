@@ -84,7 +84,7 @@ void CommonInfoWidget::initData()
             QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget)
         },
 //        {
-//            "", tr("Tablet Plan"),
+//            "", tr("Tablet Mode"),
 //            QMetaMethod::fromSignal(&CommonInfoWidget::requestShowTabletModeWidget)
 //        },
     };
