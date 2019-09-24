@@ -279,6 +279,7 @@ void DisplayModule::showRotate(Monitor *mon)
 
     m_displayWorker->record();
 
+    qApp->setOverrideCursor(Qt::BlankCursor);
     if (QDialog::DialogCode::Accepted == dialog->exec()) {
         // if monitor list size > 1 means the config file will be saved by CustomSettingDialog
         if (m_displayModel->monitorList().size() == 1) {
@@ -288,6 +289,7 @@ void DisplayModule::showRotate(Monitor *mon)
         m_displayWorker->restore();
     }
 
+    qApp->restoreOverrideCursor();
     QCursor::setPos(m_displayWidget->getRotateBtnPos());
     dialog->deleteLater();
 }

@@ -85,13 +85,11 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
             reject();
         }
     });
-
-    qApp->setOverrideCursor(Qt::BlankCursor);
+    m_resetOperationTimer->start();
 }
 
 RotateDialog::~RotateDialog()
 {
-    qApp->restoreOverrideCursor();
 }
 
 void RotateDialog::setModel(dcc::display::DisplayModel *model)
@@ -193,6 +191,15 @@ void RotateDialog::paintEvent(QPaintEvent *e)
     painter.resetTransform();
 }
 
+void RotateDialog::mouseMoveEvent(QMouseEvent *e)
+{
+    Q_UNUSED(e)
+
+    //当旋转过程中可能因未知原因，grabmouse会失效，
+    //mouseMove消息中固定鼠标位置确保可以继续操作
+    QCursor::setPos(this->rect().center());
+}
+
 void RotateDialog::rotate()
 {
     Monitor *mon = m_mon ? m_mon : m_model->primaryMonitor();
@@ -213,7 +220,11 @@ void RotateDialog::rotate()
     else
         Q_EMIT RotateDialog::requestRotateAll(nextValue);
 
+    m_resetOperationTimer->stop();
+    m_resetTimeout = 15;
     m_resetOperationTimer->start();
+
+    QCursor::setPos(this->rect().center());
     update();
 }
 

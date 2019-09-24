@@ -60,6 +60,9 @@ protected:
     void mouseReleaseEvent(QMouseEvent *e) override;
     void showEvent(QShowEvent *e) override;
     void paintEvent(QPaintEvent *e) override;
+    //当旋转过程中可能因未知原因，grabmouse会失效，
+    //mouseMove消息中固定鼠标位置确保可以继续操作
+    void mouseMoveEvent(QMouseEvent *e) override;
 
 private:
     void rotate();
