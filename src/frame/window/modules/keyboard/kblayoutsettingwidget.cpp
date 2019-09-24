@@ -98,14 +98,14 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     comboWidget->setComboxOption(comboxOptions);
     m_switchKBLayout->appendItem(comboWidget);
 
+    DFloatingButton *addLayout = new DFloatingButton(DStyle::SP_IncreaseElement, this);
+    QHBoxLayout *btnLayout = new QHBoxLayout;
+    btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
+    btnLayout->addWidget(addLayout);
+    layout->addLayout(btnLayout);
+
     content->setLayout(layout);
     setContent(content);
-
-    DFloatingButton *addLayout = new DFloatingButton(DStyle::SP_IncreaseElement, this);
-    DAnchors<DFloatingButton> anchors(addLayout);
-    anchors.setAnchor(Qt::AnchorBottom, this, Qt::AnchorBottom);
-    anchors.setBottomMargin(2);
-    anchors.setAnchor(Qt::AnchorHorizontalCenter, this, Qt::AnchorHorizontalCenter);
 
     connect(addLayout, &DFloatingButton::clicked, this, &KBLayoutSettingWidget::onLayoutAdded);
     connect(m_head, &SettingsHead::editChanged, this, &KBLayoutSettingWidget::onEdit);

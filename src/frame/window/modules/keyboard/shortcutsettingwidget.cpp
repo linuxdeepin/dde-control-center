@@ -38,7 +38,7 @@ using namespace dcc;
 using namespace dcc::keyboard;
 
 ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *parent)
-    : ContentWidget(parent)
+    : QWidget(parent)
     , m_model(model)
 {
     m_searchInter = new SearchInter("com.deepin.daemon.Search",
@@ -48,7 +48,6 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_searchDelayTimer->setInterval(300);
     m_searchDelayTimer->setSingleShot(true);
 
-    m_widget = new TranslucentFrame();
     m_searchText = QString();
     //~ contents_path /keyboard/Shortcuts
     m_systemGroup = new SettingsGroup(tr("System"));
@@ -60,10 +59,6 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_searchGroup = new SettingsGroup();
     m_searchInput = new SearchInput();
 
-    m_contentTopLayout->addSpacing(10);
-    m_contentTopLayout->addWidget(m_searchInput);
-    m_contentTopLayout->addSpacing(10);
-
     m_head = new SettingsHead();
     m_head->setEditEnable(true);
     m_head->setVisible(false);
@@ -72,34 +67,53 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_customGroup->insertItem(0, m_head);
 
     m_layout = new QVBoxLayout();
+
+    QHBoxLayout *topLayout = new QHBoxLayout;
+    topLayout->setAlignment(Qt::AlignTop);
+    topLayout->addSpacing(10);
+    topLayout->addWidget(m_searchInput);
+    topLayout->addSpacing(10);
+    m_layout->addLayout(topLayout);
+
     m_layout->setMargin(0);
     m_layout->setSpacing(10);
     m_layout->addSpacing(10);
 
-    m_layout->addWidget(m_systemGroup);
-    m_layout->addWidget(m_windowGroup);
-    m_layout->addWidget(m_workspaceGroup);
-    m_layout->addWidget(m_customGroup);
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->addWidget(m_systemGroup);
+    layout->addWidget(m_windowGroup);
+    layout->addWidget(m_workspaceGroup);
+    layout->addWidget(m_customGroup);
+
     //~ contents_path /keyboard/Shortcuts
     QPushButton* resetBtn = new QPushButton(tr("Restore Defaults"));
 
-    m_layout->addWidget(resetBtn);
-    m_layout->addSpacing(10);
-    m_widget->setLayout(m_layout);
-    setContent(m_widget);
+    layout->addWidget(resetBtn);
+    layout->addSpacing(10);
+    layout->addStretch();
+
+    QWidget *widget = new QWidget(this);
+    widget->setLayout(layout);
+
+    ContentWidget *m_contentWidget = new ContentWidget(this);
+    m_contentWidget->setContent(widget);
+
+    m_layout->addWidget(m_contentWidget);
 
     m_addCustomShortcut = new DFloatingButton(DStyle::SP_IncreaseElement, this);
-    DAnchors<DFloatingButton> anchors(m_addCustomShortcut);
-    anchors.setAnchor(Qt::AnchorBottom, this, Qt::AnchorBottom);
-    anchors.setBottomMargin(2);
-    anchors.setAnchor(Qt::AnchorHorizontalCenter, this, Qt::AnchorHorizontalCenter);
+
+    QHBoxLayout *btnLayout = new QHBoxLayout;
+    btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
+    btnLayout->addWidget(m_addCustomShortcut);
+    m_layout->addLayout(btnLayout);
+    setLayout(m_layout);
 
     connect(m_addCustomShortcut, &DFloatingButton::clicked, this, &ShortCutSettingWidget::customShortcut);
     connect(resetBtn, &QPushButton::clicked, this, &ShortCutSettingWidget::requestReset);
     connect(m_searchInput, &QLineEdit::textChanged, this, &ShortCutSettingWidget::onSearchTextChanged);
     connect(m_searchDelayTimer, &QTimer::timeout, this, &ShortCutSettingWidget::prepareSearchKeys);
     //~ contents_path /keyboard/Shortcuts
-    setTitle(tr("Shortcut"));
+    setWindowTitle(tr("Shortcut"));
 
     connect(m_model, &ShortcutModel::addCustomInfo, this, &ShortCutSettingWidget::onCustomAdded);
     connect(m_model, &ShortcutModel::listChanged, this, &ShortCutSettingWidget::addShortcut);

@@ -48,7 +48,7 @@ class SettingsGroup;
 
 namespace DCC_NAMESPACE {
 namespace keyboard {
-class ShortCutSettingWidget : public dcc::ContentWidget
+class ShortCutSettingWidget : public QWidget
 {
     Q_OBJECT
 public:
