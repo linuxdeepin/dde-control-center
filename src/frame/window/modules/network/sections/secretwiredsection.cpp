@@ -21,20 +21,22 @@
 
 #include "secretwiredsection.h"
 
+#include "widgets/switchwidget.h"
+
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 
 SecretWiredSection::SecretWiredSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent)
     : Secret8021xSection(sSetting, parent)
-    , m_secretEnable(new SwitchWidget(this))
+    , m_secretEnable(new NetSwitchWidget(this))
     , m_enableWatcher(new Secret8021xEnableWatcher(this))
 {
     m_secretEnable->setTitle(tr("Security Required"));
-    m_secretEnable->setChecked(!sSetting->toMap().isEmpty());
+    m_secretEnable->switchWidget()->setChecked(!sSetting->toMap().isEmpty());
 
-    m_enableWatcher->setSecretEnable(m_secretEnable->checked());
+    m_enableWatcher->setSecretEnable(m_secretEnable->switchWidget()->checked());
 
-    connect(m_secretEnable, &SwitchWidget::checkedChanged, m_enableWatcher, &Secret8021xEnableWatcher::setSecretEnable);
+    connect(m_secretEnable->switchWidget(), &SwitchWidget::checkedChanged, m_enableWatcher, &Secret8021xEnableWatcher::setSecretEnable);
 
     QList<NetworkManager::Security8021xSetting::EapMethod> eapMethodsWantedList;
     eapMethodsWantedList.append(NetworkManager::Security8021xSetting::EapMethod::EapMethodTls);

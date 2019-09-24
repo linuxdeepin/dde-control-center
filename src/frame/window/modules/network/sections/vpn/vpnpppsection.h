@@ -23,6 +23,8 @@
 #define VPNPPPSECTION_H
 
 #include "../abstractsection.h"
+#include "window/modules/network/netswitchwidget.h"
+
 #include "widgets/contentwidget.h"
 #include "widgets/switchwidget.h"
 #include "widgets/comboxwidget.h"
@@ -59,13 +61,13 @@ private:
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 
-    dcc::widgets::SwitchWidget *m_mppeEnable;
+    NetSwitchWidget *m_mppeEnable;
     dcc::widgets::ComboxWidget *m_mppeChooser;
-    dcc::widgets::SwitchWidget *m_mppeStateful;
+    NetSwitchWidget *m_mppeStateful;
 
     QString m_currentMppeMethod;
     QStringList m_supportOptions;
-    QList<dcc::widgets::SwitchWidget *> m_optionsWidgets;
+    QList<NetSwitchWidget *> m_optionsWidgets;
 };
 
 } /* network */

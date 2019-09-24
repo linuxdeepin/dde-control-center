@@ -1,9 +1,9 @@
 /*
- * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
  *
- * Author:     listenerri <listenerri@gmail.com>
+ * Author:     wuchuanfei <wuchuanfei_cm@deepin.com>
  *
- * Maintainer: listenerri <listenerri@gmail.com>
+ * Maintainer: wuchuanfei <wuchuanfei_cm@deepin.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,32 +19,39 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SECRETWIREDSECTION_H
-#define SECRETWIREDSECTION_H
+#pragma once
 
-#include "secret8021xsection.h"
-#include "window/modules/network/netswitchwidget.h"
+#include "window/namespace.h"
+
+#include "widgets/settingsitem.h"
+
+#include <QString>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QFrame>
+
+namespace dcc {
+namespace widgets {
+class SwitchWidget;
+}
+}
 
 namespace DCC_NAMESPACE {
 namespace network {
-
-class SecretWiredSection : public Secret8021xSection
+class NetSwitchWidget : public dcc::widgets::SettingsItem
 {
     Q_OBJECT
-
 public:
-    SecretWiredSection(NetworkManager::Security8021xSetting::Ptr sSetting, QFrame *parent = nullptr);
-    virtual ~SecretWiredSection();
+    explicit NetSwitchWidget(QFrame *parent = nullptr);
+    void initNetSwitch();
 
-    bool allInputValid() Q_DECL_OVERRIDE;
-    void saveSettings() Q_DECL_OVERRIDE;
+    void setTitle(const QString title);
+    dcc::widgets::SwitchWidget *switchWidget();
 
 private:
-    NetSwitchWidget *m_secretEnable;
-    Secret8021xEnableWatcher *m_enableWatcher;
+    QHBoxLayout *m_swswitchLayout;
+    QLabel *m_swithTitle;
+    dcc::widgets::SwitchWidget *m_autoConnItem;
 };
-
-} /* network */
-} /* dcc */
-
-#endif /* SECRETWIREDSECTION_H */
+}
+}

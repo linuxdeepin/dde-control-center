@@ -23,6 +23,8 @@
 #define PPPSECTION_H
 
 #include "abstractsection.h"
+#include "window/modules/network/netswitchwidget.h"
+
 #include "widgets/contentwidget.h"
 #include "widgets/switchwidget.h"
 
@@ -53,18 +55,18 @@ private:
 
     NetworkManager::PppSetting::Ptr m_pppSetting;
 
-    dcc::widgets::SwitchWidget *m_mppeEnable;
-    dcc::widgets::SwitchWidget *m_mppe128;
-    dcc::widgets::SwitchWidget *m_mppeStateful;
-    dcc::widgets::SwitchWidget *m_refuseEAP;
-    dcc::widgets::SwitchWidget *m_refusePAP;
-    dcc::widgets::SwitchWidget *m_refuseCHAP;
-    dcc::widgets::SwitchWidget *m_refuseMSCHAP;
-    dcc::widgets::SwitchWidget *m_refuseMSCHAP2;
-    dcc::widgets::SwitchWidget *m_noBSDComp;
-    dcc::widgets::SwitchWidget *m_noDeflate;
-    dcc::widgets::SwitchWidget *m_noVJComp;
-    dcc::widgets::SwitchWidget *m_lcpEchoInterval;
+    NetSwitchWidget *m_mppeEnable;
+    NetSwitchWidget *m_mppe128;
+    NetSwitchWidget *m_mppeStateful;
+    NetSwitchWidget *m_refuseEAP;
+    NetSwitchWidget *m_refusePAP;
+    NetSwitchWidget *m_refuseCHAP;
+    NetSwitchWidget *m_refuseMSCHAP;
+    NetSwitchWidget *m_refuseMSCHAP2;
+    NetSwitchWidget *m_noBSDComp;
+    NetSwitchWidget *m_noDeflate;
+    NetSwitchWidget *m_noVJComp;
+    NetSwitchWidget *m_lcpEchoInterval;
 };
 
 } /* network */

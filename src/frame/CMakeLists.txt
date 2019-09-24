@@ -751,7 +751,7 @@ set(NETWORK_FILES
 #               modules/network/wiredpage.h
 #               modules/network/wirelesspage.cpp
 #               modules/network/wirelesspage.h
-
+                window/modules/network/netswitchwidget.cpp
                 window/modules/network/networkdetailpage.cpp
                 window/modules/network/connectionhotspoteditpage.h
                 window/modules/network/networkmodule.cpp

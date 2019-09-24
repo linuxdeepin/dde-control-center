@@ -23,6 +23,8 @@
 #define VPNIPSECSECTION_H
 
 #include "../abstractsection.h"
+#include "window/modules/network/netswitchwidget.h"
+
 #include "widgets/contentwidget.h"
 #include "widgets/switchwidget.h"
 #include "widgets/lineeditwidget.h"
@@ -52,7 +54,7 @@ private:
     NetworkManager::VpnSetting::Ptr m_vpnSetting;
     NMStringMap m_dataMap;
 
-    dcc::widgets::SwitchWidget *m_ipsecEnable;
+    NetSwitchWidget *m_ipsecEnable;
     dcc::widgets::LineEditWidget *m_groupName;
     dcc::widgets::LineEditWidget *m_gatewayId;
     dcc::widgets::LineEditWidget *m_psk;

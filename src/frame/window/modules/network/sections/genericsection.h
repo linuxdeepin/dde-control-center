@@ -21,11 +21,13 @@
 
 #ifndef GENERICSECTION_H
 #define GENERICSECTION_H
+#include "window/namespace.h"
 
-#include "abstractsection.h"
+#include "window/modules/network/netswitchwidget.h"
+#include "window/modules/network/sections/abstractsection.h"
+
 #include "widgets/lineeditwidget.h"
 #include "widgets/switchwidget.h"
-#include "window/namespace.h"
 
 #include <networkmanagerqt/connectionsettings.h>
 
@@ -38,24 +40,23 @@ class GenericSection : public AbstractSection
 
 public:
     explicit GenericSection(NetworkManager::ConnectionSettings::Ptr connSettings, QFrame *parent = nullptr);
-    virtual ~GenericSection();
+    virtual ~GenericSection() override;
 
     bool allInputValid() Q_DECL_OVERRIDE;
     void saveSettings() Q_DECL_OVERRIDE;
+    bool autoConnectChecked() const;
 
     inline bool connectionNameIsEditable() const { return m_connIdItem->isEnabled(); }
     inline void setConnectionNameEditable(const bool editable) { m_connIdItem->setEnabled(editable); }
     inline const QString connectionName() const { return m_connIdItem->text(); }
     inline void setConnectionName(const QString &name) { m_connIdItem->setText(name); }
-    inline bool autoConnectChecked() const { return m_autoConnItem->checked(); }
 
 private:
     void initUI();
 
 private:
     dcc::widgets::LineEditWidget *m_connIdItem;
-    dcc::widgets::SwitchWidget *m_autoConnItem;
-
+    NetSwitchWidget *m_autoConnItem;
     NetworkManager::ConnectionSettings::Ptr m_connSettings;
 };
 
