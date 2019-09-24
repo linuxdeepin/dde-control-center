@@ -25,6 +25,7 @@
 #include "generalkbsettingwidget.h"
 #include "kblayoutsettingwidget.h"
 #include "shortcutsettingwidget.h"
+#include "systemlanguagewidget.h"
 #include "systemlanguagesettingwidget.h"
 #include "widgets/settingshead.h"
 #include "modules/keyboard/keyboardwork.h"
@@ -168,17 +169,18 @@ void KeyboardModule::showKBLayoutSetting()
 void KeyboardModule::showSystemLanguageSetting()
 {
     m_work->refreshLang();
-    m_systemLanguageSettingWidget = new SystemLanguageSettingWidget(m_model);
-    connect(m_systemLanguageSettingWidget, &SystemLanguageSettingWidget::click, this, &KeyboardModule::onSetLocale);
-
-    m_frameProxy->pushWidget(this, m_systemLanguageSettingWidget);
+    m_systemLanguageWidget = new SystemLanguageWidget(m_model);
+    connect(m_systemLanguageWidget, &SystemLanguageWidget::onSystemLanguageAdded, this, &KeyboardModule::onPushSystemLanguageSetting);
+    connect(m_systemLanguageWidget, &SystemLanguageWidget::delLocalLang, m_work, &KeyboardWorker::deleteLang);
+    connect(m_systemLanguageWidget, &SystemLanguageWidget::setCurLang, m_work, &KeyboardWorker::setLang);
+    m_frameProxy->pushWidget(this, m_systemLanguageWidget);
 }
 
-void KeyboardModule::onSetLocale(const QModelIndex &index)
+void KeyboardModule::onAddLocale(const QModelIndex &index)
 {
     QVariant var = index.data();
     MetaData md = var.value<MetaData>();
-    m_work->setLang(md.key());
+    m_work->addLang(md.key());
 }
 
 void KeyboardModule::showShortCutSetting()
@@ -197,6 +199,14 @@ void KeyboardModule::showShortCutSetting()
     connect(m_work, &KeyboardWorker::searchChangd, m_shortcutSettingWidget, &ShortCutSettingWidget::onSearchInfo);
 
     m_frameProxy->pushWidget(this, m_shortcutSettingWidget);
+}
+
+void KeyboardModule::onPushSystemLanguageSetting()
+{
+    m_systemLanguageSettingWidget = new SystemLanguageSettingWidget(m_model);
+    connect(m_systemLanguageSettingWidget, &SystemLanguageSettingWidget::click, this, &KeyboardModule::onAddLocale);
+    connect(m_systemLanguageSettingWidget, &SystemLanguageSettingWidget::back, this, &KeyboardModule::showSystemLanguageSetting);
+    m_frameProxy->pushWidget(this, m_systemLanguageSettingWidget);
 }
 
 void KeyboardModule::onPushCustomShortcut()

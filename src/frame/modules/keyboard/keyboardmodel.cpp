@@ -27,7 +27,7 @@
 #include <QDebug>
 
 namespace dcc {
-namespace keyboard{
+namespace keyboard {
 KeyboardModel::KeyboardModel(QObject *parent)
     : QObject(parent)
     , m_capsLock(true)
@@ -46,9 +46,22 @@ void KeyboardModel::setLayoutLists(QMap<QString, QString> lists)
 
 QString KeyboardModel::langByKey(const QString &key) const
 {
-    for (const auto &lang : m_langList)
-        if (lang.key() == key)
+    for (const auto &lang : m_langList) {
+        if (lang.key() == key) {
             return lang.text();
+        }
+    }
+
+    return QString();
+}
+
+QString KeyboardModel::langFromText(const QString &text) const
+{
+    for (const auto &lang : m_langList) {
+        if (lang.text() == text) {
+            return lang.key();
+        }
+    }
 
     return QString();
 }
@@ -59,7 +72,7 @@ void KeyboardModel::setLayout(const QString &key)
     if (key.isEmpty())
         return;
 
-    if(m_layout == key)
+    if (m_layout == key)
         return ;
 
     m_layout = key;
@@ -75,13 +88,35 @@ QString KeyboardModel::curLayout() const
 
 void KeyboardModel::setLang(const QString &value)
 {
-    if (m_currentLangKey != value && !value.isEmpty())
-    {
+    qDebug() << "old key is " << m_currentLangKey << " new is " << value;
+    if (m_currentLangKey != value && !value.isEmpty()) {
         m_currentLangKey = value;
-
         const QString &langName = langByKey(value);
+        qDebug() << "value is " << value << " langName is " << langName;
         if (!langName.isEmpty())
             Q_EMIT curLangChanged(langName);
+    }
+}
+
+QStringList KeyboardModel::convertLang(const QStringList &langList)
+{
+    QStringList realLangList;
+    for (int i = 0; i < langList.size(); ++i) {
+        QString lang = langByKey(langList[i]);
+        if (!lang.isEmpty()) {
+            realLangList << lang;
+        }
+    }
+    return realLangList;
+}
+
+void KeyboardModel::setLocaleLang(const QStringList &localLangList)
+{
+    QStringList langList = convertLang(localLangList);
+    if (m_localLangList != langList && !langList.isEmpty()) {
+        m_localLangList = langList;
+
+        Q_EMIT curLocalLangChanged(m_localLangList);
     }
 }
 
@@ -132,7 +167,7 @@ void KeyboardModel::setRepeatInterval(const uint &repeatInterval)
     }
 }
 
-void KeyboardModel::setAllShortcut(const QMap<QStringList,int> &map)
+void KeyboardModel::setAllShortcut(const QMap<QStringList, int> &map)
 {
     m_shortcutMap = map;
 }
@@ -170,6 +205,7 @@ void KeyboardModel::cleanUserLayout()
 
 QString KeyboardModel::curLang() const
 {
+    qDebug() << "curLang key is " << m_currentLangKey;
     return langByKey(m_currentLangKey);
 }
 
@@ -181,6 +217,11 @@ QMap<QString, QString> KeyboardModel::userLayout() const
 QMap<QString, QString> KeyboardModel::kbLayout() const
 {
     return m_layouts;
+}
+
+QStringList KeyboardModel::localLang() const
+{
+    return m_localLangList;
 }
 
 void KeyboardModel::addUserLayout(const QString &id, const QString &value)

@@ -54,16 +54,15 @@ public:
 
 Q_SIGNALS:
     void click(const QModelIndex &index);
-
+    void back();
 public Q_SLOTS:
-    void onSearch(const QString &text);
-    void setCurLang(const QString &lang);
     void setModelData(const QList<dcc::keyboard::MetaData> &datas);
-
+    void onSearch(const QString &text);
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
+    QLabel *m_title;
     dcc::widgets::SearchInput *m_search;
     dcc::keyboard::IndexDelegate *m_delegate;
     dcc::keyboard::IndexView *m_view;

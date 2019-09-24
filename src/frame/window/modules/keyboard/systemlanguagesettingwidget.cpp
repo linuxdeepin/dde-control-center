@@ -52,6 +52,11 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     m_delegate = new IndexDelegate();
 
     m_search = new SearchInput();
+
+    m_title = new QLabel(tr("Add System Language"));
+    m_title->setAlignment(Qt::AlignCenter | Qt::AlignHCenter | Qt::AlignVCenter);
+    m_contentTopLayout->addSpacing(10);
+    m_contentTopLayout->addWidget(m_title);
     m_contentTopLayout->addSpacing(10);
     m_contentTopLayout->addWidget(m_search);
     m_contentTopLayout->addSpacing(10);
@@ -69,31 +74,10 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
 
     connect(m_search, &SearchInput::textChanged, this, &SystemLanguageSettingWidget::onSearch);
     connect(m_view, &IndexView::clicked, this, &SystemLanguageSettingWidget::click);
-
+    connect(m_view, &IndexView::clicked, this, &SystemLanguageSettingWidget::back);
     connect(m_keyboardModel, &KeyboardModel::langChanged, this, &SystemLanguageSettingWidget::setModelData);
-    connect(m_keyboardModel, &KeyboardModel::curLangChanged, this, &SystemLanguageSettingWidget::setCurLang);
 
     setModelData(m_keyboardModel->langLists());
-    setCurLang(m_keyboardModel->curLang());
-}
-
-void SystemLanguageSettingWidget::setModelData(const QList<MetaData> &datas)
-{
-    m_datas = datas;
-    m_model->setMetaData(datas);
-    m_view->setModel(m_model);
-    m_view->setItemDelegate(m_delegate);
-}
-
-void SystemLanguageSettingWidget::setCurLang(const QString &lang)
-{
-    for (int i = 0; i < m_view->model()->rowCount(); ++i) {
-        MetaData md = m_view->model()->index(i, 0).data().value<MetaData>();
-        if (md.text() == lang) {
-            m_view->setCurrentIndex(m_view->model()->index(i, 0));
-            break;
-        }
-    }
 }
 
 void SystemLanguageSettingWidget::onSearch(const QString &text)
@@ -112,8 +96,23 @@ void SystemLanguageSettingWidget::onSearch(const QString &text)
         m_searchModel->setMetaData(sdatas);
         m_view->setModel(m_searchModel);
     }
+}
 
-    setCurLang(m_keyboardModel->curLang());
+void SystemLanguageSettingWidget::setModelData(const QList<MetaData> &datas)
+{
+    m_datas = datas;
+    QStringList removeLangList = m_keyboardModel->localLang();
+    for (QList<MetaData>::iterator iter = m_datas.begin(); iter != m_datas.end();) {
+        if (removeLangList.contains(iter->text())) {
+            m_datas.erase(iter);
+        } else {
+            ++iter;
+        }
+    }
+
+    m_model->setMetaData(m_datas);
+    m_view->setModel(m_model);
+    m_view->setItemDelegate(m_delegate);
 }
 
 bool SystemLanguageSettingWidget::eventFilter(QObject *watched, QEvent *event)

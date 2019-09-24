@@ -39,17 +39,17 @@ namespace keyboard{
 bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2);
 
 KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
-    : QObject(parent),
-      m_model(model),
-      m_keyboardInter(new KeyboardInter("com.deepin.daemon.InputDevices",
+    : QObject(parent)
+    , m_model(model)
+    , m_keyboardInter(new KeyboardInter("com.deepin.daemon.InputDevices",
                                         "/com/deepin/daemon/InputDevice/Keyboard",
-                                        QDBusConnection::sessionBus(), this)),
+                                        QDBusConnection::sessionBus(), this))
 #ifndef DCC_DISABLE_LANGUAGE
-      m_langSelector(new LangSelector("com.deepin.daemon.LangSelector",
+     , m_langSelector(new LangSelector("com.deepin.daemon.LangSelector",
                                       "/com/deepin/daemon/LangSelector",
-                                      QDBusConnection::sessionBus(), this)),
+                                      QDBusConnection::sessionBus(), this))
 #endif
-      m_keybindInter(new KeybingdingInter("com.deepin.daemon.Keybinding",
+     , m_keybindInter(new KeybingdingInter("com.deepin.daemon.Keybinding",
                                           "/com/deepin/daemon/Keybinding",
                                           QDBusConnection::sessionBus(), this))
 {
@@ -62,7 +62,8 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
     connect(m_keyboardInter, SIGNAL(CapslockToggleChanged(bool)), m_model, SLOT(setCapsLock(bool)));
     connect(m_keybindInter, &KeybingdingInter::NumLockStateChanged, m_model, &KeyboardModel::setNumLock);
 #ifndef DCC_DISABLE_LANGUAGE
-    connect(m_langSelector, &LangSelector::CurrentLocaleChanged, m_model, &KeyboardModel::setLang);
+//    connect(m_langSelector, &LangSelector::CurrentLocaleChanged, m_model, &KeyboardModel::setLang);
+//    connect(m_langSelector, &LangSelector::LocalesChanged, m_model, &KeyboardModel::setLocaleLang);
     connect(m_langSelector, &LangSelector::serviceStartFinished, this, [=] {
         QTimer::singleShot(100, this, &KeyboardWorker::onLangSelectorServiceFinished);
     });
@@ -425,6 +426,11 @@ void KeyboardWorker::onLocalListsFinished(QDBusPendingCallWatcher *watch)
     m_model->setLocaleList(m_datas);
 
     watch->deleteLater();
+
+    connect(m_langSelector, &LangSelector::CurrentLocaleChanged, m_model, &KeyboardModel::setLang);
+    connect(m_langSelector, &LangSelector::LocalesChanged, m_model, &KeyboardModel::setLocaleLang);
+    m_model->setLocaleLang(m_langSelector->locales());
+    m_model->setLang(m_langSelector->currentLocale());
 }
 
 void KeyboardWorker::onSetSwitchKBLayout(int value)
@@ -721,11 +727,49 @@ void KeyboardWorker::setLang(const QString &value)
     Q_EMIT requestSetAutoHide(false);
 
     QDBusPendingCall call = m_langSelector->SetLocale(value);
+    qDebug() << "setLang is " << value;
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (call.isError()) {
+            qDebug() << "setLang error: " << call.error().type();
+            m_model->setLang(m_langSelector->currentLocale());
+        }
+
+        qDebug() << "setLang success";
+        Q_EMIT requestSetAutoHide(true);
+        watcher->deleteLater();
+    });
+}
+
+void KeyboardWorker::addLang(const QString &value)
+{
+    Q_EMIT requestSetAutoHide(false);
+
+    QDBusPendingCall call = m_langSelector->AddLocale(value);
 
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
-        if (call.isError())
-            m_model->setLang(m_langSelector->currentLocale());
+        if (call.isError()) {
+            qDebug() << "add Locale language error: " << call.error().type();
+        }
+
+        Q_EMIT requestSetAutoHide(true);
+        watcher->deleteLater();
+    });
+}
+
+void KeyboardWorker::deleteLang(const QString &value)
+{
+    Q_EMIT requestSetAutoHide(false);
+
+    QString lang = m_model->langFromText(value);
+    QDBusPendingCall call = m_langSelector->DeleteLocale(lang);
+
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (call.isError()) {
+            qDebug() << "delete Locale language error: " << call.error().type();
+        }
 
         Q_EMIT requestSetAutoHide(true);
         watcher->deleteLater();

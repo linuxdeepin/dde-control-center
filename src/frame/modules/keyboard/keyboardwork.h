@@ -100,7 +100,9 @@ Q_SIGNALS:
 
 public Q_SLOTS:
 #ifndef DCC_DISABLE_LANGUAGE
-    void setLang(const QString& value);
+    void setLang(const QString &value);
+    void addLang(const QString &value);
+    void deleteLang(const QString& value);
 #endif
     void setLayout(const QString& value);
     void addUserLayout(const QString& value);

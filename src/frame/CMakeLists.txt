@@ -608,7 +608,8 @@ set(KEYBOARD_FILES
                 window/modules/keyboard/systemlanguagesettingwidget.cpp
                 window/modules/keyboard/shortcutsettingwidget.h
                 window/modules/keyboard/shortcutsettingwidget.cpp
-
+                window/modules/keyboard/systemlanguagewidget.h
+                window/modules/keyboard/systemlanguagewidget.cpp
 )
 
 # load mouse

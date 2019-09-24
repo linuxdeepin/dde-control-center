@@ -44,6 +44,7 @@ namespace keyboard {
 class KeyboardWidget;
 class GeneralKBSettingWidget;
 class KBLayoutSettingWidget;
+class SystemLanguageWidget;
 class SystemLanguageSettingWidget;
 class ShortCutSettingWidget;
 class CustomContent;
@@ -66,8 +67,9 @@ public Q_SLOTS:
     void showKBLayoutSetting();
     void showSystemLanguageSetting();
     void showShortCutSetting();
-    void onSetLocale(const QModelIndex &index);
+    void onAddLocale(const QModelIndex &index);
     void onPushKeyboard(const QStringList &kblist);
+    void onPushSystemLanguageSetting();
     void setCurrentLayout(const QString &value);
     void onPushCustomShortcut();
     void onPushConflict(dcc::keyboard::ShortcutInfo *info, const QString &shortcut);
@@ -76,6 +78,7 @@ private:
     KeyboardWidget *m_keyboardWidget = nullptr;
     GeneralKBSettingWidget *m_generalSettingWidget = nullptr;
     KBLayoutSettingWidget *m_kbLayoutSettingWidget = nullptr;
+    SystemLanguageWidget *m_systemLanguageWidget = nullptr;
     SystemLanguageSettingWidget *m_systemLanguageSettingWidget = nullptr;
     ShortCutSettingWidget *m_shortcutSettingWidget = nullptr;
 
