@@ -141,6 +141,7 @@ void AccountsDetailWidget::initWidgets()
     m_shortName->setFixedHeight(20);
     m_fullName->setFixedHeight(20);
     m_avatar->setAlignment(Qt::AlignHCenter);
+    m_avatar->setArrowed(false);
 
     setloginLayout->setContentsMargins(0, 0, 0, 0);
     setloginLayout->setSpacing(0);
@@ -190,13 +191,17 @@ void AccountsDetailWidget::initDatas()
     });
     connect(m_avatar, &AvatarWidget::clicked, this, [ = ](const QString & iconPath) {
         Q_UNUSED(iconPath)
-        int index = m_mainStackedWidget->currentIndex() == 0 ? 1 : 0;
-        m_mainStackedWidget->setCurrentIndex(index);
+        if (m_mainStackedWidget->currentIndex() == 0) {
+            m_avatar->setArrowed(true);
+            m_mainStackedWidget->setCurrentIndex(1);
+        } else {
+            m_avatar->setArrowed(false);
+            m_mainStackedWidget->setCurrentIndex(0);
+            setFingerWgtsVisible(m_model->isVaild());
+        }
     });
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar, this, [ = ](const QString & avatarPath) {
         Q_EMIT requestSetAvatar(m_curUser, avatarPath);
-        m_mainStackedWidget->setCurrentIndex(0);
-        setFingerWgtsVisible(m_model->isVaild());
     });
     connect(m_curUser, &User::currentAvatarChanged, this, [ = ](const QString & avatar) {
         m_avatar->setAvatarPath(avatar);

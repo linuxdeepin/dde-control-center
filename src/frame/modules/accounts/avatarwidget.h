@@ -50,6 +50,8 @@ public:
     const QString avatarPath() const;
     void setAvatarPath(const QString &avatar);
 
+    void setArrowed(const bool arrowed = true);
+
 Q_SIGNALS:
     void clicked(const QString &iconPath) const;
     void requestDelete(const QString &iconPath) const;
@@ -65,6 +67,7 @@ private:
     bool m_hover;
     bool m_deleable;
     bool m_selected;
+    bool m_arrowed;
 
     QPixmap m_avatar;
     QString m_avatarPath;

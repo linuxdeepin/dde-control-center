@@ -38,11 +38,12 @@ using namespace dcc::accounts;
 AvatarWidget::AvatarWidget(QWidget *parent)
     : QLabel(parent),
 
-    m_hover(false),
-    m_deleable(false),
-    m_selected(false),
+      m_hover(false),
+      m_deleable(false),
+      m_selected(false),
+      m_arrowed(false),
 
-    m_delBtn(new AvatarDel)
+      m_delBtn(new AvatarDel)
 {
     m_delBtn->setVisible(false);
 
@@ -56,11 +57,11 @@ AvatarWidget::AvatarWidget(QWidget *parent)
     setFixedSize(PIX_SIZE, PIX_SIZE);
     setObjectName("AvatarWidget");
 
-    connect(m_delBtn, &AvatarDel::click, [=] { Q_EMIT requestDelete(m_avatarPath); });
+    connect(m_delBtn, &AvatarDel::click, [ = ] { Q_EMIT requestDelete(m_avatarPath); });
 }
 
 AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
-    :AvatarWidget(parent)
+    : AvatarWidget(parent)
 {
     setAvatarPath(avatar);
 }
@@ -74,6 +75,12 @@ void AvatarWidget::setSelected(const bool selected)
 void AvatarWidget::setDeletable(const bool deletable)
 {
     m_deleable = deletable;
+    update();
+}
+
+void AvatarWidget::setArrowed(const bool arrowed)
+{
+    m_arrowed = arrowed;
     update();
 }
 
@@ -136,6 +143,23 @@ void AvatarWidget::paintEvent(QPaintEvent *e)
         painter.setBrush(Qt::transparent);
         painter.drawEllipse(rect());
     };
+
+    if (m_arrowed) {
+        QPen pen(Qt::transparent);
+        pen.setWidth(2);
+        pen.setColor(Qt::white);
+        painter.setPen(pen);
+        //把直径平均分成10份
+        int portion = this->rect().width() / 10;
+        //圆中心点坐标
+        QPoint cpt = this->rect().center();
+        //绘制左边直线
+        painter.drawLine(QPoint(cpt.x() - portion / 2, cpt.y() + portion * 4 - portion / 2),
+                         QPoint(cpt.x(), cpt.y() + portion * 4));
+        //绘制右边直线
+        painter.drawLine(QPoint(cpt.x() + portion / 2, cpt.y() + portion * 4 - portion / 2),
+                         QPoint(cpt.x(), cpt.y() + portion * 4));
+    }
 
     QWidget::paintEvent(e);
 }
