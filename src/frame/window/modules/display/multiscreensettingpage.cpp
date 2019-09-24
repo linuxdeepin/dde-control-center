@@ -40,6 +40,7 @@ MultiScreenSettingPage::MultiScreenSettingPage(QWidget *parent)
     mainLayout->setContentsMargins(ThirdPageContentsMargins);
 
     m_modeList->installEventFilter(this);
+    m_modeList->setEditTriggers(DListView::NoEditTriggers);
     mainLayout->addWidget(m_modeList);
 
     //~ contents_path /display/Customize

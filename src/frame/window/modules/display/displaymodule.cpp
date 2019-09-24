@@ -135,7 +135,7 @@ void DisplayModule::showResolutionDetailPage()
     page->setModel(m_displayModel);
 
     connect(page, &ResolutionDetailPage::requestSetResolution, this,
-            &DisplayModule::onCustomPageRequestSetResolution);
+            &DisplayModule::onDetailPageRequestSetResolution);
     connect(page, &ResolutionDetailPage::requestReset, m_displayWorker,
             &DisplayWorker::restore);
     connect(page, &ResolutionDetailPage::requestSave, this, [ this ]() {
@@ -223,11 +223,24 @@ void DisplayModule::showRefreshRotePage()
     page->setModel(m_displayModel);
 
     connect(page, &RefreshRatePage::requestSetResolution,
-            this, &DisplayModule::onCustomPageRequestSetResolution);
+            this, &DisplayModule::onDetailPageRequestSetResolution);
 
     m_frameProxy->pushWidget(this, page);
 
 }
+
+void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mode)
+{
+    auto lastMode = mon->currentMode().id();
+    m_displayWorker->setMonitorResolution(mon, mode);
+
+    if (showTimeoutDialog(mon) == QDialog::Accepted) {
+        m_displayWorker->saveChanges();
+    } else {
+        m_displayWorker->setMonitorResolution(mon, lastMode);
+    }
+}
+
 
 void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, const int mode)
 {
@@ -264,13 +277,17 @@ void DisplayModule::showRotate(Monitor *mon)
     connect(dialog, &RotateDialog::requestRotate, m_displayWorker, &DisplayWorker::setMonitorRotate);
     connect(dialog, &RotateDialog::requestRotateAll, m_displayWorker, &DisplayWorker::setMonitorRotateAll);
 
+    m_displayWorker->record();
+
     if (QDialog::DialogCode::Accepted == dialog->exec()) {
-        // if monitor list size > 1 means the config file will be saved by MonitorSettingDialog
-        if (m_displayModel->monitorList().size() == 1)
+        // if monitor list size > 1 means the config file will be saved by CustomSettingDialog
+        if (m_displayModel->monitorList().size() == 1) {
             m_displayWorker->saveChanges();
+        }
     } else {
         m_displayWorker->restore();
     }
+
     QCursor::setPos(m_displayWidget->getRotateBtnPos());
     dialog->deleteLater();
 }

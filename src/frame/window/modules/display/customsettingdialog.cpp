@@ -166,6 +166,7 @@ void CustomSettingDialog::initWithModel()
 
     connect(m_model, &DisplayModel::screenWidthChanged, this, &CustomSettingDialog::resetDialog);
     connect(m_model, &DisplayModel::screenHeightChanged, this, &CustomSettingDialog::resetDialog);
+    connect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
 
     resetDialog();
 }
@@ -173,14 +174,11 @@ void CustomSettingDialog::initWithModel()
 void CustomSettingDialog::initOtherDialog()
 {
 //    //当存在三个屏幕或以上时，需要下列代码
-//    if(m_otherDialog.size()) {
-//        for(auto dlg : m_otherDialog) {
-//            dlg->setVisible(false);
-//        }
-//    }
-
-    if (m_model->monitorsIsIntersect())
-        return;
+    if (m_otherDialog.size()) {
+        for(auto dlg : m_otherDialog) {
+            dlg->setVisible(false);
+        }
+    }
 
     int dlgIdx = 0;
     for (int idx = 0; idx < m_model->monitorList().size(); ++idx) {
@@ -191,17 +189,18 @@ void CustomSettingDialog::initOtherDialog()
         if (dlgIdx < m_otherDialog.size()) {
             dlg = m_otherDialog[dlgIdx];
             dlg->m_monitor = mon;
-//            dlg->setVisible(true);
             ++dlgIdx;
         } else {
             dlg = new CustomSettingDialog(mon, m_model, this);
             m_otherDialog.append(dlg);
-            dlg->show();
 
             connect(dlg, &CustomSettingDialog::requestSetResolution, this,
                     &CustomSettingDialog::requestSetResolution);
             connect(dlg, &CustomSettingDialog::requestShowRotateDialog, this,
                     &CustomSettingDialog::requestShowRotateDialog);
+        }
+        if (!m_model->monitorsIsIntersect()) {
+            dlg->show();
         }
 
         dlg->initWithModel();
@@ -451,7 +450,21 @@ void CustomSettingDialog::onMonitorRelease(Monitor *mon)
 void CustomSettingDialog::resetDialog()
 {
     adjustSize();
+
+    auto rt = rect();
+    if (rt.width() > m_monitor->w())
+        rt.setWidth(m_monitor->w());
+
+
+    if (rt.height() > m_monitor->h())
+        rt.setHeight(m_monitor->h());
+
+    setGeometry(rt);
     move(m_monitor->rect().center() - QPoint(width() / 2, height() / 2));
+
+    for(auto dlg:m_otherDialog) {
+        dlg->setVisible(!m_model->monitorsIsIntersect());
+    }
 }
 
 void CustomSettingDialog::onPrimaryMonitorChanged()
