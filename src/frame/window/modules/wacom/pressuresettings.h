@@ -58,7 +58,7 @@ Q_SIGNALS:
     void requestSetPressureValue(const int &value);
 
 public Q_SLOTS:
-    void setPressureValue(const int &value);
+    void setPressureValue(const uint &value);
 
 private:
     QVBoxLayout *m_mainLayout;

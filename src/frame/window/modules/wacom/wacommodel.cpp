@@ -64,7 +64,7 @@ void WacomModel::setCursorMode(bool cursorMode)
     Q_EMIT cursorModeChanged(cursorMode);
 }
 
-void WacomModel::setPressureValue(const int value)
+void WacomModel::setPressureValue(const uint value)
 {
     if (m_pressureValue == value)
         return;
@@ -74,7 +74,7 @@ void WacomModel::setPressureValue(const int value)
     Q_EMIT pressureValueChanged(value);
 }
 
-bool WacomModel::getPressureValue()
+uint WacomModel::getPressureValue()
 {
     return m_pressureValue;
 }

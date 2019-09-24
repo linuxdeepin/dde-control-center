@@ -46,18 +46,18 @@ public:
     bool getCursorMode() const;
     void setCursorMode(bool cursorMode);
 
-    void setPressureValue(const int value);
-    bool getPressureValue();
+    void setPressureValue(const uint value);
+    uint getPressureValue();
 
 Q_SIGNALS:
     void existChanged(bool exist);
     void cursorModeChanged(const bool cursorMode);
-    void pressureValueChanged(const int value);
+    void pressureValueChanged(const uint value);
 
 private:
     bool m_exist;
     bool m_cursorMode;
-    int m_pressureValue;
+    uint m_pressureValue;
 };
 }
 }

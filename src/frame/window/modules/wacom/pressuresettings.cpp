@@ -68,10 +68,10 @@ void PressureSettings::setModel(WacomModel *model)
     setPressureValue(m_model->getPressureValue());
 }
 
-void PressureSettings::setPressureValue(const int &value)
+void PressureSettings::setPressureValue(const uint &value)
 {
     m_preSlider->blockSignals(true);
-    m_preSlider->setValue(value);
+    m_preSlider->setValue(int(value));
     m_preSlider->blockSignals(false);
 }
 

@@ -46,9 +46,9 @@ public:
     void deactive();
 
 public Q_SLOTS:
-    void setPressureSensitive(const int value);
+    void setPressureSensitive(const uint value);
     void setCursorMode(const bool value);
-    void onPressureSensitiveChanged(const int value);
+    void onPressureSensitiveChanged(const uint value);
     void onCursorModeChanged(const bool value);
     bool exist();
 
