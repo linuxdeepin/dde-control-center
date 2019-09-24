@@ -45,6 +45,7 @@ Q_SIGNALS:
 
 private:
     void initUI();
+    void mouseMoveEvent(QMouseEvent *e) override;
 
 private:
     QString m_backupVersion;

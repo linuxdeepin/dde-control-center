@@ -222,3 +222,9 @@ void RecoveryDialog::initUI()
         Q_EMIT notifyButtonClicked(index);
     });
 }
+
+void RecoveryDialog::mouseMoveEvent(QMouseEvent *e)
+{
+    Q_UNUSED(e)
+    return;
+}
