@@ -113,19 +113,31 @@ void TimezoneItem::updateInfo()
         dateLiteral = tr("Today");
     }
 
+    int decimalNumber = 1;
+    //小时取余,再取分钟,将15分钟的双倍只显示一位小数,其他的都显示两位小数
+    switch ((m_timezone.getUTCOffset() - localTime.offsetFromUtc()) % 3600 / 60 / 15) {
+    case 1:
+    case 3:
+        decimalNumber = 2;
+        break;
+    default:
+        decimalNumber = 1;
+        break;
+    }
+
     QString compareLiteral;
     if (timeDelta > 0) {
-        compareLiteral = tr("%1 hours earlier than local").arg(QString::number(timeDelta, 'f', 1));
+        compareLiteral = tr("%1 hours earlier than local").arg(QString::number(timeDelta, 'f', decimalNumber));
     } else {
-        compareLiteral = tr("%1 hours late than local").arg(QString::number(-timeDelta, 'f', 1));
+        compareLiteral = tr("%1 hours late than local").arg(QString::number(-timeDelta, 'f', decimalNumber));
     }
 
     QString gmData = "";
     int utcOff = m_timezone.getUTCOffset() / 3600;
     if (utcOff >= 0) {
-        gmData = QString("(GM+%1:00)").arg(utcOff, 2, 10, QLatin1Char('0'));
+        gmData = QString("(GM+%1:%2)").arg(utcOff, 2, 10, QLatin1Char('0')).arg(m_timezone.getUTCOffset() % 3600 / 60, 2, 10, QLatin1Char('0'));
     } else {
-        gmData = QString("(GM%1:00)").arg(utcOff, 3, 10, QLatin1Char('0'));
+        gmData = QString("(GM%1:%2)").arg(utcOff, 3, 10, QLatin1Char('0')).arg(m_timezone.getUTCOffset() % 3600 / 60, 2, 10, QLatin1Char('0'));
     }
 
     m_details->setText(QString("%1, %2").arg(dateLiteral).arg(compareLiteral));
