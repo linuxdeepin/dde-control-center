@@ -93,7 +93,6 @@ void APItem::setSignalStrength(int ss)
     APSortInfo si = data(SortRole).value<APSortInfo>();
     si.signalstrength = ss;
     si.ssid = text();
-    qDebug() << "setSignalStrength: " << text() << " signal: " << ss << ":" <<(ss / 10 & ~1);
     setData(QVariant::fromValue(si), SortRole);
 }
 
@@ -132,9 +131,6 @@ bool APItem::operator<(const QStandardItem &other) const
     APSortInfo thisApInfo = data(SortRole).value<APSortInfo>();
     APSortInfo otherApInfo = other.data(SortRole).value<APSortInfo>();
     bool bRet = thisApInfo < otherApInfo;
-    qDebug() << "ssid: " << thisApInfo.ssid << " signal: " << thisApInfo.signalstrength;
-    qDebug() << "ssid: " << otherApInfo.ssid << " signal: " << otherApInfo.signalstrength;
-    qDebug() << "result is " << bRet;
     return bRet;
 }
 
@@ -288,8 +284,6 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 
     APItem *it = m_apItems[ssid];
     APSortInfo si{strength, ssid, ssid == m_device->activeApSsid()};
-    qDebug() << "ssid: " << ssid << "old: " << it->signalStrength() << "new:" << strength
-             << "path1: " << it->path() << "path2: " << path;
     m_apItems[ssid]->setSortInfo(si);
 
     m_apItems[ssid]->setSignalStrength(strength);
@@ -341,10 +335,6 @@ void WirelessPage::onDeviceRemoved()
 void WirelessPage::onActivateApFailed(const QString &apPath, const QString &uuid)
 {
     Q_UNUSED(uuid);
-
-    qDebug() << "wireless connect failed and may require more configuration,"
-             << "path:" << apPath << "ssid" << connectionSsid(uuid);
-
     onApWidgetEditRequested(apPath, connectionSsid(uuid));
 }
 

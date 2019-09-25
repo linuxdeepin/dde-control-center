@@ -234,13 +234,17 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
 
     if (dev->enabled()) {
         dummystatus->setText(dev->statusString());
+        m_lvnmpages->update();
     }
 
-    connect(dev, &NetworkDevice::enableChanged, [dev, dummystatus](const bool enabled) {
-        dummystatus->setText(enabled ? dev->statusString() : "");
+    connect(dev, &NetworkDevice::enableChanged, this, [this, dev, dummystatus](const bool enabled) {
+        QString txt = enabled ? dev->statusString() : dev->statusStringDetail();
+        dummystatus->setText(txt);
+        this->m_lvnmpages->update();
     });
-    connect(dev, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), this, [dev, dummystatus] {
+    connect(dev, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), this, [this, dev, dummystatus] {
         dummystatus->setText(dev->statusString());
+        this->m_lvnmpages->update();
     }, Qt::QueuedConnection);
 
     return ret;
