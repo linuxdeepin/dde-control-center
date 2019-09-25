@@ -163,6 +163,9 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     nonbc->setSignalStrength(-1);
     nonbc->setPath("");
     nonbc->setSortInfo({-1, "", false});
+    connect(nonbc->action(), &QAction::triggered, this, [this] {
+        showConnectHidePage();
+    });
     m_modelAP->appendRow(nonbc);
 
     m_switch->setTitle(tr("Wireless Network Adapter"));
