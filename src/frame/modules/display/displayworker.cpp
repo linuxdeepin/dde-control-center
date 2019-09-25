@@ -71,7 +71,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     connect(m_powerInter, &PowerInter::HasAmbientLightSensorChanged,
             m_model, &DisplayModel::autoLightAdjustVaildChanged);
     connect(m_powerInter, &PowerInter::AmbientLightAdjustBrightnessChanged,
-            m_model, &DisplayModel::autoLightAdjustSettingChanged);
+            m_model, &DisplayModel::setAutoLightAdjust);
     connect(m_mouseInter, &MouseInter::LeftHandedChanged, m_model, &DisplayModel::setMouseLeftHand);
 
     onMonitorListChanged(m_displayInter.monitors());
@@ -84,6 +84,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent)
     model->setDisplayMode(m_displayInter.displayMode());
 
     m_model->setAutoLightAdjustIsValid(m_powerInter->hasAmbientLightSensor());
+    m_model->setAutoLightAdjust(m_powerInter->ambientLightAdjustBrightness());
 
     m_model->setMouseLeftHand(m_mouseInter->leftHanded());
 

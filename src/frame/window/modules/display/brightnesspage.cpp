@@ -130,14 +130,16 @@ void BrightnessPage::addSlider()
 
 
         auto onValueChanged = [ = ](int pos) {
-            Q_EMIT requestSetMonitorBrightness(monList[i], pos / BrightnessMaxScale);
+            this->requestSetMonitorBrightness(monList[i], pos / BrightnessMaxScale);
+            this->requestAmbientLightAdjustBrightness(false);
         };
 
         connect(slider, &DCCSlider::valueChanged, this, onValueChanged);
         connect(slider, &DCCSlider::sliderMoved, this, onValueChanged);
+
         connect(monList[i], &Monitor::brightnessChanged, this, [ = ](const double rb) {
             slider->blockSignals(true);
-            if (rb < m_displayModel->minimumBrightnessScale()) {
+            if ((rb - m_displayModel->minimumBrightnessScale()) < 0.01) {
                 slideritem->setValueLiteral("0%");
                 slider->setValue(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale));
             } else {
@@ -167,8 +169,9 @@ void BrightnessPage::addSlider()
 QString BrightnessPage::brightnessToTickInterval(const double tb) const
 {
     int tmini = int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
-    return QString::number(int((tb * BrightnessMaxScale - tmini)
-                               / (BrightnessMaxScale - tmini) * PercentageNum)) + "%";
+    int tnum = int(tb * BrightnessMaxScale - tmini);
+    tnum = tnum > 0 ? tnum : 0;
+    return QString::number(int(tnum / (BrightnessMaxScale - tmini) * PercentageNum)) + "%";
 }
 
 }
