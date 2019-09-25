@@ -245,6 +245,7 @@ void DisplayModel::setIsMerge(bool isMerge)
     if (m_isMerged == isMerge) return;
 
     m_isMerged = isMerge;
+    Q_EMIT isMergeChange(m_isMerged);
 }
 
 void DisplayModel::setMouseLeftHand(bool isLeft)

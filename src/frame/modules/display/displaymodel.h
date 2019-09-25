@@ -95,6 +95,7 @@ public:
     inline bool mouseLeftHand() const { return m_mouseLeftHand;}
 
 Q_SIGNALS:
+    void isMergeChange(bool isMerge) const;
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;
     void displayModeChanged(const int mode) const;

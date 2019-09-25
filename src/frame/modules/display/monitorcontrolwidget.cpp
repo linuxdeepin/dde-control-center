@@ -38,12 +38,11 @@ namespace dcc {
 namespace display {
 
 MonitorControlWidget::MonitorControlWidget(QWidget *parent)
-    : QFrame(parent),
-
-      m_screensGround(new MonitorsGround),
-      m_recognize(new IconButton),
-      m_split(new IconButton),
-      m_join(new IconButton)
+    : QFrame(parent)
+    , m_screensGround(new MonitorsGround)
+    , m_recognize(new IconButton)
+    , m_split(new IconButton)
+    , m_join(new IconButton)
 {
     m_recognize->setText(tr("Recognize"));
     m_recognize->setCursor(Qt::PointingHandCursor);

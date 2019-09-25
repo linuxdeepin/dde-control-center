@@ -167,6 +167,7 @@ void CustomSettingDialog::initWithModel()
     connect(m_model, &DisplayModel::screenWidthChanged, this, &CustomSettingDialog::resetDialog);
     connect(m_model, &DisplayModel::screenHeightChanged, this, &CustomSettingDialog::resetDialog);
     connect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
+    connect(m_model, &DisplayModel::isMergeChange, m_monitroControlWidget, &MonitorControlWidget::setScreensMerged);
 
     resetDialog();
 }
@@ -198,7 +199,14 @@ void CustomSettingDialog::initOtherDialog()
                     &CustomSettingDialog::requestSetResolution);
             connect(dlg, &CustomSettingDialog::requestShowRotateDialog, this,
                     &CustomSettingDialog::requestShowRotateDialog);
+            connect(dlg, &CustomSettingDialog::requestMerge, this,
+                    &CustomSettingDialog::requestMerge);
+            connect(dlg, &CustomSettingDialog::requestSplit, this,
+                    &CustomSettingDialog::requestSplit);
+            connect(dlg, &CustomSettingDialog::requestRecognize, this,
+                    &CustomSettingDialog::requestRecognize);
         }
+
         if (!m_model->monitorsIsIntersect()) {
             dlg->show();
         }

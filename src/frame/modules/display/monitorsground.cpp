@@ -96,15 +96,15 @@ void MonitorsGround::resetMonitorsView()
     for (auto pw : m_monitors.keys())
         adjust(pw);
 
-    Monitor *firstMonitor = m_monitors.values().first();
-    for (auto it = m_monitors.cbegin(); it != m_monitors.cend(); ++it) {
-        if (firstMonitor->rect() == it.value()->rect()) {
-            m_model->setIsMerge(true);
-            continue;
-        }
+//    Monitor *firstMonitor = m_monitors.values().first();
+//    for (auto it = m_monitors.cbegin(); it != m_monitors.cend(); ++it) {
+//        if (firstMonitor->rect() == it.value()->rect()) {
+//            m_model->setIsMerge(true);
+//            continue;
+//        }
 
-        m_model->setIsMerge(false);
-    }
+//        m_model->setIsMerge(false);
+//    }
 
     if (m_model->isMerge()) {
         return;
