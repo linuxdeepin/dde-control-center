@@ -40,21 +40,21 @@
 using namespace dcc;
 
 namespace dcc {
-namespace keyboard{
+namespace keyboard {
 
 
 KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
-    :ContentWidget(parent),
-      textLength(0)
+    : ContentWidget(parent)
+    , textLength(0)
 {
     setTitle(tr("Add Keyboard Layout"));
 
     m_mainWidget = new TranslucentFrame();
-    QVBoxLayout* layout = new QVBoxLayout();
+    QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(0);
 
-    QHBoxLayout* hlayout = new QHBoxLayout();
+    QHBoxLayout *hlayout = new QHBoxLayout();
     hlayout->setMargin(0);
     hlayout->setSpacing(0);
 
@@ -115,26 +115,24 @@ void KeyboardLayoutWidget::setLetters(QList<QString> letters)
     if (locale.language() == QLocale::Chinese) {
         m_model->setLetters(letters);
         m_indexframe->setLetters(letters);
+        bool bVisible = m_model->getModelCount() > 1;
+        m_view->setVisible(bVisible);
+        m_indexframe->setVisible(bVisible);
     }
 }
 
 void KeyboardLayoutWidget::onSearch(const QString &text)
 {
-    if(text.length() == 0)
-    {
+    if (text.length() == 0) {
         m_view->setModel(m_model);
         if (m_indexframe)
             m_indexframe->show();
-    }
-    else
-    {
+    } else {
         QList<MetaData> datas = m_model->metaData();
         QList<MetaData>::iterator it = datas.begin();
         QList<MetaData> sdatas;
-        for(; it != datas.end(); ++it)
-        {
-            if((*it).text().contains(text, Qt::CaseInsensitive))
-            {
+        for (; it != datas.end(); ++it) {
+            if ((*it).text().contains(text, Qt::CaseInsensitive)) {
                 sdatas.append(*it);
             }
         }

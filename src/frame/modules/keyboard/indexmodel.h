@@ -32,20 +32,20 @@
 #include <QFrame>
 
 namespace dcc {
-namespace keyboard{
+namespace keyboard {
 
 class MetaData
 {
 public:
-    MetaData(const QString& text = QString(), bool section = false);
+    MetaData(const QString &text = QString(), bool section = false);
 
-    void setPinyin(const QString& py);
+    void setPinyin(const QString &py);
     QString pinyin() const;
 
-    void setText(const QString& text);
+    void setText(const QString &text);
     QString text() const;
 
-    void setKey(const QString& key);
+    void setKey(const QString &key);
     QString key() const;
 
     void setSection(bool section);
@@ -54,35 +54,37 @@ public:
     void setSelected(bool selected);
     bool selected() const;
 
-    bool operator ==(const MetaData& md) const;
-    bool operator >(const MetaData& md) const;
+    bool operator ==(const MetaData &md) const;
+    bool operator >(const MetaData &md) const;
 private:
     QString m_key;
     QString m_text;
     QString m_pinyin;
     bool m_section;
     bool m_selected;
-    friend QDebug& operator<<(QDebug dbg, const MetaData& md);
+    friend QDebug &operator<<(QDebug dbg, const MetaData &md);
 };
 
-QDebug& operator<<(QDebug dbg, const MetaData& md);
+QDebug &operator<<(QDebug dbg, const MetaData &md);
 
 class IndexModel : public QAbstractListModel
 {
     Q_OBJECT
 
 public:
-    explicit IndexModel(QObject* parent = 0);
+    explicit IndexModel(QObject *parent = nullptr);
 
-    void setMetaData(const QList<MetaData>& datas);
+    void setMetaData(const QList<MetaData> &datas);
     QList<MetaData> metaData() const;
-    int  indexOf(const MetaData& md);
+    int  indexOf(const MetaData &md);
 
     void setLetters(QList<QString> letters);
     QList<QString> letters() const;
 
 //    QModelIndex index(int row, int column = 0, const QModelIndex &parent = QModelIndex()) const;
     Qt::ItemFlags flags(const QModelIndex &index) const;
+
+    int getModelCount();
 
 protected:
     int rowCount(const QModelIndex &parent) const;

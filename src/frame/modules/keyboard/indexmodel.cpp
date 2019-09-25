@@ -28,15 +28,15 @@
 #include <com_deepin_daemon_inputdevice_keyboard.h>
 
 namespace dcc {
-namespace keyboard{
+namespace keyboard {
 
 using DBusKeyboard = com::deepin::daemon::inputdevice::Keyboard;
 
 MetaData::MetaData(const QString &text, bool section)
-    :m_text(text),
-      m_pinyin(QString()),
-      m_section(section),
-      m_selected(false)
+    : m_text(text)
+    , m_pinyin(QString())
+    , m_section(section)
+    , m_selected(false)
 {
 
 }
@@ -93,19 +93,19 @@ bool MetaData::selected() const
 
 bool MetaData::operator ==(const MetaData &md) const
 {
-    return m_text==md.m_text;
+    return m_text == md.m_text;
 }
 
 bool MetaData::operator >(const MetaData &md) const
 {
     int x = QString::compare(m_pinyin, md.m_pinyin, Qt::CaseInsensitive);
-    return x>0;
+    return x > 0;
 }
 
 QDebug &operator<<(QDebug dbg, const MetaData &md)
 {
-    dbg.nospace()<<"key: "<<md.key()<<endl;
-    dbg.nospace()<<"text: "<<md.text()<<endl;
+    dbg.nospace() << "key: " << md.key() << endl;
+    dbg.nospace() << "text: " << md.text() << endl;
     /*
     dbg.nospace()<<"MetaData ( pinyin: "<<md.pinyin()<<" , ";
     dbg.nospace()<<"text: "<<md.text()<<" , ";
@@ -115,7 +115,7 @@ QDebug &operator<<(QDebug dbg, const MetaData &md)
 }
 
 IndexModel::IndexModel(QObject *parent)
-    :QAbstractListModel(parent)
+    : QAbstractListModel(parent)
 {
 }
 
@@ -135,10 +135,8 @@ int IndexModel::indexOf(const MetaData &md)
 {
     int index = 0;
     QList<MetaData>::iterator it = m_datas.begin();
-    for(; it != m_datas.end(); ++it)
-    {
-        if((*it) == md && (*it).section())
-        {
+    for (; it != m_datas.end(); ++it) {
+        if ((*it) == md && (*it).section()) {
             return index;
         }
         index++;
@@ -166,21 +164,17 @@ int IndexModel::rowCount(const QModelIndex &parent) const
 
 QVariant IndexModel::data(const QModelIndex &index, int role) const
 {
-    if(!index.isValid())
+    if (!index.isValid())
         return QVariant();
 
     MetaData md = m_datas[index.row()];
-    if(role == Qt::DisplayRole)
-    {
+    if (role == Qt::DisplayRole) {
         QVariant v;
         v.setValue(md);
         return v;
-    }
-    else if(role == Qt::BackgroundColorRole)
-    {
+    } else if (role == Qt::BackgroundColorRole) {
         return QBrush(Qt::transparent);
-    }
-    else
+    } else
         return QVariant();
 }
 
@@ -188,11 +182,15 @@ Qt::ItemFlags IndexModel::flags(const QModelIndex &index) const
 {
     QVariant var = index.data();
     MetaData md = var.value<MetaData>();
-    if(md.section())
-    {
+    if (md.section()) {
         return Qt::NoItemFlags;
     }
     return QAbstractListModel::flags(index);
+}
+
+int IndexModel::getModelCount()
+{
+    return m_datas.count();
 }
 
 }
