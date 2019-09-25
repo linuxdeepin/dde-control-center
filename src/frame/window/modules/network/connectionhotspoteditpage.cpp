@@ -33,7 +33,7 @@ using namespace dcc::widgets;
 using namespace NetworkManager;
 
 ConnectionHotspotEditPage::ConnectionHotspotEditPage(const QString &devPath, const QString &connUuid, QWidget *parent)
-    : ConnectionEditPage(ConnectionEditPage::ConnectionType::WirelessConnection, devPath, connUuid, parent)
+    : ConnectionEditPage(ConnectionEditPage::ConnectionType::WirelessConnection, devPath, connUuid, parent, true)
 {
 }
 
@@ -44,7 +44,7 @@ ConnectionHotspotEditPage::~ConnectionHotspotEditPage()
 void ConnectionHotspotEditPage::initSettingsWidget()
 {
     // some special configurations for hotspot
-    m_connectionSettings->setId(tr("hotspot"));
+    //m_connectionSettings->setId(tr("hotspot"));
     NetworkManager::Ipv4Setting::Ptr ipv4Setting =
         m_connectionSettings->setting(NetworkManager::Setting::SettingType::Ipv4)
         .staticCast<NetworkManager::Ipv4Setting>();

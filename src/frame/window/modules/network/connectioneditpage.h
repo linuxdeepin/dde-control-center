@@ -51,7 +51,8 @@ public:
 
     // Connection will NOT be activated if "devPath" is empty
     // A NEW connection will be created if "connUuid" is empty
-    explicit ConnectionEditPage(ConnectionType connType, const QString &devPath, const QString &connUuid = QString(), QWidget *parent = nullptr);
+    explicit ConnectionEditPage(ConnectionType connType, const QString &devPath,
+                                const QString &connUuid = QString(), QWidget *parent = nullptr, bool isHotSpot = false);
     virtual ~ConnectionEditPage();
 
     // This method or some similar method of Subclass must be called after initialization
@@ -117,7 +118,7 @@ private:
 
     bool m_isNewConnection;
     QString m_connectionUuid;
-
+    bool m_isHotSpot;
 };
 
 } /* network */

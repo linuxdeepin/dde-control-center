@@ -43,7 +43,8 @@ dccV20::FrameProxyInterface *ConnectionEditPage::m_frame = nullptr;
 ConnectionEditPage::ConnectionEditPage(ConnectionType connType,
                                        const QString &devPath,
                                        const QString &connUuid,
-                                       QWidget *parent)
+                                       QWidget *parent,
+                                       bool isHotSpot)
     : ContentWidget(parent)
     , m_settingsLayout(new QVBoxLayout)
     , m_connection(nullptr)
@@ -58,6 +59,7 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType,
     , m_connType(static_cast<NetworkManager::ConnectionSettings::ConnectionType>(connType))
     , m_isNewConnection(false)
     , m_connectionUuid(connUuid)
+    , m_isHotSpot(isHotSpot)
 {
     DevicePath = devPath;
 
@@ -356,7 +358,11 @@ void ConnectionEditPage::createConnSettings()
         break;
     }
     case NetworkManager::ConnectionSettings::ConnectionType::Wireless: {
-        connName = tr("Wireless Connection %1");
+        if (m_isHotSpot) {
+            connName = tr("hotspot");
+        } else {
+            connName = tr("Wireless Connection %1");
+        }
         break;
     }
     case NetworkManager::ConnectionSettings::ConnectionType::Pppoe: {
