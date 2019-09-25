@@ -135,6 +135,8 @@ MainWindow::MainWindow(QWidget *parent)
         //after initAllModule to load ts data
         m_searchWidget->setLanguage(QLocale::system().name());
     });
+
+    updateViewBackground();
 }
 
 void MainWindow::initAllModule()
@@ -285,11 +287,10 @@ void MainWindow::resetNavList(bool isIconMode)
         m_navView->setIconSize(QSize(84, 84));
         m_navView->setItemSize(QSize(170, 168));
         m_navView->setSpacing(20);
+        m_navView->clearSelection();
+        m_navView->setSelectionMode(QAbstractItemView::NoSelection);
         m_rightView->hide();
         m_backwardBtn->setEnabled(false);
-        DPalette pa = DApplicationHelper::instance()->palette(m_navView);
-        pa.setBrush(DPalette::ItemBackground, pa.base());
-        DApplicationHelper::instance()->setPalette(m_navView, pa);
     } else {
         //The second page will Covered with fill blank areas
         m_navView->setViewMode(QListView::ListMode);
@@ -298,12 +299,16 @@ void MainWindow::resetNavList(bool isIconMode)
         m_navView->setIconSize(QSize(42, 42));
         m_navView->setItemSize(QSize(168, 48));
         m_navView->setSpacing(0);
+        m_navView->setSelectionMode(QAbstractItemView::SingleSelection);
+        // 选中当前的项
+        m_navView->selectionModel()->select(m_navView->currentIndex(), QItemSelectionModel::SelectCurrent);
         m_rightView->show();
         m_backwardBtn->setEnabled(true);
         m_contentStack.top().second->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     }
 
-    m_navView->viewport()->setAutoFillBackground(!isIconMode);
+    m_navView->setAutoFillBackground(!isIconMode);
+    updateViewBackground();
 }
 
 void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
@@ -334,6 +339,15 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
             break;
         }
     }
+}
+
+void MainWindow::changeEvent(QEvent *event)
+{
+    if (event->type() == QEvent::PaletteChange) {
+        updateViewBackground();
+    }
+
+    return DMainWindow::changeEvent(event);
 }
 
 void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visible)
@@ -500,6 +514,26 @@ void MainWindow::judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *cons
         pushFinalWidget(inter, w);
     } else {
         pushTopWidget(inter, w);
+    }
+}
+
+void MainWindow::updateViewBackground()
+{
+    if (m_navView->viewMode() == QListView::IconMode) {
+        DPalette pa = DApplicationHelper::instance()->palette(m_navView);
+        QColor base_color = palette().base().color();
+        DGuiApplicationHelper::ColorType ct = DGuiApplicationHelper::toColorType(base_color);
+
+        if (ct == DGuiApplicationHelper::LightType) {
+            pa.setBrush(DPalette::ItemBackground, palette().base());
+        } else {
+            base_color = DGuiApplicationHelper::adjustColor(base_color, 0, 0, +5, 0, 0, 0, 0);
+            pa.setColor(DPalette::ItemBackground, base_color);
+        }
+
+        DApplicationHelper::instance()->setPalette(m_navView, pa);
+    } else {
+        DApplicationHelper::instance()->resetPalette(m_navView);
     }
 }
 

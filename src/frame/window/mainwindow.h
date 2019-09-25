@@ -102,6 +102,8 @@ private Q_SLOTS:
     void onEnterSearchWidget(QString moduleName, QString widget);
 
 private:
+    void changeEvent(QEvent *event) override;
+
     void initAllModule();
     void modulePreInitialize();
     void popAllWidgets(int place = 0);//place is Remain count
@@ -111,6 +113,7 @@ private:
     void pushTopWidget(ModuleInterface *const inter, QWidget *const w);  //Covere the top
     void pushFinalWidget(ModuleInterface *const inter, QWidget *const w);  //Insert after the finalWidget
     void judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *const w);
+    void updateViewBackground();
 };
 }
 
