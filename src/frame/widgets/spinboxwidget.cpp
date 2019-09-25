@@ -39,6 +39,7 @@ SpinBoxWidget::SpinBoxWidget(QWidget *parent)
     , m_resetBtn(new DIconButton(this))
 {
     m_spinBox->setContextMenuPolicy(Qt::NoContextMenu);
+    m_spinBox->setButtonSymbols(QAbstractSpinBox::PlusMinus);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setContentsMargins(20, 7, 10, 7);
@@ -46,7 +47,7 @@ SpinBoxWidget::SpinBoxWidget(QWidget *parent)
     mainLayout->addWidget(m_title);
     mainLayout->addWidget(m_spinBox);
     m_resetBtn->setIcon(QIcon::fromTheme("dcc_reset"));
-    m_resetBtn->setFixedSize(16, 16);
+    m_resetBtn->setFixedSize(36, 36);
     mainLayout->addWidget(m_resetBtn);
     connect(m_resetBtn, &DIconButton::clicked, [this] {
         m_spinBox->setValue(0);

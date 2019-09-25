@@ -43,7 +43,7 @@ class SpinBoxWidget : public SettingsItem
     Q_OBJECT
 
 public:
-    explicit SpinBoxWidget(QWidget *parent = 0);
+    explicit SpinBoxWidget(QWidget *parent = nullptr);
 
     inline DTK_WIDGET_NAMESPACE::DSpinBox *spinBox() const { return m_spinBox; }
 

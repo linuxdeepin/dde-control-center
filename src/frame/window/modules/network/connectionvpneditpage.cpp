@@ -28,6 +28,7 @@
 #include "settings/vpn/vpnopenconnectsettings.h"
 #include "settings/vpn/vpnsstpsettings.h"
 #include "widgets/comboxwidget.h"
+#include "widgets/titlelabel.h"
 
 #include <networkmanagerqt/vpnsetting.h>
 
@@ -98,8 +99,12 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
     }
 
     if (vpnType == VpnType::UNSET) {
-        QLabel *lbcaption = new QLabel("New VPN");
-        ComboxWidget *cbvpntype = new ComboxWidget("VPN Type");
+        QHBoxLayout *titleLayout = new QHBoxLayout(this);
+        TitleLabel *lbcaption = new TitleLabel(tr("New VPN"));
+        titleLayout->addStretch();
+        titleLayout->addWidget(lbcaption, 0, Qt::AlignCenter);
+        titleLayout->addStretch();
+        ComboxWidget *cbvpntype = new ComboxWidget(tr("VPN Type"));
         QComboBox *cb = cbvpntype->comboBox();
         cb->addItem(tr("L2TP"), VpnType::L2TP);
         cb->addItem(tr("PPTP"), VpnType::PPTP);
@@ -118,7 +123,7 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
             initSettingsWidgetByType(vpnType);
         });
 
-        m_settingsLayout->addWidget(lbcaption);
+        m_settingsLayout->addLayout(titleLayout);
         m_settingsLayout->addWidget(cbvpntype);
 
         initSettingsWidgetByType(VpnType::L2TP);
