@@ -107,6 +107,40 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
         Q_EMIT requestSetAlias(adapter, alias);
     });
 
+    connect(m_myDeviceListView, &DListView::clicked, this, [this](const QModelIndex &idx) {
+        const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(idx.model());
+        if (!deviceModel) {
+            return;
+        }
+        DStandardItem* item = dynamic_cast<DStandardItem *>(deviceModel->item(idx.row()));
+        if (!item) {
+            return;
+        }
+        for (auto it: m_myDevices) {
+            if (it->getStandardItem() == item) {
+                it->requestConnectDevice(it->device());
+                break;
+            }
+        }
+    });
+
+    connect(m_otherDeviceListView, &DListView::clicked, this, [this](const QModelIndex &idx) {
+        const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(idx.model());
+        if (!deviceModel) {
+            return;
+        }
+        DStandardItem* item = dynamic_cast<DStandardItem *>(deviceModel->item(idx.row()));
+        if (!item) {
+            return;
+        }
+        for (auto it: m_deviceLists) {
+            if (it->getStandardItem() == item) {
+                it->requestConnectDevice(it->device());
+                break;
+            }
+        }
+    });
+
     setLayout(layout);
     setAdapter(adapter);
 }
