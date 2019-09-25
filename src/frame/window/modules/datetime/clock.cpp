@@ -51,14 +51,14 @@ void Clock::paintEvent(QPaintEvent *)
     const QTime time(datetime.time());
 
     QPainter painter(this);
-    painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
+    painter.setRenderHint(QPainter::SmoothPixmapTransform);
 
     // draw plate
     painter.translate(0, 0);
     if (n_bIsUseBlackPlat) {
-        painter.drawPixmap(0, 0, width(), height(), QPixmap(":/datetime/icons/dcc_clock_black.svg"));
+        painter.drawPixmap(0, 0, QPixmap(":/datetime/icons/dcc_clock_black.svg"));
     } else {
-        painter.drawPixmap(0, 0, width(), height(), QPixmap(":/datetime/icons/dcc_clock_white.svg"));
+        painter.drawPixmap(0, 0, QPixmap(":/datetime/icons/dcc_clock_white.svg"));
     }
 
     QPixmap pix;
