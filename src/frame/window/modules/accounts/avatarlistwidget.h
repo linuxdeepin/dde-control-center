@@ -59,7 +59,8 @@ public:
 
     void addItemFromDefaultDir();
     void addLastItem();
-    QString getAvatarPath(int n);
+    QString getAvatarPath(int n) const;
+    int getCurrentSelectIndex() const;
 
 Q_SIGNALS:
     void requestSetAvatar(const QString &avatarPath);
@@ -77,6 +78,7 @@ private:
     AvatarItemDelegate *m_avatarItemDelegate;
     QList<QString> m_iconpathList;
     int m_prevSelectIndex;
+    int m_currentSelectIndex;
 };
 
 }

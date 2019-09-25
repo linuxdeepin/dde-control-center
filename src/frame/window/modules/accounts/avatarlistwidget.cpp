@@ -47,6 +47,7 @@ AvatarListWidget::AvatarListWidget(QWidget *parent)
     , m_avatarItemModel(new QStandardItemModel())
     , m_avatarItemDelegate(new AvatarItemDelegate())
     , m_prevSelectIndex(-1)
+    , m_currentSelectIndex(-1)
 {
     initWidgets();
     initDatas();
@@ -116,6 +117,7 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
         m_avatarItemModel->removeRow(index.row());
         addLastItem();
     } else {
+        m_currentSelectIndex = index.row();
         if (m_prevSelectIndex != -1) {
             m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
         }
@@ -189,7 +191,12 @@ void AvatarListWidget::addLastItem()
     m_avatarItemModel->appendRow(item);
 }
 
-QString AvatarListWidget::getAvatarPath(int n)
+QString AvatarListWidget::getAvatarPath(int n) const
 {
     return  m_iconpathList.at(n);
+}
+
+int AvatarListWidget::getCurrentSelectIndex() const
+{
+    return m_currentSelectIndex;
 }

@@ -145,7 +145,6 @@ void CreateAccountPage::setModel(User *user)
 {
     m_newUser = user;
     Q_ASSERT(m_newUser);
-    connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar, m_newUser, &User::setCurrentAvatar);
 }
 
 void CreateAccountPage::createUser()
@@ -155,9 +154,13 @@ void CreateAccountPage::createUser()
     if (!onPasswordEditFinished(m_passwdEdit)) { return; }
     if (!onPasswordEditFinished(m_repeatpasswdEdit)) { return; }
 
-    //随机分配图像 [0, 13]
-    int random = qrand() % 14;
-    m_newUser->setCurrentAvatar(m_avatarListWidget->getAvatarPath(random));
+    //如果用户没有选图像
+    int index = m_avatarListWidget->getCurrentSelectIndex();
+    if (index == -1) {
+        //随机分配图像 [0, 13]
+        index = qrand() % 14;
+    }
+    m_newUser->setCurrentAvatar(m_avatarListWidget->getAvatarPath(index));
     m_newUser->setName(m_nameEdit->text());
     m_newUser->setFullname(m_fullnameEdit->text());
     m_newUser->setPassword(m_passwdEdit->text());
