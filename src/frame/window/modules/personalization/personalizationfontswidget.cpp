@@ -80,6 +80,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     sfontLayout->addWidget(m_standardFontsCbBox);
 
     m_standardFontsCbBox->setModel(new QStandardItemModel(this));
+    m_standardFontsCbBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     fontsLayout->addWidget(sfontitem);
 
     //mono font
@@ -91,6 +92,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     mfontLayout->addWidget(new QLabel(tr("Monospaced Font"), this));
     mfontLayout->addWidget(m_monoFontsCbBox);
     m_monoFontsCbBox->setModel(new QStandardItemModel(this));
+    m_monoFontsCbBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     fontsLayout->addWidget(mfontitem);
     m_centralLayout->addLayout(fontsLayout);
     m_centralLayout->addStretch();
