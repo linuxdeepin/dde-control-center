@@ -533,7 +533,10 @@ void MainWindow::updateViewBackground()
 
         DApplicationHelper::instance()->setPalette(m_navView, pa);
     } else {
-        DApplicationHelper::instance()->resetPalette(m_navView);
+        DPalette pa = DApplicationHelper::instance()->palette(m_navView);
+        pa.setColor(DPalette::ItemBackground, Qt::transparent);
+
+        DApplicationHelper::instance()->setPalette(m_navView, pa);
     }
 }
 
