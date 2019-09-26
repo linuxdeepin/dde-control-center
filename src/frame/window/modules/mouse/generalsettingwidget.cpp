@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "generalsettingwidget.h"
+#include "window/utils.h"
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/dccslider.h"
@@ -76,6 +77,7 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     doubleSlider->setPageStep(1);
     m_doubleSlider->setAnnotations(doublelist);
 
+    m_generalSettingsGrp->setSpacing(List_Interval);
     m_generalSettingsGrp->appendItem(m_leftHand);
     m_generalSettingsGrp->appendItem(m_disInTyping);
     m_generalSettingsGrp->appendItem(m_scrollSpeedSlider);

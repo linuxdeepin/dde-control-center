@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "mousesettingwidget.h"
+#include "window/utils.h"
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/dccslider.h"
@@ -60,6 +61,7 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
     speedSlider->setPageStep(1);
     m_mouseMoveSlider->setAnnotations(speedList);
 
+    m_mouseSettingsGrp->setSpacing(List_Interval);
     m_mouseSettingsGrp->appendItem(m_mouseMoveSlider);
     m_mouseSettingsGrp->appendItem(m_adaptiveAccelProfile);
     m_mouseSettingsGrp->appendItem(m_disTchStn);

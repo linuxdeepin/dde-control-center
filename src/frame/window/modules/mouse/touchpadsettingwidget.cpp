@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "touchpadsettingwidget.h"
+#include "window/utils.h"
 #include "widgets/switchwidget.h"
 #include "widgets/contentwidget.h"
 #include "widgets/settingsgroup.h"
@@ -61,12 +62,14 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
     touchSlider->setPageStep(1);
     m_touchMoveSlider->setAnnotations(touchMoveList);
 
+    m_touchpadSettingsGrp->setSpacing(List_Interval);
     m_touchpadSettingsGrp->appendItem(m_touchMoveSlider);
     m_touchpadSettingsGrp->appendItem(m_touchClickStn);
     m_touchpadSettingsGrp->appendItem(m_touchNaturalScroll);
 
     m_contentLayout = new QVBoxLayout();
     m_contentLayout->addWidget(m_touchpadSettingsGrp);
+    m_contentLayout->addSpacing(List_Interval);
     m_contentLayout->addWidget(m_palmDetectSetting);
     m_contentLayout->addStretch();
     TranslucentFrame *tFrame = new TranslucentFrame;
