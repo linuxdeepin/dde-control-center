@@ -44,6 +44,7 @@
 
 #include <dplatformwindowhandle.h>
 #include <DDialogCloseButton>
+#include <DApplicationHelper>
 
 #include "timezone_map.h"
 #include "widgets/searchinput.h"
@@ -67,6 +68,16 @@ TimeZoneChooser::TimeZoneChooser()
     setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | Qt::X11BypassWindowManagerHint);
     setAttribute(Qt::WA_TranslucentBackground);
     setupSize();
+
+    m_searchInput->setMinimumSize(350, 36);
+
+    DPalette pa = DApplicationHelper::instance()->palette(m_title);
+    pa.setBrush(QPalette::WindowText, pa.base());
+    DApplicationHelper::instance()->setPalette(m_title, pa);
+
+    QFont font;
+    font.setPixelSize(40);
+    m_title->setFont(font);
 
     DPlatformWindowHandle handle(this);
     handle.setWindowRadius(4);
