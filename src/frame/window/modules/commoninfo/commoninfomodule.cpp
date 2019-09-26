@@ -74,6 +74,8 @@ void CommonInfoModule::active()
     m_frameProxy->pushWidget(this, m_commonWidget);
 
     onShowBootWidget();
+    QModelIndex curSelectIndex = m_commonWidget->getCommonListView()->model()->index(0, 0); // 第一行
+    m_commonWidget->getCommonListView()->setCurrentIndex(curSelectIndex);
 }
 
 void CommonInfoModule::deactive()
