@@ -103,26 +103,19 @@ void TitledSliderItem::setValueLiteral(const QString &valueLiteral)
     }
 }
 
-void TitledSliderItem::setLeftIcon(const QString &leftIcon)
+void TitledSliderItem::setLeftIcon(const QIcon &leftIcon)
 {
-    m_slider->setLeftIcon(QIcon(leftIcon));
-}
-void TitledSliderItem::setLeftIcon(const QIcon &leftIcon, const QSize &iconSize)
-{
-    Q_UNUSED(iconSize)
-    m_slider->setLeftIcon(QIcon(leftIcon));
+    m_slider->setLeftIcon(leftIcon);
 }
 
-//    QString rightIcon() const;
-void TitledSliderItem::setRightIcon(const QString &rightIcon)
+void TitledSliderItem::setRightIcon(const QIcon &rightIcon)
 {
-    m_slider->setLeftIcon(QIcon(rightIcon));
+    m_slider->setRightIcon(rightIcon);
 }
 
-void TitledSliderItem::setRightIcon(const QIcon &rightIcon, const QSize &iconSize)
+void TitledSliderItem::setIconSize(const QSize &size)
 {
-    Q_UNUSED(iconSize)
-    m_slider->setLeftIcon(QIcon(rightIcon));
+    m_slider->setIconSize(size);
 }
 
 } // namespace widgets

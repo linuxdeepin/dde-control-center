@@ -50,10 +50,8 @@ public:
     void setValueLiteral(const QString &valueLiteral);
 
     void setLeftIcon(const QString &leftIcon);
-    void setLeftIcon(const QIcon &leftIcon, const QSize &iconSize);
-
     void setRightIcon(const QString &rightIcon);
-    void setRightIcon(const QIcon &rightIcon, const QSize &iconSize);
+    void setIconSize(const QSize &size);
 
 private:
     NormalLabel *m_titleLabel;

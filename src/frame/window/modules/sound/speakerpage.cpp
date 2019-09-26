@@ -77,8 +77,9 @@ void SpeakerPage::initSlider()
     slider->setRange(0, 150);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::NoTicks);
-    outputSlider->setLeftIcon(QIcon::fromTheme("dcc_set_sound"), QSize(24, 24));
-    outputSlider->setRightIcon(QIcon::fromTheme("dcc_set_sound"), QSize(24, 24));
+    outputSlider->setLeftIcon(QIcon::fromTheme("dcc_set_sound"));
+    outputSlider->setRightIcon(QIcon::fromTheme("dcc_set_sound"));
+    outputSlider->setIconSize(QSize(24, 24));
     slider->setTickInterval(1);
     slider->setSliderPosition(static_cast<int>(m_model->speakerVolume() * 100.0));
     slider->setPageStep(1);
