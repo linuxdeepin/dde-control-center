@@ -22,6 +22,8 @@
 
 #include "window/namespace.h"
 
+#include "modules/sync/utils.h"
+
 #include <DListView>
 
 #include <QWidget>
@@ -45,13 +47,14 @@ class SwitchWidget;
 namespace cloudsync {
 class SyncModel;
 class SyncStateIcon;
-enum SyncType : int;
-enum SyncState : int;
+//enum SyncType : int;
+//enum SyncState : int;
 }
 }
 
 namespace DCC_NAMESPACE {
 namespace sync {
+
 class IndexPage : public QWidget
 {
     Q_OBJECT

@@ -338,7 +338,7 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
         //~ contents_path /update/Update
         m_summary->setDetails(QString(tr("Size: %1").arg(formatCap(downloadSize))));
 
-        //~ contents_path /update/Update
+/////////////////////        //~ contents_path /update/Update
         if ((downloadSize / 1024) / 1024 >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt())
             m_upgradeWarningGroup->setVisible(true);
     }

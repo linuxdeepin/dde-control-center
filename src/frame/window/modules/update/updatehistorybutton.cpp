@@ -28,7 +28,7 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::update;
 using namespace dcc::widgets;
 
-dccV20::update::UpdateHistoryButton::UpdateHistoryButton(QFrame *parent)
+UpdateHistoryButton::UpdateHistoryButton(QFrame *parent)
     : SettingsItem(parent)
     , m_messageLabel(new QLabel)
     , m_label(new QLabel)

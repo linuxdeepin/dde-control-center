@@ -22,21 +22,26 @@ using namespace DCC_NAMESPACE::sync;
 using namespace dcc::widgets;
 using namespace dcc::cloudsync;
 
+namespace DCC_NAMESPACE {
+namespace sync {
+
 IndexPage::IndexPage(QWidget *parent)
     : QWidget(parent)
     , m_mainLayout(new QVBoxLayout)
     , m_model(nullptr)
     , m_avatar(new QLabel)
     , m_username(new QLabel)
-    //~ contents_path /cloudsync/Auto Sync
-    , m_autoSyncSwitch(new SwitchWidget(tr("Auto Sync")))
     , m_listView(new DListView)
     , m_stateIcon(new SyncStateIcon)
-    //~ contents_path /cloudsync/Syncing...
-    , m_stateLbl(new QLabel(tr("Syncing...")))
     , m_lastSyncTimeLbl(new QLabel)
     , m_listModel(new QStandardItemModel)
 {
+    //~ contents_path /cloudsync/Auto Sync
+    m_autoSyncSwitch = new SwitchWidget(tr("Auto Sync"));
+
+    //~ contents_path /cloudsync/Syncing...
+    m_stateLbl = new QLabel(tr("Syncing..."));
+
     m_stateLbl->hide();
     m_listView->setSelectionMode(QListView::NoSelection);
     m_listView->setSelectionBehavior(QAbstractItemView::SelectRows);
@@ -255,4 +260,7 @@ void IndexPage::onModuleStateChanged(std::pair<SyncType, bool> state)
 void IndexPage::onAutoSyncChanged(bool autoSync)
 {
     m_listView->setVisible(!autoSync);
+}
+
+}
 }
