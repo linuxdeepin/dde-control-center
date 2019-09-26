@@ -94,6 +94,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     //设计效果图变更：增加左右图标
     m_transparentSlider->slider()->setLeftIcon(QIcon::fromTheme("dcc_transparency_low"));
     m_transparentSlider->slider()->setRightIcon(QIcon::fromTheme("dcc_transparency_high"));
+    m_transparentSlider->slider()->setIconSize(QSize(24, 24));
     dcc::widgets::DCCSlider *slider = m_transparentSlider->slider();
     //设计效果图变更：去掉刻度数字显示
 //    QStringList annotions;
