@@ -40,7 +40,7 @@ MirrorItem::MirrorItem(QFrame *parent)
     : SettingsItem(parent)
     , m_selected(false)
     , m_speed(0)
-    , m_selectedBtn(new DFloatingButton(DStyle::SP_DialogYesButton, this))
+    , m_selectedBtn(new DFloatingButton(DStyle::SP_IndicatorChecked, this))
     , m_mirrorName(new SmallLabel)
     , m_mirrorSpeed(new SmallLabel(tr("Untested")))
     , m_layout(new QHBoxLayout(this))
@@ -49,10 +49,6 @@ MirrorItem::MirrorItem(QFrame *parent)
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     m_mirrorName->setWordWrap(true);
-
-    DPalette pa = DApplicationHelper::instance()->palette(m_selectedBtn);
-    pa.setBrush(DPalette::ItemBackground, pa.base());
-    DApplicationHelper::instance()->setPalette(m_selectedBtn, pa);
 
     m_selectedBtn->setObjectName("DCC-Update-MirrorItem-SelectedBtn");
     m_selectedBtn->setFixedSize(18, 18);

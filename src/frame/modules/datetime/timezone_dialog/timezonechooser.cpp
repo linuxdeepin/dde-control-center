@@ -43,7 +43,7 @@
 #include <QAbstractItemView>
 
 #include <dplatformwindowhandle.h>
-#include <dwindowclosebutton.h>
+#include <DDialogCloseButton>
 
 #include "timezone_map.h"
 #include "widgets/searchinput.h"
@@ -56,13 +56,13 @@ namespace dcc {
 namespace datetime {
 
 TimeZoneChooser::TimeZoneChooser()
-    : QFrame(),
-      m_blurEffect(new DBlurEffectWidget(this)),
-      m_map(new installer::TimezoneMap(this)),
-      m_searchInput(new SearchInput),
-      m_title(new QLabel),
-      m_cancelBtn(new QPushButton(tr("Cancel"))),
-      m_confirmBtn(new QPushButton(tr("Confirm")))
+    : QFrame()
+    , m_blurEffect(new DBlurEffectWidget(this))
+    , m_map(new installer::TimezoneMap(this))
+    , m_searchInput(new SearchInput)
+    , m_title(new QLabel)
+    , m_cancelBtn(new QPushButton(tr("Cancel")))
+    , m_confirmBtn(new QPushButton(tr("Confirm")))
 {
     setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | Qt::X11BypassWindowManagerHint);
     setAttribute(Qt::WA_TranslucentBackground);
@@ -74,7 +74,7 @@ TimeZoneChooser::TimeZoneChooser()
     m_blurEffect->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
     m_blurEffect->setMaskColor(Qt::black);
 
-    DWindowCloseButton *closeButton = new DWindowCloseButton;
+    DDialogCloseButton *closeButton = new DDialogCloseButton;
 
     QHBoxLayout *wbLayout = new QHBoxLayout;
     wbLayout->setMargin(6);
@@ -106,7 +106,7 @@ TimeZoneChooser::TimeZoneChooser()
         Q_EMIT confirmed(zone);
     });
 
-    connect(closeButton, &DWindowCloseButton::clicked, this, [this] {
+    connect(closeButton, &DDialogCloseButton::clicked, this, [this] {
         Q_EMIT cancelled();
 
         close();
@@ -222,7 +222,7 @@ bool TimeZoneChooser::eventFilter(QObject *watched, QEvent *event)
     // and the 2px's hard coded, so I need to move the popup to a proper position so
     // it won't overlap with the SearchInput.
     if (watched == m_popup && event->type() == QEvent::Move) {
-        const QMoveEvent *move = static_cast<QMoveEvent*>(event);
+        const QMoveEvent *move = static_cast<QMoveEvent *>(event);
         const QPoint destPos = m_searchInput->mapToGlobal(QPoint(0, m_searchInput->height() + 1));
         // Don't panic, it won't cause dead loop.
         if (move->pos() != destPos) {
@@ -248,7 +248,7 @@ QSize TimeZoneChooser::getFitSize() const
     double width = primaryRect.width() - 360/* dcc */ - 20 * 2;
     double height = primaryRect.height() - 70/* dock */ - 20 * 2;
 
-    return QSize(width, height);
+    return QSize(static_cast<int>(width), static_cast<int>(height));
 }
 
 void TimeZoneChooser::setupSize()
