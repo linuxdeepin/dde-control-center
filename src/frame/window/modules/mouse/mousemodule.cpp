@@ -60,6 +60,9 @@ void MouseModule::reset()
 void MouseModule::active()
 {
     m_mouseWidget = new MouseWidget;
+    m_mouseWidget->init(m_model->tpadExist(), m_model->redPointExist());
+    connect(m_model, &MouseModel::tpadExistChanged, m_mouseWidget, &MouseWidget::tpadExistChanged);
+    connect(m_model, &MouseModel::redPointExistChanged, m_mouseWidget, &MouseWidget::redPointExistChanged);
     connect(m_mouseWidget, &MouseWidget::showGeneralSetting, this, &MouseModule::showGeneralSetting);
     connect(m_mouseWidget, &MouseWidget::showMouseSetting, this, &MouseModule::showMouseSetting);
     connect(m_mouseWidget, &MouseWidget::showTouchpadSetting, this, &MouseModule::showTouchpadSetting);

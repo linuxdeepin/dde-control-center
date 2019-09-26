@@ -34,6 +34,12 @@ class QStandardItemModel;
 QT_END_NAMESPACE
 
 namespace dcc {
+namespace mouse {
+class MouseModel;
+}
+}
+
+namespace dcc {
 namespace widgets {
 class SettingsGroup;
 class SwitchWidget;
@@ -43,24 +49,25 @@ class TitledSliderItem;
 
 namespace DCC_NAMESPACE {
 namespace mouse {
-class MouseModel;
 class MouseWidget : public QWidget
 {
     Q_OBJECT
 
 public:
     explicit MouseWidget(QWidget *parent = nullptr);
+    void init(bool tpadExist, bool redPointExist);
     void initSetting(const int settingIndex);
 private:
-    void init();
     void onItemClieck(const QModelIndex &index);
 Q_SIGNALS:
+    void tpadExistChanged(bool bExist);
+    void redPointExistChanged(bool bExist);
     void showGeneralSetting();
     void showMouseSetting();
     void showTouchpadSetting();
     void showTrackPointSetting();
 private:
-    MouseModel *m_mouseModel;
+    dcc::mouse::MouseModel *m_mouseModel;
     DTK_WIDGET_NAMESPACE::DListView *m_mouseListView;
     QVBoxLayout *m_contentLayout;
     QStandardItemModel *m_listviewModel;

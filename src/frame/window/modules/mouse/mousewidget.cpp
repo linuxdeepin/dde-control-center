@@ -43,14 +43,13 @@ MouseWidget::MouseWidget(QWidget *parent)
     m_contentLayout = new QVBoxLayout(this);
     m_mouseListView = new DListView(this);
     m_contentLayout->addWidget(m_mouseListView);
-    init();
     setLayout(m_contentLayout);
 }
 
-void MouseWidget::init()
+void MouseWidget::init(bool tpadExist, bool redPointExist)
 {
+    qDebug() << "tpadExist: " << tpadExist << "redPoint: " << redPointExist;
     m_listviewModel = new QStandardItemModel(m_mouseListView);
-
     QList<QPair<QIcon, QString>> menuIconText;
     menuIconText = {
         //~ contents_path /mouse/General
@@ -73,7 +72,17 @@ void MouseWidget::init()
     m_mouseListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_mouseListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_mouseListView->setCurrentIndex(m_listviewModel->index(0, 0));
+    m_mouseListView->setRowHidden(2, !tpadExist);
+    m_mouseListView->setRowHidden(3, !redPointExist);
     connect(m_mouseListView, &DListView::clicked, this, &MouseWidget::onItemClieck);
+    connect(this, &MouseWidget::tpadExistChanged, this, [this](bool bExist) {
+        m_mouseListView->setRowHidden(2, !bExist);
+        qDebug() << "tpadExistChanged: " << bExist;
+    });
+    connect(this, &MouseWidget::redPointExistChanged, this, [this](bool bExist) {
+        m_mouseListView->setRowHidden(3, !bExist);
+        qDebug() << "redPointExistChanged: " << bExist;
+    });
 }
 
 void MouseWidget::initSetting(const int settingIndex)
