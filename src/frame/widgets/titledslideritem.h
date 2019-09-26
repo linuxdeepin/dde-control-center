@@ -49,8 +49,8 @@ public:
     QString valueLiteral() const;
     void setValueLiteral(const QString &valueLiteral);
 
-    void setLeftIcon(const QString &leftIcon);
-    void setRightIcon(const QString &rightIcon);
+    void setLeftIcon(const QIcon &leftIcon);
+    void setRightIcon(const QIcon &rightIcon);
     void setIconSize(const QSize &size);
 
 private:
