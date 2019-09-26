@@ -339,8 +339,8 @@ void Secret8021xSection::initEapMethodTlsItems(QList<SettingsItem *> *itemList)
     userCert->setTitle(tr("User Cert"));
     userCert->edit()->setText(m_secretSetting->clientCertificate());
 
-    connect(privateKey->edit(), &QLineEdit::textChanged, this, &Secret8021xSection::allInputValid);
-    connect(userCert->edit(), &QLineEdit::textChanged, this, &Secret8021xSection::allInputValid);
+    connect(privateKey->edit()->lineEdit(), &QLineEdit::textChanged, this, &Secret8021xSection::allInputValid);
+    connect(userCert->edit()->lineEdit(), &QLineEdit::textChanged, this, &Secret8021xSection::allInputValid);
 
     connect(privateKey, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);
     connect(caCert, &FileChooseWidget::requestFrameKeepAutoHide, this, &Secret8021xSection::requestFrameAutoHide);

@@ -44,7 +44,7 @@ SearchWidget::SearchWidget(QWidget *parent)
     m_completer->setFilterMode(Qt::MatchContains);//设置QCompleter支持匹配字符搜索
     m_completer->setCaseSensitivity(Qt::CaseInsensitive);//这个属性可设置进行匹配时的大小写敏感性
     m_completer->setCompletionRole(Qt::UserRole); //设置ItemDataRole
-    setCompleter(m_completer);
+    lineEdit()->setCompleter(m_completer);
 
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textChanged, this, [ = ] {
         QString value = text();
@@ -61,7 +61,7 @@ SearchWidget::SearchWidget(QWidget *parent)
         if (!text().isEmpty()) {
             //enter defalt set first
             if (!jumpContentPathWidget(text())) {
-                const QString &currentCompletion = completer()->currentCompletion();
+                const QString &currentCompletion = lineEdit()->completer()->currentCompletion();
                 qDebug() << Q_FUNC_INFO << " [wubw SearchWidget] currentCompletion : " << currentCompletion;
 
                 jumpContentPathWidget(currentCompletion);

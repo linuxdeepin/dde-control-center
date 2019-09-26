@@ -99,13 +99,13 @@ void ModifyPasswdPage::initData()
     m_titleLabel->setText(tr("Change Password"));
 
     m_oldPasswdLabel->setText(tr("Current Password"));
-    m_oldPasswordEdit->setPlaceholderText(tr("Required"));
+    m_oldPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
 
     m_newPasswdLabel->setText(tr("New Password"));
-    m_newPasswordEdit->setPlaceholderText(tr("Required"));
+    m_newPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
 
     m_repeatPasswdLabel->setText(tr("Repeat Password"));
-    m_repeatPasswordEdit->setPlaceholderText(tr("Required"));
+    m_repeatPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
 
     m_cancleBtn->setText(tr("Cancel"));
     m_saveBtn->setText(tr("Save"));
@@ -121,8 +121,8 @@ void ModifyPasswdPage::initData()
     });
 
     for (auto edit : m_passeditList) {
-        connect(edit, &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
-        connect(edit, &QLineEdit::editingFinished, this, &ModifyPasswdPage::onDoEditFinish, Qt::QueuedConnection);
+        connect(edit->lineEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
+        connect(edit->lineEdit(), &QLineEdit::editingFinished, this, &ModifyPasswdPage::onDoEditFinish, Qt::QueuedConnection);
         Q_EMIT edit->editingFinished();
     }
 }
@@ -134,27 +134,27 @@ void ModifyPasswdPage::clickSaveBtn()
     QString repeatpwd = m_repeatPasswordEdit->text();
 
     if ((m_curUser->passwordStatus() != NO_PASSWORD && m_oldPasswordEdit->text().isEmpty())) {
-        showErrorTip(m_oldPasswordEdit, tr("Wrong password"));
+        showErrorTip(m_oldPasswordEdit->lineEdit(), tr("Wrong password"));
         return;
     }
 
     if (m_newPasswordEdit->text().isEmpty()) {
-        showErrorTip(m_newPasswordEdit, tr("Password cannot be empty"));
+        showErrorTip(m_newPasswordEdit->lineEdit(), tr("Password cannot be empty"));
         return;
     }
 
     if (m_repeatPasswordEdit->text().isEmpty()) {
-        showErrorTip(m_repeatPasswordEdit, tr("Password cannot be empty"));
+        showErrorTip(m_repeatPasswordEdit->lineEdit(), tr("Password cannot be empty"));
         return;
     }
 
     if (oldpwd == newpwd) {
-        showErrorTip(m_newPasswordEdit, tr("New password should differ from the current one"));
+        showErrorTip(m_newPasswordEdit->lineEdit(), tr("New password should differ from the current one"));
         return;
     }
 
     if (newpwd != repeatpwd) {
-        showErrorTip(m_repeatPasswordEdit, tr("Passwords do not match"));
+        showErrorTip(m_repeatPasswordEdit->lineEdit(), tr("Passwords do not match"));
         return;
     }
 
@@ -167,7 +167,7 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
         Q_EMIT requestBack();
         return;
     } if (exitCode == ModifyPasswdPage::InputOldPwdError) {
-        showErrorTip(m_oldPasswordEdit, tr("Wrong password"));
+        showErrorTip(m_oldPasswordEdit->lineEdit(), tr("Wrong password"));
         return;
     } else {
         qWarning() << Q_FUNC_INFO << "exit =" << exitCode;
@@ -216,13 +216,13 @@ void ModifyPasswdPage::onEditFinished(Dtk::Widget::DPasswordEdit *t)
 
     if (m_curUser->name().toLower() == password.toLower()) {
         m_saveBtn->setEnabled(false);
-        showErrorTip(t, tr("The password should be different from the username"));
+        showErrorTip(t->lineEdit(), tr("The password should be different from the username"));
         return;
     }
 
     if (!validatePassword(password)) {
         m_saveBtn->setEnabled(false);
-        showErrorTip(t, tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
+        showErrorTip(t->lineEdit(), tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
     } else {
         m_errorTip->hide();
         m_saveBtn->setEnabled(true);

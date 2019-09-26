@@ -73,7 +73,7 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     mainLayout->addWidget(shortCutCmd);
 
     m_shortCutCmdEdit = new DFileChooserEdit(this);
-    m_shortCutCmdEdit->setPlaceholderText(tr("Required"));
+    m_shortCutCmdEdit->lineEdit()->setPlaceholderText(tr("Required"));
     mainLayout->addWidget(m_shortCutCmdEdit);
 
     m_shortcut = new CustomItem;

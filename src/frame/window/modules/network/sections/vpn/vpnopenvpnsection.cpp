@@ -201,8 +201,8 @@ void VpnOpenVPNSection::initTLSItems()
     priKeyPassword->setTitle(tr("Private Pwd"));
     priKeyPassword->setText(m_secretMap.value("cert-pass"));
 
-    connect(userCertFile->edit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
-    connect(priKeyFile->edit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
+    connect(userCertFile->edit()->lineEdit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
+    connect(priKeyFile->edit()->lineEdit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
     connect(priKeyPassword->textEdit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
     connect(certPasswordFlagsChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentCertPasswordType = data.value<NetworkManager::Setting::SecretFlagType>();
@@ -298,7 +298,7 @@ void VpnOpenVPNSection::initStaticKeyItems()
     localIp->setPlaceholderText(tr("Required"));
     localIp->setText(m_dataMap.value("local-ip"));
 
-    connect(staticKey->edit(), &QLineEdit::textChanged, this, &VpnOpenVPNSection::allInputValid);
+    connect(staticKey->edit()->lineEdit(), &QLineEdit::textChanged, this, &VpnOpenVPNSection::allInputValid);
     connect(remoteIp->textEdit(), &QLineEdit::textChanged, this, &VpnOpenVPNSection::allInputValid);
     connect(localIp->textEdit(), &QLineEdit::textChanged, this, &VpnOpenVPNSection::allInputValid);
     connect(customizeKeyDirection, &SwitchWidget::checkedChanged,

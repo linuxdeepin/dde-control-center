@@ -58,9 +58,9 @@ void ADDialog::initUI()
 {
     setIconPixmap(DHiDPIHelper::loadNxPixmap(":/accounts/themes/dark/icons/default_avatar.svg"));
 
-    m_server->setPlaceholderText(tr("Domain Server"));
-    m_username->setPlaceholderText(tr("Admin account"));
-    m_password->setPlaceholderText(tr("Password"));
+    m_server->lineEdit()->setPlaceholderText(tr("Domain Server"));
+    m_username->lineEdit()->setPlaceholderText(tr("Admin account"));
+    m_password->lineEdit()->setPlaceholderText(tr("Password"));
 
     m_server->setClearButtonEnabled(true);
     m_username->setClearButtonEnabled(true);

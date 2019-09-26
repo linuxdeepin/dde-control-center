@@ -97,7 +97,7 @@ LineEditWidget::LineEditWidget(bool isPasswordMode, QWidget *parent)
     , m_errTip(new ErrorTip(this))
 {
     if (isPasswordMode) {
-        m_edit = new DPasswordEdit;
+        m_edit = (new DPasswordEdit)->lineEdit();
     } else {
         m_edit = new QLineEdit;
     }

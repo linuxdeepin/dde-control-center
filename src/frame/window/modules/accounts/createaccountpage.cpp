@@ -52,8 +52,8 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     , m_repeatpasswdLabel(new QLabel)
     , m_nameEdit(new QLineEdit)
     , m_fullnameEdit(new QLineEdit)
-    , m_passwdEdit(new DPasswordEdit)
-    , m_repeatpasswdEdit(new DPasswordEdit)
+    , m_passwdEdit((new DPasswordEdit)->lineEdit())
+    , m_repeatpasswdEdit((new DPasswordEdit)->lineEdit())
     , m_cancleBtn(new QPushButton)
     , m_addBtn(new QPushButton)
     , m_errorTip(new ErrorTip)
@@ -114,13 +114,13 @@ void CreateAccountPage::initDatas()
         m_nameEdit->setText(str.toLower());
     });
 
-    connect(m_passwdEdit, &DPasswordEdit::textEdited, this, [ = ] {
+    connect(m_passwdEdit, &QLineEdit::textEdited, this, [ = ] {
         if (m_passwdEdit == m_errorEdit && m_errorTip->isVisible()) {
             m_errorTip->hide();
         }
     });
 
-    connect(m_repeatpasswdEdit, &DPasswordEdit::textEdited, this, [ = ] {
+    connect(m_repeatpasswdEdit, &QLineEdit::textEdited, this, [ = ] {
         if (m_repeatpasswdEdit == m_errorEdit && m_errorTip->isVisible()) {
             m_errorTip->hide();
         }
@@ -219,7 +219,7 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
     result->deleteLater();
 }
 
-bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
+bool CreateAccountPage::onPasswordEditFinished(QLineEdit *edit)
 {
     const QString &userpassword = edit->text();
     if (userpassword.isEmpty()) {
