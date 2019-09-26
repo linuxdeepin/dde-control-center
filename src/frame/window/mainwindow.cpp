@@ -450,6 +450,7 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
     resetNavList(m_contentStack.empty());
 }
 
+//为后面平铺模式留接口
 void MainWindow::pushFinalWidget(ModuleInterface *const inter, QWidget *const w)
 {
     DPalette pa = DApplicationHelper::instance()->palette(w);
@@ -460,7 +461,7 @@ void MainWindow::pushFinalWidget(ModuleInterface *const inter, QWidget *const w)
 
     w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_contentStack.push({inter, w});
-    m_rightContentLayout->addWidget(w);
+    m_rightContentLayout->addWidget(w, 7);
 
     if (m_contentStack.size() == 2) {
         m_contentStack.at(0).second->setMinimumWidth(second_widget_min_width);
@@ -477,7 +478,7 @@ void MainWindow::pushNormalWidget(ModuleInterface *const inter, QWidget *const w
     w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_contentStack.push({inter, w});
-    m_rightContentLayout->addWidget(w);
+    m_rightContentLayout->addWidget(w, m_contentStack.size() == 1 ? 3 : 7);
 
     if (m_contentStack.size() == 2) {
         m_contentStack.at(0).second->setMinimumWidth(second_widget_min_width);
