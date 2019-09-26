@@ -59,21 +59,35 @@ SoundModel::SoundModel(QObject *parent)
     , m_microphoneFeedback(50)
 #endif
 {
-    m_soundEffectMap = {
-        { "Boot up", DDesktopServices::SSE_BootUp },
-        { "Shut down", DDesktopServices::SSE_Shutdown },
-        { "Log out", DDesktopServices::SSE_Logout },
-        { "Wake up", DDesktopServices::SSE_WakeUp },
-        { "Volume +/-", DDesktopServices::SSE_VolumeChange },
-        { "Notification", DDesktopServices::SSE_Notifications },
-        { "Low battery", DDesktopServices::SSE_LowBattery },
-        { "Send icon in Launcher to Desktop", DDesktopServices::SSE_SendFileComplete },
-        { "Empty Trash", DDesktopServices::SSE_EmptyTrash },
-        { "Plug in", DDesktopServices::SSE_PlugIn },
-        { "Plug out", DDesktopServices::SSE_PlugOut },
-        { "Removable device connected", DDesktopServices::SSE_DeviceAdded },
-        { "Removable device removed", DDesktopServices::SSE_DeviceRemoved },
-        { "Error", DDesktopServices::SSE_Error },
+    m_soundEffectMapBattery = {
+        { tr("Boot up"), DDesktopServices::SSE_BootUp },
+        { tr("Shut down"), DDesktopServices::SSE_Shutdown },
+        { tr("Log out"), DDesktopServices::SSE_Logout },
+        { tr("Wake up"), DDesktopServices::SSE_WakeUp },
+        { tr("Volume +/-"), DDesktopServices::SSE_VolumeChange },
+        { tr("Notification"), DDesktopServices::SSE_Notifications },
+        { tr("Low battery"), DDesktopServices::SSE_LowBattery },
+        { tr("Send icon in Launcher to Desktop"), DDesktopServices::SSE_SendFileComplete },
+        { tr("Empty Trash"), DDesktopServices::SSE_EmptyTrash },
+        { tr("Plug in"), DDesktopServices::SSE_PlugIn },
+        { tr("Plug out"), DDesktopServices::SSE_PlugOut },
+        { tr("Removable device connected"), DDesktopServices::SSE_DeviceAdded },
+        { tr("Removable device removed"), DDesktopServices::SSE_DeviceRemoved },
+        { tr("Error"), DDesktopServices::SSE_Error },
+    };
+
+    m_soundEffectMapPower = {
+        { tr("Boot up"), DDesktopServices::SSE_BootUp },
+        { tr("Shut down"), DDesktopServices::SSE_Shutdown },
+        { tr("Log out"), DDesktopServices::SSE_Logout },
+        { tr("Wake up"), DDesktopServices::SSE_WakeUp },
+        { tr("Volume +/-"), DDesktopServices::SSE_VolumeChange },
+        { tr("Notification"), DDesktopServices::SSE_Notifications },
+        { tr("Send icon in Launcher to Desktop"), DDesktopServices::SSE_SendFileComplete },
+        { tr("Empty Trash"), DDesktopServices::SSE_EmptyTrash },
+        { tr("Removable device connected"), DDesktopServices::SSE_DeviceAdded },
+        { tr("Removable device removed"), DDesktopServices::SSE_DeviceRemoved },
+        { tr("Error"), DDesktopServices::SSE_Error },
     };
 }
 
@@ -214,6 +228,15 @@ void SoundModel::setAudioCards(const QString &audioCards)
     Q_EMIT audioCardsChanged(m_audioCards);
 }
 
+SoundEffectList SoundModel::soundEffectMap() const
+{
+    if (isLaptop()) { // 笔记本
+        return m_soundEffectMapBattery;
+    } else { // 台式机
+        return m_soundEffectMapPower;
+    }
+}
+
 void SoundModel::setEffectData(DDesktopServices::SystemSoundEffect effect, const bool enable)
 {
     if(m_soundEffectData[effect] == enable)
@@ -260,6 +283,11 @@ DDesktopServices::SystemSoundEffect SoundModel::getEffectTypeByGsettingName(cons
 bool SoundModel::checkSEExist(const QString &name)
 {
     return SOUND_EFFECT_MAP.values().contains(name);
+}
+
+bool SoundModel::isLaptop() const
+{
+    return m_isLaptop;
 }
 
 void SoundModel::setIsLaptop(bool isLaptop) {

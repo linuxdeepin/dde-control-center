@@ -36,6 +36,7 @@ DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace sound {
+using SoundEffectList = QList<std::pair<QString, DDesktopServices::SystemSoundEffect>>;
 
 class Port : public QObject
 {
@@ -125,7 +126,7 @@ public:
 
     QString audioCards() const;
     void setAudioCards(const QString &audioCards);
-    inline QList<std::pair<QString, DDesktopServices::SystemSoundEffect>> soundEffectMap() const { return m_soundEffectMap; }
+    SoundEffectList soundEffectMap() const;
 
     void setEffectData(DDesktopServices::SystemSoundEffect effect, const bool enable);
     bool queryEffectData(DDesktopServices::SystemSoundEffect effect);
@@ -142,7 +143,7 @@ public:
 
     bool checkSEExist(const QString &name); // SE: Sound Effect
 
-    inline bool isLaptop() { return m_isLaptop; }
+    bool isLaptop() const;
     void setIsLaptop(bool isLaptop);
 
 Q_SIGNALS:
@@ -183,7 +184,8 @@ private:
     QDBusObjectPath m_defaultSink;
     QString m_audioCards;
 
-    QList<std::pair<QString, DDesktopServices::SystemSoundEffect>> m_soundEffectMap;
+    SoundEffectList m_soundEffectMapPower;
+    SoundEffectList m_soundEffectMapBattery;
     QMap<DDesktopServices::SystemSoundEffect, bool> m_soundEffectData;
     QMap<DDesktopServices::SystemSoundEffect, QString> m_soundEffectPaths;
 };
