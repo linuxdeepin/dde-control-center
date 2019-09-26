@@ -25,10 +25,8 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QLabel>
-#include <QDebug>
 #include <QSettings>
-#include <QTimer>
-#include <QList>
+#include <QDebug>
 
 using namespace dcc::accounts;
 using namespace dcc::widgets;
@@ -46,7 +44,6 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, QWidget *parent)
     , m_repeatPasswdLabel(new QLabel)
     , m_cancleBtn(new QPushButton)
     , m_saveBtn(new QPushButton)
-    , m_errorTip(new ErrorTip)
     , m_oldPasswordEdit(new DPasswordEdit)
     , m_newPasswordEdit(new DPasswordEdit)
     , m_repeatPasswordEdit(new DPasswordEdit)
@@ -57,7 +54,6 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, QWidget *parent)
 
 ModifyPasswdPage::~ModifyPasswdPage()
 {
-    m_errorTip->deleteLater();
 }
 
 void ModifyPasswdPage::initWidget()
@@ -83,15 +79,7 @@ void ModifyPasswdPage::initWidget()
     m_mainContentLayout->addLayout(m_cansaveLayout);
 
     setLayout(m_mainContentLayout);
-
-    m_passeditList.push_back(m_oldPasswordEdit);
-    m_passeditList.push_back(m_newPasswordEdit);
-    m_passeditList.push_back(m_repeatPasswordEdit);
-
     setFocusPolicy(Qt::StrongFocus);
-
-    m_errorTip->setWindowFlags(Qt::ToolTip);
-    m_errorTip->hide();
 }
 
 void ModifyPasswdPage::initData()
@@ -120,45 +108,37 @@ void ModifyPasswdPage::initData()
         m_oldPasswordEdit->setVisible(status != NO_PASSWORD);
     });
 
-    for (auto edit : m_passeditList) {
-        connect(edit->lineEdit(), &QLineEdit::textChanged, m_errorTip, &ErrorTip::hide);
-        connect(edit->lineEdit(), &QLineEdit::editingFinished, this, &ModifyPasswdPage::onDoEditFinish, Qt::QueuedConnection);
-        Q_EMIT edit->editingFinished();
-    }
+    connect(m_oldPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
+        if (m_oldPasswordEdit->isAlert()) {
+            m_oldPasswordEdit->hideAlertMessage();
+        }
+    });
+    connect(m_newPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
+        if (m_newPasswordEdit->isAlert()) {
+            m_newPasswordEdit->hideAlertMessage();
+        }
+    });
+    connect(m_repeatPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
+        if (m_repeatPasswordEdit->isAlert()) {
+            m_repeatPasswordEdit->hideAlertMessage();
+        }
+    });
 }
 
 void ModifyPasswdPage::clickSaveBtn()
 {
-    QString oldpwd = m_oldPasswordEdit->text();
-    QString newpwd = m_newPasswordEdit->text();
-    QString repeatpwd = m_repeatPasswordEdit->text();
-
-    if ((m_curUser->passwordStatus() != NO_PASSWORD && m_oldPasswordEdit->text().isEmpty())) {
-        showErrorTip(m_oldPasswordEdit->lineEdit(), tr("Wrong password"));
+    //校验输入密码
+    if (!onPasswordEditFinished(m_oldPasswordEdit)) {
+        return;
+    }
+    if (!onPasswordEditFinished(m_newPasswordEdit)) {
+        return;
+    }
+    if (!onPasswordEditFinished(m_repeatPasswordEdit)) {
         return;
     }
 
-    if (m_newPasswordEdit->text().isEmpty()) {
-        showErrorTip(m_newPasswordEdit->lineEdit(), tr("Password cannot be empty"));
-        return;
-    }
-
-    if (m_repeatPasswordEdit->text().isEmpty()) {
-        showErrorTip(m_repeatPasswordEdit->lineEdit(), tr("Password cannot be empty"));
-        return;
-    }
-
-    if (oldpwd == newpwd) {
-        showErrorTip(m_newPasswordEdit->lineEdit(), tr("New password should differ from the current one"));
-        return;
-    }
-
-    if (newpwd != repeatpwd) {
-        showErrorTip(m_repeatPasswordEdit->lineEdit(), tr("Passwords do not match"));
-        return;
-    }
-
-    Q_EMIT requestChangePassword(m_curUser, oldpwd, newpwd);
+    Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text());
 }
 
 void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
@@ -167,7 +147,7 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
         Q_EMIT requestBack();
         return;
     } if (exitCode == ModifyPasswdPage::InputOldPwdError) {
-        showErrorTip(m_oldPasswordEdit->lineEdit(), tr("Wrong password"));
+        m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));
         return;
     } else {
         qWarning() << Q_FUNC_INFO << "exit =" << exitCode;
@@ -193,38 +173,44 @@ bool ModifyPasswdPage::containsChar(const QString &password, const QString &vali
     return true;
 }
 
-void ModifyPasswdPage::showErrorTip(QLineEdit *edit, const QString &error)
+bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
 {
-    QPoint globalStart = edit->mapToGlobal(QPoint(0, 0));
-    m_errorTip->setText(error);
-    m_errorTip->show(globalStart.x() + edit->width() / 2,
-                     globalStart.y() + edit->height() / 2 + 10);
-    QTimer::singleShot(1.5 * 1000, this, [&]() {
-        m_errorTip->hide();
-    });
-}
+    const QString &password = edit->lineEdit()->text();
 
-void ModifyPasswdPage::onDoEditFinish()
-{
-    DPasswordEdit *edit = qobject_cast<DPasswordEdit *>(sender());
-    onEditFinished(edit);
-}
-
-void ModifyPasswdPage::onEditFinished(Dtk::Widget::DPasswordEdit *t)
-{
-    const QString &password = t->text();
+    if (password.isEmpty()) {
+        if (edit == m_oldPasswordEdit && m_curUser->passwordStatus() != NO_PASSWORD) {
+            edit->showAlertMessage(tr("Wrong password"));
+        } else {
+            edit->showAlertMessage(tr("Password cannot be empty"));
+        }
+        return false;
+    }
 
     if (m_curUser->name().toLower() == password.toLower()) {
-        m_saveBtn->setEnabled(false);
-        showErrorTip(t->lineEdit(), tr("The password should be different from the username"));
-        return;
+        edit->showAlertMessage(tr("The password should be different from the username"));
+        return false;
     }
 
     if (!validatePassword(password)) {
-        m_saveBtn->setEnabled(false);
-        showErrorTip(t->lineEdit(), tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
-    } else {
-        m_errorTip->hide();
-        m_saveBtn->setEnabled(true);
+        edit->showAlertMessage(tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
+        return false;
     }
+
+    //新密码
+    if (edit == m_newPasswordEdit) {
+        if (m_oldPasswordEdit->lineEdit()->text() == password) {
+            edit->showAlertMessage(tr("New password should differ from the current one"));
+            return false;
+        }
+    }
+
+    //重复密码
+    if (edit == m_repeatPasswordEdit) {
+        if (m_newPasswordEdit->lineEdit()->text() != password) {
+            edit->showAlertMessage(tr("Passwords do not match"));
+            return false;
+        }
+    }
+
+    return true;
 }

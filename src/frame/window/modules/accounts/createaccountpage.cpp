@@ -26,12 +26,10 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QLabel>
-#include <QLineEdit>
 #include <QList>
 #include <QDebug>
 #include <QSettings>
 #include <QApplication>
-#include <QTimer>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -50,14 +48,12 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     , m_fullnameLabel(new QLabel)
     , m_passwdLabel(new QLabel)
     , m_repeatpasswdLabel(new QLabel)
-    , m_nameEdit(new QLineEdit)
-    , m_fullnameEdit(new QLineEdit)
+    , m_nameEdit(new DLineEdit)
+    , m_fullnameEdit(new DLineEdit)
     , m_passwdEdit(new DPasswordEdit)
     , m_repeatpasswdEdit(new DPasswordEdit)
     , m_cancleBtn(new QPushButton)
     , m_addBtn(new QPushButton)
-    , m_errorTip(new ErrorTip)
-    , m_errorEdit(nullptr)
 {
     initWidgets();
     initDatas();
@@ -65,7 +61,6 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
 
 CreateAccountPage::~CreateAccountPage()
 {
-    m_errorTip->deleteLater();
 }
 
 void CreateAccountPage::initWidgets()
@@ -97,9 +92,6 @@ void CreateAccountPage::initWidgets()
 
     setLayout(m_mainContentLayout);
     setFocusPolicy(Qt::StrongFocus);
-
-    m_errorTip->setWindowFlags(Qt::ToolTip);
-    m_errorTip->hide();
 }
 
 void CreateAccountPage::initDatas()
@@ -107,31 +99,31 @@ void CreateAccountPage::initDatas()
     connect(m_cancleBtn, &QPushButton::clicked, this, &CreateAccountPage::requestBack);
     connect(m_addBtn, &QPushButton::clicked, this, &CreateAccountPage::createUser);
 
-    connect(m_nameEdit, &QLineEdit::textEdited, this, [ = ](const QString & str) {
-        if (m_nameEdit == m_errorEdit && m_errorTip->isVisible()) {
-            m_errorTip->hide();
+    connect(m_nameEdit, &DLineEdit::textEdited, this, [ = ](const QString & str) {
+        if (m_nameEdit->isAlert()) {
+            m_nameEdit->hideAlertMessage();
         }
-        m_nameEdit->setText(str.toLower());
+        m_nameEdit->lineEdit()->setText(str.toLower());
     });
 
-    connect(m_passwdEdit->lineEdit(), &QLineEdit::textEdited, this, [ = ] {
-        if (m_passwdEdit == m_errorEdit && m_errorTip->isVisible()) {
-            m_errorTip->hide();
+    connect(m_passwdEdit, &DPasswordEdit::textEdited, this, [ = ] {
+        if (m_passwdEdit->isAlert()) {
+            m_passwdEdit->hideAlertMessage();
         }
     });
 
-    connect(m_repeatpasswdEdit->lineEdit(), &QLineEdit::textEdited, this, [ = ] {
-        if (m_repeatpasswdEdit == m_errorEdit && m_errorTip->isVisible()) {
-            m_errorTip->hide();
+    connect(m_repeatpasswdEdit, &DPasswordEdit::textEdited, this, [ = ] {
+        if (m_repeatpasswdEdit->isAlert()) {
+            m_repeatpasswdEdit->hideAlertMessage();
         }
     });
 
     //~ contents_path /accounts/New Account
     m_title->setText(tr("New Account"));
     m_nameLabel->setText(tr("Username"));
-    m_nameEdit->setPlaceholderText(tr("Required"));//必填
+    m_nameEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_fullnameLabel->setText(tr("Full Name"));
-    m_fullnameEdit->setPlaceholderText(tr("optional"));//选填
+    m_fullnameEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
     m_passwdLabel->setText(tr("Password"));
     m_passwdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_repeatpasswdLabel->setText(tr("Repeat Password"));
@@ -150,9 +142,15 @@ void CreateAccountPage::setModel(User *user)
 void CreateAccountPage::createUser()
 {
     //校验输入的用户名和密码
-    if (!onNameEditFinished()) { return; }
-    if (!onPasswordEditFinished(m_passwdEdit)) { return; }
-    if (!onPasswordEditFinished(m_repeatpasswdEdit)) { return; }
+    if (!onNameEditFinished(m_nameEdit)) {
+        return;
+    }
+    if (!onPasswordEditFinished(m_passwdEdit)) {
+        return;
+    }
+    if (!onPasswordEditFinished(m_repeatpasswdEdit)) {
+        return;
+    }
 
     //如果用户没有选图像
     int index = m_avatarListWidget->getCurrentSelectIndex();
@@ -161,10 +159,10 @@ void CreateAccountPage::createUser()
         index = qrand() % 14;
     }
     m_newUser->setCurrentAvatar(m_avatarListWidget->getAvatarPath(index));
-    m_newUser->setName(m_nameEdit->text());
-    m_newUser->setFullname(m_fullnameEdit->text());
-    m_newUser->setPassword(m_passwdEdit->text());
-    m_newUser->setRepeatPassword(m_repeatpasswdEdit->text());
+    m_newUser->setName(m_nameEdit->lineEdit()->text());
+    m_newUser->setFullname(m_fullnameEdit->lineEdit()->text());
+    m_newUser->setPassword(m_passwdEdit->lineEdit()->text());
+    m_newUser->setRepeatPassword(m_repeatpasswdEdit->lineEdit()->text());
 
     Q_EMIT requestCreateUser(m_newUser);
 }
@@ -188,28 +186,19 @@ bool CreateAccountPage::containsChar(const QString &password, const QString &val
     return true;
 }
 
-void CreateAccountPage::showErrorTip(QWidget *edit, const QString &error)
-{
-    QPoint globalStart = edit->mapToGlobal(QPoint(0, 0));
-    m_errorTip->setText(error);
-    m_errorTip->show(globalStart.x() + edit->width() / 2,
-                     globalStart.y() + edit->height() / 2 + 10);
-    m_errorEdit = edit;//记录当前是哪个输入框提示出错
-}
-
 void CreateAccountPage::setCreationResult(CreationResult *result)
 {
     switch (result->type()) {
     case CreationResult::NoError:
         break;
     case CreationResult::UserNameError:
-        showErrorTip(m_nameEdit, result->message());
+        m_nameEdit->showAlertMessage(result->message());
         break;
     case CreationResult::PasswordError:
-        showErrorTip(m_passwdEdit, result->message());
+        m_passwdEdit->showAlertMessage(result->message());
         break;
     case CreationResult::PasswordMatchError:
-        showErrorTip(m_repeatpasswdEdit, result->message());
+        m_repeatpasswdEdit->showAlertMessage(result->message());
         break; // reserved for future server edition feature.
     case CreationResult::UnknownError:
         qWarning() << "error encountered creating user: " << result->message();
@@ -219,37 +208,31 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
     result->deleteLater();
 }
 
-bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *dedit)
+bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
 {
-    auto edit = dedit->lineEdit();
-    const QString &userpassword = edit->text();
+    const QString &userpassword = edit->lineEdit()->text();
     if (userpassword.isEmpty()) {
-        showErrorTip(edit, tr("Password cannot be empty"));
+        edit->showAlertMessage(tr("Password cannot be empty"));
         return false;
     }
 
     if (m_nameEdit->text().toLower() == userpassword.toLower()) {
-        showErrorTip(edit, tr("The password should be different from the username"));
+        edit->showAlertMessage(tr("The password should be different from the username"));
         return false;
     }
 
     bool result = validatePassword(userpassword);
     if (!result) {
-        showErrorTip(edit, tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
+        edit->showAlertMessage(tr("Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\|/?,.<>)"));
         return false;
     }
 
-    if (edit == m_repeatpasswdEdit->lineEdit()) {
-        if (m_passwdEdit->text() != m_repeatpasswdEdit->text()) {
-            showErrorTip(m_repeatpasswdEdit, tr("Passwords do not match"));
+    if (edit == m_repeatpasswdEdit) {
+        if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
+            m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"));
             return false;
         }
     }
-
-    if (m_errorTip->isVisible()) {
-        m_errorTip->hide();
-    }
-    m_errorEdit = nullptr;
     return true;
 }
 
@@ -259,33 +242,28 @@ bool CreateAccountPage::validateUsername(const QString &username)
     return containsChar(username, name_validate);
 }
 
-bool CreateAccountPage::onNameEditFinished()
+bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
 {
-    QString username = m_nameEdit->text();
+    const QString &username = edit->lineEdit()->text();
     if (username.isEmpty()) {
-        showErrorTip(m_nameEdit, tr("Username cannot be empty"));
+        edit->showAlertMessage(tr("Username cannot be empty"));
         return false;
     }
 
     if (username.size() < 3 || username.size() > 32) {
-        showErrorTip(m_nameEdit, tr("Username must be between 3 and 32 characters"));
+        edit->showAlertMessage(tr("Username must be between 3 and 32 characters"));
         return false;
     }
 
     const QString compStr = "abcdefghijklmnopqrstuvwxyz";
     if (!compStr.contains(username.at(0))) {
-        showErrorTip(m_nameEdit, tr("The first character must be in lower case"));
+        edit->showAlertMessage(tr("The first character must be in lower case"));
         return false;
     }
 
     if (!validateUsername(username)) {
-        showErrorTip(m_nameEdit, tr("Username must only contain a~z, 0~9, - or _"));
+        edit->showAlertMessage(tr("Username must only contain a~z, 0~9, - or _"));
         return false;
     }
-
-    if (m_errorTip->isVisible()) {
-        m_errorTip->hide();
-    }
-    m_errorEdit = nullptr;
     return true;
 }

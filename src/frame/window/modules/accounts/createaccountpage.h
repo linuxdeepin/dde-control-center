@@ -27,6 +27,7 @@
 #include "avatarlistwidget.h"
 #include "widgets/lineeditwidget.h"
 
+#include <DLineEdit>
 #include <dpasswordedit.h>
 
 #include <QWidget>
@@ -36,7 +37,6 @@ class QVBoxLayout;
 class QHBoxLayout;
 class QPushButton;
 class QLabel;
-class QLineEdit;
 QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
@@ -58,9 +58,8 @@ private:
     bool onPasswordEditFinished(DPasswordEdit *edit);
     bool validatePassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
-    void showErrorTip(QWidget *edit, const QString &error);
     bool validateUsername(const QString &username);
-    bool onNameEditFinished();
+    bool onNameEditFinished(DLineEdit *edit);
 
 Q_SIGNALS:
     void requestCreateUser(const dcc::accounts::User *user);
@@ -81,16 +80,12 @@ private:
     QLabel *m_fullnameLabel;
     QLabel *m_passwdLabel;
     QLabel *m_repeatpasswdLabel;
-    QLineEdit *m_nameEdit;
-    QLineEdit *m_fullnameEdit;
-//    QLineEdit *m_passwdEdit;
-//    QLineEdit *m_repeatpasswdEdit;
+    Dtk::Widget::DLineEdit *m_nameEdit;
+    Dtk::Widget::DLineEdit *m_fullnameEdit;
     Dtk::Widget::DPasswordEdit *m_passwdEdit;
     Dtk::Widget::DPasswordEdit *m_repeatpasswdEdit;
     QPushButton *m_cancleBtn;
     QPushButton *m_addBtn;
-    dcc::widgets::ErrorTip *m_errorTip;
-    QWidget *m_errorEdit;
 };
 
 }

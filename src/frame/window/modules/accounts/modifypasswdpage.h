@@ -30,15 +30,10 @@
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
-
 class QVBoxLayout;
 class QHBoxLayout;
 class QPushButton;
 class QLabel;
-
-template <typename T>
-class QList;
-
 QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
@@ -57,8 +52,6 @@ public:
     void onPasswordChangeFinished(const int exitCode);
     bool validatePassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
-    void showErrorTip(QLineEdit *edit, const QString &error);
-    void onDoEditFinish();
 
     enum ModifyPwdRetFlag {
         ModifyNewPwdSuccess = 0,
@@ -66,13 +59,11 @@ public:
     };
 
 private:
-    void onEditFinished(Dtk::Widget::DPasswordEdit *t);
+    bool onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit);
 
 Q_SIGNALS:
     void requestChangePassword(dcc::accounts::User *userInter, const QString &oldPassword, const QString &password);
     void requestBack();
-
-public Q_SLOTS:
 
 private:
     dcc::accounts::User *m_curUser;
@@ -84,11 +75,9 @@ private:
     QLabel *m_repeatPasswdLabel;
     QPushButton *m_cancleBtn;
     QPushButton *m_saveBtn;
-    dcc::widgets::ErrorTip *m_errorTip;
     Dtk::Widget::DPasswordEdit *m_oldPasswordEdit;
     Dtk::Widget::DPasswordEdit *m_newPasswordEdit;
     Dtk::Widget::DPasswordEdit *m_repeatPasswordEdit;
-    QList<Dtk::Widget::DPasswordEdit *> m_passeditList;
 };
 
 }
