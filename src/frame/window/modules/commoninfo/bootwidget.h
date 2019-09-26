@@ -32,6 +32,10 @@ class TipsLabel;
 }
 
 namespace DCC_NAMESPACE {
+namespace network {
+class NetSwitchWidget;
+}
+
 namespace commoninfo {
 class CommonInfoModel;
 class CommonBackgroundItem;
@@ -57,8 +61,8 @@ public Q_SLOTS:
 
 private:
     QString m_defaultEntry;                      // 默认启动项
-    dcc::widgets::SwitchWidget *m_bootDelay;     // 延时启动功能
-    dcc::widgets::SwitchWidget *m_theme;         // 主题功能
+    network::NetSwitchWidget *m_bootDelay;       // 延时启动功能
+    network::NetSwitchWidget *m_theme;           // 主题功能
     DTK_WIDGET_NAMESPACE::DListView *m_bootList; // 启动项目列表
     dcc::widgets::TipsLabel *m_updatingLabel;    // Updating标签
     CommonBackgroundItem *m_background;          // 背景项

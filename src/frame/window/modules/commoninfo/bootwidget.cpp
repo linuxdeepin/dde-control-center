@@ -22,6 +22,7 @@
 #include "bootwidget.h"
 #include "window/modules/commoninfo/commonbackgrounditem.h"
 #include "window/modules/commoninfo/commoninfomodel.h"
+#include "window/modules/network/netswitchwidget.h"
 
 #include "window/utils.h"
 
@@ -38,6 +39,7 @@ using namespace widgets;
 using namespace DTK_WIDGET_NAMESPACE;
 using namespace DCC_NAMESPACE;
 using namespace commoninfo;
+using namespace network;
 
 BootWidget::BootWidget(QWidget *parent)
     : QWidget(parent)
@@ -64,22 +66,22 @@ BootWidget::BootWidget(QWidget *parent)
     m_updatingLabel = new TipsLabel(tr("Updating..."));
     m_updatingLabel->setVisible(false);
 
-    listLayout->addSpacing(10);
+    listLayout->addSpacing(List_Interval);
     listLayout->addWidget(m_bootList, 0, Qt::AlignHCenter);
     listLayout->addStretch();
     listLayout->addWidget(m_updatingLabel, 0, Qt::AlignHCenter);
-    listLayout->addSpacing(10);
+    listLayout->addSpacing(List_Interval);
     m_background->setLayout(listLayout);
 
-    m_bootDelay = new SwitchWidget();
+    m_bootDelay = new NetSwitchWidget();
     //~ contents_path /commoninfo/Boot Menu
     m_bootDelay->setTitle(tr("Startup Delay"));
 
-    m_theme = new SwitchWidget();
+    m_theme = new NetSwitchWidget();
     //~ contents_path /commoninfo/Boot Menu
     m_theme->setTitle(tr("Theme"));
 
-    TipsLabel *backgroundLabel = new TipsLabel(tr("Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background."));
+    TipsLabel *backgroundLabel = new TipsLabel(tr("Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background"));
     backgroundLabel->setWordWrap(true);
     backgroundLabel->setContentsMargins(16, 0, 10, 0);
 
@@ -88,25 +90,26 @@ BootWidget::BootWidget(QWidget *parent)
     themeLbl->setContentsMargins(16, 0, 10, 0);
 
     groupOther->appendItem(m_bootDelay);
+    groupOther->setSpacing(List_Interval);
     groupOther->appendItem(m_theme);
 
     layout->setMargin(0);
     layout->setSpacing(0);
-    layout->addSpacing(10);
+    layout->addSpacing(List_Interval);
     layout->addWidget(m_background);
-    layout->addSpacing(8);
+    layout->addSpacing(List_Interval);
     layout->addWidget(backgroundLabel);
-    layout->addSpacing(8);
+    layout->addSpacing(List_Interval);
     layout->addWidget(groupOther);
     layout->addWidget(themeLbl);
     layout->addStretch();
-
+    layout->setContentsMargins(ThirdPageContentsMargins);
     setLayout(layout);
     //~ contents_path /commoninfo/Boot Menu
     setWindowTitle(tr("Boot Menu"));
 
-    connect(m_theme, &SwitchWidget::checkedChanged, this, &BootWidget::enableTheme);
-    connect(m_bootDelay, &SwitchWidget::checkedChanged, this, &BootWidget::bootdelay);
+    connect(m_theme->switchWidget(), &SwitchWidget::checkedChanged, this, &BootWidget::enableTheme);
+    connect(m_bootDelay->switchWidget(), &SwitchWidget::checkedChanged, this, &BootWidget::bootdelay);
     connect(m_bootList, static_cast<void (DListView::*)(const QModelIndex &previous)>(&DListView::currentChanged),
             this, &BootWidget::onCurrentItem);
     connect(m_background, &CommonBackgroundItem::requestEnableTheme, this, &BootWidget::enableTheme);
@@ -132,8 +135,8 @@ void BootWidget::setDefaultEntry(const QString &value)
 
 void BootWidget::setModel(CommonInfoModel *model)
 {
-    connect(model, &CommonInfoModel::bootDelayChanged, m_bootDelay, &SwitchWidget::setChecked);
-    connect(model, &CommonInfoModel::themeEnabledChanged, m_theme, &SwitchWidget::setChecked);
+    connect(model, &CommonInfoModel::bootDelayChanged, m_bootDelay->switchWidget(), &SwitchWidget::setChecked);
+    connect(model, &CommonInfoModel::themeEnabledChanged, m_theme->switchWidget(), &SwitchWidget::setChecked);
     connect(model, &CommonInfoModel::defaultEntryChanged, this, &BootWidget::setDefaultEntry);
     connect(model, &CommonInfoModel::updatingChanged, m_updatingLabel, &SmallLabel::setVisible);
     connect(model, &CommonInfoModel::entryListsChanged, this, &BootWidget::setEntryList);
@@ -142,12 +145,12 @@ void BootWidget::setModel(CommonInfoModel *model)
 
     // modified by wuchuanfei 20190909 for 8613
     if (model->entryLists().count() == 1) {
-        m_bootDelay->setChecked(false);
+        m_bootDelay->switchWidget()->setChecked(false);
     } else {
-        m_bootDelay->setChecked(model->bootDelay());
+        m_bootDelay->switchWidget()->setChecked(model->bootDelay());
     }
 
-    m_theme->setChecked(model->themeEnabled());
+    m_theme->switchWidget()->setChecked(model->themeEnabled());
     m_updatingLabel->setVisible(model->updating());
     m_background->setThemeEnable(model->themeEnabled());
 
