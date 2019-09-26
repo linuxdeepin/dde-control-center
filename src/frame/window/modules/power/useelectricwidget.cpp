@@ -30,6 +30,7 @@
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 #include "modules/power/powermodel.h"
+#include "window/utils.h"
 
 using namespace dcc::widgets;
 using namespace dcc::power;
@@ -56,6 +57,7 @@ UseElectricWidget::UseElectricWidget(QWidget *parent)
     m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
     SettingsGroup *powerSettingsGrp = new SettingsGroup;
+    powerSettingsGrp->setSpacing(List_Interval);
     powerSettingsGrp->appendItem(m_monitorSleepOnPower);
     powerSettingsGrp->appendItem(m_computerSleepOnPower);
     powerSettingsGrp->appendItem(m_autoLockScreen);

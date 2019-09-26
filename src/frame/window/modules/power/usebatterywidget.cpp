@@ -27,6 +27,7 @@
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 #include "modules/power/powermodel.h"
+#include "window/utils.h"
 
 #include <QPushButton>
 
@@ -55,6 +56,7 @@ UseBatteryWidget::UseBatteryWidget(QWidget *parent)
     m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
     SettingsGroup *batterySettingsGrp = new SettingsGroup;
+    batterySettingsGrp->setSpacing(List_Interval);
     batterySettingsGrp->appendItem(m_monitorSleepOnBattery);
     batterySettingsGrp->appendItem(m_computerSleepOnBattery);
     batterySettingsGrp->appendItem(m_autoLockScreen);

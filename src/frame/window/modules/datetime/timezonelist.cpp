@@ -25,6 +25,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsitem.h"
 #include "widgets/settingshead.h"
+#include "window/utils.h"
 
 using namespace dcc;
 using namespace dcc::datetime;
@@ -52,6 +53,8 @@ TimezoneList::TimezoneList(QWidget *parent)
     m_centralLayout->setSpacing(0);
     m_centralLayout->addWidget(m_headGroup);
     m_centralLayout->addWidget(m_contentList);
+
+    m_contentList->setSpace(List_Interval);
 
     QHBoxLayout *btnLayout = new QHBoxLayout;
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);

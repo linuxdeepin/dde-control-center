@@ -69,7 +69,6 @@ Q_SIGNALS:
     void clicked(MirrorItem *item) const;
 
 protected:
-    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
     void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
 
 private:

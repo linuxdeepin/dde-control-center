@@ -25,6 +25,7 @@
 #include "modules/update/mirroritem.h"
 #include "widgets/settingsgroup.h"
 #include "loadingitem.h"
+#include "window/utils.h"
 
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -71,6 +72,9 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     m_layout->addWidget(m_testButton, 0, Qt::AlignCenter);
     m_layout->addSpacing(5);
     m_layout->addWidget(m_mirrorListGroup);
+
+    m_mirrorListGroup->setSpacing(List_Interval);
+    m_mirrorListGroup->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     mainlayout->addLayout(m_layout);
 

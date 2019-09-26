@@ -23,6 +23,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/labels/normallabel.h"
 #include "modules/power/powermodel.h"
+#include "window/utils.h"
 
 #include <QLabel>
 #include <QListView>
@@ -45,6 +46,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     SettingsGroup *generalSettingsGrp = new SettingsGroup;
+    generalSettingsGrp->setSpacing(List_Interval);
 
     //~ contents_path /power/General
     m_lowBatteryMode->setTitle(tr("Power Saving Mode"));

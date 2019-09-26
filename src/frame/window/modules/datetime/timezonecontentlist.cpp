@@ -51,6 +51,13 @@ TimezoneContentList::~TimezoneContentList()
 
 }
 
+void TimezoneContentList::setSpace(int value)
+{
+    if (m_timezoneGroup) {
+        m_timezoneGroup->setSpacing(value);
+    }
+}
+
 void TimezoneContentList::updateTimezoneItems()
 {
     QList<TimezoneItem *>::Iterator iter = m_zoneList.begin();

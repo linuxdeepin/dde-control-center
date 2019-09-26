@@ -32,9 +32,9 @@ Q_DECLARE_METATYPE(QMargins)
 namespace DCC_NAMESPACE {
 
 const QMargins ThirdPageContentsMargins(10, 10, 10, 10);
-const QMargins ListViweItemMargin(20,8,20,8);
+const QMargins ListViweItemMargin(20, 8, 20, 8);
 const QVariant VListViewItemMargin = QVariant::fromValue(ListViweItemMargin);
-
+const int List_Interval = 10;
 }
 
 #endif // V20_DISPLAY_UTILS_H

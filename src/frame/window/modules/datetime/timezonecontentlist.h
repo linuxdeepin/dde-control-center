@@ -52,6 +52,8 @@ public:
     explicit TimezoneContentList(QWidget *parent = nullptr);
     virtual ~TimezoneContentList();
 
+    void setSpace(int value);
+
 private:
     QVBoxLayout *m_centralLayout;
     dcc::widgets::SettingsGroup *m_timezoneGroup;

@@ -27,6 +27,7 @@
 #include "widgets/switchwidget.h"
 #include "widgets/nextpagewidget.h"
 #include "dsysinfo.h"
+#include "window/utils.h"
 
 #include <QVBoxLayout>
 
@@ -86,6 +87,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     layout->addSpacing(8);
 #endif
 
+    ug->setSpacing(List_Interval);
     ug->appendItem(m_autoCleanCache);
     ug->appendItem(m_autoCheckUpdate);
     ug->appendItem(m_autoDownloadSwitch);
