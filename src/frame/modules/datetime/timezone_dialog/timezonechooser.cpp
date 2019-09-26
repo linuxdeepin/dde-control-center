@@ -24,6 +24,12 @@
  */
 
 #include "timezonechooser.h"
+#include "timezone_map.h"
+#include "widgets/searchinput.h"
+
+#include <dplatformwindowhandle.h>
+#include <DDialogCloseButton>
+#include <DApplicationHelper>
 
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -35,26 +41,16 @@
 #include <QKeyEvent>
 #include <QDebug>
 #include <QScreen>
-
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QLabel>
 #include <QStyleFactory>
 #include <QAbstractItemView>
 
-#include <dplatformwindowhandle.h>
-#include <DDialogCloseButton>
-#include <DApplicationHelper>
-
-#include "timezone_map.h"
-#include "widgets/searchinput.h"
-
 DWIDGET_USE_NAMESPACE
 
 using namespace dcc::widgets;
-
-namespace dcc {
-namespace datetime {
+using namespace dcc::datetime;
 
 TimeZoneChooser::TimeZoneChooser()
     : QFrame()
@@ -64,10 +60,14 @@ TimeZoneChooser::TimeZoneChooser()
     , m_title(new QLabel)
     , m_cancelBtn(new QPushButton(tr("Cancel")))
     , m_confirmBtn(new QPushButton(tr("Confirm")))
+    , m_confirmBtn_add(new DSuggestButton(tr("Add")))
 {
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | Qt::X11BypassWindowManagerHint);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_TranslucentBackground);
     setupSize();
+
+    m_confirmBtn->setVisible(false);
+    m_confirmBtn_add->setVisible(false);
 
     m_searchInput->setMinimumSize(350, 36);
 
@@ -93,10 +93,17 @@ TimeZoneChooser::TimeZoneChooser()
     wbLayout->addStretch();
     wbLayout->addWidget(closeButton);
 
+    QHBoxLayout *hLayout = new QHBoxLayout;
+    hLayout->addStretch();
+    hLayout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter);
+    hLayout->addSpacing(20);
+    hLayout->addWidget(m_confirmBtn, 0, Qt::AlignHCenter);
+    hLayout->addWidget(m_confirmBtn_add, 0, Qt::AlignHCenter);
+    hLayout->addStretch();
+
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     layout->setSpacing(0);
-
     layout->addLayout(wbLayout);
     layout->addStretch();
     layout->addWidget(m_title, 0, Qt::AlignHCenter);
@@ -104,15 +111,17 @@ TimeZoneChooser::TimeZoneChooser()
     layout->addWidget(m_searchInput, 0, Qt::AlignHCenter);
     layout->addSpacing(40);
     layout->addWidget(m_map, 0, Qt::AlignHCenter);
-    layout->addSpacing(40);
-    layout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter);
-    layout->addSpacing(10);
-    layout->addWidget(m_confirmBtn, 0, Qt::AlignHCenter);
     layout->addStretch();
-
+    layout->addLayout(hLayout);
+    layout->addSpacing(40);
     setLayout(layout);
 
     connect(m_confirmBtn, &QPushButton::clicked, [this] {
+        QString zone = m_map->getTimezone();
+        Q_EMIT confirmed(zone);
+    });
+
+    connect(m_confirmBtn_add, &DSuggestButton::clicked, [this] {
         QString zone = m_map->getTimezone();
         Q_EMIT confirmed(zone);
     });
@@ -183,13 +192,17 @@ TimeZoneChooser::TimeZoneChooser()
 void TimeZoneChooser::setIsAddZone(const bool isAdd)
 {
     m_isAddZone = isAdd;
+    m_confirmBtn->setVisible(false);
+    m_confirmBtn_add->setVisible(false);
 
     if (isAdd) {
         //~ contents_path /datetime/Timezone List/Add Timezone
         m_title->setText(tr("Add Timezone"));
+        m_confirmBtn_add->setVisible(true);
     } else {
         //~ contents_path /datetime/Timezone List/Change System Timezone
         m_title->setText(tr("Change Timezone"));
+        m_confirmBtn->setVisible(true);
     }
 }
 
@@ -251,6 +264,12 @@ void TimeZoneChooser::showEvent(QShowEvent *event)
     move(qApp->primaryScreen()->geometry().center() - rect().center());
 }
 
+void TimeZoneChooser::mouseMoveEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event)
+    return;
+}
+
 QSize TimeZoneChooser::getFitSize() const
 {
     const QDesktopWidget *desktop = QApplication::desktop();
@@ -284,10 +303,8 @@ void TimeZoneChooser::setupSize()
 
     m_map->setFixedSize(MapPictureWidth / scale, MapPictureHeight / scale);
 
-    m_searchInput->setFixedWidth(250);
-    m_cancelBtn->setFixedWidth(250);
-    m_confirmBtn->setFixedWidth(250);
+    m_searchInput->setMinimumSize(350, 36);
+    m_cancelBtn->setMinimumSize(200, 36);
+    m_confirmBtn->setMinimumSize(200, 36);
+    m_confirmBtn_add->setMinimumSize(200, 36);
 }
-
-} // namespace datetime
-} // namespace dcc

@@ -26,10 +26,11 @@
 #ifndef TIMEZONECHOOSER_H
 #define TIMEZONECHOOSER_H
 
+#include <DBlurEffectWidget>
+#include <DSuggestButton>
+
 #include <QFrame>
 #include <QMap>
-
-#include <DBlurEffectWidget>
 
 DWIDGET_USE_NAMESPACE
 
@@ -71,7 +72,8 @@ protected:
     void resizeEvent(QResizeEvent *event) override;
     void keyReleaseEvent(QKeyEvent *event) override;
     bool eventFilter(QObject *watched, QEvent *event) override;
-    void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
+    void showEvent(QShowEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
 
 private:
     QSize getFitSize() const;
@@ -90,6 +92,7 @@ private:
     QLabel *m_title;
     QPushButton *m_cancelBtn;
     QPushButton *m_confirmBtn;
+    DSuggestButton *m_confirmBtn_add;
 };
 
 } // namespace datetime

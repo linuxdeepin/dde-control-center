@@ -51,7 +51,7 @@ MirrorItem::MirrorItem(QFrame *parent)
     m_mirrorName->setWordWrap(true);
 
     m_selectedBtn->setObjectName("DCC-Update-MirrorItem-SelectedBtn");
-    m_selectedBtn->setFixedSize(18, 18);
+    m_selectedBtn->setFixedSize(24, 24);
     m_selectedBtn->setVisible(false);
 
     m_layout->setSpacing(0);
