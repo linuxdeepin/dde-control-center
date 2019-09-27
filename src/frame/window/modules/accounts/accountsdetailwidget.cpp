@@ -209,12 +209,17 @@ void AccountsDetailWidget::initDatas()
     });
     connect(m_curUser, &User::nameChanged, m_shortName, &QLabel::setText);
     connect(m_curUser, &User::fullnameChanged, this, [ = ](const QString & fullname) {
-        //对用户全名做限制，如果长度超过32，就在后面显示...
-        if (fullname.length() > 32) {
-            QString newfullname = fullname.left(32) + QString("...");
-            m_fullName->setText(newfullname);
+        //如果没有用户全名，提示"设置全名"。
+        if (fullname.isEmpty()) {
+            m_fullName->setText(tr("Full Name"));
         } else {
-            m_fullName->setText(fullname);
+            //对用户全名做限制，如果长度超过32，就在后面显示...
+            if (fullname.length() > 32) {
+                QString newfullname = fullname.left(32) + QString("...");
+                m_fullName->setText(newfullname);
+            } else {
+                m_fullName->setText(fullname);
+            }
         }
     });
     connect(m_fullnameBtn, &DIconButton::clicked, this, [ = ]() {
@@ -239,13 +244,18 @@ void AccountsDetailWidget::initDatas()
     m_avatarListWidget->setCurrentAvatarChecked(m_curUser->currentAvatar());
     m_shortName->setText(m_curUser->name());
 
-    //对用户全名做限制，如果长度超过32，就在后面显示...
     QString fullname = m_curUser->fullname();
-    if (fullname.length() > 32) {
-        QString newfullname = fullname.left(32) + QString("...");
-        m_fullName->setText(newfullname);
+    //如果没有用户全名，提示"设置全名"。
+    if (fullname.isEmpty()) {
+        m_fullName->setText(tr("Full Name"));
     } else {
-        m_fullName->setText(fullname);
+        //对用户全名做限制，如果长度超过32，就在后面显示...
+        if (fullname.length() > 32) {
+            QString newfullname = fullname.left(32) + QString("...");
+            m_fullName->setText(newfullname);
+        } else {
+            m_fullName->setText(fullname);
+        }
     }
 
     //~ contents_path /accounts/Change Password
@@ -275,7 +285,11 @@ void AccountsDetailWidget::updateLineEditDisplayStyle()
     m_inputLineEdit->setVisible(!visible);
 
     if (!visible) {
-        m_inputLineEdit->setText(m_fullName->text());
+        if (m_fullName->text() == tr("Full Name")) {
+            m_inputLineEdit->setText("");
+        } else {
+            m_inputLineEdit->setText(m_fullName->text());
+        }
         m_inputLineEdit->selectAll();
     }
 }
