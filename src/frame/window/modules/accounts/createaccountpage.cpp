@@ -52,8 +52,8 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     , m_repeatpasswdLabel(new QLabel)
     , m_nameEdit(new QLineEdit)
     , m_fullnameEdit(new QLineEdit)
-    , m_passwdEdit((new DPasswordEdit)->lineEdit())
-    , m_repeatpasswdEdit((new DPasswordEdit)->lineEdit())
+    , m_passwdEdit(new DPasswordEdit)
+    , m_repeatpasswdEdit(new DPasswordEdit)
     , m_cancleBtn(new QPushButton)
     , m_addBtn(new QPushButton)
     , m_errorTip(new ErrorTip)
@@ -114,13 +114,13 @@ void CreateAccountPage::initDatas()
         m_nameEdit->setText(str.toLower());
     });
 
-    connect(m_passwdEdit, &QLineEdit::textEdited, this, [ = ] {
+    connect(m_passwdEdit->lineEdit(), &QLineEdit::textEdited, this, [ = ] {
         if (m_passwdEdit == m_errorEdit && m_errorTip->isVisible()) {
             m_errorTip->hide();
         }
     });
 
-    connect(m_repeatpasswdEdit, &QLineEdit::textEdited, this, [ = ] {
+    connect(m_repeatpasswdEdit->lineEdit(), &QLineEdit::textEdited, this, [ = ] {
         if (m_repeatpasswdEdit == m_errorEdit && m_errorTip->isVisible()) {
             m_errorTip->hide();
         }
@@ -133,9 +133,9 @@ void CreateAccountPage::initDatas()
     m_fullnameLabel->setText(tr("Full Name"));
     m_fullnameEdit->setPlaceholderText(tr("optional"));//选填
     m_passwdLabel->setText(tr("Password"));
-    m_passwdEdit->setPlaceholderText(tr("Required"));//必填
+    m_passwdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_repeatpasswdLabel->setText(tr("Repeat Password"));
-    m_repeatpasswdEdit->setPlaceholderText(tr("Required"));//必填
+    m_repeatpasswdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
 
     m_cancleBtn->setText(tr("Cancel"));
     m_addBtn->setText(tr("Create"));
@@ -188,7 +188,7 @@ bool CreateAccountPage::containsChar(const QString &password, const QString &val
     return true;
 }
 
-void CreateAccountPage::showErrorTip(QLineEdit *edit, const QString &error)
+void CreateAccountPage::showErrorTip(QWidget *edit, const QString &error)
 {
     QPoint globalStart = edit->mapToGlobal(QPoint(0, 0));
     m_errorTip->setText(error);
@@ -219,8 +219,9 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
     result->deleteLater();
 }
 
-bool CreateAccountPage::onPasswordEditFinished(QLineEdit *edit)
+bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *dedit)
 {
+    auto edit = dedit->lineEdit();
     const QString &userpassword = edit->text();
     if (userpassword.isEmpty()) {
         showErrorTip(edit, tr("Password cannot be empty"));
@@ -238,7 +239,7 @@ bool CreateAccountPage::onPasswordEditFinished(QLineEdit *edit)
         return false;
     }
 
-    if (edit == m_repeatpasswdEdit) {
+    if (edit == m_repeatpasswdEdit->lineEdit()) {
         if (m_passwdEdit->text() != m_repeatpasswdEdit->text()) {
             showErrorTip(m_repeatpasswdEdit, tr("Passwords do not match"));
             return false;

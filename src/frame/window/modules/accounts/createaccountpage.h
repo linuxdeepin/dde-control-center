@@ -55,10 +55,10 @@ private:
     void initWidgets();
     void initDatas();
     void createUser();
-    bool onPasswordEditFinished(QLineEdit *edit);
+    bool onPasswordEditFinished(DPasswordEdit *edit);
     bool validatePassword(const QString &password);
     bool containsChar(const QString &password, const QString &validate);
-    void showErrorTip(QLineEdit *edit, const QString &error);
+    void showErrorTip(QWidget *edit, const QString &error);
     bool validateUsername(const QString &username);
     bool onNameEditFinished();
 
@@ -83,10 +83,10 @@ private:
     QLabel *m_repeatpasswdLabel;
     QLineEdit *m_nameEdit;
     QLineEdit *m_fullnameEdit;
-    QLineEdit *m_passwdEdit;
-    QLineEdit *m_repeatpasswdEdit;
-//    Dtk::Widget::DPasswordEdit *m_passwdEdit;
-//    Dtk::Widget::DPasswordEdit *m_repeatpasswdEdit;
+//    QLineEdit *m_passwdEdit;
+//    QLineEdit *m_repeatpasswdEdit;
+    Dtk::Widget::DPasswordEdit *m_passwdEdit;
+    Dtk::Widget::DPasswordEdit *m_repeatpasswdEdit;
     QPushButton *m_cancleBtn;
     QPushButton *m_addBtn;
     dcc::widgets::ErrorTip *m_errorTip;
