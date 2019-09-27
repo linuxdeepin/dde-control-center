@@ -106,18 +106,24 @@ void ConnectionEditPage::initUI()
     cancelBtn->setText(tr("Cancel"));
     acceptBtn->setText(tr("Save"));
 
+    m_mainLayout->setContentsMargins(20, 0, 20, 0);
     m_mainLayout->addSpacing(10);
     m_mainLayout->addWidget(m_buttonTuple_conn);
     m_mainLayout->addLayout(m_settingsLayout);
     m_mainLayout->addStretch();
     m_mainLayout->setSpacing(10);
-    m_mainLayout->setContentsMargins(0, 0, 0, 0);
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(m_mainLayout);
 
     setContent(mainWidget);
-    this->layout()->addWidget(m_buttonTuple);
+    QVBoxLayout * btnTupleLayout = new QVBoxLayout();
+    btnTupleLayout->setMargin(0);
+    btnTupleLayout->setSpacing(0);
+    btnTupleLayout->setContentsMargins(20, 0, 20, 0);
+    btnTupleLayout->addWidget(m_buttonTuple);
+    qobject_cast<QVBoxLayout *>(layout())->addLayout(btnTupleLayout);
+
     setMinimumWidth(380);
 }
 

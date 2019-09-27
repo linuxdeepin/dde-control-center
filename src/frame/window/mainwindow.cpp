@@ -54,6 +54,7 @@
 #include <QStandardItemModel>
 #include <QPushButton>
 #include <QLocale>
+#include <QLinearGradient>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -345,6 +346,10 @@ void MainWindow::changeEvent(QEvent *event)
 {
     if (event->type() == QEvent::PaletteChange) {
         updateViewBackground();
+
+        if (m_topWidget) {
+            m_topWidget->update();
+        }
     }
 
     return DMainWindow::changeEvent(event);
@@ -435,16 +440,10 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
 {
     Q_UNUSED(inter)
 
-    DFourthColWidget *topWidget = new DFourthColWidget(this);
-    topWidget->initWidget(w);
-    topWidget->setVisible(true);
+    m_topWidget = new FourthColWidget(this);
+    m_topWidget->initWidget(w);
+    m_topWidget->setVisible(true);
 
-    if (m_topWidget) {
-        m_topWidget->deleteLater();
-        m_topWidget = nullptr;
-    }
-
-    m_topWidget = topWidget;
     m_topWidget->move(0, this->titlebar()->height());
     m_topWidget->setFixedHeight(height() - this->titlebar()->height());
     resetNavList(m_contentStack.empty());
@@ -576,20 +575,21 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
 
 }
 
-DFourthColWidget::DFourthColWidget(QWidget *parent)
-    : QWidget (parent)
+FourthColWidget::FourthColWidget(QWidget *parent)
+    : QWidget(parent)
 {
 }
 
-void DFourthColWidget::initWidget(QWidget *showWidget)
+void FourthColWidget::initWidget(QWidget *showWidget)
 {
     DPalette pa = DApplicationHelper::instance()->palette(this);
     pa.setBrush(DPalette::ItemBackground, pa.base());
     DApplicationHelper::instance()->setPalette(this, pa);
-    this->setFixedSize(this->parentWidget()->width(), this->parentWidget()->height());
+    this->setMinimumSize(this->parentWidget()->width(), this->parentWidget()->height());
 
     QHBoxLayout *layout = new QHBoxLayout;
-    showWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    layout->setContentsMargins(0, 0, 0, 0);
+    showWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     pa = DApplicationHelper::instance()->palette(showWidget);
     pa.setBrush(DPalette::ItemBackground, pa.base());
     DApplicationHelper::instance()->setPalette(showWidget, pa);
@@ -598,16 +598,38 @@ void DFourthColWidget::initWidget(QWidget *showWidget)
     layout->setSpacing(0);
     layout->addWidget(showWidget, 0, Qt::AlignRight);
     this->setLayout(layout);
+    m_curWidget = showWidget;
 
     update();
 }
 
-void DFourthColWidget::paintEvent(QPaintEvent *event)
+void FourthColWidget::paintEvent(QPaintEvent *event)
 {
+    QWidget::paintEvent(event);
+
+    QLinearGradient linear;
+    int startPosX = pos().x() + m_curWidget->x();
+    linear.setStart(QPointF(startPosX, 0));
+    linear.setFinalStop(QPointF(startPosX - 30, 0));
+    if (DGuiApplicationHelper::LightType == DApplicationHelper::instance()->themeType()) {
+        linear.setColorAt(0, QColor(0, 0, 0, 13));
+    } else {
+        linear.setColorAt(0, QColor(0, 0, 0, 26));
+    }
+
+    linear.setColorAt(1, QColor(0, 0, 0, 0));
+
+    DPalette pa = DApplicationHelper::instance()->palette(this);
+
     QPainter painter(this);
     painter.setPen(Qt::NoPen);
-    painter.setBrush(QBrush(QColor(255,255,255,153)));
+    QColor curThemeColor = pa.base().color();
+    curThemeColor.setAlphaF(0.6);  // 设置透明度
+    painter.setBrush(QBrush(QColor(curThemeColor)));
     painter.drawRect(this->parentWidget()->rect());
 
-    QWidget::paintEvent(event);
+    painter.setBrush(QBrush(linear));
+
+    QRect rt(startPosX, 0, -30, rect().height());
+    painter.drawRect(rt);
 }

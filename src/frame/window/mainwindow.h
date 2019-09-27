@@ -47,13 +47,17 @@ class SearchWidget;
 }
 
 namespace DCC_NAMESPACE {
-class DFourthColWidget : public QWidget
+class FourthColWidget : public QWidget
 {
+    Q_OBJECT
 public:
-    explicit DFourthColWidget(QWidget *parent = nullptr);
+    explicit FourthColWidget(QWidget *parent = nullptr);
     void initWidget(QWidget *showWidget);
 protected:
     void paintEvent(QPaintEvent *event) override;
+
+private:
+    QWidget *m_curWidget;
 };
 
 class MainWindow : public DMainWindow, public FrameProxyInterface
@@ -89,7 +93,7 @@ private:
     QPair<ModuleInterface *, QWidget *> m_lastThirdPage;
     bool m_bIsFinalWidget;//used to distinguish the widget is final or top : fianl pop in popWidget , top pop by m_topWidget
     bool m_bIsFromSecondAddWidget;//used to save the third widget is load from final widget
-    QWidget *m_topWidget;
+    FourthColWidget *m_topWidget;
     DCC_NAMESPACE::search::SearchWidget *m_searchWidget;
     int m_firstCount;
     QString m_widgetName;
