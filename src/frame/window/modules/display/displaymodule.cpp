@@ -130,18 +130,15 @@ void DisplayModule::showBrightnessPage()
 
 void DisplayModule::showResolutionDetailPage()
 {
-    m_displayWorker->record();
     ResolutionDetailPage *page = new ResolutionDetailPage;
     page->setModel(m_displayModel);
 
     connect(page, &ResolutionDetailPage::requestSetResolution, this,
             &DisplayModule::onDetailPageRequestSetResolution);
     connect(page, &ResolutionDetailPage::requestReset, m_displayWorker,
-            &DisplayWorker::restore);
-    connect(page, &ResolutionDetailPage::requestSave, this, [ this ]() {
-        m_displayWorker->saveChanges();
-        m_displayWorker->record();
-    });
+            &DisplayWorker::discardChanges);
+    connect(page, &ResolutionDetailPage::requestSave, m_displayWorker,
+            &DisplayWorker::saveChanges);
 
     m_frameProxy->pushWidget(this, page);
 }
@@ -205,13 +202,13 @@ void DisplayModule::showCustomSettingDialog()
             &DisplayModule::showRecognize);
     connect(dlg, &CustomSettingDialog::requestSetPrimaryMonitor,
             m_displayWorker, &DisplayWorker::setPrimary);
-    connect(dlg, &CustomSettingDialog::requestApplySave,
-            m_displayWorker, &DisplayWorker::saveChanges);
     connect(m_displayModel, &DisplayModel::monitorListChanged, dlg, &QDialog::reject);
 
     dlg->setModel(m_displayModel);
     if (dlg->exec() != QDialog::Accepted) {
         m_displayWorker->restore();
+    } else {
+        m_displayWorker->saveChanges();
     }
 
     dlg->deleteLater();
@@ -277,16 +274,26 @@ void DisplayModule::showRotate(Monitor *mon)
     connect(dialog, &RotateDialog::requestRotate, m_displayWorker, &DisplayWorker::setMonitorRotate);
     connect(dialog, &RotateDialog::requestRotateAll, m_displayWorker, &DisplayWorker::setMonitorRotateAll);
 
-    m_displayWorker->record();
+    QMap<Monitor *, quint16> mMonitorRotate;
+    for (auto m : m_displayModel->monitorList()) {
+        mMonitorRotate.insert(m, m->rotate());
+    }
 
     qApp->setOverrideCursor(Qt::BlankCursor);
     if (QDialog::DialogCode::Accepted == dialog->exec()) {
         // if monitor list size > 1 means the config file will be saved by CustomSettingDialog
-        if (m_displayModel->monitorList().size() == 1) {
+        if (m_displayModel->monitorList().size() == 1 || m_displayModel->displayMode() != CUSTOM_MODE) {
             m_displayWorker->saveChanges();
         }
     } else {
-        m_displayWorker->restore();
+        for (auto m : m_displayModel->monitorList()) {
+            if (mMonitorRotate.end() == mMonitorRotate.find(m))
+                continue;
+
+            if (m->rotate() != mMonitorRotate[m]) {
+                m_displayWorker->setMonitorRotate(m, mMonitorRotate[m]);
+            }
+        }
     }
 
     qApp->restoreOverrideCursor();

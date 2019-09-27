@@ -73,7 +73,6 @@ Q_SIGNALS:
     void requestSetMonitorPosition(dcc::display::Monitor *mon, const int x, const int y);
     void requestSetResolution(dcc::display::Monitor *mon, int resolution);
     void requestSetPrimaryMonitor(int idx);
-    void requestApplySave();
 
 
 private Q_SLOTS:
@@ -108,6 +107,7 @@ private:
     DTK_WIDGET_NAMESPACE::DListView *m_resolutionList{nullptr};
     DTK_WIDGET_NAMESPACE::DListView *m_rateList{nullptr};
     QStandardItemModel *m_resolutionListModel{nullptr};
+    QStandardItemModel *m_refreshListModel{nullptr};
     QList<CustomSettingDialog *> m_otherDialog;
 };
 }

@@ -41,6 +41,10 @@ MultiScreenSettingPage::MultiScreenSettingPage(QWidget *parent)
 
     m_modeList->installEventFilter(this);
     m_modeList->setEditTriggers(DListView::NoEditTriggers);
+    m_modeList->setSelectionMode(DListView::NoSelection);
+    m_listModel = new QStandardItemModel();
+    m_modeList->setModel(m_listModel);
+
     mainLayout->addWidget(m_modeList);
 
     //~ contents_path /display/Customize
@@ -57,9 +61,12 @@ MultiScreenSettingPage::MultiScreenSettingPage(QWidget *parent)
 void MultiScreenSettingPage::setModel(dcc::display::DisplayModel *model)
 {
     m_model = model;
-    m_modeList->setModel(new QStandardItemModel());
 
     initModeList();
+    connect(m_model, &DisplayModel::displayModeChanged,
+            this, &MultiScreenSettingPage::onDisplayModeChanged);
+    connect(m_model, &DisplayModel::primaryScreenChanged,
+            this, &MultiScreenSettingPage::onDisplayModeChanged);
 }
 
 void MultiScreenSettingPage::onItemClicked(const QModelIndex &index)
@@ -79,11 +86,39 @@ void MultiScreenSettingPage::onItemClicked(const QModelIndex &index)
     Q_EMIT requestOnlyMonitor(moniName);
 }
 
+void MultiScreenSettingPage::onDisplayModeChanged()
+{
+    if (m_currIdx.isValid())
+        m_listModel->setData(m_currIdx, Qt::Unchecked, Qt::CheckStateRole);
+
+    switch (m_model->displayMode()) {
+    case MERGE_MODE:
+        m_currIdx = m_listModel->index(0, 0);
+        break;
+    case EXTEND_MODE:
+        m_currIdx = m_listModel->index(1, 0);
+        break;
+    case SINGLE_MODE: {
+        for (int tidx = 0; tidx < m_model->monitorList().size(); ++tidx) {
+            auto m = m_model->monitorList()[tidx];
+            if (m == m_model->primaryMonitor()) {
+                m_currIdx = m_listModel->index(tidx + 2, 0);
+                break;
+            }
+        }
+        break;
+    }
+    case CUSTOM_MODE:
+        m_currIdx = QModelIndex();
+        break;
+    }
+
+    if (m_currIdx.isValid())
+        m_listModel->setData(m_currIdx, Qt::Checked, Qt::CheckStateRole);
+}
+
 void MultiScreenSettingPage::initModeList()
 {
-    auto listModel = qobject_cast<QStandardItemModel * >(m_modeList->model());
-    Q_ASSERT(listModel);
-
     QStringList titleList;
     titleList << tr("Duplicate") << tr("Extend");
 
@@ -115,8 +150,10 @@ void MultiScreenSettingPage::initModeList()
         auto item = new DStandardItem;
         item->setIcon(QIcon::fromTheme(iconList[idx]));
         item->setTextActionList(actionList);
-        listModel->appendRow(item);
+        m_listModel->appendRow(item);
     }
+
+    onDisplayModeChanged();
 }
 
 void MultiScreenSettingPage::onCustomClicked()

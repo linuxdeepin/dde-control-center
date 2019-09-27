@@ -554,7 +554,6 @@ void DisplayWorker::record()
 {
     const int displayMode { m_model->displayMode() };
     const QString config { displayMode == CUSTOM_MODE ? m_model->config() : m_model->primary() };
-
     m_model->setLastConfig(std::pair<int, QString>(displayMode, config));
 }
 

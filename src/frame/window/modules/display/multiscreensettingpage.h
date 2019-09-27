@@ -59,6 +59,7 @@ public:
 
 public Q_SLOTS:
     void onCustomClicked();
+    void onDisplayModeChanged();
 
 Q_SIGNALS:
     void requestDuplicateMode();
@@ -79,6 +80,8 @@ private:
 private:
     DTK_WIDGET_NAMESPACE::DListView *m_modeList{nullptr};
     dcc::display::DisplayModel *m_model{nullptr};
+    QStandardItemModel *m_listModel{nullptr};
+    QModelIndex m_currIdx;
 };
 
 }

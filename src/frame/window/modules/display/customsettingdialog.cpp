@@ -77,18 +77,24 @@ void CustomSettingDialog::initUI()
 
     if (m_isPrimary) {
         m_moniList = new DListView;
+        m_moniList->setEditTriggers(DListView::NoEditTriggers);
+        m_moniList->setSelectionMode(DListView::NoSelection);
         m_moniList->installEventFilter(this);
         m_listLayout->addWidget(m_moniList);
         m_segmentBtn->addSegmented(tr("Main Screen"));
     }
 
     m_resolutionList = new DListView;
+    m_resolutionList->setEditTriggers(DListView::NoEditTriggers);
+    m_resolutionList->setSelectionMode(DListView::NoSelection);
     m_resolutionList->setVisible(!m_isPrimary);
     m_segmentBtn->addSegmented(tr("Resolution"));
     m_listLayout->addWidget(m_resolutionList);
 
     m_rateList = new DListView;
     m_rateList->setVisible(false);
+    m_rateList->setEditTriggers(DListView::NoEditTriggers);
+    m_rateList->setSelectionMode(DListView::NoSelection);
     m_segmentBtn->addSegmented(tr("Refresh Rate"));
     m_listLayout->addWidget(m_rateList);
 
@@ -121,7 +127,6 @@ void CustomSettingDialog::initUI()
 
         btn = new QPushButton(tr("Save"), this);
         connect(btn, &QPushButton::clicked, this, &CustomSettingDialog::accept);
-        connect(btn, &QPushButton::clicked, this, &CustomSettingDialog::requestApplySave);
         hlayout->addWidget(btn);
     }
 
@@ -176,7 +181,7 @@ void CustomSettingDialog::initOtherDialog()
 {
 //    //当存在三个屏幕或以上时，需要下列代码
     if (m_otherDialog.size()) {
-        for(auto dlg : m_otherDialog) {
+        for (auto dlg : m_otherDialog) {
             dlg->setVisible(false);
         }
     }
@@ -199,6 +204,7 @@ void CustomSettingDialog::initOtherDialog()
                     &CustomSettingDialog::requestSetResolution);
             connect(dlg, &CustomSettingDialog::requestShowRotateDialog, this,
                     &CustomSettingDialog::requestShowRotateDialog);
+
             connect(dlg, &CustomSettingDialog::requestMerge, this,
                     &CustomSettingDialog::requestMerge);
             connect(dlg, &CustomSettingDialog::requestSplit, this,
@@ -322,9 +328,9 @@ void CustomSettingDialog::initResolutionList()
     if (nullptr != curIdx)
         curIdx->setCheckState(Qt::Checked);
 
-    connect(m_monitor, &Monitor::currentModeChanged, this, [this](const Resolution &tr) {
+    connect(m_monitor, &Monitor::currentModeChanged, this, [this](const Resolution & tr) {
         auto list = m_monitor->modeList();
-        for(auto idx = 0; idx < m_resolutionListModel->rowCount(); ++idx) {
+        for (auto idx = 0; idx < m_resolutionListModel->rowCount(); ++idx) {
             auto item = m_resolutionListModel->item(idx);
             auto id = item->data(Qt::WhatsThisPropertyRole);
             if (id == tr.id()) {
@@ -334,12 +340,12 @@ void CustomSettingDialog::initResolutionList()
             }
         }
     });
-    connect(m_resolutionList, &QListView::clicked, [this](QModelIndex idx) {
+    connect(m_resolutionList, &QListView::clicked, this, [this](QModelIndex idx) {
         auto id = m_resolutionListModel->data(idx, Qt::WhatsThisPropertyRole).toInt();
         if (id == m_monitor->currentMode().id())
             return;
 
-        Q_EMIT requestSetResolution(m_monitor, id);
+        this->requestSetResolution(m_monitor, id);
     });
 }
 
@@ -369,12 +375,20 @@ void CustomSettingDialog::initMoniList()
         listModel->appendRow(item);
 
         if (moni->isPrimary())
-            m_moniList->setCurrentIndex(listModel->indexFromItem(item));
+            item->setCheckState(Qt::Checked);
     }
 
-    connect(m_moniList, static_cast<void (DListView::*)(const QModelIndex &)>(&DListView::currentChanged),
-    this, [this] {
+    connect(m_moniList, &DListView::clicked, this, [this] {
         this->requestSetPrimaryMonitor(m_moniList->currentIndex().row());
+    });
+    connect(m_model, &DisplayModel::primaryScreenChanged, this, [ = ] {
+        Q_ASSERT(listModel->rowCount() == m_model->monitorList().size());
+
+        auto monis = m_model->monitorList();
+        for (int idx = 0 ; idx < listModel->rowCount(); ++idx) {
+            auto item = listModel->item(idx);
+            item->setCheckState( monis[idx] == m_model->primaryMonitor() ? Qt::Checked : Qt::Unchecked);
+        }
     });
 }
 
@@ -470,13 +484,16 @@ void CustomSettingDialog::resetDialog()
     setGeometry(rt);
     move(m_monitor->rect().center() - QPoint(width() / 2, height() / 2));
 
-    for(auto dlg:m_otherDialog) {
+    for (auto dlg : m_otherDialog) {
         dlg->setVisible(!m_model->monitorsIsIntersect());
     }
 }
 
 void CustomSettingDialog::onPrimaryMonitorChanged()
 {
+    m_monitor->disconnect(this);
+    m_resolutionList->disconnect(this);
+    m_rateList->disconnect(this);
     m_monitor = m_model->primaryMonitor();
 
     initWithModel();
