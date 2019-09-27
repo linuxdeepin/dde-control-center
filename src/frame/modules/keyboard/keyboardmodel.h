@@ -55,7 +55,10 @@ class KeyboardModel : public QObject
     Q_OBJECT
 public:
     explicit KeyboardModel(QObject *parent = 0);
-
+    enum KBLayoutScope {
+        system = 0,
+        application = 1
+    };
 #ifndef DCC_DISABLE_KBLAYOUT
     void setLayoutLists(QMap<QString, QString> lists);
 #endif
@@ -63,6 +66,7 @@ public:
     QString langFromText(const QString &text) const;
 
     QString curLayout() const;
+    int layoutScope() const;
     QString curLang() const;
     QMap<QString, QString> userLayout() const;
     QMap<QString, QString> kbLayout() const;
@@ -88,6 +92,7 @@ public:
 Q_SIGNALS:
 #ifndef DCC_DISABLE_KBLAYOUT
     void curLayoutChanged(const QString &layout);
+    void layoutScopeChanged(int value);
 #endif
     void curLangChanged(const QString &lang);
     void capsLockChanged(bool value);
@@ -103,6 +108,7 @@ Q_SIGNALS:
 public Q_SLOTS:
 #ifndef DCC_DISABLE_KBLAYOUT
     void setLayout(const QString &value);
+    void setLayoutScope(int value);
 #endif
     void setLang(const QString &value);
     void setLocaleLang(const QStringList &localLangList);
@@ -118,6 +124,7 @@ private:
     uint m_repeatInterval;
     uint m_repeatDelay;
     QString m_layout;
+    int m_layoutScope;
     QString m_currentLangKey;
     QStringList m_localLangList;
     QMap<QString, QString> m_userLayout;

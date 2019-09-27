@@ -79,11 +79,32 @@ void KeyboardModel::setLayout(const QString &key)
 
     Q_EMIT curLayoutChanged(m_layout);
 }
+
+void KeyboardModel::setLayoutScope(int value)
+{
+    if ((value != KBLayoutScope::system) && (value != KBLayoutScope::application)) {
+        qDebug() << "setLayoutScope invalid value: " << value;
+        return;
+    }
+
+    if (m_layoutScope == value) {
+        return;
+    }
+
+    m_layoutScope = value;
+
+    Q_EMIT layoutScopeChanged(m_layoutScope);
+}
 #endif
 
 QString KeyboardModel::curLayout() const
 {
     return m_layout;
+}
+
+int KeyboardModel::layoutScope() const
+{
+    return m_layoutScope;
 }
 
 void KeyboardModel::setLang(const QString &value)

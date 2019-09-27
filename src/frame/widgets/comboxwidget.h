@@ -48,6 +48,7 @@ public:
     QComboBox *comboBox();
 
 Q_SIGNALS:
+    void onIndexChanged(int index);
     void onSelectChanged(const QString &selected);
     void dataChanged(const QVariant &data);
     void clicked();

@@ -58,6 +58,7 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
 #ifndef DCC_DISABLE_KBLAYOUT
     connect(m_keyboardInter, &KeyboardInter::UserLayoutListChanged, this, &KeyboardWorker::onUserLayout);
     connect(m_keyboardInter, &KeyboardInter::CurrentLayoutChanged, this, &KeyboardWorker::onCurrentLayout);
+    connect(m_keyboardInter, &KeyboardInter::LayoutScopeChanged, this, &KeyboardWorker::setModelLayoutScope);
 #endif
     connect(m_keyboardInter, SIGNAL(CapslockToggleChanged(bool)), m_model, SLOT(setCapsLock(bool)));
     connect(m_keybindInter, &KeybingdingInter::NumLockStateChanged, m_model, &KeyboardModel::setNumLock);
@@ -124,6 +125,7 @@ void KeyboardWorker::active()
 
     setModelRepeatDelay(m_keyboardInter->repeatDelay());
     setModelRepeatInterval(m_keyboardInter->repeatInterval());
+    setModelLayoutScope(m_keyboardInter->layoutScope());
 
     m_metaDatas.clear();
     m_letters.clear();
@@ -188,6 +190,7 @@ void KeyboardWorker::onRefreshKBLayout()
 
     onCurrentLayout(m_keyboardInter->currentLayout());
     onUserLayout(m_keyboardInter->userLayoutList());
+    setModelLayoutScope(m_keyboardInter->layoutScope());
 }
 #endif
 
@@ -463,6 +466,16 @@ void KeyboardWorker::onCurrentLayout(const QString &value)
 {
     QDBusPendingCallWatcher *layoutResult = new QDBusPendingCallWatcher(m_keyboardInter->GetLayoutDesc(value), this);
     connect(layoutResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onCurrentLayoutFinished);
+}
+
+void KeyboardWorker::setLayoutScope(const int value)
+{
+    m_keyboardInter->setLayoutScope(value);
+}
+
+void KeyboardWorker::setModelLayoutScope(const int value)
+{
+    m_model->setLayoutScope(value);
 }
 
 void KeyboardWorker::onCurrentLayoutFinished(QDBusPendingCallWatcher *watch)

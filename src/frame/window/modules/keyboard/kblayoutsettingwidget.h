@@ -35,6 +35,7 @@ class SearchInput;
 class TranslucentFrame;
 class SettingsGroup;
 class SettingsHead;
+class ComboxWidget;
 }
 }
 
@@ -54,6 +55,7 @@ Q_SIGNALS:
     void curLang(const QString &value);
     void delUserLayout(const QString &value);
     void requestSwitchKBLayout(int value);
+    void onSwitchKBLayoutScope(const int index);
 
 public Q_SLOTS:
     void onAddKeyboard(const QString &id, const QString &value);
@@ -63,7 +65,7 @@ public Q_SLOTS:
     void onSwitchKBChanged();
     void onSwitchKB(int kbSwitch);
     void onLayoutAdded();
-    void onSwitchKBLayout(const QString &comboxName);
+    void onLayoutScope(const int value);
 
 private:
     bool m_bEdit;
@@ -74,6 +76,7 @@ private:
     dcc::keyboard::KeyboardModel *m_model;
     dcc::widgets::SettingsGroup *m_switchKBLayout;
     QMap<CheckItem *, int> m_switchCheckItem;
+    dcc::widgets::ComboxWidget *m_comboWidget;
 };
 }
 }

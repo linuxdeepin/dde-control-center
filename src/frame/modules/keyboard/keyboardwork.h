@@ -77,8 +77,10 @@ public:
 
     void setRepeatDelay(int value);
     void setRepeatInterval(int value);
+    void setLayoutScope(const int value);
     void setModelRepeatDelay(int value);
     void setModelRepeatInterval(int value);
+    void setModelLayoutScope(const int value);
 
     void setNumLock(bool value);
     void setCapsLock(bool value);

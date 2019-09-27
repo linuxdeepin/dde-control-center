@@ -90,13 +90,13 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
         connect(shortCutItem, &CheckItem::checkedChanged, this, &KBLayoutSettingWidget::onSwitchKBChanged);
     }
 
-    ComboxWidget *comboWidget = new ComboxWidget;
+    m_comboWidget = new ComboxWidget;
     //~ contents_path /keyboard/Keyboard Layout
-    comboWidget->setTitle(tr("Applies to"));
+    m_comboWidget->setTitle(tr("Applies to"));
     QStringList comboxOptions;
     comboxOptions << tr("System") << tr("Application");
-    comboWidget->setComboxOption(comboxOptions);
-    m_switchKBLayout->appendItem(comboWidget);
+    m_comboWidget->setComboxOption(comboxOptions);
+    m_switchKBLayout->appendItem(m_comboWidget);
 
     DFloatingButton *addLayout = new DFloatingButton(DStyle::SP_IncreaseElement, this);
     QHBoxLayout *btnLayout = new QHBoxLayout;
@@ -109,12 +109,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
 
     connect(addLayout, &DFloatingButton::clicked, this, &KBLayoutSettingWidget::onLayoutAdded);
     connect(m_head, &SettingsHead::editChanged, this, &KBLayoutSettingWidget::onEdit);
-    connect(comboWidget, &ComboxWidget::onSelectChanged, this, &KBLayoutSettingWidget::onSwitchKBLayout);
-}
-
-void KBLayoutSettingWidget::onSwitchKBLayout(const QString &comboxName)
-{
-    qDebug() << "Select: " << comboxName;
+    connect(m_comboWidget, &ComboxWidget::onIndexChanged, this, &KBLayoutSettingWidget::onSwitchKBLayoutScope);
 }
 
 void KBLayoutSettingWidget::setModel(KeyboardModel *model)
@@ -124,6 +119,7 @@ void KBLayoutSettingWidget::setModel(KeyboardModel *model)
     connect(model, &KeyboardModel::userLayoutChanged, this, &KBLayoutSettingWidget::onAddKeyboard);
     connect(model, &KeyboardModel::curLayoutChanged, this, &KBLayoutSettingWidget::onDefault);
     connect(model, &KeyboardModel::kbSwitchChanged, this, &KBLayoutSettingWidget::onSwitchKB);
+    connect(model, &KeyboardModel::layoutScopeChanged, this, &KBLayoutSettingWidget::onLayoutScope);
 
     QMap<QString, QString> map = model->userLayout();
 
@@ -133,6 +129,7 @@ void KBLayoutSettingWidget::setModel(KeyboardModel *model)
 
     m_switchKBLayout->setVisible(m_maps.count() > 1);
     onSwitchKB(model->kbSwitch());
+    onLayoutScope(model->layoutScope());
 }
 
 void KBLayoutSettingWidget::onAddKeyboard(const QString &id, const QString &value)
@@ -205,6 +202,11 @@ void KBLayoutSettingWidget::onSwitchKB(int kbSwitch)
     for (auto it(m_switchCheckItem.begin()); it != m_switchCheckItem.end(); ++it) {
         it.key()->setChecked((kbSwitch & it.value()) != 0);
     }
+}
+
+void KBLayoutSettingWidget::onLayoutScope(const int value)
+{
+    m_comboWidget->comboBox()->setCurrentIndex(value);
 }
 
 void KBLayoutSettingWidget::onLayoutAdded()
