@@ -33,6 +33,18 @@
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
 
+class ddeCompleter : public QCompleter
+{
+public:
+    ddeCompleter(QAbstractItemModel *model, QObject *parent = nullptr)
+        : QCompleter(model, parent)
+    {
+    }
+
+public:
+    bool eventFilter(QObject *o, QEvent *e) override;
+};
+
 SearchWidget::SearchWidget(QWidget *parent)
     : DTK_WIDGET_NAMESPACE::DSearchEdit(parent)
     , m_xmlExplain("")
@@ -40,11 +52,14 @@ SearchWidget::SearchWidget(QWidget *parent)
     , m_bIsChinese(false)
 {
     m_model = new QStandardItemModel(this);
-    m_completer = new QCompleter(m_model, this);
+    m_completer = new ddeCompleter(m_model, this);
     m_completer->setFilterMode(Qt::MatchContains);//设置QCompleter支持匹配字符搜索
     m_completer->setCaseSensitivity(Qt::CaseInsensitive);//这个属性可设置进行匹配时的大小写敏感性
     m_completer->setCompletionRole(Qt::UserRole); //设置ItemDataRole
     lineEdit()->setCompleter(m_completer);
+    m_completer->setWrapAround(false);
+    m_completer->installEventFilter(this);
+
 
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textChanged, this, [ = ] {
         QString value = text();
@@ -368,4 +383,46 @@ void SearchWidget::addModulesName(QString moduleName, QString searchName)
 #if DEBUG_XML_SWITCH
     qDebug() << " [wubw SearchWidget] moduleName : " << moduleName << " , searchName : " << searchName;
 #endif
+}
+
+bool ddeCompleter::eventFilter(QObject *o, QEvent *e)
+{
+    if (e->type() == QEvent::FocusOut) {
+        return true;
+    }
+
+    if (e->type() == QEvent::KeyPress) {
+        QKeyEvent *ke = static_cast<QKeyEvent *>(e);
+        QModelIndex keyIndex;
+        switch (ke->key()) {
+        case Qt::Key_Up: {
+            if (popup()->currentIndex().row() == 0) {
+                keyIndex = popup()->model()->index(popup()->model()->rowCount() - 1, 0);
+                popup()->setCurrentIndex(keyIndex);
+            } else {
+                keyIndex = popup()->model()->index(popup()->currentIndex().row() - 1, 0);
+                popup()->setCurrentIndex(keyIndex);
+            }
+            return true;
+        }
+        case Qt::Key_Down: {
+            if (popup()->currentIndex().row() == popup()->model()->rowCount() - 1) {
+                keyIndex = popup()->model()->index(0, 0);
+                popup()->setCurrentIndex(keyIndex);
+            } else {
+                keyIndex = popup()->model()->index(popup()->currentIndex().row() + 1, 0);
+                popup()->setCurrentIndex(keyIndex);
+            }
+            return true;
+        }
+        case Qt::Key_Enter: {
+            if (popup()->isVisible() && !popup()->currentIndex().isValid()) {
+                keyIndex = popup()->model()->index(0, 0);
+                popup()->setCurrentIndex(keyIndex);
+            }
+            popup()->hide();
+        }
+        }
+    }
+    return QCompleter::eventFilter(o, e);
 }
