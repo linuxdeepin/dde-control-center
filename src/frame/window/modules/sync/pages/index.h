@@ -43,6 +43,9 @@ namespace dcc {
 namespace widgets {
 class SwitchWidget;
 }
+namespace accounts {
+class AvatarWidget;
+}
 
 namespace cloudsync {
 class SyncModel;
@@ -54,13 +57,14 @@ class SyncStateIcon;
 
 namespace DCC_NAMESPACE {
 namespace sync {
-
+class DownloadUrl;
 class IndexPage : public QWidget
 {
     Q_OBJECT
 public:
     IndexPage(QWidget *parent = nullptr);
     void setModel(dcc::cloudsync::SyncModel *model);
+    ~IndexPage();
 
 Q_SIGNALS:
     void requestSetAutoSync(bool enable) const;
@@ -79,7 +83,7 @@ private:
 private:
     QVBoxLayout *m_mainLayout;
     dcc::cloudsync::SyncModel *m_model;
-    QLabel *m_avatar;
+    dcc::accounts::AvatarWidget *m_avatar;
     QLabel *m_username;
     dcc::widgets::SwitchWidget *m_autoSyncSwitch;
     DTK_WIDGET_NAMESPACE::DListView *m_listView;
@@ -88,6 +92,8 @@ private:
     QLabel *m_lastSyncTimeLbl;
     QStandardItemModel *m_listModel;
     QMap<dcc::cloudsync::SyncType, QStandardItem *> m_itemMap;
+    DownloadUrl *m_downloader;
+    QString m_avatarPath;
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE

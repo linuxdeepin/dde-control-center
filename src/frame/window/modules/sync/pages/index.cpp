@@ -5,15 +5,19 @@
 
 #include "widgets/settingsgroup.h"
 #include "widgets/switchwidget.h"
+#include "modules/accounts/avatarwidget.h"
+#include "downloadurl.h"
+
+#include <DWarningButton>
 
 #include <QScrollArea>
 #include <QLabel>
 #include <QStandardItemModel>
 #include <QVBoxLayout>
 #include <QDebug>
-#include <QPushButton>
 #include <QDateTime>
 #include <QMap>
+#include <QDir>
 
 DWIDGET_USE_NAMESPACE
 
@@ -21,6 +25,7 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::sync;
 using namespace dcc::widgets;
 using namespace dcc::cloudsync;
+using namespace dcc::accounts;
 
 namespace DCC_NAMESPACE {
 namespace sync {
@@ -29,12 +34,14 @@ IndexPage::IndexPage(QWidget *parent)
     : QWidget(parent)
     , m_mainLayout(new QVBoxLayout)
     , m_model(nullptr)
-    , m_avatar(new QLabel)
+    , m_avatar(new AvatarWidget)
     , m_username(new QLabel)
     , m_listView(new DListView)
     , m_stateIcon(new SyncStateIcon)
     , m_lastSyncTimeLbl(new QLabel)
     , m_listModel(new QStandardItemModel)
+    , m_downloader(nullptr)
+    , m_avatarPath(QString("%1/.cache/deepin/dde-control-center/sync").arg(getenv("HOME")))
 {
     //~ contents_path /cloudsync/Auto Sync
     m_autoSyncSwitch = new SwitchWidget(tr("Auto Sync"));
@@ -80,9 +87,10 @@ IndexPage::IndexPage(QWidget *parent)
     backgroundLayout->setSpacing(0);
 
     m_avatar->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    m_avatar->setFixedSize(QSize(100, 100));
     m_username->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
-    QPushButton *logoutBtn = new QPushButton;
+    DWarningButton *logoutBtn = new DWarningButton;
     //~ contents_path /cloudsync/Sign Out
     logoutBtn->setText(tr("Sign Out"));
 
@@ -95,9 +103,13 @@ IndexPage::IndexPage(QWidget *parent)
     bottomLayout->addWidget(m_lastSyncTimeLbl, 0, Qt::AlignCenter);
     bottomLayout->addWidget(logoutBtn, 0, Qt::AlignRight);
 
+    backgroundLayout->addSpacing(20);
     backgroundLayout->addWidget(m_avatar, 0, Qt::AlignHCenter);
+    backgroundLayout->addSpacing(14);
     backgroundLayout->addWidget(m_username, 0, Qt::AlignHCenter);
+    backgroundLayout->addSpacing(18);
     backgroundLayout->addWidget(autoSyncGrp, 0, Qt::AlignTop);
+    backgroundLayout->addSpacing(20);
     backgroundLayout->addWidget(m_listView, 1);
 
 
@@ -111,6 +123,8 @@ IndexPage::IndexPage(QWidget *parent)
     connect(m_listView, &QListView::clicked, this, &IndexPage::onListViewClicked);
     connect(m_autoSyncSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::requestSetAutoSync);
     connect(logoutBtn, &QPushButton::clicked, this, &IndexPage::requestLogout);
+    QDir dir;
+    dir.mkpath(m_avatarPath);
 }
 
 void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
@@ -172,6 +186,12 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     onLastSyncTimeChanged(model->lastSyncTime());
 }
 
+IndexPage::~IndexPage()
+{
+    if (m_downloader != nullptr)
+        m_downloader->deleteLater();
+}
+
 void IndexPage::onListViewClicked(const QModelIndex &index)
 {
     QStandardItem *item = (m_itemMap.begin() + index.row()).value();
@@ -185,6 +205,20 @@ void IndexPage::onUserInfoChanged(const QVariantMap &infos)
     Q_UNUSED(infos);
 
     m_username->setText(m_model->userDisplayName());
+    QString profile_image = infos.value("profile_image").toString();
+    qDebug() << " profile_image = " << profile_image;
+    if (profile_image.isEmpty()) //test
+        profile_image = "https://avatar.cdn.deepin.com/public/default.png";
+
+    if (m_downloader == nullptr)
+        m_downloader = new DownloadUrl;
+
+    m_downloader->downloadFileFromURL(profile_image, m_avatarPath);
+
+    connect(m_downloader, &DownloadUrl::fileDownloaded, this, [this](const QString &fileName) {
+        qDebug() << "downloaded filename = " << QUrl::fromLocalFile(fileName).toString();
+        m_avatar->setAvatarPath(QUrl::fromLocalFile(fileName).toString());
+    });
 }
 
 void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)

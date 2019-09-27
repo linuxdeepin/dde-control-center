@@ -20,12 +20,15 @@
  */
 #include "logout.h"
 
+#include <DWarningButton>
+
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QPushButton>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::sync;
+DWIDGET_USE_NAMESPACE
 
 LogoutPage::LogoutPage(QWidget *parent)
     : QWidget(parent)
@@ -42,7 +45,7 @@ LogoutPage::LogoutPage(QWidget *parent)
 
     m_mainLayout->addWidget(cntip, 0, Qt::AlignHCenter);
 
-    QPushButton *logoutBtn = new QPushButton;
+    DWarningButton *logoutBtn = new DWarningButton;
     //~ contents_path /cloudsync/Sign Out
     logoutBtn->setText(tr("Sign Out"));
     connect(logoutBtn, &QPushButton::clicked, this, &LogoutPage::requestLogout);

@@ -964,6 +964,7 @@ set(SYNC_FILES
     window/modules/sync/pages/login.h
     window/modules/sync/pages/login.cpp
     window/modules/sync/pages/logout.cpp
+    window/modules/sync/pages/downloadurl.cpp
 )
 
 # load systeminfo
