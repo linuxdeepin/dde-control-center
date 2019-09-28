@@ -59,15 +59,11 @@ TimeZoneChooser::TimeZoneChooser()
     , m_searchInput(new SearchInput)
     , m_title(new QLabel)
     , m_cancelBtn(new QPushButton(tr("Cancel")))
-    , m_confirmBtn(new QPushButton(tr("Confirm")))
-    , m_confirmBtn_add(new DSuggestButton(tr("Add")))
+    , m_confirmBtn(new DSuggestButton(tr("Confirm")))
 {
     setWindowFlags(Qt::FramelessWindowHint | Qt::Dialog | Qt::WindowStaysOnTopHint);
     setAttribute(Qt::WA_TranslucentBackground);
     setupSize();
-
-    m_confirmBtn->setVisible(false);
-    m_confirmBtn_add->setVisible(false);
 
     m_searchInput->setMinimumSize(350, 36);
 
@@ -98,7 +94,6 @@ TimeZoneChooser::TimeZoneChooser()
     hLayout->addWidget(m_cancelBtn, 0, Qt::AlignHCenter);
     hLayout->addSpacing(20);
     hLayout->addWidget(m_confirmBtn, 0, Qt::AlignHCenter);
-    hLayout->addWidget(m_confirmBtn_add, 0, Qt::AlignHCenter);
     hLayout->addStretch();
 
     QVBoxLayout *layout = new QVBoxLayout;
@@ -116,12 +111,7 @@ TimeZoneChooser::TimeZoneChooser()
     layout->addSpacing(40);
     setLayout(layout);
 
-    connect(m_confirmBtn, &QPushButton::clicked, [this] {
-        QString zone = m_map->getTimezone();
-        Q_EMIT confirmed(zone);
-    });
-
-    connect(m_confirmBtn_add, &DSuggestButton::clicked, [this] {
+    connect(m_confirmBtn, &DSuggestButton::clicked, [this] {
         QString zone = m_map->getTimezone();
         Q_EMIT confirmed(zone);
     });
@@ -192,17 +182,17 @@ TimeZoneChooser::TimeZoneChooser()
 void TimeZoneChooser::setIsAddZone(const bool isAdd)
 {
     m_isAddZone = isAdd;
-    m_confirmBtn->setVisible(false);
-    m_confirmBtn_add->setVisible(false);
 
     if (isAdd) {
         //~ contents_path /datetime/Timezone List/Add Timezone
         m_title->setText(tr("Add Timezone"));
-        m_confirmBtn_add->setVisible(true);
+        //~ contents_path /datetime/Timezone List/Add Timezone
+        m_confirmBtn->setText(tr("Confirm"));
     } else {
         //~ contents_path /datetime/Timezone List/Change System Timezone
         m_title->setText(tr("Change Timezone"));
-        m_confirmBtn->setVisible(true);
+        //~ contents_path /datetime/Timezone List/Change System Timezone
+        m_confirmBtn->setText(tr("Add"));
     }
 }
 
@@ -306,5 +296,4 @@ void TimeZoneChooser::setupSize()
     m_searchInput->setMinimumSize(350, 36);
     m_cancelBtn->setMinimumSize(200, 36);
     m_confirmBtn->setMinimumSize(200, 36);
-    m_confirmBtn_add->setMinimumSize(200, 36);
 }

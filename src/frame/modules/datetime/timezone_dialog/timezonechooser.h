@@ -91,8 +91,7 @@ private:
     dcc::widgets::SearchInput *m_searchInput;
     QLabel *m_title;
     QPushButton *m_cancelBtn;
-    QPushButton *m_confirmBtn;
-    DSuggestButton *m_confirmBtn_add;
+    DSuggestButton *m_confirmBtn;
 };
 
 } // namespace datetime
