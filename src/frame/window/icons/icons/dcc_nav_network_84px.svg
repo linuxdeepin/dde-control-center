@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="84" height="84" viewBox="0 0 84 84">
+  <defs>
+    <linearGradient id="nav_network_84px-c" x1="38.951%" x2="66.366%" y1="98.347%" y2="1.653%">
+      <stop offset="0%" stop-color="#11B4DD"/>
+      <stop offset="100%" stop-color="#40EA98"/>
+    </linearGradient>
+    <linearGradient id="nav_network_84px-d" x1="50%" x2="50%" y1="0%" y2="98.156%">
+      <stop offset="0%" stop-color="#27EC95"/>
+      <stop offset="100%" stop-color="#18E"/>
+    </linearGradient>
+    <path id="nav_network_84px-b" d="M27.525603,2.9 C23.726478,2.9 20.1514114,3.60486119 16.8002931,5.01459711 C13.4491817,6.42433302 10.5281991,8.35388766 8.03726276,10.8033084 C5.54632506,13.2527291 3.58407023,16.1250286 2.15043774,19.4202882 C0.716805239,22.7155545 0,26.2310367 0,29.966843 C0,33.7026492 0.716805239,37.2181314 2.15043774,40.5133977 C3.58407023,43.8086573 5.54632506,46.6809569 8.03726276,49.1303776 C10.5281991,51.5797996 13.4491817,53.5093502 16.8002931,54.9190888 C20.1514114,56.3288275 23.726478,57.033686 27.525603,57.033686 C31.324728,57.033686 34.8997947,56.3288275 38.250913,54.9190888 C41.6020244,53.5093502 44.523007,51.5797996 47.0139433,49.1303776 C49.5048796,46.6809569 51.4671386,43.8086573 52.9007683,40.5133977 C54.3343981,37.2181314 55.0512061,33.7026492 55.0512061,29.966843 C55.0512061,26.2310367 54.3343981,22.7155545 52.9007683,19.4202882 C51.4671386,16.1250286 49.5048796,13.2527291 47.0139433,10.8033084 C44.523007,8.35388766 41.6020244,6.42433302 38.250913,5.01459711 C34.8997947,3.60486119 31.324728,2.9 27.525603,2.9 L27.525603,2.9 Z"/>
+    <filter id="nav_network_84px-a" width="152.7%" height="153.6%" x="-26.3%" y="-19.4%" filterUnits="objectBoundingBox">
+      <feMorphology in="SourceAlpha" operator="dilate" radius=".5" result="shadowSpreadOuter1"/>
+      <feOffset dy="4" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="4"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0.878431373   0 0 0 0 1  0 0 0 0.6 0"/>
+    </filter>
+    <linearGradient id="nav_network_84px-e" x1="50%" x2="50%" y1="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity=".176"/>
+      <stop offset="100%" stop-color="#FFF"/>
+    </linearGradient>
+    <linearGradient id="nav_network_84px-f" x1="50%" x2="50%" y1="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity=".176"/>
+      <stop offset="100%" stop-color="#FFF"/>
+    </linearGradient>
+    <linearGradient id="nav_network_84px-g" x1="50%" x2="50%" y1="39.476%" y2="100%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity=".161"/>
+      <stop offset="100%" stop-color="#FFF"/>
+    </linearGradient>
+    <linearGradient id="nav_network_84px-h" x1="50%" x2="50%" y1="39.476%" y2="100%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity=".161"/>
+      <stop offset="100%" stop-color="#FFF"/>
+    </linearGradient>
+    <linearGradient id="nav_network_84px-i" x1="50%" x2="50%" y1="100%" y2="39.476%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity=".161"/>
+      <stop offset="100%" stop-color="#FFF"/>
+    </linearGradient>
+    <linearGradient id="nav_network_84px-j" x1="50%" x2="50%" y1="100%" y2="39.476%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity=".161"/>
+      <stop offset="100%" stop-color="#FFF"/>
+    </linearGradient>
+    <linearGradient id="nav_network_84px-k" x1="50%" x2="50%" y1="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity=".176"/>
+      <stop offset="100%" stop-color="#FFF"/>
+    </linearGradient>
+    <linearGradient id="nav_network_84px-l" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity=".176"/>
+      <stop offset="100%" stop-color="#FFF"/>
+    </linearGradient>
+    <radialGradient id="nav_network_84px-m" cx="50%" cy="50%" r="50%" fx="50%" fy="50%" gradientTransform="matrix(0 1 -.98333 0 .992 0)">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="44.575%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nav_network_84px-n" cx="50%" cy="50%" r="50%" fx="50%" fy="50%" gradientTransform="matrix(0 1 -.98333 0 .992 0)">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="44.575%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="nav_network_84px-o" x1="25.613%" x2="50%" y1="13.847%" y2="98.347%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#FFF" stop-opacity=".163"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(13 11)">
+    <g fill-rule="nonzero">
+      <use fill="#000" filter="url(#nav_network_84px-a)" xlink:href="#nav_network_84px-b"/>
+      <use fill="url(#nav_network_84px-c)" stroke="url(#nav_network_84px-d)" xlink:href="#nav_network_84px-b"/>
+    </g>
+    <g transform="translate(0 6.767)">
+      <ellipse cx="30.92" cy="11.113" stroke="url(#nav_network_84px-e)" rx="24.054" ry="4.84" transform="rotate(15 30.92 11.113)"/>
+      <ellipse cx="34.97" cy="32.611" stroke="url(#nav_network_84px-f)" rx="23.936" ry="4.867" transform="rotate(-37 34.97 32.61)"/>
+      <ellipse cx="28.499" cy="31.765" stroke="url(#nav_network_84px-g)" opacity=".8" rx="25.551" ry="4.835" transform="rotate(-8 28.499 31.765)"/>
+      <ellipse cx="27.525" cy="21.267" stroke="url(#nav_network_84px-h)" opacity=".8" rx="27.525" ry="1.933"/>
+    </g>
+    <g opacity=".8" transform="rotate(-90 31.908 25.609)">
+      <ellipse cx="29.431" cy="17.616" stroke="url(#nav_network_84px-i)" rx="26.306" ry="4.855" transform="rotate(28 29.43 17.616)"/>
+      <ellipse cx="29.794" cy="25.885" stroke="url(#nav_network_84px-j)" rx="26.312" ry="4.854" transform="rotate(-27 29.794 25.885)"/>
+      <ellipse cx="36.64" cy="33.236" stroke="url(#nav_network_84px-k)" rx="22.275" ry="4.382" transform="rotate(-38 36.64 33.236)"/>
+      <ellipse cx="27.525" cy="19.85" stroke="url(#nav_network_84px-l)" rx="27.525" ry="2.417"/>
+    </g>
+    <ellipse cx="27.525" cy="11.6" fill="url(#nav_network_84px-m)" rx="1.966" ry="1.933"/>
+    <ellipse cx="41.288" cy="29.967" fill="url(#nav_network_84px-m)" rx="1.966" ry="1.933"/>
+    <ellipse cx="28.508" cy="29.967" fill="url(#nav_network_84px-m)" rx="1.966" ry="1.933"/>
+    <ellipse cx="28.017" cy="43.983" fill="url(#nav_network_84px-n)" rx="1.475" ry="1.45"/>
+    <ellipse cx="28.017" cy="38.183" fill="url(#nav_network_84px-n)" rx="1.475" ry="1.45"/>
+    <ellipse cx="30.966" cy="36.25" fill="url(#nav_network_84px-n)" rx="1.475" ry="1.45"/>
+    <ellipse cx="11.305" cy="43.983" fill="url(#nav_network_84px-n)" rx="1.475" ry="1.45"/>
+    <ellipse cx="20.153" cy="11.117" fill="url(#nav_network_84px-n)" rx="1.475" ry="1.45"/>
+    <ellipse cx="17.203" cy="29.483" fill="url(#nav_network_84px-n)" rx="1.475" ry="1.45"/>
+    <ellipse cx="23.102" cy="19.817" fill="url(#nav_network_84px-n)" rx="1.475" ry="1.45"/>
+    <ellipse cx="22.119" cy="43.983" fill="url(#nav_network_84px-n)" rx="1.475" ry="1.45"/>
+    <ellipse cx="50.627" cy="38.183" fill="url(#nav_network_84px-n)" opacity=".8" rx="1.475" ry="1.45"/>
+    <ellipse cx="35.881" cy="42.05" fill="url(#nav_network_84px-n)" rx="1.475" ry="1.45"/>
+    <ellipse cx="24.085" cy="26.583" fill="url(#nav_network_84px-o)" opacity=".4" rx="18.186" ry="17.883"/>
+  </g>
+</svg>
