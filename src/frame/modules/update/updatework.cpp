@@ -168,7 +168,10 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     setBatteryPercentage(m_powerInter->batteryPercentage());
     setSystemBatteryPercentage(m_powerSystemInter->batteryPercentage());
     onJobListChanged(m_managerInter->jobList());
+
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
     refreshMirrors();
+#endif
 }
 
 UpdateWorker::~UpdateWorker()
