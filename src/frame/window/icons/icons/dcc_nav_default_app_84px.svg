@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="84" height="84" viewBox="0 0 84 84">
+  <defs>
+    <linearGradient id="nav_default_app_84px-c" x1="50%" x2="50%" y1="1.09%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#ECF4FD"/>
+    </linearGradient>
+    <rect id="nav_default_app_84px-b" width="44" height="37" x="8" y="0" rx="2.5"/>
+    <filter id="nav_default_app_84px-a" width="163.6%" height="175.7%" x="-31.8%" y="-27%" filterUnits="objectBoundingBox">
+      <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="4"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.00392156863   0 0 0 0 0.415686275   0 0 0 0 0.756862745  0 0 0 0.2 0"/>
+    </filter>
+    <linearGradient id="nav_default_app_84px-f" x1="50%" x2="50%" y1="1.09%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#ECF4FD"/>
+    </linearGradient>
+    <rect id="nav_default_app_84px-e" width="26" height="24" x="37" y="17" rx="2.5"/>
+    <filter id="nav_default_app_84px-d" width="203.8%" height="212.5%" x="-51.9%" y="-43.8%" filterUnits="objectBoundingBox">
+      <feOffset dy="3" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="4"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.00392156863   0 0 0 0 0.415686275   0 0 0 0 0.756862745  0 0 0 0.2 0"/>
+    </filter>
+    <linearGradient id="nav_default_app_84px-i" x1="50%" x2="50%" y1="1.09%" y2="99.212%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#D3E7FB"/>
+    </linearGradient>
+    <linearGradient id="nav_default_app_84px-j" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#FFF"/>
+    </linearGradient>
+    <rect id="nav_default_app_84px-h" width="32" height="30" x="0" y="21" rx="3"/>
+    <filter id="nav_default_app_84px-g" width="187.5%" height="193.3%" x="-43.8%" y="-33.3%" filterUnits="objectBoundingBox">
+      <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="4"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0053250477   0 0 0 0 0.41702088   0 0 0 0 0.755293252  0 0 0 0.4 0"/>
+    </filter>
+    <linearGradient id="nav_default_app_84px-m" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#00B7FF"/>
+      <stop offset="100%" stop-color="#0081FF"/>
+    </linearGradient>
+    <path id="nav_default_app_84px-l" d="M8,39.5626506 L13.4041701,44.6376552 C13.6054665,44.8266907 13.9218929,44.8167513 14.1109283,44.615455 C14.1174252,44.6085368 14.1237237,44.601435 14.1298163,44.5941583 L23,34"/>
+    <filter id="nav_default_app_84px-k" width="231%" height="269%" x="-65.5%" y="-71.1%" filterUnits="objectBoundingBox">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="2" result="shadowSpreadOuter1"/>
+      <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+      <feMorphology in="SourceAlpha" radius="2" result="shadowInner"/>
+      <feOffset dy="2" in="shadowInner" result="shadowInner"/>
+      <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0.505882353   0 0 0 0 1  0 0 0 0.5 0"/>
+    </filter>
+    <linearGradient id="nav_default_app_84px-n" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#44BAFE"/>
+      <stop offset="100%" stop-color="#419EFF"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(12 17)">
+    <use fill="#000" filter="url(#nav_default_app_84px-a)" xlink:href="#nav_default_app_84px-b"/>
+    <use fill="url(#nav_default_app_84px-c)" xlink:href="#nav_default_app_84px-b"/>
+    <use fill="#000" filter="url(#nav_default_app_84px-d)" xlink:href="#nav_default_app_84px-e"/>
+    <use fill="url(#nav_default_app_84px-f)" xlink:href="#nav_default_app_84px-e"/>
+    <use fill="#000" filter="url(#nav_default_app_84px-g)" xlink:href="#nav_default_app_84px-h"/>
+    <rect width="31" height="29" x=".5" y="21.5" fill="url(#nav_default_app_84px-i)" stroke="url(#nav_default_app_84px-j)" stroke-linejoin="square" rx="3"/>
+    <g stroke-linecap="round" stroke-linejoin="round">
+      <use fill="#000" filter="url(#nav_default_app_84px-k)" xlink:href="#nav_default_app_84px-l"/>
+      <use stroke="url(#nav_default_app_84px-m)" stroke-width="4" xlink:href="#nav_default_app_84px-l"/>
+    </g>
+    <path fill="url(#nav_default_app_84px-n)" d="M3.5,22 L28.5,22 C29.8807119,22 31,23.1192881 31,24.5 L31,30 L1,30 L1,24.5 C1,23.1192881 2.11928813,22 3.5,22 Z"/>
+    <path fill="#8EC6FF" fill-opacity=".5" d="M40,17 L60,17 C61.6568542,17 63,18.3431458 63,20 L63,24 L37,24 L37,20 C37,18.3431458 38.3431458,17 40,17 Z"/>
+    <path fill="#B1D7FE" fill-opacity=".5" d="M12,0 L48,0 C50.209139,-4.05812251e-16 52,1.790861 52,4 L52,10 L8,10 L8,4 C8,1.790861 9.790861,4.05812251e-16 12,0 Z"/>
+  </g>
+</svg>
