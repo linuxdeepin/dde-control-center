@@ -26,6 +26,7 @@
 #include "widgets/settingsgroup.h"
 #include "loadingitem.h"
 #include "window/utils.h"
+#include "mirrorsourceitem.h"
 
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -34,26 +35,26 @@ using namespace dcc;
 using namespace dcc::update;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::update;
+using namespace Dtk::Widget;
 
 MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
-    : ContentWidget(parent)
-    , m_curItem(nullptr)
+    : QWidget(parent)
     , m_testProgress(NotStarted)
     , m_testButton(new QPushButton)
-    , m_mirrorListGroup(new SettingsGroup)
-    , m_layout(new QVBoxLayout)
+    , m_view(nullptr)
+    , m_model(nullptr)
+    , m_mirrorSourceNo(0)
+    , m_listWidget(new QWidget)
 {
-    setTitle(tr("Mirror List"));
+    setWindowTitle(tr("Mirror List"));
 
     //~ contents_path /update/Update Settings/Mirror List
     m_testButton->setText(tr("Test Speed"));
 
-    TranslucentFrame *widget = new TranslucentFrame();
-
-    QVBoxLayout *mainlayout = new QVBoxLayout;
-    mainlayout->setMargin(0);
-    mainlayout->setSpacing(0);
-    mainlayout->addSpacing(10);
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->setMargin(0);
+    layout->setSpacing(0);
+    layout->addSpacing(10);
 
     QLabel *title = new QLabel;
     QFont font;
@@ -65,21 +66,26 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     m_testButton->setFixedSize(120, 48);
     m_testButton->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 
-    m_layout->setMargin(0);
-    m_layout->setSpacing(0);
-    m_layout->addWidget(title, 0, Qt::AlignHCenter);
-    m_layout->addSpacing(5);
-    m_layout->addWidget(m_testButton, 0, Qt::AlignCenter);
-    m_layout->addSpacing(5);
-    m_layout->addWidget(m_mirrorListGroup);
+    layout->addWidget(title, 0, Qt::AlignHCenter);
+    layout->addSpacing(5);
+    layout->addWidget(m_testButton, 0, Qt::AlignCenter);
+    layout->addSpacing(5);
 
-    m_mirrorListGroup->setSpacing(List_Interval);
-    m_mirrorListGroup->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_view = new DListView();
+    m_model = new QStandardItemModel;
+    m_view->setSpacing(10);
+    m_view->setBackgroundType(DStyledItemDelegate::BackgroundType::RoundedBackground);
+    m_view->setSelectionMode(DListView::NoSelection);
+    m_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_view->setFrameShape(QFrame::NoFrame);
+    m_view->setModel(m_model);
 
-    mainlayout->addLayout(m_layout);
-
-    widget->setLayout(mainlayout);
-    setContent(widget);
+    QVBoxLayout *listLayout= new QVBoxLayout;
+    listLayout->addWidget(m_view);
+    m_listWidget->setLayout(listLayout);
+    layout->addWidget(m_listWidget);
+    setLayout(layout);
 
     setModel(model);
 
@@ -113,47 +119,46 @@ void MirrorsWidget::setDefaultMirror(const MirrorInfo &mirror)
 {
     if (mirror.m_id != m_defaultMirror.m_id) {
         m_defaultMirror = mirror;
-
-        QList<MirrorItem *> items = findChildren<MirrorItem *>();
-        for (MirrorItem *item : items) {
-            if (item->mirrorInfo().m_id == m_defaultMirror.m_id) {
-                blockSignals(true);
-                setCurItem(item);
-                blockSignals(false);
-            }
-        }
     }
 }
 
 void MirrorsWidget::setMirrorInfoList(const MirrorInfoList &list)
 {
+    int num = 0;
+
     QList<MirrorInfo>::const_iterator it = list.begin();
     for (; it != list.end(); ++it) {
-        MirrorItem *item = new MirrorItem;
-        item->setMirrorInfo((*it));
+        MirrorSourceItem *item = new MirrorSourceItem;
 
         if ((*it).m_id == m_defaultMirror.m_id) {
             item->setSelected(true);
-            m_curItem = item;
+            m_mirrorSourceNo = num;
         }
-        m_mirrorListGroup->appendItem(item);
+        num++;
+        item->setMirrorInfo((*it), tr("Untested"));
 
-        connect(item, &MirrorItem::clicked, this, &MirrorsWidget::setCurItem);
+        m_model->appendRow(item);
     }
-}
 
-void MirrorsWidget::setCurItem(MirrorItem *item)
-{
-    if (item) {
-        if (m_curItem) {
-            m_curItem->setSelected(false);
-        }
+    connect(m_view, &DListView::clicked, this, [this](const QModelIndex &index) {
+        //将旧的选中item的指针地址取出,转化为(MirrorSourceItem *),赋值setSelected(false),model->setItem更新select的值
+        MirrorSourceItem *item = dynamic_cast<MirrorSourceItem *>(m_model->item(m_mirrorSourceNo));
+        item->setSelected(false);
+        m_model->setItem(m_mirrorSourceNo, item);
+
+        //获取新的值在list里面的位置
+        m_mirrorSourceNo = index.row();
+
+        //将新的选中item的指针地址取出,转化为(MirrorSourceItem *),赋值setSelected(true),model->setItem更新select的值
+        item = dynamic_cast<MirrorSourceItem *>(m_model->item(m_mirrorSourceNo));
         item->setSelected(true);
-        m_curItem = item;
+        m_model->setItem(m_mirrorSourceNo, item);
 
         MirrorInfo info = item->mirrorInfo();
         Q_EMIT requestSetDefaultMirror(info);
-    }
+
+        m_view->update();
+    });
 }
 
 void MirrorsWidget::onSpeedInfoAvailable(const QMap<QString, int> &info)
@@ -161,18 +166,17 @@ void MirrorsWidget::onSpeedInfoAvailable(const QMap<QString, int> &info)
     m_testProgress = Done;
     //~ contents_path /update/Update Settings/Mirror List
     m_testButton->setText(tr("Retest"));
-
-    QList<MirrorItem *> items = findChildren<MirrorItem *>();
-    for (MirrorItem *item : items) {
+    int count = m_model->rowCount();
+    MirrorSourceItem *item;
+    for (int i = 0; i < count; i++) {
+        item = dynamic_cast<MirrorSourceItem *>(m_model->item(i));
         const QString id = item->mirrorInfo().m_id;
 
         if (info.contains(id))
             item->setSpeed(info.value(id, -1));
     }
 
-    if (info.keys().length() == items.length()) {
-        sortMirrorsBySpeed();
-    }
+    m_view->update();
 }
 
 void MirrorsWidget::testButtonClicked()
@@ -184,20 +188,19 @@ void MirrorsWidget::testButtonClicked()
 
     m_testProgress = Running;
 
-    QList<MirrorItem *> items = findChildren<MirrorItem *>();
-    for (MirrorItem *item : items) {
-        item->setTesting();
+    for (int i = 0; i < m_model->rowCount(); i++) {
+        dynamic_cast<MirrorSourceItem *>(m_model->item(i))->setTesting();
     }
 }
 
 void MirrorsWidget::sortMirrorsBySpeed()
 {
-    QList<MirrorItem *> items = findChildren<MirrorItem *>();
-    qSort(items.begin(), items.end(), [](const MirrorItem * one, const MirrorItem * two) {
+    QList<MirrorSourceItem *> items;
+    int count = m_model->rowCount();
+    for (int i = 0; i < count; i++) {
+        items.append(dynamic_cast<MirrorSourceItem *>(m_model->item(i)));
+    }
+    qSort(items.begin(), items.end(), [](const MirrorSourceItem * one, const MirrorSourceItem * two) {
         return one->speed() > two->speed();
     });
-
-    for (MirrorItem *item : items) {
-        m_mirrorListGroup->moveItem(item, 0);
-    }
 }

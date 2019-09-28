@@ -25,24 +25,27 @@
 
 #include <types/mirrorinfolist.h>
 #include <dimagebutton.h>
+#include <DListView>
 
 DWIDGET_USE_NAMESPACE
 
 namespace dcc {
-    namespace update {
-        class UpdateModel;
-        class MirrorItem;
-    }
+namespace update {
+class UpdateModel;
+class MirrorItem;
+}
 
-    namespace widgets {
-        class SettingsGroup;
-    }
+namespace widgets {
+class SettingsGroup;
+}
 }
 
 namespace DCC_NAMESPACE {
 namespace update {
 
-class MirrorsWidget : public dcc::ContentWidget
+class MirrorSourceItem;
+
+class MirrorsWidget : public QWidget
 {
     Q_OBJECT
 
@@ -59,7 +62,6 @@ Q_SIGNALS:
     void requestTestMirrorSpeed();
 
 private Q_SLOTS:
-    void setCurItem(dcc::update::MirrorItem *item);
     void onSpeedInfoAvailable(const QMap<QString, int> &info);
     void testButtonClicked();
 
@@ -76,15 +78,13 @@ private:
         Done
     };
 
-    dcc::update::MirrorItem *m_curItem;
     MirrorInfo m_defaultMirror;
     TestProgress m_testProgress;
-
     QPushButton *m_testButton;
-    dcc::widgets::SettingsGroup *m_mirrorListGroup;
-    QVBoxLayout *m_layout;
-
-    Dtk::Widget::DImageButton *m_backBtn;
+    Dtk::Widget::DListView *m_view;
+    QStandardItemModel *m_model;
+    int m_mirrorSourceNo;
+    QWidget *m_listWidget;
 };
 
 } // namespace update

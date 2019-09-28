@@ -187,6 +187,7 @@ set(WINDOW_FILES
     window/modules/update/updatehistorybutton.cpp
     window/modules/update/recenthistoryapplist.cpp
     window/modules/update/mirrorswidget.cpp
+    window/modules/update/mirrorsourceitem.cpp
     window/search/searchwidget.cpp
     window/modules/commoninfo/commoninfomodule.cpp
     window/modules/commoninfo/commoninfowidget.cpp

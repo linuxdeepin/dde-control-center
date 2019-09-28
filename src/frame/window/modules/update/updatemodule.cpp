@@ -82,7 +82,7 @@ void UpdateModule::active()
         connect(mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWorker::setMirrorSource);
         connect(mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWorker::testMirrorSpeed);
 
-        m_frameProxy->pushWidget(this, mirrorsWidget, FrameProxyInterface::PushType::CoverTop);
+        m_frameProxy->pushWidget(this, mirrorsWidget);
     });
 
     m_frameProxy->pushWidget(this, mainWidget);
