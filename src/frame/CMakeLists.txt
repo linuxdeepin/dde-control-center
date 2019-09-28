@@ -367,8 +367,6 @@ set(ACCOUNTS_FILES
                 window/modules/accounts/accounntfingeitem.cpp
                 window/modules/accounts/addfingedialog.h
                 window/modules/accounts/addfingedialog.cpp
-                window/modules/accounts/mysortfilterproxymodel.h
-                window/modules/accounts/mysortfilterproxymodel.cpp
 )
 
 # load bluetooth

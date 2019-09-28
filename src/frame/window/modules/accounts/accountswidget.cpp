@@ -46,7 +46,6 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     , m_createBtn(new DFloatingButton(DStyle::SP_IncreaseElement, this))
     , m_userlistView(new DListView)
     , m_userItemModel(new QStandardItemModel)
-    , m_proxyModel(new MySortFilterProxyModel)
 {
     setObjectName("Accounts");
 
@@ -62,12 +61,7 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     m_userlistView->setDragEnabled(false);
     m_userlistView->setIconSize(QSize(30, 30));
     m_userlistView->setLayoutDirection(Qt::LeftToRight);
-//    m_userlistView->setModel(m_userItemModel);
-
-    m_proxyModel->setSourceModel(m_userItemModel);
-    m_proxyModel->setSortRole(AccountsWidget::ItemDataRole);
-    m_proxyModel->sort(0, Qt::AscendingOrder);
-    m_userlistView->setModel(m_proxyModel);
+    m_userlistView->setModel(m_userItemModel);
 
     setLayout(mainContentLayout);
 
@@ -77,11 +71,18 @@ AccountsWidget::AccountsWidget(QWidget *parent)
 
 void AccountsWidget::setModel(UserModel *model)
 {
-    connect(model, &UserModel::userAdded, this, &AccountsWidget::addUser);
+    m_model = model;
+
+    m_userList << nullptr;
+    m_userItemModel->appendRow(new DStandardItem);
+
+    connect(model, &UserModel::userAdded, this, [this](User * user) {
+        addUser(user);
+    });
     connect(model, &UserModel::userRemoved, this, &AccountsWidget::removeUser);
     //给账户列表添加用户数据
     for (auto user : model->userList()) {
-        addUser(user);
+        addUser(user, false);
     }
 }
 
@@ -107,13 +108,36 @@ void AccountsWidget::setShowFirstUserInfo(bool show)
     m_isShowFirstUserInfo = show;
 }
 
-void AccountsWidget::addUser(User *user)
+void AccountsWidget::addUser(User *user, bool t1)
 {
+    //active
+    m_userList << user;
     DStandardItem *item = new DStandardItem;
+    item->setData(0, AccountsWidget::ItemDataRole);
+    m_userItemModel->appendRow(item);
+
+    connectUserWithItem(user);
+
+    connect(user, &User::isCurrentUserChanged, this, [ = ](bool isCurrentUser) {
+        if (isCurrentUser) {
+            auto idx = m_userList.indexOf(user);
+            auto tttitem = m_userItemModel->takeRow(idx);
+            Q_ASSERT(tttitem[0] == item);
+
+            m_userItemModel->removeRow(0);
+            m_userItemModel->insertRow(0, item);
+
+            m_userList.removeOne(user);
+            m_userList[0] = user;
+        }
+    });
+
+    if (t1) {
+        return;
+    }
 
     if (user->currentAvatar().startsWith("file://")) {
         item->setIcon(QIcon(QUrl(user->currentAvatar()).toLocalFile()));
-        m_isShowFirstUserInfo = true;
     } else {
         item->setIcon(QIcon(user->currentAvatar()));
     }
@@ -127,22 +151,29 @@ void AccountsWidget::addUser(User *user)
         item->setText(fullname);
     }
 
-    item->setEditable(false);
-    m_userItemModel->appendRow(item);
-    m_userList << user;
-
     if (user->isCurrentUser()) {
-        doTopCurrentUser(user);
-    }
+        //如果是当前用户
+        auto tttitem = m_userItemModel->takeRow(m_userItemModel->rowCount() - 1);
+        Q_ASSERT(tttitem[0] == item);
+        m_userItemModel->removeRow(0);
+        m_userItemModel->insertRow(0, item);
 
-    connectUserWithItem(user);
+        m_userList[0] = user;
+        m_userList.pop_back();
+    } else {
+        int count = m_userItemModel->rowCount();
+        for (int idx = 1; idx < count; ++idx) {
+            if (user->createdTime() < m_userList[idx]->createdTime()) {
+                auto tttitem = m_userItemModel->takeRow(count - 1);
+                Q_ASSERT(tttitem[0] == item);
+                m_userItemModel->insertRow(idx, item);
 
-    connect(user, &User::isCurrentUserChanged, this, [ = ](bool isCurrentUser) {
-        if (isCurrentUser) {
-            doTopCurrentUser(user);
-            showDefaultAccountInfo();
+                m_userList.insert(idx, user);
+                m_userList.pop_back();
+                break;
+            }
         }
-    });
+    }
 
     //The first line in the default selection when the user list is loaded
     if (m_isShowFirstUserInfo) {
@@ -169,67 +200,62 @@ void AccountsWidget::onItemClicked(const QModelIndex &index)
     Q_EMIT requestShowAccountsDetail(m_userList[index.row()]);
 }
 
-void AccountsWidget::doTopCurrentUser(User *user)
-{
-    //判断是不是位于第一个
-    int currentRow = m_userList.indexOf(user);
-    if (currentRow == 0) {
-        return;
-    }
-
-    //用户列表中必须更新当前与item关联user的位置
-    User *user_clickrow = m_userList.at(currentRow);
-    m_userList.removeOne(user_clickrow);
-    m_userList.push_front(user_clickrow);
-
-    //获取当前选中item上面的所有数据
-    QString name_clickrow = m_userItemModel->index(currentRow, 0).data(Qt::DisplayRole).toString();
-    QIcon pic_clickrow = m_userItemModel->index(currentRow, 0).data(Qt::DecorationRole).value<QIcon>();
-    quint64 data_clickrow = m_userItemModel->index(currentRow, 0).data(AccountsWidget::ItemDataRole).toULongLong();
-
-    //创建新的item，设置数据。
-    QStandardItem *newItem = new QStandardItem;
-    newItem->setText(name_clickrow);
-    newItem->setIcon(pic_clickrow);
-    newItem->setData(QVariant::fromValue(data_clickrow), AccountsWidget::ItemDataRole);
-
-    //在首行新增item，删除旧item
-    m_userItemModel->removeRow(currentRow);
-    m_userItemModel->insertRow(0, newItem);
-
-    //重新给第一个item关联user信号
-    user_clickrow->disconnect(SIGNAL(nameChanged(const QString &)));
-    user_clickrow->disconnect(SIGNAL(fullnameChanged(const QString &)));
-    user_clickrow->disconnect(SIGNAL(currentAvatarChanged(const QString &)));
-    user_clickrow->disconnect(SIGNAL(createdTimeChanged(const quint64 &)));
-    connectUserWithItem(user_clickrow);
-}
-
 void AccountsWidget::connectUserWithItem(User *user)
 {
-    int index = m_userList.indexOf(user);
-    auto item = m_userItemModel->item(index);
     connect(user, &User::nameChanged, this, [ = ](const QString &) {
-        item->setText(user->displayName());
+        int tindex = m_userList.indexOf(user);
+        auto titem = m_userItemModel->item(tindex);
+        if (!titem) {
+            return;
+        }
+        titem->setText(user->displayName());
     });
     connect(user, &User::fullnameChanged, this, [ = ](const QString &) {
+        int tindex = m_userList.indexOf(user);
+        auto titem = m_userItemModel->item(tindex);
+        if (!titem) {
+            return;
+        }
         //对用户全名做限制，如果长度超过32，就在后面显示...
         QString fullname = user->displayName();
         if (fullname.length() > 32) {
             QString newfullname = fullname.left(32) + QString("...");
-            item->setText(newfullname);
+            titem->setText(newfullname);
         } else {
-            item->setText(fullname);
+            titem->setText(fullname);
         }
     });
     connect(user, &User::currentAvatarChanged, this, [ = ](const QString & avatar) {
+        int tindex = m_userList.indexOf(user);
+        auto titem = m_userItemModel->item(tindex);
+        if (!titem) {
+            return;
+        }
         if (avatar.startsWith("file://")) {
-            item->setIcon(QIcon(QUrl(avatar).toLocalFile()));
+            titem->setIcon(QIcon(QUrl(avatar).toLocalFile()));
         } else {
-            item->setIcon(QIcon(avatar));
+            titem->setIcon(QIcon(avatar));
         }
     });
-    connect(user, &User::createdTimeChanged, this, [ = ](const quint64 & createdtime){
-        item->setData(QVariant::fromValue(createdtime), AccountsWidget::ItemDataRole);
+
+    connect(user, &User::createdTimeChanged, this, [ = ](const quint64 & createdtime) {
+        int tindex = m_userList.indexOf(user);
+        auto titem = m_userItemModel->item(tindex);
+        if (!titem) {
+            return;
+        }
+        titem->setData(QVariant::fromValue(createdtime), AccountsWidget::ItemDataRole);
+
+        for (int i = 1; i < m_userItemModel->rowCount(); i++) {
+            quint64 icreatedtime = m_userItemModel->index(i, 0).data(AccountsWidget::ItemDataRole).toULongLong();
+            if (createdtime < icreatedtime) {
+                m_userItemModel->insertRow(i, titem);
+                m_userItemModel->removeRow(tindex + 1);
+
+                m_userList.insert(i, user);
+                m_userList.removeAt(tindex + 1);
+                break;
+            }
+        }
     });
 }

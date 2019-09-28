@@ -22,7 +22,6 @@
 #pragma once
 
 #include "window/namespace.h"
-#include "mysortfilterproxymodel.h"
 
 #include <DFloatingButton>
 #include <DListView>
@@ -58,7 +57,6 @@ public:
     void showDefaultAccountInfo();
     void showLastAccountInfo();
     void setShowFirstUserInfo(bool show);
-    void doTopCurrentUser(dcc::accounts::User *user);
     void connectUserWithItem(dcc::accounts::User *user);
 
     enum AccountRole {
@@ -66,7 +64,7 @@ public:
     };
 
 public Q_SLOTS:
-    void addUser(dcc::accounts::User *user);
+    void addUser(dcc::accounts::User *user, bool t1 = true);
     void removeUser(dcc::accounts::User *user);
     void onItemClicked(const QModelIndex &index);
 
@@ -78,9 +76,9 @@ private:
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_createBtn;
     DTK_WIDGET_NAMESPACE::DListView *m_userlistView;
     QStandardItemModel *m_userItemModel;
+    dcc::accounts::UserModel *m_model;
     QList<dcc::accounts::User *> m_userList;
     bool m_isShowFirstUserInfo = false;
-    MySortFilterProxyModel *m_proxyModel;
 };
 
 }   // namespace accounts
