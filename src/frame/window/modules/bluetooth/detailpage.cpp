@@ -54,6 +54,7 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     layout->addWidget(m_devNameLabel);
     layout->addSpacing(10);
     m_editDevName = new QLineEdit;
+    m_editDevName->setPlaceholderText(device->name());
     layout->addWidget(m_editDevName);
     layout->addSpacing(10);
     layout->addWidget(m_disconnectButton);
@@ -61,19 +62,39 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     layout->addWidget(m_ignoreButton);
     layout->addStretch();
     setContent(frame);
-
-    device->state() == Device::StateConnected ? m_disconnectButton->show() : m_disconnectButton->hide();
-    device->state() == Device::StateConnected ? m_devNameLabel->show() : m_devNameLabel->hide();
-    device->state() == Device::StateConnected ? m_editDevName->show() : m_editDevName->hide();
-
-    connect(m_ignoreButton, &QPushButton::clicked, [this] { Q_EMIT requestIgnoreDevice(m_adapter, m_device); });
-    connect(m_disconnectButton, &QPushButton::clicked, [this] { Q_EMIT requestDisconnectDevice(m_device); });
+    onDeviceStatusChanged();
+    connect(m_ignoreButton, &QPushButton::clicked, this, [this] {
+        Q_EMIT requestIgnoreDevice(m_adapter, m_device);
+    });
+    connect(m_disconnectButton, &QPushButton::clicked, this, [this] {
+        Q_EMIT requestDisconnectDevice(m_device);
+    });
+    connect(m_device, &Device::nameChanged, m_editDevName, &QLineEdit::setText);
+    connect(m_device, &Device::stateChanged, this, [this] {
+        onDeviceStatusChanged();
+    });
+    connect(m_device, &Device::pairedChanged, this, [this] (const bool paired) {
+        if (!paired) {
+            Q_EMIT back();
+        }
+    });
     connect(m_editDevName, &QLineEdit::editingFinished, this, &DetailPage::onDeviceNameChanged);
     connect(adapter, &Adapter::destroyed, this, &DetailPage::back);
+}
+
+void DetailPage::onDeviceStatusChanged()
+{
+    m_device->state() == Device::StateConnected ? m_disconnectButton->show() : m_disconnectButton->hide();
+    m_device->state() == Device::StateConnected ? m_devNameLabel->show() : m_devNameLabel->hide();
+    m_device->state() == Device::StateConnected ? m_editDevName->show() : m_editDevName->hide();
 }
 
 void DetailPage::onDeviceNameChanged()
 {
     QString devAlias = m_editDevName->text();
+    if (devAlias.isEmpty()) {
+        m_editDevName->setPlaceholderText(m_device->name());
+        return;
+    }
     Q_EMIT requestSetDevAlias(m_device, devAlias);
 }

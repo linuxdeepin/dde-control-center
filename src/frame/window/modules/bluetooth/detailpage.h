@@ -52,7 +52,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onDeviceNameChanged();
-
+    void onDeviceStatusChanged();
 private:
     const dcc::bluetooth::Adapter *m_adapter;
     const dcc::bluetooth::Device *m_device;

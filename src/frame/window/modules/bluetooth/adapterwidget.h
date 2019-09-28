@@ -60,7 +60,7 @@ public:
     void loadDetailPage();
 private:
     void updateHeight();
-
+    void categoryDevice(DeviceSettingsItem *deviceItem, const bool paired);
 public Q_SLOTS:
     void toggleSwitch(const bool checked);
 
@@ -73,13 +73,14 @@ Q_SIGNALS:
 private Q_SLOTS:
     void addDevice(const dcc::bluetooth::Device *device);
     void removeDevice(const QString &deviceId);
+    void onPowerStatus(bool bPower);
 
 private:
-    const dcc::bluetooth::Adapter *m_adapter;
+    QLabel *m_tip;
     TitleEdit *m_titleEdit;
+    const dcc::bluetooth::Adapter *m_adapter;
     dcc::widgets::SwitchWidget *m_switch;
     dcc::widgets::SettingsGroup *m_titleGroup;
-    QLabel        *m_tip;
     QList<DeviceSettingsItem *> m_deviceLists;
     QList<DeviceSettingsItem *> m_myDevices;
     dcc::widgets::SettingsGroup *m_myDevicesGroup;

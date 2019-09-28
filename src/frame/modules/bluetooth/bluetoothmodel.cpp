@@ -30,7 +30,7 @@ namespace bluetooth {
 
 BluetoothModel::BluetoothModel(QObject *parent) : QObject(parent)
 {
-
+    m_adapters.clear();
 }
 
 void BluetoothModel::addAdapter(Adapter *adapter)

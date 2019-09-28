@@ -38,18 +38,16 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device, QStyle *style)
     , m_deviceItem(new DStandardItem)
     , m_parentDListView(nullptr)
 {
-    m_loadingIndicator = new DSpinner();
-    m_loadingIndicator->QObject::setParent(this);
-    m_loadingIndicator->setFixedSize(24, 24);
-    m_loadingIndicator->hide();
     initItemActionList(style);
-    setDevice(device);
     m_deviceItem->setText(m_device->name());
     m_deviceItem->setActionList(Qt::RightEdge, m_dActionList);
 }
 
 void DeviceSettingsItem::initItemActionList(QStyle *style)
 {
+    m_loadingIndicator = new DSpinner();
+    m_loadingIndicator->setFixedSize(24, 24);
+    m_loadingIndicator->hide();
     m_loadingAction = new DViewItemAction(Qt::AlignCenter, QSize(), QSize(), false, this);
     m_loadingAction->setWidget(m_loadingIndicator);
     m_iconAction = new DViewItemAction(Qt::AlignRight, QSize(), QSize(), true, this);
@@ -62,6 +60,7 @@ void DeviceSettingsItem::initItemActionList(QStyle *style)
 
 void DeviceSettingsItem::setLoading(const bool loading)
 {
+    qDebug() << "setLoading is " << loading;
     if (loading) {
         m_loadingIndicator->start();
         m_loadingIndicator->show();
@@ -103,6 +102,7 @@ DStandardItem *DeviceSettingsItem::getStandardItem(DListView *parent)
     if (parent != nullptr) {
         m_parentDListView = parent;
         m_loadingIndicator->setParent(parent->viewport());
+        setDevice(m_device);
     }
     return m_deviceItem;
 }
@@ -112,6 +112,7 @@ DStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
     if (parent != nullptr) {
         m_parentDListView = parent;
         m_loadingIndicator->setParent(parent->viewport());
+        setDevice(m_device);
     }
     m_deviceItem = new DStandardItem;
     m_deviceItem->setText(m_device->name());
