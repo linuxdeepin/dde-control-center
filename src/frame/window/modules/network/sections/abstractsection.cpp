@@ -20,6 +20,7 @@
  */
 
 #include "abstractsection.h"
+#include "widgets/settingshead.h"
 
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
@@ -30,8 +31,12 @@ AbstractSection::AbstractSection(QFrame *parent)
 }
 
 AbstractSection::AbstractSection(const QString &title, QFrame *parent)
-    : SettingsGroup(title, parent)
+    : SettingsGroup(parent)
 {
+    SettingsHead *head = new SettingsHead();
+    head->setTitle(title);
+    head->setEditEnable(false);
+    appendItem(head);
 }
 
 AbstractSection::~AbstractSection()

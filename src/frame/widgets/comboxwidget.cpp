@@ -58,7 +58,7 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
         label->setWordWrap(true);
     }
 
-    mainLayout->setContentsMargins(20, 0, 5, 0);
+    mainLayout->setContentsMargins(20, 0, 0, 0);
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
     mainLayout->addWidget(m_switchComboBox, 0, Qt::AlignVCenter);
 
