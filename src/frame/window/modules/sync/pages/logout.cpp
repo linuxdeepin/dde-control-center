@@ -43,19 +43,16 @@ LogoutPage::LogoutPage(QWidget *parent)
     cntip->setWordWrap(true);
     cntip->setAlignment(Qt::AlignCenter);
 
-    m_mainLayout->addWidget(cntip, 0, Qt::AlignHCenter);
+    m_mainLayout->addStretch(2);
+    m_mainLayout->addWidget(cntip, 0, Qt::AlignVCenter);
 
     DWarningButton *logoutBtn = new DWarningButton;
     //~ contents_path /cloudsync/Sign Out
     logoutBtn->setText(tr("Sign Out"));
     connect(logoutBtn, &QPushButton::clicked, this, &LogoutPage::requestLogout);
+    m_mainLayout->addSpacing(35);
+    m_mainLayout->addWidget(logoutBtn, 0, Qt::AlignCenter);
+    m_mainLayout->addStretch(3);
 
-    QHBoxLayout *bottomLayout = new QHBoxLayout;
-    bottomLayout->setSpacing(0);
-    bottomLayout->setMargin(0);
-    bottomLayout->setContentsMargins(10, 2, 10, 2);
-    bottomLayout->addWidget(logoutBtn, 0, Qt::AlignRight);
-
-    m_mainLayout->addLayout(bottomLayout, 1);
     setLayout(m_mainLayout);
 }

@@ -7,6 +7,7 @@
 #include "widgets/switchwidget.h"
 #include "modules/accounts/avatarwidget.h"
 #include "downloadurl.h"
+#include "window/utils.h"
 
 #include <DWarningButton>
 
@@ -45,6 +46,8 @@ IndexPage::IndexPage(QWidget *parent)
 {
     //~ contents_path /cloudsync/Auto Sync
     m_autoSyncSwitch = new SwitchWidget(tr("Auto Sync"));
+    m_autoSyncSwitch->setContentsMargins(10, 0, 10, 0);
+    m_autoSyncSwitch->setFixedHeight(36);
 
     //~ contents_path /cloudsync/Syncing...
     m_stateLbl = new QLabel(tr("Syncing..."));
@@ -59,8 +62,10 @@ IndexPage::IndexPage(QWidget *parent)
     m_listView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_listView->setFrameShape(QFrame::NoFrame);
     m_listView->setSpacing(5);
+    m_listView->setContentsMargins(0, 0, 0, 0);
 
     SettingsGroup *autoSyncGrp = new SettingsGroup;
+    autoSyncGrp->setContentsMargins(6, 0, 6, 0);
     autoSyncGrp->appendItem(m_autoSyncSwitch);
 
     m_mainLayout->setMargin(0);
@@ -170,6 +175,7 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
         item->setIcon(QIcon::fromTheme(moduleTs[it->first].first));
         item->setText(moduleTs[it->first].second);
         item->setData(it->first, Qt::WhatsThisPropertyRole);
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_listModel->appendRow(item);
         m_itemMap[it->first] = item;
     }
@@ -213,12 +219,12 @@ void IndexPage::onUserInfoChanged(const QVariantMap &infos)
     if (m_downloader == nullptr)
         m_downloader = new DownloadUrl;
 
-    m_downloader->downloadFileFromURL(profile_image, m_avatarPath);
-
     connect(m_downloader, &DownloadUrl::fileDownloaded, this, [this](const QString &fileName) {
         qDebug() << "downloaded filename = " << QUrl::fromLocalFile(fileName).toString();
         m_avatar->setAvatarPath(QUrl::fromLocalFile(fileName).toString());
     });
+
+    m_downloader->downloadFileFromURL(profile_image, m_avatarPath);
 }
 
 void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)

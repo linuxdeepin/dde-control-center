@@ -46,12 +46,17 @@ DownloadUrl::~DownloadUrl()
 
 void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePath)
 {
+    const QString fileName = filePath + url.right(url.size() - url.lastIndexOf("/"));
+    qDebug() << "download " << url << " to " << fileName;
+    if (QFile::exists(fileName)) {
+        Q_EMIT fileDownloaded(fileName);
+        return;
+    }
+
     if (!m_isReady)
         return;
     m_isReady = false;
 
-    const QString fileName = filePath + url.right(url.size() - url.lastIndexOf("/"));
-    qDebug() << "download " << url << " to " << fileName;
     m_file = new QFile();
     m_file->setFileName(fileName);
     m_file->open(QIODevice::WriteOnly);
