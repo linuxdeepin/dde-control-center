@@ -57,6 +57,7 @@ AccountsWidget::AccountsWidget(QWidget *parent)
 
     m_userlistView->setFrameShape(QFrame::NoFrame);
     m_userlistView->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_userlistView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_userlistView->setEditTriggers(QListView::NoEditTriggers);
     m_userlistView->setDragEnabled(false);
     m_userlistView->setIconSize(QSize(30, 30));
