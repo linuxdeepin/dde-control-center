@@ -187,12 +187,12 @@ void TimeZoneChooser::setIsAddZone(const bool isAdd)
         //~ contents_path /datetime/Timezone List/Add Timezone
         m_title->setText(tr("Add Timezone"));
         //~ contents_path /datetime/Timezone List/Add Timezone
-        m_confirmBtn->setText(tr("Confirm"));
+        m_confirmBtn->setText(tr("Add"));
     } else {
         //~ contents_path /datetime/Timezone List/Change System Timezone
         m_title->setText(tr("Change Timezone"));
         //~ contents_path /datetime/Timezone List/Change System Timezone
-        m_confirmBtn->setText(tr("Add"));
+        m_confirmBtn->setText(tr("Confirm"));
     }
 }
 
