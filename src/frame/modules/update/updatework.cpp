@@ -100,6 +100,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_bDownAndUpdate(false)
     , m_jobPath("")
     , m_downloadProcess(0.0)
+    , m_bIsUserClickedUpdate(false)
 {
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
@@ -332,6 +333,20 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
             }
         } else {
             m_model->setStatus(UpdatesStatus::Downloaded);
+
+            //(1)用户点击升级 : 会直接执行升级过程
+            if (m_bIsUserClickedUpdate) {
+                qDebug() << "[wubw] Need User clicked to update.";
+            } else {
+                //(2)自动升级 :
+                //            自动下载安装包   : 需要收到点击"安装更新",才会升级
+                //            非自动下载安装包 : 下载完前被关闭,再次进去要继续下载(到这里表示下载完了)并更新;
+                qDebug() << "[wubw] Auto update.  m_model->autoCheckUpdates() : " << m_model->autoDownloadUpdates();
+                if (!m_model->autoDownloadUpdates()) {
+                    m_bIsUserClickedUpdate = false;
+                    distUpgradeInstallUpdates();
+                }
+            }
         }
     }
 }
@@ -408,6 +423,11 @@ void UpdateWorker::distUpgrade()
     if (m_bDownAndUpdate)
         m_bDownAndUpdate = false;
 
+    //用户点击操作
+    if (!m_bIsUserClickedUpdate) {
+        m_bIsUserClickedUpdate = true;
+    }
+
     //First start backupRecovery , then to load(in RecoveryInter::JobEnd Lemon function)
     bool bConfigVlid = m_model->recoverConfigValid();
     qDebug() << Q_FUNC_INFO << " [abRecovery] 更新前,检查备份配置是否满足(true:满足) : " << bConfigVlid;
@@ -425,6 +445,11 @@ void UpdateWorker::downloadAndDistUpgrade()
 {
     if (!m_bDownAndUpdate)
         m_bDownAndUpdate = true;
+
+    //用户点击操作
+    if (!m_bIsUserClickedUpdate) {
+        m_bIsUserClickedUpdate = true;
+    }
 
     bool bConfigVlid = m_model->recoverConfigValid();
     qDebug() << Q_FUNC_INFO << " [abRecovery] 下载并更新前,检查备份配置是否满足(true:满足) : " << bConfigVlid;
@@ -608,6 +633,9 @@ void UpdateWorker::setDownloadJob(const QString &jobPath)
 
     connect(m_downloadJob, &__Job::ProgressChanged, [this](double value) {
         qDebug() << "[wubw download] m_downloadJob, value : " << value;
+        //防止退出后再次进入不确定当前升级的状态,设置正在下载中.
+        //假如dbus一直收不到该信号,还是会存在从check直接调到结果的问题(此时就是底层的问题了)
+        m_model->setStatus(UpdatesStatus::Downloading);
         m_downloadProcess = value;
         DownloadInfo *info = m_model->downloadInfo();
         info->setDownloadProgress(value);
@@ -633,6 +661,9 @@ void UpdateWorker::setDistUpgradeJob(const QString &jobPath)
 
     connect(m_distUpgradeJob, &__Job::ProgressChanged, [this](double value) {
         qDebug() << "[wubw distUpgrade] Update, value : " << value;
+        //防止退出后再次进入不确定当前升级的状态,设置正在更新中.
+        //假如dbus一直收不到该信号,还是会存在从check直接调到结果的问题(此时就是底层的问题了)
+        m_model->setStatus(UpdatesStatus::Installing);
         m_model->setUpgradeProgress(m_baseProgress + (1 - m_baseProgress) * value);
     });
 
