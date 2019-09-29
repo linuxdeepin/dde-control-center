@@ -126,7 +126,7 @@ MainWindow::MainWindow(QWidget *parent)
     titlebar->setIcon(QIcon::fromTheme("preferences-system"));
 
     connect(m_backwardBtn, &DIconButton::clicked, this, [this] {
-        popWidget();
+        popAllWidgets();
         resetNavList(m_contentStack.isEmpty());
     });
 
