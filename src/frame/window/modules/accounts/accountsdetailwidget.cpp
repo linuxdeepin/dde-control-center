@@ -231,6 +231,7 @@ void AccountsDetailWidget::initDatas()
     });
     connect(m_clearBtn, &QCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestCleanThumbs(m_curUser);
+        m_addBtn->setVisible(true);
     });
     connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
