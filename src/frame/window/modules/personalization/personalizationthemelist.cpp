@@ -37,6 +37,7 @@ PerssonalizationThemeList::PerssonalizationThemeList(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout;
     QStandardItemModel *model = new QStandardItemModel;
     m_listview->setModel(model);
+    m_listview->setEditTriggers(QListView::NoEditTriggers);
     layout->addWidget(m_listview);
     this->setLayout(layout);
     connect(m_listview, &DListView::clicked, this, &PerssonalizationThemeList::onClicked);
