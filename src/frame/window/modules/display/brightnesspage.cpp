@@ -112,10 +112,6 @@ void BrightnessPage::addSlider()
         TitledSliderItem *slideritem = new TitledSliderItem(monList[i]->name());
         slideritem->addBackground();
 
-        QStringList annoList;
-        annoList << "0%" << "20%" << "40%" << "60%" << "80%" << "100%";
-        slideritem->setAnnotations(annoList);
-
         int miniScale = int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
         double brightness = monList[i]->brightness();
         slideritem->setValueLiteral(brightnessToTickInterval(brightness));
@@ -140,10 +136,10 @@ void BrightnessPage::addSlider()
         connect(monList[i], &Monitor::brightnessChanged, this, [ = ](const double rb) {
             slider->blockSignals(true);
             if ((rb - m_displayModel->minimumBrightnessScale()) < 0.01) {
-                slideritem->setValueLiteral("0%");
+                slideritem->setValueLiteral(QString("%1%").arg(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale));
                 slider->setValue(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale));
             } else {
-                slideritem->setValueLiteral(brightnessToTickInterval(rb));
+                slideritem->setValueLiteral(QString("%1%").arg(rb * BrightnessMaxScale));
                 slider->setValue(int(rb * BrightnessMaxScale));
             }
             slider->blockSignals(false);
