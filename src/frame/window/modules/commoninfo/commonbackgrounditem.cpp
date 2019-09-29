@@ -23,26 +23,33 @@
 
 #include "widgets/basiclistdelegate.h"
 
+#include <DPalette>
+#include <DApplicationHelper>
+
 #include <QMimeDatabase>
 #include <QPainter>
 #include <QDragEnterEvent>
 #include <QDragLeaveEvent>
 #include <QRect>
 #include <QMimeData>
+#include <QLayout>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
 using namespace commoninfo;
+DGUI_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
 
 static const QStringList mimeTypeList { "image/jpg", "image/jpeg",
     "image/png", "image/tiff",
     "image/gif", "image/bmp" };
 static const int ItemHeight = 187;
+static const qreal Radius = 20.0;
 
 CommonBackgroundItem::CommonBackgroundItem(QFrame *parent)
     : SettingsItem(parent)
 {
-    setFixedHeight(ItemHeight);
+    setMinimumHeight(ItemHeight);
     setAcceptDrops(true);
 }
 
@@ -62,15 +69,26 @@ void CommonBackgroundItem::paintEvent(QPaintEvent *e)
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
 
-    QRectF pixRect(m_background.rect().topLeft(), m_background.rect().size() / devicePixelRatioF());
+    QPalette pa = DApplicationHelper::instance()->palette(this);
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(QBrush(pa.color(QPalette::Window)));
+
+    qreal radiusX = Radius / rect().width() * 100;
+    qreal radiusY = Radius / rect().height() * 100;
+    painter.drawRoundedRect(this->rect(), radiusX, radiusY);
+
+    QRect pixRect(this->rect().x() + 10, this->rect().y() + 10,
+                  this->rect().width() - 20, this->rect().height() - 20);
     pixRect.moveCenter(this->rect().center());
 
     if (m_themeEnable) {
-        painter.drawPixmap(pixRect.toRect(), m_background);
+        QPixmap curPix = m_background.scaled(this->rect().size());
+        painter.setBrush(QBrush(curPix));
     } else {
-        painter.fillRect(this->rect(), Qt::black);
+        painter.setBrush(QBrush(Qt::black));
     }
-
+    painter.setPen(Qt::NoPen);
+    painter.drawRoundRect(pixRect, radiusX, radiusY);
     painter.restore();
     painter.end();
     if (m_isDrop) {

@@ -25,8 +25,6 @@
 #include "widgets/basiclistdelegate.h"
 #include "widgets/utils.h"
 
-#include <DSysInfo>
-
 using namespace DCC_NAMESPACE;
 using namespace commoninfo;
 
@@ -121,8 +119,8 @@ void CommonInfoWork::setDefaultEntry(const QString &entry)
     QDBusPendingCall call = m_dBusGrub->SetDefaultEntry(entry);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
-        if (w->isError()) {
-            Q_EMIT m_commomModel->defaultEntryChanged(m_commomModel->defaultEntry());
+        if (!w->isError()) {
+            Q_EMIT m_commomModel->defaultEntryChanged(m_dBusGrub->defaultEntry());
         }
 
         w->deleteLater();
