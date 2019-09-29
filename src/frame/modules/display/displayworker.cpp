@@ -145,7 +145,17 @@ void DisplayWorker::mergeScreens()
     const QList<Resolution> commonModes = m_displayInter.ListOutputsCommonModes();
     Q_ASSERT(!commonModes.isEmpty());
 
-    const auto mode = commonModes.first();
+    int maxSize = 0;
+    Resolution bestMode = commonModes.first();
+    for (auto m : commonModes) {
+        auto ts = m.width() * m.height();
+        if ( ts <= maxSize)
+            continue;
+        bestMode = m;
+        maxSize = ts;
+    }
+
+    const auto mode = bestMode;
     const auto rotate = m_model->primaryMonitor()->rotate();
     const auto brightness = m_model->primaryMonitor()->brightness();
 
