@@ -75,7 +75,8 @@ void AddFingeDialog::initData()
     m_scanBtn->setText(tr("Scan again"));
     m_doneBtn->setText(tr("Done"));
 
-    m_doneBtn->setEnabled(false);
+    m_scanBtn->setVisible(false);
+    m_doneBtn->setVisible(false);
 
     connect(m_scanBtn, &QPushButton::clicked, this, &AddFingeDialog::reEnrollStart);
     connect(m_doneBtn, &QPushButton::clicked, this, &AddFingeDialog::saveThumb);
@@ -96,7 +97,8 @@ void AddFingeDialog::setUsername(const QString &name)
 
 void AddFingeDialog::reEnrollStart()
 {
-    m_doneBtn->setEnabled(false);
+    m_scanBtn->setVisible(false);
+    m_doneBtn->setVisible(false);
 
     Q_EMIT requestReEnrollStart(m_thumb);
 
@@ -125,7 +127,8 @@ void AddFingeDialog::onEnrollStatusChanged(FingerModel::EnrollStatus status)
     case FingerModel::EnrollStatus::Finished:
         m_fingeWidget->finished();
         m_fingeWidget->setFrequency(tr("Fingerprint added"));
-        m_doneBtn->setEnabled(true);
+        m_scanBtn->setVisible(true);
+        m_doneBtn->setVisible(true);
         break;
     }
 }
