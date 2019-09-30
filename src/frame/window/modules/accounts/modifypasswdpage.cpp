@@ -43,7 +43,7 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, QWidget *parent)
     , m_newPasswdLabel(new QLabel)
     , m_repeatPasswdLabel(new QLabel)
     , m_cancleBtn(new QPushButton)
-    , m_saveBtn(new QPushButton)
+    , m_saveBtn(new DSuggestButton)
     , m_oldPasswordEdit(new DPasswordEdit)
     , m_newPasswordEdit(new DPasswordEdit)
     , m_repeatPasswordEdit(new DPasswordEdit)
@@ -100,7 +100,7 @@ void ModifyPasswdPage::initData()
 
     connect(m_cancleBtn, &QPushButton::clicked, this, &ModifyPasswdPage::requestBack);
 
-    connect(m_saveBtn, &QPushButton::clicked, this, &ModifyPasswdPage::clickSaveBtn);
+    connect(m_saveBtn, &DSuggestButton::clicked, this, &ModifyPasswdPage::clickSaveBtn);
 
     connect(m_curUser, &User::passwordModifyFinished, this, &ModifyPasswdPage::onPasswordChangeFinished);
 

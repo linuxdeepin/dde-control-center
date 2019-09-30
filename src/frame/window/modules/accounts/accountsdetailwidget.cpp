@@ -24,6 +24,7 @@
 #include "modules/accounts/removeuserdialog.h"
 
 #include <DIconButton>
+#include <DWarningButton>
 
 #include <QStackedWidget>
 #include <QVBoxLayout>
@@ -49,7 +50,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_inputLineEdit(new QLineEdit)
     , m_mainStackedWidget(new QStackedWidget)
     , m_modifyPassword(new QPushButton)
-    , m_deleteAccount(new QPushButton)
+    , m_deleteAccount(new DWarningButton)
     , m_autoLogin(new SwitchWidget)
     , m_nopasswdLogin(new SwitchWidget)
     , m_listGrp(new SettingsGroup)
@@ -179,7 +180,7 @@ void AccountsDetailWidget::initDatas()
     connect(m_avatarListWidget, &AvatarListWidget::requestAddNewAvatar, this, &AccountsDetailWidget::requestAddNewAvatar);
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
     connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
-    connect(m_deleteAccount, &QPushButton::clicked, this, &AccountsDetailWidget::deleteUserClicked);
+    connect(m_deleteAccount, &DWarningButton::clicked, this, &AccountsDetailWidget::deleteUserClicked);
     connect(m_modifyPassword, &QPushButton::clicked, [ = ] {
         Q_EMIT requestShowPwdSettings(m_curUser);
     });

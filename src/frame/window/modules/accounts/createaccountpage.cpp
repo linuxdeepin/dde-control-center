@@ -53,7 +53,7 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     , m_passwdEdit(new DPasswordEdit)
     , m_repeatpasswdEdit(new DPasswordEdit)
     , m_cancleBtn(new QPushButton)
-    , m_addBtn(new QPushButton)
+    , m_addBtn(new DSuggestButton)
 {
     initWidgets();
     initDatas();
@@ -97,7 +97,7 @@ void CreateAccountPage::initWidgets()
 void CreateAccountPage::initDatas()
 {
     connect(m_cancleBtn, &QPushButton::clicked, this, &CreateAccountPage::requestBack);
-    connect(m_addBtn, &QPushButton::clicked, this, &CreateAccountPage::createUser);
+    connect(m_addBtn, &DSuggestButton::clicked, this, &CreateAccountPage::createUser);
 
     connect(m_nameEdit, &DLineEdit::textEdited, this, [ = ](const QString & str) {
         if (m_nameEdit->isAlert()) {

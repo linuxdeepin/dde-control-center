@@ -26,6 +26,7 @@
 #include "widgets/lineeditwidget.h"
 
 #include <dpasswordedit.h>
+#include <DSuggestButton>
 
 #include <QWidget>
 
@@ -74,7 +75,7 @@ private:
     QLabel *m_newPasswdLabel;
     QLabel *m_repeatPasswdLabel;
     QPushButton *m_cancleBtn;
-    QPushButton *m_saveBtn;
+    DTK_WIDGET_NAMESPACE::DSuggestButton *m_saveBtn;
     Dtk::Widget::DPasswordEdit *m_oldPasswordEdit;
     Dtk::Widget::DPasswordEdit *m_newPasswordEdit;
     Dtk::Widget::DPasswordEdit *m_repeatPasswordEdit;

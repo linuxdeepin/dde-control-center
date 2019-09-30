@@ -35,6 +35,7 @@
 
 DWIDGET_BEGIN_NAMESPACE
 class DIconButton;
+class DWarningButton;
 DWIDGET_END_NAMESPACE
 
 QT_BEGIN_NAMESPACE
@@ -98,7 +99,7 @@ private:
     QLineEdit *m_inputLineEdit;//账户全名编辑框
     QStackedWidget *m_mainStackedWidget;
     QPushButton *m_modifyPassword;//修改密码
-    QPushButton *m_deleteAccount;//删除账户
+    DTK_WIDGET_NAMESPACE::DWarningButton *m_deleteAccount;//删除账户
     dcc::widgets::SwitchWidget *m_autoLogin;//自动登录
     dcc::widgets::SwitchWidget *m_nopasswdLogin;//无密码登录
     dcc::accounts::FingerModel *m_model;

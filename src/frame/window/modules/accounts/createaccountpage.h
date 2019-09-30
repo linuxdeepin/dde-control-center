@@ -29,6 +29,7 @@
 
 #include <DLineEdit>
 #include <dpasswordedit.h>
+#include <DSuggestButton>
 
 #include <QWidget>
 
@@ -85,7 +86,7 @@ private:
     Dtk::Widget::DPasswordEdit *m_passwdEdit;
     Dtk::Widget::DPasswordEdit *m_repeatpasswdEdit;
     QPushButton *m_cancleBtn;
-    QPushButton *m_addBtn;
+    DTK_WIDGET_NAMESPACE::DSuggestButton *m_addBtn;
 };
 
 }
