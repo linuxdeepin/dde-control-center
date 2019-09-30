@@ -36,6 +36,7 @@
 DWIDGET_BEGIN_NAMESPACE
 class DIconButton;
 class DWarningButton;
+class DCommandLinkButton;
 DWIDGET_END_NAMESPACE
 
 QT_BEGIN_NAMESPACE
@@ -105,8 +106,8 @@ private:
     dcc::accounts::FingerModel *m_model;
     dcc::widgets::SettingsGroup *m_listGrp;//指纹列表
     QLabel *m_fingetitleLabel;
-    QCommandLinkButton *m_addBtn;
-    QCommandLinkButton *m_clearBtn;
+    DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_addBtn;
+    DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_clearBtn;
     QString m_notUseThumb;
     AvatarListWidget *m_avatarListWidget;//图像列表
 };

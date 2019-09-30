@@ -25,6 +25,7 @@
 
 #include <DIconButton>
 #include <DWarningButton>
+#include <DCommandLinkButton>
 
 #include <QStackedWidget>
 #include <QVBoxLayout>
@@ -55,8 +56,8 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_nopasswdLogin(new SwitchWidget)
     , m_listGrp(new SettingsGroup)
     , m_fingetitleLabel(new QLabel)
-    , m_addBtn(new QCommandLinkButton)
-    , m_clearBtn(new QCommandLinkButton)
+    , m_addBtn(new DCommandLinkButton(""))
+    , m_clearBtn(new DCommandLinkButton(""))
     , m_avatarListWidget(new AvatarListWidget)
 {
     initWidgets();
@@ -227,10 +228,10 @@ void AccountsDetailWidget::initDatas()
         m_inputLineEdit->setFocus();
         updateLineEditDisplayStyle();
     });
-    connect(m_addBtn, &QCommandLinkButton::clicked, this, [ = ] {
+    connect(m_addBtn, &DCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestAddThumbs(m_curUser->name(), m_notUseThumb);
     });
-    connect(m_clearBtn, &QCommandLinkButton::clicked, this, [ = ] {
+    connect(m_clearBtn, &DCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestCleanThumbs(m_curUser);
         m_addBtn->setVisible(true);
     });
