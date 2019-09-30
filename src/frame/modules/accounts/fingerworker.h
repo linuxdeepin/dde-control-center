@@ -66,11 +66,12 @@ private Q_SLOTS:
     bool recordFinger(const QString &name, const QString &thumb);
     bool reRecordFinger(const QString &thumb);
     void saveFinger();
+    bool cleanFinger(const QString &name);
 
 private:
     FingerModel *m_model;
     Fprintd *m_fprintdInter;
-    Device* m_fprDefaultInter;
+    Device *m_fprDefaultInter;
 };
 
 }

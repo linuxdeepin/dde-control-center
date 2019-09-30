@@ -42,7 +42,8 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     m_fprintdInter->setSync(false);
 }
 
-void FingerWorker::refreshDevice() {
+void FingerWorker::refreshDevice()
+{
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_fprintdInter->GetDefaultDevice(), this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, &FingerWorker::onGetFprDefaultDevFinished);
 }
@@ -87,10 +88,18 @@ void FingerWorker::reEnrollStart(const QString &thumb)
 
 void FingerWorker::cleanEnroll(User *user)
 {
-    m_fprDefaultInter->DeleteEnrolledFingers(user->name());
+    QFutureWatcher<bool> *watcher = new QFutureWatcher<bool>(this);
+    connect(watcher, &QFutureWatcher<bool>::finished, [this, watcher, user] {
+        if (watcher->result()) {
+            m_model->cleanUserThumbs(user->name());
+            m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
+        }
 
-    m_model->cleanUserThumbs(user->name());
-    m_model->setEnrollStatus(FingerModel::EnrollStatus::Ready);
+        watcher->deleteLater();
+    });
+
+    QFuture<bool> future = QtConcurrent::run(this, &FingerWorker::cleanFinger, user->name());
+    watcher->setFuture(future);
 }
 
 void FingerWorker::saveEnroll(const QString &name)
@@ -227,4 +236,17 @@ void FingerWorker::saveFinger()
     if (call.isError()) {
         qDebug() << call.error();
     }
+}
+
+bool FingerWorker::cleanFinger(const QString &name)
+{
+    QDBusPendingCall call = m_fprDefaultInter->DeleteEnrolledFingers(name);
+    call.waitForFinished();
+
+    if (call.isError()) {
+        qDebug() << call.error();
+        return false;
+    }
+
+    return true;
 }
