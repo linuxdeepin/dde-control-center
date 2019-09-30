@@ -44,7 +44,7 @@ SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
     , m_headerItem(nullptr)
 {
     m_layout->setMargin(0);
-    m_layout->setSpacing(1);
+    m_layout->setSpacing(10);
 
     QVBoxLayout *vLayout = m_layout;
     if (GroupBackground == bgStyle) {

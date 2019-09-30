@@ -34,6 +34,7 @@
 #include "modules/datetime/timezone_dialog/timezonechooser.h"
 #include "widgets/buttontuple.h"
 #include "datewidget.h"
+#include "timespinbox.h"
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -295,7 +296,7 @@ void DateSettings::setNtpServerAddress(QString address)
 
 QSpinBox *DateSettings::createDSpinBox(QWidget *parent, int min, int max)
 {
-    QSpinBox *spinBox = new QSpinBox(parent);
+    TimeSpinBox *spinBox = new TimeSpinBox(parent);
     spinBox->setFixedSize(93, 60);
     spinBox->setRange(min, max);
     spinBox->setSingleStep(1);
