@@ -106,7 +106,7 @@ class WirelessPage : public dcc::ContentWidget
 
 public:
     explicit WirelessPage(dde::network::WirelessDevice *dev, QWidget *parent = nullptr);
-    ~WirelessPage();
+    virtual ~WirelessPage();
 
     void setModel(dde::network::NetworkModel *model);
 
