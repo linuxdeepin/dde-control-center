@@ -60,7 +60,6 @@ LoadingItem::LoadingItem(QFrame *parent)
     layout->addStretch();
     layout->addLayout(imgLayout);
     layout->addLayout(txtLayout);
-    layout->addSpacing(15);
     layout->addWidget(m_progress, 0, Qt::AlignHCenter);
     layout->addWidget(m_messageLabel, 0, Qt::AlignHCenter);
     layout->addStretch();

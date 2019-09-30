@@ -104,7 +104,22 @@ KeyboardLayoutWidget::~KeyboardLayoutWidget()
 
 void KeyboardLayoutWidget::setMetaData(const QList<MetaData> &datas)
 {
-    m_model->setMetaData(datas);
+    int count = datas.count();
+    m_data.clear();
+    for (int i = 0; i < count; i++) {
+        //当前key不为空，直接添加到list
+        if ("" != datas[i].key()) {
+            m_data.append(datas[i]);
+        } else {
+            //当前key为空，但是下一个key不为空(表示这是一个字母，如"H"),需要添加到list
+            //添加前要进行list数量判断， 需要满足　: i　< count -1
+            if ((i < count - 1) && ("" != datas[i + 1].key())) {
+                m_data.append(datas[i]);
+            }
+        }
+    }
+
+    m_model->setMetaData(m_data);
     m_view->setModel(m_model);
     m_view->setItemDelegate(m_delegate);
 }
@@ -113,8 +128,19 @@ void KeyboardLayoutWidget::setLetters(QList<QString> letters)
 {
     QLocale locale;
     if (locale.language() == QLocale::Chinese) {
-        m_model->setLetters(letters);
-        m_indexframe->setLetters(letters);
+        //根据有效list，决定显示右边的索引
+        QList<QString> validLetters;
+        //遍历有效list和letters list，遇到相同的就添加到新的valid letters list
+        for (auto value : m_data) {
+            for (auto letter : letters) {
+                if (value.text() == letter) {
+                    validLetters.append(letter);
+                    break;
+                }
+            }
+        }
+        m_model->setLetters(validLetters);
+        m_indexframe->setLetters(validLetters);
         bool bVisible = m_model->getModelCount() > 1;
         m_view->setVisible(bVisible);
         m_indexframe->setVisible(bVisible);

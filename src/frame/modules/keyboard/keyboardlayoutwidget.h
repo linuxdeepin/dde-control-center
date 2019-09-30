@@ -74,6 +74,7 @@ private:
     IndexFrame* m_indexframe;
     TranslucentFrame *m_mainWidget;
     DGraphicsClipEffect *m_clipEffectWidget;
+    QList<MetaData> m_data;
 };
 }
 }
