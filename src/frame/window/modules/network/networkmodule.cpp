@@ -181,6 +181,11 @@ const QString NetworkModule::name() const
     return QStringLiteral("network");
 }
 
+void NetworkModule::popPage()
+{
+    m_frameProxy->popWidget(this);
+}
+
 void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
 {
     ContentWidget *p = nullptr;
@@ -189,7 +194,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
         p = new WirelessPage(static_cast<WirelessDevice *>(dev));
 
         WirelessPage *wirelessPage = static_cast<WirelessPage *>(p);
-
+        connect(wirelessPage, &WirelessPage::back, this, &NetworkModule::popPage);
         connect(wirelessPage, &WirelessPage::requestDeviceAPList, m_networkWorker, &NetworkWorker::queryAccessPoints);
         connect(wirelessPage, &WirelessPage::requestWirelessScan, m_networkWorker, &NetworkWorker::requestWirelessScan);
         connect(wirelessPage, &WirelessPage::requestConnectAp, m_networkWorker, &NetworkWorker::activateAccessPoint);
@@ -210,6 +215,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
 //        connect(p, &WiredPage::requestConnectionsList, m_networkWorker, &NetworkWorker::queryDeviceConnections);
         connect(wiredPage, &WiredPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
         connect(wiredPage, &WiredPage::requestActiveConnection, m_networkWorker, &NetworkWorker::activateConnection);
+        connect(wiredPage, &WiredPage::back, this, &NetworkModule::popPage);
         connect(wiredPage, &WiredPage::requestNextPage, [ = ](ContentWidget * const w) {
             m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
         });

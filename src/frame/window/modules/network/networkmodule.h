@@ -60,6 +60,7 @@ public:
     void load(QString path) override;
 
 private Q_SLOTS:
+    void popPage();
     void showVpnPage();
     void showPppPage();
     void showChainsProxyPage();
