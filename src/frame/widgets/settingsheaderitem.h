@@ -27,6 +27,7 @@
 #define SETTINGSHEADERITEM_H
 
 #include "widgets/settingsitem.h"
+#include "widgets/titlelabel.h"
 
 #include <QHBoxLayout>
 #include <QLabel>
@@ -41,7 +42,7 @@ class SettingsHeaderItem : public SettingsItem
 public:
     explicit SettingsHeaderItem(QWidget *parent = 0);
 
-    QLabel *textLabel() const { return m_headerText; }
+    TitleLabel *textLabel() const { return m_headerText; }
     QHBoxLayout *layout() const { return m_mainLayout; }
 
     void setTitle(const QString &title);
@@ -49,7 +50,7 @@ public:
 
 private:
     QHBoxLayout *m_mainLayout;
-    QLabel *m_headerText;
+    TitleLabel *m_headerText;
 };
 
 }

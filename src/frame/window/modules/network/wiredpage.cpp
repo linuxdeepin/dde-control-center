@@ -41,6 +41,8 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 
+#include "dstyle.h"
+
 DWIDGET_USE_NAMESPACE
 
 namespace DCC_NAMESPACE {
@@ -149,8 +151,10 @@ void WiredPage::refreshConnectionList()
         it->setCheckable(true);
         it->setCheckState(path == m_device->activeWiredConnSettingPath() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
 
-        DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
-        editaction->setIcon(QIcon::fromTheme("arrow-right"));
+        DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
+        QStyleOption opt;
+        editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
+
         connect(editaction, &QAction::triggered, [this, path] {
             this->editConnection(path);
         });

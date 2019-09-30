@@ -33,7 +33,7 @@ namespace widgets {
 SettingsHeaderItem::SettingsHeaderItem(QWidget *parent)
     : SettingsItem(parent),
       m_mainLayout(new QHBoxLayout),
-      m_headerText(new NormalLabel)
+      m_headerText(new TitleLabel)
 {
     m_headerText->setObjectName("SettingsHeaderItemTitle");
 

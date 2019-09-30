@@ -65,8 +65,9 @@ APItem::APItem(const QString &text, QStyle *style)
     m_secureAction->setVisible(false);
     setActionList(Qt::Edge::LeftEdge, { m_secureAction });
 
-    DViewItemAction *editAction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
-    editAction->setIcon(QIcon::fromTheme("arrow-right"));
+    DViewItemAction *editAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
+    QStyleOption opt;
+    editAction->setIcon(DStyleHelper(style).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
     setActionList(Qt::Edge::RightEdge, { editAction });
 }
 
