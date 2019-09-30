@@ -124,6 +124,10 @@ void AccountsModule::load(QString path)
         }
     }
 
+    if (pUser == nullptr) {
+        return;
+    }
+
     if (path == searchList[0]) {
         onShowPasswordPage(pUser);
     } else if (path == searchList[1] || path == searchList[2] || path == searchList[3]) {
