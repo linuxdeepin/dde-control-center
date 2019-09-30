@@ -129,6 +129,8 @@ void AccountsWidget::addUser(User *user, bool t1)
 
             m_userList.removeOne(user);
             m_userList[0] = user;
+
+            showDefaultAccountInfo();
         }
     });
 
@@ -162,6 +164,8 @@ void AccountsWidget::addUser(User *user, bool t1)
 
         m_userList[0] = user;
         m_userList.pop_back();
+
+        QTimer::singleShot(0, this, &AccountsWidget::showDefaultAccountInfo);
     } else {
         int count = m_userItemModel->rowCount();
         for (int idx = 1; idx < count; ++idx) {
@@ -175,13 +179,6 @@ void AccountsWidget::addUser(User *user, bool t1)
                 break;
             }
         }
-    }
-
-    //The first line in the default selection when the user list is loaded
-    if (m_isShowFirstUserInfo) {
-        showDefaultAccountInfo();
-    } else {
-        showLastAccountInfo();
     }
 }
 
