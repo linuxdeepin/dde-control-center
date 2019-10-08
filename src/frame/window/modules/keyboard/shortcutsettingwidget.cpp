@@ -66,47 +66,47 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_head->setTitle(tr("Custom Shortcut"));
     m_customGroup->insertItem(0, m_head);
 
-    m_layout = new QVBoxLayout();
+    QVBoxLayout *vlayout = new QVBoxLayout();
 
     QHBoxLayout *topLayout = new QHBoxLayout;
     topLayout->setAlignment(Qt::AlignTop);
     topLayout->addSpacing(10);
     topLayout->addWidget(m_searchInput);
     topLayout->addSpacing(10);
-    m_layout->addLayout(topLayout);
+    vlayout->addLayout(topLayout);
 
-    m_layout->setMargin(0);
-    m_layout->setSpacing(10);
-    m_layout->addSpacing(10);
+    vlayout->setMargin(0);
+    vlayout->setSpacing(10);
+    vlayout->addSpacing(10);
 
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->addWidget(m_systemGroup);
-    layout->addWidget(m_windowGroup);
-    layout->addWidget(m_workspaceGroup);
-    layout->addWidget(m_customGroup);
+    m_layout = new QVBoxLayout;
+    m_layout->addWidget(m_systemGroup);
+    m_layout->addWidget(m_windowGroup);
+    m_layout->addWidget(m_workspaceGroup);
+    m_layout->addWidget(m_customGroup);
 
     //~ contents_path /keyboard/Shortcuts
     QPushButton* resetBtn = new QPushButton(tr("Restore Defaults"));
 
-    layout->addWidget(resetBtn);
-    layout->addSpacing(10);
-    layout->addStretch();
+    m_layout->addWidget(resetBtn);
+    m_layout->addSpacing(10);
+    m_layout->addStretch();
 
     QWidget *widget = new QWidget(this);
-    widget->setLayout(layout);
+    widget->setLayout(m_layout);
 
     ContentWidget *m_contentWidget = new ContentWidget(this);
     m_contentWidget->setContent(widget);
 
-    m_layout->addWidget(m_contentWidget);
+    vlayout->addWidget(m_contentWidget);
 
     m_addCustomShortcut = new DFloatingButton(DStyle::SP_IncreaseElement, this);
 
     QHBoxLayout *btnLayout = new QHBoxLayout;
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
     btnLayout->addWidget(m_addCustomShortcut);
-    m_layout->addLayout(btnLayout);
-    setLayout(m_layout);
+    vlayout->addLayout(btnLayout);
+    setLayout(vlayout);
 
     connect(m_addCustomShortcut, &DFloatingButton::clicked, this, &ShortCutSettingWidget::customShortcut);
     connect(resetBtn, &QPushButton::clicked, this, &ShortCutSettingWidget::requestReset);
@@ -217,17 +217,17 @@ void ShortCutSettingWidget::modifyStatus(bool status)
         m_layout->removeWidget(m_workspaceGroup);
         m_layout->removeWidget(m_windowGroup);
         m_layout->removeWidget(m_systemGroup);
-        m_layout->insertWidget(2, m_searchGroup);
+        m_layout->insertWidget(0, m_searchGroup);
     } else {
         m_customGroup->show();
         m_workspaceGroup->show();
         m_windowGroup->show();
         m_systemGroup->show();
         m_searchGroup->hide();
-        m_layout->insertWidget(2, m_customGroup);
-        m_layout->insertWidget(2, m_workspaceGroup);
-        m_layout->insertWidget(2, m_windowGroup);
-        m_layout->insertWidget(2, m_systemGroup);
+        m_layout->insertWidget(0, m_customGroup);
+        m_layout->insertWidget(0, m_workspaceGroup);
+        m_layout->insertWidget(0, m_windowGroup);
+        m_layout->insertWidget(0, m_systemGroup);
         m_layout->removeWidget(m_searchGroup);
     }
 }
