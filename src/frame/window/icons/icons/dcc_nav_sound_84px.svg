@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="84" height="84" viewBox="0 0 84 84">
   <defs>
-    <filter id="nav_volume_84px-a" width="180.6%" height="195.9%" x="-40.3%" y="-49%" filterUnits="objectBoundingBox">
+    <filter id="dcc_nav_sound_84px-a" width="180.6%" height="195.9%" x="-40.3%" y="-49%" filterUnits="objectBoundingBox">
       <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
       <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="4"/>
       <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
@@ -9,64 +9,64 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <linearGradient id="nav_volume_84px-b" x1="0%" x2="100%" y1="64.026%" y2="64.026%">
+    <linearGradient id="dcc_nav_sound_84px-b" x1="0%" x2="100%" y1="64.026%" y2="64.026%">
       <stop offset="0%" stop-color="#D0D4DD"/>
       <stop offset="13.714%" stop-color="#E8EAF6"/>
       <stop offset="63.023%" stop-color="#A6A7AE"/>
       <stop offset="100%" stop-color="#AEB0B9"/>
     </linearGradient>
-    <linearGradient id="nav_volume_84px-c" x1="5.238%" x2="78.748%" y1="64.935%" y2="77.664%">
+    <linearGradient id="dcc_nav_sound_84px-c" x1="5.238%" x2="78.748%" y1="64.935%" y2="77.664%">
       <stop offset="0%" stop-color="#DBDBDB"/>
       <stop offset="100%" stop-color="#90969D"/>
     </linearGradient>
-    <linearGradient id="nav_volume_84px-d" x1="4.043%" x2="96.756%" y1="53.429%" y2="57.017%">
+    <linearGradient id="dcc_nav_sound_84px-d" x1="4.043%" x2="96.756%" y1="53.429%" y2="57.017%">
       <stop offset="0%" stop-color="#383838"/>
       <stop offset="26.111%" stop-color="#5A5A5A"/>
       <stop offset="100%" stop-color="#1A1A1A"/>
     </linearGradient>
-    <linearGradient id="nav_volume_84px-e" x1="50%" x2="50%" y1="9.952%" y2="32.976%">
+    <linearGradient id="dcc_nav_sound_84px-e" x1="50%" x2="50%" y1="9.952%" y2="32.976%">
       <stop offset="0%" stop-color="#E4E4E4"/>
       <stop offset="100%" stop-color="#B1B1B4"/>
     </linearGradient>
-    <linearGradient id="nav_volume_84px-f" x1="69.722%" x2="38.881%" y1="38.276%" y2="40.822%">
+    <linearGradient id="dcc_nav_sound_84px-f" x1="69.722%" x2="38.881%" y1="38.276%" y2="40.822%">
       <stop offset="0%" stop-color="#E4E4E4" stop-opacity="0"/>
       <stop offset="100%" stop-color="#9898A0" stop-opacity=".62"/>
     </linearGradient>
-    <ellipse id="nav_volume_84px-h" cx="31.286" cy="15.005" rx="30.5" ry="14.5"/>
-    <filter id="nav_volume_84px-g" width="111.5%" height="124.1%" x="-5.7%" y="-8.6%" filterUnits="objectBoundingBox">
+    <ellipse id="dcc_nav_sound_84px-h" cx="31.286" cy="15.005" rx="30.5" ry="14.5"/>
+    <filter id="dcc_nav_sound_84px-g" width="111.5%" height="124.1%" x="-5.7%" y="-8.6%" filterUnits="objectBoundingBox">
       <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
       <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1"/>
       <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
     </filter>
-    <radialGradient id="nav_volume_84px-i" cx="67.476%" cy="67.477%" r="154.021%" fx="67.476%" fy="67.477%" gradientTransform="scale(-.43636 -1) rotate(7.403 9.995 -17.167)">
+    <radialGradient id="dcc_nav_sound_84px-i" cx="67.476%" cy="67.477%" r="154.021%" fx="67.476%" fy="67.477%" gradientTransform="scale(-.43636 -1) rotate(7.403 9.995 -17.167)">
       <stop offset="0%" stop-color="#505255"/>
       <stop offset="100%" stop-color="#1E1F21"/>
     </radialGradient>
-    <linearGradient id="nav_volume_84px-j" x1="86.462%" x2="2.828%" y1="52.869%" y2="50%">
+    <linearGradient id="dcc_nav_sound_84px-j" x1="86.462%" x2="2.828%" y1="52.869%" y2="50%">
       <stop offset="0%" stop-color="#343434"/>
       <stop offset="100%" stop-color="#151515"/>
     </linearGradient>
-    <radialGradient id="nav_volume_84px-m" cx="35.742%" cy="61.175%" r="88.183%" fx="35.742%" fy="61.175%" gradientTransform="matrix(-.49597 -.12672 .04062 -.63594 .51 1.046)">
+    <radialGradient id="dcc_nav_sound_84px-m" cx="35.742%" cy="61.175%" r="88.183%" fx="35.742%" fy="61.175%" gradientTransform="matrix(-.49597 -.12672 .04062 -.63594 .51 1.046)">
       <stop offset="0%" stop-color="#ABABAB"/>
       <stop offset="100%" stop-color="#5E6168"/>
     </radialGradient>
-    <path id="nav_volume_84px-l" d="M23.1301966,24.3883533 C20.4377112,23.196384 18.7189111,21.3833601 18.7189111,19.3528857 C18.7189111,15.7630348 24.0914941,12.8528857 30.7189111,12.8528857 C37.3463281,12.8528857 42.7189111,15.7630348 42.7189111,19.3528857 C42.7189111,21.3833601 41.000111,23.196384 38.3076256,24.3883533 C35.894256,24.6910079 33.3489292,24.8528857 30.7189111,24.8528857 C28.088893,24.8528857 25.5435661,24.6910079 23.1301966,24.3883533 Z"/>
-    <filter id="nav_volume_84px-k" width="158.3%" height="216.7%" x="-29.2%" y="-75%" filterUnits="objectBoundingBox">
+    <path id="dcc_nav_sound_84px-l" d="M30.7189111,12.8528857 C37.3463281,12.8528857 42.7189111,15.7630348 42.7189111,19.3528857 C42.7189111,21.3835135 40.9998513,23.1966579 38.3070155,24.3886234 C35.8934562,24.6910588 33.3485159,24.8528857 30.7189111,24.8528857 C28.0893062,24.8528857 25.544366,24.6910588 23.1313342,24.388496 C20.4379709,23.1966579 18.7189111,21.3835135 18.7189111,19.3528857 C18.7189111,15.7630348 24.0914941,12.8528857 30.7189111,12.8528857 Z"/>
+    <filter id="dcc_nav_sound_84px-k" width="158.3%" height="216.7%" x="-29.2%" y="-75%" filterUnits="objectBoundingBox">
       <feOffset dy="-2" in="SourceAlpha" result="shadowOffsetOuter1"/>
       <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
       <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0"/>
     </filter>
   </defs>
-  <g fill="none" fill-rule="evenodd" filter="url(#nav_volume_84px-a)" transform="rotate(60 20.046 42.66)">
-    <path fill="url(#nav_volume_84px-b)" stroke="url(#nav_volume_84px-c)" d="M28.1291651,24.7762794 C22.3301753,24.7762794 17.6291651,29.4772896 17.6291651,35.2762794 L17.6291651,36.2762794 C17.6291651,42.6275541 22.7778905,47.7762794 29.1291651,47.7762794 L33.1291651,47.7762794 C39.4804397,47.7762794 44.6291651,42.6275541 44.6291651,36.2762794 L44.6291651,35.2762794 C44.6291651,29.4772896 39.928155,24.7762794 34.1291651,24.7762794 L28.1291651,24.7762794 Z"/>
-    <ellipse cx="31.263" cy="34.044" fill="url(#nav_volume_84px-d)" rx="14" ry="8"/>
-    <path fill="url(#nav_volume_84px-e)" d="M43.1867777,11.443609 C58.3918584,22.1350002 63.9618205,29.64947 59.8966639,33.9870183 C53.2363243,41.0936436 10.1297011,41.0936436 3.46936152,33.9870183 C-0.595795197,29.6494698 4.97416739,22.1349997 20.1792493,11.4436079 L20.17925,11.4436089 C27.0807625,6.59083826 36.2852652,6.59083831 43.1867777,11.443609 Z" transform="matrix(1 0 0 -1 0 46.634)"/>
-    <path fill="url(#nav_volume_84px-f)" d="M43.1867777,11.443609 C58.3918584,22.1350002 63.9618205,29.64947 59.8966639,33.9870183 C53.2363243,41.0936436 10.1297011,41.0936436 3.46936152,33.9870183 C-0.595795197,29.6494698 4.97416739,22.1349997 20.1792493,11.4436079 L20.17925,11.4436089 C27.0807625,6.59083826 36.2852652,6.59083831 43.1867777,11.443609 Z" transform="matrix(1 0 0 -1 0 46.634)"/>
-    <use fill="#000" filter="url(#nav_volume_84px-g)" xlink:href="#nav_volume_84px-h"/>
-    <use fill="#FAFAFA" xlink:href="#nav_volume_84px-h"/>
-    <path fill="#A1A1A1" d="M0.818618045,14.8705081 C1.35489738,22.663552 14.7975267,28.9027661 31.3019928,28.9027661 C47.806459,28.9027661 61.2490883,22.663552 61.7853677,14.8705081 C61.7964224,15.0311518 61.8019928,15.1924558 61.8019928,15.354379 C61.8019928,23.3714157 48.1466777,29.8705081 31.3019928,29.8705081 C14.457308,29.8705081 0.80199285,23.3714157 0.80199285,15.354379 C0.80199285,15.1924558 0.807563325,15.0311518 0.818618045,14.8705081 Z"/>
-    <ellipse cx="31.353" cy="13.889" fill="url(#nav_volume_84px-i)" stroke="url(#nav_volume_84px-j)" rx="27" ry="11.5"/>
-    <use fill="#000" filter="url(#nav_volume_84px-k)" xlink:href="#nav_volume_84px-l"/>
-    <use fill="url(#nav_volume_84px-m)" xlink:href="#nav_volume_84px-l"/>
+  <g fill="none" fill-rule="evenodd" filter="url(#dcc_nav_sound_84px-a)" transform="rotate(60 20.046 42.66)">
+    <path fill="url(#dcc_nav_sound_84px-b)" stroke="url(#dcc_nav_sound_84px-c)" d="M28.1291651,24.7762794 C22.3301753,24.7762794 17.6291651,29.4772896 17.6291651,35.2762794 L17.6291651,36.2762794 C17.6291651,42.6275541 22.7778905,47.7762794 29.1291651,47.7762794 L33.1291651,47.7762794 C39.4804397,47.7762794 44.6291651,42.6275541 44.6291651,36.2762794 L44.6291651,35.2762794 C44.6291651,29.4772896 39.928155,24.7762794 34.1291651,24.7762794 L28.1291651,24.7762794 Z"/>
+    <ellipse cx="31.263" cy="34.044" fill="url(#dcc_nav_sound_84px-d)" rx="14" ry="8"/>
+    <path fill="url(#dcc_nav_sound_84px-e)" d="M43.1867777,11.443609 C58.3918584,22.1350002 63.9618205,29.64947 59.8966639,33.9870183 C53.2363243,41.0936436 10.1297011,41.0936436 3.46936152,33.9870183 C-0.595795197,29.6494698 4.97416739,22.1349997 20.1792493,11.4436079 L20.17925,11.4436089 C27.0807625,6.59083826 36.2852652,6.59083831 43.1867777,11.443609 Z" transform="matrix(1 0 0 -1 0 46.634)"/>
+    <path fill="url(#dcc_nav_sound_84px-f)" d="M43.1867777,11.443609 C58.3918584,22.1350002 63.9618205,29.64947 59.8966639,33.9870183 C53.2363243,41.0936436 10.1297011,41.0936436 3.46936152,33.9870183 C-0.595795197,29.6494698 4.97416739,22.1349997 20.1792493,11.4436079 L20.17925,11.4436089 C27.0807625,6.59083826 36.2852652,6.59083831 43.1867777,11.443609 Z" transform="matrix(1 0 0 -1 0 46.634)"/>
+    <use fill="#000" filter="url(#dcc_nav_sound_84px-g)" xlink:href="#dcc_nav_sound_84px-h"/>
+    <use fill="#FAFAFA" xlink:href="#dcc_nav_sound_84px-h"/>
+    <path fill="#A1A1A1" d="M61.7854146,14.8711909 C61.7964381,15.0316089 61.8019928,15.1926852 61.8019928,15.354379 C61.8019928,23.3714157 48.1466777,29.8705081 31.3019928,29.8705081 C14.457308,29.8705081 0.80199285,23.3714157 0.80199285,15.354379 C0.80199285,15.1926852 0.807547552,15.0316089 0.818571093,14.8711909 C1.35411221,22.6631876 14.7970447,28.9027661 31.3019928,28.9027661 C47.6413372,28.9027661 60.9798035,22.7877702 61.7654061,15.1039375 Z"/>
+    <ellipse cx="31.353" cy="13.889" fill="url(#dcc_nav_sound_84px-i)" stroke="url(#dcc_nav_sound_84px-j)" rx="27" ry="11.5"/>
+    <use fill="#000" filter="url(#dcc_nav_sound_84px-k)" xlink:href="#dcc_nav_sound_84px-l"/>
+    <use fill="url(#dcc_nav_sound_84px-m)" xlink:href="#dcc_nav_sound_84px-l"/>
   </g>
 </svg>
