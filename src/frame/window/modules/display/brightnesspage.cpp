@@ -136,10 +136,10 @@ void BrightnessPage::addSlider()
         connect(monList[i], &Monitor::brightnessChanged, this, [ = ](const double rb) {
             slider->blockSignals(true);
             if ((rb - m_displayModel->minimumBrightnessScale()) < 0.01) {
-                slideritem->setValueLiteral(QString("%1%").arg(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale));
+                slideritem->setValueLiteral(QString("%1%").arg(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale)));
                 slider->setValue(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale));
             } else {
-                slideritem->setValueLiteral(QString("%1%").arg(rb * BrightnessMaxScale));
+                slideritem->setValueLiteral(QString("%1%").arg(int(rb * BrightnessMaxScale)));
                 slider->setValue(int(rb * BrightnessMaxScale));
             }
             slider->blockSignals(false);
