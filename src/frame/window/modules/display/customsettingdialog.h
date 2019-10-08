@@ -25,7 +25,7 @@
 #include "window/namespace.h"
 
 #include <DListView>
-#include <DSegmentedControl>
+#include <DButtonBox>
 
 #include <QDialog>
 
@@ -34,6 +34,7 @@
 QT_BEGIN_NAMESPACE
 class QListView;
 class QVBoxLayout;
+class QAbstractButton;
 QT_END_NAMESPACE
 
 namespace dcc {
@@ -80,7 +81,7 @@ private Q_SLOTS:
     void onMonitorRelease(dcc::display::Monitor *mon);
     void resetDialog();
     void onPrimaryMonitorChanged();
-    void onChangList();
+    void onChangList(QAbstractButton *btn, bool beChecked);
 
 private:
     void initUI();
@@ -102,7 +103,7 @@ private:
     dcc::display::MonitorControlWidget *m_monitroControlWidget{nullptr};
 
     QVBoxLayout *m_listLayout{nullptr};
-    DTK_WIDGET_NAMESPACE::DSegmentedControl *m_segmentBtn{nullptr};
+    QList<DTK_WIDGET_NAMESPACE::DButtonBoxButton *> m_vSegBtn;
     DTK_WIDGET_NAMESPACE::DListView *m_moniList{nullptr};
     DTK_WIDGET_NAMESPACE::DListView *m_resolutionList{nullptr};
     DTK_WIDGET_NAMESPACE::DListView *m_rateList{nullptr};

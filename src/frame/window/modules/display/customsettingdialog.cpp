@@ -27,6 +27,8 @@
 #include "modules/display/monitorindicator.h"
 #include "widgets/basiclistview.h"
 
+#include <DSuggestButton>
+
 #include <QLabel>
 #include <QListView>
 #include <QVBoxLayout>
@@ -72,8 +74,8 @@ void CustomSettingDialog::initUI()
     m_layout = new QVBoxLayout();
     m_listLayout = new QVBoxLayout();
 
-    m_segmentBtn = new DSegmentedControl(this);
-    m_layout->addWidget(m_segmentBtn, 0, Qt::AlignHCenter);
+    DButtonBox *btnBox = new DButtonBox(this);
+    m_layout->addWidget(btnBox, 0, Qt::AlignHCenter);
 
     if (m_isPrimary) {
         m_moniList = new DListView;
@@ -81,27 +83,27 @@ void CustomSettingDialog::initUI()
         m_moniList->setSelectionMode(DListView::NoSelection);
         m_moniList->installEventFilter(this);
         m_listLayout->addWidget(m_moniList);
-        m_segmentBtn->addSegmented(tr("Main Screen"));
+        m_vSegBtn << new DButtonBoxButton(tr("Main Screen"));
     }
 
     m_resolutionList = new DListView;
     m_resolutionList->setEditTriggers(DListView::NoEditTriggers);
     m_resolutionList->setSelectionMode(DListView::NoSelection);
     m_resolutionList->setVisible(!m_isPrimary);
-    m_segmentBtn->addSegmented(tr("Resolution"));
+    m_vSegBtn << new DButtonBoxButton(tr("Resolution"));
     m_listLayout->addWidget(m_resolutionList);
 
     m_rateList = new DListView;
     m_rateList->setVisible(false);
     m_rateList->setEditTriggers(DListView::NoEditTriggers);
     m_rateList->setSelectionMode(DListView::NoSelection);
-    m_segmentBtn->addSegmented(tr("Refresh Rate"));
+    m_vSegBtn << new DButtonBoxButton(tr("Refresh Rate"));
+    btnBox->setButtonList(m_vSegBtn, true);
     m_listLayout->addWidget(m_rateList);
 
-    adjustSize();
+    connect(btnBox, &DButtonBox::buttonToggled, this, &CustomSettingDialog::onChangList);
 
-    connect(m_segmentBtn, &DSegmentedControl::currentChanged,
-            this, &CustomSettingDialog::onChangList);
+    adjustSize();
 
     m_layout->addLayout(m_listLayout);
     setLayout(m_layout);
@@ -125,8 +127,8 @@ void CustomSettingDialog::initUI()
         connect(btn, &QPushButton::clicked, this, &CustomSettingDialog::reject);
         hlayout->addWidget(btn);
 
-        btn = new QPushButton(tr("Save"), this);
-        connect(btn, &QPushButton::clicked, this, &CustomSettingDialog::accept);
+        btn = new DSuggestButton(tr("Save"), this);
+        connect(btn, &DSuggestButton::clicked, this, &CustomSettingDialog::accept);
         hlayout->addWidget(btn);
     }
 
@@ -426,14 +428,18 @@ void CustomSettingDialog::initPrimaryDialog()
     initMoniList();
 }
 
-void CustomSettingDialog::onChangList()
+void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
 {
+    if (!beChecked)
+        return;
+
     if (m_moniList)
         m_moniList->setVisible(false);
     m_resolutionList->setVisible(false);
     m_rateList->setVisible(false);
 
-    switch (m_segmentBtn->currentIndex()) {
+    auto segBtn = qobject_cast<DButtonBoxButton *>(btn);
+    switch (m_vSegBtn.indexOf(segBtn)) {
     case 0:
         if (m_isPrimary) {
             m_moniList->setVisible(true);
