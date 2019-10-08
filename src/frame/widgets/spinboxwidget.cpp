@@ -25,6 +25,7 @@
 
 #include "spinboxwidget.h"
 
+#include <QSpinBox>
 #include <QLabel>
 #include <QVBoxLayout>
 
@@ -35,7 +36,7 @@ using namespace dcc::widgets;
 SpinBoxWidget::SpinBoxWidget(QWidget *parent)
     : SettingsItem(parent)
     , m_title(new QLabel)
-    , m_spinBox(new DSpinBox)
+    , m_spinBox(new QSpinBox)
     , m_resetBtn(new DIconButton(this))
 {
     m_spinBox->setContextMenuPolicy(Qt::NoContextMenu);
@@ -49,6 +50,7 @@ SpinBoxWidget::SpinBoxWidget(QWidget *parent)
     m_resetBtn->setIcon(QIcon::fromTheme("dcc_reset"));
     m_resetBtn->setFixedSize(36, 36);
     mainLayout->addWidget(m_resetBtn);
+
     connect(m_resetBtn, &DIconButton::clicked, [this] {
         m_spinBox->setValue(0);
     });

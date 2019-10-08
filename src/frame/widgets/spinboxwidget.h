@@ -29,10 +29,10 @@
 #include "widgets/settingsitem.h"
 
 #include <DIconButton>
-#include <dspinbox.h>
 
 QT_BEGIN_NAMESPACE
 class QLabel;
+class QSpinBox;
 QT_END_NAMESPACE
 
 namespace dcc {
@@ -45,13 +45,13 @@ class SpinBoxWidget : public SettingsItem
 public:
     explicit SpinBoxWidget(QWidget *parent = nullptr);
 
-    inline DTK_WIDGET_NAMESPACE::DSpinBox *spinBox() const { return m_spinBox; }
+    inline QSpinBox *spinBox() const { return m_spinBox; }
 
     void setTitle(const QString &title);
 
 private:
     QLabel *m_title;
-    DTK_WIDGET_NAMESPACE::DSpinBox *m_spinBox;
+    QSpinBox *m_spinBox;
     DTK_WIDGET_NAMESPACE::DIconButton *m_resetBtn;
 };
 

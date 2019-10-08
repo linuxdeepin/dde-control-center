@@ -125,7 +125,8 @@ void VpnSstpProxySection::initUI()
 void VpnSstpProxySection::initConnection()
 {
     connect(m_server->textEdit(), &QLineEdit::editingFinished, this, &VpnSstpProxySection::allInputValid);
-    connect(m_port->spinBox(), static_cast<void (DSpinBox::*)(int)>(&DSpinBox::valueChanged), this, &VpnSstpProxySection::allInputValid);
+    connect(m_port->spinBox(), static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &VpnSstpProxySection::allInputValid);
+    //connect(m_port->spinBox(), static_cast<void (DSpinBox::*)(int)>(&DSpinBox::valueChanged), this, &VpnSstpProxySection::allInputValid);
 //    connect(m_userName->textEdit(), &QLineEdit::editingFinished, this, &VpnSstpProxySection::allInputValid);
 //    connect(m_password->textEdit(), &QLineEdit::editingFinished, this, &VpnSstpProxySection::allInputValid);
 }
