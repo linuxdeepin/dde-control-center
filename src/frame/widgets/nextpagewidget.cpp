@@ -34,10 +34,10 @@ namespace dcc {
 namespace widgets {
 
 NextPageWidget::NextPageWidget(QFrame *parent)
-    : SettingsItem(parent),
-      m_title(new NormalLabel),
-      m_value(new TipsLabel),
-      m_nextPageBtn(new dcc::widgets::NextButton)
+    : SettingsItem(parent)
+    , m_title(new NormalLabel)
+    , m_value(new TipsLabel)
+    , m_nextPageBtn(new dcc::widgets::NextButton)
 {
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setSpacing(0);
@@ -45,8 +45,8 @@ NextPageWidget::NextPageWidget(QFrame *parent)
     mainLayout->setContentsMargins(20, 0, 10, 0);
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
-    mainLayout->addWidget(m_value);
-    mainLayout->addSpacing(5);
+    mainLayout->addSpacing(18);
+    mainLayout->addWidget(m_value, 0, Qt::AlignRight | Qt::AlignCenter);
     mainLayout->addWidget(m_nextPageBtn);
 
     setFixedHeight(36);
@@ -72,6 +72,14 @@ void NextPageWidget::setValue(const QString &value)
 void NextPageWidget::setIcon(const QPixmap &icon)
 {
     m_value->setPixmap(icon);
+}
+
+void NextPageWidget::setRightTxtWordWrap(bool state)
+{
+    //Destroy setFixedHeight
+    setMaximumHeight(100);
+    m_value->setWordWrap(state);
+    m_nextPageBtn->setMinimumWidth(3);
 }
 
 void NextPageWidget::mouseReleaseEvent(QMouseEvent *e)

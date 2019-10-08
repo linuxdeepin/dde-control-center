@@ -41,7 +41,7 @@ class NextPageWidget : public SettingsItem
     Q_OBJECT
 
 public:
-    explicit NextPageWidget(QFrame *parent = 0);
+    explicit NextPageWidget(QFrame *parent = nullptr);
 
     inline QString title() const { return m_title->text(); }
     void setTitle(const QString &title);
@@ -50,6 +50,8 @@ public:
 
     void clearValue() { m_value->clear(); }
     inline QString value() { return m_value->text();}
+
+    void setRightTxtWordWrap(bool state = false);
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e);

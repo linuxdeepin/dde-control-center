@@ -116,6 +116,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
         layout->addSpacing(15);
 
         m_updateMirrors = new NextPageWidget;
+        m_updateMirrors->setRightTxtWordWrap(true);
         //~ contents_path /update/Update Settings/Mirror List
         m_updateMirrors->setTitle(tr("Mirror List"));
         m_mirrorGrp = new SettingsGroup;
