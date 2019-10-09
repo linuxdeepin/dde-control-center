@@ -33,10 +33,10 @@
 namespace dcc {
 namespace widgets {
 
-ButtonTuple::ButtonTuple(QWidget *parent) :
-    QWidget(parent),
-    m_leftButton(new LeftButton),
-    m_rightButton(new RightButton)
+ButtonTuple::ButtonTuple(QWidget *parent)
+    : QWidget(parent)
+    , m_leftButton(new LeftButton)
+    , m_rightButton(new RightButton)
 {
     QHBoxLayout *layout = new QHBoxLayout;
     layout->setMargin(0);
@@ -55,7 +55,7 @@ QPushButton *ButtonTuple::leftButton()
     return m_leftButton;
 }
 
-QPushButton *ButtonTuple::rightButton()
+DSuggestButton *ButtonTuple::rightButton()
 {
     return m_rightButton;
 }

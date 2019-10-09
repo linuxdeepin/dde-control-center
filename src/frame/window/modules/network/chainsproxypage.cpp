@@ -88,7 +88,9 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     layout->setMargin(0);
     layout->setSpacing(10);
 
-    layout->addSpacing(20);
+    QHBoxLayout *topLayout = new QHBoxLayout;
+    topLayout->addSpacing(20);
+    layout->addLayout(topLayout);
     layout->addWidget(grp);
 
     QLabel *tip = new QLabel;
@@ -98,11 +100,11 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
 
     ButtonTuple *btns = new ButtonTuple;
     btns->leftButton()->setText(tr("Cancel"));
-    btns->rightButton()->setText(tr("OK"));
-
-    layout->addWidget(btns);
+    btns->rightButton()->setText(tr("Save"));
 
     layout->addStretch();
+
+    layout->addWidget(btns, 0, Qt::AlignBottom);
 
     TranslucentFrame *w = new TranslucentFrame;
     w->setLayout(layout);

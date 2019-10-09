@@ -49,7 +49,7 @@ class ButtonTuple;
 namespace DCC_NAMESPACE {
 namespace network {
 
-class ProxyPage : public dcc::ContentWidget
+class ProxyPage : public QWidget
 {
     Q_OBJECT
 
@@ -79,7 +79,7 @@ private:
 private:
     dde::network::NetworkModel *m_model;
 
-    QWidget *m_manualWidget;
+    dcc::ContentWidget *m_manualWidget;
     QWidget *m_autoWidget;
     dcc::widgets::ButtonTuple *m_buttonTuple;
 
@@ -95,7 +95,7 @@ private:
 
     dcc::widgets::LineEditWidget *m_autoUrl;
 
-    DTK_WIDGET_NAMESPACE::DSegmentedControl *m_proxyType;
+    Dtk::Widget::DSegmentedControl *m_proxyType;
 };
 }
 }

@@ -177,7 +177,8 @@ DateSettings::DateSettings(QWidget *parent)
         layout->addWidget(m_datetimeGroup);
     }
 
-    layout->addWidget(m_buttonTuple);
+    layout->addStretch();
+    layout->addWidget(m_buttonTuple, 0, Qt::AlignBottom);
     setLayout(layout);
 
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &DateSettings::requestSetAutoSyncdate);

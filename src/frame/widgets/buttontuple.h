@@ -26,8 +26,12 @@
 #ifndef BUTTONTUPLE_H
 #define BUTTONTUPLE_H
 
+#include <DSuggestButton>
+
 #include <QWidget>
 #include <QPushButton>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace widgets {
@@ -40,7 +44,7 @@ public:
     virtual ~LeftButton() {}
 };
 
-class RightButton : public QPushButton
+class RightButton : public DSuggestButton
 {
     Q_OBJECT
 public:
@@ -53,10 +57,10 @@ class ButtonTuple : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ButtonTuple(QWidget *parent = 0);
+    explicit ButtonTuple(QWidget *parent = nullptr);
 
     QPushButton *leftButton();
-    QPushButton *rightButton();
+    DSuggestButton *rightButton();
 
 Q_SIGNALS:
     void leftButtonClicked();
@@ -64,7 +68,7 @@ Q_SIGNALS:
 
 private:
     QPushButton *m_leftButton;
-    QPushButton *m_rightButton;
+    DSuggestButton *m_rightButton;
 };
 
 } // namespace widgets

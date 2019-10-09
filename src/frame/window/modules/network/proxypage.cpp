@@ -30,14 +30,18 @@
 #include "widgets/settingsheaderitem.h"
 #include "widgets/lineeditwidget.h"
 #include "widgets/plantextitem.h"
-
+#include "widgets/settingsitem.h"
 #include <networkmodel.h>
+
+#include <DPalette>
+#include <DApplicationHelper>
 
 #include <QVBoxLayout>
 #include <QDebug>
 
 DWIDGET_USE_NAMESPACE
 
+using namespace dcc;
 using namespace dcc::widgets;
 using namespace dde::network;
 
@@ -46,46 +50,60 @@ namespace network {
 const QStringList ProxyMethodList = { "none", "manual", "auto" };
 
 ProxyPage::ProxyPage(QWidget *parent)
-    : ContentWidget(parent)
-    , m_manualWidget(new TranslucentFrame)
+    : QWidget(parent)
+    , m_manualWidget(new ContentWidget)
     , m_autoWidget(new TranslucentFrame)
     , m_buttonTuple(new ButtonTuple)
     , m_proxyType(new DSegmentedControl)
 {
+    //~ contents_path /network/System Proxy
     m_buttonTuple->leftButton()->setText(tr("Cancel"));
-    m_buttonTuple->rightButton()->setText(tr("Confirm"));
+    //~ contents_path /network/System Proxy
+    m_buttonTuple->rightButton()->setText(tr("Save"));
 
+    //~ contents_path /network/System Proxy
     m_proxyType->addSegmented(tr("None"));
+    //~ contents_path /network/System Proxy
     m_proxyType->addSegmented(tr("Manual"));
+    //~ contents_path /network/System Proxy
     m_proxyType->addSegmented(tr("Auto"));
     m_proxyType->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     m_proxyType->setFixedHeight(30);
 
     m_httpAddr = new LineEditWidget;
     //~ contents_path /network/System Proxy
+    m_httpAddr->setPlaceholderText(tr("Optional"));
+    //~ contents_path /network/System Proxy
     m_httpAddr->setTitle(tr("HTTP Proxy"));
     m_httpPort = new LineEditWidget;
+    m_httpPort->setPlaceholderText(tr("Optional"));
     //~ contents_path /network/System Proxy
     m_httpPort->setTitle(tr("Port"));
 
     m_httpsAddr = new LineEditWidget;
+    m_httpsAddr->setPlaceholderText(tr("Optional"));
     //~ contents_path /network/System Proxy
     m_httpsAddr->setTitle(tr("HTTPS Proxy"));
     m_httpsPort = new LineEditWidget;
+    m_httpsPort->setPlaceholderText(tr("Optional"));
     //~ contents_path /network/System Proxy
     m_httpsPort->setTitle(tr("Port"));
 
     m_ftpAddr = new LineEditWidget;
+    m_ftpAddr->setPlaceholderText(tr("Optional"));
     //~ contents_path /network/System Proxy
     m_ftpAddr->setTitle(tr("FTP Proxy"));
     m_ftpPort = new LineEditWidget;
+    m_ftpPort->setPlaceholderText(tr("Optional"));
     //~ contents_path /network/System Proxy
     m_ftpPort->setTitle(tr("Port"));
 
     m_socksAddr = new LineEditWidget;
+    m_socksAddr->setPlaceholderText(tr("Optional"));
     //~ contents_path /network/System Proxy
     m_socksAddr->setTitle(tr("SOCKS Proxy"));
     m_socksPort = new LineEditWidget;
+    m_socksPort->setPlaceholderText(tr("Optional"));
     //~ contents_path /network/System Proxy
     m_socksPort->setTitle(tr("Port"));
 
@@ -98,6 +116,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     ignoreTips->setText(tr("Ignore the proxy configurations for the above hosts and domains"));
 
     m_autoUrl = new LineEditWidget;
+    m_autoUrl->setPlaceholderText(tr("Optional"));
     //~ contents_path /network/System Proxy
     m_autoUrl->setTitle(tr("Configuration URL"));
 
@@ -120,15 +139,16 @@ ProxyPage::ProxyPage(QWidget *parent)
     SettingsGroup *autoGroup = new SettingsGroup;
     autoGroup->appendItem(m_autoUrl);
 
-    SettingsGroup *ignoreGroup = new SettingsGroup;
-    ignoreGroup->appendItem(m_ignoreList);
+    DPalette pa = DApplicationHelper::instance()->palette(m_ignoreList);
+    pa.setBrush(DPalette::Active, DPalette::Base, QColor(236, 236, 236));
+    DApplicationHelper::instance()->setPalette(m_ignoreList, pa);
 
     QVBoxLayout *manualLayout = new QVBoxLayout;
     manualLayout->addWidget(httpGroup);
     manualLayout->addWidget(httpsGroup);
     manualLayout->addWidget(ftpGroup);
     manualLayout->addWidget(socksGroup);
-    manualLayout->addWidget(ignoreGroup);
+    manualLayout->addWidget(m_ignoreList);
     manualLayout->addWidget(ignoreTips);
     manualLayout->setMargin(0);
     manualLayout->setSpacing(10);
@@ -137,9 +157,11 @@ ProxyPage::ProxyPage(QWidget *parent)
     autoLayout->addWidget(autoGroup);
     autoLayout->setSpacing(10);
     autoLayout->setMargin(0);
-
-    m_manualWidget->setLayout(manualLayout);
     m_autoWidget->setLayout(autoLayout);
+
+    QWidget *manualWidget = new TranslucentFrame;
+    manualWidget->setLayout(manualLayout);
+    m_manualWidget->setContent(manualWidget);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addSpacing(10);
@@ -148,19 +170,16 @@ ProxyPage::ProxyPage(QWidget *parent)
     mainLayout->addWidget(m_manualWidget);
     mainLayout->addWidget(m_autoWidget);
     mainLayout->addSpacing(10);
-    mainLayout->addWidget(m_buttonTuple);
     mainLayout->addStretch();
+    mainLayout->addWidget(m_buttonTuple);
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
 
-    QWidget *mainWidget = new TranslucentFrame;
-    mainWidget->setLayout(mainLayout);
+    setWindowTitle(tr("System Proxy"));
+    setLayout(mainLayout);
 
-    setTitle(tr("System Proxy"));
-    setContent(mainWidget);
-
-    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &ProxyPage::back);
-    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::back, Qt::QueuedConnection);
+//    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &ProxyPage::back);
+//    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::back, Qt::QueuedConnection);
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::applySettings);
     connect(m_proxyType, &DSegmentedControl::currentChanged, this, &ProxyPage::onProxyToggled);
 //    connect(m_proxyType, &DSegmentedControl::currentChanged, [=](const int index) { Q_EMIT requestSetProxyMethod(ProxyMethodList[index]); });
