@@ -234,9 +234,10 @@ void RotateDialog::resetGeometry()
     Monitor *mon = m_mon ? m_mon : m_model->primaryMonitor();
     if (m_wmHelper->hasComposite()) {
         setFixedSize(int(mon->w() / ratio), int(mon->h() / ratio));
-        move(0, 0);
+        move(mon->x(), mon->y());
     } else {
         setFixedSize(600, 500);
-        move((mon->w() - width()) / 2, (mon->h() - height()) / 2);
+        move((mon->w() - width()) / 2 + mon->x(),
+             (mon->h() - height()) / 2 + mon->y());
     }
 }

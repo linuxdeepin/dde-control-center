@@ -116,7 +116,11 @@ void CustomSettingDialog::initUI()
 
     hlayout->addWidget(rotate, 0, Qt::AlignLeft);
     connect(rotate, &QPushButton::clicked, this, [this]() {
-        Q_EMIT CustomSettingDialog::requestShowRotateDialog(m_monitor);
+        if (m_model->monitorsIsIntersect()) {
+            Q_EMIT CustomSettingDialog::requestShowRotateDialog(nullptr);
+        } else {
+            Q_EMIT CustomSettingDialog::requestShowRotateDialog(m_monitor);
+        }
     });
 
     hlayout->setMargin(10);
