@@ -254,8 +254,14 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
 
     WirelessDevice *wirelssDev = qobject_cast<WirelessDevice *>(dev);
     if (wirelssDev) {
+        if (wirelssDev->hotspotEnabled()) {
+            if (!dummystatus.isNull()) {
+                dummystatus->setText(tr("Disconnected"));
+                m_lvnmpages->update();
+            }
+        }
         connect(wirelssDev, &WirelessDevice::hotspotEnabledChanged, this, [this, dummystatus] (const bool enabled) {
-            if (enabled) {
+            if (enabled && !dummystatus.isNull()) {
                 dummystatus->setText(tr("Disconnected"));
                 m_lvnmpages->update();
             }

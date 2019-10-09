@@ -59,7 +59,7 @@ class HotspotDeviceWidget : public QWidget
 
 public:
     explicit HotspotDeviceWidget(dde::network::WirelessDevice *wdev, bool showcreatebtn = true, QWidget *parent = nullptr);
-
+    virtual ~HotspotDeviceWidget();
     void setModel(dde::network::NetworkModel *model);
     void setPage(HotspotPage *p);
 
@@ -100,7 +100,7 @@ private:
     friend class HotspotPage;
 };
 
-class HotspotPage : public dcc::ContentWidget
+class HotspotPage : public QWidget
 {
     Q_OBJECT
 public:
@@ -108,6 +108,7 @@ public:
     void setModel(dde::network::NetworkModel *model);
 
 Q_SIGNALS:
+    void back();
     void requestNextPage(dcc::ContentWidget * const w) const;
     void requestDeviceRemanage(const QString &devPath) const;
     void requestDisconnectConnection(const QString &uuid) const;
@@ -119,8 +120,10 @@ private Q_SLOTS:
 private:
     dde::network::NetworkModel *m_model;
     QWidget *m_contents;
-    DTK_WIDGET_NAMESPACE::DFloatingButton *m_newprofile;
+    QVBoxLayout *m_vScrollLayout;
+    QVBoxLayout *m_mainLayout;
     QList<HotspotDeviceWidget *> m_listdevw;
+    DTK_WIDGET_NAMESPACE::DFloatingButton *m_newprofile;
 };
 }
 

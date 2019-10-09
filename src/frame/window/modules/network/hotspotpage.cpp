@@ -39,12 +39,9 @@
 #include <QDebug>
 
 using namespace dde::network;
-
-namespace DCC_NAMESPACE {
-
+using namespace dcc;
+using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
-
-namespace network {
 
 const QString defaultHotspotName()
 {
@@ -63,7 +60,6 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     Q_ASSERT(m_wdev->supportHotspot());
 
     m_lvprofiles->setModel(m_modelprofiles);
-
     m_hotspotSwitch->setTitle(tr("Hotspot"));
     m_createBtn->setText(tr("Add Settings"));
     m_createBtn->setVisible(showcreatebtn);
@@ -97,6 +93,11 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     connect(m_wdev, &WirelessDevice::hostspotConnectionsChanged, this, &HotspotDeviceWidget::refreshHotspotConnectionList);
 
     connect(m_hotspotSwitch, &SwitchWidget::checkedChanged, this, &HotspotDeviceWidget::onSwitchToggled);
+}
+
+HotspotDeviceWidget::~HotspotDeviceWidget()
+{
+    qDebug() << "destroy HotspotDeviceWidget";
 }
 
 void HotspotDeviceWidget::setModel(NetworkModel *model)
@@ -210,7 +211,6 @@ void HotspotDeviceWidget::refreshHotspotConnectionList()
         editaction->setIcon(QIcon::fromTheme("arrow-right"));
         it->setActionList(Qt::Edge::RightEdge, {editaction});
         connect(editaction, &QAction::triggered, std::bind(&HotspotDeviceWidget::onConnEditRequested, this, uuid));
-
         m_modelprofiles->appendRow(it);
     }
 
@@ -236,14 +236,18 @@ void HotspotDeviceWidget::refreshActiveConnection()
 }
 
 HotspotPage::HotspotPage(QWidget *parent)
-    : ContentWidget(parent)
-    , m_contents(new QWidget)
+    : QWidget(parent)
     , m_newprofile(new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement))
 {
-    setContent(m_contents);
-
-    QVBoxLayout *layout(new QVBoxLayout);
-    m_contents->setLayout(layout);
+    m_contents = new QWidget(this);
+    m_vScrollLayout = new QVBoxLayout;
+    m_contents->setLayout(m_vScrollLayout);
+    ContentWidget *contentWidget = new ContentWidget(this);
+    contentWidget->setContent(m_contents);
+    m_mainLayout = new QVBoxLayout;
+    m_mainLayout->addWidget(contentWidget);
+    m_mainLayout->addWidget(m_newprofile, 0, Qt::AlignHCenter);
+    setLayout(m_mainLayout);
 
     connect(m_newprofile, &QAbstractButton::clicked, [this] {
         if (this->m_listdevw.empty()) {
@@ -265,11 +269,15 @@ void HotspotPage::setModel(dde::network::NetworkModel *model)
 
 void HotspotPage::deviceListChanged(const QList<dde::network::NetworkDevice *> devices)
 {
-    QVBoxLayout *layout = qobject_cast<QVBoxLayout *>(m_contents->layout());
-    layout->removeWidget(m_newprofile);
-
+    m_newprofile->setVisible(false);
     qDeleteAll(m_listdevw);
     m_listdevw.clear();
+
+    QLayoutItem *childItem = nullptr;
+    while (childItem = m_vScrollLayout->layout()->takeAt(0)) {
+        delete childItem;
+        childItem = nullptr;
+    }
 
     int ap_devices = 0;
 
@@ -285,26 +293,28 @@ void HotspotPage::deviceListChanged(const QList<dde::network::NetworkDevice *> d
     if (ap_devices == 0) {
         Q_EMIT back();
     }
-
+    int hotspotDev = 0;
     for (auto d : devices) {
         WirelessDevice *wd(static_cast<WirelessDevice *>(d));
         if (d->type() != NetworkDevice::DeviceType::Wireless) {
             continue;
         }
         if (wd->supportHotspot() && wd->enabled()) {
+            if (hotspotDev > 0) {
+                m_vScrollLayout->addSpacing(50);
+            }
             HotspotDeviceWidget *w = new HotspotDeviceWidget(wd, ap_devices > 1, this);
             connect(w, &HotspotDeviceWidget::requestDisconnectConnection, this, &HotspotPage::requestDisconnectConnection);
             connect(w, &HotspotDeviceWidget::requestDeviceRemanage, this, &HotspotPage::requestDeviceRemanage);
             w->setPage(this);
             w->setModel(m_model);
-            layout->addWidget(w);
+            m_vScrollLayout->addWidget(w);
             m_listdevw.append(w);
+            hotspotDev++;
         }
     }
 
     if (ap_devices == 1) {
-        layout->addWidget(m_newprofile, 0, Qt::AlignmentFlag::AlignHCenter);
+        m_newprofile->setVisible(true);
     }
-}
-}
 }
