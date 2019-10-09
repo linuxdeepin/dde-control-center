@@ -33,7 +33,7 @@ using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-WirelessSection::WirelessSection(NetworkManager::WirelessSetting::Ptr wiredSetting, QFrame *parent)
+WirelessSection::WirelessSection(NetworkManager::WirelessSetting::Ptr wiredSetting, bool isHotSpot, QFrame *parent)
     : AbstractSection("Wi-Fi", parent)
     , m_apSsid(new LineEditWidget(this))
     , m_deviceMacLine(new ComboxWidget(this))
@@ -48,6 +48,11 @@ WirelessSection::WirelessSection(NetworkManager::WirelessSetting::Ptr wiredSetti
             continue;
         }
         NetworkManager::WirelessDevice::Ptr wDevice = device.staticCast<NetworkManager::WirelessDevice>();
+        WirelessDevice::Capabilities cap = wDevice->wirelessCapabilities();
+        if (isHotSpot && !cap.testFlag(WirelessDevice::ApCap)) {
+            continue;
+        }
+
         /* Alt:  permanentHardwareAddress to get real hardware address which is connot be changed */
         const QString &macStr = wDevice->permanentHardwareAddress() + " (" + wDevice->interfaceName() + ")";
         m_macStrMap.insert(macStr, wDevice->permanentHardwareAddress().remove(":"));

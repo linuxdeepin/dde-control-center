@@ -49,7 +49,7 @@ void HotspotSettings::initSections()
         m_connSettings->setting(Setting::SettingType::WirelessSecurity)
         .staticCast<NetworkManager::WirelessSecuritySetting>());
 
-    WirelessSection *wirelessSection = new WirelessSection(wirelessSetting);
+    WirelessSection *wirelessSection = new WirelessSection(wirelessSetting, true);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(secretHotspotSection);
