@@ -62,14 +62,7 @@ SearchWidget::SearchWidget(QWidget *parent)
 
 
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textChanged, this, [ = ] {
-        QString value = text();
-        //遍历"汉字-拼音"列表,将存在的"拼音"转换为"汉字"
-        for (auto data : m_inputList) {
-            if (value == data.pinyin) {
-                value = data.chiese;
-            }
-        }
-        this->setText(value);
+        this->setText(transPinyinToChinese(text()));
     });
 
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::returnPressed, this, [ = ] {
@@ -79,7 +72,11 @@ SearchWidget::SearchWidget(QWidget *parent)
                 const QString &currentCompletion = lineEdit()->completer()->currentCompletion();
                 qDebug() << Q_FUNC_INFO << " [wubw SearchWidget] currentCompletion : " << currentCompletion;
 
-                jumpContentPathWidget(currentCompletion);
+                //中文遍历一遍,若没有匹配再遍历将拼音转化为中文再遍历
+                //解决输入拼音时,有配置数据后,直接回车无法进入第一个匹配数据页面的问题
+                if (!jumpContentPathWidget(currentCompletion)) {
+                    jumpContentPathWidget(transPinyinToChinese(currentCompletion));
+                }
             }
         }
     });
@@ -349,6 +346,21 @@ QString SearchWidget::removeDigital(QString input)
             value += *data;
         }
         data++;
+    }
+
+    return value;
+}
+
+QString SearchWidget::transPinyinToChinese(QString pinyin)
+{
+    QString value = pinyin;
+
+    //遍历"汉字-拼音"列表,将存在的"拼音"转换为"汉字"
+    for (auto data : m_inputList) {
+        if (value == data.pinyin) {
+            value = data.chiese;
+            break;
+        }
     }
 
     return value;

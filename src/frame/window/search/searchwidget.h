@@ -80,6 +80,7 @@ private:
     QString getXmlFilePath();
     QString getModulesName(QString name, bool state = true);
     QString removeDigital(QString input);
+    QString transPinyinToChinese(QString pinyin);
 
 private:
     QStandardItemModel *m_model;
