@@ -291,7 +291,7 @@ void AccountsDetailWidget::updateLineEditDisplayStyle()
         if (m_fullName->text() == tr("Full Name")) {
             m_inputLineEdit->setText("");
         } else {
-            m_inputLineEdit->setText(m_fullName->text());
+            m_inputLineEdit->setText(m_curUser->fullname());
         }
         m_inputLineEdit->selectAll();
     }
