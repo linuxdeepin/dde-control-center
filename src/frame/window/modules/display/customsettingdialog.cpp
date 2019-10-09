@@ -99,6 +99,7 @@ void CustomSettingDialog::initUI()
     m_rateList->setSelectionMode(DListView::NoSelection);
     m_vSegBtn << new DButtonBoxButton(tr("Refresh Rate"));
     btnBox->setButtonList(m_vSegBtn, true);
+    m_vSegBtn[0]->setChecked(true);
     m_listLayout->addWidget(m_rateList);
 
     connect(btnBox, &DButtonBox::buttonToggled, this, &CustomSettingDialog::onChangList);
