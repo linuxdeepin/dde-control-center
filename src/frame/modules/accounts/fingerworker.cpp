@@ -27,6 +27,7 @@
 
 #include <QFutureWatcher>
 #include <QtConcurrent>
+#include <QProcess>
 
 using namespace dcc;
 using namespace dcc::accounts;
@@ -186,6 +187,7 @@ bool FingerWorker::recordFinger(const QString &name, const QString &thumb)
 
     if (call.isError()) {
         qDebug() << call.error();
+        QProcess::execute("sudo systemctl restart fprintd.service");
         return false;
     }
 
