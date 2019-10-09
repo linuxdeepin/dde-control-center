@@ -119,5 +119,7 @@
         <file>actions/dcc_update_topsettings_32px.svg</file>
         <file>actions/dcc_update_topupdate_32px.svg</file>
         <file>icons/dcc_deepin_uos_logo.svg</file>
+        <file>texts/dcc_feedbackhigh_32px.svg</file>
+        <file>texts/dcc_feedbacklow_32px.svg</file>  
     </qresource>
 </RCC>

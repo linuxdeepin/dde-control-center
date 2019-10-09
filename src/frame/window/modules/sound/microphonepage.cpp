@@ -41,6 +41,8 @@ using namespace dcc::widgets;
 #include "widgets/titledslideritem.h"
 #include "widgets/dccslider.h"
 
+#include <DStyle>
+
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QLabel>
@@ -105,6 +107,11 @@ void MicrophonePage::initSlider()
     slider->setRange(0, 100);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::NoTicks);
+    auto icon_low = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeLowElement);
+    slider->setLeftIcon(icon_low);
+    auto icon_high = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeHighElement);
+    slider->setRightIcon(icon_high);
+    slider->setIconSize(QSize(24, 24));
     slider->setTickInterval(1);
     slider->setSliderPosition(int(m_model->microphoneVolume() * 100));
     slider->setPageStep(1);
@@ -113,9 +120,17 @@ void MicrophonePage::initSlider()
         double val = pos / 100.0;
         Q_EMIT requestSetMicrophoneVolume(val);
     };
+    m_inputSlider->setValueLiteral(QString::number(m_model->microphoneVolume() * 100) + "%");
     connect(slider, &DCCSlider::valueChanged, this, slotfunc1);
     connect(slider, &DCCSlider::sliderMoved, this, slotfunc1);
     connect(m_model, &SoundModel::microphoneOnChanged, m_inputSlider, &TitledSliderItem::setVisible);
+    connect(m_model, &SoundModel::microphoneVolumeChanged, this, [ = ](double v) {
+        slider->blockSignals(true);
+        slider->setSliderPosition(static_cast<int>(v * 100));
+        slider->blockSignals(false);
+        m_inputSlider->setValueLiteral(QString::number(v * 100) + "%");
+    });
+//    connect(slider, &DCCSlider::valueChanged, this, [ = ](double v)
 
     //~ contents_path /sound/Microphone
     m_feedbackSlider = (new TitledSliderItem(tr("Input Level")));
@@ -126,6 +141,10 @@ void MicrophonePage::initSlider()
     slider2->setEnabled(false);
     slider2->setType(DCCSlider::Vernier);
     slider2->setTickPosition(QSlider::NoTicks);
+    //slider2->setTickPosition(QSlider::TicksBelow);
+    slider2->setLeftIcon(QIcon::fromTheme("dcc_feedbacklow"));
+    slider2->setRightIcon(QIcon::fromTheme("dcc_feedbackhigh"));
+    slider2->setIconSize(QSize(24, 24));
     slider2->setTickInterval(1);
     slider2->setPageStep(1);
 

@@ -28,6 +28,8 @@
 #include "window/utils.h"
 #include "widgets/titlelabel.h"
 
+#include <DStyle>
+
 #include <QAction>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -37,6 +39,7 @@
 using namespace dcc::sound;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::sound;
+DWIDGET_USE_NAMESPACE
 
 SpeakerPage::SpeakerPage(QWidget *parent)
     : QWidget(parent)
@@ -77,8 +80,10 @@ void SpeakerPage::initSlider()
     slider->setRange(0, 150);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::NoTicks);
-    outputSlider->setLeftIcon(QIcon::fromTheme("dcc_set_sound"));
-    outputSlider->setRightIcon(QIcon::fromTheme("dcc_set_sound"));
+    auto icon_low = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeLowElement);
+    outputSlider->setLeftIcon(icon_low);
+    auto icon_high = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeHighElement);
+    outputSlider->setRightIcon(icon_high);
     outputSlider->setIconSize(QSize(24, 24));
     slider->setTickInterval(1);
     slider->setSliderPosition(static_cast<int>(m_model->speakerVolume() * 100.0));
@@ -88,13 +93,15 @@ void SpeakerPage::initSlider()
         double val = pos / 100.0;
         Q_EMIT requestSetSpeakerVolume(val);
     };
+    outputSlider->setValueLiteral(QString::number(int(m_model->speakerVolume() * 100)) + "%");
     connect(slider, &DCCSlider::valueChanged, slotfunc1);
     connect(slider, &DCCSlider::sliderMoved, slotfunc1);
     connect(m_model, &SoundModel::speakerOnChanged, outputSlider, &TitledSliderItem::setVisible);
-    connect(m_model, &SoundModel::speakerVolumeChanged, this, [=](double v) {
+    connect(m_model, &SoundModel::speakerVolumeChanged, this, [ = ](double v) {
         slider->blockSignals(true);
         slider->setSliderPosition(static_cast<int>(v * 100));
         slider->blockSignals(false);
+        outputSlider->setValueLiteral(QString::number(int(v * 100)) + "%");
     });
 
     m_layout->insertWidget(1, outputSlider);
@@ -107,6 +114,11 @@ void SpeakerPage::initSlider()
     slider2->setRange(-100, 100);
     slider2->setType(DCCSlider::Vernier);
     slider2->setTickPosition(QSlider::NoTicks);
+    auto icon_left = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeLeftElement);
+    balanceSlider->setLeftIcon(icon_left);
+    auto icon_right = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeRightElement);
+    balanceSlider->setRightIcon(icon_right);
+    balanceSlider->setIconSize(QSize(24, 24));
     slider2->setTickInterval(1);
     slider2->setSliderPosition(static_cast<int>(m_model->speakerBalance() * 100));
     slider2->setPageStep(1);
@@ -118,7 +130,7 @@ void SpeakerPage::initSlider()
     connect(slider2, &DCCSlider::valueChanged, slotfunc2);
     connect(slider2, &DCCSlider::sliderMoved, slotfunc2);
     connect(m_model, &SoundModel::speakerOnChanged, balanceSlider, &TitledSliderItem::setVisible);
-    connect(m_model, &SoundModel::speakerBalanceChanged, this, [=](double v) {
+    connect(m_model, &SoundModel::speakerBalanceChanged, this, [ = ](double v) {
         slider2->blockSignals(true);
         slider2->setSliderPosition(static_cast<int>(v * 100));
         slider2->blockSignals(false);
