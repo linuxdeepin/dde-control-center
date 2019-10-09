@@ -388,7 +388,7 @@ void SearchWidget::addModulesName(QString moduleName, QString searchName)
 bool ddeCompleter::eventFilter(QObject *o, QEvent *e)
 {
     if (e->type() == QEvent::FocusOut) {
-        return true;
+        return QCompleter::eventFilter(o, e);
     }
 
     if (e->type() == QEvent::KeyPress) {
