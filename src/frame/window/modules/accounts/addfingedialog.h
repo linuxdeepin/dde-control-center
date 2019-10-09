@@ -28,11 +28,10 @@
 #include <QDialog>
 
 QT_BEGIN_NAMESPACE
-
 class QVBoxLayout;
 class QHBoxLayout;
 class QPushButton;
-
+class QCloseEvent;
 QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
@@ -51,9 +50,13 @@ private:
     void initWidget();
     void initData();
 
+protected:
+    void closeEvent(QCloseEvent *event);
+
 Q_SIGNALS:
     void requestSaveThumb(const QString &name);
     void requestReEnrollStart(const QString &thumb);
+    void requestStopEnroll();
 
 public Q_SLOTS:
     void saveThumb();

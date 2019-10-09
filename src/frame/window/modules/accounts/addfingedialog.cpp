@@ -24,6 +24,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
+#include <QCloseEvent>
 
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
@@ -136,4 +137,10 @@ void AddFingeDialog::onEnrollStatusChanged(FingerModel::EnrollStatus status)
 void AddFingeDialog::onViewPlayEnd()
 {
     m_fingeWidget->setFrequency(tr("Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off"));
+}
+
+void AddFingeDialog::closeEvent(QCloseEvent *event)
+{
+    Q_EMIT requestStopEnroll();
+    event->accept();
 }
