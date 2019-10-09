@@ -94,6 +94,7 @@ private:
     QMap<dcc::cloudsync::SyncType, QStandardItem *> m_itemMap;
     DownloadUrl *m_downloader;
     QString m_avatarPath;
+    QLabel *m_networkTip;
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE

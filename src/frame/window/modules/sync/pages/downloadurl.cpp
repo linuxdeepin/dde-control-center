@@ -25,6 +25,7 @@
 #include <QNetworkReply>
 #include <QEventLoop>
 #include <QFile>
+#include <QTimer>
 #include <QDebug>
 
 using namespace DCC_NAMESPACE;
@@ -44,10 +45,11 @@ DownloadUrl::~DownloadUrl()
         m_manager->deleteLater();
 }
 
-void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePath)
+void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePath, bool fullname)
 {
-    const QString fileName = filePath + url.right(url.size() - url.lastIndexOf("/"));
-    qDebug() << "download " << url << " to " << fileName;
+    QString fileName;
+    fileName = fullname ? filePath : filePath + url.right(url.size() - url.lastIndexOf("/"));
+    qDebug() << " download " << url << " to " << fileName << " ready = " << m_isReady;
     if (QFile::exists(fileName)) {
         Q_EMIT fileDownloaded(fileName);
         return;
@@ -56,6 +58,8 @@ void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePat
     if (!m_isReady)
         return;
     m_isReady = false;
+
+    m_retryMap.insert(fileName, url);
 
     m_file = new QFile();
     m_file->setFileName(fileName);
@@ -78,19 +82,50 @@ void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePat
 
 void DownloadUrl::onDownloadFileComplete(QNetworkReply *reply)
 {
+    //return receiving redundant finished signal
     if (m_file == nullptr)
         return;
 
-    if (m_file->isWritable())
-        m_file->write(reply->readAll());
+    if (reply->error() != QNetworkReply::NoError) {
+        QString url = reply->url().toString();
 
-    m_file->close();
-    qDebug() << " m_file fileName = " << m_file->fileName();
-    Q_EMIT fileDownloaded(m_file->fileName());
+        if (m_retryMap.value(m_file->fileName()) != url)
+            qDebug() << " mfile url " << m_retryMap.value(m_file->fileName()) << " != " << url;
+
+        m_file->remove();
+        delete m_file;
+        m_file = nullptr;
+        m_isReady = true;
+        onDownloadFileError(url, m_retryMap.key(url));
+        return;
+    }
+
+    if (m_file->write(reply->readAll()) <= 0) {
+        m_file->remove();
+    } else {
+        m_file->close();
+        if (m_retryMap.contains(m_file->fileName()))
+            m_retryMap.remove(m_file->fileName());
+        qDebug() << " m_file fileName = " << m_file->fileName();
+        Q_EMIT fileDownloaded(m_file->fileName());
+    }
 
     delete m_file;
     m_file = nullptr;
     m_isReady = true;
+    if (!m_retryMap.isEmpty())
+        onDownloadFileError(m_retryMap.begin().key(), m_retryMap.begin().value());
+}
+
+void DownloadUrl::onDownloadFileError(const QString &url, const QString &fileName)
+{
+    if (url.isEmpty())
+        return;
+
+    QTimer::singleShot(20000, this, [=] {
+        qDebug() << " retry to download file " + url << " to " << fileName;
+        downloadFileFromURL(url, fileName, true);
+    });
 }
 
 bool DownloadUrl::downloadUrl(const QString &url, const QString &fileName)

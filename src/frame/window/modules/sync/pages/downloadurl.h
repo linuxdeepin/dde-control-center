@@ -23,6 +23,7 @@
 #include <window/namespace.h>
 
 #include <QObject>
+#include <QMap>
 
 QT_BEGIN_NAMESPACE
 class QNetworkAccessManager;
@@ -38,7 +39,7 @@ class DownloadUrl : public QObject
 public:
     explicit DownloadUrl(QObject *parent = nullptr);
     virtual ~DownloadUrl();
-    void downloadFileFromURL(const QString &url, const QString &filePath);
+    void downloadFileFromURL(const QString &url, const QString &filePath, bool fullname = false);
     bool downloadUrl(const QString &url, const QString &fileName);
 
 Q_SIGNALS:
@@ -46,11 +47,13 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void onDownloadFileComplete(QNetworkReply *reply);
+    void onDownloadFileError(const QString &url, const QString &fileName);
 
 private:
     QNetworkAccessManager *m_manager;
     QFile *m_file;
     bool m_isReady;
+    QMap<QString, QString> m_retryMap;
 };
 }
 }

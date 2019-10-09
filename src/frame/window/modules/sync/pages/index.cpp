@@ -117,6 +117,20 @@ IndexPage::IndexPage(QWidget *parent)
     backgroundLayout->addSpacing(20);
     backgroundLayout->addWidget(m_listView, 1);
 
+    QHBoxLayout *tipLayout = new QHBoxLayout;
+    tipLayout->addSpacing(12);
+    //~ contents_path /cloudsync/Your Wi-Fi password will be synced if Network Settings is turned on
+    m_networkTip = new QLabel(tr("Your Wi-Fi password will be synced if Network Settings is turned on"));
+    m_networkTip->setWordWrap(true);
+    QFont f;
+    f.setPixelSize(12);
+    QPalette pa;
+    pa.setColor(QPalette::Text, "#526A7F");
+    m_networkTip->setFont(f);
+    m_networkTip->setPalette(pa);
+    tipLayout->addWidget(m_networkTip, 0, Qt::AlignLeft);
+    backgroundLayout->addLayout(tipLayout);
+
     m_mainLayout->addWidget(scrollArea, 9, Qt::AlignHCenter);
     m_mainLayout->addLayout(bottomLayout, 1);
 
@@ -138,6 +152,7 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     connect(model, &dcc::cloudsync::SyncModel::userInfoChanged, this, &IndexPage::onUserInfoChanged);
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_autoSyncSwitch, &SwitchWidget::setChecked);
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_listView, &QListView::setVisible);
+    connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_networkTip, &QLabel::setVisible);
     connect(model, &dcc::cloudsync::SyncModel::syncStateChanged, this, &IndexPage::onStateChanged);
     connect(model, &dcc::cloudsync::SyncModel::lastSyncTimeChanged, this, &IndexPage::onLastSyncTimeChanged);
     connect(model, &dcc::cloudsync::SyncModel::moduleSyncStateChanged, this, &IndexPage::onModuleStateChanged);
