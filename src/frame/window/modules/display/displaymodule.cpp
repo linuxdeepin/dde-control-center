@@ -309,6 +309,9 @@ void DisplayModule::showRecognize()
 
 void DisplayModule::onMonitorListChanged()
 {
+    if (m_frameProxy->currModule() != this)
+        return;
+
     if (m_displayModel->monitorList().size() > 1) {
         showMultiScreenSettingPage();
     } else {

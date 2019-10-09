@@ -26,5 +26,12 @@ public:
     virtual void setModuleVisible(ModuleInterface *const inter, const bool visible) = 0;
 
     virtual void showModulePage(const QString &module, const QString &page, bool animation) = 0;
+
+public:
+    void setCurrModule(ModuleInterface *const m) { m_currModule = m; }
+    ModuleInterface *currModule() const { return m_currModule; }
+
+private:
+    ModuleInterface *m_currModule{nullptr};
 };
 }

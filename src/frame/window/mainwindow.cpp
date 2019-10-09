@@ -223,6 +223,9 @@ void MainWindow::popWidget()
         //only set two pointer to nullptr , but not delete memory
         memset(&m_lastThirdPage, 0, sizeof(m_lastThirdPage));
     }
+
+    if (m_contentStack.isEmpty())
+        setCurrModule(nullptr);
 }
 
 //Only used to from third page to top page can use it
@@ -571,8 +574,8 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
         inter->initialize();
         m_initList << inter;
     }
+    setCurrModule(inter);
     inter->active();
-
 }
 
 FourthColWidget::FourthColWidget(QWidget *parent)
