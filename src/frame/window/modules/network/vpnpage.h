@@ -27,7 +27,6 @@
 #ifndef VPNPAGE_H
 #define VPNPAGE_H
 
-#include "widgets/contentwidget.h"
 #include "window/namespace.h"
 
 #include <DListView>
@@ -41,6 +40,7 @@ class NetworkModel;
 }
 
 namespace dcc {
+class ContentWidget;
 namespace widgets {
 class SettingsGroup;
 class SwitchWidget;
@@ -51,7 +51,7 @@ class LoadingNextPageWidget;
 namespace DCC_NAMESPACE {
 namespace network {
 class ConnectionVpnEditPage;
-class VpnPage : public dcc::ContentWidget
+class VpnPage : public QWidget
 {
     Q_OBJECT
 

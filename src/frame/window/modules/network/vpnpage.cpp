@@ -26,6 +26,7 @@
 
 #include "vpnpage.h"
 #include "connectionvpneditpage.h"
+#include "widgets/contentwidget.h"
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/translucentframe.h"
@@ -52,6 +53,7 @@
 
 DWIDGET_USE_NAMESPACE
 
+using namespace dcc;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
 using namespace dde::network;
@@ -73,7 +75,7 @@ QString vpnConfigType(const QString &path)
 }
 
 VpnPage::VpnPage(QWidget *parent)
-    : ContentWidget(parent)
+    : QWidget(parent)
     , m_vpnSwitch(new SwitchWidget)
     , m_lvprofiles(new DListView)
     , m_modelprofiles(new QStandardItemModel)
@@ -81,6 +83,26 @@ VpnPage::VpnPage(QWidget *parent)
     m_lvprofiles->setModel(m_modelprofiles);
     m_lvprofiles->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_vpnSwitch->setTitle(tr("VPN Status"));
+
+    SettingsGroup *switchGrp = new SettingsGroup;
+    switchGrp->appendItem(m_vpnSwitch);
+
+    QVBoxLayout *scrollLayout = new QVBoxLayout;
+    scrollLayout->addSpacing(10);
+    scrollLayout->addWidget(switchGrp);
+    scrollLayout->addWidget(m_lvprofiles);
+    scrollLayout->setSpacing(10);
+    scrollLayout->setContentsMargins(0, 0, 0, 0);
+
+    QWidget *widget = new QWidget(this);
+    widget->setLayout(scrollLayout);
+
+    ContentWidget *contentWidget = new ContentWidget(this);
+    contentWidget->setContent(widget);
+
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+
+    mainLayout->addWidget(contentWidget);
 
     QHBoxLayout *buttonsLayout = new QHBoxLayout;
     buttonsLayout->setSpacing(30);
@@ -93,25 +115,10 @@ VpnPage::VpnPage(QWidget *parent)
     DFloatingButton *importVpnBtn = new DFloatingButton("\342\206\223");
     importVpnBtn->setMinimumSize(QSize(47, 47));
     buttonsLayout->addWidget(importVpnBtn);
-
     buttonsLayout->addStretch();
-
-    SettingsGroup *switchGrp = new SettingsGroup;
-    switchGrp->appendItem(m_vpnSwitch);
-
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addSpacing(10);
-    mainLayout->addWidget(switchGrp);
-    mainLayout->addWidget(m_lvprofiles);
     mainLayout->addLayout(buttonsLayout);
-    mainLayout->setSpacing(10);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
 
-    QWidget *mainWidget = new TranslucentFrame;
-    mainWidget->setLayout(mainLayout);
-
-    setContent(mainWidget);
-    setTitle(tr("VPN"));
+    setLayout(mainLayout);
 
     connect(m_vpnSwitch, &SwitchWidget::checkedChanged, this, &VpnPage::requestVpnEnabled);
     connect(createVpnBtn, &QPushButton::clicked, this, &VpnPage::createVPN);
@@ -166,6 +173,7 @@ void VpnPage::refreshVpnList(const QList<QJsonObject> &vpnList)
     }
 
     onActiveConnsInfoChanged(m_model->activeConnInfos());
+    m_vpnSwitch->setVisible(m_modelprofiles->rowCount() > 0);
 }
 
 void VpnPage::onVpnDetailClicked(const QString &connectionUuid)
