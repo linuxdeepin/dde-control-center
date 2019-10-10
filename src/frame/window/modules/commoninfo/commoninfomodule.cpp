@@ -102,7 +102,7 @@ void CommonInfoModule::load(QString path)
         //indexRow = 1;
     } else if (path == "User Experience Program") {
         // 为用户体验计划的search预留
-        indexRow = 2;
+        indexRow = 1;
     } else if (path == "Tablet Mode") {
         // 为平板模式的search预留
         //indexRow = 3;
