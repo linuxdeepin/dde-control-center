@@ -52,6 +52,8 @@ LogoItem::LogoItem(QFrame *parent)
     layout->setAlignment(m_logo, Qt::AlignCenter);
     layout->setAlignment(m_description, Qt::AlignCenter);
     setLayout(layout);
+
+    m_description->setVisible(false);
 }
 
 void LogoItem::setDescription(const QString &des)

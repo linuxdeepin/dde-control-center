@@ -118,5 +118,6 @@
         <file>actions/dcc_volume1_32px.svg</file>
         <file>actions/dcc_update_topsettings_32px.svg</file>
         <file>actions/dcc_update_topupdate_32px.svg</file>
+        <file>icons/dcc_deepin_uos_logo.svg</file>
     </qresource>
 </RCC>

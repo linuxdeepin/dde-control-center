@@ -49,8 +49,10 @@ void NativeInfoWidget::initWidget()
     SettingsGroup *infoGroup = new SettingsGroup();
 
     LogoItem *logo = new LogoItem;
-    logo->setDescription(systemCopyright());
-    logo->setLogo(QIcon::fromTheme("dcc_deepin_logo"), 164, 42);
+    logo->setDescription(systemCopyright());//LogoItem构造函数: set the discription visible=false
+//    logo->setLogo(QIcon::fromTheme("dcc_deepin_logo"), 164, 42);
+//    logo->setLogo(QIcon::fromTheme("dcc_deepin_uos_logo"), 156, 46); //不生效
+    logo->setLogo(QIcon(":/icons/deepin/builtin/icons/dcc_deepin_uos_logo.svg"), 156, 46);
 
     m_version = new TitleValueItem();
     m_version->setTitle(tr("Edition:"));

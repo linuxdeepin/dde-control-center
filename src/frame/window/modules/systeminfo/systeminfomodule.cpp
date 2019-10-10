@@ -84,11 +84,11 @@ void SystemInfoModule::load(QString path)
 
     if (path == "About This PC") {
         m_sysinfoWidget->setCurrentIndex(0);
-    } else if (path == "Edition License") {
+    } /*else if (path == "Edition License") {
         m_sysinfoWidget->setCurrentIndex(1);
     } else if (path == "End User License Agreement") {
         m_sysinfoWidget->setCurrentIndex(2);
-    }
+    }*/
 }
 
 void SystemInfoModule::onShowAboutNativePage()
