@@ -58,7 +58,7 @@ class SoundWorker : public QObject, public ModuleWorker
 {
     Q_OBJECT
 public:
-    explicit SoundWorker(SoundModel *model, QObject * parent = 0);
+    explicit SoundWorker(SoundModel *model, QObject *parent = nullptr);
 
     void activate() Q_DECL_OVERRIDE;
     void deactivate() Q_DECL_OVERRIDE;
@@ -77,10 +77,14 @@ public Q_SLOTS:
     void setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable);
     void enableAllSoundEffect(bool enable);
 
+    void cardsChanged(const QString &cards);
+
 private Q_SLOTS:
     void defaultSinkChanged(const QDBusObjectPath &path);
     void defaultSourceChanged(const QDBusObjectPath &path);
-    void cardsChanged(const QString &cards);
+
+    void setSinkList(QList<QDBusObjectPath> sinks);
+    void setSourceList(QList<QDBusObjectPath> sources);
 
     void activeSinkPortChanged(const AudioPort &activeSinkPort);
     void activeSourcePortChanged(const AudioPort &activeSourcePort);
@@ -92,6 +96,13 @@ private Q_SLOTS:
 
 private:
     void updatePortActivity();
+
+    // 获取指定端口的状态
+    Port::Status getStatus(const QString portId);
+    // 查找音频输入设备的状态 analog-output-/hdmi-output-
+    Port::Status getStatusInSinks(const QString portId);
+    // 查找音频输出设备的状态 analong-input-
+    Port::Status getStatusInSources(const QString portId);
 
 private:
     SoundModel *m_model;
@@ -105,8 +116,8 @@ private:
     QPointer<Sink> m_defaultSink;
     QPointer<Source> m_defaultSource;
     QPointer<Meter> m_sourceMeter;
-    QList<Sink*> m_sinks;
-    QList<Source*> m_sources;
+    QList<QDBusObjectPath> m_sinks;
+    QList<QDBusObjectPath> m_sources;
     QGSettings *m_effectGsettings;
     PowerInter *m_powerInter;
 
@@ -119,7 +130,7 @@ private:
 
 // should include 2.0.9.17
 #if DTK_VERSION < DTK_VERSION_CHECK(2, 0, 9, 17)
-    Q_DECLARE_METATYPE(DDesktopServices::SystemSoundEffect)
+Q_DECLARE_METATYPE(DDesktopServices::SystemSoundEffect)
 #endif
 
 #endif // SOUNDWORKER_H

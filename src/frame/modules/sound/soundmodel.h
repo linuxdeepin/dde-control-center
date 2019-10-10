@@ -47,7 +47,14 @@ public:
         In = 2
     };
 
-    explicit Port(QObject * parent) : QObject(parent) {}
+    enum Status {
+        Invalid = -1,
+        Unknow = 0,
+        UnAvailable = 1,
+        Availabel = 2
+    };
+
+    explicit Port(QObject *parent) : QObject(parent) {}
     virtual ~Port() {}
 
     inline QString id() const { return m_id; }
@@ -68,6 +75,9 @@ public:
     inline uint cardId() const { return m_cardId; }
     void setCardId(const uint &cardId);
 
+    inline Status cardStatus() const { return m_cardStatus; }
+    void setCardStatus(const Status &cardStatus);
+
 Q_SIGNALS:
     void idChanged(QString id) const;
     void nameChanged(QString name) const;
@@ -75,6 +85,7 @@ Q_SIGNALS:
     void isActiveChanged(bool ative) const;
     void directionChanged(Direction direction) const;
     void cardIdChanged(uint cardId) const;
+    void cardStatusChanged(Status cardStatus) const;
 
 private:
     QString m_id;
@@ -83,6 +94,7 @@ private:
     QString m_cardName;
     bool m_isActive;
     Direction m_direction;
+    Status m_cardStatus;
 };
 
 class SoundModel : public QObject
@@ -156,12 +168,14 @@ Q_SIGNALS:
     void defaultSourceChanged(const QDBusObjectPath &defaultSource) const;
     void defaultSinkChanged(const QDBusObjectPath &defaultSink) const;
     void audioCardsChanged(const QString &audioCards) const;
+    void sinkListChanged(QList<QDBusObjectPath> sinks) const;
+    void sourceListChanged(QList<QDBusObjectPath> sources) const;
 
 #ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
 #endif
     void portAdded(const Port *port);
-    void portRemoved(const QString & portId, const uint &cardId);
+    void portRemoved(const QString &portId, const uint &cardId);
     void soundEffectDataChanged(DDesktopServices::SystemSoundEffect effect, const bool enable);
     void enableSoundEffectChanged(bool enableSoundEffect);
     void isLaptopChanged(bool isLaptop);

@@ -115,7 +115,9 @@ void AdvancedPage::initList()
 
     auto ports = m_model->ports();
     for (auto port : ports) {
-        addPort(port);
+        if (port->cardStatus() == Port::Unknow || port->cardStatus() == Port::Availabel) {
+            addPort(port);
+        }
     }
 }
 

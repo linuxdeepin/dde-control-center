@@ -66,11 +66,17 @@ SoundWorker::SoundWorker(SoundModel *model, QObject * parent)
     connect(m_audioInter, &Audio::DefaultSourceChanged, m_model, &SoundModel::setDefaultSource);
     connect(m_audioInter, &Audio::CardsChanged, m_model, &SoundModel::setAudioCards);
 
+    connect(m_audioInter, &Audio::SinksChanged, this, &SoundWorker::setSinkList);
+    connect(m_audioInter, &Audio::SourcesChanged, this, &SoundWorker::setSourceList);
+
     connect(m_soundEffectInter, &SoundEffect::EnabledChanged, m_model, &SoundModel::setEnableSoundEffect);
 
     connect(m_pingTimer, &QTimer::timeout, [this] { if (m_sourceMeter) m_sourceMeter->Tick(); });
     connect(m_activeTimer, &QTimer::timeout, this, &SoundWorker::updatePortActivity);
     connect(m_powerInter, &PowerInter::LidIsPresentChanged, m_model, &SoundModel::setIsLaptop);
+
+    m_sinks = m_audioInter->sinks();
+    m_sources = m_audioInter->sources();
 
     m_model->setDefaultSink(m_audioInter->defaultSink());
     m_model->setDefaultSource(m_audioInter->defaultSource());
@@ -232,7 +238,7 @@ void SoundWorker::cardsChanged(const QString &cards)
     QJsonArray jCards = doc.array();
     for (QJsonValue cV : jCards) {
         QJsonObject jCard = cV.toObject();
-        const uint cardId = jCard["Id"].toInt();
+        const uint cardId = uint(jCard["Id"].toInt());
         const QString cardName = jCard["Name"].toString();
         QJsonArray jPorts = jCard["Ports"].toArray();
 
@@ -240,14 +246,15 @@ void SoundWorker::cardsChanged(const QString &cards)
 
         for (QJsonValue pV : jPorts) {
             QJsonObject jPort = pV.toObject();
-            // const double portAvai = jPort["Available"].toDouble();
-            // if (portAvai == 2 || portAvai == 0 ||) { // 0 Unknow 1 Not available 2 Available
+
             const QString portId = jPort["Name"].toString();
             const QString portName = jPort["Description"].toString();
 
             Port *port = m_model->findPort(portId, cardId);
             const bool include = port != nullptr;
-            if (!include) { port = new Port(m_model); }
+            if (!include) {
+                port = new Port(m_model);
+            }
 
             port->setId(portId);
             port->setName(portName);
@@ -255,11 +262,13 @@ void SoundWorker::cardsChanged(const QString &cards)
             port->setCardId(cardId);
             port->setCardName(cardName);
             port->setIsActive(portId == m_activeSinkPort || portId == m_activeSourcePort);
+            port->setCardStatus(getStatus(portId));
 
-            if (!include) { m_model->addPort(port); }
+            if (!include) {
+                m_model->addPort(port);
+            }
 
             tmpPorts << portId;
-            // }
         }
         tmpCardIds.insert(cardId, tmpPorts);
     }
@@ -270,6 +279,20 @@ void SoundWorker::cardsChanged(const QString &cards)
             m_model->removePort(port->id(), port->cardId());
         }
     }
+}
+
+void SoundWorker::setSinkList(QList<QDBusObjectPath> sinks)
+{
+    m_sinks = sinks;
+
+    cardsChanged(m_audioInter->cards());
+}
+
+void SoundWorker::setSourceList(QList<QDBusObjectPath> sources)
+{
+    m_sources = sources;
+
+    cardsChanged(m_audioInter->cards());
 }
 
 void SoundWorker::activeSinkPortChanged(const AudioPort &activeSinkPort)
@@ -348,6 +371,60 @@ void SoundWorker::updatePortActivity()
 
         port->setIsActive(isActiveInputPort || isActiveOuputPort);
     }
+}
+
+Port::Status SoundWorker::getStatus(const QString portId)
+{
+    if (portId.contains("output")) {
+        return getStatusInSinks(portId);
+    } else if (portId.contains("input")) {
+        return getStatusInSources(portId);
+    }
+    return Port::Invalid;
+}
+
+Port::Status SoundWorker::getStatusInSinks(const QString portId)
+{
+    if (m_sinks.isEmpty()) {
+        return Port::Invalid;
+    }
+
+    for (int i = 0; i < m_sinks.size(); i++) {
+        QString path = m_sinks.at(i).path();
+        Sink *curSink = new Sink("com.deepin.daemon.Audio", path, QDBusConnection::sessionBus(), this);
+        if (curSink->ports().isEmpty()) {
+            continue;
+        }
+        for (int j = 0; j < curSink->ports().size(); j++) {
+            QString curPortId = curSink->ports().at(j).name;
+            if (curPortId == portId) {
+                return Port::Status(curSink->ports().at(j).availability);
+            }
+        }
+    }
+    return Port::Invalid;
+}
+
+Port::Status SoundWorker::getStatusInSources(const QString portId)
+{
+    if (m_sources.isEmpty()) {
+        return Port::Invalid;
+    }
+
+    for (int i = 0; i < m_sources.size(); i++) {
+        QString path = m_sources.at(i).path();
+        Source *curSource = new Source("com.deepin.daemon.Audio", path, QDBusConnection::sessionBus(), this);
+        if (curSource->ports().isEmpty()) {
+            continue;
+        }
+        for (int j = 0; j < curSource->ports().size(); j++) {
+            QString curPortId = curSource->ports().at(j).name;
+            if (curPortId == portId) {
+                return Port::Status(curSource->ports().at(j).availability);
+            }
+        }
+    }
+    return Port::Invalid;
 }
 
 }

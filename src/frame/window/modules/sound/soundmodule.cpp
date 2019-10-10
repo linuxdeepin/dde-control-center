@@ -100,8 +100,9 @@ void SoundModule::showMicrophonePage()
 
 void SoundModule::showAdvancedPage()
 {
-    AdvancedPage *w = new AdvancedPage;
+    m_worker->cardsChanged(m_model->audioCards());
 
+    AdvancedPage *w = new AdvancedPage;
     w->setModel(m_model);
     connect(w, &AdvancedPage::requestSetPort, m_worker, &SoundWorker::setPort);
     m_frameProxy->pushWidget(this, w);
