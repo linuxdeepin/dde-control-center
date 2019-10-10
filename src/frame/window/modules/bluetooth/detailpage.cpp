@@ -23,6 +23,7 @@
 #include "modules/bluetooth/device.h"
 #include "modules/bluetooth/adapter.h"
 #include "widgets/translucentframe.h"
+#include "widgets/titlelabel.h"
 
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -50,8 +51,8 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     layout->setSpacing(0);
     layout->setMargin(0);
     //~ contents_path /bluetooth/Change Name
-    m_devNameLabel = new QLabel(tr("Change Name"));
-    layout->addWidget(m_devNameLabel);
+    m_devNameLabel = new TitleLabel(tr("Change Name"));
+    layout->addWidget(m_devNameLabel, 0, Qt::AlignCenter);
     layout->addSpacing(10);
     m_editDevName = new QLineEdit;
     m_editDevName->setPlaceholderText(device->name());
@@ -73,12 +74,12 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     connect(m_device, &Device::stateChanged, this, [this] {
         onDeviceStatusChanged();
     });
-    connect(m_device, &Device::pairedChanged, this, [this] (const bool paired) {
+    connect(m_device, &Device::pairedChanged, this, [this](const bool paired) {
         if (!paired) {
             Q_EMIT back();
         }
     });
-    connect(adapter, &Adapter::poweredChanged, this, [this] (const bool &powered) {
+    connect(adapter, &Adapter::poweredChanged, this, [this](const bool &powered) {
         if (!powered) {
             Q_EMIT back();
         }

@@ -30,6 +30,8 @@ class QLineEdit;
 class QPushButton;
 QT_END_NAMESPACE
 
+class TitleLabel;
+
 namespace dcc {
 namespace bluetooth {
 class Device;
@@ -58,8 +60,8 @@ private:
     const dcc::bluetooth::Device *m_device;
     QPushButton *m_ignoreButton;
     QPushButton *m_disconnectButton;
-    QLabel *m_devNameLabel;
     QLineEdit *m_editDevName;
+    TitleLabel *m_devNameLabel;
 };
 }
 }
