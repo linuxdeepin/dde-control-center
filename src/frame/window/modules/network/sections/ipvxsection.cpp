@@ -129,7 +129,12 @@ bool IpvxSection::saveIpv4Settings()
     ipv4Setting->setDns(mDnsList);
 
     if (method == NetworkManager::Ipv4Setting::Automatic) {
-        ipv4Setting->setAddresses(QList<NetworkManager::IpAddress>());
+        QList<NetworkManager::IpAddress>().clear();
+        NetworkManager::IpAddress ipAddressAuto;
+        ipAddressAuto.setIp(QHostAddress(""));
+        ipAddressAuto.setNetmask(QHostAddress(""));
+        ipAddressAuto.setGateway(QHostAddress(""));
+        ipv4Setting->setAddresses(QList<NetworkManager::IpAddress>() << ipAddressAuto);
         ipv4Setting->setIgnoreAutoDns(!mDnsList.isEmpty());
     }
 
@@ -165,7 +170,12 @@ bool IpvxSection::saveIpv6Settings()
     ipv6Setting->setDns(mDnsList);
 
     if (method == NetworkManager::Ipv6Setting::Automatic) {
-        ipv6Setting->setAddresses(QList<NetworkManager::IpAddress>());
+        QList<NetworkManager::IpAddress>().clear();
+        NetworkManager::IpAddress ipAddressAuto;
+        ipAddressAuto.setIp(QHostAddress(""));
+        ipAddressAuto.setPrefixLength(0);
+        ipAddressAuto.setGateway(QHostAddress(""));
+        ipv6Setting->setAddresses(QList<NetworkManager::IpAddress>() << ipAddressAuto);
         ipv6Setting->setIgnoreAutoDns(!mDnsList.isEmpty());
     }
 
