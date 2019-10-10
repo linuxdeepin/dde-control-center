@@ -70,7 +70,7 @@ SearchWidget::SearchWidget(QWidget *parent)
             //enter defalt set first
             if (!jumpContentPathWidget(text())) {
                 const QString &currentCompletion = lineEdit()->completer()->currentCompletion();
-                qDebug() << Q_FUNC_INFO << " [wubw SearchWidget] currentCompletion : " << currentCompletion;
+                qDebug() << Q_FUNC_INFO << " [SearchWidget] currentCompletion : " << currentCompletion;
 
                 //中文遍历一遍,若没有匹配再遍历将拼音转化为中文再遍历
                 //解决输入拼音时,有配置数据后,直接回车无法进入第一个匹配数据页面的问题
@@ -98,8 +98,8 @@ bool SearchWidget::jumpContentPathWidget(QString path)
             for (int i = 0; i < m_EnterNewPagelist.count(); i++) {
                 if (m_EnterNewPagelist[i].translateContent == data.fullPagePath) {
 #if DEBUG_XML_SWITCH
-                    qDebug() << " [wubw SearchWidget] m_EnterNewPagelist[i].translateContent : " << m_EnterNewPagelist[i].translateContent << " , fullPagePath : " << m_EnterNewPagelist[i].fullPagePath << " , actualModuleName: " << m_EnterNewPagelist[i].actualModuleName;
-                    qDebug() << " [wubw SearchWidget] data.translateContent : " << data.translateContent << " , data.fullPagePath : " << data.fullPagePath << " , data.actualModuleName: " << data.actualModuleName;
+                    qDebug() << " [SearchWidget] m_EnterNewPagelist[i].translateContent : " << m_EnterNewPagelist[i].translateContent << " , fullPagePath : " << m_EnterNewPagelist[i].fullPagePath << " , actualModuleName: " << m_EnterNewPagelist[i].actualModuleName;
+                    qDebug() << " [SearchWidget] data.translateContent : " << data.translateContent << " , data.fullPagePath : " << data.fullPagePath << " , data.actualModuleName: " << data.actualModuleName;
 #endif
                     //the data.actualModuleName had translate to All lowercase
                     Q_EMIT notifyModuleSearch(data.actualModuleName, m_EnterNewPagelist[i].fullPagePath.section('/', 2, -1));//fullPagePath need delete moduleName
@@ -109,7 +109,7 @@ bool SearchWidget::jumpContentPathWidget(QString path)
             }
         }
     } else {
-        qWarning() << " [wubw SearchWidget] QList is nullptr.";
+        qWarning() << " [SearchWidget] QList is nullptr.";
     }
 
     return bResult;
@@ -118,7 +118,7 @@ bool SearchWidget::jumpContentPathWidget(QString path)
 void SearchWidget::loadxml()
 {
 #if DEBUG_XML_SWITCH
-    qDebug() << " [wubw SearchWidget] " << Q_FUNC_INFO;
+    qDebug() << " [SearchWidget] " << Q_FUNC_INFO;
 #endif
     QString xmlPath = getXmlFilePath();
     QFile file(xmlPath);
@@ -185,14 +185,14 @@ void SearchWidget::loadxml()
                 switch (type) {
                 case QXmlStreamReader::StartElement:
 #if DEBUG_XML_SWITCH
-                    qDebug() << " [wubw SearchWidget] +::StartElement: " << xmlRead.name() << xmlRead.text();
+                    qDebug() << " [SearchWidget] +::StartElement: " << xmlRead.name() << xmlRead.text();
 #endif
                     m_xmlExplain = xmlRead.name().toString();
                     break;
                 case QXmlStreamReader::Characters:
                     if (!xmlRead.isWhitespace()) {
 #if DEBUG_XML_SWITCH
-                        qDebug() << " [wubw SearchWidget]  xmlRead.text : " << xmlRead.text().toString();
+                        qDebug() << " [SearchWidget]  xmlRead.text : " << xmlRead.text().toString();
 #endif
                         if (m_xmlExplain == XML_Source) { //get xml source date
                             m_searchBoxStruct.translateContent = xmlRead.text().toString();
@@ -200,7 +200,7 @@ void SearchWidget::loadxml()
                             if (xmlRead.text().toString() != "") //translation not nullptr can set it
                                 m_searchBoxStruct.translateContent = xmlRead.text().toString();
 #if DEBUG_XML_SWITCH
-                            qDebug() << " [wubw SearchWidget] m_searchBoxStruct.translateContent : " << m_searchBoxStruct.translateContent;
+                            qDebug() << " [SearchWidget] m_searchBoxStruct.translateContent : " << m_searchBoxStruct.translateContent;
 #endif
                         } else if (m_xmlExplain == XML_Numerusform) {
                             if (xmlRead.text().toString() != "") //translation not nullptr can set it
@@ -209,6 +209,20 @@ void SearchWidget::loadxml()
                             m_searchBoxStruct.fullPagePath = xmlRead.text().toString();
                             //follow path module name to get actual module name  ->  Left module dispaly can support mulLanguages
                             m_searchBoxStruct.actualModuleName = getModulesName(m_searchBoxStruct.fullPagePath.section('/', 1, 1));
+
+                            //"蓝牙","数位板"不存在则不加载该模块search数据
+                            //目前只用到了模块名，未使用detail信息，之后再添加模块内区分
+                            bool bIsLeapfrog = false;
+                            for (auto value : m_unexsitList) {
+                                if (m_searchBoxStruct.actualModuleName == value.module) {
+                                    bIsLeapfrog = true;
+                                    break;
+                                }
+                            }
+
+                            if (bIsLeapfrog)
+                                continue;
+
                             m_EnterNewPagelist.append(m_searchBoxStruct);
 
                             //Add search result content
@@ -260,7 +274,7 @@ void SearchWidget::loadxml()
                     break;
                 case QXmlStreamReader::EndElement:
 #if DEBUG_XML_SWITCH
-                    qDebug() << " [wubw SearchWidget] -::EndElement: " << xmlRead.name();
+                    qDebug() << " [SearchWidget] -::EndElement: " << xmlRead.name();
 #endif
 //                    if (m_xmlExplain != "") {
 //                        m_xmlExplain = "";
@@ -275,14 +289,14 @@ void SearchWidget::loadxml()
             m_searchBoxStruct.translateContent = "";
             m_searchBoxStruct.actualModuleName = "";
             m_searchBoxStruct.fullPagePath = "";
-            qDebug() << " [wubw SearchWidget] m_EnterNewPagelist.count : " << m_EnterNewPagelist.count();
+            qDebug() << " [SearchWidget] m_EnterNewPagelist.count : " << m_EnterNewPagelist.count();
         } else {
-            qWarning() << " [wubw SearchWidget] File open failed" ;
+            qWarning() << " [SearchWidget] File open failed" ;
         }
 
         file.close();
     } else {
-        qWarning() << " [wubw SearchWidget] File not exist" ;
+        qWarning() << " [SearchWidget] File not exist" ;
     }
 
 
@@ -299,7 +313,7 @@ SearchWidget::SearchBoxStruct SearchWidget::getModuleBtnString(QString value)
     data.fullPagePath = value.section('>', 1, -1).remove('>').trimmed();
 
 #if DEBUG_XML_SWITCH
-    qDebug() << Q_FUNC_INFO << " [wubw SearchWidget] data.translateContent : " << data.translateContent << "   ,  data.fullPagePath : " << data.fullPagePath;
+    qDebug() << Q_FUNC_INFO << " [SearchWidget] data.translateContent : " << data.translateContent << "   ,  data.fullPagePath : " << data.fullPagePath;
 #endif
 
     return data;
@@ -393,8 +407,34 @@ void SearchWidget::addModulesName(QString moduleName, QString searchName)
     data.second = searchName;
     m_moduleNameList.append(data);
 #if DEBUG_XML_SWITCH
-    qDebug() << " [wubw SearchWidget] moduleName : " << moduleName << " , searchName : " << searchName;
+    qDebug() << " [SearchWidget] moduleName : " << moduleName << " , searchName : " << searchName;
 #endif
+}
+
+void SearchWidget::addUnExsitData(QString module, QString datail)
+{
+    for (auto value : m_unexsitList) {
+        if (value.module == module)
+            return;
+    }
+
+    UnexsitStruct data;
+    data.module = module;
+    data.datail = datail;
+    m_unexsitList.append(data);
+
+    loadxml();
+}
+
+void SearchWidget::removeUnExsitData(QString module, QString datail)
+{
+    for (int i = 0; i < m_unexsitList.count(); i++) {
+        if (m_unexsitList.at(i).module == module && m_unexsitList.at(i).datail == datail) {
+            m_unexsitList.removeAt(i);
+            loadxml();
+            break;
+        }
+    }
 }
 
 bool ddeCompleter::eventFilter(QObject *o, QEvent *e)

@@ -369,6 +369,33 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
     if (find_it != m_modules.cend()) {
         m_navView->setRowHidden(find_it - m_modules.cbegin(), !visible);
         Q_EMIT moduleVisibleChanged(find_it->first->name(), visible);
+
+        qDebug() << "[SearchWidget] find_it->first->name() : " << find_it->first->name() << visible;
+        if ("bluetooth" == find_it->first->name()) {
+            if (visible) {
+                m_searchWidget->removeUnExsitData(tr("Bluetooth"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("Bluetooth"));
+
+                //当前处于＂蓝牙＂页面才会回到主页面
+                if (m_contentStack.count() > 0 && m_contentStack.at(0).first->name() == "bluetooth") {
+                    popAllWidgets();
+                    resetNavList(m_contentStack.empty());
+                }
+            }
+        } else if ("wacom" == find_it->first->name()) {
+            if (visible) {
+                m_searchWidget->removeUnExsitData(tr("Drawing Tablet"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("Drawing Tablet"));
+
+                //当前处于＂数位板＂页面才会回到主页面
+                if (m_contentStack.count() > 0 && m_contentStack.at(0).first->name() == "wacom") {
+                    popAllWidgets();
+                    resetNavList(m_contentStack.empty());
+                }
+            }
+        }
     } else {
         qWarning() << Q_FUNC_INFO << "Not found module!";
     }

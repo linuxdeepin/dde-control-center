@@ -63,6 +63,11 @@ public:
         QString pinyin;
     };
 
+    struct UnexsitStruct {
+        QString module;
+        QString datail;
+    };
+
 public:
     SearchWidget(QWidget *parent = nullptr);
     ~SearchWidget() override;
@@ -70,6 +75,8 @@ public:
     bool jumpContentPathWidget(QString path);
     void setLanguage(QString type);
     void addModulesName(QString moduleName, QString searchName);
+    void addUnExsitData(QString module = "", QString datail = "");
+    void removeUnExsitData(QString module = "", QString datail = "");
 
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);
@@ -92,6 +99,7 @@ private:
     QList<QPair<QString, QString>> m_moduleNameList;//用于存储如 "update"和"Update"
     QList<SearchDataStruct> m_inputList;
     bool m_bIsChinese;
+    QList<UnexsitStruct> m_unexsitList;
 };
 
 }// namespace search
