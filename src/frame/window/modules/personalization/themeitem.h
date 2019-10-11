@@ -20,16 +20,19 @@
  */
 #pragma once
 
-#include <dimagebutton.h>
 #include "window/namespace.h"
+
+#include <dtkwidget_global.h>
+
 #include <QWidget>
 #include <QVariant>
 
 class QVBoxLayout;
 class QLabel;
-class QCheckBox;
 
-DWIDGET_USE_NAMESPACE
+DWIDGET_BEGIN_NAMESPACE
+class DIconButton;
+DWIDGET_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 namespace personalization {
@@ -60,7 +63,7 @@ private:
     ThemeItemPic *m_itemPic;  //picture of theme
     QVariant m_id;
     bool m_titleBelowPic;
-    DImageButton *m_imgBtn;
+    DTK_WIDGET_NAMESPACE::DIconButton *m_imgBtn;
 };
 }
 }

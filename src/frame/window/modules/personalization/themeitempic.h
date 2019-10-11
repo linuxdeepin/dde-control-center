@@ -21,8 +21,14 @@
 #pragma once
 
 #include "window/namespace.h"
+
+#include "dtkwidget_global.h"
+
 #include <QWidget>
-#include <QPixmap>
+
+DWIDGET_BEGIN_NAMESPACE
+class DSvgRenderer;
+DWIDGET_END_NAMESPACE
 
 class QSize;
 
@@ -35,7 +41,7 @@ public:
     explicit ThemeItemPic(QWidget *parent = nullptr);
     bool isSelected();
     void setSelected(bool selected);
-    void setPixmap(const QPixmap& pixmap);
+    void setPath(const QString &picPath);
 
 Q_SIGNALS:
     void clicked();
@@ -46,7 +52,7 @@ protected:
 
 private:
     bool m_isSelected = false;
-    QPixmap m_pixmap;
+    DTK_WIDGET_NAMESPACE::DSvgRenderer *render;
 };
 }
 }

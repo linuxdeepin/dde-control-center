@@ -21,11 +21,14 @@
 #include "themeitem.h"
 #include "themeitempic.h"
 
+#include <DIconButton>
+
 #include <QVBoxLayout>
 #include <QLabel>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
+DWIDGET_USE_NAMESPACE
 
 ThemeItem::ThemeItem(bool titleBelowPic, QWidget *parent)
     : QWidget(parent)
@@ -48,9 +51,7 @@ ThemeItem::ThemeItem(bool titleBelowPic, QWidget *parent)
         //icon themes and cursor thems
         QHBoxLayout *titlebuttonLayout = new QHBoxLayout();
         titlebuttonLayout->addWidget(m_title);
-        m_imgBtn = new DImageButton(":/images/notify_close_normal.svg",
-                                    ":/images/notify_close_hover.svg",
-                                    ":/images/notify_close_press.svg", this);
+        m_imgBtn = new DIconButton(DStyle::SP_MarkElement, this);
         m_imgBtn->setDisabled(true);
         titlebuttonLayout->addStretch();
         titlebuttonLayout->addWidget(m_imgBtn);
@@ -82,7 +83,7 @@ void ThemeItem::setSelected(bool selected)
 
 void ThemeItem::setPic(const QString &picPath)
 {
-    m_itemPic->setPixmap(QPixmap(picPath));
+    m_itemPic->setPath(picPath);
     m_mainLayout->setAlignment(m_title, Qt::AlignCenter);
 }
 
@@ -93,6 +94,7 @@ void ThemeItem::setId(const QVariant &id)
 
 void ThemeItem::resizeEvent(QResizeEvent *event)
 {
+    Q_UNUSED(event)
     m_mainLayout->setAlignment(m_title, Qt::AlignCenter);
     m_mainLayout->setAlignment(m_itemPic, Qt::AlignCenter);
 }

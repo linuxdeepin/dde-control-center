@@ -19,14 +19,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "themeitempic.h"
+
+#include <DStyle>
+#include <DSvgRenderer>
+
 #include <QMouseEvent>
 #include <QBitmap>
 #include <QPainter>
 #include <QPainterPath>
 #include <QPalette>
 #include <QDebug>
-
-#include <DStyle>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -35,6 +37,7 @@ DWIDGET_USE_NAMESPACE
 ThemeItemPic::ThemeItemPic(QWidget *parent)
     : QWidget(parent)
     , m_isSelected(false)
+    , render(new DSvgRenderer)
 {
 }
 
@@ -49,13 +52,16 @@ void ThemeItemPic::setSelected(bool selected)
     update();
 }
 
-void ThemeItemPic::setPixmap(const QPixmap &pixmap)
+void ThemeItemPic::setPath(const QString &picPath)
 {
-    m_pixmap = pixmap;
+    render->load(picPath);
+    QSize defaultSize = render->defaultSize();
+
+    int margins = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FrameMargins));
     int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, nullptr);
     int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, nullptr);
-    int totalSpace = borderWidth + borderSpacing;
-    setFixedSize(pixmap.width() + 2 * totalSpace, pixmap.height() + 2 * totalSpace); //extra space from picture to rect edge : 20
+    int totalSpace = borderWidth + borderSpacing + margins;
+    setFixedSize(defaultSize.width() + 2 * totalSpace, defaultSize.height() + 2 * totalSpace);
     update();
 }
 
@@ -69,26 +75,44 @@ void ThemeItemPic::mousePressEvent(QMouseEvent* event)
 
 void ThemeItemPic::paintEvent(QPaintEvent *event)
 {
+    Q_UNUSED(event)
+    int radius = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FrameRadius), nullptr, nullptr);
+    int margins = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FrameMargins));
     int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, nullptr);
     int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, nullptr);
-    int totalSpace = borderWidth + borderSpacing;
+    int totalSpace = borderWidth + borderSpacing + margins;
 
     QPainter painter(this);
-    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
-    int radius = 8;
-    if (m_isSelected) {
-        //draw blue rectangle
-        QPen pen;
-        pen.setBrush(palette().highlight());
-        pen.setWidth(borderWidth);  //pen width
-        painter.setPen(pen);
-        QRect r = rect();
-        painter.drawRoundedRect(r, radius, radius);
-    }
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform | QPainter::HighQualityAntialiasing);
 
-    QPainterPath path;
-    QRect r = rect().adjusted(totalSpace, totalSpace, -totalSpace, -totalSpace);
-    path.addRoundedRect(r, radius, radius);
-    painter.setClipPath(path);
-    painter.drawPixmap(r, m_pixmap);
+    //first draw picture
+    QRect picRect = rect().adjusted(totalSpace, totalSpace, -totalSpace, -totalSpace);
+    render->render(&painter, picRect);
+
+    //second draw picture rounded rect bound
+    QPen pen;
+    pen.setColor(palette().base().color());
+    painter.setPen(pen);
+    painter.drawRoundedRect(picRect, radius, radius);
+
+    //third fill space with base brush
+    QRect r1 = rect().adjusted(margins + borderWidth, margins + borderWidth, -margins - borderWidth, -margins - borderWidth);
+    QPainterPath prect;
+    prect.addRect(rect());
+    QPainterPath outerbound;
+    outerbound.addRoundedRect(r1, radius, radius);
+    QPainterPath innerBound;
+    innerBound.addRoundedRect(picRect, radius, radius);
+    QPainterPath anglePath = prect - outerbound;
+    painter.fillPath(anglePath, palette().base());
+    painter.strokePath(anglePath, QPen(palette().base().color()));
+    QPainterPath spacePath = outerbound - innerBound;
+    painter.fillPath(spacePath, palette().base());
+
+    //last draw blue rectangle
+    if (m_isSelected) {
+        QStyleOption option;
+        option.initFrom(this);
+        style()->drawPrimitive(DStyle::PE_FrameFocusRect, &option, &painter, this);
+    }
 }
