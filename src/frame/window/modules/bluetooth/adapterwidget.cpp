@@ -97,6 +97,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     layout->addSpacing(10);
     layout->addWidget(m_otherDevicesGroup);
     layout->addWidget(m_otherDeviceListView);
+    layout->addSpacing(interval);
     layout->addStretch();
 
     connect(m_switch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleSwitch);
@@ -156,16 +157,25 @@ void AdapterWidget::updateHeight()
 {
     if (m_myDeviceListView) {
         QTimer::singleShot(0, this, [this] {
-            // qDebug() << "my height: " << m_myDeviceListView->contentsSize().height();
             m_myDeviceListView->setFixedHeight(m_myDeviceListView->contentsSize().height());
         });
     }
     if (m_otherDeviceListView) {
         QTimer::singleShot(0, this, [this] {
-            // qDebug() << "other height: " << m_otherDeviceListView->contentsSize();
             m_otherDeviceListView->setFixedHeight(m_otherDeviceListView->contentsSize().height());
         });
     }
+
+    if (!m_switch->checked() && m_myDeviceModel->rowCount() == 0 && m_otherDeviceModel->rowCount() == 0) {
+        setFixedHeight(minHeight);
+    } else {
+        setMaximumHeight(maxHeight);
+    }
+}
+
+bool AdapterWidget::getSwitchState()
+{
+    return m_switch ? m_switch->checked() : false;
 }
 
 void AdapterWidget::loadDetailPage()

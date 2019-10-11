@@ -27,6 +27,10 @@
 
 #include <QWidget>
 
+const int interval = 30;
+const int minHeight = 150;
+const int maxHeight = 10000;
+
 QT_BEGIN_NAMESPACE
 class QLabel;
 class QStandardItemModel;
@@ -58,8 +62,10 @@ public:
     void setAdapter(const dcc::bluetooth::Adapter *adapter);
     const dcc::bluetooth::Adapter *adapter() const;
     void loadDetailPage();
-private:
     void updateHeight();
+    bool getSwitchState();
+
+private:
     void categoryDevice(DeviceSettingsItem *deviceItem, const bool paired);
 public Q_SLOTS:
     void toggleSwitch(const bool checked);

@@ -35,6 +35,12 @@ class PinCodeDialog;
 }
 }
 
+namespace dcc {
+namespace widgets {
+class TranslucentFrame;
+}
+}
+
 namespace DCC_NAMESPACE {
 namespace bluetooth {
 class AdapterWidget;
@@ -68,7 +74,7 @@ private:
     dcc::bluetooth::BluetoothModel *m_model;
     dcc::bluetooth::BluetoothWorker *m_bluetoothWorker;
     QMap<const dcc::bluetooth::Adapter *, AdapterWidget *> m_valueMap;
-    QVBoxLayout *m_contentLayout;
+    dcc::widgets::TranslucentFrame *m_tFrame;
 };
 }
 }
