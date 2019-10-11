@@ -46,7 +46,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_layout(new QVBoxLayout)
 {
     //~ contents_path /sound/Speaker
-    m_sw = new SwitchWidget(new TitleLabel(tr("Speaker")));
+    m_sw = new SwitchWidget(nullptr, new TitleLabel(tr("Speaker")));
 
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addWidget(m_sw);

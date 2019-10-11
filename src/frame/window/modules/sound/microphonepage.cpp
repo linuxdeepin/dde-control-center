@@ -59,7 +59,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
 {
     QHBoxLayout *hlayout = new QHBoxLayout;
     //~ contents_path /sound/Microphone
-    m_sw = new SwitchWidget(new TitleLabel(tr("Microphone")));
+    m_sw = new SwitchWidget(nullptr, new TitleLabel(tr("Microphone")));
     hlayout->addWidget(m_sw);
 
 
