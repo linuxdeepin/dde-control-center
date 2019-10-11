@@ -129,10 +129,8 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this,
             &PersonalizationGeneral::requestSetOpacity);
-    connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this,
-            [this](int value){
-        m_transparentSlider->setValueLiteral(QString::number(1.0 * value/100));
-    });
+    connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::sliderMoved, this,
+            &PersonalizationGeneral::requestSetOpacity);
 }
 
 void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel *model)
