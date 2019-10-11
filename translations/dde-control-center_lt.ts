@@ -748,7 +748,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="363"/>
         <source>Resolution %1x%2</source>
-        <translation type="unfinished"/>
+        <translation>Raiška %1x%2</translation>
     </message>
 </context>
 <context>

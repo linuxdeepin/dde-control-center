@@ -770,7 +770,7 @@
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="122"/>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="131"/>
         <source>Display Scaling</source>
-        <translation>Mise à l&apos;échelle de l&apos;affichage</translation>
+        <translation>Redimensionner l&apos;écran</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
@@ -1108,7 +1108,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="48"/>
         <source>Disable touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Désactiver le pavé tactile pendant l&apos;écriture</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
@@ -1308,7 +1308,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="95"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Cochez la case &quot;utiliser un proxy&quot; dans le menu contextuel du lanceur après la configuration</translation>
+        <translation>Sélectionner l&apos;option &quot;utiliser un proxy&quot; dedans le menu &quot;Démarrrer&quot; contextuel après sa configuration.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="100"/>
@@ -1519,7 +1519,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="67"/>
         <source>Hotspot</source>
-        <translation>Points d&apos;accès</translation>
+        <translation>Point d&apos; Accès -ou PA-</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="68"/>

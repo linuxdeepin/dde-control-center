@@ -25,7 +25,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="162"/>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>Бүртгэл</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="163"/>
@@ -95,12 +95,12 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="176"/>
         <source>System Info</source>
-        <translation type="unfinished"/>
+        <translation>Системийн мэдээлэл</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="177"/>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ерөнхий тохиргоо</translation>
     </message>
 </context>
 <context>
@@ -108,7 +108,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="252"/>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үг солих</translation>
         <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
@@ -126,7 +126,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="261"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үггүй нэвтрэх</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
@@ -137,12 +137,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="265"/>
         <source>Add fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Хурууны хээ нэмэх</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="266"/>
         <source>Delete fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Хурууны хээ устгах</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="334"/>
@@ -181,7 +181,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="127"/>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Хурууны хээг оруулсан</translation>
     </message>
 </context>
 <context>
@@ -280,7 +280,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="99"/>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үг солих</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="101"/>
@@ -4554,7 +4554,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="65"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>Нууц үггүйгээр нэвтрэх</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="69"/>

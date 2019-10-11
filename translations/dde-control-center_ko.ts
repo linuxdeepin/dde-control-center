@@ -25,12 +25,12 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="162"/>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>계정</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="163"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>클라우드 동기화</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="164"/>
@@ -80,7 +80,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="173"/>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>그리기 태블릿</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="174"/>
@@ -95,12 +95,12 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="176"/>
         <source>System Info</source>
-        <translation type="unfinished"/>
+        <translation>시스템 정보</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="177"/>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>일반 설정</translation>
     </message>
 </context>
 <context>
@@ -108,7 +108,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="252"/>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호 변경</translation>
         <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
@@ -126,7 +126,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="261"/>
         <source>Login Without Password</source>
-        <translation>암호없이 로그인</translation>
+        <translation>비밀번호없이 로그인</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
@@ -137,12 +137,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="265"/>
         <source>Add fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>지문 추가</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="266"/>
         <source>Delete fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>지문 삭제</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="334"/>
@@ -160,7 +160,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="75"/>
         <source>Scan again</source>
-        <translation type="unfinished"/>
+        <translation>다시 스캔</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="76"/>
@@ -176,12 +176,12 @@
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="123"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="135"/>
         <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation type="unfinished"/>
+        <translation>지문 인식기에 손가락을 놓거나 위 또는 아래로 스 와이프 한 다음 들어 올립니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="127"/>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>지문 추가됨</translation>
     </message>
 </context>
 <context>
@@ -207,12 +207,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="133"/>
         <source>Full Name</source>
-        <translation type="unfinished"/>
+        <translation>전체 이름</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="134"/>
         <source>optional</source>
-        <translation type="unfinished"/>
+        <translation>선택적</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="135"/>
@@ -222,7 +222,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="137"/>
         <source>Repeat Password</source>
-        <translation>재입력 비밀번호</translation>
+        <translation>비밀번호 재입력</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="140"/>
@@ -237,7 +237,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="226"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호는 비워 둘 수 없음</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="231"/>
@@ -247,12 +247,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="237"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호는 영어 문자 (대소 문자 구분), 숫자 또는 특수 기호 만 포함해야 합니다 (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="243"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호가 일치하지 않음</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="265"/>
@@ -262,7 +262,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>사용자 이름은 3 ~ 32 자 사이 여야합니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
@@ -272,7 +272,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="281"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
-        <translation type="unfinished"/>
+        <translation>사용자 이름에는 a~z, 0~9, - 또는 _만 포함되어야 합니다</translation>
     </message>
 </context>
 <context>
@@ -280,7 +280,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="99"/>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호 변경</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="101"/>
@@ -324,7 +324,7 @@
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="142"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="147"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호는 비워 둘 수 없음</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="152"/>
@@ -334,7 +334,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="157"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호가 일치하지 않음</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="219"/>
@@ -344,7 +344,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="225"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>비밀번호는 영어 문자 (대소 문자 구분), 숫자 또는 특수 기호 만 포함해야 합니다  (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -364,7 +364,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="68"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation type="unfinished"/>
+        <translation>블루투스를 활성화하여 근처 장치 찾기 (스피커, 키보드, 마우스)</translation>
         <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
     </message>
 </context>
@@ -373,7 +373,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Ignore this device</source>
-        <translation type="unfinished"/>
+        <translation>이 장치 무시</translation>
         <extra-contents_path>/bluetooth/Ignore this device</extra-contents_path>
     </message>
     <message>
@@ -385,7 +385,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="53"/>
         <source>Change Name</source>
-        <translation type="unfinished"/>
+        <translation>이름 변경</translation>
         <extra-contents_path>/bluetooth/Change Name</extra-contents_path>
     </message>
 </context>
@@ -424,7 +424,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="84"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation type="unfinished"/>
+        <translation>부팅 메뉴에서 옵션을 클릭하여 첫 번째 부팅으로 설정하고 그림을 끌어다 놓아 배경을 변경하십시오</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="88"/>
@@ -449,7 +449,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="83"/>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>사용자 체험 프로그램</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
 </context>
@@ -458,13 +458,13 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="41"/>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>사용자 체험 프로그램 참여</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="43"/>
         <source>Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</source>
-        <translation type="unfinished"/>
+        <translation>사용자 체험 프로그램 약관에 대해서는 최종 사용자 사용권 계약서 제10조~13조를 참조하십시오.</translation>
     </message>
 </context>
 <context>
@@ -513,7 +513,7 @@
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="291"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="349"/>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>커스터마이즈</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
 </context>
@@ -555,7 +555,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="81"/>
         <source>24-hour Time</source>
-        <translation type="unfinished"/>
+        <translation>24시간</translation>
     </message>
 </context>
 <context>
@@ -569,7 +569,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="45"/>
         <source>System Timezone</source>
-        <translation type="unfinished"/>
+        <translation>시스템 시간대</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -627,7 +627,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="290"/>
         <source>Invalid</source>
-        <translation type="unfinished"/>
+        <translation>올바르지 않음</translation>
     </message>
 </context>
 <context>
@@ -685,7 +685,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="60"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"/>
+        <translation>위치에 따라 화면 색상이 자동으로 조정됩니다</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
@@ -706,7 +706,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="82"/>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>메인 화면</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="87"/>
@@ -716,7 +716,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="92"/>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>재생 빈도</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="118"/>
@@ -731,24 +731,24 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="240"/>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="242"/>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="311"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>추천</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="362"/>
         <source>inch</source>
-        <translation type="unfinished"/>
+        <translation>인치</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="363"/>
         <source>Resolution %1x%2</source>
-        <translation type="unfinished"/>
+        <translation>해상도 %1x%2</translation>
     </message>
 </context>
 <context>
@@ -756,7 +756,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="118"/>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>다중 디스플레이</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
@@ -782,7 +782,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="133"/>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>재생 빈도</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
 </context>
@@ -791,7 +791,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="47"/>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>커스터마이즈</translation>
         <extra-contents_path>/display/Customize</extra-contents_path>
     </message>
     <message>
@@ -807,22 +807,22 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="91"/>
         <source>Show the same image on other screens</source>
-        <translation type="unfinished"/>
+        <translation>다른 화면에서 동일한 이미지 표시</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="92"/>
         <source>Expand the desktop across the screens</source>
-        <translation type="unfinished"/>
+        <translation>화면에서 바탕 화면 확장</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="100"/>
         <source>%1 only</source>
-        <translation type="unfinished"/>
+        <translation>%1 만</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="101"/>
         <source>Show the screen content only on %1</source>
-        <translation type="unfinished"/>
+        <translation>%1에 대해서만 화면 내용 표시</translation>
     </message>
 </context>
 <context>
@@ -830,12 +830,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="75"/>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="77"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>추천</translation>
     </message>
 </context>
 <context>
@@ -843,7 +843,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="117"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>추천</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
@@ -852,17 +852,17 @@
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
-        <translation type="unfinished"/>
+        <translation>회전하려면 왼쪽 클릭하고 복원하려면 마우스 오른쪽 버튼을 클릭한 다음 종료하려면 Ctrl+S를 누르십시오.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="166"/>
         <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
-        <translation type="unfinished"/>
+        <translation>회전하려면 마우스 오른쪽 버튼을 클릭하고 복원하려면 왼쪽 버튼을 클릭한 다음 종료하려면 Ctrl+S를 누르십시오.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="169"/>
         <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>디스플레이 설정을 저장 하시겠습니까? 작업이 수행되지 않으면 디스플레이가 %1로 복원됩니다.</translation>
     </message>
 </context>
 <context>
@@ -870,7 +870,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="52"/>
         <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
-        <translation type="unfinished"/>
+        <translation>일부 응용 프로그램은 다중 디스플레이 환경에서 지정된 설정으로 크기를 조정할 수 없습니다.</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
 </context>
@@ -959,13 +959,13 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="79"/>
         <source>Test here</source>
-        <translation type="unfinished"/>
+        <translation>여기에서 테스트</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="94"/>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>숫자 키패드</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
@@ -992,7 +992,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="95"/>
         <source>Applies to</source>
-        <translation type="unfinished"/>
+        <translation>적용 대상:</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
@@ -1085,7 +1085,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="56"/>
         <source>Add System Language</source>
-        <translation type="unfinished"/>
+        <translation>시스템 언어 추가</translation>
     </message>
 </context>
 <context>
@@ -1093,7 +1093,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="60"/>
         <source>Language List</source>
-        <translation type="unfinished"/>
+        <translation>언어 목록</translation>
         <extra-contents_path>/keyboard/Language List</extra-contents_path>
     </message>
 </context>
@@ -1108,13 +1108,13 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="48"/>
         <source>Disable touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>입력하는 동안 터치패드 사용안함</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="50"/>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>스크롤 속도</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
@@ -1153,7 +1153,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="47"/>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>마우스가 연결되면 터치패드 사용안함</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
@@ -1511,7 +1511,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="71"/>
         <source>Auto Connect</source>
-        <translation type="unfinished"/>
+        <translation>자동 연결</translation>
     </message>
 </context>
 <context>
@@ -1713,12 +1713,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="196"/>
         <source>Personal Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>개인 핫스팟</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="212"/>
         <source>Wired Network %1</source>
-        <translation type="unfinished"/>
+        <translation>유선 네트워크 %1</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
@@ -1750,7 +1750,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="59"/>
         <source>Invalid password</source>
-        <translation type="unfinished"/>
+        <translation>올바르지 않은 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="79"/>
@@ -1983,17 +1983,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="167"/>
         <source>Ask</source>
-        <translation>물음</translation>
+        <translation>묻기</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
         <source>Not Required</source>
-        <translation>필요하지 않습니다.</translation>
+        <translation>필요 없음</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
         <source>Disabled</source>
-        <translation>비활성화됨</translation>
+        <translation>사용안함</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="173"/>
@@ -2018,7 +2018,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="192"/>
         <source>Version 0</source>
-        <translation>0 버전 </translation>
+        <translation>버전 0</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="193"/>
@@ -2056,12 +2056,12 @@
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="411"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="443"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation>CA 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="339"/>
         <source>User Cert</source>
-        <translation>사용자 Cert</translation>
+        <translation>사용자 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="361"/>
@@ -2105,7 +2105,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="576"/>
         <source>Invalid password</source>
-        <translation type="unfinished"/>
+        <translation>올바르지 않은 비밀번호</translation>
     </message>
 </context>
 <context>
@@ -2114,7 +2114,7 @@
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="73"/>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="80"/>
         <source>Invalid password</source>
-        <translation type="unfinished"/>
+        <translation>올바르지 않은 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="113"/>
@@ -2166,7 +2166,7 @@
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="68"/>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="76"/>
         <source>Invalid password</source>
-        <translation type="unfinished"/>
+        <translation>올바르지 않은 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="107"/>
@@ -2214,7 +2214,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation>VPN Advanced</translation>
+        <translation>VPN 고급</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
@@ -2229,12 +2229,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
         <source>Customize Renegotiation Interval</source>
-        <translation>사용자 정의된 Renegotiation 간격</translation>
+        <translation>커스터마이즈 재조정 간격</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
         <source>Renegotiation Interval</source>
-        <translation>Renegotiation 간격</translation>
+        <translation>재조정 간격</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
@@ -2287,12 +2287,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="33"/>
         <source>VPN Advanced</source>
-        <translation>VPN Advanced</translation>
+        <translation>VPN 고급</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="142"/>
         <source>Cisco (default)</source>
-        <translation>시스코 (기본)</translation>
+        <translation>시스코 (기본값)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="143"/>
@@ -2302,7 +2302,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
         <source>Secure (default)</source>
-        <translation>안전 (디폴트)</translation>
+        <translation>보안 (기본값)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="147"/>
@@ -2318,7 +2318,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
         <source>NAT-T When Available (default)</source>
-        <translation>NAT-T 이용 가능할 시 (디폴트)</translation>
+        <translation>NAT-T 사용 가능한 경우 (기본값)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
@@ -2333,7 +2333,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="154"/>
         <source>Disabled</source>
-        <translation>비활성화됨</translation>
+        <translation>사용안함</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
@@ -2344,7 +2344,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="158"/>
         <source>DH Group 2 (default)</source>
-        <translation>DH 2 그룹 (디폴트)</translation>
+        <translation>DH 그룹 2 (기본값)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="159"/>
@@ -2355,7 +2355,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="162"/>
         <source>Server (default)</source>
-        <translation>서버(기본값)</translation>
+        <translation>서버 (기본값)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="165"/>
@@ -2405,7 +2405,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="233"/>
         <source>Disable Dead Peer Detection</source>
-        <translation>죽은 피어 발견 비활성화</translation>
+        <translation>데드 피어 감지 사용안함</translation>
     </message>
 </context>
 <context>
@@ -2466,7 +2466,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation>CA 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
@@ -2486,7 +2486,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
         <source>User Cert</source>
-        <translation>사용자 Cert</translation>
+        <translation>사용자 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
@@ -2509,7 +2509,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
         <source>Certificates (TLS)</source>
-        <translation>증명서 (TLS)</translation>
+        <translation>인증서 (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
@@ -2520,7 +2520,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
         <source>Certificates with Password (TLS)</source>
-        <translation>비밀 번호로 인증 (TLS)</translation>
+        <translation>비밀번호가 있는 인증서 (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="119"/>
@@ -2536,12 +2536,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
         <source>Ask</source>
-        <translation>물음</translation>
+        <translation>묻기</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="126"/>
         <source>Not Required</source>
-        <translation>필요하지 않습니다.</translation>
+        <translation>필요 없음</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
@@ -2565,12 +2565,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="148"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation>CA 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="180"/>
         <source>User Cert</source>
-        <translation>사용자 Cert</translation>
+        <translation>사용자 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="184"/>
@@ -2617,7 +2617,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="411"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="439"/>
         <source>Invalid password</source>
-        <translation type="unfinished"/>
+        <translation>올바르지 않은 비밀번호</translation>
     </message>
 </context>
 <context>
@@ -2630,7 +2630,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
-        <translation>모두 이용 가능 (기본)</translation>
+        <translation>모두 사용가능 (기본값)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
@@ -2746,12 +2746,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="87"/>
         <source>Invalid password</source>
-        <translation type="unfinished"/>
+        <translation>올바르지 않은 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
         <source>Not Required</source>
-        <translation>필요하지 않습니다.</translation>
+        <translation>필요 없음</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="144"/>
@@ -2859,7 +2859,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="72"/>
         <source>Invalid password</source>
-        <translation type="unfinished"/>
+        <translation>올바르지 않은 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
@@ -2869,12 +2869,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
         <source>Ask</source>
-        <translation>물음</translation>
+        <translation>묻기</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
         <source>Not Required</source>
-        <translation>필요하지 않습니다.</translation>
+        <translation>필요 없음</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
@@ -2958,7 +2958,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
         <source>Smart Card</source>
-        <translation type="unfinished"/>
+        <translation>스마트 카드</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
@@ -2983,7 +2983,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation>CA 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
@@ -2993,7 +2993,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="171"/>
         <source>User Cert</source>
-        <translation>사용자 Cert</translation>
+        <translation>사용자 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="177"/>
@@ -3066,7 +3066,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="92"/>
         <source>Remote Cert Type</source>
-        <translation>원격 Cert 타입</translation>
+        <translation>원격 인증서 유형</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="104"/>
@@ -3095,7 +3095,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="84"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="98"/>
         <source>Invalid password</source>
-        <translation type="unfinished"/>
+        <translation>올바르지 않은 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
@@ -3105,12 +3105,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="164"/>
         <source>Ask</source>
-        <translation>물음</translation>
+        <translation>묻기</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="165"/>
         <source>Not Required</source>
-        <translation>필요하지 않습니다.</translation>
+        <translation>필요 없음</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
@@ -3173,7 +3173,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="67"/>
         <source>Wired Network Adapter</source>
-        <translation type="unfinished"/>
+        <translation>유선 네트워크 어댑터</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="89"/>
@@ -3191,7 +3191,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="167"/>
         <source>Wireless Network Adapter</source>
-        <translation type="unfinished"/>
+        <translation>무선 네트워크 어댑터</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="173"/>
@@ -3201,7 +3201,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="176"/>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation>무선 네트워크에 연결하려면 먼저 핫스팟 공유를 비활성화하세요</translation>
+        <translation>무선 네트워크에 연결하려면 먼저 핫스팟 공유를 사용하지 않도록 설정하세요</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="198"/>
@@ -3283,7 +3283,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="71"/>
         <source>Accent Color</source>
-        <translation type="unfinished"/>
+        <translation>강조 색상</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
@@ -3331,7 +3331,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="85"/>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>어두움</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
@@ -3357,7 +3357,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="80"/>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>어두움</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
@@ -3392,14 +3392,14 @@
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="43"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="56"/>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>컴퓨터의 절전 모드를 종료하려면 비밀번호가 필요합니다</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="58"/>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>모니터를 깨우려면 비밀번호가 필요합니다</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
 </context>
@@ -3413,7 +3413,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="211"/>
         <source>Battery critically low</source>
-        <translation type="unfinished"/>
+        <translation>배터리 잔량 부족</translation>
     </message>
 </context>
 <context>
@@ -3427,13 +3427,13 @@
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="60"/>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>연결됨</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="62"/>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>배터리 켜기</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
 </context>
@@ -3457,7 +3457,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="54"/>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>다음에 화면 잠금</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
@@ -3513,7 +3513,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="45"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="55"/>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>다음에 화면 잠금</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
@@ -3566,7 +3566,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="130"/>
         <source>Sound Card:</source>
-        <translation type="unfinished"/>
+        <translation>사운드 카드:</translation>
     </message>
 </context>
 <context>
@@ -3586,7 +3586,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="121"/>
         <source>Input Level</source>
-        <translation type="unfinished"/>
+        <translation>입력 수준</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
 </context>
@@ -3657,7 +3657,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="43"/>
         <source>Syncing...</source>
-        <translation type="unfinished"/>
+        <translation>동기화중...</translation>
         <extra-contents_path>/cloudsync/Syncing...</extra-contents_path>
     </message>
     <message>
@@ -3693,7 +3693,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="137"/>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>도크</translation>
         <extra-contents_path>/cloudsync/Dock</extra-contents_path>
     </message>
     <message>
@@ -3723,13 +3723,13 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="147"/>
         <source>Corner Settings</source>
-        <translation>가장자리 설정</translation>
+        <translation>모서리 설정</translation>
         <extra-contents_path>/cloudsync/Corner Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="247"/>
         <source>Last Sync: %1</source>
-        <translation type="unfinished"/>
+        <translation>마지막 동기화: %1</translation>
         <extra-contents_path>/cloudsync/Last Sync:</extra-contents_path>
     </message>
     <message>
@@ -3749,19 +3749,19 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="21"/>
         <source>Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</source>
-        <translation type="unfinished"/>
+        <translation>Deepin ID로 로그인하고 클라우드 동기화를 켜서 특정 시스템 설정을 동기화하십시오.</translation>
         <extra-contents_path>/cloudsync/Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="27"/>
         <source>Deepin ID Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Deepin ID 로그인</translation>
         <extra-contents_path>/cloudsync/Deepin ID Sign In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="33"/>
         <source>Only supported in Mainland China at present</source>
-        <translation type="unfinished"/>
+        <translation>현재 중국 본토에서만 지원</translation>
         <extra-contents_path>/cloudsync/Only supported in Mainland China at present</extra-contents_path>
     </message>
 </context>
@@ -3770,7 +3770,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="38"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation type="unfinished"/>
+        <translation>죄송합니다. 현재 해당 지역에서 지원되지 않으며 곧 제공 될 예정입니다</translation>
         <extra-contents_path>/cloudsync/Sorry, it is not supported in your region at present, and will be coming soon</extra-contents_path>
     </message>
     <message>
@@ -3810,7 +3810,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="101"/>
         <source>%1-bit</source>
-        <translation type="unfinished"/>
+        <translation>%1-bit</translation>
     </message>
 </context>
 <context>
@@ -3818,7 +3818,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="63"/>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>이 PC 정보</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -3840,7 +3840,7 @@
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="46"/>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="63"/>
         <source>Mirror List</source>
-        <translation type="unfinished"/>
+        <translation>미러 목록</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
     <message>
@@ -3861,7 +3861,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="70"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="unfinished"/>
+        <translation>시스템 및 응용 프로그램을 올바르게 사용하려면 컴퓨터를 다시 시작하십시오</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -3929,7 +3929,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="276"/>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>업데이트 실패: 디스크 공간 부족</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -3941,31 +3941,31 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="289"/>
         <source>Backing up, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>백업 중, 잠시 기다리십시오...</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="295"/>
         <source>System backup failed</source>
-        <translation type="unfinished"/>
+        <translation>시스템 백업 실패함</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="319"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n 응용 프로그램 업데이트 사용가능</numerusform></translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="325"/>
         <source>New system edition available</source>
-        <translation type="unfinished"/>
+        <translation>새로운 시스템 에디션 사용가능</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="328"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>새로운 시스템 에디션 및 %n 애플리케이션 업데이트 사용가능</numerusform></translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -3998,7 +3998,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatehistorybutton.cpp" line="49"/>
         <source>Update History</source>
-        <translation type="unfinished"/>
+        <translation>업데이트 기록</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
@@ -4024,7 +4024,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="67"/>
         <source>Auto Download Updates</source>
-        <translation type="unfinished"/>
+        <translation>자동 다운로드 업데이트</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="70"/>
@@ -4035,13 +4035,13 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="78"/>
         <source>System Repository Detection</source>
-        <translation type="unfinished"/>
+        <translation>시스템 저장소 감지</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="83"/>
         <source>Show a notification if system update repository has been modified</source>
-        <translation type="unfinished"/>
+        <translation>시스템 업데이트 저장소가 수정된 경우 알림 표시</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
@@ -4059,7 +4059,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="120"/>
         <source>Mirror List</source>
-        <translation type="unfinished"/>
+        <translation>미러 목록</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
 </context>
@@ -4080,25 +4080,25 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="72"/>
         <source>Last Update</source>
-        <translation type="unfinished"/>
+        <translation>마지막 업데이트</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="117"/>
         <source>Return</source>
-        <translation type="unfinished"/>
+        <translation>반환</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="167"/>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="174"/>
         <source>Current Edition</source>
-        <translation type="unfinished"/>
+        <translation>현재 에디션</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="183"/>
         <source>Update History</source>
-        <translation type="unfinished"/>
+        <translation>업데이트 기록</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
@@ -4732,7 +4732,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="271"/>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="274"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>비밀번호는 영어 알파벳 (대/소문자 구분), 숫자, 또는 특수기호 (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) 를 반드시 포함해야 합니다.</translation>
+        <translation>비밀번호는 영어 문자 (대소 문자 구분), 숫자 또는 특수 기호를 포함해야 합니다 (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -4838,7 +4838,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="223"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>비밀 번호는 영어 알파벳 (대소문자 구분 주의), 숫자, 또는 특수기호 (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) 를 반드시 포함하여야 합니다.</translation>
+        <translation>비밀번호는 영어 문자 (대소 문자 구분), 숫자 또는 특수 기호를 포함해야 합니다 (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
 </context>
 <context>
@@ -4941,7 +4941,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="29"/>
         <source>Syncing</source>
-        <translation type="unfinished"/>
+        <translation>동기화중</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="30"/>
@@ -4951,7 +4951,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="34"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation type="unfinished"/>
+        <translation>죄송합니다. 현재 해당 지역에서 지원되지 않으며 곧 제공 될 예정입니다</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
@@ -4961,7 +4961,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
         <source>Switch it on to sync part of the settings for Control Center, Launcher and Dock automatically.</source>
-        <translation type="unfinished"/>
+        <translation>제어 센터, 실행기 및 도크에 대한 설정의 일부를 자동으로 동기화하려면 이 기능을 켜십시오.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="79"/>
@@ -4986,7 +4986,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>도크</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
@@ -5011,12 +5011,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="88"/>
         <source>Corner Settings</source>
-        <translation>가장자리 설정</translation>
+        <translation>모서리 설정</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="214"/>
         <source>Last Sync: %1</source>
-        <translation type="unfinished"/>
+        <translation>마지막 동기화: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="216"/>
@@ -5035,12 +5035,12 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="150"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>클라우드 동기화</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
         <source>Only supported in Mainland China at present</source>
-        <translation type="unfinished"/>
+        <translation>현재 중국 본토에서만 지원</translation>
     </message>
 </context>
 <context>
@@ -5492,7 +5492,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="116"/>
         <source>This shortcut conflicts with %1, click on Save to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>이 바로가기는 %1과(와) 충돌합니다. 저장을 클릭하여 이 바로가기를 즉시 적용하십시오</translation>
     </message>
 </context>
 <context>
@@ -5689,7 +5689,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="82"/>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>새 바로가기 입력</translation>
     </message>
 </context>
 <context>
@@ -5770,7 +5770,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="54"/>
         <source>Disable the touchpad while typing</source>
-        <translation>입력 중 터치패드 비활성화</translation>
+        <translation>입력하는 동안 터치패드 사용안함</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="55"/>
@@ -5797,7 +5797,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="61"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>마우스를 사용할때 터치 패드 비활성화</translation>
+        <translation>마우스를 사용할때 터치 패드 사용안함</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="62"/>
@@ -5826,22 +5826,22 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <source>Palm Detection</source>
-        <translation type="unfinished"/>
+        <translation>손바닥 감지</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <source>Minimum Contact Surface</source>
-        <translation type="unfinished"/>
+        <translation>최소 접촉면</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <source>Minimum Pressure Value</source>
-        <translation type="unfinished"/>
+        <translation>최소 압력 값</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="73"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>터치 패드를 활성화 한 후 작동하지 않는 경우 옵션을 사용하지 않도록 설정</translation>
     </message>
 </context>
 <context>
@@ -6551,17 +6551,17 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="164"/>
         <source>Ask</source>
-        <translation>물음</translation>
+        <translation>묻기</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="165"/>
         <source>Not Required</source>
-        <translation>필요하지 않습니다.</translation>
+        <translation>필요 없음</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="169"/>
         <source>Disabled</source>
-        <translation>비활성화됨</translation>
+        <translation>사용안함</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="170"/>
@@ -6624,12 +6624,12 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="387"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="423"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation>CA 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="310"/>
         <source>User Cert</source>
-        <translation>사용자 Cert</translation>
+        <translation>사용자 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="332"/>
@@ -6765,7 +6765,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation>VPN Advanced</translation>
+        <translation>VPN 고급</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
@@ -6838,12 +6838,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation>VPN Advanced</translation>
+        <translation>VPN 고급</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="140"/>
         <source>Cisco (default)</source>
-        <translation>시스코 (기본)</translation>
+        <translation>시스코 (기본값)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="141"/>
@@ -6853,7 +6853,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="144"/>
         <source>Secure (default)</source>
-        <translation>안전 (디폴트)</translation>
+        <translation>보안 (기본값)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="145"/>
@@ -6869,7 +6869,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="149"/>
         <source>NAT-T When Available (default)</source>
-        <translation>NAT-T 이용 가능할 시 (디폴트)</translation>
+        <translation>NAT-T 사용 가능한 경우 (기본값)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="150"/>
@@ -6884,7 +6884,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
         <source>Disabled</source>
-        <translation>비활성화됨</translation>
+        <translation>사용안함</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="155"/>
@@ -6895,7 +6895,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="156"/>
         <source>DH Group 2 (default)</source>
-        <translation>DH 2 그룹 (디폴트)</translation>
+        <translation>DH 그룹 2 (기본값)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
@@ -6956,7 +6956,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="211"/>
         <source>Disable Dead Peer Detection</source>
-        <translation>죽은 피어 발견 비활성화</translation>
+        <translation>데드 피어 감지 사용안함</translation>
     </message>
 </context>
 <context>
@@ -7017,7 +7017,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation>CA 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
@@ -7037,7 +7037,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
         <source>User Cert</source>
-        <translation>사용자 Cert</translation>
+        <translation>사용자 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
@@ -7060,7 +7060,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="115"/>
         <source>Certificates (TLS)</source>
-        <translation>증명서 (TLS)</translation>
+        <translation>인증서 (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
@@ -7071,7 +7071,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
         <source>Certificates with Password (TLS)</source>
-        <translation>비밀 번호로 인증 (TLS)</translation>
+        <translation>비밀번호가 있는 인증서 (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
@@ -7087,12 +7087,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
         <source>Ask</source>
-        <translation>물음</translation>
+        <translation>묻기</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
         <source>Not Required</source>
-        <translation>필요하지 않습니다.</translation>
+        <translation>필요 없음</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="131"/>
@@ -7116,12 +7116,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="145"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation>CA 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="177"/>
         <source>User Cert</source>
-        <translation>사용자 Cert</translation>
+        <translation>사용자 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
@@ -7175,7 +7175,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
-        <translation>모두 이용 가능 (기본)</translation>
+        <translation>모두 사용가능 (기본값)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
@@ -7341,7 +7341,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="135"/>
         <source>Not Required</source>
-        <translation>필요하지 않습니다.</translation>
+        <translation>필요 없음</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="136"/>
@@ -7454,12 +7454,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
         <source>Ask</source>
-        <translation>물음</translation>
+        <translation>묻기</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
         <source>Not Required</source>
-        <translation>필요하지 않습니다.</translation>
+        <translation>필요 없음</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
@@ -7568,7 +7568,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation>CA 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
@@ -7578,7 +7578,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="169"/>
         <source>User Cert</source>
-        <translation>사용자 Cert</translation>
+        <translation>사용자 인증서</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="175"/>
@@ -7651,7 +7651,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
         <source>Remote Cert Type</source>
-        <translation>원격 Cert 타입</translation>
+        <translation>원격 인증서 유형</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="100"/>
@@ -7684,12 +7684,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="160"/>
         <source>Ask</source>
-        <translation>물음</translation>
+        <translation>묻기</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
         <source>Not Required</source>
-        <translation>필요하지 않습니다.</translation>
+        <translation>필요 없음</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="167"/>
@@ -7780,7 +7780,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation>무선 네트워크에 연결하려면 먼저 핫스팟 공유를 비활성화하세요</translation>
+        <translation>무선 네트워크에 연결하려면 먼저 핫스팟 공유를 사용하지 않도록 설정하세요</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
@@ -8191,7 +8191,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>클라우드 동기화</translation>
     </message>
 </context>
 <context>
@@ -8527,7 +8527,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
         <source>System Source Detection</source>
-        <translation>시스템 원본 탐지</translation>
+        <translation>시스템 소스 감지</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>
@@ -8646,7 +8646,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/main.cpp" line="62"/>
         <source>Control Center provides all system settings for deepin users.</source>
-        <translation type="unfinished"/>
+        <translation>제어 센터는 deepin 사용자를 위한 모든 시스템 설정을 제공합니다.</translation>
     </message>
 </context>
 </TS>

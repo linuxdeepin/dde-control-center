@@ -424,7 +424,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="84"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation type="unfinished"/>
+        <translation>Ви можете вибрати пункт у меню завантаження, який слід зробити першим, а також перетягнути і скинути зображення, яке слід використати як тло.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="88"/>
@@ -685,7 +685,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="60"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"/>
+        <translation>Відтінок екрана буде автоматично налаштовано відповідно до вашого розташування</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
@@ -748,7 +748,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="363"/>
         <source>Resolution %1x%2</source>
-        <translation type="unfinished"/>
+        <translation>Роздільна здатність — %1x%2</translation>
     </message>
 </context>
 <context>
@@ -1085,7 +1085,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="56"/>
         <source>Add System Language</source>
-        <translation type="unfinished"/>
+        <translation>Додати мову системи</translation>
     </message>
 </context>
 <context>
@@ -1093,7 +1093,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="60"/>
         <source>Language List</source>
-        <translation type="unfinished"/>
+        <translation>Список мов</translation>
         <extra-contents_path>/keyboard/Language List</extra-contents_path>
     </message>
 </context>
@@ -3586,7 +3586,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="121"/>
         <source>Input Level</source>
-        <translation type="unfinished"/>
+        <translation>Рівень введення</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
 </context>

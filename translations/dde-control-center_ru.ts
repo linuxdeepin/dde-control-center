@@ -424,7 +424,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="84"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation type="unfinished"/>
+        <translation>Выберите вариант в меню загрузки, чтобы задать его в качестве первоначально загружаемого, и перетащите сюда изображение, чтобы изменить фон</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="88"/>
@@ -685,7 +685,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="60"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"/>
+        <translation>Тон экрана будет автоматически отрегулирован в соответствии с вашим местоположением</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
@@ -748,7 +748,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="363"/>
         <source>Resolution %1x%2</source>
-        <translation type="unfinished"/>
+        <translation>Разрешение %1x%2</translation>
     </message>
 </context>
 <context>
@@ -1085,7 +1085,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="56"/>
         <source>Add System Language</source>
-        <translation type="unfinished"/>
+        <translation>Добавить Язык Системы</translation>
     </message>
 </context>
 <context>
@@ -1093,7 +1093,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="60"/>
         <source>Language List</source>
-        <translation type="unfinished"/>
+        <translation>Список Языков</translation>
         <extra-contents_path>/keyboard/Language List</extra-contents_path>
     </message>
 </context>
@@ -3586,7 +3586,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="121"/>
         <source>Input Level</source>
-        <translation type="unfinished"/>
+        <translation>Уровень Входного сигнала</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
 </context>
@@ -8099,7 +8099,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="70"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="86"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Отправить значок в меню Выбора Программ</translation>
+        <translation>Отправить значок в меню Выбора Программ на Рабочий Стол</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="71"/>
