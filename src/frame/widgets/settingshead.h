@@ -29,6 +29,10 @@
 #include "widgets/settingsitem.h"
 #include <QPushButton>
 
+DWIDGET_BEGIN_NAMESPACE
+class DCommandLinkButton;
+DWIDGET_END_NAMESPACE
+
 namespace dcc {
 namespace widgets {
 
@@ -38,16 +42,15 @@ class SettingsHead : public SettingsItem
     Q_OBJECT
 
 public:
-    enum State
-    {
+    enum State {
         Edit,
         Cancel,
     };
 
 public:
-    explicit SettingsHead(QFrame *parent = 0);
+    explicit SettingsHead(QFrame *parent = nullptr);
 
-    void setTitle(const QString& title);
+    void setTitle(const QString &title);
     void setEditEnable(bool state = true);
 
 public Q_SLOTS:
@@ -62,8 +65,8 @@ private Q_SLOTS:
 
 private:
     NormalLabel *m_title;
-    QPushButton *m_edit;
-    QPushButton *m_cancel;
+    DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_edit;
+    DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_cancel;
 
     State m_state;
 };

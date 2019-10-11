@@ -24,28 +24,25 @@
  */
 
 #include "widgets/settingshead.h"
+#include "widgets/labels/normallabel.h"
+
+#include <DCommandLinkButton>
+
 #include <QHBoxLayout>
 #include <QMouseEvent>
 #include <QApplication>
 
-#include "widgets/labels/normallabel.h"
-
-namespace dcc {
-namespace widgets {
+using namespace dcc::widgets;
+DWIDGET_USE_NAMESPACE
 
 SettingsHead::SettingsHead(QFrame *parent)
-    : SettingsItem(parent),
-
-      m_title(new NormalLabel),
-      m_edit(new QPushButton),
-      m_cancel(new QPushButton),
-
-      m_state(Cancel)
+    : SettingsItem(parent)
+    , m_title(new NormalLabel)
+    , m_edit(new DCommandLinkButton(""))
+    , m_cancel(new DCommandLinkButton(""))
+    , m_state(Cancel)
 {
     m_title->setObjectName("SettingsHeadTitle");
-
-    m_edit->setFlat(true);
-    m_cancel->setFlat(true);
 
     // can not translate correctly just using tr()
     m_edit->setText(qApp->translate("SettingsHead", "Edit"));
@@ -64,11 +61,10 @@ SettingsHead::SettingsHead(QFrame *parent)
     mainLayout->addWidget(m_edit);
     mainLayout->addWidget(m_cancel);
 
-    //setFixedHeight(24);
     setLayout(mainLayout);
 
-    connect(m_edit, &QPushButton::clicked, this, &SettingsHead::toEdit);
-    connect(m_cancel, &QPushButton::clicked, this, &SettingsHead::toCancel);
+    connect(m_edit, &DCommandLinkButton::clicked, this, &SettingsHead::toEdit);
+    connect(m_cancel, &DCommandLinkButton::clicked, this, &SettingsHead::toCancel);
 }
 
 void SettingsHead::setTitle(const QString &title)
@@ -109,8 +105,4 @@ void SettingsHead::refershButton()
 {
     m_edit->setVisible(m_state == Cancel);
     m_cancel->setVisible(m_state == Edit);
-}
-
-}
-
 }
