@@ -117,8 +117,7 @@ IndexPage::IndexPage(QWidget *parent)
     backgroundLayout->addSpacing(20);
     backgroundLayout->addWidget(m_listView, 1);
 
-
-    m_mainLayout->addWidget(scrollArea, 0, Qt::AlignHCenter);
+    m_mainLayout->addWidget(scrollArea, 9, Qt::AlignHCenter);
     m_mainLayout->addLayout(bottomLayout, 1);
 
     m_listView->setModel(m_listModel);
