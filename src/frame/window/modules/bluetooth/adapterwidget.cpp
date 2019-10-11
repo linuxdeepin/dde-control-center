@@ -117,7 +117,10 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
         }
         for (auto it: m_myDevices) {
             if (it->getStandardItem() == item) {
-                it->requestConnectDevice(it->device());
+                if (it->device()->state() != Device::StateConnected) {
+                    it->requestConnectDevice(it->device());
+                }
+                Q_EMIT requestShowDetail(m_adapter, it->device());
                 break;
             }
         }

@@ -78,6 +78,11 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
             Q_EMIT back();
         }
     });
+    connect(adapter, &Adapter::poweredChanged, this, [this] (const bool &powered) {
+        if (!powered) {
+            Q_EMIT back();
+        }
+    });
     connect(m_editDevName, &QLineEdit::editingFinished, this, &DetailPage::onDeviceNameChanged);
     connect(adapter, &Adapter::destroyed, this, &DetailPage::back);
 }
