@@ -346,13 +346,5 @@ void Port::setCardId(const uint &cardId)
     }
 }
 
-void Port::setCardStatus(const Status &cardStatus)
-{
-    if (cardStatus != m_cardStatus) {
-        m_cardStatus = cardStatus;
-        Q_EMIT cardStatusChanged(cardStatus);
-    }
-}
-
 } // namespace sound
 } // namespace dcc
