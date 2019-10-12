@@ -28,7 +28,6 @@
 
 QT_BEGIN_NAMESPACE
 class QLabel;
-class QLineEdit;
 QT_END_NAMESPACE
 
 namespace dcc {
@@ -70,7 +69,7 @@ public Q_SLOTS:
 private:
     dcc::keyboard::KeyboardWorker *m_work;
     dcc::keyboard::CustomItem *m_shortcut;
-    QLineEdit *m_shortCutNameEdit;
+    DTK_WIDGET_NAMESPACE::DLineEdit *m_shortCutNameEdit;
     DTK_WIDGET_NAMESPACE::DFileChooserEdit *m_shortCutCmdEdit;
     QLabel *m_bottomTip;
     dcc::keyboard::ShortcutInfo *m_conflict;

@@ -32,6 +32,8 @@
 
 #include <dfilechooseredit.h>
 
+#include <DLineEdit>
+
 #include <QMap>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -64,8 +66,9 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     //~ contents_path /keyboard/Shortcuts/Custom Shortcut
     QLabel *shortCutName = new QLabel(tr("Name"));
     mainLayout->addWidget(shortCutName);
-    m_shortCutNameEdit = new QLineEdit;
-    m_shortCutNameEdit->setPlaceholderText(tr("Required"));
+
+    m_shortCutNameEdit = new DLineEdit;
+    m_shortCutNameEdit->lineEdit()->setPlaceholderText(tr("Required"));
     mainLayout->addWidget(m_shortCutNameEdit);
 
     //~ contents_path /keyboard/Shortcuts/Custom Shortcut
@@ -125,16 +128,18 @@ void CustomContent::setBottomTip(ShortcutInfo *conflict)
 
 void CustomContent::onShortcut()
 {
-    if (m_shortCutNameEdit->text().isEmpty() || m_shortCutCmdEdit->text().isEmpty() || m_shortcut->text().isEmpty()) {
-        qDebug() << "Error text";
+    m_shortCutNameEdit->setAlert(m_shortCutNameEdit->text().isEmpty());
+    m_shortCutCmdEdit->setAlert(m_shortCutCmdEdit->lineEdit()->text().isEmpty());
+
+    if (m_shortcut->text().isEmpty() || m_shortCutCmdEdit->lineEdit()->text().isEmpty() || m_shortCutNameEdit->text().isEmpty()) {
         return;
     }
+
     if (m_conflict)
         Q_EMIT requestForceSubs(m_conflict);
 
     Q_EMIT requestAddKey(m_shortCutNameEdit->text(), m_shortCutCmdEdit->text(), m_shortcut->text());
     Q_EMIT back();
-
 }
 
 void CustomContent::keyEvent(bool press, const QString &shortcut)
