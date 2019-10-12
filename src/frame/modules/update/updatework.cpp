@@ -325,9 +325,10 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
         m_model->setStatus(UpdatesStatus::Updated);
     } else {
         if (result->downloadSize()) {
-            if (!compareDouble(m_downloadProcess, 0.0))
+            qDebug() << "[wubw download] get download process from DBus (0 : UpdatesAvailable), m_downloadProcess : " << m_downloadProcess;
+            if (!compareDouble(m_downloadProcess, 0.0)) {
                 m_model->setStatus(UpdatesStatus::UpdatesAvailable);
-            else {
+            } else {
                 m_model->setUpgradeProgress(m_downloadProcess);
                 m_model->setStatus(UpdatesStatus::DownloadPaused);
             }
@@ -590,12 +591,27 @@ void UpdateWorker::recoveryStartRestore()
     m_abRecoveryInter->StartRestore();
 }
 
+void UpdateWorker::onNotifyDownloadInfoChanged()
+{
+    qDebug() << "[wubw download] get download info , then to set UpdatesStatus::Downloading status. status , m_downloadProcess : " << m_model->status() << m_downloadProcess;
+
+    m_model->setStatus(UpdatesStatus::Downloading);
+    DownloadInfo *info = m_model->downloadInfo();
+    if (info) {
+        info->setDownloadProgress(m_downloadProcess);
+        m_model->setUpgradeProgress(m_downloadProcess);
+    } else {
+        qWarning() << "[UpdateWorker] DownloadInfo is nullptr.";
+    }
+}
+
 void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
 {
     if (!m_checkUpdateJob.isNull())
         return;
 
-    m_model->setStatus(UpdatesStatus::Checking);
+    if (UpdatesStatus::Checking == m_model->status())
+        m_model->setStatus(UpdatesStatus::Checking);
 
     m_checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
     connect(m_checkUpdateJob, &__Job::StatusChanged, [this](const QString & status) {
@@ -635,11 +651,17 @@ void UpdateWorker::setDownloadJob(const QString &jobPath)
         qDebug() << "[wubw download] m_downloadJob, value : " << value;
         //防止退出后再次进入不确定当前升级的状态,设置正在下载中.
         //假如dbus一直收不到该信号,还是会存在从check直接调到结果的问题(此时就是底层的问题了)
-        m_model->setStatus(UpdatesStatus::Downloading);
         m_downloadProcess = value;
         DownloadInfo *info = m_model->downloadInfo();
-        info->setDownloadProgress(value);
-        m_model->setUpgradeProgress(value);
+        //异步加载数据,会导致下载信息还未获取就先取到了下载进度
+        if (info) {
+            m_model->setStatus(UpdatesStatus::Downloading);
+            info->setDownloadProgress(value);
+            m_model->setUpgradeProgress(value);
+        } else {
+            //等待下载信息加载后,再通过 onNotifyDownloadInfoChanged() 设置"UpdatesStatus::Downloading"状态
+            qWarning() << "[wubw download] DownloadInfo is nullptr , waitfor download info";
+        }
     });
 
     connect(m_downloadJob, &__Job::StatusChanged, this, &UpdateWorker::onDownloadStatusChanged);

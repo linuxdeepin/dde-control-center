@@ -88,6 +88,7 @@ public Q_SLOTS:
 #endif
     void recoveryCanBackup();
     void recoveryStartRestore();
+    void onNotifyDownloadInfoChanged();
 
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);

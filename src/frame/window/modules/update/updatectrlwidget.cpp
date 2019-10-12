@@ -73,7 +73,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
 
     m_progress->setVisible(false);
     m_fullProcess->setVisible(false);
-    m_fullProcess->setValue(100);
+    m_fullProcess->setProcessValue(100);
 
     m_summaryGroup->setVisible(true);
 
@@ -216,7 +216,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_summary->setVisible(true);
         //~ contents_path /update/Update
         m_progress->setMessage(tr("%1% downloaded (Click to pause)").arg(m_progress->value()));
-        m_progress->setValue(m_progress->value());
+        m_progress->setProcessValue(m_progress->value());
         break;
     case UpdatesStatus::DownloadPaused:
         m_progress->setVisible(true);
@@ -229,7 +229,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_progress->setVisible(true);
         m_updateList->setVisible(true);
         m_summary->setVisible(true);
-        m_progress->setValue(m_progress->maximum());
+        m_progress->setProcessValue(m_progress->maximum());
         //~ contents_path /update/Update
         m_progress->setMessage(tr("Install updates"));
         setDownloadInfo(m_model->downloadInfo());
@@ -348,7 +348,7 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
 
 void UpdateCtrlWidget::setProgressValue(const double value)
 {
-    m_progress->setValue(value * 100);
+    m_progress->setProcessValue(value * 100);
 
     if (m_status == UpdatesStatus::Downloading) {
         //~ contents_path /update/Update

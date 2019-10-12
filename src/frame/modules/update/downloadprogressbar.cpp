@@ -28,30 +28,35 @@
 #include <QMouseEvent>
 #include <QHBoxLayout>
 #include <QPainter>
+#include <QDebug>
 
-namespace dcc{
-namespace update{
+using namespace dcc::update;
 
 DownloadProgressBar::DownloadProgressBar(QWidget* parent)
-    : QWidget(parent)
+    : QProgressBar(parent)
+    , m_currentValue(0)
 {
     setFixedHeight(36);
+    setTextVisible(true);
+    setTextDirection(QProgressBar::TopToBottom);
+    setRange(0, 100);
+    setAlignment(Qt::AlignCenter);
 }
 
 void DownloadProgressBar::setMessage(const QString &message)
 {
-    m_message = message;
-
-    update();
+    setFormat(message);
+    setValue(m_currentValue);
 }
 
-void DownloadProgressBar::setValue(const int progress)
+void DownloadProgressBar::setProcessValue(const int progress)
 {
-    if (m_currentValue == progress) return;
+    if (m_currentValue == progress || progress < minimum() || progress > maximum())
+        return;
 
     m_currentValue = progress;
 
-    update();
+    setValue(progress);
 }
 
 void DownloadProgressBar::mouseReleaseEvent(QMouseEvent *e)
@@ -64,43 +69,4 @@ void DownloadProgressBar::mouseReleaseEvent(QMouseEvent *e)
     Q_EMIT clicked();
 
     QWidget::mouseReleaseEvent(e);
-}
-
-void DownloadProgressBar::paintEvent(QPaintEvent *event)
-{
-    QWidget::paintEvent(event);
-
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing, true);
-
-    QPainterPath bg_path;
-    bg_path.addRoundedRect(rect(), 5, 5);
-
-    // draw background
-    painter.fillPath(bg_path, QColor(0, 0, 0, 0.05 * 255));
-
-    // draw border
-    painter.setPen(QColor(255, 255, 255, 0.05 * 255));
-    painter.drawPath(bg_path);
-
-    // calculate the area that needs to be drawn
-    const QRect &r = rect().adjusted(0, 0, - (width() * (100 - m_currentValue) * 0.01), 0);
-
-    QPainterPath content_path;
-    content_path.addRoundedRect(r, 5, 5);
-
-    // draw content
-    painter.fillPath(content_path, QColor("#2ca7f8"));
-    painter.setPen(QColor("#378cfa"));
-    painter.drawPath(content_path);
-
-    // draw text
-    if (!isEnabled()) {
-        painter.setOpacity(0.4);
-    }
-    painter.setPen(Qt::white);
-    painter.drawText(rect(), Qt::AlignCenter, m_message);
-}
-
-}
 }

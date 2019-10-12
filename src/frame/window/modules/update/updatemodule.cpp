@@ -72,6 +72,8 @@ void UpdateModule::active()
     mainWidget->setModel(m_model, m_work);
     m_updateWidget = mainWidget;
 
+    connect(m_model, &UpdateModel::downloadInfoChanged, m_work, &UpdateWorker::onNotifyDownloadInfoChanged);
+
     connect(mainWidget, &UpdateWidget::pushMirrorsView, this, [this]() {
         MirrorsWidget *mirrorsWidget = new MirrorsWidget(m_model);
 

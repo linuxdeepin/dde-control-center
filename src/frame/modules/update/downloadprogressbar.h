@@ -26,31 +26,28 @@
 #ifndef DOWNLOADPROGRESSBAR_H
 #define DOWNLOADPROGRESSBAR_H
 
-#include <QWidget>
-
+#include <QProgressBar>
 #include "common.h"
 
-namespace dcc{
-namespace update{
+namespace dcc {
+namespace update {
 
-class DownloadProgressBar : public QWidget
+class DownloadProgressBar : public QProgressBar
 {
     Q_OBJECT
 
 public:
-    explicit DownloadProgressBar(QWidget* parent = 0);
+    explicit DownloadProgressBar(QWidget *parent = nullptr);
 
     void setMessage(const QString &message);
-    void setValue(const int progress);
+    void setProcessValue(const int progress);
 
-    inline const QString text() const { return m_message; }
     inline int value() const { return m_currentValue; }
     inline int minimum() const { return 0; }
     inline int maximum() const { return 100; }
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
-    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void clicked();
