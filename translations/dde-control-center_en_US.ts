@@ -885,43 +885,43 @@
 <context>
     <name>dccV20::keyboard::CustomContent</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="61"/>
         <source>Add Custom Shortcut</source>
         <translation type="unfinished">Add Custom Shortcut</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="67"/>
         <source>Name</source>
         <translation type="unfinished">Name</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="68"/>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="79"/>
         <source>Required</source>
         <translation type="unfinished">Required</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="75"/>
         <source>Command</source>
         <translation type="unfinished">Command</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="88"/>
         <source>Cancel</source>
         <translation type="unfinished">Cancel</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="91"/>
         <source>Add</source>
         <translation type="unfinished">Add</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="119"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation type="unfinished">This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</translation>
     </message>
@@ -1749,8 +1749,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="254"/>
-        <source>Disconnect</source>
-        <translation type="unfinished">Disconnect</translation>
+        <source>Disconnected</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -8698,277 +8698,281 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::MainWindow</name>
     <message>
         <source>Account</source>
-        <translation type="vanished">Account</translation>
+        <translation type="obsolete">Account</translation>
     </message>
     <message>
         <source>Cloud Sync</source>
-        <translation type="vanished">Cloud Sync</translation>
+        <translation type="obsolete">Cloud Sync</translation>
     </message>
     <message>
         <source>Display</source>
-        <translation type="vanished">Display</translation>
+        <translation type="obsolete">Display</translation>
     </message>
     <message>
         <source>Default Applications</source>
-        <translation type="vanished">Default Applications</translation>
+        <translation type="obsolete">Default Applications</translation>
     </message>
     <message>
         <source>Personalization</source>
-        <translation type="vanished">Personalization</translation>
+        <translation type="obsolete">Personalization</translation>
     </message>
     <message>
         <source>Network</source>
-        <translation type="vanished">Network</translation>
+        <translation type="obsolete">Network</translation>
     </message>
     <message>
         <source>Sound</source>
-        <translation type="vanished">Sound</translation>
+        <translation type="obsolete">Sound</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="vanished">Bluetooth</translation>
+        <translation type="obsolete">Bluetooth</translation>
     </message>
     <message>
         <source>Date and Time</source>
-        <translation type="vanished">Date and Time</translation>
+        <translation type="obsolete">Date and Time</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="vanished">Power</translation>
+        <translation type="obsolete">Power</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="vanished">Mouse</translation>
+        <translation type="obsolete">Mouse</translation>
     </message>
     <message>
         <source>Drawing Tablet</source>
-        <translation type="vanished">Drawing Tablet</translation>
+        <translation type="obsolete">Drawing Tablet</translation>
     </message>
     <message>
         <source>Keyboard and Language</source>
-        <translation type="vanished">Keyboard and Language</translation>
+        <translation type="obsolete">Keyboard and Language</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="vanished">Update</translation>
+        <translation type="obsolete">Update</translation>
     </message>
     <message>
         <source>System Info</source>
-        <translation type="vanished">System Info</translation>
+        <translation type="obsolete">System Info</translation>
     </message>
     <message>
         <source>General Settings</source>
-        <translation type="vanished">General Settings</translation>
+        <translation type="obsolete">General Settings</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
+        <source>Full Name</source>
+        <translation type="obsolete">Full Name</translation>
+    </message>
+    <message>
         <source>Change Password</source>
-        <translation type="vanished">Change Password</translation>
+        <translation type="obsolete">Change Password</translation>
         <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
         <source>Delete Account</source>
-        <translation type="vanished">Delete Account</translation>
+        <translation type="obsolete">Delete Account</translation>
         <extra-contents_path>/accounts/Delete Account</extra-contents_path>
     </message>
     <message>
         <source>Auto Login</source>
-        <translation type="vanished">Auto Login</translation>
+        <translation type="obsolete">Auto Login</translation>
         <extra-contents_path>/accounts/Auto Login</extra-contents_path>
     </message>
     <message>
         <source>Login Without Password</source>
-        <translation type="vanished">Login Without Password</translation>
+        <translation type="obsolete">Login Without Password</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
         <source>Fingerprint Password</source>
-        <translation type="vanished">Fingerprint Password</translation>
+        <translation type="obsolete">Fingerprint Password</translation>
     </message>
     <message>
         <source>Add fingerprint</source>
-        <translation type="vanished">Add fingerprint</translation>
+        <translation type="obsolete">Add fingerprint</translation>
     </message>
     <message>
         <source>Delete fingerprint</source>
-        <translation type="vanished">Delete fingerprint</translation>
+        <translation type="obsolete">Delete fingerprint</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="vanished">Fingerprint</translation>
+        <translation type="obsolete">Fingerprint</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::AddFingeDialog</name>
     <message>
         <source>Add Fingerprint</source>
-        <translation type="vanished">Add Fingerprint</translation>
+        <translation type="obsolete">Add Fingerprint</translation>
     </message>
     <message>
         <source>Scan again</source>
-        <translation type="vanished">Scan again</translation>
+        <translation type="obsolete">Scan again</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="vanished">Done</translation>
+        <translation type="obsolete">Done</translation>
     </message>
     <message>
         <source>Identifying fingerprint</source>
-        <translation type="vanished">Identifying fingerprint</translation>
+        <translation type="obsolete">Identifying fingerprint</translation>
     </message>
     <message>
         <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation type="vanished">Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</translation>
+        <translation type="obsolete">Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="vanished">Fingerprint added</translation>
+        <translation type="obsolete">Fingerprint added</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
         <source>New Account</source>
-        <translation type="vanished">New Account</translation>
+        <translation type="obsolete">New Account</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
         <source>Username</source>
-        <translation type="vanished">Username</translation>
+        <translation type="obsolete">Username</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>Full Name</source>
-        <translation type="vanished">Full Name</translation>
+        <translation type="obsolete">Full Name</translation>
     </message>
     <message>
         <source>optional</source>
-        <translation type="vanished">optional</translation>
+        <translation type="obsolete">optional</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="vanished">Password</translation>
+        <translation type="obsolete">Password</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation type="vanished">Repeat Password</translation>
+        <translation type="obsolete">Repeat Password</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Cancel</translation>
+        <translation type="obsolete">Cancel</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="vanished">Create</translation>
+        <translation type="obsolete">Create</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="vanished">Password cannot be empty</translation>
+        <translation type="obsolete">Password cannot be empty</translation>
     </message>
     <message>
         <source>The password should be different from the username</source>
-        <translation type="vanished">The password should be different from the username</translation>
+        <translation type="obsolete">The password should be different from the username</translation>
     </message>
     <message>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation type="vanished">Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
+        <translation type="obsolete">Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="vanished">Passwords do not match</translation>
+        <translation type="obsolete">Passwords do not match</translation>
     </message>
     <message>
         <source>Username cannot be empty</source>
-        <translation type="vanished">Username cannot be empty</translation>
+        <translation type="obsolete">Username cannot be empty</translation>
     </message>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="vanished">Username must be between 3 and 32 characters</translation>
+        <translation type="obsolete">Username must be between 3 and 32 characters</translation>
     </message>
     <message>
         <source>The first character must be in lower case</source>
-        <translation type="vanished">The first character must be in lower case</translation>
+        <translation type="obsolete">The first character must be in lower case</translation>
     </message>
     <message>
         <source>Username must only contain a~z, 0~9, - or _</source>
-        <translation type="vanished">Username must only contain a~z, 0~9, - or _</translation>
+        <translation type="obsolete">Username must only contain a~z, 0~9, - or _</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
         <source>Change Password</source>
-        <translation type="vanished">Change Password</translation>
+        <translation type="obsolete">Change Password</translation>
     </message>
     <message>
         <source>Current Password</source>
-        <translation type="vanished">Current Password</translation>
+        <translation type="obsolete">Current Password</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>New Password</source>
-        <translation type="vanished">New Password</translation>
+        <translation type="obsolete">New Password</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation type="vanished">Repeat Password</translation>
+        <translation type="obsolete">Repeat Password</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Cancel</translation>
+        <translation type="obsolete">Cancel</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="vanished">Save</translation>
+        <translation type="obsolete">Save</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="vanished">Wrong password</translation>
+        <translation type="obsolete">Wrong password</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="vanished">Password cannot be empty</translation>
-    </message>
-    <message>
-        <source>New password should differ from the current one</source>
-        <translation type="vanished">New password should differ from the current one</translation>
-    </message>
-    <message>
-        <source>Passwords do not match</source>
-        <translation type="vanished">Passwords do not match</translation>
+        <translation type="obsolete">Password cannot be empty</translation>
     </message>
     <message>
         <source>The password should be different from the username</source>
-        <translation type="vanished">The password should be different from the username</translation>
+        <translation type="obsolete">The password should be different from the username</translation>
     </message>
     <message>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation type="vanished">Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
+        <translation type="obsolete">Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
+        <translation type="obsolete">New password should differ from the current one</translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="obsolete">Passwords do not match</translation>
     </message>
 </context>
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
         <source>My devices</source>
-        <translation type="vanished">My devices</translation>
+        <translation type="obsolete">My devices</translation>
         <extra-contents_path>/bluetooth/My Device</extra-contents_path>
     </message>
     <message>
         <source>Other devices</source>
-        <translation type="vanished">Other devices</translation>
+        <translation type="obsolete">Other devices</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation type="vanished">Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</translation>
+        <translation type="obsolete">Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</translation>
         <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
     </message>
 </context>
@@ -8976,17 +8980,17 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::bluetooth::DetailPage</name>
     <message>
         <source>Ignore this device</source>
-        <translation type="vanished">Ignore this device</translation>
+        <translation type="obsolete">Ignore this device</translation>
         <extra-contents_path>/bluetooth/Ignore this device</extra-contents_path>
     </message>
     <message>
         <source>Disconnect</source>
-        <translation type="vanished">Disconnect</translation>
+        <translation type="obsolete">Disconnect</translation>
         <extra-contents_path>/bluetooth/Disconnect</extra-contents_path>
     </message>
     <message>
         <source>Change Name</source>
-        <translation type="vanished">Change Name</translation>
+        <translation type="obsolete">Change Name</translation>
         <extra-contents_path>/bluetooth/Change Name</extra-contents_path>
     </message>
 </context>
@@ -8994,40 +8998,40 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
         <source>Connected</source>
-        <translation type="vanished">Connected</translation>
+        <translation type="obsolete">Connected</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation type="vanished">Not connected</translation>
+        <translation type="obsolete">Not connected</translation>
     </message>
 </context>
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
         <source>Updating...</source>
-        <translation type="vanished">Updating...</translation>
+        <translation type="obsolete">Updating...</translation>
     </message>
     <message>
         <source>Startup Delay</source>
-        <translation type="vanished">Startup Delay</translation>
+        <translation type="obsolete">Startup Delay</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="vanished">Theme</translation>
+        <translation type="obsolete">Theme</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation type="vanished">Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</translation>
+        <translation type="obsolete">Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</translation>
     </message>
     <message>
         <source>Switch theme on to view it in boot menu</source>
-        <translation type="vanished">Switch theme on to view it in boot menu</translation>
+        <translation type="obsolete">Switch theme on to view it in boot menu</translation>
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation type="vanished">Boot Menu</translation>
+        <translation type="obsolete">Boot Menu</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
 </context>
@@ -9035,12 +9039,12 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::commoninfo::CommonInfoWidget</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="vanished">Boot Menu</translation>
+        <translation type="obsolete">Boot Menu</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="vanished">User Experience Program</translation>
+        <translation type="obsolete">User Experience Program</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
 </context>
@@ -9048,49 +9052,49 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="vanished">Join User Experience Program</translation>
+        <translation type="obsolete">Join User Experience Program</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
         <source>Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</source>
-        <translation type="vanished">Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</translation>
+        <translation type="obsolete">Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</translation>
     </message>
 </context>
 <context>
     <name>dccV20::datetime::DateSettings</name>
     <message>
         <source>Auto Sync</source>
-        <translation type="vanished">Auto Sync</translation>
+        <translation type="obsolete">Auto Sync</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Cancel</translation>
+        <translation type="obsolete">Cancel</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="vanished">Confirm</translation>
+        <translation type="obsolete">Confirm</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <source>Server</source>
-        <translation type="vanished">Server</translation>
+        <translation type="obsolete">Server</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <source>Address</source>
-        <translation type="vanished">Address</translation>
+        <translation type="obsolete">Address</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <source>Customize</source>
-        <translation type="vanished">Customize</translation>
+        <translation type="obsolete">Customize</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
 </context>
@@ -9098,17 +9102,17 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::datetime::DateWidget</name>
     <message>
         <source>Year</source>
-        <translation type="vanished">Year</translation>
+        <translation type="obsolete">Year</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <source>Month</source>
-        <translation type="vanished">Month</translation>
+        <translation type="obsolete">Month</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <source>Day</source>
-        <translation type="vanished">Day</translation>
+        <translation type="obsolete">Day</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
 </context>
@@ -9116,29 +9120,29 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::datetime::DatetimeWidget</name>
     <message>
         <source>Timezone List</source>
-        <translation type="vanished">Timezone List</translation>
+        <translation type="obsolete">Timezone List</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
     <message>
         <source>Time Settings</source>
-        <translation type="vanished">Time Settings</translation>
+        <translation type="obsolete">Time Settings</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <source>24-hour Time</source>
-        <translation type="vanished">24-hour Time</translation>
+        <translation type="obsolete">24-hour Time</translation>
     </message>
 </context>
 <context>
     <name>dccV20::datetime::SystemTimezone</name>
     <message>
         <source>Change System Timezone</source>
-        <translation type="vanished">Change System Timezone</translation>
+        <translation type="obsolete">Change System Timezone</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
     </message>
     <message>
         <source>System Timezone</source>
-        <translation type="vanished">System Timezone</translation>
+        <translation type="obsolete">System Timezone</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -9146,7 +9150,7 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::datetime::TimezoneList</name>
     <message>
         <source>Timezone List</source>
-        <translation type="vanished">Timezone List</translation>
+        <translation type="obsolete">Timezone List</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -9154,98 +9158,98 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::defapp::DefappDetailWidget</name>
     <message>
         <source>Webpage</source>
-        <translation type="vanished">Webpage</translation>
+        <translation type="obsolete">Webpage</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation type="vanished">Mail</translation>
+        <translation type="obsolete">Mail</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="vanished">Text</translation>
+        <translation type="obsolete">Text</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="vanished">Music</translation>
+        <translation type="obsolete">Music</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="vanished">Video</translation>
+        <translation type="obsolete">Video</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation type="vanished">Picture</translation>
+        <translation type="obsolete">Picture</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="vanished">Terminal</translation>
+        <translation type="obsolete">Terminal</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation type="vanished">Open Desktop file</translation>
+        <translation type="obsolete">Open Desktop file</translation>
     </message>
     <message>
         <source>Invalid</source>
-        <translation type="vanished">Invalid</translation>
+        <translation type="obsolete">Invalid</translation>
     </message>
 </context>
 <context>
     <name>dccV20::defapp::DefaultAppsWidget</name>
     <message>
         <source>Webpage</source>
-        <translation type="vanished">Webpage</translation>
+        <translation type="obsolete">Webpage</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
         <source>Mail</source>
-        <translation type="vanished">Mail</translation>
+        <translation type="obsolete">Mail</translation>
         <extra-contents_path>/defapp/Mail</extra-contents_path>
     </message>
     <message>
         <source>Text</source>
-        <translation type="vanished">Text</translation>
+        <translation type="obsolete">Text</translation>
         <extra-contents_path>/defapp/Text</extra-contents_path>
     </message>
     <message>
         <source>Music</source>
-        <translation type="vanished">Music</translation>
+        <translation type="obsolete">Music</translation>
         <extra-contents_path>/defapp/Music</extra-contents_path>
     </message>
     <message>
         <source>Video</source>
-        <translation type="vanished">Video</translation>
+        <translation type="obsolete">Video</translation>
         <extra-contents_path>/defapp/Video</extra-contents_path>
     </message>
     <message>
         <source>Picture</source>
-        <translation type="vanished">Picture</translation>
+        <translation type="obsolete">Picture</translation>
         <extra-contents_path>/defapp/Picture</extra-contents_path>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="vanished">Terminal</translation>
+        <translation type="obsolete">Terminal</translation>
         <extra-contents_path>/defapp/Terminal</extra-contents_path>
     </message>
     <message>
         <source>Default Applications</source>
-        <translation type="vanished">Default Applications</translation>
+        <translation type="obsolete">Default Applications</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::BrightnessPage</name>
     <message>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="vanished">The screen hue will be auto adjusted according to your location</translation>
+        <translation type="obsolete">The screen hue will be auto adjusted according to your location</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <source>Night Shift</source>
-        <translation type="vanished">Night Shift</translation>
+        <translation type="obsolete">Night Shift</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <source>Auto Brightness</source>
-        <translation type="vanished">Auto Brightness</translation>
+        <translation type="obsolete">Auto Brightness</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
 </context>
@@ -9253,67 +9257,67 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::display::CustomSettingDialog</name>
     <message>
         <source>Main Screen</source>
-        <translation type="vanished">Main Screen</translation>
+        <translation type="obsolete">Main Screen</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="vanished">Resolution</translation>
+        <translation type="obsolete">Resolution</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation type="vanished">Refresh Rate</translation>
+        <translation type="obsolete">Refresh Rate</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Cancel</translation>
+        <translation type="obsolete">Cancel</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="vanished">Save</translation>
+        <translation type="obsolete">Save</translation>
     </message>
     <message>
         <source>Hz</source>
-        <translation type="vanished">Hz</translation>
+        <translation type="obsolete">Hz</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="vanished">Recommended</translation>
+        <translation type="obsolete">Recommended</translation>
     </message>
     <message>
         <source>inch</source>
-        <translation type="vanished">inch</translation>
+        <translation type="obsolete">inch</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
         <source>Resolution %1x%2</source>
-        <translation type="vanished">Resolution %1x%2</translation>
+        <translation type="obsolete">Resolution %1x%2</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::DisplayWidget</name>
     <message>
         <source>Multiple Displays</source>
-        <translation type="vanished">Multiple Displays</translation>
+        <translation type="obsolete">Multiple Displays</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="vanished">Brightness</translation>
+        <translation type="obsolete">Brightness</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation type="vanished">Display Scaling</translation>
+        <translation type="obsolete">Display Scaling</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="vanished">Resolution</translation>
+        <translation type="obsolete">Resolution</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation type="vanished">Refresh Rate</translation>
+        <translation type="obsolete">Refresh Rate</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
 </context>
@@ -9321,50 +9325,50 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::display::MultiScreenSettingPage</name>
     <message>
         <source>Customize</source>
-        <translation type="vanished">Customize</translation>
+        <translation type="obsolete">Customize</translation>
         <extra-contents_path>/display/Customize</extra-contents_path>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="vanished">Duplicate</translation>
+        <translation type="obsolete">Duplicate</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="vanished">Extend</translation>
+        <translation type="obsolete">Extend</translation>
     </message>
     <message>
         <source>Show the same image on other screens</source>
-        <translation type="vanished">Show the same image on other screens</translation>
+        <translation type="obsolete">Show the same image on other screens</translation>
     </message>
     <message>
         <source>Expand the desktop across the screens</source>
-        <translation type="vanished">Expand the desktop across the screens</translation>
+        <translation type="obsolete">Expand the desktop across the screens</translation>
     </message>
     <message>
         <source>%1 only</source>
-        <translation type="vanished">%1 only</translation>
+        <translation type="obsolete">%1 only</translation>
     </message>
     <message>
         <source>Show the screen content only on %1</source>
-        <translation type="vanished">Show the screen content only on %1</translation>
+        <translation type="obsolete">Show the screen content only on %1</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::RefreshRatePage</name>
     <message>
         <source>Hz</source>
-        <translation type="vanished">Hz</translation>
+        <translation type="obsolete">Hz</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="vanished">Recommended</translation>
+        <translation type="obsolete">Recommended</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::ResolutionDetailPage</name>
     <message>
         <source>Recommended</source>
-        <translation type="vanished">Recommended</translation>
+        <translation type="obsolete">Recommended</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
@@ -9372,22 +9376,22 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::display::RotateDialog</name>
     <message>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
-        <translation type="vanished">Left click to rotate, right click to restore and exit, press Ctrl+S to save.</translation>
+        <translation type="obsolete">Left click to rotate, right click to restore and exit, press Ctrl+S to save.</translation>
     </message>
     <message>
         <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
-        <translation type="vanished">Right click to rotate, left click to restore and exit, press Ctrl+S to save.</translation>
+        <translation type="obsolete">Right click to rotate, left click to restore and exit, press Ctrl+S to save.</translation>
     </message>
     <message>
         <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
-        <translation type="vanished">Save the display settings? If no operation occurs, the display will be restored in %1s.</translation>
+        <translation type="obsolete">Save the display settings? If no operation occurs, the display will be restored in %1s.</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::ScalingPage</name>
     <message>
         <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
-        <translation type="vanished">Some applications cannot be scaled with the specified settings in multi-display environment.</translation>
+        <translation type="obsolete">Some applications cannot be scaled with the specified settings in multi-display environment.</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
 </context>
@@ -9395,83 +9399,83 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::keyboard::CustomContent</name>
     <message>
         <source>Add Custom Shortcut</source>
-        <translation type="vanished">Add Custom Shortcut</translation>
+        <translation type="obsolete">Add Custom Shortcut</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
         <source>Name</source>
-        <translation type="vanished">Name</translation>
+        <translation type="obsolete">Name</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation type="vanished">Command</translation>
+        <translation type="obsolete">Command</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Cancel</translation>
+        <translation type="obsolete">Cancel</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
         <source>Add</source>
-        <translation type="vanished">Add</translation>
+        <translation type="obsolete">Add</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="vanished">This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</translation>
+        <translation type="obsolete">This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</translation>
     </message>
 </context>
 <context>
     <name>dccV20::keyboard::GeneralKBSettingWidget</name>
     <message>
         <source>Repeat Delay</source>
-        <translation type="vanished">Repeat Delay</translation>
+        <translation type="obsolete">Repeat Delay</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <source>Short</source>
-        <translation type="vanished">Short</translation>
+        <translation type="obsolete">Short</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <source>Long</source>
-        <translation type="vanished">Long</translation>
+        <translation type="obsolete">Long</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <source>Repeat Rate</source>
-        <translation type="vanished">Repeat Rate</translation>
+        <translation type="obsolete">Repeat Rate</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="vanished">Slow</translation>
+        <translation type="obsolete">Slow</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="vanished">Fast</translation>
+        <translation type="obsolete">Fast</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <source>Test here</source>
-        <translation type="vanished">Test here</translation>
+        <translation type="obsolete">Test here</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="vanished">Numeric Keypad</translation>
+        <translation type="obsolete">Numeric Keypad</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <source>Caps Lock Prompt</source>
-        <translation type="vanished">Caps Lock Prompt</translation>
+        <translation type="obsolete">Caps Lock Prompt</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
 </context>
@@ -9479,55 +9483,55 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::keyboard::KBLayoutSettingWidget</name>
     <message>
         <source>Keyboard Layout</source>
-        <translation type="vanished">Keyboard Layout</translation>
+        <translation type="obsolete">Keyboard Layout</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
         <source>Switch Layouts (Multiple)</source>
-        <translation type="vanished">Switch Layouts (Multiple)</translation>
+        <translation type="obsolete">Switch Layouts (Multiple)</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
         <source>Applies to</source>
-        <translation type="vanished">Applies to</translation>
+        <translation type="obsolete">Applies to</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
         <source>System</source>
-        <translation type="vanished">System</translation>
+        <translation type="obsolete">System</translation>
     </message>
     <message>
         <source>Application</source>
-        <translation type="vanished">Application</translation>
+        <translation type="obsolete">Application</translation>
     </message>
 </context>
 <context>
     <name>dccV20::keyboard::KeyboardModule</name>
     <message>
         <source>Custom Shortcut</source>
-        <translation type="vanished">Custom Shortcut</translation>
+        <translation type="obsolete">Custom Shortcut</translation>
     </message>
 </context>
 <context>
     <name>dccV20::keyboard::KeyboardWidget</name>
     <message>
         <source>General</source>
-        <translation type="vanished">General</translation>
+        <translation type="obsolete">General</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <source>Keyboard Layout</source>
-        <translation type="vanished">Keyboard Layout</translation>
+        <translation type="obsolete">Keyboard Layout</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
         <source>System Language</source>
-        <translation type="vanished">System Language</translation>
+        <translation type="obsolete">System Language</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="vanished">Shortcuts</translation>
+        <translation type="obsolete">Shortcuts</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
 </context>
@@ -9535,32 +9539,32 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::keyboard::ShortCutSettingWidget</name>
     <message>
         <source>System</source>
-        <translation type="vanished">System</translation>
+        <translation type="obsolete">System</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
         <source>Window</source>
-        <translation type="vanished">Window</translation>
+        <translation type="obsolete">Window</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="vanished">Workspace</translation>
+        <translation type="obsolete">Workspace</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
         <source>Custom Shortcut</source>
-        <translation type="vanished">Custom Shortcut</translation>
+        <translation type="obsolete">Custom Shortcut</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
         <source>Restore Defaults</source>
-        <translation type="vanished">Restore Defaults</translation>
+        <translation type="obsolete">Restore Defaults</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="vanished">Shortcut</translation>
+        <translation type="obsolete">Shortcut</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
 </context>
@@ -9568,14 +9572,14 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
     <message>
         <source>Add System Language</source>
-        <translation type="vanished">Add System Language</translation>
+        <translation type="obsolete">Add System Language</translation>
     </message>
 </context>
 <context>
     <name>dccV20::keyboard::SystemLanguageWidget</name>
     <message>
         <source>Language List</source>
-        <translation type="vanished">Language List</translation>
+        <translation type="obsolete">Language List</translation>
         <extra-contents_path>/keyboard/Language List</extra-contents_path>
     </message>
 </context>
@@ -9583,32 +9587,32 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::mouse::GeneralSettingWidget</name>
     <message>
         <source>Left Hand</source>
-        <translation type="vanished">Left Hand</translation>
+        <translation type="obsolete">Left Hand</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <source>Disable touchpad while typing</source>
-        <translation type="vanished">Disable touchpad while typing</translation>
+        <translation type="obsolete">Disable touchpad while typing</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="vanished">Scrolling Speed</translation>
+        <translation type="obsolete">Scrolling Speed</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <source>Double-click Speed</source>
-        <translation type="vanished">Double-click Speed</translation>
+        <translation type="obsolete">Double-click Speed</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="vanished">Slow</translation>
+        <translation type="obsolete">Slow</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="vanished">Fast</translation>
+        <translation type="obsolete">Fast</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
 </context>
@@ -9616,32 +9620,32 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::mouse::MouseSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="vanished">Pointer Speed</translation>
+        <translation type="obsolete">Pointer Speed</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="vanished">Mouse Acceleration</translation>
+        <translation type="obsolete">Mouse Acceleration</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="vanished">Disable touchpad when a mouse is connected</translation>
+        <translation type="obsolete">Disable touchpad when a mouse is connected</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="vanished">Natural Scrolling</translation>
+        <translation type="obsolete">Natural Scrolling</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="vanished">Slow</translation>
+        <translation type="obsolete">Slow</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="vanished">Fast</translation>
+        <translation type="obsolete">Fast</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
 </context>
@@ -9649,22 +9653,22 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::mouse::MouseWidget</name>
     <message>
         <source>General</source>
-        <translation type="vanished">General</translation>
+        <translation type="obsolete">General</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="vanished">Mouse</translation>
+        <translation type="obsolete">Mouse</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="vanished">Touchpad</translation>
+        <translation type="obsolete">Touchpad</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <source>TrackPoint</source>
-        <translation type="vanished">TrackPoint</translation>
+        <translation type="obsolete">TrackPoint</translation>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
 </context>
@@ -9672,27 +9676,27 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::mouse::TouchPadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="vanished">Pointer Speed</translation>
+        <translation type="obsolete">Pointer Speed</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="vanished">Tap to Click</translation>
+        <translation type="obsolete">Tap to Click</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="vanished">Natural Scrolling</translation>
+        <translation type="obsolete">Natural Scrolling</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="vanished">Slow</translation>
+        <translation type="obsolete">Slow</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="vanished">Fast</translation>
+        <translation type="obsolete">Fast</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
 </context>
@@ -9700,17 +9704,17 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::mouse::TrackPointSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="vanished">Pointer Speed</translation>
+        <translation type="obsolete">Pointer Speed</translation>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="vanished">Slow</translation>
+        <translation type="obsolete">Slow</translation>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="vanished">Fast</translation>
+        <translation type="obsolete">Fast</translation>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
 </context>
@@ -9718,1622 +9722,1626 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::network::ChainsProxyPage</name>
     <message>
         <source>Application Proxy</source>
-        <translation type="vanished">Application Proxy</translation>
+        <translation type="obsolete">Application Proxy</translation>
     </message>
     <message>
         <source>Proxy Type</source>
-        <translation type="vanished">Proxy Type</translation>
+        <translation type="obsolete">Proxy Type</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>IP Address</source>
-        <translation type="vanished">IP Address</translation>
+        <translation type="obsolete">IP Address</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="vanished">Port</translation>
+        <translation type="obsolete">Port</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Username</source>
-        <translation type="vanished">Username</translation>
+        <translation type="obsolete">Username</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="vanished">Optional</translation>
+        <translation type="obsolete">Optional</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="vanished">Password</translation>
+        <translation type="obsolete">Password</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="vanished">Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</translation>
+        <translation type="obsolete">Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Cancel</translation>
+        <translation type="obsolete">Cancel</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation type="obsolete">OK</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::ChainsTypePage</name>
     <message>
         <source>Proxy Type</source>
-        <translation type="vanished">Proxy Type</translation>
+        <translation type="obsolete">Proxy Type</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::ConnectionEditPage</name>
     <message>
         <source>Disconnect</source>
-        <translation type="vanished">Disconnect</translation>
+        <translation type="obsolete">Disconnect</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="vanished">Delete</translation>
+        <translation type="obsolete">Delete</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Cancel</translation>
+        <translation type="obsolete">Cancel</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="vanished">Save</translation>
+        <translation type="obsolete">Save</translation>
     </message>
     <message>
         <source>Wired Connection %1</source>
-        <translation type="vanished">Wired Connection %1</translation>
+        <translation type="obsolete">Wired Connection %1</translation>
     </message>
     <message>
         <source>hotspot</source>
-        <translation type="vanished">hotspot</translation>
+        <translation type="obsolete">hotspot</translation>
     </message>
     <message>
         <source>Wireless Connection %1</source>
-        <translation type="vanished">Wireless Connection %1</translation>
+        <translation type="obsolete">Wireless Connection %1</translation>
     </message>
     <message>
         <source>PPPoE Connection %1</source>
-        <translation type="vanished">PPPoE Connection %1</translation>
+        <translation type="obsolete">PPPoE Connection %1</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::ConnectionVpnEditPage</name>
     <message>
         <source>New VPN</source>
-        <translation type="vanished">New VPN</translation>
+        <translation type="obsolete">New VPN</translation>
     </message>
     <message>
         <source>VPN Type</source>
-        <translation type="vanished">VPN Type</translation>
+        <translation type="obsolete">VPN Type</translation>
     </message>
     <message>
         <source>L2TP</source>
-        <translation type="vanished">L2TP</translation>
+        <translation type="obsolete">L2TP</translation>
     </message>
     <message>
         <source>PPTP</source>
-        <translation type="vanished">PPTP</translation>
+        <translation type="obsolete">PPTP</translation>
     </message>
     <message>
         <source>VPNC</source>
-        <translation type="vanished">VPNC</translation>
+        <translation type="obsolete">VPNC</translation>
     </message>
     <message>
         <source>OpenVPN</source>
-        <translation type="vanished">OpenVPN</translation>
+        <translation type="obsolete">OpenVPN</translation>
     </message>
     <message>
         <source>StrongSwan</source>
-        <translation type="vanished">StrongSwan</translation>
+        <translation type="obsolete">StrongSwan</translation>
     </message>
     <message>
         <source>OpenConnect</source>
-        <translation type="vanished">OpenConnect</translation>
+        <translation type="obsolete">OpenConnect</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="vanished">Export</translation>
+        <translation type="obsolete">Export</translation>
     </message>
     <message>
         <source>VPN L2TP %1</source>
-        <translation type="vanished">VPN L2TP %1</translation>
+        <translation type="obsolete">VPN L2TP %1</translation>
     </message>
     <message>
         <source>VPN PPTP %1</source>
-        <translation type="vanished">VPN PPTP %1</translation>
+        <translation type="obsolete">VPN PPTP %1</translation>
     </message>
     <message>
         <source>VPN VPNC %1</source>
-        <translation type="vanished">VPN VPNC %1</translation>
+        <translation type="obsolete">VPN VPNC %1</translation>
     </message>
     <message>
         <source>VPN OpenVPN %1</source>
-        <translation type="vanished">VPN OpenVPN %1</translation>
+        <translation type="obsolete">VPN OpenVPN %1</translation>
     </message>
     <message>
         <source>VPN StrongSwan %1</source>
-        <translation type="vanished">VPN StrongSwan %1</translation>
+        <translation type="obsolete">VPN StrongSwan %1</translation>
     </message>
     <message>
         <source>VPN OpenConnect %1</source>
-        <translation type="vanished">VPN OpenConnect %1</translation>
+        <translation type="obsolete">VPN OpenConnect %1</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::EthernetSection</name>
     <message>
         <source>Ethernet</source>
-        <translation type="vanished">Ethernet</translation>
+        <translation type="obsolete">Ethernet</translation>
     </message>
     <message>
         <source>Not Bind</source>
-        <translation type="vanished">Not Bind</translation>
+        <translation type="obsolete">Not Bind</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>
-        <translation type="vanished">Device MAC Addr</translation>
+        <translation type="obsolete">Device MAC Addr</translation>
     </message>
     <message>
         <source>Cloned MAC Addr</source>
-        <translation type="vanished">Cloned MAC Addr</translation>
+        <translation type="obsolete">Cloned MAC Addr</translation>
     </message>
     <message>
         <source>Customize MTU</source>
-        <translation type="vanished">Customize MTU</translation>
+        <translation type="obsolete">Customize MTU</translation>
     </message>
     <message>
         <source>MTU</source>
-        <translation type="vanished">MTU</translation>
+        <translation type="obsolete">MTU</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::GenericHotspotSection</name>
     <message>
         <source>General</source>
-        <translation type="vanished">General</translation>
+        <translation type="obsolete">General</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="vanished">Name</translation>
+        <translation type="obsolete">Name</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::GenericSection</name>
     <message>
         <source>General</source>
-        <translation type="vanished">General</translation>
+        <translation type="obsolete">General</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="vanished">Name</translation>
+        <translation type="obsolete">Name</translation>
     </message>
     <message>
         <source>Auto Connect</source>
-        <translation type="vanished">Auto Connect</translation>
+        <translation type="obsolete">Auto Connect</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::HotspotDeviceWidget</name>
     <message>
         <source>Hotspot</source>
-        <translation type="vanished">Hotspot</translation>
+        <translation type="obsolete">Hotspot</translation>
     </message>
     <message>
         <source>Add Settings</source>
-        <translation type="vanished">Add Settings</translation>
+        <translation type="obsolete">Add Settings</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::IpvxSection</name>
     <message>
         <source>IPv4</source>
-        <translation type="vanished">IPv4</translation>
+        <translation type="obsolete">IPv4</translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation type="vanished">IPv6</translation>
+        <translation type="obsolete">IPv6</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="vanished">Auto</translation>
+        <translation type="obsolete">Auto</translation>
     </message>
     <message>
         <source>Manual</source>
-        <translation type="vanished">Manual</translation>
+        <translation type="obsolete">Manual</translation>
     </message>
     <message>
         <source>Ignore</source>
-        <translation type="vanished">Ignore</translation>
+        <translation type="obsolete">Ignore</translation>
     </message>
     <message>
         <source>IP Address</source>
-        <translation type="vanished">IP Address</translation>
+        <translation type="obsolete">IP Address</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation type="vanished">Gateway</translation>
+        <translation type="obsolete">Gateway</translation>
     </message>
     <message>
         <source>Primary DNS</source>
-        <translation type="vanished">Primary DNS</translation>
+        <translation type="obsolete">Primary DNS</translation>
     </message>
     <message>
         <source>Secondary DNS</source>
-        <translation type="vanished">Secondary DNS</translation>
+        <translation type="obsolete">Secondary DNS</translation>
     </message>
     <message>
         <source>Only applied in corresponding resources</source>
-        <translation type="vanished">Only applied in corresponding resources</translation>
+        <translation type="obsolete">Only applied in corresponding resources</translation>
     </message>
     <message>
         <source>Method</source>
-        <translation type="vanished">Method</translation>
+        <translation type="obsolete">Method</translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation type="vanished">Netmask</translation>
+        <translation type="obsolete">Netmask</translation>
     </message>
     <message>
         <source>Prefix</source>
-        <translation type="vanished">Prefix</translation>
+        <translation type="obsolete">Prefix</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::NetworkDetailPage</name>
     <message>
         <source>Network Details</source>
-        <translation type="vanished">Network Details</translation>
+        <translation type="obsolete">Network Details</translation>
     </message>
     <message>
         <source>Hotspot</source>
-        <translation type="vanished">Hotspot</translation>
+        <translation type="obsolete">Hotspot</translation>
     </message>
     <message>
         <source>SSID</source>
-        <translation type="vanished">SSID</translation>
+        <translation type="obsolete">SSID</translation>
     </message>
     <message>
         <source>Security</source>
-        <translation type="vanished">Security</translation>
+        <translation type="obsolete">Security</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation type="vanished">Interface</translation>
+        <translation type="obsolete">Interface</translation>
     </message>
     <message>
         <source>MAC</source>
-        <translation type="vanished">MAC</translation>
+        <translation type="obsolete">MAC</translation>
     </message>
     <message>
         <source>Band</source>
-        <translation type="vanished">Band</translation>
+        <translation type="obsolete">Band</translation>
     </message>
     <message>
         <source>IPv4</source>
-        <translation type="vanished">IPv4</translation>
+        <translation type="obsolete">IPv4</translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation type="vanished">Gateway</translation>
+        <translation type="obsolete">Gateway</translation>
     </message>
     <message>
         <source>Primary DNS</source>
-        <translation type="vanished">Primary DNS</translation>
+        <translation type="obsolete">Primary DNS</translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation type="vanished">Netmask</translation>
+        <translation type="obsolete">Netmask</translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation type="vanished">IPv6</translation>
+        <translation type="obsolete">IPv6</translation>
     </message>
     <message>
         <source>Prefix</source>
-        <translation type="vanished">Prefix</translation>
+        <translation type="obsolete">Prefix</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation type="vanished">Speed</translation>
+        <translation type="obsolete">Speed</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::NetworkModuleWidget</name>
     <message>
         <source>DSL</source>
-        <translation type="vanished">DSL</translation>
+        <translation type="obsolete">DSL</translation>
         <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
         <source>VPN</source>
-        <translation type="vanished">VPN</translation>
+        <translation type="obsolete">VPN</translation>
         <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
         <source>System Proxy</source>
-        <translation type="vanished">System Proxy</translation>
+        <translation type="obsolete">System Proxy</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>Application Proxy</source>
-        <translation type="vanished">Application Proxy</translation>
+        <translation type="obsolete">Application Proxy</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
-        <translation type="vanished">Network Details</translation>
+        <translation type="obsolete">Network Details</translation>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <source>Personal Hotspot</source>
-        <translation type="vanished">Personal Hotspot</translation>
+        <translation type="obsolete">Personal Hotspot</translation>
     </message>
     <message>
         <source>Wired Network %1</source>
-        <translation type="vanished">Wired Network %1</translation>
+        <translation type="obsolete">Wired Network %1</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <source>Wired Network</source>
-        <translation type="vanished">Wired Network</translation>
+        <translation type="obsolete">Wired Network</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <source>Wireless Network %1</source>
-        <translation type="vanished">Wireless Network %1</translation>
+        <translation type="obsolete">Wireless Network %1</translation>
         <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
         <source>Wireless Network</source>
-        <translation type="vanished">Wireless Network</translation>
+        <translation type="obsolete">Wireless Network</translation>
         <extra-contents_path>/network/Wireless Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="obsolete">Disconnect</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::PPPOESection</name>
     <message>
         <source>PPPoE</source>
-        <translation type="vanished">PPPoE</translation>
+        <translation type="obsolete">PPPoE</translation>
     </message>
     <message>
         <source>Invalid password</source>
-        <translation type="vanished">Invalid password</translation>
+        <translation type="obsolete">Invalid password</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="vanished">Username</translation>
+        <translation type="obsolete">Username</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>Service</source>
-        <translation type="vanished">Service</translation>
+        <translation type="obsolete">Service</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="vanished">Password</translation>
+        <translation type="obsolete">Password</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::PPPSection</name>
     <message>
         <source>PPP</source>
-        <translation type="vanished">PPP</translation>
+        <translation type="obsolete">PPP</translation>
     </message>
     <message>
         <source>Refuse EAP Authentication</source>
-        <translation type="vanished">Refuse EAP Authentication</translation>
+        <translation type="obsolete">Refuse EAP Authentication</translation>
     </message>
     <message>
         <source>Refuse PAP Authentication</source>
-        <translation type="vanished">Refuse PAP Authentication</translation>
+        <translation type="obsolete">Refuse PAP Authentication</translation>
     </message>
     <message>
         <source>Refuse CHAP Authentication</source>
-        <translation type="vanished">Refuse CHAP Authentication</translation>
+        <translation type="obsolete">Refuse CHAP Authentication</translation>
     </message>
     <message>
         <source>Refuse MSCHAP Authentication</source>
-        <translation type="vanished">Refuse MSCHAP Authentication</translation>
+        <translation type="obsolete">Refuse MSCHAP Authentication</translation>
     </message>
     <message>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation type="vanished">Refuse MSCHAPv2 Authentication</translation>
+        <translation type="obsolete">Refuse MSCHAPv2 Authentication</translation>
     </message>
     <message>
         <source>No BSD Data Compression</source>
-        <translation type="vanished">No BSD Data Compression</translation>
+        <translation type="obsolete">No BSD Data Compression</translation>
     </message>
     <message>
         <source>No Deflate Data Compression</source>
-        <translation type="vanished">No Deflate Data Compression</translation>
+        <translation type="obsolete">No Deflate Data Compression</translation>
     </message>
     <message>
         <source>No TCP Header Compression</source>
-        <translation type="vanished">No TCP Header Compression</translation>
+        <translation type="obsolete">No TCP Header Compression</translation>
     </message>
     <message>
         <source>No Protocol Field Compression</source>
-        <translation type="vanished">No Protocol Field Compression</translation>
+        <translation type="obsolete">No Protocol Field Compression</translation>
     </message>
     <message>
         <source>No Address/Control Compression</source>
-        <translation type="vanished">No Address/Control Compression</translation>
+        <translation type="obsolete">No Address/Control Compression</translation>
     </message>
     <message>
         <source>Send PPP Echo Packets</source>
-        <translation type="vanished">Send PPP Echo Packets</translation>
+        <translation type="obsolete">Send PPP Echo Packets</translation>
     </message>
     <message>
         <source>Use MPPE</source>
-        <translation type="vanished">Use MPPE</translation>
+        <translation type="obsolete">Use MPPE</translation>
     </message>
     <message>
         <source>128-bit MPPE</source>
-        <translation type="vanished">128-bit MPPE</translation>
+        <translation type="obsolete">128-bit MPPE</translation>
     </message>
     <message>
         <source>Stateful MPPE</source>
-        <translation type="vanished">Stateful MPPE</translation>
+        <translation type="obsolete">Stateful MPPE</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::PppoePage</name>
     <message>
         <source>PPP</source>
-        <translation type="vanished">PPP</translation>
+        <translation type="obsolete">PPP</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::ProxyPage</name>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Cancel</translation>
+        <translation type="obsolete">Cancel</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="vanished">Confirm</translation>
+        <translation type="obsolete">Confirm</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">None</translation>
+        <translation type="obsolete">None</translation>
     </message>
     <message>
         <source>Manual</source>
-        <translation type="vanished">Manual</translation>
+        <translation type="obsolete">Manual</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="vanished">Auto</translation>
+        <translation type="obsolete">Auto</translation>
     </message>
     <message>
         <source>HTTP Proxy</source>
-        <translation type="vanished">HTTP Proxy</translation>
+        <translation type="obsolete">HTTP Proxy</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>Port</source>
-        <translation type="vanished">Port</translation>
+        <translation type="obsolete">Port</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>HTTPS Proxy</source>
-        <translation type="vanished">HTTPS Proxy</translation>
+        <translation type="obsolete">HTTPS Proxy</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>FTP Proxy</source>
-        <translation type="vanished">FTP Proxy</translation>
+        <translation type="obsolete">FTP Proxy</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>SOCKS Proxy</source>
-        <translation type="vanished">SOCKS Proxy</translation>
+        <translation type="obsolete">SOCKS Proxy</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="vanished">Ignore the proxy configurations for the above hosts and domains</translation>
+        <translation type="obsolete">Ignore the proxy configurations for the above hosts and domains</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>Configuration URL</source>
-        <translation type="vanished">Configuration URL</translation>
+        <translation type="obsolete">Configuration URL</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>System Proxy</source>
-        <translation type="vanished">System Proxy</translation>
+        <translation type="obsolete">System Proxy</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::Secret8021xSection</name>
     <message>
         <source>Security</source>
-        <translation type="vanished">Security</translation>
+        <translation type="obsolete">Security</translation>
     </message>
     <message>
         <source>TLS</source>
-        <translation type="vanished">TLS</translation>
+        <translation type="obsolete">TLS</translation>
     </message>
     <message>
         <source>MD5</source>
-        <translation type="vanished">MD5</translation>
+        <translation type="obsolete">MD5</translation>
     </message>
     <message>
         <source>LEAP</source>
-        <translation type="vanished">LEAP</translation>
+        <translation type="obsolete">LEAP</translation>
     </message>
     <message>
         <source>FAST</source>
-        <translation type="vanished">FAST</translation>
+        <translation type="obsolete">FAST</translation>
     </message>
     <message>
         <source>Tunneled TLS</source>
-        <translation type="vanished">Tunneled TLS</translation>
+        <translation type="obsolete">Tunneled TLS</translation>
     </message>
     <message>
         <source>Protected EAP</source>
-        <translation type="vanished">Protected EAP</translation>
+        <translation type="obsolete">Protected EAP</translation>
     </message>
     <message>
         <source>Saved</source>
-        <translation type="vanished">Saved</translation>
+        <translation type="obsolete">Saved</translation>
     </message>
     <message>
         <source>Ask</source>
-        <translation type="vanished">Ask</translation>
+        <translation type="obsolete">Ask</translation>
     </message>
     <message>
         <source>Not Required</source>
-        <translation type="vanished">Not Required</translation>
+        <translation type="obsolete">Not Required</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="vanished">Disabled</translation>
+        <translation type="obsolete">Disabled</translation>
     </message>
     <message>
         <source>Anonymous</source>
-        <translation type="vanished">Anonymous</translation>
+        <translation type="obsolete">Anonymous</translation>
     </message>
     <message>
         <source>Authenticated</source>
-        <translation type="vanished">Authenticated</translation>
+        <translation type="obsolete">Authenticated</translation>
     </message>
     <message>
         <source>Both</source>
-        <translation type="vanished">Both</translation>
+        <translation type="obsolete">Both</translation>
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="vanished">Automatic</translation>
+        <translation type="obsolete">Automatic</translation>
     </message>
     <message>
         <source>Version 0</source>
-        <translation type="vanished">Version 0</translation>
+        <translation type="obsolete">Version 0</translation>
     </message>
     <message>
         <source>Version 1</source>
-        <translation type="vanished">Version 1</translation>
+        <translation type="obsolete">Version 1</translation>
     </message>
     <message>
         <source>EAP Auth</source>
-        <translation type="vanished">EAP Auth</translation>
+        <translation type="obsolete">EAP Auth</translation>
     </message>
     <message>
         <source>Identity</source>
-        <translation type="vanished">Identity</translation>
+        <translation type="obsolete">Identity</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>Pwd Options</source>
-        <translation type="vanished">Pwd Options</translation>
+        <translation type="obsolete">Pwd Options</translation>
     </message>
     <message>
         <source>Private Key</source>
-        <translation type="vanished">Private Key</translation>
+        <translation type="obsolete">Private Key</translation>
     </message>
     <message>
         <source>CA Cert</source>
-        <translation type="vanished">CA Cert</translation>
+        <translation type="obsolete">CA Cert</translation>
     </message>
     <message>
         <source>User Cert</source>
-        <translation type="vanished">User Cert</translation>
+        <translation type="obsolete">User Cert</translation>
     </message>
     <message>
         <source>Anonymous ID</source>
-        <translation type="vanished">Anonymous ID</translation>
+        <translation type="obsolete">Anonymous ID</translation>
     </message>
     <message>
         <source>Provisioning</source>
-        <translation type="vanished">Provisioning</translation>
+        <translation type="obsolete">Provisioning</translation>
     </message>
     <message>
         <source>PAC file</source>
-        <translation type="vanished">PAC file</translation>
+        <translation type="obsolete">PAC file</translation>
     </message>
     <message>
         <source>Inner Auth</source>
-        <translation type="vanished">Inner Auth</translation>
+        <translation type="obsolete">Inner Auth</translation>
     </message>
     <message>
         <source>PEAP Version</source>
-        <translation type="vanished">PEAP Version</translation>
+        <translation type="obsolete">PEAP Version</translation>
     </message>
     <message>
         <source>Private Pwd</source>
-        <translation type="vanished">Private Pwd</translation>
+        <translation type="obsolete">Private Pwd</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="vanished">Password</translation>
+        <translation type="obsolete">Password</translation>
     </message>
     <message>
         <source>Invalid password</source>
-        <translation type="vanished">Invalid password</translation>
+        <translation type="obsolete">Invalid password</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::SecretHotspotSection</name>
     <message>
         <source>Invalid password</source>
-        <translation type="vanished">Invalid password</translation>
+        <translation type="obsolete">Invalid password</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">None</translation>
+        <translation type="obsolete">None</translation>
     </message>
     <message>
         <source>WEP 40/128-bit</source>
-        <translation type="vanished">WEP 40/128-bit</translation>
+        <translation type="obsolete">WEP 40/128-bit</translation>
     </message>
     <message>
         <source>WPA/WPA2 Personal</source>
-        <translation type="vanished">WPA/WPA2 Personal</translation>
+        <translation type="obsolete">WPA/WPA2 Personal</translation>
     </message>
     <message>
         <source>Security</source>
-        <translation type="vanished">Security</translation>
+        <translation type="obsolete">Security</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="vanished">Key</translation>
+        <translation type="obsolete">Key</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="vanished">Password</translation>
+        <translation type="obsolete">Password</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::SecretWiredSection</name>
     <message>
         <source>Security Required</source>
-        <translation type="vanished">Security Required</translation>
+        <translation type="obsolete">Security Required</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
         <source>Invalid password</source>
-        <translation type="vanished">Invalid password</translation>
+        <translation type="obsolete">Invalid password</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">None</translation>
+        <translation type="obsolete">None</translation>
     </message>
     <message>
         <source>WEP 40/128-bit</source>
-        <translation type="vanished">WEP 40/128-bit</translation>
+        <translation type="obsolete">WEP 40/128-bit</translation>
     </message>
     <message>
         <source>WPA/WPA2 Personal</source>
-        <translation type="vanished">WPA/WPA2 Personal</translation>
+        <translation type="obsolete">WPA/WPA2 Personal</translation>
     </message>
     <message>
         <source>WPA/WPA2 Enterprise</source>
-        <translation type="vanished">WPA/WPA2 Enterprise</translation>
+        <translation type="obsolete">WPA/WPA2 Enterprise</translation>
     </message>
     <message>
         <source>Security</source>
-        <translation type="vanished">Security</translation>
+        <translation type="obsolete">Security</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="vanished">Key</translation>
+        <translation type="obsolete">Key</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="vanished">Password</translation>
+        <translation type="obsolete">Password</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnAdvOpenVPNSection</name>
     <message>
         <source>VPN Advanced</source>
-        <translation type="vanished">VPN Advanced</translation>
+        <translation type="obsolete">VPN Advanced</translation>
     </message>
     <message>
         <source>Customize Gateway Port</source>
-        <translation type="vanished">Customize Gateway Port</translation>
+        <translation type="obsolete">Customize Gateway Port</translation>
     </message>
     <message>
         <source>Gateway Port</source>
-        <translation type="vanished">Gateway Port</translation>
+        <translation type="obsolete">Gateway Port</translation>
     </message>
     <message>
         <source>Customize Renegotiation Interval</source>
-        <translation type="vanished">Customize Renegotiation Interval</translation>
+        <translation type="obsolete">Customize Renegotiation Interval</translation>
     </message>
     <message>
         <source>Renegotiation Interval</source>
-        <translation type="vanished">Renegotiation Interval</translation>
+        <translation type="obsolete">Renegotiation Interval</translation>
     </message>
     <message>
         <source>Use LZO Data Compression</source>
-        <translation type="vanished">Use LZO Data Compression</translation>
+        <translation type="obsolete">Use LZO Data Compression</translation>
     </message>
     <message>
         <source>Use TCP Connection</source>
-        <translation type="vanished">Use TCP Connection</translation>
+        <translation type="obsolete">Use TCP Connection</translation>
     </message>
     <message>
         <source>Use TAP Device</source>
-        <translation type="vanished">Use TAP Device</translation>
+        <translation type="obsolete">Use TAP Device</translation>
     </message>
     <message>
         <source>Customize Tunnel MTU</source>
-        <translation type="vanished">Customize Tunnel MTU</translation>
+        <translation type="obsolete">Customize Tunnel MTU</translation>
     </message>
     <message>
         <source>MTU</source>
-        <translation type="vanished">MTU</translation>
+        <translation type="obsolete">MTU</translation>
     </message>
     <message>
         <source>Customize UDP Fragment Size</source>
-        <translation type="vanished">Customize UDP Fragment Size</translation>
+        <translation type="obsolete">Customize UDP Fragment Size</translation>
     </message>
     <message>
         <source>UDP Fragment Size</source>
-        <translation type="vanished">UDP Fragment Size</translation>
+        <translation type="obsolete">UDP Fragment Size</translation>
     </message>
     <message>
         <source>Restrict Tunnel TCP MSS</source>
-        <translation type="vanished">Restrict Tunnel TCP MSS</translation>
+        <translation type="obsolete">Restrict Tunnel TCP MSS</translation>
     </message>
     <message>
         <source>Randomize Remote Hosts</source>
-        <translation type="vanished">Randomize Remote Hosts</translation>
+        <translation type="obsolete">Randomize Remote Hosts</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnAdvVPNCSection</name>
     <message>
         <source>VPN Advanced</source>
-        <translation type="vanished">VPN Advanced</translation>
+        <translation type="obsolete">VPN Advanced</translation>
     </message>
     <message>
         <source>Cisco (default)</source>
-        <translation type="vanished">Cisco (default)</translation>
+        <translation type="obsolete">Cisco (default)</translation>
     </message>
     <message>
         <source>Netscreen</source>
-        <translation type="vanished">Netscreen</translation>
+        <translation type="obsolete">Netscreen</translation>
     </message>
     <message>
         <source>Secure (default)</source>
-        <translation type="vanished">Secure (default)</translation>
+        <translation type="obsolete">Secure (default)</translation>
     </message>
     <message>
         <source>Weak</source>
-        <translation type="vanished">Weak</translation>
+        <translation type="obsolete">Weak</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">None</translation>
+        <translation type="obsolete">None</translation>
     </message>
     <message>
         <source>NAT-T When Available (default)</source>
-        <translation type="vanished">NAT-T When Available (default)</translation>
+        <translation type="obsolete">NAT-T When Available (default)</translation>
     </message>
     <message>
         <source>NAT-T Always</source>
-        <translation type="vanished">NAT-T Always</translation>
+        <translation type="obsolete">NAT-T Always</translation>
     </message>
     <message>
         <source>Cisco UDP</source>
-        <translation type="vanished">Cisco UDP</translation>
+        <translation type="obsolete">Cisco UDP</translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation type="vanished">Disabled</translation>
+        <translation type="obsolete">Disabled</translation>
     </message>
     <message>
         <source>DH Group 1</source>
-        <translation type="vanished">DH Group 1</translation>
+        <translation type="obsolete">DH Group 1</translation>
     </message>
     <message>
         <source>DH Group 2 (default)</source>
-        <translation type="vanished">DH Group 2 (default)</translation>
+        <translation type="obsolete">DH Group 2 (default)</translation>
     </message>
     <message>
         <source>DH Group 5</source>
-        <translation type="vanished">DH Group 5</translation>
+        <translation type="obsolete">DH Group 5</translation>
     </message>
     <message>
         <source>Server (default)</source>
-        <translation type="vanished">Server (default)</translation>
+        <translation type="obsolete">Server (default)</translation>
     </message>
     <message>
         <source>DH Group 2</source>
-        <translation type="vanished">DH Group 2</translation>
+        <translation type="obsolete">DH Group 2</translation>
     </message>
     <message>
         <source>Domain</source>
-        <translation type="vanished">Domain</translation>
+        <translation type="obsolete">Domain</translation>
     </message>
     <message>
         <source>Vendor</source>
-        <translation type="vanished">Vendor</translation>
+        <translation type="obsolete">Vendor</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="vanished">Version</translation>
+        <translation type="obsolete">Version</translation>
     </message>
     <message>
         <source>Encryption</source>
-        <translation type="vanished">Encryption</translation>
+        <translation type="obsolete">Encryption</translation>
     </message>
     <message>
         <source>NAT Traversal Mode</source>
-        <translation type="vanished">NAT Traversal Mode</translation>
+        <translation type="obsolete">NAT Traversal Mode</translation>
     </message>
     <message>
         <source>IKE DH Group</source>
-        <translation type="vanished">IKE DH Group</translation>
+        <translation type="obsolete">IKE DH Group</translation>
     </message>
     <message>
         <source>Forward Secrecy</source>
-        <translation type="vanished">Forward Secrecy</translation>
+        <translation type="obsolete">Forward Secrecy</translation>
     </message>
     <message>
         <source>Local Port</source>
-        <translation type="vanished">Local Port</translation>
+        <translation type="obsolete">Local Port</translation>
     </message>
     <message>
         <source>Disable Dead Peer Detection</source>
-        <translation type="vanished">Disable Dead Peer Detection</translation>
+        <translation type="obsolete">Disable Dead Peer Detection</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnIpsecSection</name>
     <message>
         <source>VPN IPsec</source>
-        <translation type="vanished">VPN IPsec</translation>
+        <translation type="obsolete">VPN IPsec</translation>
     </message>
     <message>
         <source>Enable IPsec</source>
-        <translation type="vanished">Enable IPsec</translation>
+        <translation type="obsolete">Enable IPsec</translation>
     </message>
     <message>
         <source>Group Name</source>
-        <translation type="vanished">Group Name</translation>
+        <translation type="obsolete">Group Name</translation>
     </message>
     <message>
         <source>Group ID</source>
-        <translation type="vanished">Group ID</translation>
+        <translation type="obsolete">Group ID</translation>
     </message>
     <message>
         <source>Pre-Shared Key</source>
-        <translation type="vanished">Pre-Shared Key</translation>
+        <translation type="obsolete">Pre-Shared Key</translation>
     </message>
     <message>
         <source>Phase1 Algorithms</source>
-        <translation type="vanished">Phase1 Algorithms</translation>
+        <translation type="obsolete">Phase1 Algorithms</translation>
     </message>
     <message>
         <source>Phase2 Algorithms</source>
-        <translation type="vanished">Phase2 Algorithms</translation>
+        <translation type="obsolete">Phase2 Algorithms</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnOpenConnectSection</name>
     <message>
         <source>VPN</source>
-        <translation type="vanished">VPN</translation>
+        <translation type="obsolete">VPN</translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation type="vanished">Gateway</translation>
+        <translation type="obsolete">Gateway</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>CA Cert</source>
-        <translation type="vanished">CA Cert</translation>
+        <translation type="obsolete">CA Cert</translation>
     </message>
     <message>
         <source>Proxy</source>
-        <translation type="vanished">Proxy</translation>
+        <translation type="obsolete">Proxy</translation>
     </message>
     <message>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation type="vanished">Allow Cisco Secure Desktop Trojan</translation>
+        <translation type="obsolete">Allow Cisco Secure Desktop Trojan</translation>
     </message>
     <message>
         <source>CSD Script</source>
-        <translation type="vanished">CSD Script</translation>
+        <translation type="obsolete">CSD Script</translation>
     </message>
     <message>
         <source>User Cert</source>
-        <translation type="vanished">User Cert</translation>
+        <translation type="obsolete">User Cert</translation>
     </message>
     <message>
         <source>Private Key</source>
-        <translation type="vanished">Private Key</translation>
+        <translation type="obsolete">Private Key</translation>
     </message>
     <message>
         <source>Use FSID for Key Passphrase</source>
-        <translation type="vanished">Use FSID for Key Passphrase</translation>
+        <translation type="obsolete">Use FSID for Key Passphrase</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnOpenVPNSection</name>
     <message>
         <source>VPN</source>
-        <translation type="vanished">VPN</translation>
+        <translation type="obsolete">VPN</translation>
     </message>
     <message>
         <source>Certificates (TLS)</source>
-        <translation type="vanished">Certificates (TLS)</translation>
+        <translation type="obsolete">Certificates (TLS)</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="vanished">Password</translation>
+        <translation type="obsolete">Password</translation>
     </message>
     <message>
         <source>Certificates with Password (TLS)</source>
-        <translation type="vanished">Certificates with Password (TLS)</translation>
+        <translation type="obsolete">Certificates with Password (TLS)</translation>
     </message>
     <message>
         <source>Static Key</source>
-        <translation type="vanished">Static Key</translation>
+        <translation type="obsolete">Static Key</translation>
     </message>
     <message>
         <source>Saved</source>
-        <translation type="vanished">Saved</translation>
+        <translation type="obsolete">Saved</translation>
     </message>
     <message>
         <source>Ask</source>
-        <translation type="vanished">Ask</translation>
+        <translation type="obsolete">Ask</translation>
     </message>
     <message>
         <source>Not Required</source>
-        <translation type="vanished">Not Required</translation>
+        <translation type="obsolete">Not Required</translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation type="vanished">Gateway</translation>
+        <translation type="obsolete">Gateway</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>Auth Type</source>
-        <translation type="vanished">Auth Type</translation>
+        <translation type="obsolete">Auth Type</translation>
     </message>
     <message>
         <source>CA Cert</source>
-        <translation type="vanished">CA Cert</translation>
+        <translation type="obsolete">CA Cert</translation>
     </message>
     <message>
         <source>User Cert</source>
-        <translation type="vanished">User Cert</translation>
+        <translation type="obsolete">User Cert</translation>
     </message>
     <message>
         <source>Private Key</source>
-        <translation type="vanished">Private Key</translation>
+        <translation type="obsolete">Private Key</translation>
     </message>
     <message>
         <source>Pwd Options</source>
-        <translation type="vanished">Pwd Options</translation>
+        <translation type="obsolete">Pwd Options</translation>
     </message>
     <message>
         <source>Private Pwd</source>
-        <translation type="vanished">Private Pwd</translation>
+        <translation type="obsolete">Private Pwd</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="vanished">Username</translation>
+        <translation type="obsolete">Username</translation>
     </message>
     <message>
         <source>Customize Key Direction</source>
-        <translation type="vanished">Customize Key Direction</translation>
+        <translation type="obsolete">Customize Key Direction</translation>
     </message>
     <message>
         <source>Key Direction</source>
-        <translation type="vanished">Key Direction</translation>
+        <translation type="obsolete">Key Direction</translation>
     </message>
     <message>
         <source>Remote IP</source>
-        <translation type="vanished">Remote IP</translation>
+        <translation type="obsolete">Remote IP</translation>
     </message>
     <message>
         <source>Local IP</source>
-        <translation type="vanished">Local IP</translation>
+        <translation type="obsolete">Local IP</translation>
     </message>
     <message>
         <source>Invalid password</source>
-        <translation type="vanished">Invalid password</translation>
+        <translation type="obsolete">Invalid password</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnPPPSection</name>
     <message>
         <source>VPN PPP</source>
-        <translation type="vanished">VPN PPP</translation>
+        <translation type="obsolete">VPN PPP</translation>
     </message>
     <message>
         <source>All Available (default)</source>
-        <translation type="vanished">All Available (default)</translation>
+        <translation type="obsolete">All Available (default)</translation>
     </message>
     <message>
         <source>40-bit (less secure)</source>
-        <translation type="vanished">40-bit (less secure)</translation>
+        <translation type="obsolete">40-bit (less secure)</translation>
     </message>
     <message>
         <source>128-bit (most secure)</source>
-        <translation type="vanished">128-bit (most secure)</translation>
+        <translation type="obsolete">128-bit (most secure)</translation>
     </message>
     <message>
         <source>Refuse EAP Authentication</source>
-        <translation type="vanished">Refuse EAP Authentication</translation>
+        <translation type="obsolete">Refuse EAP Authentication</translation>
     </message>
     <message>
         <source>Refuse PAP Authentication</source>
-        <translation type="vanished">Refuse PAP Authentication</translation>
+        <translation type="obsolete">Refuse PAP Authentication</translation>
     </message>
     <message>
         <source>Refuse CHAP Authentication</source>
-        <translation type="vanished">Refuse CHAP Authentication</translation>
+        <translation type="obsolete">Refuse CHAP Authentication</translation>
     </message>
     <message>
         <source>Refuse MSCHAP Authentication</source>
-        <translation type="vanished">Refuse MSCHAP Authentication</translation>
+        <translation type="obsolete">Refuse MSCHAP Authentication</translation>
     </message>
     <message>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation type="vanished">Refuse MSCHAPv2 Authentication</translation>
+        <translation type="obsolete">Refuse MSCHAPv2 Authentication</translation>
     </message>
     <message>
         <source>No BSD Data Compression</source>
-        <translation type="vanished">No BSD Data Compression</translation>
+        <translation type="obsolete">No BSD Data Compression</translation>
     </message>
     <message>
         <source>No Deflate Data Compression</source>
-        <translation type="vanished">No Deflate Data Compression</translation>
+        <translation type="obsolete">No Deflate Data Compression</translation>
     </message>
     <message>
         <source>No TCP Header Compression</source>
-        <translation type="vanished">No TCP Header Compression</translation>
+        <translation type="obsolete">No TCP Header Compression</translation>
     </message>
     <message>
         <source>No Protocol Field Compression</source>
-        <translation type="vanished">No Protocol Field Compression</translation>
+        <translation type="obsolete">No Protocol Field Compression</translation>
     </message>
     <message>
         <source>No Address/Control Compression</source>
-        <translation type="vanished">No Address/Control Compression</translation>
+        <translation type="obsolete">No Address/Control Compression</translation>
     </message>
     <message>
         <source>Send PPP Echo Packets</source>
-        <translation type="vanished">Send PPP Echo Packets</translation>
+        <translation type="obsolete">Send PPP Echo Packets</translation>
     </message>
     <message>
         <source>Use MPPE</source>
-        <translation type="vanished">Use MPPE</translation>
+        <translation type="obsolete">Use MPPE</translation>
     </message>
     <message>
         <source>Security</source>
-        <translation type="vanished">Security</translation>
+        <translation type="obsolete">Security</translation>
     </message>
     <message>
         <source>Stateful MPPE</source>
-        <translation type="vanished">Stateful MPPE</translation>
+        <translation type="obsolete">Stateful MPPE</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnPage</name>
     <message>
         <source>VPN Status</source>
-        <translation type="vanished">VPN Status</translation>
+        <translation type="obsolete">VPN Status</translation>
+    </message>
+    <message>
+        <source>Import Error</source>
+        <translation type="obsolete">Import Error</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="obsolete">OK</translation>
     </message>
     <message>
         <source>VPN</source>
         <translation type="vanished">VPN</translation>
-    </message>
-    <message>
-        <source>Import Error</source>
-        <translation type="vanished">Import Error</translation>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="vanished">OK</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnProxySection</name>
     <message>
         <source>VPN Proxy</source>
-        <translation type="vanished">VPN Proxy</translation>
+        <translation type="obsolete">VPN Proxy</translation>
     </message>
     <message>
         <source>Invalid password</source>
-        <translation type="vanished">Invalid password</translation>
+        <translation type="obsolete">Invalid password</translation>
     </message>
     <message>
         <source>Not Required</source>
-        <translation type="vanished">Not Required</translation>
+        <translation type="obsolete">Not Required</translation>
     </message>
     <message>
         <source>HTTP</source>
-        <translation type="vanished">HTTP</translation>
+        <translation type="obsolete">HTTP</translation>
     </message>
     <message>
         <source>SOCKS</source>
-        <translation type="vanished">SOCKS</translation>
+        <translation type="obsolete">SOCKS</translation>
     </message>
     <message>
         <source>Proxy Type</source>
-        <translation type="vanished">Proxy Type</translation>
+        <translation type="obsolete">Proxy Type</translation>
     </message>
     <message>
         <source>Server IP</source>
-        <translation type="vanished">Server IP</translation>
+        <translation type="obsolete">Server IP</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="vanished">Port</translation>
+        <translation type="obsolete">Port</translation>
     </message>
     <message>
         <source>Retry Indefinitely When Failed</source>
-        <translation type="vanished">Retry Indefinitely When Failed</translation>
+        <translation type="obsolete">Retry Indefinitely When Failed</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="vanished">Username</translation>
+        <translation type="obsolete">Username</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="vanished">Password</translation>
+        <translation type="obsolete">Password</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnSSTPSection</name>
     <message>
         <source>CA File</source>
-        <translation type="vanished">CA File</translation>
+        <translation type="obsolete">CA File</translation>
     </message>
     <message>
         <source>Ignore Certificate Warnings</source>
-        <translation type="vanished">Ignore Certificate Warnings</translation>
+        <translation type="obsolete">Ignore Certificate Warnings</translation>
     </message>
     <message>
         <source>Use TLS Hostname Extensions</source>
-        <translation type="vanished">Use TLS Hostname Extensions</translation>
+        <translation type="obsolete">Use TLS Hostname Extensions</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnSecOpenVPNSection</name>
     <message>
         <source>VPN Security</source>
-        <translation type="vanished">VPN Security</translation>
+        <translation type="obsolete">VPN Security</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="vanished">Default</translation>
+        <translation type="obsolete">Default</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="vanished">None</translation>
+        <translation type="obsolete">None</translation>
     </message>
     <message>
         <source>Cipher</source>
-        <translation type="vanished">Cipher</translation>
+        <translation type="obsolete">Cipher</translation>
     </message>
     <message>
         <source>HMAC Auth</source>
-        <translation type="vanished">HMAC Auth</translation>
+        <translation type="obsolete">HMAC Auth</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnSection</name>
     <message>
         <source>VPN</source>
-        <translation type="vanished">VPN</translation>
+        <translation type="obsolete">VPN</translation>
     </message>
     <message>
         <source>Invalid password</source>
-        <translation type="vanished">Invalid password</translation>
+        <translation type="obsolete">Invalid password</translation>
     </message>
     <message>
         <source>Saved</source>
-        <translation type="vanished">Saved</translation>
+        <translation type="obsolete">Saved</translation>
     </message>
     <message>
         <source>Ask</source>
-        <translation type="vanished">Ask</translation>
+        <translation type="obsolete">Ask</translation>
     </message>
     <message>
         <source>Not Required</source>
-        <translation type="vanished">Not Required</translation>
+        <translation type="obsolete">Not Required</translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation type="vanished">Gateway</translation>
+        <translation type="obsolete">Gateway</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="vanished">Username</translation>
+        <translation type="obsolete">Username</translation>
     </message>
     <message>
         <source>Pwd Options</source>
-        <translation type="vanished">Pwd Options</translation>
+        <translation type="obsolete">Pwd Options</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="vanished">Password</translation>
+        <translation type="obsolete">Password</translation>
     </message>
     <message>
         <source>NT Domain</source>
-        <translation type="vanished">NT Domain</translation>
+        <translation type="obsolete">NT Domain</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnSstpProxySection</name>
     <message>
         <source>VPN Proxy</source>
-        <translation type="vanished">VPN Proxy</translation>
+        <translation type="obsolete">VPN Proxy</translation>
     </message>
     <message>
         <source>Server IP</source>
-        <translation type="vanished">Server IP</translation>
+        <translation type="obsolete">Server IP</translation>
     </message>
     <message>
         <source>Port</source>
-        <translation type="vanished">Port</translation>
+        <translation type="obsolete">Port</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="vanished">Username</translation>
+        <translation type="obsolete">Username</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="vanished">Password</translation>
+        <translation type="obsolete">Password</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnStrongSwanSection</name>
     <message>
         <source>VPN</source>
-        <translation type="vanished">VPN</translation>
+        <translation type="obsolete">VPN</translation>
     </message>
     <message>
         <source>Private Key</source>
-        <translation type="vanished">Private Key</translation>
+        <translation type="obsolete">Private Key</translation>
     </message>
     <message>
         <source>SSH Agent</source>
-        <translation type="vanished">SSH Agent</translation>
+        <translation type="obsolete">SSH Agent</translation>
     </message>
     <message>
         <source>Smart Card</source>
-        <translation type="vanished">Smart Card</translation>
+        <translation type="obsolete">Smart Card</translation>
     </message>
     <message>
         <source>EAP</source>
-        <translation type="vanished">EAP</translation>
+        <translation type="obsolete">EAP</translation>
     </message>
     <message>
         <source>Pre-Shared Key</source>
-        <translation type="vanished">Pre-Shared Key</translation>
+        <translation type="obsolete">Pre-Shared Key</translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation type="vanished">Gateway</translation>
+        <translation type="obsolete">Gateway</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>CA Cert</source>
-        <translation type="vanished">CA Cert</translation>
+        <translation type="obsolete">CA Cert</translation>
     </message>
     <message>
         <source>Auth Type</source>
-        <translation type="vanished">Auth Type</translation>
+        <translation type="obsolete">Auth Type</translation>
     </message>
     <message>
         <source>User Cert</source>
-        <translation type="vanished">User Cert</translation>
+        <translation type="obsolete">User Cert</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="vanished">Username</translation>
+        <translation type="obsolete">Username</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="vanished">Password</translation>
+        <translation type="obsolete">Password</translation>
     </message>
     <message>
         <source>Request an Inner IP Address</source>
-        <translation type="vanished">Request an Inner IP Address</translation>
+        <translation type="obsolete">Request an Inner IP Address</translation>
     </message>
     <message>
         <source>Enforce UDP Encapsulation</source>
-        <translation type="vanished">Enforce UDP Encapsulation</translation>
+        <translation type="obsolete">Enforce UDP Encapsulation</translation>
     </message>
     <message>
         <source>Use IP Compression</source>
-        <translation type="vanished">Use IP Compression</translation>
+        <translation type="obsolete">Use IP Compression</translation>
     </message>
     <message>
         <source>Enable Custom Cipher Proposals</source>
-        <translation type="vanished">Enable Custom Cipher Proposals</translation>
+        <translation type="obsolete">Enable Custom Cipher Proposals</translation>
     </message>
     <message>
         <source>IKE</source>
-        <translation type="vanished">IKE</translation>
+        <translation type="obsolete">IKE</translation>
     </message>
     <message>
         <source>ESP</source>
-        <translation type="vanished">ESP</translation>
+        <translation type="obsolete">ESP</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnTLSSection</name>
     <message>
         <source>VPN TLS Authentication</source>
-        <translation type="vanished">VPN TLS Authentication</translation>
+        <translation type="obsolete">VPN TLS Authentication</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="vanished">Default</translation>
+        <translation type="obsolete">Default</translation>
     </message>
     <message>
         <source>Client</source>
-        <translation type="vanished">Client</translation>
+        <translation type="obsolete">Client</translation>
     </message>
     <message>
         <source>Server</source>
-        <translation type="vanished">Server</translation>
+        <translation type="obsolete">Server</translation>
     </message>
     <message>
         <source>Subject Match</source>
-        <translation type="vanished">Subject Match</translation>
+        <translation type="obsolete">Subject Match</translation>
     </message>
     <message>
         <source>Remote Cert Type</source>
-        <translation type="vanished">Remote Cert Type</translation>
+        <translation type="obsolete">Remote Cert Type</translation>
     </message>
     <message>
         <source>Key File</source>
-        <translation type="vanished">Key File</translation>
+        <translation type="obsolete">Key File</translation>
     </message>
     <message>
         <source>Customize Key Direction</source>
-        <translation type="vanished">Customize Key Direction</translation>
+        <translation type="obsolete">Customize Key Direction</translation>
     </message>
     <message>
         <source>Key Direction</source>
-        <translation type="vanished">Key Direction</translation>
+        <translation type="obsolete">Key Direction</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnVPNCSection</name>
     <message>
         <source>VPN</source>
-        <translation type="vanished">VPN</translation>
+        <translation type="obsolete">VPN</translation>
     </message>
     <message>
         <source>Invalid password</source>
-        <translation type="vanished">Invalid password</translation>
+        <translation type="obsolete">Invalid password</translation>
     </message>
     <message>
         <source>Saved</source>
-        <translation type="vanished">Saved</translation>
+        <translation type="obsolete">Saved</translation>
     </message>
     <message>
         <source>Ask</source>
-        <translation type="vanished">Ask</translation>
+        <translation type="obsolete">Ask</translation>
     </message>
     <message>
         <source>Not Required</source>
-        <translation type="vanished">Not Required</translation>
+        <translation type="obsolete">Not Required</translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation type="vanished">Gateway</translation>
+        <translation type="obsolete">Gateway</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="vanished">Username</translation>
+        <translation type="obsolete">Username</translation>
     </message>
     <message>
         <source>Pwd Options</source>
-        <translation type="vanished">Pwd Options</translation>
+        <translation type="obsolete">Pwd Options</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="vanished">Password</translation>
+        <translation type="obsolete">Password</translation>
     </message>
     <message>
         <source>Group Name</source>
-        <translation type="vanished">Group Name</translation>
+        <translation type="obsolete">Group Name</translation>
     </message>
     <message>
         <source>Group Pwd</source>
-        <translation type="vanished">Group Pwd</translation>
+        <translation type="obsolete">Group Pwd</translation>
     </message>
     <message>
         <source>Use Hybrid Authentication</source>
-        <translation type="vanished">Use Hybrid Authentication</translation>
+        <translation type="obsolete">Use Hybrid Authentication</translation>
     </message>
     <message>
         <source>CA File</source>
-        <translation type="vanished">CA File</translation>
+        <translation type="obsolete">CA File</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::WiredPage</name>
     <message>
         <source>Plug in the network cable first</source>
-        <translation type="vanished">Plug in the network cable first</translation>
+        <translation type="obsolete">Plug in the network cable first</translation>
     </message>
     <message>
         <source>Wired Network Adapter</source>
-        <translation type="vanished">Wired Network Adapter</translation>
+        <translation type="obsolete">Wired Network Adapter</translation>
     </message>
     <message>
         <source>Select Settings</source>
-        <translation type="vanished">Select Settings</translation>
+        <translation type="obsolete">Select Settings</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
         <source>Connect to hidden network</source>
-        <translation type="vanished">Connect to hidden network</translation>
+        <translation type="obsolete">Connect to hidden network</translation>
     </message>
     <message>
         <source>Wireless Network Adapter</source>
-        <translation type="vanished">Wireless Network Adapter</translation>
+        <translation type="obsolete">Wireless Network Adapter</translation>
     </message>
     <message>
         <source>Close Hotspot</source>
-        <translation type="vanished">Close Hotspot</translation>
+        <translation type="obsolete">Close Hotspot</translation>
     </message>
     <message>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation type="vanished">Please disable hotspot sharing first if you want to connect to a wireless network</translation>
+        <translation type="obsolete">Please disable hotspot sharing first if you want to connect to a wireless network</translation>
     </message>
     <message>
         <source>WLAN</source>
-        <translation type="vanished">WLAN</translation>
+        <translation type="obsolete">WLAN</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::WirelessSection</name>
     <message>
         <source>Not Bind</source>
-        <translation type="vanished">Not Bind</translation>
+        <translation type="obsolete">Not Bind</translation>
     </message>
     <message>
         <source>SSID</source>
-        <translation type="vanished">SSID</translation>
+        <translation type="obsolete">SSID</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="vanished">Required</translation>
+        <translation type="obsolete">Required</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>
-        <translation type="vanished">Device MAC Addr</translation>
+        <translation type="obsolete">Device MAC Addr</translation>
     </message>
     <message>
         <source>Customize MTU</source>
-        <translation type="vanished">Customize MTU</translation>
+        <translation type="obsolete">Customize MTU</translation>
     </message>
     <message>
         <source>MTU</source>
-        <translation type="vanished">MTU</translation>
+        <translation type="obsolete">MTU</translation>
     </message>
 </context>
 <context>
     <name>dccV20::personalization::PersonalizationFontsWidget</name>
     <message>
         <source>Size</source>
-        <translation type="vanished">Size</translation>
+        <translation type="obsolete">Size</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="vanished">Standard Font</translation>
+        <translation type="obsolete">Standard Font</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="vanished">Monospaced Font</translation>
+        <translation type="obsolete">Monospaced Font</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
         <source> (Unsupported font)</source>
-        <translation type="vanished"> (Unsupported font)</translation>
+        <translation type="obsolete"> (Unsupported font)</translation>
     </message>
 </context>
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
         <source>Transparency</source>
-        <translation type="vanished">Transparency</translation>
+        <translation type="obsolete">Transparency</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="vanished">Theme</translation>
+        <translation type="obsolete">Theme</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Accent Color</source>
-        <translation type="vanished">Accent Color</translation>
+        <translation type="obsolete">Accent Color</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Window Effect</source>
-        <translation type="vanished">Window Effect</translation>
+        <translation type="obsolete">Window Effect</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
 </context>
@@ -11341,22 +11349,22 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::personalization::PersonalizationList</name>
     <message>
         <source>General</source>
-        <translation type="vanished">General</translation>
+        <translation type="obsolete">General</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation type="vanished">Icon Theme</translation>
+        <translation type="obsolete">Icon Theme</translation>
         <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation type="vanished">Cursor Theme</translation>
+        <translation type="obsolete">Cursor Theme</translation>
         <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
     </message>
     <message>
         <source>Font</source>
-        <translation type="vanished">Font</translation>
+        <translation type="obsolete">Font</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
 </context>
@@ -11364,66 +11372,66 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::personalization::PerssonalizationThemeList</name>
     <message>
         <source>Light</source>
-        <translation type="vanished">Light</translation>
+        <translation type="obsolete">Light</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="vanished">Dark</translation>
+        <translation type="obsolete">Dark</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="vanished">Auto</translation>
+        <translation type="obsolete">Auto</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Default</source>
-        <translation type="vanished">Default</translation>
+        <translation type="obsolete">Default</translation>
     </message>
 </context>
 <context>
     <name>dccV20::personalization::PerssonalizationThemeWidget</name>
     <message>
         <source>Light</source>
-        <translation type="vanished">Light</translation>
+        <translation type="obsolete">Light</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="vanished">Dark</translation>
+        <translation type="obsolete">Dark</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="vanished">Auto</translation>
+        <translation type="obsolete">Auto</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Default</source>
-        <translation type="vanished">Default</translation>
+        <translation type="obsolete">Default</translation>
     </message>
 </context>
 <context>
     <name>dccV20::power::GeneralWidget</name>
     <message>
         <source>Power Saving Mode</source>
-        <translation type="vanished">Power Saving Mode</translation>
+        <translation type="obsolete">Power Saving Mode</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <source>Auto Mode Switch</source>
-        <translation type="vanished">Auto Mode Switch</translation>
+        <translation type="obsolete">Auto Mode Switch</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation type="vanished">Password is required to wake up the computer</translation>
+        <translation type="obsolete">Password is required to wake up the computer</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation type="vanished">Password is required to wake up the monitor</translation>
+        <translation type="obsolete">Password is required to wake up the monitor</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
 </context>
@@ -11431,28 +11439,28 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::power::PowerModule</name>
     <message>
         <source>Battery low, please plug in</source>
-        <translation type="vanished">Battery low, please plug in</translation>
+        <translation type="obsolete">Battery low, please plug in</translation>
     </message>
     <message>
         <source>Battery critically low</source>
-        <translation type="vanished">Battery critically low</translation>
+        <translation type="obsolete">Battery critically low</translation>
     </message>
 </context>
 <context>
     <name>dccV20::power::PowerWidget</name>
     <message>
         <source>General</source>
-        <translation type="vanished">General</translation>
+        <translation type="obsolete">General</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="vanished">Plugged In</translation>
+        <translation type="obsolete">Plugged In</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="vanished">On Battery</translation>
+        <translation type="obsolete">On Battery</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
 </context>
@@ -11460,112 +11468,112 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::power::UseBatteryWidget</name>
     <message>
         <source>Monitor will suspend after</source>
-        <translation type="vanished">Monitor will suspend after</translation>
+        <translation type="obsolete">Monitor will suspend after</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <source>Computer will suspend after</source>
-        <translation type="vanished">Computer will suspend after</translation>
+        <translation type="obsolete">Computer will suspend after</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="vanished">Lock screen after</translation>
+        <translation type="obsolete">Lock screen after</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <source>Suspend on lid close</source>
-        <translation type="vanished">Suspend on lid close</translation>
+        <translation type="obsolete">Suspend on lid close</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <source>Never</source>
-        <translation type="vanished">Never</translation>
+        <translation type="obsolete">Never</translation>
     </message>
     <message>
         <source>1 Minute</source>
-        <translation type="vanished">1 Minute</translation>
+        <translation type="obsolete">1 Minute</translation>
     </message>
     <message>
         <source>%1 Minutes</source>
-        <translation type="vanished">%1 Minutes</translation>
+        <translation type="obsolete">%1 Minutes</translation>
     </message>
     <message>
         <source>1 Hour</source>
-        <translation type="vanished">1 Hour</translation>
+        <translation type="obsolete">1 Hour</translation>
     </message>
 </context>
 <context>
     <name>dccV20::power::UseElectricWidget</name>
     <message>
         <source>Monitor will suspend after</source>
-        <translation type="vanished">Monitor will suspend after</translation>
+        <translation type="obsolete">Monitor will suspend after</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <source>Computer will suspend after</source>
-        <translation type="vanished">Computer will suspend after</translation>
+        <translation type="obsolete">Computer will suspend after</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="vanished">Lock screen after</translation>
+        <translation type="obsolete">Lock screen after</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <source>Suspend on lid close</source>
-        <translation type="vanished">Suspend on lid close</translation>
+        <translation type="obsolete">Suspend on lid close</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <source>Never</source>
-        <translation type="vanished">Never</translation>
+        <translation type="obsolete">Never</translation>
     </message>
     <message>
         <source>1 Minute</source>
-        <translation type="vanished">1 Minute</translation>
+        <translation type="obsolete">1 Minute</translation>
     </message>
     <message>
         <source>%1 Minutes</source>
-        <translation type="vanished">%1 Minutes</translation>
+        <translation type="obsolete">%1 Minutes</translation>
     </message>
     <message>
         <source>1 Hour</source>
-        <translation type="vanished">1 Hour</translation>
+        <translation type="obsolete">1 Hour</translation>
     </message>
 </context>
 <context>
     <name>dccV20::sound::AdvancedPage</name>
     <message>
         <source>Output</source>
-        <translation type="vanished">Output</translation>
+        <translation type="obsolete">Output</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <source>Input</source>
-        <translation type="vanished">Input</translation>
+        <translation type="obsolete">Input</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <source>Sound Card:</source>
-        <translation type="vanished">Sound Card:</translation>
+        <translation type="obsolete">Sound Card:</translation>
     </message>
 </context>
 <context>
     <name>dccV20::sound::MicrophonePage</name>
     <message>
         <source>Microphone</source>
-        <translation type="vanished">Microphone</translation>
+        <translation type="obsolete">Microphone</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <source>Input Volume</source>
-        <translation type="vanished">Input Volume</translation>
+        <translation type="obsolete">Input Volume</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <source>Input Level</source>
-        <translation type="vanished">Input Level</translation>
+        <translation type="obsolete">Input Level</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
 </context>
@@ -11573,29 +11581,29 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::sound::SoundEffectsPage</name>
     <message>
         <source>Sound Effects</source>
-        <translation type="vanished">Sound Effects</translation>
+        <translation type="obsolete">Sound Effects</translation>
     </message>
 </context>
 <context>
     <name>dccV20::sound::SoundWidget</name>
     <message>
         <source>Speaker</source>
-        <translation type="vanished">Speaker</translation>
+        <translation type="obsolete">Speaker</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <source>Microphone</source>
-        <translation type="vanished">Microphone</translation>
+        <translation type="obsolete">Microphone</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <source>Advanced</source>
-        <translation type="vanished">Advanced</translation>
+        <translation type="obsolete">Advanced</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="vanished">Sound Effects</translation>
+        <translation type="obsolete">Sound Effects</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
     </message>
 </context>
@@ -11603,17 +11611,17 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::sound::SpeakerPage</name>
     <message>
         <source>Speaker</source>
-        <translation type="vanished">Speaker</translation>
+        <translation type="obsolete">Speaker</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <source>Output Volume</source>
-        <translation type="vanished">Output Volume</translation>
+        <translation type="obsolete">Output Volume</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <source>Left/Right Balance</source>
-        <translation type="vanished">Left/Right Balance</translation>
+        <translation type="obsolete">Left/Right Balance</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
 </context>
@@ -11621,99 +11629,99 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::sync::IndexPage</name>
     <message>
         <source>Auto Sync</source>
-        <translation type="vanished">Auto Sync</translation>
+        <translation type="obsolete">Auto Sync</translation>
         <extra-contents_path>/cloudsync/Auto Sync</extra-contents_path>
     </message>
     <message>
         <source>Syncing...</source>
-        <translation type="vanished">Syncing...</translation>
+        <translation type="obsolete">Syncing...</translation>
         <extra-contents_path>/cloudsync/Syncing...</extra-contents_path>
     </message>
     <message>
         <source>Sign Out</source>
-        <translation type="vanished">Sign Out</translation>
+        <translation type="obsolete">Sign Out</translation>
         <extra-contents_path>/cloudsync/Sign Out</extra-contents_path>
     </message>
     <message>
         <source>Network Settings</source>
-        <translation type="vanished">Network Settings</translation>
+        <translation type="obsolete">Network Settings</translation>
         <extra-contents_path>/cloudsync/Network Settings</extra-contents_path>
     </message>
     <message>
         <source>Sound Settings</source>
-        <translation type="vanished">Sound Settings</translation>
+        <translation type="obsolete">Sound Settings</translation>
         <extra-contents_path>/cloudsync/Sound Settings</extra-contents_path>
     </message>
     <message>
         <source>Mouse Settings</source>
-        <translation type="vanished">Mouse Settings</translation>
+        <translation type="obsolete">Mouse Settings</translation>
         <extra-contents_path>/cloudsync/Mouse Settings</extra-contents_path>
     </message>
     <message>
         <source>Update Settings</source>
-        <translation type="vanished">Update Settings</translation>
+        <translation type="obsolete">Update Settings</translation>
         <extra-contents_path>/cloudsync/Update Settings</extra-contents_path>
     </message>
     <message>
         <source>Dock</source>
-        <translation type="vanished">Dock</translation>
+        <translation type="obsolete">Dock</translation>
         <extra-contents_path>/cloudsync/Dock</extra-contents_path>
     </message>
     <message>
         <source>Launcher</source>
-        <translation type="vanished">Launcher</translation>
+        <translation type="obsolete">Launcher</translation>
         <extra-contents_path>/cloudsync/Launcher</extra-contents_path>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="vanished">Wallpaper</translation>
+        <translation type="obsolete">Wallpaper</translation>
         <extra-contents_path>/cloudsync/Wallpaper</extra-contents_path>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="vanished">Theme</translation>
+        <translation type="obsolete">Theme</translation>
         <extra-contents_path>/cloudsync/Theme</extra-contents_path>
     </message>
     <message>
         <source>Power Settings</source>
-        <translation type="vanished">Power Settings</translation>
+        <translation type="obsolete">Power Settings</translation>
         <extra-contents_path>/cloudsync/Power Settings</extra-contents_path>
     </message>
     <message>
         <source>Corner Settings</source>
-        <translation type="vanished">Corner Settings</translation>
+        <translation type="obsolete">Corner Settings</translation>
         <extra-contents_path>/cloudsync/Corner Settings</extra-contents_path>
     </message>
     <message>
         <source>Last Sync: %1</source>
-        <translation type="vanished">Last Sync: %1</translation>
+        <translation type="obsolete">Last Sync: %1</translation>
         <extra-contents_path>/cloudsync/Last Sync:</extra-contents_path>
     </message>
     <message>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation type="vanished">yyyy-MM-dd hh:mm</translation>
+        <translation type="obsolete">yyyy-MM-dd hh:mm</translation>
     </message>
 </context>
 <context>
     <name>dccV20::sync::LoginPage</name>
     <message>
         <source>Sign In</source>
-        <translation type="vanished">Sign In</translation>
+        <translation type="obsolete">Sign In</translation>
         <extra-contents_path>/cloudsync/Sign In</extra-contents_path>
     </message>
     <message>
         <source>Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</source>
-        <translation type="vanished">Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</translation>
+        <translation type="obsolete">Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</translation>
         <extra-contents_path>/cloudsync/Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</extra-contents_path>
     </message>
     <message>
         <source>Deepin ID Sign In</source>
-        <translation type="vanished">Deepin ID Sign In</translation>
+        <translation type="obsolete">Deepin ID Sign In</translation>
         <extra-contents_path>/cloudsync/Deepin ID Sign In</extra-contents_path>
     </message>
     <message>
         <source>Only supported in Mainland China at present</source>
-        <translation type="vanished">Only supported in Mainland China at present</translation>
+        <translation type="obsolete">Only supported in Mainland China at present</translation>
         <extra-contents_path>/cloudsync/Only supported in Mainland China at present</extra-contents_path>
     </message>
 </context>
@@ -11721,12 +11729,12 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::sync::LogoutPage</name>
     <message>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation type="vanished">Sorry, it is not supported in your region at present, and will be coming soon</translation>
+        <translation type="obsolete">Sorry, it is not supported in your region at present, and will be coming soon</translation>
         <extra-contents_path>/cloudsync/Sorry, it is not supported in your region at present, and will be coming soon</extra-contents_path>
     </message>
     <message>
         <source>Sign Out</source>
-        <translation type="vanished">Sign Out</translation>
+        <translation type="obsolete">Sign Out</translation>
         <extra-contents_path>/cloudsync/Sign Out</extra-contents_path>
     </message>
 </context>
@@ -11734,34 +11742,34 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
         <source>Edition:</source>
-        <translation type="vanished">Edition:</translation>
+        <translation type="obsolete">Edition:</translation>
     </message>
     <message>
         <source>Type:</source>
-        <translation type="vanished">Type:</translation>
+        <translation type="obsolete">Type:</translation>
     </message>
     <message>
         <source>Processor:</source>
-        <translation type="vanished">Processor:</translation>
+        <translation type="obsolete">Processor:</translation>
     </message>
     <message>
         <source>Memory:</source>
-        <translation type="vanished">Memory:</translation>
+        <translation type="obsolete">Memory:</translation>
     </message>
     <message>
         <source>Disk:</source>
-        <translation type="vanished">Disk:</translation>
+        <translation type="obsolete">Disk:</translation>
     </message>
     <message>
         <source>%1-bit</source>
-        <translation type="vanished">%1-bit</translation>
+        <translation type="obsolete">%1-bit</translation>
     </message>
 </context>
 <context>
     <name>dccV20::systeminfo::SystemInfoWidget</name>
     <message>
         <source>About This PC</source>
-        <translation type="vanished">About This PC</translation>
+        <translation type="obsolete">About This PC</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -11776,20 +11784,47 @@ If no operation, the display will be restored after %1s.</translation>
     </message>
 </context>
 <context>
+    <name>dccV20::update::MirrorSourceItem</name>
+    <message>
+        <source>Untested</source>
+        <translation type="obsolete">Untested</translation>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation type="obsolete">Timeout</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="obsolete">Slow</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="obsolete">Medium</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="obsolete">Fast</translation>
+    </message>
+</context>
+<context>
     <name>dccV20::update::MirrorsWidget</name>
     <message>
         <source>Mirror List</source>
-        <translation type="vanished">Mirror List</translation>
+        <translation type="obsolete">Mirror List</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
     <message>
         <source>Test Speed</source>
-        <translation type="vanished">Test Speed</translation>
+        <translation type="obsolete">Test Speed</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
     <message>
+        <source>Untested</source>
+        <translation type="obsolete">Untested</translation>
+    </message>
+    <message>
         <source>Retest</source>
-        <translation type="vanished">Retest</translation>
+        <translation type="obsolete">Retest</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
 </context>
@@ -11797,82 +11832,82 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::update::UpdateCtrlWidget</name>
     <message>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="vanished">Restart the computer to use the system and the applications properly</translation>
+        <translation type="obsolete">Restart the computer to use the system and the applications properly</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="vanished">Network disconnected, please retry after connected</translation>
+        <translation type="obsolete">Network disconnected, please retry after connected</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="vanished">This update may take a long time, please do not shut down or reboot during the process</translation>
+        <translation type="obsolete">This update may take a long time, please do not shut down or reboot during the process</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Checking for updates, please wait...</source>
-        <translation type="vanished">Checking for updates, please wait...</translation>
+        <translation type="obsolete">Checking for updates, please wait...</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Download and install updates</source>
-        <translation type="vanished">Download and install updates</translation>
+        <translation type="obsolete">Download and install updates</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="vanished">%1% downloaded (Click to pause)</translation>
+        <translation type="obsolete">%1% downloaded (Click to pause)</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="vanished">%1% downloaded (Click to continue)</translation>
+        <translation type="obsolete">%1% downloaded (Click to continue)</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Install updates</source>
-        <translation type="vanished">Install updates</translation>
+        <translation type="obsolete">Install updates</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation type="vanished">Your system is up to date</translation>
+        <translation type="obsolete">Your system is up to date</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Updating, please wait...</source>
-        <translation type="vanished">Updating, please wait...</translation>
+        <translation type="obsolete">Updating, please wait...</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="vanished">The newest system installed, restart to take effect</translation>
+        <translation type="obsolete">The newest system installed, restart to take effect</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="vanished">Update failed: insufficient disk space</translation>
+        <translation type="obsolete">Update failed: insufficient disk space</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="vanished">Dependency error, failed to detect the updates</translation>
+        <translation type="obsolete">Dependency error, failed to detect the updates</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Backing up, please wait...</source>
-        <translation type="vanished">Backing up, please wait...</translation>
+        <translation type="obsolete">Backing up, please wait...</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>System backup failed</source>
-        <translation type="vanished">System backup failed</translation>
+        <translation type="obsolete">System backup failed</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message numerus="yes">
         <source>%n application update(s) available</source>
-        <translation type="vanished">
+        <translation type="obsolete">
             <numerusform>%n application update(s) available</numerusform>
             <numerusform>%n application update(s) available</numerusform>
         </translation>
@@ -11880,12 +11915,12 @@ If no operation, the display will be restored after %1s.</translation>
     </message>
     <message>
         <source>New system edition available</source>
-        <translation type="vanished">New system edition available</translation>
+        <translation type="obsolete">New system edition available</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message numerus="yes">
         <source>New system edition and %n application update(s) available</source>
-        <translation type="vanished">
+        <translation type="obsolete">
             <numerusform>New system edition and %n application update(s) available</numerusform>
             <numerusform>New system edition and %n application update(s) available</numerusform>
         </translation>
@@ -11893,22 +11928,22 @@ If no operation, the display will be restored after %1s.</translation>
     </message>
     <message>
         <source>Downloaded</source>
-        <translation type="vanished">Downloaded</translation>
+        <translation type="obsolete">Downloaded</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Size: %1</source>
-        <translation type="vanished">Size: %1</translation>
+        <translation type="obsolete">Size: %1</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation type="vanished">Your battery is lower than 50%, please plug in to continue</translation>
+        <translation type="obsolete">Your battery is lower than 50%, please plug in to continue</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="vanished">Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</translation>
+        <translation type="obsolete">Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
@@ -11916,7 +11951,7 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::update::UpdateHistoryButton</name>
     <message>
         <source>Update History</source>
-        <translation type="vanished">Update History</translation>
+        <translation type="obsolete">Update History</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
@@ -11924,50 +11959,50 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::update::UpdateSettings</name>
     <message>
         <source>Update Settings</source>
-        <translation type="vanished">Update Settings</translation>
+        <translation type="obsolete">Update Settings</translation>
     </message>
     <message>
         <source>Auto Clear Package Cache</source>
-        <translation type="vanished">Auto Clear Package Cache</translation>
+        <translation type="obsolete">Auto Clear Package Cache</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <source>Updates Notification</source>
-        <translation type="vanished">Updates Notification</translation>
+        <translation type="obsolete">Updates Notification</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <source>Auto Download Updates</source>
-        <translation type="vanished">Auto Download Updates</translation>
+        <translation type="obsolete">Auto Download Updates</translation>
     </message>
     <message>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="vanished">Switch it on to automatically download the updates in wireless or wired network</translation>
+        <translation type="obsolete">Switch it on to automatically download the updates in wireless or wired network</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <source>System Repository Detection</source>
-        <translation type="vanished">System Repository Detection</translation>
+        <translation type="obsolete">System Repository Detection</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <source>Show a notification if system update repository has been modified</source>
-        <translation type="vanished">Show a notification if system update repository has been modified</translation>
+        <translation type="obsolete">Show a notification if system update repository has been modified</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <source>Smart Mirror Switch</source>
-        <translation type="vanished">Smart Mirror Switch</translation>
+        <translation type="obsolete">Smart Mirror Switch</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation type="vanished">Switch it on to connect to the quickest mirror site automatically</translation>
+        <translation type="obsolete">Switch it on to connect to the quickest mirror site automatically</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <source>Mirror List</source>
-        <translation type="vanished">Mirror List</translation>
+        <translation type="obsolete">Mirror List</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
 </context>
@@ -11975,31 +12010,31 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::update::UpdateWidget</name>
     <message>
         <source>Update</source>
-        <translation type="vanished">Update</translation>
+        <translation type="obsolete">Update</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Update Settings</source>
-        <translation type="vanished">Update Settings</translation>
+        <translation type="obsolete">Update Settings</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <source>Last Update</source>
-        <translation type="vanished">Last Update</translation>
+        <translation type="obsolete">Last Update</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Return</source>
-        <translation type="vanished">Return</translation>
+        <translation type="obsolete">Return</translation>
     </message>
     <message>
         <source>Current Edition</source>
-        <translation type="vanished">Current Edition</translation>
+        <translation type="obsolete">Current Edition</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <source>Update History</source>
-        <translation type="vanished">Update History</translation>
+        <translation type="obsolete">Update History</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
@@ -12007,30 +12042,30 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dccV20::wacom::PressureSettings</name>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="vanished">Pressure Sensitivity</translation>
+        <translation type="obsolete">Pressure Sensitivity</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="vanished">Light</translation>
+        <translation type="obsolete">Light</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="vanished">Heavy</translation>
+        <translation type="obsolete">Heavy</translation>
     </message>
 </context>
 <context>
     <name>dccV20::wacom::WacomWidget</name>
     <message>
         <source>Pen</source>
-        <translation type="vanished">Pen</translation>
+        <translation type="obsolete">Pen</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="vanished">Mouse</translation>
+        <translation type="obsolete">Mouse</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="vanished">Mode</translation>
+        <translation type="obsolete">Mode</translation>
     </message>
 </context>
 <context>
