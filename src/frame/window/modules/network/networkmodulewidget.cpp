@@ -35,6 +35,7 @@
 #include <wirelessdevice.h>
 
 #include <QDebug>
+#include <QPointer>
 #include <QVBoxLayout>
 
 using namespace dcc::widgets;
@@ -229,21 +230,25 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
     ret->setIcon(QIcon::fromTheme(dev->type() == NetworkDevice::Wireless ? "dcc_wifi" : "dcc_ethernet"));
     ret->setData(QVariant::fromValue(dev), DeviceRole);
 
-    DViewItemAction *dummystatus = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(32, 32));
+    QPointer<DViewItemAction> dummystatus(new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(32, 32)));
     ret->setActionList(Qt::Edge::RightEdge, {dummystatus});
 
-    if (dev->enabled()) {
+    if (dev->enabled() && !dummystatus.isNull()) {
         dummystatus->setText(dev->statusString());
         m_lvnmpages->update();
     }
 
     connect(dev, &NetworkDevice::enableChanged, this, [this, dev, dummystatus](const bool enabled) {
-        QString txt = enabled ? dev->statusString() : dev->statusStringDetail();
-        dummystatus->setText(txt);
+        if (!dummystatus.isNull()) {
+            QString txt = enabled ? dev->statusString() : dev->statusStringDetail();
+            dummystatus->setText(txt);
+        }
         this->m_lvnmpages->update();
     });
     connect(dev, static_cast<void (NetworkDevice::*)(const QString &) const>(&NetworkDevice::statusChanged), this, [this, dev, dummystatus] {
-        dummystatus->setText(dev->statusString());
+        if (!dummystatus.isNull()) {
+            dummystatus->setText(dev->statusString());
+        }
         this->m_lvnmpages->update();
     }, Qt::QueuedConnection);
 
