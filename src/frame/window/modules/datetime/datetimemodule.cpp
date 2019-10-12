@@ -232,6 +232,7 @@ void DatetimeModule::showTimeSetting()
     connect(m_setting, &DateSettings::requestSetTime, m_work, &dcc::datetime::DatetimeWork::setDatetime);
     connect(m_setting, &DateSettings::requestBack, this, &DatetimeModule::onPopWidget);
     connect(m_setting, &DateSettings::requestNTPServer, m_work, &DatetimeWork::setNtpServer);
+    connect(m_model, &DatetimeModel::systemTimeChanged, m_setting, &DateSettings::requestBack);
     connect(m_model, &dcc::datetime::DatetimeModel::NTPChanged, m_setting, &DateSettings::updateRealAutoSyncCheckState);
     connect(m_model, &dcc::datetime::DatetimeModel::NTPServerListChanged, m_setting, &DateSettings::updateNTPServerList);
     connect(m_model, &DatetimeModel::NTPServerChanged, this, [ = ](QString server) {
@@ -267,5 +268,14 @@ void DatetimeModule::onPushWidget(const int &index)
 
 void DatetimeModule::onPopWidget()
 {
-    m_frameProxy->popWidget(this);
+    DListView *list = m_widget->getListViewPointer();
+
+    if (!list) {
+        qWarning() << " DListView is nullptr.";
+        return;
+    }
+
+    QModelIndex index = list->model()->index(ETimezoneList, 0);
+    list->setCurrentIndex(index);
+    list->clicked(index);
 }
