@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="en">
 <context>
     <name>BluetoothDelegate</name>
     <message>
@@ -23,328 +25,334 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="162"/>
-        <source>Account</source>
-        <translation>Account</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="163"/>
-        <source>Cloud Sync</source>
-        <translation>Cloud Sync</translation>
+        <source>Account</source>
+        <translation type="unfinished">Account</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="164"/>
-        <source>Display</source>
-        <translation>Display</translation>
+        <source>Cloud Sync</source>
+        <translation type="unfinished">Cloud Sync</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="165"/>
-        <source>Default Applications</source>
-        <translation>Default Applications</translation>
+        <source>Display</source>
+        <translation type="unfinished">Display</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="166"/>
-        <source>Personalization</source>
-        <translation>Personalization</translation>
+        <source>Default Applications</source>
+        <translation type="unfinished">Default Applications</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="167"/>
-        <source>Network</source>
-        <translation>Network</translation>
+        <source>Personalization</source>
+        <translation type="unfinished">Personalization</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="168"/>
-        <source>Sound</source>
-        <translation>Sound</translation>
+        <source>Network</source>
+        <translation type="unfinished">Network</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="169"/>
-        <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
+        <source>Sound</source>
+        <translation type="unfinished">Sound</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="170"/>
-        <source>Date and Time</source>
-        <translation>Date and Time</translation>
+        <source>Bluetooth</source>
+        <translation type="unfinished">Bluetooth</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="171"/>
-        <source>Power</source>
-        <translation>Power</translation>
+        <source>Date and Time</source>
+        <translation type="unfinished">Date and Time</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="172"/>
-        <source>Mouse</source>
-        <translation>Mouse</translation>
+        <source>Power</source>
+        <translation type="unfinished">Power</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="173"/>
-        <source>Drawing Tablet</source>
-        <translation>Drawing Tablet</translation>
+        <source>Mouse</source>
+        <translation type="unfinished">Mouse</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="174"/>
-        <source>Keyboard and Language</source>
-        <translation>Keyboard and Language</translation>
+        <source>Drawing Tablet</source>
+        <translation type="unfinished">Drawing Tablet</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="175"/>
-        <source>Update</source>
-        <translation>Update</translation>
+        <source>Keyboard and Language</source>
+        <translation type="unfinished">Keyboard and Language</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="176"/>
-        <source>System Info</source>
-        <translation>System Info</translation>
+        <source>Update</source>
+        <translation type="unfinished">Update</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="177"/>
+        <source>System Info</source>
+        <translation type="unfinished">System Info</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="178"/>
         <source>General Settings</source>
-        <translation>General Settings</translation>
+        <translation type="unfinished">General Settings</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="252"/>
-        <source>Change Password</source>
-        <translation>Change Password</translation>
-        <extra-contents_path>/accounts/Change Password</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="254"/>
-        <source>Delete Account</source>
-        <translation>Delete Account</translation>
-        <extra-contents_path>/accounts/Delete Account</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="257"/>
-        <source>Auto Login</source>
-        <translation>Auto Login</translation>
-        <extra-contents_path>/accounts/Auto Login</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="261"/>
-        <source>Login Without Password</source>
-        <translation>Login Without Password</translation>
-        <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="264"/>
-        <source>Fingerprint Password</source>
-        <translation>Fingerprint Password</translation>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="291"/>
+        <source>Full Name</source>
+        <translation type="unfinished">Full Name</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="265"/>
+        <source>Change Password</source>
+        <translation type="unfinished">Change Password</translation>
+        <extra-contents_path>/accounts/Change Password</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="267"/>
+        <source>Delete Account</source>
+        <translation type="unfinished">Delete Account</translation>
+        <extra-contents_path>/accounts/Delete Account</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="270"/>
+        <source>Auto Login</source>
+        <translation type="unfinished">Auto Login</translation>
+        <extra-contents_path>/accounts/Auto Login</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="274"/>
+        <source>Login Without Password</source>
+        <translation type="unfinished">Login Without Password</translation>
+        <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="277"/>
+        <source>Fingerprint Password</source>
+        <translation type="unfinished">Fingerprint Password</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="278"/>
         <source>Add fingerprint</source>
-        <translation>Add fingerprint</translation>
+        <translation type="unfinished">Add fingerprint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="279"/>
         <source>Delete fingerprint</source>
-        <translation>Delete fingerprint</translation>
+        <translation type="unfinished">Delete fingerprint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="334"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="351"/>
         <source>Fingerprint</source>
-        <translation>Fingerprint</translation>
+        <translation type="unfinished">Fingerprint</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::AddFingeDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="74"/>
         <source>Add Fingerprint</source>
-        <translation>Add Fingerprint</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="75"/>
-        <source>Scan again</source>
-        <translation>Scan again</translation>
+        <translation type="unfinished">Add Fingerprint</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="76"/>
-        <source>Done</source>
-        <translation>Done</translation>
+        <source>Scan again</source>
+        <translation type="unfinished">Scan again</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="120"/>
-        <source>Identifying fingerprint</source>
-        <translation>Identifying fingerprint</translation>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="77"/>
+        <source>Done</source>
+        <translation type="unfinished">Done</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="123"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="135"/>
-        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</translation>
+        <source>Identifying fingerprint</source>
+        <translation type="unfinished">Identifying fingerprint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="139"/>
+        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
+        <translation type="unfinished">Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="130"/>
         <source>Fingerprint added</source>
-        <translation>Fingerprint added</translation>
+        <translation type="unfinished">Fingerprint added</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="122"/>
         <source>New Account</source>
-        <translation>New Account</translation>
+        <translation type="unfinished">New Account</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="123"/>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished">Username</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="130"/>
+        <source>Required</source>
+        <translation type="unfinished">Required</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="125"/>
+        <source>Full Name</source>
+        <translation type="unfinished">Full Name</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="126"/>
+        <source>optional</source>
+        <translation type="unfinished">optional</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="127"/>
+        <source>Password</source>
+        <translation type="unfinished">Password</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="129"/>
+        <source>Repeat Password</source>
+        <translation type="unfinished">Repeat Password</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="132"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="136"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="138"/>
-        <source>Required</source>
-        <translation>Required</translation>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancel</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="133"/>
-        <source>Full Name</source>
-        <translation>Full Name</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="134"/>
-        <source>optional</source>
-        <translation>optional</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="135"/>
-        <source>Password</source>
-        <translation>Password</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="137"/>
-        <source>Repeat Password</source>
-        <translation>Repeat Password</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="140"/>
-        <source>Cancel</source>
-        <translation>Cancel</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="141"/>
         <source>Create</source>
-        <translation>Create</translation>
+        <translation type="unfinished">Create</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="215"/>
+        <source>Password cannot be empty</source>
+        <translation type="unfinished">Password cannot be empty</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="220"/>
+        <source>The password should be different from the username</source>
+        <translation type="unfinished">The password should be different from the username</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="226"/>
-        <source>Password cannot be empty</source>
-        <translation>Password cannot be empty</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="231"/>
-        <source>The password should be different from the username</source>
-        <translation>The password should be different from the username</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="237"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
+        <translation type="unfinished">Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="232"/>
         <source>Passwords do not match</source>
-        <translation>Passwords do not match</translation>
+        <translation type="unfinished">Passwords do not match</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="249"/>
+        <source>Username cannot be empty</source>
+        <translation type="unfinished">Username cannot be empty</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="254"/>
+        <source>Username must be between 3 and 32 characters</source>
+        <translation type="unfinished">Username must be between 3 and 32 characters</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="260"/>
+        <source>The first character must be in lower case</source>
+        <translation type="unfinished">The first character must be in lower case</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="265"/>
-        <source>Username cannot be empty</source>
-        <translation>Username cannot be empty</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
-        <source>Username must be between 3 and 32 characters</source>
-        <translation>Username must be between 3 and 32 characters</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
-        <source>The first character must be in lower case</source>
-        <translation>The first character must be in lower case</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="281"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
-        <translation>Username must only contain a~z, 0~9, - or _</translation>
+        <translation type="unfinished">Username must only contain a~z, 0~9, - or _</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="87"/>
         <source>Change Password</source>
-        <translation>Change Password</translation>
+        <translation type="unfinished">Change Password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="89"/>
         <source>Current Password</source>
-        <translation>Current Password</translation>
+        <translation type="unfinished">Current Password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="102"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="105"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="96"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="92"/>
         <source>New Password</source>
-        <translation>New Password</translation>
+        <translation type="unfinished">New Password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="95"/>
         <source>Repeat Password</source>
-        <translation>Repeat Password</translation>
+        <translation type="unfinished">Repeat Password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="98"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation type="unfinished">Cancel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="99"/>
         <source>Save</source>
-        <translation>Save</translation>
+        <translation type="unfinished">Save</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="137"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="182"/>
         <source>Wrong password</source>
-        <translation>Wrong password</translation>
+        <translation type="unfinished">Wrong password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="142"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="184"/>
         <source>Password cannot be empty</source>
-        <translation>Password cannot be empty</translation>
+        <translation type="unfinished">Password cannot be empty</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="152"/>
-        <source>New password should differ from the current one</source>
-        <translation>New password should differ from the current one</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="157"/>
-        <source>Passwords do not match</source>
-        <translation>Passwords do not match</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="190"/>
         <source>The password should be different from the username</source>
-        <translation>The password should be different from the username</translation>
+        <translation type="unfinished">The password should be different from the username</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="195"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
+        <translation type="unfinished">Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="202"/>
+        <source>New password should differ from the current one</source>
+        <translation type="unfinished">New password should differ from the current one</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="210"/>
+        <source>Passwords do not match</source>
+        <translation type="unfinished">Passwords do not match</translation>
     </message>
 </context>
 <context>
@@ -352,19 +360,19 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="54"/>
         <source>My devices</source>
-        <translation>My devices</translation>
+        <translation type="unfinished">My devices</translation>
         <extra-contents_path>/bluetooth/My Device</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="56"/>
         <source>Other devices</source>
-        <translation>Other devices</translation>
+        <translation type="unfinished">Other devices</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="68"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</translation>
+        <translation type="unfinished">Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</translation>
         <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
     </message>
 </context>
@@ -373,33 +381,33 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Ignore this device</source>
-        <translation>Ignore this device</translation>
+        <translation type="unfinished">Ignore this device</translation>
         <extra-contents_path>/bluetooth/Ignore this device</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="46"/>
         <source>Disconnect</source>
-        <translation>Disconnect</translation>
+        <translation type="unfinished">Disconnect</translation>
         <extra-contents_path>/bluetooth/Disconnect</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="53"/>
         <source>Change Name</source>
-        <translation>Change Name</translation>
+        <translation type="unfinished">Change Name</translation>
         <extra-contents_path>/bluetooth/Change Name</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="132"/>
         <source>Connected</source>
-        <translation>Connected</translation>
+        <translation type="unfinished">Connected</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="137"/>
         <source>Not connected</source>
-        <translation>Not connected</translation>
+        <translation type="unfinished">Not connected</translation>
     </message>
 </context>
 <context>
@@ -407,34 +415,34 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="66"/>
         <source>Updating...</source>
-        <translation>Updating...</translation>
+        <translation type="unfinished">Updating...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="78"/>
         <source>Startup Delay</source>
-        <translation>Startup Delay</translation>
+        <translation type="unfinished">Startup Delay</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="82"/>
         <source>Theme</source>
-        <translation>Theme</translation>
+        <translation type="unfinished">Theme</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="84"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</translation>
+        <translation type="unfinished">Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="88"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation>Switch theme on to view it in boot menu</translation>
+        <translation type="unfinished">Switch theme on to view it in boot menu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="109"/>
         <source>Boot Menu</source>
-        <translation>Boot Menu</translation>
+        <translation type="unfinished">Boot Menu</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
 </context>
@@ -443,13 +451,13 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="71"/>
         <source>Boot Menu</source>
-        <translation>Boot Menu</translation>
+        <translation type="unfinished">Boot Menu</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="83"/>
         <source>User Experience Program</source>
-        <translation>User Experience Program</translation>
+        <translation type="unfinished">User Experience Program</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
 </context>
@@ -458,62 +466,62 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="41"/>
         <source>Join User Experience Program</source>
-        <translation>Join User Experience Program</translation>
+        <translation type="unfinished">Join User Experience Program</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="43"/>
         <source>Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</source>
-        <translation>Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</translation>
+        <translation type="unfinished">Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</translation>
     </message>
 </context>
 <context>
     <name>dccV20::datetime::DateSettings</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="81"/>
         <source>Auto Sync</source>
-        <translation>Auto Sync</translation>
+        <translation type="unfinished">Auto Sync</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="92"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation type="unfinished">Cancel</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="94"/>
         <source>Confirm</source>
-        <translation>Confirm</translation>
+        <translation type="unfinished">Confirm</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="130"/>
         <source>Server</source>
-        <translation>Server</translation>
+        <translation type="unfinished">Server</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="138"/>
         <source>Address</source>
-        <translation>Address</translation>
+        <translation type="unfinished">Address</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="141"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="149"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="214"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="238"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="291"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="350"/>
         <source>Customize</source>
-        <translation>Customize</translation>
+        <translation type="unfinished">Customize</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
 </context>
@@ -522,19 +530,19 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="60"/>
         <source>Year</source>
-        <translation>Year</translation>
+        <translation type="unfinished">Year</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="64"/>
         <source>Month</source>
-        <translation>Month</translation>
+        <translation type="unfinished">Month</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="68"/>
         <source>Day</source>
-        <translation>Day</translation>
+        <translation type="unfinished">Day</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
 </context>
@@ -543,19 +551,19 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Timezone List</source>
-        <translation>Timezone List</translation>
+        <translation type="unfinished">Timezone List</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="64"/>
         <source>Time Settings</source>
-        <translation>Time Settings</translation>
+        <translation type="unfinished">Time Settings</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="81"/>
         <source>24-hour Time</source>
-        <translation>24-hour Time</translation>
+        <translation type="unfinished">24-hour Time</translation>
     </message>
 </context>
 <context>
@@ -563,13 +571,13 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="41"/>
         <source>Change System Timezone</source>
-        <translation>Change System Timezone</translation>
+        <translation type="unfinished">Change System Timezone</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="45"/>
         <source>System Timezone</source>
-        <translation>System Timezone</translation>
+        <translation type="unfinished">System Timezone</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -578,7 +586,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="48"/>
         <source>Timezone List</source>
-        <translation>Timezone List</translation>
+        <translation type="unfinished">Timezone List</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -587,47 +595,47 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="52"/>
         <source>Webpage</source>
-        <translation>Webpage</translation>
+        <translation type="unfinished">Webpage</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="53"/>
         <source>Mail</source>
-        <translation>Mail</translation>
+        <translation type="unfinished">Mail</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="54"/>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation type="unfinished">Text</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="55"/>
         <source>Music</source>
-        <translation>Music</translation>
+        <translation type="unfinished">Music</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="56"/>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation type="unfinished">Video</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="57"/>
         <source>Picture</source>
-        <translation>Picture</translation>
+        <translation type="unfinished">Picture</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="58"/>
         <source>Terminal</source>
-        <translation>Terminal</translation>
+        <translation type="unfinished">Terminal</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="238"/>
         <source>Open Desktop file</source>
-        <translation>Open Desktop file</translation>
+        <translation type="unfinished">Open Desktop file</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="290"/>
         <source>Invalid</source>
-        <translation>Invalid</translation>
+        <translation type="unfinished">Invalid</translation>
     </message>
 </context>
 <context>
@@ -635,49 +643,49 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="50"/>
         <source>Webpage</source>
-        <translation>Webpage</translation>
+        <translation type="unfinished">Webpage</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="52"/>
         <source>Mail</source>
-        <translation>Mail</translation>
+        <translation type="unfinished">Mail</translation>
         <extra-contents_path>/defapp/Mail</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="54"/>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation type="unfinished">Text</translation>
         <extra-contents_path>/defapp/Text</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="56"/>
         <source>Music</source>
-        <translation>Music</translation>
+        <translation type="unfinished">Music</translation>
         <extra-contents_path>/defapp/Music</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="58"/>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation type="unfinished">Video</translation>
         <extra-contents_path>/defapp/Video</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="60"/>
         <source>Picture</source>
-        <translation>Picture</translation>
+        <translation type="unfinished">Picture</translation>
         <extra-contents_path>/defapp/Picture</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="62"/>
         <source>Terminal</source>
-        <translation>Terminal</translation>
+        <translation type="unfinished">Terminal</translation>
         <extra-contents_path>/defapp/Terminal</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="91"/>
         <source>Default Applications</source>
-        <translation>Default Applications</translation>
+        <translation type="unfinished">Default Applications</translation>
     </message>
 </context>
 <context>
@@ -685,70 +693,70 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="60"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation>The screen hue will be auto adjusted according to your location</translation>
+        <translation type="unfinished">The screen hue will be auto adjusted according to your location</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="69"/>
         <source>Night Shift</source>
-        <translation>Night Shift</translation>
+        <translation type="unfinished">Night Shift</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="74"/>
         <source>Auto Brightness</source>
-        <translation>Auto Brightness</translation>
+        <translation type="unfinished">Auto Brightness</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::display::CustomSettingDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="86"/>
         <source>Main Screen</source>
-        <translation>Main Screen</translation>
+        <translation type="unfinished">Main Screen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
         <source>Resolution</source>
-        <translation>Resolution</translation>
+        <translation type="unfinished">Resolution</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="100"/>
         <source>Refresh Rate</source>
-        <translation>Refresh Rate</translation>
+        <translation type="unfinished">Refresh Rate</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="131"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation type="unfinished">Cancel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="135"/>
         <source>Save</source>
-        <translation>Save</translation>
+        <translation type="unfinished">Save</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="253"/>
         <source>Hz</source>
-        <translation>Hz</translation>
+        <translation type="unfinished">Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="242"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="324"/>
         <source>Recommended</source>
-        <translation>Recommended</translation>
+        <translation type="unfinished">Recommended</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="375"/>
         <source>inch</source>
-        <translation>inch</translation>
+        <translation type="unfinished">inch</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="376"/>
         <source>Resolution %1x%2</source>
-        <translation>Resolution %1x%2</translation>
+        <translation type="unfinished">Resolution %1x%2</translation>
     </message>
 </context>
 <context>
@@ -756,73 +764,73 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="118"/>
         <source>Multiple Displays</source>
-        <translation>Multiple Displays</translation>
+        <translation type="unfinished">Multiple Displays</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="120"/>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="129"/>
         <source>Brightness</source>
-        <translation>Brightness</translation>
+        <translation type="unfinished">Brightness</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="122"/>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="131"/>
         <source>Display Scaling</source>
-        <translation>Display Scaling</translation>
+        <translation type="unfinished">Display Scaling</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="127"/>
         <source>Resolution</source>
-        <translation>Resolution</translation>
+        <translation type="unfinished">Resolution</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="133"/>
         <source>Refresh Rate</source>
-        <translation>Refresh Rate</translation>
+        <translation type="unfinished">Refresh Rate</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::display::MultiScreenSettingPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="51"/>
         <source>Customize</source>
-        <translation>Customize</translation>
+        <translation type="unfinished">Customize</translation>
         <extra-contents_path>/display/Customize</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="123"/>
         <source>Duplicate</source>
-        <translation>Duplicate</translation>
+        <translation type="unfinished">Duplicate</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="123"/>
         <source>Extend</source>
-        <translation>Extend</translation>
+        <translation type="unfinished">Extend</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="126"/>
         <source>Show the same image on other screens</source>
-        <translation>Show the same image on other screens</translation>
+        <translation type="unfinished">Show the same image on other screens</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="127"/>
         <source>Expand the desktop across the screens</source>
-        <translation>Expand the desktop across the screens</translation>
+        <translation type="unfinished">Expand the desktop across the screens</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="135"/>
         <source>%1 only</source>
-        <translation>%1 only</translation>
+        <translation type="unfinished">%1 only</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="136"/>
         <source>Show the screen content only on %1</source>
-        <translation>Show the screen content only on %1</translation>
+        <translation type="unfinished">Show the screen content only on %1</translation>
     </message>
 </context>
 <context>
@@ -830,12 +838,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="75"/>
         <source>Hz</source>
-        <translation>Hz</translation>
+        <translation type="unfinished">Hz</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="77"/>
         <source>Recommended</source>
-        <translation>Recommended</translation>
+        <translation type="unfinished">Recommended</translation>
     </message>
 </context>
 <context>
@@ -843,7 +851,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="117"/>
         <source>Recommended</source>
-        <translation>Recommended</translation>
+        <translation type="unfinished">Recommended</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
@@ -852,17 +860,17 @@
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
-        <translation>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</translation>
+        <translation type="unfinished">Left click to rotate, right click to restore and exit, press Ctrl+S to save.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="166"/>
         <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
-        <translation>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</translation>
+        <translation type="unfinished">Right click to rotate, left click to restore and exit, press Ctrl+S to save.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="169"/>
         <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
-        <translation>Save the display settings? If no operation occurs, the display will be restored in %1s.</translation>
+        <translation type="unfinished">Save the display settings? If no operation occurs, the display will be restored in %1s.</translation>
     </message>
 </context>
 <context>
@@ -870,7 +878,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="52"/>
         <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
-        <translation>Some applications cannot be scaled with the specified settings in multi-display environment.</translation>
+        <translation type="unfinished">Some applications cannot be scaled with the specified settings in multi-display environment.</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
 </context>
@@ -879,43 +887,43 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="59"/>
         <source>Add Custom Shortcut</source>
-        <translation>Add Custom Shortcut</translation>
+        <translation type="unfinished">Add Custom Shortcut</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="65"/>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation type="unfinished">Name</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="68"/>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="76"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="72"/>
         <source>Command</source>
-        <translation>Command</translation>
+        <translation type="unfinished">Command</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="85"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation type="unfinished">Cancel</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="88"/>
         <source>Add</source>
-        <translation>Add</translation>
+        <translation type="unfinished">Add</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="116"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</translation>
+        <translation type="unfinished">This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</translation>
     </message>
 </context>
 <context>
@@ -923,55 +931,55 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="45"/>
         <source>Repeat Delay</source>
-        <translation>Repeat Delay</translation>
+        <translation type="unfinished">Repeat Delay</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="55"/>
         <source>Short</source>
-        <translation>Short</translation>
+        <translation type="unfinished">Short</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="57"/>
         <source>Long</source>
-        <translation>Long</translation>
+        <translation type="unfinished">Long</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="61"/>
         <source>Repeat Rate</source>
-        <translation>Repeat Rate</translation>
+        <translation type="unfinished">Repeat Rate</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="71"/>
         <source>Slow</source>
-        <translation>Slow</translation>
+        <translation type="unfinished">Slow</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="73"/>
         <source>Fast</source>
-        <translation>Fast</translation>
+        <translation type="unfinished">Fast</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="79"/>
         <source>Test here</source>
-        <translation>Test here</translation>
+        <translation type="unfinished">Test here</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="94"/>
         <source>Numeric Keypad</source>
-        <translation>Numeric Keypad</translation>
+        <translation type="unfinished">Numeric Keypad</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="99"/>
         <source>Caps Lock Prompt</source>
-        <translation>Caps Lock Prompt</translation>
+        <translation type="unfinished">Caps Lock Prompt</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
 </context>
@@ -980,38 +988,38 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="58"/>
         <source>Keyboard Layout</source>
-        <translation>Keyboard Layout</translation>
+        <translation type="unfinished">Keyboard Layout</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="69"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation>Switch Layouts (Multiple)</translation>
+        <translation type="unfinished">Switch Layouts (Multiple)</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="95"/>
         <source>Applies to</source>
-        <translation>Applies to</translation>
+        <translation type="unfinished">Applies to</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="97"/>
         <source>System</source>
-        <translation>System</translation>
+        <translation type="unfinished">System</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="97"/>
         <source>Application</source>
-        <translation>Application</translation>
+        <translation type="unfinished">Application</translation>
     </message>
 </context>
 <context>
     <name>dccV20::keyboard::KeyboardModule</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="216"/>
         <source>Custom Shortcut</source>
-        <translation>Custom Shortcut</translation>
+        <translation type="unfinished">Custom Shortcut</translation>
     </message>
 </context>
 <context>
@@ -1019,25 +1027,25 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="51"/>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="unfinished">General</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="53"/>
         <source>Keyboard Layout</source>
-        <translation>Keyboard Layout</translation>
+        <translation type="unfinished">Keyboard Layout</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="55"/>
         <source>System Language</source>
-        <translation>System Language</translation>
+        <translation type="unfinished">System Language</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="57"/>
         <source>Shortcuts</source>
-        <translation>Shortcuts</translation>
+        <translation type="unfinished">Shortcuts</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
 </context>
@@ -1046,37 +1054,37 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="53"/>
         <source>System</source>
-        <translation>System</translation>
+        <translation type="unfinished">System</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="55"/>
         <source>Window</source>
-        <translation>Window</translation>
+        <translation type="unfinished">Window</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="57"/>
         <source>Workspace</source>
-        <translation>Workspace</translation>
+        <translation type="unfinished">Workspace</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="66"/>
         <source>Custom Shortcut</source>
-        <translation>Custom Shortcut</translation>
+        <translation type="unfinished">Custom Shortcut</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="89"/>
         <source>Restore Defaults</source>
-        <translation>Restore Defaults</translation>
+        <translation type="unfinished">Restore Defaults</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="116"/>
         <source>Shortcut</source>
-        <translation>Shortcut</translation>
+        <translation type="unfinished">Shortcut</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
 </context>
@@ -1085,7 +1093,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="56"/>
         <source>Add System Language</source>
-        <translation>Add System Language</translation>
+        <translation type="unfinished">Add System Language</translation>
     </message>
 </context>
 <context>
@@ -1093,7 +1101,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="60"/>
         <source>Language List</source>
-        <translation>Language List</translation>
+        <translation type="unfinished">Language List</translation>
         <extra-contents_path>/keyboard/Language List</extra-contents_path>
     </message>
 </context>
@@ -1102,37 +1110,37 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="46"/>
         <source>Left Hand</source>
-        <translation>Left Hand</translation>
+        <translation type="unfinished">Left Hand</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="48"/>
         <source>Disable touchpad while typing</source>
-        <translation>Disable touchpad while typing</translation>
+        <translation type="unfinished">Disable touchpad while typing</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="50"/>
         <source>Scrolling Speed</source>
-        <translation>Scrolling Speed</translation>
+        <translation type="unfinished">Scrolling Speed</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="52"/>
         <source>Double-click Speed</source>
-        <translation>Double-click Speed</translation>
+        <translation type="unfinished">Double-click Speed</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="69"/>
         <source>Slow</source>
-        <translation>Slow</translation>
+        <translation type="unfinished">Slow</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="71"/>
         <source>Fast</source>
-        <translation>Fast</translation>
+        <translation type="unfinished">Fast</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
 </context>
@@ -1141,64 +1149,64 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="43"/>
         <source>Pointer Speed</source>
-        <translation>Pointer Speed</translation>
+        <translation type="unfinished">Pointer Speed</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="45"/>
         <source>Mouse Acceleration</source>
-        <translation>Mouse Acceleration</translation>
+        <translation type="unfinished">Mouse Acceleration</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="47"/>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Disable touchpad when a mouse is connected</translation>
+        <translation type="unfinished">Disable touchpad when a mouse is connected</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="49"/>
         <source>Natural Scrolling</source>
-        <translation>Natural Scrolling</translation>
+        <translation type="unfinished">Natural Scrolling</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="53"/>
         <source>Slow</source>
-        <translation>Slow</translation>
+        <translation type="unfinished">Slow</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="55"/>
         <source>Fast</source>
-        <translation>Fast</translation>
+        <translation type="unfinished">Fast</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::mouse::MouseWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="56"/>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="unfinished">General</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="58"/>
         <source>Mouse</source>
-        <translation>Mouse</translation>
+        <translation type="unfinished">Mouse</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="60"/>
         <source>Touchpad</source>
-        <translation>Touchpad</translation>
+        <translation type="unfinished">Touchpad</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="62"/>
         <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
+        <translation type="unfinished">TrackPoint</translation>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
 </context>
@@ -1207,31 +1215,31 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="44"/>
         <source>Pointer Speed</source>
-        <translation>Pointer Speed</translation>
+        <translation type="unfinished">Pointer Speed</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="46"/>
         <source>Tap to Click</source>
-        <translation>Tap to Click</translation>
+        <translation type="unfinished">Tap to Click</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="48"/>
         <source>Natural Scrolling</source>
-        <translation>Natural Scrolling</translation>
+        <translation type="unfinished">Natural Scrolling</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="53"/>
         <source>Slow</source>
-        <translation>Slow</translation>
+        <translation type="unfinished">Slow</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="55"/>
         <source>Fast</source>
-        <translation>Fast</translation>
+        <translation type="unfinished">Fast</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
 </context>
@@ -1240,19 +1248,19 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="38"/>
         <source>Pointer Speed</source>
-        <translation>Pointer Speed</translation>
+        <translation type="unfinished">Pointer Speed</translation>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="41"/>
         <source>Slow</source>
-        <translation>Slow</translation>
+        <translation type="unfinished">Slow</translation>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="43"/>
         <source>Fast</source>
-        <translation>Fast</translation>
+        <translation type="unfinished">Fast</translation>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
 </context>
@@ -1261,64 +1269,64 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="48"/>
         <source>Application Proxy</source>
-        <translation>Application Proxy</translation>
+        <translation type="unfinished">Application Proxy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="52"/>
         <source>Proxy Type</source>
-        <translation>Proxy Type</translation>
+        <translation type="unfinished">Proxy Type</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="61"/>
         <source>IP Address</source>
-        <translation>IP Address</translation>
+        <translation type="unfinished">IP Address</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="62"/>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="67"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="66"/>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation type="unfinished">Port</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished">Username</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="72"/>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="77"/>
         <source>Optional</source>
-        <translation>Optional</translation>
+        <translation type="unfinished">Optional</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="76"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished">Password</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="95"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</translation>
+        <translation type="unfinished">Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="100"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation type="unfinished">Cancel</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="101"/>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="unfinished">OK</translation>
     </message>
 </context>
 <context>
@@ -1326,7 +1334,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
-        <translation>Proxy Type</translation>
+        <translation type="unfinished">Proxy Type</translation>
     </message>
 </context>
 <context>
@@ -1334,42 +1342,42 @@
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="98"/>
         <source>Disconnect</source>
-        <translation>Disconnect</translation>
+        <translation type="unfinished">Disconnect</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="100"/>
         <source>Delete</source>
-        <translation>Delete</translation>
+        <translation type="unfinished">Delete</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="106"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation type="unfinished">Cancel</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="107"/>
         <source>Save</source>
-        <translation>Save</translation>
+        <translation type="unfinished">Save</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="363"/>
         <source>Wired Connection %1</source>
-        <translation>Wired Connection %1</translation>
+        <translation type="unfinished">Wired Connection %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="368"/>
         <source>hotspot</source>
-        <translation>hotspot</translation>
+        <translation type="unfinished">hotspot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="370"/>
         <source>Wireless Connection %1</source>
-        <translation>Wireless Connection %1</translation>
+        <translation type="unfinished">Wireless Connection %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="375"/>
         <source>PPPoE Connection %1</source>
-        <translation>PPPoE Connection %1</translation>
+        <translation type="unfinished">PPPoE Connection %1</translation>
     </message>
 </context>
 <context>
@@ -1377,77 +1385,77 @@
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="103"/>
         <source>New VPN</source>
-        <translation>New VPN</translation>
+        <translation type="unfinished">New VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="107"/>
         <source>VPN Type</source>
-        <translation>VPN Type</translation>
+        <translation type="unfinished">VPN Type</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="109"/>
         <source>L2TP</source>
-        <translation>L2TP</translation>
+        <translation type="unfinished">L2TP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="110"/>
         <source>PPTP</source>
-        <translation>PPTP</translation>
+        <translation type="unfinished">PPTP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="111"/>
         <source>VPNC</source>
-        <translation>VPNC</translation>
+        <translation type="unfinished">VPNC</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="112"/>
         <source>OpenVPN</source>
-        <translation>OpenVPN</translation>
+        <translation type="unfinished">OpenVPN</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="113"/>
         <source>StrongSwan</source>
-        <translation>StrongSwan</translation>
+        <translation type="unfinished">StrongSwan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="114"/>
         <source>OpenConnect</source>
-        <translation>OpenConnect</translation>
+        <translation type="unfinished">OpenConnect</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="183"/>
         <source>Export</source>
-        <translation>Export</translation>
+        <translation type="unfinished">Export</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="194"/>
         <source>VPN L2TP %1</source>
-        <translation>VPN L2TP %1</translation>
+        <translation type="unfinished">VPN L2TP %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="198"/>
         <source>VPN PPTP %1</source>
-        <translation>VPN PPTP %1</translation>
+        <translation type="unfinished">VPN PPTP %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="202"/>
         <source>VPN VPNC %1</source>
-        <translation>VPN VPNC %1</translation>
+        <translation type="unfinished">VPN VPNC %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="206"/>
         <source>VPN OpenVPN %1</source>
-        <translation>VPN OpenVPN %1</translation>
+        <translation type="unfinished">VPN OpenVPN %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="210"/>
         <source>VPN StrongSwan %1</source>
-        <translation>VPN StrongSwan %1</translation>
+        <translation type="unfinished">VPN StrongSwan %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="214"/>
         <source>VPN OpenConnect %1</source>
-        <translation>VPN OpenConnect %1</translation>
+        <translation type="unfinished">VPN OpenConnect %1</translation>
     </message>
 </context>
 <context>
@@ -1455,32 +1463,32 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="37"/>
         <source>Ethernet</source>
-        <translation>Ethernet</translation>
+        <translation type="unfinished">Ethernet</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="54"/>
         <source>Not Bind</source>
-        <translation>Not Bind</translation>
+        <translation type="unfinished">Not Bind</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="96"/>
         <source>Device MAC Addr</source>
-        <translation>Device MAC Addr</translation>
+        <translation type="unfinished">Device MAC Addr</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="112"/>
         <source>Cloned MAC Addr</source>
-        <translation>Cloned MAC Addr</translation>
+        <translation type="unfinished">Cloned MAC Addr</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="125"/>
         <source>Customize MTU</source>
-        <translation>Customize MTU</translation>
+        <translation type="unfinished">Customize MTU</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="128"/>
         <source>MTU</source>
-        <translation>MTU</translation>
+        <translation type="unfinished">MTU</translation>
     </message>
 </context>
 <context>
@@ -1488,12 +1496,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="31"/>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="unfinished">General</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="63"/>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation type="unfinished">Name</translation>
     </message>
 </context>
 <context>
@@ -1501,17 +1509,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="31"/>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="unfinished">General</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="67"/>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation type="unfinished">Name</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="71"/>
         <source>Auto Connect</source>
-        <translation>Auto Connect</translation>
+        <translation type="unfinished">Auto Connect</translation>
     </message>
 </context>
 <context>
@@ -1519,12 +1527,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="67"/>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation type="unfinished">Hotspot</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="68"/>
         <source>Add Settings</source>
-        <translation>Add Settings</translation>
+        <translation type="unfinished">Add Settings</translation>
     </message>
 </context>
 <context>
@@ -1532,75 +1540,75 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="32"/>
         <source>IPv4</source>
-        <translation>IPv4</translation>
+        <translation type="unfinished">IPv4</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="52"/>
         <source>IPv6</source>
-        <translation>IPv6</translation>
+        <translation type="unfinished">IPv6</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="215"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="220"/>
-        <source>Auto</source>
-        <translation>Auto</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="216"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="221"/>
-        <source>Manual</source>
-        <translation>Manual</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="222"/>
-        <source>Ignore</source>
-        <translation>Ignore</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="228"/>
-        <source>IP Address</source>
-        <translation>IP Address</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="229"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="296"/>
-        <source>Required</source>
-        <translation>Required</translation>
-    </message>
-    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="225"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="230"/>
-        <source>Gateway</source>
-        <translation>Gateway</translation>
+        <source>Auto</source>
+        <translation type="unfinished">Auto</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="226"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="231"/>
-        <source>Primary DNS</source>
-        <translation>Primary DNS</translation>
+        <source>Manual</source>
+        <translation type="unfinished">Manual</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="232"/>
-        <source>Secondary DNS</source>
-        <translation>Secondary DNS</translation>
+        <source>Ignore</source>
+        <translation type="unfinished">Ignore</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="233"/>
-        <source>Only applied in corresponding resources</source>
-        <translation>Only applied in corresponding resources</translation>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="238"/>
+        <source>IP Address</source>
+        <translation type="unfinished">IP Address</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="237"/>
-        <source>Method</source>
-        <translation>Method</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="295"/>
-        <source>Netmask</source>
-        <translation>Netmask</translation>
-    </message>
-    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="239"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="306"/>
+        <source>Required</source>
+        <translation type="unfinished">Required</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="240"/>
+        <source>Gateway</source>
+        <translation type="unfinished">Gateway</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="241"/>
+        <source>Primary DNS</source>
+        <translation type="unfinished">Primary DNS</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
+        <source>Secondary DNS</source>
+        <translation type="unfinished">Secondary DNS</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
+        <source>Only applied in corresponding resources</source>
+        <translation type="unfinished">Only applied in corresponding resources</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="247"/>
+        <source>Method</source>
+        <translation type="unfinished">Method</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
+        <source>Netmask</source>
+        <translation type="unfinished">Netmask</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="316"/>
         <source>Prefix</source>
-        <translation>Prefix</translation>
+        <translation type="unfinished">Prefix</translation>
     </message>
 </context>
 <context>
@@ -1608,74 +1616,74 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="90"/>
         <source>Network Details</source>
-        <translation>Network Details</translation>
+        <translation type="unfinished">Network Details</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="130"/>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation type="unfinished">Hotspot</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="135"/>
         <source>SSID</source>
-        <translation>SSID</translation>
+        <translation type="unfinished">SSID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="143"/>
         <source>Security</source>
-        <translation>Security</translation>
+        <translation type="unfinished">Security</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="148"/>
         <source>Interface</source>
-        <translation>Interface</translation>
+        <translation type="unfinished">Interface</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="152"/>
         <source>MAC</source>
-        <translation>MAC</translation>
+        <translation type="unfinished">MAC</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="156"/>
         <source>Band</source>
-        <translation>Band</translation>
+        <translation type="unfinished">Band</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="164"/>
         <source>IPv4</source>
-        <translation>IPv4</translation>
+        <translation type="unfinished">IPv4</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="168"/>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="188"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished">Gateway</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="172"/>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="192"/>
         <source>Primary DNS</source>
-        <translation>Primary DNS</translation>
+        <translation type="unfinished">Primary DNS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="176"/>
         <source>Netmask</source>
-        <translation>Netmask</translation>
+        <translation type="unfinished">Netmask</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="184"/>
         <source>IPv6</source>
-        <translation>IPv6</translation>
+        <translation type="unfinished">IPv6</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="196"/>
         <source>Prefix</source>
-        <translation>Prefix</translation>
+        <translation type="unfinished">Prefix</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="201"/>
         <source>Speed</source>
-        <translation>Speed</translation>
+        <translation type="unfinished">Speed</translation>
     </message>
 </context>
 <context>
@@ -1683,61 +1691,66 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="61"/>
         <source>DSL</source>
-        <translation>DSL</translation>
+        <translation type="unfinished">DSL</translation>
         <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="69"/>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation type="unfinished">VPN</translation>
         <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="77"/>
         <source>System Proxy</source>
-        <translation>System Proxy</translation>
+        <translation type="unfinished">System Proxy</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="83"/>
         <source>Application Proxy</source>
-        <translation>Application Proxy</translation>
+        <translation type="unfinished">Application Proxy</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="91"/>
         <source>Network Details</source>
-        <translation>Network Details</translation>
+        <translation type="unfinished">Network Details</translation>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="196"/>
         <source>Personal Hotspot</source>
-        <translation>Personal Hotspot</translation>
+        <translation type="unfinished">Personal Hotspot</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="212"/>
         <source>Wired Network %1</source>
-        <translation>Wired Network %1</translation>
+        <translation type="unfinished">Wired Network %1</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="215"/>
         <source>Wired Network</source>
-        <translation>Wired Network</translation>
+        <translation type="unfinished">Wired Network</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="220"/>
         <source>Wireless Network %1</source>
-        <translation>Wireless Network %1</translation>
+        <translation type="unfinished">Wireless Network %1</translation>
         <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="223"/>
         <source>Wireless Network</source>
-        <translation>Wireless Network</translation>
+        <translation type="unfinished">Wireless Network</translation>
         <extra-contents_path>/network/Wireless Network</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="254"/>
+        <source>Disconnect</source>
+        <translation type="unfinished">Disconnect</translation>
     </message>
 </context>
 <context>
@@ -1745,33 +1758,33 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="31"/>
         <source>PPPoE</source>
-        <translation>PPPoE</translation>
+        <translation type="unfinished">PPPoE</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="59"/>
         <source>Invalid password</source>
-        <translation>Invalid password</translation>
+        <translation type="unfinished">Invalid password</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="79"/>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished">Username</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="80"/>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="87"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="83"/>
         <source>Service</source>
-        <translation>Service</translation>
+        <translation type="unfinished">Service</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished">Password</translation>
     </message>
 </context>
 <context>
@@ -1779,77 +1792,77 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="31"/>
         <source>PPP</source>
-        <translation>PPP</translation>
+        <translation type="unfinished">PPP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
-        <translation>Refuse EAP Authentication</translation>
+        <translation type="unfinished">Refuse EAP Authentication</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
-        <translation>Refuse PAP Authentication</translation>
+        <translation type="unfinished">Refuse PAP Authentication</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>Refuse CHAP Authentication</translation>
+        <translation type="unfinished">Refuse CHAP Authentication</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Refuse MSCHAP Authentication</translation>
+        <translation type="unfinished">Refuse MSCHAP Authentication</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Refuse MSCHAPv2 Authentication</translation>
+        <translation type="unfinished">Refuse MSCHAPv2 Authentication</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="91"/>
         <source>No BSD Data Compression</source>
-        <translation>No BSD Data Compression</translation>
+        <translation type="unfinished">No BSD Data Compression</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
-        <translation>No Deflate Data Compression</translation>
+        <translation type="unfinished">No Deflate Data Compression</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="93"/>
         <source>No TCP Header Compression</source>
-        <translation>No TCP Header Compression</translation>
+        <translation type="unfinished">No TCP Header Compression</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
-        <translation>No Protocol Field Compression</translation>
+        <translation type="unfinished">No Protocol Field Compression</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
-        <translation>No Address/Control Compression</translation>
+        <translation type="unfinished">No Address/Control Compression</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="96"/>
         <source>Send PPP Echo Packets</source>
-        <translation>Send PPP Echo Packets</translation>
+        <translation type="unfinished">Send PPP Echo Packets</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
-        <translation>Use MPPE</translation>
+        <translation type="unfinished">Use MPPE</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="107"/>
         <source>128-bit MPPE</source>
-        <translation>128-bit MPPE</translation>
+        <translation type="unfinished">128-bit MPPE</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="110"/>
         <source>Stateful MPPE</source>
-        <translation>Stateful MPPE</translation>
+        <translation type="unfinished">Stateful MPPE</translation>
     </message>
 </context>
 <context>
@@ -1857,7 +1870,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="71"/>
         <source>PPP</source>
-        <translation>PPP</translation>
+        <translation type="unfinished">PPP</translation>
     </message>
 </context>
 <context>
@@ -1865,32 +1878,32 @@
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="55"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation type="unfinished">Cancel</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="56"/>
         <source>Confirm</source>
-        <translation>Confirm</translation>
+        <translation type="unfinished">Confirm</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
         <source>None</source>
-        <translation>None</translation>
+        <translation type="unfinished">None</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="59"/>
         <source>Manual</source>
-        <translation>Manual</translation>
+        <translation type="unfinished">Manual</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="60"/>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation type="unfinished">Auto</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="66"/>
         <source>HTTP Proxy</source>
-        <translation>HTTP Proxy</translation>
+        <translation type="unfinished">HTTP Proxy</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
@@ -1899,43 +1912,43 @@
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="83"/>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="90"/>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation type="unfinished">Port</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="73"/>
         <source>HTTPS Proxy</source>
-        <translation>HTTPS Proxy</translation>
+        <translation type="unfinished">HTTPS Proxy</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="80"/>
         <source>FTP Proxy</source>
-        <translation>FTP Proxy</translation>
+        <translation type="unfinished">FTP Proxy</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="87"/>
         <source>SOCKS Proxy</source>
-        <translation>SOCKS Proxy</translation>
+        <translation type="unfinished">SOCKS Proxy</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Ignore the proxy configurations for the above hosts and domains</translation>
+        <translation type="unfinished">Ignore the proxy configurations for the above hosts and domains</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="102"/>
         <source>Configuration URL</source>
-        <translation>Configuration URL</translation>
+        <translation type="unfinished">Configuration URL</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="159"/>
         <source>System Proxy</source>
-        <translation>System Proxy</translation>
+        <translation type="unfinished">System Proxy</translation>
     </message>
 </context>
 <context>
@@ -1943,169 +1956,169 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="34"/>
         <source>Security</source>
-        <translation>Security</translation>
+        <translation type="unfinished">Security</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="156"/>
         <source>TLS</source>
-        <translation>TLS</translation>
+        <translation type="unfinished">TLS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="157"/>
         <source>MD5</source>
-        <translation>MD5</translation>
+        <translation type="unfinished">MD5</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="158"/>
         <source>LEAP</source>
-        <translation>LEAP</translation>
+        <translation type="unfinished">LEAP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="159"/>
         <source>FAST</source>
-        <translation>FAST</translation>
+        <translation type="unfinished">FAST</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="160"/>
         <source>Tunneled TLS</source>
-        <translation>Tunneled TLS</translation>
+        <translation type="unfinished">Tunneled TLS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="161"/>
         <source>Protected EAP</source>
-        <translation>Protected EAP</translation>
+        <translation type="unfinished">Protected EAP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
         <source>Saved</source>
-        <translation>Saved</translation>
+        <translation type="unfinished">Saved</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="167"/>
         <source>Ask</source>
-        <translation>Ask</translation>
+        <translation type="unfinished">Ask</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
         <source>Not Required</source>
-        <translation>Not Required</translation>
+        <translation type="unfinished">Not Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
         <source>Disabled</source>
-        <translation>Disabled</translation>
+        <translation type="unfinished">Disabled</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="173"/>
         <source>Anonymous</source>
-        <translation>Anonymous</translation>
+        <translation type="unfinished">Anonymous</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="174"/>
         <source>Authenticated</source>
-        <translation>Authenticated</translation>
+        <translation type="unfinished">Authenticated</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="175"/>
         <source>Both</source>
-        <translation>Both</translation>
+        <translation type="unfinished">Both</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="191"/>
         <source>Automatic</source>
-        <translation>Automatic</translation>
+        <translation type="unfinished">Automatic</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="192"/>
         <source>Version 0</source>
-        <translation>Version 0</translation>
+        <translation type="unfinished">Version 0</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="193"/>
         <source>Version 1</source>
-        <translation>Version 1</translation>
+        <translation type="unfinished">Version 1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="205"/>
         <source>EAP Auth</source>
-        <translation>EAP Auth</translation>
+        <translation type="unfinished">EAP Auth</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="229"/>
         <source>Identity</source>
-        <translation>Identity</translation>
+        <translation type="unfinished">Identity</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="231"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="245"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="233"/>
         <source>Pwd Options</source>
-        <translation>Pwd Options</translation>
+        <translation type="unfinished">Pwd Options</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="331"/>
         <source>Private Key</source>
-        <translation>Private Key</translation>
+        <translation type="unfinished">Private Key</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="335"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="411"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="443"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation type="unfinished">CA Cert</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="339"/>
         <source>User Cert</source>
-        <translation>User Cert</translation>
+        <translation type="unfinished">User Cert</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="361"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="407"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="439"/>
         <source>Anonymous ID</source>
-        <translation>Anonymous ID</translation>
+        <translation type="unfinished">Anonymous ID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="365"/>
         <source>Provisioning</source>
-        <translation>Provisioning</translation>
+        <translation type="unfinished">Provisioning</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="377"/>
         <source>PAC file</source>
-        <translation>PAC file</translation>
+        <translation type="unfinished">PAC file</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="381"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="415"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="458"/>
         <source>Inner Auth</source>
-        <translation>Inner Auth</translation>
+        <translation type="unfinished">Inner Auth</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="447"/>
         <source>PEAP Version</source>
-        <translation>PEAP Version</translation>
+        <translation type="unfinished">PEAP Version</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="537"/>
         <source>Private Pwd</source>
-        <translation>Private Pwd</translation>
+        <translation type="unfinished">Private Pwd</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="539"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished">Password</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="576"/>
         <source>Invalid password</source>
-        <translation>Invalid password</translation>
+        <translation type="unfinished">Invalid password</translation>
     </message>
 </context>
 <context>
@@ -2114,42 +2127,42 @@
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="73"/>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="80"/>
         <source>Invalid password</source>
-        <translation>Invalid password</translation>
+        <translation type="unfinished">Invalid password</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="113"/>
         <source>None</source>
-        <translation>None</translation>
+        <translation type="unfinished">None</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="114"/>
         <source>WEP 40/128-bit</source>
-        <translation>WEP 40/128-bit</translation>
+        <translation type="unfinished">WEP 40/128-bit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="115"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Personal</translation>
+        <translation type="unfinished">WPA/WPA2 Personal</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="122"/>
         <source>Security</source>
-        <translation>Security</translation>
+        <translation type="unfinished">Security</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="128"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="157"/>
         <source>Key</source>
-        <translation>Key</translation>
+        <translation type="unfinished">Key</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="163"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished">Password</translation>
     </message>
 </context>
 <context>
@@ -2157,7 +2170,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwiredsection.cpp" line="34"/>
         <source>Security Required</source>
-        <translation>Security Required</translation>
+        <translation type="unfinished">Security Required</translation>
     </message>
 </context>
 <context>
@@ -2166,47 +2179,47 @@
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="68"/>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="76"/>
         <source>Invalid password</source>
-        <translation>Invalid password</translation>
+        <translation type="unfinished">Invalid password</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="107"/>
         <source>None</source>
-        <translation>None</translation>
+        <translation type="unfinished">None</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WEP 40/128-bit</source>
-        <translation>WEP 40/128-bit</translation>
+        <translation type="unfinished">WEP 40/128-bit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Personal</translation>
+        <translation type="unfinished">WPA/WPA2 Personal</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="110"/>
         <source>WPA/WPA2 Enterprise</source>
-        <translation>WPA/WPA2 Enterprise</translation>
+        <translation type="unfinished">WPA/WPA2 Enterprise</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="116"/>
         <source>Security</source>
-        <translation>Security</translation>
+        <translation type="unfinished">Security</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="126"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="172"/>
         <source>Key</source>
-        <translation>Key</translation>
+        <translation type="unfinished">Key</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="179"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished">Password</translation>
     </message>
 </context>
 <context>
@@ -2214,72 +2227,72 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation>VPN Advanced</translation>
+        <translation type="unfinished">VPN Advanced</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
         <source>Customize Gateway Port</source>
-        <translation>Customize Gateway Port</translation>
+        <translation type="unfinished">Customize Gateway Port</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
         <source>Gateway Port</source>
-        <translation>Gateway Port</translation>
+        <translation type="unfinished">Gateway Port</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
         <source>Customize Renegotiation Interval</source>
-        <translation>Customize Renegotiation Interval</translation>
+        <translation type="unfinished">Customize Renegotiation Interval</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
         <source>Renegotiation Interval</source>
-        <translation>Renegotiation Interval</translation>
+        <translation type="unfinished">Renegotiation Interval</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation>Use LZO Data Compression</translation>
+        <translation type="unfinished">Use LZO Data Compression</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
-        <translation>Use TCP Connection</translation>
+        <translation type="unfinished">Use TCP Connection</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
-        <translation>Use TAP Device</translation>
+        <translation type="unfinished">Use TAP Device</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
         <source>Customize Tunnel MTU</source>
-        <translation>Customize Tunnel MTU</translation>
+        <translation type="unfinished">Customize Tunnel MTU</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
         <source>MTU</source>
-        <translation>MTU</translation>
+        <translation type="unfinished">MTU</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
         <source>Customize UDP Fragment Size</source>
-        <translation>Customize UDP Fragment Size</translation>
+        <translation type="unfinished">Customize UDP Fragment Size</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
         <source>UDP Fragment Size</source>
-        <translation>UDP Fragment Size</translation>
+        <translation type="unfinished">UDP Fragment Size</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
         <source>Restrict Tunnel TCP MSS</source>
-        <translation>Restrict Tunnel TCP MSS</translation>
+        <translation type="unfinished">Restrict Tunnel TCP MSS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
         <source>Randomize Remote Hosts</source>
-        <translation>Randomize Remote Hosts</translation>
+        <translation type="unfinished">Randomize Remote Hosts</translation>
     </message>
 </context>
 <context>
@@ -2287,125 +2300,125 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="33"/>
         <source>VPN Advanced</source>
-        <translation>VPN Advanced</translation>
+        <translation type="unfinished">VPN Advanced</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="142"/>
         <source>Cisco (default)</source>
-        <translation>Cisco (default)</translation>
+        <translation type="unfinished">Cisco (default)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="143"/>
         <source>Netscreen</source>
-        <translation>Netscreen</translation>
+        <translation type="unfinished">Netscreen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
         <source>Secure (default)</source>
-        <translation>Secure (default)</translation>
+        <translation type="unfinished">Secure (default)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="147"/>
         <source>Weak</source>
-        <translation>Weak</translation>
+        <translation type="unfinished">Weak</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="148"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
         <source>None</source>
-        <translation>None</translation>
+        <translation type="unfinished">None</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
         <source>NAT-T When Available (default)</source>
-        <translation>NAT-T When Available (default)</translation>
+        <translation type="unfinished">NAT-T When Available (default)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
         <source>NAT-T Always</source>
-        <translation>NAT-T Always</translation>
+        <translation type="unfinished">NAT-T Always</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="153"/>
         <source>Cisco UDP</source>
-        <translation>Cisco UDP</translation>
+        <translation type="unfinished">Cisco UDP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="154"/>
         <source>Disabled</source>
-        <translation>Disabled</translation>
+        <translation type="unfinished">Disabled</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="164"/>
         <source>DH Group 1</source>
-        <translation>DH Group 1</translation>
+        <translation type="unfinished">DH Group 1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="158"/>
         <source>DH Group 2 (default)</source>
-        <translation>DH Group 2 (default)</translation>
+        <translation type="unfinished">DH Group 2 (default)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="159"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="166"/>
         <source>DH Group 5</source>
-        <translation>DH Group 5</translation>
+        <translation type="unfinished">DH Group 5</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="162"/>
         <source>Server (default)</source>
-        <translation>Server (default)</translation>
+        <translation type="unfinished">Server (default)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="165"/>
         <source>DH Group 2</source>
-        <translation>DH Group 2</translation>
+        <translation type="unfinished">DH Group 2</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="172"/>
         <source>Domain</source>
-        <translation>Domain</translation>
+        <translation type="unfinished">Domain</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="175"/>
         <source>Vendor</source>
-        <translation>Vendor</translation>
+        <translation type="unfinished">Vendor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="185"/>
         <source>Version</source>
-        <translation>Version</translation>
+        <translation type="unfinished">Version</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
         <source>Encryption</source>
-        <translation>Encryption</translation>
+        <translation type="unfinished">Encryption</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="198"/>
         <source>NAT Traversal Mode</source>
-        <translation>NAT Traversal Mode</translation>
+        <translation type="unfinished">NAT Traversal Mode</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="208"/>
         <source>IKE DH Group</source>
-        <translation>IKE DH Group</translation>
+        <translation type="unfinished">IKE DH Group</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="218"/>
         <source>Forward Secrecy</source>
-        <translation>Forward Secrecy</translation>
+        <translation type="unfinished">Forward Secrecy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="228"/>
         <source>Local Port</source>
-        <translation>Local Port</translation>
+        <translation type="unfinished">Local Port</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="233"/>
         <source>Disable Dead Peer Detection</source>
-        <translation>Disable Dead Peer Detection</translation>
+        <translation type="unfinished">Disable Dead Peer Detection</translation>
     </message>
 </context>
 <context>
@@ -2413,37 +2426,37 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
         <source>VPN IPsec</source>
-        <translation>VPN IPsec</translation>
+        <translation type="unfinished">VPN IPsec</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="83"/>
         <source>Enable IPsec</source>
-        <translation>Enable IPsec</translation>
+        <translation type="unfinished">Enable IPsec</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
         <source>Group Name</source>
-        <translation>Group Name</translation>
+        <translation type="unfinished">Group Name</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
         <source>Group ID</source>
-        <translation>Group ID</translation>
+        <translation type="unfinished">Group ID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
         <source>Pre-Shared Key</source>
-        <translation>Pre-Shared Key</translation>
+        <translation type="unfinished">Pre-Shared Key</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
         <source>Phase1 Algorithms</source>
-        <translation>Phase1 Algorithms</translation>
+        <translation type="unfinished">Phase1 Algorithms</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
         <source>Phase2 Algorithms</source>
-        <translation>Phase2 Algorithms</translation>
+        <translation type="unfinished">Phase2 Algorithms</translation>
     </message>
 </context>
 <context>
@@ -2451,52 +2464,52 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation type="unfinished">VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished">Gateway</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation type="unfinished">CA Cert</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
         <source>Proxy</source>
-        <translation>Proxy</translation>
+        <translation type="unfinished">Proxy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Allow Cisco Secure Desktop Trojan</translation>
+        <translation type="unfinished">Allow Cisco Secure Desktop Trojan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
         <source>CSD Script</source>
-        <translation>CSD Script</translation>
+        <translation type="unfinished">CSD Script</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
         <source>User Cert</source>
-        <translation>User Cert</translation>
+        <translation type="unfinished">User Cert</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
         <source>Private Key</source>
-        <translation>Private Key</translation>
+        <translation type="unfinished">Private Key</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
         <source>Use FSID for Key Passphrase</source>
-        <translation>Use FSID for Key Passphrase</translation>
+        <translation type="unfinished">Use FSID for Key Passphrase</translation>
     </message>
 </context>
 <context>
@@ -2504,49 +2517,49 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="32"/>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation type="unfinished">VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
         <source>Certificates (TLS)</source>
-        <translation>Certificates (TLS)</translation>
+        <translation type="unfinished">Certificates (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="249"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished">Password</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
         <source>Certificates with Password (TLS)</source>
-        <translation>Certificates with Password (TLS)</translation>
+        <translation type="unfinished">Certificates with Password (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="119"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="277"/>
         <source>Static Key</source>
-        <translation>Static Key</translation>
+        <translation type="unfinished">Static Key</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
         <source>Saved</source>
-        <translation>Saved</translation>
+        <translation type="unfinished">Saved</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
         <source>Ask</source>
-        <translation>Ask</translation>
+        <translation type="unfinished">Ask</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="126"/>
         <source>Not Required</source>
-        <translation>Not Required</translation>
+        <translation type="unfinished">Not Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished">Gateway</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="133"/>
@@ -2555,69 +2568,69 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="298"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="136"/>
         <source>Auth Type</source>
-        <translation>Auth Type</translation>
+        <translation type="unfinished">Auth Type</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="148"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation type="unfinished">CA Cert</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="180"/>
         <source>User Cert</source>
-        <translation>User Cert</translation>
+        <translation type="unfinished">User Cert</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="184"/>
         <source>Private Key</source>
-        <translation>Private Key</translation>
+        <translation type="unfinished">Private Key</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="188"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="236"/>
         <source>Pwd Options</source>
-        <translation>Pwd Options</translation>
+        <translation type="unfinished">Pwd Options</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="201"/>
         <source>Private Pwd</source>
-        <translation>Private Pwd</translation>
+        <translation type="unfinished">Private Pwd</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="231"/>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished">Username</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="281"/>
         <source>Customize Key Direction</source>
-        <translation>Customize Key Direction</translation>
+        <translation type="unfinished">Customize Key Direction</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="285"/>
         <source>Key Direction</source>
-        <translation>Key Direction</translation>
+        <translation type="unfinished">Key Direction</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
         <source>Remote IP</source>
-        <translation>Remote IP</translation>
+        <translation type="unfinished">Remote IP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="297"/>
         <source>Local IP</source>
-        <translation>Local IP</translation>
+        <translation type="unfinished">Local IP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="411"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="439"/>
         <source>Invalid password</source>
-        <translation>Invalid password</translation>
+        <translation type="unfinished">Invalid password</translation>
     </message>
 </context>
 <context>
@@ -2625,115 +2638,110 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
         <source>VPN PPP</source>
-        <translation>VPN PPP</translation>
+        <translation type="unfinished">VPN PPP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
-        <translation>All Available (default)</translation>
+        <translation type="unfinished">All Available (default)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
         <source>40-bit (less secure)</source>
-        <translation>40-bit (less secure)</translation>
+        <translation type="unfinished">40-bit (less secure)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
         <source>128-bit (most secure)</source>
-        <translation>128-bit (most secure)</translation>
+        <translation type="unfinished">128-bit (most secure)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
-        <translation>Refuse EAP Authentication</translation>
+        <translation type="unfinished">Refuse EAP Authentication</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
-        <translation>Refuse PAP Authentication</translation>
+        <translation type="unfinished">Refuse PAP Authentication</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>Refuse CHAP Authentication</translation>
+        <translation type="unfinished">Refuse CHAP Authentication</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Refuse MSCHAP Authentication</translation>
+        <translation type="unfinished">Refuse MSCHAP Authentication</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Refuse MSCHAPv2 Authentication</translation>
+        <translation type="unfinished">Refuse MSCHAPv2 Authentication</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No BSD Data Compression</source>
-        <translation>No BSD Data Compression</translation>
+        <translation type="unfinished">No BSD Data Compression</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
-        <translation>No Deflate Data Compression</translation>
+        <translation type="unfinished">No Deflate Data Compression</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No TCP Header Compression</source>
-        <translation>No TCP Header Compression</translation>
+        <translation type="unfinished">No TCP Header Compression</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
-        <translation>No Protocol Field Compression</translation>
+        <translation type="unfinished">No Protocol Field Compression</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
-        <translation>No Address/Control Compression</translation>
+        <translation type="unfinished">No Address/Control Compression</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
-        <translation>Send PPP Echo Packets</translation>
+        <translation type="unfinished">Send PPP Echo Packets</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
         <source>Use MPPE</source>
-        <translation>Use MPPE</translation>
+        <translation type="unfinished">Use MPPE</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="163"/>
         <source>Security</source>
-        <translation>Security</translation>
+        <translation type="unfinished">Security</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="176"/>
         <source>Stateful MPPE</source>
-        <translation>Stateful MPPE</translation>
+        <translation type="unfinished">Stateful MPPE</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::VpnPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="85"/>
         <source>VPN Status</source>
-        <translation>VPN Status</translation>
+        <translation type="unfinished">VPN Status</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="114"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="250"/>
         <source>Import Error</source>
-        <translation>Import Error</translation>
+        <translation type="unfinished">Import Error</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="252"/>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="unfinished">OK</translation>
     </message>
 </context>
 <context>
@@ -2741,64 +2749,64 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="38"/>
         <source>VPN Proxy</source>
-        <translation>VPN Proxy</translation>
+        <translation type="unfinished">VPN Proxy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="87"/>
         <source>Invalid password</source>
-        <translation>Invalid password</translation>
+        <translation type="unfinished">Invalid password</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
         <source>Not Required</source>
-        <translation>Not Required</translation>
+        <translation type="unfinished">Not Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="144"/>
         <source>HTTP</source>
-        <translation>HTTP</translation>
+        <translation type="unfinished">HTTP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="145"/>
         <source>SOCKS</source>
-        <translation>SOCKS</translation>
+        <translation type="unfinished">SOCKS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="151"/>
         <source>Proxy Type</source>
-        <translation>Proxy Type</translation>
+        <translation type="unfinished">Proxy Type</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="163"/>
         <source>Server IP</source>
-        <translation>Server IP</translation>
+        <translation type="unfinished">Server IP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="164"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="176"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="180"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="167"/>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation type="unfinished">Port</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="172"/>
         <source>Retry Indefinitely When Failed</source>
-        <translation>Retry Indefinitely When Failed</translation>
+        <translation type="unfinished">Retry Indefinitely When Failed</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="175"/>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished">Username</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="179"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished">Password</translation>
     </message>
 </context>
 <context>
@@ -2806,17 +2814,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="79"/>
         <source>CA File</source>
-        <translation>CA File</translation>
+        <translation type="unfinished">CA File</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
-        <translation>Ignore Certificate Warnings</translation>
+        <translation type="unfinished">Ignore Certificate Warnings</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation>Use TLS Hostname Extensions</translation>
+        <translation type="unfinished">Use TLS Hostname Extensions</translation>
     </message>
 </context>
 <context>
@@ -2824,29 +2832,29 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="31"/>
         <source>VPN Security</source>
-        <translation>VPN Security</translation>
+        <translation type="unfinished">VPN Security</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="77"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="98"/>
         <source>Default</source>
-        <translation>Default</translation>
+        <translation type="unfinished">Default</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="78"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="99"/>
         <source>None</source>
-        <translation>None</translation>
+        <translation type="unfinished">None</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="113"/>
         <source>Cipher</source>
-        <translation>Cipher</translation>
+        <translation type="unfinished">Cipher</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="125"/>
         <source>HMAC Auth</source>
-        <translation>HMAC Auth</translation>
+        <translation type="unfinished">HMAC Auth</translation>
     </message>
 </context>
 <context>
@@ -2854,59 +2862,59 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="29"/>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation type="unfinished">VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="72"/>
         <source>Invalid password</source>
-        <translation>Invalid password</translation>
+        <translation type="unfinished">Invalid password</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
         <source>Saved</source>
-        <translation>Saved</translation>
+        <translation type="unfinished">Saved</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
         <source>Ask</source>
-        <translation>Ask</translation>
+        <translation type="unfinished">Ask</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
         <source>Not Required</source>
-        <translation>Not Required</translation>
+        <translation type="unfinished">Not Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished">Gateway</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="115"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="119"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="136"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished">Username</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation>Pwd Options</translation>
+        <translation type="unfinished">Pwd Options</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="135"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished">Password</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="139"/>
         <source>NT Domain</source>
-        <translation>NT Domain</translation>
+        <translation type="unfinished">NT Domain</translation>
     </message>
 </context>
 <context>
@@ -2914,27 +2922,27 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation>VPN Proxy</translation>
+        <translation type="unfinished">VPN Proxy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
         <source>Server IP</source>
-        <translation>Server IP</translation>
+        <translation type="unfinished">Server IP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation type="unfinished">Port</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished">Username</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="116"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished">Password</translation>
     </message>
 </context>
 <context>
@@ -2942,98 +2950,98 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="31"/>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation type="unfinished">VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="142"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="174"/>
         <source>Private Key</source>
-        <translation>Private Key</translation>
+        <translation type="unfinished">Private Key</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
         <source>SSH Agent</source>
-        <translation>SSH Agent</translation>
+        <translation type="unfinished">SSH Agent</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
         <source>Smart Card</source>
-        <translation>Smart Card</translation>
+        <translation type="unfinished">Smart Card</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
         <source>EAP</source>
-        <translation>EAP</translation>
+        <translation type="unfinished">EAP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="146"/>
         <source>Pre-Shared Key</source>
-        <translation>Pre-Shared Key</translation>
+        <translation type="unfinished">Pre-Shared Key</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished">Gateway</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="153"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation type="unfinished">CA Cert</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
         <source>Auth Type</source>
-        <translation>Auth Type</translation>
+        <translation type="unfinished">Auth Type</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="171"/>
         <source>User Cert</source>
-        <translation>User Cert</translation>
+        <translation type="unfinished">User Cert</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="177"/>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished">Username</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="180"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished">Password</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="183"/>
         <source>Request an Inner IP Address</source>
-        <translation>Request an Inner IP Address</translation>
+        <translation type="unfinished">Request an Inner IP Address</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="186"/>
         <source>Enforce UDP Encapsulation</source>
-        <translation>Enforce UDP Encapsulation</translation>
+        <translation type="unfinished">Enforce UDP Encapsulation</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="189"/>
         <source>Use IP Compression</source>
-        <translation>Use IP Compression</translation>
+        <translation type="unfinished">Use IP Compression</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="192"/>
         <source>Enable Custom Cipher Proposals</source>
-        <translation>Enable Custom Cipher Proposals</translation>
+        <translation type="unfinished">Enable Custom Cipher Proposals</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="195"/>
         <source>IKE</source>
-        <translation>IKE</translation>
+        <translation type="unfinished">IKE</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="198"/>
         <source>ESP</source>
-        <translation>ESP</translation>
+        <translation type="unfinished">ESP</translation>
     </message>
 </context>
 <context>
@@ -3041,47 +3049,47 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
         <source>VPN TLS Authentication</source>
-        <translation>VPN TLS Authentication</translation>
+        <translation type="unfinished">VPN TLS Authentication</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="81"/>
         <source>Default</source>
-        <translation>Default</translation>
+        <translation type="unfinished">Default</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="82"/>
         <source>Client</source>
-        <translation>Client</translation>
+        <translation type="unfinished">Client</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="83"/>
         <source>Server</source>
-        <translation>Server</translation>
+        <translation type="unfinished">Server</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="89"/>
         <source>Subject Match</source>
-        <translation>Subject Match</translation>
+        <translation type="unfinished">Subject Match</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="92"/>
         <source>Remote Cert Type</source>
-        <translation>Remote Cert Type</translation>
+        <translation type="unfinished">Remote Cert Type</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="104"/>
         <source>Key File</source>
-        <translation>Key File</translation>
+        <translation type="unfinished">Key File</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="107"/>
         <source>Customize Key Direction</source>
-        <translation>Customize Key Direction</translation>
+        <translation type="unfinished">Customize Key Direction</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="110"/>
         <source>Key Direction</source>
-        <translation>Key Direction</translation>
+        <translation type="unfinished">Key Direction</translation>
     </message>
 </context>
 <context>
@@ -3089,33 +3097,33 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="31"/>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation type="unfinished">VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="84"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="98"/>
         <source>Invalid password</source>
-        <translation>Invalid password</translation>
+        <translation type="unfinished">Invalid password</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
         <source>Saved</source>
-        <translation>Saved</translation>
+        <translation type="unfinished">Saved</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="164"/>
         <source>Ask</source>
-        <translation>Ask</translation>
+        <translation type="unfinished">Ask</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="165"/>
         <source>Not Required</source>
-        <translation>Not Required</translation>
+        <translation type="unfinished">Not Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished">Gateway</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="172"/>
@@ -3124,89 +3132,89 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="194"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="209"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished">Username</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="179"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="197"/>
         <source>Pwd Options</source>
-        <translation>Pwd Options</translation>
+        <translation type="unfinished">Pwd Options</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished">Password</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="193"/>
         <source>Group Name</source>
-        <translation>Group Name</translation>
+        <translation type="unfinished">Group Name</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="208"/>
         <source>Group Pwd</source>
-        <translation>Group Pwd</translation>
+        <translation type="unfinished">Group Pwd</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="212"/>
         <source>Use Hybrid Authentication</source>
-        <translation>Use Hybrid Authentication</translation>
+        <translation type="unfinished">Use Hybrid Authentication</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="215"/>
         <source>CA File</source>
-        <translation>CA File</translation>
+        <translation type="unfinished">CA File</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::WiredPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="64"/>
         <source>Plug in the network cable first</source>
-        <translation>Plug in the network cable first</translation>
+        <translation type="unfinished">Plug in the network cable first</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="69"/>
         <source>Wired Network Adapter</source>
-        <translation>Wired Network Adapter</translation>
+        <translation type="unfinished">Wired Network Adapter</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="91"/>
         <source>Select Settings</source>
-        <translation>Select Settings</translation>
+        <translation type="unfinished">Select Settings</translation>
     </message>
 </context>
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="159"/>
         <source>Connect to hidden network</source>
-        <translation>Connect to hidden network</translation>
+        <translation type="unfinished">Connect to hidden network</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="168"/>
         <source>Wireless Network Adapter</source>
-        <translation>Wireless Network Adapter</translation>
+        <translation type="unfinished">Wireless Network Adapter</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="174"/>
         <source>Close Hotspot</source>
-        <translation>Close Hotspot</translation>
+        <translation type="unfinished">Close Hotspot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="177"/>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation>Please disable hotspot sharing first if you want to connect to a wireless network</translation>
+        <translation type="unfinished">Please disable hotspot sharing first if you want to connect to a wireless network</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="199"/>
         <source>WLAN</source>
-        <translation>WLAN</translation>
+        <translation type="unfinished">WLAN</translation>
     </message>
 </context>
 <context>
@@ -3214,32 +3222,32 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="55"/>
         <source>Not Bind</source>
-        <translation>Not Bind</translation>
+        <translation type="unfinished">Not Bind</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="112"/>
         <source>SSID</source>
-        <translation>SSID</translation>
+        <translation type="unfinished">SSID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="113"/>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished">Required</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="116"/>
         <source>Device MAC Addr</source>
-        <translation>Device MAC Addr</translation>
+        <translation type="unfinished">Device MAC Addr</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="145"/>
         <source>Customize MTU</source>
-        <translation>Customize MTU</translation>
+        <translation type="unfinished">Customize MTU</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="148"/>
         <source>MTU</source>
-        <translation>MTU</translation>
+        <translation type="unfinished">MTU</translation>
     </message>
 </context>
 <context>
@@ -3247,24 +3255,24 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="47"/>
         <source>Size</source>
-        <translation>Size</translation>
+        <translation type="unfinished">Size</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="79"/>
         <source>Standard Font</source>
-        <translation>Standard Font</translation>
+        <translation type="unfinished">Standard Font</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="92"/>
         <source>Monospaced Font</source>
-        <translation>Monospaced Font</translation>
+        <translation type="unfinished">Monospaced Font</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="198"/>
         <source> (Unsupported font)</source>
-        <translation> (Unsupported font)</translation>
+        <translation type="unfinished"> (Unsupported font)</translation>
     </message>
 </context>
 <context>
@@ -3272,24 +3280,24 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="58"/>
         <source>Transparency</source>
-        <translation>Transparency</translation>
+        <translation type="unfinished">Transparency</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="64"/>
         <source>Theme</source>
-        <translation>Theme</translation>
+        <translation type="unfinished">Theme</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="71"/>
         <source>Accent Color</source>
-        <translation>Accent Color</translation>
+        <translation type="unfinished">Accent Color</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="118"/>
         <source>Window Effect</source>
-        <translation>Window Effect</translation>
+        <translation type="unfinished">Window Effect</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
 </context>
@@ -3298,52 +3306,52 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="48"/>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="unfinished">General</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="50"/>
         <source>Icon Theme</source>
-        <translation>Icon Theme</translation>
+        <translation type="unfinished">Icon Theme</translation>
         <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="52"/>
         <source>Cursor Theme</source>
-        <translation>Cursor Theme</translation>
+        <translation type="unfinished">Cursor Theme</translation>
         <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="54"/>
         <source>Font</source>
-        <translation>Font</translation>
+        <translation type="unfinished">Font</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::personalization::PerssonalizationThemeList</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="83"/>
         <source>Light</source>
-        <translation>Light</translation>
+        <translation type="unfinished">Light</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="86"/>
         <source>Dark</source>
-        <translation>Dark</translation>
+        <translation type="unfinished">Dark</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="89"/>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation type="unfinished">Auto</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="94"/>
         <source>Default</source>
-        <translation>Default</translation>
+        <translation type="unfinished">Default</translation>
     </message>
 </context>
 <context>
@@ -3351,25 +3359,25 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="77"/>
         <source>Light</source>
-        <translation>Light</translation>
+        <translation type="unfinished">Light</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="80"/>
         <source>Dark</source>
-        <translation>Dark</translation>
+        <translation type="unfinished">Dark</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="83"/>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation type="unfinished">Auto</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="88"/>
         <source>Default</source>
-        <translation>Default</translation>
+        <translation type="unfinished">Default</translation>
     </message>
 </context>
 <context>
@@ -3378,28 +3386,28 @@
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="41"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="52"/>
         <source>Power Saving Mode</source>
-        <translation>Power Saving Mode</translation>
+        <translation type="unfinished">Power Saving Mode</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="42"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="54"/>
         <source>Auto Mode Switch</source>
-        <translation>Auto Mode Switch</translation>
+        <translation type="unfinished">Auto Mode Switch</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="43"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="56"/>
         <source>Password is required to wake up the computer</source>
-        <translation>Password is required to wake up the computer</translation>
+        <translation type="unfinished">Password is required to wake up the computer</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="58"/>
         <source>Password is required to wake up the monitor</source>
-        <translation>Password is required to wake up the monitor</translation>
+        <translation type="unfinished">Password is required to wake up the monitor</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
 </context>
@@ -3408,12 +3416,12 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="209"/>
         <source>Battery low, please plug in</source>
-        <translation>Battery low, please plug in</translation>
+        <translation type="unfinished">Battery low, please plug in</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="211"/>
         <source>Battery critically low</source>
-        <translation>Battery critically low</translation>
+        <translation type="unfinished">Battery critically low</translation>
     </message>
 </context>
 <context>
@@ -3421,19 +3429,19 @@
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="58"/>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="unfinished">General</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="60"/>
         <source>Plugged In</source>
-        <translation>Plugged In</translation>
+        <translation type="unfinished">Plugged In</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="62"/>
         <source>On Battery</source>
-        <translation>On Battery</translation>
+        <translation type="unfinished">On Battery</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
 </context>
@@ -3443,40 +3451,40 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="42"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
         <source>Monitor will suspend after</source>
-        <translation>Monitor will suspend after</translation>
+        <translation type="unfinished">Monitor will suspend after</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="43"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="52"/>
         <source>Computer will suspend after</source>
-        <translation>Computer will suspend after</translation>
+        <translation type="unfinished">Computer will suspend after</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="54"/>
         <source>Lock screen after</source>
-        <translation>Lock screen after</translation>
+        <translation type="unfinished">Lock screen after</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="45"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="56"/>
         <source>Suspend on lid close</source>
-        <translation>Suspend on lid close</translation>
+        <translation type="unfinished">Suspend on lid close</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="71"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="174"/>
         <source>Never</source>
-        <translation>Never</translation>
+        <translation type="unfinished">Never</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="156"/>
         <source>1 Minute</source>
-        <translation>1 Minute</translation>
+        <translation type="unfinished">1 Minute</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="159"/>
@@ -3485,12 +3493,12 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="168"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="177"/>
         <source>%1 Minutes</source>
-        <translation>%1 Minutes</translation>
+        <translation type="unfinished">%1 Minutes</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="171"/>
         <source>1 Hour</source>
-        <translation>1 Hour</translation>
+        <translation type="unfinished">1 Hour</translation>
     </message>
 </context>
 <context>
@@ -3499,40 +3507,40 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="43"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="51"/>
         <source>Monitor will suspend after</source>
-        <translation>Monitor will suspend after</translation>
+        <translation type="unfinished">Monitor will suspend after</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="53"/>
         <source>Computer will suspend after</source>
-        <translation>Computer will suspend after</translation>
+        <translation type="unfinished">Computer will suspend after</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="45"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="55"/>
         <source>Lock screen after</source>
-        <translation>Lock screen after</translation>
+        <translation type="unfinished">Lock screen after</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="46"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="57"/>
         <source>Suspend on lid close</source>
-        <translation>Suspend on lid close</translation>
+        <translation type="unfinished">Suspend on lid close</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="72"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="180"/>
         <source>Never</source>
-        <translation>Never</translation>
+        <translation type="unfinished">Never</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="162"/>
         <source>1 Minute</source>
-        <translation>1 Minute</translation>
+        <translation type="unfinished">1 Minute</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="165"/>
@@ -3541,12 +3549,12 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="174"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="183"/>
         <source>%1 Minutes</source>
-        <translation>%1 Minutes</translation>
+        <translation type="unfinished">%1 Minutes</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="177"/>
         <source>1 Hour</source>
-        <translation>1 Hour</translation>
+        <translation type="unfinished">1 Hour</translation>
     </message>
 </context>
 <context>
@@ -3554,39 +3562,39 @@
     <message>
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="60"/>
         <source>Output</source>
-        <translation>Output</translation>
+        <translation type="unfinished">Output</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="77"/>
         <source>Input</source>
-        <translation>Input</translation>
+        <translation type="unfinished">Input</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="130"/>
         <source>Sound Card:</source>
-        <translation>Sound Card:</translation>
+        <translation type="unfinished">Sound Card:</translation>
     </message>
 </context>
 <context>
     <name>dccV20::sound::MicrophonePage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="62"/>
         <source>Microphone</source>
-        <translation>Microphone</translation>
+        <translation type="unfinished">Microphone</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="101"/>
         <source>Input Volume</source>
-        <translation>Input Volume</translation>
+        <translation type="unfinished">Input Volume</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="136"/>
         <source>Input Level</source>
-        <translation>Input Level</translation>
+        <translation type="unfinished">Input Level</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
 </context>
@@ -3595,7 +3603,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="49"/>
         <source>Sound Effects</source>
-        <translation>Sound Effects</translation>
+        <translation type="unfinished">Sound Effects</translation>
     </message>
 </context>
 <context>
@@ -3603,214 +3611,220 @@
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="70"/>
         <source>Speaker</source>
-        <translation>Speaker</translation>
+        <translation type="unfinished">Speaker</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="72"/>
         <source>Microphone</source>
-        <translation>Microphone</translation>
+        <translation type="unfinished">Microphone</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="74"/>
         <source>Advanced</source>
-        <translation>Advanced</translation>
+        <translation type="unfinished">Advanced</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
         <source>Sound Effects</source>
-        <translation>Sound Effects</translation>
+        <translation type="unfinished">Sound Effects</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::sound::SpeakerPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="49"/>
         <source>Speaker</source>
-        <translation>Speaker</translation>
+        <translation type="unfinished">Speaker</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="75"/>
         <source>Output Volume</source>
-        <translation>Output Volume</translation>
+        <translation type="unfinished">Output Volume</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="110"/>
         <source>Left/Right Balance</source>
-        <translation>Left/Right Balance</translation>
+        <translation type="unfinished">Left/Right Balance</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::sync::IndexPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="40"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="48"/>
         <source>Auto Sync</source>
-        <translation>Auto Sync</translation>
+        <translation type="unfinished">Auto Sync</translation>
         <extra-contents_path>/cloudsync/Auto Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="43"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
         <source>Syncing...</source>
-        <translation>Syncing...</translation>
+        <translation type="unfinished">Syncing...</translation>
         <extra-contents_path>/cloudsync/Syncing...</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="100"/>
         <source>Sign Out</source>
-        <translation>Sign Out</translation>
+        <translation type="unfinished">Sign Out</translation>
         <extra-contents_path>/cloudsync/Sign Out</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="123"/>
+        <source>Your Wi-Fi password will be synced if Network Settings is turned on</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/cloudsync/Your Wi-Fi password will be synced if Network Settings is turned on</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="162"/>
         <source>Network Settings</source>
-        <translation>Network Settings</translation>
+        <translation type="unfinished">Network Settings</translation>
         <extra-contents_path>/cloudsync/Network Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="164"/>
         <source>Sound Settings</source>
-        <translation>Sound Settings</translation>
+        <translation type="unfinished">Sound Settings</translation>
         <extra-contents_path>/cloudsync/Sound Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="166"/>
         <source>Mouse Settings</source>
-        <translation>Mouse Settings</translation>
+        <translation type="unfinished">Mouse Settings</translation>
         <extra-contents_path>/cloudsync/Mouse Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="168"/>
         <source>Update Settings</source>
-        <translation>Update Settings</translation>
+        <translation type="unfinished">Update Settings</translation>
         <extra-contents_path>/cloudsync/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="170"/>
         <source>Dock</source>
-        <translation>Dock</translation>
+        <translation type="unfinished">Dock</translation>
         <extra-contents_path>/cloudsync/Dock</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="172"/>
         <source>Launcher</source>
-        <translation>Launcher</translation>
+        <translation type="unfinished">Launcher</translation>
         <extra-contents_path>/cloudsync/Launcher</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="174"/>
         <source>Wallpaper</source>
-        <translation>Wallpaper</translation>
+        <translation type="unfinished">Wallpaper</translation>
         <extra-contents_path>/cloudsync/Wallpaper</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="176"/>
         <source>Theme</source>
-        <translation>Theme</translation>
+        <translation type="unfinished">Theme</translation>
         <extra-contents_path>/cloudsync/Theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="178"/>
         <source>Power Settings</source>
-        <translation>Power Settings</translation>
+        <translation type="unfinished">Power Settings</translation>
         <extra-contents_path>/cloudsync/Power Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="180"/>
         <source>Corner Settings</source>
-        <translation>Corner Settings</translation>
+        <translation type="unfinished">Corner Settings</translation>
         <extra-contents_path>/cloudsync/Corner Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="301"/>
         <source>Last Sync: %1</source>
-        <translation>Last Sync: %1</translation>
+        <translation type="unfinished">Last Sync: %1</translation>
         <extra-contents_path>/cloudsync/Last Sync:</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="303"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation>yyyy-MM-dd hh:mm</translation>
+        <translation type="unfinished">yyyy-MM-dd hh:mm</translation>
     </message>
 </context>
 <context>
     <name>dccV20::sync::LoginPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="18"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="20"/>
         <source>Sign In</source>
-        <translation>Sign In</translation>
+        <translation type="unfinished">Sign In</translation>
         <extra-contents_path>/cloudsync/Sign In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="21"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="27"/>
         <source>Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</source>
-        <translation>Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</translation>
+        <translation type="unfinished">Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</translation>
         <extra-contents_path>/cloudsync/Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="27"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="37"/>
         <source>Deepin ID Sign In</source>
-        <translation>Deepin ID Sign In</translation>
+        <translation type="unfinished">Deepin ID Sign In</translation>
         <extra-contents_path>/cloudsync/Deepin ID Sign In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="33"/>
+        <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="49"/>
         <source>Only supported in Mainland China at present</source>
-        <translation>Only supported in Mainland China at present</translation>
+        <translation type="unfinished">Only supported in Mainland China at present</translation>
         <extra-contents_path>/cloudsync/Only supported in Mainland China at present</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::sync::LogoutPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="38"/>
+        <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="41"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation>Sorry, it is not supported in your region at present, and will be coming soon</translation>
+        <translation type="unfinished">Sorry, it is not supported in your region at present, and will be coming soon</translation>
         <extra-contents_path>/cloudsync/Sorry, it is not supported in your region at present, and will be coming soon</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="51"/>
         <source>Sign Out</source>
-        <translation>Sign Out</translation>
+        <translation type="unfinished">Sign Out</translation>
         <extra-contents_path>/cloudsync/Sign Out</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="58"/>
         <source>Edition:</source>
-        <translation>Edition:</translation>
+        <translation type="unfinished">Edition:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="62"/>
         <source>Type:</source>
-        <translation>Type:</translation>
+        <translation type="unfinished">Type:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="65"/>
         <source>Processor:</source>
-        <translation>Processor:</translation>
+        <translation type="unfinished">Processor:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="69"/>
         <source>Memory:</source>
-        <translation>Memory:</translation>
+        <translation type="unfinished">Memory:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="73"/>
         <source>Disk:</source>
-        <translation>Disk:</translation>
+        <translation type="unfinished">Disk:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="103"/>
         <source>%1-bit</source>
-        <translation>%1-bit</translation>
+        <translation type="unfinished">%1-bit</translation>
     </message>
 </context>
 <context>
@@ -3818,41 +3832,62 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="63"/>
         <source>About This PC</source>
-        <translation>About This PC</translation>
+        <translation type="unfinished">About This PC</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorSourceItem</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="65"/>
-        <source>Edition License</source>
-        <translation>Edition License</translation>
-        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="10"/>
+        <source>Untested</source>
+        <translation type="unfinished">Untested</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="67"/>
-        <source>End User License Agreement</source>
-        <translation>End User License Agreement</translation>
-        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="79"/>
+        <source>Timeout</source>
+        <translation type="unfinished">Timeout</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="81"/>
+        <source>Slow</source>
+        <translation type="unfinished">Slow</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="83"/>
+        <source>Medium</source>
+        <translation type="unfinished">Medium</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="85"/>
+        <source>Fast</source>
+        <translation type="unfinished">Fast</translation>
     </message>
 </context>
 <context>
     <name>dccV20::update::MirrorsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="46"/>
-        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="63"/>
-        <source>Mirror List</source>
-        <translation>Mirror List</translation>
-        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="49"/>
-        <source>Test Speed</source>
-        <translation>Test Speed</translation>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="64"/>
+        <source>Mirror List</source>
+        <translation type="unfinished">Mirror List</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="52"/>
+        <source>Test Speed</source>
+        <translation type="unfinished">Test Speed</translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="138"/>
+        <source>Untested</source>
+        <translation type="unfinished">Untested</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="168"/>
         <source>Retest</source>
-        <translation>Retest</translation>
+        <translation type="unfinished">Retest</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
 </context>
@@ -3861,135 +3896,141 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="70"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Restart the computer to use the system and the applications properly</translation>
+        <translation type="unfinished">Restart the computer to use the system and the applications properly</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="72"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation>Network disconnected, please retry after connected</translation>
+        <translation type="unfinished">Network disconnected, please retry after connected</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="93"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>This update may take a long time, please do not shut down or reboot during the process</translation>
+        <translation type="unfinished">This update may take a long time, please do not shut down or reboot during the process</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Checking for updates, please wait...</source>
-        <translation>Checking for updates, please wait...</translation>
+        <translation type="unfinished">Checking for updates, please wait...</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="209"/>
         <source>Download and install updates</source>
-        <translation>Download and install updates</translation>
+        <translation type="unfinished">Download and install updates</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="218"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation>%1% downloaded (Click to pause)</translation>
+        <translation type="unfinished">%1% downloaded (Click to pause)</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="226"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="357"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation>%1% downloaded (Click to continue)</translation>
+        <translation type="unfinished">%1% downloaded (Click to continue)</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="234"/>
         <source>Install updates</source>
-        <translation>Install updates</translation>
+        <translation type="unfinished">Install updates</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Your system is up to date</source>
-        <translation>Your system is up to date</translation>
+        <translation type="unfinished">Your system is up to date</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="251"/>
         <source>Updating, please wait...</source>
-        <translation>Updating, please wait...</translation>
+        <translation type="unfinished">Updating, please wait...</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="265"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation>The newest system installed, restart to take effect</translation>
+        <translation type="unfinished">The newest system installed, restart to take effect</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="276"/>
         <source>Update failed: insufficient disk space</source>
-        <translation>Update failed: insufficient disk space</translation>
+        <translation type="unfinished">Update failed: insufficient disk space</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="282"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation>Dependency error, failed to detect the updates</translation>
+        <translation type="unfinished">Dependency error, failed to detect the updates</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="289"/>
         <source>Backing up, please wait...</source>
-        <translation>Backing up, please wait...</translation>
+        <translation type="unfinished">Backing up, please wait...</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="295"/>
         <source>System backup failed</source>
-        <translation>System backup failed</translation>
+        <translation type="unfinished">System backup failed</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="319"/>
         <source>%n application update(s) available</source>
-        <translation><numerusform>%n application update(s) available</numerusform><numerusform>%n application update(s) available</numerusform></translation>
+        <translation type="unfinished">
+            <numerusform>%n application update(s) available</numerusform>
+            <numerusform>%n application update(s) available</numerusform>
+        </translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="325"/>
         <source>New system edition available</source>
-        <translation>New system edition available</translation>
+        <translation type="unfinished">New system edition available</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="328"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation><numerusform>New system edition and %n application update(s) available</numerusform><numerusform>New system edition and %n application update(s) available</numerusform></translation>
+        <translation type="unfinished">
+            <numerusform>New system edition and %n application update(s) available</numerusform>
+            <numerusform>New system edition and %n application update(s) available</numerusform>
+        </translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="336"/>
         <source>Downloaded</source>
-        <translation>Downloaded</translation>
+        <translation type="unfinished">Downloaded</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="339"/>
         <source>Size: %1</source>
-        <translation>Size: %1</translation>
+        <translation type="unfinished">Size: %1</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="366"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>Your battery is lower than 50%, please plug in to continue</translation>
+        <translation type="unfinished">Your battery is lower than 50%, please plug in to continue</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="369"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</translation>
+        <translation type="unfinished">Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
@@ -3998,7 +4039,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatehistorybutton.cpp" line="49"/>
         <source>Update History</source>
-        <translation>Update History</translation>
+        <translation type="unfinished">Update History</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
@@ -4007,59 +4048,59 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="47"/>
         <source>Update Settings</source>
-        <translation>Update Settings</translation>
+        <translation type="unfinished">Update Settings</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="60"/>
         <source>Auto Clear Package Cache</source>
-        <translation>Auto Clear Package Cache</translation>
+        <translation type="unfinished">Auto Clear Package Cache</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="64"/>
         <source>Updates Notification</source>
-        <translation>Updates Notification</translation>
+        <translation type="unfinished">Updates Notification</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="67"/>
         <source>Auto Download Updates</source>
-        <translation>Auto Download Updates</translation>
+        <translation type="unfinished">Auto Download Updates</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>Switch it on to automatically download the updates in wireless or wired network</translation>
+        <translation type="unfinished">Switch it on to automatically download the updates in wireless or wired network</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="78"/>
         <source>System Repository Detection</source>
-        <translation>System Repository Detection</translation>
+        <translation type="unfinished">System Repository Detection</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="83"/>
         <source>Show a notification if system update repository has been modified</source>
-        <translation>Show a notification if system update repository has been modified</translation>
+        <translation type="unfinished">Show a notification if system update repository has been modified</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
         <source>Smart Mirror Switch</source>
-        <translation>Smart Mirror Switch</translation>
+        <translation type="unfinished">Smart Mirror Switch</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="110"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>Switch it on to connect to the quickest mirror site automatically</translation>
+        <translation type="unfinished">Switch it on to connect to the quickest mirror site automatically</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="121"/>
         <source>Mirror List</source>
-        <translation>Mirror List</translation>
+        <translation type="unfinished">Mirror List</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
 </context>
@@ -4068,37 +4109,37 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="58"/>
         <source>Update</source>
-        <translation>Update</translation>
+        <translation type="unfinished">Update</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="61"/>
         <source>Update Settings</source>
-        <translation>Update Settings</translation>
+        <translation type="unfinished">Update Settings</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="72"/>
         <source>Last Update</source>
-        <translation>Last Update</translation>
+        <translation type="unfinished">Last Update</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="117"/>
         <source>Return</source>
-        <translation>Return</translation>
+        <translation type="unfinished">Return</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="167"/>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="174"/>
         <source>Current Edition</source>
-        <translation>Current Edition</translation>
+        <translation type="unfinished">Current Edition</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="183"/>
         <source>Update History</source>
-        <translation>Update History</translation>
+        <translation type="unfinished">Update History</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
 </context>
@@ -4107,17 +4148,17 @@
     <message>
         <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="43"/>
         <source>Pressure Sensitivity</source>
-        <translation>Pressure Sensitivity</translation>
+        <translation type="unfinished">Pressure Sensitivity</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="51"/>
         <source>Light</source>
-        <translation>Light</translation>
+        <translation type="unfinished">Light</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="51"/>
         <source>Heavy</source>
-        <translation>Heavy</translation>
+        <translation type="unfinished">Heavy</translation>
     </message>
 </context>
 <context>
@@ -4126,17 +4167,17 @@
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="46"/>
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="64"/>
         <source>Pen</source>
-        <translation>Pen</translation>
+        <translation type="unfinished">Pen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="66"/>
         <source>Mouse</source>
-        <translation>Mouse</translation>
+        <translation type="unfinished">Mouse</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="75"/>
         <source>Mode</source>
-        <translation>Mode</translation>
+        <translation type="unfinished">Mode</translation>
     </message>
 </context>
 <context>
@@ -4233,7 +4274,10 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>%n day(s) ago</numerusform><numerusform>%n day(s) ago</numerusform></translation>
+        <translation>
+            <numerusform>%n day(s) ago</numerusform>
+            <numerusform>%n day(s) ago</numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -5123,22 +5167,25 @@ If no operation, the display will be restored after %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="196"/>
         <source>Confirm</source>
         <translation>Confirm</translation>
+        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="63"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="191"/>
         <source>Add</source>
         <translation>Add</translation>
+        <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="200"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="189"/>
         <source>Add Timezone</source>
         <translation>Add Timezone</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="194"/>
         <source>Change Timezone</source>
         <translation>Change Timezone</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
@@ -5659,27 +5706,27 @@ If no operation, the display will be restored after %1s.</translation>
 <context>
     <name>dcc::keyboard::ShortcutContent</name>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="50"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="49"/>
         <source>Please Reset Shortcut</source>
         <translation>Please Reset Shortcut</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="57"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="56"/>
         <source>Cancel</source>
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="58"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="57"/>
         <source>Replace</source>
         <translation>Replace</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="60"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="59"/>
         <source>Shortcuts</source>
         <translation>Shortcuts</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="93"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="92"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
         <translation>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</translation>
     </message>
@@ -8239,7 +8286,7 @@ If no operation, the display will be restored after %1s.</translation>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="127"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
     </message>
@@ -8456,7 +8503,10 @@ If no operation, the display will be restored after %1s.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>%n application update(s) detected</numerusform><numerusform>%n application update(s) detected</numerusform></translation>
+        <translation>
+            <numerusform>%n application update(s) detected</numerusform>
+            <numerusform>%n application update(s) detected</numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -8466,7 +8516,10 @@ If no operation, the display will be restored after %1s.</translation>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>New system edition and %n application update(s) detected</numerusform><numerusform>New system edition and %n application update(s) detected</numerusform></translation>
+        <translation>
+            <numerusform>New system edition and %n application update(s) detected</numerusform>
+            <numerusform>New system edition and %n application update(s) detected</numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
@@ -8567,12 +8620,12 @@ If no operation, the display will be restored after %1s.</translation>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="307"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="312"/>
         <source>Patches</source>
         <translation>Patches</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="308"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="313"/>
         <source>System patches</source>
         <translation>System patches</translation>
     </message>
@@ -8639,6 +8692,3345 @@ If no operation, the display will be restored after %1s.</translation>
         <location filename="../src/frame/modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
         <translation>Connected</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::MainWindow</name>
+    <message>
+        <source>Account</source>
+        <translation type="vanished">Account</translation>
+    </message>
+    <message>
+        <source>Cloud Sync</source>
+        <translation type="vanished">Cloud Sync</translation>
+    </message>
+    <message>
+        <source>Display</source>
+        <translation type="vanished">Display</translation>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">Default Applications</translation>
+    </message>
+    <message>
+        <source>Personalization</source>
+        <translation type="vanished">Personalization</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="vanished">Network</translation>
+    </message>
+    <message>
+        <source>Sound</source>
+        <translation type="vanished">Sound</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="vanished">Bluetooth</translation>
+    </message>
+    <message>
+        <source>Date and Time</source>
+        <translation type="vanished">Date and Time</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="vanished">Power</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Mouse</translation>
+    </message>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="vanished">Drawing Tablet</translation>
+    </message>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="vanished">Keyboard and Language</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="vanished">Update</translation>
+    </message>
+    <message>
+        <source>System Info</source>
+        <translation type="vanished">System Info</translation>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation type="vanished">General Settings</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsDetailWidget</name>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">Change Password</translation>
+        <extra-contents_path>/accounts/Change Password</extra-contents_path>
+    </message>
+    <message>
+        <source>Delete Account</source>
+        <translation type="vanished">Delete Account</translation>
+        <extra-contents_path>/accounts/Delete Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Login</source>
+        <translation type="vanished">Auto Login</translation>
+        <extra-contents_path>/accounts/Auto Login</extra-contents_path>
+    </message>
+    <message>
+        <source>Login Without Password</source>
+        <translation type="vanished">Login Without Password</translation>
+        <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
+    </message>
+    <message>
+        <source>Fingerprint Password</source>
+        <translation type="vanished">Fingerprint Password</translation>
+    </message>
+    <message>
+        <source>Add fingerprint</source>
+        <translation type="vanished">Add fingerprint</translation>
+    </message>
+    <message>
+        <source>Delete fingerprint</source>
+        <translation type="vanished">Delete fingerprint</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="vanished">Fingerprint</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AddFingeDialog</name>
+    <message>
+        <source>Add Fingerprint</source>
+        <translation type="vanished">Add Fingerprint</translation>
+    </message>
+    <message>
+        <source>Scan again</source>
+        <translation type="vanished">Scan again</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">Done</translation>
+    </message>
+    <message>
+        <source>Identifying fingerprint</source>
+        <translation type="vanished">Identifying fingerprint</translation>
+    </message>
+    <message>
+        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
+        <translation type="vanished">Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</translation>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
+        <translation type="vanished">Fingerprint added</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::CreateAccountPage</name>
+    <message>
+        <source>New Account</source>
+        <translation type="vanished">New Account</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Username</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">Full Name</translation>
+    </message>
+    <message>
+        <source>optional</source>
+        <translation type="vanished">optional</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Password</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">Repeat Password</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancel</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">Create</translation>
+    </message>
+    <message>
+        <source>Password cannot be empty</source>
+        <translation type="vanished">Password cannot be empty</translation>
+    </message>
+    <message>
+        <source>The password should be different from the username</source>
+        <translation type="vanished">The password should be different from the username</translation>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
+        <translation type="vanished">Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">Passwords do not match</translation>
+    </message>
+    <message>
+        <source>Username cannot be empty</source>
+        <translation type="vanished">Username cannot be empty</translation>
+    </message>
+    <message>
+        <source>Username must be between 3 and 32 characters</source>
+        <translation type="vanished">Username must be between 3 and 32 characters</translation>
+    </message>
+    <message>
+        <source>The first character must be in lower case</source>
+        <translation type="vanished">The first character must be in lower case</translation>
+    </message>
+    <message>
+        <source>Username must only contain a~z, 0~9, - or _</source>
+        <translation type="vanished">Username must only contain a~z, 0~9, - or _</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::ModifyPasswdPage</name>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">Change Password</translation>
+    </message>
+    <message>
+        <source>Current Password</source>
+        <translation type="vanished">Current Password</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>New Password</source>
+        <translation type="vanished">New Password</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">Repeat Password</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancel</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Save</translation>
+    </message>
+    <message>
+        <source>Wrong password</source>
+        <translation type="vanished">Wrong password</translation>
+    </message>
+    <message>
+        <source>Password cannot be empty</source>
+        <translation type="vanished">Password cannot be empty</translation>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
+        <translation type="vanished">New password should differ from the current one</translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">Passwords do not match</translation>
+    </message>
+    <message>
+        <source>The password should be different from the username</source>
+        <translation type="vanished">The password should be different from the username</translation>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
+        <translation type="vanished">Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::AdapterWidget</name>
+    <message>
+        <source>My devices</source>
+        <translation type="vanished">My devices</translation>
+        <extra-contents_path>/bluetooth/My Device</extra-contents_path>
+    </message>
+    <message>
+        <source>Other devices</source>
+        <translation type="vanished">Other devices</translation>
+        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
+        <translation type="vanished">Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</translation>
+        <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DetailPage</name>
+    <message>
+        <source>Ignore this device</source>
+        <translation type="vanished">Ignore this device</translation>
+        <extra-contents_path>/bluetooth/Ignore this device</extra-contents_path>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">Disconnect</translation>
+        <extra-contents_path>/bluetooth/Disconnect</extra-contents_path>
+    </message>
+    <message>
+        <source>Change Name</source>
+        <translation type="vanished">Change Name</translation>
+        <extra-contents_path>/bluetooth/Change Name</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DeviceSettingsItem</name>
+    <message>
+        <source>Connected</source>
+        <translation type="vanished">Connected</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="vanished">Not connected</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::BootWidget</name>
+    <message>
+        <source>Updating...</source>
+        <translation type="vanished">Updating...</translation>
+    </message>
+    <message>
+        <source>Startup Delay</source>
+        <translation type="vanished">Startup Delay</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Theme</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
+        <translation type="vanished">Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</translation>
+    </message>
+    <message>
+        <source>Switch theme on to view it in boot menu</source>
+        <translation type="vanished">Switch theme on to view it in boot menu</translation>
+    </message>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">Boot Menu</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWidget</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">Boot Menu</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">User Experience Program</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished">Join User Experience Program</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</source>
+        <translation type="vanished">Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateSettings</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">Auto Sync</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancel</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">Confirm</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">Server</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="vanished">Address</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">Customize</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateWidget</name>
+    <message>
+        <source>Year</source>
+        <translation type="vanished">Year</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Month</source>
+        <translation type="vanished">Month</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Day</source>
+        <translation type="vanished">Day</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeWidget</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">Timezone List</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+    <message>
+        <source>Time Settings</source>
+        <translation type="vanished">Time Settings</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>24-hour Time</source>
+        <translation type="vanished">24-hour Time</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::SystemTimezone</name>
+    <message>
+        <source>Change System Timezone</source>
+        <translation type="vanished">Change System Timezone</translation>
+        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
+    </message>
+    <message>
+        <source>System Timezone</source>
+        <translation type="vanished">System Timezone</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::TimezoneList</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">Timezone List</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefappDetailWidget</name>
+    <message>
+        <source>Webpage</source>
+        <translation type="vanished">Webpage</translation>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation type="vanished">Mail</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="vanished">Text</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="vanished">Music</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="vanished">Video</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="vanished">Picture</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="vanished">Terminal</translation>
+    </message>
+    <message>
+        <source>Open Desktop file</source>
+        <translation type="vanished">Open Desktop file</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation type="vanished">Invalid</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsWidget</name>
+    <message>
+        <source>Webpage</source>
+        <translation type="vanished">Webpage</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation type="vanished">Mail</translation>
+        <extra-contents_path>/defapp/Mail</extra-contents_path>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="vanished">Text</translation>
+        <extra-contents_path>/defapp/Text</extra-contents_path>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="vanished">Music</translation>
+        <extra-contents_path>/defapp/Music</extra-contents_path>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="vanished">Video</translation>
+        <extra-contents_path>/defapp/Video</extra-contents_path>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="vanished">Picture</translation>
+        <extra-contents_path>/defapp/Picture</extra-contents_path>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="vanished">Terminal</translation>
+        <extra-contents_path>/defapp/Terminal</extra-contents_path>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">Default Applications</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::BrightnessPage</name>
+    <message>
+        <source>The screen hue will be auto adjusted according to your location</source>
+        <translation type="vanished">The screen hue will be auto adjusted according to your location</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Night Shift</source>
+        <translation type="vanished">Night Shift</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="vanished">Auto Brightness</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::CustomSettingDialog</name>
+    <message>
+        <source>Main Screen</source>
+        <translation type="vanished">Main Screen</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">Resolution</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">Refresh Rate</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancel</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Save</translation>
+    </message>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">Hz</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">Recommended</translation>
+    </message>
+    <message>
+        <source>inch</source>
+        <translation type="vanished">inch</translation>
+        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
+    </message>
+    <message>
+        <source>Resolution %1x%2</source>
+        <translation type="vanished">Resolution %1x%2</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayWidget</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">Multiple Displays</translation>
+        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="vanished">Brightness</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="vanished">Display Scaling</translation>
+        <extra-contents_path>/display/Display Scaling</extra-contents_path>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">Resolution</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">Refresh Rate</translation>
+        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::MultiScreenSettingPage</name>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">Customize</translation>
+        <extra-contents_path>/display/Customize</extra-contents_path>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="vanished">Duplicate</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="vanished">Extend</translation>
+    </message>
+    <message>
+        <source>Show the same image on other screens</source>
+        <translation type="vanished">Show the same image on other screens</translation>
+    </message>
+    <message>
+        <source>Expand the desktop across the screens</source>
+        <translation type="vanished">Expand the desktop across the screens</translation>
+    </message>
+    <message>
+        <source>%1 only</source>
+        <translation type="vanished">%1 only</translation>
+    </message>
+    <message>
+        <source>Show the screen content only on %1</source>
+        <translation type="vanished">Show the screen content only on %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RefreshRatePage</name>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">Hz</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">Recommended</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ResolutionDetailPage</name>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">Recommended</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RotateDialog</name>
+    <message>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="vanished">Left click to rotate, right click to restore and exit, press Ctrl+S to save.</translation>
+    </message>
+    <message>
+        <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="vanished">Right click to rotate, left click to restore and exit, press Ctrl+S to save.</translation>
+    </message>
+    <message>
+        <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
+        <translation type="vanished">Save the display settings? If no operation occurs, the display will be restored in %1s.</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ScalingPage</name>
+    <message>
+        <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
+        <translation type="vanished">Some applications cannot be scaled with the specified settings in multi-display environment.</translation>
+        <extra-contents_path>/display/Display Scaling</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::CustomContent</name>
+    <message>
+        <source>Add Custom Shortcut</source>
+        <translation type="vanished">Add Custom Shortcut</translation>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Name</translation>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="vanished">Command</translation>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancel</translation>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">Add</translation>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+    </message>
+    <message>
+        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
+        <translation type="vanished">This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
+    <message>
+        <source>Repeat Delay</source>
+        <translation type="vanished">Repeat Delay</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Short</source>
+        <translation type="vanished">Short</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Long</source>
+        <translation type="vanished">Long</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Repeat Rate</source>
+        <translation type="vanished">Repeat Rate</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Slow</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Fast</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Test here</source>
+        <translation type="vanished">Test here</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Numeric Keypad</source>
+        <translation type="vanished">Numeric Keypad</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Caps Lock Prompt</source>
+        <translation type="vanished">Caps Lock Prompt</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">Keyboard Layout</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>Switch Layouts (Multiple)</source>
+        <translation type="vanished">Switch Layouts (Multiple)</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="vanished">Applies to</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="vanished">System</translation>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="vanished">Application</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardModule</name>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">Custom Shortcut</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">General</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">Keyboard Layout</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System Language</source>
+        <translation type="vanished">System Language</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="vanished">Shortcuts</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::ShortCutSettingWidget</name>
+    <message>
+        <source>System</source>
+        <translation type="vanished">System</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Window</source>
+        <translation type="vanished">Window</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation type="vanished">Workspace</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">Custom Shortcut</translation>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+    </message>
+    <message>
+        <source>Restore Defaults</source>
+        <translation type="vanished">Restore Defaults</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Shortcut</source>
+        <translation type="vanished">Shortcut</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
+    <message>
+        <source>Add System Language</source>
+        <translation type="vanished">Add System Language</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageWidget</name>
+    <message>
+        <source>Language List</source>
+        <translation type="vanished">Language List</translation>
+        <extra-contents_path>/keyboard/Language List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::GeneralSettingWidget</name>
+    <message>
+        <source>Left Hand</source>
+        <translation type="vanished">Left Hand</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad while typing</source>
+        <translation type="vanished">Disable touchpad while typing</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
+        <translation type="vanished">Scrolling Speed</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Double-click Speed</source>
+        <translation type="vanished">Double-click Speed</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Slow</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Fast</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Pointer Speed</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse Acceleration</source>
+        <translation type="vanished">Mouse Acceleration</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad when a mouse is connected</source>
+        <translation type="vanished">Disable touchpad when a mouse is connected</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">Natural Scrolling</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Slow</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Fast</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">General</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Mouse</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">Touchpad</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">TrackPoint</translation>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TouchPadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Pointer Speed</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="vanished">Tap to Click</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">Natural Scrolling</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Slow</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Fast</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TrackPointSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">Pointer Speed</translation>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">Slow</translation>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">Fast</translation>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsProxyPage</name>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">Application Proxy</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Proxy Type</translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">IP Address</translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Port</translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Username</translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">Optional</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Password</translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="vanished">Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancel</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="vanished">OK</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsTypePage</name>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Proxy Type</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionEditPage</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">Disconnect</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="vanished">Delete</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancel</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">Save</translation>
+    </message>
+    <message>
+        <source>Wired Connection %1</source>
+        <translation type="vanished">Wired Connection %1</translation>
+    </message>
+    <message>
+        <source>hotspot</source>
+        <translation type="vanished">hotspot</translation>
+    </message>
+    <message>
+        <source>Wireless Connection %1</source>
+        <translation type="vanished">Wireless Connection %1</translation>
+    </message>
+    <message>
+        <source>PPPoE Connection %1</source>
+        <translation type="vanished">PPPoE Connection %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionVpnEditPage</name>
+    <message>
+        <source>New VPN</source>
+        <translation type="vanished">New VPN</translation>
+    </message>
+    <message>
+        <source>VPN Type</source>
+        <translation type="vanished">VPN Type</translation>
+    </message>
+    <message>
+        <source>L2TP</source>
+        <translation type="vanished">L2TP</translation>
+    </message>
+    <message>
+        <source>PPTP</source>
+        <translation type="vanished">PPTP</translation>
+    </message>
+    <message>
+        <source>VPNC</source>
+        <translation type="vanished">VPNC</translation>
+    </message>
+    <message>
+        <source>OpenVPN</source>
+        <translation type="vanished">OpenVPN</translation>
+    </message>
+    <message>
+        <source>StrongSwan</source>
+        <translation type="vanished">StrongSwan</translation>
+    </message>
+    <message>
+        <source>OpenConnect</source>
+        <translation type="vanished">OpenConnect</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="vanished">Export</translation>
+    </message>
+    <message>
+        <source>VPN L2TP %1</source>
+        <translation type="vanished">VPN L2TP %1</translation>
+    </message>
+    <message>
+        <source>VPN PPTP %1</source>
+        <translation type="vanished">VPN PPTP %1</translation>
+    </message>
+    <message>
+        <source>VPN VPNC %1</source>
+        <translation type="vanished">VPN VPNC %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenVPN %1</source>
+        <translation type="vanished">VPN OpenVPN %1</translation>
+    </message>
+    <message>
+        <source>VPN StrongSwan %1</source>
+        <translation type="vanished">VPN StrongSwan %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenConnect %1</source>
+        <translation type="vanished">VPN OpenConnect %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::EthernetSection</name>
+    <message>
+        <source>Ethernet</source>
+        <translation type="vanished">Ethernet</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">Not Bind</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">Device MAC Addr</translation>
+    </message>
+    <message>
+        <source>Cloned MAC Addr</source>
+        <translation type="vanished">Cloned MAC Addr</translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">Customize MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericHotspotSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">General</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Name</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">General</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">Name</translation>
+    </message>
+    <message>
+        <source>Auto Connect</source>
+        <translation type="vanished">Auto Connect</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotDeviceWidget</name>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">Hotspot</translation>
+    </message>
+    <message>
+        <source>Add Settings</source>
+        <translation type="vanished">Add Settings</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::IpvxSection</name>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Auto</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">Manual</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation type="vanished">Ignore</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">IP Address</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">Primary DNS</translation>
+    </message>
+    <message>
+        <source>Secondary DNS</source>
+        <translation type="vanished">Secondary DNS</translation>
+    </message>
+    <message>
+        <source>Only applied in corresponding resources</source>
+        <translation type="vanished">Only applied in corresponding resources</translation>
+    </message>
+    <message>
+        <source>Method</source>
+        <translation type="vanished">Method</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">Netmask</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">Prefix</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkDetailPage</name>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">Network Details</translation>
+    </message>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">Hotspot</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Security</translation>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation type="vanished">Interface</translation>
+    </message>
+    <message>
+        <source>MAC</source>
+        <translation type="vanished">MAC</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation type="vanished">Band</translation>
+    </message>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">Primary DNS</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">Netmask</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">Prefix</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">Speed</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModuleWidget</name>
+    <message>
+        <source>DSL</source>
+        <translation type="vanished">DSL</translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">System Proxy</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">Application Proxy</translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">Network Details</translation>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">Personal Hotspot</translation>
+    </message>
+    <message>
+        <source>Wired Network %1</source>
+        <translation type="vanished">Wired Network %1</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">Wired Network</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Wireless Network %1</source>
+        <translation type="vanished">Wireless Network %1</translation>
+        <extra-contents_path>/network/Wireless Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">Wireless Network</translation>
+        <extra-contents_path>/network/Wireless Network</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPOESection</name>
+    <message>
+        <source>PPPoE</source>
+        <translation type="vanished">PPPoE</translation>
+    </message>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Invalid password</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Username</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>Service</source>
+        <translation type="vanished">Service</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Password</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPSection</name>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">Refuse EAP Authentication</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">Refuse PAP Authentication</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">Refuse CHAP Authentication</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">Refuse MSCHAP Authentication</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">Refuse MSCHAPv2 Authentication</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">No BSD Data Compression</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">No Deflate Data Compression</translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">No TCP Header Compression</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">No Protocol Field Compression</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">No Address/Control Compression</translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">Send PPP Echo Packets</translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">Use MPPE</translation>
+    </message>
+    <message>
+        <source>128-bit MPPE</source>
+        <translation type="vanished">128-bit MPPE</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">Stateful MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PppoePage</name>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ProxyPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">Cancel</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">Confirm</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">None</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">Manual</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Auto</translation>
+    </message>
+    <message>
+        <source>HTTP Proxy</source>
+        <translation type="vanished">HTTP Proxy</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Port</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>HTTPS Proxy</source>
+        <translation type="vanished">HTTPS Proxy</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>FTP Proxy</source>
+        <translation type="vanished">FTP Proxy</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>SOCKS Proxy</source>
+        <translation type="vanished">SOCKS Proxy</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Ignore the proxy configurations for the above hosts and domains</source>
+        <translation type="vanished">Ignore the proxy configurations for the above hosts and domains</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Configuration URL</source>
+        <translation type="vanished">Configuration URL</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">System Proxy</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::Secret8021xSection</name>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Security</translation>
+    </message>
+    <message>
+        <source>TLS</source>
+        <translation type="vanished">TLS</translation>
+    </message>
+    <message>
+        <source>MD5</source>
+        <translation type="vanished">MD5</translation>
+    </message>
+    <message>
+        <source>LEAP</source>
+        <translation type="vanished">LEAP</translation>
+    </message>
+    <message>
+        <source>FAST</source>
+        <translation type="vanished">FAST</translation>
+    </message>
+    <message>
+        <source>Tunneled TLS</source>
+        <translation type="vanished">Tunneled TLS</translation>
+    </message>
+    <message>
+        <source>Protected EAP</source>
+        <translation type="vanished">Protected EAP</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Saved</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Ask</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Not Required</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">Disabled</translation>
+    </message>
+    <message>
+        <source>Anonymous</source>
+        <translation type="vanished">Anonymous</translation>
+    </message>
+    <message>
+        <source>Authenticated</source>
+        <translation type="vanished">Authenticated</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="vanished">Both</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="vanished">Automatic</translation>
+    </message>
+    <message>
+        <source>Version 0</source>
+        <translation type="vanished">Version 0</translation>
+    </message>
+    <message>
+        <source>Version 1</source>
+        <translation type="vanished">Version 1</translation>
+    </message>
+    <message>
+        <source>EAP Auth</source>
+        <translation type="vanished">EAP Auth</translation>
+    </message>
+    <message>
+        <source>Identity</source>
+        <translation type="vanished">Identity</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Pwd Options</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Private Key</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA Cert</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">User Cert</translation>
+    </message>
+    <message>
+        <source>Anonymous ID</source>
+        <translation type="vanished">Anonymous ID</translation>
+    </message>
+    <message>
+        <source>Provisioning</source>
+        <translation type="vanished">Provisioning</translation>
+    </message>
+    <message>
+        <source>PAC file</source>
+        <translation type="vanished">PAC file</translation>
+    </message>
+    <message>
+        <source>Inner Auth</source>
+        <translation type="vanished">Inner Auth</translation>
+    </message>
+    <message>
+        <source>PEAP Version</source>
+        <translation type="vanished">PEAP Version</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">Private Pwd</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Password</translation>
+    </message>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Invalid password</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretHotspotSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Invalid password</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">None</translation>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="vanished">WEP 40/128-bit</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2 Personal</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Security</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">Key</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Password</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWiredSection</name>
+    <message>
+        <source>Security Required</source>
+        <translation type="vanished">Security Required</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWirelessSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Invalid password</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">None</translation>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="vanished">WEP 40/128-bit</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2 Personal</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation type="vanished">WPA/WPA2 Enterprise</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Security</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">Key</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Password</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvOpenVPNSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">VPN Advanced</translation>
+    </message>
+    <message>
+        <source>Customize Gateway Port</source>
+        <translation type="vanished">Customize Gateway Port</translation>
+    </message>
+    <message>
+        <source>Gateway Port</source>
+        <translation type="vanished">Gateway Port</translation>
+    </message>
+    <message>
+        <source>Customize Renegotiation Interval</source>
+        <translation type="vanished">Customize Renegotiation Interval</translation>
+    </message>
+    <message>
+        <source>Renegotiation Interval</source>
+        <translation type="vanished">Renegotiation Interval</translation>
+    </message>
+    <message>
+        <source>Use LZO Data Compression</source>
+        <translation type="vanished">Use LZO Data Compression</translation>
+    </message>
+    <message>
+        <source>Use TCP Connection</source>
+        <translation type="vanished">Use TCP Connection</translation>
+    </message>
+    <message>
+        <source>Use TAP Device</source>
+        <translation type="vanished">Use TAP Device</translation>
+    </message>
+    <message>
+        <source>Customize Tunnel MTU</source>
+        <translation type="vanished">Customize Tunnel MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+    <message>
+        <source>Customize UDP Fragment Size</source>
+        <translation type="vanished">Customize UDP Fragment Size</translation>
+    </message>
+    <message>
+        <source>UDP Fragment Size</source>
+        <translation type="vanished">UDP Fragment Size</translation>
+    </message>
+    <message>
+        <source>Restrict Tunnel TCP MSS</source>
+        <translation type="vanished">Restrict Tunnel TCP MSS</translation>
+    </message>
+    <message>
+        <source>Randomize Remote Hosts</source>
+        <translation type="vanished">Randomize Remote Hosts</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvVPNCSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">VPN Advanced</translation>
+    </message>
+    <message>
+        <source>Cisco (default)</source>
+        <translation type="vanished">Cisco (default)</translation>
+    </message>
+    <message>
+        <source>Netscreen</source>
+        <translation type="vanished">Netscreen</translation>
+    </message>
+    <message>
+        <source>Secure (default)</source>
+        <translation type="vanished">Secure (default)</translation>
+    </message>
+    <message>
+        <source>Weak</source>
+        <translation type="vanished">Weak</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">None</translation>
+    </message>
+    <message>
+        <source>NAT-T When Available (default)</source>
+        <translation type="vanished">NAT-T When Available (default)</translation>
+    </message>
+    <message>
+        <source>NAT-T Always</source>
+        <translation type="vanished">NAT-T Always</translation>
+    </message>
+    <message>
+        <source>Cisco UDP</source>
+        <translation type="vanished">Cisco UDP</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">Disabled</translation>
+    </message>
+    <message>
+        <source>DH Group 1</source>
+        <translation type="vanished">DH Group 1</translation>
+    </message>
+    <message>
+        <source>DH Group 2 (default)</source>
+        <translation type="vanished">DH Group 2 (default)</translation>
+    </message>
+    <message>
+        <source>DH Group 5</source>
+        <translation type="vanished">DH Group 5</translation>
+    </message>
+    <message>
+        <source>Server (default)</source>
+        <translation type="vanished">Server (default)</translation>
+    </message>
+    <message>
+        <source>DH Group 2</source>
+        <translation type="vanished">DH Group 2</translation>
+    </message>
+    <message>
+        <source>Domain</source>
+        <translation type="vanished">Domain</translation>
+    </message>
+    <message>
+        <source>Vendor</source>
+        <translation type="vanished">Vendor</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="vanished">Version</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="vanished">Encryption</translation>
+    </message>
+    <message>
+        <source>NAT Traversal Mode</source>
+        <translation type="vanished">NAT Traversal Mode</translation>
+    </message>
+    <message>
+        <source>IKE DH Group</source>
+        <translation type="vanished">IKE DH Group</translation>
+    </message>
+    <message>
+        <source>Forward Secrecy</source>
+        <translation type="vanished">Forward Secrecy</translation>
+    </message>
+    <message>
+        <source>Local Port</source>
+        <translation type="vanished">Local Port</translation>
+    </message>
+    <message>
+        <source>Disable Dead Peer Detection</source>
+        <translation type="vanished">Disable Dead Peer Detection</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnIpsecSection</name>
+    <message>
+        <source>VPN IPsec</source>
+        <translation type="vanished">VPN IPsec</translation>
+    </message>
+    <message>
+        <source>Enable IPsec</source>
+        <translation type="vanished">Enable IPsec</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">Group Name</translation>
+    </message>
+    <message>
+        <source>Group ID</source>
+        <translation type="vanished">Group ID</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">Pre-Shared Key</translation>
+    </message>
+    <message>
+        <source>Phase1 Algorithms</source>
+        <translation type="vanished">Phase1 Algorithms</translation>
+    </message>
+    <message>
+        <source>Phase2 Algorithms</source>
+        <translation type="vanished">Phase2 Algorithms</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenConnectSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA Cert</translation>
+    </message>
+    <message>
+        <source>Proxy</source>
+        <translation type="vanished">Proxy</translation>
+    </message>
+    <message>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation type="vanished">Allow Cisco Secure Desktop Trojan</translation>
+    </message>
+    <message>
+        <source>CSD Script</source>
+        <translation type="vanished">CSD Script</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">User Cert</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Private Key</translation>
+    </message>
+    <message>
+        <source>Use FSID for Key Passphrase</source>
+        <translation type="vanished">Use FSID for Key Passphrase</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenVPNSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Certificates (TLS)</source>
+        <translation type="vanished">Certificates (TLS)</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Password</translation>
+    </message>
+    <message>
+        <source>Certificates with Password (TLS)</source>
+        <translation type="vanished">Certificates with Password (TLS)</translation>
+    </message>
+    <message>
+        <source>Static Key</source>
+        <translation type="vanished">Static Key</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Saved</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Ask</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Not Required</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">Auth Type</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA Cert</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">User Cert</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Private Key</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Pwd Options</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">Private Pwd</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Username</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">Customize Key Direction</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">Key Direction</translation>
+    </message>
+    <message>
+        <source>Remote IP</source>
+        <translation type="vanished">Remote IP</translation>
+    </message>
+    <message>
+        <source>Local IP</source>
+        <translation type="vanished">Local IP</translation>
+    </message>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Invalid password</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPPPSection</name>
+    <message>
+        <source>VPN PPP</source>
+        <translation type="vanished">VPN PPP</translation>
+    </message>
+    <message>
+        <source>All Available (default)</source>
+        <translation type="vanished">All Available (default)</translation>
+    </message>
+    <message>
+        <source>40-bit (less secure)</source>
+        <translation type="vanished">40-bit (less secure)</translation>
+    </message>
+    <message>
+        <source>128-bit (most secure)</source>
+        <translation type="vanished">128-bit (most secure)</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">Refuse EAP Authentication</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">Refuse PAP Authentication</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">Refuse CHAP Authentication</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">Refuse MSCHAP Authentication</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">Refuse MSCHAPv2 Authentication</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">No BSD Data Compression</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">No Deflate Data Compression</translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">No TCP Header Compression</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">No Protocol Field Compression</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">No Address/Control Compression</translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">Send PPP Echo Packets</translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">Use MPPE</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">Security</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">Stateful MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPage</name>
+    <message>
+        <source>VPN Status</source>
+        <translation type="vanished">VPN Status</translation>
+    </message>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Import Error</source>
+        <translation type="vanished">Import Error</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="vanished">OK</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">VPN Proxy</translation>
+    </message>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Invalid password</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Not Required</translation>
+    </message>
+    <message>
+        <source>HTTP</source>
+        <translation type="vanished">HTTP</translation>
+    </message>
+    <message>
+        <source>SOCKS</source>
+        <translation type="vanished">SOCKS</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">Proxy Type</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">Server IP</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Port</translation>
+    </message>
+    <message>
+        <source>Retry Indefinitely When Failed</source>
+        <translation type="vanished">Retry Indefinitely When Failed</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Username</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Password</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSSTPSection</name>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">CA File</translation>
+    </message>
+    <message>
+        <source>Ignore Certificate Warnings</source>
+        <translation type="vanished">Ignore Certificate Warnings</translation>
+    </message>
+    <message>
+        <source>Use TLS Hostname Extensions</source>
+        <translation type="vanished">Use TLS Hostname Extensions</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSecOpenVPNSection</name>
+    <message>
+        <source>VPN Security</source>
+        <translation type="vanished">VPN Security</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Default</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">None</translation>
+    </message>
+    <message>
+        <source>Cipher</source>
+        <translation type="vanished">Cipher</translation>
+    </message>
+    <message>
+        <source>HMAC Auth</source>
+        <translation type="vanished">HMAC Auth</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Invalid password</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Saved</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Ask</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Not Required</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Username</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Pwd Options</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Password</translation>
+    </message>
+    <message>
+        <source>NT Domain</source>
+        <translation type="vanished">NT Domain</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSstpProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">VPN Proxy</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">Server IP</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">Port</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Username</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Password</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnStrongSwanSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">Private Key</translation>
+    </message>
+    <message>
+        <source>SSH Agent</source>
+        <translation type="vanished">SSH Agent</translation>
+    </message>
+    <message>
+        <source>Smart Card</source>
+        <translation type="vanished">Smart Card</translation>
+    </message>
+    <message>
+        <source>EAP</source>
+        <translation type="vanished">EAP</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">Pre-Shared Key</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA Cert</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">Auth Type</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">User Cert</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Username</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Password</translation>
+    </message>
+    <message>
+        <source>Request an Inner IP Address</source>
+        <translation type="vanished">Request an Inner IP Address</translation>
+    </message>
+    <message>
+        <source>Enforce UDP Encapsulation</source>
+        <translation type="vanished">Enforce UDP Encapsulation</translation>
+    </message>
+    <message>
+        <source>Use IP Compression</source>
+        <translation type="vanished">Use IP Compression</translation>
+    </message>
+    <message>
+        <source>Enable Custom Cipher Proposals</source>
+        <translation type="vanished">Enable Custom Cipher Proposals</translation>
+    </message>
+    <message>
+        <source>IKE</source>
+        <translation type="vanished">IKE</translation>
+    </message>
+    <message>
+        <source>ESP</source>
+        <translation type="vanished">ESP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnTLSSection</name>
+    <message>
+        <source>VPN TLS Authentication</source>
+        <translation type="vanished">VPN TLS Authentication</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Default</translation>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation type="vanished">Client</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">Server</translation>
+    </message>
+    <message>
+        <source>Subject Match</source>
+        <translation type="vanished">Subject Match</translation>
+    </message>
+    <message>
+        <source>Remote Cert Type</source>
+        <translation type="vanished">Remote Cert Type</translation>
+    </message>
+    <message>
+        <source>Key File</source>
+        <translation type="vanished">Key File</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">Customize Key Direction</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">Key Direction</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnVPNCSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">Invalid password</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">Saved</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">Ask</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">Not Required</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">Gateway</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">Username</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">Pwd Options</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">Password</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">Group Name</translation>
+    </message>
+    <message>
+        <source>Group Pwd</source>
+        <translation type="vanished">Group Pwd</translation>
+    </message>
+    <message>
+        <source>Use Hybrid Authentication</source>
+        <translation type="vanished">Use Hybrid Authentication</translation>
+    </message>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">CA File</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WiredPage</name>
+    <message>
+        <source>Plug in the network cable first</source>
+        <translation type="vanished">Plug in the network cable first</translation>
+    </message>
+    <message>
+        <source>Wired Network Adapter</source>
+        <translation type="vanished">Wired Network Adapter</translation>
+    </message>
+    <message>
+        <source>Select Settings</source>
+        <translation type="vanished">Select Settings</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessPage</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation type="vanished">Connect to hidden network</translation>
+    </message>
+    <message>
+        <source>Wireless Network Adapter</source>
+        <translation type="vanished">Wireless Network Adapter</translation>
+    </message>
+    <message>
+        <source>Close Hotspot</source>
+        <translation type="vanished">Close Hotspot</translation>
+    </message>
+    <message>
+        <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
+        <translation type="vanished">Please disable hotspot sharing first if you want to connect to a wireless network</translation>
+    </message>
+    <message>
+        <source>WLAN</source>
+        <translation type="vanished">WLAN</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessSection</name>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">Not Bind</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">Required</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">Device MAC Addr</translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">Customize MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationFontsWidget</name>
+    <message>
+        <source>Size</source>
+        <translation type="vanished">Size</translation>
+    </message>
+    <message>
+        <source>Standard Font</source>
+        <translation type="vanished">Standard Font</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source>Monospaced Font</source>
+        <translation type="vanished">Monospaced Font</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source> (Unsupported font)</source>
+        <translation type="vanished"> (Unsupported font)</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationGeneral</name>
+    <message>
+        <source>Transparency</source>
+        <translation type="vanished">Transparency</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Theme</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Accent Color</source>
+        <translation type="vanished">Accent Color</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">Window Effect</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationList</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">General</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Icon Theme</source>
+        <translation type="vanished">Icon Theme</translation>
+        <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Cursor Theme</source>
+        <translation type="vanished">Cursor Theme</translation>
+        <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation type="vanished">Font</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeList</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Light</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">Dark</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Auto</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Default</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Light</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">Dark</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">Auto</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">Default</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::GeneralWidget</name>
+    <message>
+        <source>Power Saving Mode</source>
+        <translation type="vanished">Power Saving Mode</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Mode Switch</source>
+        <translation type="vanished">Auto Mode Switch</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the computer</source>
+        <translation type="vanished">Password is required to wake up the computer</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the monitor</source>
+        <translation type="vanished">Password is required to wake up the monitor</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerModule</name>
+    <message>
+        <source>Battery low, please plug in</source>
+        <translation type="vanished">Battery low, please plug in</translation>
+    </message>
+    <message>
+        <source>Battery critically low</source>
+        <translation type="vanished">Battery critically low</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">General</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation type="vanished">Plugged In</translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">On Battery</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseBatteryWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">Monitor will suspend after</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">Computer will suspend after</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">Lock screen after</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="vanished">Suspend on lid close</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">Never</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished">1 Minute</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 Minutes</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished">1 Hour</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseElectricWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">Monitor will suspend after</translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">Computer will suspend after</translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">Lock screen after</translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="vanished">Suspend on lid close</translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">Never</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished">1 Minute</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 Minutes</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished">1 Hour</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::AdvancedPage</name>
+    <message>
+        <source>Output</source>
+        <translation type="vanished">Output</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation type="vanished">Input</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
+    </message>
+    <message>
+        <source>Sound Card:</source>
+        <translation type="vanished">Sound Card:</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::MicrophonePage</name>
+    <message>
+        <source>Microphone</source>
+        <translation type="vanished">Microphone</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Input Volume</source>
+        <translation type="vanished">Input Volume</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Input Level</source>
+        <translation type="vanished">Input Level</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundEffectsPage</name>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">Sound Effects</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundWidget</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">Speaker</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Microphone</source>
+        <translation type="vanished">Microphone</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="vanished">Advanced</translation>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">Sound Effects</translation>
+        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SpeakerPage</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">Speaker</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Output Volume</source>
+        <translation type="vanished">Output Volume</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Left/Right Balance</source>
+        <translation type="vanished">Left/Right Balance</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::IndexPage</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">Auto Sync</translation>
+        <extra-contents_path>/cloudsync/Auto Sync</extra-contents_path>
+    </message>
+    <message>
+        <source>Syncing...</source>
+        <translation type="vanished">Syncing...</translation>
+        <extra-contents_path>/cloudsync/Syncing...</extra-contents_path>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">Sign Out</translation>
+        <extra-contents_path>/cloudsync/Sign Out</extra-contents_path>
+    </message>
+    <message>
+        <source>Network Settings</source>
+        <translation type="vanished">Network Settings</translation>
+        <extra-contents_path>/cloudsync/Network Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Sound Settings</source>
+        <translation type="vanished">Sound Settings</translation>
+        <extra-contents_path>/cloudsync/Sound Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse Settings</source>
+        <translation type="vanished">Mouse Settings</translation>
+        <extra-contents_path>/cloudsync/Mouse Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Update Settings</translation>
+        <extra-contents_path>/cloudsync/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Dock</source>
+        <translation type="vanished">Dock</translation>
+        <extra-contents_path>/cloudsync/Dock</extra-contents_path>
+    </message>
+    <message>
+        <source>Launcher</source>
+        <translation type="vanished">Launcher</translation>
+        <extra-contents_path>/cloudsync/Launcher</extra-contents_path>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation type="vanished">Wallpaper</translation>
+        <extra-contents_path>/cloudsync/Wallpaper</extra-contents_path>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">Theme</translation>
+        <extra-contents_path>/cloudsync/Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Power Settings</source>
+        <translation type="vanished">Power Settings</translation>
+        <extra-contents_path>/cloudsync/Power Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Corner Settings</source>
+        <translation type="vanished">Corner Settings</translation>
+        <extra-contents_path>/cloudsync/Corner Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Last Sync: %1</source>
+        <translation type="vanished">Last Sync: %1</translation>
+        <extra-contents_path>/cloudsync/Last Sync:</extra-contents_path>
+    </message>
+    <message>
+        <source>yyyy-MM-dd hh:mm</source>
+        <translation type="vanished">yyyy-MM-dd hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LoginPage</name>
+    <message>
+        <source>Sign In</source>
+        <translation type="vanished">Sign In</translation>
+        <extra-contents_path>/cloudsync/Sign In</extra-contents_path>
+    </message>
+    <message>
+        <source>Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</source>
+        <translation type="vanished">Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</translation>
+        <extra-contents_path>/cloudsync/Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</extra-contents_path>
+    </message>
+    <message>
+        <source>Deepin ID Sign In</source>
+        <translation type="vanished">Deepin ID Sign In</translation>
+        <extra-contents_path>/cloudsync/Deepin ID Sign In</extra-contents_path>
+    </message>
+    <message>
+        <source>Only supported in Mainland China at present</source>
+        <translation type="vanished">Only supported in Mainland China at present</translation>
+        <extra-contents_path>/cloudsync/Only supported in Mainland China at present</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LogoutPage</name>
+    <message>
+        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
+        <translation type="vanished">Sorry, it is not supported in your region at present, and will be coming soon</translation>
+        <extra-contents_path>/cloudsync/Sorry, it is not supported in your region at present, and will be coming soon</extra-contents_path>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">Sign Out</translation>
+        <extra-contents_path>/cloudsync/Sign Out</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::NativeInfoWidget</name>
+    <message>
+        <source>Edition:</source>
+        <translation type="vanished">Edition:</translation>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="vanished">Type:</translation>
+    </message>
+    <message>
+        <source>Processor:</source>
+        <translation type="vanished">Processor:</translation>
+    </message>
+    <message>
+        <source>Memory:</source>
+        <translation type="vanished">Memory:</translation>
+    </message>
+    <message>
+        <source>Disk:</source>
+        <translation type="vanished">Disk:</translation>
+    </message>
+    <message>
+        <source>%1-bit</source>
+        <translation type="vanished">%1-bit</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoWidget</name>
+    <message>
+        <source>About This PC</source>
+        <translation type="vanished">About This PC</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Edition License</source>
+        <translation type="vanished">Edition License</translation>
+        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="vanished">End User License Agreement</translation>
+        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorsWidget</name>
+    <message>
+        <source>Mirror List</source>
+        <translation type="vanished">Mirror List</translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+    <message>
+        <source>Test Speed</source>
+        <translation type="vanished">Test Speed</translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+    <message>
+        <source>Retest</source>
+        <translation type="vanished">Retest</translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateCtrlWidget</name>
+    <message>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation type="vanished">Restart the computer to use the system and the applications properly</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="vanished">Network disconnected, please retry after connected</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>This update may take a long time, please do not shut down or reboot during the process</source>
+        <translation type="vanished">This update may take a long time, please do not shut down or reboot during the process</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Checking for updates, please wait...</source>
+        <translation type="vanished">Checking for updates, please wait...</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Download and install updates</source>
+        <translation type="vanished">Download and install updates</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation type="vanished">%1% downloaded (Click to pause)</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation type="vanished">%1% downloaded (Click to continue)</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Install updates</source>
+        <translation type="vanished">Install updates</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Your system is up to date</source>
+        <translation type="vanished">Your system is up to date</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Updating, please wait...</source>
+        <translation type="vanished">Updating, please wait...</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>The newest system installed, restart to take effect</source>
+        <translation type="vanished">The newest system installed, restart to take effect</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="vanished">Update failed: insufficient disk space</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Dependency error, failed to detect the updates</source>
+        <translation type="vanished">Dependency error, failed to detect the updates</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Backing up, please wait...</source>
+        <translation type="vanished">Backing up, please wait...</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>System backup failed</source>
+        <translation type="vanished">System backup failed</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message numerus="yes">
+        <source>%n application update(s) available</source>
+        <translation type="vanished">
+            <numerusform>%n application update(s) available</numerusform>
+            <numerusform>%n application update(s) available</numerusform>
+        </translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>New system edition available</source>
+        <translation type="vanished">New system edition available</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message numerus="yes">
+        <source>New system edition and %n application update(s) available</source>
+        <translation type="vanished">
+            <numerusform>New system edition and %n application update(s) available</numerusform>
+            <numerusform>New system edition and %n application update(s) available</numerusform>
+        </translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Downloaded</source>
+        <translation type="vanished">Downloaded</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Size: %1</source>
+        <translation type="vanished">Size: %1</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Your battery is lower than 50%, please plug in to continue</source>
+        <translation type="vanished">Your battery is lower than 50%, please plug in to continue</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
+        <translation type="vanished">Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateHistoryButton</name>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">Update History</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateSettings</name>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Update Settings</translation>
+    </message>
+    <message>
+        <source>Auto Clear Package Cache</source>
+        <translation type="vanished">Auto Clear Package Cache</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Updates Notification</source>
+        <translation type="vanished">Updates Notification</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Download Updates</source>
+        <translation type="vanished">Auto Download Updates</translation>
+    </message>
+    <message>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation type="vanished">Switch it on to automatically download the updates in wireless or wired network</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>System Repository Detection</source>
+        <translation type="vanished">System Repository Detection</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Show a notification if system update repository has been modified</source>
+        <translation type="vanished">Show a notification if system update repository has been modified</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Smart Mirror Switch</source>
+        <translation type="vanished">Smart Mirror Switch</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation type="vanished">Switch it on to connect to the quickest mirror site automatically</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Mirror List</source>
+        <translation type="vanished">Mirror List</translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateWidget</name>
+    <message>
+        <source>Update</source>
+        <translation type="vanished">Update</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">Update Settings</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation type="vanished">Last Update</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Return</source>
+        <translation type="vanished">Return</translation>
+    </message>
+    <message>
+        <source>Current Edition</source>
+        <translation type="vanished">Current Edition</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">Update History</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::PressureSettings</name>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation type="vanished">Pressure Sensitivity</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">Light</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation type="vanished">Heavy</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomWidget</name>
+    <message>
+        <source>Pen</source>
+        <translation type="vanished">Pen</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">Mouse</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="vanished">Mode</translation>
     </message>
 </context>
 <context>
