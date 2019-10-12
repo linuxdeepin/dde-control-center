@@ -36,6 +36,8 @@ class QLabel;
 class QStandardItemModel;
 QT_END_NAMESPACE
 
+class TitleLabel;
+
 namespace dcc {
 namespace widgets {
 class SwitchWidget;
@@ -89,10 +91,10 @@ private:
     dcc::widgets::SettingsGroup *m_titleGroup;
     QList<DeviceSettingsItem *> m_deviceLists;
     QList<DeviceSettingsItem *> m_myDevices;
-    dcc::widgets::SettingsGroup *m_myDevicesGroup;
+    TitleLabel *m_myDevicesGroup;
     DTK_WIDGET_NAMESPACE::DListView *m_myDeviceListView;
     QStandardItemModel *m_myDeviceModel;
-    dcc::widgets::SettingsGroup *m_otherDevicesGroup;
+    TitleLabel *m_otherDevicesGroup;
     DTK_WIDGET_NAMESPACE::DListView *m_otherDeviceListView;
     QStandardItemModel *m_otherDeviceModel;
 };

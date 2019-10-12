@@ -29,6 +29,7 @@
 #include "widgets/settingsheaderitem.h"
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
+#include "widgets/titlelabel.h"
 
 #include <DListView>
 
@@ -50,10 +51,10 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     , m_switch(new SwitchWidget(nullptr, m_titleEdit))
     , m_titleGroup(new SettingsGroup)
 {
-    //~ contents_path /bluetooth/My Device
-    m_myDevicesGroup = new SettingsGroup(tr("My devices"));
+    m_myDevicesGroup = new TitleLabel(tr("My devices"));
+
     //~ contents_path /bluetooth/Other Devices
-    m_otherDevicesGroup = new SettingsGroup(tr("Other devices"));
+    m_otherDevicesGroup = new TitleLabel(tr("Other devices"));
 
     m_myDevicesGroup->setVisible(false);
 
@@ -102,20 +103,20 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
 
     connect(m_switch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleSwitch);
 
-    connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, this, [ = ](const QString &alias) {
+    connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, this, [ = ](const QString & alias) {
         Q_EMIT requestSetAlias(adapter, alias);
     });
 
-    connect(m_myDeviceListView, &DListView::clicked, this, [this](const QModelIndex &idx) {
+    connect(m_myDeviceListView, &DListView::clicked, this, [this](const QModelIndex & idx) {
         const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(idx.model());
         if (!deviceModel) {
             return;
         }
-        DStandardItem* item = dynamic_cast<DStandardItem *>(deviceModel->item(idx.row()));
+        DStandardItem *item = dynamic_cast<DStandardItem *>(deviceModel->item(idx.row()));
         if (!item) {
             return;
         }
-        for (auto it: m_myDevices) {
+        for (auto it : m_myDevices) {
             if (it->getStandardItem() == item) {
                 if (it->device()->state() != Device::StateConnected) {
                     it->requestConnectDevice(it->device());
@@ -126,16 +127,16 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
         }
     });
 
-    connect(m_otherDeviceListView, &DListView::clicked, this, [this](const QModelIndex &idx) {
+    connect(m_otherDeviceListView, &DListView::clicked, this, [this](const QModelIndex & idx) {
         const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(idx.model());
         if (!deviceModel) {
             return;
         }
-        DStandardItem* item = dynamic_cast<DStandardItem *>(deviceModel->item(idx.row()));
+        DStandardItem *item = dynamic_cast<DStandardItem *>(deviceModel->item(idx.row()));
         if (!item) {
             return;
         }
-        for (auto it: m_deviceLists) {
+        for (auto it : m_deviceLists) {
             if (it->getStandardItem() == item) {
                 it->requestConnectDevice(it->device());
                 break;
@@ -261,7 +262,7 @@ void AdapterWidget::addDevice(const Device *device)
         m_myDevicesGroup->setVisible(isVisible);
         m_myDeviceListView->setVisible(isVisible);
     });
-    connect(deviceItem, &DeviceSettingsItem::requestShowDetail, this, [this](const Device *device) {
+    connect(deviceItem, &DeviceSettingsItem::requestShowDetail, this, [this](const Device * device) {
         Q_EMIT requestShowDetail(m_adapter, device);
     });
 
