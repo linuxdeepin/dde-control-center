@@ -128,9 +128,7 @@ void AccountsModule::load(QString path)
         return;
     }
 
-    if (path == searchList[0]) {
-        onShowPasswordPage(pUser);
-    } else if (path == searchList[1] || path == searchList[2] || path == searchList[3]) {
+    if (path == searchList[0] || path == searchList[1] || path == searchList[2] || path == searchList[3]) {
         onShowAccountsDetailWidget(pUser);
     } else if (path == searchList[4]) {
         onShowCreateAccountPage();
