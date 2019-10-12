@@ -163,3 +163,13 @@ bool Monitor::isSameRatefresh(const Resolution &r1, const Resolution &r2)
 {
     return fabs(r1.rate() - r2.rate()) < 0.000001;
 }
+
+bool Monitor::hasResolution(const Resolution &r)
+{
+    for (auto m : m_modeList) {
+        if (isSameResolution(m, r)) {
+            return true;
+        }
+    }
+    return false;
+}

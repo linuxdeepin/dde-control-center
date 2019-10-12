@@ -76,6 +76,7 @@ Q_SIGNALS:
 public:
     static bool isSameResolution(const Resolution &r1,const Resolution &r2);
     static bool isSameRatefresh(const Resolution &r1,const Resolution &r2);
+    bool hasResolution(const Resolution &r);
 
 private Q_SLOTS:
     void setX(const int x);

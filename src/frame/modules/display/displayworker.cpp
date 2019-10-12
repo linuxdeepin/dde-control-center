@@ -142,12 +142,19 @@ void DisplayWorker::mergeScreens()
     m_model->setIsMerge(true);
 
     // TODO: make asynchronous
-    const QList<Resolution> commonModes = m_displayInter.ListOutputsCommonModes();
-    Q_ASSERT(!commonModes.isEmpty());
+    auto monis = m_monitors.keys();
+    auto firstMoni = monis.first();
+    auto modes = firstMoni->modeList();
 
     int maxSize = 0;
-    Resolution bestMode = commonModes.first();
-    for (auto m : commonModes) {
+    Resolution bestMode = modes.first();
+    for (auto m : modes) {
+        for (int i = 1; i< monis.size(); ++i) {
+            if (!monis[i]->hasResolution(m)) {
+                break;
+            }
+        }
+
         auto ts = m.width() * m.height();
         if ( ts <= maxSize)
             continue;

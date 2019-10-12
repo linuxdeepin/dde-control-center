@@ -304,7 +304,7 @@ void CustomSettingDialog::initResolutionList()
         if (m_model->monitorsIsIntersect()) {
             bool isComm = true;
             for (auto moni : m_model->monitorList()) {
-                if (-1 == moni->modeList().indexOf(m)) {
+                if (!moni->hasResolution(m)) {
                     isComm = false;
                     break;
                 }
