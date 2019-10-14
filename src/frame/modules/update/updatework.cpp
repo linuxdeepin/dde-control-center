@@ -331,7 +331,7 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
                 m_model->setStatus(UpdatesStatus::UpdatesAvailable);
             } else {
                 m_model->setUpgradeProgress(m_downloadProcess);
-                m_model->setStatus(UpdatesStatus::DownloadPaused);
+                onNotifyStatusChanged(UpdatesStatus::DownloadPaused);
             }
         } else {
             m_model->setStatus(UpdatesStatus::Downloaded);
@@ -400,11 +400,29 @@ void UpdateWorker::onSmartMirrorServiceIsValid(bool isvalid)
     }
 }
 
+void UpdateWorker::onNotifyStatusChanged(UpdatesStatus status)
+{
+    //若还没有收到下载进度,用户就点击了升级,则不再设置DownloadPaused状态,以用户操作为主
+    if (UpdatesStatus::RecoveryBackingup == m_model->status()) {
+        qWarning() << "[Update] Direct to backup, then to Updating : Not set UpdatesStatus::DownloadPaused.";
+    } else {
+        //需要满足以下2点,才能设置为DownloadPaused状态
+        //1.已经获取到下载数据; 2.获取到下载进度;
+        if (UpdatesStatus::DownloadPaused == status) {
+            qDebug() << "[Update] UpdatesStatus::DownloadPaused , m_downloadProcess : " << m_downloadProcess;
+
+            if (m_downloadProcess - 0.0 > 0.0) {
+                m_model->setStatus(UpdatesStatus::DownloadPaused);
+            }
+        }
+    }
+}
+
 void UpdateWorker::pauseDownload()
 {
     if (!m_downloadJob.isNull()) {
         m_managerInter->PauseJob(m_downloadJob->id());
-        m_model->setStatus(UpdatesStatus::DownloadPaused);
+        onNotifyStatusChanged(UpdatesStatus::DownloadPaused);
     } else {
         qWarning() << "m_downloadJob is nullptr";
     }
@@ -596,11 +614,15 @@ void UpdateWorker::onNotifyDownloadInfoChanged()
 {
     qDebug() << "[wubw download] get download info , then to set UpdatesStatus::Downloading status. status , m_downloadProcess : " << m_model->status() << m_downloadProcess;
 
-    m_model->setStatus(UpdatesStatus::DownloadPaused);
     DownloadInfo *info = m_model->downloadInfo();
     if (info) {
-        info->setDownloadProgress(m_downloadProcess);
-        m_model->setUpgradeProgress(m_downloadProcess);
+        if (info->downloadSize() > 0) {
+            onNotifyStatusChanged(UpdatesStatus::DownloadPaused);
+            info->setDownloadProgress(m_downloadProcess);
+            m_model->setUpgradeProgress(m_downloadProcess);
+        } else {
+            qWarning() << "[UpdateWorker] downloadSize is 0.";
+        }
     } else {
         qWarning() << "[UpdateWorker] DownloadInfo is nullptr.";
     }
@@ -615,6 +637,8 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
     UpdatesStatus state = m_model->status();
     if (UpdatesStatus::Downloading != state && UpdatesStatus::DownloadPaused != state && UpdatesStatus::Installing != state) {
         m_model->setStatus(UpdatesStatus::Checking);
+    } else if (UpdatesStatus::UpdateFailed == state) {
+        m_downloadProcess = 0.0;
     }
 
     m_checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
@@ -664,7 +688,7 @@ void UpdateWorker::setDownloadJob(const QString &jobPath)
                 //只有当进度为0的时候,才会显示一次暂定
                 if (!compareDouble(m_downloadProcess, 0.0)) {
                     m_bIsFirstGetDownloadProcess = false;
-                    m_model->setStatus(UpdatesStatus::DownloadPaused);
+                    onNotifyStatusChanged(UpdatesStatus::DownloadPaused);
                 }
             } else {
                 m_model->setStatus(UpdatesStatus::Downloading);
@@ -799,7 +823,7 @@ void UpdateWorker::onDownloadStatusChanged(const QString &status)
             });
         }
     } else if (status == "paused") {
-        m_model->setStatus(UpdatesStatus::DownloadPaused);
+        onNotifyStatusChanged(UpdatesStatus::DownloadPaused);
     } else if (status == "running") {
         m_model->setStatus(UpdatesStatus::Downloading);
     }

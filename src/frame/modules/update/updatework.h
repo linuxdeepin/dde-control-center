@@ -109,6 +109,7 @@ private:
     void setAppUpdateInfo(const AppUpdateInfoList &list);
     inline bool checkDbusIsValid();
     void onSmartMirrorServiceIsValid(bool isvalid);
+    void onNotifyStatusChanged(UpdatesStatus status);
 
 private:
     UpdateModel* m_model;

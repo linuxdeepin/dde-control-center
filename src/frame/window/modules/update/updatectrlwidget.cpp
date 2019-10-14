@@ -117,6 +117,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     QWidget *contentWidget = new QWidget;
     QVBoxLayout *contentLayout = new QVBoxLayout;
     contentLayout->addWidget(m_summaryGroup);
+    contentLayout->addStretch();
     contentWidget->setLayout(contentLayout);
     m_updateList->setMinimumHeight(height() - 150);
     m_updateList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
