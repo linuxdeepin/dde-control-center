@@ -326,6 +326,8 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
         return;
     }
 
+    popAllWidgets();
+
     for (int firstCount = 0; firstCount < m_modules.count(); firstCount++) {
         //Compare moduleName and m_modules.second(module name)
         if (moduleName == m_modules[firstCount].first->name()) {
