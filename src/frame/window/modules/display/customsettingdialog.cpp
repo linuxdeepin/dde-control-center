@@ -150,6 +150,7 @@ void CustomSettingDialog::setModel(DisplayModel *model)
 
     initWithModel();
     initOtherDialog();
+    initConnect();
 }
 
 void CustomSettingDialog::initWithModel()
@@ -160,35 +161,11 @@ void CustomSettingDialog::initWithModel()
     initResolutionList();
     initRefreshrateList();
 
-    if (m_isPrimary) {
-        disconnect(m_model, &DisplayModel::primaryScreenChanged,
-                   this, &CustomSettingDialog::onPrimaryMonitorChanged);
-        disconnect(m_model, &DisplayModel::monitorListChanged,
-                   this, &CustomSettingDialog::onPrimaryMonitorChanged);
-        disconnect(m_monitor, &Monitor::currentModeChanged,
-                   this, &CustomSettingDialog::onPrimaryMonitorChanged);
-
-        connect(m_model, &DisplayModel::primaryScreenChanged,
-                this, &CustomSettingDialog::onPrimaryMonitorChanged);
-        connect(m_monitor, &Monitor::currentModeChanged,
-                this, &CustomSettingDialog::onPrimaryMonitorChanged);
-        connect(m_model, &DisplayModel::isMergeChange,
-                this, &CustomSettingDialog::onPrimaryMonitorChanged);
-    }
-    disconnect(m_model, &DisplayModel::screenWidthChanged, this, &CustomSettingDialog::resetDialog);
-    disconnect(m_model, &DisplayModel::screenHeightChanged, this, &CustomSettingDialog::resetDialog);
-
-    connect(m_model, &DisplayModel::screenWidthChanged, this, &CustomSettingDialog::resetDialog);
-    connect(m_model, &DisplayModel::screenHeightChanged, this, &CustomSettingDialog::resetDialog);
-    connect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
-    connect(m_model, &DisplayModel::isMergeChange, m_monitroControlWidget, &MonitorControlWidget::setScreensMerged);
-
     resetDialog();
 }
 
 void CustomSettingDialog::initOtherDialog()
 {
-//    //当存在三个屏幕或以上时，需要下列代码
     if (m_otherDialog.size()) {
         for (auto dlg : m_otherDialog) {
             dlg->setVisible(false);
@@ -203,11 +180,13 @@ void CustomSettingDialog::initOtherDialog()
         CustomSettingDialog *dlg = nullptr;
         if (dlgIdx < m_otherDialog.size()) {
             dlg = m_otherDialog[dlgIdx];
-            dlg->m_monitor = mon;
+            dlg->resetMonitorObject(mon);
             ++dlgIdx;
         } else {
             dlg = new CustomSettingDialog(mon, m_model, this);
             m_otherDialog.append(dlg);
+
+            dlg->initConnect();
 
             connect(dlg, &CustomSettingDialog::requestSetResolution, this,
                     &CustomSettingDialog::requestSetResolution);
@@ -265,22 +244,6 @@ void CustomSettingDialog::initRefreshrateList()
         item->setData(QVariant(m.id()), Qt::WhatsThisPropertyRole);
         item->setText(tstr);
     }
-
-    connect(m_rateList, &DListView::clicked, this, [ = ](const QModelIndex & idx) {
-        this->requestSetResolution(m_monitor, listModel->data(idx, Qt::WhatsThisPropertyRole).toInt());
-    });
-
-    connect(m_monitor, &Monitor::currentModeChanged, this, [ = ](const Resolution & r) {
-        for (int i = 0; i < listModel->rowCount(); ++i) {
-            auto tItem = listModel->item(i);
-
-            if (tItem->data(Qt::WhatsThisPropertyRole).toInt() == r.id()) {
-                tItem->setData(Qt::CheckState::Checked, Qt::CheckStateRole);
-            } else {
-                tItem->setData(Qt::CheckState::Unchecked, Qt::CheckStateRole);
-            }
-        }
-    });
 }
 
 void CustomSettingDialog::initResolutionList()
@@ -336,26 +299,6 @@ void CustomSettingDialog::initResolutionList()
     m_resolutionList->setModel(m_resolutionListModel);
     if (nullptr != curIdx)
         curIdx->setCheckState(Qt::Checked);
-
-    connect(m_monitor, &Monitor::currentModeChanged, this, [this](const Resolution & tr) {
-        auto list = m_monitor->modeList();
-        for (auto idx = 0; idx < m_resolutionListModel->rowCount(); ++idx) {
-            auto item = m_resolutionListModel->item(idx);
-            auto id = item->data(Qt::WhatsThisPropertyRole);
-            if (id == tr.id()) {
-                item->setCheckState(Qt::Checked);
-            } else {
-                item->setCheckState(Qt::Unchecked);
-            }
-        }
-    });
-    connect(m_resolutionList, &QListView::clicked, this, [this](QModelIndex idx) {
-        auto id = m_resolutionListModel->data(idx, Qt::WhatsThisPropertyRole).toInt();
-        if (id == m_monitor->currentMode().id())
-            return;
-
-        this->requestSetResolution(m_monitor, id);
-    });
 }
 
 void CustomSettingDialog::initMoniList()
@@ -406,6 +349,7 @@ void CustomSettingDialog::initMoniControlWidget()
     if (m_monitroControlWidget)
         m_monitroControlWidget->deleteLater();
     m_monitroControlWidget = new MonitorControlWidget();
+
     m_monitroControlWidget->setScreensMerged(m_model->isMerge());
     m_monitroControlWidget->setDisplayModel(m_model, m_isPrimary ? nullptr : m_monitor);
 
@@ -421,10 +365,6 @@ void CustomSettingDialog::initMoniControlWidget()
             this, &CustomSettingDialog::requestSplit);
     connect(m_monitroControlWidget, &MonitorControlWidget::requestSetMonitorPosition,
             this, &CustomSettingDialog::requestSetMonitorPosition);
-    connect(m_model, &DisplayModel::monitorListChanged, this, [ = ] {
-        m_monitroControlWidget->deleteLater();
-        m_monitroControlWidget = nullptr;
-    });
 
     m_layout->insertWidget(0, m_monitroControlWidget);
 }
@@ -433,6 +373,54 @@ void CustomSettingDialog::initPrimaryDialog()
 {
     Q_ASSERT(m_moniList);
     initMoniList();
+}
+
+void CustomSettingDialog::initConnect()
+{
+
+    connect(m_rateList, &DListView::clicked, this, [this](const QModelIndex &idx) {
+        auto listModel = m_rateList->model();
+        requestSetResolution(m_monitor, listModel->data(idx, Qt::WhatsThisPropertyRole).toInt());
+    });
+    connect(m_resolutionList, &QListView::clicked, this, [this](QModelIndex idx) {
+        auto id = m_resolutionListModel->data(idx, Qt::WhatsThisPropertyRole).toInt();
+        if (id == m_monitor->currentMode().id())
+            return;
+
+        this->requestSetResolution(m_monitor, id);
+    });
+    connect(m_model, &DisplayModel::monitorListChanged, this, [ = ] {
+        if (m_monitroControlWidget)
+            m_monitroControlWidget->deleteLater();
+        m_monitroControlWidget = nullptr;
+    });
+
+    if (m_isPrimary) {
+        connect(m_model, &DisplayModel::primaryScreenChanged,
+                this, &CustomSettingDialog::onPrimaryMonitorChanged);
+        connect(m_model, &DisplayModel::isMergeChange,
+                this, &CustomSettingDialog::onPrimaryMonitorChanged);
+    }
+    connect(m_model, &DisplayModel::screenWidthChanged, this, &CustomSettingDialog::resetDialog);
+    connect(m_model, &DisplayModel::screenHeightChanged, this, &CustomSettingDialog::resetDialog);
+    connect(m_model, &DisplayModel::isMergeChange, m_monitroControlWidget, &MonitorControlWidget::setScreensMerged);
+}
+
+void CustomSettingDialog::resetMonitorObject(Monitor *moni)
+{
+    if (m_monitor == moni)
+        return;
+
+    disconnect(m_monitor, &Monitor::currentModeChanged, this, &CustomSettingDialog::onMonitorModeChange);
+    disconnect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
+    disconnect(m_monitor, &Monitor::xChanged, this, &CustomSettingDialog::resetDialog);
+    disconnect(m_monitor, &Monitor::yChanged, this, &CustomSettingDialog::resetDialog);
+
+    m_monitor = moni;
+    connect(m_monitor, &Monitor::currentModeChanged, this, &CustomSettingDialog::onMonitorModeChange);
+    connect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
+    connect(m_monitor, &Monitor::xChanged, this, &CustomSettingDialog::resetDialog);
+    connect(m_monitor, &Monitor::yChanged, this, &CustomSettingDialog::resetDialog);
 }
 
 void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
@@ -469,17 +457,30 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
     }
 }
 
-void CustomSettingDialog::onMonitorPress(Monitor *mon)
+void CustomSettingDialog::onMonitorModeChange(const Resolution &r)
 {
-    m_fullIndication->setGeometry(mon->rect());
-    m_fullIndication->show();
-}
+    auto listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
+    for (int i = 0; i < listModel->rowCount(); ++i) {
+        auto tItem = listModel->item(i);
 
-void CustomSettingDialog::onMonitorRelease(Monitor *mon)
-{
-    Q_UNUSED(mon)
+        if (tItem->data(Qt::WhatsThisPropertyRole).toInt() == r.id()) {
+            tItem->setData(Qt::CheckState::Checked, Qt::CheckStateRole);
+        } else {
+            tItem->setData(Qt::CheckState::Unchecked, Qt::CheckStateRole);
+        }
+    }
 
-    m_fullIndication->hide();
+    for (auto idx = 0; idx < m_resolutionListModel->rowCount(); ++idx) {
+        auto item = m_resolutionListModel->item(idx);
+        auto id = item->data(Qt::WhatsThisPropertyRole);
+        if (id == r.id()) {
+            item->setCheckState(Qt::Checked);
+        } else {
+            item->setCheckState(Qt::Unchecked);
+        }
+    }
+
+    resetDialog();
 }
 
 void CustomSettingDialog::resetDialog()
@@ -496,21 +497,27 @@ void CustomSettingDialog::resetDialog()
 
     setGeometry(rt);
     move(m_monitor->rect().center() - QPoint(width() / 2, height() / 2));
-
-    for (auto dlg : m_otherDialog) {
-        dlg->setVisible(!m_model->isMerge());
-    }
 }
 
 void CustomSettingDialog::onPrimaryMonitorChanged()
 {
-    m_monitor->disconnect(this);
-    m_resolutionList->disconnect(this);
-    m_rateList->disconnect(this);
-    m_monitor = m_model->primaryMonitor();
+    resetMonitorObject(m_model->primaryMonitor());
 
     initWithModel();
     initOtherDialog();
 
     resetDialog();
+}
+
+void CustomSettingDialog::onMonitorPress(Monitor *mon)
+{
+    m_fullIndication->setGeometry(mon->rect());
+    m_fullIndication->show();
+}
+
+void CustomSettingDialog::onMonitorRelease(Monitor *mon)
+{
+    Q_UNUSED(mon)
+
+    m_fullIndication->hide();
 }

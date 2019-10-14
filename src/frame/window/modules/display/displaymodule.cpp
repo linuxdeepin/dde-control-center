@@ -204,6 +204,7 @@ void DisplayModule::showCustomSettingDialog()
             m_displayWorker, &DisplayWorker::setPrimary);
     connect(m_displayModel, &DisplayModel::monitorListChanged, dlg, &QDialog::reject);
 
+    m_displayModel->setIsMerge(m_displayModel->monitorsIsIntersect());
     dlg->setModel(m_displayModel);
     if (dlg->exec() != QDialog::Accepted) {
         m_displayWorker->restore();

@@ -37,8 +37,9 @@ class QVBoxLayout;
 class QAbstractButton;
 QT_END_NAMESPACE
 
-namespace dcc {
+class Resolution;
 
+namespace dcc {
 namespace display {
 class DisplayModel;
 class Monitor;
@@ -82,6 +83,7 @@ private Q_SLOTS:
     void resetDialog();
     void onPrimaryMonitorChanged();
     void onChangList(QAbstractButton *btn, bool beChecked);
+    void onMonitorModeChange(const Resolution &r);
 
 private:
     void initUI();
@@ -93,6 +95,9 @@ private:
     void initMoniControlWidget();
     //初始化主屏窗口中的　屏幕代理　及　屏幕列表　部分．
     void initPrimaryDialog();
+
+    void initConnect();
+    void resetMonitorObject(dcc::display::Monitor *moni);
 
 private:
     bool m_isPrimary{false};
@@ -108,7 +113,6 @@ private:
     DTK_WIDGET_NAMESPACE::DListView *m_resolutionList{nullptr};
     DTK_WIDGET_NAMESPACE::DListView *m_rateList{nullptr};
     QStandardItemModel *m_resolutionListModel{nullptr};
-    QStandardItemModel *m_refreshListModel{nullptr};
     QList<CustomSettingDialog *> m_otherDialog;
 };
 }
