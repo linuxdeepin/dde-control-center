@@ -30,6 +30,7 @@
 
 #include <QLabel>
 #include <QLineEdit>
+#include <DLineEdit>
 #include <QHBoxLayout>
 #include <darrowrectangle.h>
 
@@ -62,7 +63,8 @@ public:
     explicit LineEditWidget(QFrame *parent = nullptr);
     explicit LineEditWidget(bool isPasswordMode, QWidget *parent = nullptr);
 
-    inline QLineEdit *textEdit() const { return m_edit; }
+    inline QLineEdit *textEdit() const { return m_edit->lineEdit(); }
+    inline DLineEdit *dTextEdit() const { return m_edit; }
     inline QString text() const { return m_edit->text(); }
     void setTitleVisible(const bool visible) { m_title->setVisible(visible); }
     void addRightWidget(QWidget *widget);
@@ -85,7 +87,7 @@ protected:
 
 private:
     QLabel *m_title;
-    QLineEdit *m_edit;
+    DLineEdit *m_edit;
     ErrorTip *m_errTip;
 };
 

@@ -260,7 +260,10 @@ void Secret8021xSection::initConnection()
     connect(m_identity->textEdit(), &QLineEdit::editingFinished, this, &Secret8021xSection::allInputValid);
     connect(m_identity->textEdit(), &QLineEdit::editingFinished, this, &Secret8021xSection::saveUserInputIdentify);
 
-    connect(m_password->textEdit(), &QLineEdit::editingFinished, this, &Secret8021xSection::allInputValid);
+    connect(m_password->textEdit(), &QLineEdit::editingFinished, this, [this] {
+        m_password->dTextEdit()->setAlert(false);
+        m_password->hideAlertMessage();
+    });
     connect(m_password->textEdit(), &QLineEdit::editingFinished, this, &Secret8021xSection::saveUserInputPassword);
 
     connect(m_enableWatcher, &Secret8021xEnableWatcher::secretEnableChanged, this, &Secret8021xSection::onSecretEnableChanged);
@@ -574,6 +577,7 @@ bool Secret8021xSection::commonItemsInpuValid()
             valid = false;
             m_password->setIsErr(true);
             m_password->showAlertMessage(tr("Invalid password"));
+            m_password->dTextEdit()->setAlert(true);
         } else {
             m_password->setIsErr(false);
         }

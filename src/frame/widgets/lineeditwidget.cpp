@@ -71,7 +71,7 @@ void ErrorTip::appearIfNotEmpty()
 LineEditWidget::LineEditWidget(QFrame *parent)
     : SettingsItem(parent)
     , m_title(new QLabel)
-    , m_edit(new QLineEdit)
+    , m_edit(new DLineEdit)
     , m_errTip(new ErrorTip(this))
 {
     m_title->setFixedWidth(140);
@@ -88,7 +88,7 @@ LineEditWidget::LineEditWidget(QFrame *parent)
     setObjectName("LineEditWidget");
     setFixedHeight(36);
 
-    connect(m_edit, &QLineEdit::textChanged, this, &LineEditWidget::hideAlertMessage);
+    connect(m_edit, &DLineEdit::textChanged, this, &LineEditWidget::hideAlertMessage);
 }
 
 LineEditWidget::LineEditWidget(bool isPasswordMode, QWidget *parent)
@@ -97,9 +97,9 @@ LineEditWidget::LineEditWidget(bool isPasswordMode, QWidget *parent)
     , m_errTip(new ErrorTip(this))
 {
     if (isPasswordMode) {
-        m_edit = (new DPasswordEdit)->lineEdit();
+        m_edit = new DPasswordEdit;
     } else {
-        m_edit = new QLineEdit;
+        m_edit = new DLineEdit;
     }
     m_title->setFixedWidth(140);
     m_edit->setContextMenuPolicy(Qt::NoContextMenu);
@@ -115,7 +115,7 @@ LineEditWidget::LineEditWidget(bool isPasswordMode, QWidget *parent)
     setObjectName("LineEditWidget");
     setFixedHeight(36);
 
-    connect(m_edit, &QLineEdit::textChanged, this, &LineEditWidget::hideAlertMessage);
+    connect(m_edit, &DLineEdit::textChanged, this, &LineEditWidget::hideAlertMessage);
 }
 
 void LineEditWidget::addRightWidget(QWidget *widget)
@@ -125,7 +125,7 @@ void LineEditWidget::addRightWidget(QWidget *widget)
 
 void LineEditWidget::setReadOnly(const bool state)
 {
-    m_edit->setReadOnly(state);
+    m_edit->lineEdit()->setReadOnly(state);
 }
 
 void LineEditWidget::showAlertMessage(const QString &message)
@@ -158,7 +158,7 @@ void LineEditWidget::setText(const QString &text)
 
 void LineEditWidget::setPlaceholderText(const QString &text)
 {
-    m_edit->setPlaceholderText(text);
+    m_edit->lineEdit()->setPlaceholderText(text);
 }
 
 void LineEditWidget::mousePressEvent(QMouseEvent *e)
