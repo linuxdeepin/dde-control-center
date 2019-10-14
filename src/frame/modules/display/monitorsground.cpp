@@ -67,7 +67,7 @@ void MonitorsGround::setDisplayModel(DisplayModel *model, Monitor *moni)
     m_viewPortHeight = model->screenHeight();
 
     auto initMW = [ this ](Monitor * mon) {
-        MonitorProxyWidget *pw = new MonitorProxyWidget(mon, this);
+        MonitorProxyWidget *pw = new MonitorProxyWidget(mon, m_model, this);
         m_monitors[pw] = mon;
 
         connect(pw, &MonitorProxyWidget::requestApplyMove, this, &MonitorsGround::monitorMoved);

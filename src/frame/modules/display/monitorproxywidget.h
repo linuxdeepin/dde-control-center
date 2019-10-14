@@ -33,12 +33,14 @@ namespace dcc {
 
 namespace display {
 
+class DisplayModel;
 class Monitor;
 class MonitorProxyWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit MonitorProxyWidget(Monitor *mon, QWidget *parent = 0);
+    explicit MonitorProxyWidget(Monitor *mon, DisplayModel *model,
+                                QWidget *parent = nullptr);
 
     inline int x() const { return m_movedX; }
     inline int y() const { return m_movedY; }
@@ -62,7 +64,8 @@ protected:
     void mouseReleaseEvent(QMouseEvent *) Q_DECL_OVERRIDE;
 
 private:
-    Monitor *m_monitor;
+    Monitor *m_monitor{nullptr};
+    DisplayModel *m_model{nullptr};
 
     int m_movedX;
     int m_movedY;

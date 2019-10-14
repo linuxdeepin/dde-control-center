@@ -26,14 +26,17 @@
 #include "monitorproxywidget.h"
 #include "monitor.h"
 #include "monitorindicator.h"
+#include "displaymodel.h"
+
 #include <QPainter>
 #include <QMouseEvent>
 
 using namespace dcc::display;
 
-MonitorProxyWidget::MonitorProxyWidget(Monitor *mon, QWidget *parent)
+MonitorProxyWidget::MonitorProxyWidget(Monitor *mon, DisplayModel *model, QWidget *parent)
     : QWidget(parent)
     , m_monitor(mon)
+    , m_model(model)
     , m_movedX(m_monitor->x())
     , m_movedY(m_monitor->y())
     , m_underMouseMove(false)
@@ -111,6 +114,9 @@ void MonitorProxyWidget::mousePressEvent(QMouseEvent *e)
 
 void MonitorProxyWidget::mouseMoveEvent(QMouseEvent *e)
 {
+    if (m_model->isMerge())
+        return;
+
     if (!(e->buttons() & Qt::LeftButton))
         return;
 
@@ -120,7 +126,8 @@ void MonitorProxyWidget::mouseMoveEvent(QMouseEvent *e)
 
 void MonitorProxyWidget::mouseReleaseEvent(QMouseEvent *e)
 {
-    Q_EMIT requestApplyMove(this);
+    if (!m_model->isMerge())
+        Q_EMIT requestApplyMove(this);
 
     m_underMouseMove = false;
 

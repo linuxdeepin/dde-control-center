@@ -117,7 +117,7 @@ void CustomSettingDialog::initUI()
 
     hlayout->addWidget(rotate, 0, Qt::AlignLeft);
     connect(rotate, &QPushButton::clicked, this, [this]() {
-        if (m_model->monitorsIsIntersect()) {
+        if (m_model->isMerge()) {
             Q_EMIT CustomSettingDialog::requestShowRotateDialog(nullptr);
         } else {
             Q_EMIT CustomSettingDialog::requestShowRotateDialog(m_monitor);
@@ -172,6 +172,8 @@ void CustomSettingDialog::initWithModel()
                 this, &CustomSettingDialog::onPrimaryMonitorChanged);
         connect(m_monitor, &Monitor::currentModeChanged,
                 this, &CustomSettingDialog::onPrimaryMonitorChanged);
+        connect(m_model, &DisplayModel::isMergeChange,
+                this, &CustomSettingDialog::onPrimaryMonitorChanged);
     }
     disconnect(m_model, &DisplayModel::screenWidthChanged, this, &CustomSettingDialog::resetDialog);
     disconnect(m_model, &DisplayModel::screenHeightChanged, this, &CustomSettingDialog::resetDialog);
@@ -220,7 +222,7 @@ void CustomSettingDialog::initOtherDialog()
                     &CustomSettingDialog::requestRecognize);
         }
 
-        if (!m_model->monitorsIsIntersect()) {
+        if (!m_model->isMerge()) {
             dlg->show();
         }
 
@@ -301,7 +303,7 @@ void CustomSettingDialog::initResolutionList()
         }
 
         pevR = m;
-        if (m_model->monitorsIsIntersect()) {
+        if (m_model->isMerge()) {
             bool isComm = true;
             for (auto moni : m_model->monitorList()) {
                 if (!moni->hasResolution(m)) {
@@ -404,7 +406,7 @@ void CustomSettingDialog::initMoniControlWidget()
     if (m_monitroControlWidget)
         m_monitroControlWidget->deleteLater();
     m_monitroControlWidget = new MonitorControlWidget();
-    m_monitroControlWidget->setScreensMerged(m_model->monitorsIsIntersect());
+    m_monitroControlWidget->setScreensMerged(m_model->isMerge());
     m_monitroControlWidget->setDisplayModel(m_model, m_isPrimary ? nullptr : m_monitor);
 
     connect(m_monitroControlWidget, &MonitorControlWidget::requestMonitorPress,
@@ -496,7 +498,7 @@ void CustomSettingDialog::resetDialog()
     move(m_monitor->rect().center() - QPoint(width() / 2, height() / 2));
 
     for (auto dlg : m_otherDialog) {
-        dlg->setVisible(!m_model->monitorsIsIntersect());
+        dlg->setVisible(!m_model->isMerge());
     }
 }
 
