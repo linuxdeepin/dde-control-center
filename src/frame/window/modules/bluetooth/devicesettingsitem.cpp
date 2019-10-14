@@ -48,10 +48,10 @@ void DeviceSettingsItem::initItemActionList(QStyle *style)
     m_loadingIndicator = new DSpinner();
     m_loadingIndicator->setFixedSize(24, 24);
     m_loadingIndicator->hide();
-    m_loadingAction = new DViewItemAction(Qt::AlignCenter, QSize(), QSize(), false, this);
+    m_loadingAction = new DViewItemAction(Qt::AlignCenter, QSize(), QSize(), false);
     m_loadingAction->setWidget(m_loadingIndicator);
-    m_iconAction = new DViewItemAction(Qt::AlignRight, QSize(), QSize(), true, this);
-    m_textAction = new DViewItemAction(Qt::AlignLeft, QSize(), QSize(), true, this);
+    m_iconAction = new DViewItemAction(Qt::AlignRight, QSize(), QSize(), true);
+    m_textAction = new DViewItemAction(Qt::AlignLeft, QSize(), QSize(), true);
     m_iconAction->setIcon(style->standardIcon(QStyle::SP_ArrowRight));
     m_dActionList.append(m_loadingAction);
     m_dActionList.append(m_textAction);
