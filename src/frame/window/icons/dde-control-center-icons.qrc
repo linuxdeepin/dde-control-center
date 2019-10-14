@@ -122,5 +122,7 @@
         <file>texts/dcc_feedbackhigh_32px.svg</file>
         <file>texts/dcc_feedbacklow_32px.svg</file>
         <file>actions/dcc_refresh_rate_32px.svg</file>
+        <file>texts/dcc_brightnesslow_32px.svg</file>
+        <file>texts/dcc_brightnesshigh_32px.svg</file>
     </qresource>
 </RCC>

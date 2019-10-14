@@ -120,6 +120,9 @@ void BrightnessPage::addSlider()
         slider->setRange(miniScale, int(BrightnessMaxScale));
         slider->setType(DCCSlider::Vernier);
         slider->setTickPosition(QSlider::TicksBelow);
+        slider->setLeftIcon(QIcon::fromTheme("dcc_brightnesslow"));
+        slider->setRightIcon(QIcon::fromTheme("dcc_brightnesshigh"));
+        slider->setIconSize(QSize(24, 24));
         slider->setTickInterval(int((BrightnessMaxScale - miniScale) / 5.0));
         slider->setSliderPosition(int(brightness * BrightnessMaxScale));
         slider->setPageStep(1);
