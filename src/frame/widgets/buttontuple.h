@@ -27,16 +27,17 @@
 #define BUTTONTUPLE_H
 
 #include <DSuggestButton>
+#include <DPushButton>
+#include <DWarningButton>
 
 #include <QWidget>
-#include <QPushButton>
 
 DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace widgets {
 
-class LeftButton : public QPushButton
+class LeftButton : public DPushButton
 {
     Q_OBJECT
 public:
@@ -57,10 +58,19 @@ class ButtonTuple : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ButtonTuple(QWidget *parent = nullptr);
+    enum ButtonType {
+        Normal = 0,
+        Save = 1,
+        Delete = 2,
+    };
+
+    explicit ButtonTuple(ButtonType type = Normal, QWidget *parent = nullptr);
 
     QPushButton *leftButton();
-    DSuggestButton *rightButton();
+    QPushButton *rightButton();
+
+private:
+    void createRightButton(const ButtonType type);
 
 Q_SIGNALS:
     void leftButtonClicked();
@@ -68,7 +78,7 @@ Q_SIGNALS:
 
 private:
     QPushButton *m_leftButton;
-    DSuggestButton *m_rightButton;
+    QPushButton *m_rightButton;
 };
 
 } // namespace widgets

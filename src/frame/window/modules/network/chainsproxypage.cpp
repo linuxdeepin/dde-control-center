@@ -98,7 +98,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     tip->setWordWrap(true);
     layout->addWidget(tip);
 
-    ButtonTuple *btns = new ButtonTuple;
+    ButtonTuple *btns = new ButtonTuple(ButtonTuple::Save);
     btns->leftButton()->setText(tr("Cancel"));
     btns->rightButton()->setText(tr("Save"));
 

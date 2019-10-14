@@ -53,7 +53,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     : QWidget(parent)
     , m_manualWidget(new ContentWidget)
     , m_autoWidget(new TranslucentFrame)
-    , m_buttonTuple(new ButtonTuple)
+    , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
     , m_proxyType(new DSegmentedControl)
 {
     //~ contents_path /network/System Proxy

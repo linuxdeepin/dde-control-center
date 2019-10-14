@@ -86,7 +86,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->addWidget(m_customGroup);
 
     //~ contents_path /keyboard/Shortcuts
-    QPushButton* resetBtn = new QPushButton(tr("Restore Defaults"));
+    QPushButton *resetBtn = new QPushButton(tr("Restore Defaults"));
 
     m_layout->addWidget(resetBtn);
     m_layout->addSpacing(10);

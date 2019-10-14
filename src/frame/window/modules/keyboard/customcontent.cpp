@@ -51,7 +51,7 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     : QWidget(parent)
     , m_conflict(nullptr)
     , m_model(model)
-    , m_buttonTuple(new ButtonTuple)
+    , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
 {
     QVBoxLayout *mainLayout = new QVBoxLayout();
     mainLayout->setMargin(0);
