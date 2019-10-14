@@ -78,11 +78,14 @@ void AccountsDetailWidget::initWidgets()
     fullnameLayout->addWidget(m_fullName, 2, Qt::AlignRight);
     fullnameLayout->addWidget(m_fullnameBtn, 1, Qt::AlignLeft);
 
+    QHBoxLayout *inputlineLayout = new QHBoxLayout;
+    inputlineLayout->addWidget(m_inputLineEdit);
+
     QVBoxLayout *headLayout = new QVBoxLayout;
     headLayout->addWidget(m_avatar, 0, Qt::AlignHCenter);
     headLayout->addLayout(shortnameLayout);
     headLayout->addLayout(fullnameLayout);
-    headLayout->addWidget(m_inputLineEdit, 0, Qt::AlignHCenter);
+    headLayout->addLayout(inputlineLayout);
 
     QHBoxLayout *modifydelLayout = new QHBoxLayout;
     modifydelLayout->addWidget(m_modifyPassword);
@@ -291,9 +294,11 @@ void AccountsDetailWidget::updateLineEditDisplayStyle()
         if (m_fullName->text() == tr("Full Name")) {
             m_inputLineEdit->setText("");
         } else {
+            m_inputLineEdit->setCursorPosition(30);
             m_inputLineEdit->setText(m_curUser->fullname());
         }
-        m_inputLineEdit->selectAll();
+        //之前写成m_inputLineEdit->selectAll()是选中全部，现在要求选中文本部分即可;
+        m_inputLineEdit->setSelection(4, m_inputLineEdit->text().size());
     }
 }
 
