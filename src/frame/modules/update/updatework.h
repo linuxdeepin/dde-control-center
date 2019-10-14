@@ -135,6 +135,7 @@ private:
     QString m_jobPath;
     double m_downloadProcess;
     bool m_bIsUserClickedUpdate;
+    bool m_bIsFirstGetDownloadProcess;
 };
 }
 }

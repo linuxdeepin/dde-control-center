@@ -231,7 +231,7 @@ void UpdateWidget::refreshWidget(UpdateType type)
 
 void UpdateWidget::showCheckUpdate()
 {
-    qDebug() << Q_FUNC_INFO;
+    qDebug() << Q_FUNC_INFO << " current update status : " << m_model->status();
     m_work->checkForUpdates();
     m_mainLayout->setCurrentIndex(0);
 

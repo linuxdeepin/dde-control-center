@@ -101,6 +101,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_jobPath("")
     , m_downloadProcess(0.0)
     , m_bIsUserClickedUpdate(false)
+    , m_bIsFirstGetDownloadProcess(true)
 {
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
@@ -420,7 +421,7 @@ void UpdateWorker::resumeDownload()
 }
 
 void UpdateWorker::distUpgrade()
-{   
+{
     if (m_bDownAndUpdate)
         m_bDownAndUpdate = false;
 
@@ -595,7 +596,7 @@ void UpdateWorker::onNotifyDownloadInfoChanged()
 {
     qDebug() << "[wubw download] get download info , then to set UpdatesStatus::Downloading status. status , m_downloadProcess : " << m_model->status() << m_downloadProcess;
 
-    m_model->setStatus(UpdatesStatus::Downloading);
+    m_model->setStatus(UpdatesStatus::DownloadPaused);
     DownloadInfo *info = m_model->downloadInfo();
     if (info) {
         info->setDownloadProgress(m_downloadProcess);
@@ -610,8 +611,11 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
     if (!m_checkUpdateJob.isNull())
         return;
 
-    if (UpdatesStatus::Checking == m_model->status())
+    qDebug() << "[update] start status : " << m_model->status();
+    UpdatesStatus state = m_model->status();
+    if (UpdatesStatus::Downloading != state && UpdatesStatus::DownloadPaused != state && UpdatesStatus::Installing != state) {
         m_model->setStatus(UpdatesStatus::Checking);
+    }
 
     m_checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
     connect(m_checkUpdateJob, &__Job::StatusChanged, [this](const QString & status) {
@@ -655,7 +659,16 @@ void UpdateWorker::setDownloadJob(const QString &jobPath)
         DownloadInfo *info = m_model->downloadInfo();
         //异步加载数据,会导致下载信息还未获取就先取到了下载进度
         if (info) {
-            m_model->setStatus(UpdatesStatus::Downloading);
+            //第一次收到下载进度显示暂定,之后再次收到显示更新中
+            if (m_bIsFirstGetDownloadProcess) {
+                //只有当进度为0的时候,才会显示一次暂定
+                if (!compareDouble(m_downloadProcess, 0.0)) {
+                    m_bIsFirstGetDownloadProcess = false;
+                    m_model->setStatus(UpdatesStatus::DownloadPaused);
+                }
+            } else {
+                m_model->setStatus(UpdatesStatus::Downloading);
+            }
             info->setDownloadProgress(value);
             m_model->setUpgradeProgress(value);
         } else {
@@ -807,6 +820,8 @@ void UpdateWorker::onUpgradeStatusChanged(const QString &status)
         m_distUpgradeJob->deleteLater();
 
         m_model->setStatus(UpdatesStatus::UpdateSucceeded);
+        //更新完成,重置下载进度
+        m_downloadProcess = 0.0;
 
         QProcess::startDetached("/usr/lib/dde-control-center/reboot-reminder-dialog");
 
