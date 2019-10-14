@@ -67,6 +67,7 @@ AdvancedPage::AdvancedPage(QWidget *parent)
         listView->setSelectionMode(QAbstractItemView::NoSelection);
         listView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         listView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        listView->setBackgroundType(DStyledItemDelegate::ClipCornerBackground);
     };
 
     m_outputList = new DListView;

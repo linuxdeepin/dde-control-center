@@ -62,7 +62,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     m_sw = new SwitchWidget(nullptr, new TitleLabel(tr("Microphone")));
     hlayout->addWidget(m_sw);
 
-
+    m_layout->setSpacing(25);
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->addLayout(hlayout);
     m_layout->addStretch(1);

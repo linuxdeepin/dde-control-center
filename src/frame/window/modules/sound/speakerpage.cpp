@@ -49,6 +49,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     m_sw = new SwitchWidget(nullptr, new TitleLabel(tr("Speaker")));
 
     m_layout->setContentsMargins(ThirdPageContentsMargins);
+    m_layout->setSpacing(25);
     m_layout->addWidget(m_sw);
     m_layout->addStretch(1);
     setLayout(m_layout);
