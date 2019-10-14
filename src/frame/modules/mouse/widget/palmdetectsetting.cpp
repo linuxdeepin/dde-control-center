@@ -53,7 +53,7 @@ PalmDetectSetting::PalmDetectSetting(QWidget *parent)
     DCCSlider *pressureSlider = m_pressureSlider->slider();
     pressureSlider->setType(DCCSlider::Vernier);
     pressureSlider->setTickPosition(QSlider::TicksBelow);
-    pressureSlider->setRange(0, 5);
+    pressureSlider->setRange(0, 10);
     pressureSlider->setTickInterval(1);
     pressureSlider->setPageStep(1);
 
@@ -62,7 +62,7 @@ PalmDetectSetting::PalmDetectSetting(QWidget *parent)
     int i = 100;
     while (i <= 200) {
         pressureList << QString::number(i);
-        i += 20;
+        i += 10;
     }
 
     m_pressureSlider->setAnnotations(pressureList);
