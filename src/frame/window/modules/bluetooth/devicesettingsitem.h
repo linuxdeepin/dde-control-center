@@ -28,8 +28,13 @@
 #include <DSpinner>
 
 #include <QObject>
+#include <QPointer>
 
 DWIDGET_USE_NAMESPACE
+
+QT_BEGIN_NAMESPACE
+class QStyle;
+QT_END_NAMESPACE
 
 namespace dcc {
 namespace bluetooth {
@@ -44,13 +49,14 @@ class DeviceSettingsItem : public QObject
     Q_OBJECT
 public:
     explicit DeviceSettingsItem(const dcc::bluetooth::Device *device, QStyle *style);
+    virtual ~DeviceSettingsItem();
     DStandardItem *getStandardItem(DTK_WIDGET_NAMESPACE::DListView *parent = nullptr);
     DStandardItem *createStandardItem(DTK_WIDGET_NAMESPACE::DListView *parent = nullptr);
     const dcc::bluetooth::Device *device() const;
     void setLoading(const bool loading);
 private:
     void setDevice(const dcc::bluetooth::Device *device);
-    void initItemActionList(QStyle *style);
+    void initItemActionList();
 
 Q_SIGNALS:
     void requestConnectDevice(const dcc::bluetooth::Device *device) const;
@@ -62,13 +68,14 @@ private Q_SLOTS:
 
 private:
     const dcc::bluetooth::Device *m_device;
-    DTK_WIDGET_NAMESPACE::DSpinner *m_loadingIndicator;
+    QPointer<DTK_WIDGET_NAMESPACE::DSpinner> m_loadingIndicator;
     DStandardItem *m_deviceItem;
     DTK_WIDGET_NAMESPACE::DListView *m_parentDListView;
     DViewItemActionList m_dActionList;
-    DViewItemAction *m_loadingAction;
-    DViewItemAction *m_textAction;
-    DViewItemAction *m_iconAction;
+    QPointer<DViewItemAction> m_loadingAction;
+    QPointer<DViewItemAction> m_textAction;
+    QPointer<DViewItemAction> m_iconAction;
+    QStyle *m_style;
 };
 } // namespace DCC_NAMESPACE
 } // namespace dcc

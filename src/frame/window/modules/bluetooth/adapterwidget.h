@@ -64,7 +64,6 @@ public:
     void setAdapter(const dcc::bluetooth::Adapter *adapter);
     const dcc::bluetooth::Adapter *adapter() const;
     void loadDetailPage();
-    void updateHeight();
     bool getSwitchState();
 
 private:

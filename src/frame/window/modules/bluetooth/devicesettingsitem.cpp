@@ -37,14 +37,29 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device, QStyle *style)
     : m_device(device)
     , m_deviceItem(new DStandardItem)
     , m_parentDListView(nullptr)
+    , m_style(style)
 {
-    initItemActionList(style);
+    initItemActionList();
     m_deviceItem->setText(m_device->name());
     m_deviceItem->setActionList(Qt::RightEdge, m_dActionList);
 }
 
-void DeviceSettingsItem::initItemActionList(QStyle *style)
+DeviceSettingsItem::~DeviceSettingsItem()
 {
+    if (!m_loadingIndicator.isNull()) {
+        m_loadingIndicator->hide();
+        m_loadingIndicator->deleteLater();
+    }
+    if (!m_loadingAction.isNull()) {
+        m_loadingAction->setVisible(false);
+    }
+}
+
+void DeviceSettingsItem::initItemActionList()
+{
+    if (!m_loadingIndicator.isNull()) {
+        m_loadingIndicator->deleteLater();
+    }
     m_loadingIndicator = new DSpinner();
     m_loadingIndicator->setFixedSize(24, 24);
     m_loadingIndicator->hide();
@@ -52,7 +67,8 @@ void DeviceSettingsItem::initItemActionList(QStyle *style)
     m_loadingAction->setWidget(m_loadingIndicator);
     m_iconAction = new DViewItemAction(Qt::AlignRight, QSize(), QSize(), true);
     m_textAction = new DViewItemAction(Qt::AlignLeft, QSize(), QSize(), true);
-    m_iconAction->setIcon(style->standardIcon(QStyle::SP_ArrowRight));
+    m_iconAction->setIcon(m_style->standardIcon(QStyle::SP_ArrowRight));
+    m_dActionList.clear();
     m_dActionList.append(m_loadingAction);
     m_dActionList.append(m_textAction);
     m_dActionList.append(m_iconAction);
@@ -60,7 +76,6 @@ void DeviceSettingsItem::initItemActionList(QStyle *style)
 
 void DeviceSettingsItem::setLoading(const bool loading)
 {
-    qDebug() << "setLoading is " << loading;
     if (loading) {
         m_loadingIndicator->start();
         m_loadingIndicator->show();
@@ -109,6 +124,7 @@ DStandardItem *DeviceSettingsItem::getStandardItem(DListView *parent)
 
 DStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
 {
+    initItemActionList();
     if (parent != nullptr) {
         m_parentDListView = parent;
         m_loadingIndicator->setParent(parent->viewport());

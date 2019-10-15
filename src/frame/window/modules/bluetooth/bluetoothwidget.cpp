@@ -65,7 +65,6 @@ void BluetoothWidget::loadDetailPage()
 AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
 {
     AdapterWidget *adpWidget = new AdapterWidget(adapter);
-    adpWidget->updateHeight();
 
     const QDBusObjectPath path(adapter->id());
 
@@ -92,7 +91,6 @@ void BluetoothWidget::addAdapter(const Adapter *adapter)
 {
     if (!m_valueMap.contains(adapter)) {
         AdapterWidget *adapterWidget = getAdapter(adapter);
-        adapterWidget->updateHeight();
         //每次添加蓝牙设备都会重新使用一个新的QVBoxLayout进行布局
         QLayout *layout = m_tFrame->layout();
         QVBoxLayout *vLayout = new QVBoxLayout;

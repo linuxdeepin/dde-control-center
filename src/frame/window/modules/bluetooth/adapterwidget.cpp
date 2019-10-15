@@ -35,6 +35,7 @@
 
 #include <QVBoxLayout>
 #include <QDebug>
+#include <QThread>
 #include <QLabel>
 
 using namespace dcc;
@@ -76,6 +77,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_myDeviceListView->setFrameShape(QFrame::NoFrame);
     m_myDeviceListView->setModel(m_myDeviceModel);
     m_myDeviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_myDeviceListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_myDeviceListView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     m_myDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_myDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -85,6 +87,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_otherDeviceListView->setFrameShape(QFrame::NoFrame);
     m_otherDeviceListView->setModel(m_otherDeviceModel);
     m_otherDeviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_otherDeviceListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_otherDeviceListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_otherDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_otherDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -103,11 +106,11 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
 
     connect(m_switch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleSwitch);
 
-    connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, this, [ = ](const QString & alias) {
+    connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, this, [ = ](const QString &alias) {
         Q_EMIT requestSetAlias(adapter, alias);
     });
 
-    connect(m_myDeviceListView, &DListView::clicked, this, [this](const QModelIndex & idx) {
+    connect(m_myDeviceListView, &DListView::clicked, this, [this](const QModelIndex &idx) {
         const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(idx.model());
         if (!deviceModel) {
             return;
@@ -157,26 +160,6 @@ AdapterWidget::~AdapterWidget()
     m_deviceLists.clear();
 }
 
-void AdapterWidget::updateHeight()
-{
-    if (m_myDeviceListView) {
-        QTimer::singleShot(0, this, [this] {
-            m_myDeviceListView->setFixedHeight(m_myDeviceListView->contentsSize().height());
-        });
-    }
-    if (m_otherDeviceListView) {
-        QTimer::singleShot(0, this, [this] {
-            m_otherDeviceListView->setFixedHeight(m_otherDeviceListView->contentsSize().height());
-        });
-    }
-
-    if (!m_switch->checked() && m_myDeviceModel->rowCount() == 0 && m_otherDeviceModel->rowCount() == 0) {
-        setFixedHeight(minHeight);
-    } else {
-        setMaximumHeight(maxHeight);
-    }
-}
-
 bool AdapterWidget::getSwitchState()
 {
     return m_switch ? m_switch->checked() : false;
@@ -221,6 +204,7 @@ void AdapterWidget::toggleSwitch(const bool checked)
 
 void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool paired)
 {
+    // qDebug() << "categoryDevice: " << QThread::currentThreadId();
     if (paired) {
         DStandardItem *dListItem = deviceItem->getStandardItem(m_myDeviceListView);
         m_myDevices << deviceItem;
@@ -229,7 +213,6 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
         DStandardItem *dListItem = deviceItem->getStandardItem(m_otherDeviceListView);
         m_otherDeviceModel->appendRow(dListItem);
     }
-    updateHeight();
     bool isVisible = !m_myDevices.isEmpty() && m_switch->checked();
     m_myDevicesGroup->setVisible(isVisible);
     m_myDeviceListView->setVisible(isVisible);
@@ -237,8 +220,8 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
 
 void AdapterWidget::addDevice(const Device *device)
 {
+    // qDebug() << "addDevice: " << QThread::currentThreadId();
     DeviceSettingsItem *deviceItem = new DeviceSettingsItem(device, style());
-
     categoryDevice(deviceItem, device->paired());
 
     connect(deviceItem, &DeviceSettingsItem::requestConnectDevice, this, &AdapterWidget::requestConnectDevice);
@@ -251,13 +234,18 @@ void AdapterWidget::addDevice(const Device *device)
             m_myDevices << deviceItem;
             m_myDeviceModel->appendRow(dListItem);
         } else {
+            for (auto it = m_myDevices.begin(); it != m_myDevices.end(); ++it) {
+                if ((*it) == deviceItem) {
+                    m_myDevices.removeOne(*it);
+                    break;
+                }
+            }
             DStandardItem *item = deviceItem->getStandardItem();
             QModelIndex myDeviceIndex = m_myDeviceModel->indexFromItem(item);
             m_myDeviceModel->removeRow(myDeviceIndex.row());
             DStandardItem *dListItem = deviceItem->createStandardItem(m_otherDeviceListView);
             m_otherDeviceModel->appendRow(dListItem);
         }
-        updateHeight();
         bool isVisible = !m_myDevices.isEmpty() && m_switch->checked();
         m_myDevicesGroup->setVisible(isVisible);
         m_myDeviceListView->setVisible(isVisible);
@@ -271,6 +259,7 @@ void AdapterWidget::addDevice(const Device *device)
 
 void AdapterWidget::removeDevice(const QString &deviceId)
 {
+    // qDebug() << "removeDevice: " << QThread::currentThreadId();
     bool isFind = false;
     for (auto it = m_myDevices.begin(); it != m_myDevices.end(); ++it) {
         if ((*it)->device()->id() == deviceId) {
@@ -300,7 +289,6 @@ void AdapterWidget::removeDevice(const QString &deviceId)
             }
         }
     }
-    updateHeight();
     if (m_myDevices.isEmpty()) {
         m_myDevicesGroup->hide();
         m_myDeviceListView->hide();
