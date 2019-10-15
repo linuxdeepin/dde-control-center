@@ -35,6 +35,9 @@ NetSwitchWidget::NetSwitchWidget(QFrame *parent)
     m_swswitchLayout = new QHBoxLayout();
     m_swithTitle = new QLabel();
 
+    setFixedHeight(36);
+    m_autoConnItem->setFixedHeight(24);
+
     initNetSwitch();
 }
 
@@ -43,7 +46,7 @@ void NetSwitchWidget::initNetSwitch()
     addBackground();
     setLayout(m_swswitchLayout);
 
-    m_swswitchLayout->setContentsMargins(20, 0, 0, 0);
+    m_swswitchLayout->setContentsMargins(10, 0, 10, 0);
     m_swswitchLayout->addWidget(m_swithTitle, 0, Qt::AlignLeft);
     m_swswitchLayout->addStretch();
     m_swswitchLayout->addWidget(m_autoConnItem, 0, Qt::AlignLeft);
@@ -52,6 +55,7 @@ void NetSwitchWidget::initNetSwitch()
 void NetSwitchWidget::setTitle(const QString title)
 {
     m_swithTitle->setText(title);
+    m_swithTitle->setFixedHeight(36);
 }
 
 SwitchWidget *NetSwitchWidget::switchWidget()

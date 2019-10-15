@@ -55,10 +55,13 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     QLabel *label = qobject_cast<QLabel *>(m_leftWidget);
     if (label) {
         label->setFixedWidth(140);
+        label->setFixedHeight(36);
         label->setWordWrap(true);
     }
+    m_switchComboBox->setFixedHeight(36);
+    setFixedHeight(48);
 
-    mainLayout->setContentsMargins(20, 0, 0, 0);
+    mainLayout->setContentsMargins(10, 0, 10, 0);
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
     mainLayout->addWidget(m_switchComboBox, 0, Qt::AlignVCenter);
 
