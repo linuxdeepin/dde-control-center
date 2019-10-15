@@ -231,6 +231,12 @@ void MainWindow::popWidget()
 //Only used to from third page to top page can use it
 void MainWindow::popAllWidgets(int place)
 {
+    if (place == 0 && m_topWidget) {
+        m_topWidget->deleteLater();
+        m_topWidget = nullptr;
+        return;
+    }
+
     for (int pageCount = m_contentStack.count(); pageCount > place; pageCount--) {
         popWidget();
     }
