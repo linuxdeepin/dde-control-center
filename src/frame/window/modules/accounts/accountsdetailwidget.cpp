@@ -34,6 +34,7 @@
 #include <QMouseEvent>
 #include <QLineEdit>
 #include <QCommandLinkButton>
+#include <QAction>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -294,11 +295,10 @@ void AccountsDetailWidget::updateLineEditDisplayStyle()
         if (m_fullName->text() == tr("Full Name")) {
             m_inputLineEdit->setText("");
         } else {
-            m_inputLineEdit->setCursorPosition(30);
+            m_inputLineEdit->setTextMargins(34, 0, 0, 0);
             m_inputLineEdit->setText(m_curUser->fullname());
+            m_inputLineEdit->selectAll();
         }
-        //之前写成m_inputLineEdit->selectAll()是选中全部，现在要求选中文本部分即可;
-        m_inputLineEdit->setSelection(4, m_inputLineEdit->text().size());
     }
 }
 
