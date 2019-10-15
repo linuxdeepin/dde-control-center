@@ -140,6 +140,7 @@ void SettingsGroup::clear()
         w->removeEventFilter(this);
         w->setParent(nullptr);
         delete item;
+        w->deleteLater();
     }
 }
 
