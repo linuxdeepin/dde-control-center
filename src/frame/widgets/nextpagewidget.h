@@ -41,7 +41,7 @@ class NextPageWidget : public SettingsItem
     Q_OBJECT
 
 public:
-    explicit NextPageWidget(QFrame *parent = nullptr);
+    explicit NextPageWidget(QFrame *parent = nullptr, bool bLeftInterval = true);
 
     inline QString title() const { return m_title->text(); }
     void setTitle(const QString &title);

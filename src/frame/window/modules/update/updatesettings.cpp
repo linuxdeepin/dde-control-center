@@ -29,10 +29,12 @@
 #include "dsysinfo.h"
 #include "window/utils.h"
 
+#include <DTipLabel>
+
 #include <QVBoxLayout>
 
 DCORE_USE_NAMESPACE
-
+DWIDGET_USE_NAMESPACE
 using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::update;
@@ -51,7 +53,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     layout->setSpacing(0);
-    layout->addSpacing(10);
+    layout->addSpacing(71);
 
     SettingsGroup *ug = new SettingsGroup;
 
@@ -67,9 +69,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_autoDownloadSwitch->setTitle(tr("Auto Download Updates"));
 
     //~ contents_path /update/Update Settings
-    m_updateLbl = new TipsLabel(tr("Switch it on to automatically download the updates in wireless or wired network"));
+    m_updateLbl = new DTipLabel(tr("Switch it on to automatically download the updates in wireless or wired network"));
     m_updateLbl->setWordWrap(true);
-    m_updateLbl->setContentsMargins(20, 0, 20, 0);
+    m_updateLbl->setAlignment(Qt::AlignLeft);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     SettingsGroup *sourceCheckGrp = new SettingsGroup;
@@ -80,9 +82,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     layout->addWidget(sourceCheckGrp);
     layout->addSpacing(8);
     //~ contents_path /update/Update Settings
-    TipsLabel *sourceCheckLbl = new TipsLabel(tr("Show a notification if system update repository has been modified"));
+    DTipLabel *sourceCheckLbl = new DTipLabel(tr("Show a notification if system update repository has been modified"));
     sourceCheckLbl->setWordWrap(true);
-    sourceCheckLbl->setContentsMargins(20, 0, 20, 0);
+    sourceCheckLbl->setAlignment(Qt::AlignLeft);
     layout->addWidget(sourceCheckLbl);
     layout->addSpacing(8);
 #endif
@@ -105,17 +107,17 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
         SettingsGroup *smartMirrorGrp = new SettingsGroup;
         smartMirrorGrp->appendItem(m_smartMirrorBtn);
 
-        TipsLabel *smartTips = new TipsLabel;
+        DTipLabel *smartTips = new DTipLabel("");
         //~ contents_path /update/Update Settings
         smartTips->setText(tr("Switch it on to connect to the quickest mirror site automatically"));
         smartTips->setWordWrap(true);
-        smartTips->setContentsMargins(20, 0, 20, 0);
+        smartTips->setAlignment(Qt::AlignLeft);
         layout->addWidget(smartMirrorGrp);
         layout->addSpacing(8);
         layout->addWidget(smartTips);
         layout->addSpacing(15);
 
-        m_updateMirrors = new NextPageWidget;
+        m_updateMirrors = new NextPageWidget(nullptr, false);
         m_updateMirrors->setRightTxtWordWrap(true);
         //~ contents_path /update/Update Settings/Mirror List
         m_updateMirrors->setTitle(tr("Mirror List"));
@@ -179,7 +181,7 @@ void UpdateSettings::setModel(UpdateModel *model)
     connect(model, &UpdateModel::autoCleanCacheChanged, m_autoCleanCache, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckUpdate, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoDownloadSwitch, &SwitchWidget::setVisible);
-    connect(model, &UpdateModel::autoCheckUpdatesChanged, m_updateLbl, &TipsLabel::setVisible);
+    connect(model, &UpdateModel::autoCheckUpdatesChanged, m_updateLbl, &DTipLabel::setVisible);
 
     m_autoDownloadSwitch->setVisible(model->autoCheckUpdates());
     m_autoCheckUpdate->setChecked(model->autoCheckUpdates());

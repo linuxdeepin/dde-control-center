@@ -77,6 +77,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(0);
+    m_layout->addSpacing(10);
     m_layout->addWidget(m_topSwitchWidgetBtn, 0, Qt::AlignHCenter);
     m_layout->addLayout(m_mainLayout, 0);
 

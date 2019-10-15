@@ -36,6 +36,10 @@ class UpdateModel;
 }
 }
 
+DWIDGET_BEGIN_NAMESPACE
+class DTipLabel;
+DWIDGET_END_NAMESPACE
+
 namespace DCC_NAMESPACE {
 namespace update {
 
@@ -68,7 +72,7 @@ private:
     dcc::widgets::SwitchWidget *m_autoDownloadSwitch;
     dcc::widgets::SwitchWidget *m_smartMirrorBtn;
     dcc::widgets::NextPageWidget *m_updateMirrors;
-    dcc::widgets::TipsLabel *m_updateLbl;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_updateLbl;
     dcc::widgets::SettingsGroup *m_mirrorGrp;
     bool m_isProfessional;
 };

@@ -33,7 +33,7 @@ DWIDGET_USE_NAMESPACE
 namespace dcc {
 namespace widgets {
 
-NextPageWidget::NextPageWidget(QFrame *parent)
+NextPageWidget::NextPageWidget(QFrame *parent, bool bLeftInterval)
     : SettingsItem(parent)
     , m_title(new NormalLabel)
     , m_value(new TipsLabel)
@@ -42,7 +42,10 @@ NextPageWidget::NextPageWidget(QFrame *parent)
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setSpacing(0);
     mainLayout->setMargin(0);
-    mainLayout->setContentsMargins(20, 0, 10, 0);
+    if (bLeftInterval) {
+        mainLayout->setContentsMargins(20, 0, 10, 0);
+    }
+
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
     mainLayout->addSpacing(18);
