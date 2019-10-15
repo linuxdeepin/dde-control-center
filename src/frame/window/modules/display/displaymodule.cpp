@@ -26,7 +26,6 @@
 #include "rotatedialog.h"
 #include "scalingpage.h"
 #include "multiscreensettingpage.h"
-#include "customsettingdialog.h"
 #include "refreshratepage.h"
 
 #include "widgets/timeoutdialog.h"
@@ -239,25 +238,38 @@ void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mod
     }
 }
 
-
-void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, const int mode)
+void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSettingDialog::ResolutionDate mode)
 {
-    auto lastMode = (mon ? mon : m_displayModel->primaryMonitor())->currentMode().id();
+    CustomSettingDialog::ResolutionDate lastres;
+    if (mon) {
+        lastres.id = mon->currentMode().id();
+    } else {
+        lastres.w = qint16(m_displayModel->primaryMonitor()->currentMode().width());
+        lastres.h = qint16(m_displayModel->primaryMonitor()->currentMode().height());
+        lastres.rate = qint16(m_displayModel->primaryMonitor()->currentMode().rate());
+    }
 
-    auto tfunc = [this](Monitor *tmon, const int tmode) {
+    auto tfunc = [this](Monitor *tmon, CustomSettingDialog::ResolutionDate tmode) {
         if (!tmon) {
+            int w = tmode.w;
+            int h = tmode.h;
             for (auto m : m_displayModel->monitorList()) {
-                m_displayWorker->setMonitorResolution(m, tmode);
+                for (auto res : m->modeList()) {
+                    if (res.width() == w && res.height() == h) {
+                        m_displayWorker->setMonitorResolution(m, res.id());
+                        break;
+                    }
+                }
             }
         } else {
-            m_displayWorker->setMonitorResolution(tmon, tmode);
+            m_displayWorker->setMonitorResolution(tmon, tmode.id);
         }
     };
 
     tfunc(mon, mode);
 
     if (showTimeoutDialog(mon ? mon : m_displayModel->primaryMonitor()) != QDialog::Accepted) {
-        tfunc(mon, lastMode);
+        tfunc(mon, lastres);
     }
 }
 

@@ -31,13 +31,13 @@
 
 #include <memory>
 
+class Resolution;
+
 QT_BEGIN_NAMESPACE
 class QListView;
 class QVBoxLayout;
 class QAbstractButton;
 QT_END_NAMESPACE
-
-class Resolution;
 
 namespace dcc {
 namespace display {
@@ -67,13 +67,27 @@ public:
 public:
     void setModel(dcc::display::DisplayModel *model);
 
+enum ResolutionRole {
+    IdRole = Dtk::UserRole,
+    WidthRole,
+    HeightRole,
+    RateRole
+};
+
+struct ResolutionDate {
+    qint32 id;
+    qint32 w;
+    qint32 h;
+    qint32 rate{0};
+};
+
 Q_SIGNALS:
     void requestShowRotateDialog(dcc::display::Monitor *mon);
     void requestRecognize();
     void requestMerge();
     void requestSplit();
     void requestSetMonitorPosition(dcc::display::Monitor *mon, const int x, const int y);
-    void requestSetResolution(dcc::display::Monitor *mon, int resolution);
+    void requestSetResolution(dcc::display::Monitor *mon, ResolutionDate resolution);
     void requestSetPrimaryMonitor(int idx);
 
 

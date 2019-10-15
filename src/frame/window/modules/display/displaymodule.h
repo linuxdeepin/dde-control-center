@@ -24,6 +24,9 @@
 
 #include "window/interface/moduleinterface.h"
 #include "window/namespace.h"
+#include "customsettingdialog.h"
+
+class Resolution;
 
 namespace dcc {
 
@@ -59,7 +62,7 @@ private Q_SLOTS:
     void showScalingPage();
     void showResolutionDetailPage();
     void onDetailPageRequestSetResolution(dcc::display::Monitor *mon, const int mode);
-    void onCustomPageRequestSetResolution(dcc::display::Monitor *mon, const int mode);
+    void onCustomPageRequestSetResolution(dcc::display::Monitor *mon, CustomSettingDialog::ResolutionDate mode);
     void showBrightnessPage();
     void showRotate(dcc::display::Monitor *mon = nullptr);
     void showMultiScreenSettingPage();
