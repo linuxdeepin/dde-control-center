@@ -242,11 +242,23 @@ void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mod
 
 void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, const int mode)
 {
-    auto lastMode = mon->currentMode().id();
-    m_displayWorker->setMonitorResolution(mon, mode);
+    auto lastMode = (mon ? mon : m_displayModel->primaryMonitor())->currentMode().id();
 
-    if (showTimeoutDialog(mon) != QDialog::Accepted)
-        m_displayWorker->setMonitorResolution(mon, lastMode);
+    auto tfunc = [this](Monitor *tmon, const int tmode) {
+        if (!tmon) {
+            for (auto m : m_displayModel->monitorList()) {
+                m_displayWorker->setMonitorResolution(m, tmode);
+            }
+        } else {
+            m_displayWorker->setMonitorResolution(tmon, tmode);
+        }
+    };
+
+    tfunc(mon, mode);
+
+    if (showTimeoutDialog(mon ? mon : m_displayModel->primaryMonitor()) != QDialog::Accepted) {
+        tfunc(mon, lastMode);
+    }
 }
 
 int DisplayModule::showTimeoutDialog(Monitor *mon)

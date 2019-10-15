@@ -53,9 +53,9 @@ CustomSettingDialog::CustomSettingDialog(dcc::display::Monitor *mon,
                                          QWidget *parent):
     QDialog(parent),
     m_isPrimary(false),
-    m_monitor(mon),
     m_model(model)
 {
+    resetMonitorObject(mon);
     initUI();
 }
 
@@ -144,7 +144,7 @@ void CustomSettingDialog::setModel(DisplayModel *model)
 {
     m_model = model;
 
-    m_monitor = model->primaryMonitor();
+    resetMonitorObject(model->primaryMonitor());
     m_isPrimary = true;
     initPrimaryDialog();
 
@@ -377,18 +377,15 @@ void CustomSettingDialog::initPrimaryDialog()
 
 void CustomSettingDialog::initConnect()
 {
-
-    connect(m_rateList, &DListView::clicked, this, [this](const QModelIndex &idx) {
-        auto listModel = m_rateList->model();
-        requestSetResolution(m_monitor, listModel->data(idx, Qt::WhatsThisPropertyRole).toInt());
-    });
-    connect(m_resolutionList, &QListView::clicked, this, [this](QModelIndex idx) {
+    auto tfunc = [this](QModelIndex idx) {
         auto id = m_resolutionListModel->data(idx, Qt::WhatsThisPropertyRole).toInt();
         if (id == m_monitor->currentMode().id())
             return;
 
-        this->requestSetResolution(m_monitor, id);
-    });
+        this->requestSetResolution(m_model->isMerge() ? nullptr : m_monitor, id);
+    };
+    connect(m_rateList, &DListView::clicked, this, tfunc);
+    connect(m_resolutionList, &QListView::clicked, this, tfunc);
     connect(m_model, &DisplayModel::monitorListChanged, this, [ = ] {
         if (m_monitroControlWidget)
             m_monitroControlWidget->deleteLater();
@@ -411,10 +408,12 @@ void CustomSettingDialog::resetMonitorObject(Monitor *moni)
     if (m_monitor == moni)
         return;
 
-    disconnect(m_monitor, &Monitor::currentModeChanged, this, &CustomSettingDialog::onMonitorModeChange);
-    disconnect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
-    disconnect(m_monitor, &Monitor::xChanged, this, &CustomSettingDialog::resetDialog);
-    disconnect(m_monitor, &Monitor::yChanged, this, &CustomSettingDialog::resetDialog);
+    if (!m_monitor) {
+        disconnect(m_monitor, &Monitor::currentModeChanged, this, &CustomSettingDialog::onMonitorModeChange);
+        disconnect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
+        disconnect(m_monitor, &Monitor::xChanged, this, &CustomSettingDialog::resetDialog);
+        disconnect(m_monitor, &Monitor::yChanged, this, &CustomSettingDialog::resetDialog);
+    }
 
     m_monitor = moni;
     connect(m_monitor, &Monitor::currentModeChanged, this, &CustomSettingDialog::onMonitorModeChange);
