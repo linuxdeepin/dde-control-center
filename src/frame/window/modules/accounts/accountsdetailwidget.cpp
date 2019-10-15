@@ -173,6 +173,7 @@ void AccountsDetailWidget::initWidgets()
     m_inputLineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);
     m_inputLineEdit->setVisible(false);
+    m_inputLineEdit->installEventFilter(this);
 
     m_mainStackedWidget->setCurrentIndex(0);
 }
@@ -370,4 +371,19 @@ void AccountsDetailWidget::onThumbsListChanged(const QList<FingerModel::UserThum
     }
 
     m_notUseThumb = thumb.first();
+}
+
+bool AccountsDetailWidget::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == m_inputLineEdit) {
+        if(event->type() == QEvent::KeyPress) {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
+            if (keyEvent->key() == Qt::Key_Return) {
+                Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text());
+                m_inputLineEdit->clearFocus();
+                return true;
+            }
+         }
+    }
+    return QWidget::eventFilter(obj, event);
 }

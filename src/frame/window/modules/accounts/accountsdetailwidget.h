@@ -72,6 +72,9 @@ public:
     void setFingerModel(dcc::accounts::FingerModel *model);
     void setFingerWgtsVisible(bool visible = false);
 
+public:
+    bool eventFilter(QObject *obj, QEvent *event) override;
+
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);
     void requestSetAutoLogin(dcc::accounts::User *user, const bool autoLogin);
