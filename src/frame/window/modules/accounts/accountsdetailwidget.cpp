@@ -293,7 +293,8 @@ void AccountsDetailWidget::updateLineEditDisplayStyle()
     m_inputLineEdit->setVisible(!visible);
 
     if (!visible) {
-        if (m_fullName->text() == tr("Full Name")) {
+        if (m_curUser->fullname().isEmpty()) {
+            m_inputLineEdit->setTextMargins(34, 0, 0, 0);
             m_inputLineEdit->setText("");
         } else {
             m_inputLineEdit->setTextMargins(34, 0, 0, 0);
