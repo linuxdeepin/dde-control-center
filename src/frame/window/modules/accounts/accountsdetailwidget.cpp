@@ -26,6 +26,7 @@
 #include <DIconButton>
 #include <DWarningButton>
 #include <DCommandLinkButton>
+#include <DFontSizeManager>
 
 #include <QStackedWidget>
 #include <QVBoxLayout>
@@ -169,6 +170,10 @@ void AccountsDetailWidget::initWidgets()
 
     //只有当前用户才显示指纹这块
     setFingerWgtsVisible(isCurUser);
+    m_listGrp->setSpacing(0);
+    DFontSizeManager::instance()->bind(m_fingetitleLabel, DFontSizeManager::T5);
+    DFontSizeManager::instance()->bind(m_addBtn, DFontSizeManager::T7);
+    DFontSizeManager::instance()->bind(m_clearBtn, DFontSizeManager::T7);
 
     m_inputLineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);
@@ -356,7 +361,7 @@ void AccountsDetailWidget::onThumbsListChanged(const QList<FingerModel::UserThum
         Q_FOREACH (const QString &title, u.userThumbs) {
             AccounntFingeItem *item = new AccounntFingeItem(this);
             item->setTitle(tr("Fingerprint") + QString::number(i++));
-
+            DFontSizeManager::instance()->bind(item, DFontSizeManager::T6);
             m_listGrp->appendItem(item);
             thumb.removeOne(title);
         }
