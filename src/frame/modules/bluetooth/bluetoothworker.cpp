@@ -147,7 +147,7 @@ void BluetoothWorker::disconnectDevice(const Device *device)
 void BluetoothWorker::ignoreDevice(const Adapter *adapter, const Device *device)
 {
     m_bluetoothInter->RemoveDevice(QDBusObjectPath(adapter->id()), QDBusObjectPath(device->id()));
-    m_bluetoothInter->ClearUnpairedDevice();
+    //m_bluetoothInter->ClearUnpairedDevice();
     qDebug() << "ignore device: " << device->name();
 }
 
