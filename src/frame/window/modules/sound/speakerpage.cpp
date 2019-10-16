@@ -111,18 +111,18 @@ void SpeakerPage::initSlider()
     auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
     balanceSlider->addBackground();
     balanceSlider->setVisible(m_model->speakerOn());
+
+    QStringList balanceList;
+    balanceList << tr("Left")<< " ";
+    balanceList << tr("Right");
     DCCSlider *slider2 = balanceSlider->slider();
     slider2->setRange(-100, 100);
     slider2->setType(DCCSlider::Vernier);
-    slider2->setTickPosition(QSlider::NoTicks);
-    auto icon_left = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeLeftElement);
-    balanceSlider->setLeftIcon(icon_left);
-    auto icon_right = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeRightElement);
-    balanceSlider->setRightIcon(icon_right);
-    balanceSlider->setIconSize(QSize(24, 24));
+    slider2->setTickPosition(QSlider::TicksBelow);
     slider2->setTickInterval(1);
     slider2->setSliderPosition(static_cast<int>(m_model->speakerBalance() * 100));
     slider2->setPageStep(1);
+    balanceSlider->setAnnotations(balanceList);
 
     auto slotfunc2 = [ = ](int pos) {
         double val = pos / 100.0;
