@@ -25,26 +25,30 @@
 
 #include "systeminfomodel.h"
 
+#include "math.h"
+
 namespace dcc{
 namespace systeminfo{
 
-static QString formatCap(qulonglong cap, const int size = 1024)
+static QString formatCap(qulonglong cap, const int size = 1024, quint8 precision = 2)
 {
     static QString type[] = {"B", "KB", "MB", "GB", "TB"};
 
-    if (cap < qulonglong(size)) {
-        return QString::number(cap) + type[0];
+    qulonglong lc = cap;
+    double dc = cap;
+    double ds = size;
+
+    for(size_t p = 0; p < sizeof(type); ++p) {
+        if (cap < pow(size, p + 1) || p == sizeof(type) - 1) {
+            if (!precision) {
+                return QString::number(lc / qulonglong(pow(size, p))) + type[p];
+            }
+
+            return QString::number(dc / pow(ds, p), 'f', precision) + type[p];
+        }
     }
-    if (cap < qulonglong(size) * size) {
-        return QString::number(double(cap) / size, 'f', 2) + type[1];
-    }
-    if (cap < qulonglong(size) * size * size) {
-        return QString::number(double(cap) / size / size, 'f', 2) + type[2];
-    }
-    if (cap < qulonglong(size) * size * size * size) {
-        return QString::number(double(cap) / size / size / size, 'f', 2) + type[3];
-    }
-    return QString::number(double(cap) / size / size / size / size, 'f', 2) + type[4];
+
+    return "";
 }
 
 SystemInfoModel::SystemInfoModel(QObject *parent)
@@ -162,11 +166,13 @@ void SystemInfoModel::setProcessor(const QString &processor)
 
 void SystemInfoModel::setMemory(qulonglong memory)
 {
+    QString mem_device_size = formatCap(memory, 1000, 0);
     QString mem = formatCap(memory);
     if(m_memory == mem)
         return ;
 
     m_memory = mem;
+    m_memory = QString("%1（%2可用）").arg(mem_device_size, mem);
     memoryChanged(m_memory);
 }
 
