@@ -53,6 +53,7 @@ int main(int argc, char *argv[])
     app.loadTranslator();
     app.setTheme("light");
     app.setStyle("chameleon");
+    app.setWindowIcon(QIcon::fromTheme("preferences-system"));
 
     DApplicationSettings settings;
     // load dde-network-utils translator
