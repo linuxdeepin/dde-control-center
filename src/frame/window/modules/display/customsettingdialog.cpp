@@ -55,8 +55,8 @@ CustomSettingDialog::CustomSettingDialog(dcc::display::Monitor *mon,
     m_isPrimary(false),
     m_model(model)
 {
-    resetMonitorObject(mon);
     initUI();
+    resetMonitorObject(mon);
 }
 
 
@@ -138,6 +138,8 @@ void CustomSettingDialog::initUI()
     }
 
     m_fullIndication = std::unique_ptr<MonitorIndicator>(new MonitorIndicator());
+    m_fullIndication->show();
+    m_fullIndication->setVisible(false);
 }
 
 void CustomSettingDialog::setModel(DisplayModel *model)
@@ -582,13 +584,14 @@ void CustomSettingDialog::onPrimaryMonitorChanged()
 
 void CustomSettingDialog::onMonitorPress(Monitor *mon)
 {
-    m_fullIndication->setGeometry(mon->rect());
-    m_fullIndication->show();
+    if (m_fullIndication->size() != mon->rect().size())
+        m_fullIndication->setGeometry(mon->rect());
+
+    m_fullIndication->setVisible(true);
 }
 
 void CustomSettingDialog::onMonitorRelease(Monitor *mon)
 {
     Q_UNUSED(mon)
-
-    m_fullIndication->hide();
+    m_fullIndication->setVisible(false);
 }
