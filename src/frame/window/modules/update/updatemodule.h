@@ -39,6 +39,7 @@ class MirrorsWidget;
 namespace DCC_NAMESPACE {
 namespace update {
 class UpdateWidget;
+class MirrorsWidget;
 
 class UpdateModule : public QObject, public ModuleInterface
 {
@@ -52,10 +53,14 @@ public:
     virtual void deactive() override;
     virtual void load(QString path) override;
 
+private Q_SLOTS:
+    void onNotifyDealMirrorWidget(bool state);
+
 private:
     dcc::update::UpdateModel *m_model = nullptr;
     dcc::update::UpdateWorker *m_work = nullptr;
     QPointer<UpdateWidget> m_updateWidget;
+    MirrorsWidget *m_mirrorsWidget;
 };
 
 }// namespace datetime

@@ -39,6 +39,7 @@ UpdateModule::UpdateModule(FrameProxyInterface *frameProxy, QObject *parent)
     , m_model(nullptr)
     , m_work(nullptr)
     , m_updateWidget(nullptr)
+    , m_mirrorsWidget(nullptr)
 {
 
 }
@@ -75,16 +76,17 @@ void UpdateModule::active()
     connect(m_model, &UpdateModel::downloadInfoChanged, m_work, &UpdateWorker::onNotifyDownloadInfoChanged);
 
     connect(mainWidget, &UpdateWidget::pushMirrorsView, this, [this]() {
-        MirrorsWidget *mirrorsWidget = new MirrorsWidget(m_model);
+        m_mirrorsWidget = new MirrorsWidget(m_model);
 
         m_work->checkNetselect();
-        mirrorsWidget->setMinimumWidth(350);
-        mirrorsWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        m_mirrorsWidget->setMinimumWidth(350);
+        m_mirrorsWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-        connect(mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWorker::setMirrorSource);
-        connect(mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWorker::testMirrorSpeed);
+        connect(m_mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWorker::setMirrorSource);
+        connect(m_mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWorker::testMirrorSpeed);
+        connect(m_model, &UpdateModel::smartMirrorSwitchChanged, this, &UpdateModule::onNotifyDealMirrorWidget);
 
-        m_frameProxy->pushWidget(this, mirrorsWidget);
+        m_frameProxy->pushWidget(this, m_mirrorsWidget);
     });
 
     m_frameProxy->pushWidget(this, mainWidget);
@@ -114,5 +116,17 @@ void UpdateModule::load(QString path)
         } else if (path == "Update Settings/Mirror List") {
             m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateSettingMir);
         }
+    }
+}
+
+void UpdateModule::onNotifyDealMirrorWidget(bool state)
+{
+    //m_mirrorsWidget存在表示有第三级页面
+    if (state && m_mirrorsWidget) {
+        m_frameProxy->popWidget(this);
+        //popWidget之后就没有第三级页面了,即m_mirrorsWidget为空指针,需要对其地址赋值为nullptr
+        m_mirrorsWidget = nullptr;
+        //避免第三级页面不存在后,还会处理该函数
+        disconnect(m_model, &UpdateModel::smartMirrorSwitchChanged, this, &UpdateModule::onNotifyDealMirrorWidget);
     }
 }
