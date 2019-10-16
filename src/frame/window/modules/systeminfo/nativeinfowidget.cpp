@@ -61,6 +61,10 @@ void NativeInfoWidget::initWidget()
     m_type = new TitleValueItem();
     m_type->setTitle(tr("Type:"));
 
+    m_kernel = new TitleValueItem();
+    m_kernel->setTitle(tr("Kernel:"));
+    m_kernel->setValue(m_model->kernel());
+
     m_processor = new TitleValueItem();
     m_processor->setTitle(tr("Processor:"));
     m_processor->setValue(m_model->processor());
@@ -76,6 +80,7 @@ void NativeInfoWidget::initWidget()
     infoGroup->appendItem(logo);
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
+    infoGroup->appendItem(m_kernel);
     infoGroup->appendItem(m_processor);
     infoGroup->appendItem(m_memory);
     infoGroup->appendItem(m_disk);

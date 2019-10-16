@@ -78,6 +78,16 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     // connect(m_systemInfoInter, &__SystemInfo::ProcessorChanged, m_model, &SystemInfoModel::setProcessor);
     // connect(m_systemInfoInter, &__SystemInfo::MemoryCapChanged, m_model, &SystemInfoModel::setMemory);
     // connect(m_systemInfoInter, &__SystemInfo::DiskCapChanged, m_model, &SystemInfoModel::setDisk);
+
+    QProcess process;
+    process.start("uname -r");
+    process.waitForFinished();
+    QByteArray output = process.readAllStandardOutput();
+    int idx = output.indexOf('\n');
+    if ( -1 != idx) {
+        output.remove(idx, 1);
+    }
+    m_model->setKernel(output);
 }
 
 void SystemInfoWork::activate()

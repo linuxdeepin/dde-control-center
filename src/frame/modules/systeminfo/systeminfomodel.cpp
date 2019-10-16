@@ -30,9 +30,9 @@
 namespace dcc{
 namespace systeminfo{
 
-static QString formatCap(qulonglong cap, const int size = 1024, quint8 precision = 2)
+static QString formatCap(qulonglong cap, const int size = 1024, quint8 precision = 1)
 {
-    static QString type[] = {"B", "KB", "MB", "GB", "TB"};
+    static QString type[] = {" B", " KB", " MB", " GB", " TB"};
 
     qulonglong lc = cap;
     double dc = cap;
@@ -172,7 +172,7 @@ void SystemInfoModel::setMemory(qulonglong memory)
         return ;
 
     m_memory = mem;
-    m_memory = QString("%1（%2可用）").arg(mem_device_size, mem);
+    m_memory = QString("%1（%2 %3）").arg(mem_device_size, mem, tr("available"));
     memoryChanged(m_memory);
 }
 
@@ -185,6 +185,15 @@ void SystemInfoModel::setDisk(qulonglong disk)
 
     m_disk = d;
     diskChanged(m_disk);
+}
+
+void SystemInfoModel::setKernel(const QString &kernel)
+{
+    if (m_kernel == kernel)
+        return;
+
+    m_kernel = kernel;
+    kernelChanged(kernel);
 }
 
 }

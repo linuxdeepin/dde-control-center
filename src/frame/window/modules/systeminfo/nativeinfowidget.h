@@ -65,6 +65,7 @@ private:
     QVBoxLayout *m_mainLayout;
     dcc::widgets::TitleValueItem *m_version;
     dcc::widgets::TitleValueItem *m_type;
+    dcc::widgets::TitleValueItem *m_kernel;
     dcc::widgets::TitleValueItem *m_processor;
     dcc::widgets::TitleValueItem *m_memory;
     dcc::widgets::TitleValueItem *m_disk;

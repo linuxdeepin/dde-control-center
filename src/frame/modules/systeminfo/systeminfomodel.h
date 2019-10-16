@@ -51,6 +51,7 @@ public:
     QString processor() const { return m_processor;}
     QString memory() const { return m_memory;}
     QString disk() const { return m_disk;}
+    QString kernel() const { return m_kernel;}
 
 #ifndef DCC_DISABLE_GRUB
     bool bootDelay() const;
@@ -76,6 +77,7 @@ Q_SIGNALS:
     void processorChanged(const QString& processor);
     void memoryChanged(const QString& memory);
     void diskChanged(const QString& disk);
+    void kernelChanged(const QString& kernel);
 
 public Q_SLOTS:
 #ifndef DCC_DISABLE_GRUB
@@ -91,6 +93,7 @@ public Q_SLOTS:
     void setProcessor(const QString& processor);
     void setMemory(qulonglong memory);
     void setDisk(qulonglong disk);
+    void setKernel(const QString &kernel);
 
 private:
 #ifndef DCC_DISABLE_GRUB
@@ -109,6 +112,7 @@ private:
     QString m_processor;
     QString m_memory;
     QString m_disk;
+    QString m_kernel;
 };
 
 }
