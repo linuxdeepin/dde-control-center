@@ -67,6 +67,7 @@ private Q_SLOTS:
     bool reRecordFinger(const QString &thumb);
     void saveFinger();
     bool cleanFinger(const QString &name);
+    void onHandleDevicesChanged(const QList<QDBusObjectPath> &value);
 
 private:
     FingerModel *m_model;
