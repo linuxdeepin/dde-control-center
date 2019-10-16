@@ -234,7 +234,7 @@ void DefappDetailWidget::onAddBtnClicked() {
             break;
 
         Q_EMIT requestFrameAutoHide(false);
-        QFileDialog dialog;
+        QFileDialog dialog(this);
         dialog.setWindowTitle(tr("Open Desktop file"));
 
         QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
