@@ -45,5 +45,14 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
 
 void AccounntFingeItem::setTitle(const QString &title)
 {
-    m_title->setText(title);
+    if (title.isEmpty()) {
+        m_layout->removeWidget(m_title);
+    } else {
+        m_title->setText(title);
+    }
+}
+
+void AccounntFingeItem::appendItem(QWidget *widget)
+{
+    m_layout->addWidget(widget, 0, Qt::AlignLeft);
 }

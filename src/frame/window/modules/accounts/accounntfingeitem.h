@@ -43,6 +43,7 @@ class AccounntFingeItem : public dcc::widgets::SettingsItem
 public:
     explicit AccounntFingeItem(QWidget *parent = nullptr);
     void setTitle(const QString &title);
+    void appendItem(QWidget *widget);
 
 Q_SIGNALS:
     void deleteItem();

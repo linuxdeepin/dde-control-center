@@ -30,6 +30,8 @@
 #include "widgets/switchwidget.h"
 #include "avatarlistwidget.h"
 #include "modules/accounts/fingermodel.h"
+#include "widgets/titlelabel.h"
+#include "accounntfingeitem.h"
 
 #include <com_deepin_daemon_fprintd_device.h>
 
@@ -104,11 +106,14 @@ private:
     QStackedWidget *m_mainStackedWidget;
     QPushButton *m_modifyPassword;//修改密码
     DTK_WIDGET_NAMESPACE::DWarningButton *m_deleteAccount;//删除账户
+    dcc::widgets::SettingsGroup *m_loginGrp;
     dcc::widgets::SwitchWidget *m_autoLogin;//自动登录
     dcc::widgets::SwitchWidget *m_nopasswdLogin;//无密码登录
     dcc::accounts::FingerModel *m_model;
     dcc::widgets::SettingsGroup *m_listGrp;//指纹列表
-    QLabel *m_fingetitleLabel;
+    dcc::widgets::SettingsGroup *m_addfingeGrp;
+    TitleLabel *m_fingetitleLabel;
+    AccounntFingeItem *m_addfingeItem;
     DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_addBtn;
     DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_clearBtn;
     QString m_notUseThumb;

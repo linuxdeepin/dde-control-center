@@ -54,10 +54,13 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_mainStackedWidget(new QStackedWidget)
     , m_modifyPassword(new QPushButton)
     , m_deleteAccount(new DWarningButton)
+    , m_loginGrp(new SettingsGroup)
     , m_autoLogin(new SwitchWidget)
     , m_nopasswdLogin(new SwitchWidget)
     , m_listGrp(new SettingsGroup)
-    , m_fingetitleLabel(new QLabel)
+    , m_addfingeGrp(new SettingsGroup)
+    , m_fingetitleLabel(new TitleLabel)
+    , m_addfingeItem(new AccounntFingeItem)
     , m_addBtn(new DCommandLinkButton(""))
     , m_clearBtn(new DCommandLinkButton(""))
     , m_avatarListWidget(new AvatarListWidget)
@@ -94,8 +97,9 @@ void AccountsDetailWidget::initWidgets()
     modifydelLayout->addWidget(m_deleteAccount);
 
     QVBoxLayout *setloginLayout = new QVBoxLayout;
-    setloginLayout->addWidget(m_autoLogin);
-    setloginLayout->addWidget(m_nopasswdLogin);
+    m_loginGrp->appendItem(m_autoLogin);
+    m_loginGrp->appendItem(m_nopasswdLogin);
+    setloginLayout->addWidget(m_loginGrp);
 
     QHBoxLayout *passwdcancelLayout = new QHBoxLayout;
     passwdcancelLayout->addWidget(m_fingetitleLabel, 0, Qt::AlignLeft);
@@ -104,11 +108,12 @@ void AccountsDetailWidget::initWidgets()
     QVBoxLayout *setfingeLayout = new QVBoxLayout;
     setfingeLayout->addLayout(passwdcancelLayout);
     setfingeLayout->addWidget(m_listGrp);
-    setfingeLayout->addWidget(m_addBtn, 0, Qt::AlignLeft);
+    setfingeLayout->addWidget(m_addfingeGrp);
 
     QVBoxLayout *normalMainLayout = new QVBoxLayout;
     normalMainLayout->addLayout(modifydelLayout);
     normalMainLayout->addLayout(setloginLayout);
+    normalMainLayout->addSpacing(30);
     normalMainLayout->addLayout(setfingeLayout);
     normalMainLayout->addStretch();
 
@@ -153,10 +158,19 @@ void AccountsDetailWidget::initWidgets()
     setloginLayout->setContentsMargins(0, 0, 0, 0);
     setloginLayout->setSpacing(0);
     setloginLayout->setMargin(0);
+    m_loginGrp->setSpacing(2);
 
     modifydelLayout->setContentsMargins(1, 0, 1, 0);
     modifydelLayout->setSpacing(10);
     modifydelLayout->setMargin(3);
+
+    passwdcancelLayout->setContentsMargins(0, 0, 0, 0);
+    passwdcancelLayout->setSpacing(0);
+    passwdcancelLayout->setMargin(0);
+
+    setfingeLayout->setContentsMargins(0, 0, 0, 0);
+    setfingeLayout->setSpacing(0);
+    setfingeLayout->setMargin(0);
 
     m_avatarListWidget->setUserModel(m_curUser);
 
@@ -170,7 +184,12 @@ void AccountsDetailWidget::initWidgets()
 
     //只有当前用户才显示指纹这块
     setFingerWgtsVisible(isCurUser);
-    m_listGrp->setSpacing(0);
+    m_listGrp->setSpacing(2);
+    m_addfingeItem->setTitle("");
+    m_addfingeItem->appendItem(m_addBtn);
+    m_addfingeGrp->appendItem(m_addfingeItem);
+    m_addfingeGrp->setSpacing(2);
+    //设置字体大小
     DFontSizeManager::instance()->bind(m_fingetitleLabel, DFontSizeManager::T5);
     DFontSizeManager::instance()->bind(m_addBtn, DFontSizeManager::T7);
     DFontSizeManager::instance()->bind(m_clearBtn, DFontSizeManager::T7);
@@ -329,7 +348,7 @@ void AccountsDetailWidget::setFingerWgtsVisible(bool visible)
 {
     m_fingetitleLabel->setVisible(visible);
     m_listGrp->setVisible(visible);
-    m_addBtn->setVisible(visible);
+    m_addfingeGrp->setVisible(visible);
     m_clearBtn->setVisible(visible);
 }
 
@@ -357,7 +376,7 @@ void AccountsDetailWidget::onThumbsListChanged(const QList<FingerModel::UserThum
             continue;
         }
 
-        int i = 1;//record fingerprint number
+        int i = 1;//记录指纹列表项编号
         Q_FOREACH (const QString &title, u.userThumbs) {
             AccounntFingeItem *item = new AccounntFingeItem(this);
             item->setTitle(tr("Fingerprint") + QString::number(i++));
@@ -371,7 +390,7 @@ void AccountsDetailWidget::onThumbsListChanged(const QList<FingerModel::UserThum
         }
 
         if (i == 11) {
-            m_addBtn->setVisible(false);
+            m_addfingeGrp->setVisible(false);
         }
         return;
     }
