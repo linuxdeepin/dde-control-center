@@ -60,6 +60,7 @@ IndexPage::IndexPage(QWidget *parent)
     m_listView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_listView->setVerticalScrollMode(QListView::ScrollPerPixel);
     m_listView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_listView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_listView->setFrameShape(QFrame::NoFrame);
     m_listView->setSpacing(5);
     m_listView->setContentsMargins(0, 0, 0, 0);
