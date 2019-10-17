@@ -153,6 +153,8 @@ void CustomSettingDialog::setModel(DisplayModel *model)
     initWithModel();
     initOtherDialog();
     initConnect();
+
+    resetDialog();
 }
 
 void CustomSettingDialog::initWithModel()
@@ -162,8 +164,6 @@ void CustomSettingDialog::initWithModel()
     initMoniControlWidget();
     initResolutionList();
     initRefreshrateList();
-
-    resetDialog();
 }
 
 void CustomSettingDialog::initOtherDialog()
@@ -203,11 +203,12 @@ void CustomSettingDialog::initOtherDialog()
                     &CustomSettingDialog::requestRecognize);
         }
 
+        dlg->initWithModel();
         if (!m_model->isMerge()) {
             dlg->show();
         }
 
-        dlg->initWithModel();
+        dlg->resetDialog();
     }
 }
 
@@ -564,12 +565,15 @@ void CustomSettingDialog::resetDialog()
     if (rt.width() > m_monitor->w())
         rt.setWidth(m_monitor->w());
 
-
     if (rt.height() > m_monitor->h())
         rt.setHeight(m_monitor->h());
 
     setGeometry(rt);
-    move(m_monitor->rect().center() - QPoint(width() / 2, height() / 2));
+    auto mrt = m_monitor->rect();
+
+    auto tsize = (mrt.size() / m_monitor->scale() - rt.size()) / 2;
+    rt.moveTo(m_monitor->x() + tsize.width(), m_monitor->y() + tsize.height());
+    setGeometry(rt);
 }
 
 void CustomSettingDialog::onPrimaryMonitorChanged()
