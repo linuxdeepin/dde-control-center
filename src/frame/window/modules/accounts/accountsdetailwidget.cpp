@@ -79,9 +79,21 @@ void AccountsDetailWidget::initWidgets()
     shortnameLayout->addWidget(m_shortnameBtn, 0, Qt::AlignRight);
     shortnameLayout->addWidget(m_shortName, 0, Qt::AlignLeft);
 
+    QHBoxLayout *fullnameLayout2 = new QHBoxLayout;
+    fullnameLayout2->setContentsMargins(0, 0, 0, 0);
+    fullnameLayout2->setSpacing(3);
+    fullnameLayout2->setMargin(0);
+    fullnameLayout2->addWidget(m_fullName, 1, Qt::AlignRight);
+    fullnameLayout2->addWidget(m_fullnameBtn, 1, Qt::AlignLeft);
+
+    QWidget *fullnameWidget = new QWidget;
+    fullnameWidget->setLayout(fullnameLayout2);
+
     QHBoxLayout *fullnameLayout = new QHBoxLayout;
-    fullnameLayout->addWidget(m_fullName, 2, Qt::AlignRight);
-    fullnameLayout->addWidget(m_fullnameBtn, 1, Qt::AlignLeft);
+    fullnameLayout->setContentsMargins(0, 0, 0, 0);
+    fullnameLayout->setSpacing(0);
+    fullnameLayout->setMargin(0);
+    fullnameLayout->addWidget(fullnameWidget, 0, Qt::AlignHCenter);
 
     QHBoxLayout *inputlineLayout = new QHBoxLayout;
     inputlineLayout->addWidget(m_inputLineEdit);
