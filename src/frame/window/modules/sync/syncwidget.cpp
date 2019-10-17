@@ -43,6 +43,7 @@ void SyncWidget::setModel(dcc::cloudsync::SyncModel *model)
 {
     m_model = model;
     m_indexPage->setModel(model);
+    m_cnonlyPage->setModel(model);
 
     connect(model, &dcc::cloudsync::SyncModel::userInfoChanged, this, &SyncWidget::onUserInfoChanged);
 

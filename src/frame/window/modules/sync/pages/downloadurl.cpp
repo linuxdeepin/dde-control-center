@@ -26,6 +26,7 @@
 #include <QEventLoop>
 #include <QFile>
 #include <QTimer>
+#include <QPixmap>
 #include <QDebug>
 
 using namespace DCC_NAMESPACE;
@@ -47,12 +48,18 @@ DownloadUrl::~DownloadUrl()
 
 void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePath, bool fullname)
 {
+    if (url.isEmpty())
+        return;
+
     QString fileName;
     fileName = fullname ? filePath : filePath + url.right(url.size() - url.lastIndexOf("/"));
     qDebug() << " download " << url << " to " << fileName << " ready = " << m_isReady;
     if (QFile::exists(fileName)) {
-        Q_EMIT fileDownloaded(fileName);
-        return;
+        QPixmap pxmap;
+        if (pxmap.load(fileName)) {
+            Q_EMIT fileDownloaded(fileName);
+            return;
+        }
     }
 
     if (!m_isReady)
@@ -74,6 +81,7 @@ void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePat
 
     QNetworkRequest request;
     request.setUrl(QUrl(url));
+    request.setAttribute(QNetworkRequest::FollowRedirectsAttribute, true);
 
     connect(m_manager, &QNetworkAccessManager::finished, this, &DownloadUrl::onDownloadFileComplete);
 
@@ -87,6 +95,7 @@ void DownloadUrl::onDownloadFileComplete(QNetworkReply *reply)
         return;
 
     if (reply->error() != QNetworkReply::NoError) {
+        qDebug() << "network error = " << reply->error();
         QString url = reply->url().toString();
 
         if (m_retryMap.value(m_file->fileName()) != url)
@@ -95,12 +104,14 @@ void DownloadUrl::onDownloadFileComplete(QNetworkReply *reply)
         m_file->remove();
         delete m_file;
         m_file = nullptr;
+        reply->deleteLater();
         m_isReady = true;
         onDownloadFileError(url, m_retryMap.key(url));
         return;
     }
 
     if (m_file->write(reply->readAll()) <= 0) {
+        qDebug() << " write error " << m_file->fileName();
         m_file->remove();
     } else {
         m_file->close();
@@ -112,6 +123,7 @@ void DownloadUrl::onDownloadFileComplete(QNetworkReply *reply)
 
     delete m_file;
     m_file = nullptr;
+    reply->deleteLater();
     m_isReady = true;
     if (!m_retryMap.isEmpty())
         onDownloadFileError(m_retryMap.begin().key(), m_retryMap.begin().value());

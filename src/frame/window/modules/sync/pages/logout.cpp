@@ -19,19 +19,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "logout.h"
+#include "modules/sync/syncmodel.h"
+#include "avatarwidget.h"
 
 #include <DWarningButton>
 
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QDebug>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::sync;
 DWIDGET_USE_NAMESPACE
 
 LogoutPage::LogoutPage(QWidget *parent)
-    : QWidget(parent)
+    : LoginedIn(parent)
     , m_mainLayout(new QVBoxLayout)
 {
     m_mainLayout->setMargin(0);
@@ -44,6 +47,8 @@ LogoutPage::LogoutPage(QWidget *parent)
     cntip->setAlignment(Qt::AlignCenter);
 
     m_mainLayout->addStretch(2);
+    m_mainLayout->addWidget(m_avatar, 0, Qt::AlignCenter);
+    m_mainLayout->addWidget(m_username, 0, Qt::AlignCenter);
     m_mainLayout->addWidget(cntip, 0, Qt::AlignVCenter);
 
     DWarningButton *logoutBtn = new DWarningButton;
@@ -55,4 +60,11 @@ LogoutPage::LogoutPage(QWidget *parent)
     m_mainLayout->addStretch(3);
 
     setLayout(m_mainLayout);
+}
+
+void LogoutPage::setModel(dcc::cloudsync::SyncModel *model)
+{
+    LoginedIn::setModel(model);
+    connect(model, &dcc::cloudsync::SyncModel::userInfoChanged, this, &LogoutPage::onUserInfoChanged);
+    onUserInfoChanged(model->userinfo());
 }

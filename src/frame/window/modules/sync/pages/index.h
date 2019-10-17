@@ -21,15 +21,17 @@
 #pragma once
 
 #include "window/namespace.h"
-
 #include "modules/sync/utils.h"
+#include "loginedin.h"
 
-#include <DListView>
+#include <dtkwidget_global.h>
 
 #include <QWidget>
-#include <QMap>
 
-#include <utility>
+DWIDGET_BEGIN_NAMESPACE
+class DListView;
+class DTipLabel;
+DWIDGET_END_NAMESPACE
 
 QT_BEGIN_NAMESPACE
 class QListView;
@@ -43,22 +45,18 @@ namespace dcc {
 namespace widgets {
 class SwitchWidget;
 }
-namespace accounts {
-class AvatarWidget;
-}
 
 namespace cloudsync {
 class SyncModel;
 class SyncStateIcon;
-//enum SyncType : int;
-//enum SyncState : int;
 }
 }
 
 namespace DCC_NAMESPACE {
 namespace sync {
 class DownloadUrl;
-class IndexPage : public QWidget
+class AvatarWidget;
+class IndexPage : public LoginedIn
 {
     Q_OBJECT
 public:
@@ -73,7 +71,6 @@ Q_SIGNALS:
 
 private:
     void onListViewClicked(const QModelIndex &index);
-    void onUserInfoChanged(const QVariantMap &infos);
     void onStateChanged(const std::pair<qint32, QString> &state);
     void onLastSyncTimeChanged(const qlonglong lastSyncTime);
     void onModuleStateChanged(std::pair<dcc::cloudsync::SyncType, bool> state);
@@ -82,9 +79,6 @@ private:
 
 private:
     QVBoxLayout *m_mainLayout;
-    dcc::cloudsync::SyncModel *m_model;
-    dcc::accounts::AvatarWidget *m_avatar;
-    QLabel *m_username;
     dcc::widgets::SwitchWidget *m_autoSyncSwitch;
     DTK_WIDGET_NAMESPACE::DListView *m_listView;
     dcc::cloudsync::SyncStateIcon *m_stateIcon;
@@ -92,9 +86,7 @@ private:
     QLabel *m_lastSyncTimeLbl;
     QStandardItemModel *m_listModel;
     QMap<dcc::cloudsync::SyncType, QStandardItem *> m_itemMap;
-    DownloadUrl *m_downloader;
-    QString m_avatarPath;
-    QLabel *m_networkTip;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_networkTip;
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE

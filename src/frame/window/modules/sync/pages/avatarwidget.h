@@ -21,32 +21,27 @@
 #pragma once
 
 #include "window/namespace.h"
-#include "loginedin.h"
 
-QT_BEGIN_NAMESPACE
-class QVBoxLayout;
-QT_END_NAMESPACE
-
-namespace dcc {
-namespace cloudsync {
-class SyncModel;
-}
-}
+#include <QLabel>
 
 namespace DCC_NAMESPACE {
 namespace sync {
-class LogoutPage : public LoginedIn
+class AvatarWidget : public QLabel
 {
     Q_OBJECT
 public:
-    explicit LogoutPage(QWidget *parent = nullptr);
-    void setModel(dcc::cloudsync::SyncModel *model);
+    explicit AvatarWidget(QWidget *parent = nullptr);
+    explicit AvatarWidget(const QString &avatar, QWidget *parent = nullptr);
 
-Q_SIGNALS:
-    void requestLogout() const;
+    const QString avatarPath() const;
+    void setAvatarPath(const QString &avatar);
+
+protected:
+    void paintEvent(QPaintEvent *e);
 
 private:
-    QVBoxLayout *m_mainLayout;
+    QPixmap m_avatar;
+    QString m_avatarPath;
 };
 }
 }
