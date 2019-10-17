@@ -69,7 +69,9 @@ CustomSettingDialog::~CustomSettingDialog()
 void CustomSettingDialog::initUI()
 {
     setMinimumWidth(480);
+    setMinimumHeight(600);
     setWindowFlags(windowFlags() | Qt::X11BypassWindowManagerHint);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_layout = new QVBoxLayout();
     m_listLayout = new QVBoxLayout();
@@ -77,34 +79,35 @@ void CustomSettingDialog::initUI()
     DButtonBox *btnBox = new DButtonBox(this);
     m_layout->addWidget(btnBox, 0, Qt::AlignHCenter);
 
+    auto initlistfunc = [](DListView *list) {
+        list->setEditTriggers(DListView::NoEditTriggers);
+        list->setSelectionMode(DListView::NoSelection);
+        list->setSizeAdjustPolicy(DListView::AdjustToContents);
+        list->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    };
+
     if (m_isPrimary) {
         m_moniList = new DListView;
-        m_moniList->setEditTriggers(DListView::NoEditTriggers);
-        m_moniList->setSelectionMode(DListView::NoSelection);
-        m_moniList->installEventFilter(this);
+        initlistfunc(m_moniList);
         m_listLayout->addWidget(m_moniList);
         m_vSegBtn << new DButtonBoxButton(tr("Main Screen"));
     }
 
     m_resolutionList = new DListView;
-    m_resolutionList->setEditTriggers(DListView::NoEditTriggers);
-    m_resolutionList->setSelectionMode(DListView::NoSelection);
+    initlistfunc(m_resolutionList);
     m_resolutionList->setVisible(!m_isPrimary);
     m_vSegBtn << new DButtonBoxButton(tr("Resolution"));
     m_listLayout->addWidget(m_resolutionList);
 
     m_rateList = new DListView;
     m_rateList->setVisible(false);
-    m_rateList->setEditTriggers(DListView::NoEditTriggers);
-    m_rateList->setSelectionMode(DListView::NoSelection);
+    initlistfunc(m_rateList);
     m_vSegBtn << new DButtonBoxButton(tr("Refresh Rate"));
     btnBox->setButtonList(m_vSegBtn, true);
     m_vSegBtn[0]->setChecked(true);
     m_listLayout->addWidget(m_rateList);
 
     connect(btnBox, &DButtonBox::buttonToggled, this, &CustomSettingDialog::onChangList);
-
-    adjustSize();
 
     m_layout->addLayout(m_listLayout);
     setLayout(m_layout);
