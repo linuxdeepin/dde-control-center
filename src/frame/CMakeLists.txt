@@ -369,6 +369,8 @@ set(ACCOUNTS_FILES
                 window/modules/accounts/accounntfingeitem.cpp
                 window/modules/accounts/addfingedialog.h
                 window/modules/accounts/addfingedialog.cpp
+                window/modules/accounts/fingerwidget.h
+                window/modules/accounts/fingerwidget.cpp
 )
 
 # load bluetooth

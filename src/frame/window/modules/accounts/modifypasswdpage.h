@@ -49,7 +49,6 @@ public:
     explicit ModifyPasswdPage(dcc::accounts::User *user, QWidget *parent = nullptr);
     ~ModifyPasswdPage();
     void initWidget();
-    void initData();
     void clickSaveBtn();
     void onPasswordChangeFinished(const int exitCode);
     bool validatePassword(const QString &password);
@@ -69,17 +68,9 @@ Q_SIGNALS:
 
 private:
     dcc::accounts::User *m_curUser;
-    QVBoxLayout *m_mainContentLayout;
-    QHBoxLayout *m_cansaveLayout;
-    QLabel *m_titleLabel;
-    QLabel *m_oldPasswdLabel;
-    QLabel *m_newPasswdLabel;
-    QLabel *m_repeatPasswdLabel;
-    QPushButton *m_cancleBtn;
-    DTK_WIDGET_NAMESPACE::DSuggestButton *m_saveBtn;
-    Dtk::Widget::DPasswordEdit *m_oldPasswordEdit;
-    Dtk::Widget::DPasswordEdit *m_newPasswordEdit;
-    Dtk::Widget::DPasswordEdit *m_repeatPasswordEdit;
+    DTK_WIDGET_NAMESPACE::DPasswordEdit *m_oldPasswordEdit;
+    DTK_WIDGET_NAMESPACE::DPasswordEdit *m_newPasswordEdit;
+    DTK_WIDGET_NAMESPACE::DPasswordEdit *m_repeatPasswordEdit;
 };
 
 }

@@ -32,8 +32,8 @@
 #include "modules/accounts/fingermodel.h"
 #include "widgets/titlelabel.h"
 #include "accounntfingeitem.h"
+#include "fingerwidget.h"
 
-#include <com_deepin_daemon_fprintd_device.h>
 
 DWIDGET_BEGIN_NAMESPACE
 class DIconButton;
@@ -68,11 +68,10 @@ class AccountsDetailWidget : public QWidget
 
 public:
     explicit AccountsDetailWidget(dcc::accounts::User *user, QWidget *parent = nullptr);
-    void initWidgets();
-    void initDatas();
+    void initHeadPart(QVBoxLayout *headLayout);
+    void initBodyPart(QVBoxLayout *bodyLayout);
     void updateLineEditDisplayStyle();
     void setFingerModel(dcc::accounts::FingerModel *model);
-    void setFingerWgtsVisible(bool visible = false);
 
 public:
     bool eventFilter(QObject *obj, QEvent *event) override;
@@ -93,30 +92,15 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void deleteUserClicked();
-    void onThumbsListChanged(const QList<dcc::accounts::FingerModel::UserThumbs> &thumbs);
 
 private:
     dcc::accounts::User *m_curUser;
-    dcc::accounts::AvatarWidget *m_avatar;//账户图片
-    QLabel *m_shortnameBtn;//账户名小图标
-    QLabel *m_shortName;//账户名
     QLabel *m_fullName;//账户全名
     DTK_WIDGET_NAMESPACE::DIconButton *m_fullnameBtn;//账户全名编辑按钮
     QLineEdit *m_inputLineEdit;//账户全名编辑框
     QStackedWidget *m_mainStackedWidget;
-    QPushButton *m_modifyPassword;//修改密码
-    DTK_WIDGET_NAMESPACE::DWarningButton *m_deleteAccount;//删除账户
-    dcc::widgets::SettingsGroup *m_loginGrp;
-    dcc::widgets::SwitchWidget *m_autoLogin;//自动登录
-    dcc::widgets::SwitchWidget *m_nopasswdLogin;//无密码登录
     dcc::accounts::FingerModel *m_model;
-    dcc::widgets::SettingsGroup *m_listGrp;//指纹列表
-    dcc::widgets::SettingsGroup *m_addfingeGrp;
-    TitleLabel *m_fingetitleLabel;
-    AccounntFingeItem *m_addfingeItem;
-    DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_addBtn;
-    DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_clearBtn;
-    QString m_notUseThumb;
+    FingerWidget *m_fingerWidget;//指纹界面
     AvatarListWidget *m_avatarListWidget;//图像列表
 };
 

@@ -38,25 +38,13 @@ using namespace DCC_NAMESPACE::accounts;
 
 CreateAccountPage::CreateAccountPage(QWidget *parent)
     : QWidget(parent)
-    , m_mainContentLayout(new QVBoxLayout)
-    , m_titleLayout(new QHBoxLayout)
-    , m_inputLayout(new QVBoxLayout)
-    , m_selectLayout(new QHBoxLayout)
-    , m_title(new QLabel)
     , m_avatarListWidget(new AvatarListWidget)
-    , m_nameLabel(new QLabel)
-    , m_fullnameLabel(new QLabel)
-    , m_passwdLabel(new QLabel)
-    , m_repeatpasswdLabel(new QLabel)
     , m_nameEdit(new DLineEdit)
     , m_fullnameEdit(new DLineEdit)
     , m_passwdEdit(new DPasswordEdit)
     , m_repeatpasswdEdit(new DPasswordEdit)
-    , m_cancleBtn(new QPushButton)
-    , m_addBtn(new DSuggestButton)
 {
     initWidgets();
-    initDatas();
 }
 
 CreateAccountPage::~CreateAccountPage()
@@ -65,41 +53,48 @@ CreateAccountPage::~CreateAccountPage()
 
 void CreateAccountPage::initWidgets()
 {
-    m_titleLayout->addWidget(m_title, 0, Qt::AlignCenter);
+    QHBoxLayout *titleLayout = new QHBoxLayout;
+    //~ contents_path /accounts/New Account
+    QLabel *titleLabel = new QLabel(tr("New Account"));
+    titleLayout->addWidget(titleLabel, 0, Qt::AlignCenter);
 
-    m_inputLayout->setSpacing(3);
+    QVBoxLayout *inputLayout = new QVBoxLayout;
+    inputLayout->setSpacing(3);
 
-    m_inputLayout->addWidget(m_nameLabel);
-    m_inputLayout->addWidget(m_nameEdit);
+    QLabel *nameLabel = new QLabel(tr("Username"));
+    inputLayout->addWidget(nameLabel);
+    inputLayout->addWidget(m_nameEdit);
 
-    m_inputLayout->addWidget(m_fullnameLabel);
-    m_inputLayout->addWidget(m_fullnameEdit);
+    QLabel *fullnameLabel = new QLabel(tr("Full Name"));
+    inputLayout->addWidget(fullnameLabel);
+    inputLayout->addWidget(m_fullnameEdit);
 
-    m_inputLayout->addWidget(m_passwdLabel);
-    m_inputLayout->addWidget(m_passwdEdit);
+    QLabel *passwdLabel = new QLabel(tr("Password"));
+    inputLayout->addWidget(passwdLabel);
+    inputLayout->addWidget(m_passwdEdit);
 
-    m_inputLayout->addWidget(m_repeatpasswdLabel);
-    m_inputLayout->addWidget(m_repeatpasswdEdit);
+    QLabel *repeatpasswdLabel = new QLabel(tr("Repeat Password"));
+    inputLayout->addWidget(repeatpasswdLabel);
+    inputLayout->addWidget(m_repeatpasswdEdit);
 
-    m_selectLayout->addWidget(m_cancleBtn, 0, Qt::AlignCenter);
-    m_selectLayout->addWidget(m_addBtn, 0, Qt::AlignCenter);
+    QHBoxLayout *selectLayout = new QHBoxLayout;
+    QPushButton *cancleBtn = new QPushButton(tr("Cancel"));
+    DSuggestButton *addBtn = new DSuggestButton(tr("Create"));
+    selectLayout->addWidget(cancleBtn, 0, Qt::AlignCenter);
+    selectLayout->addWidget(addBtn, 0, Qt::AlignCenter);
 
-    m_mainContentLayout->addLayout(m_titleLayout);
-    m_mainContentLayout->addWidget(m_avatarListWidget);
-    m_mainContentLayout->addLayout(m_inputLayout);
-    m_mainContentLayout->addLayout(m_selectLayout);
-    m_mainContentLayout->addStretch();
+    QVBoxLayout *mainContentLayout = new QVBoxLayout;
+    mainContentLayout->addLayout(titleLayout);
+    mainContentLayout->addWidget(m_avatarListWidget);
+    mainContentLayout->addLayout(inputLayout);
+    mainContentLayout->addLayout(selectLayout);
+    mainContentLayout->addStretch();
+    setLayout(mainContentLayout);
 
-    setLayout(m_mainContentLayout);
-    setFocusPolicy(Qt::StrongFocus);
-}
-
-void CreateAccountPage::initDatas()
-{
-    connect(m_cancleBtn, &QPushButton::clicked, this, [&] {
+    connect(cancleBtn, &QPushButton::clicked, this, [&] {
         Q_EMIT requestBack();
     });
-    connect(m_addBtn, &DSuggestButton::clicked, this, &CreateAccountPage::createUser);
+    connect(addBtn, &DSuggestButton::clicked, this, &CreateAccountPage::createUser);
 
     connect(m_nameEdit, &DLineEdit::textEdited, this, [ = ](const QString & str) {
         if (m_nameEdit->isAlert()) {
@@ -120,19 +115,12 @@ void CreateAccountPage::initDatas()
         }
     });
 
-    //~ contents_path /accounts/New Account
-    m_title->setText(tr("New Account"));
-    m_nameLabel->setText(tr("Username"));
     m_nameEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
-    m_fullnameLabel->setText(tr("Full Name"));
     m_fullnameEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
-    m_passwdLabel->setText(tr("Password"));
     m_passwdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
-    m_repeatpasswdLabel->setText(tr("Repeat Password"));
     m_repeatpasswdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
 
-    m_cancleBtn->setText(tr("Cancel"));
-    m_addBtn->setText(tr("Create"));
+    setFocusPolicy(Qt::StrongFocus);
 }
 
 void CreateAccountPage::setModel(User *user)

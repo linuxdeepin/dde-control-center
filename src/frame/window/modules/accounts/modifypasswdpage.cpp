@@ -36,20 +36,11 @@ using namespace DCC_NAMESPACE::accounts;
 ModifyPasswdPage::ModifyPasswdPage(User *user, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
-    , m_mainContentLayout(new QVBoxLayout)
-    , m_cansaveLayout(new QHBoxLayout)
-    , m_titleLabel(new QLabel)
-    , m_oldPasswdLabel(new QLabel)
-    , m_newPasswdLabel(new QLabel)
-    , m_repeatPasswdLabel(new QLabel)
-    , m_cancleBtn(new QPushButton)
-    , m_saveBtn(new DSuggestButton)
     , m_oldPasswordEdit(new DPasswordEdit)
     , m_newPasswordEdit(new DPasswordEdit)
     , m_repeatPasswordEdit(new DPasswordEdit)
 {
     initWidget();
-    initData();
 }
 
 ModifyPasswdPage::~ModifyPasswdPage()
@@ -58,51 +49,39 @@ ModifyPasswdPage::~ModifyPasswdPage()
 
 void ModifyPasswdPage::initWidget()
 {
-    m_cansaveLayout->addWidget(m_cancleBtn, 0, Qt::AlignCenter);
-    m_cansaveLayout->addWidget(m_saveBtn, 0, Qt::AlignCenter);
+    QVBoxLayout *mainContentLayout = new QVBoxLayout;
+    mainContentLayout->addSpacing(40);
 
-    m_mainContentLayout->addSpacing(40);
-    m_mainContentLayout->addWidget(m_titleLabel, 0, Qt::AlignHCenter);
-    m_mainContentLayout->addSpacing(40);
+    QLabel *titleLabel = new QLabel(tr("Change Password"));
+    mainContentLayout->addWidget(titleLabel, 0, Qt::AlignHCenter);
+    mainContentLayout->addSpacing(40);
 
-    m_mainContentLayout->addWidget(m_oldPasswdLabel);
-    m_mainContentLayout->addWidget(m_oldPasswordEdit);
+    QLabel *oldPasswdLabel = new QLabel(tr("Current Password"));
+    mainContentLayout->addWidget(oldPasswdLabel);
+    mainContentLayout->addWidget(m_oldPasswordEdit);
 
-    m_mainContentLayout->addWidget(m_newPasswdLabel);
-    m_mainContentLayout->addWidget(m_newPasswordEdit);
+    QLabel *newPasswdLabel = new QLabel(tr("New Password"));
+    mainContentLayout->addWidget(newPasswdLabel);
+    mainContentLayout->addWidget(m_newPasswordEdit);
 
-    m_mainContentLayout->addWidget(m_repeatPasswdLabel);
-    m_mainContentLayout->addWidget(m_repeatPasswordEdit);
+    QLabel *repeatPasswdLabel = new QLabel(tr("Repeat Password"));
+    mainContentLayout->addWidget(repeatPasswdLabel);
+    mainContentLayout->addWidget(m_repeatPasswordEdit);
+    mainContentLayout->addStretch();
 
-    m_mainContentLayout->addStretch();
+    QPushButton *cancleBtn = new QPushButton(tr("Cancel"));
+    DSuggestButton *saveBtn = new DSuggestButton(tr("Save"));
+    QHBoxLayout *cansaveLayout = new QHBoxLayout;
+    cansaveLayout->addWidget(cancleBtn, 0, Qt::AlignCenter);
+    cansaveLayout->addWidget(saveBtn, 0, Qt::AlignCenter);
+    mainContentLayout->addLayout(cansaveLayout);
+    setLayout(mainContentLayout);
 
-    m_mainContentLayout->addLayout(m_cansaveLayout);
-
-    setLayout(m_mainContentLayout);
-    setFocusPolicy(Qt::StrongFocus);
-}
-
-void ModifyPasswdPage::initData()
-{
-    m_titleLabel->setText(tr("Change Password"));
-
-    m_oldPasswdLabel->setText(tr("Current Password"));
-    m_oldPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
-
-    m_newPasswdLabel->setText(tr("New Password"));
-    m_newPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
-
-    m_repeatPasswdLabel->setText(tr("Repeat Password"));
-    m_repeatPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
-
-    m_cancleBtn->setText(tr("Cancel"));
-    m_saveBtn->setText(tr("Save"));
-
-    connect(m_cancleBtn, &QPushButton::clicked, this, [&] {
+    connect(cancleBtn, &QPushButton::clicked, this, [&] {
         Q_EMIT requestBack();
     });
 
-    connect(m_saveBtn, &DSuggestButton::clicked, this, &ModifyPasswdPage::clickSaveBtn);
+    connect(saveBtn, &DSuggestButton::clicked, this, &ModifyPasswdPage::clickSaveBtn);
 
     connect(m_curUser, &User::passwordModifyFinished, this, &ModifyPasswdPage::onPasswordChangeFinished);
 
@@ -125,6 +104,12 @@ void ModifyPasswdPage::initData()
             m_repeatPasswordEdit->hideAlertMessage();
         }
     });
+
+    m_oldPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
+    m_newPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
+    m_repeatPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
+
+    setFocusPolicy(Qt::StrongFocus);
 }
 
 void ModifyPasswdPage::clickSaveBtn()

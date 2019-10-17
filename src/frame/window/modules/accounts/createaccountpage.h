@@ -55,7 +55,6 @@ public:
 
 private:
     void initWidgets();
-    void initDatas();
     void createUser();
     bool onPasswordEditFinished(DPasswordEdit *edit);
     bool validatePassword(const QString &password);
@@ -72,22 +71,11 @@ public Q_SLOTS:
 
 private:
     dcc::accounts::User *m_newUser;
-    QVBoxLayout *m_mainContentLayout;
-    QHBoxLayout *m_titleLayout;
-    QVBoxLayout *m_inputLayout;
-    QHBoxLayout *m_selectLayout;
-    QLabel *m_title;
-    DCC_NAMESPACE::accounts::AvatarListWidget *m_avatarListWidget;
-    QLabel *m_nameLabel;
-    QLabel *m_fullnameLabel;
-    QLabel *m_passwdLabel;
-    QLabel *m_repeatpasswdLabel;
-    Dtk::Widget::DLineEdit *m_nameEdit;
-    Dtk::Widget::DLineEdit *m_fullnameEdit;
-    Dtk::Widget::DPasswordEdit *m_passwdEdit;
-    Dtk::Widget::DPasswordEdit *m_repeatpasswdEdit;
-    QPushButton *m_cancleBtn;
-    DTK_WIDGET_NAMESPACE::DSuggestButton *m_addBtn;
+    AvatarListWidget *m_avatarListWidget;
+    DTK_WIDGET_NAMESPACE::DLineEdit *m_nameEdit;
+    DTK_WIDGET_NAMESPACE::DLineEdit *m_fullnameEdit;
+    DTK_WIDGET_NAMESPACE::DPasswordEdit *m_passwdEdit;
+    DTK_WIDGET_NAMESPACE::DPasswordEdit *m_repeatpasswdEdit;
 };
 
 }

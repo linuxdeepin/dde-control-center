@@ -22,30 +22,39 @@
 #pragma once
 
 #include "window/namespace.h"
-#include "widgets/settingsitem.h"
+#include "accounntfingeitem.h"
+#include "modules/accounts/user.h"
+#include "modules/accounts/fingermodel.h"
+#include "widgets/settingsgroup.h"
 
-QT_BEGIN_NAMESPACE
-class QWidget;
-class QHBoxLayout;
-class QStackedWidget;
-class QLabel;
-class QLineEdit;
-QT_END_NAMESPACE
+#include <com_deepin_daemon_fprintd_device.h>
+
+#include <QWidget>
 
 namespace DCC_NAMESPACE {
 namespace accounts {
 
-class AccounntFingeItem : public dcc::widgets::SettingsItem
+class FingerWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AccounntFingeItem(QWidget *parent = nullptr);
-    void setTitle(const QString &title);
-    void appendItem(QWidget *widget);
+    FingerWidget(dcc::accounts::User *user, QWidget *parent = nullptr);
+    ~FingerWidget();
+    void setFingerModel(dcc::accounts::FingerModel *model);
+
+Q_SIGNALS:
+    void requestAddThumbs(const QString &name, const QString &thumb);
+    void requestCleanThumbs(dcc::accounts::User *user);
+
+public Q_SLOTS:
+    void onThumbsListChanged(const QList<dcc::accounts::FingerModel::UserThumbs> &thumbs);
 
 private:
-    QHBoxLayout *m_layout;
-    QLabel *m_title;
+    dcc::accounts::User *m_curUser;
+    dcc::accounts::FingerModel *m_model;
+    dcc::widgets::SettingsGroup *m_listGrp;
+    dcc::widgets::SettingsGroup *m_addfingeGrp;
+    QString m_notUseThumb;
 };
 
 }
