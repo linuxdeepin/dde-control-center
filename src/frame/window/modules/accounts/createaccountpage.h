@@ -26,6 +26,7 @@
 #include "modules/accounts/creationresult.h"
 #include "avatarlistwidget.h"
 #include "widgets/lineeditwidget.h"
+#include "accountswidget.h"
 
 #include <DLineEdit>
 #include <dpasswordedit.h>
@@ -64,7 +65,7 @@ private:
 
 Q_SIGNALS:
     void requestCreateUser(const dcc::accounts::User *user);
-    void requestBack(bool t = false);
+    void requestBack(DCC_NAMESPACE::accounts::AccountsWidget::ActionOption option = DCC_NAMESPACE::accounts::AccountsWidget::ClickCancel);
 
 public Q_SLOTS:
     void setCreationResult(dcc::accounts::CreationResult *result);

@@ -98,7 +98,9 @@ void ModifyPasswdPage::initData()
     m_cancleBtn->setText(tr("Cancel"));
     m_saveBtn->setText(tr("Save"));
 
-    connect(m_cancleBtn, &QPushButton::clicked, this, &ModifyPasswdPage::requestBack);
+    connect(m_cancleBtn, &QPushButton::clicked, this, [&] {
+        Q_EMIT requestBack();
+    });
 
     connect(m_saveBtn, &DSuggestButton::clicked, this, &ModifyPasswdPage::clickSaveBtn);
 
@@ -144,7 +146,7 @@ void ModifyPasswdPage::clickSaveBtn()
 void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
 {
     if (exitCode == ModifyPasswdPage::ModifyNewPwdSuccess) {
-        Q_EMIT requestBack(true);
+        Q_EMIT requestBack(AccountsWidget::ModifyPwdSuccess);
         return;
     } if (exitCode == ModifyPasswdPage::InputOldPwdError) {
         m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));

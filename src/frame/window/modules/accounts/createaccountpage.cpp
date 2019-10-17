@@ -96,7 +96,9 @@ void CreateAccountPage::initWidgets()
 
 void CreateAccountPage::initDatas()
 {
-    connect(m_cancleBtn, &QPushButton::clicked, this, &CreateAccountPage::requestBack);
+    connect(m_cancleBtn, &QPushButton::clicked, this, [&] {
+        Q_EMIT requestBack();
+    });
     connect(m_addBtn, &DSuggestButton::clicked, this, &CreateAccountPage::createUser);
 
     connect(m_nameEdit, &DLineEdit::textEdited, this, [ = ](const QString & str) {
@@ -205,7 +207,7 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
         break;
     }
 
-    Q_EMIT requestBack(true);
+    Q_EMIT requestBack(AccountsWidget::CreateUserSuccess);
     result->deleteLater();
 }
 

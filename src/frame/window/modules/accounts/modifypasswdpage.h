@@ -24,6 +24,7 @@
 #include "window/namespace.h"
 #include "modules/accounts/user.h"
 #include "widgets/lineeditwidget.h"
+#include "accountswidget.h"
 
 #include <dpasswordedit.h>
 #include <DSuggestButton>
@@ -64,7 +65,7 @@ private:
 
 Q_SIGNALS:
     void requestChangePassword(dcc::accounts::User *userInter, const QString &oldPassword, const QString &password);
-    void requestBack(bool t = false);
+    void requestBack(DCC_NAMESPACE::accounts::AccountsWidget::ActionOption option = DCC_NAMESPACE::accounts::AccountsWidget::ClickCancel);
 
 private:
     dcc::accounts::User *m_curUser;

@@ -63,7 +63,13 @@ public:
         ItemDataRole = Dtk::UserRole + 1
     };
 
-    void handleRequestBack(bool t = false);
+    enum ActionOption {
+        ClickCancel = 0,
+        CreateUserSuccess,
+        ModifyPwdSuccess
+    };
+
+    void handleRequestBack(AccountsWidget::ActionOption option = AccountsWidget::ClickCancel);
 
 public Q_SLOTS:
     void addUser(dcc::accounts::User *user, bool t1 = true);

@@ -263,14 +263,29 @@ void AccountsWidget::connectUserWithItem(User *user)
     });
 }
 
-void AccountsWidget::handleRequestBack(bool t)
+void AccountsWidget::handleRequestBack(AccountsWidget::ActionOption option)
 {
-    if (t) {
-        showLastAccountInfo();
-    } else {
-        QModelIndex qindex = m_userlistView->model()->index(m_saveClickedRow, 0);
+    switch (option) {
+    case AccountsWidget::ClickCancel: { //点击取消
+        QModelIndex qindex0 = m_userItemModel->index(m_saveClickedRow, 0);
         m_userlistView->setFocus();
-        m_userlistView->setCurrentIndex(qindex);
-        onItemClicked(qindex);
+        m_userlistView->setCurrentIndex(qindex0);
+        onItemClicked(qindex0);
+        }
+        break;
+    case AccountsWidget::CreateUserSuccess: { //创建账户成功
+        QModelIndex qindex1 = m_userItemModel->index(m_userItemModel->rowCount() - 1, 0);
+        m_userlistView->setFocus();
+        m_userlistView->setCurrentIndex(qindex1);
+        onItemClicked(qindex1);
+        }
+        break;
+    case AccountsWidget::ModifyPwdSuccess: { //修改密码成功
+        QModelIndex qindex2 = m_userItemModel->index(0, 0);
+        m_userlistView->setFocus();
+        m_userlistView->setCurrentIndex(qindex2);
+        onItemClicked(qindex2);
+        }
+        break;
     }
 }
