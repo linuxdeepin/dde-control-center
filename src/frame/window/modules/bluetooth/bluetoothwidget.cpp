@@ -68,7 +68,7 @@ AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
 
     const QDBusObjectPath path(adapter->id());
 
-    connect(adpWidget, &AdapterWidget::requestSetToggleAdapter, this, [=](const dcc::bluetooth::Adapter * _t1, const bool & _t2){
+    connect(adpWidget, &AdapterWidget::requestSetToggleAdapter, this, [ = ](const dcc::bluetooth::Adapter *_t1, const bool &_t2) {
         if (_t2) {
             adpWidget->setMaximumHeight(maxHeight);
         } else {
@@ -80,6 +80,43 @@ AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
     connect(adpWidget, &AdapterWidget::requestConnectDevice, this, &BluetoothWidget::requestConnectDevice);
     connect(adpWidget, &AdapterWidget::requestSetAlias, this, &BluetoothWidget::requestSetAlias);
     connect(adpWidget, &AdapterWidget::requestShowDetail, this, &BluetoothWidget::showDeviceDetail);
+    connect(adpWidget, &AdapterWidget::notifyLoadFinished, this, [ = ]() {
+        QLayout *layout = m_tFrame->layout();
+        //每次添加蓝牙设备都会重新使用一个新的QVBoxLayout进行布局
+        QVBoxLayout *vLayout = new QVBoxLayout;
+        vLayout->setMargin(0);
+        vLayout->setSpacing(0);
+        if (layout) {
+            //将旧的蓝牙设备数据取出来放在新的QVBoxLayout中
+            while (QLayoutItem *item = layout->takeAt(0)) {
+                //若当前为nullptr,还需要继续判断后面的数据
+                if (!item->widget())
+                    continue;
+
+                AdapterWidget *widget = dynamic_cast<AdapterWidget *>(item->widget());
+
+                if (widget->getSwitchState()) {
+                    widget->setMaximumHeight(maxHeight);
+                    widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+                } else {
+                    widget->setFixedHeight(minHeight);
+                }
+
+                vLayout->addWidget(widget, 0, Qt::AlignTop);
+            }
+
+            layout->setParent(nullptr);
+            layout->deleteLater();
+            layout = nullptr;
+        }
+
+        m_tFrame->deleteLater();
+        m_tFrame = new TranslucentFrame;
+        vLayout->addWidget(adpWidget, 0, Qt::AlignTop);
+        vLayout->addStretch();
+        m_tFrame->setLayout(vLayout);
+        setContent(m_tFrame);
+    });
 
     m_bluetoothWorker->setAdapterDiscovering(path, true);
 
@@ -90,43 +127,14 @@ AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
 void BluetoothWidget::addAdapter(const Adapter *adapter)
 {
     if (!m_valueMap.contains(adapter)) {
-        AdapterWidget *adapterWidget = getAdapter(adapter);
-        //每次添加蓝牙设备都会重新使用一个新的QVBoxLayout进行布局
         QLayout *layout = m_tFrame->layout();
-        QVBoxLayout *vLayout = new QVBoxLayout;
-        vLayout->setMargin(0);
-        vLayout->setSpacing(0);
-        if (layout) {
-            //将旧的蓝牙设备数据取出来放在新的QVBoxLayout中
-            while (QLayoutItem *item = layout->takeAt(0)) {
-                AdapterWidget *widget = dynamic_cast<AdapterWidget *>(item->widget());
 
-                //若当前为nullptr,还需要继续判断后面的数据
-                if (!widget)
-                    continue;
-
-                //当蓝牙属于关闭状态时,设置最小高度
-                //开启后,设置最大值(破坏setFixedHeight)
-                if (!widget->getSwitchState()) {
-                    widget->setFixedHeight(minHeight);
-                } else {
-                    widget->setMaximumHeight(maxHeight);
-                }
-                vLayout->addWidget(widget, 0, Qt::AlignTop);
-            }
-
-            layout->setParent(nullptr);
-            layout->deleteLater();
-            layout = nullptr;
+        if (!layout) {
+            layout = new QVBoxLayout;
         }
 
-        m_tFrame->setParent(nullptr);
-        m_tFrame->deleteLater();
-        m_tFrame = nullptr;
-        m_tFrame = new TranslucentFrame;
-        vLayout->addWidget(adapterWidget, 0, Qt::AlignTop);
-        vLayout->addStretch();
-        m_tFrame->setLayout(vLayout);
+        layout->addWidget(getAdapter(adapter));
+        m_tFrame->setLayout(layout);
         setContent(m_tFrame);
 
         setVisibleState();
@@ -138,9 +146,49 @@ void BluetoothWidget::removeAdapter(const Adapter *adapter)
     if (m_valueMap.contains(adapter)) {
         QWidget *w = m_valueMap.take(adapter);
         m_tFrame->layout()->removeWidget(w);
+        w->setParent(nullptr);
         w->deleteLater();
         setVisibleState();
+        updateWidget();
     }
+}
+
+void BluetoothWidget::updateWidget()
+{
+    QLayout *layout = m_tFrame->layout();
+    //每次添加蓝牙设备都会重新使用一个新的QVBoxLayout进行布局
+    QVBoxLayout *vLayout = new QVBoxLayout;
+    vLayout->setMargin(0);
+    vLayout->setSpacing(0);
+    if (layout) {
+        //将旧的蓝牙设备数据取出来放在新的QVBoxLayout中
+        while (QLayoutItem *item = layout->takeAt(0)) {
+            //若当前为nullptr,还需要继续判断后面的数据
+            if (!item->widget())
+                continue;
+
+            AdapterWidget *widget = dynamic_cast<AdapterWidget *>(item->widget());
+
+            if (widget->getSwitchState()) {
+                widget->setMaximumHeight(maxHeight);
+                widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+            } else {
+                widget->setFixedHeight(minHeight);
+            }
+
+            vLayout->addWidget(widget, 0, Qt::AlignTop);
+        }
+
+        layout->setParent(nullptr);
+        layout->deleteLater();
+        layout = nullptr;
+    }
+
+    m_tFrame->deleteLater();
+    m_tFrame = new TranslucentFrame;
+    vLayout->addStretch();
+    m_tFrame->setLayout(vLayout);
+    setContent(m_tFrame);
 }
 
 void BluetoothWidget::setVisibleState()

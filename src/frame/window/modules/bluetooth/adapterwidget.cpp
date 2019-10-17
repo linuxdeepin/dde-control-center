@@ -195,6 +195,7 @@ void AdapterWidget::onPowerStatus(bool bPower)
     m_otherDevicesGroup->setVisible(bPower);
     m_myDeviceListView->setVisible(bPower && !m_myDevices.isEmpty());
     m_otherDeviceListView->setVisible(bPower);
+    Q_EMIT notifyLoadFinished();
 }
 
 void AdapterWidget::toggleSwitch(const bool checked)

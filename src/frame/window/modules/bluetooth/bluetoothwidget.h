@@ -69,6 +69,7 @@ public Q_SLOTS:
 private:
     void setVisibleState();
     AdapterWidget *getAdapter(const dcc::bluetooth::Adapter *adapter);
+    void updateWidget();
 
 private:
     dcc::bluetooth::BluetoothModel *m_model;
