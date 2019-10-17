@@ -20,6 +20,7 @@
  */
 
 #include "shortcutsettingwidget.h"
+#include "window/utils.h"
 #include "modules/keyboard/shortcutmodel.h"
 #include "modules/keyboard/shortcutitem.h"
 #include "widgets/settingshead.h"
@@ -50,11 +51,17 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
 
     m_searchText = QString();
     //~ contents_path /keyboard/Shortcuts
-    m_systemGroup = new SettingsGroup(tr("System"));
+    SettingsHead *systemHead = new SettingsHead();
+    systemHead->setTitle(tr("System"));
+    m_systemGroup = new SettingsGroup();
     //~ contents_path /keyboard/Shortcuts
-    m_windowGroup = new SettingsGroup(tr("Window"));
+    SettingsHead *windowHead = new SettingsHead();
+    windowHead->setTitle(tr("Window"));
+    m_windowGroup = new SettingsGroup();
     //~ contents_path /keyboard/Shortcuts
-    m_workspaceGroup = new SettingsGroup(tr("Workspace"));
+    SettingsHead *workspaceHead = new SettingsHead();
+    workspaceHead->setTitle(tr("Workspace"));
+    m_workspaceGroup = new SettingsGroup();
     m_customGroup = new SettingsGroup();
     m_searchGroup = new SettingsGroup();
     m_searchInput = new SearchInput();
@@ -64,7 +71,6 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_head->setVisible(false);
     //~ contents_path /keyboard/Shortcuts/Custom Shortcut
     m_head->setTitle(tr("Custom Shortcut"));
-    m_customGroup->insertItem(0, m_head);
 
     QVBoxLayout *vlayout = new QVBoxLayout();
 
@@ -80,9 +86,16 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     vlayout->addSpacing(10);
 
     m_layout = new QVBoxLayout;
+    m_layout->addWidget(systemHead);
     m_layout->addWidget(m_systemGroup);
+    m_layout->addSpacing(List_Interval);
+    m_layout->addWidget(windowHead);
     m_layout->addWidget(m_windowGroup);
+    m_layout->addSpacing(List_Interval);
+    m_layout->addWidget(workspaceHead);
     m_layout->addWidget(m_workspaceGroup);
+    m_layout->addSpacing(List_Interval);
+    m_layout->addWidget(m_head);
     m_layout->addWidget(m_customGroup);
 
     //~ contents_path /keyboard/Shortcuts
@@ -106,6 +119,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
     btnLayout->addWidget(m_addCustomShortcut);
     vlayout->addLayout(btnLayout);
+    vlayout->setContentsMargins(ThirdPageContentsMargins);
     setLayout(vlayout);
 
     connect(m_addCustomShortcut, &DFloatingButton::clicked, this, &ShortCutSettingWidget::customShortcut);

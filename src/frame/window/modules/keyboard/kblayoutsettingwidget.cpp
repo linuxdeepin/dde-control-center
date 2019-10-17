@@ -20,6 +20,7 @@
  */
 #include "kblayoutsettingwidget.h"
 #include "checkitem.h"
+#include "window/utils.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/translucentframe.h"
 #include "widgets/settingshead.h"
@@ -58,9 +59,8 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     m_head->setTitle(tr("Keyboard Layout"));
     m_head->setEditEnable(false);
 
-    m_group->appendItem(m_head);
-
     layout->addSpacing(10);
+    layout->addWidget(m_head);
     layout->addWidget(m_group);
 
     m_switchKBLayout = new SettingsGroup;
@@ -69,9 +69,8 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     head->setTitle(tr("Switch Layouts (Multiple)"));
     head->setEditEnable(false);
 
-    m_switchKBLayout->appendItem(head);
-
     layout->addSpacing(10);
+    layout->addWidget(head);
     layout->addWidget(m_switchKBLayout);
     layout->addStretch();
     QMap<int, QStringList> shortCutMap;
@@ -96,6 +95,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     QStringList comboxOptions;
     comboxOptions << tr("System") << tr("Application");
     m_comboWidget->setComboxOption(comboxOptions);
+    m_comboWidget->setContentsMargins(20, 0, 10, 0);
     m_switchKBLayout->appendItem(m_comboWidget);
 
     DFloatingButton *addLayout = new DFloatingButton(DStyle::SP_IncreaseElement, this);
@@ -103,7 +103,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
     btnLayout->addWidget(addLayout);
     layout->addLayout(btnLayout);
-
+    layout->setContentsMargins(ThirdPageContentsMargins);
     content->setLayout(layout);
     setContent(content);
 

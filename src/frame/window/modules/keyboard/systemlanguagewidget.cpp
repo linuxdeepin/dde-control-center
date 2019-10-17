@@ -21,6 +21,7 @@
 #include "systemlanguagewidget.h"
 #include "checkitem.h"
 #include "systemlanguagesettingwidget.h"
+#include "window/utils.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/translucentframe.h"
 #include "widgets/settingshead.h"
@@ -59,9 +60,10 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     //~ contents_path /keyboard/Language List
     m_head->setTitle(tr("Language List"));
     m_head->setEditEnable(false);
-    m_group->appendItem(m_head);
     layout->addSpacing(10);
+    layout->addWidget(m_head);
     layout->addWidget(m_group);
+    layout->setContentsMargins(ThirdPageContentsMargins);
     content->setLayout(layout);
     setContent(content);
 

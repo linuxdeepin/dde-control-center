@@ -20,6 +20,7 @@
  */
 
 #include "generalkbsettingwidget.h"
+#include "window/utils.h"
 #include "widgets/dccslider.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/titledslideritem.h"
@@ -82,9 +83,10 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
 
     // adding extra stuff to speedItem
     QVBoxLayout *speedItemLayout = qobject_cast<QVBoxLayout *>(speedItem->layout());
+    speedItemLayout->addSpacing(List_Interval);
     speedItemLayout->addWidget(testArea);
     speedItemLayout->setAlignment(testArea, Qt::AlignHCenter);
-    speedItemLayout->addSpacing(10);
+    speedItemLayout->addSpacing(List_Interval);
     speedItem->setFixedHeight(speedItemLayout->sizeHint().height());
 
     m_generalSettingsGrp->appendItem(speedItem);
