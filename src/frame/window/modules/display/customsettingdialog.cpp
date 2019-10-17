@@ -559,21 +559,25 @@ void CustomSettingDialog::onMonitorModeChange(const Resolution &r)
 
 void CustomSettingDialog::resetDialog()
 {
-    adjustSize();
+    //当收到屏幕变化的消息后，屏幕数据还是旧的
+    //需要用QTimer把对窗口的改变放在屏幕数据应用后
+    QTimer::singleShot(0, this, [=] {
+        m_monitroControlWidget->adjustSize();
+        adjustSize();
 
-    auto rt = rect();
-    if (rt.width() > m_monitor->w())
-        rt.setWidth(m_monitor->w());
+        auto rt = rect();
+        if (rt.width() > m_monitor->w())
+            rt.setWidth(m_monitor->w());
 
-    if (rt.height() > m_monitor->h())
-        rt.setHeight(m_monitor->h());
+        if (rt.height() > m_monitor->h())
+            rt.setHeight(m_monitor->h());
 
-    setGeometry(rt);
-    auto mrt = m_monitor->rect();
+        auto mrt = m_monitor->rect();
+        auto tsize = (mrt.size() / m_monitor->scale() - rt.size()) / 2;
+        rt.moveTo(m_monitor->x() + tsize.width(), m_monitor->y() + tsize.height());
 
-    auto tsize = (mrt.size() / m_monitor->scale() - rt.size()) / 2;
-    rt.moveTo(m_monitor->x() + tsize.width(), m_monitor->y() + tsize.height());
-    setGeometry(rt);
+        setGeometry(rt);
+    });
 }
 
 void CustomSettingDialog::onPrimaryMonitorChanged()
@@ -588,8 +592,7 @@ void CustomSettingDialog::onPrimaryMonitorChanged()
 
 void CustomSettingDialog::onMonitorPress(Monitor *mon)
 {
-    if (m_fullIndication->size() != mon->rect().size())
-        m_fullIndication->setGeometry(mon->rect());
+    m_fullIndication->setGeometry(mon->rect());
 
     m_fullIndication->setVisible(true);
 }
