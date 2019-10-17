@@ -44,6 +44,8 @@ NextPageWidget::NextPageWidget(QFrame *parent, bool bLeftInterval)
     mainLayout->setMargin(0);
     if (bLeftInterval) {
         mainLayout->setContentsMargins(20, 0, 10, 0);
+    } else {
+        mainLayout->setContentsMargins(10, 0, 10, 0);
     }
 
     mainLayout->addWidget(m_title);

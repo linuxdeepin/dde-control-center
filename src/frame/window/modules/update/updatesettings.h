@@ -40,6 +40,8 @@ DWIDGET_BEGIN_NAMESPACE
 class DTipLabel;
 DWIDGET_END_NAMESPACE
 
+const int TipLeftInterver = 10;
+
 namespace DCC_NAMESPACE {
 namespace update {
 

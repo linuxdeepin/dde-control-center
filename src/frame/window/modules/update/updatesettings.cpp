@@ -85,7 +85,10 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     DTipLabel *sourceCheckLbl = new DTipLabel(tr("Show a notification if system update repository has been modified"));
     sourceCheckLbl->setWordWrap(true);
     sourceCheckLbl->setAlignment(Qt::AlignLeft);
-    layout->addWidget(sourceCheckLbl);
+    QHBoxLayout *sourceCheckLblLayout = new QHBoxLayout;
+    sourceCheckLblLayout->addSpacing(TipLeftInterver);
+    sourceCheckLblLayout->addWidget(sourceCheckLbl);
+    layout->addLayout(sourceCheckLblLayout);
     layout->addSpacing(8);
 #endif
 
@@ -96,7 +99,10 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
 
     layout->addWidget(ug);
     layout->addSpacing(8);
-    layout->addWidget(m_updateLbl);
+    QHBoxLayout *updateLblLayout = new QHBoxLayout;
+    updateLblLayout->addSpacing(TipLeftInterver);
+    updateLblLayout->addWidget(m_updateLbl);
+    layout->addLayout(updateLblLayout);
     layout->addSpacing(15);
 
     if (!m_isProfessional) {
@@ -114,7 +120,10 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
         smartTips->setAlignment(Qt::AlignLeft);
         layout->addWidget(smartMirrorGrp);
         layout->addSpacing(8);
-        layout->addWidget(smartTips);
+        QHBoxLayout *smartTipsLayout = new QHBoxLayout;
+        smartTipsLayout->addSpacing(TipLeftInterver);
+        smartTipsLayout->addWidget(smartTips);
+        layout->addLayout(smartTipsLayout);
         layout->addSpacing(15);
 
         m_updateMirrors = new NextPageWidget(nullptr, false);
