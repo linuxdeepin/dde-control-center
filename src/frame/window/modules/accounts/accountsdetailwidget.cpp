@@ -403,7 +403,7 @@ bool AccountsDetailWidget::eventFilter(QObject *obj, QEvent *event)
     if (obj == m_inputLineEdit) {
         if(event->type() == QEvent::KeyPress) {
             QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
-            if (keyEvent->key() == Qt::Key_Return) {
+            if (keyEvent->key() == Qt::Key_Return || keyEvent->key() == Qt::Key_Enter) {
                 Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text());
                 m_inputLineEdit->clearFocus();
                 return true;
