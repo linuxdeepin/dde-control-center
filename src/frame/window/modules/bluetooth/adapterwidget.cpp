@@ -204,7 +204,6 @@ void AdapterWidget::toggleSwitch(const bool checked)
 
 void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool paired)
 {
-    // qDebug() << "categoryDevice: " << QThread::currentThreadId();
     if (paired) {
         DStandardItem *dListItem = deviceItem->getStandardItem(m_myDeviceListView);
         m_myDevices << deviceItem;
@@ -220,13 +219,14 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
 
 void AdapterWidget::addDevice(const Device *device)
 {
-    // qDebug() << "addDevice: " << QThread::currentThreadId();
+    qDebug() << "addDevice: " << device->name();
     DeviceSettingsItem *deviceItem = new DeviceSettingsItem(device, style());
     categoryDevice(deviceItem, device->paired());
 
     connect(deviceItem, &DeviceSettingsItem::requestConnectDevice, this, &AdapterWidget::requestConnectDevice);
     connect(device, &Device::pairedChanged, this, [this, deviceItem](const bool paired) {
         if (paired) {
+            qDebug() << "paired :" << deviceItem->device()->name();
             DStandardItem *item = deviceItem->getStandardItem();
             QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
             m_otherDeviceModel->removeRow(otherDeviceIndex.row());
@@ -234,6 +234,7 @@ void AdapterWidget::addDevice(const Device *device)
             m_myDevices << deviceItem;
             m_myDeviceModel->appendRow(dListItem);
         } else {
+            qDebug() << "unpaired :" << deviceItem->device()->name();
             for (auto it = m_myDevices.begin(); it != m_myDevices.end(); ++it) {
                 if ((*it) == deviceItem) {
                     m_myDevices.removeOne(*it);
@@ -259,10 +260,10 @@ void AdapterWidget::addDevice(const Device *device)
 
 void AdapterWidget::removeDevice(const QString &deviceId)
 {
-    // qDebug() << "removeDevice: " << QThread::currentThreadId();
     bool isFind = false;
     for (auto it = m_myDevices.begin(); it != m_myDevices.end(); ++it) {
         if ((*it)->device()->id() == deviceId) {
+            qDebug() << "removeDevice my: " << (*it)->device()->name();
             DStandardItem *item = (*it)->getStandardItem();
             QModelIndex myDeviceIndex = m_myDeviceModel->indexFromItem(item);
             m_myDeviceModel->removeRow(myDeviceIndex.row());
@@ -278,6 +279,7 @@ void AdapterWidget::removeDevice(const QString &deviceId)
     if (!isFind) {
         for (auto it = m_deviceLists.begin(); it != m_deviceLists.end(); ++it) {
             if ((*it)->device()->id() == deviceId) {
+                qDebug() << "removeDevice other: " << (*it)->device()->name();
                 DStandardItem *item = (*it)->getStandardItem();
                 QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
                 m_otherDeviceModel->removeRow(otherDeviceIndex.row());
