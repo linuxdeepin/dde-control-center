@@ -59,6 +59,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="170"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="384"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="386"/>
         <source>Bluetooth</source>
         <translation>藍牙</translation>
     </message>
@@ -79,6 +81,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="174"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="396"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="398"/>
         <source>Drawing Tablet</source>
         <translation>繪圖板</translation>
     </message>
@@ -106,53 +110,52 @@
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="216"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="253"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="263"/>
         <source>Full Name</source>
         <translation>全名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="275"/>
         <source>Change Password</source>
         <translation>變更密碼</translation>
         <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="277"/>
         <source>Delete Account</source>
         <translation>刪除帳號</translation>
         <extra-contents_path>/accounts/Delete Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="280"/>
         <source>Auto Login</source>
         <translation>自動登入</translation>
         <extra-contents_path>/accounts/Auto Login</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="284"/>
         <source>Login Without Password</source>
         <translation>無密碼登入</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="287"/>
         <source>Fingerprint Password</source>
         <translation>指紋 ID</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="288"/>
         <source>Add fingerprint</source>
         <translation>新增指紋</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="289"/>
         <source>Delete fingerprint</source>
         <translation>刪除指紋</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="363"/>
         <source>Fingerprint</source>
         <translation>指紋</translation>
     </message>
@@ -242,42 +245,42 @@
         <translation>建立</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="216"/>
         <source>Password cannot be empty</source>
         <translation>密碼不能空白</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="221"/>
         <source>The password should be different from the username</source>
         <translation>密碼應與使用者名稱不同</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="227"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
         <translation>密碼只能由英文字母 (區分大小寫)、數字及特殊符號 (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;) 組成</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="233"/>
         <source>Passwords do not match</source>
         <translation>密碼不符</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="250"/>
         <source>Username cannot be empty</source>
         <translation>使用者名稱不能空白</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="255"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>使用者名稱長度必須介於 3 至 32 個字元之間</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
         <source>The first character must be in lower case</source>
         <translation>首字元必須小寫</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="266"/>
         <source>Username must only contain a~z, 0~9, - or _</source>
         <translation>使用者名稱只能有 a~z、0~9、- 和 _</translation>
     </message>
@@ -359,16 +362,15 @@
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="54"/>
         <source>My devices</source>
         <translation>已配對裝置</translation>
-        <extra-contents_path>/bluetooth/My Device</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="57"/>
         <source>Other devices</source>
         <translation>偵測到裝置</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>開啟藍牙以尋找附近的裝置 (喇叭、鍵盤、滑鼠)</translation>
         <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
@@ -377,19 +379,19 @@
 <context>
     <name>dccV20::bluetooth::DetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="45"/>
         <source>Ignore this device</source>
         <translation>忽略此裝置</translation>
         <extra-contents_path>/bluetooth/Ignore this device</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="47"/>
         <source>Disconnect</source>
         <translation>斷開連線</translation>
         <extra-contents_path>/bluetooth/Disconnect</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="54"/>
         <source>Change Name</source>
         <translation>變更名稱</translation>
         <extra-contents_path>/bluetooth/Change Name</extra-contents_path>
@@ -513,11 +515,11 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="150"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="215"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="239"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="246"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="351"/>
         <source>Customize</source>
         <translation>自訂</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
@@ -735,24 +737,24 @@
         <translation>儲存</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="247"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="255"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="306"/>
         <source>Recommended</source>
         <translation>建議</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="337"/>
         <source>inch</source>
         <translation>英寸</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="338"/>
         <source>Resolution %1x%2</source>
         <translation type="unfinished"/>
     </message>
@@ -1312,19 +1314,19 @@
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="97"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
         <translation>設定完後，請在啟動器中的應用程式右鍵選單核取「使用代理伺服器」選項</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="102"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="101"/>
-        <source>OK</source>
-        <translation>確認</translation>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="103"/>
+        <source>Save</source>
+        <translation>儲存</translation>
     </message>
 </context>
 <context>
@@ -1523,12 +1525,12 @@
 <context>
     <name>dccV20::network::HotspotDeviceWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="63"/>
         <source>Hotspot</source>
         <translation>無線熱點</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="64"/>
         <source>Add Settings</source>
         <translation>新增設定</translation>
     </message>
@@ -1687,66 +1689,67 @@
 <context>
     <name>dccV20::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="62"/>
         <source>DSL</source>
         <translation>DSL</translation>
         <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="70"/>
         <source>VPN</source>
         <translation>VPN</translation>
         <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="78"/>
         <source>System Proxy</source>
         <translation>系統代理伺服器</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="84"/>
         <source>Application Proxy</source>
         <translation>應用程式代理伺服器</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="92"/>
         <source>Network Details</source>
         <translation>網路詳細資訊</translation>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="197"/>
         <source>Personal Hotspot</source>
         <translation>個人熱點</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="213"/>
         <source>Wired Network %1</source>
         <translation>有線網路 %1</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="216"/>
         <source>Wired Network</source>
         <translation>有線網路</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="221"/>
         <source>Wireless Network %1</source>
         <translation>無線網路 %1</translation>
         <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="224"/>
         <source>Wireless Network</source>
         <translation>無線網路</translation>
         <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="265"/>
         <source>Disconnected</source>
         <translation>已斷線</translation>
     </message>
@@ -1874,77 +1877,96 @@
 <context>
     <name>dccV20::network::ProxyPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="60"/>
         <source>Cancel</source>
         <translation>取消</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="56"/>
-        <source>Confirm</source>
-        <translation>確認</translation>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="62"/>
+        <source>Save</source>
+        <translation>儲存</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="65"/>
         <source>None</source>
         <translation>無</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="67"/>
         <source>Manual</source>
         <translation>手冊</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="69"/>
         <source>Auto</source>
         <translation>自動</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="119"/>
+        <source>Optional</source>
+        <translation>選填</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
         <source>HTTP Proxy</source>
         <translation>HTTP 代理伺服器</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="69"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="81"/>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="108"/>
         <source>Port</source>
         <translation>連線埠</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="86"/>
         <source>HTTPS Proxy</source>
         <translation>HTTPS 代理伺服器</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="95"/>
         <source>FTP Proxy</source>
         <translation>FTP 代理伺服器</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="104"/>
         <source>SOCKS Proxy</source>
         <translation>SOCKS 代理伺服器</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="116"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>為主機和網域忽略代理伺服器設定</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="121"/>
         <source>Configuration URL</source>
         <translation>設定 URL</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="178"/>
         <source>System Proxy</source>
         <translation>系統代理伺服器</translation>
     </message>
@@ -2058,63 +2080,63 @@
         <translation>密碼選項</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="334"/>
         <source>Private Key</source>
         <translation>私鑰</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="335"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="411"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="443"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="414"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="446"/>
         <source>CA Cert</source>
         <translation>CA 憑證</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="342"/>
         <source>User Cert</source>
         <translation>使用者憑證</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="361"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="407"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="439"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="410"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="442"/>
         <source>Anonymous ID</source>
         <translation>匿名 ID</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="365"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="368"/>
         <source>Provisioning</source>
         <translation>自動 PAC 設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="380"/>
         <source>PAC file</source>
         <translation>PAC 檔案</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="381"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="415"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="458"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="418"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="461"/>
         <source>Inner Auth</source>
         <translation>內部驗證</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="447"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="450"/>
         <source>PEAP Version</source>
         <translation>PEAP 版本</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="537"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="540"/>
         <source>Private Pwd</source>
         <translation>私鑰</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="539"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="542"/>
         <source>Password</source>
         <translation>密碼</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="576"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="579"/>
         <source>Invalid password</source>
         <translation>密碼無效</translation>
     </message>
@@ -3200,17 +3222,17 @@
         <translation>無線網路介面卡</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="177"/>
         <source>Close Hotspot</source>
         <translation>關閉熱點</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="180"/>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
         <translation>若要連線至無線網路，請先關閉無線熱點分享功能。</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="202"/>
         <source>WLAN</source>
         <translation>無線</translation>
     </message>
@@ -3218,32 +3240,32 @@
 <context>
     <name>dccV20::network::WirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
         <source>Not Bind</source>
         <translation>未連結</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="117"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="118"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="121"/>
         <source>Device MAC Addr</source>
         <translation>裝置 MAC 位址</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="150"/>
         <source>Customize MTU</source>
         <translation>自訂 MTU</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="153"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -3564,13 +3586,13 @@
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="78"/>
         <source>Input</source>
         <translation>輸入裝置</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="131"/>
         <source>Sound Card:</source>
         <translation>聲卡：</translation>
     </message>
@@ -3640,16 +3662,26 @@
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="76"/>
         <source>Output Volume</source>
         <translation>輸出音量</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="111"/>
         <source>Left/Right Balance</source>
         <translation>左/右平衡</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="116"/>
+        <source>Left</source>
+        <translation>Left</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="117"/>
+        <source>Right</source>
+        <translation>Right</translation>
     </message>
 </context>
 <context>
@@ -3667,85 +3699,85 @@
         <extra-contents_path>/cloudsync/Syncing...</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="101"/>
         <source>Sign Out</source>
         <translation>登出</translation>
         <extra-contents_path>/cloudsync/Sign Out</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="124"/>
         <source>Your Wi-Fi password will be synced if Network Settings is turned on</source>
         <translation type="unfinished"/>
         <extra-contents_path>/cloudsync/Your Wi-Fi password will be synced if Network Settings is turned on</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="163"/>
         <source>Network Settings</source>
         <translation>網路設定</translation>
         <extra-contents_path>/cloudsync/Network Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="165"/>
         <source>Sound Settings</source>
         <translation>音效設定</translation>
         <extra-contents_path>/cloudsync/Sound Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="167"/>
         <source>Mouse Settings</source>
         <translation>滑鼠設定</translation>
         <extra-contents_path>/cloudsync/Mouse Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="169"/>
         <source>Update Settings</source>
         <translation>更新設定</translation>
         <extra-contents_path>/cloudsync/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="171"/>
         <source>Dock</source>
         <translation>Dock</translation>
         <extra-contents_path>/cloudsync/Dock</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="173"/>
         <source>Launcher</source>
         <translation>啟動器</translation>
         <extra-contents_path>/cloudsync/Launcher</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="175"/>
         <source>Wallpaper</source>
         <translation>背景圖片</translation>
         <extra-contents_path>/cloudsync/Wallpaper</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="177"/>
         <source>Theme</source>
         <translation>主題</translation>
         <extra-contents_path>/cloudsync/Theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="179"/>
         <source>Power Settings</source>
         <translation>電源設定</translation>
         <extra-contents_path>/cloudsync/Power Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="181"/>
         <source>Corner Settings</source>
         <translation>邊角設定</translation>
         <extra-contents_path>/cloudsync/Corner Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="302"/>
         <source>Last Sync: %1</source>
         <translation>上次同步時間：%1</translation>
         <extra-contents_path>/cloudsync/Last Sync:</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="304"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
@@ -3806,21 +3838,26 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="65"/>
+        <source>Kernel:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="69"/>
         <source>Processor:</source>
         <translation>處理器：</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="73"/>
         <source>Memory:</source>
         <translation>記憶體：</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="77"/>
         <source>Disk:</source>
         <translation>磁碟機容量：</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="108"/>
         <source>%1-bit</source>
         <translation>%1 位元</translation>
     </message>
@@ -4038,59 +4075,59 @@
 <context>
     <name>dccV20::update::UpdateSettings</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="49"/>
         <source>Update Settings</source>
         <translation>更新設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto Clear Package Cache</source>
         <translation>自動清除軟體包快取</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="66"/>
         <source>Updates Notification</source>
         <translation>更新通知</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="69"/>
         <source>Auto Download Updates</source>
         <translation>自動下載更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="72"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
         <translation>開啟此選項以在無線或有線網路自動下載更新</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="80"/>
         <source>System Repository Detection</source>
         <translation>偵測系統軟體庫</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
         <source>Show a notification if system update repository has been modified</source>
         <translation>在系統更新軟體庫變更後顯示通知</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="105"/>
         <source>Smart Mirror Switch</source>
         <translation>自動切換鏡像站</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="112"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
         <translation>開啟後即可自動連線到最快的鏡像伺服器</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="123"/>
         <source>Mirror List</source>
         <translation>鏡像站列表</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
@@ -4117,19 +4154,19 @@
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="118"/>
         <source>Return</source>
         <translation>返回</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="167"/>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="175"/>
         <source>Current Edition</source>
         <translation>目前版本</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="184"/>
         <source>Update History</source>
         <translation>更新記錄</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
@@ -4344,12 +4381,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>SettingsHead</name>
     <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="51"/>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
         <source>Edit</source>
         <translation>編輯</translation>
     </message>
     <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="55"/>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="52"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -8272,10 +8309,18 @@ If no operation, the display will be restored after %1s.</source>
     </message>
 </context>
 <context>
+    <name>dcc::systeminfo::SystemInfoModel</name>
+    <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="175"/>
+        <source>available</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="43"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="132"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
         <translation>版權所有 © 2011-%1 武漢深之度科技有限公司</translation>
     </message>
@@ -8603,12 +8648,12 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="312"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="313"/>
         <source>Patches</source>
         <translation>修補程式</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="313"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="314"/>
         <source>System patches</source>
         <translation>系統修補程式</translation>
     </message>
@@ -12054,7 +12099,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="62"/>
+        <location filename="../src/frame/main.cpp" line="63"/>
         <source>Control Center provides all system settings for deepin users.</source>
         <translation>「控制中心」提供所有適用於 Deepin 使用者的系統設定。</translation>
     </message>
