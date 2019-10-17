@@ -68,6 +68,8 @@ AdvancedPage::AdvancedPage(QWidget *parent)
         listView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         listView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         listView->setBackgroundType(DStyledItemDelegate::ClipCornerBackground);
+        listView->setSizeAdjustPolicy(DListView::AdjustToContents);
+        listView->setSpacing(1);
     };
 
     m_outputList = new DListView;
