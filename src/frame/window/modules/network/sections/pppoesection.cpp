@@ -49,6 +49,7 @@ bool PPPOESection::allInputValid()
     if (m_userName->text().isEmpty()) {
         valid = false;
         m_userName->setIsErr(true);
+        m_userName->dTextEdit()->setAlert(true);
     } else {
         m_userName->setIsErr(false);
     }
@@ -56,6 +57,7 @@ bool PPPOESection::allInputValid()
     if (m_password->text().isEmpty()) {
         valid = false;
         m_password->setIsErr(true);
+        m_password->dTextEdit()->setAlert(true);
         m_password->showAlertMessage(tr("Invalid password"));
     } else {
         m_password->setIsErr(false);
@@ -94,6 +96,11 @@ void PPPOESection::initUI()
 
 void PPPOESection::initConnection()
 {
-    connect(m_userName->textEdit(), &QLineEdit::editingFinished, this, &PPPOESection::allInputValid);
-    connect(m_password->textEdit(), &QLineEdit::editingFinished, this, &PPPOESection::allInputValid);
+    connect(m_userName->textEdit(), &QLineEdit::editingFinished, this, [this] {
+        m_userName->dTextEdit()->setAlert(false);
+    });
+    connect(m_password->textEdit(), &QLineEdit::editingFinished, this, [this] {
+        m_password->dTextEdit()->setAlert(false);
+        m_password->hideAlertMessage();
+    });
 }
