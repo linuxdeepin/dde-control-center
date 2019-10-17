@@ -118,6 +118,11 @@ void ScalingPage::addSlider(int monitorID)
     if (scaling < 0)
         scaling = 1.0;
 
+    connect(slider, &DCCSlider::valueChanged, this, [ = ](const int value) {
+        Q_EMIT requestIndividualScaling(m_displayModel->monitorList()[monitorID],
+                                        double(DisplayWidget::convertToScale(value)));
+    });
+
     slider->setValue(DisplayWidget::convertToSlider(float(scaling)));
 
     connect(moni, &Monitor::scaleChanged, this, [ = ](const double scale) {
