@@ -150,7 +150,6 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
     connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
     connect(w, &AccountsDetailWidget::requestBack, this, [&]() {
-        m_frameProxy->popWidget(this);
         m_accountsWidget->setShowFirstUserInfo(false);
     });
     connect(w, &AccountsDetailWidget::requestDeleteAvatar, m_accountsWorker, &AccountsWorker::deleteUserIcon);
