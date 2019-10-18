@@ -32,6 +32,11 @@ class NormalLabel;
 }
 }
 
+DWIDGET_BEGIN_NAMESPACE
+class DTipLabel;
+DWIDGET_END_NAMESPACE
+
+
 namespace DCC_NAMESPACE {
 namespace datetime {
 
@@ -56,10 +61,10 @@ private Q_SLOTS:
 
 private:
     Clock *m_clock;
-    dcc::widgets::NormalLabel *m_label;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_label;
     dcc::widgets::NormalLabel *m_labelTime;
-    dcc::widgets::NormalLabel *m_labelDate;
-    dcc::widgets::NormalLabel *m_timeType;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_labelDate;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_timeType;
     ZoneInfo m_zoneInfo;
     bool m_bIs24HourType;
     bool m_bIsEnglishType;

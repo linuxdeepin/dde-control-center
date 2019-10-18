@@ -40,6 +40,7 @@
 #include <QDebug>
 #include <QDate>
 #include <QSettings>
+#include <QFontDatabase>
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -114,6 +115,17 @@ DateSettings::DateSettings(QWidget *parent)
     m_timeMinWidget->setValue(time.minute());
     m_timeHourWidget->setButtonSymbols(QAbstractSpinBox::NoButtons);
     m_timeMinWidget->setButtonSymbols(QAbstractSpinBox::NoButtons);
+
+    int nIndex = QFontDatabase::addApplicationFont(":/datetime/resource/deepindigitaltimes-Regular.ttf");
+    if (nIndex != -1) {
+        QStringList strList(QFontDatabase::applicationFontFamilies(nIndex));
+        if (strList.count() > 0) {
+            QFont fontThis(strList.at(0));
+            fontThis.setPointSize(28);
+            m_timeHourWidget->setFont(fontThis);
+            m_timeMinWidget->setFont(fontThis);
+        }
+    }
 
     SettingsItem *timeItem = new SettingsItem;
     QHBoxLayout *timeLayout = new QHBoxLayout;

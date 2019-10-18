@@ -22,12 +22,14 @@
 #include "clockitem.h"
 #include "widgets/labels/normallabel.h"
 
+#include <DTipLabel>
+
 #include <QVBoxLayout>
 #include <QTimer>
 #include <QFontDatabase>
 
+DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
-
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
 
@@ -46,19 +48,15 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
     updateDateTime();
 
     QVBoxLayout *layout = new QVBoxLayout(this);
-
     layout->setMargin(0);
     layout->setSpacing(0);
-
-    layout->addSpacing(20 * 2);
     layout->addWidget(m_clock, 0, Qt::AlignHCenter);
-    layout->addSpacing(20);
 
     if (isDisplay) {
-        m_label = new NormalLabel;
+        m_label = new DTipLabel("");
         m_labelTime = new NormalLabel;
-        m_labelDate = new NormalLabel;
-        m_timeType = new NormalLabel;
+        m_labelDate = new DTipLabel("");
+        m_timeType = new DTipLabel("");
 
         QHBoxLayout *timeLayout = new QHBoxLayout;
         timeLayout->addWidget(m_label, 0, Qt::AlignLeft);
@@ -67,6 +65,7 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
         QHBoxLayout *topLayout = new QHBoxLayout;
         topLayout->addWidget(m_labelTime, 0, Qt::AlignHCenter);
         topLayout->addWidget(m_timeType, 0, Qt::AlignRight);
+        topLayout->setContentsMargins(0, 0, 10, 0);
 
         SettingsItem *item = new SettingsItem;
         QVBoxLayout *itemLayout = new QVBoxLayout;
@@ -74,11 +73,10 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
         itemLayout->addLayout(timeLayout);
         item->addBackground();
         item->setLayout(itemLayout);
-        layout->addSpacing(10);
+        layout->addSpacing(5);
         layout->addWidget(item);
     }
 
-    layout->addSpacing(20);
     setLayout(layout);
 
     QTimer *timer = new QTimer(this);
