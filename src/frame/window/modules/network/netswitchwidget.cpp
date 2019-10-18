@@ -36,7 +36,7 @@ NetSwitchWidget::NetSwitchWidget(QFrame *parent)
     m_swithTitle = new QLabel();
 
     setFixedHeight(36);
-    m_autoConnItem->setFixedHeight(24);
+    m_autoConnItem->setFixedHeight(36);
 
     initNetSwitch();
 }
