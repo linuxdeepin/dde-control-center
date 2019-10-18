@@ -59,10 +59,22 @@ class NetworkModuleWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit NetworkModuleWidget();
+    enum PageType {
+        NonePage = -1,
+        WiredPage = 0,
+        WirelessPage,
+        DSLPage,
+        VPNPage,
+        SysProxyPage,
+        AppProxyPage,
+        HotspotPage,
+        NetworkInfoPage
+    };
 
+    explicit NetworkModuleWidget();
     void setModel(dde::network::NetworkModel *model);
     void initSetting(const int settingIndex);
+    int gotoSetting(const QString &path);
 Q_SIGNALS:
     void requestShowVpnPage() const;
     void requestShowPppPage() const;
@@ -89,4 +101,6 @@ private:
 };
 }   // namespace network
 }   // namespace dcc
+
+Q_DECLARE_METATYPE(DCC_NAMESPACE::network::NetworkModuleWidget::PageType)
 #endif // NETWORKMODULEWIDGET_H

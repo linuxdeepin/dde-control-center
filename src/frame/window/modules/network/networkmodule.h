@@ -78,8 +78,8 @@ private:
     dde::network::NetworkModel *m_networkModel;
     dde::network::NetworkWorker *m_networkWorker;
     NetworkModuleWidget *m_networkWidget;
-
     ConnectionEditPage *m_connEditPage;
+    QTimer *m_initSettingTimer;
 };
 } // namespace network
 } // namespace dcc

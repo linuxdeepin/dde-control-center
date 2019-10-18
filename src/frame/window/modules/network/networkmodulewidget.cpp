@@ -60,7 +60,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 #ifndef DISABLE_NETWORK_PPPOE
     //~ contents_path /network/DSL
     DStandardItem *pppit = new DStandardItem(tr("DSL"));
-    pppit->setData("ppp", SectionRole);
+    pppit->setData(QVariant::fromValue(DSLPage), SectionRole);
     pppit->setIcon(QIcon::fromTheme("dcc_dsl"));
     m_modelpages->appendRow(pppit);
 #endif
@@ -68,7 +68,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 #ifndef DISABLE_NETWORK_VPN
     //~ contents_path /network/VPN
     DStandardItem *vpnit = new DStandardItem(tr("VPN"));
-    vpnit->setData("vpn", SectionRole);
+    vpnit->setData(QVariant::fromValue(VPNPage), SectionRole);
     vpnit->setIcon(QIcon::fromTheme("dcc_vpn"));
     m_modelpages->appendRow(vpnit);
 #endif
@@ -76,13 +76,13 @@ NetworkModuleWidget::NetworkModuleWidget()
 #ifndef DISABLE_NETWORK_PROXY
     //~ contents_path /network/System Proxy
     DStandardItem *prxyit = new DStandardItem(tr("System Proxy"));
-    prxyit->setData("prxy", SectionRole);
+    prxyit->setData(QVariant::fromValue(SysProxyPage), SectionRole);
     prxyit->setIcon(QIcon::fromTheme("dcc_system_agent"));
     m_modelpages->appendRow(prxyit);
 
     //~ contents_path /network/Application Proxy
     DStandardItem *aprxit = new DStandardItem(tr("Application Proxy"));
-    aprxit->setData("aprx", SectionRole);
+    aprxit->setData(QVariant::fromValue(AppProxyPage), SectionRole);
     aprxit->setIcon(QIcon::fromTheme("dcc_app_proxy"));
     m_modelpages->appendRow(aprxit);
 #endif
@@ -90,33 +90,38 @@ NetworkModuleWidget::NetworkModuleWidget()
 
     //~ contents_path /network/Network Details
     DStandardItem *infoit = new DStandardItem(tr("Network Details"));
-    infoit->setData("info", SectionRole);
+    infoit->setData(QVariant::fromValue(NetworkInfoPage), SectionRole);
     infoit->setIcon(QIcon::fromTheme("dcc_network"));
     m_modelpages->appendRow(infoit);
     m_centralLayout->addWidget(m_lvnmpages);
 
     connect(m_lvnmpages, &QListView::clicked, this, [this](const QModelIndex &idx) {
-        QString type = idx.data(SectionRole).toString();
-        if (type == "ppp") {
-            Q_EMIT this->requestShowPppPage();
-        }
-        if (type == "vpn") {
-            Q_EMIT this->requestShowVpnPage();
-        }
-        if (type == "prxy") {
-            Q_EMIT this->requestShowProxyPage();
-        }
-        if (type == "aprx") {
-            Q_EMIT this->requestShowChainsPage();
-        }
-        if (type == "ap") {
-            Q_EMIT this->requestHotspotPage();
-        }
-        if (type == "info") {
-            Q_EMIT this->requestShowInfomation();
-        }
-        if (type == "dev_wireless" || type == "dev_ether") {
-            Q_EMIT this->requestShowDeviceDetail(idx.data(DeviceRole).value<NetworkDevice *>());
+        PageType type = idx.data(SectionRole).value<PageType>();
+        switch (type) {
+        case DSLPage:
+            Q_EMIT requestShowPppPage();
+            break;
+        case VPNPage:
+            Q_EMIT requestShowVpnPage();
+            break;
+        case SysProxyPage:
+            Q_EMIT requestShowProxyPage();
+            break;
+        case AppProxyPage:
+            Q_EMIT requestShowChainsPage();
+            break;
+        case HotspotPage:
+            Q_EMIT requestHotspotPage();
+            break;
+        case NetworkInfoPage:
+            Q_EMIT requestShowInfomation();
+            break;
+        case WiredPage:
+        case WirelessPage:
+            Q_EMIT requestShowDeviceDetail(idx.data(DeviceRole).value<NetworkDevice *>());
+            break;
+        default:
+            break;
         }
     });
 }
@@ -137,14 +142,45 @@ void NetworkModuleWidget::initSetting(const int settingIndex)
     m_lvnmpages->clicked(m_modelpages->index(settingIndex, 0));
 }
 
+int NetworkModuleWidget::gotoSetting(const QString &path)
+{
+    PageType type = NonePage;
+    if (path == QStringLiteral("Network Details")) {
+        type = NetworkInfoPage;
+    } else if (path == QStringLiteral("Application Proxy")) {
+        type = AppProxyPage;
+    } else if (path == QStringLiteral("System Proxy")) {
+        type = SysProxyPage;
+    } else if (path == QStringLiteral("VPN")) {
+        type = VPNPage;
+    } else if (path == QStringLiteral("DSL")) {
+        type = DSLPage;
+    } else if (path.contains("Wireless Network")) {
+        type = WirelessPage;
+    } else if (path.contains("Wired Network")) {
+        type = WiredPage;
+    } else if (path == QStringLiteral("Personal Hotspot")) {
+        type = HotspotPage;
+    }
+    int index = 0;
+    for (int i = 0; i < m_modelpages->rowCount(); ++i) {
+        if (m_modelpages->item(i)->data(SectionRole).value<PageType>() == type) {
+            index = i;
+            break;
+        }
+    }
+    return index;
+}
+
 void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devices)
 {
-    while (m_modelpages->item(0)->data(SectionRole).toString().startsWith("dev_")) {
+    while ((m_modelpages->item(0)->data(SectionRole).value<PageType>() == WiredPage)
+            || (m_modelpages->item(0)->data(SectionRole).value<PageType>() == WirelessPage)) {
         m_modelpages->removeRow(0);
     }
 
     for (int i = 0; i < m_modelpages->rowCount(); ++i) {
-        if (m_modelpages->item(i)->data(SectionRole).toString() == "ap") {
+        if (m_modelpages->item(i)->data(SectionRole).value<PageType>() == HotspotPage) {
             m_modelpages->removeRow(i);
             break;
         }
@@ -194,8 +230,9 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     }
 
     if (have_ap) {
+        //~ contents_path /network/Personal Hotspot
         DStandardItem *hotspotit = new DStandardItem(tr("Personal Hotspot"));
-        hotspotit->setData("ap", SectionRole);
+        hotspotit->setData(QVariant::fromValue(HotspotPage), SectionRole);
         hotspotit->setIcon(QIcon::fromTheme("dcc_hotspot"));
         m_modelpages->insertRow(m_modelpages->rowCount() - 1, hotspotit);
     }
@@ -226,7 +263,7 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
     }
 
     DStandardItem *ret = new DStandardItem(text);
-    ret->setData(dev->type() == NetworkDevice::Wireless ? "dev_wireless" : "dev_ether", SectionRole);
+    ret->setData(dev->type() == NetworkDevice::Wireless ? WirelessPage : WiredPage, SectionRole);
     ret->setIcon(QIcon::fromTheme(dev->type() == NetworkDevice::Wireless ? "dcc_wifi" : "dcc_ethernet"));
     ret->setData(QVariant::fromValue(dev), DeviceRole);
 

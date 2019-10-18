@@ -61,6 +61,7 @@ NetworkModule::NetworkModule(DCC_NAMESPACE::FrameProxyInterface *frame, QObject 
     , m_networkWorker(nullptr)
     , m_networkWidget(nullptr)
     , m_connEditPage(nullptr)
+    , m_initSettingTimer(new QTimer(this))
 {
     ConnectionEditPage::setFrameProxy(frame);
 }
@@ -155,25 +156,23 @@ void NetworkModule::active()
     connect(m_networkWidget, &NetworkModuleWidget::requestShowInfomation, this, &NetworkModule::showDetailPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestDeviceEnable, m_networkWorker, &NetworkWorker::setDeviceEnable);
     m_frameProxy->pushWidget(this, m_networkWidget);
-    QTimer::singleShot(100, this, [ = ] {
+    m_initSettingTimer->setInterval(100);
+    m_initSettingTimer->setSingleShot(true);
+    m_initSettingTimer->start();
+    connect(m_initSettingTimer, &QTimer::timeout, this, [this] {
         m_networkWidget->initSetting(0);
     });
-
 }
 
 void NetworkModule::load(QString path)
 {
-    if (path == QStringLiteral("Network Details")) {
-        showDetailPage();
-    } else if (path == QStringLiteral("Application Proxy")) {
-        showChainsProxyPage();
-    } else if (path == QStringLiteral("System Proxy")) {
-        showProxyPage();
-    } else if (path == QStringLiteral("VPN")) {
-        showVpnPage();
-    } else if (path == QStringLiteral("DSL")) {
-        showPppPage();
+    if (m_initSettingTimer) {
+        m_initSettingTimer->stop();
     }
+    QTimer::singleShot(120, this, [ = ] {
+        int index = m_networkWidget->gotoSetting(path);
+        m_networkWidget->initSetting(index);
+    });
 }
 
 const QString NetworkModule::name() const
