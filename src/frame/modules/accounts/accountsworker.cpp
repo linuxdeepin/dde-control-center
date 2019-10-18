@@ -165,9 +165,13 @@ void AccountsWorker::setFullname(User *user, const QString &fullname)
 
 void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
 {
-    Q_EMIT requestFrameAutoHide(false);
-    m_accountsInter->DeleteUser(user->name(), deleteHome).waitForFinished();
-    QTimer::singleShot(100, this, [=] { Q_EMIT requestFrameAutoHide(true); });
+    QDBusPendingReply<> reply = m_accountsInter->DeleteUser(user->name(), deleteHome);
+    reply.waitForFinished();
+    if (reply.isError()) {
+        qDebug() << Q_FUNC_INFO << reply.error().message();
+    } else {
+        Q_EMIT m_userModel->requestDeleteUserSuccess();
+    }
 }
 
 void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)

@@ -144,7 +144,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     if (m_fingerModel->isVaild()) {
         initFingerData();
     }
-
+    connect(m_userList, &UserModel::requestDeleteUserSuccess, w, &AccountsDetailWidget::requestBack);
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
     connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);

@@ -62,6 +62,7 @@ Q_SIGNALS:
     void isJoinADDomainChanged(bool isjoin);
     void isADUserLoginChanged(bool isLogind);
 #endif
+    void requestDeleteUserSuccess();
 
 private:
     QMap<QString, User *> m_userList;
