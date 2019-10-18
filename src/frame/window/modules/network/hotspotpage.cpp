@@ -128,6 +128,7 @@ void HotspotDeviceWidget::openHotspot()
 
     if (connsObj.isEmpty()) {
         m_hotspotSwitch->setChecked(false);
+        m_hotspotSwitch->setEnabled(true);
         openEditPage(QString());
     } else {
         // use the first connection of the hotspot connection list
@@ -156,6 +157,7 @@ void HotspotDeviceWidget::onDeviceRemoved()
 
 void HotspotDeviceWidget::onSwitchToggled(const bool checked)
 {
+    m_hotspotSwitch->setEnabled(false);
     if (checked) {
         openHotspot();
     } else {
@@ -186,7 +188,7 @@ void HotspotDeviceWidget::onConnEditRequested(const QString &uuid)
 void HotspotDeviceWidget::onHotsportEnabledChanged()
 {
     m_hotspotSwitch->setChecked(m_wdev->hotspotEnabled());
-
+    m_hotspotSwitch->setEnabled(true);
     m_refreshActiveTimer->start();
 }
 
