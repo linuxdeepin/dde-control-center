@@ -116,8 +116,9 @@ void PppoePage::onConnectionListChanged()
         it->setData(uuid, UuidRole);
         it->setCheckable(true);
 
-        DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(24, 24), QSize(), true);
-        editaction->setIcon(QIcon::fromTheme("arrow-right"));
+        DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
+        QStyleOption opt;
+        editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
         connect(editaction, &QAction::triggered, [this, uuid] {
             this->onConnectionDetailClicked(uuid);
         });
