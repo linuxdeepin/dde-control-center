@@ -192,6 +192,7 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
 {
     switch (result->type()) {
     case CreationResult::NoError:
+        Q_EMIT requestBack(AccountsWidget::CreateUserSuccess);
         break;
     case CreationResult::UserNameError:
         m_nameEdit->showAlertMessage(result->message());
@@ -207,7 +208,6 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
         break;
     }
 
-    Q_EMIT requestBack(AccountsWidget::CreateUserSuccess);
     result->deleteLater();
 }
 
