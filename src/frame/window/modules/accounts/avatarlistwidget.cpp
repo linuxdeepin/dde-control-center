@@ -65,6 +65,8 @@ void AvatarListWidget::initWidgets()
     m_avatarListView->setSpacing(15);
     m_avatarListView->setResizeMode(QListView::Adjust);
     m_avatarListView->setFrameShape(QFrame::NoFrame);
+    m_avatarListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_avatarListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     m_mainContentLayout->setContentsMargins(0, 0, 0, 0);
     m_mainContentLayout->setMargin(0);
