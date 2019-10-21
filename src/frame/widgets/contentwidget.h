@@ -54,7 +54,6 @@ public:
     void sendBackSignal();
     QWidget *content() const { return m_content; }
     QWidget *setContent(QWidget * const w);
-    void stopScroll();
 
 Q_SIGNALS:
     void back() const;
@@ -62,16 +61,8 @@ Q_SIGNALS:
     void disappear() const;
     void wheelValueChanged() const;
 
-public Q_SLOTS:
-    void scrollToWidget(QWidget * const w, bool animation);
-
-private:
-    bool eventFilter(QObject *watched, QEvent *event);
-
 protected:
-    void wheelEvent(QWheelEvent *e);
-    void mousePressEvent(QMouseEvent *e);
-    void mouseReleaseEvent(QMouseEvent *e);
+    void resizeEvent(QResizeEvent *event) override;
 
 protected:
     dcc::widgets::BackButton *m_backBtn;
@@ -80,9 +71,6 @@ protected:
     QScrollArea *m_contentArea;
 
     QWidget *m_content;
-
-    QPropertyAnimation *m_scrollAni;
-    QPropertyAnimation *m_wheelAni;
     double m_speedTime;
     int m_speed;
 };

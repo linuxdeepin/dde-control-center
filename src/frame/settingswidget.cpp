@@ -286,19 +286,11 @@ void SettingsWidget::ensureModuleVisible(const QString &moduleName, bool animati
 
     if (inter) {
         Q_EMIT currentModuleChanged(moduleName);
-        scrollToWidget(inter->moduleWidget(), animation);
     }
 }
 
 void SettingsWidget::showModulePage(const QString &moduleName, const QString &pageName, bool animation)
 {
-    // stop the animation before playing.
-    stopScroll();
-
-    // whatever module/page found or not, refresh module active state is necessary.
-    QTimer::singleShot(!animation ? 1 : m_scrollAni->duration(),
-                       m_refreshModuleActivableTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-
     // test module is loaded
     bool founded = false;
     for (auto *module : m_moduleActivable.keys())
@@ -343,8 +335,6 @@ void SettingsWidget::refershModuleActivable()
 {
     if (!isVisible())
         return;
-
-    stopScroll();
 
     QScroller *scroller = QScroller::scroller(m_contentArea);
     if (scroller->state() != QScroller::Inactive) {

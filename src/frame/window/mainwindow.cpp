@@ -482,8 +482,8 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
     m_topWidget->initWidget(w);
     m_topWidget->setVisible(true);
 
-    m_topWidget->move(0, this->titlebar()->height());
     m_topWidget->setFixedHeight(height() - this->titlebar()->height());
+    m_topWidget->move(0, titlebar()->height());
     resetNavList(m_contentStack.empty());
 }
 
@@ -620,21 +620,16 @@ FourthColWidget::FourthColWidget(QWidget *parent)
 
 void FourthColWidget::initWidget(QWidget *showWidget)
 {
-    DPalette pa = DApplicationHelper::instance()->palette(this);
-    pa.setBrush(DPalette::ItemBackground, pa.base());
-    DApplicationHelper::instance()->setPalette(this, pa);
-    this->setMinimumSize(this->parentWidget()->width(), this->parentWidget()->height());
+    this->setMinimumSize(parentWidget()->width(), this->parentWidget()->height());
 
     QHBoxLayout *layout = new QHBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
-    showWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    pa = DApplicationHelper::instance()->palette(showWidget);
-    pa.setBrush(DPalette::ItemBackground, pa.base());
-    DApplicationHelper::instance()->setPalette(showWidget, pa);
+    showWidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
 
     layout->setMargin(0);
     layout->setSpacing(0);
-    layout->addWidget(showWidget, 0, Qt::AlignRight);
+    layout->addStretch(7);
+    layout->addWidget(showWidget, 4, Qt::AlignRight);
     this->setLayout(layout);
     m_curWidget = showWidget;
 
