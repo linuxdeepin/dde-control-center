@@ -577,8 +577,17 @@ void CustomSettingDialog::resetDialog()
 
         auto mrt = m_monitor->rect();
         auto tsize = (mrt.size() / m_monitor->scale() - rt.size()) / 2;
+
+        qDebug() << Q_FUNC_INFO << "-----------------------";
+
+        qDebug() << "monitor name:" << m_monitor->name();
+        qDebug() << "rt :" << rt;
+        qDebug() << "tsize :" << tsize;
+        qDebug() << "scale :" << m_monitor->scale();
         rt.moveTo(m_monitor->x() + tsize.width(), m_monitor->y() + tsize.height());
 
+        qDebug() << "mrt :" << mrt;
+        qDebug() << "final rt :" << rt;
         setGeometry(rt);
     });
 }

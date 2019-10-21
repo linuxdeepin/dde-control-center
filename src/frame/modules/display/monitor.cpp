@@ -27,10 +27,12 @@
 
 using namespace dcc::display;
 
+const double DoubleZero = 0.000001;
+
 Monitor::Monitor(QObject *parent)
-    : QObject(parent),
-      m_brightness(1.),
-      m_scale(-1)
+    : QObject(parent)
+    , m_scale(1.0)
+    , m_brightness(1.0)
 {
 
 }
@@ -81,8 +83,9 @@ void Monitor::setH(const int h)
 
 void Monitor::setScale(const double scale)
 {
-    if (m_scale == scale)
+    if (fabs(m_scale - scale) < DoubleZero)
         return;
+
     m_scale = scale;
 
     Q_EMIT scaleChanged(m_scale);
@@ -105,7 +108,7 @@ void Monitor::setRotate(const quint16 rotate)
 
 void Monitor::setBrightness(const double brightness)
 {
-    if (m_brightness == brightness)
+    if (fabs(m_brightness - brightness) < DoubleZero)
         return;
 
     m_brightness = brightness;

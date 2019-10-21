@@ -70,7 +70,9 @@ void DisplayWidget::setModel(DisplayModel *model)
 
 void DisplayWidget::showPath(const QString &path)
 {
-    if (path == "Customize") {
+    if (((path == "Resolution" || path == "Refresh Rate")
+            && m_model->monitorList().size() > 1)
+            || path == "Customize") {
         Q_EMIT this->requestShowCustomConfigPage();
         m_menuList->setCurrentIndex(m_menuList->model()->index(0, 0));
         return;
@@ -90,7 +92,7 @@ void DisplayWidget::showPath(const QString &path)
 QPoint DisplayWidget::getRotateBtnPos()
 {
     QPoint curPoint = mapToGlobal(m_rotate->pos());
-    return QPoint(curPoint.x() + m_rotate->width()/2, curPoint.y() + m_rotate->height()/2);
+    return QPoint(curPoint.x() + m_rotate->width() / 2, curPoint.y() + m_rotate->height() / 2);
 }
 
 void DisplayWidget::onMonitorListChanged()
