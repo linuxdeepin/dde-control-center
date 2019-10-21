@@ -23,7 +23,6 @@
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
-#include <QEventLoop>
 #include <QFile>
 #include <QTimer>
 #include <QPixmap>
@@ -138,30 +137,4 @@ void DownloadUrl::onDownloadFileError(const QString &url, const QString &fileNam
         qDebug() << " retry to download file " + url << " to " << fileName;
         downloadFileFromURL(url, fileName, true);
     });
-}
-
-bool DownloadUrl::downloadUrl(const QString &url, const QString &fileName)
-{
-    QNetworkAccessManager manager;
-    QNetworkRequest request;
-    request.setUrl(url);
-    QNetworkReply *reply = manager.get(request);
-
-    QEventLoop loop;
-    QObject::connect(reply, SIGNAL(finished()), &loop, SLOT(quit()));
-    loop.exec();
-
-    if (reply->error() != QNetworkReply::NoError)
-    {
-        return false;
-    }
-
-    QFile f(fileName);
-    qDebug() << fileName;
-    if(!f.open(QIODevice::WriteOnly))
-        return false;
-    f.write(reply->readAll());
-    f.close();
-    delete reply;
-    return true;
 }

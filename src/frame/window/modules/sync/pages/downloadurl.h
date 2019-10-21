@@ -40,7 +40,6 @@ public:
     explicit DownloadUrl(QObject *parent = nullptr);
     virtual ~DownloadUrl();
     void downloadFileFromURL(const QString &url, const QString &filePath, bool fullname = false);
-    bool downloadUrl(const QString &url, const QString &fileName);
 
 Q_SIGNALS:
     void fileDownloaded(const QString &fileName);
