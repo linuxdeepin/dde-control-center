@@ -75,6 +75,7 @@ public:
     void setModel(dde::network::NetworkModel *model);
     void initSetting(const int settingIndex);
     int gotoSetting(const QString &path);
+    void setIndexFromPath(const QString &path);
 Q_SIGNALS:
     void requestShowVpnPage() const;
     void requestShowPppPage() const;

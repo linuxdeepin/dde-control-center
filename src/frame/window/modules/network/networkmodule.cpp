@@ -169,6 +169,13 @@ void NetworkModule::load(QString path)
     if (m_initSettingTimer) {
         m_initSettingTimer->stop();
     }
+    for (NetworkDevice *dev: m_networkModel->devices()) {
+        if (dev->path() == path) {
+            showDeviceDetailPage(dev);
+            m_networkWidget->setIndexFromPath(path);
+            return;
+        }
+    }
     QTimer::singleShot(120, this, [ = ] {
         int index = m_networkWidget->gotoSetting(path);
         m_networkWidget->initSetting(index);

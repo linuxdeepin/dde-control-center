@@ -142,6 +142,18 @@ void NetworkModuleWidget::initSetting(const int settingIndex)
     m_lvnmpages->clicked(m_modelpages->index(settingIndex, 0));
 }
 
+void NetworkModuleWidget::setIndexFromPath(const QString &path)
+{
+    for (int i = 0; i < m_modelpages->rowCount(); ++i) {
+        QString indexPath = m_modelpages->item(i)->data(DeviceRole).value<NetworkDevice *>()->path();
+        if (indexPath == path) {
+            m_lvnmpages->setCurrentIndex(m_modelpages->index(i, 0));
+            return;
+        }
+    }
+
+}
+
 int NetworkModuleWidget::gotoSetting(const QString &path)
 {
     PageType type = NonePage;
