@@ -27,6 +27,7 @@
 #include <QVBoxLayout>
 #include <QTimer>
 #include <QFontDatabase>
+#include <QDebug>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
@@ -53,28 +54,40 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
     layout->addWidget(m_clock, 0, Qt::AlignHCenter);
 
     if (isDisplay) {
-        m_label = new DTipLabel("");
         m_labelTime = new NormalLabel;
-        m_labelDate = new DTipLabel("");
         m_timeType = new DTipLabel("");
 
-        QHBoxLayout *timeLayout = new QHBoxLayout;
-        timeLayout->addWidget(m_label, 0, Qt::AlignLeft);
-        timeLayout->addWidget(m_labelDate, 1, Qt::AlignRight);
-
+        QVBoxLayout *tlayout = new QVBoxLayout;
         QHBoxLayout *topLayout = new QHBoxLayout;
+        topLayout->setSpacing(10);
+        topLayout->setMargin(0);
         topLayout->addWidget(m_labelTime, 0, Qt::AlignHCenter);
         topLayout->addWidget(m_timeType, 0, Qt::AlignRight);
-        topLayout->setContentsMargins(0, 0, 10, 0);
+        auto twidget = new QWidget();
+        twidget->setContentsMargins(0, 0, 0, 0);
+        twidget->setLayout(topLayout);
+        twidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+        tlayout->addWidget(twidget, 0, Qt::AlignVCenter);
+
+        QHBoxLayout *timeLayout=new QHBoxLayout;
+        m_label = new DTipLabel("");
+        m_labelDate = new DTipLabel("");
+        timeLayout = new QHBoxLayout;
+        timeLayout->addWidget(m_label, 0, Qt::AlignLeft);
+        timeLayout->addWidget(m_labelDate, 0, Qt::AlignRight);
+        tlayout->addLayout(timeLayout);
 
         SettingsItem *item = new SettingsItem;
-        QVBoxLayout *itemLayout = new QVBoxLayout;
-        itemLayout->addLayout(topLayout);
-        itemLayout->addLayout(timeLayout);
+
+        twidget = new QWidget();
+        twidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+        twidget->setLayout(tlayout);
+
+        QVBoxLayout *itemlayout = new QVBoxLayout;
+        itemlayout->addWidget(twidget, 0, Qt::AlignHCenter);
         item->addBackground();
-        item->setLayout(itemLayout);
-        layout->addSpacing(5);
-        layout->addWidget(item);
+        item->setLayout(itemlayout);
+        layout->addWidget(item,0,Qt::AlignVCenter);
     }
 
     setLayout(layout);
@@ -97,11 +110,23 @@ void ClockItem::setTimeZone(const ZoneInfo &zone)
 
 void ClockItem::setTimeHourType(bool type)
 {
-    //type : true -> 24 hour  ,  false -> 12 hour
-    if (m_bIs24HourType != type) {
-        m_bIs24HourType = type;
-        updateDateTime();
+    if (m_bIs24HourType == type)
+        return;
+
+    m_bIs24HourType = type;
+
+    if (m_bIs24HourType) {
+        int nIndex = QFontDatabase::addApplicationFont(":/datetime/resource/deepindigitaltimes-Regular.ttf");
+        if (nIndex != -1) {
+            QStringList strList(QFontDatabase::applicationFontFamilies(nIndex));
+            if (strList.count() > 0) {
+                QFont fontThis(strList.at(0));
+                fontThis.setPointSize(33);
+                m_labelTime->setFont(fontThis);
+            }
+        }
     }
+    updateDateTime();
 }
 
 void ClockItem::setTimeEnglishType(bool type)

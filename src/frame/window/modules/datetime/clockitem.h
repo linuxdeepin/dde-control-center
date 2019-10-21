@@ -24,6 +24,7 @@
 #include "widgets/settingsitem.h"
 
 #include <QDateTime>
+
 #include <types/zoneinfo.h>
 
 namespace dcc {
