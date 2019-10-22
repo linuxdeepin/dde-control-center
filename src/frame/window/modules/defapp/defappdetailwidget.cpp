@@ -48,18 +48,7 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     , m_categoryValue(category)
     , m_category(nullptr)
 {
-    const QMap<dcc::defapp::DefAppWorker::DefaultAppsCategory, QString> names {
-        {dcc::defapp::DefAppWorker::Browser, tr("Webpage")},
-        {dcc::defapp::DefAppWorker::Mail, tr("Mail")},
-        {dcc::defapp::DefAppWorker::Text, tr("Text")},
-        {dcc::defapp::DefAppWorker::Music, tr("Music")},
-        {dcc::defapp::DefAppWorker::Video, tr("Video")},
-        {dcc::defapp::DefAppWorker::Picture, tr("Picture")},
-        {dcc::defapp::DefAppWorker::Terminal, tr("Terminal")}
-    };
-
-    m_centralLayout->addWidget(new QLabel(names[category], this));
-
+    m_defApps->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_defApps->setEditTriggers(QListView::NoEditTriggers);
     m_defApps->setIconSize(QSize(32, 32));
     m_defApps->setResizeMode(QListView::Adjust);
@@ -67,12 +56,12 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     m_defApps->setSelectionMode(QListView::SingleSelection);
     m_defApps->setFrameShape(QFrame::NoFrame);
     m_defApps->setModel(m_model);
+    m_defApps->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_defApps->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_defApps->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
 
-    m_addBtn->setMinimumSize(47, 47);
-
-    m_centralLayout->addWidget(m_defApps);
-    m_centralLayout->addStretch();
-    m_centralLayout->addWidget(m_addBtn, 0, Qt::AlignHCenter);
+    m_centralLayout->addWidget(m_defApps, 1);
+    m_centralLayout->addWidget(m_addBtn, 0, Qt::AlignHCenter | Qt::AlignBottom);
     setLayout(m_centralLayout);
 
     connect(m_addBtn, &Dtk::Widget::DFloatingButton::clicked, this, &DefappDetailWidget::onAddBtnClicked);
