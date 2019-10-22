@@ -357,24 +357,27 @@ void IpvxSection::initForIpv6()
 
 void IpvxSection::initConnection()
 {
-    connect(m_ipAddress->textEdit(), &QLineEdit::editingFinished, this, &IpvxSection::allInputValid);
-    connect(m_gateway->textEdit(), &QLineEdit::editingFinished, this, &IpvxSection::allInputValid);
-    connect(m_dnsPrimary->textEdit(), &QLineEdit::editingFinished, this, &IpvxSection::allInputValid);
-    connect(m_dnsSecond->textEdit(), &QLineEdit::editingFinished, this, &IpvxSection::allInputValid);
+    connect(m_ipAddress->textEdit(), &QLineEdit::textChanged, this, [this] {
+        if (!m_ipAddress->text().isEmpty()) {
+            m_ipAddress->dTextEdit()->setAlert(false);
+        }
+    });
 
     switch (m_currentIpvx) {
     case Ipv4:
         connect(m_methodChooser, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [ = ] {
             onIpv4MethodChanged(m_methodChooser->currentData().value<NetworkManager::Ipv4Setting::ConfigMethod>());
         });
-        connect(m_netmaskIpv4->textEdit(), &QLineEdit::editingFinished, this, &IpvxSection::allInputValid);
+        connect(m_netmaskIpv4->textEdit(), &QLineEdit::textChanged, this, [this] {
+            if (!m_netmaskIpv4->text().isEmpty()) {
+                m_netmaskIpv4->dTextEdit()->setAlert(false);
+            }
+        });
         break;
     case Ipv6:
         connect(m_methodChooser, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [ = ] {
             onIpv6MethodChanged(m_methodChooser->currentData().value<NetworkManager::Ipv6Setting::ConfigMethod>());
         });
-        connect(m_prefixIpv6->spinBox(), static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged),
-                this, &IpvxSection::allInputValid);
         break;
     default:
         break;
@@ -434,6 +437,9 @@ bool IpvxSection::ipv4InputIsValid()
 
     if (Ipv4ConfigMethodStrMap.value(m_methodChooser->currentText()) == NetworkManager::Ipv4Setting::Manual) {
         const QString &ip = m_ipAddress->text();
+        if (m_ipAddress->text().isEmpty()) {
+            m_ipAddress->dTextEdit()->setAlert(true);
+        }
         if (!isIpv4Address(ip)) {
             valid = false;
             m_ipAddress->setIsErr(true);
@@ -442,6 +448,9 @@ bool IpvxSection::ipv4InputIsValid()
         }
 
         const QString &netmask = m_netmaskIpv4->text();
+        if (m_netmaskIpv4->text().isEmpty()) {
+            m_netmaskIpv4->dTextEdit()->setAlert(true);
+        }
         if (!isIpv4SubnetMask(netmask)) {
             valid = false;
             m_netmaskIpv4->setIsErr(true);
@@ -487,6 +496,9 @@ bool IpvxSection::ipv6InputIsValid()
 
     if (Ipv6ConfigMethodStrMap.value(m_methodChooser->currentText()) == NetworkManager::Ipv6Setting::Manual) {
         const QString &ip = m_ipAddress->text();
+        if (m_ipAddress->text().isEmpty()) {
+            m_ipAddress->dTextEdit()->setAlert(true);
+        }
         if (!isIpv6Address(ip)) {
             valid = false;
             m_ipAddress->setIsErr(true);

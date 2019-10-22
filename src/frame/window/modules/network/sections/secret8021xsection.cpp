@@ -257,12 +257,18 @@ void Secret8021xSection::initUI()
 
 void Secret8021xSection::initConnection()
 {
-    connect(m_identity->textEdit(), &QLineEdit::editingFinished, this, &Secret8021xSection::allInputValid);
-    connect(m_identity->textEdit(), &QLineEdit::editingFinished, this, &Secret8021xSection::saveUserInputIdentify);
+    connect(m_identity->textEdit(), &QLineEdit::textChanged, this, [this] {
+        if (!m_identity->text().isEmpty()) {
+            m_identity->dTextEdit()->setAlert(false);
+        }
+    });
 
-    connect(m_password->textEdit(), &QLineEdit::editingFinished, this, [this] {
-        m_password->dTextEdit()->setAlert(false);
+    connect(m_identity->textEdit(), &QLineEdit::editingFinished, this, &Secret8021xSection::saveUserInputIdentify);
+    connect(m_password->textEdit(), &QLineEdit::textChanged, this, [this] {
         m_password->hideAlertMessage();
+        if (!m_password->text().isEmpty()) {
+            m_password->dTextEdit()->setAlert(false);
+        }
     });
     connect(m_password->textEdit(), &QLineEdit::editingFinished, this, &Secret8021xSection::saveUserInputPassword);
 
@@ -568,6 +574,7 @@ bool Secret8021xSection::commonItemsInpuValid()
     if (m_identity->text().isEmpty()) {
         valid = false;
         m_identity->setIsErr(true);
+        m_identity->dTextEdit()->setAlert(true);
     } else {
         m_identity->setIsErr(false);
     }
@@ -576,8 +583,8 @@ bool Secret8021xSection::commonItemsInpuValid()
         if (m_password->text().isEmpty()) {
             valid = false;
             m_password->setIsErr(true);
-            m_password->showAlertMessage(tr("Invalid password"));
             m_password->dTextEdit()->setAlert(true);
+            m_password->showAlertMessage(tr("Invalid password"));
         } else {
             m_password->setIsErr(false);
         }
