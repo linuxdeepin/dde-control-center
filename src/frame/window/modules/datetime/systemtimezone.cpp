@@ -48,9 +48,9 @@ SystemTimezone::SystemTimezone(QWidget *parent)
     title->setFont(font);
 
     m_layout->addWidget(title, 0, Qt::AlignLeft);
-    m_layout->addSpacing(8);
+    m_layout->addSpacing(16);
     m_layout->addWidget(m_systemTimezone);
-    m_layout->addSpacing(8);
+    m_layout->addSpacing(16);
     m_layout->addWidget(m_setSystemTimezone);
 
     setLayout(m_layout);

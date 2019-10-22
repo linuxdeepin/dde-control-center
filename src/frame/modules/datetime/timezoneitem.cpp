@@ -116,6 +116,8 @@ void TimezoneItem::updateInfo()
     int decimalNumber = 1;
     //小时取余,再取分钟,将15分钟的双倍只显示一位小数,其他的都显示两位小数
     switch ((m_timezone.getUTCOffset() - localTime.offsetFromUtc()) % 3600 / 60 / 15) {
+    case -1:
+    case -3:
     case 1:
     case 3:
         decimalNumber = 2;
