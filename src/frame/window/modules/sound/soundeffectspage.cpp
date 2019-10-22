@@ -90,9 +90,16 @@ void SoundEffectsPage::setModel(dcc::sound::SoundModel *model)
 
 void SoundEffectsPage::startPlay(const QModelIndex &index)
 {
+    if (m_playIdx.isValid()) {
+        auto item = static_cast<DStandardItem *>(m_listModel->itemFromIndex(m_playIdx));
+        auto aniAction = item->actionList(Qt::Edge::RightEdge)[0];
+        aniAction->setVisible(false);
+        m_effectList->update(m_playIdx);
+    }
+    m_playIdx = index;
+
     auto eff = m_model->soundEffectMap()[index.row()].second;
     m_sound.reset(new QSound(m_model->soundEffectPathByType(eff)));
-
     m_sound->stop();
     m_sound->play();
 

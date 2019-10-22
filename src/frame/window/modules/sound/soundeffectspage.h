@@ -77,6 +77,7 @@ private:
     QStandardItemModel *m_listModel{nullptr};
     QScopedPointer<QSound> m_sound;
     QTimer *m_aniTimer{nullptr};
+    QModelIndex m_playIdx;
     int m_aniDuration{0};
 };
 
