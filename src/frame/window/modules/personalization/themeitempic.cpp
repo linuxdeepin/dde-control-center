@@ -27,7 +27,7 @@
 #include <QBitmap>
 #include <QPainter>
 #include <QPainterPath>
-#include <QPalette>
+#include <QImage>
 #include <QDebug>
 
 using namespace DCC_NAMESPACE;
@@ -83,11 +83,14 @@ void ThemeItemPic::paintEvent(QPaintEvent *event)
     int totalSpace = borderWidth + borderSpacing + margins;
 
     QPainter painter(this);
-    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform | QPainter::HighQualityAntialiasing);
+    painter.setRenderHints(QPainter::HighQualityAntialiasing | QPainter::SmoothPixmapTransform);
 
-    //first draw picture
+    //first draw image
+    const auto ratio = devicePixelRatioF();
+    QSize defaultSize = render->defaultSize() * ratio;
+    QImage img = render->toImage(defaultSize);
     QRect picRect = rect().adjusted(totalSpace, totalSpace, -totalSpace, -totalSpace);
-    render->render(&painter, picRect);
+    painter.drawImage(picRect, img, img.rect());
 
     //second draw picture rounded rect bound
     QPen pen;
@@ -109,7 +112,7 @@ void ThemeItemPic::paintEvent(QPaintEvent *event)
     QPainterPath spacePath = outerbound - innerBound;
     painter.fillPath(spacePath, palette().base());
 
-    //last draw blue rectangle
+    //last draw focus rectangle
     if (m_isSelected) {
         QStyleOption option;
         option.initFrom(this);
