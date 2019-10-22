@@ -45,7 +45,6 @@ void SystemInfoWidget::initWidget()
 {
     m_listView->setFrameShape(QFrame::NoFrame);
     m_listView->setEditTriggers(QListView::NoEditTriggers);
-    m_listView->setIconSize(QSize(50, 50));
     m_listView->setModel(m_itemModel);
 
     m_mainContentLayout->setContentsMargins(5, 5, 5, 0);
