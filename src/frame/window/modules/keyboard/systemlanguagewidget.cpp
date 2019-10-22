@@ -64,6 +64,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     layout->addWidget(m_head);
     layout->addWidget(m_group);
     layout->setContentsMargins(ThirdPageContentsMargins);
+    layout->addStretch();
     content->setLayout(layout);
     setContent(content);
 

@@ -60,6 +60,7 @@ public:
     SettingsItem *getItem(int index);
     void insertItem(const int index, SettingsItem *item);
     void appendItem(SettingsItem *item);
+    void appendItem(SettingsItem *item, BackgroundStyle bgStyle);
     void removeItem(SettingsItem *item);
     void moveItem(SettingsItem *item, const int index);
     void setSpacing(const int spaceing);

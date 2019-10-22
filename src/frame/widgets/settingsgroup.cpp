@@ -103,6 +103,17 @@ void SettingsGroup::appendItem(SettingsItem *item)
     insertItem(m_layout->count(), item);
 }
 
+void SettingsGroup::appendItem(SettingsItem *item, BackgroundStyle bgStyle)
+{
+    if ((ItemBackground == bgStyle) && (m_bgStyle == ItemBackground)) {
+        //当SettingsItem 被加入　SettingsGroup　时，为其加入背景
+        item->addBackground();
+    }
+
+    m_layout->insertWidget(m_layout->count(), item);
+    item->installEventFilter(this);
+}
+
 void SettingsGroup::removeItem(SettingsItem *item)
 {
     m_layout->removeWidget(item);

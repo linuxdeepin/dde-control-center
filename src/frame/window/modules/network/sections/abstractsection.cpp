@@ -36,7 +36,7 @@ AbstractSection::AbstractSection(const QString &title, QFrame *parent)
     SettingsHead *head = new SettingsHead();
     head->setTitle(title);
     head->setEditEnable(false);
-    appendItem(head);
+    appendItem(head, NoneBackground);
 }
 
 AbstractSection::~AbstractSection()
