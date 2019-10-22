@@ -126,7 +126,10 @@ void ScalingPage::addSlider(int monitorID)
     slider->setValue(DisplayWidget::convertToSlider(float(scaling)));
 
     connect(moni, &Monitor::scaleChanged, this, [ = ](const double scale) {
-        slideritem->setValueLiteral(QString::number(double(DisplayWidget::convertToSlider(float(scale)))));
+        slider->blockSignals(true);
+        qDebug() << "monitor scaleCahnged ,scale :" << DisplayWidget::convertToSlider(float(scale));
+        slider->setValue(DisplayWidget::convertToSlider(float(scale)));
+        slider->blockSignals(false);
     });
 }
 
