@@ -273,6 +273,7 @@ void AdapterWidget::removeDevice(const QString &deviceId)
             }
             m_myDevices.removeOne(*it);
             m_deviceLists.removeOne(*it);
+            Q_EMIT notifyRemoveDevice();
             isFind = true;
             break;
         }

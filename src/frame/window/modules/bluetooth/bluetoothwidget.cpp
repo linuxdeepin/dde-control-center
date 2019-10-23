@@ -68,15 +68,8 @@ AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
 
     const QDBusObjectPath path(adapter->id());
 
-    connect(adpWidget, &AdapterWidget::requestSetToggleAdapter, this, [ = ](const dcc::bluetooth::Adapter *_t1, const bool &_t2) {
-        if (_t2) {
-            adpWidget->setMaximumHeight(maxHeight);
-        } else {
-            adpWidget->setFixedHeight(minHeight);
-        }
-
-        Q_EMIT requestSetToggleAdapter(_t1, _t2);
-    });
+    connect(adpWidget, &AdapterWidget::requestSetToggleAdapter, this, &BluetoothWidget::requestSetToggleAdapter);
+    connect(adpWidget, &AdapterWidget::notifyRemoveDevice, this, &BluetoothWidget::updateWidget);
     connect(adpWidget, &AdapterWidget::requestConnectDevice, this, &BluetoothWidget::requestConnectDevice);
     connect(adpWidget, &AdapterWidget::requestSetAlias, this, &BluetoothWidget::requestSetAlias);
     connect(adpWidget, &AdapterWidget::requestShowDetail, this, &BluetoothWidget::showDeviceDetail);
@@ -93,16 +86,7 @@ AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
                 if (!item->widget())
                     continue;
 
-                AdapterWidget *widget = dynamic_cast<AdapterWidget *>(item->widget());
-
-                if (widget->getSwitchState()) {
-                    widget->setMaximumHeight(maxHeight);
-                    widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-                } else {
-                    widget->setFixedHeight(minHeight);
-                }
-
-                vLayout->addWidget(widget, 0, Qt::AlignTop);
+                vLayout->addWidget(item->widget(), 0, Qt::AlignTop);
             }
 
             layout->setParent(nullptr);
@@ -167,16 +151,7 @@ void BluetoothWidget::updateWidget()
             if (!item->widget())
                 continue;
 
-            AdapterWidget *widget = dynamic_cast<AdapterWidget *>(item->widget());
-
-            if (widget->getSwitchState()) {
-                widget->setMaximumHeight(maxHeight);
-                widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-            } else {
-                widget->setFixedHeight(minHeight);
-            }
-
-            vLayout->addWidget(widget, 0, Qt::AlignTop);
+            vLayout->addWidget(item->widget(), 0, Qt::AlignTop);
         }
 
         layout->setParent(nullptr);
