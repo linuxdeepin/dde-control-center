@@ -79,6 +79,7 @@ void AccountsWorker::active()
         it.key()->setAutoLogin(it.value()->automaticLogin());
         it.key()->setAvatars(it.value()->iconList());
         it.key()->setCurrentAvatar(it.value()->iconFile());
+        it.key()->setCreatedTime(it.value()->createdTime());
     }
 }
 

@@ -127,7 +127,7 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
         int lastItemIndex = m_iconpathList.size() - 1;
         QString lastItemIconpath = m_avatarItemModel->item(lastItemIndex)->data(AvatarListWidget::AddAvatarRole).value<LastItemData>().iconPath;
         if (!lastItemIconpath.isEmpty()) { //如果最后一项有图标
-            if (0 <= index.row() <= 13) {
+            if (index.row() >= 0 && index.row() <= 13) {
                 LastItemData lastItemData;
                 lastItemData.isDrawLast = true;
                 lastItemData.iconPath = "";
