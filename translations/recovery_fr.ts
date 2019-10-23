@@ -4,7 +4,7 @@
     <message>
         <location filename="../../abrecovery/recoverydialog.cpp" line="140"/>
         <source>Are you sure you want to roll back to deepin %1 backed up on %2?</source>
-        <translation>Etes vous sûr de vouloir revenir à la version deepin %1, sauvegardée sur %2 ?</translation>
+        <translation>Êtes-vous sûr de vouloir revenir à la version Deepin %1, sauvegardée sur %2 ?</translation>
     </message>
     <message>
         <location filename="../../abrecovery/recoverydialog.cpp" line="146"/>
@@ -14,7 +14,7 @@
     <message>
         <location filename="../../abrecovery/recoverydialog.cpp" line="147"/>
         <source>Confirm</source>
-        <translation>Confirmer.</translation>
+        <translation>Confirmer</translation>
     </message>
 </context>
 </TS>
