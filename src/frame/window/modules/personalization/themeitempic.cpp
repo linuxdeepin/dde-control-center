@@ -83,7 +83,7 @@ void ThemeItemPic::paintEvent(QPaintEvent *event)
     int totalSpace = borderWidth + borderSpacing + margins;
 
     QPainter painter(this);
-    painter.setRenderHints(QPainter::Antialiasing | QPainter::HighQualityAntialiasing | QPainter::SmoothPixmapTransform);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
     //first draw image
     const auto ratio = devicePixelRatioF();
@@ -99,18 +99,13 @@ void ThemeItemPic::paintEvent(QPaintEvent *event)
     painter.drawRoundedRect(picRect, radius, radius);
 
     //third fill space with base brush
-    QRect r1 = rect().adjusted(margins + borderWidth, margins + borderWidth, -margins - borderWidth, -margins - borderWidth);
-    QPainterPath prect;
-    prect.addRect(rect());
-    QPainterPath outerbound;
-    outerbound.addRoundedRect(r1, radius, radius);
-    QPainterPath innerBound;
-    innerBound.addRoundedRect(picRect, radius, radius);
-    QPainterPath anglePath = prect - outerbound;
-    painter.fillPath(anglePath, palette().base());
-    painter.strokePath(anglePath, QPen(palette().base().color()));
-    QPainterPath spacePath = outerbound - innerBound;
-    painter.fillPath(spacePath, palette().base());
+    QPainterPath picPath;
+    picPath.addRect(picRect);
+    QPainterPath roundPath;
+    roundPath.addRoundedRect(picRect, radius, radius);
+    QPainterPath anglePath = picPath - roundPath;
+    painter.fillPath(anglePath, palette().base().color());
+    painter.strokePath(picPath, palette().base().color());
 
     //last draw focus rectangle
     if (m_isSelected) {
