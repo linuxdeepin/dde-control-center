@@ -45,7 +45,7 @@ Manage::Manage(QObject *parent)
         recoveryCanRestore();
     } else {
         //不满足配置条件,退出app
-        exitApp();
+        exitApp(false);
     }
 }
 
@@ -157,9 +157,13 @@ QString Manage::getBackupTime()
 }
 
 //退出进程
-void Manage::exitApp()
+void Manage::exitApp(bool isExec)
 {
-    qApp->quit();
+    if (isExec) {
+        qApp->quit();
+    } else {
+        exit(0);
+    }
 }
 
 void Manage::requestReboot()

@@ -61,7 +61,7 @@ public:
 
 private:
     void recoveryCanRestore();
-    void exitApp();
+    void exitApp(bool isExec = true);
     void requestReboot();
     QString getBackupTime();
 
