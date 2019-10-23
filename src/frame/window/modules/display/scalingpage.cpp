@@ -90,7 +90,8 @@ void ScalingPage::setupSliders()
 void ScalingPage::addSlider(int monitorID)
 {
     qDebug() << "set scaling" << ~monitorID;
-    m_sliders.push_back(new TitledSliderItem(m_displayModel->monitorList()[monitorID]->name()));
+    auto moni = m_displayModel->monitorList()[monitorID];
+    m_sliders.push_back(new TitledSliderItem(moni->name()));
     QStringList scaleList;
     scaleList << "1.0"
               << "1.25"
@@ -113,22 +114,23 @@ void ScalingPage::addSlider(int monitorID)
     slideritem->setAnnotations(scaleList);
     m_centralLayout->addWidget(slideritem);
 
-    auto moni = m_displayModel->monitorList()[monitorID];
-    double scaling = m_displayModel->monitorList()[monitorID]->scale();
-    if (scaling < 0)
+    double scaling = m_displayModel->monitorScale(moni);
+    if (scaling < 1.0)
         scaling = 1.0;
+    slider->setSliderPosition(DisplayWidget::convertToSlider(scaling));
+
 
     connect(slider, &DCCSlider::valueChanged, this, [ = ](const int value) {
-        Q_EMIT requestIndividualScaling(m_displayModel->monitorList()[monitorID],
+        Q_EMIT requestIndividualScaling(moni,
                                         double(DisplayWidget::convertToScale(value)));
     });
 
-    slider->setValue(DisplayWidget::convertToSlider(float(scaling)));
+    slider->setValue(DisplayWidget::convertToSlider(scaling));
 
     connect(moni, &Monitor::scaleChanged, this, [ = ](const double scale) {
         slider->blockSignals(true);
-        qDebug() << "monitor scaleCahnged ,scale :" << DisplayWidget::convertToSlider(float(scale));
-        slider->setValue(DisplayWidget::convertToSlider(float(scale)));
+        qDebug() << "monitor scaleCahnged ,scale :" << DisplayWidget::convertToSlider(scale);
+        slider->setSliderPosition(DisplayWidget::convertToSlider(scale));
         slider->blockSignals(false);
     });
 }

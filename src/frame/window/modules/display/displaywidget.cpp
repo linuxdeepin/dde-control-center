@@ -175,14 +175,14 @@ void DisplayWidget::onMenuClicked(const QModelIndex &idx)
     }
 }
 
-int DisplayWidget::convertToSlider(const float value)
+int DisplayWidget::convertToSlider(const double value)
 {
     //remove base scale (100), then convert to 1-based value
     //with a stepping of 25
     return int(round(double(value * 100 - 100) / 25)) + 1;
 }
 
-float DisplayWidget::convertToScale(const int value)
+double DisplayWidget::convertToScale(const int value)
 {
-    return float(1.0 + (value - 1) * 0.25);
+    return 1.0 + (value - 1) * 0.25;
 }

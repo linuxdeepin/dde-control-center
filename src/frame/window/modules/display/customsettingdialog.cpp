@@ -576,14 +576,14 @@ void CustomSettingDialog::resetDialog()
             rt.setHeight(m_monitor->h());
 
         auto mrt = m_monitor->rect();
-        auto tsize = (mrt.size() / m_monitor->scale() - rt.size()) / 2;
+        auto tsize = (mrt.size() / m_model->monitorScale(m_monitor) - rt.size()) / 2;
 
         qDebug() << Q_FUNC_INFO << "-----------------------";
 
         qDebug() << "monitor name:" << m_monitor->name();
         qDebug() << "rt :" << rt;
         qDebug() << "tsize :" << tsize;
-        qDebug() << "scale :" << m_monitor->scale();
+        qDebug() << "scale :" << m_model->monitorScale(m_monitor);
         rt.moveTo(m_monitor->x() + tsize.width(), m_monitor->y() + tsize.height());
 
         qDebug() << "mrt :" << mrt;

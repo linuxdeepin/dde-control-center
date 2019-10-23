@@ -30,6 +30,8 @@ using namespace dcc::display;
 
 const QString DisplayModel::DDE_Display_Config = "_dde_display_config_private";
 
+const double DoubleZero = 0.000001;
+
 bool contains(const QList<Resolution> &container, const Resolution &item)
 {
     for (auto r : container)
@@ -47,6 +49,11 @@ DisplayModel::DisplayModel(QObject *parent)
     , m_isMerged(false)
 {
 
+}
+
+double DisplayModel::monitorScale(Monitor *moni)
+{
+    return moni->scale() < 1.0 ? m_uiScale : moni->scale();
 }
 
 const QList<Resolution> DisplayModel::monitorsSameModeList() const
@@ -113,7 +120,7 @@ void DisplayModel::setDisplayMode(const int mode)
 
 void DisplayModel::setUIScale(const double scale)
 {
-    if (m_uiScale != scale) {
+    if (fabs(m_uiScale - scale) < DoubleZero) {
         m_uiScale = scale;
         Q_EMIT uiScaleChanged(m_uiScale);
     }
@@ -121,7 +128,7 @@ void DisplayModel::setUIScale(const double scale)
 
 void DisplayModel::setMinimumBrightnessScale(const double scale)
 {
-    if (m_minimumBrightnessScale != scale) {
+    if (fabs(m_minimumBrightnessScale - scale) < DoubleZero) {
         m_minimumBrightnessScale = scale;
         Q_EMIT minimumBrightnessScaleChanged(m_minimumBrightnessScale);
     }

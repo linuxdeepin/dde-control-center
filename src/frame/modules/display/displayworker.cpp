@@ -312,7 +312,8 @@ void DisplayWorker::onGetScreenScalesFinished(QDBusPendingCallWatcher *w)
 
     for (auto &m : m_model->monitorList()) {
         if (rmap.find(m->name()) != rmap.end()) {
-            m->setScale(rmap.value(m->name()) >= 1 ? rmap.value(m->name()) : 1.0);
+            m->setScale(rmap.value(m->name()) < 1.0
+                        ? m_model->uiScale() : rmap.value(m->name()));
         }
     }
 
@@ -413,13 +414,13 @@ void DisplayWorker::setUiScale(const double value)
 
 void DisplayWorker::setIndividualScaling(Monitor *m, const double scaling)
 {
-    if (m && scaling > 0) {
+    if (m && scaling >= 1.0) {
         m->setScale(scaling);
     }
 
     QMap<QString, double> scalemap;
     for (Monitor *m : m_model->monitorList()) {
-        scalemap[m->name()] = m->scale() < 1 ? 1.0 : m->scale();
+        scalemap[m->name()] = m_model->monitorScale(m);
     }
     m_appearanceInter->SetScreenScaleFactors(scalemap);
 }

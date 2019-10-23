@@ -114,8 +114,11 @@ void ScalingPage::addSlider(int monitorID)
         slideritem->setValueLiteral(QString::number(DisplayWidget::convertToScale(value)));
     });
 
-    double scaling = m_displayModel->monitorList()[monitorID]->scale();
-    if(scaling < 0)scaling = 1.0;
+    auto moni = m_displayModel->monitorList()[monitorID];
+    double scaling = m_displayModel->monitorScale(moni);
+    if (scaling < 0)
+        scaling = 1.0;
+
     slider->setValue(DisplayWidget::convertToSlider(scaling));
     slideritem->setValueLiteral(QString::number(scaling));
 }

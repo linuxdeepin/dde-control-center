@@ -64,8 +64,8 @@ private Q_SLOTS:
     void onMenuClicked(const QModelIndex &);
 
 public:
-    static int convertToSlider(const float value);
-    static float convertToScale(const int value);
+    static int convertToSlider(const double value);
+    static double convertToScale(const int value);
 
 Q_SIGNALS:
     void requestShowMultiScreenPage() const;
