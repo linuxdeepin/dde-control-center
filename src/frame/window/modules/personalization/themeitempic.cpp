@@ -83,7 +83,7 @@ void ThemeItemPic::paintEvent(QPaintEvent *event)
     int totalSpace = borderWidth + borderSpacing + margins;
 
     QPainter painter(this);
-    painter.setRenderHints(QPainter::HighQualityAntialiasing | QPainter::SmoothPixmapTransform);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::HighQualityAntialiasing | QPainter::SmoothPixmapTransform);
 
     //first draw image
     const auto ratio = devicePixelRatioF();
