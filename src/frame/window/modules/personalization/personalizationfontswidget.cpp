@@ -190,7 +190,7 @@ void PersonalizationFontsWidget::onDefaultFontChanged(const QString &name, dcc::
 
     for (const QJsonObject &obj : sender->getFontList()) {
         if (obj["Id"].toString() == name) {
-            comboBox->setCurrentText(name);
+            comboBox->setCurrentText(obj["Name"].toString());
             return;
         }
     }
