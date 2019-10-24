@@ -79,6 +79,7 @@ keyboard::CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
     mainlayout->addWidget(m_tip);
     mainlayout->addSpacing(10);
     mainlayout->addLayout(buttonlayout);
+    mainlayout->addStretch();
 
     widget->setLayout(mainlayout);
 

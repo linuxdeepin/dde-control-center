@@ -202,7 +202,7 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
             m_customGroup->appendItem(item);
             m_customList.append(item);
 
-            if (m_customGroup->itemCount() > 1)
+            if (m_customGroup->itemCount() > 0)
                 m_head->setVisible(true);
 
             connect(item, &ShortcutItem::requestRemove, this, &ShortCutSettingWidget::onDestroyItem);
@@ -284,7 +284,7 @@ void ShortCutSettingWidget::onDestroyItem(ShortcutInfo *info)
     m_head->toCancel();
     ShortcutItem *item = info->item;
     m_customGroup->removeItem(item);
-    if (m_customGroup->itemCount() == 1) {
+    if (m_customGroup->itemCount() < 1) {
         m_head->setVisible(false);
     }
     m_searchInfos.remove(item->curInfo()->toString());
