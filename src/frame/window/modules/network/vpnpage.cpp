@@ -83,6 +83,8 @@ VpnPage::VpnPage(QWidget *parent)
 {
     m_lvprofiles->setModel(m_modelprofiles);
     m_lvprofiles->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_lvprofiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    m_lvprofiles->setSpacing(1);
     m_vpnSwitch->setTitle(tr("VPN Status"));
 
     SettingsGroup *switchGrp = new SettingsGroup;
