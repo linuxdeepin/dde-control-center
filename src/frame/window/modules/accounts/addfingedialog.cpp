@@ -36,7 +36,7 @@ AddFingeDialog::AddFingeDialog(const QString &thumb, QDialog *parent)
     , m_cancleaddLayout(new QHBoxLayout)
     , m_fingeWidget(new FingerWidget)
     , m_scanBtn(new QPushButton)
-    , m_doneBtn(new QPushButton)
+    , m_doneBtn(new DSuggestButton)
 {
     initWidget();
     initData();
@@ -67,6 +67,8 @@ void AddFingeDialog::initWidget()
     m_mainContentLayout->addSpacing(10);
 
     setLayout(m_mainContentLayout);
+    m_scanBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_doneBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 }
 
 void AddFingeDialog::initData()

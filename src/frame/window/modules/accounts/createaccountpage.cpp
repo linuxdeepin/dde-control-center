@@ -20,6 +20,9 @@
  */
 
 #include "createaccountpage.h"
+#include "widgets/titlelabel.h"
+
+#include <DFontSizeManager>
 
 #include <QtGlobal>
 #include <QVBoxLayout>
@@ -55,7 +58,7 @@ void CreateAccountPage::initWidgets()
 {
     QHBoxLayout *titleLayout = new QHBoxLayout;
     //~ contents_path /accounts/New Account
-    QLabel *titleLabel = new QLabel(tr("New Account"));
+    TitleLabel *titleLabel = new TitleLabel(tr("New Account"));
     titleLayout->addWidget(titleLabel, 0, Qt::AlignCenter);
 
     QVBoxLayout *inputLayout = new QVBoxLayout;
@@ -80,15 +83,18 @@ void CreateAccountPage::initWidgets()
     QHBoxLayout *selectLayout = new QHBoxLayout;
     QPushButton *cancleBtn = new QPushButton(tr("Cancel"));
     DSuggestButton *addBtn = new DSuggestButton(tr("Create"));
-    selectLayout->addWidget(cancleBtn, 0, Qt::AlignCenter);
-    selectLayout->addWidget(addBtn, 0, Qt::AlignCenter);
+    selectLayout->setSpacing(10);
+    selectLayout->addWidget(cancleBtn);
+    selectLayout->addWidget(addBtn);
+    cancleBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    addBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->addLayout(titleLayout);
     mainContentLayout->addWidget(m_avatarListWidget);
     mainContentLayout->addLayout(inputLayout);
-    mainContentLayout->addLayout(selectLayout);
     mainContentLayout->addStretch();
+    mainContentLayout->addLayout(selectLayout);
     setLayout(mainContentLayout);
 
     connect(cancleBtn, &QPushButton::clicked, this, [&] {
@@ -119,6 +125,10 @@ void CreateAccountPage::initWidgets()
     m_fullnameEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
     m_passwdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_repeatpasswdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
+
+    cancleBtn->setMinimumSize(165, 36);
+    addBtn->setMinimumSize(165, 36);
+    DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T5);
 
     setFocusPolicy(Qt::StrongFocus);
 }

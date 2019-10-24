@@ -25,6 +25,8 @@
 #include "modules/accounts/fingermodel.h"
 #include "modules/accounts/widgets/fingerwidget.h"
 
+#include <DSuggestButton>
+
 #include <QDialog>
 
 QT_BEGIN_NAMESPACE
@@ -70,7 +72,7 @@ private:
     QHBoxLayout *m_cancleaddLayout;
     dcc::accounts::FingerWidget *m_fingeWidget;
     QPushButton *m_scanBtn;
-    QPushButton *m_doneBtn;
+    DTK_WIDGET_NAMESPACE::DSuggestButton *m_doneBtn;
     QString m_thumb;
     QString m_username;
 };

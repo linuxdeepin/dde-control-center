@@ -20,6 +20,9 @@
  */
 
 #include "modifypasswdpage.h"
+#include "widgets/titlelabel.h"
+
+#include <DFontSizeManager>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -52,7 +55,7 @@ void ModifyPasswdPage::initWidget()
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->addSpacing(40);
 
-    QLabel *titleLabel = new QLabel(tr("Change Password"));
+    TitleLabel *titleLabel = new TitleLabel(tr("Change Password"));
     mainContentLayout->addWidget(titleLabel, 0, Qt::AlignHCenter);
     mainContentLayout->addSpacing(40);
 
@@ -72,10 +75,13 @@ void ModifyPasswdPage::initWidget()
     QPushButton *cancleBtn = new QPushButton(tr("Cancel"));
     DSuggestButton *saveBtn = new DSuggestButton(tr("Save"));
     QHBoxLayout *cansaveLayout = new QHBoxLayout;
-    cansaveLayout->addWidget(cancleBtn, 0, Qt::AlignCenter);
-    cansaveLayout->addWidget(saveBtn, 0, Qt::AlignCenter);
+    cansaveLayout->setSpacing(10);
+    cansaveLayout->addWidget(cancleBtn);
+    cansaveLayout->addWidget(saveBtn);
     mainContentLayout->addLayout(cansaveLayout);
     setLayout(mainContentLayout);
+    cancleBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    saveBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     connect(cancleBtn, &QPushButton::clicked, this, [&] {
         Q_EMIT requestBack();
@@ -108,6 +114,10 @@ void ModifyPasswdPage::initWidget()
     m_oldPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
     m_newPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
     m_repeatPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
+
+    cancleBtn->setMinimumSize(165, 36);
+    saveBtn->setMinimumSize(165, 36);
+    DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T5);
 
     setFocusPolicy(Qt::StrongFocus);
 }
