@@ -186,6 +186,8 @@ void CommonInfoWork::setUeProgram(bool enabled)
 
         int result = process->execute("dde-license-dialog",
                                       QStringList() << "-t" << title << "-c" << contentPath << "-a" << allowContent);
+        process->deleteLater();
+
         if (96 == result) {
             if (!m_commomModel->ueProgram()) {
                 m_commomModel->setUeProgram(enabled);
