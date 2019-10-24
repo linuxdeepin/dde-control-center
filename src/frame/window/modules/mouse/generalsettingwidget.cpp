@@ -66,13 +66,13 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
 
     QStringList doublelist;
     //~ contents_path /mouse/General
-    doublelist << tr("Slow") << "" << "" << "" << "" << ""<< "" << "" << "" ;
+    doublelist << tr("Slow") << "" << "" << "" << "" << ""<< "";
     //~ contents_path /mouse/General
     doublelist << tr("Fast");
     DCCSlider *doubleSlider = m_doubleSlider->slider();
     doubleSlider->setType(DCCSlider::Vernier);
     doubleSlider->setTickPosition(QSlider::TicksBelow);
-    doubleSlider->setRange(0, 9);
+    doubleSlider->setRange(0, 7);
     doubleSlider->setTickInterval(1);
     doubleSlider->setPageStep(1);
     m_doubleSlider->setAnnotations(doublelist);
