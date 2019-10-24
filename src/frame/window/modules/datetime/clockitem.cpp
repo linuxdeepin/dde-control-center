@@ -59,7 +59,6 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
 
         QVBoxLayout *tlayout = new QVBoxLayout;
         QHBoxLayout *topLayout = new QHBoxLayout;
-        topLayout->setSpacing(10);
         topLayout->setMargin(0);
         topLayout->addWidget(m_labelTime, 0, Qt::AlignHCenter);
         topLayout->addWidget(m_timeType, 0, Qt::AlignRight | Qt::AlignBottom);
