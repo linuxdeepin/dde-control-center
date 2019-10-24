@@ -48,6 +48,7 @@ SpinBoxWidget::SpinBoxWidget(QWidget *parent)
     mainLayout->addWidget(m_title);
     mainLayout->addWidget(m_spinBox);
     m_resetBtn->setIcon(QIcon::fromTheme("dcc_reset"));
+    m_resetBtn->setIconSize(QSize(16, 16));
     m_resetBtn->setFixedSize(36, 36);
     mainLayout->addWidget(m_resetBtn);
 
