@@ -110,6 +110,8 @@ private:
     inline bool checkDbusIsValid();
     void onSmartMirrorServiceIsValid(bool isvalid);
     void onNotifyStatusChanged(UpdatesStatus status);
+    bool getNotUpdateState();
+    void resetDownloadInfo();
 
 private:
     UpdateModel* m_model;

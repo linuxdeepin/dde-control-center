@@ -204,6 +204,7 @@ void UpdateWorker::deactivate()
 void UpdateWorker::checkForUpdates()
 {
     if (checkDbusIsValid()) {
+        qDebug() << " checkDbusIsValid . do nothing";
         return;
     }
 
@@ -216,6 +217,7 @@ void UpdateWorker::checkForUpdates()
             setCheckUpdatesJob(jobPath);
         } else {
             m_model->setStatus(UpdatesStatus::UpdateFailed);
+            resetDownloadInfo();
             if (!m_checkUpdateJob.isNull()) {
                 m_managerInter->CleanJob(m_checkUpdateJob->id());
             }
@@ -233,6 +235,7 @@ void UpdateWorker::distUpgradeDownloadUpdates()
             setDownloadJob(reply.value().path());
         } else {
             m_model->setStatus(UpdatesStatus::UpdateFailed);
+            resetDownloadInfo();
             if (!m_distUpgradeJob.isNull()) {
                 m_managerInter->CleanJob(m_distUpgradeJob->id());
             }
@@ -250,6 +253,7 @@ void UpdateWorker::distUpgradeInstallUpdates()
             setDistUpgradeJob(reply.value().path());
         } else {
             m_model->setStatus(UpdatesStatus::UpdateFailed);
+            resetDownloadInfo();
             if (!m_distUpgradeJob.isNull()) {
                 m_managerInter->CleanJob(m_distUpgradeJob->id());
             }
@@ -334,7 +338,9 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
                 onNotifyStatusChanged(UpdatesStatus::DownloadPaused);
             }
         } else {
-            m_model->setStatus(UpdatesStatus::Downloaded);
+            if (getNotUpdateState()) {
+                m_model->setStatus(UpdatesStatus::Downloaded);
+            }
 
             //(1)用户点击升级 : 会直接执行升级过程
             if (m_bIsUserClickedUpdate) {
@@ -355,9 +361,12 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
 
 bool UpdateWorker::checkDbusIsValid()
 {
+    //解决已经显示错误的状态信息后，纠正错误，依旧无法再次加载下载安装信息的问题
+    bool ret = getNotUpdateState();
+
     // If DBUS is valid, the check will bee blocked
     if (!m_checkUpdateJob.isNull()) {
-        if (m_checkUpdateJob->isValid()) {
+        if (m_checkUpdateJob->isValid() && ret) {
             return true;
         } else {
             m_checkUpdateJob->deleteLater();
@@ -365,7 +374,7 @@ bool UpdateWorker::checkDbusIsValid()
     }
 
     if (!m_downloadJob.isNull()) {
-        if (m_downloadJob->isValid()) {
+        if (m_downloadJob->isValid() && ret) {
             return true;
         } else {
             m_downloadJob->deleteLater();
@@ -373,7 +382,7 @@ bool UpdateWorker::checkDbusIsValid()
     }
 
     if (!m_distUpgradeJob.isNull()) {
-        if (m_distUpgradeJob->isValid()) {
+        if (m_distUpgradeJob->isValid() && ret) {
             return true;
         } else {
             m_distUpgradeJob->deleteLater();
@@ -381,7 +390,7 @@ bool UpdateWorker::checkDbusIsValid()
     }
 
     if (!m_otherUpdateJob.isNull()) {
-        if (m_otherUpdateJob->isValid()) {
+        if (m_otherUpdateJob->isValid() && ret) {
             return true;
         } else {
             m_otherUpdateJob->deleteLater();
@@ -415,6 +424,34 @@ void UpdateWorker::onNotifyStatusChanged(UpdatesStatus status)
                 m_model->setStatus(UpdatesStatus::DownloadPaused);
             }
         }
+    }
+}
+
+bool UpdateWorker::getNotUpdateState()
+{
+    bool ret = true;
+    UpdatesStatus state = m_model->status();
+
+    if (state == UpdatesStatus::NoSpace ||
+            state == UpdatesStatus::NoNetwork ||
+            state == UpdatesStatus::RecoveryBackupFailed ||
+            state == UpdatesStatus::DeependenciesBrokenError ||
+            state == UpdatesStatus::UpdateFailed) {
+        ret = false;
+    }
+
+    qDebug() << " Curremt status : " << state << " , Result : " << ret;
+    return ret;
+}
+
+void UpdateWorker::resetDownloadInfo()
+{
+    m_downloadProcess = 0.0;
+    m_updatableApps.clear();
+    m_updatablePackages.clear();
+    m_bIsUserClickedUpdate = false;
+    if (!m_downloadJob.isNull()) {
+        m_downloadJob->deleteLater();
     }
 }
 
@@ -638,7 +675,7 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
     if (UpdatesStatus::Downloading != state && UpdatesStatus::DownloadPaused != state && UpdatesStatus::Installing != state) {
         m_model->setStatus(UpdatesStatus::Checking);
     } else if (UpdatesStatus::UpdateFailed == state) {
-        m_downloadProcess = 0.0;
+        resetDownloadInfo();
     }
 
     m_checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
@@ -683,6 +720,12 @@ void UpdateWorker::setDownloadJob(const QString &jobPath)
         DownloadInfo *info = m_model->downloadInfo();
         //异步加载数据,会导致下载信息还未获取就先取到了下载进度
         if (info) {
+            if (!getNotUpdateState()) {
+                qWarning() << " Now can't to update continue...";
+                resetDownloadInfo();
+                return;
+            }
+
             //第一次收到下载进度显示暂定,之后再次收到显示更新中
             if (m_bIsFirstGetDownloadProcess) {
                 //只有当进度为0的时候,才会显示一次暂定
@@ -719,16 +762,20 @@ void UpdateWorker::setDistUpgradeJob(const QString &jobPath)
                                     QDBusConnection::systemBus(), this);
 
     connect(m_distUpgradeJob, &__Job::ProgressChanged, [this](double value) {
-        qDebug() << "[wubw distUpgrade] Update, value : " << value;
+        qDebug() << "[wubw distUpgrade] Update, value : " << value << m_model->status();
         //防止退出后再次进入不确定当前升级的状态,设置正在更新中.
         //假如dbus一直收不到该信号,还是会存在从check直接调到结果的问题(此时就是底层的问题了)
-        m_model->setStatus(UpdatesStatus::Installing);
+        if (getNotUpdateState()) {
+            m_model->setStatus(UpdatesStatus::Installing);
+        }
         m_model->setUpgradeProgress(m_baseProgress + (1 - m_baseProgress) * value);
     });
 
     connect(m_distUpgradeJob, &__Job::StatusChanged, this, &UpdateWorker::onUpgradeStatusChanged);
 
-    m_model->setStatus(UpdatesStatus::Installing);
+    if (getNotUpdateState()) {
+        m_model->setStatus(UpdatesStatus::Installing);
+    }
 
     m_distUpgradeJob->ProgressChanged(m_distUpgradeJob->progress());
     m_distUpgradeJob->StatusChanged(m_distUpgradeJob->status());
@@ -787,6 +834,7 @@ void UpdateWorker::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
             qWarning() << Q_FUNC_INFO << "UpdateFailed, error msg : " << obj["Type"].toString();
         }
 
+        resetDownloadInfo();
         w->deleteLater();
         return;
     }
@@ -845,7 +893,7 @@ void UpdateWorker::onUpgradeStatusChanged(const QString &status)
 
         m_model->setStatus(UpdatesStatus::UpdateSucceeded);
         //更新完成,重置下载进度
-        m_downloadProcess = 0.0;
+        resetDownloadInfo();
 
         QProcess::startDetached("/usr/lib/dde-control-center/reboot-reminder-dialog");
 
@@ -861,15 +909,19 @@ void UpdateWorker::checkDiskSpace(JobInter *job)
 {
     QString jobDescription = job->description();
     qDebug() << "job description: " << jobDescription;
-    if (jobDescription.contains("You don't have enough free space") ||
+    if (jobDescription.contains("You don't have enough free space", Qt::CaseInsensitive) ||
             !m_lastoresessionHelper->IsDiskSpaceSufficient()) {
         m_model->setStatus(UpdatesStatus::NoSpace);
     } else if (jobDescription.contains("Temporary failure resolving", Qt::CaseInsensitive)) {
         m_model->setStatus(UpdatesStatus::NoNetwork);
+    } else if (jobDescription.contains("The following packages have unmet dependencies", Qt::CaseInsensitive)) {
+        m_model->setStatus(UpdatesStatus::DeependenciesBrokenError);
     } else {
         m_model->setStatus(UpdatesStatus::UpdateFailed);
         qWarning() << Q_FUNC_INFO << "UpdateFailed , jobDescription : " << jobDescription;
     }
+    //以上错误均需重置更新信息
+    resetDownloadInfo();
 }
 
 DownloadInfo *UpdateWorker::calculateDownloadInfo(const AppUpdateInfoList &list)
