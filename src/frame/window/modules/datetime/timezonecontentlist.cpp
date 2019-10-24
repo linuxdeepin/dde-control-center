@@ -56,7 +56,7 @@ TimezoneContentList::~TimezoneContentList()
 void TimezoneContentList::setSpace(int value)
 {
     if (m_timezoneGroup) {
-        m_timezoneGroup->setSpacing(value);
+        m_timezoneGroup->setSpacing(value - 2);
     }
 }
 
@@ -117,7 +117,7 @@ void TimezoneContentList::addTimezones(const QList<ZoneInfo> &zones)
 void TimezoneContentList::removeTimezone(const ZoneInfo &zone)
 {
     for (auto it = m_zoneList.begin(); it != m_zoneList.end();) {
-        TimezoneItem* item = (*it);
+        TimezoneItem *item = (*it);
         if (item->timeZone().getZoneName() == zone.getZoneName()) {
             item->setVisible(false);
             m_timezoneGroup->removeItem(item);
@@ -137,7 +137,7 @@ void TimezoneContentList::updateTimezones(const QList<ZoneInfo> &zones)
     m_timezoneGroup->clear();
 
     for (auto it = m_zoneList.begin(); it != m_zoneList.end();) {
-        TimezoneItem* item = (*it);
+        TimezoneItem *item = (*it);
         it = m_zoneList.erase(it);//equal ++it
         item->deleteLater();
     }

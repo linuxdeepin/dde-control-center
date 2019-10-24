@@ -175,7 +175,6 @@ DateSettings::DateSettings(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setSpacing(0);
     layout->setMargin(0);
-    layout->addSpacing(12);
     layout->addWidget(m_clock);
 
     if (m_bSystemIsServer) {
@@ -320,8 +319,10 @@ QSpinBox *DateSettings::createDSpinBox(QWidget *parent, int min, int max)
     DIconButton *btnDown = new DIconButton(spinBox);
     btnUp->setIcon(DStyle::SP_ArrowUp);
     btnDown->setIcon(DStyle::SP_ArrowDown);
-    btnUp->move(57, 3);
-    btnDown->move(57, 28);
+    btnUp->setFixedSize(QSize(SpinBtnLength, SpinBtnLength));
+    btnDown->setFixedSize(QSize(SpinBtnLength, SpinBtnLength));
+    btnUp->move(57, 4);
+    btnDown->move(57, 31);
 
     connect(btnUp, &DIconButton::clicked, spinBox, &QSpinBox::stepUp);
     connect(btnDown, &DIconButton::clicked, spinBox, &QSpinBox::stepDown);

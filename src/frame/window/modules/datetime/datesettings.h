@@ -48,6 +48,8 @@ class TimeZoneChooser;
 }
 }
 
+const int SpinBtnLength = 26;
+
 namespace DCC_NAMESPACE {
 namespace datetime {
 

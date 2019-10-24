@@ -21,19 +21,25 @@
 
 #include "clock.h"
 
+#include <DSvgRenderer>
+#include <DStyle>
+
 #include <QPainter>
 #include <QPainterPath>
 #include <QTime>
 #include <QtMath>
+#include <QStyle>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
+DWIDGET_USE_NAMESPACE
 
 Clock::Clock(QWidget *parent)
     : QWidget(parent)
     , m_drawTicks(true)
     , m_autoNightMode(true)
     , n_bIsUseBlackPlat(true)
+    , m_render(new DSvgRenderer)
 {
 
 }
@@ -43,23 +49,48 @@ Clock::~Clock()
 
 }
 
+void Clock::setPath(const QString &picPath)
+{
+    m_render->load(picPath);
+    QSize defaultSize = m_render->defaultSize();
+
+    int margins = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FrameMargins));
+    int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, nullptr);
+    int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, nullptr);
+    int totalSpace = borderWidth + borderSpacing + margins;
+    setFixedSize(defaultSize.width() + 2 * totalSpace, defaultSize.height() + 2 * totalSpace);
+    update();
+}
+
 void Clock::paintEvent(QPaintEvent *)
 {
+    int margins = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FrameMargins));
+    int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, nullptr);
+    int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, nullptr);
+    int totalSpace = borderWidth + borderSpacing + margins;
+
     QDateTime datetime(QDateTime::currentDateTimeUtc());
     datetime = datetime.addSecs(m_timeZone.getUTCOffset());
 
     const QTime time(datetime.time());
 
     QPainter painter(this);
-    painter.setRenderHint(QPainter::SmoothPixmapTransform);
+    painter.setRenderHints(QPainter::HighQualityAntialiasing | QPainter::SmoothPixmapTransform);
 
     // draw plate
     painter.translate(0, 0);
     if (n_bIsUseBlackPlat) {
-        painter.drawPixmap(0, 0, QPixmap(":/datetime/icons/dcc_clock_black.svg"));
+        setPath(":/datetime/icons/dcc_clock_black.svg");
     } else {
-        painter.drawPixmap(0, 0, QPixmap(":/datetime/icons/dcc_clock_white.svg"));
+        setPath(":/datetime/icons/dcc_clock_white.svg");
     }
+
+    const auto ratio = devicePixelRatioF();
+    QSize defaultSize = m_render->defaultSize() * ratio;
+    QImage img = m_render->toImage(defaultSize);
+    QRect picRect = rect().adjusted(totalSpace, totalSpace, -totalSpace, -totalSpace);
+    m_render->render(&painter, picRect);
+    painter.drawImage(picRect, img, img.rect());
 
     QPixmap pix;
 
