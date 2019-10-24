@@ -131,7 +131,12 @@ MainWindow::MainWindow(QWidget *parent)
     titlebar->setIcon(QIcon::fromTheme("preferences-system"));
 
     connect(m_backwardBtn, &DIconButton::clicked, this, [this] {
-        popAllWidgets();
+        //说明：只有"update"模块/"镜像源列表"页面需要从第三级页面返回第二级页面(若其他模块还有需求可以在此处添加处理)
+        if (m_contentStack.last().first->name() != "update") {
+            popAllWidgets();
+        } else {
+            popWidget();
+        }
         resetNavList(m_contentStack.isEmpty());
     });
 
