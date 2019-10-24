@@ -24,6 +24,7 @@
 #include "nativeinfowidget.h"
 #include "versionprotocolwidget.h"
 #include "userlicensewidget.h"
+#include "systemrestore.h"
 #include "modules/systeminfo/systeminfowork.h"
 #include "modules/systeminfo/systeminfomodel.h"
 
@@ -67,6 +68,7 @@ void SystemInfoModule::active()
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowAboutNative, this, &SystemInfoModule::onShowAboutNativePage);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowVersionProtocol, this, &SystemInfoModule::onVersionProtocolPage);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowEndUserLicenseAgreement, this, &SystemInfoModule::onShowEndUserLicenseAgreementPage);
+    connect(m_sysinfoWidget, &SystemInfoWidget::requestShowRestore, this, &SystemInfoModule::onShowSystemRestore);
     m_frameProxy->pushWidget(this, m_sysinfoWidget);
     m_sysinfoWidget->setCurrentIndex(0);
 }
@@ -123,4 +125,8 @@ void SystemInfoModule::onShowEndUserLicenseAgreementPage()
 {
     UserLicenseWidget *w = new UserLicenseWidget;
     m_frameProxy->pushWidget(this, w);
+}
+
+void SystemInfoModule::onShowSystemRestore() {
+    m_frameProxy->pushWidget(this, new SystemRestore);
 }

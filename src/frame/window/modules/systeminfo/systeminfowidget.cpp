@@ -28,6 +28,11 @@
 #include <QStandardItemModel>
 #include <QIcon>
 #include <QList>
+#include <QSettings>
+#include <QDebug>
+#include <udisks2-qt5/dblockdevice.h>
+#include <udisks2-qt5/dblockpartition.h>
+#include <udisks2-qt5/ddiskmanager.h>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE::systeminfo;
@@ -66,8 +71,34 @@ void SystemInfoWidget::initData()
         {"dcc_protocol", tr("End User License Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowEndUserLicenseAgreement)},
     };
 
-    if(DCC_NAMESPACE::IsDesktopSystem)
-        m_itemList.removeLast();
+#ifndef QT_DEBUG
+    const QString &recoveryPath{ "/etc/deepin/system-recovery.conf" };
+    QSettings settings(recoveryPath, QSettings::IniFormat);
+    const QString UUID {settings.value("UUID").toString() };
+    if (!UUID.isEmpty()) {
+        const QStringList &devices = DDiskManager().blockDevices();
+        for (const QString &path : devices) {
+            QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
+            if (device->idUUID() == UUID) {
+#endif
+              m_itemList << ListMethod{
+                              "dcc_system_restore",
+                              tr("System Restore"),
+                              QMetaMethod::fromSignal(&SystemInfoWidget::requestShowRestore)
+                };
+#ifndef QT_DEBUG
+                break;
+            }
+        }
+    }
+    else {
+        qWarning() << "Cannot open " << recoveryPath;
+    }
+#endif
+
+    if(DCC_NAMESPACE::IsDesktopSystem) {
+        m_itemList.removeAt(2);
+    }
 
     for (auto m : m_itemList) {
         DStandardItem *item = new DStandardItem;

@@ -27,7 +27,8 @@ Build-Depends: debhelper (>= 9),
  libfontconfig1-dev,
  libfreetype6-dev,
  libegl1-mesa-dev,
- libxcb-ewmh-dev
+ libxcb-ewmh-dev,
+ libudisks2-qt5-dev
 Standards-Version: 3.9.5
 Homepage: https://github.com/linuxdeepin/dde-control-center
 

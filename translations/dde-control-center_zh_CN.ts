@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>BluetoothDelegate</name>
     <message>
@@ -4470,6 +4472,65 @@
         <translation>最终用户许可协议</translation>
         <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="86"/>
+        <source>System Restore</source>
+        <translation>系统还原</translation>
+        <extra-contents_path>/systeminfo/System Restore</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemRestore</name>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="26"/>
+        <source>Initialize all data on your system partition and reset the system configuration file, but keep the username, password, and the contents of other partitions.</source>
+        <translation>保留数据分区，并将系统分区中除用户名和密码之外的所有内容进行初始化，包括数据分区中保存的系统配置文件，都会被还原。</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="27"/>
+        <source>Reinstall the system, which will erase all data from the disk</source>
+        <translation>将计算机恢复到系统安装时的状态，即系统盘和数据盘中的所有内容都将被还原</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="31"/>
+        <source>Reset All Settings</source>
+        <translation>还原所有设置</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="32"/>
+        <source>Erase All Content and Settings</source>
+        <translation>清除所有数据和设置</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="66"/>
+        <source>This will reset all system settings to their defaults. Your data, username and password will not be deleted, please confirm and continue</source>
+        <translation>还原所有设置会将系统盘恢复到您安装系统时的状态，您的数据以及用户名和密码都会被保留，请确认后操作</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="72"/>
+        <source>This will reinstall the system and clear all user data. It is risky, please confirm and continue</source>
+        <translation>还原所有数据和设置会彻底抹掉您的所有数据，系统会被重新安装，并清空所有用户数据。此操作非常危险，请确认后再操作</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="77"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="80"/>
+        <source>Confirm</source>
+        <translation>确认</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="89"/>
+        <source>You should reboot the computer to erase all content and settings, reboot now?</source>
+        <translation>重启系统才能还原所有数据和设置，是否现在重启?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="92"/>
+        <source>You should reboot the computer to reset all settings, reboot now?</source>
+        <translation>重启系统才能还原所有设置，是否现在重启?</translation>
+    </message>
 </context>
 <context>
     <name>dccV20::update::MirrorSourceItem</name>
@@ -4612,7 +4673,9 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="341"/>
         <source>%n application update(s) available</source>
-        <translation><numerusform>检测到%n个应用更新</numerusform></translation>
+        <translation>
+            <numerusform>检测到%n个应用更新</numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
@@ -4622,7 +4685,9 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation><numerusform>检测到新系统版本和%n个应用更新</numerusform></translation>
+        <translation>
+            <numerusform>检测到新系统版本和%n个应用更新</numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="355"/>
@@ -4898,7 +4963,9 @@
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation><numerusform>%n天前</numerusform></translation>
+        <translation>
+            <numerusform>%n天前</numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -9063,7 +9130,11 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="199"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
+<<<<<<< HEAD
         <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
+=======
+        <translation>Copyright ©&#xa0;2019-2020 统信软件技术有限公司</translation>
+>>>>>>> feat(Restore): add restore module
     </message>
 </context>
 <context>
@@ -9221,7 +9292,9 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>检测到%n个应用更新</numerusform></translation>
+        <translation>
+            <numerusform>检测到%n个应用更新</numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -9231,7 +9304,9 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>检测到新系统版本和%n个应用更新</numerusform></translation>
+        <translation>
+            <numerusform>检测到新系统版本和%n个应用更新</numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>

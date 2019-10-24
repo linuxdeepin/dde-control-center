@@ -58,6 +58,7 @@ public Q_SLOTS:
     void onShowAboutNativePage();
     void onVersionProtocolPage();
     void onShowEndUserLicenseAgreementPage();
+    void onShowSystemRestore();
 
 private:
     dcc::systeminfo::SystemInfoWork *m_work;
