@@ -58,7 +58,6 @@ PppoePage::PppoePage(QWidget *parent)
     m_lvsettings->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addSpacing(10);
     mainLayout->addWidget(m_lvsettings);
     mainLayout->addWidget(m_createBtn, 0, Qt::AlignmentFlag::AlignHCenter);
     mainLayout->setSpacing(10);

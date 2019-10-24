@@ -208,6 +208,7 @@ void DatetimeModule::showTimezoneList()
 
     QWidget *widget = new QWidget;
     QVBoxLayout *layout = new QVBoxLayout;
+    layout->setMargin(0);
     layout->addWidget(sysTimezoneWidget, Qt::AlignTop);
     layout->addWidget(m_timezonelist);
     widget->setLayout(layout);

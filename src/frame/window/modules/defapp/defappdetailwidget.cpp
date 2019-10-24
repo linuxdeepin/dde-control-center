@@ -60,6 +60,7 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     m_defApps->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_defApps->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
 
+    m_centralLayout->setMargin(0);
     m_centralLayout->addWidget(m_defApps, 1);
     m_centralLayout->addWidget(m_addBtn, 0, Qt::AlignHCenter | Qt::AlignBottom);
     setLayout(m_centralLayout);

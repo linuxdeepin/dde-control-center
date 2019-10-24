@@ -84,6 +84,7 @@ void DatetimeWidget::init()
     m_clockItem->setTimeHourType(m_hourTypeSwitch->checked());
 
     QVBoxLayout *layout = new QVBoxLayout;
+    layout->setMargin(0);
     layout->addWidget(m_clockItem);
     layout->addWidget(m_hourTypeSwitch);
     layout->addWidget(m_listview);

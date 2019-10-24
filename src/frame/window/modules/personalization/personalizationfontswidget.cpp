@@ -49,7 +49,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     , m_monoFontsCbBox(new QComboBox(this))
     , m_isAppend(false)
 {
-    m_centralLayout->setMargin(10);
+    m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(20);
     //font size
     m_fontSizeSlider->addBackground();

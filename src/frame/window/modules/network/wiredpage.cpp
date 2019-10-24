@@ -76,7 +76,6 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_createBtn->setMinimumSize(QSize(47, 47));
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
-    centralLayout->addSpacing(10);
     centralLayout->addWidget(m_switch);
     centralLayout->addWidget(m_tipsGrp);
     centralLayout->addWidget(m_lvProfiles);

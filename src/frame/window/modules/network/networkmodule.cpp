@@ -234,6 +234,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
         return;
     }
 
+    p->layout()->setMargin(0);
     m_frameProxy->pushWidget(this, p);
 }
 

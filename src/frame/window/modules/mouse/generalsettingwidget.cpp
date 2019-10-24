@@ -85,11 +85,13 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     m_generalSettingsGrp->appendItem(m_doubleTest);
 
     m_contentLayout = new QVBoxLayout();
+    m_contentLayout->setMargin(0);
     m_contentLayout->addWidget(m_generalSettingsGrp);
     m_contentLayout->addStretch();
 
     TranslucentFrame *tFrame = new TranslucentFrame;
     tFrame->setLayout(m_contentLayout);
+    layout()->setMargin(0);
     setContent(tFrame);
 
     connect(m_leftHand, &SwitchWidget::checkedChanged, this, &GeneralSettingWidget::requestSetLeftHand);

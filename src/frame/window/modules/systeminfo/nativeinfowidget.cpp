@@ -85,6 +85,7 @@ void NativeInfoWidget::initWidget()
     infoGroup->appendItem(m_memory);
     infoGroup->appendItem(m_disk);
     infoGroup->setSpacing(3);
+    m_mainLayout->setMargin(0);
     m_mainLayout->addWidget(infoGroup);
     m_mainLayout->addStretch();
     setLayout(m_mainLayout);

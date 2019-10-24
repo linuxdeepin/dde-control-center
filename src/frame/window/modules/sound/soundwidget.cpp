@@ -41,6 +41,7 @@ SoundWidget::SoundWidget(QWidget *parent)
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     QVBoxLayout *layout = new QVBoxLayout;
+    layout->setMargin(0);
 
     m_menuList->setEditTriggers(DListView::NoEditTriggers);
     m_menuList->setFrameShape(QFrame::NoFrame);

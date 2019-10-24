@@ -54,6 +54,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 
     m_centralLayout = new QVBoxLayout();
     setMinimumWidth(250);
+    m_centralLayout->setMargin(0);
     setLayout(m_centralLayout);
 
 #if !defined(DISABLE_NETWORK_PROXY) || !defined(DISABLE_NETWORK_VPN) || !defined(DISABLE_NETWORK_PPPOE)

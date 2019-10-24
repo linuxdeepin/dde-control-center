@@ -81,6 +81,7 @@ void PowerWidget::initialize(bool hasBattery)
     });
 
     QVBoxLayout *layout = new QVBoxLayout(this);
+    layout->setMargin(0);
     layout->addWidget(m_listview);
     setLayout(layout);
 

@@ -62,6 +62,7 @@ UseBatteryWidget::UseBatteryWidget(QWidget *parent)
     batterySettingsGrp->appendItem(m_autoLockScreen);
     batterySettingsGrp->appendItem(m_suspendOnLidClose);
 
+    m_layout->setMargin(0);
     m_layout->addWidget(batterySettingsGrp);
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(10);

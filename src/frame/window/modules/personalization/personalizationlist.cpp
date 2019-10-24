@@ -69,6 +69,7 @@ PersonalizationList::PersonalizationList(QWidget *parent)
     m_categoryListView->setModel(m_model);
     m_categoryListView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
 
+    m_centralLayout->setMargin(0);
     m_centralLayout->addWidget(m_categoryListView);
     setLayout(m_centralLayout);
     connect(m_categoryListView, &QListView::clicked, this, &PersonalizationList::onCategoryClicked);

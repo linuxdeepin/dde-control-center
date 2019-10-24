@@ -40,7 +40,7 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
 {
-    m_layout->setMargin(10);
+    m_layout->setMargin(0);
 
     auto scrollarea = new QScrollArea;
     scrollarea->setWidgetResizable(true);

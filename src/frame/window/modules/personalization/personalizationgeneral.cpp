@@ -58,7 +58,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     , m_transparentSlider(new dcc::widgets::TitledSliderItem(tr("Transparency")))
     , m_Themes(new PerssonalizationThemeWidget())
 {
-    m_centralLayout->setMargin(10);
+    m_centralLayout->setMargin(0);
     //appearance
     //~ contents_path /personalization/General
     m_centralLayout->addWidget(new QLabel(tr("Theme")));

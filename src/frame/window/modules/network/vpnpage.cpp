@@ -33,6 +33,7 @@
 #include "widgets/optionitem.h"
 #include "widgets/nextpagewidget.h"
 #include "widgets/loadingnextpagewidget.h"
+#include "window/utils.h"
 
 #include <networkmodel.h>
 #include <DFloatingButton>
@@ -88,20 +89,20 @@ VpnPage::VpnPage(QWidget *parent)
     switchGrp->appendItem(m_vpnSwitch);
 
     QVBoxLayout *scrollLayout = new QVBoxLayout;
-    scrollLayout->addSpacing(10);
     scrollLayout->addWidget(switchGrp);
     scrollLayout->addWidget(m_lvprofiles);
     scrollLayout->setSpacing(10);
-    scrollLayout->setContentsMargins(0, 0, 0, 0);
+    scrollLayout->setContentsMargins(ThirdPageContentsMargins);
 
     QWidget *widget = new QWidget(this);
     widget->setLayout(scrollLayout);
 
     ContentWidget *contentWidget = new ContentWidget(this);
+    contentWidget->layout()->setMargin(0);
     contentWidget->setContent(widget);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
-
+    mainLayout->setMargin(0);
     mainLayout->addWidget(contentWidget);
 
     QHBoxLayout *buttonsLayout = new QHBoxLayout;

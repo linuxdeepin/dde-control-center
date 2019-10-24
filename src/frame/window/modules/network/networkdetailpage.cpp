@@ -88,6 +88,7 @@ NetworkDetailPage::NetworkDetailPage(QWidget *parent)
     mainWidget->setLayout(m_groupsLayout);
 
     setTitle(tr("Network Details"));
+    layout()->setMargin(0);
     setContent(mainWidget);
 }
 
@@ -117,8 +118,6 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         }
         delete item;
     }
-
-    m_groupsLayout->addSpacing(10);
 
     for (const auto &info : infos) {
         SettingsGroup *grp = new SettingsGroup;

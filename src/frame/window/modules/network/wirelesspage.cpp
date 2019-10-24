@@ -184,7 +184,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setSpacing(0);
     mainLayout->setContentsMargins(0, 0, 0, 0);
-    mainLayout->addSpacing(10);
     mainLayout->addWidget(m_switch);
     mainLayout->addWidget(m_lvAP);
     mainLayout->addWidget(m_tipsGroup);

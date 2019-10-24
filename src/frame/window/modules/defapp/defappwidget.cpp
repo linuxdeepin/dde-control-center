@@ -84,6 +84,7 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     //show default browser app
     m_defAppCatView->setCurrentIndex(model->indexFromItem(model->item(0)));
 
+    m_centralLayout->setMargin(0);
     m_centralLayout->addWidget(m_defAppCatView);
 
     connect(m_defAppCatView, &QListView::clicked, this, &DefaultAppsWidget::onCategoryClicked);

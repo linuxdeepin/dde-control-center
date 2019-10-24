@@ -60,9 +60,9 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
 DTK_USE_NAMESPACE
 
-const int first_widget_min_width = 190;
-const int second_widget_min_width = 250;
-const int third_widget_min_width = 360;
+const int first_widget_min_width = 188;
+const int second_widget_min_width = 230;
+const int third_widget_min_width = 340;
 const int widget_total_min_width = 820;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -86,6 +86,10 @@ MainWindow::MainWindow(QWidget *parent)
     m_contentLayout = new QHBoxLayout(content);
     m_rightContentLayout = new QHBoxLayout();
     m_rightView = new DBackgroundGroup(m_rightContentLayout);
+
+    m_rightContentLayout->setSpacing(22);
+    m_contentLayout->setContentsMargins(0, 0, 0, 0);
+
     m_navView = new DListView(this);
     m_navView->setFrameShape(QFrame::Shape::NoFrame);
     m_navView->setEditTriggers(QListView::NoEditTriggers);
@@ -96,10 +100,6 @@ MainWindow::MainWindow(QWidget *parent)
     m_contentLayout->addWidget(m_navView);
     m_contentLayout->setSpacing(0);
     m_contentLayout->addWidget(m_rightView);
-    m_contentLayout->setContentsMargins(0, 0, 0, 0);
-
-    m_rightContentLayout->setContentsMargins(10, 10, 10, 10);
-    m_rightContentLayout->setSpacing(2);
 
     m_rightView->hide();
     m_rightView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -549,7 +549,8 @@ void MainWindow::judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *cons
         }
         break;
     case 2: //from third widget to add top/right widget
-        if (totalWidth < widget_total_min_width) {
+        //因为bakcground的 margin 以及 spacing ,加上了一个999保证目前全是悬浮的四级
+        if (totalWidth + 999 < widget_total_min_width) {
             m_bIsFinalWidget = true;
         }
 

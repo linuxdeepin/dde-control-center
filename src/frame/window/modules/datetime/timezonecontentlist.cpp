@@ -44,6 +44,7 @@ TimezoneContentList::TimezoneContentList(QWidget *parent)
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(m_centralLayout);
+    layout()->setMargin(0);
     setContent(mainWidget);
 }
 

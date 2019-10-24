@@ -49,6 +49,7 @@ DisplayWidget::DisplayWidget(QWidget *parent)
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_centralLayout->setSpacing(10);
+    m_centralLayout->setMargin(0);
     setLayout(m_centralLayout);
 
     initMenuUI();

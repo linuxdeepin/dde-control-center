@@ -53,6 +53,7 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     m_createBtn->setFixedSize(50, 50);
 
     QVBoxLayout *mainContentLayout = new QVBoxLayout();
+    mainContentLayout->setMargin(0);
     mainContentLayout->addWidget(m_userlistView);
     mainContentLayout->addWidget(m_createBtn, 0, Qt::AlignHCenter);
 

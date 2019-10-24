@@ -164,7 +164,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_manualWidget->setContent(manualWidget);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->addSpacing(10);
+    mainLayout->setMargin(0);
     mainLayout->addWidget(m_proxyType);
     mainLayout->addSpacing(10);
     mainLayout->addWidget(m_manualWidget);
@@ -172,7 +172,6 @@ ProxyPage::ProxyPage(QWidget *parent)
     mainLayout->addSpacing(10);
     mainLayout->addStretch();
     mainLayout->addWidget(m_buttonTuple);
-    mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
 
     setWindowTitle(tr("System Proxy"));

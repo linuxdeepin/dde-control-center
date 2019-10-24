@@ -35,6 +35,7 @@ PerssonalizationThemeList::PerssonalizationThemeList(QWidget *parent)
     , m_listview(new DListView)
 {
     QVBoxLayout *layout = new QVBoxLayout;
+    layout->setMargin(0);
     QStandardItemModel *model = new QStandardItemModel;
     m_listview->setModel(model);
     m_listview->setEditTriggers(QListView::NoEditTriggers);

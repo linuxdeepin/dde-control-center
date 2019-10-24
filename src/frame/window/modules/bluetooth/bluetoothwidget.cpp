@@ -37,6 +37,7 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model)
     : m_model(model)
     , m_tFrame(new TranslucentFrame)
 {
+    layout()->setMargin(0);
     setObjectName("Bluetooth");
     m_bluetoothWorker = &dcc::bluetooth::BluetoothWorker::Instance();
 

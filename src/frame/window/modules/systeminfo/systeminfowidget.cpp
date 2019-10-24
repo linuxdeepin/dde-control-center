@@ -47,9 +47,7 @@ void SystemInfoWidget::initWidget()
     m_listView->setEditTriggers(QListView::NoEditTriggers);
     m_listView->setModel(m_itemModel);
 
-    m_mainContentLayout->setContentsMargins(5, 5, 5, 0);
     m_mainContentLayout->setMargin(0);
-
     m_mainContentLayout->addWidget(m_listView);
 
     setLayout(m_mainContentLayout);

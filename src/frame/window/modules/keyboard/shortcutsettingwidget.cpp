@@ -101,6 +101,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     //~ contents_path /keyboard/Shortcuts
     QPushButton *resetBtn = new QPushButton(tr("Restore Defaults"));
 
+    m_layout->setMargin(0);
     m_layout->addWidget(resetBtn);
     m_layout->addSpacing(10);
     m_layout->addStretch();
@@ -110,7 +111,6 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
 
     ContentWidget *m_contentWidget = new ContentWidget(this);
     m_contentWidget->setContent(widget);
-
     vlayout->addWidget(m_contentWidget);
 
     m_addCustomShortcut = new DFloatingButton(DStyle::SP_IncreaseElement, this);

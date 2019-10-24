@@ -49,11 +49,15 @@ TrackPointSettingWidget::TrackPointSettingWidget(QWidget *parent) : dcc::Content
     pointSlider->setPageStep(1);
     m_trackMoveSlider->setAnnotations(trackPointlist);
     m_trackPointSettingsGrp->appendItem(m_trackMoveSlider);
+
     m_contentLayout = new QVBoxLayout();
+    m_contentLayout->setMargin(0);
     m_contentLayout->addWidget(m_trackPointSettingsGrp);
     m_contentLayout->addStretch();
+
     TranslucentFrame *tFrame = new TranslucentFrame;
     tFrame->setLayout(m_contentLayout);
+    layout()->setMargin(0);
     setContent(tFrame);
     connect(m_trackMoveSlider->slider(), &DCCSlider::valueChanged, this, &TrackPointSettingWidget::requestSetTrackPointMotionAcceleration);
 }

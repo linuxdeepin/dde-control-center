@@ -57,6 +57,7 @@ TimezoneList::TimezoneList(QWidget *parent)
     m_contentList->setSpace(List_Interval);
 
     QHBoxLayout *btnLayout = new QHBoxLayout;
+    btnLayout->setMargin(0);
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
     btnLayout->addWidget(m_addTimezoneButton);
     m_centralLayout->addLayout(btnLayout);

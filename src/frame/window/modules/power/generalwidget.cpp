@@ -66,6 +66,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     m_autoIntoSaveEnergyMode->setVisible(bIsBattery);
 
     m_layout->addWidget(generalSettingsGrp);
+    m_layout->setMargin(0);
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(5);
     setLayout(m_layout);

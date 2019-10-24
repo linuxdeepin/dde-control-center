@@ -102,11 +102,13 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_generalSettingsGrp->appendItem(m_upper);
 
     m_contentLayout = new QVBoxLayout();
+    m_contentLayout->setMargin(0);
     m_contentLayout->addWidget(m_generalSettingsGrp);
     m_contentLayout->addStretch();
 
     TranslucentFrame *tFrame = new TranslucentFrame;
     tFrame->setLayout(m_contentLayout);
+    layout()->setMargin(0);
     setContent(tFrame);
 
     connect(m_delaySlider, &DCCSlider::valueChanged, this, &GeneralKBSettingWidget::requestKBDelayChanged);

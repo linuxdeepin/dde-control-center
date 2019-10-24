@@ -68,12 +68,14 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
     m_touchpadSettingsGrp->appendItem(m_touchNaturalScroll);
 
     m_contentLayout = new QVBoxLayout();
+    m_contentLayout->setMargin(0);
     m_contentLayout->addWidget(m_touchpadSettingsGrp);
     m_contentLayout->addSpacing(List_Interval);
     m_contentLayout->addWidget(m_palmDetectSetting);
     m_contentLayout->addStretch();
     TranslucentFrame *tFrame = new TranslucentFrame;
     tFrame->setLayout(m_contentLayout);
+    layout()->setMargin(0);
     setContent(tFrame);
 
     connect(m_touchMoveSlider->slider(), &DCCSlider::valueChanged, this, &TouchPadSettingWidget::requestSetTouchpadMotionAcceleration);

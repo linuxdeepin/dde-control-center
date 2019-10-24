@@ -42,6 +42,7 @@ MouseWidget::MouseWidget(QWidget *parent)
     setObjectName("Mouse");
     m_contentLayout = new QVBoxLayout(this);
     m_mouseListView = new DListView(this);
+    m_contentLayout->setMargin(0);
     m_contentLayout->addWidget(m_mouseListView);
     setLayout(m_contentLayout);
 }

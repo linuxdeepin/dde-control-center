@@ -75,6 +75,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
         refreshWidget(static_cast<UpdateType>(m_topSwitchWidgetBtn->id(value)));
     });
 
+    m_mainLayout->setMargin(0);
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(0);
     m_layout->addSpacing(10);
