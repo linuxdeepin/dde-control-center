@@ -120,7 +120,7 @@ void DisplayModel::setDisplayMode(const int mode)
 
 void DisplayModel::setUIScale(const double scale)
 {
-    if (fabs(m_uiScale - scale) < DoubleZero) {
+    if (fabs(m_uiScale - scale) > DoubleZero) {
         m_uiScale = scale;
         Q_EMIT uiScaleChanged(m_uiScale);
     }
@@ -128,7 +128,7 @@ void DisplayModel::setUIScale(const double scale)
 
 void DisplayModel::setMinimumBrightnessScale(const double scale)
 {
-    if (fabs(m_minimumBrightnessScale - scale) < DoubleZero) {
+    if (fabs(m_minimumBrightnessScale - scale) > DoubleZero) {
         m_minimumBrightnessScale = scale;
         Q_EMIT minimumBrightnessScaleChanged(m_minimumBrightnessScale);
     }

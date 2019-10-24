@@ -112,6 +112,7 @@ void BrightnessPage::addSlider()
         TitledSliderItem *slideritem = new TitledSliderItem(monList[i]->name());
         slideritem->addBackground();
 
+        qDebug() << "MinimumBrightness:   " << m_displayModel->minimumBrightnessScale();
         int miniScale = int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
         double brightness = monList[i]->brightness();
         slideritem->setValueLiteral(brightnessToTickInterval(brightness));
