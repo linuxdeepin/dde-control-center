@@ -47,7 +47,7 @@ class ClockItem : public QWidget
 {
     Q_OBJECT
 public:
-    explicit ClockItem(QWidget *parent = 0, bool isDisplay = true);
+    explicit ClockItem(QWidget *parent = nullptr, bool isDisplay = true);
 
     void setTimeZone(const ZoneInfo &zone);
     void setTimeHourType(bool type);

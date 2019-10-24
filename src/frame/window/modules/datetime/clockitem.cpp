@@ -41,7 +41,7 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
     , m_labelTime(nullptr)
     , m_labelDate(nullptr)
     , m_timeType(nullptr)
-    , m_bIs24HourType(0)
+    , m_bIs24HourType(false)
     , m_bIsEnglishType(false)
 {
     m_clock->setMinimumSize(224, 224);
@@ -62,7 +62,24 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
         topLayout->setSpacing(10);
         topLayout->setMargin(0);
         topLayout->addWidget(m_labelTime, 0, Qt::AlignHCenter);
-        topLayout->addWidget(m_timeType, 0, Qt::AlignRight);
+        topLayout->addWidget(m_timeType, 0, Qt::AlignRight | Qt::AlignBottom);
+
+        int nIndex = QFontDatabase::addApplicationFont(":/datetime/resource/deepindigitaltimes-Regular.ttf");
+        if (nIndex != -1) {
+            QStringList strList(QFontDatabase::applicationFontFamilies(nIndex));
+            if (strList.count() > 0) {
+                QFont ft(strList.at(0));
+                ft.setPointSize(33);
+
+                QFontMetricsF fm(ft);
+                auto rt1 = fm.boundingRect("33:33:33");
+
+                QFontMetricsF fm2(m_timeType->font());
+                auto rt2 = fm2.boundingRect("M");
+                m_timeType->setContentsMargins(0, 0, 0, int(rt1.bottom() - rt2.bottom()));
+            }
+        }
+
         auto twidget = new QWidget();
         twidget->setContentsMargins(0, 0, 0, 0);
         twidget->setLayout(topLayout);
@@ -87,7 +104,7 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
         itemlayout->addWidget(twidget, 0, Qt::AlignHCenter);
         item->addBackground();
         item->setLayout(itemlayout);
-        layout->addWidget(item,0,Qt::AlignVCenter);
+        layout->addWidget(item, 0, Qt::AlignVCenter);
     }
 
     setLayout(layout);
@@ -115,17 +132,6 @@ void ClockItem::setTimeHourType(bool type)
 
     m_bIs24HourType = type;
 
-    if (m_bIs24HourType) {
-        int nIndex = QFontDatabase::addApplicationFont(":/datetime/resource/deepindigitaltimes-Regular.ttf");
-        if (nIndex != -1) {
-            QStringList strList(QFontDatabase::applicationFontFamilies(nIndex));
-            if (strList.count() > 0) {
-                QFont fontThis(strList.at(0));
-                fontThis.setPointSize(33);
-                m_labelTime->setFont(fontThis);
-            }
-        }
-    }
     updateDateTime();
 }
 
