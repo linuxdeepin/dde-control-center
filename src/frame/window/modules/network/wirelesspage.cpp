@@ -150,6 +150,9 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_lvAP->setModel(m_modelAP);
     m_lvAP->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_lvAP->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    m_lvAP->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    m_lvAP->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
     m_lvAP->setSpacing(1);
 
     m_modelAP->setSortRole(APItem::SortRole);
@@ -184,19 +187,20 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     m_tipsGroup->appendItem(tips);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
-    mainLayout->addWidget(m_switch);
-    mainLayout->addWidget(m_lvAP);
-    mainLayout->addWidget(m_tipsGroup);
-    mainLayout->addSpacing(10);
-    mainLayout->addWidget(m_closeHotspotBtn);
-    mainLayout->addSpacing(10);
-    mainLayout->addStretch();
+    m_mainLayout = new QVBoxLayout;
+    m_mainLayout->setSpacing(0);
+    m_mainLayout->setContentsMargins(0, 0, 0, 0);
+    m_mainLayout->addWidget(m_switch);
+    m_mainLayout->addWidget(m_lvAP);
+    m_mainLayout->addWidget(m_tipsGroup);
+    m_mainLayout->addSpacing(10);
+    m_mainLayout->addWidget(m_closeHotspotBtn);
+    m_mainLayout->addSpacing(10);
+    m_layoutCount = m_mainLayout->layout()->count();
+    updateLayout(!m_lvAP->isHidden());
 
     QWidget *mainWidget = new TranslucentFrame;
-    mainWidget->setLayout(mainLayout);
+    mainWidget->setLayout(m_mainLayout);
 
     setContent(mainWidget);
 #ifdef QT_DEBUG
@@ -243,6 +247,24 @@ WirelessPage::~WirelessPage()
 {
 }
 
+void WirelessPage::updateLayout(bool enabled)
+{
+    int layCount = m_mainLayout->layout()->count();
+    if (enabled) {
+        if (layCount > m_layoutCount) {
+            QLayoutItem *layItem = m_mainLayout->takeAt(m_layoutCount);
+            if (layItem) {
+                delete layItem;
+            }
+        }
+    } else {
+        if (layCount <= m_layoutCount) {
+            m_mainLayout->addStretch();
+        }
+    }
+    m_mainLayout->invalidate();
+}
+
 void WirelessPage::setModel(NetworkModel *model)
 {
     m_model = model;
@@ -250,12 +272,14 @@ void WirelessPage::setModel(NetworkModel *model)
 //    connect(m_model, &NetworkModel::activeConnInfoChanged, this, &WirelessPage::onActiveConnInfoChanged);
 //    onActiveConnInfoChanged(m_model->activeConnInfos());
     onHotspotEnableChanged(m_device->hotspotEnabled());
+    updateLayout(!m_lvAP->isHidden());
 }
 
 void WirelessPage::onNetworkAdapterChanged(bool checked)
 {
     Q_EMIT requestDeviceEnabled(m_device->path(), checked);
     m_lvAP->setVisible(checked);
+    updateLayout(!m_lvAP->isHidden());
 }
 
 void WirelessPage::onAPAdded(const QJsonObject &apInfo)
@@ -320,6 +344,7 @@ void WirelessPage::onHotspotEnableChanged(const bool enabled)
     m_closeHotspotBtn->setVisible(enabled);
     m_tipsGroup->setVisible(enabled);
     m_lvAP->setVisible(!enabled && m_device->enabled());
+    updateLayout(!m_lvAP->isHidden());
 }
 
 void WirelessPage::onCloseHotspotClicked()

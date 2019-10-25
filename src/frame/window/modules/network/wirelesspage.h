@@ -143,7 +143,7 @@ private:
     void updateActiveAp();
     QString connectionUuid(const QString &ssid);
     QString connectionSsid(const QString &uuid);
-
+    void updateLayout(bool enabled);
 private:
     dde::network::WirelessDevice *m_device;
     dde::network::NetworkModel *m_model;
@@ -152,7 +152,9 @@ private:
     dcc::widgets::SettingsGroup *m_tipsGroup;
     QPushButton *m_closeHotspotBtn;
     DListView *m_lvAP;
+    QVBoxLayout *m_mainLayout;
     QStandardItemModel *m_modelAP;
+    int m_layoutCount;
 
     QPointer<ConnectionWirelessEditPage> m_apEditPage;
 

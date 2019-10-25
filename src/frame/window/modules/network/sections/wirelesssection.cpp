@@ -112,6 +112,12 @@ void WirelessSection::saveSettings()
     m_wirelessSetting->setInitialized(true);
 }
 
+void WirelessSection::setSsidReadOnly(const bool readOnly)
+{
+    m_apSsid->textEdit()->setClearButtonEnabled(!readOnly);
+    m_apSsid->setReadOnly(readOnly);
+}
+
 void WirelessSection::initUI()
 {
     m_apSsid->setTitle(tr("SSID"));

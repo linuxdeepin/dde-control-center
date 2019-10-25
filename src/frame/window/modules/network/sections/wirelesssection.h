@@ -49,6 +49,7 @@ public:
 
     bool allInputValid() Q_DECL_OVERRIDE;
     void saveSettings() Q_DECL_OVERRIDE;
+    void setSsidReadOnly(const bool readOnly);
 
     inline bool ssidIsEditable() const { return m_apSsid->isEnabled(); }
     inline void setSsidEditable(const bool editable) { m_apSsid->setEnabled(editable); }

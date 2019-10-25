@@ -62,11 +62,16 @@ bool GenericSection::autoConnectChecked() const
     return m_autoConnItem->switchWidget()->checked();
 }
 
+void GenericSection::setConnectionNameReadOnly(const bool readOnly)
+{
+    m_connIdItem->textEdit()->setClearButtonEnabled(!readOnly);
+    m_connIdItem->setReadOnly(readOnly);
+}
+
 void GenericSection::initUI()
 {
     m_connIdItem->setTitle(tr("Name"));
     m_connIdItem->setText(m_connSettings->id());
-
     m_autoConnItem->switchWidget()->setChecked(m_connSettings->autoconnect());
     m_autoConnItem->setTitle(tr("Auto Connect"));
 

@@ -45,6 +45,7 @@ public:
     bool allInputValid() Q_DECL_OVERRIDE;
     void saveSettings() Q_DECL_OVERRIDE;
     bool autoConnectChecked() const;
+    void setConnectionNameReadOnly(const bool readOnly);
 
     inline bool connectionNameIsEditable() const { return m_connIdItem->isEnabled(); }
     inline void setConnectionNameEditable(const bool editable) { m_connIdItem->setEnabled(editable); }
