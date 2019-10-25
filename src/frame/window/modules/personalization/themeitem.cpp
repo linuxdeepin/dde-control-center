@@ -91,10 +91,3 @@ void ThemeItem::setId(const QVariant &id)
 {
     m_id = id;
 }
-
-void ThemeItem::resizeEvent(QResizeEvent *event)
-{
-    Q_UNUSED(event)
-    m_mainLayout->setAlignment(m_title, Qt::AlignCenter);
-    m_mainLayout->setAlignment(m_itemPic, Qt::AlignCenter);
-}

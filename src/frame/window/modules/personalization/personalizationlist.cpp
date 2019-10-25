@@ -37,7 +37,6 @@ PersonalizationList::PersonalizationList(QWidget *parent)
     , m_centralLayout(new QVBoxLayout())
 {
     setObjectName("personanization");
-    m_categoryListView->setIconSize(QSize(26, 26));
     m_categoryListView->setResizeMode(QListView::Adjust);
     m_categoryListView->setMovement(QListView::Static);
     m_categoryListView->setFrameShape(QFrame::NoFrame);

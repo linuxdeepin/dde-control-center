@@ -39,7 +39,6 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     , m_centralLayout(new QVBoxLayout(this))
 {
     setObjectName("Defapp");
-    m_defAppCatView->setIconSize(QSize(24, 24));
     m_defAppCatView->setResizeMode(QListView::Adjust);
     m_defAppCatView->setMovement(QListView::Static);
     m_defAppCatView->setFrameShape(QFrame::NoFrame);
