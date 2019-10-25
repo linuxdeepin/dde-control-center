@@ -60,8 +60,9 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
 DTK_USE_NAMESPACE
 
+//此处为带边距的宽度
+const int first_widget_min_width = 188;
 //此处为不带边距的宽度
-const int first_widget_min_width = 168;
 const int second_widget_min_width = 230;
 const int third_widget_min_width = 340;
 //窗口的总宽度，带边距
@@ -296,6 +297,7 @@ void MainWindow::resetNavList(bool isIconMode)
 
     if (isIconMode) {
         //Only remain 1 level page : back to top page
+        m_navView->setViewportMargins(QMargins(0, 0, 0, 0));
         m_navView->setViewMode(QListView::IconMode);
         m_navView->setDragEnabled(false);
         m_navView->setMaximumWidth(QWIDGETSIZE_MAX);
@@ -309,6 +311,7 @@ void MainWindow::resetNavList(bool isIconMode)
         m_backwardBtn->setEnabled(false);
     } else {
         //The second page will Covered with fill blank areas
+        m_navView->setViewportMargins(QMargins(10, 0, 10, 0));
         m_navView->setViewMode(QListView::ListMode);
         m_navView->setFixedWidth(first_widget_min_width);
         m_navView->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
