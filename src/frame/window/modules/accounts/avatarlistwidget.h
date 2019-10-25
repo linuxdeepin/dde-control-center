@@ -46,7 +46,7 @@ class AvatarListWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AvatarListWidget(QWidget *parent = nullptr);
+    AvatarListWidget(QWidget *parent = nullptr, bool displayLastItem = true);
     void initWidgets();
     void initDatas();
     void setUserModel(dcc::accounts::User *user);
@@ -79,6 +79,7 @@ private:
     QList<QString> m_iconpathList;
     int m_prevSelectIndex;
     int m_currentSelectIndex;
+    bool m_displayLastItem;
 };
 
 }

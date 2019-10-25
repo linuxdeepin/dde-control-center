@@ -40,7 +40,7 @@ DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
 
-AvatarListWidget::AvatarListWidget(QWidget *parent)
+AvatarListWidget::AvatarListWidget(QWidget *parent, bool displayLastItem)
     : QWidget(parent)
     , m_mainContentLayout(new QVBoxLayout())
     , m_avatarListView(new DListView())
@@ -48,6 +48,7 @@ AvatarListWidget::AvatarListWidget(QWidget *parent)
     , m_avatarItemDelegate(new AvatarItemDelegate())
     , m_prevSelectIndex(-1)
     , m_currentSelectIndex(-1)
+    , m_displayLastItem(displayLastItem)
 {
     initWidgets();
     initDatas();
@@ -78,7 +79,9 @@ void AvatarListWidget::initWidgets()
 void AvatarListWidget::initDatas()
 {
     addItemFromDefaultDir();
-    addLastItem();
+    if (m_displayLastItem) {
+        addLastItem();
+    }
 
     m_avatarListView->setItemDelegate(m_avatarItemDelegate);
     m_avatarListView->setModel(m_avatarItemModel);

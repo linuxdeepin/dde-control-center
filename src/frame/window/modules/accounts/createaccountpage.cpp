@@ -41,7 +41,7 @@ using namespace DCC_NAMESPACE::accounts;
 
 CreateAccountPage::CreateAccountPage(QWidget *parent)
     : QWidget(parent)
-    , m_avatarListWidget(new AvatarListWidget)
+    , m_avatarListWidget(new AvatarListWidget(this, false))
     , m_nameEdit(new DLineEdit)
     , m_fullnameEdit(new DLineEdit)
     , m_passwdEdit(new DPasswordEdit)

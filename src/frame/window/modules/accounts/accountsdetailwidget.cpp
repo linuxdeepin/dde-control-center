@@ -49,7 +49,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_inputLineEdit(new QLineEdit)
     , m_mainStackedWidget(new QStackedWidget)
     , m_fingerWidget(new FingerWidget(user, this))
-    , m_avatarListWidget(new AvatarListWidget)
+    , m_avatarListWidget(new AvatarListWidget(this, true))
 {
     m_avatarListWidget->setUserModel(m_curUser);
 
