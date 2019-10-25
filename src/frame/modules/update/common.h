@@ -49,6 +49,7 @@ enum UpdatesStatus {
     NoSpace,
     DeependenciesBrokenError,
     RecoveryBackingup,
+    RecoveryBackingSuccessed,
     RecoveryBackupFailed
 };
 

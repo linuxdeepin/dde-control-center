@@ -67,7 +67,7 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_bRecoverRestoring(false)
     , m_systemVersionInfo("")
 {
-
+    m_metaEnum = QMetaEnum::fromType<ModelUpdatesStatus>();
 }
 
 void UpdateModel::setMirrorInfos(const MirrorInfoList &list)
@@ -167,10 +167,19 @@ UpdatesStatus UpdateModel::status() const
 
 void UpdateModel::setStatus(const UpdatesStatus &status)
 {
+    if (getIsRecoveryBackingup(status))
+        return;
+
     if (m_status != status) {
         m_status = status;
         Q_EMIT statusChanged(status);
     }
+}
+
+void UpdateModel::setStatus(const UpdatesStatus &status, int line)
+{
+    qDebug() << " from work set status : " << m_metaEnum.valueToKey(status) << " , set place in work line : " << line;
+    setStatus(status);
 }
 
 double UpdateModel::upgradeProgress() const
@@ -286,6 +295,26 @@ void UpdateModel::setSystemVersionInfo(QString systemVersionInfo)
     m_systemVersionInfo = systemVersionInfo;
 
     Q_EMIT systemVersionChanged(systemVersionInfo);
+}
+
+//判断当前是否正在备份中，若正在备份则不能再设置其他状态，直到备份有结果了才能继续设置其他状态
+bool UpdateModel::getIsRecoveryBackingup(UpdatesStatus state) const
+{
+    bool ret = true;
+
+    if (m_status == UpdatesStatus::RecoveryBackingup) {
+        if (state == UpdatesStatus::RecoveryBackingSuccessed ||
+                state == UpdatesStatus::RecoveryBackupFailed) {
+            ret = false;
+            qDebug() << " Backing up End ! , state : " << state;
+        } else {
+            qDebug() << " Now is Backing up , can't set other status. Please wait..." << m_metaEnum.valueToKey(state);
+        }
+    } else {
+        ret = false;
+    }
+
+    return ret;
 }
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK

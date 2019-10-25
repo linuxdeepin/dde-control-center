@@ -111,7 +111,7 @@ private:
     void onSmartMirrorServiceIsValid(bool isvalid);
     void onNotifyStatusChanged(UpdatesStatus status);
     bool getNotUpdateState();
-    void resetDownloadInfo();
+    void resetDownloadInfo(bool state = false);
 
 private:
     UpdateModel* m_model;
@@ -137,8 +137,8 @@ private:
     bool m_bDownAndUpdate;
     QString m_jobPath;
     double m_downloadProcess;
-    bool m_bIsUserClickedUpdate;
     bool m_bIsFirstGetDownloadProcess;
+    qlonglong m_downloadSize;
 };
 }
 }

@@ -100,8 +100,8 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_bDownAndUpdate(false)
     , m_jobPath("")
     , m_downloadProcess(0.0)
-    , m_bIsUserClickedUpdate(false)
     , m_bIsFirstGetDownloadProcess(true)
+    , m_downloadSize(0)
 {
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
@@ -137,11 +137,12 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
         if ("backup" == kind) {
             //失败:提示失败,不再进行更新进行
             if (!success) {
-                m_model->setStatus(UpdatesStatus::RecoveryBackupFailed);
+                m_model->setStatus(UpdatesStatus::RecoveryBackupFailed, __LINE__);
                 qWarning() << Q_FUNC_INFO << " [abRecovery] 备份失败 , errMsg : " << errMsg;
                 return;
             }
 
+            m_model->setStatus(UpdatesStatus::RecoveryBackingSuccessed, __LINE__);
             m_model->setUpgradeProgress(1.0);
 
             //开始下载(只有成功才会继续更新)
@@ -216,7 +217,7 @@ void UpdateWorker::checkForUpdates()
             const QString jobPath = reply.value().path();
             setCheckUpdatesJob(jobPath);
         } else {
-            m_model->setStatus(UpdatesStatus::UpdateFailed);
+            m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
             resetDownloadInfo();
             if (!m_checkUpdateJob.isNull()) {
                 m_managerInter->CleanJob(m_checkUpdateJob->id());
@@ -234,7 +235,7 @@ void UpdateWorker::distUpgradeDownloadUpdates()
             QDBusReply<QDBusObjectPath> reply = watcher->reply();
             setDownloadJob(reply.value().path());
         } else {
-            m_model->setStatus(UpdatesStatus::UpdateFailed);
+            m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
             resetDownloadInfo();
             if (!m_distUpgradeJob.isNull()) {
                 m_managerInter->CleanJob(m_distUpgradeJob->id());
@@ -252,7 +253,7 @@ void UpdateWorker::distUpgradeInstallUpdates()
             QDBusReply<QDBusObjectPath> reply = watcher->reply();
             setDistUpgradeJob(reply.value().path());
         } else {
-            m_model->setStatus(UpdatesStatus::UpdateFailed);
+            m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
             resetDownloadInfo();
             if (!m_distUpgradeJob.isNull()) {
                 m_managerInter->CleanJob(m_distUpgradeJob->id());
@@ -282,7 +283,7 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
     if (!pkgCount && !appCount) {
         QFile file("/tmp/.dcc-update-successd");
         if (file.exists()) {
-            m_model->setStatus(UpdatesStatus::NeedRestart);
+            m_model->setStatus(UpdatesStatus::NeedRestart, __LINE__);
             return;
         }
     }
@@ -325,35 +326,22 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
 
     qDebug() << "updatable packages:" <<  m_updatablePackages << result->appInfos();
     qDebug() << "total download size:" << formatCap(result->downloadSize());
+    m_downloadSize = result->downloadSize();
 
     if (result->appInfos().length() == 0) {
-        m_model->setStatus(UpdatesStatus::Updated);
+        m_model->setStatus(UpdatesStatus::Updated, __LINE__);
     } else {
         if (result->downloadSize()) {
             qDebug() << "[wubw download] get download process from DBus (0 : UpdatesAvailable), m_downloadProcess : " << m_downloadProcess;
             if (!compareDouble(m_downloadProcess, 0.0)) {
-                m_model->setStatus(UpdatesStatus::UpdatesAvailable);
+                m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
             } else {
                 m_model->setUpgradeProgress(m_downloadProcess);
                 onNotifyStatusChanged(UpdatesStatus::DownloadPaused);
             }
         } else {
             if (getNotUpdateState()) {
-                m_model->setStatus(UpdatesStatus::Downloaded);
-            }
-
-            //(1)用户点击升级 : 会直接执行升级过程
-            if (m_bIsUserClickedUpdate) {
-                qDebug() << "[wubw] Need User clicked to update.";
-            } else {
-                //(2)自动升级 :
-                //            自动下载安装包   : 需要收到点击"安装更新",才会升级
-                //            非自动下载安装包 : 下载完前被关闭,再次进去要继续下载(到这里表示下载完了)并更新;
-                qDebug() << "[wubw] Auto update.  m_model->autoCheckUpdates() : " << m_model->autoDownloadUpdates();
-                if (!m_model->autoDownloadUpdates()) {
-                    m_bIsUserClickedUpdate = false;
-                    distUpgradeInstallUpdates();
-                }
+                m_model->setStatus(UpdatesStatus::Downloaded, __LINE__);
             }
         }
     }
@@ -420,13 +408,25 @@ void UpdateWorker::onNotifyStatusChanged(UpdatesStatus status)
         if (UpdatesStatus::DownloadPaused == status) {
             qDebug() << "[Update] UpdatesStatus::DownloadPaused , m_downloadProcess : " << m_downloadProcess;
 
-            if (m_downloadProcess - 0.0 > 0.0) {
-                m_model->setStatus(UpdatesStatus::DownloadPaused);
+            if (m_downloadProcess > 0.0 && m_downloadProcess < 1.0) {
+                m_model->setStatus(UpdatesStatus::DownloadPaused, __LINE__);
+            } else if (!compareDouble(m_downloadProcess, 1.0)) {
+                //切换状态前，判断当前状态
+                if (!getNotUpdateState())
+                    return;
+
+                //根据下载数据的大小，判断设置状态
+                if (m_downloadSize > 0.0) {
+                    m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
+                } else {
+                    m_model->setStatus(UpdatesStatus::Downloaded, __LINE__);
+                }
             }
         }
     }
 }
 
+//处于以下状态时，就不能再去设置其他更新的状态了，直接显示对应错误提示
 bool UpdateWorker::getNotUpdateState()
 {
     bool ret = true;
@@ -440,18 +440,27 @@ bool UpdateWorker::getNotUpdateState()
         ret = false;
     }
 
-    qDebug() << " Curremt status : " << state << " , Result : " << ret;
     return ret;
 }
 
-void UpdateWorker::resetDownloadInfo()
+void UpdateWorker::resetDownloadInfo(bool state)
 {
     m_downloadProcess = 0.0;
+    m_downloadSize = 0;
     m_updatableApps.clear();
     m_updatablePackages.clear();
-    m_bIsUserClickedUpdate = false;
-    if (!m_downloadJob.isNull()) {
-        m_downloadJob->deleteLater();
+    if (m_updateInter) {
+        setAppUpdateInfo(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()));
+    }
+
+    if (!state) {
+        if (!m_downloadJob.isNull()) {
+            m_downloadJob->deleteLater();
+        }
+
+        if (!m_distUpgradeJob.isNull()) {
+            m_distUpgradeJob->deleteLater();
+        }
     }
 }
 
@@ -469,7 +478,7 @@ void UpdateWorker::resumeDownload()
 {
     if (!m_downloadJob.isNull()) {
         m_managerInter->StartJob(m_downloadJob->id());
-        m_model->setStatus(UpdatesStatus::Downloading);
+        m_model->setStatus(UpdatesStatus::Downloading, __LINE__);
     } else {
         qWarning() << "m_downloadJob is nullptr";
     }
@@ -479,11 +488,6 @@ void UpdateWorker::distUpgrade()
 {
     if (m_bDownAndUpdate)
         m_bDownAndUpdate = false;
-
-    //用户点击操作
-    if (!m_bIsUserClickedUpdate) {
-        m_bIsUserClickedUpdate = true;
-    }
 
     //First start backupRecovery , then to load(in RecoveryInter::JobEnd Lemon function)
     bool bConfigVlid = m_model->recoverConfigValid();
@@ -502,11 +506,6 @@ void UpdateWorker::downloadAndDistUpgrade()
 {
     if (!m_bDownAndUpdate)
         m_bDownAndUpdate = true;
-
-    //用户点击操作
-    if (!m_bIsUserClickedUpdate) {
-        m_bIsUserClickedUpdate = true;
-    }
 
     bool bConfigVlid = m_model->recoverConfigValid();
     qDebug() << Q_FUNC_INFO << " [abRecovery] 下载并更新前,检查备份配置是否满足(true:满足) : " << bConfigVlid;
@@ -630,10 +629,10 @@ void UpdateWorker::recoveryCanBackup()
             if (value) {
                 qDebug() << Q_FUNC_INFO << " [abRecovery] 可以备份, 开始备份...";
                 m_model->setUpgradeProgress(0.7);
-                m_model->setStatus(UpdatesStatus::RecoveryBackingup);
+                m_model->setStatus(UpdatesStatus::RecoveryBackingup, __LINE__);
                 m_abRecoveryInter->StartBackup();
             } else {
-                m_model->setStatus(UpdatesStatus::RecoveryBackupFailed);
+                m_model->setStatus(UpdatesStatus::RecoveryBackupFailed, __LINE__);
                 qWarning() << Q_FUNC_INFO << " [abRecovery] 是否能备份(CanBackup)的环境不满足 -> 备份失败 ";
             }
         } else {
@@ -673,7 +672,7 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
     qDebug() << "[update] start status : " << m_model->status();
     UpdatesStatus state = m_model->status();
     if (UpdatesStatus::Downloading != state && UpdatesStatus::DownloadPaused != state && UpdatesStatus::Installing != state) {
-        m_model->setStatus(UpdatesStatus::Checking);
+        m_model->setStatus(UpdatesStatus::Checking, __LINE__);
     } else if (UpdatesStatus::UpdateFailed == state) {
         resetDownloadInfo();
     }
@@ -713,7 +712,7 @@ void UpdateWorker::setDownloadJob(const QString &jobPath)
                                  QDBusConnection::systemBus(), this);
 
     connect(m_downloadJob, &__Job::ProgressChanged, [this](double value) {
-        qDebug() << "[wubw download] m_downloadJob, value : " << value;
+        qDebug() << "[wubw download] m_downloadJob, value : " << value << m_bIsFirstGetDownloadProcess;
         //防止退出后再次进入不确定当前升级的状态,设置正在下载中.
         //假如dbus一直收不到该信号,还是会存在从check直接调到结果的问题(此时就是底层的问题了)
         m_downloadProcess = value;
@@ -728,13 +727,17 @@ void UpdateWorker::setDownloadJob(const QString &jobPath)
 
             //第一次收到下载进度显示暂定,之后再次收到显示更新中
             if (m_bIsFirstGetDownloadProcess) {
-                //只有当进度为0的时候,才会显示一次暂定
+                //只有当进度为0的时候,才会显示一次暂停
                 if (!compareDouble(m_downloadProcess, 0.0)) {
                     m_bIsFirstGetDownloadProcess = false;
                     onNotifyStatusChanged(UpdatesStatus::DownloadPaused);
                 }
             } else {
-                m_model->setStatus(UpdatesStatus::Downloading);
+                if (m_downloadSize > 0) {
+                    m_model->setStatus(UpdatesStatus::Downloading, __LINE__);
+                } else {
+                    qWarning() << " m_downloadSize is 0 : do nothing.";
+                }
             }
             info->setDownloadProgress(value);
             m_model->setUpgradeProgress(value);
@@ -763,10 +766,11 @@ void UpdateWorker::setDistUpgradeJob(const QString &jobPath)
 
     connect(m_distUpgradeJob, &__Job::ProgressChanged, [this](double value) {
         qDebug() << "[wubw distUpgrade] Update, value : " << value << m_model->status();
+
         //防止退出后再次进入不确定当前升级的状态,设置正在更新中.
         //假如dbus一直收不到该信号,还是会存在从check直接调到结果的问题(此时就是底层的问题了)
         if (getNotUpdateState()) {
-            m_model->setStatus(UpdatesStatus::Installing);
+            m_model->setStatus(UpdatesStatus::Installing, __LINE__);
         }
         m_model->setUpgradeProgress(m_baseProgress + (1 - m_baseProgress) * value);
     });
@@ -774,7 +778,7 @@ void UpdateWorker::setDistUpgradeJob(const QString &jobPath)
     connect(m_distUpgradeJob, &__Job::StatusChanged, this, &UpdateWorker::onUpgradeStatusChanged);
 
     if (getNotUpdateState()) {
-        m_model->setStatus(UpdatesStatus::Installing);
+        m_model->setStatus(UpdatesStatus::Installing, __LINE__);
     }
 
     m_distUpgradeJob->ProgressChanged(m_distUpgradeJob->progress());
@@ -828,9 +832,9 @@ void UpdateWorker::onAppUpdateInfoFinished(QDBusPendingCallWatcher *w)
                                  .object();
 
         if (obj["Type"].toString().contains("dependenciesBroken")) {
-            m_model->setStatus(UpdatesStatus::DeependenciesBrokenError);
+            m_model->setStatus(UpdatesStatus::DeependenciesBrokenError, __LINE__);
         } else {
-            m_model->setStatus(UpdatesStatus::UpdateFailed);
+            m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
             qWarning() << Q_FUNC_INFO << "UpdateFailed, error msg : " << obj["Type"].toString();
         }
 
@@ -866,14 +870,14 @@ void UpdateWorker::onDownloadStatusChanged(const QString &status)
                 if (m_model->downloadInfo()->downloadSize()) {
                     checkForUpdates();
                 } else {
-                    m_model->setStatus(UpdatesStatus::Downloaded);
+                    m_model->setStatus(UpdatesStatus::Downloaded, __LINE__);
                 }
             });
         }
     } else if (status == "paused") {
         onNotifyStatusChanged(UpdatesStatus::DownloadPaused);
     } else if (status == "running") {
-        m_model->setStatus(UpdatesStatus::Downloading);
+        m_model->setStatus(UpdatesStatus::Downloading, __LINE__);
     }
 }
 
@@ -891,7 +895,7 @@ void UpdateWorker::onUpgradeStatusChanged(const QString &status)
     } else if (status == "success" || status == "succeed") {
         m_distUpgradeJob->deleteLater();
 
-        m_model->setStatus(UpdatesStatus::UpdateSucceeded);
+        m_model->setStatus(UpdatesStatus::UpdateSucceeded, __LINE__);
         //更新完成,重置下载进度
         resetDownloadInfo();
 
@@ -911,13 +915,13 @@ void UpdateWorker::checkDiskSpace(JobInter *job)
     qDebug() << "job description: " << jobDescription;
     if (jobDescription.contains("You don't have enough free space", Qt::CaseInsensitive) ||
             !m_lastoresessionHelper->IsDiskSpaceSufficient()) {
-        m_model->setStatus(UpdatesStatus::NoSpace);
+        m_model->setStatus(UpdatesStatus::NoSpace, __LINE__);
     } else if (jobDescription.contains("Temporary failure resolving", Qt::CaseInsensitive)) {
-        m_model->setStatus(UpdatesStatus::NoNetwork);
+        m_model->setStatus(UpdatesStatus::NoNetwork, __LINE__);
     } else if (jobDescription.contains("The following packages have unmet dependencies", Qt::CaseInsensitive)) {
-        m_model->setStatus(UpdatesStatus::DeependenciesBrokenError);
+        m_model->setStatus(UpdatesStatus::DeependenciesBrokenError, __LINE__);
     } else {
-        m_model->setStatus(UpdatesStatus::UpdateFailed);
+        m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
         qWarning() << Q_FUNC_INFO << "UpdateFailed , jobDescription : " << jobDescription;
     }
     //以上错误均需重置更新信息

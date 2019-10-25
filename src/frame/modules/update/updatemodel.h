@@ -58,15 +58,40 @@ private:
 
 class UpdateModel : public QObject
 {
+public:
+    //ModelUpdatesStatus仅用于log显示；
+    //common.h UpdatesStatu更新后，此处需要同步更新
+    enum ModelUpdatesStatus {
+        Default,
+        Checking,
+        Updated,
+        UpdatesAvailable,
+        Downloading,
+        DownloadPaused,
+        Downloaded,
+        Installing,
+        UpdateSucceeded,
+        UpdateFailed,
+        NeedRestart,
+        NoNetwork,
+        NoSpace,
+        DeependenciesBrokenError,
+        RecoveryBackingup,
+        RecoveryBackingSuccessed,
+        RecoveryBackupFailed
+    };
+    Q_ENUM(ModelUpdatesStatus)
+
     Q_OBJECT
 public:
-    explicit UpdateModel(QObject *parent = 0);
+    explicit UpdateModel(QObject *parent = nullptr);
 
     void setMirrorInfos(const MirrorInfoList& list);
     MirrorInfoList mirrorInfos() const { return m_mirrorList;}
 
     UpdatesStatus status() const;
     void setStatus(const UpdatesStatus &status);
+    void setStatus(const UpdatesStatus &status, int line);
 
     MirrorInfo defaultMirror() const;
     void setDefaultMirror(const QString& mirrorId);
@@ -117,6 +142,8 @@ public:
     inline QString systemVersionInfo() const { return m_systemVersionInfo; }
     void setSystemVersionInfo(QString systemVersionInfo);
 
+    bool getIsRecoveryBackingup(UpdatesStatus state) const;
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
@@ -166,6 +193,7 @@ private:
     bool m_bRecoverConfigValid;
     bool m_bRecoverRestoring;
     QString m_systemVersionInfo;
+    QMetaEnum m_metaEnum;
 };
 
 }

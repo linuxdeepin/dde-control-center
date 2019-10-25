@@ -227,12 +227,11 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_progress->setMessage(tr("%1% downloaded (Click to continue)").arg(m_progress->value()));
         break;
     case UpdatesStatus::Downloaded:
-        m_progress->setVisible(true);
+        m_fullProcess->setVisible(true);
         m_updateList->setVisible(true);
         m_summary->setVisible(true);
-        m_progress->setProcessValue(m_progress->maximum());
         //~ contents_path /update/Update
-        m_progress->setMessage(tr("Install updates"));
+        m_fullProcess->setMessage(tr("Install updates"));
         setDownloadInfo(m_model->downloadInfo());
         setLowBattery(m_model->lowBattery());
         break;
@@ -283,6 +282,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_resultItem->setMessage(tr("Dependency error, failed to detect the updates"));
         break;
     case UpdatesStatus::RecoveryBackingup:
+    case UpdatesStatus::RecoveryBackingSuccessed:
         m_progress->setVisible(true);
         m_updateList->setVisible(true);
         m_summary->setVisible(true);
