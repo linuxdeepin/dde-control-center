@@ -166,8 +166,8 @@ void CommonInfoWork::setUeProgram(bool enabled)
         QProcess *process = new QProcess(this);
 
         // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
-        QString title = "User Experience Program";
-        QString allowContent = "Agree and Join User Experience Program";
+        QString title(tr("User Experience Program"));
+        QString allowContent(tr("Agree and Join User Experience Program"));
 
         // license内容
         QString content = getLicense(":/systeminfo/license/deepin-end-user-license-agreement_community_%1.txt", "");
