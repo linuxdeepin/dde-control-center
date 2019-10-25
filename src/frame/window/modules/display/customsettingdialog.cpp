@@ -76,7 +76,7 @@ void CustomSettingDialog::initUI()
     m_layout = new QVBoxLayout();
     m_listLayout = new QVBoxLayout();
 
-    DButtonBox *btnBox = new DButtonBox(this);
+    auto btnBox = new DButtonBox(this);
     m_layout->addWidget(btnBox, 0, Qt::AlignHCenter);
 
     auto initlistfunc = [](DListView *list) {
@@ -167,6 +167,15 @@ void CustomSettingDialog::initWithModel()
     initMoniControlWidget();
     initResolutionList();
     initRefreshrateList();
+
+    if (m_moniList)
+        m_moniList->setVisible(!m_model->isMerge());
+
+    if (m_monitor->isPrimary())
+        m_vSegBtn.at(0)->setVisible(!m_model->isMerge());
+
+    if (m_model->isMerge() && m_vSegBtn.at(0)->isChecked())
+        m_vSegBtn.at(1)->setChecked(true);
 }
 
 void CustomSettingDialog::initOtherDialog()
@@ -493,13 +502,17 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
     if (!beChecked)
         return;
 
-    if (m_moniList)
-        m_moniList->setVisible(false);
+    if (!m_moniList)
+        return;
+
+    m_moniList->setVisible(false);
     m_resolutionList->setVisible(false);
     m_rateList->setVisible(false);
 
     auto segBtn = qobject_cast<DButtonBoxButton *>(btn);
-    switch (m_vSegBtn.indexOf(segBtn)) {
+    auto btnIdx = m_vSegBtn.indexOf(segBtn);
+
+    switch (btnIdx) {
     case 0:
         if (m_isPrimary) {
             m_moniList->setVisible(true);

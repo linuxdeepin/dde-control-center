@@ -73,7 +73,8 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
     const QFontMetrics fm(painter.font());
     const int width = fm.boundingRect(m_monitor->name()).width();
     painter.setPen(Qt::white);
-    painter.drawText(r.width() - width - 20, 30, m_monitor->name());
+    if (!m_model->isMerge())
+        painter.drawText(r.width() - width - 20, 30, m_monitor->name());
 
     // draw dock pattern if it's primary screen
     if (m_monitor->isPrimary())
