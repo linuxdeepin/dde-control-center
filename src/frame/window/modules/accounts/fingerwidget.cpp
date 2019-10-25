@@ -27,6 +27,7 @@
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QScrollArea>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -36,21 +37,21 @@ using namespace DCC_NAMESPACE::accounts;
 FingerWidget::FingerWidget(User *user, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
-    , m_listGrp(new SettingsGroup)
-    , m_addfingeGrp(new SettingsGroup)
+    , m_listGrp(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
 {
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
 
-    AccounntFingeItem *addfingeItem = new AccounntFingeItem;
-    DCommandLinkButton *addBtn = new DCommandLinkButton(tr("Add fingerprint"));
     DCommandLinkButton *clearBtn = new DCommandLinkButton(tr("Delete fingerprint"));
     TitleLabel *fingetitleLabel = new TitleLabel(tr("Fingerprint Password"));
 
     m_listGrp->setSpacing(2);
-    m_addfingeGrp->setSpacing(2);
-    addfingeItem->setTitle("");
-    addfingeItem->appendItem(addBtn);
-    m_addfingeGrp->appendItem(addfingeItem);
+    QScrollArea *scrollArea = new QScrollArea;
+    scrollArea->setWidget(m_listGrp);
+    scrollArea->setFrameShape(QFrame::NoFrame);//无边框
+    scrollArea->setWidgetResizable(true);//自动调整大小
+    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_listGrp->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     QHBoxLayout *headLayout = new QHBoxLayout;
     headLayout->setContentsMargins(0, 0, 0, 0);
@@ -64,21 +65,15 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     mainContentLayout->setSpacing(2);
     mainContentLayout->setMargin(0);
     mainContentLayout->addLayout(headLayout);
-    mainContentLayout->addWidget(m_listGrp);
-    mainContentLayout->addWidget(m_addfingeGrp);
+    mainContentLayout->addWidget(scrollArea);
     setLayout(mainContentLayout);
 
     //设置字体大小
     DFontSizeManager::instance()->bind(fingetitleLabel, DFontSizeManager::T5);
-    DFontSizeManager::instance()->bind(addBtn, DFontSizeManager::T7);
     DFontSizeManager::instance()->bind(clearBtn, DFontSizeManager::T7);
 
-    connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
-        Q_EMIT requestAddThumbs(m_curUser->name(), m_notUseThumb);
-    });
     connect(clearBtn, &DCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestCleanThumbs(m_curUser);
-        addBtn->setVisible(true);
     });
 }
 
@@ -97,7 +92,7 @@ void FingerWidget::setFingerModel(FingerModel *model)
 void FingerWidget::onThumbsListChanged(const QList<dcc::accounts::FingerModel::UserThumbs> &thumbs)
 {
     QStringList thumb = thumbsLists;
-
+    bool isAddFingeBtn = true;
     m_listGrp->clear();
 
     for (int n = 0; n < 10 && n < thumbs.size(); ++n) {
@@ -120,10 +115,28 @@ void FingerWidget::onThumbsListChanged(const QList<dcc::accounts::FingerModel::U
         }
 
         if (i == 11) {
-            m_addfingeGrp->setVisible(false);
+            isAddFingeBtn = false;
         }
-        return;
     }
 
-    m_notUseThumb = thumb.first();
+    if (!thumb.isEmpty()) {
+        m_notUseThumb = thumb.first();
+    }
+    if (isAddFingeBtn) {
+        addFingerButton();
+    }
+}
+
+void FingerWidget::addFingerButton()
+{
+    AccounntFingeItem *addfingeItem = new AccounntFingeItem;
+    DCommandLinkButton *addBtn = new DCommandLinkButton(tr("Add fingerprint"));
+    addfingeItem->setTitle("");
+    addfingeItem->appendItem(addBtn);
+    m_listGrp->insertItem(m_listGrp->itemCount(), addfingeItem);
+
+    DFontSizeManager::instance()->bind(addBtn, DFontSizeManager::T7);
+    connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
+        Q_EMIT requestAddThumbs(m_curUser->name(), m_notUseThumb);
+    });
 }
