@@ -169,8 +169,12 @@ void CustomSettingDialog::initWithModel()
     initRefreshrateList();
 
     if (m_moniList)
-        m_moniList->setVisible(!m_model->isMerge());
+        m_moniList->setVisible(!m_model->isMerge()
+                               && m_vSegBtn.at(0)->isChecked()
+                               && m_vSegBtn.size() > 2);
 
+    qDebug() << "isMerge:" << m_model->isMerge();
+    qDebug() << "select monitor checked:" << m_vSegBtn.at(0)->isChecked();
     if (m_monitor->isPrimary())
         m_vSegBtn.at(0)->setVisible(!m_model->isMerge());
 

@@ -149,19 +149,28 @@ void DisplayWorker::mergeScreens()
     int maxSize = 0;
     Resolution bestMode = modes.first();
     for (auto m : modes) {
+        bool isCommon = true;
         for (int i = 1; i< monis.size(); ++i) {
             if (!monis[i]->hasResolution(m)) {
+                isCommon = false;
                 break;
             }
         }
 
+        if (!isCommon) {
+            continue;
+        }
+
+        qDebug() << "get same resolution:" << m.width() << " x " << m.height();
         auto ts = m.width() * m.height();
         if ( ts <= maxSize)
             continue;
+
         bestMode = m;
         maxSize = ts;
     }
 
+    qDebug() << "get best Resolution :" << bestMode.width() << " x " << bestMode.height();
     const auto mode = bestMode;
     const auto rotate = m_model->primaryMonitor()->rotate();
     const auto brightness = m_model->primaryMonitor()->brightness();
