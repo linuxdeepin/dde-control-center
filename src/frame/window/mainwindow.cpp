@@ -60,9 +60,11 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
 DTK_USE_NAMESPACE
 
-const int first_widget_min_width = 188;
+//此处为不带边距的宽度
+const int first_widget_min_width = 168;
 const int second_widget_min_width = 230;
 const int third_widget_min_width = 340;
+//窗口的总宽度，带边距
 const int widget_total_min_width = 820;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -84,11 +86,13 @@ MainWindow::MainWindow(QWidget *parent)
     QWidget *content = new QWidget(this);
 
     m_contentLayout = new QHBoxLayout(content);
-    m_rightContentLayout = new QHBoxLayout();
-    m_rightView = new DBackgroundGroup(m_rightContentLayout);
-
-    m_rightContentLayout->setSpacing(22);
     m_contentLayout->setContentsMargins(0, 0, 0, 0);
+    m_contentLayout->setSpacing(0);
+    m_rightContentLayout = new QHBoxLayout();
+
+    m_rightView = new DBackgroundGroup(m_rightContentLayout);
+    m_rightView->setItemMargins(QMargins(10, 10, 10, 10));
+    m_rightView->setContentsMargins(10, 10, 10, 10);
 
     m_navView = new DListView(this);
     m_navView->setFrameShape(QFrame::Shape::NoFrame);
@@ -98,12 +102,12 @@ MainWindow::MainWindow(QWidget *parent)
     m_navView->setTabKeyNavigation(true);
 
     m_contentLayout->addWidget(m_navView);
-    m_contentLayout->setSpacing(0);
     m_contentLayout->addWidget(m_rightView);
 
     m_rightView->hide();
     m_rightView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
+    layout()->setMargin(0);
     setCentralWidget(content);
 
     //Initialize top page view and model
