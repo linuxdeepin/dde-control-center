@@ -50,13 +50,13 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
 
     QStringList speedList;
     //~ contents_path /mouse/Mouse
-    speedList << tr("Slow") << "" << "" << "" << "" << ""<< "" << "" << "" ;
+    speedList << tr("Slow") << "" << "" << "" << "" << ""<< "" ;
     //~ contents_path /mouse/Mouse
     speedList << tr("Fast");
     DCCSlider *speedSlider = m_mouseMoveSlider->slider();
     speedSlider->setType(DCCSlider::Vernier);
     speedSlider->setTickPosition(QSlider::TicksBelow);
-    speedSlider->setRange(0, 9);
+    speedSlider->setRange(0, 7);
     speedSlider->setTickInterval(1);
     speedSlider->setPageStep(1);
     m_mouseMoveSlider->setAnnotations(speedList);

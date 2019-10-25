@@ -260,7 +260,7 @@ double MouseWorker::converToMotionAcceleration(int value)
 {
     switch (value) {
     case 0:
-        return 2.8;
+        return 3.2;
     case 1:
         return 2.3;
     case 2:
@@ -274,7 +274,7 @@ double MouseWorker::converToMotionAcceleration(int value)
     case 6:
         return 0.2;
     default:
-        return 1.0;
+        return 3.0;
     }
 }
 //conver real value to slider value
