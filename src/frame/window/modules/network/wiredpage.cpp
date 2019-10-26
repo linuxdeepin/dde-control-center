@@ -71,15 +71,20 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 
     m_switch->setTitle(tr("Wired Network Adapter"));
     m_switch->setChecked(dev->enabled());
-    connect(m_switch, &SwitchWidget::checkedChanged, this,
-            std::bind(&WiredPage::requestDeviceEnabled, this, dev->path(), std::placeholders::_1));
+    m_lvProfiles->setVisible(dev->enabled());
+    m_tipsGrp->setVisible(dev->enabled());
+    connect(m_switch, &SwitchWidget::checkedChanged, this, [this] (const bool checked) {
+        m_tipsGrp->setVisible(checked);
+        m_lvProfiles->setVisible(checked);
+        Q_EMIT requestDeviceEnabled(m_device->path(), checked);
+    });
     connect(m_device, &NetworkDevice::enableChanged, m_switch, &SwitchWidget::setChecked);
 
     m_createBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement);
     m_createBtn->setMinimumSize(QSize(47, 47));
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
-    centralLayout->addWidget(m_switch);
+    centralLayout->addWidget(m_switch, 0, Qt::AlignTop);
     centralLayout->addWidget(m_tipsGrp);
     centralLayout->addWidget(m_lvProfiles);
     centralLayout->addWidget(m_createBtn, 0, Qt::AlignmentFlag::AlignHCenter);
@@ -206,8 +211,10 @@ void WiredPage::checkActivatedConnection()
 
 void WiredPage::onDeviceStatusChanged(const NetworkDevice::DeviceStatus stat)
 {
-    const bool unavailable = stat <= NetworkDevice::Unavailable;
-    m_tipsGrp->setVisible(unavailable);
+    if (m_switch->checked()) {
+        const bool unavailable = stat <= NetworkDevice::Unavailable;
+        m_tipsGrp->setVisible(unavailable);
+    }
 }
 
 void WiredPage::onDeviceRemoved()
