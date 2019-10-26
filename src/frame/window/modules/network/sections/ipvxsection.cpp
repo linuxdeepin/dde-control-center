@@ -480,6 +480,10 @@ bool IpvxSection::ipv4InputIsValid()
         valid = false;
         m_dnsSecond->setIsErr(true);
     } else {
+        if (!dnsSec.isEmpty() && dnsPri.isEmpty()) {
+            valid = false;
+            m_dnsPrimary->setIsErr(true);
+        }
         m_dnsSecond->setIsErr(false);
     }
 
@@ -535,6 +539,10 @@ bool IpvxSection::ipv6InputIsValid()
         valid = false;
         m_dnsSecond->setIsErr(true);
     } else {
+        if (!dnsSec.isEmpty() && dnsPri.isEmpty()) {
+            valid = false;
+            m_dnsPrimary->setIsErr(true);
+        }
         m_dnsSecond->setIsErr(false);
     }
 

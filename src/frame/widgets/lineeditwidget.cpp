@@ -130,6 +130,11 @@ void LineEditWidget::setReadOnly(const bool state)
     m_edit->lineEdit()->setReadOnly(state);
 }
 
+void LineEditWidget::setIsErr(const bool err)
+{
+    dTextEdit()->setAlert(err);
+}
+
 void LineEditWidget::showAlertMessage(const QString &message)
 {
     if (message.isEmpty()) return;
