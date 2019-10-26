@@ -61,7 +61,8 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_effectList->setSelectionMode(QListView::SelectionMode::NoSelection);
     m_effectList->setEditTriggers(DListView::NoEditTriggers);
     m_effectList->setFrameShape(DListView::NoFrame);
-    m_layout->addWidget(m_effectList);
+    m_layout->addWidget(m_effectList, 1);
+    m_layout->addStretch();
 
     m_aniTimer = new QTimer(this);
     m_aniTimer->setSingleShot(false);
