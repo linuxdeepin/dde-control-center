@@ -141,7 +141,7 @@ void FingerWorker::onGetFprDefaultDevFinished(QDBusPendingCallWatcher *w)
 
     m_fprDefaultInter = new Device(FprintService, path.path(), QDBusConnection::systemBus(), this);
 
-    m_model->setIsVaild(m_fprintdInter->devices().size() == 1);
+    m_model->setIsVaild(m_fprDefaultInter->isValid());
 
     connect(m_fprDefaultInter, &Device::EnrollStatus, this, &FingerWorker::onEnrollStatus);
 }
@@ -258,5 +258,21 @@ bool FingerWorker::cleanFinger(const QString &name)
 
 void FingerWorker::onHandleDevicesChanged(const QList<QDBusObjectPath> &value)
 {
-    m_model->setIsVaild(value.size() == 1);
+    if (value.size() == 0) {
+        m_model->setIsVaild(false);
+        return;
+    }
+
+    const QDBusObjectPath &objpath = value.at(0);
+    if (objpath.path().isEmpty()) {
+        m_model->setIsVaild(false);
+        return;
+    }
+
+    if (m_fprDefaultInter == nullptr) {
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_fprintdInter->GetDefaultDevice(), this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, &FingerWorker::onGetFprDefaultDevFinished);
+    } else {
+        m_model->setIsVaild(true);
+    }
 }
