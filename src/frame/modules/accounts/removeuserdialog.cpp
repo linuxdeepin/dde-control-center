@@ -55,7 +55,7 @@ RemoveUserDialog::RemoveUserDialog(const User *user, QWidget *parent) :
     DDialog(parent),
     m_deleteHome(true)
 {
-    setTitle(tr("Administrator permission required to delete account"));
+    setTitle(tr("Are you sure you want to delete this account?"));
 
     const auto ratio = devicePixelRatioF();
     const QString iconFile = QUrl(user->currentAvatar()).toLocalFile();
