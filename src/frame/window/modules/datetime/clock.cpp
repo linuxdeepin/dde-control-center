@@ -21,25 +21,18 @@
 
 #include "clock.h"
 
-#include <DSvgRenderer>
-#include <DStyle>
-
 #include <QPainter>
 #include <QPainterPath>
-#include <QTime>
-#include <QtMath>
-#include <QStyle>
+#include <QIcon>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
-DWIDGET_USE_NAMESPACE
 
 Clock::Clock(QWidget *parent)
     : QWidget(parent)
     , m_drawTicks(true)
     , m_autoNightMode(true)
     , n_bIsUseBlackPlat(true)
-    , m_render(new DSvgRenderer)
 {
 
 }
@@ -49,50 +42,36 @@ Clock::~Clock()
 
 }
 
-void Clock::setPath(const QString &picPath)
+QPixmap Clock::getPixmap(const QString name, const QSize size)
 {
-    m_render->load(picPath);
-    QSize defaultSize = m_render->defaultSize();
-
-    int margins = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FrameMargins));
-    int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, nullptr);
-    int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, nullptr);
-    int totalSpace = borderWidth + borderSpacing + margins;
-    setFixedSize(defaultSize.width() + 2 * totalSpace, defaultSize.height() + 2 * totalSpace);
-    update();
+    const QIcon &icon = QIcon(name);
+    const qreal ratio = devicePixelRatioF();
+    QPixmap pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixmap.setDevicePixelRatio(ratio);
+    return pixmap;
 }
 
-void Clock::paintEvent(QPaintEvent *)
+void Clock::paintEvent(QPaintEvent *event)
 {
-    int margins = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FrameMargins));
-    int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, nullptr);
-    int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, nullptr);
-    int totalSpace = borderWidth + borderSpacing + margins;
+    Q_UNUSED(event)
 
+    QPixmap pix;
     QDateTime datetime(QDateTime::currentDateTimeUtc());
     datetime = datetime.addSecs(m_timeZone.getUTCOffset());
-
     const QTime time(datetime.time());
-
     QPainter painter(this);
     painter.setRenderHints(QPainter::HighQualityAntialiasing | QPainter::SmoothPixmapTransform);
 
     // draw plate
-    painter.translate(0, 0);
+    painter.save();
     if (n_bIsUseBlackPlat) {
-        setPath(":/datetime/icons/dcc_clock_black.svg");
+        pix = getPixmap(":/datetime/icons/dcc_clock_black.svg", clockSize);
     } else {
-        setPath(":/datetime/icons/dcc_clock_white.svg");
+        pix = getPixmap(":/datetime/icons/dcc_clock_white.svg", clockSize);
     }
-
-    const auto ratio = devicePixelRatioF();
-    QSize defaultSize = m_render->defaultSize() * ratio;
-    QImage img = m_render->toImage(defaultSize);
-    QRect picRect = rect().adjusted(totalSpace, totalSpace, -totalSpace, -totalSpace);
-    m_render->render(&painter, picRect);
-    painter.drawImage(picRect, img, img.rect());
-
-    QPixmap pix;
+    painter.translate(width() / 2.0, height() / 2.0);
+    painter.drawPixmap(QPointF(-clockSize.width() / 2.0, -clockSize.height() / 2.0), pix);
+    painter.restore();
 
     int nHour = (time.hour() >= 12) ? (time.hour() - 12) : time.hour();
     int nStartAngle = 90;//The image from 0 start , but the clock need from -90 start
@@ -102,8 +81,8 @@ void Clock::paintEvent(QPaintEvent *)
     painter.save();
     painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(hourAngle);
-    pix.load(":/datetime/icons/dcc_noun_hour.svg");
-    painter.drawPixmap(-pix.width() / 2, -pix.height() / 2, pix);
+    pix = getPixmap(":/datetime/icons/dcc_noun_hour.svg", pointSize);
+    painter.drawPixmap(QPointF(-pointSize.width() / 2.0, -pointSize.height() / 2.0), pix);
     painter.restore();
 
     // draw minute hand
@@ -111,8 +90,8 @@ void Clock::paintEvent(QPaintEvent *)
     painter.save();
     painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(minuteAngle);
-    pix.load(":/datetime/icons/dcc_noun_minute.svg");
-    painter.drawPixmap(-pix.width() / 2, -pix.height() / 2, pix);
+    pix = getPixmap(":/datetime/icons/dcc_noun_minute.svg", pointSize);
+    painter.drawPixmap(QPointF(-pointSize.width() / 2.0, -pointSize.height() / 2.0), pix);
     painter.restore();
 
     // draw second hand
@@ -120,8 +99,8 @@ void Clock::paintEvent(QPaintEvent *)
     painter.save();
     painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(secondAngle);
-    pix.load(":/datetime/icons/dcc_noun_second.svg");
-    painter.drawPixmap(-pix.width() / 2, -pix.height() / 2, pix);
+    pix = getPixmap(":/datetime/icons/dcc_noun_second.svg", pointSize);
+    painter.drawPixmap(QPointF(-pointSize.width() / 2.0, -pointSize.height() / 2.0), pix);
     painter.restore();
 
     painter.end();

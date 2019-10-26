@@ -22,15 +22,12 @@
 #pragma once
 #include "window/namespace.h"
 
-#include "dtkwidget_global.h"
-
 #include <QWidget>
 #include <QTimeZone>
 #include <types/zoneinfo.h>
 
-DWIDGET_BEGIN_NAMESPACE
-class DSvgRenderer;
-DWIDGET_END_NAMESPACE
+static const QSize clockSize = QSize(224, 224);
+static const QSize pointSize = QSize(145, 15);
 
 namespace DCC_NAMESPACE {
 namespace datetime {
@@ -42,13 +39,13 @@ public:
     explicit Clock(QWidget *parent = 0);
     virtual ~Clock();
 
-    void setPath(const QString &picPath);
     bool drawTicks() const;
     void setDrawTicks(bool drawTicks);
     void setTimeZone(const ZoneInfo &timeZone);
     bool autoNightMode() const;
     void setAutoNightMode(bool autoNightMode);
     void setPlate(bool isBlack = true);
+    QPixmap getPixmap(const QString name, const QSize size);
 
 protected:
     void paintEvent(QPaintEvent *event);
@@ -58,7 +55,6 @@ private:
     bool m_autoNightMode;
     bool n_bIsUseBlackPlat;
     ZoneInfo m_timeZone;
-    DTK_WIDGET_NAMESPACE::DSvgRenderer *m_render;
 };
 }// namespace datetime
 }// namespace DCC_NAMESPACE
