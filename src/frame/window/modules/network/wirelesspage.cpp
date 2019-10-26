@@ -147,6 +147,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_indicatorDelayTimer(new QTimer(this))
 {
     qRegisterMetaType<APSortInfo>();
+    m_preWifiStatus = dev->enabled() ? Wifi_Available : Wifi_Unavailable;
     m_lvAP->setModel(m_modelAP);
     m_lvAP->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_lvAP->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
@@ -265,14 +266,29 @@ void WirelessPage::updateLayout(bool enabled)
     m_mainLayout->invalidate();
 }
 
+void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::DeviceStatus stat)
+{
+    const bool unavailable = stat <= NetworkDevice::Unavailable;
+    if (m_preWifiStatus == Wifi_Unknown) {
+        m_preWifiStatus = unavailable ? Wifi_Unavailable : Wifi_Available;
+    }
+    WifiStatus curWifiStatus = unavailable ? Wifi_Unavailable : Wifi_Available;
+    if ((m_switch->checked() == unavailable) && (curWifiStatus != m_preWifiStatus)) {
+        m_switch->setChecked(!unavailable);
+        onNetworkAdapterChanged(!unavailable);
+        m_preWifiStatus = curWifiStatus;
+    }
+}
+
 void WirelessPage::setModel(NetworkModel *model)
 {
     m_model = model;
     m_lvAP->setVisible(m_switch->checked());
-//    connect(m_model, &NetworkModel::activeConnInfoChanged, this, &WirelessPage::onActiveConnInfoChanged);
-//    onActiveConnInfoChanged(m_model->activeConnInfos());
+    connect(m_device, static_cast<void (WirelessDevice::*)(WirelessDevice::DeviceStatus) const>(&WirelessDevice::statusChanged),
+            this, &WirelessPage::onDeviceStatusChanged);
     onHotspotEnableChanged(m_device->hotspotEnabled());
     updateLayout(!m_lvAP->isHidden());
+    onDeviceStatusChanged(m_device->status());
 }
 
 void WirelessPage::onNetworkAdapterChanged(bool checked)

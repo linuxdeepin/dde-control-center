@@ -30,6 +30,7 @@
 #include "widgets/contentwidget.h"
 #include "window/namespace.h"
 
+#include <wirelessdevice.h>
 #include <DStyleOption>
 #include <DListView>
 
@@ -103,8 +104,13 @@ private:
 class WirelessPage : public dcc::ContentWidget
 {
     Q_OBJECT
-
 public:
+    enum WifiStatus {
+        Wifi_Unknown = 0,
+        Wifi_Available,
+        Wifi_Unavailable
+    };
+
     explicit WirelessPage(dde::network::WirelessDevice *dev, QWidget *parent = nullptr);
     virtual ~WirelessPage();
 
@@ -128,6 +134,7 @@ public Q_SLOTS:
     void onAPRemoved(const QJsonObject &apInfo);
     void onHotspotEnableChanged(const bool enabled);
     void onCloseHotspotClicked();
+    void onDeviceStatusChanged(const dde::network::WirelessDevice::DeviceStatus stat);
 
 private Q_SLOTS:
     void sortAPList();
@@ -155,6 +162,7 @@ private:
     QVBoxLayout *m_mainLayout;
     QStandardItemModel *m_modelAP;
     int m_layoutCount;
+    WifiStatus m_preWifiStatus;
 
     QPointer<ConnectionWirelessEditPage> m_apEditPage;
 

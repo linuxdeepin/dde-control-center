@@ -170,7 +170,6 @@ void WiredPage::refreshConnectionList()
 
 void WiredPage::editConnection(const QString &connectionPath)
 {
-
     m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection,
                                         m_device->path(), m_model->connectionUuidByPath(connectionPath));
     m_editPage->initSettingsWidget();
