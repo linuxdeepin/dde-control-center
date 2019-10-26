@@ -640,6 +640,7 @@ void FourthColWidget::initWidget(QWidget *showWidget)
     QHBoxLayout *layout = new QHBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
     showWidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
+    showWidget->setAutoFillBackground(true);
 
     layout->setMargin(0);
     layout->setSpacing(0);

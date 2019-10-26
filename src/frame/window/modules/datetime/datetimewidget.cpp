@@ -71,7 +71,6 @@ void DatetimeWidget::init()
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         model->appendRow(item);
     }
-    m_listview->setSpacing(5);
     m_listview->setFrameShape(QFrame::NoFrame);
     m_listview->setModel(model);
     m_listview->setEditTriggers(QAbstractItemView::NoEditTriggers);

@@ -45,13 +45,12 @@ ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
     , m_mainLayout(new QVBoxLayout)
 {
     m_mainLayout->setMargin(0);
-    m_mainLayout->addSpacing(10);
     m_mainLayout->setContentsMargins(ThirdPageContentsMargins);
 
     QWidget *centralWidget = new TranslucentFrame;
     centralWidget->setLayout(m_mainLayout);
-//    mainLayout->addLayout(m_resoListLayout);
 
+    layout()->setMargin(0);
     setContent(centralWidget);
 }
 
@@ -92,7 +91,6 @@ void ResolutionDetailPage::initResoList()
     DListView *rlist = new DListView();
     rlist->setAutoScroll(false);
     rlist->setFrameShape(QFrame::NoFrame);
-    rlist->setSpacing(5);
     rlist->setSelectionMode(DListView::NoSelection);
 
     auto itemModel = new QStandardItemModel(this);

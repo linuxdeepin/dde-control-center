@@ -28,8 +28,10 @@ public:
     virtual void showModulePage(const QString &module, const QString &page, bool animation) = 0;
 
 public:
-    void setCurrModule(ModuleInterface *const m) { m_currModule = m; }
     ModuleInterface *currModule() const { return m_currModule; }
+
+protected:
+    void setCurrModule(ModuleInterface *const m) { m_currModule = m; }
 
 private:
     ModuleInterface *m_currModule{nullptr};

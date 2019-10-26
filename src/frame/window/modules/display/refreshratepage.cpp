@@ -37,7 +37,6 @@ RefreshRatePage::RefreshRatePage(QWidget *parent)
     , m_layout(new QVBoxLayout)
 {
     m_layout->setMargin(0);
-    m_layout->addSpacing(10);
     m_layout->setContentsMargins(ThirdPageContentsMargins);
 
     setLayout(m_layout);
@@ -56,7 +55,6 @@ void RefreshRatePage::initRateList()
     DListView *list = new DListView();
     list->setAutoScroll(false);
     list->setFrameShape(QFrame::NoFrame);
-    list->setSpacing(5);
     list->setSelectionMode(DListView::NoSelection);
     auto listModel = new QStandardItemModel();
     list->setModel(listModel);
