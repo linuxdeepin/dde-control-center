@@ -57,6 +57,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     //~ contents_path /personalization/General
     , m_transparentSlider(new dcc::widgets::TitledSliderItem(tr("Transparency")))
     , m_Themes(new PerssonalizationThemeWidget())
+    , m_bgWidget(new QWidget)
 {
     m_centralLayout->setMargin(0);
     //appearance
@@ -70,8 +71,10 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     //~ contents_path /personalization/General
     m_centralLayout->addWidget(new QLabel(tr("Accent Color")));
 
-    m_colorLayout = new QHBoxLayout();
-    m_colorLayout->setSpacing(0);
+    QHBoxLayout *colorLayout = new QHBoxLayout();
+    m_bgWidget->setLayout(colorLayout);
+    m_bgWidget->setFixedHeight(40);
+    colorLayout->setContentsMargins(16, 0, 16, 0);
     int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, this);
     int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, this);
     int totalSpace = borderWidth + borderSpacing + RoundColorWidget::EXTRA; //2px extra space to avoid line cutted off
@@ -79,12 +82,12 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     for (QString aColor : ACTIVE_COLORS) {
         RoundColorWidget *colorItem = new RoundColorWidget(aColor, this);
         colorItem->setFixedSize(20 + 2 * totalSpace, 40);
-        m_colorLayout->addWidget(colorItem);
+        colorLayout->addWidget(colorItem);
         connect(colorItem, &RoundColorWidget::clicked, this, &PersonalizationGeneral::onActiveColorClicked);
         m_activeColorsList.append(colorItem);
     }
 
-    m_centralLayout->addLayout(m_colorLayout);
+    m_centralLayout->addWidget(m_bgWidget);
 
     //transparancy switch
     m_transparentSlider->addBackground();
@@ -160,17 +163,13 @@ void PersonalizationGeneral::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
     DStylePainter painter(this);
-    if (m_colorLayout == nullptr || !m_colorLayout->geometry().isValid())
-        return;
 
-    QRect r = m_colorLayout->geometry();
+    QRect r = m_bgWidget->geometry();
     int frame_radius = 18;
-    QPalette pal = palette();
 
-    painter.setBrush(pal.background());
-    painter.setPen(Qt::NoPen);
-    painter.setRenderHint(QPainter::Antialiasing);
-    painter.drawRoundedRect(r, frame_radius, frame_radius);
+    QPainterPath path;
+    path.addRoundedRect(r, frame_radius, frame_radius);
+    painter.fillPath(path, palette().background());
 }
 
 void PersonalizationGeneral::updateActiveColors(RoundColorWidget *selectedWidget)

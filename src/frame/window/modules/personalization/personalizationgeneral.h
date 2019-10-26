@@ -78,7 +78,7 @@ private:
     dcc::personalization::PersonalizationModel *m_model;
     PerssonalizationThemeWidget *m_Themes;
     QList<RoundColorWidget *> m_activeColorsList;
-    QHBoxLayout *m_colorLayout = nullptr;
+    QWidget *m_bgWidget;
 };
 }
 }
