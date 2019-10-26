@@ -131,7 +131,7 @@ void TimezoneItem::updateInfo()
     if (timeDelta > 0) {
         compareLiteral = tr("%1 hours earlier than local").arg(QString::number(timeDelta, 'f', decimalNumber));
     } else {
-        compareLiteral = tr("%1 hours late than local").arg(QString::number(-timeDelta, 'f', decimalNumber));
+        compareLiteral = tr("%1 hours later than local").arg(QString::number(-timeDelta, 'f', decimalNumber));
     }
 
     QString gmData = "";

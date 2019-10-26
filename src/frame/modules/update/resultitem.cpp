@@ -63,7 +63,7 @@ void ResultItem::setSuccess(bool success)
 {
     const QString pix = success ? ":/update/themes/common/icons/success.svg" :
                                   ":/update/themes/common/icons/failed.svg";
-    const QString message = success ? tr("Updated successfully") :
+    const QString message = success ? tr("Updated successful") :
                                       tr("Failed to update");
     m_icon->setPixmap(DHiDPIHelper::loadNxPixmap(pix));
     setMessage(message);

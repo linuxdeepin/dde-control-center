@@ -33,7 +33,7 @@
 
 ReminderDialog::ReminderDialog(QRect screenGeometry)
     : DDialog(tr("Updates installed! A restart is required, restart now?"),
-              tr("Make sure all data has been saved before proceeding")),
+              tr("Make sure all data had been saved first")),
       m_screenGeometry(screenGeometry)
 {
     const qreal ratio = devicePixelRatioF();
