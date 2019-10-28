@@ -72,7 +72,7 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_contentArea->setWidgetResizable(true);
     m_contentArea->setFrameStyle(QFrame::NoFrame);
     m_contentArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_contentArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_contentArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_contentArea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     m_contentArea->setContentsMargins(0, 0, 0, 0);
 
