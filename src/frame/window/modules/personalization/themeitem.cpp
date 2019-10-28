@@ -47,6 +47,7 @@ ThemeItem::ThemeItem(bool titleBelowPic, QWidget *parent)
     if (m_titleBelowPic) {
         m_mainLayout->addWidget(m_itemPic);
         m_mainLayout->addWidget(m_title);
+        m_mainLayout->setAlignment(Qt::AlignHCenter);
     } else {
         //icon themes and cursor thems
         QHBoxLayout *titlebuttonLayout = new QHBoxLayout();
