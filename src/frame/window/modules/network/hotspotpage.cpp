@@ -207,7 +207,7 @@ void HotspotDeviceWidget::refreshHotspotConnectionList()
         const QString &uuid = connObj.value("Uuid").toString();
 
         DStandardItem *it = new DStandardItem;
-        it->setText(m_model->connectionNameByPath(connObj.value("Path").toString()));
+        it->setText(ssid);
         it->setData(uuid, UuidRole);
         it->setCheckable(true);
 
