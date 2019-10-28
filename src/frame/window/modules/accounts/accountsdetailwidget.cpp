@@ -168,6 +168,8 @@ void AccountsDetailWidget::initHeadPart(QVBoxLayout *headLayout)
         Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text());
         updateLineEditDisplayStyle();
     });
+
+    m_fullName->setDisabled(true);//将设置全名变浅灰色
 }
 
 void AccountsDetailWidget::initBodyPart(QVBoxLayout *bodyLayout)
@@ -283,17 +285,17 @@ void AccountsDetailWidget::initBodyPart(QVBoxLayout *bodyLayout)
 void AccountsDetailWidget::updateLineEditDisplayStyle()
 {
     const bool visible = m_inputLineEdit->isVisible();
-
+    const int distance = 15;
     m_fullName->setVisible(visible);
     m_fullnameBtn->setVisible(visible);
     m_inputLineEdit->setVisible(!visible);
 
     if (!visible) {
         if (m_curUser->fullname().isEmpty()) {
-            m_inputLineEdit->setTextMargins(34, 0, 0, 0);
+            m_inputLineEdit->setTextMargins(distance, 0, distance, 0);
             m_inputLineEdit->setText("");
         } else {
-            m_inputLineEdit->setTextMargins(34, 0, 0, 0);
+            m_inputLineEdit->setTextMargins(distance, 0, distance, 0);
             m_inputLineEdit->setText(m_curUser->fullname());
             m_inputLineEdit->selectAll();
         }
