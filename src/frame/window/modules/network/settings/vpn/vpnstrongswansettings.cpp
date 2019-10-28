@@ -48,6 +48,7 @@ void VpnStrongSwanSettings::initSections()
     }
 
     GenericSection *genericSection = new GenericSection(m_connSettings);
+    genericSection->setConnectionType(NetworkManager::ConnectionSettings::Vpn);
 
     VpnStrongSwanSection *vpnStrongSwanSection = new VpnStrongSwanSection(vpnSetting);
 

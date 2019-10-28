@@ -50,6 +50,8 @@ void VpnPPTPSettings::initSections()
     }
 
     GenericSection *genericSection = new GenericSection(m_connSettings);
+    genericSection->setConnectionType(NetworkManager::ConnectionSettings::Vpn);
+
     VpnSection *vpnSection = new VpnSection(vpnSetting);
     VpnPPPSection *vpnPPPSection = new VpnPPPSection(vpnSetting);
     QStringList supportOptions = {

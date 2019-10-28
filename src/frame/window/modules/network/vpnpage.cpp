@@ -39,6 +39,7 @@
 #include <DFloatingButton>
 #include <DHiDPIHelper>
 #include <ddialog.h>
+#include <networkmanagerqt/settings.h>
 
 #include <QDebug>
 #include <QList>
@@ -153,15 +154,10 @@ void VpnPage::setModel(NetworkModel *model)
 
 void VpnPage::refreshVpnList(const QList<QJsonObject> &vpnList)
 {
-    // NOTE: vpn name may changed
-//    if (vpnList.size() == m_vpnGroup->itemCount())
-//        return;
-
     m_modelprofiles->clear();
 
     for (const auto &vpn : vpnList) {
         const QString uuid = vpn.value("Uuid").toString();
-
         DStandardItem *it = new DStandardItem();
         it->setText(vpn.value("Id").toString());
         it->setData(QVariant::fromValue(vpn), VpnInfoRole);
@@ -227,6 +223,69 @@ void VpnPage::onActiveConnsInfoChanged(const QList<QJsonObject> &infos)
     }
 }
 
+void VpnPage::changeVpnId()
+{
+    NetworkManager::Connection::List connList = NetworkManager::listConnections();
+    QString importName = "";
+    for (const auto &conn : connList) {
+        if (conn->settings()->connectionType() == NetworkManager::ConnectionSettings::Vpn) {
+            if (m_editingConnUuid == conn->uuid()) {
+                importName = conn->name();
+                break;
+            }
+        }
+    }
+    if (importName.isEmpty()) {
+        QTimer::singleShot(10, this, &VpnPage::changeVpnId);
+        return;
+    }
+
+    QString changeName = "";
+    bool hasSameName = false;
+    for (const auto &conn : connList) {
+        const QString vpnName = conn->name();
+        const QString vpnUuid = conn->uuid();
+        if ((vpnName == importName) && (vpnUuid != m_editingConnUuid)) {
+            changeName = importName + "(1)";
+            hasSameName = true;
+            break;
+        }
+    }
+    if (!hasSameName) {
+        return;
+    }
+
+    for (int index = 1; ; index++) {
+        hasSameName = false;
+        for (const auto &conn : connList) {
+            QString vpnName = conn->name();
+            if (vpnName == changeName) {
+                changeName = importName + "(%1)";
+                changeName = changeName.arg(index);
+                hasSameName = true;
+                break;
+            }
+        }
+        if (!hasSameName) {
+            break;
+        }
+    }
+    NetworkManager::Connection::Ptr uuidConn = NetworkManager::findConnectionByUuid(m_editingConnUuid);
+    if (uuidConn) {
+        NetworkManager::ConnectionSettings::Ptr connSettings = uuidConn->settings();
+        connSettings->setId(changeName);
+        // update function saves the settings on the hard disk
+        QDBusPendingReply<> reply = uuidConn->update(connSettings->toMap());
+        reply.waitForFinished();
+        if (reply.isError()) {
+            qDebug() << "error occurred while updating the connection" << reply.error();
+            return;
+        }
+        qDebug() << "importName: " << connSettings->id() << " changeName: " << changeName;
+        return;
+    }
+}
+
 void VpnPage::importVPN()
 {
     Q_EMIT requestFrameKeepAutoHide(false);
@@ -245,7 +304,7 @@ void VpnPage::importVPN()
     const QString output = p.readAllStandardOutput();
     QString error = p.readAllStandardError();
 
-    qDebug() << stat << output << error;
+    qDebug() << stat << ",output:" << output << ",err:" << error;
 
     if (stat) {
         const auto ratio = devicePixelRatioF();
@@ -262,11 +321,15 @@ void VpnPage::importVPN()
         return;
     }
 
-    const QRegularExpression regexp("\\(([-\\w]+)\\)");
+    const QRegularExpression regexp("\\(\\w{8}(-\\w{4}){3}-\\w{12}\\)");
     const auto match = regexp.match(output);
 
     if (match.hasMatch()) {
-        m_editingConnUuid = match.captured(1);
+        m_editingConnUuid = match.captured();
+        m_editingConnUuid.replace("(", "");
+        m_editingConnUuid.replace(")", "");
+        qDebug() << "m_editingConnUuid is " << m_editingConnUuid;
+        QTimer::singleShot(10, this, &VpnPage::changeVpnId);
     }
 }
 

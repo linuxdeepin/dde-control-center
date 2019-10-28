@@ -52,6 +52,7 @@ void VpnOpenVPNSettings::initSections()
     }
 
     GenericSection *genericSection = new GenericSection(m_connSettings);
+    genericSection->setConnectionType(NetworkManager::ConnectionSettings::Vpn);
 
     VpnOpenVPNSection *vpnOpenVPNSection = new VpnOpenVPNSection(vpnSetting);
 

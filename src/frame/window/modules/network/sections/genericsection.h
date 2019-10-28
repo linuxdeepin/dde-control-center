@@ -45,8 +45,8 @@ public:
     bool allInputValid() Q_DECL_OVERRIDE;
     void saveSettings() Q_DECL_OVERRIDE;
     bool autoConnectChecked() const;
-
     void setConnectionNameEditable(const bool editable);
+    void setConnectionType(NetworkManager::ConnectionSettings::ConnectionType connType);
     inline bool connectionNameIsEditable() const { return m_connIdItem->isEnabled(); }
     inline const QString connectionName() const { return m_connIdItem->text(); }
     inline void setConnectionName(const QString &name) { m_connIdItem->setText(name); }
@@ -58,6 +58,7 @@ private:
     dcc::widgets::LineEditWidget *m_connIdItem;
     NetSwitchWidget *m_autoConnItem;
     NetworkManager::ConnectionSettings::Ptr m_connSettings;
+    NetworkManager::ConnectionSettings::ConnectionType m_connType;
 };
 
 } /* network */

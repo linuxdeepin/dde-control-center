@@ -21,6 +21,8 @@
 
 #include "genericsection.h"
 
+#include <networkmanagerqt/settings.h>
+
 #include <QLineEdit>
 
 using namespace NetworkManager;
@@ -32,6 +34,7 @@ GenericSection::GenericSection(NetworkManager::ConnectionSettings::Ptr connSetti
     , m_connIdItem(new LineEditWidget(this))
     , m_autoConnItem(new NetSwitchWidget(this))
     , m_connSettings(connSettings)
+    , m_connType(NetworkManager::ConnectionSettings::Unknown)
 {
     initUI();
 }
@@ -40,13 +43,33 @@ GenericSection::~GenericSection()
 {
 }
 
+void GenericSection::setConnectionType(NetworkManager::ConnectionSettings::ConnectionType connType)
+{
+    m_connType = connType;
+}
+
 bool GenericSection::allInputValid()
 {
     bool valid = true;
-
-    valid = !m_connIdItem->textEdit()->text().isEmpty();
-
-    m_connIdItem->setIsErr(!valid);
+    QString inputTxt = m_connIdItem->textEdit()->text();
+    if (inputTxt.isEmpty()) {
+        m_connIdItem->setIsErr(true);
+        return false;
+    } else {
+        if (m_connType != NetworkManager::ConnectionSettings::Unknown) {
+            NetworkManager::Connection::List connList = listConnections();
+            QStringList connNameList;
+            for (auto conn : connList) {
+                if (conn->settings()->connectionType() == m_connType) {
+                    if (conn->name() == inputTxt) {
+                        m_connIdItem->setIsErr(true);
+                        m_connIdItem->showAlertMessage(tr("The name already exists"));
+                        return false;
+                    }
+                }
+            }
+        }
+    }
 
     return valid;
 }

@@ -49,6 +49,7 @@ void VpnVPNCSettings::initSections()
     }
 
     GenericSection *genericSection = new GenericSection(m_connSettings);
+    genericSection->setConnectionType(NetworkManager::ConnectionSettings::Vpn);
     VpnVPNCSection *vpnVPNCSection = new VpnVPNCSection(vpnSetting);
     VpnAdvVPNCSection *vpnAdvVPNCSection = new VpnAdvVPNCSection(vpnSetting);
     IpvxSection *ipv4Section = new IpvxSection(
