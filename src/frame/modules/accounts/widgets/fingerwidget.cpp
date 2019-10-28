@@ -26,6 +26,8 @@
 #include "fingerwidget.h"
 
 #include <DHiDPIHelper>
+#include <DApplicationHelper>
+
 #include <QVBoxLayout>
 #include <QDebug>
 
@@ -40,15 +42,28 @@ FingerWidget::FingerWidget(QWidget *parent)
     , m_tipLbl(new QLabel(this))
     , m_isFinished(false)
 {
+    QString theme;
+    DGuiApplicationHelper::ColorType type = DGuiApplicationHelper::instance()->themeType();
+    switch (type) {
+    case DGuiApplicationHelper::UnknownType:
+        break;
+    case DGuiApplicationHelper::LightType:
+        theme = QString("light");
+        break;
+    case DGuiApplicationHelper::DarkType:
+        theme = QString("dark");
+        break;
+    }
+
     for(uint i = 0; i != 58; i++)
     {
-        QString path = QString(":/accounts/themes/dark/icons/finger/entering/fingerprint_%2.png").arg(i, 2, 10, QChar('0'));
+        QString path = QString(":/accounts/themes/%1/icons/finger/entering/fingerprint_%2.png").arg(theme).arg(i, 2, 10, QChar('0'));
         m_enteringList << path;
     }
 
     for(uint i = 0; i != 30; i++)
     {
-        QString path = QString(":/accounts/themes/dark/icons/finger/finished/success_%2.png").arg(i, 2, 10, QChar('0'));
+        QString path = QString(":/accounts/themes/%1/icons/finger/finished/success_%2.png").arg(theme).arg(i, 2, 10, QChar('0'));
         m_finishedList << path;
     }
 
@@ -66,7 +81,7 @@ FingerWidget::FingerWidget(QWidget *parent)
 
     connect(m_view, &DPictureSequenceView::playEnd, this, [=] {
         if (m_isFinished)
-            m_view->setPictureSequence(QStringList() << ":/accounts/themes/dark/icons/finger/finished/success_30.png");
+            m_view->setPictureSequence(QStringList() << QString(":/accounts/themes/%1/icons/finger/finished/success_30.png").arg(theme));
         else
             Q_EMIT playEnd();
     });
