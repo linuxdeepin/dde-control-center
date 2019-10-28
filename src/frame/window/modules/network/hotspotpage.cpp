@@ -61,6 +61,7 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
 
     m_lvprofiles->setModel(m_modelprofiles);
     m_lvprofiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    m_lvprofiles->setSelectionMode(QAbstractItemView::NoSelection);
     m_lvprofiles->setSpacing(1);
     m_hotspotSwitch->setTitle(tr("Hotspot"));
     m_createBtn->setText(tr("Add Settings"));

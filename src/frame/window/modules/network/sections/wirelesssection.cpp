@@ -112,10 +112,10 @@ void WirelessSection::saveSettings()
     m_wirelessSetting->setInitialized(true);
 }
 
-void WirelessSection::setSsidReadOnly(const bool readOnly)
+void WirelessSection::setSsidEditable(const bool editable)
 {
-    m_apSsid->textEdit()->setClearButtonEnabled(!readOnly);
-    m_apSsid->setReadOnly(readOnly);
+    m_apSsid->textEdit()->setClearButtonEnabled(editable);
+    m_apSsid->textEdit()->setEnabled(editable);
 }
 
 void WirelessSection::initUI()

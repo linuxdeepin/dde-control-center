@@ -62,10 +62,10 @@ bool GenericSection::autoConnectChecked() const
     return m_autoConnItem->switchWidget()->checked();
 }
 
-void GenericSection::setConnectionNameReadOnly(const bool readOnly)
+void GenericSection::setConnectionNameEditable(const bool editable)
 {
-    m_connIdItem->textEdit()->setClearButtonEnabled(!readOnly);
-    m_connIdItem->setReadOnly(readOnly);
+    m_connIdItem->textEdit()->setClearButtonEnabled(editable);
+    m_connIdItem->textEdit()->setEnabled(editable);
 }
 
 void GenericSection::initUI()
