@@ -24,6 +24,7 @@
  */
 
 #include "networkdetailpage.h"
+#include "widgets/settingshead.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsheaderitem.h"
 #include "widgets/translucentframe.h"
@@ -119,22 +120,28 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         delete item;
     }
 
+    int infoCount = infos.count();
     for (const auto &info : infos) {
         SettingsGroup *grp = new SettingsGroup;
         const QString type = info.value("ConnectionType").toString();
         const bool isHotspot = type == "wireless-hotspot";
         QJsonObject hotspotInfo;
         if (isHotspot) {
-            grp->setHeaderVisible(true);
-            grp->headerItem()->setTitle(tr("Hotspot"));
-
+            SettingsHead *head = new SettingsHead();
+            head->setTitle(tr("Hotspot"));
+            head->setEditEnable(false);
+            grp->appendItem(head, SettingsGroup::NoneBackground);
             hotspotInfo = info.value("Hotspot").toObject();
 
             const QString ssid = hotspotInfo.value("Ssid").toString();
             appendInfo(grp, tr("SSID"), ssid);
         } else {
             const QString name = info.value("ConnectionName").toString();
-            appendInfo(grp, name, "");
+
+            SettingsHead *head = new SettingsHead();
+            head->setTitle(name);
+            head->setEditEnable(false);
+            grp->appendItem(head, SettingsGroup::NoneBackground);
         }
         // encrypt method
         if (isHotspot) {
@@ -201,7 +208,9 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         }
 
         m_groupsLayout->addWidget(grp);
-        m_groupsLayout->addSpacing(10);
+        if (--infoCount > 0) {
+            m_groupsLayout->addSpacing(30);
+        }
     }
 
     m_groupsLayout->addStretch();
