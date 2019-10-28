@@ -67,6 +67,9 @@ const int second_widget_min_width = 230;
 const int third_widget_min_width = 340;
 //窗口的总宽度，带边距
 const int widget_total_min_width = 820;
+//当窗口宽度大于 four_widget_min_widget 时，
+//四级页面将被平铺，否则会被置于顶层
+const int four_widget_min_widget = widget_total_min_width + third_widget_min_width + 40;
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
@@ -286,6 +289,26 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 {
     DMainWindow::resizeEvent(event);
 
+    auto dstWidth = event->size().width();
+    if (four_widget_min_widget > dstWidth && m_contentStack.size() == 3) {
+        auto ite = m_contentStack.pop();
+        pushTopWidget(ite.first, ite.second);
+    } else if (four_widget_min_widget <= dstWidth && m_topWidget) {
+        auto layout = m_topWidget->layout();
+        int idx = 0;
+        while (auto itemwidget = layout->itemAt(idx)) {
+            if (itemwidget->widget() == m_topWidget->curWidget()) {
+                layout->takeAt(idx);
+                break;
+            }
+            ++idx;
+        }
+        pushFinalWidget(m_topWidget->curInterface(), m_topWidget->curWidget());
+
+        m_topWidget->deleteLater();
+        m_topWidget = nullptr;
+    }
+
     if (m_topWidget) {
         m_topWidget->setFixedSize(event->size());
         m_topWidget->setFixedHeight(height() - this->titlebar()->height());
@@ -504,16 +527,13 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
 //为后面平铺模式留接口
 void MainWindow::pushFinalWidget(ModuleInterface *const inter, QWidget *const w)
 {
-    DPalette pa = DApplicationHelper::instance()->palette(w);
-    pa.setBrush(DPalette::ItemBackground, pa.base());
-    DApplicationHelper::instance()->setPalette(w, pa);
-
-    w->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-
+    w->layout()->setMargin(0);
+    w->setContentsMargins(0, 0, 0, 0);
     w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_contentStack.push({inter, w});
     m_rightContentLayout->addWidget(w, 7);
 
+    w->setMinimumWidth(third_widget_min_width);
     if (m_contentStack.size() == 2) {
         m_contentStack.at(0).second->setMinimumWidth(second_widget_min_width);
         m_contentStack.at(1).second->setMinimumWidth(third_widget_min_width);
@@ -561,8 +581,7 @@ void MainWindow::judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *cons
         }
         break;
     case 2: //from third widget to add top/right widget
-        //因为bakcground的 margin 以及 spacing ,加上了一个999保证目前全是悬浮的四级
-        if (totalWidth + 999 < widget_total_min_width) {
+        if (four_widget_min_widget < width()) {
             m_bIsFinalWidget = true;
         }
 
@@ -633,7 +652,7 @@ FourthColWidget::FourthColWidget(QWidget *parent)
 {
 }
 
-void FourthColWidget::initWidget(QWidget *showWidget)
+void FourthColWidget::initWidget(QWidget *showWidget, ModuleInterface *module)
 {
     this->setMinimumSize(parentWidget()->width(), this->parentWidget()->height());
 
@@ -648,6 +667,7 @@ void FourthColWidget::initWidget(QWidget *showWidget)
     layout->addWidget(showWidget, 4, Qt::AlignRight);
     this->setLayout(layout);
     m_curWidget = showWidget;
+    m_curInterface = module;
 
     update();
 }

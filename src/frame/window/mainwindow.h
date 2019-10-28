@@ -52,12 +52,16 @@ class FourthColWidget : public QWidget
     Q_OBJECT
 public:
     explicit FourthColWidget(QWidget *parent = nullptr);
-    void initWidget(QWidget *showWidget);
+    void initWidget(QWidget *showWidget, ModuleInterface *module = nullptr);
+
+    inline QWidget *curWidget() const { return m_curWidget; }
+    inline ModuleInterface *curInterface() const { return m_curInterface; }
 protected:
     void paintEvent(QPaintEvent *event) override;
 
 private:
-    QWidget *m_curWidget;
+    QWidget *m_curWidget{nullptr};
+    ModuleInterface *m_curInterface{nullptr};
 };
 
 class MainWindow : public DMainWindow, public FrameProxyInterface
