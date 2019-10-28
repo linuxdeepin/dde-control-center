@@ -52,11 +52,9 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     m_city->setObjectName("DCC-Datetime-TimezoneItem-Label");
     m_details->setObjectName("DCC-Datetime-TimezoneItem-Label");
 
-    vlayout->addStretch();
     vlayout->addWidget(m_city);
     vlayout->addSpacing(1);
     vlayout->addWidget(m_details);
-    vlayout->addStretch();
 
     m_removeBtn->setObjectName("DCC-Datetime-TimezoneItem-Remove");
     m_removeBtn->setBackgroundRole(QPalette::ColorRole::Window);

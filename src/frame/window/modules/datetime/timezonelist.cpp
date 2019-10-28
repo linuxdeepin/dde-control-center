@@ -63,7 +63,11 @@ TimezoneList::TimezoneList(QWidget *parent)
     m_centralLayout->addLayout(btnLayout);
     setLayout(m_centralLayout);
 
-    connect(m_addTimezoneButton, &QPushButton::clicked, this, &TimezoneList::requestAddTimeZone);
+    connect(m_addTimezoneButton, &QPushButton::clicked, this, [this]{
+        m_contentList->onEditClicked(false);
+        m_headItem->toCancel();
+        requestAddTimeZone();
+    });
     connect(m_headItem, &SettingsHead::editChanged, m_contentList, &TimezoneContentList::onEditClicked);
     connect(m_contentList, &TimezoneContentList::requestRemoveUserTimeZone, this, [this]() {
         //refresh right button to edit
