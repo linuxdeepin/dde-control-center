@@ -80,7 +80,6 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     mainLayout->addWidget(m_shortCutCmdEdit);
 
     m_shortcut = new CustomItem;
-    m_shortcut->setShortcut("");
     mainLayout->addWidget(m_shortcut);
 
     QPushButton *cancel = m_buttonTuple->leftButton();

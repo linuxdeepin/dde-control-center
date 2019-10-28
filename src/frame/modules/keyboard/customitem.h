@@ -54,13 +54,14 @@ Q_SIGNALS:
     void requestUpdateKey();
 
 protected:
-    void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent(QMouseEvent *e) override;
 
 private:
     QLabel *m_title;
-    QLineEdit* m_shortcutEdit;
+    QLabel *m_shortcutEdit;
     QString m_accels;
     ShortcutKey *m_shortKey;
+    bool m_isFirst{true};
 };
 }
 }

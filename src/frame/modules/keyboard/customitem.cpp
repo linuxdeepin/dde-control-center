@@ -40,8 +40,8 @@ CustomItem::CustomItem(QWidget *parent)
     : SettingsItem(parent)
 {
     setMouseTracking(true);
-    QHBoxLayout* layout = new QHBoxLayout();
-    layout->setContentsMargins(20,0,10,0);
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(2);
 
     m_title = new QLabel();
@@ -51,21 +51,21 @@ CustomItem::CustomItem(QWidget *parent)
     layout->addWidget(m_title);
     layout->setAlignment(m_title, Qt::AlignLeft);
 
-    layout->addStretch();
-
     m_shortKey = new ShortcutKey;
     layout->addWidget(m_shortKey);
     m_shortKey->setTextList(QStringList());
 
-    m_shortcutEdit = new QLineEdit(this);
-    m_shortcutEdit->setReadOnly(true);
-    m_shortcutEdit->hide();
-    m_shortcutEdit->installEventFilter(this);
+    m_shortcutEdit = new QLabel(this);
+    m_shortcutEdit->setText(tr("None"));
     layout->addWidget(m_shortcutEdit);
 
     setLayout(layout);
-    setFixedHeight(36);
+    setFixedHeight(80);
 
+    setShortcut("");
+    m_shortKey->hide();
+    m_shortcutEdit->setFocus();
+    m_shortcutEdit->show();
 }
 
 void CustomItem::setTitle(const QString &title)
@@ -80,7 +80,7 @@ void CustomItem::setShortcut(const QString &shortcut)
     QString list = shortcut;
     list = list.replace("<", "");
     list = list.replace(">", "-");
-    list = list.replace("_L","");
+    list = list.replace("_L", "");
     list = list.replace("_R", "");
     list = list.replace("Control", "Ctrl");
 
@@ -96,19 +96,16 @@ QString CustomItem::text() const
 
 void CustomItem::mouseReleaseEvent(QMouseEvent *e)
 {
-    if(!m_shortcutEdit->isVisible() && m_shortKey->rect().contains(m_shortKey->mapFromParent(e->pos())))
-    {
+    if (!m_shortcutEdit->isVisible() && m_shortKey->rect().contains(m_shortKey->mapFromParent(e->pos()))) {
         m_shortKey->hide();
         m_shortcutEdit->clear();
         m_shortcutEdit->setFocus();
         m_shortcutEdit->show();
-        m_shortcutEdit->setPlaceholderText(tr("Please enter a shortcut"));
 
         Q_EMIT requestUpdateKey();
     }
-    else
-    {
-        m_shortKey->show();
-        m_shortcutEdit->hide();
+    if(m_isFirst){
+        m_isFirst=false;
+        Q_EMIT requestUpdateKey();
     }
 }
