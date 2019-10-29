@@ -57,6 +57,7 @@ PppoePage::PppoePage(QWidget *parent)
     m_lvsettings->setModel(m_modelSettings);
     m_lvsettings->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_lvsettings->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    m_lvsettings->setSelectionMode(QAbstractItemView::NoSelection);
     m_lvsettings->setSpacing(1);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;

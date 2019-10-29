@@ -153,6 +153,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_lvAP->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_lvAP->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_lvAP->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_lvAP->setSelectionMode(QAbstractItemView::NoSelection);
 
     m_lvAP->setSpacing(1);
 

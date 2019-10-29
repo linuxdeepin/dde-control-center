@@ -59,6 +59,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_lvProfiles->setModel(m_modelprofiles = new QStandardItemModel());
     m_lvProfiles->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_lvProfiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    m_lvProfiles->setSelectionMode(QAbstractItemView::NoSelection);
     m_lvProfiles->setSpacing(1);
 
     TipsItem *tips = new TipsItem;
