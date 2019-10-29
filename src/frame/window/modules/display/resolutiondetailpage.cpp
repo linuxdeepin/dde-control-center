@@ -91,6 +91,7 @@ void ResolutionDetailPage::initResoList()
     DListView *rlist = new DListView();
     rlist->setAutoScroll(false);
     rlist->setFrameShape(QFrame::NoFrame);
+    rlist->setEditTriggers(DListView::NoEditTriggers);
     rlist->setSelectionMode(DListView::NoSelection);
 
     auto itemModel = new QStandardItemModel(this);
@@ -99,7 +100,6 @@ void ResolutionDetailPage::initResoList()
     bool first = true;
     DStandardItem *curIdx{nullptr};
     const auto &modes = moni->modeList();
-    const auto curMode = moni->currentMode();
     Resolution prevM;
     for (auto m : modes) {
         if (Monitor::isSameResolution(m, prevM)) {
@@ -107,8 +107,8 @@ void ResolutionDetailPage::initResoList()
         }
         prevM = m;
         const QString res = QString("%1x%2").arg(m.width()).arg(m.height());
-        DStandardItem *item = new DStandardItem();
 
+        DStandardItem *item = new DStandardItem();
         if (first) {
             first = false;
             //~ contents_path /display/Resolution
@@ -117,29 +117,35 @@ void ResolutionDetailPage::initResoList()
             item->setText(res);
         }
 
-        item->setData(QVariant(m.id()), Qt::WhatsThisPropertyRole);
+        item->setData(QVariant(m.id()), IdRole);
+        item->setData(QVariant(m.width()), WidthRole);
+        item->setData(QVariant(m.height()), HeightRole);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
-
-        if (curMode == m)
-            curIdx = item;
         itemModel->appendRow(item);
+
+        if (Monitor::isSameResolution(m, moni->currentMode()))
+            curIdx = item;
     }
 
     if (nullptr != curIdx) {
         itemModel->setData(curIdx->index(), Qt::CheckState::Checked, Qt::CheckStateRole);
-        m_curIdxs = curIdx->index();
     }
 
     connect(rlist, &DListView::clicked, this, [ = ](const QModelIndex & idx) {
-        requestSetResolution(moni, itemModel->itemData(idx)[Qt::WhatsThisPropertyRole].toInt());
+        if (itemModel->data(idx, Qt::CheckStateRole) == Qt::CheckState::Checked)
+            return ;
+
+        requestSetResolution(moni, itemModel->itemData(idx)[IdRole].toInt());
     });
     connect(moni, &Monitor::currentModeChanged, this, [ = ](const Resolution & r) {
-        itemModel->setData(m_curIdxs, Qt::Unchecked, Qt::CheckStateRole);
         for(int i = 0; i < itemModel->rowCount(); ++i) {
             auto tItem = itemModel->item(i);
-            if(tItem->data(Qt::WhatsThisPropertyRole).toInt() == r.id()) {
-                m_curIdxs = tItem->index();
+            auto w = tItem->data(WidthRole).toInt();
+            auto h = tItem->data(HeightRole).toInt();
+            if(w == r.width() && h == r.height()) {
                 tItem->setData(Qt::CheckState::Checked, Qt::CheckStateRole);
+            } else {
+                tItem->setData(Qt::CheckState::Unchecked, Qt::CheckStateRole);
             }
         }
     });

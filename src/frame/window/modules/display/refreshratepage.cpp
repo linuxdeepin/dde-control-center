@@ -56,6 +56,7 @@ void RefreshRatePage::initRateList()
     list->setAutoScroll(false);
     list->setFrameShape(QFrame::NoFrame);
     list->setSelectionMode(DListView::NoSelection);
+    list->setEditTriggers(DListView::NoEditTriggers);
     auto listModel = new QStandardItemModel();
     list->setModel(listModel);
 
@@ -85,11 +86,13 @@ void RefreshRatePage::initRateList()
     }
 
     connect(list, &DListView::clicked, this, [ = ](const QModelIndex & idx) {
+        if (listModel->data(idx, Qt::CheckStateRole) == Qt::CheckState::Checked)
+            return ;
+
         this->requestSetResolution(m_monitor, listModel->data(idx, Qt::WhatsThisPropertyRole).toInt());
     });
 
     connect(m_monitor, &Monitor::currentModeChanged, this, [ = ](const Resolution & r) {
-
         for (int i = 0; i < listModel->rowCount(); ++i) {
             auto tItem = listModel->item(i);
             if (tItem->data(Qt::WhatsThisPropertyRole).toInt() == r.id()) {

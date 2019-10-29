@@ -64,6 +64,13 @@ class ResolutionDetailPage : public dcc::ContentWidget
 public:
     explicit ResolutionDetailPage(QWidget *parent = nullptr);
 
+    enum ResolutionRole {
+        IdRole = Dtk::UserRole,
+        WidthRole,
+        HeightRole,
+        RateRole
+    };
+
 public:
     void setModel(dcc::display::DisplayModel *mode);
 
