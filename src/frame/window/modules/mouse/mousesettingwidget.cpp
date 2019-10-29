@@ -86,6 +86,7 @@ void MouseSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 {
     m_mouseModel = model;
 
+    connect(model, &MouseModel::tpadExistChanged, m_disTchStn, &SwitchWidget::setVisible);
     connect(model, &MouseModel::mouseMoveSpeedChanged, this, &MouseSettingWidget::onMouseMoveSpeedChanged);
     connect(model, &MouseModel::accelProfileChanged, m_adaptiveAccelProfile, &SwitchWidget::setChecked);
     connect(model, &MouseModel::disTpadChanged, m_disTchStn, &SwitchWidget::setChecked);
@@ -94,6 +95,7 @@ void MouseSettingWidget::setModel(dcc::mouse::MouseModel *const model)
     onMouseMoveSpeedChanged(model->mouseMoveSpeed());
     m_adaptiveAccelProfile->setChecked(model->accelProfile());
     m_disTchStn->setChecked(model->disTpad());
+    m_disTchStn->setVisible(model->tpadExist());
     m_mouseNaturalScroll->setChecked(model->mouseNaturalScroll());
 }
 

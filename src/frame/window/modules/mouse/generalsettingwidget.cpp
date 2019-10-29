@@ -103,12 +103,15 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
 void GeneralSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 {
     m_mouseModel = model;
+
+    connect(model, &MouseModel::tpadExistChanged, m_disInTyping,&SwitchWidget::setVisible);
     connect(model, &MouseModel::leftHandStateChanged, m_leftHand, &SwitchWidget::setChecked);
     connect(model, &MouseModel::disIfTypingStateChanged, m_disInTyping, &SwitchWidget::setChecked);
     connect(model, &MouseModel::doubleSpeedChanged, this, &GeneralSettingWidget::onDoubleClickSpeedChanged);
     connect(model, &MouseModel::scrollSpeedChanged, this, &GeneralSettingWidget::onScrollSpeedChanged);
     m_leftHand->setChecked(model->leftHandState());
     m_disInTyping->setChecked(model->disIfTyping());
+    m_disInTyping->setVisible(model->tpadExist());
     onDoubleClickSpeedChanged(model->doubleSpeed());
     onScrollSpeedChanged(model->scrollSpeed());
 }
