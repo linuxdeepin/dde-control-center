@@ -33,13 +33,13 @@ QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 QT_END_NAMESPACE
 
-namespace dcc {
+class Resolution;
 
+namespace dcc {
 namespace display {
 class Monitor;
 class DisplayModel;
 }
-
 }
 
 namespace DCC_NAMESPACE {
@@ -51,7 +51,7 @@ class ScalingPage : public QWidget
     Q_OBJECT
 
 public:
-    explicit ScalingPage(QWidget *parent = 0);
+    explicit ScalingPage(QWidget *parent = nullptr);
 
 public:
     void setModel(dcc::display::DisplayModel *model);
@@ -63,6 +63,10 @@ Q_SIGNALS:
 private:
     void setupSliders();
     void addSlider(int monitorID);
+
+    QStringList getScaleList(const Resolution &r);
+    int convertToSlider(const double value);
+    double convertToScale(const int value);
 
 private:
     dcc::display::DisplayModel *m_displayModel{nullptr};

@@ -20,7 +20,6 @@
  */
 
 #include "scalingpage.h"
-#include "displaywidget.h"
 #include "window/utils.h"
 
 #include "modules/display/displaymodel.h"
@@ -31,6 +30,9 @@
 #include "widgets/settingsgroup.h"
 
 #include <QVBoxLayout>
+
+const float MinScreenWidth = 800.0f;
+const float MinScreenHeight = 600.0f;
 
 using namespace dcc::display;
 using namespace dcc::widgets;
@@ -69,7 +71,7 @@ void ScalingPage::setModel(DisplayModel *model)
         for (auto widget : m_sliders) {
             DCCSlider *slider = widget->slider();
             slider->blockSignals(true);
-            slider->setValue(DisplayWidget::convertToSlider(float(scale)));
+            slider->setValue(convertToSlider(scale));
             slider->blockSignals(false);
 
             widget->setValueLiteral(QString::number(scale));
@@ -92,47 +94,88 @@ void ScalingPage::addSlider(int monitorID)
     qDebug() << "set scaling" << ~monitorID;
     auto moni = m_displayModel->monitorList()[monitorID];
     m_sliders.push_back(new TitledSliderItem(moni->name()));
-    QStringList scaleList;
-    scaleList << "1.0"
-              << "1.25"
-              << "1.5"
-              << "1.75"
-              << "2.0"
-              << "2.25"
-              << "2.5"
-              << "2.75"
-              << "3.0";
+
+    auto fscaleList = getScaleList(moni->currentMode());
     TitledSliderItem *slideritem = m_sliders.back();
     slideritem->addBackground();
 
     DCCSlider *slider = slideritem->slider();
-    slider->setRange(1, 9);
+    slider->setRange(1, fscaleList.size());
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::TicksBelow);
     slider->setTickInterval(1);
     slider->setPageStep(1);
-    slideritem->setAnnotations(scaleList);
+    slideritem->setAnnotations(fscaleList);
     m_centralLayout->addWidget(slideritem);
 
     double scaling = m_displayModel->monitorScale(moni);
     if (scaling < 1.0)
         scaling = 1.0;
-    slider->setSliderPosition(DisplayWidget::convertToSlider(scaling));
-
+    slider->setSliderPosition(convertToSlider(scaling));
 
     connect(slider, &DCCSlider::valueChanged, this, [ = ](const int value) {
-        Q_EMIT requestIndividualScaling(moni,
-                                        double(DisplayWidget::convertToScale(value)));
+        Q_EMIT requestIndividualScaling(moni, convertToScale(value));
     });
 
-    slider->setValue(DisplayWidget::convertToSlider(scaling));
+    slider->setValue(convertToSlider(scaling));
 
     connect(moni, &Monitor::scaleChanged, this, [ = ](const double scale) {
         slider->blockSignals(true);
-        qDebug() << "monitor scaleCahnged ,scale :" << DisplayWidget::convertToSlider(scale);
-        slider->setSliderPosition(DisplayWidget::convertToSlider(scale));
+        qDebug() << "monitor scaleCahnged ,scale :" << convertToSlider(scale);
+        slider->setSliderPosition(convertToSlider(scale));
         slider->blockSignals(false);
     });
+
+    connect(moni, &Monitor::currentModeChanged, this, [ = ](const Resolution &r) {
+        auto fscaleList = getScaleList(r);
+        if (fscaleList.size() < slider->value()) {
+            qWarning() << "分辨率被设置，当前缩放会使屏幕过小，大部分窗口将无法被完整显示！";
+        } else {
+            auto tv = slider->value();
+            slider->blockSignals(true);
+            slider->setRange(1, fscaleList.size());
+            slider->setAnnotations(fscaleList);
+            slider->setValue(tv);
+            slider->blockSignals(false);
+        }
+    });
+}
+
+QStringList ScalingPage::getScaleList(const Resolution &r)
+{
+    QStringList tvstring;
+    tvstring << "1.0"
+             << "1.25"
+             << "1.5"
+             << "1.75"
+             << "2.0"
+             << "2.25"
+             << "2.5"
+             << "2.75"
+             << "3.0";
+
+    QStringList fscaleList;
+    auto maxWScale = r.width() / MinScreenWidth;
+    auto maxHScale = r.height() / MinScreenHeight;
+    auto maxScale = maxWScale < maxHScale ? maxWScale : maxHScale;
+    maxScale = maxScale < 3.0f ? maxScale : 3.0f;
+    for (int idx = 0; idx * 0.25f + 1.0f <= maxScale; ++idx) {
+        fscaleList << tvstring[idx];
+    }
+
+    return  fscaleList;
+}
+
+int ScalingPage::convertToSlider(const double value)
+{
+    //remove base scale (100), then convert to 1-based value
+    //with a stepping of 25
+    return int(round(double(value * 100 - 100) / 25)) + 1;
+}
+
+double ScalingPage::convertToScale(const int value)
+{
+    return 1.0 + (value - 1) * 0.25;
 }
 
 }

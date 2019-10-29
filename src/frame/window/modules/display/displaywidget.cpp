@@ -173,15 +173,3 @@ void DisplayWidget::onMenuClicked(const QModelIndex &idx)
         m_singleMenuList[idx.row()].method.invoke(this);
     }
 }
-
-int DisplayWidget::convertToSlider(const double value)
-{
-    //remove base scale (100), then convert to 1-based value
-    //with a stepping of 25
-    return int(round(double(value * 100 - 100) / 25)) + 1;
-}
-
-double DisplayWidget::convertToScale(const int value)
-{
-    return 1.0 + (value - 1) * 0.25;
-}
