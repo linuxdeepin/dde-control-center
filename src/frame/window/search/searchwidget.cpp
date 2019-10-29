@@ -64,8 +64,13 @@ SearchWidget::SearchWidget(QWidget *parent)
 
     //直接调用setText不会发送该信号，故用该信号区分①输入框输入②外部使用setText输入
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textEdited, this, [ = ] {
-        //true : 用户输入　，　false : 直接调用setText
-        m_bIstextEdited = true;
+        //m_bIstextEdited，　true : 用户输入　，　false : 直接调用setText
+        //text(). ""　：　表示使用清除按钮删除数据，发送的信号；　非空　：　表示用户输入数据发送的信号
+        if (text() != "") {
+            m_bIstextEdited = true;
+        } else {
+            m_bIstextEdited = false;
+        }
     });
 
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textChanged, this, [ = ] {
