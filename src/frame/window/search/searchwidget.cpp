@@ -50,6 +50,8 @@ SearchWidget::SearchWidget(QWidget *parent)
     , m_xmlExplain("")
     , m_xmlFilePath("")
     , m_bIsChinese(false)
+    , m_searchValue("")
+    , m_bIstextEdited(false)
 {
     m_model = new QStandardItemModel(this);
     m_completer = new ddeCompleter(m_model, this);
@@ -60,9 +62,41 @@ SearchWidget::SearchWidget(QWidget *parent)
     m_completer->setWrapAround(false);
     m_completer->installEventFilter(this);
 
+    //直接调用setText不会发送该信号，故用该信号区分①输入框输入②外部使用setText输入
+    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textEdited, this, [ = ] {
+        //true : 用户输入　，　false : 直接调用setText
+        m_bIstextEdited = true;
+    });
 
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textChanged, this, [ = ] {
-        this->setText(transPinyinToChinese(text()));
+        QString retValue = text();
+
+        //用户输入的时候，还是按直接设置setText流程运行(旧的流程)
+        //外部调用setText的时候，需要先对setText的内容进行解析，解析获取对应的存在数据
+        if (m_bIstextEdited) {
+            m_bIstextEdited = false;
+            this->setText(transPinyinToChinese(retValue));
+            return ;
+        }
+
+        //避免输入单个字符，直接匹配到第一个完整字符(导致不能匹配正确的字符)
+        if ("" == retValue || m_searchValue.contains(retValue, Qt::CaseInsensitive)) {
+            m_searchValue = retValue;
+            return ;
+        }
+
+        retValue = transPinyinToChinese(text());
+
+        //拼音转化没找到，再搜索字符包含关联字符
+        if (retValue == text()) {
+            retValue = containTxtData(retValue);
+        }
+
+        m_searchValue = retValue;
+
+        //发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
+        Q_EMIT focusChanged(true);
+        this->setText(retValue);
     });
 
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::returnPressed, this, [ = ] {
@@ -107,6 +141,8 @@ bool SearchWidget::jumpContentPathWidget(QString path)
                     break;
                 }
             }
+        } else {
+            qWarning() << "[SearchWidget] translateContent : " << data.translateContent << " , fullPagePath : " << data.fullPagePath;
         }
     } else {
         qWarning() << " [SearchWidget] QList is nullptr.";
@@ -372,6 +408,22 @@ QString SearchWidget::transPinyinToChinese(QString pinyin)
     //遍历"汉字-拼音"列表,将存在的"拼音"转换为"汉字"
     for (auto data : m_inputList) {
         if (value == data.pinyin) {
+            value = data.chiese;
+            break;
+        }
+    }
+
+    return value;
+}
+
+QString SearchWidget::containTxtData(QString txt)
+{
+    QString value = txt;
+
+    //遍历"汉字-拼音"列表,将存在的"拼音"转换为"汉字"
+    for (auto data : m_inputList) {
+        if (data.chiese.contains(txt, Qt::CaseInsensitive) ||
+               data.pinyin.contains(txt, Qt::CaseInsensitive)) {
             value = data.chiese;
             break;
         }

@@ -88,6 +88,7 @@ private:
     QString getModulesName(QString name, bool state = true);
     QString removeDigital(QString input);
     QString transPinyinToChinese(QString pinyin);
+    QString containTxtData(QString txt);
 
 private:
     QStandardItemModel *m_model;
@@ -100,6 +101,8 @@ private:
     QList<SearchDataStruct> m_inputList;
     bool m_bIsChinese;
     QList<UnexsitStruct> m_unexsitList;
+    QString m_searchValue;
+    bool m_bIstextEdited;
 };
 
 }// namespace search
