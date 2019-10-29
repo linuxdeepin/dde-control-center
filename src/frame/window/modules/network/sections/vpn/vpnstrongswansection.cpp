@@ -217,7 +217,6 @@ void VpnStrongSwanSection::initUI()
 
 void VpnStrongSwanSection::initConnection()
 {
-    connect(m_gateway->textEdit(), &QLineEdit::editingFinished, this, &VpnStrongSwanSection::allInputValid);
     connect(m_authTypeChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &dataSelected) {
         for (auto it = AuthTypeStrMap.cbegin(); it != AuthTypeStrMap.cend(); ++it) {
             if (it->first == dataSelected) {

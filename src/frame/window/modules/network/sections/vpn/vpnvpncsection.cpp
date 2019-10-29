@@ -229,9 +229,6 @@ void VpnVPNCSection::initUI()
 
 void VpnVPNCSection::initConnection()
 {
-    connect(m_gateway->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
-    connect(m_userName->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
-    connect(m_password->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
     connect(m_passwordFlagsChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &dataSelected) {
         for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
             if (it->first == dataSelected) {
@@ -240,7 +237,6 @@ void VpnVPNCSection::initConnection()
             }
         }
     });
-    connect(m_groupName->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
     connect(m_groupPasswordFlagsChooser, &ComboxWidget::onSelectChanged, this, [ = ](const QString &dataSelected) {
         for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
             if (it->first == dataSelected) {
@@ -249,7 +245,6 @@ void VpnVPNCSection::initConnection()
             }
         }
     });
-    connect(m_groupPassword->textEdit(), &QLineEdit::editingFinished, this, &VpnVPNCSection::allInputValid);
     connect(m_userHybrid, &SwitchWidget::checkedChanged, this, [ = ](const bool checked) {
         m_caFile->setVisible(checked);
         allInputValid();

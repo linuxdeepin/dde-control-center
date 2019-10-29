@@ -201,9 +201,6 @@ void VpnOpenVPNSection::initTLSItems()
     priKeyPassword->setTitle(tr("Private Pwd"));
     priKeyPassword->setText(m_secretMap.value("cert-pass"));
 
-    connect(userCertFile->edit()->lineEdit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
-    connect(priKeyFile->edit()->lineEdit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
-    connect(priKeyPassword->textEdit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
     connect(certPasswordFlagsChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentCertPasswordType = data.value<NetworkManager::Setting::SecretFlagType>();
         priKeyPassword->setVisible(m_currentCertPasswordType == NetworkManager::Setting::SecretFlagType::None);
@@ -250,8 +247,6 @@ void VpnOpenVPNSection::initPasswordItems()
     password->setText(m_secretMap.value("password"));
     password->setPlaceholderText(tr("Required"));
 
-    connect(userName->textEdit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
-    connect(password->textEdit(), &QLineEdit::editingFinished, this, &VpnOpenVPNSection::allInputValid);
     connect(passwordFlagsChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentPasswordType = data.value<NetworkManager::Setting::SecretFlagType>();
         password->setVisible(m_currentPasswordType == NetworkManager::Setting::SecretFlagType::None);
@@ -298,9 +293,6 @@ void VpnOpenVPNSection::initStaticKeyItems()
     localIp->setPlaceholderText(tr("Required"));
     localIp->setText(m_dataMap.value("local-ip"));
 
-    connect(staticKey->edit()->lineEdit(), &QLineEdit::textChanged, this, &VpnOpenVPNSection::allInputValid);
-    connect(remoteIp->textEdit(), &QLineEdit::textChanged, this, &VpnOpenVPNSection::allInputValid);
-    connect(localIp->textEdit(), &QLineEdit::textChanged, this, &VpnOpenVPNSection::allInputValid);
     connect(customizeKeyDirection, &SwitchWidget::checkedChanged,
             keyDirectionChooser, &ComboxWidget::setVisible);
     connect(keyDirectionChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {

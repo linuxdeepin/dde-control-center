@@ -148,9 +148,6 @@ void VpnSection::initUI()
 
 void VpnSection::initConnection()
 {
-    connect(m_gateway->textEdit(), &QLineEdit::editingFinished, this, &VpnSection::allInputValid);
-    connect(m_userName->textEdit(), &QLineEdit::editingFinished, this, &VpnSection::allInputValid);
-    connect(m_password->textEdit(), &QLineEdit::editingFinished, this, &VpnSection::allInputValid);
     connect(m_passwordFlagsChooser, &ComboxWidget::onSelectChanged, [this](const QString &passwordKey) {
         for (auto it = PasswordFlagsStrMap.cbegin(); it != PasswordFlagsStrMap.cend(); ++it) {
             if (it->first == passwordKey) {
