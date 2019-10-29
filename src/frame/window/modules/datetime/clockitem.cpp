@@ -58,6 +58,7 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
         m_timeType = new DTipLabel("");
 
         QVBoxLayout *tlayout = new QVBoxLayout;
+        tlayout->setMargin(0);
         QHBoxLayout *topLayout = new QHBoxLayout;
         topLayout->setMargin(0);
         topLayout->addWidget(m_labelTime, 0, Qt::AlignHCenter);
@@ -74,7 +75,7 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
                 auto rt1 = fm.boundingRect("33:33:33");
 
                 QFontMetricsF fm2(m_timeType->font());
-                auto rt2 = fm2.boundingRect("M");
+                auto rt2 = fm2.boundingRect(tr("AM"));
                 m_timeType->setContentsMargins(0, 0, 0, int(rt1.bottom() - rt2.bottom()));
             }
         }
@@ -177,7 +178,7 @@ void ClockItem::translateHourType()
                          .arg(currentTime.minute(), 2, 10, QLatin1Char('0'))
                          .arg(currentTime.second(), 2, 10, QLatin1Char('0')));
 
-    m_timeType->setText(currentTime.hour() > 12 ? "PM" : "AM");
+    m_timeType->setText(currentTime.hour() > 12 ? tr("PM") :tr("AM"));
     m_timeType->setVisible(true);
 }
 
