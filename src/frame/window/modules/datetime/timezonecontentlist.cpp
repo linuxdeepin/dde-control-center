@@ -39,7 +39,7 @@ TimezoneContentList::TimezoneContentList(QWidget *parent)
 
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(0);
-    m_centralLayout->addWidget(m_timezoneGroup);
+    m_centralLayout->addWidget(m_timezoneGroup, 0, Qt::AlignTop);
     m_centralLayout->addStretch();
 
     QWidget *mainWidget = new TranslucentFrame;
