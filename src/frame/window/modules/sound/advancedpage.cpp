@@ -47,7 +47,7 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     scrollarea->installEventFilter(this);
     scrollarea->setFrameStyle(QFrame::NoFrame);
     scrollarea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    scrollarea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollarea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     scrollarea->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     scrollarea->setContentsMargins(ThirdPageContentsMargins);
 
