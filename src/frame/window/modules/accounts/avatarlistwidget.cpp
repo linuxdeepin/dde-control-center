@@ -108,30 +108,32 @@ void AvatarListWidget::setCurrentAvatarChecked(const QString &avatar)
             m_prevSelectIndex = i;
             m_avatarItemModel->item(i)->setCheckState(Qt::Checked);
             break;
+        } else {
+            m_prevSelectIndex = -1;
         }
     }
 }
 
 void AvatarListWidget::onItemClicked(const QModelIndex &index)
 {
+    m_currentSelectIndex = index.row();
     if (index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().isDrawLast == true) {
         if (m_prevSelectIndex != -1) {
             m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
         }
-        Q_EMIT requestAddNewAvatar(m_curUser);
-        m_iconpathList.pop_back();
-        m_avatarItemModel->removeRow(index.row());
-        addLastItem();
+
+        if (index.row() == 14) {
+            Q_EMIT requestAddNewAvatar(m_curUser);
+        }
     } else {
-        m_currentSelectIndex = index.row();
         if (m_prevSelectIndex != -1) {
             m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
         }
 
-        int lastItemIndex = m_iconpathList.size() - 1;
-        QString lastItemIconpath = m_avatarItemModel->item(lastItemIndex)->data(AvatarListWidget::AddAvatarRole).value<LastItemData>().iconPath;
-        if (!lastItemIconpath.isEmpty()) { //如果最后一项有图标
-            if (index.row() >= 0 && index.row() <= 13) {
+        if (index.row() >= 0 && index.row() <= 13) {
+            int lastItemIndex = m_iconpathList.size() - 1;
+            QString lastItemIconpath = m_avatarItemModel->item(lastItemIndex)->data(AvatarListWidget::AddAvatarRole).value<LastItemData>().iconPath;
+            if (!lastItemIconpath.isEmpty()) { //如果最后一项有图标
                 LastItemData lastItemData;
                 lastItemData.isDrawLast = true;
                 lastItemData.iconPath = "";
@@ -140,13 +142,25 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
                 QString avatarPath = m_iconpathList.at(lastIndex);
                 Q_EMIT requestDeleteAvatar(avatarPath);
             }
-        }
 
-        m_prevSelectIndex = index.row();
-        m_avatarItemModel->item(index.row())->setCheckState(Qt::Checked);
-        Q_EMIT requestSetAvatar(m_iconpathList.at(index.row()));
+            m_avatarItemModel->item(index.row())->setCheckState(Qt::Checked);
+            Q_EMIT requestSetAvatar(m_iconpathList.at(index.row()));
+        }
     }
-    update();
+}
+
+void AvatarListWidget::onAddNewAvatarSuccess(bool added)
+{
+    if (added) {
+        m_iconpathList.pop_back();
+        m_avatarItemModel->removeRow(m_currentSelectIndex);
+        addLastItem();
+        m_prevSelectIndex = -1;
+    } else {
+        if (m_prevSelectIndex != -1) {
+            m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Checked);
+        }
+    }
 }
 
 void AvatarListWidget::addItemFromDefaultDir()

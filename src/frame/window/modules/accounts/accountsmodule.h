@@ -46,11 +46,11 @@ public:
     explicit AccountsModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     void initFingerData();
 
-    void initialize();
-    void reset();
-    const QString name() const;
-    void showPage(const QString &pageName);
-    void contentPopped(QWidget *const w);
+    void initialize() override;
+    void reset() override;
+    const QString name() const override;
+    void showPage(const QString &pageName) override;
+    void contentPopped(QWidget *const w) override;
     void active() override;
     void load(QString path) override;
 
@@ -64,7 +64,7 @@ private:
     ~AccountsModule();
 
 private:
-    dcc::accounts::UserModel      *m_userList;
+    dcc::accounts::UserModel *m_userModel;
     dcc::accounts::AccountsWorker *m_accountsWorker;
     dcc::accounts::FingerWorker *m_fingerWorker;
     dcc::accounts::FingerModel *m_fingerModel;

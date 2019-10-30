@@ -118,23 +118,29 @@ void AccountsWorker::addNewAvatar(User *user)
     AccountsUser *userInter = m_userInters[user];
     Q_ASSERT(userInter);
 
-    Q_EMIT requestFrameAutoHide(false);
     QFileDialog fd;
     fd.setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
 
     QStringList directory = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
-    if (!directory.isEmpty())
+    if (!directory.isEmpty()) {
         fd.setDirectory(directory.first());
+    }
 
-    do {
-        if (fd.exec() != QFileDialog::Accepted)
-            break;
+    if (fd.exec() != QFileDialog::Accepted) {
+        Q_EMIT m_userModel->addNewAvatarSuccess(false);
+        return;
+    }
 
-        const QString file = fd.selectedFiles().first();
+    const QString file = fd.selectedFiles().first();
+    QFuture<void> future = QtConcurrent::run([=](){
         userInter->SetIconFile(file).waitForFinished();
-    } while (false);
-
-    QTimer::singleShot(100, this, [=] { Q_EMIT requestFrameAutoHide(true); });
+    });
+    QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
+    connect(watcher, &QFutureWatcher<void>::finished, [this, watcher] {
+        Q_EMIT m_userModel->addNewAvatarSuccess(true);
+        watcher->deleteLater();
+    });
+    watcher->setFuture(future);
 }
 
 void AccountsWorker::setAvatar(User *user, const QString &iconPath)
@@ -171,7 +177,7 @@ void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
     if (reply.isError()) {
         qDebug() << Q_FUNC_INFO << reply.error().message();
     } else {
-        Q_EMIT m_userModel->requestDeleteUserSuccess();
+        Q_EMIT m_userModel->deleteUserSuccess();
     }
 }
 

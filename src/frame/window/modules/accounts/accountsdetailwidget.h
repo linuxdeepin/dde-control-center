@@ -90,6 +90,7 @@ Q_SIGNALS:
     void requestShowFingerSettings(dcc::accounts::User *user);
     void requestAddThumbs(const QString &name, const QString &thumb);
     void requestCleanThumbs(dcc::accounts::User *user);
+    void requestAddNewAvatarSuccess(bool added);
 
 private Q_SLOTS:
     void deleteUserClicked();

@@ -259,6 +259,8 @@ void AccountsDetailWidget::initBodyPart(QVBoxLayout *bodyLayout)
     connect(m_avatarListWidget, &AvatarListWidget::requestDeleteAvatar, this, [ = ](const QString &iconPath) {
         Q_EMIT requestDeleteAvatar(m_curUser, iconPath);
     });
+    //添加图像最终结果处理
+    connect(this, &AccountsDetailWidget::requestAddNewAvatarSuccess , m_avatarListWidget, &AvatarListWidget::onAddNewAvatarSuccess);
 
     //图像列表选中当前用户图像
     m_avatarListWidget->setCurrentAvatarChecked(m_curUser->currentAvatar());

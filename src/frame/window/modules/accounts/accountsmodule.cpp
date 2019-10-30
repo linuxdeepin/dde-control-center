@@ -47,11 +47,11 @@ AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
 
 void AccountsModule::initialize()
 {
-    m_userList = new UserModel(this);
-    m_accountsWorker = new AccountsWorker(m_userList);
+    m_userModel = new UserModel(this);
+    m_accountsWorker = new AccountsWorker(m_userModel);
 
     m_accountsWorker->moveToThread(qApp->thread());
-    m_userList->moveToThread(qApp->thread());
+    m_userModel->moveToThread(qApp->thread());
 
     m_fingerModel = new FingerModel(this);
     m_fingerWorker = new FingerWorker(m_fingerModel);
@@ -66,7 +66,7 @@ void AccountsModule::initialize()
         if (isVaild) {
             initFingerData();
         } else {
-            for (const auto &user : m_userList->userList()) {
+            for (const auto &user : m_userModel->userList()) {
                 disconnect(user, &User::nameChanged, m_fingerWorker, &FingerWorker::refreshUserEnrollList);
             }
         }
@@ -96,7 +96,7 @@ void AccountsModule::contentPopped(QWidget *const w)
 void AccountsModule::active()
 {
     m_accountsWidget = new AccountsWidget;
-    m_accountsWidget->setModel(m_userList);
+    m_accountsWidget->setModel(m_userModel);
     m_accountsWidget->setShowFirstUserInfo(true);
     connect(m_accountsWidget, &AccountsWidget::requestShowAccountsDetail, this, &AccountsModule::onShowAccountsDetailWidget);
     connect(m_accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::onShowCreateAccountPage);
@@ -117,7 +117,7 @@ void AccountsModule::load(QString path)
                << "New Account";
 
     User *pUser = nullptr;
-    for (auto &user : m_userList->userList()) {
+    for (auto &user : m_userModel->userList()) {
         if (user->isCurrentUser()) {
             pUser = user;
             break;
@@ -144,7 +144,8 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     if (m_fingerModel->isVaild()) {
         initFingerData();
     }
-    connect(m_userList, &UserModel::requestDeleteUserSuccess, w, &AccountsDetailWidget::requestBack);
+    connect(m_userModel, &UserModel::addNewAvatarSuccess, w, &AccountsDetailWidget::requestAddNewAvatarSuccess);
+    connect(m_userModel, &UserModel::deleteUserSuccess, w, &AccountsDetailWidget::requestBack);
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
     connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
@@ -175,7 +176,7 @@ void AccountsModule::onShowCreateAccountPage()
 
 AccountsModule::~AccountsModule()
 {
-    m_userList->deleteLater();
+    m_userModel->deleteLater();
     m_accountsWorker->deleteLater();
 }
 
@@ -204,10 +205,10 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
 
 void AccountsModule::initFingerData()
 {
-    connect(m_userList, &UserModel::userAdded, this, [ & ](User * user) {
+    connect(m_userModel, &UserModel::userAdded, this, [ & ](User * user) {
         connect(user, &User::nameChanged, m_fingerWorker, &FingerWorker::refreshUserEnrollList);
     });
-    for (const auto &user : m_userList->userList()) {
+    for (const auto &user : m_userModel->userList()) {
         connect(user, &User::nameChanged, m_fingerWorker, &FingerWorker::refreshUserEnrollList);
     }
 }
