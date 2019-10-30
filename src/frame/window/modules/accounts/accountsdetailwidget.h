@@ -72,6 +72,7 @@ public:
     void initBodyPart(QVBoxLayout *bodyLayout);
     void updateLineEditDisplayStyle();
     void setFingerModel(dcc::accounts::FingerModel *model);
+    bool checkStrIsAllEmpty(const QString &str);
 
 public:
     bool eventFilter(QObject *obj, QEvent *event) override;

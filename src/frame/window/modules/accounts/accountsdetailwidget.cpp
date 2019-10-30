@@ -165,7 +165,10 @@ void AccountsDetailWidget::initHeadPart(QVBoxLayout *headLayout)
         m_inputLineEdit->setFocus();
     });
     connect(m_inputLineEdit, &QLineEdit::editingFinished, this, [ = ]() {
-        Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text());
+        QString inputString = m_inputLineEdit->text();
+        if (!checkStrIsAllEmpty(inputString)) {
+            Q_EMIT requestShowFullnameSettings(m_curUser, inputString);
+        }
         updateLineEditDisplayStyle();
     });
 
@@ -341,4 +344,15 @@ bool AccountsDetailWidget::eventFilter(QObject *obj, QEvent *event)
          }
     }
     return QWidget::eventFilter(obj, event);
+}
+
+bool AccountsDetailWidget::checkStrIsAllEmpty(const QString &str)
+{
+    for (const QChar &p : str) {
+        if (p != QChar(' ')) {
+            return false;
+        }
+    }
+
+    return true;
 }
