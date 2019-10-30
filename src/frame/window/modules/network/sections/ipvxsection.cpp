@@ -23,6 +23,7 @@
 #include "widgets/contentwidget.h"
 
 #include <dspinbox.h>
+#include <QDBusMetaType>
 
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
@@ -61,6 +62,8 @@ IpvxSection::IpvxSection(NetworkManager::Ipv6Setting::Ptr ipv6Setting, QFrame *p
     , m_currentIpvx(Ipv6)
     , m_ipvxSetting(ipv6Setting)
 {
+    qDBusRegisterMetaType<IpV6DBusAddress>();
+    qDBusRegisterMetaType<IpV6DBusAddressList>();
     initStrMaps();
     initUI();
     initConnection();
@@ -170,12 +173,14 @@ bool IpvxSection::saveIpv6Settings()
     ipv6Setting->setDns(mDnsList);
 
     if (method == NetworkManager::Ipv6Setting::Automatic) {
-        QList<NetworkManager::IpAddress>().clear();
+        QList<NetworkManager::IpAddress> ipAddresses;
+        ipAddresses.clear();
         NetworkManager::IpAddress ipAddressAuto;
         ipAddressAuto.setIp(QHostAddress(""));
         ipAddressAuto.setPrefixLength(0);
         ipAddressAuto.setGateway(QHostAddress(""));
-        ipv6Setting->setAddresses(QList<NetworkManager::IpAddress>() << ipAddressAuto);
+        ipAddresses.append(ipAddressAuto);
+        ipv6Setting->setAddresses(ipAddresses);
         ipv6Setting->setIgnoreAutoDns(!mDnsList.isEmpty());
     }
 

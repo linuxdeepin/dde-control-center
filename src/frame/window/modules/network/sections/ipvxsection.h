@@ -34,6 +34,7 @@
 
 #include <networkmanagerqt/ipv4setting.h>
 #include <networkmanagerqt/ipv6setting.h>
+#include <networkmanagerqt/generictypes.h>
 
 namespace DCC_NAMESPACE {
 namespace network {

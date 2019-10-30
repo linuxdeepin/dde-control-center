@@ -59,9 +59,13 @@ bool GenericSection::allInputValid()
         if (m_connType != NetworkManager::ConnectionSettings::Unknown) {
             NetworkManager::Connection::List connList = listConnections();
             QStringList connNameList;
+            QString curUuid = "";
+            if (!m_connSettings.isNull()) {
+                curUuid = m_connSettings->uuid();
+            }
             for (auto conn : connList) {
                 if (conn->settings()->connectionType() == m_connType) {
-                    if (conn->name() == inputTxt) {
+                    if ((conn->name() == inputTxt) && (conn->uuid() != curUuid)) {
                         m_connIdItem->setIsErr(true);
                         m_connIdItem->showAlertMessage(tr("The name already exists"));
                         return false;
