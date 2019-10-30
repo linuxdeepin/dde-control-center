@@ -50,16 +50,16 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_searchDelayTimer->setSingleShot(true);
 
     m_searchText = QString();
-    //~ contents_path /keyboard/Shortcuts
     SettingsHead *systemHead = new SettingsHead();
+    //~ contents_path /keyboard/Shortcuts
     systemHead->setTitle(tr("System"));
     m_systemGroup = new SettingsGroup();
-    //~ contents_path /keyboard/Shortcuts
     SettingsHead *windowHead = new SettingsHead();
+    //~ contents_path /keyboard/Shortcuts
     windowHead->setTitle(tr("Window"));
     m_windowGroup = new SettingsGroup();
-    //~ contents_path /keyboard/Shortcuts
     SettingsHead *workspaceHead = new SettingsHead();
+    //~ contents_path /keyboard/Shortcuts
     workspaceHead->setTitle(tr("Workspace"));
     m_workspaceGroup = new SettingsGroup();
     m_customGroup = new SettingsGroup();
