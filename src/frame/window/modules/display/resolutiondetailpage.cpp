@@ -93,6 +93,7 @@ void ResolutionDetailPage::initResoList()
     rlist->setFrameShape(QFrame::NoFrame);
     rlist->setEditTriggers(DListView::NoEditTriggers);
     rlist->setSelectionMode(DListView::NoSelection);
+    rlist->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
 
     auto itemModel = new QStandardItemModel(this);
     rlist->setModel(itemModel);
@@ -150,6 +151,6 @@ void ResolutionDetailPage::initResoList()
         }
     });
 
-    m_mainLayout->addWidget(rlist, 1);
+    m_mainLayout->addWidget(rlist, 0);
     m_resoList = rlist;
 }
