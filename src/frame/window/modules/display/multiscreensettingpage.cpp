@@ -39,16 +39,16 @@ MultiScreenSettingPage::MultiScreenSettingPage(QWidget *parent)
     mainLayout->setMargin(0);
     mainLayout->setContentsMargins(ThirdPageContentsMargins);
 
-    m_modeList->installEventFilter(this);
     m_modeList->setEditTriggers(DListView::NoEditTriggers);
     m_modeList->setSelectionMode(DListView::NoSelection);
+    m_modeList->setHorizontalScrollBarPolicy(Qt::ScrollBarPolicy::ScrollBarAlwaysOff);
     m_listModel = new QStandardItemModel();
     m_modeList->setModel(m_listModel);
 
     mainLayout->addWidget(m_modeList);
 
     //~ contents_path /display/Customize
-    QPushButton *btn = new QPushButton(tr("Customize"), this);
+    QPushButton *btn = new QPushButton(tr("Custom Settings"), this);
     mainLayout->addSpacing(10);
     mainLayout->addWidget(btn);
 
@@ -82,6 +82,11 @@ void MultiScreenSettingPage::onItemClicked(const QModelIndex &index)
         break;
     }
 
+    if (index.row() == m_listModel->rowCount() - 1) {
+        Q_EMIT requestCustomMode();
+        return;
+    }
+
     auto moniName = m_model->monitorList()[index.row() - 2]->name();
     Q_EMIT requestOnlyMonitor(moniName);
 }
@@ -109,7 +114,7 @@ void MultiScreenSettingPage::onDisplayModeChanged()
         break;
     }
     case CUSTOM_MODE:
-        m_currIdx = QModelIndex();
+        m_currIdx = m_listModel->index(m_listModel->rowCount() - 1, 0);
         break;
     }
 
@@ -136,6 +141,10 @@ void MultiScreenSettingPage::initModeList()
         subTitleList << tr("Show the screen content only on %1").arg(moniNmae);
         iconList << (i % 2 ? "dcc_display_vga1" : "dcc_display_lvds1");
     }
+
+    titleList << tr("Customize");
+    subTitleList << tr("Configure the display according to your needs");
+    iconList << "dcc_display_custom";
 
     for (int idx = 0; idx < titleList.size(); ++idx) {
         auto *titleAction = new DViewItemAction;

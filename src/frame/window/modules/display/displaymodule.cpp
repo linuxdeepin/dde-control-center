@@ -167,6 +167,9 @@ void DisplayModule::showMultiScreenSettingPage()
             &DisplayWorker::extendMode);
     connect(page, &MultiScreenSettingPage::requestOnlyMonitor, m_displayWorker,
             &DisplayWorker::onlyMonitor);
+    connect(page, &MultiScreenSettingPage::requestCustomMode, [this]() {
+        m_displayWorker->switchMode(0, m_displayModel->DDE_Display_Config);
+    });
     connect(page, &MultiScreenSettingPage::requestCustomDiglog, this,
             &DisplayModule::showCustomSettingDialog);
     connect(page, &MultiScreenSettingPage::requsetCreateConfig,

@@ -124,5 +124,6 @@
         <file>actions/dcc_refresh_rate_32px.svg</file>
         <file>texts/dcc_brightnesslow_32px.svg</file>
         <file>texts/dcc_brightnesshigh_32px.svg</file>
+        <file>actions/dcc_display_custom_42px.svg</file>
     </qresource>
 </RCC>

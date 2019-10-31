@@ -66,6 +66,7 @@ Q_SIGNALS:
     void requestExtendMode();
     void requestCustom();
     void requestOnlyMonitor(const QString &);
+    void requestCustomMode();
     void requestConfig(const QString &);
     void requestCustomDiglog();
     void requsetRecord() const;
