@@ -48,6 +48,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_fullnameBtn(new DIconButton(this))
     , m_inputLineEdit(new QLineEdit)
     , m_mainStackedWidget(new QStackedWidget)
+    , m_fingerStackedWidget(new QStackedWidget)
     , m_fingerWidget(new FingerWidget(user, this))
     , m_avatarListWidget(new AvatarListWidget(this, true))
 {
@@ -193,16 +194,21 @@ void AccountsDetailWidget::initBodyPart(QVBoxLayout *bodyLayout)
     loginGrp->appendItem(autoLogin);
     loginGrp->appendItem(nopasswdLogin);
     loginGrp->setSpacing(2);
+    loginGrp->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    autoLogin->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    nopasswdLogin->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     QVBoxLayout *normalMainLayout = new QVBoxLayout;
     normalMainLayout->setContentsMargins(0, 0, 0, 0);
     normalMainLayout->setSpacing(0);
     normalMainLayout->setMargin(0);
-    normalMainLayout->addLayout(modifydelLayout);
-    normalMainLayout->addWidget(loginGrp);
+    normalMainLayout->addLayout(modifydelLayout, 1);
+    normalMainLayout->addWidget(loginGrp, 2);
+
+    m_fingerStackedWidget->insertWidget(0, new QWidget);//普通QWidget页面
+    m_fingerStackedWidget->insertWidget(1, m_fingerWidget);//指纹模块界面
     normalMainLayout->addSpacing(30);
-    normalMainLayout->addWidget(m_fingerWidget);
-    normalMainLayout->addStretch();
+    normalMainLayout->addWidget(m_fingerStackedWidget, 6);
 
     QVBoxLayout *pictureMainLayout = new QVBoxLayout;
     pictureMainLayout->setContentsMargins(0, 0, 0, 0);
@@ -223,6 +229,7 @@ void AccountsDetailWidget::initBodyPart(QVBoxLayout *bodyLayout)
     bodyLayout->addWidget(m_mainStackedWidget);
 
     m_mainStackedWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_fingerStackedWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     //修改密码，删除账户操作
     connect(modifyPassword, &QPushButton::clicked, [ = ] {
@@ -267,7 +274,11 @@ void AccountsDetailWidget::initBodyPart(QVBoxLayout *bodyLayout)
     nopasswdLogin->setEnabled(isCurUser);
 
     //只有当前用户才显示指纹这块
-    m_fingerWidget->setVisible(isCurUser);
+    if (isCurUser) {
+        m_fingerStackedWidget->setCurrentIndex(1);
+    } else {
+        m_fingerStackedWidget->setCurrentIndex(0);
+    }
 
     //~ contents_path /accounts/Change Password
     modifyPassword->setText(tr("Change Password"));

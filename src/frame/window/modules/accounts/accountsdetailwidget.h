@@ -100,6 +100,7 @@ private:
     DTK_WIDGET_NAMESPACE::DIconButton *m_fullnameBtn;//账户全名编辑按钮
     QLineEdit *m_inputLineEdit;//账户全名编辑框
     QStackedWidget *m_mainStackedWidget;
+    QStackedWidget *m_fingerStackedWidget;
     dcc::accounts::FingerModel *m_model;
     FingerWidget *m_fingerWidget;//指纹界面
     AvatarListWidget *m_avatarListWidget;//图像列表

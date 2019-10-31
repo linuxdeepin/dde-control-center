@@ -51,7 +51,7 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     scrollArea->setWidgetResizable(true);//自动调整大小
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_listGrp->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_listGrp->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     QHBoxLayout *headLayout = new QHBoxLayout;
     headLayout->setContentsMargins(0, 0, 0, 0);
@@ -105,6 +105,7 @@ void FingerWidget::onThumbsListChanged(const QList<dcc::accounts::FingerModel::U
         Q_FOREACH (const QString &title, u.userThumbs) {
             AccounntFingeItem *item = new AccounntFingeItem(this);
             item->setTitle(tr("Fingerprint") + QString::number(i++));
+            item->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
             DFontSizeManager::instance()->bind(item, DFontSizeManager::T6);
             m_listGrp->appendItem(item);
             thumb.removeOne(title);
@@ -134,6 +135,7 @@ void FingerWidget::addFingerButton()
     addfingeItem->setTitle("");
     addfingeItem->appendItem(addBtn);
     m_listGrp->insertItem(m_listGrp->itemCount(), addfingeItem);
+    addfingeItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     DFontSizeManager::instance()->bind(addBtn, DFontSizeManager::T7);
     connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
