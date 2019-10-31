@@ -42,7 +42,7 @@ using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
 
 CustomSettingDialog::CustomSettingDialog(QWidget *parent)
-    : QDialog(parent)
+    : DAbstractDialog(parent)
     , m_isPrimary(true)
 {
     initUI();
@@ -50,10 +50,10 @@ CustomSettingDialog::CustomSettingDialog(QWidget *parent)
 
 CustomSettingDialog::CustomSettingDialog(dcc::display::Monitor *mon,
                                          dcc::display::DisplayModel *model,
-                                         QWidget *parent):
-    QDialog(parent),
-    m_isPrimary(false),
-    m_model(model)
+                                         QWidget *parent)
+    : DAbstractDialog(parent)
+    , m_isPrimary(false)
+    , m_model(model)
 {
     initUI();
     resetMonitorObject(mon);
@@ -70,7 +70,7 @@ void CustomSettingDialog::initUI()
 {
     setMinimumWidth(480);
     setMinimumHeight(600);
-    setWindowFlags(windowFlags() | Qt::X11BypassWindowManagerHint);
+    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint );
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_layout = new QVBoxLayout();

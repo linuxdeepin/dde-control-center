@@ -26,6 +26,7 @@
 
 #include <DListView>
 #include <DButtonBox>
+#include <dabstractdialog.h>
 
 #include <QDialog>
 
@@ -56,7 +57,7 @@ namespace DCC_NAMESPACE {
 
 namespace display {
 
-class CustomSettingDialog : public QDialog
+class CustomSettingDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
 public:
