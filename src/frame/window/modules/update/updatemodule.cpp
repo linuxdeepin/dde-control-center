@@ -84,6 +84,10 @@ void UpdateModule::active()
 
         connect(m_mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWorker::setMirrorSource);
         connect(m_mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWorker::testMirrorSpeed);
+        connect(m_mirrorsWidget, &MirrorsWidget::notifyDestroy, this, [this]() {
+            //notifyDestroy信号是此对象被销毁，析构时发出的，资源销毁了要将其对象赋值为空
+            m_mirrorsWidget = nullptr;
+        });
         connect(m_model, &UpdateModel::smartMirrorSwitchChanged, this, &UpdateModule::onNotifyDealMirrorWidget);
 
         m_frameProxy->pushWidget(this, m_mirrorsWidget);
@@ -125,6 +129,7 @@ void UpdateModule::onNotifyDealMirrorWidget(bool state)
     if (state && m_mirrorsWidget) {
         m_frameProxy->popWidget(this);
         //popWidget之后就没有第三级页面了,即m_mirrorsWidget为空指针,需要对其地址赋值为nullptr
+        //假如是从开启镜像源列表页面后，切换其他页面此时这里资源已经被释放了，但是指针没有赋值为空；再次进入，关闭此处就会直接返回主页面(接收析构时信号)
         m_mirrorsWidget = nullptr;
         //避免第三级页面不存在后,还会处理该函数
         disconnect(m_model, &UpdateModel::smartMirrorSwitchChanged, this, &UpdateModule::onNotifyDealMirrorWidget);

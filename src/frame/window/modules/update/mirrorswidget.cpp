@@ -93,6 +93,12 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
             this, &MirrorsWidget::testButtonClicked);
 }
 
+MirrorsWidget::~MirrorsWidget()
+{
+    //资源销毁，通知module，需将module中的MirrorsWidget对象赋值为空
+    Q_EMIT notifyDestroy();
+}
+
 void MirrorsWidget::setModel(UpdateModel *model)
 {
     if (!model->mirrorInfos().isEmpty()) {

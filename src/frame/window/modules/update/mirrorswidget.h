@@ -51,6 +51,7 @@ class MirrorsWidget : public QWidget
 
 public:
     explicit MirrorsWidget(dcc::update::UpdateModel *model, QWidget *parent = 0);
+    ~MirrorsWidget();
 
     void setModel(dcc::update::UpdateModel *model);
 
@@ -60,6 +61,7 @@ protected:
 Q_SIGNALS:
     void requestSetDefaultMirror(const MirrorInfo &mirror);
     void requestTestMirrorSpeed();
+    void notifyDestroy();
 
 private Q_SLOTS:
     void onSpeedInfoAvailable(const QMap<QString, int> &info);
