@@ -21,7 +21,6 @@
 
 #include "connectioneditpage.h"
 #include "widgets/translucentframe.h"
-
 #include "settings/wiredsettings.h"
 #include "settings/wirelesssettings.h"
 #include "settings/dslpppoesettings.h"
@@ -32,9 +31,12 @@
 #include <networkmanagerqt/pppoesetting.h>
 #include <networkmanagerqt/vpnsetting.h>
 
+#include <DDialog>
+
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
+DWIDGET_USE_NAMESPACE
 
 static QString DevicePath = "";
 
@@ -199,8 +201,17 @@ void ConnectionEditPage::initConnection()
     }
 
     connect(m_removeBtn, &QPushButton::clicked, this, [ = ]() {
-        m_connection->remove();
-        Q_EMIT back();
+        DDialog dialog(this);
+        dialog.setTitle(tr("Are you sure you want to delete this configuration?"));
+        QStringList btns;
+        btns << tr("Cancel") ;
+        btns << tr("Delete");
+        dialog.addButtons(btns);
+        int ret = dialog.exec();
+        if (ret) {
+            m_connection->remove();
+            Q_EMIT back();
+        }
     });
 
     connect(m_disconnectBtn, &QPushButton::clicked, this, [ = ]() {
