@@ -42,6 +42,8 @@ class DisplayModel;
 }
 }
 
+#define ALL_MONITOR_SAME_SCALE
+
 namespace DCC_NAMESPACE {
 
 namespace display {
@@ -60,6 +62,9 @@ Q_SIGNALS:
     void requestUiScaleChange(const double scale) const;
     void requestIndividualScaling(dcc::display::Monitor *m, const double scale) const;
 
+private Q_SLOT:
+    void onResolutionChanged();
+
 private:
     void setupSliders();
     void addSlider(int monitorID);
@@ -71,7 +76,11 @@ private:
 private:
     dcc::display::DisplayModel *m_displayModel{nullptr};
     QVBoxLayout *m_centralLayout{nullptr};
+#ifdef ALL_MONITOR_SAME_SCALE
+    dcc::widgets::TitledSliderItem *m_slider{nullptr};
+#else
     QList<dcc::widgets::TitledSliderItem *> m_sliders;
+#endif
 };
 
 }

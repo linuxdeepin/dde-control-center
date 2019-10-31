@@ -67,6 +67,8 @@ void ScalingPage::setModel(DisplayModel *model)
     m_displayModel = model;
 
     setupSliders();
+#ifdef ALL_MONITOR_SAME_SCALE
+#else
     connect(m_displayModel, &DisplayModel::uiScaleChanged, this, [ = ](const double scale) {
         for (auto widget : m_sliders) {
             DCCSlider *slider = widget->slider();
@@ -77,18 +79,72 @@ void ScalingPage::setModel(DisplayModel *model)
             widget->setValueLiteral(QString::number(scale));
         }
     });
+#endif
     m_centralLayout->addStretch(1);
 }
 
 void ScalingPage::setupSliders()
 {
+#ifdef ALL_MONITOR_SAME_SCALE
+    if (m_slider)
+        m_slider->deleteLater();
+    addSlider(0);
+#else
     for (auto &s : m_sliders)
         delete s;
     m_sliders.clear();
     for (int i = 0; i < m_displayModel->monitorList().size(); ++i)
         addSlider(i);
+#endif
 }
 
+#ifdef ALL_MONITOR_SAME_SCALE
+void ScalingPage::addSlider(int monitorID){
+    Q_UNUSED(monitorID)
+
+    if (m_displayModel->monitorList().size() == 0)
+        return;
+
+    m_slider = new TitledSliderItem("");
+    m_slider->addBackground();
+    auto pmoni = m_displayModel->monitorList()[0];
+    QStringList fscaleList = getScaleList(pmoni->currentMode());
+    for (auto moni : m_displayModel->monitorList()) {
+        auto ts = getScaleList(moni->currentMode());
+        fscaleList = ts.size() < fscaleList.size() ? ts :fscaleList;
+    }
+
+    DCCSlider *slider = m_slider->slider();
+    slider->setRange(1, fscaleList.size());
+    slider->setType(DCCSlider::Vernier);
+    slider->setTickPosition(QSlider::TicksBelow);
+    slider->setTickInterval(1);
+    slider->setPageStep(1);
+    m_slider->setAnnotations(fscaleList);
+    m_centralLayout->addWidget(m_slider);
+
+    double scaling = m_displayModel->uiScale();
+    if (scaling < 1.0)
+        scaling = 1.0;
+    slider->setValue(convertToSlider(scaling));
+    slider->setSliderPosition(convertToSlider(scaling));
+
+    connect(slider, &DCCSlider::valueChanged, this, [ = ](const int value) {
+        Q_EMIT requestUiScaleChange(convertToScale(value));
+    });
+    connect(m_displayModel, &DisplayModel::uiScaleChanged, this, [ = ](const double scale) {
+        slider->blockSignals(true);
+        qDebug() << "monitor scaleCahnged ,scale :" << convertToSlider(scale);
+        slider->setSliderPosition(convertToSlider(scale));
+        slider->blockSignals(false);
+    });
+
+
+    for (auto moni : m_displayModel->monitorList()) {
+        connect(moni, &Monitor::currentModeChanged, this, &ScalingPage::onResolutionChanged);
+    }
+}
+#else
 void ScalingPage::addSlider(int monitorID)
 {
     qDebug() << "set scaling" << ~monitorID;
@@ -140,6 +196,29 @@ void ScalingPage::addSlider(int monitorID)
         }
     });
 }
+#endif
+
+void ScalingPage::onResolutionChanged()
+{
+    auto pmoni = m_displayModel->monitorList()[0];
+    QStringList fscaleList = getScaleList(pmoni->currentMode());
+    for (auto moni : m_displayModel->monitorList()) {
+        auto ts = getScaleList(moni->currentMode());
+        fscaleList = ts.size() < fscaleList.size() ? ts :fscaleList;
+    }
+
+    auto tslider = m_slider->slider();
+    if (fscaleList.size() < tslider->value()) {
+        qWarning() << "分辨率被设置，当前缩放会使屏幕过小，大部分窗口将无法被完整显示！";
+    } else {
+        auto tv = tslider->value();
+        tslider->blockSignals(true);
+        tslider->setRange(1, fscaleList.size());
+        tslider->setAnnotations(fscaleList);
+        tslider->setValue(tv);
+        tslider->blockSignals(false);
+    }
+};
 
 QStringList ScalingPage::getScaleList(const Resolution &r)
 {
