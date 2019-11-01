@@ -126,18 +126,12 @@ int main(int argc, char *argv[])
             .path("/com/deepin/dde/ControlCenter")
             .method("Show")
             .call();
-
-#ifndef QT_DEBUG
-        return 0;
-#endif
     }
 
-#ifndef QT_DEBUG
-    if (parser.isSet(showOption) || parser.isSet(toggleOption))
-#endif
-
-    if (!reqModule.isEmpty())
+    if (!reqModule.isEmpty()) {
+        qDebug() << "call show";
         QTimer::singleShot(10, &mw, [&] { mw.showModulePage(reqModule, reqPage, false); });
+    }
 
     return app.exec();
 }
