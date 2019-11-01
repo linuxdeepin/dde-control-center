@@ -231,10 +231,16 @@ void AccountsWidget::connectUserWithItem(User *user)
         if (!titem) {
             return;
         }
-        if (avatar.startsWith("file://")) {
-            titem->setIcon(QIcon(QUrl(avatar).toLocalFile()));
+        auto ratio = this->devicePixelRatioF();
+        auto path = avatar;
+        if (ratio > 4.0) {
+            path.replace("icons/", "icons/bigger/");
+        }
+
+        if (path.startsWith("file://")) {
+            titem->setIcon(QIcon(QUrl(path).toLocalFile()));
         } else {
-            titem->setIcon(QIcon(avatar));
+            titem->setIcon(QIcon(path));
         }
     });
     connect(user, &User::createdTimeChanged, this, [ = ](const quint64 & createdtime) {

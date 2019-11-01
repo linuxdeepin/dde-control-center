@@ -44,11 +44,13 @@ AvatarItemDelegate::AvatarItemDelegate(QObject *parent)
 
 void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+    painter->setRenderHints(painter->renderHints()
+                            | QPainter::Antialiasing
+                            | QPainter::SmoothPixmapTransform);
     if (index.isValid()) {
         int borderWidth = option.widget->style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), &option, nullptr);
         int borderSpacing = option.widget->style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), &option, nullptr);
         const QMargins margins(borderWidth + borderSpacing, borderWidth + borderSpacing, borderWidth + borderSpacing, borderWidth + borderSpacing);
-        painter->setRenderHint(QPainter::Antialiasing);
         QPixmap pixmap = index.data(Qt::DecorationRole).value<QPixmap>();
         QPainterPath path;
         path.addEllipse(option.rect.marginsRemoved(margins));

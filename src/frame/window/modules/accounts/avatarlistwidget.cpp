@@ -34,6 +34,7 @@
 #include <QList>
 #include <QDir>
 #include <QFileInfo>
+#include <QDebug>
 #include <QFileInfoList>
 
 DWIDGET_USE_NAMESPACE
@@ -164,7 +165,15 @@ void AvatarListWidget::addItemFromDefaultDir()
         QString iconpath = list.at(i).filePath();
         m_iconpathList.push_back(iconpath);
         QStandardItem *item = new QStandardItem();
-        item->setData(QVariant::fromValue(QPixmap(iconpath)), Qt::DecorationRole);
+        auto ratio = devicePixelRatioF();
+        if (ratio > 1.0)
+            iconpath.replace("icons/", "icons/bigger/");
+
+        auto px = QPixmap(iconpath).scaled(QSize(74, 74) * ratio,
+                                           Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        px.setDevicePixelRatio(ratio);
+        qDebug() << ratio;
+        item->setData(QVariant::fromValue(px), Qt::DecorationRole);
         item->setData(QVariant::fromValue(iconpath), AvatarListWidget::SaveAvatarRole);
         m_avatarItemModel->appendRow(item);
     }
