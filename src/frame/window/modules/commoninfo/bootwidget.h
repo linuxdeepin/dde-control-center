@@ -24,6 +24,9 @@
 
 #include <DListView>
 
+#include <QVBoxLayout>
+#include <QResizeEvent>
+
 namespace dcc {
 namespace widgets {
 class SwitchWidget;
@@ -48,6 +51,7 @@ public:
 
     void setDefaultEntry(const QString &value);
     void setModel(CommonInfoModel *model);
+    void resizeEvent(QResizeEvent *event);
 
 Q_SIGNALS:
     void enableTheme(bool value);
@@ -66,6 +70,7 @@ private:
     DTK_WIDGET_NAMESPACE::DListView *m_bootList; // 启动项目列表
     dcc::widgets::TipsLabel *m_updatingLabel;    // Updating标签
     CommonBackgroundItem *m_background;          // 背景项
+    QVBoxLayout *m_listLayout;
 };
 
 } // namespace commoninfo

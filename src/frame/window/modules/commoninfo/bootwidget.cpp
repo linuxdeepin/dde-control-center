@@ -49,9 +49,9 @@ BootWidget::BootWidget(QWidget *parent)
 
     m_background = new CommonBackgroundItem();
 
-    QVBoxLayout *listLayout = new QVBoxLayout;
-    listLayout->setSpacing(0);
-    listLayout->setMargin(0);
+    m_listLayout = new QVBoxLayout;
+    m_listLayout->setSpacing(0);
+    m_listLayout->setMargin(0);
 
     m_bootList = new DListView();
     m_bootList->setAutoScroll(false);
@@ -62,16 +62,19 @@ BootWidget::BootWidget(QWidget *parent)
     m_bootList->setDragEnabled(false);
     m_bootList->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_bootList->setSelectionMode(DListView::SingleSelection); // 单选
+    m_bootList->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+    m_bootList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_bootList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
     m_updatingLabel = new TipsLabel(tr("Updating..."));
     m_updatingLabel->setVisible(false);
 
-    listLayout->addSpacing(List_Interval);
-    listLayout->addWidget(m_bootList, 0, Qt::AlignHCenter);
-    listLayout->addStretch();
-    listLayout->addWidget(m_updatingLabel, 0, Qt::AlignHCenter);
-    listLayout->addSpacing(List_Interval);
-    m_background->setLayout(listLayout);
+    m_listLayout->addSpacing(List_Interval);
+    m_listLayout->addWidget(m_bootList);
+    m_listLayout->addStretch();
+    m_listLayout->addWidget(m_updatingLabel, 0, Qt::AlignHCenter | Qt::AlignBottom);
+    m_listLayout->addSpacing(List_Interval);
+    m_background->setLayout(m_listLayout);
 
     m_bootDelay = new NetSwitchWidget();
     //~ contents_path /commoninfo/Boot Menu
@@ -202,4 +205,10 @@ void BootWidget::onCurrentItem(const QModelIndex &previousIdx)
 
     m_bootList->model()->setData(previousIdx, Qt::CheckState::Unchecked, Qt::CheckStateRole);
     m_bootList->model()->setData(curIndex, Qt::CheckState::Checked, Qt::CheckStateRole);
+}
+
+void BootWidget::resizeEvent(QResizeEvent *event)
+{
+    auto w = event->size().width();
+    m_listLayout->setContentsMargins(w * 0.2, 0, w * 0.2, 0);
 }
