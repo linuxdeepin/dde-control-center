@@ -93,13 +93,13 @@ public:
     void setCurrentInfo(ShortcutInfo *currentInfo);
 
     ShortcutInfo * getInfo(const QString &shortcut);
-
+    void setSearchResult(const QString &searchResult);
 Q_SIGNALS:
     void listChanged(QList<ShortcutInfo *>, InfoType);
     void addCustomInfo(ShortcutInfo* info);
     void shortcutChanged(ShortcutInfo *info);
     void keyEvent(bool press, const QString &shortcut);
-
+    void searchFinished(const QList<ShortcutInfo*> searchResult);
 public Q_SLOTS:
     void onParseInfo(const QString& info);
     void onCustomInfo(const QString& json);
@@ -112,6 +112,7 @@ private:
     QList<ShortcutInfo*> m_windowInfos;
     QList<ShortcutInfo*> m_workspaceInfos;
     QList<ShortcutInfo*> m_customInfos;
+    QList<ShortcutInfo*> m_searchList;
     ShortcutInfo *m_currentInfo;
 };
 

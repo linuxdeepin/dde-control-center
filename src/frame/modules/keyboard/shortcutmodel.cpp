@@ -136,7 +136,6 @@ void ShortcutModel::onParseInfo(const QString &info)
         ShortcutInfo *info = new ShortcutInfo();
         info->type         = type;
         info->accels       = obj["Accels"].toArray().first().toString();
-        ;
         info->name    = obj["Name"].toString();
         info->id      = obj["Id"].toString();
         info->command = obj["Exec"].toString();
@@ -207,7 +206,6 @@ void ShortcutModel::onKeyBindingChanged(const QString &value)
     for (ShortcutInfo *info : m_infos) {
         if (info->id == update_id) {
             info->type = obj["Type"].toInt();
-            ;
             info->accels  = obj["Accels"].toArray().first().toString();
             info->name    = obj["Name"].toString();
             info->command = obj["Exec"].toString();
@@ -235,6 +233,69 @@ ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
     }
 
     return nullptr;
+}
+
+void ShortcutModel::setSearchResult(const QString &searchResult)
+{
+    qDeleteAll(m_searchList);
+    m_searchList.clear();
+
+    QList<ShortcutInfo*> systemInfoList;
+    QList<ShortcutInfo*> windowInfoList;
+    QList<ShortcutInfo*> workspaceInfoList;
+    QList<ShortcutInfo*> customInfoList;
+
+    QJsonArray array = QJsonDocument::fromJson(searchResult.toStdString().c_str()).array();
+    for (auto value : array) {
+        QJsonObject obj  = value.toObject();
+        int         type = obj["Type"].toInt();
+        ShortcutInfo *info = new ShortcutInfo();
+        info->type         = type;
+        info->accels       = obj["Accels"].toArray().first().toString();
+        info->name    = obj["Name"].toString();
+        info->id      = obj["Id"].toString();
+        info->command = obj["Exec"].toString();
+
+        if (type != MEDIAKEY) {
+            if (systemFilter.contains(info->id)) {
+                systemInfoList << info;
+                continue;
+            }
+            if (windowFilter.contains(info->id)) {
+                windowInfoList << info;
+                continue;
+            }
+            if (workspaceFilter.contains(info->id)) {
+                workspaceInfoList << info;
+                continue;
+            }
+            if (type == 1) {
+                customInfoList << info;
+            }
+        } else {
+            qDebug() << "not search is:" << info->name;
+        }
+    }
+
+    qSort(systemInfoList.begin(), systemInfoList.end(), [=] (ShortcutInfo *s1, ShortcutInfo *s2) {
+        return systemFilter.indexOf(s1->id) < systemFilter.indexOf(s2->id);
+    });
+    qSort(windowInfoList.begin(), windowInfoList.end(), [=] (ShortcutInfo *s1, ShortcutInfo *s2) {
+        return windowFilter.indexOf(s1->id) < windowFilter.indexOf(s2->id);
+    });
+    qSort(workspaceInfoList.begin(), workspaceInfoList.end(), [=] (ShortcutInfo *s1, ShortcutInfo *s2) {
+        return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
+    });
+    m_searchList.append(systemInfoList);
+    m_searchList.append(windowInfoList);
+    m_searchList.append(workspaceInfoList);
+    m_searchList.append(customInfoList);
+    int i = 0;
+    for (auto search : m_searchList) {
+        qDebug() << "search" << ++i << " is: " << search->name;
+    }
+
+    Q_EMIT searchFinished(m_searchList);
 }
 }
 }

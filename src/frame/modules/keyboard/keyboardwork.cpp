@@ -468,6 +468,13 @@ void KeyboardWorker::onCurrentLayout(const QString &value)
     connect(layoutResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onCurrentLayoutFinished);
 }
 
+void KeyboardWorker::onSearchShortcuts(const QString &searchKey)
+{
+    qDebug() << "onSearchShortcuts: " << searchKey;
+    QDBusPendingReply<QString> reply = m_keybindInter->SearchShortcuts(searchKey);
+    QDBusPendingCallWatcher *searchResult = new QDBusPendingCallWatcher(reply, this);
+    connect(searchResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onSearchFinished);
+}
 void KeyboardWorker::setLayoutScope(const int value)
 {
     m_keyboardInter->setLayoutScope(value);
@@ -484,6 +491,17 @@ void KeyboardWorker::onCurrentLayoutFinished(QDBusPendingCallWatcher *watch)
 
     m_model->setLayout(reply.value());
 
+    watch->deleteLater();
+}
+
+void KeyboardWorker::onSearchFinished(QDBusPendingCallWatcher *watch)
+{
+    QDBusPendingReply<QString> reply = *watch;
+    if (!watch->isError()) {
+        m_shortcutModel->setSearchResult(reply.value());
+    } else {
+        qWarning() << "search finished error." << watch->error();
+    }
     watch->deleteLater();
 }
 

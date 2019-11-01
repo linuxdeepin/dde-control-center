@@ -196,6 +196,7 @@ void KeyboardModule::showShortCutSetting()
     connect(m_shortcutSettingWidget, &ShortCutSettingWidget::requestDisableShortcut, m_work, &KeyboardWorker::onDisableShortcut);
     connect(m_shortcutSettingWidget, &ShortCutSettingWidget::shortcutEditChanged, this, &KeyboardModule::onShortcutEdit);
     connect(m_shortcutSettingWidget, &ShortCutSettingWidget::requestReset, m_work, &KeyboardWorker::resetAll);
+    connect(m_shortcutSettingWidget, &ShortCutSettingWidget::requestSearch, m_work, &KeyboardWorker::onSearchShortcuts);
     connect(m_work, &KeyboardWorker::removed, m_shortcutSettingWidget, &ShortCutSettingWidget::onRemoveItem);
     connect(m_work, &KeyboardWorker::searchChangd, m_shortcutSettingWidget, &ShortCutSettingWidget::onSearchInfo);
 

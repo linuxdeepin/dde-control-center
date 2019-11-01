@@ -32,6 +32,7 @@ using SearchInter = com::deepin::daemon::Search;
 
 QT_BEGIN_NAMESPACE
 class QLineEdit;
+class QPushButton;
 QT_END_NAMESPACE
 
 namespace dcc {
@@ -68,14 +69,14 @@ Q_SIGNALS:
     void requestShowConflict(dcc::keyboard::ShortcutInfo *info, const QString &shortcut);
     void requestSaveShortcut(dcc::keyboard::ShortcutInfo *info);
     void requestReset();
+    void requestSearch(const QString &key);
 
 public Q_SLOTS:
     void onSearchTextChanged(const QString &text);
     void onCustomAdded(dcc::keyboard::ShortcutInfo *info);
     void onDestroyItem(dcc::keyboard::ShortcutInfo *info);
     void onSearchInfo(dcc::keyboard::ShortcutInfo *info, const QString &key);
-    void onSearchKeysFinished(QDBusPendingCallWatcher *watch);
-    void onSearchStringFinish(QDBusPendingCallWatcher *watch);
+    void onSearchStringFinish(const QList<dcc::keyboard::ShortcutInfo *> searchList);
     void prepareSearchKeys();
     void onRemoveItem(const QString &id, int type);
     void onShortcutChanged(dcc::keyboard::ShortcutInfo *info);
@@ -84,6 +85,7 @@ public Q_SLOTS:
 private:
     QWidget *m_searchWidget;
     QWidget *m_widget;
+    QPushButton *m_resetBtn;
     QLineEdit *m_searchInput;
     QString m_searchText;
     QVBoxLayout *m_layout;
@@ -97,7 +99,6 @@ private:
     dcc::widgets::SettingsGroup *m_customGroup;
     dcc::widgets::SettingsGroup *m_searchGroup;
     QMap<QString, dcc::keyboard::ShortcutInfo *> m_searchInfos;
-    SearchInter *m_searchInter;
     // 预留，如果用户太快，可以等带用户输入完成后才搜索
     QTimer *m_searchDelayTimer;
     dcc::keyboard::ShortcutModel *m_model;

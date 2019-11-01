@@ -122,6 +122,8 @@ public Q_SLOTS:
     void onCurrentLayout(const QString &value);
     void onCurrentLayoutFinished(QDBusPendingCallWatcher *watch);
     void onPinyin();
+    void onSearchShortcuts(const QString &searchKey);
+    void onSearchFinished(QDBusPendingCallWatcher *watch);
     void append(const MetaData& md);
 #endif
 
