@@ -73,7 +73,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_switch->setChecked(dev->enabled());
     m_lvProfiles->setVisible(dev->enabled());
     m_tipsGrp->setVisible(dev->enabled());
-    connect(m_switch, &SwitchWidget::checkedChanged, this, [this] (const bool checked) {
+    connect(m_switch, &SwitchWidget::checkedChanged, this, [this](const bool checked) {
         m_tipsGrp->setVisible(checked);
         m_lvProfiles->setVisible(checked);
         Q_EMIT requestDeviceEnabled(m_device->path(), checked);
@@ -161,6 +161,7 @@ void WiredPage::refreshConnectionList()
         DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
         QStyleOption opt;
         editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
+        editaction->setClickAreaMargins(QMargins(10, 10, 10, 10));
 
         connect(editaction, &QAction::triggered, [this, path] {
             this->editConnection(path);
