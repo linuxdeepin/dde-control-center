@@ -332,6 +332,7 @@ void MainWindow::resetNavList(bool isIconMode)
         m_navView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         m_navView->setIconSize(QSize(84, 84));
         m_navView->setItemSize(QSize(170, 168));
+        m_navView->setItemSpacing(0);
         m_navView->setSpacing(20);
         m_navView->clearSelection();
         m_navView->setSelectionMode(QAbstractItemView::NoSelection);
