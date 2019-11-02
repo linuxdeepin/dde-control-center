@@ -67,7 +67,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="184"/>
         <source>Date and Time</source>
-        <translation>날짜와 시간</translation>
+        <translation>날짜 및 시간</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="185"/>
@@ -89,7 +89,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="188"/>
         <source>Keyboard and Language</source>
-        <translation>키보드와 언어</translation>
+        <translation>키보드 및 언어</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="189"/>
@@ -116,25 +116,25 @@
         <translation>전체 이름</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="273"/>
         <source>Change Password</source>
         <translation>비밀번호 변경</translation>
         <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="275"/>
         <source>Delete Account</source>
         <translation>계정 삭제</translation>
         <extra-contents_path>/accounts/Delete Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="278"/>
         <source>Auto Login</source>
         <translation>자동 로그인</translation>
         <extra-contents_path>/accounts/Auto Login</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="282"/>
         <source>Login Without Password</source>
         <translation>비밀번호없이 로그인</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
@@ -160,13 +160,13 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="125"/>
         <source>Identifying fingerprint</source>
-        <translation>지문을 식별하고 있습니다. </translation>
+        <translation>지문 식별중</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="128"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="141"/>
         <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
-        <translation>지문 인식기에 손가락을 놓거나 위 또는 아래로 스 와이프 한 다음 들어 올립니다</translation>
+        <translation>지문 판독기에 손가락을 올려놓거나 위나 아래로 손가락을 문지른 다음 떼어냅니다.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="132"/>
@@ -217,17 +217,17 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="126"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="127"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="125"/>
         <source>optional</source>
-        <translation>선택적</translation>
+        <translation>옵션</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="216"/>
         <source>Password cannot be empty</source>
-        <translation>비밀번호는 비워 둘 수 없음</translation>
+        <translation>비밀번호는 비워 둘 수 없습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="221"/>
@@ -237,12 +237,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="227"/>
         <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
-        <translation>비밀번호는 영어 문자 (대소 문자 구분), 숫자 또는 특수 기호 만 포함해야 합니다  (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</translation>
+        <translation>비밀번호는 영문자(대소문자 구분), 숫자 또는 특수 기호(~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)만 포함해야 합니다  </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="233"/>
         <source>Passwords do not match</source>
-        <translation>비밀번호가 일치하지 않음</translation>
+        <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="250"/>
@@ -325,7 +325,7 @@
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="115"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="116"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="147"/>
@@ -336,7 +336,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="181"/>
         <source>Password cannot be empty</source>
-        <translation>비밀번호는 비워 둘 수 없음</translation>
+        <translation>비밀번호는 비워 둘 수 없습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="187"/>
@@ -356,7 +356,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="207"/>
         <source>Passwords do not match</source>
-        <translation>비밀번호가 일치하지 않음</translation>
+        <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
 </context>
 <context>
@@ -423,7 +423,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="78"/>
         <source>Startup Delay</source>
-        <translation>부팅 지연</translation>
+        <translation>시동 지연</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
@@ -460,7 +460,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="83"/>
         <source>User Experience Program</source>
-        <translation>사용자 체험 프로그램</translation>
+        <translation>사용자 경험 프로그램</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
 </context>
@@ -469,7 +469,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="169"/>
         <source>User Experience Program</source>
-        <translation>사용자 체험 프로그램</translation>
+        <translation>사용자 경험 프로그램</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="170"/>
@@ -482,13 +482,27 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="41"/>
         <source>Join User Experience Program</source>
-        <translation>사용자 체험 프로그램 참여</translation>
+        <translation>사용자 경험 프로그램 참여</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="43"/>
         <source>Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</source>
-        <translation>사용자 체험 프로그램 약관에 대해서는 최종 사용자 사용권 계약서 제10조~13조를 참조하십시오.</translation>
+        <translation>사용자 경험 프로그램 약관에 대해서는 최종 사용자 사용권 계약서 제10조~13조를 참조하십시오.</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::ClockItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="181"/>
+        <source>AM</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="181"/>
+        <source>PM</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -526,7 +540,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="153"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
@@ -537,7 +551,7 @@
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="304"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="364"/>
         <source>Customize</source>
-        <translation>커스터마이즈</translation>
+        <translation>사용자 정의</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
 </context>
@@ -611,12 +625,12 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="228"/>
         <source>Open Desktop file</source>
-        <translation>데스크톱 파일 열기</translation>
+        <translation>바탕화면 파일 열기</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="280"/>
         <source>Invalid</source>
-        <translation>올바르지 않음</translation>
+        <translation>인식할 수 없습니다</translation>
     </message>
 </context>
 <context>
@@ -648,7 +662,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="57"/>
         <source>Video</source>
-        <translation>비디오</translation>
+        <translation>동영상</translation>
         <extra-contents_path>/defapp/Video</extra-contents_path>
     </message>
     <message>
@@ -674,13 +688,13 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="60"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation>위치에 따라 화면 색상이 자동으로 조정됩니다</translation>
+        <translation>사용자 위치에 따라 화면 색상이 자동으로 조정됩니다</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="69"/>
         <source>Night Shift</source>
-        <translation>야간 전환</translation>
+        <translation>야간모드 전환</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
@@ -695,7 +709,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="93"/>
         <source>Main Screen</source>
-        <translation>메인 화면</translation>
+        <translation>기본 화면</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
@@ -726,7 +740,7 @@
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="268"/>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="325"/>
         <source>Recommended</source>
-        <translation>추천</translation>
+        <translation>권장</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="356"/>
@@ -779,60 +793,70 @@
     <name>dccV20::display::MultiScreenSettingPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="51"/>
-        <source>Customize</source>
-        <translation>커스터마이즈</translation>
+        <source>Custom Settings</source>
+        <translation>사용자 정의 설정</translation>
         <extra-contents_path>/display/Customize</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="128"/>
         <source>Duplicate</source>
         <translation>복제</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="128"/>
         <source>Extend</source>
         <translation>확장</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="131"/>
         <source>Show the same image on other screens</source>
         <translation>다른 화면에서 동일한 이미지 표시</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="132"/>
         <source>Expand the desktop across the screens</source>
-        <translation>화면에서 바탕 화면 확장</translation>
+        <translation>화면에서 바탕화면 확장</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
         <source>%1 only</source>
         <translation>%1 만</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
         <source>Show the screen content only on %1</source>
         <translation>%1에 대해서만 화면 내용 표시</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="145"/>
+        <source>Customize</source>
+        <translation>사용자 정의</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
+        <source>Configure the display according to your needs</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV20::display::RefreshRatePage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="74"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="76"/>
         <source>Recommended</source>
-        <translation>추천</translation>
+        <translation>권장</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::ResolutionDetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="116"/>
         <source>Recommended</source>
-        <translation>추천</translation>
+        <translation>권장</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
@@ -857,9 +881,9 @@
 <context>
     <name>dccV20::display::ScalingPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="54"/>
         <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
-        <translation>일부 응용 프로그램은 다중 디스플레이 환경에서 지정된 설정으로 크기를 조정할 수 없습니다.</translation>
+        <translation>일부 응용프로그램은 다중 디스플레이 환경에서 지정된 설정으로 크기를 조정할 수 없습니다.</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
 </context>
@@ -868,7 +892,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="61"/>
         <source>Add Custom Shortcut</source>
-        <translation>사용자 단축키 추가</translation>
+        <translation>사용자 지정 바로가기 추가</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
@@ -881,7 +905,7 @@
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="71"/>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="79"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="75"/>
@@ -890,19 +914,19 @@
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="87"/>
         <source>Cancel</source>
         <translation>취소</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="90"/>
         <source>Add</source>
         <translation>추가</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="118"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>이 단축키는 %1과(와) 충돌합니다.이 바로 가기를 즉시 적용하려면 추가를 클릭하세요</translation>
     </message>
@@ -992,7 +1016,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="96"/>
         <source>Application</source>
-        <translation>응용 프로그램</translation>
+        <translation>응용프로그램</translation>
     </message>
 </context>
 <context>
@@ -1000,7 +1024,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="216"/>
         <source>Custom Shortcut</source>
-        <translation>사용자 단축키</translation>
+        <translation>사용자 지정 바로가기</translation>
     </message>
 </context>
 <context>
@@ -1036,21 +1060,24 @@
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="55"/>
         <source>System</source>
         <translation>시스템</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="59"/>
         <source>Window</source>
         <translation>창</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="63"/>
         <source>Workspace</source>
         <translation>작업 공간</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="73"/>
         <source>Custom Shortcut</source>
-        <translation>사용자 단축키</translation>
+        <translation>사용자 지정 바로가기</translation>
         <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
     </message>
     <message>
@@ -1247,7 +1274,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="48"/>
         <source>Application Proxy</source>
-        <translation>응용 프로그램 프록시</translation>
+        <translation>응용프로그램 프록시</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="52"/>
@@ -1265,7 +1292,7 @@
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="62"/>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="67"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="66"/>
@@ -1294,7 +1321,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="97"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>설정후 런처의 응용 프로그램 상황에 맞는 메뉴에서 &quot;프록시 사용&quot;을 선택하세요</translation>
+        <translation>설정후 실행도구의 응용프로그램 상황에 맞는 메뉴에서 &quot;프록시 사용&quot;을 선택하세요</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="102"/>
@@ -1461,7 +1488,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="125"/>
         <source>Customize MTU</source>
-        <translation>사용자 정의된 MTU</translation>
+        <translation>MTU 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="128"/>
@@ -1485,17 +1512,22 @@
 <context>
     <name>dccV20::network::GenericSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="31"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="33"/>
         <source>General</source>
         <translation>일반</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="70"/>
+        <source>The name already exists</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="100"/>
         <source>Name</source>
         <translation>이름</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
         <source>Auto Connect</source>
         <translation>자동 연결</translation>
     </message>
@@ -1516,75 +1548,75 @@
 <context>
     <name>dccV20::network::IpvxSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="32"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="33"/>
         <source>IPv4</source>
         <translation>IPv4</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="53"/>
         <source>IPv6</source>
         <translation>IPv6</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="225"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="235"/>
         <source>Auto</source>
         <translation>자동</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="226"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="236"/>
         <source>Manual</source>
         <translation>수동</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="237"/>
         <source>Ignore</source>
         <translation>무시</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
         <source>IP Address</source>
         <translation>IP 주소</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="239"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="311"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="245"/>
         <source>Gateway</source>
         <translation>게이트웨이</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="246"/>
         <source>Primary DNS</source>
         <translation>기본 DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="247"/>
         <source>Secondary DNS</source>
         <translation>두번째 DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="248"/>
         <source>Only applied in corresponding resources</source>
         <translation>해당 리소스에만 적용됨</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="252"/>
         <source>Method</source>
         <translation>메소드</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="310"/>
         <source>Netmask</source>
         <translation>넷마스크</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="321"/>
         <source>Prefix</source>
         <translation>접두사</translation>
     </message>
@@ -1687,7 +1719,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="85"/>
         <source>Application Proxy</source>
-        <translation>응용 프로그램 프록시</translation>
+        <translation>응용프로그램 프록시</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
@@ -1743,7 +1775,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="61"/>
         <source>Invalid password</source>
-        <translation>올바르지 않은 비밀번호</translation>
+        <translation>인식할 수 없는 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="81"/>
@@ -1754,7 +1786,7 @@
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="82"/>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="89"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="85"/>
@@ -2000,7 +2032,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
         <source>Not Required</source>
-        <translation>필요 없음</translation>
+        <translation>필수 항목이 아닙니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
@@ -2051,7 +2083,7 @@
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="231"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="245"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="233"/>
@@ -2117,7 +2149,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="587"/>
         <source>Invalid password</source>
-        <translation>올바르지 않은 비밀번호</translation>
+        <translation>인식할 수 없는 비밀번호</translation>
     </message>
 </context>
 <context>
@@ -2126,7 +2158,7 @@
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="73"/>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="80"/>
         <source>Invalid password</source>
-        <translation>올바르지 않은 비밀번호</translation>
+        <translation>인식할 수 없는 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="113"/>
@@ -2151,7 +2183,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="128"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="157"/>
@@ -2169,7 +2201,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwiredsection.cpp" line="34"/>
         <source>Security Required</source>
-        <translation>보안 필수</translation>
+        <translation>보안 필수 항목</translation>
     </message>
 </context>
 <context>
@@ -2178,7 +2210,7 @@
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="68"/>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="76"/>
         <source>Invalid password</source>
-        <translation>올바르지 않은 비밀번호</translation>
+        <translation>인식할 수 없는 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="107"/>
@@ -2208,7 +2240,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="126"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="172"/>
@@ -2231,7 +2263,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
         <source>Customize Gateway Port</source>
-        <translation>사용자 정의된 게이트웨이 포트</translation>
+        <translation>게이트웨이 포트 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
@@ -2241,7 +2273,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
         <source>Customize Renegotiation Interval</source>
-        <translation>커스터마이즈 재조정 간격</translation>
+        <translation>재조정 간격 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
@@ -2266,7 +2298,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
         <source>Customize Tunnel MTU</source>
-        <translation>사용자 정의된 터널 MTU</translation>
+        <translation>터널 MTU 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
@@ -2276,7 +2308,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
         <source>Customize UDP Fragment Size</source>
-        <translation>사용자 정의된 UDP 조각 크기</translation>
+        <translation>UDP 조각 크기 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
@@ -2473,7 +2505,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
@@ -2488,7 +2520,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>시스코 보안 데스크톱 Trojan 허용</translation>
+        <translation>시스코 보안 바탕화면 트로이 목마 허용</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
@@ -2525,7 +2557,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="246"/>
         <source>Password</source>
         <translation>비밀번호</translation>
     </message>
@@ -2536,7 +2568,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="272"/>
         <source>Static Key</source>
         <translation>정적 키</translation>
     </message>
@@ -2553,7 +2585,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="126"/>
         <source>Not Required</source>
-        <translation>필요 없음</translation>
+        <translation>필수 항목이 아닙니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
@@ -2562,12 +2594,12 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="133"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="233"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="288"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="298"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="136"/>
@@ -2591,7 +2623,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="233"/>
         <source>Pwd Options</source>
         <translation>비밀번호 옵션</translation>
     </message>
@@ -2601,35 +2633,35 @@
         <translation>개인 비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="228"/>
         <source>Username</source>
         <translation>사용자 이름</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="276"/>
         <source>Customize Key Direction</source>
-        <translation>사용자 정의된 키 안내</translation>
+        <translation>키 방향 사용자 정의</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="280"/>
         <source>Key Direction</source>
         <translation>키 안내</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
         <source>Remote IP</source>
         <translation>원격 IP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
         <source>Local IP</source>
         <translation>로컬 IP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="411"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="439"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="431"/>
         <source>Invalid password</source>
-        <translation>올바르지 않은 비밀번호</translation>
+        <translation>인식할 수 없는 비밀번호</translation>
     </message>
 </context>
 <context>
@@ -2728,17 +2760,17 @@
 <context>
     <name>dccV20::network::VpnPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="90"/>
         <source>VPN Status</source>
         <translation>VPN 상태</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="315"/>
         <source>Import Error</source>
         <translation>가져오기 오류</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="317"/>
         <source>OK</source>
         <translation>확인</translation>
     </message>
@@ -2753,12 +2785,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="87"/>
         <source>Invalid password</source>
-        <translation>올바르지 않은 비밀번호</translation>
+        <translation>인식할 수 없는 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
         <source>Not Required</source>
-        <translation>필요 없음</translation>
+        <translation>필수 항목이 아닙니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="144"/>
@@ -2785,7 +2817,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="176"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="180"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="167"/>
@@ -2866,7 +2898,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="72"/>
         <source>Invalid password</source>
-        <translation>올바르지 않은 비밀번호</translation>
+        <translation>인식할 수 없는 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
@@ -2881,7 +2913,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
         <source>Not Required</source>
-        <translation>필요 없음</translation>
+        <translation>필수 항목이 아닙니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
@@ -2893,7 +2925,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="119"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="136"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
@@ -2985,7 +3017,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="153"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
@@ -3083,7 +3115,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="107"/>
         <source>Customize Key Direction</source>
-        <translation>사용자 정의된 키 안내</translation>
+        <translation>키 방향 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="110"/>
@@ -3102,7 +3134,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="84"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="98"/>
         <source>Invalid password</source>
-        <translation>올바르지 않은 비밀번호</translation>
+        <translation>인식할 수 없는 비밀번호</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
@@ -3117,7 +3149,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="165"/>
         <source>Not Required</source>
-        <translation>필요 없음</translation>
+        <translation>필수 항목이 아닙니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
@@ -3131,7 +3163,7 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="194"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="209"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
@@ -3208,7 +3240,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="188"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation type="unfinished"/>
+        <translation>무선 네트워크에 연결하려면 먼저 핫스팟을 비활성화하십시오</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="211"/>
@@ -3231,7 +3263,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="124"/>
         <source>Required</source>
-        <translation>요구됨</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="127"/>
@@ -3241,7 +3273,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="156"/>
         <source>Customize MTU</source>
-        <translation>사용자 정의된 MTU</translation>
+        <translation>MTU 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="159"/>
@@ -3259,7 +3291,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="79"/>
         <source>Standard Font</source>
-        <translation>표준 폰트</translation>
+        <translation>표준 글꼴</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
@@ -3271,7 +3303,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="198"/>
         <source> (Unsupported font)</source>
-        <translation>(지원하지 않는 폰트)</translation>
+        <translation>(지원하지 않는 글꼴)</translation>
     </message>
 </context>
 <context>
@@ -3464,7 +3496,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="54"/>
         <source>Lock screen after</source>
-        <translation>다음에 화면 잠금</translation>
+        <translation>다음 시간 이후 화면 잠금</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
@@ -3478,7 +3510,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="72"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="175"/>
         <source>Never</source>
-        <translation>절대로 하지 않음</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="157"/>
@@ -3520,7 +3552,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="45"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="55"/>
         <source>Lock screen after</source>
-        <translation>다음에 화면 잠금</translation>
+        <translation>다음 시간 이후 화면 잠금</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
@@ -3534,7 +3566,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="73"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="181"/>
         <source>Never</source>
-        <translation>절대로 하지 않음</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="163"/>
@@ -3716,13 +3748,13 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="154"/>
         <source>Dock</source>
-        <translation>도크</translation>
+        <translation>도구집</translation>
         <extra-contents_path>/cloudsync/Dock</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="156"/>
         <source>Launcher</source>
-        <translation>런쳐</translation>
+        <translation>실행도구</translation>
         <extra-contents_path>/cloudsync/Launcher</extra-contents_path>
     </message>
     <message>
@@ -3855,7 +3887,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="10"/>
         <source>Untested</source>
-        <translation>테스트되지 않음</translation>
+        <translation>테스트되지 않았습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="79"/>
@@ -3896,7 +3928,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="138"/>
         <source>Untested</source>
-        <translation>테스트되지 않음</translation>
+        <translation>테스트되지 않았습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="168"/>
@@ -3910,7 +3942,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="70"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>시스템 및 응용 프로그램을 올바르게 사용하려면 컴퓨터를 다시 시작하십시오</translation>
+        <translation>시스템 및 응용프로그램을 올바르게 사용하려면 컴퓨터를 다시 시작하십시오</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -4002,7 +4034,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="320"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n개의 응용프로그램 업데이트 사용가능</numerusform></translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -4014,7 +4046,7 @@
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="329"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>새로운 시스템 에디션 및 %n개의 애플리케이션 업데이트 사용가능</numerusform></translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
@@ -4229,7 +4261,7 @@
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation>새 사용자 지정 설정</translation>
+        <translation>새로운 사용자 지정 설정</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
@@ -4308,7 +4340,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation type="unfinished"/>
+        <translation>모든 데이터가 먼저 저장되었는지 확인하십시오</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
@@ -4423,7 +4455,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>데스크톱으로 시작 관리자의 아이콘 보내기</translation>
+        <translation>바탕화면으로 실행도구의 아이콘 보내기</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
@@ -4682,7 +4714,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="433"/>
         <source>Password not match</source>
-        <translation>비밀번호가 일치하지 않음</translation>
+        <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
 </context>
 <context>
@@ -4710,7 +4742,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
-        <translation>지문을 식별하지 못함, 지문 판독기 위에 손가락을 올려 놓고 위쪽으로 문지른 다음 해제</translation>
+        <translation>지문을 식별하지 못했습니다. 지문 판독기 위에 손가락을 올려 놓고, 위쪽으로 문지른 다음 해제합니다</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
@@ -4720,7 +4752,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
-        <translation>지문 판독기에 손가락을 대고 위쪽으로 문지른 다음 반복하세요</translation>
+        <translation>지문 판독기에 손가락을 대고 위쪽으로 문지른 다음 반복합니다</translation>
     </message>
 </context>
 <context>
@@ -4765,7 +4797,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="160"/>
         <source>Username can&apos;t be empty</source>
-        <translation>사용자 이름을 비워 둘 수 없음</translation>
+        <translation>사용자 이름은 비워둘 수 없습니다.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="163"/>
@@ -4809,7 +4841,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="56"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation>지문 비밀번호는 시스템 로그인, 응용 프로그램 인증 및 기타 장면에서 사용됩니다. 암호가 필요할때 지문을 스캔하세요</translation>
+        <translation>지문 비밀번호는 시스템 로그인, 응용프로그램 인증 및 기타 장면에서 사용됩니다. 암호가 필요할때 지문을 스캔하세요</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="98"/>
@@ -4895,7 +4927,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"/>
+        <translation>이 계정을 삭제 하시겠습니까?</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="67"/>
@@ -5010,7 +5042,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
         <source>Switch it on to sync part of the settings for Control Center, Launcher and Dock automatically.</source>
-        <translation>제어 센터, 실행기 및 도크에 대한 설정의 일부를 자동으로 동기화하려면 이 기능을 켜십시오.</translation>
+        <translation>제어 센터, 실행도구 및 도구집에 대한 설정의 일부를 자동으로 동기화하려면 이 기능을 켜십시오.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="79"/>
@@ -5035,12 +5067,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
         <source>Dock</source>
-        <translation>도크</translation>
+        <translation>도구집</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
         <source>Launcher</source>
-        <translation>런쳐</translation>
+        <translation>실행도구</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="85"/>
@@ -5145,7 +5177,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/navigation/navmodel.cpp" line="157"/>
         <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Time and Date</source>
-        <translation>시간과 날짜</translation>
+        <translation>시간 및 날짜</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="61"/>
@@ -5221,7 +5253,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="132"/>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation>현재 지역보다 %1 시간 느림</translation>
     </message>
 </context>
 <context>
@@ -5256,7 +5288,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="59"/>
         <source>Video</source>
-        <translation>비디오</translation>
+        <translation>동영상</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="60"/>
@@ -5279,7 +5311,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
         <source>Open Desktop file</source>
-        <translation>데스크톱 파일 열기</translation>
+        <translation>바탕화면 파일 열기</translation>
     </message>
 </context>
 <context>
@@ -5524,7 +5556,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="64"/>
@@ -5557,7 +5589,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="60"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="71"/>
@@ -5598,9 +5630,13 @@ If no operation, the display will be restored after %1s.</source>
         <translation>단축키</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="105"/>
+        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="59"/>
+        <source>None</source>
+        <translation>없음</translation>
+    </message>
+    <message>
         <source>Please enter a shortcut</source>
-        <translation>단축키를 입력하세요</translation>
+        <translation type="vanished">단축키를 입력하세요</translation>
     </message>
 </context>
 <context>
@@ -5637,7 +5673,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/navigation/navmodel.cpp" line="160"/>
         <location filename="../src/frame/navigationbar.cpp" line="213"/>
         <source>Keyboard and Language</source>
-        <translation>키보드와 언어</translation>
+        <translation>키보드 및 언어</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="52"/>
@@ -5764,12 +5800,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="65"/>
         <source>Custom Shortcut</source>
-        <translation>사용자 단축키</translation>
+        <translation>사용자 지정 바로가기</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
-        <translation>사용자 단축키 추가</translation>
+        <translation>사용자 지정 바로가기 추가</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
@@ -5795,7 +5831,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="46"/>
         <source>Mouse and Touchpad</source>
-        <translation>마우스와 터치패드</translation>
+        <translation>마우스 및 터치패드</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
@@ -5901,7 +5937,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="46"/>
         <source>Application Proxy</source>
-        <translation>응용 프로그램 프록시</translation>
+        <translation>응용프로그램 프록시</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="49"/>
@@ -5917,7 +5953,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="53"/>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="57"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="56"/>
@@ -5943,7 +5979,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>설정후 런처의 응용 프로그램 상황에 맞는 메뉴에서 &quot;프록시 사용&quot;을 선택하세요</translation>
+        <translation>설정후 실행도구의 응용프로그램 상황에 맞는 메뉴에서 &quot;프록시 사용&quot;을 선택하세요</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
@@ -6078,7 +6114,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="124"/>
         <source>Customize MTU</source>
-        <translation>사용자 정의된 MTU</translation>
+        <translation>MTU 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="127"/>
@@ -6174,7 +6210,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="230"/>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="295"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="231"/>
@@ -6302,7 +6338,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
         <source>Application Proxy</source>
-        <translation>응용 프로그램 프록시</translation>
+        <translation>응용프로그램 프록시</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
@@ -6383,7 +6419,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="79"/>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="82"/>
@@ -6608,7 +6644,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="165"/>
         <source>Not Required</source>
-        <translation>필요 없음</translation>
+        <translation>필수 항목이 아닙니다</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="169"/>
@@ -6659,7 +6695,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="216"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="224"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="218"/>
@@ -6748,7 +6784,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="118"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="148"/>
@@ -6766,7 +6802,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwiredsection.cpp" line="32"/>
         <source>Security Required</source>
-        <translation>보안 필수</translation>
+        <translation>보안 필수 항목</translation>
     </message>
 </context>
 <context>
@@ -6799,7 +6835,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="121"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="163"/>
@@ -6822,7 +6858,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
         <source>Customize Gateway Port</source>
-        <translation>사용자 정의된 게이트웨이 포트</translation>
+        <translation>게이트웨이 포트 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
@@ -6832,7 +6868,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
         <source>Customize Renegotiation Interval</source>
-        <translation>사용자 정의된 Renegotiation 간격</translation>
+        <translation>재조정 간격 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
@@ -6857,7 +6893,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
         <source>Customize Tunnel MTU</source>
-        <translation>사용자 정의된 터널 MTU</translation>
+        <translation>터널 MTU 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
@@ -6867,7 +6903,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
         <source>Customize UDP Fragment Size</source>
-        <translation>사용자 정의된 UDP 조각 크기</translation>
+        <translation>UDP 조각 크기 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
@@ -7064,7 +7100,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
@@ -7079,7 +7115,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>시스코 보안 데스크톱 Trojan 허용</translation>
+        <translation>시스코 보안 바탕화면 트로이 목마 허용</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
@@ -7144,7 +7180,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
         <source>Not Required</source>
-        <translation>필요 없음</translation>
+        <translation>필수 항목이 아닙니다</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="131"/>
@@ -7158,7 +7194,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="288"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="142"/>
@@ -7199,7 +7235,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="276"/>
         <source>Customize Key Direction</source>
-        <translation>사용자 정의된 키 안내</translation>
+        <translation>키 방향 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="280"/>
@@ -7393,7 +7429,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="135"/>
         <source>Not Required</source>
-        <translation>필요 없음</translation>
+        <translation>필수 항목이 아닙니다</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="136"/>
@@ -7420,7 +7456,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="170"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="157"/>
@@ -7511,7 +7547,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
         <source>Not Required</source>
-        <translation>필요 없음</translation>
+        <translation>필수 항목이 아닙니다</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
@@ -7523,7 +7559,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="119"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="129"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
@@ -7615,7 +7651,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="153"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
@@ -7713,7 +7749,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="103"/>
         <source>Customize Key Direction</source>
-        <translation>사용자 정의된 키 안내</translation>
+        <translation>키 방향 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="106"/>
@@ -7741,7 +7777,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
         <source>Not Required</source>
-        <translation>필요 없음</translation>
+        <translation>필수 항목이 아닙니다</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="167"/>
@@ -7755,7 +7791,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="186"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="196"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
@@ -7855,7 +7891,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="113"/>
         <source>Required</source>
-        <translation>필요</translation>
+        <translation>필수 항목</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="116"/>
@@ -7865,7 +7901,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="144"/>
         <source>Customize MTU</source>
-        <translation>사용자 정의된 MTU</translation>
+        <translation>MTU 사용자 정의</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="147"/>
@@ -7878,7 +7914,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontlistwidget.cpp" line="89"/>
         <source> (Unsupported font)</source>
-        <translation>(지원하지 않는 폰트)</translation>
+        <translation>(지원하지 않는 글꼴)</translation>
     </message>
 </context>
 <context>
@@ -7886,7 +7922,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="45"/>
         <source>Standard Font</source>
-        <translation>표준 폰트</translation>
+        <translation>표준 글꼴</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
@@ -7897,7 +7933,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="108"/>
         <source> (Unsupported font)</source>
-        <translation>(지원하지 않는 폰트)</translation>
+        <translation>(지원하지 않는 글꼴)</translation>
     </message>
 </context>
 <context>
@@ -7913,7 +7949,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontswidget.cpp" line="52"/>
         <source>Font</source>
-        <translation>폰트</translation>
+        <translation>글꼴</translation>
     </message>
 </context>
 <context>
@@ -7921,7 +7957,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="118"/>
         <source>Standard Font</source>
-        <translation>표준 폰트</translation>
+        <translation>표준 글꼴</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="127"/>
@@ -7949,7 +7985,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="73"/>
         <source>Font</source>
-        <translation>폰트</translation>
+        <translation>글꼴</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="79"/>
@@ -8018,17 +8054,17 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="62"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="202"/>
         <source>Never</source>
-        <translation>절대로 하지 않음</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="100"/>
         <source>Password required to wake up the monitor</source>
-        <translation>모니터를 깨울 때 비밀번호 요구</translation>
+        <translation>모니터를 깨우기 위해 비밀번호가 필요합니다</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="103"/>
         <source>Password required to wake up the computer</source>
-        <translation>컴퓨터를 깨울 때 비밀번호 요구</translation>
+        <translation>컴퓨터를 깨우기 위해 비밀번호가 필요합니다</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="106"/>
@@ -8151,7 +8187,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="70"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="86"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>데스크톱으로 시작 관리자의 아이콘 보내기</translation>
+        <translation>바탕화면으로 실행도구의 아이콘 보내기</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="71"/>
@@ -8256,7 +8292,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="73"/>
         <source>Startup Delay</source>
-        <translation>부팅 지연</translation>
+        <translation>시동 지연</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="76"/>
@@ -8380,7 +8416,7 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="45"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="129"/>
         <source>Untested</source>
-        <translation>테스트되지 않음</translation>
+        <translation>테스트되지 않았습니다</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="91"/>
@@ -8430,7 +8466,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="66"/>
         <source>Update successful</source>
-        <translation type="unfinished"/>
+        <translation>업데이트 성공</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="67"/>
@@ -8443,7 +8479,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="55"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation>업데이트 후 시스템 및 응용 프로그램을 제대로 사용하려면 다시 시작하세요</translation>
+        <translation>업데이트 후 시스템 및 응용프로그램을 제대로 사용하려면 다시 시작하세요</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="56"/>
@@ -8516,7 +8552,7 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation><numerusform>%n 개의 응용 프로그램 업데이트가 감지되었습니다.</numerusform></translation>
+        <translation><numerusform>%n 개의 응용프로그램 업데이트가 감지되었습니다.</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
@@ -8526,7 +8562,7 @@ If no operation, the display will be restored after %1s.</source>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation><numerusform>새 시스템 버전 및 %n 응용 프로그램 업데이트가 감지되었습니다</numerusform></translation>
+        <translation><numerusform>새 시스템 버전 및 %n 응용프로그램 업데이트가 감지되었습니다</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
@@ -8699,6 +8735,3379 @@ If no operation, the display will be restored after %1s.</source>
         <location filename="../src/frame/modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
         <translation>연결됨</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::MainWindow</name>
+    <message>
+        <source>Account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloud Sync</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Personalization</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sound</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Date and Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System Info</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsDetailWidget</name>
+    <message>
+        <source>Full Name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/accounts/Change Password</extra-contents_path>
+    </message>
+    <message>
+        <source>Delete Account</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/accounts/Delete Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Login</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/accounts/Auto Login</extra-contents_path>
+    </message>
+    <message>
+        <source>Login Without Password</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AddFingeDialog</name>
+    <message>
+        <source>Add Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scan again</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identifying fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Place your finger on the fingerprint reader, or swipe upwards or downwards, and then lift it off</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::CreateAccountPage</name>
+    <message>
+        <source>New Account</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>optional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password cannot be empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The password should be different from the username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username cannot be empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username must be between 3 and 32 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The first character must be in lower case</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username must only contain a~z, 0~9, - or _</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::FingerWidget</name>
+    <message>
+        <source>Delete fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::ModifyPasswdPage</name>
+    <message>
+        <source>Change Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Current Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wrong password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password cannot be empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The password should be different from the username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password must only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::AdapterWidget</name>
+    <message>
+        <source>My devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other devices</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DetailPage</name>
+    <message>
+        <source>Ignore this device</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/bluetooth/Ignore this device</extra-contents_path>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/bluetooth/Disconnect</extra-contents_path>
+    </message>
+    <message>
+        <source>Change Name</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/bluetooth/Change Name</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DeviceSettingsItem</name>
+    <message>
+        <source>Connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::BootWidget</name>
+    <message>
+        <source>Updating...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Startup Delay</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch theme on to view it in boot menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWidget</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWork</name>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Agree and Join User Experience Program</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateSettings</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateWidget</name>
+    <message>
+        <source>Year</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Month</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Day</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeWidget</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+    <message>
+        <source>Time Settings</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>24-hour Time</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::SystemTimezone</name>
+    <message>
+        <source>Change System Timezone</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
+    </message>
+    <message>
+        <source>System Timezone</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::TimezoneList</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefappDetailWidget</name>
+    <message>
+        <source>Open Desktop file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsWidget</name>
+    <message>
+        <source>Webpage</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/defapp/Mail</extra-contents_path>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/defapp/Text</extra-contents_path>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/defapp/Music</extra-contents_path>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/defapp/Video</extra-contents_path>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/defapp/Picture</extra-contents_path>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/defapp/Terminal</extra-contents_path>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::BrightnessPage</name>
+    <message>
+        <source>The screen hue will be auto adjusted according to your location</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Night Shift</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::CustomSettingDialog</name>
+    <message>
+        <source>Main Screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hz</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>inch</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
+    </message>
+    <message>
+        <source>Resolution %1x%2</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayWidget</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/display/Display Scaling</extra-contents_path>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::MultiScreenSettingPage</name>
+    <message>
+        <source>Customize</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/display/Customize</extra-contents_path>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show the same image on other screens</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Expand the desktop across the screens</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show the screen content only on %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RefreshRatePage</name>
+    <message>
+        <source>Hz</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ResolutionDetailPage</name>
+    <message>
+        <source>Recommended</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RotateDialog</name>
+    <message>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ScalingPage</name>
+    <message>
+        <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/display/Display Scaling</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::CustomContent</name>
+    <message>
+        <source>Add Custom Shortcut</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+    </message>
+    <message>
+        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
+    <message>
+        <source>Repeat Delay</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Short</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Long</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Repeat Rate</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Test here</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Numeric Keypad</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Caps Lock Prompt</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>Switch Layouts (Multiple)</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardModule</name>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System Language</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::ShortCutSettingWidget</name>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Window</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Shortcuts/Custom Shortcut</extra-contents_path>
+    </message>
+    <message>
+        <source>Restore Defaults</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Shortcut</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
+    <message>
+        <source>Add System Language</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageWidget</name>
+    <message>
+        <source>Language List</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/keyboard/Language List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::GeneralSettingWidget</name>
+    <message>
+        <source>Left Hand</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad while typing</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Double-click Speed</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse Acceleration</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad when a mouse is connected</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TouchPadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TrackPointSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsProxyPage</name>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsTypePage</name>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionEditPage</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wired Connection %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>hotspot</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wireless Connection %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>PPPoE Connection %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionVpnEditPage</name>
+    <message>
+        <source>New VPN</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>VPN Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>L2TP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>PPTP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>VPNC</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>OpenVPN</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>StrongSwan</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>OpenConnect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>VPN L2TP %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>VPN PPTP %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>VPN VPNC %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>VPN OpenVPN %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>VPN StrongSwan %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>VPN OpenConnect %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::EthernetSection</name>
+    <message>
+        <source>Ethernet</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloned MAC Addr</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericHotspotSection</name>
+    <message>
+        <source>General</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericSection</name>
+    <message>
+        <source>General</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto Connect</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotDeviceWidget</name>
+    <message>
+        <source>Hotspot</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::IpvxSection</name>
+    <message>
+        <source>IPv4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Secondary DNS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Only applied in corresponding resources</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Method</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkDetailPage</name>
+    <message>
+        <source>Network Details</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hotspot</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>MAC</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>IPv4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModuleWidget</name>
+    <message>
+        <source>DSL</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+    <message>
+        <source>VPN</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Network Details</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Wired Network %1</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Wireless Network %1</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Wireless Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Wireless Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPOESection</name>
+    <message>
+        <source>PPPoE</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Service</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPSection</name>
+    <message>
+        <source>PPP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>128-bit MPPE</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PppoePage</name>
+    <message>
+        <source>PPP</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ProxyPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>HTTP Proxy</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>HTTPS Proxy</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>FTP Proxy</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>SOCKS Proxy</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Ignore the proxy configurations for the above hosts and domains</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Configuration URL</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::Secret8021xSection</name>
+    <message>
+        <source>Security</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>TLS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>MD5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>LEAP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>FAST</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Tunneled TLS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Protected EAP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Anonymous</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Authenticated</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Version 0</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Version 1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>EAP Auth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identity</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Anonymous ID</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Provisioning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>PAC file</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Inner Auth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>PEAP Version</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretHotspotSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWiredSection</name>
+    <message>
+        <source>Security Required</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWirelessSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WEP 40/128-bit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvOpenVPNSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize Gateway Port</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Gateway Port</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize Renegotiation Interval</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Renegotiation Interval</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use LZO Data Compression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use TCP Connection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use TAP Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize Tunnel MTU</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize UDP Fragment Size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UDP Fragment Size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Restrict Tunnel TCP MSS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Randomize Remote Hosts</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvVPNCSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cisco (default)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Netscreen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Secure (default)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Weak</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NAT-T When Available (default)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NAT-T Always</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cisco UDP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>DH Group 1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>DH Group 2 (default)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>DH Group 5</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Server (default)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>DH Group 2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Domain</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Vendor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NAT Traversal Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>IKE DH Group</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Forward Secrecy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local Port</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disable Dead Peer Detection</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnIpsecSection</name>
+    <message>
+        <source>VPN IPsec</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable IPsec</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Group ID</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Phase1 Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Phase2 Algorithms</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenConnectSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>CSD Script</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use FSID for Key Passphrase</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenVPNSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Certificates (TLS)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Certificates with Password (TLS)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Static Key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remote IP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Local IP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPPPSection</name>
+    <message>
+        <source>VPN PPP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All Available (default)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>40-bit (less secure)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>128-bit (most secure)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPage</name>
+    <message>
+        <source>VPN Status</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Import Error</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>HTTP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>SOCKS</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Retry Indefinitely When Failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSSTPSection</name>
+    <message>
+        <source>CA File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ignore Certificate Warnings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use TLS Hostname Extensions</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSecOpenVPNSection</name>
+    <message>
+        <source>VPN Security</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cipher</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>HMAC Auth</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>NT Domain</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSstpProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnStrongSwanSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>SSH Agent</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Smart Card</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>EAP</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Request an Inner IP Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enforce UDP Encapsulation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use IP Compression</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable Custom Cipher Proposals</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>IKE</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>ESP</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnTLSSection</name>
+    <message>
+        <source>VPN TLS Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Subject Match</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Remote Cert Type</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Key File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnVPNCSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Group Pwd</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use Hybrid Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>CA File</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WiredPage</name>
+    <message>
+        <source>Plug in the network cable first</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wired Network Adapter</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessPage</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wireless Network Adapter</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Close Hotspot</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disable hotspot first if you want to connect to a wireless network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>WLAN</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessSection</name>
+    <message>
+        <source>Not Bind</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationFontsWidget</name>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Standard Font</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source>Monospaced Font</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source> (Unsupported font)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationGeneral</name>
+    <message>
+        <source>Transparency</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Accent Color</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationList</name>
+    <message>
+        <source>General</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Icon Theme</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Cursor Theme</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeList</name>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::GeneralWidget</name>
+    <message>
+        <source>Power Saving Mode</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Mode Switch</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the computer</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Password is required to wake up the monitor</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerModule</name>
+    <message>
+        <source>Battery low, please plug in</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Battery critically low</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseBatteryWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseElectricWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend on lid close</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::AdvancedPage</name>
+    <message>
+        <source>Output</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
+    </message>
+    <message>
+        <source>Sound Card:</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::MicrophonePage</name>
+    <message>
+        <source>Microphone</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Input Volume</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Input Level</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundEffectsPage</name>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundWidget</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Microphone</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/sound/Advanced</extra-contents_path>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SpeakerPage</name>
+    <message>
+        <source>Speaker</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Output Volume</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Left/Right Balance</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::IndexPage</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Auto Sync</extra-contents_path>
+    </message>
+    <message>
+        <source>Syncing...</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Syncing...</extra-contents_path>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Sign Out</extra-contents_path>
+    </message>
+    <message>
+        <source>Your Wi-Fi password will be synced if Network Settings is turned on</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Your Wi-Fi password will be synced if Network Settings is turned on</extra-contents_path>
+    </message>
+    <message>
+        <source>Network Settings</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Network Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Sound Settings</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Sound Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse Settings</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Mouse Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Dock</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Dock</extra-contents_path>
+    </message>
+    <message>
+        <source>Launcher</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Launcher</extra-contents_path>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Wallpaper</extra-contents_path>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Power Settings</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Power Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Corner Settings</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Corner Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Last Sync: %1</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Last Sync:</extra-contents_path>
+    </message>
+    <message>
+        <source>yyyy-MM-dd hh:mm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LoginPage</name>
+    <message>
+        <source>Sign In</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Sign In</extra-contents_path>
+    </message>
+    <message>
+        <source>Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.</extra-contents_path>
+    </message>
+    <message>
+        <source>Deepin ID Sign In</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Deepin ID Sign In</extra-contents_path>
+    </message>
+    <message>
+        <source>Only supported in Mainland China at present</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Only supported in Mainland China at present</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LogoutPage</name>
+    <message>
+        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Sorry, it is not supported in your region at present, and will be coming soon</extra-contents_path>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/cloudsync/Sign Out</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::NativeInfoWidget</name>
+    <message>
+        <source>Edition:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Kernel:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Processor:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Memory:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disk:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1-bit</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoWidget</name>
+    <message>
+        <source>About This PC</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorSourceItem</name>
+    <message>
+        <source>Untested</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorsWidget</name>
+    <message>
+        <source>Mirror List</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+    <message>
+        <source>Test Speed</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+    <message>
+        <source>Untested</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Retest</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateCtrlWidget</name>
+    <message>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>This update may take a long time, please do not shut down or reboot during the process</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Checking for updates, please wait...</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Download and install updates</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Install updates</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Your system is up to date</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Updating, please wait...</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>The newest system installed, restart to take effect</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Dependency error, failed to detect the updates</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Backing up, please wait...</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>System backup failed</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message numerus="yes">
+        <source>%n application update(s) available</source>
+        <translation type="obsolete">
+            <numerusform>%n application update(s) available</numerusform>
+            <numerusform>%n application update(s) available</numerusform>
+        </translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>New system edition available</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message numerus="yes">
+        <source>New system edition and %n application update(s) available</source>
+        <translation type="obsolete">
+            <numerusform>New system edition and %n application update(s) available</numerusform>
+            <numerusform>New system edition and %n application update(s) available</numerusform>
+        </translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Downloaded</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Size: %1</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Your battery is lower than 50%, please plug in to continue</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateHistoryButton</name>
+    <message>
+        <source>Update History</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateSettings</name>
+    <message>
+        <source>Update Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto Clear Package Cache</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Updates Notification</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Download Updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>System Repository Detection</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Show a notification if system update repository has been modified</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Smart Mirror Switch</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Mirror List</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateWidget</name>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Return</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Current Edition</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Update History</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::PressureSettings</name>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomWidget</name>
+    <message>
+        <source>Pen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -4,12 +4,12 @@
     <message>
         <location filename="../../abrecovery/recoverydialog.cpp" line="140"/>
         <source>Are you sure you want to roll back to deepin %1 backed up on %2?</source>
-        <translation type="unfinished"/>
+        <translation>Ești sigur că dorești să revi la copia de rezervă deepin %1 din %2</translation>
     </message>
     <message>
         <location filename="../../abrecovery/recoverydialog.cpp" line="146"/>
         <source>Cancel and Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Anulare și repornire</translation>
     </message>
     <message>
         <location filename="../../abrecovery/recoverydialog.cpp" line="147"/>
