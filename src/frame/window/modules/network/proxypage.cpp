@@ -78,6 +78,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_httpPort = new LineEditWidget;
     m_httpPort->setPlaceholderText(tr("Optional"));
     //~ contents_path /network/System Proxy
+    //~ child_page System Proxy
     m_httpPort->setTitle(tr("Port"));
 
     m_httpsAddr = new LineEditWidget;
@@ -86,7 +87,6 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_httpsAddr->setTitle(tr("HTTPS Proxy"));
     m_httpsPort = new LineEditWidget;
     m_httpsPort->setPlaceholderText(tr("Optional"));
-    //~ contents_path /network/System Proxy
     m_httpsPort->setTitle(tr("Port"));
 
     m_ftpAddr = new LineEditWidget;
@@ -95,7 +95,6 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_ftpAddr->setTitle(tr("FTP Proxy"));
     m_ftpPort = new LineEditWidget;
     m_ftpPort->setPlaceholderText(tr("Optional"));
-    //~ contents_path /network/System Proxy
     m_ftpPort->setTitle(tr("Port"));
 
     m_socksAddr = new LineEditWidget;
@@ -104,7 +103,6 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_socksAddr->setTitle(tr("SOCKS Proxy"));
     m_socksPort = new LineEditWidget;
     m_socksPort->setPlaceholderText(tr("Optional"));
-    //~ contents_path /network/System Proxy
     m_socksPort->setTitle(tr("Port"));
 
     m_ignoreList = new PlainTextItem;

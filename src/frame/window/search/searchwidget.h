@@ -44,6 +44,7 @@ const QString XML_Source = "source";
 const QString XML_Title = "translation";
 const QString XML_Numerusform = "numerusform";
 const QString XML_Explain_Path = "extra-contents_path";
+const QString XML_Child_Path = "extra-child_page";
 
 namespace DCC_NAMESPACE {
 namespace search {
@@ -55,6 +56,7 @@ public:
     struct SearchBoxStruct {
         QString translateContent;
         QString actualModuleName;
+        QString childPageName;
         QString fullPagePath;
     };
 
@@ -89,6 +91,7 @@ private:
     QString removeDigital(QString input);
     QString transPinyinToChinese(QString pinyin);
     QString containTxtData(QString txt);
+    void appendChineseData(SearchBoxStruct data);
 
 private:
     QStandardItemModel *m_model;

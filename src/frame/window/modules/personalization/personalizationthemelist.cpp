@@ -80,13 +80,10 @@ void PerssonalizationThemeList::onAddItem(const QJsonObject &json)
     //translations
     if (json["type"] == "gtk") {
         if (title == "deepin") {
-            //~ contents_path /personalization/General
             item->setText(tr("Light"));
         } else if (title == "deepin-dark") {
-            //~ contents_path /personalization/General
             item->setText(tr("Dark"));
         } else if (title == "deepin-auto") {
-            //~ contents_path /personalization/General
             item->setText(tr("Auto"));
         } else {
             item->setText(title);

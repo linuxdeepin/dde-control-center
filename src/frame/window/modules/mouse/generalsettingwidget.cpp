@@ -66,8 +66,10 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
 
     QStringList doublelist;
     //~ contents_path /mouse/General
+    //~ child_page General
     doublelist << tr("Slow") << "" << "" << "" << "" << ""<< "";
     //~ contents_path /mouse/General
+    //~ child_page General
     doublelist << tr("Fast");
     DCCSlider *doubleSlider = m_doubleSlider->slider();
     doubleSlider->setType(DCCSlider::Vernier);

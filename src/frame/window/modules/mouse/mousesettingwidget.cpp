@@ -40,18 +40,22 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
 {
     m_mouseSettingsGrp = new SettingsGroup;
     //~ contents_path /mouse/Mouse
+    //~ child_page Mouse
     m_mouseMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
     //~ contents_path /mouse/Mouse
     m_adaptiveAccelProfile = new SwitchWidget(tr("Mouse Acceleration"));
     //~ contents_path /mouse/Mouse
     m_disTchStn = new SwitchWidget(tr("Disable touchpad when a mouse is connected"));
     //~ contents_path /mouse/Mouse
+    //~ child_page Mouse
     m_mouseNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
 
     QStringList speedList;
     //~ contents_path /mouse/Mouse
+    //~ child_page Mouse
     speedList << tr("Slow") << "" << "" << "" << "" << "" ;
     //~ contents_path /mouse/Mouse
+    //~ child_page Mouse
     speedList << tr("Fast");
     DCCSlider *speedSlider = m_mouseMoveSlider->slider();
     speedSlider->setType(DCCSlider::Vernier);

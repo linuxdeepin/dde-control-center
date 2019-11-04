@@ -135,7 +135,7 @@ bool SearchWidget::jumpContentPathWidget(QString path)
         SearchBoxStruct data = getModuleBtnString(path);
         if (data.translateContent != "" && data.fullPagePath != "") {
             for (int i = 0; i < m_EnterNewPagelist.count(); i++) {
-                if (m_EnterNewPagelist[i].translateContent == data.fullPagePath) {
+                if (m_EnterNewPagelist[i].translateContent == data.fullPagePath) {//getModuleBtnString解析SearchBoxStruct.fullPagePath，满足此处判断
 #if DEBUG_XML_SWITCH
                     qDebug() << " [SearchWidget] m_EnterNewPagelist[i].translateContent : " << m_EnterNewPagelist[i].translateContent << " , fullPagePath : " << m_EnterNewPagelist[i].fullPagePath << " , actualModuleName: " << m_EnterNewPagelist[i].actualModuleName;
                     qDebug() << " [SearchWidget] data.translateContent : " << data.translateContent << " , data.fullPagePath : " << data.fullPagePath << " , data.actualModuleName: " << data.actualModuleName;
@@ -158,6 +158,21 @@ bool SearchWidget::jumpContentPathWidget(QString path)
 
 void SearchWidget::loadxml()
 {
+    //左边是从从xml解析出来的数据，右边是需要被翻译成的数据；
+    //后续若还有相同模块还有一样的翻译文言，也可在此处添加类似处理，并在注释处添加　//~ child_page xxx
+    static QMap<QString, QString> transChildPageName = {
+        {"On Battery", QObject::tr("On Battery")}, //Power
+        {"Plugged In", QObject::tr("Plugged In")},
+        {"General", QObject::tr("General")}, //mouse
+        {"Mouse", QObject::tr("Mouse")},
+        {"Touchpad", QObject::tr("Touchpad")},
+        {"TrackPoint", QObject::tr("TrackPoint")},
+        {"Application Proxy", QObject::tr("Application Proxy")}, //network
+        {"System Proxy", QObject::tr("System Proxy")},
+        {"Time Settings", QObject::tr("Time Settings")},//datetime
+        {"Timezone List/Change System Timezone", QObject::tr("Change System Timezone")},
+        {"System Proxy", QObject::tr("System Proxy")},//network
+    };
 #if DEBUG_XML_SWITCH
     qDebug() << " [SearchWidget] " << Q_FUNC_INFO;
 #endif
@@ -246,6 +261,8 @@ void SearchWidget::loadxml()
                         } else if (m_xmlExplain == XML_Numerusform) {
                             if (xmlRead.text().toString() != "") //translation not nullptr can set it
                                 m_searchBoxStruct.translateContent = xmlRead.text().toString();
+                        } else if (XML_Child_Path == m_xmlExplain) {
+                            m_searchBoxStruct.childPageName = transChildPageName.value(xmlRead.text().toString());
                         } else if (m_xmlExplain == XML_Explain_Path) {
                             m_searchBoxStruct.fullPagePath = xmlRead.text().toString();
                             //follow path module name to get actual module name  ->  Left module dispaly can support mulLanguages
@@ -268,43 +285,20 @@ void SearchWidget::loadxml()
 
                             //Add search result content
                             if (!m_bIsChinese) {
-                                m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(m_searchBoxStruct.fullPagePath.section('/', 1, 1)),
-                                                                     QString("%1 --> %2").arg(m_searchBoxStruct.actualModuleName).arg(m_searchBoxStruct.translateContent)));
+                                if ("" == m_searchBoxStruct.childPageName) {
+                                    m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(m_searchBoxStruct.fullPagePath.section('/', 1, 1)),
+                                                                         QString("%1 --> %2").arg(m_searchBoxStruct.actualModuleName).arg(m_searchBoxStruct.translateContent)));
+                                } else {
+                                    m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(m_searchBoxStruct.fullPagePath.section('/', 1, 1)),
+                                                                         QString("%1 --> %2 / %3").arg(m_searchBoxStruct.actualModuleName).arg(m_searchBoxStruct.childPageName).arg(m_searchBoxStruct.translateContent)));
+                                }
                             } else {
-                                //先添加使用appenRow添加Qt::EditRole数据(用于下拉框显示),然后添加Qt::UserRole数据(用于输入框搜索)
-                                //Qt::EditRole数据用于显示搜索到的结果(汉字)
-                                //Qt::UserRole数据用于输入框输入的数据(拼音/汉字 均可)
-                                //即在输入框搜索Qt::UserRole的数据,就会在下拉框显示Qt::EditRole的数据
-                                m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(m_searchBoxStruct.fullPagePath.section('/', 1, 1)),
-                                                                     QString("%1 --> %2").arg(m_searchBoxStruct.actualModuleName).arg(m_searchBoxStruct.translateContent)));
-
-                                //设置汉字的Qt::UserRole数据
-                                m_model->setData(m_model->index(m_model->rowCount() - 1, 0),
-                                                 QString("%1 --> %2")
-                                                 .arg(m_searchBoxStruct.actualModuleName)
-                                                 .arg(m_searchBoxStruct.translateContent),
-                                                 Qt::UserRole);
-
-                                QString hanziTxt = QString("%1 --> %2").arg(m_searchBoxStruct.actualModuleName).arg(m_searchBoxStruct.translateContent);
-                                QString pinyinTxt = QString("%1 --> %2")
-                                                    .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(m_searchBoxStruct.actualModuleName)))
-                                                    .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(m_searchBoxStruct.translateContent)));
-
-                                //添加显示的汉字(用于拼音搜索显示)
-                                m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(m_searchBoxStruct.fullPagePath.section('/', 1, 1)), hanziTxt));
-                                //设置Qt::UserRole搜索的拼音(即搜索拼音会显示上面的汉字)
-                                m_model->setData(m_model->index(m_model->rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
-
-                                SearchDataStruct data;
-                                data.chiese = hanziTxt;
-                                data.pinyin = pinyinTxt;
-                                //存储 汉字和拼音 : 在选择对应的下拉框数据后,会将Qt::UserRole数据设置到输入框(即pinyin)
-                                //而在输入框发送 DSearchEdit::textChanged 信号时,会遍历m_inputList,根据pinyin获取到对应汉字,再将汉字设置到输入框
-                                m_inputList.append(data);
+                                appendChineseData(m_searchBoxStruct);
                             }
 
                             m_searchBoxStruct.translateContent = "";
                             m_searchBoxStruct.actualModuleName = "";
+                            m_searchBoxStruct.childPageName = "";
                             m_searchBoxStruct.fullPagePath = "";
                         } else {
                             //donthing
@@ -339,8 +333,6 @@ void SearchWidget::loadxml()
     } else {
         qWarning() << " [SearchWidget] File not exist" ;
     }
-
-
 }
 
 //Follow display content to Analysis SearchBoxStruct data
@@ -352,6 +344,10 @@ SearchWidget::SearchBoxStruct SearchWidget::getModuleBtnString(QString value)
     //follow actual module name to get path module name
     data.actualModuleName = getModulesName(data.translateContent, false);
     data.fullPagePath = value.section('>', 1, -1).remove('>').trimmed();
+
+    if (data.fullPagePath.contains('/', Qt::CaseInsensitive)) {
+        data.fullPagePath = data.fullPagePath.section('/', 0, 0).remove('/').trimmed();
+    }
 
 #if DEBUG_XML_SWITCH
     qDebug() << Q_FUNC_INFO << " [SearchWidget] data.translateContent : " << data.translateContent << "   ,  data.fullPagePath : " << data.fullPagePath;
@@ -435,6 +431,75 @@ QString SearchWidget::containTxtData(QString txt)
     }
 
     return value;
+}
+
+void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
+{
+    if ("" == data.childPageName) {
+        //先添加使用appenRow添加Qt::EditRole数据(用于下拉框显示),然后添加Qt::UserRole数据(用于输入框搜索)
+        //Qt::EditRole数据用于显示搜索到的结果(汉字)
+        //Qt::UserRole数据用于输入框输入的数据(拼音/汉字 均可)
+        //即在输入框搜索Qt::UserRole的数据,就会在下拉框显示Qt::EditRole的数据
+        m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(data.fullPagePath.section('/', 1, 1)),
+                                             QString("%1 --> %2").arg(data.actualModuleName).arg(data.translateContent)));
+
+        //设置汉字的Qt::UserRole数据
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0),
+                         QString("%1 --> %2")
+                         .arg(data.actualModuleName)
+                         .arg(data.translateContent),
+                         Qt::UserRole);
+
+        QString hanziTxt = QString("%1 --> %2").arg(data.actualModuleName).arg(data.translateContent);
+        QString pinyinTxt = QString("%1 --> %2")
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.actualModuleName)))
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.translateContent)));
+
+        //添加显示的汉字(用于拼音搜索显示)
+        m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(data.fullPagePath.section('/', 1, 1)), hanziTxt));
+        //设置Qt::UserRole搜索的拼音(即搜索拼音会显示上面的汉字)
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
+
+        SearchDataStruct transdata;
+        transdata.chiese = hanziTxt;
+        transdata.pinyin = pinyinTxt;
+        //存储 汉字和拼音 : 在选择对应的下拉框数据后,会将Qt::UserRole数据设置到输入框(即pinyin)
+        //而在输入框发送 DSearchEdit::textChanged 信号时,会遍历m_inputList,根据pinyin获取到对应汉字,再将汉字设置到输入框
+        m_inputList.append(transdata);
+    } else {
+        //先添加使用appenRow添加Qt::EditRole数据(用于下拉框显示),然后添加Qt::UserRole数据(用于输入框搜索)
+        //Qt::EditRole数据用于显示搜索到的结果(汉字)
+        //Qt::UserRole数据用于输入框输入的数据(拼音/汉字 均可)
+        //即在输入框搜索Qt::UserRole的数据,就会在下拉框显示Qt::EditRole的数据
+        m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(data.fullPagePath.section('/', 1, 1)),
+                                             QString("%1 --> %2 / %3").arg(data.actualModuleName).arg(data.childPageName).arg(data.translateContent)));
+
+        //设置汉字的Qt::UserRole数据
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0),
+                         QString("%1 --> %2 / %3")
+                         .arg(data.actualModuleName)
+                         .arg(data.childPageName)
+                         .arg(data.translateContent),
+                         Qt::UserRole);
+
+        QString hanziTxt = QString("%1 --> %2 / %3").arg(data.actualModuleName).arg(data.childPageName).arg(data.translateContent);
+        QString pinyinTxt = QString("%1 --> %2 / %3")
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.actualModuleName)))
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.childPageName)))
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.translateContent)));
+
+        //添加显示的汉字(用于拼音搜索显示)
+        m_model->appendRow(new QStandardItem(ModuleInterface::getIcon(data.fullPagePath.section('/', 1, 1)), hanziTxt));
+        //设置Qt::UserRole搜索的拼音(即搜索拼音会显示上面的汉字)
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
+
+        SearchDataStruct transdata;
+        transdata.chiese = hanziTxt;
+        transdata.pinyin = pinyinTxt;
+        //存储 汉字和拼音 : 在选择对应的下拉框数据后,会将Qt::UserRole数据设置到输入框(即pinyin)
+        //而在输入框发送 DSearchEdit::textChanged 信号时,会遍历m_inputList,根据pinyin获取到对应汉字,再将汉字设置到输入框
+        m_inputList.append(transdata);
+    }
 }
 
 void SearchWidget::setLanguage(QString type)

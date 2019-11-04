@@ -63,6 +63,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
 
     m_port = new LineEditWidget;
     //~ contents_path /network/Application Proxy
+    //~ child_page Application Proxy
     m_port->setTitle(tr("Port"));
     m_port->setPlaceholderText(tr("Required"));
 

@@ -92,6 +92,7 @@ DateSettings::DateSettings(QWidget *parent)
     //~ contents_path /datetime/Time Settings
     cancelButton->setText(tr("Cancel"));
     //~ contents_path /datetime/Time Settings
+    //~ child_page Time Settings
     confirmButton->setText(tr("Confirm"));
 
     cancelButton->setAccessibleName("TimeCancel");

@@ -108,7 +108,6 @@ BootWidget::BootWidget(QWidget *parent)
     layout->addStretch();
     layout->setContentsMargins(ThirdPageContentsMargins);
     setLayout(layout);
-    //~ contents_path /commoninfo/Boot Menu
     setWindowTitle(tr("Boot Menu"));
 
     connect(m_theme->switchWidget(), &SwitchWidget::checkedChanged, this, &BootWidget::enableTheme);

@@ -193,6 +193,7 @@ void TimeZoneChooser::setIsAddZone(const bool isAdd)
         //~ contents_path /datetime/Timezone List/Change System Timezone
         m_title->setText(tr("Change Timezone"));
         //~ contents_path /datetime/Timezone List/Change System Timezone
+        //~ child_page Timezone List/Change System Timezone
         m_confirmBtn->setText(tr("Confirm"));
     }
 }

@@ -47,12 +47,16 @@ UseBatteryWidget::UseBatteryWidget(QWidget *parent)
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     //~ contents_path /power/On Battery
+    //~ child_page On Battery
     m_monitorSleepOnBattery->setAccessibleName(tr("Monitor will suspend after"));
     //~ contents_path /power/On Battery
+    //~ child_page On Battery
     m_computerSleepOnBattery->setAccessibleName(tr("Computer will suspend after"));
     //~ contents_path /power/On Battery
+    //~ child_page On Battery
     m_autoLockScreen->setAccessibleName(tr("Lock screen after"));
     //~ contents_path /power/On Battery
+    //~ child_page On Battery
     m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
     SettingsGroup *batterySettingsGrp = new SettingsGroup;

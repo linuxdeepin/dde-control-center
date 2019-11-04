@@ -124,7 +124,6 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     connect(m_resetBtn, &QPushButton::clicked, this, &ShortCutSettingWidget::requestReset);
     connect(m_searchInput, &QLineEdit::textChanged, this, &ShortCutSettingWidget::onSearchTextChanged);
     connect(m_searchDelayTimer, &QTimer::timeout, this, &ShortCutSettingWidget::prepareSearchKeys);
-    //~ contents_path /keyboard/Shortcuts
     setWindowTitle(tr("Shortcut"));
 
     connect(m_model, &ShortcutModel::addCustomInfo, this, &ShortCutSettingWidget::onCustomAdded);

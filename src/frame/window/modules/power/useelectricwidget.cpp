@@ -48,12 +48,16 @@ UseElectricWidget::UseElectricWidget(QWidget *parent)
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     //~ contents_path /power/Plugged In
+    //~ child_page Plugged In
     m_monitorSleepOnPower->setAccessibleName(tr("Monitor will suspend after"));
     //~ contents_path /power/Plugged In
+    //~ child_page Plugged In
     m_computerSleepOnPower->setAccessibleName(tr("Computer will suspend after"));
     //~ contents_path /power/Plugged In
+    //~ child_page Plugged In
     m_autoLockScreen->setAccessibleName(tr("Lock screen after"));
     //~ contents_path /power/Plugged In
+    //~ child_page Plugged In
     m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
     SettingsGroup *powerSettingsGrp = new SettingsGroup;

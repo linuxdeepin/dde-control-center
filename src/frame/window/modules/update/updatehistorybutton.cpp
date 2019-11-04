@@ -45,7 +45,6 @@ UpdateHistoryButton::UpdateHistoryButton(QFrame *parent)
     m_label->setPixmap(m_picture);
 
     m_messageLabel->setStyleSheet("color: #319ab9;");
-    //~ contents_path /update/Update
     m_messageLabel->setText(tr("Update History"));
 
     setLayout(layout);

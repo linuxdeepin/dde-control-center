@@ -181,7 +181,6 @@ void UpdateWidget::resetUpdateCheckState(bool state)
     m_label->setVisible(false);
     m_historyBtn->setVisible(state);
     m_updateHistoryText->setVisible(false);
-    //~ contents_path /update/Update
     m_historyBtn->setLabelText(tr("Update History"));
     m_recentHistoryApplist->setVisible(false);
 }

@@ -52,7 +52,6 @@ LogoutPage::LogoutPage(QWidget *parent)
     m_mainLayout->addWidget(cntip, 0, Qt::AlignVCenter);
 
     DWarningButton *logoutBtn = new DWarningButton;
-    //~ contents_path /cloudsync/Sign Out
     logoutBtn->setText(tr("Sign Out"));
     connect(logoutBtn, &QPushButton::clicked, this, &LogoutPage::requestLogout);
     m_mainLayout->addSpacing(35);
