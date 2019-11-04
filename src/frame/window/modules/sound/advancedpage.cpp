@@ -44,17 +44,19 @@ AdvancedPage::AdvancedPage(QWidget *parent)
 
     auto scrollarea = new QScrollArea;
     scrollarea->setWidgetResizable(true);
-    scrollarea->installEventFilter(this);
     scrollarea->setFrameStyle(QFrame::NoFrame);
     scrollarea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollarea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    scrollarea->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    scrollarea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     scrollarea->setContentsMargins(ThirdPageContentsMargins);
 
     auto contentWidget = new QWidget;
     auto contentLayout = new QVBoxLayout;
     contentWidget->setLayout(contentLayout);
     scrollarea->setWidget(contentWidget);
+
+    m_layout->addWidget(scrollarea);
+    setLayout(m_layout);
 
     //~ contents_path /sound/Advanced
     TitleLabel *label = new TitleLabel(tr("Output"));
@@ -68,7 +70,7 @@ AdvancedPage::AdvancedPage(QWidget *parent)
         listView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         listView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         listView->setBackgroundType(DStyledItemDelegate::ClipCornerBackground);
-        listView->setSizeAdjustPolicy(DListView::AdjustToContents);
+        listView->setSizeAdjustPolicy(DListView::AdjustToContentsOnFirstShow);
         listView->setSpacing(1);
     };
 
@@ -90,9 +92,6 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     connect(m_outputList, &DListView::clicked, this, [this](const QModelIndex & idx) {
         this->requestSetPort(m_outputList->model()->data(idx, Qt::WhatsThisPropertyRole).value<const Port *>());
     });
-
-    m_layout->addWidget(scrollarea);
-    setLayout(m_layout);
 }
 
 AdvancedPage::~AdvancedPage()
