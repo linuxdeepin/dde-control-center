@@ -151,13 +151,18 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
 
 void AvatarListWidget::addItemFromDefaultDir()
 {
-    QDir dir("/var/lib/AccountsService/icons/");
+    QString dirpath("/var/lib/AccountsService/icons/");
+    QDir dir(dirpath);
     QStringList hideList;
     hideList << "default.png" << "guest.png";
     QStringList filters;
     filters << "*.png";//设置过滤类型
     dir.setNameFilters(filters);//设置文件名的过滤
     QFileInfoList list = dir.entryInfoList();
+    //根据文件名进行排序
+    qSort(list.begin(), list.end(), [&](const QFileInfo &fileinfo1, const QFileInfo &fileinfo2) {
+        return fileinfo1.baseName() < fileinfo2.baseName();
+    });
     for (int i = 0; i < list.size(); ++i) {
         if (hideList.contains(list.at(i).fileName())) {
             continue;
@@ -166,13 +171,13 @@ void AvatarListWidget::addItemFromDefaultDir()
         m_iconpathList.push_back(iconpath);
         QStandardItem *item = new QStandardItem();
         auto ratio = devicePixelRatioF();
-        if (ratio > 1.0)
+        if (ratio > 1.0) {
             iconpath.replace("icons/", "icons/bigger/");
-
+        }
         auto px = QPixmap(iconpath).scaled(QSize(74, 74) * ratio,
                                            Qt::KeepAspectRatio, Qt::SmoothTransformation);
         px.setDevicePixelRatio(ratio);
-        qDebug() << ratio;
+
         item->setData(QVariant::fromValue(px), Qt::DecorationRole);
         item->setData(QVariant::fromValue(iconpath), AvatarListWidget::SaveAvatarRole);
         m_avatarItemModel->appendRow(item);
