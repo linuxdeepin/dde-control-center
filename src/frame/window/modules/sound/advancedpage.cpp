@@ -125,17 +125,20 @@ void AdvancedPage::initList()
 void AdvancedPage::addPort(const Port *port)
 {
     DStandardItem *pi = new DStandardItem;
+    pi->setText(port->name());
 
     DViewItemActionList actionList;
-    auto portAction = new DViewItemAction();
-    portAction->setText(port->name());
-    auto cardAction = new DViewItemAction();
+    auto cardAction = new DViewItemAction(Qt::AlignVCenter);
+    cardAction->setFontSize(DFontSizeManager::T6);
+    cardAction->setTextColorRole(DPalette::TextTips);
     cardAction->setText(tr("Sound Card:") + port->cardName());
-    actionList << portAction << cardAction;
+    actionList << cardAction;
     pi->setTextActionList(actionList);
     pi->setData(QVariant::fromValue<const Port *>(port), Qt::WhatsThisPropertyRole);
 
-    connect(port, &Port::nameChanged, portAction, &DViewItemAction::setText);
+    connect(port, &Port::nameChanged, this, [ = ](const QString str) {
+        pi->setText(str);
+    });
     connect(port, &Port::cardNameChanged, cardAction, &DViewItemAction::setText);
     connect(port, &Port::isActiveChanged, this, [ = ](bool isActive) {
         pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
