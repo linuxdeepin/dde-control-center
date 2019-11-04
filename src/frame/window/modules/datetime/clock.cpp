@@ -56,8 +56,7 @@ void Clock::paintEvent(QPaintEvent *event)
     Q_UNUSED(event)
 
     QPixmap pix;
-    QDateTime datetime(QDateTime::currentDateTimeUtc());
-    datetime = datetime.addSecs(m_timeZone.getUTCOffset());
+    QDateTime datetime(QDateTime::currentDateTime());
     const QTime time(datetime.time());
     QPainter painter(this);
     painter.setRenderHints(QPainter::HighQualityAntialiasing | QPainter::SmoothPixmapTransform);
