@@ -71,11 +71,8 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 
     m_switch->setTitle(tr("Wired Network Adapter"));
     m_switch->setChecked(dev->enabled());
-    m_lvProfiles->setVisible(dev->enabled());
     m_tipsGrp->setVisible(dev->enabled());
-    connect(m_switch, &SwitchWidget::checkedChanged, this, [this](const bool checked) {
-        m_tipsGrp->setVisible(checked);
-        m_lvProfiles->setVisible(checked);
+    connect(m_switch, &SwitchWidget::checkedChanged, this, [this] (const bool checked) {
         Q_EMIT requestDeviceEnabled(m_device->path(), checked);
     });
     connect(m_device, &NetworkDevice::enableChanged, m_switch, &SwitchWidget::setChecked);
@@ -98,6 +95,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     setTitle(tr("Select Settings"));
 
     connect(m_lvProfiles, &DListView::clicked, this, [this](const QModelIndex &idx) {
+        qDebug() << "m_lvProfiles: " << idx.data(PathRole).toString();
         this->activateConnection(idx.data(PathRole).toString());
     });
 
@@ -180,6 +178,8 @@ void WiredPage::editConnection(const QString &connectionPath)
     m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection,
                                         m_device->path(), m_model->connectionUuidByPath(connectionPath));
     m_editPage->initSettingsWidget();
+    connect(m_editPage, &ConnectionEditPage::requestWiredDeviceEnabled, this, &WiredPage::requestDeviceEnabled);
+    connect(m_editPage, &ConnectionEditPage::activateWiredConnection, this, &WiredPage::activateConnection);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
     Q_EMIT requestNextPage(m_editPage);
@@ -189,6 +189,8 @@ void WiredPage::createNewConnection()
 {
     m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection, m_device->path());
     m_editPage->initSettingsWidget();
+    connect(m_editPage, &ConnectionEditPage::requestWiredDeviceEnabled, this, &WiredPage::requestDeviceEnabled);
+    connect(m_editPage, &ConnectionEditPage::activateWiredConnection, this, &WiredPage::activateConnection);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
     Q_EMIT requestNextPage(m_editPage);
@@ -196,6 +198,7 @@ void WiredPage::createNewConnection()
 
 void WiredPage::activateConnection(const QString &connectionPath)
 {
+    qDebug() << "devPath:" << m_device->path() << ", uuid:" << m_model->connectionUuidByPath(connectionPath);
     Q_EMIT requestActiveConnection(m_device->path(), m_model->connectionUuidByPath(connectionPath));
 }
 
@@ -212,10 +215,8 @@ void WiredPage::checkActivatedConnection()
 
 void WiredPage::onDeviceStatusChanged(const NetworkDevice::DeviceStatus stat)
 {
-    if (m_switch->checked()) {
         const bool unavailable = stat <= NetworkDevice::Unavailable;
         m_tipsGrp->setVisible(unavailable);
-    }
 }
 
 void WiredPage::onDeviceRemoved()

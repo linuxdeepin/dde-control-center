@@ -302,6 +302,9 @@ void ConnectionEditPage::saveConnSettings()
     }
 
     if (m_settingsWidget->isAutoConnect()) {
+        if (m_connType == ConnectionEditPage::WiredConnection) {
+            Q_EMIT requestWiredDeviceEnabled(DevicePath, true);
+        }
         // deactivate this device's ActiveConnection
         QDBusPendingReply<> reply;
         for (auto aConn : activeConnections()) {
@@ -352,10 +355,14 @@ void ConnectionEditPage::updateConnection()
     }
 
     if (m_settingsWidget->isAutoConnect()) {
-        reply = activateConnection(m_connection->path(), DevicePath, "");
-        reply.waitForFinished();
-        if (reply.isError()) {
-            qDebug() << "error occurred while activate connection" << reply.error();
+        if (m_connType == ConnectionEditPage::WiredConnection) {
+            Q_EMIT activateWiredConnection(m_connection->path());
+        } else {
+            reply = activateConnection(m_connection->path(), DevicePath, "");
+            reply.waitForFinished();
+            if (reply.isError()) {
+                qDebug() << "error occurred while activate connection" << reply.error();
+            }
         }
     }
 
