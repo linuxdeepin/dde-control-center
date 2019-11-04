@@ -138,7 +138,7 @@ void SoundEffectsPage::initList()
     DStandardItem *item = nullptr;
     for (auto se : m_model->soundEffectMap()) {
         item = new DStandardItem(se.first);
-        auto action = new DViewItemAction(Qt::Alignment(), QSize(), QSize(), true);
+        auto action = new DViewItemAction(Qt::Alignment(), QSize(16, 16), QSize(), true);
         auto checkstatus = m_model->queryEffectData(se.second) ?
                            DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
         auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
