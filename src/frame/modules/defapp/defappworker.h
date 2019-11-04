@@ -60,7 +60,6 @@ public:
 public Q_SLOTS:
     void onSetDefaultApp(const QString &category, const App &item);
     void onGetListApps();
-    void onResetTriggered();
     void onDelUserApp(const QString &mine, const App &item);
     void onCreateFile(const QString &mime, const QFileInfo &info);
 

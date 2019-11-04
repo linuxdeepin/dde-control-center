@@ -96,11 +96,6 @@ void DefAppWorker::onGetListApps()
     }
 }
 
-void DefAppWorker::onResetTriggered()
-{
-    m_dbusManager->Reset();
-}
-
 void DefAppWorker::onDelUserApp(const QString &mime, const App &item)
 {
     Category *category = getCategory(mime);

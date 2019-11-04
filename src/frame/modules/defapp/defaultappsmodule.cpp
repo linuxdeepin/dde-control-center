@@ -78,7 +78,6 @@ void DefaultAppsModule::moduleDeactive()
 
 void DefaultAppsModule::reset()
 {
-    Q_EMIT requestReset();
 }
 
 ModuleWidget *DefaultAppsModule::moduleWidget()
@@ -102,7 +101,6 @@ void DefaultAppsModule::showDefaultAppsDetail()
         m_defAppWorker->onGetListApps();
         m_defaultAppsDetail = new DefAppViewer();
         m_defaultAppsDetail->setModel(m_defAppModel);
-        connect(this, &DefaultAppsModule::requestReset,              m_defAppWorker, &DefAppWorker::onResetTriggered);  //恢复默认
         connect(m_defaultAppsDetail, &DefAppViewer::requestSetDefaultApp,   m_defAppWorker, &DefAppWorker::onSetDefaultApp); //设置默认程序
         connect(m_defaultAppsDetail, &DefAppViewer::requestDelUserApp,      m_defAppWorker, &DefAppWorker::onDelUserApp);
         connect(m_defaultAppsDetail, &DefAppViewer::requestFrameAutoHide, this, &DefaultAppsModule::setFrameAutoHide);
