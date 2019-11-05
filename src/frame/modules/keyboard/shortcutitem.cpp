@@ -91,6 +91,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 void ShortcutItem::setShortcutInfo(ShortcutInfo *info)
 {
     m_info = info;
+    setTitle(m_info->name);
     setShortcut(info->accels);
 }
 
