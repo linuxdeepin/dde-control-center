@@ -31,6 +31,7 @@
 #include <QApplication>
 #include <QFont>
 #include <QEvent>
+#include <QPen>
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -38,10 +39,11 @@ using namespace dcc::keyboard;
 
 CustomItem::CustomItem(QWidget *parent)
     : SettingsItem(parent)
+    , isAlert(false)
 {
     setMouseTracking(true);
-    QVBoxLayout *layout = new QVBoxLayout();
-    layout->setContentsMargins(0, 0, 0, 0);
+    QHBoxLayout *layout = new QHBoxLayout();
+    layout->setContentsMargins(20, 0, 10, 0);
     layout->setSpacing(2);
 
     m_title = new QLabel();
@@ -50,22 +52,21 @@ CustomItem::CustomItem(QWidget *parent)
 
     layout->addWidget(m_title);
     layout->setAlignment(m_title, Qt::AlignLeft);
+    layout->addStretch();
 
     m_shortKey = new ShortcutKey;
     layout->addWidget(m_shortKey);
     m_shortKey->setTextList(QStringList());
 
-    m_shortcutEdit = new QLabel(this);
-    m_shortcutEdit->setText(tr("None"));
+    m_shortcutEdit = new QLineEdit(this);
+    m_shortcutEdit->setReadOnly(true);
+    m_shortcutEdit->hide();
+    m_shortcutEdit->installEventFilter(this);
     layout->addWidget(m_shortcutEdit);
 
     setLayout(layout);
-    setFixedHeight(80);
+    setFixedHeight(36);
 
-    setShortcut("");
-    m_shortKey->hide();
-    m_shortcutEdit->setFocus();
-    m_shortcutEdit->show();
 }
 
 void CustomItem::setTitle(const QString &title)
@@ -87,11 +88,18 @@ void CustomItem::setShortcut(const QString &shortcut)
     m_shortKey->setTextList(list.split("-"));
     m_shortcutEdit->hide();
     m_shortKey->show();
+    Q_EMIT changeAlert();
 }
 
 QString CustomItem::text() const
 {
     return m_accels;
+}
+
+void CustomItem::setAlert(bool isAlert)
+{
+    this->isAlert = isAlert;
+    update();
 }
 
 void CustomItem::mouseReleaseEvent(QMouseEvent *e)
@@ -101,11 +109,24 @@ void CustomItem::mouseReleaseEvent(QMouseEvent *e)
         m_shortcutEdit->clear();
         m_shortcutEdit->setFocus();
         m_shortcutEdit->show();
+        m_shortcutEdit->setPlaceholderText(tr("Please enter a shortcut"));
 
         Q_EMIT requestUpdateKey();
-    }
-    if(m_isFirst){
-        m_isFirst=false;
-        Q_EMIT requestUpdateKey();
+    } else {
+        m_shortKey->show();
+        m_shortcutEdit->hide();
     }
 }
+
+void CustomItem::paintEvent(QPaintEvent *event)
+{
+    QPainter p(this);
+    auto Radius = 15.0f;
+    if (isAlert) {
+        p.setPen(Qt::NoPen);
+        p.setBrush(QColor(241, 57, 50, qRound(0.15 * 255)));
+        p.drawRoundRect(rect(), int(Radius / rect().width() * 100), int(Radius / rect().height() * 100));
+    }
+    QWidget::paintEvent(event);
+}
+

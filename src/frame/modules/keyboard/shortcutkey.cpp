@@ -57,6 +57,14 @@ void ShortcutKey::setTextList(const QStringList &list)
     adjustSize();
 }
 
+void ShortcutKey::enterEvent(QEvent *event)
+{
+    QWidget::enterEvent(event);
+
+    for (KeyLabel *label : m_list)
+        label->setEnter(true);
+}
+
 void ShortcutKey::leaveEvent(QEvent *event)
 {
     QWidget::leaveEvent(event);

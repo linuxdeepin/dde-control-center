@@ -69,6 +69,12 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
 
     m_shortCutNameEdit = new DLineEdit;
     m_shortCutNameEdit->lineEdit()->setPlaceholderText(tr("Required"));
+    connect(m_shortCutNameEdit, &DLineEdit::textChanged, this, [this] {
+        if (!m_shortCutNameEdit->text().isEmpty()) {
+            m_shortCutNameEdit->setAlert(false);
+        }
+    });
+
     mainLayout->addWidget(m_shortCutNameEdit);
 
     //~ contents_path /keyboard/Shortcuts/Custom Shortcut
@@ -77,9 +83,17 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
 
     m_shortCutCmdEdit = new DFileChooserEdit(this);
     m_shortCutCmdEdit->lineEdit()->setPlaceholderText(tr("Required"));
+    connect(m_shortCutCmdEdit, &DFileChooserEdit::textChanged, this, [this] {
+        if (!m_shortCutCmdEdit->text().isEmpty()) {
+            m_shortCutCmdEdit->setAlert(false);
+        }
+    });
+
     mainLayout->addWidget(m_shortCutCmdEdit);
 
     m_shortcut = new CustomItem;
+    m_shortcut->setShortcut("");
+
     mainLayout->addWidget(m_shortcut);
 
     QPushButton *cancel = m_buttonTuple->leftButton();
@@ -102,6 +116,9 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     connect(ok, &QPushButton::clicked, this, &CustomContent::onShortcut);
     connect(m_shortcut, &CustomItem::requestUpdateKey, this, &CustomContent::updateKey);
     connect(model, &ShortcutModel::keyEvent, this, &CustomContent::keyEvent);
+    connect(m_shortcut, &CustomItem::changeAlert, this, [this] {
+        m_shortcut->setAlert(false);
+    });
 }
 
 void CustomContent::setBottomTip(ShortcutInfo *conflict)
@@ -129,6 +146,7 @@ void CustomContent::onShortcut()
 {
     m_shortCutNameEdit->setAlert(m_shortCutNameEdit->text().isEmpty());
     m_shortCutCmdEdit->setAlert(m_shortCutCmdEdit->lineEdit()->text().isEmpty());
+    m_shortcut->setAlert(m_shortcut->text().isEmpty());
 
     if (m_shortcut->text().isEmpty() || m_shortCutCmdEdit->lineEdit()->text().isEmpty() || m_shortCutNameEdit->text().isEmpty()) {
         return;

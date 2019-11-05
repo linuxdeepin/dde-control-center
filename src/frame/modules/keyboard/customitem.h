@@ -48,20 +48,23 @@ public:
 
     void setTitle(const QString &title);
     void setShortcut(const QString &shortcut);
+    void setAlert(bool isAlert);
     QString text() const;
 
 Q_SIGNALS:
     void requestUpdateKey();
+    void changeAlert();
 
 protected:
     void mouseReleaseEvent(QMouseEvent *e) override;
+    void paintEvent(QPaintEvent *event) override;
 
 private:
     QLabel *m_title;
-    QLabel *m_shortcutEdit;
+    QLineEdit *m_shortcutEdit;
     QString m_accels;
     ShortcutKey *m_shortKey;
-    bool m_isFirst{true};
+    bool isAlert;
 };
 }
 }

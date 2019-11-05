@@ -40,7 +40,8 @@ public:
     void setTextList(const QStringList &list);
 
 protected:
-    void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
+    void enterEvent(QEvent *event) override;
+    void leaveEvent(QEvent *event) override;
 
 private:
     QHBoxLayout *m_mainLayout;
