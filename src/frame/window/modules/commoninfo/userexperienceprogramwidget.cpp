@@ -26,6 +26,7 @@
 #include "widgets/labels/tipslabel.h"
 
 #include <QVBoxLayout>
+#include <QTimer>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
@@ -53,7 +54,11 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
 
     setLayout(vBoxLayout);
 
-    connect(m_joinUeProgram, &SwitchWidget::checkedChanged, this, &UserExperienceProgramWidget::enableUeProgram);
+    connect(m_joinUeProgram, &SwitchWidget::checkedChanged, this, [this](bool state) {
+        QTimer::singleShot(0, this, [ = ] {
+            this->enableUeProgram(state);
+        });
+    });
 }
 
 void UserExperienceProgramWidget::setModel(CommonInfoModel *model)

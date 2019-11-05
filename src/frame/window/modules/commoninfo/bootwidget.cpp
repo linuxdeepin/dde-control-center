@@ -61,7 +61,8 @@ BootWidget::BootWidget(QWidget *parent)
     m_bootList->setAutoFillBackground(false);
     m_bootList->setDragEnabled(false);
     m_bootList->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
-    m_bootList->setSelectionMode(DListView::SingleSelection); // 单选
+    m_bootList->setSelectionMode(DListView::NoSelection);
+    m_bootList->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_bootList->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     m_bootList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_bootList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
