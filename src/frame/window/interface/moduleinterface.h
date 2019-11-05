@@ -106,8 +106,13 @@ public:
     /// 当搜索到相关字段后，load会被调用
     virtual void load(QString path) { Q_UNUSED(path); }
 
+public:
+    inline void setAvailable(bool isAvailable) { m_available = isAvailable; }
+    inline bool isAvailable() const { return m_available; }
+
 protected:
     FrameProxyInterface *m_frameProxy = nullptr;
+    bool m_available{true};
 };
 
 }

@@ -32,6 +32,7 @@
 
 #include <QStack>
 #include <QPair>
+#include <QDBusContext>
 
 DWIDGET_USE_NAMESPACE
 
@@ -64,7 +65,7 @@ private:
     ModuleInterface *m_curInterface{nullptr};
 };
 
-class MainWindow : public DMainWindow, public FrameProxyInterface
+class MainWindow : public DMainWindow, public FrameProxyInterface, protected QDBusContext
 {
     Q_OBJECT
 public:
@@ -76,6 +77,7 @@ public:
     void showModulePage(const QString &module, const QString &page, bool animation) override;
 
 public:
+    bool isModuleAvailable(const QString &m);
     void toggle();
     void popWidget();
 

@@ -268,12 +268,35 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
 {
     Q_UNUSED(animation)
 
+    if (!isModuleAvailable(module) && calledFromDBus()) {
+        qDebug() << "get error module name!";
+        sendErrorReply(QDBusError::InvalidArgs,
+                       "cannot find module that name is " + module);
+    }
+
     raise();
     if (isMinimized())
         show();
 
     setWindowState(Qt::WindowActive | windowState());
     onEnterSearchWidget(module, page);
+}
+
+bool MainWindow::isModuleAvailable(const QString &m)
+{
+    for (auto ite : m_modules) {
+        if (ite.first->name() == m) {
+            return ite.first->isAvailable();
+        }
+    }
+
+    if (calledFromDBus()) {
+        qDebug() << "get error module name!";
+        sendErrorReply(QDBusError::InvalidArgs,
+                       "cannot find module that name is " + m);
+    }
+
+    return false;
 }
 
 void MainWindow::toggle()
@@ -406,6 +429,8 @@ void MainWindow::changeEvent(QEvent *event)
 
 void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visible)
 {
+    inter->setAvailable(visible);
+
     auto find_it = std::find_if(m_modules.cbegin(),
                                 m_modules.cend(),
     [ = ](const QPair<ModuleInterface *, QString> &pair) {

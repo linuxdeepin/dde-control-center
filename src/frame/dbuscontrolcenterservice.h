@@ -94,6 +94,7 @@ public Q_SLOTS: // METHODS
     void Toggle();
     void ToggleInLeft();
     bool isNetworkCanShowPassword();
+    bool isModuleAvailable(const QString &m);
 
 Q_SIGNALS: // SIGNALS
     void rectChanged(const QRect &rect);

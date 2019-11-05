@@ -157,7 +157,7 @@ void DBusControlCenterService::ShowHome()
 
 void DBusControlCenterService::ShowModule(const QString &module)
 {
-    ShowPage(module, QString());
+    ShowPage(module, "");
 }
 
 void DBusControlCenterService::ShowPage(const QString &module, const QString &page)
@@ -201,5 +201,10 @@ bool DBusControlCenterService::isNetworkCanShowPassword()
     //return parent()->isNetworkCanShowPassword();
 
     return false; // for remove gcc warning.
+}
+
+bool DBusControlCenterService::isModuleAvailable(const QString &m)
+{
+    return parent()->isModuleAvailable(m);
 }
 
