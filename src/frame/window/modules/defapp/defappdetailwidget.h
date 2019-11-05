@@ -71,6 +71,7 @@ private:
     enum DefAppDataRole{
         DefAppIsUserRole = DTK_NAMESPACE::UserRole + 1,
         DefAppIdRole,
+        DefAppCanDeleteRole
     };
 
 Q_SIGNALS:

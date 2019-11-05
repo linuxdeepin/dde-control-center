@@ -40,6 +40,7 @@ struct App {
     QString Icon;
     QString Exec;
     bool isUser;
+    bool CanDelete;
 
     bool operator ==(const App &app) const {
         return app.Id == Id && app.isUser == isUser;

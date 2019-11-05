@@ -101,7 +101,12 @@ void DefAppWorker::onDelUserApp(const QString &mime, const App &item)
     Category *category = getCategory(mime);
 
     category->delUserItem(item);
-    m_dbusManager->DeleteUserApp(item.Id);
+    if (item.CanDelete) {
+        QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
+        m_dbusManager->DeleteApp(mimelist, item.Id);
+    } else{
+        m_dbusManager->DeleteUserApp(item.Id);
+    }
 
     //remove file
     QFile file(m_userLocalPath + item.Id);
@@ -214,6 +219,7 @@ void DefAppWorker::saveListApp(const QString &mime, const QJsonArray &json, cons
         app.Description = obj["Description"].toString();
         app.Exec = obj["Exec"].toString();
         app.isUser = isUser;
+        app.CanDelete = obj["CanDelete"].toBool();
 
         list << app;
     }

@@ -146,33 +146,23 @@ void DefappDetailWidget::setCategoryName(const QString &name)
 void DefappDetailWidget::updateListView(const dcc::defapp::App &defaultApp) {
     int cnt = m_model->rowCount();
     for (int row = 0; row < cnt; row++) {
-        QString id = m_model->data(m_model->index(row, 0), DefAppIdRole).toString();
         DStandardItem *modelItem = dynamic_cast<DStandardItem *>(m_model->item(row));
+        QString id = modelItem->data(DefAppIdRole).toString();
+        bool isUser = modelItem->data(DefAppIsUserRole).toBool();
+        bool canDelete = modelItem->data(DefAppCanDeleteRole).toBool();
 
         if (id == defaultApp.Id) {
             modelItem->setCheckState(Qt::Checked);
             //remove user clear button
-            if (!m_model->data(m_model->index(row, 0), DefAppIsUserRole).toBool())
+            if (!isUser && !canDelete)
                 continue;
 
-            DViewItemActionList actions = modelItem->actionList(Qt::RightEdge);
-            if (actions.size() <= 0)
-                continue;
-
-            for (DViewItemAction *action : actions) {
-                if (!action)
-                    continue;
-                actions.removeOne(action);
-                m_actionMap.remove(action);
-                delete action;
-            }
-
-            actions.clear();
+            DViewItemActionList actions;
             modelItem->setActionList(Qt::RightEdge, actions);
         } else {
             modelItem->setCheckState(Qt::Unchecked);
             //add user clear button
-            if (!m_model->data(m_model->index(row, 0), DefAppIsUserRole).toBool())
+            if (!isUser && !canDelete)
                 continue;
 
             DViewItemActionList btnActList;
@@ -254,7 +244,7 @@ void  DefappDetailWidget::onDelBtnClicked() {
     QString id = m_actionMap[action];
 
     dcc::defapp::App app = getAppById(id);
-    if (!isValid(app) || !app.isUser)
+    if (!isValid(app) || !(app.isUser || app.CanDelete))
         return;
     qDebug() << "delete app " << app.Id;
     //delete user app
@@ -283,6 +273,7 @@ void DefappDetailWidget::appendItemData(const dcc::defapp::App &app)
     item->setIcon(getAppIcon(app));
     item->setData(app.Id, DefAppIdRole);
     item->setData(app.isUser, DefAppIsUserRole);
+    item->setData(app.CanDelete, DefAppCanDeleteRole);
     item->setData(VListViewItemMargin, Dtk::MarginsRole);
 
     m_model->appendRow(item);
