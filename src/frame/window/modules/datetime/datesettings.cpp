@@ -30,7 +30,6 @@
 #include "widgets/switchwidget.h"
 #include "widgets/nextpagewidget.h"
 #include "widgets/translucentframe.h"
-#include "clockitem.h"
 #include "modules/datetime/timezone_dialog/timezonechooser.h"
 #include "widgets/buttontuple.h"
 #include "datewidget.h"
@@ -52,7 +51,6 @@ namespace datetime {
 DateSettings::DateSettings(QWidget *parent)
     : QWidget(parent)
     , m_datetimeGroup(new SettingsGroup)
-    , m_clock(new ClockItem(this, false))
     , m_autoSyncTimeSwitch(new SwitchWidget)
     , m_yearWidget(new DateWidget(DateWidget::Year, 1970, 9999))
     , m_monthWidget(new DateWidget(DateWidget::Month, 1, 12))
@@ -82,9 +80,6 @@ DateSettings::DateSettings(QWidget *parent)
     m_autoSyncTimeSwitch->setTitle(tr("Auto Sync"));
 
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-    //set clock plate to white
-    m_clock->setPlate(false);
 
     QPushButton *cancelButton = m_buttonTuple->leftButton();
     QPushButton *confirmButton = m_buttonTuple->rightButton();
@@ -163,8 +158,7 @@ DateSettings::DateSettings(QWidget *parent)
         m_ntpServerList->addItem(tr("Customize"));
     }
 
-    m_datetimeGroup->appendItem(timeItem);
-    m_datetimeGroup->appendItem(m_autoSyncTimeSwitch);
+    m_datetimeGroup->appendItem(timeItem); 
     if (m_bSystemIsServer) {
         m_datetimeGroup->appendItem(m_ntpSrvItem);
         m_datetimeGroup->appendItem(m_address);
@@ -176,12 +170,10 @@ DateSettings::DateSettings(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setSpacing(0);
     layout->setMargin(0);
-    layout->addWidget(m_clock);
+    layout->addWidget(m_autoSyncTimeSwitch, 0, Qt::AlignTop);
 
     if (m_bSystemIsServer) {
-        ContentWidget *contentWidget = new ContentWidget(this);
-        contentWidget->setContent(m_datetimeGroup);
-        layout->addWidget(contentWidget);
+        layout->addWidget(m_datetimeGroup);
 
         connect(m_ntpServerList, &datetimeCombox::click, this, &DateSettings::isUserOperate);
         connect(m_ntpServerList, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &DateSettings::onProcessComboBox);
@@ -194,6 +186,10 @@ DateSettings::DateSettings(QWidget *parent)
     setLayout(layout);
 
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &DateSettings::requestSetAutoSyncdate);
+    connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, [this](const bool state) {
+        m_datetimeGroup->setVisible(!state);
+        m_buttonTuple->setVisible(!state);
+    });
 
     connect(cancelButton, &QPushButton::clicked, this, &DateSettings::onCancelButtonClicked);
     connect(confirmButton, &QPushButton::clicked, this, &DateSettings::onConfirmButtonClicked);
@@ -204,7 +200,7 @@ DateSettings::DateSettings(QWidget *parent)
 
 void DateSettings::setCurrentTimeZone(const ZoneInfo &info)
 {
-    m_clock->setTimeZone(info);
+    Q_UNUSED(info)
 }
 
 void DateSettings::onCancelButtonClicked()
@@ -334,6 +330,9 @@ QSpinBox *DateSettings::createDSpinBox(QWidget *parent, int min, int max)
 void DateSettings::updateRealAutoSyncCheckState(const bool &state)
 {
     QDateTime datetime = getDatetime();
+
+    m_datetimeGroup->setVisible(!state);
+    m_buttonTuple->setVisible(!state);
 
     if (m_autoSyncTimeSwitch->checked() != state) {
         m_autoSyncTimeSwitch->setChecked(state);
