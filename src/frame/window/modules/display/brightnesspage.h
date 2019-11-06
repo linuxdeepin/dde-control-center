@@ -24,6 +24,8 @@
 
 #include "window/namespace.h"
 
+#include <DTipLabel>
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -72,7 +74,7 @@ private:
     dcc::display::DisplayModel *m_displayModel{nullptr};
 
     QVBoxLayout *m_centralLayout{nullptr};
-    QLabel *m_nightTips{nullptr};
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_nightTips{nullptr};
     QList<dcc::widgets::TitledSliderItem *> m_sliders;
 
     dcc::widgets::SwitchWidget *m_nightShift{nullptr};

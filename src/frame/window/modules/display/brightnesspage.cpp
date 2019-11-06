@@ -38,6 +38,7 @@
 
 using namespace dcc::widgets;
 using namespace dcc::display;
+DWIDGET_USE_NAMESPACE;
 
 namespace DCC_NAMESPACE {
 
@@ -49,25 +50,24 @@ const int PercentageNum = 100;
 BrightnessPage::BrightnessPage(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout)
-    , m_nightTips(new QLabel)
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
-    m_centralLayout->addSpacing(10);
     m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
-
-    //~ contents_path /display/Brightness
-    m_nightTips = new QLabel(tr("The screen hue will be auto adjusted according to your location"));
-    m_nightTips->setWordWrap(true);
-    m_nightTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-    m_nightTips->adjustSize();
-    m_nightTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-    m_centralLayout->addWidget(m_nightTips);
 
     m_nightShift = new SwitchWidget;
     //~ contents_path /display/Brightness
     m_nightShift->setTitle(tr("Night Shift"));
     m_centralLayout->addWidget(m_nightShift);
+
+    //~ contents_path /display/Brightness
+    m_nightTips = new DTipLabel(tr("The screen hue will be auto adjusted according to your location"));
+    m_nightTips->setWordWrap(true);
+    m_nightTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    m_nightTips->adjustSize();
+    m_nightTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    m_nightTips->setContentsMargins(10, 0, 0, 0);
+    m_centralLayout->addWidget(m_nightTips);
 
     m_autoLightMode = new SwitchWidget;
     //~ contents_path /display/Brightness

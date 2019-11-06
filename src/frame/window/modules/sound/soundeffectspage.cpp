@@ -53,10 +53,10 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_layout->setSpacing(0);
 
+    m_sw->addBackground();
     m_layout->addWidget(m_sw, 0, Qt::AlignTop);
     m_layout->addSpacing(10);
 
-    m_effectList->setMaximumHeight(800);
     m_effectList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_effectList->setSelectionMode(QListView::SelectionMode::NoSelection);
     m_effectList->setEditTriggers(DListView::NoEditTriggers);

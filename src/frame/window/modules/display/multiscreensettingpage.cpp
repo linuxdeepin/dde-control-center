@@ -147,18 +147,15 @@ void MultiScreenSettingPage::initModeList()
     iconList << "dcc_display_custom";
 
     for (int idx = 0; idx < titleList.size(); ++idx) {
-        auto *titleAction = new DViewItemAction;
-        titleAction->setText(titleList[idx]);
+        auto item = new DStandardItem;
+        item->setIcon(QIcon::fromTheme(iconList[idx]));
+        item->setText(titleList[idx]);
 
         auto *subTitleAction = new DViewItemAction;
         subTitleAction->setText(subTitleList[idx]);
-
-        DViewItemActionList actionList;
-        actionList << titleAction << subTitleAction;
-
-        auto item = new DStandardItem;
-        item->setIcon(QIcon::fromTheme(iconList[idx]));
-        item->setTextActionList(actionList);
+        subTitleAction->setFontSize(DFontSizeManager::T6);
+        subTitleAction->setTextColorRole(DPalette::TextTips);
+        item->setTextActionList({subTitleAction});
         m_listModel->appendRow(item);
     }
 

@@ -29,6 +29,8 @@
 #include "widgets/settingsheaderitem.h"
 #include "widgets/settingsgroup.h"
 
+#include <DTipLabel>
+
 #include <QVBoxLayout>
 
 const float MinScreenWidth = 800.0f;
@@ -36,6 +38,7 @@ const float MinScreenHeight = 600.0f;
 
 using namespace dcc::display;
 using namespace dcc::widgets;
+DWIDGET_USE_NAMESPACE
 
 namespace DCC_NAMESPACE {
 
@@ -47,15 +50,17 @@ ScalingPage::ScalingPage(QWidget *parent)
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
-    m_centralLayout->addSpacing(10);
     m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
 
     //~ contents_path /display/Display Scaling
-    QLabel *tip = new QLabel(tr("Some applications cannot be scaled with the specified settings in multi-display environment."), this);
+    DTipLabel *tip = new DTipLabel(tr("Some applications cannot be scaled with the specified settings in multi-display environment."));
 
     tip->setWordWrap(true);
+    tip->adjustSize();
+    tip->setIndent(0);
     tip->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     tip->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    tip->setContentsMargins(10, 0, 0, 0);
 
     m_centralLayout->addWidget(tip);
 
