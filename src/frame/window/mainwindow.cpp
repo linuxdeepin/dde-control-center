@@ -466,6 +466,12 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
                     resetNavList(m_contentStack.empty());
                 }
             }
+        }  else if ("cloudsync" == find_it->first->name()) {
+            if (visible) {
+                m_searchWidget->removeUnExsitData(tr("Cloud Sync"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("Cloud Sync"));
+            }
         }
     } else {
         qWarning() << Q_FUNC_INFO << "Not found module!";
