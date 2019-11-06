@@ -55,7 +55,12 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
 
     m_sw->addBackground();
     m_layout->addWidget(m_sw, 0, Qt::AlignTop);
-    m_layout->addSpacing(10);
+    m_layout->addSpacing(20);
+
+//    auto tlabe = new QLabel(tr("Customize"));
+//    tlabe->setAlignment(Qt::AlignCenter);
+//    m_layout->addWidget(tlabe);
+//    m_layout->addSpacing(10);
 
     m_effectList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_effectList->setSelectionMode(QListView::SelectionMode::NoSelection);

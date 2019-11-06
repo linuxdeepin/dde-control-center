@@ -58,8 +58,10 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     m_layout->addWidget(scrollarea);
     setLayout(m_layout);
 
+    const int titleLeftMargin = 15;
     //~ contents_path /sound/Advanced
     TitleLabel *label = new TitleLabel(tr("Output"));
+    label->setContentsMargins(titleLeftMargin, 0, 0, 0);
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     contentLayout->addWidget(label);
 
@@ -77,9 +79,11 @@ AdvancedPage::AdvancedPage(QWidget *parent)
     m_outputList = new DListView;
     setListFucn(m_outputList);
     contentLayout->addWidget(m_outputList);
+    contentLayout->addSpacing(10);
 
     //~ contents_path /sound/Advanced
     label = new TitleLabel(tr("Input"));
+    label->setContentsMargins(titleLeftMargin, 0, 0, 0);
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     contentLayout->addWidget(label);
     m_inputList = new DListView;
