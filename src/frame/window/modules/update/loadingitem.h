@@ -48,6 +48,7 @@ public:
     void setImageVisible(bool state);
     void setImageOrTextVisible(bool state);
     void setImageAndTextVisible(bool state);
+    QPixmap getPixmap(const QString name, const QSize size);
 
 private:
     dcc::widgets::NormalLabel *m_messageLabel;

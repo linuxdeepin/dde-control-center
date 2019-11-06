@@ -25,6 +25,7 @@
 
 #include <QDebug>
 #include <QVBoxLayout>
+#include <QIcon>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
@@ -104,6 +105,15 @@ void LoadingItem::setImageVisible(bool state)
     m_labelImage->setVisible(state);
 }
 
+QPixmap LoadingItem::getPixmap(const QString name, const QSize size)
+{
+    const QIcon &icon = QIcon(name);
+    const qreal ratio = devicePixelRatioF();
+    QPixmap pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixmap.setDevicePixelRatio(ratio);
+    return pixmap;
+}
+
 //image or text only use one
 void LoadingItem::setImageOrTextVisible(bool state)
 {
@@ -112,13 +122,14 @@ void LoadingItem::setImageOrTextVisible(bool state)
     setVersionVisible(state);
     setImageVisible(true);
 
+    QString path = "";
     if (state) {
-        m_image->load(":/update/updatev20/dcc_all_updated.svg");
+        path = ":/update/updatev20/dcc_all_updated.svg";
     } else {
-        m_image->load(":/update/updatev20/dcc_checking_update.svg");
+        path = ":/update/updatev20/dcc_checking_update.svg";
     }
 
-    m_labelImage->setPixmap(QPixmap::fromImage(*m_image));
+    m_labelImage->setPixmap(getPixmap(path, QSize(96, 96)));
 }
 
 //image and text all use or not use
