@@ -548,7 +548,7 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
     Q_UNUSED(inter)
 
     m_topWidget = new FourthColWidget(this);
-    m_topWidget->initWidget(w);
+    m_topWidget->initWidget(w, inter);
     m_topWidget->setVisible(true);
 
     m_topWidget->setFixedHeight(height() - this->titlebar()->height());
