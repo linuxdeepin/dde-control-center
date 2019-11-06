@@ -56,7 +56,6 @@ DateSettings::DateSettings(QWidget *parent)
     , m_monthWidget(new DateWidget(DateWidget::Month, 1, 12))
     , m_dayWidget(new DateWidget(DateWidget::Day, 1, 31))
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save, this))
-    , m_bIsConfirmSetTime(false)
     , m_ntpServerList(nullptr)
     , m_ntpSrvItem(nullptr)
     , m_address(nullptr)
@@ -137,7 +136,7 @@ DateSettings::DateSettings(QWidget *parent)
         //~ contents_path /datetime/Time Settings
         QLabel *serverText = new QLabel(tr("Server"));
         m_ntpSrvItem->setLayout(ntpServeLayout);
-        ntpServeLayout->addSpacing(10);
+        ntpServeLayout->addSpacing(2);
         ntpServeLayout->addWidget(serverText, 0, Qt::AlignLeft);
         ntpServeLayout->addWidget(m_ntpServerList, 0, Qt::AlignRight);
 
@@ -148,7 +147,7 @@ DateSettings::DateSettings(QWidget *parent)
         //~ contents_path /datetime/Time Settings
         m_addressContent->setPlaceholderText(tr("Required"));
 
-        ntpAddressLayout->addSpacing(10);
+        ntpAddressLayout->addSpacing(2);
         ntpAddressLayout->addWidget(addressText, 0, Qt::AlignLeft);
         ntpAddressLayout->addWidget(m_addressContent, 0, Qt::AlignRight);
         m_address->setLayout(ntpAddressLayout);
@@ -159,10 +158,6 @@ DateSettings::DateSettings(QWidget *parent)
     }
 
     m_datetimeGroup->appendItem(timeItem); 
-    if (m_bSystemIsServer) {
-        m_datetimeGroup->appendItem(m_ntpSrvItem);
-        m_datetimeGroup->appendItem(m_address);
-    }
     m_datetimeGroup->appendItem(m_yearWidget);
     m_datetimeGroup->appendItem(m_monthWidget);
     m_datetimeGroup->appendItem(m_dayWidget);
@@ -171,14 +166,14 @@ DateSettings::DateSettings(QWidget *parent)
     layout->setSpacing(0);
     layout->setMargin(0);
     layout->addWidget(m_autoSyncTimeSwitch, 0, Qt::AlignTop);
+    layout->addWidget(m_datetimeGroup);
 
     if (m_bSystemIsServer) {
-        layout->addWidget(m_datetimeGroup);
+        layout->addWidget(m_ntpSrvItem);
+        layout->addWidget(m_address);
 
         connect(m_ntpServerList, &datetimeCombox::click, this, &DateSettings::isUserOperate);
         connect(m_ntpServerList, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &DateSettings::onProcessComboBox);
-    } else {
-        layout->addWidget(m_datetimeGroup);
     }
 
     layout->addStretch();
@@ -186,10 +181,7 @@ DateSettings::DateSettings(QWidget *parent)
     setLayout(layout);
 
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &DateSettings::requestSetAutoSyncdate);
-    connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, [this](const bool state) {
-        m_datetimeGroup->setVisible(!state);
-        m_buttonTuple->setVisible(!state);
-    });
+    connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &DateSettings::setControlVisible);
 
     connect(cancelButton, &QPushButton::clicked, this, &DateSettings::onCancelButtonClicked);
     connect(confirmButton, &QPushButton::clicked, this, &DateSettings::onConfirmButtonClicked);
@@ -210,19 +202,15 @@ void DateSettings::onCancelButtonClicked()
 
 void DateSettings::onConfirmButtonClicked()
 {
-    if (m_autoSyncTimeSwitch->checked()) {//1 -> 0
-        Q_EMIT requestSetAutoSyncdate(false);
-
-        //wait sync response, then set datetime
-        if (!m_bIsConfirmSetTime) {
-            m_bIsConfirmSetTime = true;
+    if (m_bSystemIsServer && m_ntpServerList->currentText() == tr("Customize")) {
+        if ("" == m_addressContent->text()) {
+            qWarning() << "The customize address is nullptr.";
+            return;
         }
+
+        Q_EMIT requestNTPServer(m_addressContent->text());
     } else {
         Q_EMIT requestSetTime(getDatetime());
-    }
-
-    if (m_bSystemIsServer && m_ntpServerList->currentText() == tr("Customize")) {
-        Q_EMIT requestNTPServer(m_addressContent->text());
     }
 }
 
@@ -245,7 +233,11 @@ void DateSettings::onProcessComboBox(const int &value)
         return;
 
     QString itemText = m_ntpServerList->itemText(value);
-    m_address->setVisible(itemText == tr("Customize"));
+
+    if (m_autoSyncTimeSwitch->checked()) {
+        m_address->setVisible(itemText == tr("Customize"));
+        m_buttonTuple->setVisible(itemText == tr("Customize"));
+    }
 
     if (!m_bIsUserOperate)
         return;
@@ -280,7 +272,7 @@ QDateTime DateSettings::getDatetime() const
 
 void DateSettings::setNtpServerAddress(QString address)
 {
-    if (!m_bSystemIsServer)
+    if (!m_bSystemIsServer && m_autoSyncTimeSwitch->checked())
         return;
 
     if (m_ntpServerAddress != address) {
@@ -300,6 +292,23 @@ void DateSettings::setNtpServerAddress(QString address)
 
         m_ntpServerList->setCurrentText(tr("Customize"));
         m_addressContent->setText(address);
+    }
+}
+
+//认证选择“取消”，需要将服务器地址设置为旧的地址
+void DateSettings::setLastServerAddress(QString address)
+{
+    if (!m_bSystemIsServer && m_ntpServerAddress != address)
+        return;
+
+    m_addressContent->setText(address);
+    for (int i = 0; i < m_ntpServerList->count(); i++) {
+        if (m_ntpServerList->itemText(i) == address) {
+            onProcessComboBox(i);
+            m_ntpServerList->setCurrentIndex(i);
+            m_addressContent->setText("");
+            break;
+        }
     }
 }
 
@@ -327,12 +336,22 @@ QSpinBox *DateSettings::createDSpinBox(QWidget *parent, int min, int max)
     return spinBox;
 }
 
+void DateSettings::setControlVisible(bool state)
+{
+    m_datetimeGroup->setVisible(!state);
+    m_buttonTuple->setVisible(!state);
+
+    if (m_bSystemIsServer) {
+        m_ntpSrvItem->setVisible(state);
+        m_address->setVisible(state && m_ntpServerList->currentText() == tr("Customize"));
+    }
+}
+
 void DateSettings::updateRealAutoSyncCheckState(const bool &state)
 {
     QDateTime datetime = getDatetime();
 
-    m_datetimeGroup->setVisible(!state);
-    m_buttonTuple->setVisible(!state);
+    setControlVisible(state);
 
     if (m_autoSyncTimeSwitch->checked() != state) {
         m_autoSyncTimeSwitch->setChecked(state);
@@ -343,12 +362,6 @@ void DateSettings::updateRealAutoSyncCheckState(const bool &state)
         m_dayWidget->setValue(datetime.date().day());
         m_timeHourWidget->setValue(datetime.time().hour());
         m_timeMinWidget->setValue(datetime.time().minute());
-    }
-
-    if (m_bIsConfirmSetTime && !state) {
-        m_bIsConfirmSetTime = false;
-
-        Q_EMIT requestSetTime(datetime);
     }
 }
 

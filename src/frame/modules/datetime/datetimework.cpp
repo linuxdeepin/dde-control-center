@@ -161,16 +161,23 @@ void DatetimeWork::addUserTimeZone(const QString &zone)
 
 void DatetimeWork::setNtpServer(QString server)
 {
+    qDebug() << "Try set server : " << server;
+
     if (server == m_timedateInter->nTPServer())
         return;
 
     QDBusPendingCall call = m_timedateInter->SetNTPServer(server);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
-        // If the call failed, revert the UI change.
-        if (call.isError()) {
+        //call.isError() : true表示取消，false表示确定
+        if (!call.isError()) {
+            qDebug() << "set server success.";
             Q_EMIT m_model->NTPServerChanged(m_timedateInter->nTPServer());
+        } else {
+            qWarning() << "Not set server success.";
+            Q_EMIT m_model->NTPServerNotChanged(m_timedateInter->nTPServer());
         }
+
         watcher->deleteLater();
     });
 }

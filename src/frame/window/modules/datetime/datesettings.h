@@ -62,6 +62,7 @@ public:
     void setCurrentTimeZone(const ZoneInfo &info);
     QDateTime getDatetime() const;
     void setNtpServerAddress(QString address);
+    void setLastServerAddress(QString address);
 
 Q_SIGNALS:
     void requestSetTime(const QDateTime &time);
@@ -83,6 +84,7 @@ private Q_SLOTS:
 
 private:
     QSpinBox *createDSpinBox(QWidget *parent, int min, int max);
+    void setControlVisible(bool state);
 
 private:
     dcc::widgets::SettingsGroup *m_datetimeGroup;
@@ -93,7 +95,6 @@ private:
     DateWidget *m_monthWidget;
     DateWidget *m_dayWidget;
     dcc::widgets::ButtonTuple *m_buttonTuple;
-    bool m_bIsConfirmSetTime;
     datetimeCombox *m_ntpServerList;
     dcc::widgets::SettingsItem *m_ntpSrvItem;
     dcc::widgets::SettingsItem *m_address;

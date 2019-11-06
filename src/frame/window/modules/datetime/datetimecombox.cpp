@@ -30,12 +30,12 @@ datetimeCombox::datetimeCombox(QWidget *parent)
 }
 
 //For different with user operate or default value
-void datetimeCombox::mouseReleaseEvent(QMouseEvent *event)
+void datetimeCombox::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() != Qt::LeftButton)
         return;
 
     Q_EMIT click();
 
-    QComboBox::mouseReleaseEvent(event);
+    QComboBox::mousePressEvent(event);
 }

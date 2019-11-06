@@ -38,7 +38,7 @@ Q_SIGNALS:
     void click();
 
 private:
-    virtual void mouseReleaseEvent(QMouseEvent *event) override;
+    virtual void mousePressEvent(QMouseEvent *event) override;
 };
 
 }

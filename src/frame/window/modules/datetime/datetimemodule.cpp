@@ -236,11 +236,17 @@ void DatetimeModule::showTimeSetting()
     connect(m_model, &DatetimeModel::systemTimeChanged, m_setting, &DateSettings::requestBack);
     connect(m_model, &dcc::datetime::DatetimeModel::NTPChanged, m_setting, &DateSettings::updateRealAutoSyncCheckState);
     connect(m_model, &dcc::datetime::DatetimeModel::NTPServerListChanged, m_setting, &DateSettings::updateNTPServerList);
-    connect(m_model, &DatetimeModel::NTPServerChanged, this, [ = ](QString server) {
+    connect(m_model, &DatetimeModel::NTPServerChanged, this, [this](QString server) {
         if (m_setting) {
             m_setting->setNtpServerAddress(server);
         }
     });
+    connect(m_model, &DatetimeModel::NTPServerNotChanged, this, [this](QString server) {
+        if (m_setting) {
+            m_setting->setLastServerAddress(server);
+        }
+    });
+
 
     m_setting->updateRealAutoSyncCheckState(m_model->nTP());
     m_setting->updateNTPServerList(m_model->ntpServerList());

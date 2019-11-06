@@ -74,6 +74,7 @@ Q_SIGNALS:
     void currentSystemTimeZoneChanged(const ZoneInfo &zone) const;
     void NTPServerChanged(QString server);
     void NTPServerListChanged(QStringList list);
+    void NTPServerNotChanged(QString server);
 
 private:
     bool m_ntp;
