@@ -88,7 +88,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_otherDeviceListView->setModel(m_otherDeviceModel);
     m_otherDeviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_otherDeviceListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-    m_otherDeviceListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_otherDeviceListView->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     m_otherDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_otherDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 

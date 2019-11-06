@@ -74,37 +74,8 @@ AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
     connect(adpWidget, &AdapterWidget::requestConnectDevice, this, &BluetoothWidget::requestConnectDevice);
     connect(adpWidget, &AdapterWidget::requestSetAlias, this, &BluetoothWidget::requestSetAlias);
     connect(adpWidget, &AdapterWidget::requestShowDetail, this, &BluetoothWidget::showDeviceDetail);
-    connect(adpWidget, &AdapterWidget::notifyLoadFinished, this, [ = ]() {
-        QLayout *layout = m_tFrame->layout();
-        //每次添加蓝牙设备都会重新使用一个新的QVBoxLayout进行布局
-        QVBoxLayout *vLayout = new QVBoxLayout;
-        vLayout->setMargin(0);
-        vLayout->setSpacing(0);
-        if (layout) {
-            //将旧的蓝牙设备数据取出来放在新的QVBoxLayout中
-            while (QLayoutItem *item = layout->takeAt(0)) {
-                //若当前为nullptr,还需要继续判断后面的数据
-                if (!item->widget())
-                    continue;
-
-                vLayout->addWidget(item->widget(), 0, Qt::AlignTop);
-            }
-
-            layout->setParent(nullptr);
-            layout->deleteLater();
-            layout = nullptr;
-        }
-
-        m_tFrame->deleteLater();
-        m_tFrame = new TranslucentFrame;
-        vLayout->addWidget(adpWidget, 0, Qt::AlignTop);
-        vLayout->addStretch();
-        m_tFrame->setLayout(vLayout);
-        setContent(m_tFrame);
-    });
-
+    connect(adpWidget, &AdapterWidget::notifyLoadFinished, this, &BluetoothWidget::updateWidget);
     m_bluetoothWorker->setAdapterDiscovering(path, true);
-
     m_valueMap[adapter] = adpWidget;
     return adpWidget;
 }
@@ -149,12 +120,11 @@ void BluetoothWidget::updateWidget()
         //将旧的蓝牙设备数据取出来放在新的QVBoxLayout中
         while (QLayoutItem *item = layout->takeAt(0)) {
             //若当前为nullptr,还需要继续判断后面的数据
-            if (!item->widget())
+            if (!item->widget()) {
                 continue;
-
+            }
             vLayout->addWidget(item->widget(), 0, Qt::AlignTop);
         }
-
         layout->setParent(nullptr);
         layout->deleteLater();
         layout = nullptr;
