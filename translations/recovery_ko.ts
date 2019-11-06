@@ -9,7 +9,7 @@
     <message>
         <location filename="../../abrecovery/recoverydialog.cpp" line="146"/>
         <source>Cancel and Reboot</source>
-        <translation>취소 후 재부팅</translation>
+        <translation>취소 및 재부팅</translation>
     </message>
     <message>
         <location filename="../../abrecovery/recoverydialog.cpp" line="147"/>
