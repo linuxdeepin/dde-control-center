@@ -156,6 +156,15 @@ void Monitor::setModeList(const ResolutionList &modeList)
     Q_EMIT modelListChanged(m_modeList);
 }
 
+void Monitor::setMonitorEnable(bool enable)
+{
+    if (m_enable == enable)
+        return;
+
+    m_enable = enable;
+    Q_EMIT enableChanged(enable);
+}
+
 
 bool Monitor::isSameResolution(const Resolution &r1, const Resolution &r2)
 {

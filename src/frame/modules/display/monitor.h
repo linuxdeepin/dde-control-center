@@ -60,6 +60,7 @@ public:
     inline const Resolution currentMode() const { return m_currentMode; }
     inline const QList<quint16> rotateList() const { return m_rotateList; }
     inline const QList<Resolution> modeList() const { return m_modeList; }
+    inline bool enable() const { return m_enable; }
 
 Q_SIGNALS:
     void geometryChanged() const;
@@ -72,6 +73,7 @@ Q_SIGNALS:
     void brightnessChanged(const double brightness) const;
     void currentModeChanged(const Resolution &resolution) const;
     void modelListChanged(const QList<Resolution> &resolution) const;
+    void enableChanged(bool enable) const;
 
 public:
     static bool isSameResolution(const Resolution &r1,const Resolution &r2);
@@ -93,6 +95,7 @@ private Q_SLOTS:
     void setRotateList(const QList<quint16> &rotateList);
     void setCurrentMode(const Resolution &resolution);
     void setModeList(const ResolutionList &modeList);
+    void setMonitorEnable(bool enable);
 
 private:
     int m_x;
@@ -110,6 +113,7 @@ private:
 //    QList<QPair<int, int>> m_resolutionList;
 //    QList<double> m_refreshList;
     QList<Resolution> m_modeList;
+    bool m_enable;
 };
 
 } // namespace display
