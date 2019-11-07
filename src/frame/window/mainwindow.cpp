@@ -209,6 +209,8 @@ void MainWindow::modulePreInitialize()
 {
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
         it->first->preInitialize();
+
+        setModuleVisible(it->first, it->first->isAvailable());
     }
 }
 

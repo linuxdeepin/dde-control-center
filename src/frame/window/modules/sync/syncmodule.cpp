@@ -19,8 +19,6 @@ SyncModule::SyncModule(FrameProxyInterface *frameProxy, QObject *parent)
 
 void SyncModule::initialize()
 {
-    m_model = new dcc::cloudsync::SyncModel;
-    m_worker = new dcc::cloudsync::SyncWorker(m_model);
 }
 
 const QString SyncModule::name() const
@@ -45,4 +43,12 @@ void SyncModule::active()
     m_worker->activate(); //refresh data
 
     m_frameProxy->pushWidget(this, widget);
+}
+
+void SyncModule::preInitialize()
+{
+    m_model = new dcc::cloudsync::SyncModel;
+    m_worker = new dcc::cloudsync::SyncWorker(m_model);
+
+    m_frameProxy->setModuleVisible(this, m_model->syncIsValid());
 }

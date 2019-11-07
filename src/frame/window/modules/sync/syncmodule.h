@@ -44,9 +44,7 @@ public:
     virtual const QString name() const override;
     virtual void contentPopped(QWidget *const w) override;
     virtual void active() override;
-    virtual inline void preInitialize() override {
-        m_frameProxy->setModuleVisible(this, false);
-    };
+    virtual void preInitialize() override;
 
 private:
     dcc::cloudsync::SyncModel  *m_model;

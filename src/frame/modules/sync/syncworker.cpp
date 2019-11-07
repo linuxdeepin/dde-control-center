@@ -2,6 +2,7 @@
 #include "widgets/utils.h"
 
 #include <QProcess>
+#include <QDBusConnection>
 
 using namespace dcc;
 using namespace dcc::cloudsync;
@@ -22,11 +23,8 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     connect(m_syncInter, &SyncInter::LastSyncTimeChanged, this, &SyncWorker::onLastSyncTimeChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::SwitcherChange, this, &SyncWorker::onSyncModuleStateChanged, Qt::QueuedConnection);
 
-    m_model->setSyncIsValid(
-        QProcess::execute(
-            "which", QStringList() << "/usr/lib/deepin-sync-daemon/deepin-sync-daemon") ==
-            0 &&
-        valueByQSettings<bool>(DCC_CONFIG_FILES, "CloudSync", "AllowCloudSync", false));
+    auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.deepinid");
+    m_model->setSyncIsValid(req.value() && valueByQSettings<bool>(DCC_CONFIG_FILES, "CloudSync", "AllowCloudSync", false));
 }
 
 void SyncWorker::activate()
