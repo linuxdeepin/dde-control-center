@@ -57,7 +57,7 @@ APItem::APItem(const QString &text, QStyle *style)
     : DStandardItem(text)
 {
     setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
-    setCheckable(true);
+    setCheckable(false);
 
     DStyleHelper dstyle(style);
     m_secureAction = new DViewItemAction(Qt::AlignCenter, QSize(11, 11), QSize(), false);
