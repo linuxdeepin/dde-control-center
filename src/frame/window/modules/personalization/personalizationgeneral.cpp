@@ -89,6 +89,18 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     m_centralLayout->addWidget(m_bgWidget);
 
+    //sw switch
+    QHBoxLayout *swswitchLayout = new QHBoxLayout();
+    SettingsItem *switem = new dcc::widgets::SettingsItem;
+    switem->addBackground();
+    switem->setLayout(swswitchLayout);
+
+    //~ contents_path /personalization/General
+    swswitchLayout->addWidget(new QLabel(tr("Window Effect")));
+    swswitchLayout->addStretch();
+    swswitchLayout->addWidget(m_wmSwitch);
+    m_centralLayout->addWidget(switem);
+
     //transparancy switch
     m_transparentSlider->addBackground();
     m_transparentSlider->slider()->setOrientation(Qt::Horizontal);
@@ -110,18 +122,6 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     slider->setTickInterval(1);
     slider->setPageStep(1);
     m_centralLayout->addWidget(m_transparentSlider);
-
-    //sw switch
-    QHBoxLayout *swswitchLayout = new QHBoxLayout();
-    SettingsItem *switem = new dcc::widgets::SettingsItem;
-    switem->addBackground();
-    switem->setLayout(swswitchLayout);
-
-    //~ contents_path /personalization/General
-    swswitchLayout->addWidget(new QLabel(tr("Window Effect")));
-    swswitchLayout->addStretch();
-    swswitchLayout->addWidget(m_wmSwitch);
-    m_centralLayout->addWidget(switem);
 
     connect(m_wmSwitch, &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this,
             &PersonalizationGeneral::requestSwitchWM);
