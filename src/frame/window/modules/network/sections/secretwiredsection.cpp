@@ -37,7 +37,7 @@ SecretWiredSection::SecretWiredSection(NetworkManager::Security8021xSetting::Ptr
     m_enableWatcher->setSecretEnable(m_secretEnable->switchWidget()->checked());
 
     connect(m_secretEnable->switchWidget(), &SwitchWidget::checkedChanged, m_enableWatcher, &Secret8021xEnableWatcher::setSecretEnable);
-
+    appendItem(m_secretEnable);
     QList<NetworkManager::Security8021xSetting::EapMethod> eapMethodsWantedList;
     eapMethodsWantedList.append(NetworkManager::Security8021xSetting::EapMethod::EapMethodTls);
     eapMethodsWantedList.append(NetworkManager::Security8021xSetting::EapMethod::EapMethodMd5);
@@ -46,8 +46,6 @@ SecretWiredSection::SecretWiredSection(NetworkManager::Security8021xSetting::Ptr
     eapMethodsWantedList.append(NetworkManager::Security8021xSetting::EapMethod::EapMethodPeap);
 
     init(m_enableWatcher, eapMethodsWantedList);
-
-    insertItem(1, m_secretEnable);
 }
 
 SecretWiredSection::~SecretWiredSection()

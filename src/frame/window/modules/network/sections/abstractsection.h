@@ -29,7 +29,7 @@
 namespace DCC_NAMESPACE {
 namespace network {
 
-class AbstractSection : public dcc::widgets::SettingsGroup
+class AbstractSection : public QFrame
 {
     Q_OBJECT
 
@@ -41,9 +41,14 @@ public:
     virtual bool allInputValid() = 0;
     virtual void saveSettings() = 0;
 
+    void appendItem(dcc::widgets::SettingsItem *item);
+    void insertItem(int idx, dcc::widgets::SettingsItem *item);
 Q_SIGNALS:
     void requestNextPage(dcc::ContentWidget * const page) const;
     void requestFrameAutoHide(const bool autoHide) const;
+private:
+    dcc::widgets::SettingsGroup *m_group{nullptr};
+    QVBoxLayout *m_layout{nullptr};
 };
 
 } /* network */

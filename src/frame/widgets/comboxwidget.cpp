@@ -49,19 +49,13 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     , m_switchComboBox(new QComboBox)
 {
     QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->setMargin(0);
-    mainLayout->setSpacing(0);
 
     QLabel *label = qobject_cast<QLabel *>(m_leftWidget);
     if (label) {
-        label->setFixedWidth(140);
-        label->setFixedHeight(36);
+        label->setFixedWidth(110);
         label->setWordWrap(true);
     }
-    m_switchComboBox->setFixedHeight(36);
-    setFixedHeight(48);
 
-    mainLayout->setContentsMargins(10, 0, 10, 0);
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
     mainLayout->addWidget(m_switchComboBox, 0, Qt::AlignVCenter);
 

@@ -46,14 +46,12 @@ FileChooseWidget::FileChooseWidget(QWidget *parent)
     , m_title(new QLabel)
 {
     m_fileChooserEdit = new DFileChooserEdit(this);
-    m_title->setFixedWidth(140);
+    m_title->setFixedWidth(110);
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->addWidget(m_title);
     m_fileChooserEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     mainLayout->addWidget(m_fileChooserEdit);
-    mainLayout->setContentsMargins(20, 0, 10, 0);
     setLayout(mainLayout);
-    setFixedHeight(36);
     setObjectName("FileChooseWidget");
 }
 

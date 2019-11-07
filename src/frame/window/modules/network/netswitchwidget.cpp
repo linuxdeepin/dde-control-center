@@ -29,38 +29,14 @@ namespace DCC_NAMESPACE {
 namespace network {
 
 NetSwitchWidget::NetSwitchWidget(QFrame *parent)
-    : SettingsItem(parent)
-{
-    m_autoConnItem = new SwitchWidget();
-    m_swswitchLayout = new QHBoxLayout();
-    m_swithTitle = new QLabel();
-
-    setFixedHeight(36);
-    m_autoConnItem->setFixedHeight(36);
-
-    initNetSwitch();
-}
-
-void NetSwitchWidget::initNetSwitch()
+    : SwitchWidget(parent)
 {
     addBackground();
-    setLayout(m_swswitchLayout);
-
-    m_swswitchLayout->setContentsMargins(10, 0, 10, 0);
-    m_swswitchLayout->addWidget(m_swithTitle, 0, Qt::AlignLeft);
-    m_swswitchLayout->addStretch();
-    m_swswitchLayout->addWidget(m_autoConnItem, 0, Qt::AlignLeft);
-}
-
-void NetSwitchWidget::setTitle(const QString title)
-{
-    m_swithTitle->setText(title);
-    m_swithTitle->setFixedHeight(36);
 }
 
 SwitchWidget *NetSwitchWidget::switchWidget()
 {
-    return m_autoConnItem;
+    return this;
 }
 
 }

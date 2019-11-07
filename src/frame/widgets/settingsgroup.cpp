@@ -48,10 +48,12 @@ SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
 
     QVBoxLayout *vLayout = m_layout;
     if (GroupBackground == bgStyle) {
-        DBackgroundGroup *bggroup = new DBackgroundGroup(m_layout);
-        bggroup->setBackgroundRole(QPalette::Window);
+        m_bggroup = new DBackgroundGroup(m_layout);
+        m_bggroup->setBackgroundRole(QPalette::Window);
+        m_bggroup->setItemSpacing(1);
         vLayout = new QVBoxLayout;
-        vLayout->addWidget(bggroup);
+        vLayout->addWidget(m_bggroup);
+        m_bggroup->setUseWidgetBackground(false);
     }
 
     m_bgStyle = bgStyle;
@@ -133,6 +135,8 @@ void SettingsGroup::moveItem(SettingsItem *item, const int index)
 void SettingsGroup::setSpacing(const int spaceing)
 {
     m_layout->setSpacing(spaceing);
+    if (m_bggroup)
+        m_bggroup->setItemSpacing(spaceing);
 }
 
 int SettingsGroup::itemCount() const

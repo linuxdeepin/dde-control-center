@@ -23,35 +23,21 @@
 
 #include "window/namespace.h"
 
-#include "widgets/settingsitem.h"
+#include "widgets/switchwidget.h"
 
 #include <QString>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QFrame>
 
-namespace dcc {
-namespace widgets {
-class SwitchWidget;
-}
-}
-
 namespace DCC_NAMESPACE {
 namespace network {
-class NetSwitchWidget : public dcc::widgets::SettingsItem
+class NetSwitchWidget : public dcc::widgets::SwitchWidget
 {
     Q_OBJECT
 public:
     explicit NetSwitchWidget(QFrame *parent = nullptr);
-    void initNetSwitch();
-
-    void setTitle(const QString title);
     dcc::widgets::SwitchWidget *switchWidget();
-
-private:
-    QHBoxLayout *m_swswitchLayout;
-    QLabel *m_swithTitle;
-    dcc::widgets::SwitchWidget *m_autoConnItem;
 };
 }
 }

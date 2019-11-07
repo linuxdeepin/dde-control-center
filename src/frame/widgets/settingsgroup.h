@@ -26,12 +26,16 @@
 #ifndef SETTINGSGROUP_H
 #define SETTINGSGROUP_H
 
+#include <DBackgroundGroup>
+
 #include <QFrame>
 #include <QTimer>
 
 #include "widgets/translucentframe.h"
 
 class QVBoxLayout;
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 namespace widgets {
@@ -72,6 +76,7 @@ private:
     BackgroundStyle m_bgStyle{ItemBackground};
     QVBoxLayout *m_layout;
     SettingsHeaderItem *m_headerItem;
+    DTK_WIDGET_NAMESPACE::DBackgroundGroup *m_bggroup{nullptr};
 };
 
 }

@@ -22,23 +22,40 @@
 #include "abstractsection.h"
 #include "widgets/settingshead.h"
 
+#include <QVBoxLayout>
+
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 
 AbstractSection::AbstractSection(QFrame *parent)
-    : SettingsGroup(parent)
+    : QFrame(parent)
 {
+    m_group = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    m_layout = new QVBoxLayout;
+    m_layout->addWidget(m_group);
+    setLayout(m_layout);
 }
 
 AbstractSection::AbstractSection(const QString &title, QFrame *parent)
-    : SettingsGroup(parent)
+    : AbstractSection(parent)
 {
     SettingsHead *head = new SettingsHead();
     head->setTitle(title);
     head->setEditEnable(false);
-    appendItem(head, NoneBackground);
+
+    m_layout->insertWidget(0, head);
 }
 
 AbstractSection::~AbstractSection()
 {
+}
+
+void AbstractSection::appendItem(SettingsItem *item)
+{
+    m_group->appendItem(item);
+}
+
+void AbstractSection::insertItem(int idx, SettingsItem *item)
+{
+    m_group->insertItem(idx, item);
 }

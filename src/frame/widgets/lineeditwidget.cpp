@@ -74,20 +74,15 @@ LineEditWidget::LineEditWidget(QFrame *parent)
     , m_edit(new DLineEdit)
     , m_errTip(new ErrorTip(this))
 {
-    m_title->setFixedWidth(140);
+    m_title->setFixedWidth(110);
     m_edit->setContextMenuPolicy(Qt::NoContextMenu);
 
     m_mainLayout = new QHBoxLayout;
     m_mainLayout->addWidget(m_title, 0, Qt::AlignVCenter);
     m_mainLayout->addWidget(m_edit, 0, Qt::AlignVCenter);
-    m_mainLayout->setSpacing(0);
-    m_mainLayout->setContentsMargins(10, 0, 10, 0);
 
     setLayout(m_mainLayout);
     setObjectName("LineEditWidget");
-    setFixedHeight(48);
-    m_title->setFixedHeight(36);
-    m_edit->setFixedHeight(36);
 
     connect(m_edit, &DLineEdit::textChanged, this, &LineEditWidget::hideAlertMessage);
 }
@@ -102,20 +97,15 @@ LineEditWidget::LineEditWidget(bool isPasswordMode, QWidget *parent)
     } else {
         m_edit = new DLineEdit;
     }
-    m_title->setFixedWidth(140);
+    m_title->setFixedWidth(110);
     m_edit->setContextMenuPolicy(Qt::NoContextMenu);
 
     m_mainLayout = new QHBoxLayout;
     m_mainLayout->addWidget(m_title, 0, Qt::AlignVCenter);
     m_mainLayout->addWidget(m_edit, 0, Qt::AlignVCenter);
-    m_mainLayout->setSpacing(0);
-    m_mainLayout->setContentsMargins(10, 0, 10, 0);
 
     setLayout(m_mainLayout);
     setObjectName("LineEditWidget");
-    setFixedHeight(48);
-    m_title->setFixedHeight(36);
-    m_edit->setFixedHeight(36);
 
     connect(m_edit, &DLineEdit::textChanged, this, &LineEditWidget::hideAlertMessage);
 }

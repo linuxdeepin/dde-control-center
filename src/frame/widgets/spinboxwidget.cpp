@@ -43,9 +43,8 @@ SpinBoxWidget::SpinBoxWidget(QWidget *parent)
     m_spinBox->setButtonSymbols(QAbstractSpinBox::PlusMinus);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->setContentsMargins(10, 7, 10, 7);
-    mainLayout->setSpacing(0);
     mainLayout->addWidget(m_title);
+    m_title->setFixedWidth(110);
     mainLayout->addWidget(m_spinBox);
     m_resetBtn->setIcon(QIcon::fromTheme("dcc_reset"));
     m_resetBtn->setIconSize(QSize(16, 16));
