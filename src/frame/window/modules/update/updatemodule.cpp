@@ -44,17 +44,7 @@ UpdateModule::UpdateModule(FrameProxyInterface *frameProxy, QObject *parent)
 
 }
 
-void UpdateModule::initialize()
-{
-
-}
-
-const QString UpdateModule::name() const
-{
-    return QStringLiteral("update");
-}
-
-void UpdateModule::active()
+void UpdateModule::preInitialize()
 {
     if (!m_model)
         m_model = new UpdateModel(this);
@@ -67,6 +57,39 @@ void UpdateModule::active()
 
     m_work->activate(); //refresh data
 
+    connect(m_model, &UpdateModel::autoCheckUpdatesChanged, this, [this](const bool state) {
+        //关闭“自动提醒”，隐藏提示角标
+        if (!state) {
+            m_frameProxy->setModuleSubscriptVisible(name(), false);
+        } else {
+            UpdatesStatus status = m_model->status();
+            if (status == UpdatesStatus::UpdatesAvailable ||
+                    status == UpdatesStatus::Downloading ||
+                    status == UpdatesStatus::DownloadPaused ||
+                    status == UpdatesStatus::Downloaded ||
+                    status == UpdatesStatus::Installing ||
+                    status == UpdatesStatus::RecoveryBackingup ||
+                    status == UpdatesStatus::RecoveryBackingSuccessed) {
+                m_frameProxy->setModuleSubscriptVisible(name(), true);
+            }
+        }
+    });
+    connect(m_model, &UpdateModel::statusChanged, this, &UpdateModule::notifyDisplayReminder);
+    notifyDisplayReminder(m_model->status());
+}
+
+void UpdateModule::initialize()
+{
+
+}
+
+const QString UpdateModule::name() const
+{
+    return QStringLiteral("update");
+}
+
+void UpdateModule::active()
+{
     UpdateWidget *mainWidget = new UpdateWidget;
     mainWidget->initialize();
     mainWidget->setSystemVersion(m_model->systemVersionInfo());
@@ -78,8 +101,9 @@ void UpdateModule::active()
     connect(mainWidget, &UpdateWidget::pushMirrorsView, this, [=]() {
         m_mirrorsWidget = new MirrorsWidget(m_model);
 
+        int topWidgetWidth = mainWidget->parentWidget()->parentWidget()->width();
         m_work->checkNetselect();
-        m_mirrorsWidget->setMinimumWidth(350);
+        m_mirrorsWidget->setMinimumWidth(topWidgetWidth / 2);
         m_mirrorsWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
         connect(m_mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWorker::setMirrorSource);
@@ -92,7 +116,7 @@ void UpdateModule::active()
 
         //mainWidget->parentWidget()->parentWidget()即mainwindow
         //1690是能正常完全显示二级页面的宽度(包括注释说明文字)
-        if (mainWidget->parentWidget()->parentWidget()->width() <= 1690) {
+        if (topWidgetWidth <= 1690) {
             m_frameProxy->pushWidget(this, m_mirrorsWidget, dccV20::FrameProxyInterface::PushType::DirectTop);
         } else {
             m_frameProxy->pushWidget(this, m_mirrorsWidget);
@@ -139,5 +163,27 @@ void UpdateModule::onNotifyDealMirrorWidget(bool state)
         m_mirrorsWidget = nullptr;
         //避免第三级页面不存在后,还会处理该函数
         disconnect(m_model, &UpdateModel::smartMirrorSwitchChanged, this, &UpdateModule::onNotifyDealMirrorWidget);
+    }
+}
+
+void UpdateModule::notifyDisplayReminder(UpdatesStatus status)
+{
+    if (!m_model->autoCheckUpdates()) {
+        m_frameProxy->setModuleSubscriptVisible(name(), false);
+        return;
+    }
+
+    if (status == UpdatesStatus::Checking) {
+        //do nothing
+    } else if (status == UpdatesStatus::UpdatesAvailable ||
+               status == UpdatesStatus::Downloading ||
+               status == UpdatesStatus::DownloadPaused ||
+               status == UpdatesStatus::Downloaded ||
+               status == UpdatesStatus::Installing ||
+               status == UpdatesStatus::RecoveryBackingup ||
+               status == UpdatesStatus::RecoveryBackingSuccessed) {
+        m_frameProxy->setModuleSubscriptVisible(name(), true);
+    } else {
+        m_frameProxy->setModuleSubscriptVisible(name(), false);
     }
 }

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <circle id="角标-b" cx="18" cy="18" r="10"/>
+    <filter id="角标-a" width="210%" height="210%" x="-55%" y="-35%" filterUnits="objectBoundingBox">
+      <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="3"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 1   0 0 0 0 0.0705882353   0 0 0 0 0.0705882353  0 0 0 0.4 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <use fill="#000" filter="url(#角标-a)" xlink:href="#角标-b"/>
+    <use fill="#FF6A6A" xlink:href="#角标-b"/>
+    <path fill="#FFF" fill-rule="nonzero" d="M17.76,13.432 L18.528,13.432 L18.528,22 L17.544,22 L17.544,14.632 C17.004,15.184 16.332,15.568 15.528,15.808 L15.528,14.824 C15.912,14.716 16.32,14.548 16.728,14.308 C17.136,14.044 17.472,13.756 17.76,13.432 Z"/>
+  </g>
+</svg>

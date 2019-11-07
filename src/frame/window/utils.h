@@ -35,6 +35,8 @@ namespace DCC_NAMESPACE {
 const QMargins ThirdPageContentsMargins(0, 0, 0, 0);
 const QMargins ListViweItemMargin(20, 8, 20, 8);
 const QVariant VListViewItemMargin = QVariant::fromValue(ListViweItemMargin);
+const QMargins ListViweRightSubscriptItemMargin(42, 0, 0, 8);
+const QVariant VListViewRightSubscripItemMargin = QVariant::fromValue(ListViweRightSubscriptItemMargin);
 const int List_Interval = 10;
 }
 

@@ -408,7 +408,8 @@ void UpdateWorker::onNotifyStatusChanged(UpdatesStatus status)
         if (UpdatesStatus::DownloadPaused == status) {
             qDebug() << "[Update] UpdatesStatus::DownloadPaused , m_downloadProcess : " << m_downloadProcess;
 
-            if (m_downloadProcess > 0.0 && m_downloadProcess < 1.0) {
+            //m_downloadProcess=0.0时，表示先收到了暂停，还未收到进度
+            if (m_downloadProcess >= 0.0 && m_downloadProcess < 1.0) {
                 m_model->setStatus(UpdatesStatus::DownloadPaused, __LINE__);
             } else if (!compareDouble(m_downloadProcess, 1.0)) {
                 //切换状态前，判断当前状态

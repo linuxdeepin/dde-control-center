@@ -21,6 +21,7 @@
 #pragma once
 
 #include "window/interface/moduleinterface.h"
+#include "modules/update/common.h"
 
 #include <QObject>
 
@@ -47,6 +48,7 @@ class UpdateModule : public QObject, public ModuleInterface
 public:
     UpdateModule(FrameProxyInterface *frameProxy, QObject *parent = nullptr);
 
+    virtual void preInitialize() override;
     virtual void initialize() override;
     virtual const QString name() const override;
     virtual void active() override;
@@ -55,6 +57,9 @@ public:
 
 private Q_SLOTS:
     void onNotifyDealMirrorWidget(bool state);
+
+private:
+    void notifyDisplayReminder(dcc::update::UpdatesStatus status);
 
 private:
     dcc::update::UpdateModel *m_model = nullptr;

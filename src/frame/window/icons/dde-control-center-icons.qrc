@@ -125,5 +125,6 @@
         <file>texts/dcc_brightnesslow_32px.svg</file>
         <file>texts/dcc_brightnesshigh_32px.svg</file>
         <file>actions/dcc_display_custom_42px.svg</file>
+        <file>icons/dcc_common_subscript.svg</file>
     </qresource>
 </RCC>

@@ -28,6 +28,7 @@ public:
 
     virtual void showModulePage(const QString &module, const QString &page, bool animation) = 0;
 
+    virtual void setModuleSubscriptVisible(const QString &module, bool bIsDisplay) = 0;
 public:
     ModuleInterface *currModule() const { return m_currModule; }
 

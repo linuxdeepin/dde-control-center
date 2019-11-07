@@ -75,6 +75,7 @@ public:
     void pushWidget(ModuleInterface *const inter, QWidget *const w, PushType type = Normal) override;
     void setModuleVisible(ModuleInterface *const inter, const bool visible) override;
     void showModulePage(const QString &module, const QString &page, bool animation) override;
+    void setModuleSubscriptVisible(const QString &module, bool bIsDisplay) override;
 
 public:
     bool isModuleAvailable(const QString &m);
@@ -104,6 +105,7 @@ private:
     int m_firstCount;
     QString m_widgetName;
     DIconButton *m_backwardBtn;
+    QList<QPair<QString, DViewItemAction *>> m_remindeSubscriptList;//用于记录是否有角标, QString为模块名称，DViewItemAction为角标对象
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);

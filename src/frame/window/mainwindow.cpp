@@ -197,7 +197,20 @@ void MainWindow::initAllModule()
         DStandardItem *item = new DStandardItem;
         item->setIcon(it->first->icon());
         item->setText(it->second);
-        item->setData(VListViewItemMargin, Dtk::MarginsRole);
+
+        //目前只有"update"模块需要使用右上角的角标，其他模块还是使用旧的位置数据设置
+        //若其他地方需要使用右上角的角标，可在下面if处使用“||”添加对应模块的name()值
+        if (it->first->name() == "update") {
+            auto action = new DViewItemAction(Qt::AlignTop | Qt::AlignRight, QSize(28, 28), QSize(), true);
+            action->setIcon(QIcon(":/icons/deepin/builtin/icons/dcc_common_subscript.svg"));
+            action->setVisible(false);
+            item->setActionList(Qt::Edge::RightEdge, {action});
+            m_remindeSubscriptList.append(QPair<QString, DViewItemAction *>(it->first->name(), action));
+            item->setData(QVariant::fromValue(VListViewRightSubscripItemMargin), Dtk::MarginsRole);
+        } else {
+            item->setData(VListViewItemMargin, Dtk::MarginsRole);
+        }
+
         m_navModel->appendRow(item);
         m_searchWidget->addModulesName(it->first->name(), it->second);
     }
@@ -284,6 +297,23 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     onEnterSearchWidget(module, page);
 }
 
+void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDisplay)
+{
+    auto find_it = std::find_if(m_remindeSubscriptList.cbegin(),
+                                m_remindeSubscriptList.cend(),
+    [ = ](const QPair<QString, DViewItemAction *> &pair) {
+        return pair.first == module ? pair.second : nullptr;
+    });
+
+    if (find_it->first != module || find_it == m_remindeSubscriptList.cend())
+        return;
+
+    if (find_it->second->isVisible() != bIsDisplay) {
+        find_it->second->setVisible(bIsDisplay);
+        m_navView->update();
+    }
+}
+
 bool MainWindow::isModuleAvailable(const QString &m)
 {
     for (auto ite : m_modules) {
@@ -346,6 +376,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 
     if (m_topWidget) {
         m_topWidget->setFixedSize(event->size());
+        m_topWidget->curWidget()->setMinimumWidth(dstWidth / 2);
         m_topWidget->setFixedHeight(height() - this->titlebar()->height());
     }
 }
@@ -371,6 +402,17 @@ void MainWindow::resetNavList(bool isIconMode)
         m_navView->setSpacing(20);
         m_navView->clearSelection();
         m_navView->setSelectionMode(QAbstractItemView::NoSelection);
+
+        //Icon模式，"update"使用右上角角标Margin
+        for (auto data : m_remindeSubscriptList) {
+            for (int i = 0; i < m_navModel->rowCount(); i++) {
+                if(m_modules.at(i).first->name() == data.first) {
+                    m_navModel->item(i, 0)->setData(QVariant::fromValue(VListViewRightSubscripItemMargin), Dtk::MarginsRole);
+                    break;
+                }
+            }
+        }
+
         m_rightView->hide();
         m_backwardBtn->setEnabled(false);
     } else {
@@ -383,6 +425,17 @@ void MainWindow::resetNavList(bool isIconMode)
         m_navView->setItemSize(QSize(168, 48));
         m_navView->setSpacing(0);
         m_navView->setSelectionMode(QAbstractItemView::SingleSelection);
+
+        //List模式，"update"使用统一Margin
+        for (auto data : m_remindeSubscriptList) {
+            for (int i = 0; i < m_navModel->rowCount(); i++) {
+                if(m_modules.at(i).first->name() == data.first) {
+                    m_navModel->item(i, 0)->setData(QVariant::fromValue(VListViewItemMargin), Dtk::MarginsRole);
+                    break;
+                }
+            }
+        }
+
         // 选中当前的项
         m_navView->selectionModel()->select(m_navView->currentIndex(), QItemSelectionModel::SelectCurrent);
         m_rightView->show();
@@ -705,6 +758,7 @@ void FourthColWidget::initWidget(QWidget *showWidget, ModuleInterface *module)
 
     QHBoxLayout *layout = new QHBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
+    showWidget->setMinimumWidth(this->parentWidget()->width() / 2);
     showWidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     showWidget->setAutoFillBackground(true);
 
