@@ -198,7 +198,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev)
 
     if (dev->type() == NetworkDevice::Wireless) {
         p = new WirelessPage(static_cast<WirelessDevice *>(dev));
-
+        m_networkWorker->queryDeviceStatus(dev->path());
         WirelessPage *wirelessPage = static_cast<WirelessPage *>(p);
         connect(wirelessPage, &WirelessPage::back, this, &NetworkModule::popPage);
         connect(wirelessPage, &WirelessPage::requestDeviceAPList, m_networkWorker, &NetworkWorker::queryAccessPoints);
