@@ -220,7 +220,7 @@ void Secret8021xSection::initUI()
         }
         eapComboxOptions << eapMethodStr;
         if (m_currentEapMethod == eapMethodWanted) {
-            eapOptionText = eapMethodWanted;
+            eapOptionText = eapMethodStr;
         }
     }
     m_eapMethmodChooser->setComboxOption(eapComboxOptions);
