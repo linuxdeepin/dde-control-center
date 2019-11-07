@@ -75,7 +75,7 @@ void UpdateModule::active()
 
     connect(m_model, &UpdateModel::downloadInfoChanged, m_work, &UpdateWorker::onNotifyDownloadInfoChanged);
 
-    connect(mainWidget, &UpdateWidget::pushMirrorsView, this, [this]() {
+    connect(mainWidget, &UpdateWidget::pushMirrorsView, this, [=]() {
         m_mirrorsWidget = new MirrorsWidget(m_model);
 
         m_work->checkNetselect();
@@ -90,7 +90,13 @@ void UpdateModule::active()
         });
         connect(m_model, &UpdateModel::smartMirrorSwitchChanged, this, &UpdateModule::onNotifyDealMirrorWidget);
 
-        m_frameProxy->pushWidget(this, m_mirrorsWidget);
+        //mainWidget->parentWidget()->parentWidget()即mainwindow
+        //1690是能正常完全显示二级页面的宽度(包括注释说明文字)
+        if (mainWidget->parentWidget()->parentWidget()->width() <= 1690) {
+            m_frameProxy->pushWidget(this, m_mirrorsWidget, dccV20::FrameProxyInterface::PushType::DirectTop);
+        } else {
+            m_frameProxy->pushWidget(this, m_mirrorsWidget);
+        }
     });
 
     m_frameProxy->pushWidget(this, mainWidget);

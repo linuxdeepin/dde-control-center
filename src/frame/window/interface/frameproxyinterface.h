@@ -14,6 +14,7 @@ public:
         Replace,
         CoverTop,
         Normal,
+        DirectTop,
         Count
     };
 

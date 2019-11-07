@@ -315,10 +315,20 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     DMainWindow::resizeEvent(event);
 
     auto dstWidth = event->size().width();
-    if (four_widget_min_widget > dstWidth && m_contentStack.size() == 3) {
-        auto ite = m_contentStack.pop();
-        pushTopWidget(ite.first, ite.second);
-    } else if (four_widget_min_widget <= dstWidth && m_topWidget) {
+    if (four_widget_min_widget > dstWidth ) {
+        //update只有当Mirror页面存在时，才会有第二级页面；size变化小了，需要恢复成topWidget
+        if ((m_contentStack.size() == 3) || (m_contentStack.size() == 2 && m_contentStack.first().first->name() == "update")) {
+            auto ite = m_contentStack.pop();
+            pushTopWidget(ite.first, ite.second);
+        } else {
+            qWarning() << "Not satisfied , can't back.";
+        }
+    } else if (four_widget_min_widget <= dstWidth) {
+        if (!m_topWidget) {
+            qWarning() << " The top widget is nullptr.";
+            return;
+        }
+
         auto layout = m_topWidget->layout();
         int idx = 0;
         while (auto itemwidget = layout->itemAt(idx)) {
@@ -496,8 +506,11 @@ void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w, Push
     case Replace:
         replaceThirdWidget(inter, w);
         break;
-    case CoverTop:
+    case CoverTop://根据当前页面宽度去计算新增的页面放在最后面一层，或者Top页面
         judgeTopWidgetPlace(inter, w);
+        break;
+    case DirectTop://不需要管页面宽度，直接将新增页面放在Top页面；为解决某些页面使用CoverTop无法全部展示的问题
+        pushTopWidget(inter, w);
         break;
     case Normal:
     default:
