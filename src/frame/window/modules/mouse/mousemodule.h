@@ -46,6 +46,7 @@ class MouseModule : public QObject, public ModuleInterface
 
 public:
     explicit MouseModule(FrameProxyInterface *frame, QObject *parent = nullptr);
+    void preInitialize() override;
     void initialize() override;
     void reset() override;
     void active() override;

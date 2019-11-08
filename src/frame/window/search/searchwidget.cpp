@@ -281,6 +281,16 @@ void SearchWidget::loadxml()
                             if (bIsLeapfrog)
                                 continue;
 
+                            //指点杆，触控板 为“鼠标”模块可移除设备
+                            //不存在时，不加载数据
+                            if (m_searchBoxStruct.translateContent == tr("Touchpad") || m_searchBoxStruct.childPageName == tr("Touchpad")) {
+                                if (!m_bIsTouchpadExist)
+                                    continue;
+                            } else if (m_searchBoxStruct.translateContent == tr("TrackPoint") || m_searchBoxStruct.childPageName == tr("TrackPoint")) {
+                                if (!m_bIsTrackPointExist)
+                                    continue;
+                            }
+
                             m_EnterNewPagelist.append(m_searchBoxStruct);
 
                             //Add search result content
@@ -555,6 +565,21 @@ void SearchWidget::removeUnExsitData(QString module, QString datail)
             m_unexsitList.removeAt(i);
             loadxml();
             break;
+        }
+    }
+}
+
+void SearchWidget::setRemoveableDeviceStatus(QString name, bool isExist)
+{
+    if (name == tr("Touchpad")) {
+        if (isExist != m_bIsTouchpadExist) {
+            m_bIsTouchpadExist = isExist;
+            loadxml();
+        }
+    } else if (name == tr("TrackPoint")) {
+        if (isExist != m_bIsTrackPointExist) {
+            m_bIsTrackPointExist = isExist;
+            loadxml();
         }
     }
 }

@@ -27,6 +27,7 @@
 #include "trackpointsettingwidget.h"
 #include "modules/mouse/mousemodel.h"
 #include "modules/mouse/mouseworker.h"
+#include "QDebug"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::mouse;
@@ -43,13 +44,27 @@ MouseModule::MouseModule(FrameProxyInterface *frame, QObject *parent)
 {
 }
 
-void MouseModule::initialize()
+void MouseModule::preInitialize()
 {
     m_model  = new dcc::mouse::MouseModel(this);
     m_worker = new dcc::mouse::MouseWorker(m_model, this);
     m_model->moveToThread(qApp->thread());
     m_worker->moveToThread(qApp->thread());
     m_worker->init();
+
+    connect(m_model, &MouseModel::tpadExistChanged, this, [this](bool state) {
+        qDebug() << "[Mouse] Touchpad , exist state : " << state;
+        m_frameProxy->setRemoveableDeviceStatus(tr("Touchpad"), state);
+    });//触控板
+    connect(m_model, &MouseModel::redPointExistChanged, this, [this](bool state) {
+        qDebug() << "[Mouse] TrackPoint , exist state : " << state;
+        m_frameProxy->setRemoveableDeviceStatus(tr("TrackPoint"), state);
+    });//指点杆
+}
+
+void MouseModule::initialize()
+{
+
 }
 
 void MouseModule::reset()

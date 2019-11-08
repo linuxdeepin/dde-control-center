@@ -79,6 +79,7 @@ public:
     void addModulesName(QString moduleName, QString searchName);
     void addUnExsitData(QString module = "", QString datail = "");
     void removeUnExsitData(QString module = "", QString datail = "");
+    void setRemoveableDeviceStatus(QString name, bool isExist);
 
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);
@@ -106,6 +107,8 @@ private:
     QList<UnexsitStruct> m_unexsitList;
     QString m_searchValue;
     bool m_bIstextEdited;
+    bool m_bIsTouchpadExist;
+    bool m_bIsTrackPointExist;
 };
 
 }// namespace search
