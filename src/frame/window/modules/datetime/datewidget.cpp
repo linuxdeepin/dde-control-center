@@ -56,15 +56,12 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
     m_reducedBtn->setParent(m_lineEdit);
 
     if (m_type == Year) {
-        //~ contents_path /datetime/Time Settings
         m_label->setText(tr("Year"));
         m_lineEdit->setAccessibleName("TimeYear");
     } else if (m_type == Month) {
-        //~ contents_path /datetime/Time Settings
         m_label->setText(tr("Month"));
         m_lineEdit->setAccessibleName("TimeMonth");
     } else {
-        //~ contents_path /datetime/Time Settings
         m_label->setText(tr("Day"));
         m_lineEdit->setAccessibleName("TimeDay");
     }

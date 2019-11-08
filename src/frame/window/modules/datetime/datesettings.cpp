@@ -83,10 +83,7 @@ DateSettings::DateSettings(QWidget *parent)
     QPushButton *cancelButton = m_buttonTuple->leftButton();
     QPushButton *confirmButton = m_buttonTuple->rightButton();
 
-    //~ contents_path /datetime/Time Settings
     cancelButton->setText(tr("Cancel"));
-    //~ contents_path /datetime/Time Settings
-    //~ child_page Time Settings
     confirmButton->setText(tr("Confirm"));
 
     cancelButton->setAccessibleName("TimeCancel");
@@ -141,10 +138,8 @@ DateSettings::DateSettings(QWidget *parent)
         ntpServeLayout->addWidget(m_ntpServerList, 0, Qt::AlignRight);
 
         QHBoxLayout *ntpAddressLayout = new QHBoxLayout;
-        //~ contents_path /datetime/Time Settings
         QLabel *addressText = new QLabel(tr("Address"));
         m_addressContent->setMinimumWidth(240);
-        //~ contents_path /datetime/Time Settings
         m_addressContent->setPlaceholderText(tr("Required"));
 
         ntpAddressLayout->addSpacing(2);
@@ -153,7 +148,6 @@ DateSettings::DateSettings(QWidget *parent)
         m_address->setLayout(ntpAddressLayout);
 
         m_ntpServerList->setMinimumWidth(240);
-        //~ contents_path /datetime/Time Settings
         m_ntpServerList->addItem(tr("Customize"));
     }
 

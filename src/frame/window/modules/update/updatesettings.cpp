@@ -68,7 +68,6 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_autoDownloadSwitch = new SwitchWidget;
     m_autoDownloadSwitch->setTitle(tr("Auto Download Updates"));
 
-    //~ contents_path /update/Update Settings
     m_updateLbl = new DTipLabel(tr("Switch it on to automatically download the updates in wireless or wired network"));
     m_updateLbl->setWordWrap(true);
     m_updateLbl->setAlignment(Qt::AlignLeft);
@@ -81,7 +80,6 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     sourceCheckGrp->appendItem(m_sourceCheck);
     layout->addWidget(sourceCheckGrp);
     layout->addSpacing(8);
-    //~ contents_path /update/Update Settings
     DTipLabel *sourceCheckLbl = new DTipLabel(tr("Show a notification if system update repository has been modified"));
     sourceCheckLbl->setWordWrap(true);
     sourceCheckLbl->setAlignment(Qt::AlignLeft);

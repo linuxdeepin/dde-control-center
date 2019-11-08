@@ -45,7 +45,6 @@ LoginPage::LoginPage(QWidget *parent)
     m_mainLayout->addSpacing(35);
     m_mainLayout->addWidget(loginBtn, 0, Qt::AlignHCenter);
     m_mainLayout->addSpacing(20);
-    //~ contents_path /cloudsync/Only supported in Mainland China at present
     m_mainLayout->addWidget(new QLabel(tr("Only supported in Mainland China at present")), 0, Qt::AlignHCenter);
     m_mainLayout->addStretch(5);
 

@@ -68,7 +68,6 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_topSwitchWidgetBtn->setId(btnSetting, 1);
     m_topSwitchWidgetBtn->setMinimumSize(240, 36);
 
-    //~ contents_path /update/Update
     m_updateHistoryText->setText(tr("Last Update"));
 
     connect(m_topSwitchWidgetBtn, &DButtonBox::buttonClicked, [this](QAbstractButton *value) {
@@ -172,7 +171,6 @@ void UpdateWidget::setSystemVersion(QString version)
         m_systemVersion = version.remove('"');
     }
 
-    //~ contents_path /update/Update
     m_label->setText(QString("%1 V%2").arg(tr("Current Edition")).arg(version.remove('"')));
 }
 

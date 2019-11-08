@@ -66,9 +66,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    //~ contents_path /update/Update
     m_reminderTip->setText(tr("Restart the computer to use the system and the applications properly"));
-    //~ contents_path /update/Update
     m_noNetworkTip->setText(tr("Network disconnected, please retry after connected"));
 
     m_progress->setVisible(false);
@@ -89,7 +87,6 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_noNetworkTip->setAlignment(Qt::AlignHCenter);
     m_noNetworkTip->setVisible(false);
 
-    //~ contents_path /update/Update
     m_upgradeWarning->setTitle(tr("This update may take a long time, please do not shut down or reboot during the process"));
     m_upgradeWarning->setContentsMargins(20, 0, 20, 0);
     m_upgradeWarningGroup->setVisible(false);
@@ -198,7 +195,6 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setProgressBarVisible(true);
-        //~ contents_path /update/Update
         m_checkUpdateItem->setMessage(tr("Checking for updates, please wait..."));
         m_checkUpdateItem->setImageOrTextVisible(false);
         break;
@@ -215,7 +211,6 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_progress->setVisible(true);
         m_updateList->setVisible(true);
         m_summary->setVisible(true);
-        //~ contents_path /update/Update
         m_progress->setMessage(tr("%1% downloaded (Click to pause)").arg(m_progress->value()));
         m_progress->setProcessValue(m_progress->value());
         break;
@@ -223,7 +218,6 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_progress->setVisible(true);
         m_updateList->setVisible(true);
         m_summary->setVisible(true);
-        //~ contents_path /update/Update
         m_progress->setMessage(tr("%1% downloaded (Click to continue)").arg(m_progress->value()));
         break;
     case UpdatesStatus::Downloaded:
@@ -238,7 +232,6 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::Updated:
         m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setVisible(true);
-        //~ contents_path /update/Update
         m_checkUpdateItem->setMessage(tr("Your system is up to date"));
         m_checkUpdateItem->setImageOrTextVisible(true);
         m_checkUpdateItem->setSystemVersion(m_systemVersion);
@@ -247,7 +240,6 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_progress->setVisible(true);
         m_updateList->setVisible(true);
         m_summary->setVisible(true);
-        //~ contents_path /update/Update
         m_progress->setMessage(tr("Updating, please wait..."));
         break;
     case UpdatesStatus::UpdateSucceeded:
@@ -261,7 +253,6 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::NeedRestart:
         m_checkUpdateItem->setVisible(true);
-        //~ contents_path /update/Update
         m_checkUpdateItem->setMessage(tr("The newest system installed, restart to take effect"));
         break;
     case UpdatesStatus::NoNetwork:
@@ -272,13 +263,11 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::NoSpace:
         m_resultItem->setVisible(true);
         m_resultItem->setSuccess(false);
-        //~ contents_path /update/Update
         m_resultItem->setMessage(tr("Update failed: insufficient disk space"));
         break;
     case UpdatesStatus::DeependenciesBrokenError:
         m_resultItem->setVisible(true);
         m_resultItem->setSuccess(false);
-        //~ contents_path /update/Update
         m_resultItem->setMessage(tr("Dependency error, failed to detect the updates"));
         break;
     case UpdatesStatus::RecoveryBackingup:
@@ -286,13 +275,11 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_progress->setVisible(true);
         m_updateList->setVisible(true);
         m_summary->setVisible(true);
-        //~ contents_path /update/Update
         m_progress->setMessage(tr("Backing up, please wait..."));
         break;
     case UpdatesStatus::RecoveryBackupFailed:
         m_resultItem->setVisible(true);
         m_resultItem->setSuccess(false);
-        //~ contents_path /update/Update
         m_resultItem->setMessage(tr("System backup failed"));
         break;
     default:
@@ -316,16 +303,13 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
         }
     }
 
-    //~ contents_path /update/Update
     m_summary->setTitle(tr("%n application update(s) available", "", appCount));
 
     for (const AppUpdateInfo &info : apps) {
         if (info.m_packageId == "dde") {
             if (!appCount) {
-                //~ contents_path /update/Update
                 m_summary->setTitle(tr("New system edition available"));
             } else {
-                //~ contents_path /update/Update
                 m_summary->setTitle(tr("New system edition and %n application update(s) available", "", appCount));
             }
             break;
@@ -333,13 +317,10 @@ void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
     }
 
     if (!downloadSize) {
-        //~ contents_path /update/Update
         m_summary->setDetails(tr("Downloaded"));
     } else {
-        //~ contents_path /update/Update
         m_summary->setDetails(QString(tr("Size: %1").arg(formatCap(downloadSize))));
 
-/////////////////////        //~ contents_path /update/Update
         if ((downloadSize / 1024) / 1024 >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt())
             m_upgradeWarningGroup->setVisible(true);
     }
@@ -352,7 +333,6 @@ void UpdateCtrlWidget::setProgressValue(const double value)
     m_progress->setProcessValue(value * 100);
 
     if (m_status == UpdatesStatus::Downloading) {
-        //~ contents_path /update/Update
         m_progress->setMessage(tr("%1% downloaded (Click to pause)").arg(qFloor(value * 100)));
     } else if (m_status == UpdatesStatus::DownloadPaused) {
         m_progress->setMessage(tr("%1% downloaded (Click to continue)").arg(qFloor(value * 100)));
@@ -363,10 +343,8 @@ void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
 {
     if (m_status == UpdatesStatus::Downloaded || m_status == UpdatesStatus::UpdatesAvailable) {
         if (lowBattery) {
-            //~ contents_path /update/Update
             m_powerTip->setText(tr("Your battery is lower than 50%, please plug in to continue"));
         } else {
-            //~ contents_path /update/Update
             m_powerTip->setText(tr("Please ensure sufficient power to restart, and don't power off or unplug your machine"));
         }
 

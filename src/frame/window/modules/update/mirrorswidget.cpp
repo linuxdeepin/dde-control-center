@@ -48,7 +48,6 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
 {
     setWindowTitle(tr("Mirror List"));
 
-    //~ contents_path /update/Update Settings/Mirror List
     m_testButton->setText(tr("Test Speed"));
 
     QVBoxLayout *layout = new QVBoxLayout;
@@ -60,7 +59,6 @@ MirrorsWidget::MirrorsWidget(UpdateModel *model, QWidget *parent)
     QFont font;
     font.setPointSizeF(16);
     title->setFont(font);
-    //~ contents_path /update/Update Settings/Mirror List
     title->setText(tr("Mirror List"));
 
     m_testButton->setFixedSize(120, 48);
@@ -170,7 +168,6 @@ void MirrorsWidget::setMirrorInfoList(const MirrorInfoList &list)
 void MirrorsWidget::onSpeedInfoAvailable(const QMap<QString, int> &info)
 {
     m_testProgress = Done;
-    //~ contents_path /update/Update Settings/Mirror List
     m_testButton->setText(tr("Retest"));
     int count = m_model->rowCount();
     MirrorSourceItem *item;

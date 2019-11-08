@@ -91,7 +91,6 @@ void LoadingItem::setVersionVisible(bool state)
 
 void LoadingItem::setSystemVersion(QString version)
 {
-////////    //~ contents_path /update/Update
     m_labelText->setText(QString("deepin V%1").arg(version));
 }
 

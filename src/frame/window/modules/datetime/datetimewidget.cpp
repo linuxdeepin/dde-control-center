@@ -58,9 +58,7 @@ void DatetimeWidget::init()
 {
     QList<QPair<QIcon, QString>> menuIconText;
     menuIconText = {
-        //~ contents_path /datetime/Timezone List
         { QIcon::fromTheme("dcc_time_zone"), tr("Timezone List")},
-        //~ contents_path /datetime/Time Settings
         { QIcon::fromTheme("dcc_setting"), tr("Time Settings")}
     };
 
@@ -78,6 +76,7 @@ void DatetimeWidget::init()
     m_listview->setCurrentIndex(model->index(0, 0));
 
     //default open 24 hour type : set hourTypeSwitch(true) , then set ClockItem TimeHourType
+    //~ contents_path /datetime/Timezone List
     m_hourTypeSwitch = new SwitchWidget(tr("24-hour Time"));
     m_hourTypeSwitch->addBackground();
     m_clockItem->setTimeHourType(m_hourTypeSwitch->checked());
