@@ -117,7 +117,7 @@ void AvatarListWidget::setCurrentAvatarChecked(const QString &avatar)
 void AvatarListWidget::onItemClicked(const QModelIndex &index)
 {
     m_currentSelectIndex = index.row();
-    if (index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().isDrawLast == true) {
+    if (index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().isDrawLast) {
         if (m_prevSelectIndex != -1) {
             m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
         }
@@ -130,22 +130,25 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
             m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
         }
 
-        if (index.row() >= 0 && index.row() <= 13) {
-            int lastItemIndex = m_iconpathList.size() - 1;
-            QString lastItemIconpath = m_avatarItemModel->item(lastItemIndex)->data(AvatarListWidget::AddAvatarRole).value<LastItemData>().iconPath;
-            if (!lastItemIconpath.isEmpty()) { //如果最后一项有图标
-                LastItemData lastItemData;
-                lastItemData.isDrawLast = true;
-                lastItemData.iconPath = "";
-                int lastIndex = m_iconpathList.size() - 1;
-                m_avatarItemModel->item(lastIndex)->setData(QVariant::fromValue(lastItemData), AvatarListWidget::AddAvatarRole);
-                QString avatarPath = m_iconpathList.at(lastIndex);
-                Q_EMIT requestDeleteAvatar(avatarPath);
+        int lastItemIndex = m_iconpathList.size() - 1;
+        QString lastItemIconpath = m_avatarItemModel->item(lastItemIndex)->data(AvatarListWidget::AddAvatarRole).value<LastItemData>().iconPath;
+        if (!lastItemIconpath.isEmpty()) { //如果最后一项有图标
+            LastItemData lastItemData;
+            lastItemData.isDrawLast = true;
+            lastItemData.iconPath = "Deepin";
+            int lastIndex = m_iconpathList.size() - 1;
+            m_avatarItemModel->item(lastIndex)->setData(QVariant::fromValue(lastItemData), AvatarListWidget::AddAvatarRole);
+            QString avatarPath = m_iconpathList.at(lastIndex);
+            Q_EMIT requestDeleteAvatar(avatarPath);
+        } else { //当创建用户时
+            int count = m_avatarItemModel->rowCount();
+            for (int i = 0; i < count; ++i) {
+                m_avatarItemModel->item(i)->setCheckState(Qt::Unchecked);
             }
-
-            m_avatarItemModel->item(index.row())->setCheckState(Qt::Checked);
-            Q_EMIT requestSetAvatar(m_iconpathList.at(index.row()));
         }
+
+        m_avatarItemModel->item(index.row())->setCheckState(Qt::Checked);
+        Q_EMIT requestSetAvatar(m_iconpathList.at(index.row()));
     }
 }
 
@@ -206,17 +209,18 @@ void AvatarListWidget::addLastItem()
 
     QString dirpath("/var/lib/AccountsService/icons/local/");
     QDir dir(dirpath);
-    QStringList hideList;
-    hideList << "." << "..";
-    QFileInfoList list = dir.entryInfoList();
-    for (int i = 0; i < list.size(); ++i) {
-        if (hideList.contains(list.at(i).fileName())) {
-            continue;
+    QFileInfoList list = dir.entryInfoList(QDir::Dirs|QDir::Files|QDir::NoDotAndDotDot);//去除.和..
+    if (list.size() > 0) { //如果之前添加过新图片
+        for (int i = 0; i < list.size(); ++i) {
+            QString iconpath = list.at(i).filePath();
+            m_iconpathList.push_back(iconpath);
+            lastItemData.iconPath = iconpath;
+            break;
         }
-        QString iconpath = list.at(i).filePath();
+    } else {
+        QString iconpath = "Deepin";
         m_iconpathList.push_back(iconpath);
         lastItemData.iconPath = iconpath;
-        break;
     }
 
     QStandardItem *item = new QStandardItem();

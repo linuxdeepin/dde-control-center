@@ -75,9 +75,9 @@ void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
             return;
         }
         // draw + in the end
-        if (index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().isDrawLast == true) {
+        if (index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().isDrawLast) {
             QString iconpath = index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().iconPath;
-            if (!iconpath.isEmpty()) {
+            if (iconpath != QString("Deepin")) {
                 //1.画图片
                 painter->setClipping(true);
                 painter->drawPixmap(option.rect.marginsRemoved(margins), QPixmap(iconpath));
