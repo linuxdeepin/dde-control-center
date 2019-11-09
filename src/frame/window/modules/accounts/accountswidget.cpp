@@ -123,11 +123,11 @@ void AccountsWidget::addUser(User *user, bool t1)
 
     connect(user, &User::isCurrentUserChanged, this, [ = ](bool isCurrentUser) {
         if (isCurrentUser) {
-            auto idx = m_userList.indexOf(user);
-            auto tttitem = m_userItemModel->takeRow(idx);
+            auto tindex = m_userList.indexOf(user);
+            auto titem = m_userItemModel->takeRow(tindex);
 
             m_userItemModel->removeRow(0);
-            m_userItemModel->insertRow(0, item);
+            m_userItemModel->insertRow(0, titem);
 
             m_userList.removeOne(user);
             m_userList[0] = user;
@@ -244,8 +244,9 @@ void AccountsWidget::connectUserWithItem(User *user)
         }
     });
     connect(user, &User::createdTimeChanged, this, [ = ](const quint64 & createdtime) {
-        if (user->isCurrentUser())
+        if (user->isCurrentUser()) {
             return;
+        }
 
         int tindex = m_userList.indexOf(user);
         auto titem = m_userItemModel->item(tindex);
@@ -254,16 +255,15 @@ void AccountsWidget::connectUserWithItem(User *user)
         }
         titem->setData(QVariant::fromValue(createdtime), AccountsWidget::ItemDataRole);
 
-        for (int i = 1; i < m_userItemModel->rowCount(); i++) {
+        for (int i = 1; i < m_userItemModel->rowCount(); ++i) {
             quint64 icreatedtime = m_userItemModel->index(i, 0).data(AccountsWidget::ItemDataRole).toULongLong();
             if (createdtime < icreatedtime) {
                 m_userItemModel->takeRow(tindex);
                 m_userList.takeAt(tindex);
                 auto dstIdx = i;
-                dstIdx += tindex < i ? -1 : 0;
-                m_userItemModel->insertRow(i, titem);
-
-                m_userList.insert(i, user);
+                dstIdx += (tindex < i ? -1 : 0);
+                m_userItemModel->insertRow(dstIdx, titem);
+                m_userList.insert(dstIdx, user);
                 break;
             }
         }
