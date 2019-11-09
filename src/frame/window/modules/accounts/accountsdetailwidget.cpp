@@ -296,6 +296,7 @@ void AccountsDetailWidget::initBodyPart(QVBoxLayout *bodyLayout)
     nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
     m_mainStackedWidget->setCurrentIndex(0);
+    m_fingerWidget->setVisible(false);
 }
 
 void AccountsDetailWidget::updateLineEditDisplayStyle()

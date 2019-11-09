@@ -61,16 +61,8 @@ void AccountsModule::initialize()
 
     m_accountsWorker->active();
     m_fingerWorker->refreshDevice();
+    connect(m_fingerModel, &FingerModel::vaildChanged, this, &AccountsModule::onHandleVaildChanged);
     connect(m_fingerWorker, &FingerWorker::requestShowAddThumb, this, &AccountsModule::onShowAddThumb);
-    connect(m_fingerModel, &FingerModel::vaildChanged, [ = ](const bool isVaild) {
-        if (isVaild) {
-            initFingerData();
-        } else {
-            for (const auto &user : m_userModel->userList()) {
-                disconnect(user, &User::nameChanged, m_fingerWorker, &FingerWorker::refreshUserEnrollList);
-            }
-        }
-    });
 }
 
 void AccountsModule::reset()
@@ -205,12 +197,24 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     dlg->exec();//Note:destroy this object when this window is closed
 }
 
+void AccountsModule::onHandleVaildChanged(const bool isVaild)
+{
+    if (isVaild) {
+        initFingerData();
+    } else {
+        for (const auto &user : m_userModel->userList()) {
+            disconnect(user, &User::nameChanged, m_fingerWorker, &FingerWorker::refreshUserEnrollList);
+        }
+    }
+
+    //用户运行程序第一次点击账户初始化时
+    //调用过程：　initialize ->　refreshDevice -> GetDefaultDevice -> onGetFprDefaultDevFinished -> 获取指纹设备存在状态,发出vaildChanged信号 -> onHandleVaildChanged
+    //onHandleVaildChanged第一次被调用就行了，后面指纹设备状态发生变化时，有DevicesChanged信号来通知指纹页面。
+    disconnect(m_fingerModel, &FingerModel::vaildChanged, this, &AccountsModule::onHandleVaildChanged);
+}
+
 void AccountsModule::initFingerData()
 {
-    connect(m_userModel, &UserModel::userAdded, this, [ & ](User * user) {
-        connect(user, &User::nameChanged, m_fingerWorker, &FingerWorker::refreshUserEnrollList);
-    });
-    for (const auto &user : m_userModel->userList()) {
-        connect(user, &User::nameChanged, m_fingerWorker, &FingerWorker::refreshUserEnrollList);
-    }
+    QString currentUserName = m_accountsWorker->getCurrentUserName();
+    m_fingerWorker->refreshUserEnrollList(currentUserName);
 }

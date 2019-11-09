@@ -83,6 +83,11 @@ void AccountsWorker::active()
     }
 }
 
+QString AccountsWorker::getCurrentUserName()
+{
+    return m_currentUserName;
+}
+
 void AccountsWorker::randomUserIcon(User *user)
 {
     QDBusPendingCall call = m_accountsInter->RandUserIcon();

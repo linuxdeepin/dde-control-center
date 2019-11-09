@@ -63,6 +63,7 @@ public:
     explicit AccountsWorker(UserModel * userList, QObject *parent = 0);
 
     void active();
+    QString getCurrentUserName();
 
 Q_SIGNALS:
     void requestFrameAutoHide(const bool autoHide) const;
