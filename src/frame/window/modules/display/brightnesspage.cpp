@@ -60,7 +60,7 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_nightShift->setTitle(tr("Night Shift"));
     m_centralLayout->addWidget(m_nightShift);
 
-    //~ contents_path /display/Brightness
+///    //~ contents_path /display/Brightness
     m_nightTips = new DTipLabel(tr("The screen hue will be auto adjusted according to your location"));
     m_nightTips->setWordWrap(true);
     m_nightTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);

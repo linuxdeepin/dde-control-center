@@ -45,7 +45,6 @@ const int AnimationDuration = 5000;
 SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
-      //~ contents_path /sound/Sound Effects
     , m_sw(new SwitchWidget(tr("Sound Effects")))
     , m_effectList(new DListView)
     , m_sound(nullptr)

@@ -52,7 +52,6 @@ ScalingPage::ScalingPage(QWidget *parent)
     m_centralLayout->setSpacing(10);
     m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
 
-    //~ contents_path /display/Display Scaling
     DTipLabel *tip = new DTipLabel(tr("Some applications cannot be scaled with the specified settings in multi-display environment."));
 
     tip->setWordWrap(true);

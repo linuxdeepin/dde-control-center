@@ -61,8 +61,10 @@ void WacomWidget::setModel(WacomModel *model)
 QString WacomWidget::getModeName(const bool curMode) const
 {
     if (curMode) {
+        //~ contents_path /wacom/Pen
         return tr("Pen");
     } else {
+        //~ contents_path /wacom/Mouse
         return tr("Mouse");
     }
 }

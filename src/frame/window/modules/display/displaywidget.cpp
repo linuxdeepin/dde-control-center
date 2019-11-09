@@ -128,9 +128,8 @@ void DisplayWidget::initMenuUI()
     m_singleMenuList = {
         //~ contents_path /display/Resolution
         {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
-        //~ contents_path /display/Brightness
         {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
-        //~ contents_path /display/Display Scaling
+///     //~ contents_path /display/Display Scaling
         {tr("Display Scaling"), "dcc_screen", QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)},
         //~ contents_path /display/Refresh Rate
         {tr("Refresh Rate"), "dcc_refresh_rate", QMetaMethod::fromSignal(&DisplayWidget::requestShowRefreshRatePage)}

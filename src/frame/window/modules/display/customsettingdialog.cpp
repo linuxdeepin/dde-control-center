@@ -352,7 +352,6 @@ void CustomSettingDialog::initMoniList()
         titleAction->setText(moni->name());
 
         auto *subTitleAction = new DViewItemAction;
-        //~ contents_path /display/Multiple Displays
         QString str = QString("%1 %2 ").arg(moni->w()).arg(tr("inch"));
         str += (tr("Resolution %1x%2").arg(QString::number(moni->w())).arg(QString::number(moni->h())));
         subTitleAction->setText(str);
