@@ -117,16 +117,18 @@ int AccountsModule::load(QString path)
     }
 
     if (pUser == nullptr) {
-        return 0;
+        return -1;
     }
 
     if (path == searchList[0] || path == searchList[1] || path == searchList[2] || path == searchList[3]) {
         onShowAccountsDetailWidget(pUser);
+        return 0;
     } else if (path == searchList[4]) {
         onShowCreateAccountPage();
+        return 0;
     }
 
-    return 0;
+    return -1;
 }
 
 //显示账户信息
