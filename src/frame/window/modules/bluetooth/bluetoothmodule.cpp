@@ -96,7 +96,7 @@ int BluetoothModule::load(QString path)
         return 0;
     }
 
-    return 0;
+    return -1;
 }
 
 void BluetoothModule::contentPopped(QWidget *const w)
