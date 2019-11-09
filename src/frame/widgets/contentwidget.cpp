@@ -128,7 +128,8 @@ QWidget *ContentWidget::setContent(QWidget * const w)
 
 void ContentWidget::resizeEvent(QResizeEvent *event)
 {
-    m_content->setFixedWidth(event->size().width());
+    if (m_content)
+        m_content->setFixedWidth(event->size().width());
 }
 
 }

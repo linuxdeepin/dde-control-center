@@ -34,10 +34,13 @@ using namespace dcc::bluetooth;
 using namespace dcc::widgets;
 
 BluetoothWidget::BluetoothWidget(BluetoothModel *model)
-    : m_model(model)
+    : ContentWidget(nullptr)
+    , m_model(model)
     , m_tFrame(new TranslucentFrame)
 {
     layout()->setMargin(0);
+    setContent(m_tFrame);
+
     setObjectName("Bluetooth");
     m_bluetoothWorker = &dcc::bluetooth::BluetoothWorker::Instance();
 
@@ -91,7 +94,6 @@ void BluetoothWidget::addAdapter(const Adapter *adapter)
 
         layout->addWidget(getAdapter(adapter));
         m_tFrame->setLayout(layout);
-        setContent(m_tFrame);
 
         setVisibleState();
     }
