@@ -112,8 +112,8 @@ void DefappDetailWidget::setCategory(dcc::defapp::Category *const category)
     setCategoryName(m_category->getName());
 }
 
-QIcon DefappDetailWidget::getAppIcon(const dcc::defapp::App &app) {
-    return QIcon::fromTheme(app.Icon, QIcon::fromTheme("application-x-desktop"));
+QIcon DefappDetailWidget::getAppIcon(const QString &appIcon) {
+    return QIcon::fromTheme(appIcon, QIcon::fromTheme("application-x-desktop"));
 }
 
 void DefappDetailWidget::addItem(const dcc::defapp::App &item)
@@ -138,6 +138,21 @@ void DefappDetailWidget::removeItem(const dcc::defapp::App &item)
     updateListView(m_category->getDefault());
 }
 
+void DefappDetailWidget::showInvalidText(DStandardItem *modelItem, const QString &name, const QString &iconName)
+{
+    if (name.isEmpty())
+        return;
+
+    DViewItemActionList actions;
+    DViewItemAction *act = new DViewItemAction(Qt::AlignVCenter | Qt::AlignLeft, QSize(), QSize(), false);
+    QIcon icon = getAppIcon(iconName);
+    act->setIcon(icon);
+    act->setTextColorRole(DPalette::TextWarning);
+    act->setIconText(name);
+    actions << act;
+    modelItem->setActionList(Qt::LeftEdge, actions);
+}
+
 void DefappDetailWidget::setCategoryName(const QString &name)
 {
     m_categoryName = name;
@@ -150,6 +165,8 @@ void DefappDetailWidget::updateListView(const dcc::defapp::App &defaultApp) {
         QString id = modelItem->data(DefAppIdRole).toString();
         bool isUser = modelItem->data(DefAppIsUserRole).toBool();
         bool canDelete = modelItem->data(DefAppCanDeleteRole).toBool();
+        QString name = modelItem->data(DefAppNameRole).toString();
+        QString iconName = modelItem->data(DefAppIconRole).toString();
 
         if (id == defaultApp.Id) {
             modelItem->setCheckState(Qt::Checked);
@@ -159,6 +176,7 @@ void DefappDetailWidget::updateListView(const dcc::defapp::App &defaultApp) {
 
             DViewItemActionList actions;
             modelItem->setActionList(Qt::RightEdge, actions);
+            showInvalidText(modelItem, name, iconName);
         } else {
             modelItem->setCheckState(Qt::Unchecked);
             //add user clear button
@@ -175,6 +193,7 @@ void DefappDetailWidget::updateListView(const dcc::defapp::App &defaultApp) {
             btnActList << delAction;
             modelItem->setActionList(Qt::RightEdge, btnActList);
             m_actionMap.insert(delAction, id);
+            showInvalidText(modelItem, name, iconName);
         }
     }
 }
@@ -269,8 +288,13 @@ void DefappDetailWidget::appendItemData(const dcc::defapp::App &app)
     QString appName = (!app.isUser || isDesktopOrBinaryFile(app.Exec))
             ? app.Name : QString("%1(%2)").arg(app.Name).arg(tr("Invalid"));
 
-    item->setText(appName);
-    item->setIcon(getAppIcon(app));
+    if (!app.isUser || isDesktopOrBinaryFile(app.Exec)) {
+        item->setText(appName);
+        item->setIcon(getAppIcon(app.Icon));
+    } else {
+        item->setData(appName, DefAppNameRole);
+        item->setData(app.Icon, DefAppIconRole);
+    }
     item->setData(app.Id, DefAppIdRole);
     item->setData(app.isUser, DefAppIsUserRole);
     item->setData(app.CanDelete, DefAppCanDeleteRole);

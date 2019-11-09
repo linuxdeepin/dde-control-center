@@ -40,6 +40,7 @@ DWIDGET_BEGIN_NAMESPACE
 class DFloatingButton;
 class DListView;
 class DViewItemAction;
+class DStandardItem;
 DWIDGET_END_NAMESPACE
 
 QT_BEGIN_NAMESPACE
@@ -63,7 +64,7 @@ public:
 
 private:
     void updateListView(const dcc::defapp::App &defaultApp);
-    QIcon getAppIcon(const dcc::defapp::App &app);
+    QIcon getAppIcon(const QString &appIcon);
     dcc::defapp::App getAppById(const QString &appId);
     void appendItemData(const dcc::defapp::App &app);
     bool isDesktopOrBinaryFile(const QString &fileName);
@@ -71,7 +72,9 @@ private:
     enum DefAppDataRole{
         DefAppIsUserRole = DTK_NAMESPACE::UserRole + 1,
         DefAppIdRole,
-        DefAppCanDeleteRole
+        DefAppCanDeleteRole,
+        DefAppNameRole,
+        DefAppIconRole
     };
 
 Q_SIGNALS:
@@ -91,6 +94,7 @@ private:
     void AppsItemChanged(const QList<dcc::defapp::App> &list);
     void addItem(const dcc::defapp::App &item);
     void removeItem(const dcc::defapp::App &item);
+    void showInvalidText(DTK_WIDGET_NAMESPACE::DStandardItem *modelItem, const QString &name, const QString &iconName);
 
 private:
     QVBoxLayout *m_centralLayout;
