@@ -25,12 +25,15 @@
 #include "widgets/switchwidget.h"
 #include "widgets/labels/tipslabel.h"
 
+#include <DTipLabel>
+
 #include <QVBoxLayout>
 #include <QTimer>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
 using namespace commoninfo;
+DWIDGET_USE_NAMESPACE
 
 UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
     : QWidget(parent)
@@ -41,7 +44,7 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
     //~ contents_path /commoninfo/User Experience Program
     m_joinUeProgram->setTitle(tr("Join User Experience Program"));
 
-    TipsLabel *tipLabel = new TipsLabel(tr("Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program."));
+    DTipLabel *tipLabel = new DTipLabel(tr("Please refer to Article 10~13 in the End User License Agreement for the terms of User Experience Program."));
     tipLabel->setWordWrap(true);
     tipLabel->setContentsMargins(16, 0, 10, 0);
 

@@ -30,16 +30,18 @@
 #include "widgets/labels/tipslabel.h"
 #include "widgets/settingsgroup.h"
 
+#include <DTipLabel>
+
 #include <QVBoxLayout>
 #include <QScrollBar>
 #include <QListView>
 
 using namespace dcc;
 using namespace widgets;
-using namespace DTK_WIDGET_NAMESPACE;
 using namespace DCC_NAMESPACE;
 using namespace commoninfo;
 using namespace network;
+DWIDGET_USE_NAMESPACE
 
 BootWidget::BootWidget(QWidget *parent)
     : QWidget(parent)
@@ -85,13 +87,15 @@ BootWidget::BootWidget(QWidget *parent)
     //~ contents_path /commoninfo/Boot Menu
     m_theme->setTitle(tr("Theme"));
 
-    TipsLabel *backgroundLabel = new TipsLabel(tr("Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background"));
+    DTipLabel *backgroundLabel = new DTipLabel(tr("Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background"));
     backgroundLabel->setWordWrap(true);
     backgroundLabel->setContentsMargins(16, 0, 10, 0);
+    backgroundLabel->setAlignment(Qt::AlignLeft);
 
-    TipsLabel *themeLbl = new TipsLabel(tr("Switch theme on to view it in boot menu"));
+    DTipLabel *themeLbl = new DTipLabel(tr("Switch theme on to view it in boot menu"));
     themeLbl->setWordWrap(true);
     themeLbl->setContentsMargins(16, 0, 10, 0);
+    themeLbl->setAlignment(Qt::AlignLeft);
 
     groupOther->appendItem(m_bootDelay);
     groupOther->setSpacing(List_Interval);
