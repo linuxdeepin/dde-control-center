@@ -103,7 +103,7 @@ void AccountsModule::active()
     m_frameProxy->pushWidget(this, m_accountsWidget);
 }
 
-void AccountsModule::load(QString path)
+int AccountsModule::load(QString path)
 {
     if (!m_accountsWidget) {
         active();
@@ -125,7 +125,7 @@ void AccountsModule::load(QString path)
     }
 
     if (pUser == nullptr) {
-        return;
+        return 0;
     }
 
     if (path == searchList[0] || path == searchList[1] || path == searchList[2] || path == searchList[3]) {
@@ -133,6 +133,8 @@ void AccountsModule::load(QString path)
     } else if (path == searchList[4]) {
         onShowCreateAccountPage();
     }
+
+    return 0;
 }
 
 //显示账户信息

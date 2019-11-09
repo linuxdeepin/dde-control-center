@@ -458,22 +458,34 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
         return;
     }
 
-    popAllWidgets();
-
     for (int firstCount = 0; firstCount < m_modules.count(); firstCount++) {
         //Compare moduleName and m_modules.second(module name)
-        if (moduleName == m_modules[firstCount].first->name()) {
+        if (moduleName == m_modules[firstCount].first->name()) {            
             //enter first level widget
             m_navView->setCurrentIndex(m_navView->model()->index(firstCount, 0));
-            m_navView->clicked(m_navView->model()->index(firstCount, 0));
+            onFirstItemClick(m_navView->model()->index(firstCount, 0));
 
+            //当从dbus搜索进入这里时，如果传入的page参数错误，则会使用m_widgetName保存一个错的数据。
+            //这样当前界面实际有进入的模块的界面界面。这样会出现重复调用该函数显示同一个界面的情况
+            //目前看对程序没有影响
             m_firstCount = firstCount;
             m_widgetName = widget;
 
             //notify related module load widget
-            QTimer::singleShot(0, this, [this] { //avoid default and load sequence in time
-                m_modules[m_firstCount].first->load(m_widgetName);
-            });
+//            QTimer::singleShot(0, this, [ = ] { //avoid default and load sequence in time
+            auto errCode = m_modules[m_firstCount].first->load(m_widgetName);
+            if (!errCode || m_widgetName == "") {
+                return;
+            }
+
+            auto errStr = QString("on module %1, cannot search page %2!")
+                            .arg(moduleName, m_widgetName);
+            qDebug() << errStr;
+
+            if (calledFromDBus()) {
+                sendErrorReply(QDBusError::InvalidArgs, errStr);
+            }
+//            });
             break;
         }
     }

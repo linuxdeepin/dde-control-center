@@ -140,17 +140,23 @@ void UpdateModule::deactive()
     }
 }
 
-void UpdateModule::load(QString path)
+int UpdateModule::load(QString path)
 {
+    int hasPage = -1;
     if (m_updateWidget) {
         if (path == "Update Settings") {
+            hasPage = 0;
             m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateSetting);
         } else if (path == "Update") {
+            hasPage = 0;
             m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateCheck);
         } else if (path == "Update Settings/Mirror List") {
+            hasPage = 0;
             m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateSettingMir);
         }
     }
+
+    return hasPage;
 }
 
 void UpdateModule::onNotifyDealMirrorWidget(bool state)

@@ -57,7 +57,7 @@ private:
     const QString name() const override;
 public:
     void active() override;
-    void load(QString path) override;
+    int load(QString path) override;
 
 private Q_SLOTS:
     void popPage();

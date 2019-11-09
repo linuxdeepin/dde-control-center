@@ -76,7 +76,7 @@ const QString SystemInfoModule::name() const
     return QStringLiteral("systeminfo");
 }
 
-void SystemInfoModule::load(QString path)
+int SystemInfoModule::load(QString path)
 {
     if (!m_sysinfoWidget) {
         active();
@@ -84,11 +84,13 @@ void SystemInfoModule::load(QString path)
 
     if (path == "About This PC") {
         m_sysinfoWidget->setCurrentIndex(0);
+        return 0;
     } /*else if (path == "Edition License") {
         m_sysinfoWidget->setCurrentIndex(1);
     } else if (path == "End User License Agreement") {
         m_sysinfoWidget->setCurrentIndex(2);
     }*/
+    return -1;
 }
 
 void SystemInfoModule::onShowAboutNativePage()

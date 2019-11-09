@@ -164,8 +164,12 @@ void NetworkModule::active()
     });
 }
 
-void NetworkModule::load(QString path)
+int NetworkModule::load(QString path)
 {
+    if (!m_networkWidget) {
+        active();
+    }
+
     if (m_initSettingTimer) {
         m_initSettingTimer->stop();
     }
@@ -173,13 +177,14 @@ void NetworkModule::load(QString path)
         if (dev->path() == path) {
             showDeviceDetailPage(dev);
             m_networkWidget->setIndexFromPath(path);
-            return;
+            return 0;
         }
     }
+    int index = m_networkWidget->gotoSetting(path);
     QTimer::singleShot(120, this, [ = ] {
-        int index = m_networkWidget->gotoSetting(path);
-        m_networkWidget->initSetting(index);
+        m_networkWidget->initSetting(index == -1 ? 0 : index);
     });
+    return index == -1 ? -1 : 0;
 }
 
 const QString NetworkModule::name() const

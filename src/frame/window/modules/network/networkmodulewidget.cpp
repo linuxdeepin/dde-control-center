@@ -175,7 +175,7 @@ int NetworkModuleWidget::gotoSetting(const QString &path)
     } else if (path == QStringLiteral("Personal Hotspot")) {
         type = HotspotPage;
     }
-    int index = 0;
+    int index = -1;
     for (int i = 0; i < m_modelpages->rowCount(); ++i) {
         if (m_modelpages->item(i)->data(SectionRole).value<PageType>() == type) {
             index = i;

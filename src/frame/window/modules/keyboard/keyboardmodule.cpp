@@ -76,7 +76,7 @@ void KeyboardModule::active()
     showGeneralSetting();
 }
 
-void KeyboardModule::load(QString path)
+int KeyboardModule::load(QString path)
 {
     QStringList pathList = path.split("/");
     QString loadPath = pathList.at(0);
@@ -94,6 +94,8 @@ void KeyboardModule::load(QString path)
             m_keyboardWidget->initSetting(3);
         }
     }
+
+    return 0;
 }
 
 const QString KeyboardModule::name() const

@@ -55,7 +55,7 @@ public:
     void initialize() override;
     const QString name() const override;
     void active() override;
-    void load(QString path) override;
+    int load(QString path) override;
     void preInitialize() override;
 
 private Q_SLOTS:

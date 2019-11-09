@@ -52,7 +52,7 @@ public:
     void showPage(const QString &pageName) override;
     void contentPopped(QWidget *const w) override;
     void active() override;
-    void load(QString path) override;
+    int load(QString path) override;
 
 public Q_SLOTS:
     void onShowAccountsDetailWidget(dcc::accounts::User *account);

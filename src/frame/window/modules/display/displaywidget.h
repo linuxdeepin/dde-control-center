@@ -56,7 +56,7 @@ public:
 
 public:
     void setModel(dcc::display::DisplayModel *model);
-    void showPath(const QString &path);
+    int showPath(const QString &path);
     QPoint getRotateBtnPos();
 
 private Q_SLOTS:

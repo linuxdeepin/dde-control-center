@@ -77,12 +77,13 @@ void PersonalizationModule::contentPopped(QWidget *const w)
     Q_UNUSED(w);
 }
 
-void PersonalizationModule::load(QString path)
+int PersonalizationModule::load(QString path)
 {
     QString loadPath = path.split("/").at(0);
-    int row = 0;
+    int row = -1;
     if (loadPath == QStringLiteral("General")) {
         showGenaralWidget();
+        row = 0;
     } else if (loadPath == QStringLiteral("Icon Theme")) {
         showIconThemeWidget();
         row = 1;
@@ -93,7 +94,9 @@ void PersonalizationModule::load(QString path)
         showFontThemeWidget();
         row = 3;
     }
+
     Q_EMIT requestSetCurrentIndex(row);
+    return row == -1 ? -1 : 0;
 }
 
 void PersonalizationModule::showGenaralWidget()

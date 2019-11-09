@@ -53,7 +53,7 @@ public:
     virtual const QString name() const override;
     virtual void active() override;
     virtual void deactive() override;
-    virtual void load(QString path) override;
+    virtual int load(QString path) override;
 
 private Q_SLOTS:
     void onNotifyDealMirrorWidget(bool state);

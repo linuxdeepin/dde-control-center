@@ -67,14 +67,14 @@ void DisplayWidget::setModel(DisplayModel *model)
     onMonitorListChanged();
 }
 
-void DisplayWidget::showPath(const QString &path)
+int DisplayWidget::showPath(const QString &path)
 {
     if (((path == "Resolution" || path == "Refresh Rate")
             && m_model->monitorList().size() > 1)
             || path == "Customize") {
         Q_EMIT this->requestShowCustomConfigPage();
         m_menuList->setCurrentIndex(m_menuList->model()->index(0, 0));
-        return;
+        return 0;
     }
 
     auto menuList = m_isMultiScreen ? m_multMenuList : m_singleMenuList;
@@ -83,9 +83,11 @@ void DisplayWidget::showPath(const QString &path)
         if (tr(path.toStdString().c_str()) == menu.menuText) {
             menu.method.invoke(this);
             m_menuList->setCurrentIndex(m_menuList->model()->index(i, 0));
-            break;
+            return 0;
         }
     }
+
+    return -1;
 }
 
 QPoint DisplayWidget::getRotateBtnPos()

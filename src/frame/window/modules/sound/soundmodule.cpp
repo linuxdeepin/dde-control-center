@@ -68,12 +68,12 @@ void SoundModule::active()
     showSpeakerPage();
 }
 
-void SoundModule::load(QString path)
+int SoundModule::load(QString path)
 {
     if (!m_soundWidget)
         active();
 
-    m_soundWidget->showPath(path);
+    return m_soundWidget->showPath(path);
 }
 
 void SoundModule::showSpeakerPage()

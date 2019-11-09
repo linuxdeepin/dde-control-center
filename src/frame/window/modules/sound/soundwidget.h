@@ -43,7 +43,7 @@ public:
     SoundWidget(QWidget *parent = nullptr);
 
 public:
-    void showPath(const QString &path);
+    int showPath(const QString &path);
 
 Q_SIGNALS:
     void requsetSpeakerPage();

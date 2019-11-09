@@ -126,18 +126,25 @@ const QString MouseModule::name() const
     return QStringLiteral("mouse");
 }
 
-void MouseModule::load(QString path)
+int MouseModule::load(QString path)
 {
+    int hasPage = -1;
     QString loadPath = path.split("/").at(0);
     if (loadPath == QStringLiteral("General")) {
+        hasPage = 0;
         m_mouseWidget->initSetting(0);
     } else if (loadPath == QStringLiteral("Mouse")) {
+        hasPage = 0;
         m_mouseWidget->initSetting(1);
     } else if (loadPath == QStringLiteral("Touchpad")) {
+        hasPage = 0;
         m_mouseWidget->initSetting(2);
     } else if (loadPath == QStringLiteral("TrackPoint")) {
+        hasPage = 0;
         m_mouseWidget->initSetting(3);
     }
+
+    return hasPage;
 }
 
 void MouseModule::contentPopped(QWidget *const w)

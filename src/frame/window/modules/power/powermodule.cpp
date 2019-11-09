@@ -78,18 +78,17 @@ void PowerModule::active()
     m_frameProxy->pushWidget(this, m_widget);
 }
 
-void PowerModule::load(QString path)
+int PowerModule::load(QString path)
 {
     if (!m_widget) {
         active();
-        return;
     }
 
     QListView *list = m_widget->getListViewPointer();
     powerType type = DEFAULT;
 
     if (!list) {
-        return;
+        return 0;
     }
 
     if (path == "General") {
@@ -103,7 +102,7 @@ void PowerModule::load(QString path)
         //false: not use battery  ->  not into "On Battery"
         if (!m_widget->getIsUseBattety()) {
             qWarning(" Now not use battery.");
-            return;
+            return 0;
         }
     }
 
@@ -112,6 +111,8 @@ void PowerModule::load(QString path)
         list->setCurrentIndex(index);
         list->clicked(index);
     }
+
+    return 0;
 }
 
 void PowerModule::showGeneral()

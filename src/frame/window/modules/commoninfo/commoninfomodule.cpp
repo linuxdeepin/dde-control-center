@@ -83,7 +83,7 @@ void CommonInfoModule::deactive()
     m_commonWork->deactivate();
 }
 
-void CommonInfoModule::load(QString path)
+int CommonInfoModule::load(QString path)
 {
     if (!m_commonWidget) {
         active();
@@ -91,7 +91,7 @@ void CommonInfoModule::load(QString path)
 
     QListView *list = m_commonWidget->getCommonListView();
     if (!list) {
-        return;
+        return 0;
     }
 
     int indexRow = 0;
@@ -111,6 +111,8 @@ void CommonInfoModule::load(QString path)
     QModelIndex idx = list->model()->index(indexRow, 0);
     list->setCurrentIndex(idx);
     list->clicked(idx);
+
+    return 0;
 }
 
 void CommonInfoModule::onShowBootWidget()

@@ -77,7 +77,7 @@ void DefaultAppsModule::contentPopped(QWidget *const w)
     Q_UNUSED(w);
 }
 
-void DefaultAppsModule::load(QString path)
+int DefaultAppsModule::load(QString path)
 {
     QMap<QString, dcc::defapp::DefAppWorker::DefaultAppsCategory> maps = {
         { QStringLiteral("Webpage"), dcc::defapp::DefAppWorker::Browser},
@@ -93,6 +93,7 @@ void DefaultAppsModule::load(QString path)
 
     showDetailWidget(currentCategory);
     Q_EMIT requestSetDefappCategory(currentCategory);
+    return 0;
 }
 
 void DefaultAppsModule::showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category) {

@@ -55,7 +55,7 @@ public:
     virtual void active() override;
     virtual void deactive() override;
     // 当搜索到相关字段后，load会被调用
-    virtual void load(QString path) override;
+    virtual int load(QString path) override;
 public Q_SLOTS:
     void onShowBootWidget(); // for bootmenu
     void onShowDeveloperWidget(); // for developer mode

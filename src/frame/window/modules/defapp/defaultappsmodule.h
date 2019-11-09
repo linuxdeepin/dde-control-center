@@ -44,7 +44,7 @@ public:
     virtual const QString name() const override;
     virtual void active() override;
     virtual void contentPopped(QWidget *const w) override;
-    virtual void load(QString path) override;
+    virtual int load(QString path) override;
 
 Q_SIGNALS:
     void requestSetDefappCategory(dcc::defapp::DefAppWorker::DefaultAppsCategory category);

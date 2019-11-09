@@ -90,13 +90,13 @@ void DisplayModule::active()
     onMonitorListChanged();
 }
 
-void DisplayModule::load(QString path)
+int DisplayModule::load(QString path)
 {
     if (!m_displayWidget) {
         active();
     }
 
-    m_displayWidget->showPath(path);
+    return m_displayWidget->showPath(path);
 }
 
 void DisplayModule::preInitialize()

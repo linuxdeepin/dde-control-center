@@ -54,7 +54,7 @@ public:
     virtual void initialize() override;
     virtual const QString name() const override;
     virtual void active() override;
-    virtual void load(QString path) override;
+    virtual int load(QString path) override;
 
 Q_SIGNALS:
 

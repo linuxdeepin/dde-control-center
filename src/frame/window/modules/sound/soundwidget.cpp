@@ -52,16 +52,18 @@ SoundWidget::SoundWidget(QWidget *parent)
     setLayout(layout);
 }
 
-void SoundWidget::showPath(const QString &path)
+int SoundWidget::showPath(const QString &path)
 {
     for (int i = 0; i < m_menuMethod.size(); ++i) {
         auto menu = m_menuMethod[i];
         if (tr(path.toStdString().c_str()) == menu.menuText) {
             menu.method.invoke(this);
             m_menuList->setCurrentIndex(m_menuList->model()->index(i, 0));
-            break;
+            return 0;
         }
     }
+
+    return -1;
 }
 
 void SoundWidget::initMenuUI()

@@ -87,13 +87,16 @@ const QString BluetoothModule::name() const
     return QStringLiteral("bluetooth");
 }
 
-void BluetoothModule::load(QString path)
+int BluetoothModule::load(QString path)
 {
     if ((path == QStringLiteral("Ignore this device"))
             || (path == QStringLiteral("Disconnect"))
             || (path == QStringLiteral("Change Name"))) {
         m_bluetoothWidget->loadDetailPage();
+        return 0;
     }
+
+    return 0;
 }
 
 void BluetoothModule::contentPopped(QWidget *const w)

@@ -82,18 +82,17 @@ void DatetimeModule::active()
     m_frameProxy->pushWidget(this, m_widget);
 }
 
-void DatetimeModule::load(QString path)
+int DatetimeModule::load(QString path)
 {
     if (!m_widget) {
         active();
-        return;
     }
 
     QListView *list = m_widget->getListViewPointer();
     DatetimeType type = Default;
 
     if (!list) {
-        return;
+        return 0;
     }
 
     if (path == "Timezone List") {
@@ -135,6 +134,8 @@ void DatetimeModule::load(QString path)
     default:
         break;
     }
+
+    return 0;
 }
 
 void DatetimeModule::updateSystemTimezone(const QString &timezone)
