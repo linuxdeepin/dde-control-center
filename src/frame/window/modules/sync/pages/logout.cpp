@@ -40,7 +40,6 @@ LogoutPage::LogoutPage(QWidget *parent)
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
 
-    //~ contents_path /cloudsync/Sorry, it is not supported in your region at present, and will be coming soon
     QLabel *cntip = new QLabel(tr("Sorry, it is not supported in your region at present, and will be coming soon"));
     cntip->setMargin(0);
     cntip->setWordWrap(true);

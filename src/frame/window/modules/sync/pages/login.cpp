@@ -16,14 +16,12 @@ LoginPage::LoginPage(QWidget *parent)
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
 
-    //~ contents_path /cloudsync/Sign In
     DSuggestButton *loginBtn = new DSuggestButton(tr("Sign In"));
     loginBtn->setMinimumWidth(302);
     QLabel *tip = new QLabel;
     QFont ft = tip->font();
     ft.setPointSize(12);
     tip->setFont(ft);
-    //~ contents_path /cloudsync/Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings.
     tip->setText(tr("Sign in with Deepin ID and turn on Cloud Sync to sync the specific system settings."));
     tip->setWordWrap(true);
     tip->setAlignment(Qt::AlignCenter);

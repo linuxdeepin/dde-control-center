@@ -19,7 +19,6 @@ SyncWidget::SyncWidget(QWidget *parent)
     , m_model(nullptr)
     , m_loginPage(new LoginPage)
     , m_indexPage(new IndexPage)
-    //~ contents_path /cloudsync/Sorry, it is not supported in your region at present, and will be coming soon
     , m_cnonlyPage(new LogoutPage)
 {
     m_mainLayout->setMargin(0);

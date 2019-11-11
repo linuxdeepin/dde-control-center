@@ -40,12 +40,10 @@ IndexPage::IndexPage(QWidget *parent)
     , m_lastSyncTimeLbl(new QLabel)
     , m_listModel(new QStandardItemModel)
 {
-    //~ contents_path /cloudsync/Auto Sync
     m_autoSyncSwitch = new SwitchWidget(tr("Auto Sync"));
     m_autoSyncSwitch->setContentsMargins(10, 0, 10, 0);
     m_autoSyncSwitch->setFixedHeight(36);
 
-    //~ contents_path /cloudsync/Syncing...
     m_stateLbl = new QLabel(tr("Syncing..."));
 
     m_stateLbl->hide();
@@ -88,7 +86,6 @@ IndexPage::IndexPage(QWidget *parent)
     backgroundLayout->setSpacing(0);
 
     DWarningButton *logoutBtn = new DWarningButton;
-    //~ contents_path /cloudsync/Sign Out
     logoutBtn->setText(tr("Sign Out"));
 
     QHBoxLayout *bottomLayout = new QHBoxLayout;
@@ -111,7 +108,6 @@ IndexPage::IndexPage(QWidget *parent)
 
     QHBoxLayout *tipLayout = new QHBoxLayout;
     tipLayout->addSpacing(12);
-    //~ contents_path /cloudsync/Your Wi-Fi password will be synced if Network Settings is turned on
     m_networkTip = new DTipLabel(tr("Your Wi-Fi password will be synced if Network Settings is turned on"));
     m_networkTip->setWordWrap(true);
     tipLayout->addWidget(m_networkTip, 0, Qt::AlignLeft);
@@ -142,25 +138,15 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     connect(model, &dcc::cloudsync::SyncModel::moduleSyncStateChanged, this, &IndexPage::onModuleStateChanged);
 
     QMap<SyncType, QPair<QString, QString>> moduleTs{
-        //~ contents_path /cloudsync/Network Settings
         { SyncType::Network, {("dcc_sync_internet"), tr("Network Settings") }},
-        //~ contents_path /cloudsync/Sound Settings
         { SyncType::Sound, {("dcc_sync_sound"), tr("Sound Settings") }},
-        //~ contents_path /cloudsync/Mouse Settings
         { SyncType::Mouse, {("dcc_sync_mouse"), tr("Mouse Settings") }},
-        //~ contents_path /cloudsync/Update Settings
         { SyncType::Update, {("dcc_sync_update"), tr("Update Settings") }},
-        //~ contents_path /cloudsync/Dock
         { SyncType::Dock, {("dcc_sync_taskbar"), tr("Dock") }},
-        //~ contents_path /cloudsync/Launcher
         { SyncType::Launcher, {("dcc_sync_launcher"), tr("Launcher") }},
-        //~ contents_path /cloudsync/Wallpaper
         { SyncType::Wallpaper, {("dcc_sync_wallpaper"), tr("Wallpaper") }},
-        //~ contents_path /cloudsync/Theme
         { SyncType::Theme, {("dcc_sync_theme"), tr("Theme") }},
-        //~ contents_path /cloudsync/Power Settings
         { SyncType::Power, {("dcc_sync_supply"), tr("Power Settings") }},
-        //~ contents_path /cloudsync/Corner Settings
         { SyncType::Corner, {("dcc_sync_hot_zone"), tr("Corner Settings") }}
     };
 
@@ -258,7 +244,6 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
 void IndexPage::onLastSyncTimeChanged(const qlonglong lastSyncTime)
 {
     m_lastSyncTimeLbl->setText(
-        //~ contents_path /cloudsync/Last Sync:
         tr("Last Sync: %1")
         .arg(QDateTime::fromMSecsSinceEpoch(lastSyncTime * 1000)
              .toString(tr("yyyy-MM-dd hh:mm"))));
