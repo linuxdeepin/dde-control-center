@@ -81,6 +81,15 @@ void AvatarListWidget::initDatas()
 {
     addItemFromDefaultDir();
     if (m_displayLastItem) {
+        //如果用户之前添加过新图片，那么用新图片替换最后一张图片；反之直接加上"+"
+        QString customPicPath = getUserAddedCustomPicPath();
+        if (!customPicPath.isEmpty() && checkFileIsExists(customPicPath)) {
+            //先删除最后一张图片
+            m_iconpathList.pop_back();
+            m_avatarItemModel->removeRow(m_avatarItemModel->rowCount() - 1);
+            //添加用户新添加的图片
+            addSecond2Last(customPicPath);
+        }
         addLastItem();
     }
 
@@ -130,21 +139,10 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
             m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Unchecked);
         }
 
-        int lastItemIndex = m_iconpathList.size() - 1;
-        QString lastItemIconpath = m_avatarItemModel->item(lastItemIndex)->data(AvatarListWidget::AddAvatarRole).value<LastItemData>().iconPath;
-        if (!lastItemIconpath.isEmpty()) { //如果最后一项有图标
-            LastItemData lastItemData;
-            lastItemData.isDrawLast = true;
-            lastItemData.iconPath = "Deepin";
-            int lastIndex = m_iconpathList.size() - 1;
-            m_avatarItemModel->item(lastIndex)->setData(QVariant::fromValue(lastItemData), AvatarListWidget::AddAvatarRole);
-            QString avatarPath = m_iconpathList.at(lastIndex);
-            Q_EMIT requestDeleteAvatar(avatarPath);
-        } else { //当创建用户时
-            int count = m_avatarItemModel->rowCount();
-            for (int i = 0; i < count; ++i) {
-                m_avatarItemModel->item(i)->setCheckState(Qt::Unchecked);
-            }
+        m_avatarItemModel->item(index.row())->setCheckState(Qt::Checked);
+        Q_EMIT requestSetAvatar(m_iconpathList.at(index.row()));
+        if (!m_displayLastItem) {
+            m_prevSelectIndex = m_currentSelectIndex;
         }
 
         m_avatarItemModel->item(index.row())->setCheckState(Qt::Checked);
@@ -155,10 +153,23 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
 void AvatarListWidget::onAddNewAvatarSuccess(bool added)
 {
     if (added) {
-        m_iconpathList.pop_back();
-        m_avatarItemModel->removeRow(m_currentSelectIndex);
+        //1.先把最后２项删除
+        for (int i = 0; i < 2; ++i) {
+            m_iconpathList.pop_back();
+            m_avatarItemModel->removeRow(m_avatarItemModel->rowCount() - 1);
+        }
+
+        //2.重新添加最后２项
+        QString newiconpath = getUserAddedCustomPicPath();
+        if (!newiconpath.isEmpty() && checkFileIsExists(newiconpath)) {
+            addSecond2Last(newiconpath);
+        }
         addLastItem();
-        m_prevSelectIndex = -1;
+
+        //3.选中当前的新添加的图像
+        int index = m_avatarItemModel->rowCount() - 2;
+        m_avatarItemModel->item(index)->setCheckState(Qt::Checked);
+        m_prevSelectIndex = index;
     } else {
         if (m_prevSelectIndex != -1) {
             m_avatarItemModel->item(m_prevSelectIndex)->setCheckState(Qt::Checked);
@@ -203,29 +214,50 @@ void AvatarListWidget::addItemFromDefaultDir()
 
 void AvatarListWidget::addLastItem()
 {
+    QString iconpath = "Deepin";
     LastItemData lastItemData;
     lastItemData.isDrawLast = true;
-    lastItemData.iconPath = "";
+    lastItemData.iconPath = iconpath;
 
+    m_iconpathList.push_back(iconpath);
+    QStandardItem *item = new QStandardItem();
+    item->setData(QVariant::fromValue(lastItemData), AvatarListWidget::AddAvatarRole);
+    m_avatarItemModel->appendRow(item);
+}
+
+void AvatarListWidget::addSecond2Last(QString newiconpath)
+{
+    m_iconpathList << newiconpath;
+    QStandardItem *item = new QStandardItem();
+    item->setData(QVariant::fromValue(QPixmap(newiconpath)), Qt::DecorationRole);
+    item->setData(QVariant::fromValue(newiconpath), AvatarListWidget::SaveAvatarRole);
+    m_avatarItemModel->appendRow(item);
+}
+
+QString AvatarListWidget::getUserAddedCustomPicPath()
+{
+    QString newiconpath;
     QString dirpath("/var/lib/AccountsService/icons/local/");
     QDir dir(dirpath);
     QFileInfoList list = dir.entryInfoList(QDir::Dirs|QDir::Files|QDir::NoDotAndDotDot);//去除.和..
     if (list.size() > 0) { //如果之前添加过新图片
         for (int i = 0; i < list.size(); ++i) {
             QString iconpath = list.at(i).filePath();
-            m_iconpathList.push_back(iconpath);
-            lastItemData.iconPath = iconpath;
+            newiconpath = iconpath;
             break;
         }
     } else {
         QString iconpath = "Deepin";
-        m_iconpathList.push_back(iconpath);
-        lastItemData.iconPath = iconpath;
+        newiconpath = iconpath;
     }
 
-    QStandardItem *item = new QStandardItem();
-    item->setData(QVariant::fromValue(lastItemData), AvatarListWidget::AddAvatarRole);
-    m_avatarItemModel->appendRow(item);
+    return newiconpath;
+}
+
+bool AvatarListWidget::checkFileIsExists(QString path)
+{
+    QFileInfo check_file(path);
+    return check_file.exists() && check_file.isFile();
 }
 
 QString AvatarListWidget::getAvatarPath(int n) const

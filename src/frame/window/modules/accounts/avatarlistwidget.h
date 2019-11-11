@@ -59,6 +59,9 @@ public:
 
     void addItemFromDefaultDir();
     void addLastItem();
+    void addSecond2Last(QString newiconpath);
+    QString getUserAddedCustomPicPath();
+    bool checkFileIsExists(QString path);
     QString getAvatarPath(int n) const;
     int getCurrentSelectIndex() const;
 

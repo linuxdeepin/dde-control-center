@@ -77,21 +77,22 @@ void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
         // draw + in the end
         if (index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().isDrawLast) {
             QString iconpath = index.data(AvatarListWidget::AddAvatarRole).value<LastItemData>().iconPath;
-            if (iconpath != QString("Deepin")) {
-                //1.画图片
-                painter->setClipping(true);
-                painter->drawPixmap(option.rect.marginsRemoved(margins), QPixmap(iconpath));
-                painter->setClipping(false);
-                painter->setPen(QPen(Qt::white, 1.0));
-            } else {
-                painter->setPen(QPen(option.palette.text(), 1.0));
-            }
-
-            //2.画+号
-            QRectF rect(0, 0, option.rect.width() / 3.0, option.rect.height() / 3.0);
-            rect.moveCenter(QRectF(option.rect).center());
+            if (iconpath == QString("Deepin")) {
+            //画+号
+            QRect rect(0, 0, option.rect.width() / 3.0, option.rect.height() / 3.0);
+            rect.moveCenter(QRect(option.rect).center());
+            painter->setClipPath(path);
+            painter->setClipping(true);
+            QPen pen(Qt::transparent);
+            pen.setColor(Qt::white);
+            painter->setPen(pen);
+            painter->setBrush(QColor("#E3E3E3"));
+            painter->drawEllipse(option.rect.marginsRemoved(margins));
+            painter->setClipping(false);
+            painter->setPen(QPen(option.palette.text(), 1.0));
             painter->drawLine(QPointF(rect.x(), rect.center().y()), QPointF(rect.right(), rect.center().y()));
             painter->drawLine(QPointF(rect.center().x(), rect.y()), QPointF(rect.center().x(), rect.bottom()));
+            }
         }
     }
 }
