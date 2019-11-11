@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>ReminderDialog</name>
     <message>
@@ -7,8 +9,12 @@
         <translation>更新安装完毕， 需要重启， 是否立即重启？</translation>
     </message>
     <message>
-        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data has been saved before proceeding</source>
+        <translation type="vanished">请您先确认已保存所有数据！</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
+        <source>Make sure all data had been saved first</source>
         <translation>请您先确认已保存所有数据！</translation>
     </message>
     <message>
