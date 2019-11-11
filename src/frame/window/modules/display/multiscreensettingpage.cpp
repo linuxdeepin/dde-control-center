@@ -47,7 +47,7 @@ MultiScreenSettingPage::MultiScreenSettingPage(QWidget *parent)
 
     mainLayout->addWidget(m_modeList);
 
-    //~ contents_path /display/Customize
+///    //~ contents_path /display/Customize
     QPushButton *btn = new QPushButton(tr("Custom Settings"), this);
     mainLayout->addSpacing(10);
     mainLayout->addWidget(btn);

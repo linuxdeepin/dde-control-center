@@ -112,7 +112,7 @@ void ResolutionDetailPage::initResoList()
         DStandardItem *item = new DStandardItem();
         if (first) {
             first = false;
-            //~ contents_path /display/Resolution
+///            //~ contents_path /display/Resolution
             item->setText(QString("%1 (%2)").arg(res).arg(tr("Recommended")));
         } else {
             item->setText(res);

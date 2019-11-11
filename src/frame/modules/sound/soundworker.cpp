@@ -151,7 +151,9 @@ void SoundWorker::setSinkVolume(double volume)
 
 void SoundWorker::setPort(const Port *port)
 {
-    m_audioInter->SetPort(port->cardId(), port->id(), int(port->direction()));
+    auto rep = m_audioInter->SetPort(port->cardId(), port->id(), int(port->direction()));
+    qDebug() << port->cardId() << "  " << port->id() << "  " << port->direction();
+    qDebug() << rep.error();
 }
 
 void SoundWorker::setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable)

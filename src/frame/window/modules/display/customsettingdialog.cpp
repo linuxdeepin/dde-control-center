@@ -489,15 +489,13 @@ void CustomSettingDialog::resetMonitorObject(Monitor *moni)
     if (!m_monitor) {
         disconnect(m_monitor, &Monitor::currentModeChanged, this, &CustomSettingDialog::onMonitorModeChange);
         disconnect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
-        disconnect(m_monitor, &Monitor::xChanged, this, &CustomSettingDialog::resetDialog);
-        disconnect(m_monitor, &Monitor::yChanged, this, &CustomSettingDialog::resetDialog);
+        disconnect(m_monitor, &Monitor::geometryChanged, this, &CustomSettingDialog::resetDialog);
     }
 
     m_monitor = moni;
     connect(m_monitor, &Monitor::currentModeChanged, this, &CustomSettingDialog::onMonitorModeChange);
     connect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
-    connect(m_monitor, &Monitor::xChanged, this, &CustomSettingDialog::resetDialog);
-    connect(m_monitor, &Monitor::yChanged, this, &CustomSettingDialog::resetDialog);
+    connect(m_monitor, &Monitor::geometryChanged, this, &CustomSettingDialog::resetDialog);
 }
 
 void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
@@ -580,7 +578,7 @@ void CustomSettingDialog::resetDialog()
 {
     //当收到屏幕变化的消息后，屏幕数据还是旧的
     //需要用QTimer把对窗口的改变放在屏幕数据应用后
-    QTimer::singleShot(0, this, [=] {
+    QTimer::singleShot(sender() ? 1000 : 0, this, [=] {
         m_monitroControlWidget->adjustSize();
         adjustSize();
 
