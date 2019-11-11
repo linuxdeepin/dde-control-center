@@ -53,22 +53,32 @@ using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
 using namespace dde::network;
 
-APItem::APItem(const QString &text, QStyle *style)
+APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListView *parent)
     : DStandardItem(text)
+    , m_dStyleHelper(style)
+    , m_parentView(nullptr)
 {
     setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
     setCheckable(false);
 
-    DStyleHelper dstyle(style);
     m_secureAction = new DViewItemAction(Qt::AlignCenter, QSize(11, 11), QSize(), false);
-    m_secureAction->setIcon(dstyle.standardIcon(DStyle::SP_LockElement, nullptr, nullptr));
+    m_secureAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_LockElement, nullptr, nullptr));
     m_secureAction->setVisible(false);
     setActionList(Qt::Edge::LeftEdge, { m_secureAction });
 
-    DViewItemAction *editAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
+    m_parentView = parent;
+    if (parent != nullptr) {
+        m_loadingIndicator = new DSpinner();
+        m_loadingIndicator->setFixedSize(20, 20);
+        m_loadingIndicator->hide();
+        m_loadingIndicator->stop();
+        m_loadingIndicator->setParent(parent->viewport());
+    }
+
+    m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
     QStyleOption opt;
-    editAction->setIcon(DStyleHelper(style).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
-    setActionList(Qt::Edge::RightEdge, { editAction });
+    m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
+    setActionList(Qt::Edge::RightEdge, {m_arrowAction});
 }
 
 void APItem::setSecure(bool isSecure)
@@ -124,7 +134,7 @@ QString APItem::path() const
 
 QAction *APItem::action() const
 {
-    return actionList(Qt::Edge::RightEdge).front();
+    return m_arrowAction;
 }
 
 bool APItem::operator<(const QStandardItem &other) const
@@ -133,6 +143,38 @@ bool APItem::operator<(const QStandardItem &other) const
     APSortInfo otherApInfo = other.data(SortRole).value<APSortInfo>();
     bool bRet = thisApInfo < otherApInfo;
     return bRet;
+}
+
+void APItem::setLoading(bool visible)
+{
+    if (m_loadingIndicator.isNull()) {
+        return;
+    }
+    if (visible) {
+        m_loadingIndicator->start();
+        m_loadingIndicator->show();
+        if (!m_arrowAction.isNull()) {
+            m_arrowAction->setVisible(false);
+        }
+        m_loadingAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(), QSize(), false);
+        m_loadingAction->setWidget(m_loadingIndicator);
+        m_loadingAction->setVisible(true);
+        setActionList(Qt::Edge::RightEdge, {m_loadingAction});
+    } else {
+        m_loadingIndicator->stop();
+        m_loadingIndicator->hide();
+        if (!m_loadingAction.isNull()) {
+            m_loadingAction->setVisible(false);
+        }
+        m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(11, 11), QSize(), true);
+        QStyleOption opt;
+        m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
+        m_arrowAction->setVisible(true);
+        setActionList(Qt::Edge::RightEdge, {m_arrowAction});
+    }
+    if (m_parentView) {
+        m_parentView->update();
+    }
 }
 
 WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
@@ -145,6 +187,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_modelAP(new QStandardItemModel(m_lvAP))
     , m_sortDelayTimer(new QTimer(this))
     , m_indicatorDelayTimer(new QTimer(this))
+    , m_clickedItem(nullptr)
 {
     qRegisterMetaType<APSortInfo>();
     m_preWifiStatus = Wifi_Unknown;
@@ -153,6 +196,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_lvAP->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_lvAP->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_lvAP->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_lvAP->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_lvAP->setSelectionMode(QAbstractItemView::NoSelection);
 
     m_lvAP->setSpacing(1);
@@ -216,6 +260,16 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
             this->showConnectHidePage();
             return;
         }
+        const QStandardItemModel *deviceModel = qobject_cast<const QStandardItemModel *>(idx.model());
+        if (!deviceModel) {
+            return;
+        }
+        m_clickedItem = dynamic_cast<APItem *>(deviceModel->item(idx.row()));
+        if (!m_clickedItem) {
+            qDebug() << "clicked item is nullptr";
+            return;
+        }
+        qDebug() << "clicked item " << m_clickedItem->text();
         this->onApWidgetConnectRequested(idx.data(APItem::PathRole).toString(),
                                          idx.data(Qt::ItemDataRole::DisplayRole).toString());
     });
@@ -308,7 +362,7 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
     const QString &ssid = apInfo.value("Ssid").toString();
 
     if (!m_apItems.contains(ssid)) {
-        APItem *apItem = new APItem(ssid, style());
+        APItem *apItem = new APItem(ssid, style(), m_lvAP);
         m_apItems[ssid] = apItem;
         m_modelAP->appendRow(apItem);
         apItem->setSecure(apInfo.value("Secured").toBool());
@@ -406,7 +460,6 @@ void WirelessPage::refreshLoadingIndicator()
         activeSsid = activeConnObj.value("Id").toString();
         break;
     }
-    //TODO (legacy feature): loading indicator?
 }
 
 void WirelessPage::sortAPList()
@@ -440,6 +493,15 @@ void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString
     const QString uuid = connectionUuid(ssid);
     // uuid could be empty
     // Q_ASSERT(!uuid.isEmpty());
+    if (uuid.isEmpty()) {
+        for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
+                it.value()->setLoading(false);
+        }
+    } else {
+        for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
+            it.value()->setLoading(it.value() == m_clickedItem);
+        }
+    }
     Q_EMIT requestConnectAp(m_device->path(), path, uuid);
 }
 
@@ -454,10 +516,22 @@ void WirelessPage::showConnectHidePage()
 
 void WirelessPage::updateActiveAp()
 {
+    bool isWifiConnected = false;
     for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-        it.value()->setConnected(it.key() == m_device->activeApSsid());
+        bool isConnected = it.key() == m_device->activeApSsid();
+        if (isConnected) {
+            isWifiConnected = true;
+        }
+        it.value()->setConnected(isConnected);
+        if (m_clickedItem == it.value()) {
+            it.value()->setLoading(!isConnected);
+        } else {
+            it.value()->setLoading(false);
+        }
     }
-
+    if (isWifiConnected && m_clickedItem) {
+        m_clickedItem->setLoading(false);
+    }
     m_sortDelayTimer->start();
 }
 

@@ -32,7 +32,9 @@
 
 #include <wirelessdevice.h>
 #include <DStyleOption>
+#include <DStyleHelper>
 #include <DListView>
+#include <DSpinner>
 
 #include <QPointer>
 
@@ -80,7 +82,7 @@ struct APSortInfo {
 class APItem : public DStandardItem
 {
 public:
-    explicit APItem(const QString &text, QStyle *style);
+    explicit APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListView *parent = nullptr);
     void setSecure(bool isSecure);
     bool secure() const;
     void setSignalStrength(int ss);
@@ -91,6 +93,7 @@ public:
     QString path() const;
     QAction *action() const;
     bool operator<(const QStandardItem &other) const override;
+    void setLoading(bool visible);
 public:
     enum {
         SortRole = Dtk::UserRole + 1,
@@ -98,7 +101,12 @@ public:
         SecureRole
     };
 private:
+    DListView *m_parentView;
+    DTK_WIDGET_NAMESPACE::DStyleHelper m_dStyleHelper;
     DViewItemAction *m_secureAction;
+    QPointer<DViewItemAction> m_loadingAction;
+    QPointer<DViewItemAction> m_arrowAction;
+    QPointer<DTK_WIDGET_NAMESPACE::DSpinner> m_loadingIndicator;
 };
 
 class WirelessPage : public dcc::ContentWidget
@@ -115,7 +123,6 @@ public:
     virtual ~WirelessPage();
 
     void setModel(dde::network::NetworkModel *model);
-
 Q_SIGNALS:
     void requestConnectAp(const QString &devPath, const QString &apPath, const QString &uuid) const;
     void requestDisconnectConnection(const QString &uuid);
@@ -151,6 +158,7 @@ private:
     QString connectionUuid(const QString &ssid);
     QString connectionSsid(const QString &uuid);
     void updateLayout(bool enabled);
+
 private:
     dde::network::WirelessDevice *m_device;
     dde::network::NetworkModel *m_model;
@@ -159,11 +167,11 @@ private:
     dcc::widgets::SettingsGroup *m_tipsGroup;
     QPushButton *m_closeHotspotBtn;
     DListView *m_lvAP;
+    APItem *m_clickedItem;
     QVBoxLayout *m_mainLayout;
     QStandardItemModel *m_modelAP;
     int m_layoutCount;
     WifiStatus m_preWifiStatus;
-
     QPointer<ConnectionWirelessEditPage> m_apEditPage;
 
     QString m_editingUuid;
