@@ -517,6 +517,7 @@ void DisplayWorker::monitorAdded(const QString &path)
 
     inter->setSync(false);
 
+    mon->setMonitorEnable(inter->enabled());
     mon->setPath(path);
     mon->setX(inter->x());
     mon->setY(inter->y());

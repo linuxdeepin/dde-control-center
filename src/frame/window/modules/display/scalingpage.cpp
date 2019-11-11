@@ -111,11 +111,12 @@ void ScalingPage::addSlider(int monitorID){
 
     m_slider = new TitledSliderItem("");
     m_slider->addBackground();
-    auto pmoni = m_displayModel->monitorList()[0];
-    auto pmode = pmoni->enable() ? pmoni->currentMode() : pmoni->modeList().first();
-    QStringList fscaleList = getScaleList(pmode);
+    QStringList fscaleList = {"1.0", "1.25", "1.5", "1.75", "2.0", "2.25", "2.5", "2.75", "3.0"};
     for (auto moni : m_displayModel->monitorList()) {
-        auto tmode = moni->enable() ? moni->currentMode() : moni->modeList().first();
+        if (!moni->enable()) {
+            continue;
+        }
+        auto tmode = moni->currentMode();
         auto ts = getScaleList(tmode);
         fscaleList = ts.size() < fscaleList.size() ? ts :fscaleList;
     }
