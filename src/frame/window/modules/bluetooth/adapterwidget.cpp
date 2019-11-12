@@ -60,6 +60,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_myDevicesGroup->setVisible(false);
 
     m_switch->addBackground();
+    m_switch->setContentsMargins(0, 0, 20, 0);
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
