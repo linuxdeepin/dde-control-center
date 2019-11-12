@@ -70,6 +70,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_tipsGrp = new SettingsGroup;
     m_tipsGrp->appendItem(tips);
 
+    //~ contents_path /network/Wired Network
     m_switch->setTitle(tr("Wired Network Adapter"));
     m_switch->setChecked(dev->enabled());
     m_tipsGrp->setVisible(dev->enabled());
@@ -100,6 +101,8 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
         this->activateConnection(idx.data(PathRole).toString());
     });
 
+    //~ contents_path /network/Wired Network
+    tr("Add Network Connection");
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
     connect(m_device, &WiredDevice::connectionsChanged, this, &WiredPage::refreshConnectionList);
     connect(m_device, &WiredDevice::activeWiredConnectionInfoChanged, this, &WiredPage::checkActivatedConnection);

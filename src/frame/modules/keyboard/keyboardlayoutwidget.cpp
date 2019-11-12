@@ -47,6 +47,7 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     : ContentWidget(parent)
     , textLength(0)
 {
+    //~ contents_path /keyboard/Keyboard Layout
     setTitle(tr("Add Keyboard Layout"));
 
     m_mainWidget = new TranslucentFrame();

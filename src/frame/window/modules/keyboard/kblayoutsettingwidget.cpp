@@ -55,7 +55,6 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
 
     m_group = new SettingsGroup();
     m_head = new SettingsHead();
-    //~ contents_path /keyboard/Keyboard Layout
     m_head->setTitle(tr("Keyboard Layout"));
     m_head->setEditEnable(false);
 

@@ -53,7 +53,6 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
     m_listviewModel = new QStandardItemModel(m_mouseListView);
     QList<QPair<QIcon, QString>> menuIconText;
     menuIconText = {
-        //~ contents_path /mouse/General
         { QIcon::fromTheme("dcc_general_purpose"), tr("General")},
         //~ contents_path /mouse/Mouse
         { QIcon::fromTheme("dcc_mouse"), tr("Mouse")},

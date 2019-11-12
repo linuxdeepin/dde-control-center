@@ -51,11 +51,7 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
     m_mouseNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
 
     QStringList speedList;
-    //~ contents_path /mouse/Mouse
-    //~ child_page Mouse
     speedList << tr("Slow") << "" << "" << "" << "" << "" ;
-    //~ contents_path /mouse/Mouse
-    //~ child_page Mouse
     speedList << tr("Fast");
     DCCSlider *speedSlider = m_mouseMoveSlider->slider();
     speedSlider->setType(DCCSlider::Vernier);

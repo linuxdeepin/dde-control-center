@@ -51,11 +51,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
     m_palmDetectSetting = new PalmDetectSetting;
 
     QStringList touchMoveList;
-    //~ contents_path /mouse/Touchpad
-    //~ child_page Touchpad
     touchMoveList << tr("Slow") << "" << "" << "" << "" << "";
-    //~ contents_path /mouse/Touchpad
-    //~ child_page Touchpad
     touchMoveList << tr("Fast");
 
     DCCSlider *touchSlider = m_touchMoveSlider->slider();

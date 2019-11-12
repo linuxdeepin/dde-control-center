@@ -49,7 +49,6 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     setTitle(tr("Application Proxy"));
 
     m_proxyType = new ComboxWidget;
-    //~ contents_path /network/Application Proxy
     m_proxyType->setTitle(tr("Proxy Type"));
 
     QComboBox *cb = m_proxyType->comboBox();
@@ -58,23 +57,18 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     cb->addItem("socks5");
 
     m_addr = new LineEditWidget;
-    //~ contents_path /network/Application Proxy
     m_addr->setTitle(tr("IP Address"));
     m_addr->setPlaceholderText(tr("Required"));
 
     m_port = new LineEditWidget;
-    //~ contents_path /network/Application Proxy
-    //~ child_page Application Proxy
     m_port->setTitle(tr("Port"));
     m_port->setPlaceholderText(tr("Required"));
 
     m_username = new LineEditWidget;
-    //~ contents_path /network/Application Proxy
     m_username->setTitle(tr("Username"));
     m_username->setPlaceholderText(tr("Optional"));
 
     m_password = new LineEditWidget;
-    //~ contents_path /network/Application Proxy
     m_password->setTitle(tr("Password"));
     m_password->setPlaceholderText(tr("Optional"));
     m_password->textEdit()->setEchoMode(QLineEdit::Password);

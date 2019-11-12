@@ -56,34 +56,24 @@ ProxyPage::ProxyPage(QWidget *parent)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
     , m_proxyType(new DSegmentedControl)
 {
-    //~ contents_path /network/System Proxy
     m_buttonTuple->leftButton()->setText(tr("Cancel"));
-    //~ contents_path /network/System Proxy
     m_buttonTuple->rightButton()->setText(tr("Save"));
 
-    //~ contents_path /network/System Proxy
     m_proxyType->addSegmented(tr("None"));
-    //~ contents_path /network/System Proxy
     m_proxyType->addSegmented(tr("Manual"));
-    //~ contents_path /network/System Proxy
     m_proxyType->addSegmented(tr("Auto"));
     m_proxyType->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     m_proxyType->setFixedHeight(30);
 
     m_httpAddr = new LineEditWidget;
-    //~ contents_path /network/System Proxy
     m_httpAddr->setPlaceholderText(tr("Optional"));
-    //~ contents_path /network/System Proxy
     m_httpAddr->setTitle(tr("HTTP Proxy"));
     m_httpPort = new LineEditWidget;
     m_httpPort->setPlaceholderText(tr("Optional"));
-    //~ contents_path /network/System Proxy
-    //~ child_page System Proxy
     m_httpPort->setTitle(tr("Port"));
 
     m_httpsAddr = new LineEditWidget;
     m_httpsAddr->setPlaceholderText(tr("Optional"));
-    //~ contents_path /network/System Proxy
     m_httpsAddr->setTitle(tr("HTTPS Proxy"));
     m_httpsPort = new LineEditWidget;
     m_httpsPort->setPlaceholderText(tr("Optional"));
@@ -91,7 +81,6 @@ ProxyPage::ProxyPage(QWidget *parent)
 
     m_ftpAddr = new LineEditWidget;
     m_ftpAddr->setPlaceholderText(tr("Optional"));
-    //~ contents_path /network/System Proxy
     m_ftpAddr->setTitle(tr("FTP Proxy"));
     m_ftpPort = new LineEditWidget;
     m_ftpPort->setPlaceholderText(tr("Optional"));
@@ -99,7 +88,6 @@ ProxyPage::ProxyPage(QWidget *parent)
 
     m_socksAddr = new LineEditWidget;
     m_socksAddr->setPlaceholderText(tr("Optional"));
-    //~ contents_path /network/System Proxy
     m_socksAddr->setTitle(tr("SOCKS Proxy"));
     m_socksPort = new LineEditWidget;
     m_socksPort->setPlaceholderText(tr("Optional"));
@@ -110,12 +98,10 @@ ProxyPage::ProxyPage(QWidget *parent)
     ignoreTips->setWordWrap(true);
     ignoreTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     ignoreTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-    //~ contents_path /network/System Proxy
     ignoreTips->setText(tr("Ignore the proxy configurations for the above hosts and domains"));
 
     m_autoUrl = new LineEditWidget;
     m_autoUrl->setPlaceholderText(tr("Optional"));
-    //~ contents_path /network/System Proxy
     m_autoUrl->setTitle(tr("Configuration URL"));
 
     SettingsGroup *httpGroup = new SettingsGroup;

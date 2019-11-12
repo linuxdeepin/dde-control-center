@@ -51,6 +51,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     , m_adapter(adapter)
     , m_switch(new SwitchWidget(nullptr, m_titleEdit))
 {
+    //~ contents_path /bluetooth/My Devices
     m_myDevicesGroup = new TitleLabel(tr("My devices"));
 
     //~ contents_path /bluetooth/Other Devices
@@ -64,7 +65,6 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     layout->setMargin(0);
     layout->setSpacing(10);
 
-    //~ contents_path /bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)
     m_tip = new QLabel(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
     m_tip->setVisible(!m_switch->checked());
     m_tip->setWordWrap(true);

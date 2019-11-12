@@ -48,19 +48,16 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
 
     m_searchText = QString();
     SettingsHead *systemHead = new SettingsHead();
-    //~ contents_path /keyboard/Shortcuts
     systemHead->setTitle(tr("System"));
     m_systemGroup = new SettingsGroup();
     m_systemGroup->appendItem(systemHead, SettingsGroup::NoneBackground);
 
     SettingsHead *windowHead = new SettingsHead();
-    //~ contents_path /keyboard/Shortcuts
     windowHead->setTitle(tr("Window"));
     m_windowGroup = new SettingsGroup();
     m_windowGroup->appendItem(windowHead, SettingsGroup::NoneBackground);
 
     SettingsHead *workspaceHead = new SettingsHead();
-    //~ contents_path /keyboard/Shortcuts
     workspaceHead->setTitle(tr("Workspace"));
     m_workspaceGroup = new SettingsGroup();
     m_workspaceGroup->appendItem(workspaceHead, SettingsGroup::NoneBackground);
@@ -72,7 +69,6 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_head = new SettingsHead();
     m_head->setEditEnable(true);
     m_head->setVisible(false);
-    //~ contents_path /keyboard/Shortcuts/Custom Shortcut
     m_head->setTitle(tr("Custom Shortcut"));
     m_customGroup->appendItem(m_head, SettingsGroup::NoneBackground);
 
@@ -98,7 +94,6 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->addSpacing(List_Interval);
     m_layout->addWidget(m_customGroup);
 
-    //~ contents_path /keyboard/Shortcuts
     m_resetBtn = new QPushButton(tr("Restore Defaults"));
     m_layout->setMargin(10);
     m_layout->addWidget(m_resetBtn);

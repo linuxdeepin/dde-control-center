@@ -52,9 +52,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_delaySlider->setPageStep(1);
     m_delaySlider->setTickPosition(QSlider::TicksBelow);
     QStringList delays;
-    //~ contents_path /keyboard/General
     delays << tr("Short") << "" << "" << "" << "" << "";
-    //~ contents_path /keyboard/General
     delays << tr("Long");
     delayItem->setAnnotations(delays);
     m_generalSettingsGrp->appendItem(delayItem);
@@ -68,9 +66,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_speedSlider->setPageStep(1);
     m_speedSlider->setTickPosition(QSlider::TicksBelow);
     QStringList speeds;
-    //~ contents_path /keyboard/General
     speeds << tr("Slow") << "" << "" << "" << "" << "";
-    //~ contents_path /keyboard/General
     speeds << tr("Fast");
     speedItem->setAnnotations(speeds);
 

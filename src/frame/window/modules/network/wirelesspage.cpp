@@ -217,6 +217,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     });
     m_modelAP->appendRow(nonbc);
 
+    //~ contents_path /network/WirelessPage
     m_switch->setTitle(tr("Wireless Network Adapter"));
     m_switch->setChecked(dev->enabled());
     m_lvAP->setVisible(dev->enabled());

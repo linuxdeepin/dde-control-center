@@ -52,7 +52,7 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     m_delegate = new IndexDelegate();
 
     m_search = new SearchInput();
-
+    //~ contents_path /keyboard/System Language
     m_title = new QLabel(tr("Add System Language"));
     m_title->setAlignment(Qt::AlignCenter | Qt::AlignHCenter | Qt::AlignVCenter);
     m_contentTopLayout->addSpacing(10);

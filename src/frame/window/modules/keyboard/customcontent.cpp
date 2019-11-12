@@ -57,13 +57,12 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     mainLayout->setMargin(0);
     mainLayout->setSpacing(10);
     mainLayout->addSpacing(10);
-    //~ contents_path /keyboard/Shortcuts/Custom Shortcut
+    //~ contents_path /keyboard/Shortcuts
     QLabel *shortCutTitle = new QLabel(tr("Add Custom Shortcut"));
     shortCutTitle->setAlignment(Qt::AlignCenter);
     mainLayout->addWidget(shortCutTitle);
     mainLayout->addSpacing(30);
 
-    //~ contents_path /keyboard/Shortcuts/Custom Shortcut
     QLabel *shortCutName = new QLabel(tr("Name"));
     mainLayout->addWidget(shortCutName);
 
@@ -77,7 +76,6 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
 
     mainLayout->addWidget(m_shortCutNameEdit);
 
-    //~ contents_path /keyboard/Shortcuts/Custom Shortcut
     QLabel *shortCutCmd = new QLabel(tr("Command"));
     mainLayout->addWidget(shortCutCmd);
 
@@ -97,10 +95,8 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     mainLayout->addWidget(m_shortcut);
 
     QPushButton *cancel = m_buttonTuple->leftButton();
-    //~ contents_path /keyboard/Shortcuts/Custom Shortcut
     cancel->setText(tr("Cancel"));
     QPushButton *ok = m_buttonTuple->rightButton();
-    //~ contents_path /keyboard/Shortcuts/Custom Shortcut
     ok->setText(tr("Add"));
 
     m_bottomTip = new QLabel();

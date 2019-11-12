@@ -57,7 +57,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
 
     m_group = new SettingsGroup();
     m_head = new SettingsHead();
-    //~ contents_path /keyboard/Language List
+    //~ contents_path /keyboard/System Language
     m_head->setTitle(tr("Language List"));
     m_head->setEditEnable(false);
     layout->addSpacing(10);
