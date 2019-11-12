@@ -290,7 +290,7 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
 
     qDebug() << Q_FUNC_INFO;
     if (!isModuleAvailable(module)) {
-        qDebug() << "get error module name!";
+        qDebug() << QString("get error module name %1!").arg(module);
         if (calledFromDBus()) {
             sendErrorReply(QDBusError::InvalidArgs,
                            "cannot find module that name is " + module);
@@ -332,12 +332,7 @@ bool MainWindow::isModuleAvailable(const QString &m)
         }
     }
 
-    if (calledFromDBus()) {
-        qDebug() << "get error module name!";
-        sendErrorReply(QDBusError::InvalidArgs,
-                       "cannot find module that name is " + m);
-    }
-
+    qDebug() << QString("can not fine module named %1!").arg(m);
     return false;
 }
 

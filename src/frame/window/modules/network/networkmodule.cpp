@@ -137,7 +137,7 @@ void NetworkModule::showPage(const QString &jsonData)
 void NetworkModule::initialize()
 {
     m_networkModel = new NetworkModel;
-    m_networkWorker = new NetworkWorker(m_networkModel);
+    m_networkWorker = new NetworkWorker(m_networkModel, nullptr, true);
 
     m_networkModel->moveToThread(qApp->thread());
     m_networkWorker->moveToThread(qApp->thread());
@@ -156,12 +156,7 @@ void NetworkModule::active()
     connect(m_networkWidget, &NetworkModuleWidget::requestShowInfomation, this, &NetworkModule::showDetailPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestDeviceEnable, m_networkWorker, &NetworkWorker::setDeviceEnable);
     m_frameProxy->pushWidget(this, m_networkWidget);
-    m_initSettingTimer->setInterval(100);
-    m_initSettingTimer->setSingleShot(true);
-    m_initSettingTimer->start();
-    connect(m_initSettingTimer, &QTimer::timeout, this, [this] {
-        m_networkWidget->initSetting(0);
-    });
+    m_networkWidget->initSetting(0);
 }
 
 int NetworkModule::load(QString path)

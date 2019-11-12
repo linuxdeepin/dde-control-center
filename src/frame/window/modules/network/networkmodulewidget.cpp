@@ -134,6 +134,8 @@ void NetworkModuleWidget::setModel(NetworkModel *model)
     //connect(model, &NetworkModel::appProxyExistChanged, m_appProxy, &NextPageWidget::setVisible);
     //m_appProxy->setVisible(model->appProxyExist());
 #endif
+
+    qDebug() << "network devices size:" << model->devices().size();
     onDeviceListChanged(model->devices());
 }
 
@@ -182,6 +184,8 @@ int NetworkModuleWidget::gotoSetting(const QString &path)
             break;
         }
     }
+
+    qDebug() << "get network list index : " << index;
     return index;
 }
 
@@ -222,6 +226,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         if (dev->type() != NetworkDevice::Wired)
             continue;
 
+        qDebug() << "add Wired item!";
         devits.push_back(createDeviceGroup(dev, ++count, wiredDevice > 1));
     }
 
@@ -232,6 +237,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         if (dev->type() != NetworkDevice::Wireless)
             continue;
 
+        qDebug() << "add Wireless item!";
         if (qobject_cast<WirelessDevice *>(dev)->supportHotspot()) {
             have_ap = true;
         }
