@@ -83,7 +83,11 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model) :
 
     m_bluetoothInter->setSync(false, false);
 
-    refresh();
+    //第一次调用时传true，refresh 函数会使用同步方式去获取蓝牙设备数据
+    //避免出现当dbus调用控制中心接口直接显示蓝牙模块时，
+    //因为异步的数据获取使控制中心设置了蓝牙模块不可见，
+    //而出现没办法显示蓝牙模块
+    refresh(true);
 }
 
 BluetoothWorker::~BluetoothWorker()
@@ -310,24 +314,39 @@ void BluetoothWorker::removeDevice(const QString &json)
     }
 }
 
-void BluetoothWorker::refresh()
+void BluetoothWorker::refresh(bool beFirst)
 {
     if (!m_bluetoothInter->isValid()) return;
 
+    auto resol = [this](const QDBusReply<QString> &req){
+        const QString replyStr = req.value();
+        QJsonDocument doc = QJsonDocument::fromJson(replyStr.toUtf8());
+        QJsonArray arr = doc.array();
+        for (QJsonValue val : arr) {
+            Adapter *adapter = new Adapter(m_model);
+            inflateAdapter(adapter, val.toObject());
+
+            m_model->addAdapter(adapter);
+        }
+    };
+
+    if (beFirst) {
+        QDBusInterface *inter = new QDBusInterface("com.deepin.daemon.Bluetooth",
+                                                   "/com/deepin/daemon/Bluetooth",
+                                                   "com.deepin.daemon.Bluetooth",
+                                                   QDBusConnection::sessionBus());
+        QDBusReply<QString> reply = inter->call("GetAdapters");
+        resol(reply);
+
+        return;
+    }
+
     QDBusPendingCall call = m_bluetoothInter->GetAdapters();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, [ = ] {
         if (!call.isError()) {
             QDBusReply<QString> reply = call.reply();
-            const QString replyStr = reply.value();
-            QJsonDocument doc = QJsonDocument::fromJson(replyStr.toUtf8());
-            QJsonArray arr = doc.array();
-            for (QJsonValue val : arr) {
-                Adapter *adapter = new Adapter(m_model);
-                inflateAdapter(adapter, val.toObject());
-
-                m_model->addAdapter(adapter);
-            }
+            resol(reply);
         } else {
             qWarning() << call.error().message();
         }

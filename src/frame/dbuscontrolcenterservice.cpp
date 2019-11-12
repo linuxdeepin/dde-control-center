@@ -162,9 +162,14 @@ void DBusControlCenterService::ShowModule(const QString &module)
 
 void DBusControlCenterService::ShowPage(const QString &module, const QString &page)
 {
+    static bool firstEnter = true;
+    QStringList delayModule{"bluetooth"};
+    if (delayModule.contains(module) && firstEnter) {
+        firstEnter = false;
+        //此时对应了dbus调用显示控制中心需要dbus同步方式数据
+    }
+
     parent()->showModulePage(module, page, false);
-    // handle method call com.deepin.dde.ControlCenter.ShowModule
-//    parent()->showSettingsPage(module, page);
 }
 
 void DBusControlCenterService::SetAutoHide(const bool autoHide)

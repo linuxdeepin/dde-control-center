@@ -50,6 +50,9 @@ void BluetoothModule::preInitialize()
     m_bluetoothWorker->moveToThread(qApp->thread());
 
     auto updateModuleVisible = [ = ] {
+        qDebug() << QString("adapters size(%1) : %2")
+                    .arg(sender() ? "list change" : "first")
+                    .arg(m_bluetoothModel->adapters().size());
         m_frameProxy->setModuleVisible(this, m_bluetoothModel->adapters().size());
     };
 

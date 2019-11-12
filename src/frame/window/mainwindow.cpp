@@ -288,10 +288,15 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
 {
     Q_UNUSED(animation)
 
-    if (!isModuleAvailable(module) && calledFromDBus()) {
+    qDebug() << Q_FUNC_INFO;
+    if (!isModuleAvailable(module)) {
         qDebug() << "get error module name!";
-        sendErrorReply(QDBusError::InvalidArgs,
-                       "cannot find module that name is " + module);
+        if (calledFromDBus()) {
+            sendErrorReply(QDBusError::InvalidArgs,
+                           "cannot find module that name is " + module);
+        }
+
+        return;
     }
 
     raise();

@@ -130,7 +130,7 @@ int main(int argc, char *argv[])
 
     if (!reqModule.isEmpty()) {
         qDebug() << "call show";
-        QTimer::singleShot(10, &mw, [&] { mw.showModulePage(reqModule, reqPage, false); });
+        QTimer::singleShot(0, &mw, [&] { adaptor.ShowPage(reqModule, reqPage); });
     }
 
     return app.exec();

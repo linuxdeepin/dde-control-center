@@ -81,7 +81,7 @@ private Q_SLOTS:
     void addDevice(const QString &json);
     void removeDevice(const QString &json);
 
-    void refresh();
+    void refresh(bool beFirst = false);
 
 private:
     explicit BluetoothWorker(BluetoothModel *model);
