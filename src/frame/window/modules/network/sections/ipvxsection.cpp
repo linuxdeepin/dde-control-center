@@ -319,7 +319,8 @@ void IpvxSection::initForIpv4()
 void IpvxSection::initForIpv6()
 {
     m_prefixIpv6->setTitle(tr("Prefix"));
-    m_prefixIpv6->spinBox()->setRange(0, 128);
+    m_prefixIpv6->spinBox()->setRange(1, 128);
+    m_prefixIpv6->setDefaultVal(64);
 
     NetworkManager::Ipv6Setting::Ptr ipv6Setting = m_ipvxSetting.staticCast<NetworkManager::Ipv6Setting>();
 

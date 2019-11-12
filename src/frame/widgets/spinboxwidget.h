@@ -48,8 +48,9 @@ public:
     inline QSpinBox *spinBox() const { return m_spinBox; }
 
     void setTitle(const QString &title);
-
+    void setDefaultVal(int defaultVal);
 private:
+    int m_defaultVal;
     QLabel *m_title;
     QSpinBox *m_spinBox;
     DTK_WIDGET_NAMESPACE::DIconButton *m_resetBtn;

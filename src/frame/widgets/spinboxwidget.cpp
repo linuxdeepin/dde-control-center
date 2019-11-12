@@ -38,6 +38,7 @@ SpinBoxWidget::SpinBoxWidget(QWidget *parent)
     , m_title(new QLabel)
     , m_spinBox(new QSpinBox)
     , m_resetBtn(new DIconButton(this))
+    , m_defaultVal(0)
 {
     m_spinBox->setContextMenuPolicy(Qt::NoContextMenu);
     m_spinBox->setButtonSymbols(QAbstractSpinBox::PlusMinus);
@@ -52,9 +53,15 @@ SpinBoxWidget::SpinBoxWidget(QWidget *parent)
     mainLayout->addWidget(m_resetBtn);
 
     connect(m_resetBtn, &DIconButton::clicked, [this] {
-        m_spinBox->setValue(0);
+        m_spinBox->setValue(m_defaultVal);
     });
     setLayout(mainLayout);
+}
+
+void SpinBoxWidget::setDefaultVal(int defaultVal)
+{
+    m_defaultVal = defaultVal;
+    m_spinBox->setValue(m_defaultVal);
 }
 
 void SpinBoxWidget::setTitle(const QString &title)
