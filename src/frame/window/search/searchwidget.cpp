@@ -52,6 +52,10 @@ SearchWidget::SearchWidget(QWidget *parent)
     , m_bIsChinese(false)
     , m_searchValue("")
     , m_bIstextEdited(false)
+    , m_bIsTouchpadExist(false)
+    , m_bIsTrackPointExist(false)
+    , m_bIsPersonalHotspotExist(false)
+    , m_bIsUseBattery(false)
 {
     m_model = new QStandardItemModel(this);
     m_completer = new ddeCompleter(m_model, this);
@@ -284,11 +288,30 @@ void SearchWidget::loadxml()
                             //指点杆，触控板 为“鼠标”模块可移除设备
                             //不存在时，不加载数据
                             if (m_searchBoxStruct.translateContent == tr("Touchpad") || m_searchBoxStruct.childPageName == tr("Touchpad")) {
-                                if (!m_bIsTouchpadExist)
+                                if (!m_bIsTouchpadExist) {
+                                    clearSearchData();
                                     continue;
+                                }
                             } else if (m_searchBoxStruct.translateContent == tr("TrackPoint") || m_searchBoxStruct.childPageName == tr("TrackPoint")) {
-                                if (!m_bIsTrackPointExist)
+                                if (!m_bIsTrackPointExist) {
+                                    clearSearchData();
                                     continue;
+                                }
+                            } else if (m_searchBoxStruct.translateContent == tr("Personal Hotspot") || m_searchBoxStruct.childPageName == tr("Personal Hotspot")) {
+                                if (!m_bIsPersonalHotspotExist) {
+                                    clearSearchData();
+                                    continue;
+                                }
+                            } else if (m_searchBoxStruct.translateContent == tr("On Battery") || m_searchBoxStruct.childPageName == tr("On Battery")) {
+                                if (!m_bIsUseBattery) {
+                                    clearSearchData();
+                                    continue;
+                                }
+                            }
+
+                            if ("" == m_searchBoxStruct.actualModuleName || "" == m_searchBoxStruct.translateContent) {
+                                clearSearchData();
+                                continue;
                             }
 
                             m_EnterNewPagelist.append(m_searchBoxStruct);
@@ -306,10 +329,7 @@ void SearchWidget::loadxml()
                                 appendChineseData(m_searchBoxStruct);
                             }
 
-                            m_searchBoxStruct.translateContent = "";
-                            m_searchBoxStruct.actualModuleName = "";
-                            m_searchBoxStruct.childPageName = "";
-                            m_searchBoxStruct.fullPagePath = "";
+                            clearSearchData();
                         } else {
                             //donthing
                         }
@@ -331,9 +351,7 @@ void SearchWidget::loadxml()
             }
 
             m_xmlExplain = "";
-            m_searchBoxStruct.translateContent = "";
-            m_searchBoxStruct.actualModuleName = "";
-            m_searchBoxStruct.fullPagePath = "";
+            clearSearchData();
             qDebug() << " [SearchWidget] m_EnterNewPagelist.count : " << m_EnterNewPagelist.count();
         } else {
             qWarning() << " [SearchWidget] File open failed" ;
@@ -512,6 +530,14 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
     }
 }
 
+void SearchWidget::clearSearchData()
+{
+    m_searchBoxStruct.translateContent = "";
+    m_searchBoxStruct.actualModuleName = "";
+    m_searchBoxStruct.childPageName = "";
+    m_searchBoxStruct.fullPagePath = "";
+}
+
 void SearchWidget::setLanguage(QString type)
 {
     QString xmlPath = RES_TS_PATH + QString("dde-control-center_%1.ts").arg(type);;
@@ -579,6 +605,16 @@ void SearchWidget::setRemoveableDeviceStatus(QString name, bool isExist)
     } else if (name == tr("TrackPoint")) {
         if (isExist != m_bIsTrackPointExist) {
             m_bIsTrackPointExist = isExist;
+            loadxml();
+        }
+    } else if (name == tr("Personal Hotspot")) {
+        if (isExist != m_bIsPersonalHotspotExist) {
+            m_bIsPersonalHotspotExist = isExist;
+            loadxml();
+        }
+    } else if (name == tr("On Battery")) {
+        if (isExist != m_bIsUseBattery) {
+            m_bIsUseBattery = isExist;
             loadxml();
         }
     }

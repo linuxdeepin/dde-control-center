@@ -134,13 +134,34 @@ void NetworkModule::showPage(const QString &jsonData)
     showDeviceDetailPage(wireless);
 }
 
-void NetworkModule::initialize()
+void NetworkModule::preInitialize()
 {
     m_networkModel = new NetworkModel;
     m_networkWorker = new NetworkWorker(m_networkModel, nullptr, true);
 
     m_networkModel->moveToThread(qApp->thread());
     m_networkWorker->moveToThread(qApp->thread());
+
+    connect(m_networkModel, &NetworkModel::deviceListChanged, this, [this](const QList<NetworkDevice *> devices) {
+        // add wireless device list
+        bool have_ap = false;
+        for (auto const dev : devices) {
+            if (dev->type() != NetworkDevice::Wireless)
+                continue;
+
+            if (qobject_cast<WirelessDevice *>(dev)->supportHotspot()) {
+                have_ap = true;
+            }
+        }
+
+        qDebug() << "[Network] Personal Hotspot , connect state : " << have_ap;
+        m_frameProxy->setRemoveableDeviceStatus(tr("Personal Hotspot"), have_ap);
+    });
+}
+
+void NetworkModule::initialize()
+{
+
 }
 
 void NetworkModule::active()

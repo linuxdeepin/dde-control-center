@@ -93,6 +93,7 @@ private:
     QString transPinyinToChinese(QString pinyin);
     QString containTxtData(QString txt);
     void appendChineseData(SearchBoxStruct data);
+    void clearSearchData();
 
 private:
     QStandardItemModel *m_model;
@@ -109,6 +110,8 @@ private:
     bool m_bIstextEdited;
     bool m_bIsTouchpadExist;
     bool m_bIsTrackPointExist;
+    bool m_bIsPersonalHotspotExist;
+    bool m_bIsUseBattery;
 };
 
 }// namespace search

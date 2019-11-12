@@ -48,17 +48,23 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
 
 }
 
-void PowerModule::initialize()
+void PowerModule::preInitialize()
 {
     m_model = new PowerModel;
+    m_work = new PowerWorker(m_model);
+    m_work->moveToThread(qApp->thread());
+    m_model->moveToThread(qApp->thread());
+    m_work->active(); //refresh data
+
     connect(m_model, &PowerModel::batteryLockScreenDelayChanged, this, &PowerModule::onSetBatteryDefault);
     connect(m_model, &PowerModel::powerLockScreenDelayChanged, this, &PowerModule::onSetPowerDefault);
 
-    m_work = new PowerWorker(m_model);
-    m_work->active(); //refresh data
+    m_frameProxy->setRemoveableDeviceStatus(tr("On Battery"), m_model->haveBettary());
+}
 
-    m_work->moveToThread(qApp->thread());
-    m_model->moveToThread(qApp->thread());
+void PowerModule::initialize()
+{
+
 }
 
 const QString PowerModule::name() const
@@ -98,13 +104,6 @@ int PowerModule::load(QString path)
         type = USE_ELECTRIC;
     } else if (path == "On Battery") {
         type = USE_BATTERY;
-
-        //true : use battrty
-        //false: not use battery  ->  not into "On Battery"
-        if (!m_widget->getIsUseBattety()) {
-            qWarning(" Now not use battery.");
-            return 0;
-        }
     }
 
     if (type > DEFAULT && type < COUNT) {

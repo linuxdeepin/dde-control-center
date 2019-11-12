@@ -51,6 +51,7 @@ public:
 
     PowerModule(FrameProxyInterface *frameProxy, QObject *parent = nullptr);
 
+    virtual void preInitialize() override;
     virtual void initialize() override;
     virtual const QString name() const override;
     virtual void active() override;

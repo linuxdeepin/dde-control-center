@@ -53,6 +53,7 @@ public:
     void showPage(const QString &jsonData) override;
 
 private:
+    void preInitialize() override;
     void initialize() override;
     const QString name() const override;
 public:
