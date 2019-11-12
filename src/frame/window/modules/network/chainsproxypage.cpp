@@ -31,9 +31,10 @@
 #include "widgets/translucentframe.h"
 #include "widgets/buttontuple.h"
 
+#include <DTipLabel>
+
 #include <QComboBox>
 #include <QHBoxLayout>
-#include <QLabel>
 #include <QRegularExpression>
 
 #include <networkmodel.h>
@@ -94,9 +95,9 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     layout->addLayout(topLayout);
     layout->addWidget(grp);
 
-    QLabel *tip = new QLabel;
-    tip->setText(tr("Check \"Use a proxy\" in application context menu in Launcher after configured"));
+    DTipLabel *tip = new DTipLabel(tr("Check \"Use a proxy\" in application context menu in Launcher after configured"));
     tip->setWordWrap(true);
+    tip->setAlignment(Qt::AlignLeft);
     layout->addWidget(tip);
 
     ButtonTuple *btns = new ButtonTuple(ButtonTuple::Save);
