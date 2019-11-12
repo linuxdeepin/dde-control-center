@@ -50,7 +50,6 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     : m_titleEdit(new TitleEdit)
     , m_adapter(adapter)
     , m_switch(new SwitchWidget(nullptr, m_titleEdit))
-    , m_titleGroup(new SettingsGroup)
 {
     m_myDevicesGroup = new TitleLabel(tr("My devices"));
 
@@ -59,13 +58,12 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
 
     m_myDevicesGroup->setVisible(false);
 
-    m_switch->setFixedHeight(36);
+    m_switch->addBackground();
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     layout->setSpacing(10);
 
-    m_titleGroup->appendItem(m_switch);
     //~ contents_path /bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)
     m_tip = new QLabel(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
     m_tip->setVisible(!m_switch->checked());
@@ -93,7 +91,7 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter)
     m_otherDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     layout->addSpacing(10);
-    layout->addWidget(m_titleGroup);
+    layout->addWidget(m_switch);
     layout->addWidget(m_tip, 0, Qt::AlignTop);
     layout->addSpacing(10);
     layout->addWidget(m_myDevicesGroup);

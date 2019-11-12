@@ -89,7 +89,6 @@ private:
     TitleEdit *m_titleEdit;
     const dcc::bluetooth::Adapter *m_adapter;
     dcc::widgets::SwitchWidget *m_switch;
-    dcc::widgets::SettingsGroup *m_titleGroup;
     QList<DeviceSettingsItem *> m_deviceLists;
     QList<DeviceSettingsItem *> m_myDevices;
     TitleLabel *m_myDevicesGroup;
