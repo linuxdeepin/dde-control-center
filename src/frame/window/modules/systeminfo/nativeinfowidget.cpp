@@ -55,25 +55,30 @@ void NativeInfoWidget::initWidget()
     logo->setLogo(QIcon(":/icons/deepin/builtin/icons/dcc_deepin_uos_logo.svg"), 156, 46);
 
     m_version = new TitleValueItem();
+    //~ contents_path /systeminfo/Edition
     m_version->setTitle(tr("Edition:"));
     m_version->setValue(m_model->version());
-
+    //~ contents_path /systeminfo/Type
     m_type = new TitleValueItem();
     m_type->setTitle(tr("Type:"));
 
     m_kernel = new TitleValueItem();
+    //~ contents_path /systeminfo/Kernel
     m_kernel->setTitle(tr("Kernel:"));
     m_kernel->setValue(m_model->kernel());
 
     m_processor = new TitleValueItem();
+    //~ contents_path /systeminfo/Processor
     m_processor->setTitle(tr("Processor:"));
     m_processor->setValue(m_model->processor());
 
     m_memory = new TitleValueItem();
+    //~ contents_path /systeminfo/Memory
     m_memory->setTitle(tr("Memory:"));
     m_memory->setValue(m_model->memory());
 
     m_disk = new TitleValueItem();
+    //~ contents_path /systeminfo/Disk
     m_disk->setTitle(tr("Disk:"));
     m_disk->setValue(m_model->disk());
 

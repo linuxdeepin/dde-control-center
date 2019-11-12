@@ -82,14 +82,20 @@ int SystemInfoModule::load(QString path)
         active();
     }
 
-    if (path == "About This PC") {
+    QStringList searchList;
+    searchList << "About This PC"
+               << "Edition"
+               << "Type"
+               << "Kernel"
+               << "Processor"
+               << "Memory"
+               << "Disk";
+
+    if (searchList.contains(path)) {
         m_sysinfoWidget->setCurrentIndex(0);
         return 0;
-    } /*else if (path == "Edition License") {
-        m_sysinfoWidget->setCurrentIndex(1);
-    } else if (path == "End User License Agreement") {
-        m_sysinfoWidget->setCurrentIndex(2);
-    }*/
+    }
+
     return -1;
 }
 
