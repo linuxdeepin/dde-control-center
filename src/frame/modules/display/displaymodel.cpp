@@ -53,6 +53,7 @@ DisplayModel::DisplayModel(QObject *parent)
 
 double DisplayModel::monitorScale(Monitor *moni)
 {
+    qDebug() << "ui scale : "<< m_uiScale << "\tmonitor scale:" << moni->scale();
     return moni->scale() < 1.0 ? m_uiScale : moni->scale();
 }
 
