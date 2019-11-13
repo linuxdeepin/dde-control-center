@@ -131,7 +131,7 @@ void DBusControlCenterService::Show()
     parent()->showSettingsPage(QString(), QString());
 #else
     parent()->raise();
-    if (parent()->isMinimized())
+    if (parent()->isMinimized() || !parent()->isVisible())
         parent()->show();
 
     parent()->activateWindow();

@@ -88,7 +88,6 @@ int main(int argc, char *argv[])
     DCC_NAMESPACE::MainWindow mw;
     mw.setGeometry(mwRect);
     mw.setMinimumSize(QSize(MainWidgetWidget, MainWidgetHeight));
-    mw.show();
 
     const QString &reqModule = parser.value(moduleOption);
     const QString &reqPage = parser.value(pageOption);
@@ -128,9 +127,19 @@ int main(int argc, char *argv[])
     }
 
     if (!reqModule.isEmpty()) {
+        qDebug() << "call showModulePage";
+        QTimer::singleShot(0, &mw, [&] { mw.showModulePage(reqModule, reqPage, false); });
+    } else if (parser.isSet(showOption)) {
         qDebug() << "call show";
-        QTimer::singleShot(0, &mw, [&] { adaptor.ShowPage(reqModule, reqPage); });
+        QTimer::singleShot(0, &mw, [&] { mw.show(); });
     }
+
+#ifdef QT_DEBUG
+    //debug时会直接show
+    //发布版本，不会直接显示，为了满足在被dbus调用时，
+    //如果dbus参数错误，不会有任何UI上的变化
+    mw.show();
+#endif
 
     return app.exec();
 }

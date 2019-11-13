@@ -285,7 +285,6 @@ void MainWindow::popWidget(ModuleInterface *const inter)
     Q_UNUSED(inter)
 
     popWidget();
-    // modified for bug-3072 
     resetNavList(m_contentStack.isEmpty());
 }
 
@@ -294,11 +293,15 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     Q_UNUSED(animation)
 
     qDebug() << Q_FUNC_INFO;
-    if (!isModuleAvailable(module)) {
+    if (!isModuleAvailable(module) && !module.isEmpty()) {
         qDebug() << QString("get error module name %1!").arg(module);
         if (calledFromDBus()) {
             sendErrorReply(QDBusError::InvalidArgs,
                            "cannot find module that name is " + module);
+
+            if (!isVisible()) {
+                close();
+            }
         }
 
         return;
@@ -323,13 +326,17 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
             auto err = QString("cannot find page path that name is %1 on module %2.")
                                 .arg(page).arg(module);
             sendErrorReply(QDBusError::InvalidArgs, err);
+
+            if (!isVisible()) {
+                close();
+            }
         }
 
         return;
     }
 
     raise();
-    if (isMinimized())
+    if (isMinimized() || !isVisible())
         show();
 
     activateWindow();
@@ -368,7 +375,7 @@ bool MainWindow::isModuleAvailable(const QString &m)
 void MainWindow::toggle()
 {
     raise();
-    if (isMinimized())
+    if (isMinimized() || !isVisible())
         show();
 
     activateWindow();
