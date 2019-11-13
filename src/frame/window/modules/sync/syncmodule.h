@@ -45,6 +45,7 @@ public:
     virtual void contentPopped(QWidget *const w) override;
     virtual void active() override;
     virtual void preInitialize() override;
+    QStringList availPage() const override;
 
 private:
     dcc::cloudsync::SyncModel  *m_model;

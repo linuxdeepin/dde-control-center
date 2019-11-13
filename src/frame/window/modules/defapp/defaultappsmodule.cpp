@@ -96,6 +96,14 @@ int DefaultAppsModule::load(QString path)
     return 0;
 }
 
+QStringList DefaultAppsModule::availPage() const
+{
+    QStringList sl;
+    sl << "Webpage" << "Mail" << "Text" << "Music" << "Video" << "Picture" << "Terminal";
+
+    return sl;
+}
+
 void DefaultAppsModule::showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category) {
     DefappDetailWidget* detailWidget = new DefappDetailWidget(category);
 

@@ -52,3 +52,10 @@ void SyncModule::preInitialize()
 
     m_frameProxy->setModuleVisible(this, m_model->syncIsValid());
 }
+
+QStringList SyncModule::availPage() const
+{
+    QStringList sl;
+    sl << "Cloud Sync" << "Deepin ID Sign In";
+    return sl;
+}

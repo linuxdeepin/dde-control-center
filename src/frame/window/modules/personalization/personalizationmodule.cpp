@@ -99,6 +99,13 @@ int PersonalizationModule::load(QString path)
     return row == -1 ? -1 : 0;
 }
 
+QStringList PersonalizationModule::availPage() const
+{
+    QStringList sl;
+    sl << "General" << "Icon Theme" << "Cursor Theme" << "Font";
+    return sl;
+}
+
 void PersonalizationModule::showGenaralWidget()
 {
     m_work->refreshTheme();
