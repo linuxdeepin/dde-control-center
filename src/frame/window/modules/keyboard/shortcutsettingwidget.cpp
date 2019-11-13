@@ -62,6 +62,11 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_workspaceGroup = new SettingsGroup();
     m_workspaceGroup->appendItem(workspaceHead, SettingsGroup::NoneBackground);
 
+    SettingsHead *speechHead = new SettingsHead();
+    speechHead->setTitle(tr("Speech"));
+    m_speechGroup = new SettingsGroup();
+    m_speechGroup->appendItem(speechHead, SettingsGroup::NoneBackground);
+
     m_customGroup = new SettingsGroup();
     m_searchGroup = new SettingsGroup();
     m_searchInput = new SearchInput();
@@ -91,6 +96,8 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->addWidget(m_windowGroup);
     m_layout->addSpacing(List_Interval);
     m_layout->addWidget(m_workspaceGroup);
+    m_layout->addSpacing(List_Interval);
+    m_layout->addWidget(m_speechGroup);
     m_layout->addSpacing(List_Interval);
     m_layout->addWidget(m_customGroup);
 
@@ -130,6 +137,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     addShortcut(m_model->systemInfo(), ShortcutModel::System);
     addShortcut(m_model->windowInfo(), ShortcutModel::Window);
     addShortcut(m_model->workspaceInfo(), ShortcutModel::Workspace);
+    addShortcut(m_model->SpeechInfo(), ShortcutModel::Speech);
     addShortcut(m_model->customInfo(), ShortcutModel::Custom);
 }
 
@@ -144,6 +152,7 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
         {ShortcutModel::System, &m_systemList},
         {ShortcutModel::Window, &m_windowList},
         {ShortcutModel::Workspace, &m_workspaceList},
+        {ShortcutModel::Speech, &m_speechList},
         {ShortcutModel::Custom, &m_customList}
     };
 
@@ -151,6 +160,7 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
         {ShortcutModel::System, m_systemGroup},
         {ShortcutModel::Window, m_windowGroup},
         {ShortcutModel::Workspace, m_workspaceGroup},
+        {ShortcutModel::Speech, m_speechGroup},
         {ShortcutModel::Custom, m_customGroup}
     };
 
@@ -190,6 +200,10 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
             m_workspaceGroup->appendItem(item);
             m_workspaceList.append(item);
             break;
+        case ShortcutModel::Speech:
+            m_speechGroup->appendItem(item);
+            m_speechList.append(item);
+            break;
         case ShortcutModel::Custom:
             connect(m_head, &SettingsHead::editChanged, item, &ShortcutItem::onEditMode);
             m_customGroup->appendItem(item);
@@ -216,28 +230,32 @@ void ShortCutSettingWidget::modifyStatus(bool status)
 {
     if (status) {
         m_customGroup->hide();
+        m_speechGroup->hide();
         m_workspaceGroup->hide();
         m_windowGroup->hide();
         m_systemGroup->hide();
         m_resetBtn->hide();
         m_searchGroup->show();
         m_layout->removeWidget(m_customGroup);
+        m_layout->removeWidget(m_speechGroup);
         m_layout->removeWidget(m_workspaceGroup);
         m_layout->removeWidget(m_windowGroup);
         m_layout->removeWidget(m_systemGroup);
         m_layout->insertWidget(0, m_searchGroup, 0, Qt::AlignTop);
     } else {
         m_customGroup->show();
+        m_speechGroup->show();
         m_workspaceGroup->show();
         m_windowGroup->show();
         m_systemGroup->show();
         m_resetBtn->show();
         m_searchGroup->hide();
-        m_layout->insertWidget(0, m_customGroup);
-        m_layout->insertWidget(0, m_workspaceGroup);
-        m_layout->insertWidget(0, m_windowGroup);
-        m_layout->insertWidget(0, m_systemGroup);
         m_layout->removeWidget(m_searchGroup);
+        m_layout->insertWidget(0, m_systemGroup);
+        m_layout->insertWidget(2, m_windowGroup);
+        m_layout->insertWidget(4, m_workspaceGroup);
+        m_layout->insertWidget(6, m_speechGroup);
+        m_layout->insertWidget(8, m_customGroup);
     }
 }
 
