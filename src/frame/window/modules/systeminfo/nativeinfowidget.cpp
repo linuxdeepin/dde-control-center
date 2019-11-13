@@ -58,8 +58,8 @@ void NativeInfoWidget::initWidget()
     //~ contents_path /systeminfo/About This PC
     m_version->setTitle(tr("Edition:"));
     m_version->setValue(m_model->version());
-    //~ contents_path /systeminfo/About This PC
     m_type = new TitleValueItem();
+    //~ contents_path /systeminfo/About This PC
     m_type->setTitle(tr("Type:"));
 
     m_kernel = new TitleValueItem();
