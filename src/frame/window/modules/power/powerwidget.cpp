@@ -84,11 +84,6 @@ void PowerWidget::initialize(bool hasBattery)
     layout->setMargin(0);
     layout->addWidget(m_listview);
     setLayout(layout);
-
-    QTimer::singleShot(0, this, [this] {
-        m_listview->setCurrentIndex(m_listview->model()->index(0, 0));
-        m_listview->clicked(m_listview->model()->index(0, 0));
-    });
 }
 
 void PowerWidget::setModel(const PowerModel *model)
@@ -104,6 +99,12 @@ DListView *PowerWidget::getListViewPointer()
 bool PowerWidget::getIsUseBattety()
 {
     return m_bhasBattery;
+}
+
+void PowerWidget::setDefaultWidget()
+{
+    m_listview->setCurrentIndex(m_listview->model()->index(0, 0));
+    m_listview->clicked(m_listview->model()->index(0, 0));
 }
 
 void PowerWidget::onItemClieck(const QModelIndex &index)

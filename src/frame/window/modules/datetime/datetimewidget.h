@@ -61,8 +61,8 @@ public:
     void setModel(const dcc::datetime::DatetimeModel *model);
     DTK_WIDGET_NAMESPACE::DListView *getListViewPointer();
     void setCurrentTimeZone(const ZoneInfo &info);
-    void setDefault();
     void setTimeType(const QString &country);
+    void setDefaultWidget();
 
 Q_SIGNALS:
     void requestSetHourType(const bool &type);

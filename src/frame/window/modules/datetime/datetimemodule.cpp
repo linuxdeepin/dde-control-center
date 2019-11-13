@@ -80,6 +80,7 @@ void DatetimeModule::active()
     m_widget->setTimeType(QLocale::system().name());
 
     m_frameProxy->pushWidget(this, m_widget);
+    m_widget->setDefaultWidget();
 }
 
 int DatetimeModule::load(QString path)

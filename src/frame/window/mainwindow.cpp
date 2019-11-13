@@ -494,7 +494,7 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
 
     for (int firstCount = 0; firstCount < m_modules.count(); firstCount++) {
         //Compare moduleName and m_modules.second(module name)
-        if (moduleName == m_modules[firstCount].first->name()) {            
+        if (moduleName == m_modules[firstCount].first->name()) {
             //enter first level widget
             m_navView->setCurrentIndex(m_navView->model()->index(firstCount, 0));
             onFirstItemClick(m_navView->model()->index(firstCount, 0));

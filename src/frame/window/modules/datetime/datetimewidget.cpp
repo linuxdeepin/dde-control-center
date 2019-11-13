@@ -91,11 +91,6 @@ void DatetimeWidget::init()
     connect(m_listview, &DListView::clicked, this, &DatetimeWidget::onItemClieck);
     // true : 24 hour type  ,  false : 12 hour type ; All use the system time can recive DatetimeWidget::requestSetHourType signal
     connect(m_hourTypeSwitch, &SwitchWidget::checkedChanged, this, &DatetimeWidget::requestSetHourType);
-
-    QTimer::singleShot(0, this, [this] {
-        m_listview->setCurrentIndex(m_listview->model()->index(0, 0));
-        m_listview->clicked(m_listview->model()->index(0, 0));
-    });
 }
 
 void DatetimeWidget::setModel(const DatetimeModel *model)
@@ -113,11 +108,6 @@ void DatetimeWidget::setCurrentTimeZone(const ZoneInfo &info)
     m_clockItem->setTimeZone(info);
 }
 
-void DatetimeWidget::setDefault()
-{
-
-}
-
 void DatetimeWidget::setTimeType(const QString &country)
 {
     bool flg = false;
@@ -126,6 +116,12 @@ void DatetimeWidget::setTimeType(const QString &country)
         flg = true;
     }
     m_clockItem->setTimeEnglishType(flg);
+}
+
+void DatetimeWidget::setDefaultWidget()
+{
+    m_listview->setCurrentIndex(m_listview->model()->index(0, 0));
+    m_listview->clicked(m_listview->model()->index(0, 0));
 }
 
 void DatetimeWidget::onItemClieck(const QModelIndex &index)

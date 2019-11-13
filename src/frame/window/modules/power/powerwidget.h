@@ -46,6 +46,7 @@ public:
     void setModel(const dcc::power::PowerModel *model);
     DTK_WIDGET_NAMESPACE::DListView *getListViewPointer();
     bool getIsUseBattety();
+    void setDefaultWidget();
 
 Q_SIGNALS:
     void requestPushWidget(int index);

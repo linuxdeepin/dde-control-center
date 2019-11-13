@@ -76,6 +76,7 @@ void PowerModule::active()
     connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
 
     m_frameProxy->pushWidget(this, m_widget);
+    m_widget->setDefaultWidget();
 }
 
 int PowerModule::load(QString path)
