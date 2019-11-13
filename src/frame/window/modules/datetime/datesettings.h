@@ -85,6 +85,7 @@ private Q_SLOTS:
 private:
     QSpinBox *createDSpinBox(QWidget *parent, int min, int max);
     void setControlVisible(bool state);
+    void updateSettingTime();
 
 private:
     dcc::widgets::SettingsGroup *m_datetimeGroup;
@@ -102,6 +103,8 @@ private:
     QString m_ntpServerAddress;
     bool m_bIsUserOperate;
     bool m_bSystemIsServer;
+    QTimer *m_syncSettingTimer;
+    qint64 m_timeSec;
 };
 
 }// namespace datetime

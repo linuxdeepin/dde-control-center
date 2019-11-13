@@ -63,6 +63,8 @@ DateSettings::DateSettings(QWidget *parent)
     , m_ntpServerAddress("")
     , m_bIsUserOperate(false)
     , m_bSystemIsServer(false)
+    , m_syncSettingTimer(new QTimer)
+    , m_timeSec(0)
 {
     QSettings setting("/etc/deepin-version", QSettings::IniFormat);
     setting.beginGroup("Release");
@@ -182,6 +184,8 @@ DateSettings::DateSettings(QWidget *parent)
 
     connect(m_monthWidget, &DateWidget::editingFinished, this, &DateSettings::updateDayRange);
     connect(m_yearWidget, &DateWidget::editingFinished, this, &DateSettings::updateDayRange);
+
+    connect(m_syncSettingTimer, &QTimer::timeout, this, &DateSettings::updateSettingTime);
 }
 
 void DateSettings::setCurrentTimeZone(const ZoneInfo &info)
@@ -341,21 +345,38 @@ void DateSettings::setControlVisible(bool state)
     }
 }
 
-void DateSettings::updateRealAutoSyncCheckState(const bool &state)
+void DateSettings::updateSettingTime()
 {
-    QDateTime datetime = getDatetime();
+    QDateTime datetime = QDateTime::currentDateTime();
+    qint64 second = datetime.toSecsSinceEpoch();
 
-    setControlVisible(state);
-
-    if (m_autoSyncTimeSwitch->checked() != state) {
-        m_autoSyncTimeSwitch->setChecked(state);
-
-        //sync display current datetime
+    //不论设置的时间比当前时间大或者小，都需要重新设置该页面的时间
+    if (qAbs(second - m_timeSec) > 60) {
         m_yearWidget->setValue(datetime.date().year());
         m_monthWidget->setValue(datetime.date().month());
         m_dayWidget->setValue(datetime.date().day());
         m_timeHourWidget->setValue(datetime.time().hour());
         m_timeMinWidget->setValue(datetime.time().minute());
+        m_timeSec = 0;
+        m_syncSettingTimer->stop();
+    }
+
+    m_timeSec = second;
+}
+
+void DateSettings::updateRealAutoSyncCheckState(const bool &state)
+{
+    setControlVisible(state);
+
+    if (m_autoSyncTimeSwitch->checked() != state) {
+        m_autoSyncTimeSwitch->setChecked(state);
+    }
+
+    //用于关闭“时间同步”后，同步datesettings页面的时间
+    if (!state) {
+        m_syncSettingTimer->start(50);
+    } else {
+        m_syncSettingTimer->stop();
     }
 }
 
