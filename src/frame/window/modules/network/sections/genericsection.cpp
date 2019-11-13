@@ -104,6 +104,4 @@ void GenericSection::initUI()
 
     appendItem(m_connIdItem);
     appendItem(m_autoConnItem);
-
-    connect(m_connIdItem->textEdit(), &QLineEdit::editingFinished, this, &GenericSection::allInputValid);
 }
