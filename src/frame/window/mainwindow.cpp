@@ -497,6 +497,10 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
         if (moduleName == m_modules[firstCount].first->name()) {
             //enter first level widget
             m_navView->setCurrentIndex(m_navView->model()->index(firstCount, 0));
+
+            if (m_topWidget) {
+                popAllWidgets();
+            }
             onFirstItemClick(m_navView->model()->index(firstCount, 0));
 
             //当从dbus搜索进入这里时，如果传入的page参数错误，则会使用m_widgetName保存一个错的数据。
