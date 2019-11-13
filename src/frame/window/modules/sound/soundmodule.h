@@ -52,6 +52,7 @@ public:
     const QString name() const override;
     void active() override;
     int load(QString path) override;
+    QStringList availPage() const override;
 
 public Q_SLOTS:
     void showSpeakerPage();

@@ -110,6 +110,8 @@ public:
         return 0;
     }
 
+    virtual QStringList availPage() const { return QStringList(); }
+
 public:
     inline void setAvailable(bool isAvailable) { m_available = isAvailable; }
     inline bool isAvailable() const { return m_available; }

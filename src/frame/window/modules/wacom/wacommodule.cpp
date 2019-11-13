@@ -64,6 +64,8 @@ void WacomModule::preInitialize()
             m_frameProxy->popWidget(this);
         }
     });
+
+    setAvailable(m_model->exist());
 }
 
 void WacomModule::initialize()
@@ -91,6 +93,14 @@ void WacomModule::deactive()
 const QString WacomModule::name() const
 {
     return QStringLiteral("wacom");
+}
+
+QStringList WacomModule::availPage() const
+{
+    QStringList sl;
+    sl << "Pressure Sensitivity" << "Pen" << "Mouse";
+
+    return sl;
 }
 }
 }

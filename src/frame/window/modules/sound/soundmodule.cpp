@@ -76,6 +76,14 @@ int SoundModule::load(QString path)
     return m_soundWidget->showPath(path);
 }
 
+QStringList SoundModule::availPage() const
+{
+    QStringList sl;
+    sl << "Speaker" << "Microphone" << "Advanced" << "Sound Effects";
+
+    return sl;
+}
+
 void SoundModule::showSpeakerPage()
 {
     SpeakerPage *w = new SpeakerPage;

@@ -226,7 +226,12 @@ void MainWindow::initAllModule()
 void MainWindow::modulePreInitialize()
 {
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
+        QElapsedTimer et;
+        et.start();
         it->first->preInitialize();
+        qDebug() << QString("initalize %1 module using time: %2ms")
+                    .arg(it->first->name())
+                    .arg(et.elapsed());
 
         setModuleVisible(it->first, it->first->isAvailable());
     }
@@ -294,6 +299,30 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
         if (calledFromDBus()) {
             sendErrorReply(QDBusError::InvalidArgs,
                            "cannot find module that name is " + module);
+        }
+
+        return;
+    }
+
+    auto findModule = [this](const QString &str)->ModuleInterface * {
+        for (auto m : m_modules) {
+            if (m.first->name() == str) {
+                return m.first;
+            }
+        }
+
+        return nullptr;
+    };
+
+    auto pm = findModule(module);
+    Q_ASSERT(pm);
+
+    if (page != "" && !pm->availPage().contains(page)) {
+        qDebug() << QString("get error page path %1!").arg(page);
+        if (calledFromDBus()) {
+            auto err = QString("cannot find page path that name is %1 on module %2.")
+                                .arg(page).arg(module);
+            sendErrorReply(QDBusError::InvalidArgs, err);
         }
 
         return;

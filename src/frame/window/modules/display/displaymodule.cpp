@@ -110,6 +110,21 @@ void DisplayModule::preInitialize()
     m_displayWorker->active();
 }
 
+QStringList DisplayModule::availPage() const
+{
+    QStringList sl;
+    sl << "Resolution"
+       << "Display Scaling"
+       << "Refresh Rate"
+       << "Brightness";
+
+    if (m_displayModel && m_displayModel->monitorList().size() > 1) {
+        sl << "Multiple Displays";
+    }
+
+    return sl;
+}
+
 void DisplayModule::showBrightnessPage()
 {
     m_displayWorker->updateNightModeStatus();

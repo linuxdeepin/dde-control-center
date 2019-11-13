@@ -47,7 +47,7 @@ public:
     virtual void active() override;
     virtual void deactive() override;
     virtual const QString name() const override;
-
+    QStringList availPage() const override;
 private:
     WacomWidget *m_wacomWidget;
     WacomModel  *m_model;

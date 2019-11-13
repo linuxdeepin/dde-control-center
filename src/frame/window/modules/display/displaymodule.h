@@ -57,6 +57,7 @@ public:
     void active() override;
     int load(QString path) override;
     void preInitialize() override;
+    QStringList availPage() const override;
 
 private Q_SLOTS:
     void showScalingPage();

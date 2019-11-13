@@ -115,6 +115,14 @@ int CommonInfoModule::load(QString path)
     return 0;
 }
 
+QStringList CommonInfoModule::availPage() const
+{
+    QStringList sl;
+    sl << "Boot Menu" << "User Experience Program";
+
+    return sl;
+}
+
 void CommonInfoModule::onShowBootWidget()
 {
     m_commonWork->loadGrubSettings();
