@@ -47,6 +47,7 @@
 #include <QJsonObject>
 #include <QStandardItem>
 #include <QStandardItemModel>
+#include <QThread>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
@@ -55,8 +56,10 @@ using namespace dde::network;
 
 APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListView *parent)
     : DStandardItem(text)
-    , m_dStyleHelper(style)
     , m_parentView(nullptr)
+    , m_dStyleHelper(style)
+    , m_preLoading(false)
+    , m_uuid("")
 {
     setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
     setCheckable(false);
@@ -79,6 +82,16 @@ APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListVi
     QStyleOption opt;
     m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
     setActionList(Qt::Edge::RightEdge, {m_arrowAction});
+}
+
+APItem::~APItem()
+{
+    qDebug() << text() << " is destoryed";
+    if (!m_loadingIndicator.isNull()) {
+        m_loadingIndicator->stop();
+        m_loadingIndicator->hide();
+        m_loadingIndicator->deleteLater();
+    }
 }
 
 void APItem::setSecure(bool isSecure)
@@ -132,6 +145,15 @@ QString APItem::path() const
     return data(PathRole).toString();
 }
 
+void APItem::setUuid(const QString &uuid)
+{
+    m_uuid = uuid;
+}
+QString APItem::uuid() const
+{
+    return m_uuid;
+}
+
 QAction *APItem::action() const
 {
     return m_arrowAction;
@@ -145,20 +167,26 @@ bool APItem::operator<(const QStandardItem &other) const
     return bRet;
 }
 
-void APItem::setLoading(bool visible)
+bool APItem::setLoading(bool isLoading)
 {
+    bool isReconnect = false;
     if (m_loadingIndicator.isNull()) {
-        return;
+        return isReconnect;
     }
-    if (visible) {
-        m_loadingIndicator->start();
-        m_loadingIndicator->show();
+    if (m_preLoading == isLoading) {
+        return isReconnect;
+    } else {
+        m_preLoading = isLoading;
+    }
+    if (isLoading) {
         if (!m_arrowAction.isNull()) {
             m_arrowAction->setVisible(false);
         }
         m_loadingAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(), QSize(), false);
         m_loadingAction->setWidget(m_loadingIndicator);
         m_loadingAction->setVisible(true);
+        m_loadingIndicator->start();
+        m_loadingIndicator->show();
         setActionList(Qt::Edge::RightEdge, {m_loadingAction});
     } else {
         m_loadingIndicator->stop();
@@ -171,10 +199,12 @@ void APItem::setLoading(bool visible)
         m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
         m_arrowAction->setVisible(true);
         setActionList(Qt::Edge::RightEdge, {m_arrowAction});
+        isReconnect = true;
     }
     if (m_parentView) {
         m_parentView->update();
     }
+    return isReconnect;
 }
 
 WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
@@ -184,10 +214,10 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_tipsGroup(new SettingsGroup)
     , m_closeHotspotBtn(new QPushButton)
     , m_lvAP(new DListView(this))
+    , m_clickedItem(nullptr)
     , m_modelAP(new QStandardItemModel(m_lvAP))
     , m_sortDelayTimer(new QTimer(this))
     , m_indicatorDelayTimer(new QTimer(this))
-    , m_clickedItem(nullptr)
 {
     qRegisterMetaType<APSortInfo>();
     m_preWifiStatus = Wifi_Unknown;
@@ -410,6 +440,10 @@ void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
     const QString &path = apInfo.value("Path").toString();
 
     if (m_apItems[ssid]->path() ==  path) {
+        if (m_clickedItem == m_apItems[ssid]) {
+            m_clickedItem = nullptr;
+            qDebug() << "remove clicked item," << QThread::currentThreadId();
+        }
         m_modelAP->removeRow(m_modelAP->indexFromItem(m_apItems[ssid]).row());
         m_apItems.erase(m_apItems.find(ssid));
     }
@@ -444,6 +478,18 @@ void WirelessPage::onActivateApFailed(const QString &apPath, const QString &uuid
 {
     Q_UNUSED(uuid);
     onApWidgetEditRequested(apPath, connectionSsid(uuid));
+    for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
+        if ((it.value()->path() == apPath) && (it.value()->uuid() == uuid)) {
+            bool isReconnect = it.value()->setLoading(false);
+            if (isReconnect) {
+                connect(it.value()->action(), &QAction::triggered, this, [this, it] {
+                    this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
+                                                  it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
+                });
+            }
+        }
+        it.value()->setConnected(false);
+    }
 }
 
 void WirelessPage::refreshLoadingIndicator()
@@ -493,14 +539,31 @@ void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString
 {
     const QString uuid = connectionUuid(ssid);
     // uuid could be empty
-    // Q_ASSERT(!uuid.isEmpty());
+    for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
+        it.value()->setConnected(false);
+        if (m_clickedItem == it.value()) {
+            m_clickedItem->setUuid(uuid);
+        }
+    }
     if (uuid.isEmpty()) {
         for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-                it.value()->setLoading(false);
+                bool isReconnect = it.value()->setLoading(false);
+                if (isReconnect) {
+                    connect(it.value()->action(), &QAction::triggered, this, [this, it] {
+                        this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
+                                                      it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
+                    });
+                }
         }
     } else {
         for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-            it.value()->setLoading(it.value() == m_clickedItem);
+            bool isReconnect = it.value()->setLoading(it.value() == m_clickedItem);
+            if (isReconnect) {
+                connect(it.value()->action(), &QAction::triggered, this, [this, it] {
+                    this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
+                                                  it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
+                });
+            }
         }
     }
     Q_EMIT requestConnectAp(m_device->path(), path, uuid);
@@ -517,6 +580,7 @@ void WirelessPage::showConnectHidePage()
 
 void WirelessPage::updateActiveAp()
 {
+    qDebug() << "updateActiveAp:" << QThread::currentThreadId();
     bool isWifiConnected = false;
     for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
         bool isConnected = it.key() == m_device->activeApSsid();
@@ -525,13 +589,32 @@ void WirelessPage::updateActiveAp()
         }
         it.value()->setConnected(isConnected);
         if (m_clickedItem == it.value()) {
-            it.value()->setLoading(!isConnected);
+            qDebug() << "click item: " << isConnected;
+            bool isReconnect = it.value()->setLoading(!isConnected);
+            if (isReconnect) {
+                connect(it.value()->action(), &QAction::triggered, this, [this, it] {
+                    this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
+                                                  it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
+                });
+            }
         } else {
-            it.value()->setLoading(false);
+            bool isReconnect = it.value()->setLoading(false);
+            if (isReconnect) {
+                connect(it.value()->action(), &QAction::triggered, this, [this, it] {
+                    this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
+                                                  it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
+                });
+            }
         }
     }
     if (isWifiConnected && m_clickedItem) {
-        m_clickedItem->setLoading(false);
+       bool isReconnect = m_clickedItem->setLoading(false);
+       if (isReconnect) {
+           connect(m_clickedItem->action(), &QAction::triggered, this, [this] {
+               this->onApWidgetEditRequested(m_clickedItem->data(APItem::PathRole).toString(),
+                                             m_clickedItem->data(Qt::ItemDataRole::DisplayRole).toString());
+           });
+       }
     }
     m_sortDelayTimer->start();
 }

@@ -83,6 +83,7 @@ class APItem : public DStandardItem
 {
 public:
     explicit APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListView *parent = nullptr);
+    virtual ~APItem();
     void setSecure(bool isSecure);
     bool secure() const;
     void setSignalStrength(int ss);
@@ -91,19 +92,23 @@ public:
     void setSortInfo(const APSortInfo &si);
     void setPath(const QString &path);
     QString path() const;
+    void setUuid(const QString &uuid);
+    QString uuid() const;
     QAction *action() const;
     bool operator<(const QStandardItem &other) const override;
-    void setLoading(bool visible);
+    bool setLoading(bool isLoading);
 public:
     enum {
         SortRole = Dtk::UserRole + 1,
-        PathRole ,
+        PathRole,
         SecureRole
     };
 private:
     DListView *m_parentView;
     DTK_WIDGET_NAMESPACE::DStyleHelper m_dStyleHelper;
     DViewItemAction *m_secureAction;
+    bool m_preLoading;
+    QString m_uuid;
     QPointer<DViewItemAction> m_loadingAction;
     QPointer<DViewItemAction> m_arrowAction;
     QPointer<DTK_WIDGET_NAMESPACE::DSpinner> m_loadingIndicator;
