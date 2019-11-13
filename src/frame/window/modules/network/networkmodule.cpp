@@ -203,6 +203,15 @@ int NetworkModule::load(QString path)
     return index == -1 ? -1 : 0;
 }
 
+QStringList NetworkModule::availPage() const
+{
+    QStringList list;
+    list << "Wired Network" <<"Wired Network/Add Network Connection"<< "Wireless Network"
+         << "DSL" <<"DSL/Create PPPOE Connection"<< "VPN"<<"VPN/Create VPN"<<"VPN/Import VPN"
+         <<"System Proxy"<< "Application Proxy"<<"Network Details";
+    return list;
+}
+
 const QString NetworkModule::name() const
 {
     return QStringLiteral("network");

@@ -53,6 +53,7 @@ public:
     const QString name() const override;
     void contentPopped(QWidget *const w) override;
     int load(QString path) override;
+    QStringList availPage() const override;
 
 public Q_SLOTS:
     void showGeneralSetting();

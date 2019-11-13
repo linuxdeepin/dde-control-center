@@ -59,6 +59,7 @@ private:
 public:
     void active() override;
     int load(QString path) override;
+    QStringList availPage() const override;
 
 private Q_SLOTS:
     void popPage();

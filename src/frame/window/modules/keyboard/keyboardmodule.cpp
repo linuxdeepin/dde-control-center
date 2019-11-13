@@ -104,6 +104,14 @@ int KeyboardModule::load(QString path)
     return hasPage;
 }
 
+QStringList KeyboardModule::availPage() const
+{
+    QStringList sl;
+    sl << "General" <<"Keyborad Layout"<<"Keyborad Layout/Add Keyboard Layout" <<"System Language"<<
+          "System Language/Add System Language" <<"Shortcuts"<< "Shortcuts/Add Custom Shortcut";
+    return sl;
+}
+
 const QString KeyboardModule::name() const
 {
     return QStringLiteral("keyboard");

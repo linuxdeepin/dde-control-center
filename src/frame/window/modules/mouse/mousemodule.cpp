@@ -162,6 +162,13 @@ int MouseModule::load(QString path)
     return hasPage;
 }
 
+QStringList MouseModule::availPage() const
+{
+    QStringList sl;
+    sl << "General" << "Mouse" << "Touchpad" << "TrackPoint";
+    return sl;
+}
+
 void MouseModule::contentPopped(QWidget *const w)
 {
     Q_UNUSED(w);
