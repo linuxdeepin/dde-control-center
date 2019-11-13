@@ -51,6 +51,7 @@ public:
     void contentPopped(QWidget *const w) override;
     void active() override;
     int load(QString path) override;
+    QStringList availPage() const override;
 
 public Q_SLOTS:
     void onShowAboutNativePage();

@@ -102,10 +102,7 @@ int AccountsModule::load(QString path)
     }
 
     QStringList searchList;
-    searchList << "Change Password"
-               << "Delete Account"
-               << "Auto Login"
-               << "Login Without Password"
+    searchList << "Accounts Detail"
                << "New Account";
 
     User *pUser = nullptr;
@@ -120,15 +117,23 @@ int AccountsModule::load(QString path)
         return -1;
     }
 
-    if (path == searchList[0] || path == searchList[1] || path == searchList[2] || path == searchList[3]) {
+    if (path == searchList[0]) {
         onShowAccountsDetailWidget(pUser);
         return 0;
-    } else if (path == searchList[4]) {
+    } else if (path == searchList[1]) {
         onShowCreateAccountPage();
         return 0;
     }
 
     return -1;
+}
+
+QStringList AccountsModule::availPage() const
+{
+    QStringList availList;
+    availList << "Accounts Detail"
+              << "New Account";
+    return availList;
 }
 
 //显示账户信息

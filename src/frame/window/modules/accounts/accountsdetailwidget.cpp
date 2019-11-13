@@ -282,16 +282,16 @@ void AccountsDetailWidget::initBodyPart(QVBoxLayout *bodyLayout)
         m_fingerStackedWidget->setCurrentIndex(0);
     }
 
-    //~ contents_path /accounts/Change Password
+    //~ contents_path /accounts/Accounts Detail
     modifyPassword->setText(tr("Change Password"));
-    //~ contents_path /accounts/Delete Account
+    //~ contents_path /accounts/Accounts Detail
     deleteAccount->setText(tr("Delete Account"));
 
-    //~ contents_path /accounts/Auto Login
+    //~ contents_path /accounts/Accounts Detail
     autoLogin->setTitle(tr("Auto Login"));
     autoLogin->setChecked(m_curUser->autoLogin());
 
-    //~ contents_path /accounts/Login Without Password
+    //~ contents_path /accounts/Accounts Detail
     nopasswdLogin->setTitle(tr("Login Without Password"));
     nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 

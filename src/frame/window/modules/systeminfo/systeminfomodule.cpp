@@ -83,13 +83,7 @@ int SystemInfoModule::load(QString path)
     }
 
     QStringList searchList;
-    searchList << "About This PC"
-               << "Edition"
-               << "Type"
-               << "Kernel"
-               << "Processor"
-               << "Memory"
-               << "Disk";
+    searchList << "About This PC";
 
     if (searchList.contains(path)) {
         m_sysinfoWidget->setCurrentIndex(0);
@@ -97,6 +91,13 @@ int SystemInfoModule::load(QString path)
     }
 
     return -1;
+}
+
+QStringList SystemInfoModule::availPage() const
+{
+    QStringList availList;
+    availList << "About This PC";
+    return availList;
 }
 
 void SystemInfoModule::onShowAboutNativePage()
