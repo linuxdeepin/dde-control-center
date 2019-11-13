@@ -130,10 +130,11 @@ void DBusControlCenterService::Show()
 #ifdef DISABLE_MAIN_PAGE
     parent()->showSettingsPage(QString(), QString());
 #else
+    parent()->raise();
     if (parent()->isMinimized())
         parent()->show();
 
-    parent()->setWindowState(Qt::WindowActive);
+    parent()->activateWindow();
 #endif
 }
 
@@ -146,7 +147,7 @@ void DBusControlCenterService::ShowImmediately()
     if (parent()->isMinimized())
         parent()->show();
 
-    parent()->setWindowState(Qt::WindowActive);
+    parent()->activateWindow();
 #endif
 }
 
@@ -183,15 +184,15 @@ void DBusControlCenterService::Toggle()
 
     // drop incoming toggle requests until the previous request
     // has been processed.
-    if (m_toggleProcessed) {
+//    if (m_toggleProcessed) {
+//        QTimer::singleShot(0, this, [this] {
+//            parent()->toggle();
+//            m_toggleProcessed = true;
+//        });
+//        m_toggleProcessed = false;
+//    }
 
-        QTimer::singleShot(0, this, [this] {
-            parent()->toggle();
-            m_toggleProcessed = true;
-        });
-
-        m_toggleProcessed = false;
-    }
+    parent()->toggle();
 }
 
 void DBusControlCenterService::ToggleInLeft()

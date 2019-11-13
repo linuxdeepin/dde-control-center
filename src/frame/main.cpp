@@ -51,7 +51,6 @@ int main(int argc, char *argv[])
     app.setApplicationVersion("4.0");
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
     app.loadTranslator();
-    app.setTheme("light");
     app.setStyle("chameleon");
     app.setWindowIcon(QIcon::fromTheme("preferences-system"));
 

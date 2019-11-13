@@ -303,7 +303,7 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     if (isMinimized())
         show();
 
-    setWindowState(Qt::WindowActive | windowState());
+    activateWindow();
     onEnterSearchWidget(module, page);
 }
 
@@ -342,7 +342,7 @@ void MainWindow::toggle()
     if (isMinimized())
         show();
 
-    setWindowState(Qt::WindowActive | windowState());
+    activateWindow();
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
