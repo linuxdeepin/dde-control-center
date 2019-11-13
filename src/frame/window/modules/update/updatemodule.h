@@ -54,6 +54,7 @@ public:
     virtual void active() override;
     virtual void deactive() override;
     virtual int load(QString path) override;
+    QStringList availPage() const override;
 
 private Q_SLOTS:
     void onNotifyDealMirrorWidget(bool state);

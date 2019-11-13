@@ -60,6 +60,7 @@ public:
     virtual const QString name() const override;
     virtual void active() override;
     virtual int load(QString path) override;
+    QStringList availPage() const override;
 
 Q_SIGNALS:
     void requestAddUserTimeZone(const QString &zone);

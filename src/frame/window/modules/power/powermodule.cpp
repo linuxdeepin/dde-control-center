@@ -115,6 +115,14 @@ int PowerModule::load(QString path)
     return 0;
 }
 
+QStringList PowerModule::availPage() const
+{
+    QStringList list;
+    list << "General" << "Plugged In" << "On Battery";
+
+    return list;
+}
+
 void PowerModule::showGeneral()
 {
     qDebug() << Q_FUNC_INFO;

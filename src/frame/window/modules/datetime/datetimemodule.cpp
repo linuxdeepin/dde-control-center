@@ -139,6 +139,14 @@ int DatetimeModule::load(QString path)
     return 0;
 }
 
+QStringList DatetimeModule::availPage() const
+{
+    QStringList list;
+    list << "Timezone List" << "Timezone List/Change System Timezone" << "Time Settings" << "Timezone List/Add Timezone";
+
+    return list;
+}
+
 void DatetimeModule::updateSystemTimezone(const QString &timezone)
 {
     if (timezone.isEmpty()) return;

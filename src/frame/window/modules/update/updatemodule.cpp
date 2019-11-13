@@ -159,6 +159,14 @@ int UpdateModule::load(QString path)
     return hasPage;
 }
 
+QStringList UpdateModule::availPage() const
+{
+    QStringList list;
+    list << "Mirror List";
+
+    return list;
+}
+
 void UpdateModule::onNotifyDealMirrorWidget(bool state)
 {
     //m_mirrorsWidget存在表示有第三级页面
